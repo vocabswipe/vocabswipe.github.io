@@ -28,16 +28,12 @@ PROJECT_ROOT = Path(__file__).parent.parent
 YAML_DIR = PROJECT_ROOT / "data" / "words"
 AUDIO_DIR = PROJECT_ROOT / "public" / "audio"
 LETTERS = "abcdefghijklmnopqrstuvwxyz"
-LOG_FILE = PROJECT_ROOT / "scripts" / "audio_generation.log"
 
-# Setup logging
+# Setup logging (console only, no log file)
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, encoding="utf-8"),
-        logging.StreamHandler()
-    ]
+    handlers=[logging.StreamHandler()]
 )
 
 def load_yaml_files():
@@ -156,7 +152,6 @@ def main():
     logging.info(f"Project root: {PROJECT_ROOT}")
     logging.info(f"YAML directory: {YAML_DIR}")
     logging.info(f"Audio directory: {AUDIO_DIR}")
-    logging.info(f"Log file: {LOG_FILE}")
 
     # Ensure audio directories exist
     ensure_audio_directories()
@@ -206,7 +201,7 @@ def main():
     if not duplicates and not missing_audio and not extra_audio and failed == 0:
         logging.info("Success: All entries have corresponding audio files, no duplicates or issues detected!")
     else:
-        logging.warning("Issues detected. Please review logs for details.")
+        logging.warning("Issues detected. Please review console output for details.")
 
     logging.info("Audio generation process completed.")
 
