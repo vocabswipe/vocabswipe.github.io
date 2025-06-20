@@ -1,292 +1,788 @@
-- word: page
-  part_of_speech: noun
-  definition: One side of a sheet of paper in a book or a website section.
-  example_sentence: She turned to the next page of the novel.
-- word: pain
-  part_of_speech: noun
-  definition: Physical or emotional discomfort or suffering.
-  example_sentence: He felt a sharp pain in his leg after running.
-- word: paint
-  part_of_speech: verb
-  definition: To apply color or a protective coating to a surface.
-  example_sentence: They decided to paint the house blue.
-- word: pair
-  part_of_speech: noun
-  definition: Two things of the same kind used together.
-  example_sentence: She bought a new pair of shoes.
-- word: paper
-  part_of_speech: noun
-  definition: A material used for writing, printing, or wrapping.
-  example_sentence: He wrote his notes on a piece of paper.
-- word: parent
-  part_of_speech: noun
-  definition: A mother or father.
-  example_sentence: The parent attended the school meeting.
-- word: part
-  part_of_speech: noun
-  definition: A piece or portion of a whole.
-  example_sentence: She played a part in organizing the event.
-- word: participant
-  part_of_speech: noun
-  definition: A person who takes part in an event or activity.
-  example_sentence: Each participant received a certificate.
-- word: particular
-  part_of_speech: adjective
-  definition: Specific or distinguished from others.
-  example_sentence: She has a particular interest in history.
-- word: particularly
-  part_of_speech: adverb
-  definition: To a higher degree than usual; especially.
-  example_sentence: The dessert was particularly delicious.
-- word: partner
-  part_of_speech: noun
-  definition: A person who shares in an activity or business with another.
-  example_sentence: He and his partner started a new company.
-- word: party
-  part_of_speech: noun
-  definition: A social gathering or a political group.
-  example_sentence: They hosted a party for their friends.
-- word: pass
-  part_of_speech: verb
-  definition: To move past or give something to someone.
-  example_sentence: She passed the ball to her teammate.
-- word: past
-  part_of_speech: noun
-  definition: The time or events that have already happened.
-  example_sentence: He often thinks about the past.
-- word: patient
-  part_of_speech: noun
-  definition: A person receiving medical treatment.
-  example_sentence: The doctor saw the patient in the morning.
-- word: pattern
-  part_of_speech: noun
-  definition: A repeated design or a regular way something happens.
-  example_sentence: The fabric had a floral pattern.
-- word: pay
-  part_of_speech: verb
-  definition: To give money in exchange for goods or services.
-  example_sentence: She paid the bill at the restaurant.
-- word: peace
-  part_of_speech: noun
-  definition: A state of tranquility or absence of conflict.
-  example_sentence: They signed a treaty to maintain peace.
-- word: people
-  part_of_speech: noun
-  definition: Human beings in general or a group of individuals.
-  example_sentence: Many people attended the festival.
-- word: per
-  part_of_speech: preposition
-  definition: For each or by means of.
-  example_sentence: The cost is $10 per ticket.
-- word: percent
-  part_of_speech: noun
-  definition: A proportion out of one hundred.
-  example_sentence: Fifty percent of the class passed the test.
-- word: performance
-  part_of_speech: noun
-  definition: The act of performing or the quality of execution.
-  example_sentence: The band’s performance was amazing.
-- word: period
-  part_of_speech: noun
-  definition: A length of time or a punctuation mark.
-  example_sentence: The class lasted for one period.
-- word: person
-  part_of_speech: noun
-  definition: An individual human being.
-  example_sentence: She is a kind person who helps others.
-- word: personal
-  part_of_speech: adjective
-  definition: Relating to an individual’s private life or preferences.
-  example_sentence: He keeps his personal information private.
-- word: phone
-  part_of_speech: noun
-  definition: A device used for communication over a distance.
-  example_sentence: She answered the phone after two rings.
-- word: physical
-  part_of_speech: adjective
-  definition: Relating to the body or material things.
-  example_sentence: Physical exercise improves health.
-- word: pick
-  part_of_speech: verb
-  definition: To choose or select something.
-  example_sentence: He picked the red apple from the basket.
-- word: picture
-  part_of_speech: noun
-  definition: An image or photograph.
-  example_sentence: She took a picture of the sunset.
-- word: piece
-  part_of_speech: noun
-  definition: A portion or part of something larger.
-  example_sentence: He ate a piece of cake after dinner.
-- word: place
-  part_of_speech: noun
-  definition: A particular position or area.
-  example_sentence: The park is a great place to relax.
-- word: plan
-  part_of_speech: noun
-  definition: A detailed proposal for achieving something.
-  example_sentence: They made a plan for the weekend trip.
-- word: plant
-  part_of_speech: noun
-  definition: A living organism that grows in soil, like a tree or flower.
-  example_sentence: She watered the plant every morning.
-- word: play
-  part_of_speech: verb
-  definition: To engage in activity for enjoyment or perform in a game or drama.
-  example_sentence: The children love to play outside.
-- word: player
-  part_of_speech: noun
-  definition: A person who participates in a game or sport.
-  example_sentence: The soccer player scored a goal.
-- word: point
-  part_of_speech: noun
-  definition: A specific moment, place, or idea.
-  example_sentence: She made a good point during the discussion.
-- word: police
-  part_of_speech: noun
-  definition: An organized force for maintaining law and order.
-  example_sentence: The police investigated the crime scene.
-- word: policy
-  part_of_speech: noun
-  definition: A course of action adopted by an organization or government.
-  example_sentence: The company updated its return policy.
-- word: political
-  part_of_speech: adjective
-  definition: Relating to government or politics.
-  example_sentence: The debate covered political issues.
-- word: politics
-  part_of_speech: noun
-  definition: The activities associated with governance or political beliefs.
-  example_sentence: She is interested in local politics.
-- word: poor
-  part_of_speech: adjective
-  definition: Lacking wealth or of low quality.
-  example_sentence: The poor village needed more resources.
-- word: popular
-  part_of_speech: adjective
-  definition: Liked or admired by many people.
-  example_sentence: The song became very popular on the radio.
-- word: population
-  part_of_speech: noun
-  definition: The total number of people or organisms in a particular area.
-  example_sentence: The city’s population grew rapidly.
-- word: position
-  part_of_speech: noun
-  definition: A place where something is located or a job role.
-  example_sentence: She applied for a position at the company.
-- word: positive
-  part_of_speech: adjective
-  definition: Showing optimism or a favorable outcome.
-  example_sentence: He received positive feedback on his work.
-- word: possible
-  part_of_speech: adjective
-  definition: Able to happen or be done.
-  example_sentence: It’s possible to finish the task by tomorrow.
-- word: power
-  part_of_speech: noun
-  definition: The ability to do something or control others, or energy.
-  example_sentence: The president has the power to veto laws.
-- word: practice
-  part_of_speech: noun
-  definition: Repeated exercise to improve a skill or a profession.
-  example_sentence: She attends soccer practice every evening.
-- word: prepare
-  part_of_speech: verb
-  definition: To make ready or suitable for something.
-  example_sentence: He prepared a speech for the event.
-- word: present
-  part_of_speech: adjective
-  definition: Existing now or being in attendance.
-  example_sentence: All students were present in class today.
-- word: president
-  part_of_speech: noun
-  definition: The elected head of a government or organization.
-  example_sentence: The president addressed the nation on television.
-- word: pressure
-  part_of_speech: noun
-  definition: The force exerted on a surface or stress from demands.
-  example_sentence: She felt pressure to finish the project on time.
-- word: pretty
-  part_of_speech: adjective
-  definition: Attractive in a delicate way.
-  example_sentence: The garden was filled with pretty flowers.
-- word: prevent
-  part_of_speech: verb
-  definition: To stop something from happening.
-  example_sentence: They worked to prevent the spread of the disease.
-- word: price
-  part_of_speech: noun
-  definition: The amount of money required to buy something.
-  example_sentence: The price of the book was reasonable.
-- word: private
-  part_of_speech: adjective
-  definition: Belonging to or for the use of a particular person or group.
-  example_sentence: The meeting was held in a private room.
-- word: probably
-  part_of_speech: adverb
-  definition: Almost certainly; as far as one knows.
-  example_sentence: She will probably arrive by noon.
-- word: problem
-  part_of_speech: noun
-  definition: A matter or situation regarded as unwelcome or harmful.
-  example_sentence: They worked together to solve the problem.
-- word: process
-  part_of_speech: noun
-  definition: A series of actions to achieve a result.
-  example_sentence: The hiring process took two weeks.
-- word: produce
-  part_of_speech: verb
-  definition: To create or bring forth something.
-  example_sentence: The farm produces fresh vegetables every season.
-- word: product
-  part_of_speech: noun
-  definition: Something made or grown for sale or use.
-  example_sentence: The company launched a new product this month.
-- word: production
-  part_of_speech: noun
-  definition: The act of making or manufacturing something.
-  example_sentence: The factory increased its production of cars.
-- word: program
-  part_of_speech: noun
-  definition: A planned series of activities or a software application.
-  example_sentence: The school offers a summer reading program.
-- word: project
-  part_of_speech: noun
-  definition: A planned task or activity with a specific goal.
-  example_sentence: The team worked on a science project together.
-- word: property
-  part_of_speech: noun
-  definition: Something owned, such as land or buildings.
-  example_sentence: They bought a property near the beach.
-- word: protect
-  part_of_speech: verb
-  definition: To keep safe from harm or injury.
-  example_sentence: She wore sunscreen to protect her skin.
-- word: prove
-  part_of_speech: verb
-  definition: To demonstrate the truth or existence of something.
-  example_sentence: He worked to prove his theory was correct.
-- word: provide
-  part_of_speech: verb
-  definition: To supply or make something available.
-  example_sentence: The school provides free lunches for students.
-- word: public
-  part_of_speech: adjective
-  definition: Relating to or available for all people.
-  example_sentence: The public library is open to everyone.
-- word: pull
-  part_of_speech: verb
-  definition: To draw or tug something toward oneself.
-  example_sentence: She pulled the door open with force.
-- word: purpose
-  part_of_speech: noun
-  definition: The reason for which something is done or created.
-  example_sentence: The purpose of the meeting was to discuss goals.
-- word: push
-  part_of_speech: verb
-  definition: To exert force to move something away from oneself.
-  example_sentence: He pushed the cart through the store.
-- word: put
-  part_of_speech: verb
-  definition: To place something in a specific position.
-  example_sentence: She put the book on the shelf.
+- word: "pace"
+  part_of_speech: "noun"
+  definition: "The speed or rate of progress."
+  example_sentence: "The pace of the project was steady."
+- word: "package"
+  part_of_speech: "noun"
+  definition: "A wrapped or boxed item."
+  example_sentence: "The package arrived on time."
+- word: "pain"
+  part_of_speech: "noun"
+  definition: "Physical or emotional discomfort."
+  example_sentence: "The injury caused severe pain."
+- word: "painstaking"
+  part_of_speech: "adjective"
+  definition: "Requiring careful effort."
+  example_sentence: "Her painstaking research was thorough."
+- word: "pair"
+  part_of_speech: "noun"
+  definition: "Two similar or corresponding things."
+  example_sentence: "She bought a pair of gloves."
+- word: "panel"
+  part_of_speech: "noun"
+  definition: "A group of experts or a flat section."
+  example_sentence: "The panel discussed environmental issues."
+- word: "panic"
+  part_of_speech: "noun"
+  definition: "Sudden fear or anxiety."
+  example_sentence: "Panic spread during the emergency."
+- word: "paradigm"
+  part_of_speech: "noun"
+  definition: "A model or pattern."
+  example_sentence: "The paradigm shifted with new technology."
+- word: "paradox"
+  part_of_speech: "noun"
+  definition: "A contradictory statement or situation."
+  example_sentence: "The paradox puzzled the philosophers."
+- word: "parallel"
+  part_of_speech: "adjective"
+  definition: "Similar or occurring simultaneously."
+  example_sentence: "Their findings ran parallel to ours."
+- word: "parameter"
+  part_of_speech: "noun"
+  definition: "A boundary or defining characteristic."
+  example_sentence: "The study stayed within set parameters."
+- word: "paramount"
+  part_of_speech: "adjective"
+  definition: "Of highest importance."
+  example_sentence: "Safety was the paramount concern."
+- word: "paraphrase"
+  part_of_speech: "verb"
+  definition: "To restate in different words."
+  example_sentence: "She paraphrased the article for clarity."
+- word: "partial"
+  part_of_speech: "adjective"
+  definition: "Incomplete or biased."
+  example_sentence: "The report offered a partial view."
+- word: "participate"
+  part_of_speech: "verb"
+  definition: "To take part or engage."
+  example_sentence: "They participated in the debate."
+- word: "particle"
+  part_of_speech: "noun"
+  definition: "A tiny piece of matter."
+  example_sentence: "The particle was observed under a microscope."
+- word: "particular"
+  part_of_speech: "adjective"
+  definition: "Specific or distinct."
+  example_sentence: "She had a particular interest in history."
+- word: "partition"
+  part_of_speech: "noun"
+  definition: "A division or separation."
+  example_sentence: "The partition divided the room."
+- word: "partner"
+  part_of_speech: "noun"
+  definition: "A person who shares in an activity."
+  example_sentence: "Her partner collaborated on the project."
+- word: "pass"
+  part_of_speech: "verb"
+  definition: "To move past or succeed."
+  example_sentence: "She passed the exam with ease."
+- word: "passage"
+  part_of_speech: "noun"
+  definition: "A section of text or journey."
+  example_sentence: "The passage explained the theory clearly."
+- word: "passion"
+  part_of_speech: "noun"
+  definition: "Strong emotion or enthusiasm."
+  example_sentence: "Her passion for science was evident."
+- word: "passive"
+  part_of_speech: "adjective"
+  definition: "Not active or accepting without resistance."
+  example_sentence: "His passive attitude slowed progress."
+- word: "past"
+  part_of_speech: "noun"
+  definition: "Time that has gone by."
+  example_sentence: "The past influenced their decisions."
+- word: "patent"
+  part_of_speech: "noun"
+  definition: "A legal right to an invention."
+  example_sentence: "The inventor secured a patent."
+- word: "path"
+  part_of_speech: "noun"
+  definition: "A route or course."
+  example_sentence: "The path to success was challenging."
+- word: "patron"
+  part_of_speech: "noun"
+  definition: "A supporter or customer."
+  example_sentence: "The patron funded the art exhibit."
+- word: "pattern"
+  part_of_speech: "noun"
+  definition: "A repeated design or sequence."
+  example_sentence: "The pattern in the data was clear."
+- word: "pause"
+  part_of_speech: "verb"
+  definition: "To stop temporarily."
+  example_sentence: "She paused to gather her thoughts."
+- word: "pay"
+  part_of_speech: "verb"
+  definition: "To give money for goods or services."
+  example_sentence: "They paid for the research materials."
+- word: "peace"
+  part_of_speech: "noun"
+  definition: "A state of calm or absence of conflict."
+  example_sentence: "The treaty restored peace."
+- word: "peak"
+  part_of_speech: "noun"
+  definition: "The highest point or maximum."
+  example_sentence: "The mountain’s peak was covered in snow."
+- word: "peculiar"
+  part_of_speech: "adjective"
+  definition: "Strange or unique."
+  example_sentence: "The peculiar sound alarmed the team."
+- word: "peer"
+  part_of_speech: "noun"
+  definition: "A person of equal standing."
+  example_sentence: "Her peers reviewed her research."
+- word: "penalize"
+  part_of_speech: "verb"
+  definition: "To impose a penalty."
+  example_sentence: "The team was penalized for the error."
+- word: "pending"
+  part_of_speech: "adjective"
+  definition: "Awaiting decision or completion."
+  example_sentence: "The application is still pending."
+- word: "penetrate"
+  part_of_speech: "verb"
+  definition: "To enter or pass through."
+  example_sentence: "The light penetrated the fog."
+- word: "perceive"
+  part_of_speech: "verb"
+  definition: "To notice or understand."
+  example_sentence: "She perceived a change in attitude."
+- word: "percent"
+  part_of_speech: "noun"
+  definition: "A portion out of one hundred."
+  example_sentence: "Sixty percent of the class passed."
+- word: "perception"
+  part_of_speech: "noun"
+  definition: "The act of understanding or awareness."
+  example_sentence: "Her perception of the issue was accurate."
+- word: "perfect"
+  part_of_speech: "adjective"
+  definition: "Without flaws or ideal."
+  example_sentence: "The plan was perfect in theory."
+- word: "perform"
+  part_of_speech: "verb"
+  definition: "To carry out or present."
+  example_sentence: "They performed the experiment carefully."
+- word: "performance"
+  part_of_speech: "noun"
+  definition: "The act of performing or outcome."
+  example_sentence: "Her performance earned high praise."
+- word: "perhaps"
+  part_of_speech: "adverb"
+  definition: "Possibly or maybe."
+  example_sentence: "Perhaps they will finish early."
+- word: "period"
+  part_of_speech: "noun"
+  definition: "A length of time."
+  example_sentence: "The period of study lasted two years."
+- word: "periodic"
+  part_of_speech: "adjective"
+  definition: "Occurring at regular intervals."
+  example_sentence: "Periodic reviews ensured quality."
+- word: "permanent"
+  part_of_speech: "adjective"
+  definition: "Lasting or unchanging."
+  example_sentence: "The decision had permanent effects."
+- word: "permit"
+  part_of_speech: "verb"
+  definition: "To allow or authorize."
+  example_sentence: "The law permits recycling programs."
+- word: "persist"
+  part_of_speech: "verb"
+  definition: "To continue despite difficulties."
+  example_sentence: "She persisted in her studies."
+- word: "perspective"
+  part_of_speech: "noun"
+  definition: "A point of view or approach."
+  example_sentence: "His perspective enriched the discussion."
+- word: "persuade"
+  part_of_speech: "verb"
+  definition: "To convince or influence."
+  example_sentence: "She persuaded the team to agree."
+- word: "pertain"
+  part_of_speech: "verb"
+  definition: "To relate or be relevant."
+  example_sentence: "The rules pertain to all members."
+- word: "phase"
+  part_of_speech: "noun"
+  definition: "A stage or period in a process."
+  example_sentence: "The project entered its final phase."
+- word: "phenomenon"
+  part_of_speech: "noun"
+  definition: "An observable event or fact."
+  example_sentence: "The phenomenon was studied in detail."
+- word: "philosophy"
+  part_of_speech: "noun"
+  definition: "A system of beliefs or study of knowledge."
+  example_sentence: "Her philosophy emphasized ethics."
+- word: "physical"
+  part_of_speech: "adjective"
+  definition: "Relating to the body or material things."
+  example_sentence: "Physical exercise improves health."
+- word: "pick"
+  part_of_speech: "verb"
+  definition: "To choose or select."
+  example_sentence: "She picked the best candidate."
+- word: "picture"
+  part_of_speech: "noun"
+  definition: "A visual representation or image."
+  example_sentence: "The picture illustrated the concept."
+- word: "piece"
+  part_of_speech: "noun"
+  definition: "A part or segment."
+  example_sentence: "A piece of the puzzle was missing."
+- word: "pilot"
+  part_of_speech: "noun"
+  definition: "A person who operates an aircraft or a test project."
+  example_sentence: "The pilot program tested new methods."
+- word: "pioneer"
+  part_of_speech: "noun"
+  definition: "A person who leads or innovates."
+  example_sentence: "She was a pioneer in renewable energy."
+- word: "pitch"
+  part_of_speech: "noun"
+  definition: "A tone or level of intensity."
+  example_sentence: "The pitch of her voice was confident."
+- word: "place"
+  part_of_speech: "noun"
+  definition: "A location or position."
+  example_sentence: "The place was ideal for research."
+- word: "plain"
+  part_of_speech: "adjective"
+  definition: "Simple or clear."
+  example_sentence: "The instructions were plain and concise."
+- word: "plan"
+  part_of_speech: "noun"
+  definition: "A detailed proposal or scheme."
+  example_sentence: "The plan addressed all concerns."
+- word: "plant"
+  part_of_speech: "noun"
+  definition: "A living organism or factory."
+  example_sentence: "The plant thrived in the sunlight."
+- word: "plausible"
+  part_of_speech: "adjective"
+  definition: "Reasonable or believable."
+  example_sentence: "Her explanation seemed plausible."
+- word: "play"
+  part_of_speech: "verb"
+  definition: "To engage in activity or perform."
+  example_sentence: "They played a key role in the success."
+- word: "plea"
+  part_of_speech: "noun"
+  definition: "An earnest request or legal appeal."
+  example_sentence: "Her plea for help was answered."
+- word: "pleasant"
+  part_of_speech: "adjective"
+  definition: "Enjoyable or agreeable."
+  example_sentence: "The pleasant weather encouraged hiking."
+- word: "plot"
+  part_of_speech: "noun"
+  definition: "A plan or storyline."
+  example_sentence: "The novel’s plot was engaging."
+- word: "plunge"
+  part_of_speech: "verb"
+  definition: "To dive or drop suddenly."
+  example_sentence: "Stock prices plunged after the news."
+- word: "plural"
+  part_of_speech: "adjective"
+  definition: "More than one."
+  example_sentence: "The plural form of the word was used."
+- word: "plus"
+  part_of_speech: "preposition"
+  definition: "In addition to."
+  example_sentence: "The cost was $100 plus tax."
+- word: "point"
+  part_of_speech: "noun"
+  definition: "A specific idea or location."
+  example_sentence: "Her point clarified the argument."
+- word: "policy"
+  part_of_speech: "noun"
+  definition: "A set of rules or principles."
+  example_sentence: "The policy promoted sustainability."
+- word: "poll"
+  part_of_speech: "noun"
+  definition: "A survey of opinions."
+  example_sentence: "The poll showed public support."
+- word: "pollution"
+  part_of_speech: "noun"
+  definition: "Contamination of the environment."
+  example_sentence: "Pollution harmed the river’s ecosystem."
+- word: "ponder"
+  part_of_speech: "verb"
+  definition: "To think deeply or consider."
+  example_sentence: "She pondered the decision carefully."
+- word: "popular"
+  part_of_speech: "adjective"
+  definition: "Widely liked or accepted."
+  example_sentence: "The popular course filled quickly."
+- word: "population"
+  part_of_speech: "noun"
+  definition: "The number of people in an area."
+  example_sentence: "The population of the city grew."
+- word: "portion"
+  part_of_speech: "noun"
+  definition: "A part or share."
+  example_sentence: "A portion of the budget was allocated."
+- word: "pose"
+  part_of_speech: "verb"
+  definition: "To present or create."
+  example_sentence: "The issue posed a challenge."
+- word: "position"
+  part_of_speech: "noun"
+  definition: "A place or role."
+  example_sentence: "She held a senior position."
+- word: "positive"
+  part_of_speech: "adjective"
+  definition: "Favorable or certain."
+  example_sentence: "The feedback was positive."
+- word: "possess"
+  part_of_speech: "verb"
+  definition: "To own or have."
+  example_sentence: "He possesses great knowledge."
+- word: "possible"
+  part_of_speech: "adjective"
+  definition: "Capable of happening or being done."
+  example_sentence: "It was possible to finish early."
+- word: "postpone"
+  part_of_speech: "verb"
+  definition: "To delay or reschedule."
+  example_sentence: "They postponed the meeting."
+- word: "potential"
+  part_of_speech: "noun"
+  definition: "Possibility or capability."
+  example_sentence: "The student showed great potential."
+- word: "poverty"
+  part_of_speech: "noun"
+  definition: "The state of being poor."
+  example_sentence: "Poverty affected the region’s growth."
+- word: "power"
+  part_of_speech: "noun"
+  definition: "The ability to act or influence."
+  example_sentence: "The council had the power to decide."
+- word: "practical"
+  part_of_speech: "adjective"
+  definition: "Useful or realistic."
+  example_sentence: "The solution was practical and effective."
+- word: "practice"
+  part_of_speech: "noun"
+  definition: "Repeated exercise or profession."
+  example_sentence: "Practice improved her skills."
+- word: "praise"
+  part_of_speech: "verb"
+  definition: "To express approval or admiration."
+  example_sentence: "They praised her innovative approach."
+- word: "precede"
+  part_of_speech: "verb"
+  definition: "To come before in time or order."
+  example_sentence: "The speech preceded the ceremony."
+- word: "precise"
+  part_of_speech: "adjective"
+  definition: "Exact or accurate."
+  example_sentence: "Her precise measurements ensured success."
+- word: "predict"
+  part_of_speech: "verb"
+  definition: "To forecast or anticipate."
+  example_sentence: "Scientists predicted the storm’s path."
+- word: "predominant"
+  part_of_speech: "adjective"
+  definition: "Most common or influential."
+  example_sentence: "The predominant culture shaped the city."
+- word: "prefer"
+  part_of_speech: "verb"
+  definition: "To like better or favor."
+  example_sentence: "She preferred studying in the library."
+- word: "prejudice"
+  part_of_speech: "noun"
+  definition: "An unfair opinion or bias."
+  example_sentence: "The policy aimed to reduce prejudice."
+- word: "preliminary"
+  part_of_speech: "adjective"
+  definition: "Initial or preparatory."
+  example_sentence: "The preliminary results were promising."
+- word: "prepare"
+  part_of_speech: "verb"
+  definition: "To make ready or arrange."
+  example_sentence: "They prepared for the exam diligently."
+- word: "prescribe"
+  part_of_speech: "verb"
+  definition: "To recommend or order."
+  example_sentence: "The doctor prescribed a new treatment."
+- word: "present"
+  part_of_speech: "verb"
+  definition: "To show or offer."
+  example_sentence: "She presented her findings to the class."
+- word: "preserve"
+  part_of_speech: "verb"
+  definition: "To protect or maintain."
+  example_sentence: "They preserved the forest for future generations."
+- word: "press"
+  part_of_speech: "verb"
+  definition: "To urge or apply pressure."
+  example_sentence: "They pressed for quicker reforms."
+- word: "prestige"
+  part_of_speech: "noun"
+  definition: "Respect or admiration."
+  example_sentence: "The university’s prestige attracted students."
+- word: "presume"
+  part_of_speech: "verb"
+  definition: "To assume or take for granted."
+  example_sentence: "She presumed the meeting was canceled."
+- word: "pretend"
+  part_of_speech: "verb"
+  definition: "To act as if something is true."
+  example_sentence: "He pretended to understand the lecture."
+- word: "prevail"
+  part_of_speech: "verb"
+  definition: "To succeed or dominate."
+  example_sentence: "Justice prevailed in the case."
+- word: "prevent"
+  part_of_speech: "verb"
+  definition: "To stop or hinder."
+  example_sentence: "They prevented the error from occurring."
+- word: "previous"
+  part_of_speech: "adjective"
+  definition: "Occurring before in time."
+  example_sentence: "Her previous research was foundational."
+- word: "primary"
+  part_of_speech: "adjective"
+  definition: "Most important or initial."
+  example_sentence: "The primary goal was sustainability."
+- word: "prime"
+  part_of_speech: "adjective"
+  definition: "Of the best quality or main."
+  example_sentence: "The prime location boosted sales."
+- word: "principal"
+  part_of_speech: "adjective"
+  definition: "Main or most important."
+  example_sentence: "The principal reason was cost."
+- word: "principle"
+  part_of_speech: "noun"
+  definition: "A fundamental rule or belief."
+  example_sentence: "The principle guided their decisions."
+- word: "print"
+  part_of_speech: "verb"
+  definition: "To produce text or images on paper."
+  example_sentence: "They printed the report for distribution."
+- word: "prior"
+  part_of_speech: "adjective"
+  definition: "Earlier or more important."
+  example_sentence: "She had prior experience in the field."
+- word: "priority"
+  part_of_speech: "noun"
+  definition: "Something given precedence."
+  example_sentence: "Education was their top priority."
+- word: "probe"
+  part_of_speech: "verb"
+  definition: "To investigate or explore."
+  example_sentence: "They probed the issue thoroughly."
+- word: "proceed"
+  part_of_speech: "verb"
+  definition: "To continue or move forward."
+  example_sentence: "They proceeded with the experiment."
+- word: "process"
+  part_of_speech: "noun"
+  definition: "A series of actions or steps."
+  example_sentence: "The process improved efficiency."
+- word: "produce"
+  part_of_speech: "verb"
+  definition: "To create or yield."
+  example_sentence: "The farm produces organic crops."
+- word: "product"
+  part_of_speech: "noun"
+  definition: "Something made or resulting."
+  example_sentence: "The product was tested for quality."
+- word: "profession"
+  part_of_speech: "noun"
+  definition: "A paid occupation requiring training."
+  example_sentence: "Teaching is a respected profession."
+- word: "profit"
+  part_of_speech: "noun"
+  definition: "Financial gain or benefit."
+  example_sentence: "The company reported a high profit."
+- word: "profound"
+  part_of_speech: "adjective"
+  definition: "Deep or significant."
+  example_sentence: "Her speech had a profound impact."
+- word: "program"
+  part_of_speech: "noun"
+  definition: "A plan or system of activities."
+  example_sentence: "The program aimed to reduce pollution."
+- word: "progress"
+  part_of_speech: "noun"
+  definition: "Forward movement or improvement."
+  example_sentence: "The team made steady progress."
+- word: "prohibit"
+  part_of_speech: "verb"
+  definition: "To forbid or prevent."
+  example_sentence: "The law prohibits smoking indoors."
+- word: "project"
+  part_of_speech: "noun"
+  definition: "A planned undertaking."
+  example_sentence: "The project required teamwork."
+- word: "prominent"
+  part_of_speech: "adjective"
+  definition: "Important or noticeable."
+  example_sentence: "She was a prominent researcher."
+- word: "promote"
+  part_of_speech: "verb"
+  definition: "To encourage or advance."
+  example_sentence: "They promoted the new initiative."
+- word: "prompt"
+  part_of_speech: "verb"
+  definition: "To cause or encourage."
+  example_sentence: "The question prompted a lively debate."
+- word: "prone"
+  part_of_speech: "adjective"
+  definition: "Likely or inclined."
+  example_sentence: "The area is prone to flooding."
+- word: "proof"
+  part_of_speech: "noun"
+  definition: "Evidence or confirmation."
+  example_sentence: "The proof supported her argument."
+- word: "proper"
+  part_of_speech: "adjective"
+  definition: "Correct or appropriate."
+  example_sentence: "They followed proper procedures."
+- word: "property"
+  part_of_speech: "noun"
+  definition: "Something owned or a characteristic."
+  example_sentence: "The property was ideal for development."
+- word: "proportion"
+  part_of_speech: "noun"
+  definition: "A part or relative size."
+  example_sentence: "A proportion of the budget was saved."
+- word: "propose"
+  part_of_speech: "verb"
+  definition: "To suggest or put forward."
+  example_sentence: "She proposed a new strategy."
+- word: "prospect"
+  part_of_speech: "noun"
+  definition: "A possibility or potential."
+  example_sentence: "The prospect of success motivated them."
+- word: "protect"
+  part_of_speech: "verb"
+  definition: "To guard or shield."
+  example_sentence: "The law protects endangered species."
+- word: "protein"
+  part_of_speech: "noun"
+  definition: "A nutrient essential for growth."
+  example_sentence: "Protein is vital for muscle repair."
+- word: "protest"
+  part_of_speech: "verb"
+  definition: "To object or express dissent."
+  example_sentence: "They protested the policy change."
+- word: "prove"
+  part_of_speech: "verb"
+  definition: "To demonstrate or verify."
+  example_sentence: "The experiment proved the hypothesis."
+- word: "provide"
+  part_of_speech: "verb"
+  definition: "To supply or make available."
+  example_sentence: "The grant provided funds for research."
+- word: "province"
+  part_of_speech: "noun"
+  definition: "A region or area of expertise."
+  example_sentence: "Education is her province of interest."
+- word: "provision"
+  part_of_speech: "noun"
+  definition: "A supply or condition."
+  example_sentence: "The provision of resources was adequate."
+- word: "provoke"
+  part_of_speech: "verb"
+  definition: "To stimulate or incite."
+  example_sentence: "His speech provoked a strong reaction."
+- word: "prudent"
+  part_of_speech: "adjective"
+  definition: "Wise or cautious."
+  example_sentence: "Her prudent decision saved costs."
+- word: "public"
+  part_of_speech: "adjective"
+  definition: "Open to all or government-related."
+  example_sentence: "The public library offered free access."
+- word: "publish"
+  part_of_speech: "verb"
+  definition: "To produce or release for distribution."
+  example_sentence: "She published her findings in a journal."
+- word: "pulse"
+  part_of_speech: "noun"
+  definition: "A rhythm or beat."
+  example_sentence: "The pulse of the music was lively."
+- word: "pump"
+  part_of_speech: "verb"
+  definition: "To move fluid or energize."
+  example_sentence: "They pumped water into the tank."
+- word: "pursue"
+  part_of_speech: "verb"
+  definition: "To follow or strive for."
+  example_sentence: "She pursued a career in science."
+- word: "puzzle"
+  part_of_speech: "noun"
+  definition: "A problem or game requiring thought."
+  example_sentence: "The puzzle challenged their minds."
+- word: "pace"
+  part_of_speech: "verb"
+  definition: "To move or progress at a speed."
+  example_sentence: "They paced the work to meet deadlines."
+- word: "pain"
+  part_of_speech: "verb"
+  definition: "To cause discomfort."
+  example_sentence: "The loss pained her deeply."
+- word: "pair"
+  part_of_speech: "verb"
+  definition: "To group in twos."
+  example_sentence: "They paired students for the task."
+- word: "panel"
+  part_of_speech: "verb"
+  definition: "To cover with panels."
+  example_sentence: "They paneled the room with wood."
+- word: "panic"
+  part_of_speech: "verb"
+  definition: "To feel sudden fear."
+  example_sentence: "She panicked during the crisis."
+- word: "parallel"
+  part_of_speech: "noun"
+  definition: "A similarity or comparison."
+  example_sentence: "The parallel between the cases was striking."
+- word: "partition"
+  part_of_speech: "verb"
+  definition: "To divide into parts."
+  example_sentence: "They partitioned the land equally."
+- word: "pass"
+  part_of_speech: "noun"
+  definition: "A permit or stage."
+  example_sentence: "The pass granted access to the event."
+- word: "patent"
+  part_of_speech: "verb"
+  definition: "To secure a patent."
+  example_sentence: "She patented her invention."
+- word: "pause"
+  part_of_speech: "noun"
+  definition: "A brief stop."
+  example_sentence: "A pause allowed them to reflect."
+- word: "peak"
+  part_of_speech: "verb"
+  definition: "To reach a maximum."
+  example_sentence: "Sales peaked during the holidays."
+- word: "permit"
+  part_of_speech: "noun"
+  definition: "An official document allowing something."
+  example_sentence: "The permit allowed construction."
+- word: "persist"
+  part_of_speech: "verb"
+  definition: "To continue steadily."
+  example_sentence: "The rain persisted all day."
+- word: "pilot"
+  part_of_speech: "verb"
+  definition: "To guide or test."
+  example_sentence: "They piloted the new software."
+- word: "pitch"
+  part_of_speech: "verb"
+  definition: "To propose or throw."
+  example_sentence: "She pitched her idea to the team."
+- word: "plan"
+  part_of_speech: "verb"
+  definition: "To design or arrange."
+  example_sentence: "They planned the event carefully."
+- word: "plant"
+  part_of_speech: "verb"
+  definition: "To place in the ground or establish."
+  example_sentence: "They planted crops in the spring."
+- word: "play"
+  part_of_speech: "noun"
+  definition: "A dramatic performance or activity."
+  example_sentence: "The play explored social issues."
+- word: "plot"
+  part_of_speech: "verb"
+  definition: "To plan or chart."
+  example_sentence: "They plotted the course on a map."
+- word: "point"
+  part_of_speech: "verb"
+  definition: "To indicate or direct."
+  example_sentence: "She pointed to the key evidence."
+- word: "portion"
+  part_of_speech: "verb"
+  definition: "To divide or allocate."
+  example_sentence: "They portioned the resources equally."
+- word: "position"
+  part_of_speech: "verb"
+  definition: "To place or arrange."
+  example_sentence: "They positioned the equipment strategically."
+- word: "praise"
+  part_of_speech: "noun"
+  definition: "Expression of approval."
+  example_sentence: "Her work received high praise."
+- word: "precise"
+  part_of_speech: "adjective"
+  definition: "Clearly defined or exact."
+  example_sentence: "The precise instructions avoided confusion."
+- word: "predict"
+  part_of_speech: "verb"
+  definition: "To estimate future events."
+  example_sentence: "They predicted economic growth."
+- word: "probe"
+  part_of_speech: "noun"
+  definition: "An investigation or tool."
+  example_sentence: "The probe revealed new insights."
+- word: "process"
+  part_of_speech: "verb"
+  definition: "To handle or treat."
+  example_sentence: "They processed the data quickly."
+- word: "produce"
+  part_of_speech: "noun"
+  definition: "Agricultural or manufactured goods."
+  example_sentence: "The farm’s produce was organic."
+- word: "program"
+  part_of_speech: "verb"
+  definition: "To design or schedule."
+  example_sentence: "They programmed the event for spring."
+- word: "progress"
+  part_of_speech: "verb"
+  definition: "To move forward or improve."
+  example_sentence: "The team progressed steadily."
+- word: "project"
+  part_of_speech: "verb"
+  definition: "To forecast or extend."
+  example_sentence: "They projected high sales for the year."
+- word: "promote"
+  part_of_speech: "verb"
+  definition: "To raise to a higher position."
+  example_sentence: "She was promoted to manager."
+- word: "prompt"
+  part_of_speech: "adjective"
+  definition: "Quick or on time."
+  example_sentence: "Her prompt response was appreciated."
+- word: "proof"
+  part_of_speech: "verb"
+  definition: "To test or verify."
+  example_sentence: "They proofed the document for errors."
+- word: "property"
+  part_of_speech: "noun"
+  definition: "A characteristic or attribute."
+  example_sentence: "The chemical’s property was studied."
+- word: "proportion"
+  part_of_speech: "verb"
+  definition: "To adjust in size or amount."
+  example_sentence: "They proportioned the budget carefully."
+- word: "prospect"
+  part_of_speech: "verb"
+  definition: "To explore or search."
+  example_sentence: "They prospected for new opportunities."
+- word: "protest"
+  part_of_speech: "noun"
+  definition: "A public expression of objection."
+  example_sentence: "The protest drew a large crowd."
+- word: "provision"
+  part_of_speech: "verb"
+  definition: "To supply or provide."
+  example_sentence: "They provisioned the team with tools."
+- word: "pulse"
+  part_of_speech: "verb"
+  definition: "To beat or vibrate."
+  example_sentence: "Her heart pulsed steadily."
+- word: "puzzle"
+  part_of_speech: "verb"
+  definition: "To perplex or confuse."
+  example_sentence: "The problem puzzled the scientists."
