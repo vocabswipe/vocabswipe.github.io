@@ -4,7 +4,6 @@ import yaml from 'js-yaml';
 
 const wordsDir = path.join(process.cwd(), 'data', 'words');
 
-// Get all available letters (a-z) with .yaml files
 export function getAvailableLetters() {
   try {
     const files = fs.readdirSync(wordsDir);
@@ -18,7 +17,6 @@ export function getAvailableLetters() {
   }
 }
 
-// Load words for a specific letter
 export function getWordsByLetter(letter) {
   try {
     const filePath = path.join(wordsDir, `${letter}.yaml`);
@@ -31,7 +29,6 @@ export function getWordsByLetter(letter) {
   }
 }
 
-// Load all words for search (optional)
 export function getAllWords() {
   const letters = getAvailableLetters();
   const allWords = [];
