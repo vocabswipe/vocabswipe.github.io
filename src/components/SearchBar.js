@@ -1,23 +1,26 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import { getAllWords } from '../lib/data';
 
 export default function SearchBar() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
 
-  const handleSearch = (e) => {
-    const value = e.target.value.toLowerCase();
+  const handleSearch = async (e) => {
+    const value = e.target.value.trim().toLowerCase();
     setQuery(value);
     if (value.length < 2) {
       setResults([]);
       return;
     }
-    const allWords = getAllWords();
-    const filtered = allWords.filter((word) =>
-      word.word.toLowerCase().includes(value)
-    );
-    setResults(filtered.slice(0, 10)); // Limit to 10 results
+
+    try {
+      const res = await fetch(`/api/search?q=${encodeURIComponent(value)}`);
+      const data = await res.json();
+      setResults(data.slice(0, 10)); // Limit to 10 results
+    } catch (error) {
+      console.error('Search error:', error);
+      setResults([]);
+    }
   };
 
   return (
