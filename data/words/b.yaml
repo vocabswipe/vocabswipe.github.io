@@ -1,192 +1,404 @@
-- word: baby
-  part_of_speech: noun
-  definition: A very young child or infant.
-  example_sentence: The baby slept peacefully in the crib.
-- word: back
-  part_of_speech: noun
-  definition: The rear part of the body or something behind.
-  example_sentence: She carried the backpack on her back.
-- word: bad
-  part_of_speech: adjective
-  definition: Of poor quality or unfavorable.
-  example_sentence: The weather was bad during the picnic.
-- word: bag
-  part_of_speech: noun
-  definition: A container made of flexible material for carrying items.
-  example_sentence: He packed his clothes in a bag for the trip.
-- word: ball
-  part_of_speech: noun
-  definition: A round object used in games or sports.
-  example_sentence: They played soccer with a new ball.
-- word: bank
-  part_of_speech: noun
-  definition: A financial institution or the side of a river.
-  example_sentence: She deposited money at the bank.
-- word: bar
-  part_of_speech: noun
-  definition: A place serving drinks or a long, narrow piece of material.
-  example_sentence: They met at a bar for drinks.
-- word: base
-  part_of_speech: noun
-  definition: The foundation or starting point of something.
-  example_sentence: The team returned to their base after the mission.
-- word: be
-  part_of_speech: verb
-  definition: To exist or act as something.
-  example_sentence: She wants to be a doctor when she grows up.
-- word: beat
-  part_of_speech: verb
-  definition: To strike repeatedly or defeat someone.
-  example_sentence: He beat the drum to the rhythm of the song.
-- word: beautiful
-  part_of_speech: adjective
-  definition: Pleasing to the senses or aesthetically attractive.
-  example_sentence: The sunset over the ocean was beautiful.
-- word: because
-  part_of_speech: conjunction
-  definition: For the reason that.
-  example_sentence: She stayed home because it was raining.
-- word: become
-  part_of_speech: verb
-  definition: To grow or develop into something.
-  example_sentence: He hopes to become a skilled musician.
-- word: bed
-  part_of_speech: noun
-  definition: A piece of furniture for sleeping.
-  example_sentence: She went to bed early after a long day.
-- word: before
-  part_of_speech: preposition
-  definition: Earlier than or in front of something.
-  example_sentence: They met before the meeting started.
-- word: begin
-  part_of_speech: verb
-  definition: To start something.
-  example_sentence: The class will begin at 9 a.m.
-- word: behavior
-  part_of_speech: noun
-  definition: The way someone acts or conducts themselves.
-  example_sentence: His behavior in class was excellent.
-- word: behind
-  part_of_speech: preposition
-  definition: At the back of or less advanced than something.
-  example_sentence: She hid behind the tree during the game.
-- word: believe
-  part_of_speech: verb
-  definition: To accept something as true or have faith in it.
-  example_sentence: I believe she will do well in the exam.
-- word: benefit
-  part_of_speech: noun
-  definition: An advantage or something that improves a situation.
-  example_sentence: Exercise has many health benefits.
-- word: best
-  part_of_speech: adjective
-  definition: Of the highest quality or most excellent.
-  example_sentence: This is the best cake I’ve ever tasted.
-- word: better
-  part_of_speech: adjective
-  definition: Of a higher quality or more desirable than another.
-  example_sentence: Her new phone is better than the old one.
-- word: between
-  part_of_speech: preposition
-  definition: In the space separating two things or points.
-  example_sentence: The cat slept between the pillows.
-- word: beyond
-  part_of_speech: preposition
-  definition: Further than or outside the limits of something.
-  example_sentence: The view extends beyond the horizon.
-- word: big
-  part_of_speech: adjective
-  definition: Large in size or importance.
-  example_sentence: They live in a big house near the park.
-- word: bill
-  part_of_speech: noun
-  definition: A statement of money owed or a proposed law.
-  example_sentence: She paid the electricity bill online.
-- word: billion
-  part_of_speech: noun
-  definition: A number equal to one thousand million.
-  example_sentence: The company is worth over a billion dollars.
-- word: bit
-  part_of_speech: noun
-  definition: A small piece or amount of something.
-  example_sentence: He ate a bit of chocolate after dinner.
-- word: black
-  part_of_speech: adjective
-  definition: The color of coal or the absence of light.
-  example_sentence: She wore a black dress to the party.
-- word: blood
-  part_of_speech: noun
-  definition: The red liquid that circulates in the body.
-  example_sentence: The doctor checked her blood pressure.
-- word: blue
-  part_of_speech: adjective
-  definition: The color of the sky on a clear day.
-  example_sentence: His favorite shirt is blue.
-- word: board
-  part_of_speech: noun
-  definition: A flat piece of material or a group of people managing something.
-  example_sentence: The teacher wrote on the chalkboard.
-- word: body
-  part_of_speech: noun
-  definition: The physical structure of a person or animal.
-  example_sentence: Exercise is good for the body and mind.
-- word: book
-  part_of_speech: noun
-  definition: A written or printed work consisting of pages bound together.
-  example_sentence: She read a book about history.
-- word: born
-  part_of_speech: verb
-  definition: To come into existence through birth.
-  example_sentence: The baby was born in the morning.
-- word: both
-  part_of_speech: determiner
-  definition: Referring to two things or people together.
-  example_sentence: Both students passed the exam.
-- word: box
-  part_of_speech: noun
-  definition: A container with a flat base and sides.
-  example_sentence: She packed her belongings in a box.
-- word: boy
-  part_of_speech: noun
-  definition: A young male person.
-  example_sentence: The boy played soccer with his friends.
-- word: break
-  part_of_speech: verb
-  definition: To separate into pieces or interrupt something.
-  example_sentence: Be careful not to break the glass.
-- word: bring
-  part_of_speech: verb
-  definition: To carry or take something to a place.
-  example_sentence: Please bring your notes to the meeting.
-- word: brother
-  part_of_speech: noun
-  definition: A male sibling.
-  example_sentence: Her brother helped her with homework.
-- word: budget
-  part_of_speech: noun
-  definition: A plan for managing money or resources.
-  example_sentence: They created a budget for their vacation.
-- word: build
-  part_of_speech: verb
-  definition: To construct or create something.
-  example_sentence: They plan to build a new house next year.
-- word: building
-  part_of_speech: noun
-  definition: A structure with walls and a roof.
-  example_sentence: The building has ten floors.
-- word: business
-  part_of_speech: noun
-  definition: An organization engaged in commercial activity.
-  example_sentence: She runs a small business from home.
-- word: but
-  part_of_speech: conjunction
-  definition: Used to introduce something contrasting with what has been mentioned.
-  example_sentence: I wanted to go, but I was too tired.
-- word: buy
-  part_of_speech: verb
-  definition: To purchase something in exchange for money.
-  example_sentence: He decided to buy a new car.
-- word: by
-  part_of_speech: preposition
-  definition: Indicating the means, agent, or location of something.
-  example_sentence: The book was written by a famous author.
+- word: "backdrop"
+  part_of_speech: "noun"
+  definition: "A background or setting for an event."
+  example_sentence: "The mountains provided a stunning backdrop for the festival."
+- word: "baffle"
+  part_of_speech: "verb"
+  definition: "To confuse or perplex."
+  example_sentence: "The complex instructions baffled the new students."
+- word: "balance"
+  part_of_speech: "noun"
+  definition: "A state of equilibrium or equal distribution."
+  example_sentence: "She maintained a balance between work and study."
+- word: "ban"
+  part_of_speech: "verb"
+  definition: "To officially prohibit something."
+  example_sentence: "The government banned smoking in public places."
+- word: "barren"
+  part_of_speech: "adjective"
+  definition: "Unable to produce crops or offspring."
+  example_sentence: "The barren land yielded no harvest."
+- word: "barrier"
+  part_of_speech: "noun"
+  definition: "An obstacle that prevents movement or access."
+  example_sentence: "Language can be a barrier to communication."
+- word: "base"
+  part_of_speech: "noun"
+  definition: "The foundation or starting point."
+  example_sentence: "The theory was built on a solid base of evidence."
+- word: "beckon"
+  part_of_speech: "verb"
+  definition: "To signal or summon with a gesture."
+  example_sentence: "The tour guide beckoned the group to follow her."
+- word: "begrudge"
+  part_of_speech: "verb"
+  definition: "To envy or resent someone’s success."
+  example_sentence: "She did not begrudge her colleague’s promotion."
+- word: "behalf"
+  part_of_speech: "noun"
+  definition: "In the interest or support of someone."
+  example_sentence: "He spoke on behalf of the entire team."
+- word: "belie"
+  part_of_speech: "verb"
+  definition: "To give a false impression of something."
+  example_sentence: "Her calm demeanor belied her inner anxiety."
+- word: "belligerent"
+  part_of_speech: "adjective"
+  definition: "Hostile or aggressive."
+  example_sentence: "The belligerent tone of the debate surprised the audience."
+- word: "beneficial"
+  part_of_speech: "adjective"
+  definition: "Producing favorable results."
+  example_sentence: "Regular exercise is beneficial to health."
+- word: "benefit"
+  part_of_speech: "noun"
+  definition: "An advantage or profit gained."
+  example_sentence: "The scholarship provided a significant benefit to her education."
+- word: "benevolent"
+  part_of_speech: "adjective"
+  definition: "Kind and generous."
+  example_sentence: "The benevolent donor funded the new library."
+- word: "benign"
+  part_of_speech: "adjective"
+  definition: "Gentle or harmless."
+  example_sentence: "The tumor was found to be benign after tests."
+- word: "berate"
+  part_of_speech: "verb"
+  definition: "To scold or criticize angrily."
+  example_sentence: "The teacher berated the student for cheating."
+- word: "bestow"
+  part_of_speech: "verb"
+  definition: "To present as a gift or honor."
+  example_sentence: "The university bestowed an honorary degree on the scientist."
+- word: "bewilder"
+  part_of_speech: "verb"
+  definition: "To cause confusion or puzzlement."
+  example_sentence: "The complex math problem bewildered the class."
+- word: "bias"
+  part_of_speech: "noun"
+  definition: "A tendency or prejudice toward something."
+  example_sentence: "The study was criticized for its bias toward certain results."
+- word: "bind"
+  part_of_speech: "verb"
+  definition: "To tie or secure something."
+  example_sentence: "The agreement binds both parties to the terms."
+- word: "bizarre"
+  part_of_speech: "adjective"
+  definition: "Very strange or unusual."
+  example_sentence: "The bizarre behavior of the animal puzzled researchers."
+- word: "blatant"
+  part_of_speech: "adjective"
+  definition: "Obvious or conspicuous, often offensively."
+  example_sentence: "The politician’s blatant lies shocked the audience."
+- word: "blend"
+  part_of_speech: "verb"
+  definition: "To mix or combine smoothly."
+  example_sentence: "The chef blended spices to create a unique flavor."
+- word: "blight"
+  part_of_speech: "noun"
+  definition: "A condition causing decay or ruin."
+  example_sentence: "Urban blight affected the city’s downtown area."
+- word: "bolster"
+  part_of_speech: "verb"
+  definition: "To support or strengthen."
+  example_sentence: "The new evidence bolstered the scientist’s theory."
+- word: "bombard"
+  part_of_speech: "verb"
+  definition: "To attack or overwhelm with force."
+  example_sentence: "The media bombarded the public with election news."
+- word: "boost"
+  part_of_speech: "verb"
+  definition: "To increase or promote."
+  example_sentence: "The campaign boosted interest in environmental issues."
+- word: "boundary"
+  part_of_speech: "noun"
+  definition: "A line that marks a limit."
+  example_sentence: "The river forms a natural boundary between the countries."
+- word: "bountiful"
+  part_of_speech: "adjective"
+  definition: "Abundant or plentiful."
+  example_sentence: "The bountiful harvest ensured food for the winter."
+- word: "boycott"
+  part_of_speech: "verb"
+  definition: "To refuse to deal with as a protest."
+  example_sentence: "Consumers boycotted the company due to unethical practices."
+- word: "brash"
+  part_of_speech: "adjective"
+  definition: "Bold or aggressive in a rude way."
+  example_sentence: "His brash attitude offended his colleagues."
+- word: "breach"
+  part_of_speech: "noun"
+  definition: "A violation or break in an agreement."
+  example_sentence: "The data breach compromised sensitive information."
+- word: "breed"
+  part_of_speech: "verb"
+  definition: "To produce or raise offspring."
+  example_sentence: "The farm breeds cattle for the market."
+- word: "brief"
+  part_of_speech: "adjective"
+  definition: "Short in duration or extent."
+  example_sentence: "The professor gave a brief overview of the topic."
+- word: "brilliant"
+  part_of_speech: "adjective"
+  definition: "Exceptionally clever or impressive."
+  example_sentence: "Her brilliant solution solved the complex problem."
+- word: "brink"
+  part_of_speech: "noun"
+  definition: "The edge or verge of something."
+  example_sentence: "The country was on the brink of economic collapse."
+- word: "brisk"
+  part_of_speech: "adjective"
+  definition: "Active, fast, or energetic."
+  example_sentence: "They took a brisk walk in the morning."
+- word: "brittle"
+  part_of_speech: "adjective"
+  definition: "Hard but easily broken."
+  example_sentence: "The brittle glass shattered upon impact."
+- word: "broad"
+  part_of_speech: "adjective"
+  definition: "Wide in scope or range."
+  example_sentence: "The book covers a broad range of topics."
+- word: "bud"
+  part_of_speech: "noun"
+  definition: "A small growth that develops into a flower or leaf."
+  example_sentence: "The rose buds bloomed beautifully in spring."
+- word: "budget"
+  part_of_speech: "noun"
+  definition: "A plan for managing finances."
+  example_sentence: "The university approved a budget for new facilities."
+- word: "buffer"
+  part_of_speech: "noun"
+  definition: "Something that reduces impact or shock."
+  example_sentence: "The forest acts as a buffer against noise pollution."
+- word: "bulky"
+  part_of_speech: "adjective"
+  definition: "Large and cumbersome."
+  example_sentence: "The bulky package was difficult to carry."
+- word: "burden"
+  part_of_speech: "noun"
+  definition: "A heavy load or responsibility."
+  example_sentence: "The financial burden of tuition worried the students."
+- word: "bureaucracy"
+  part_of_speech: "noun"
+  definition: "A complex system of administration."
+  example_sentence: "Navigating the bureaucracy delayed the project."
+- word: "burgeon"
+  part_of_speech: "verb"
+  definition: "To grow or flourish rapidly."
+  example_sentence: "The tech industry is burgeoning in the city."
+- word: "bustle"
+  part_of_speech: "noun"
+  definition: "Excited activity or movement."
+  example_sentence: "The city’s bustle overwhelmed the quiet tourist."
+- word: "bypass"
+  part_of_speech: "verb"
+  definition: "To avoid or go around something."
+  example_sentence: "They bypassed the congested road to save time."
+- word: "backdrop"
+  part_of_speech: "noun"
+  definition: "A background or setting for an event."
+  example_sentence: "The mountains provided a stunning backdrop for the festival."
+- word: "banal"
+  part_of_speech: "adjective"
+  definition: "Lacking originality; boring."
+  example_sentence: "The speech was banal and uninspiring."
+- word: "banish"
+  part_of_speech: "verb"
+  definition: "To send someone away as punishment."
+  example_sentence: "The king banished the traitor from the kingdom."
+- word: "barbaric"
+  part_of_speech: "adjective"
+  definition: "Cruel or uncivilized."
+  example_sentence: "The barbaric treatment of prisoners was condemned."
+- word: "bargain"
+  part_of_speech: "noun"
+  definition: "An agreement or something bought cheaply."
+  example_sentence: "She found a bargain at the flea market."
+- word: "barometer"
+  part_of_speech: "noun"
+  definition: "An instrument measuring atmospheric pressure."
+  example_sentence: "The barometer indicated a coming storm."
+- word: "barricade"
+  part_of_speech: "noun"
+  definition: "A barrier to block passage."
+  example_sentence: "Protesters set up a barricade in the street."
+- word: "bask"
+  part_of_speech: "verb"
+  definition: "To enjoy warmth or pleasant conditions."
+  example_sentence: "The tourists basked in the sunny weather."
+- word: "batch"
+  part_of_speech: "noun"
+  definition: "A group of items produced together."
+  example_sentence: "The bakery produced a fresh batch of cookies."
+- word: "beacon"
+  part_of_speech: "noun"
+  definition: "A signal or guiding light."
+  example_sentence: "The lighthouse served as a beacon for ships."
+- word: "befuddle"
+  part_of_speech: "verb"
+  definition: "To confuse or perplex."
+  example_sentence: "The technical jargon befuddled the audience."
+- word: "begrudge"
+  part_of_speech: "verb"
+  definition: "To envy or resent someone’s success."
+  example_sentence: "She did not begrudge her friend’s achievement."
+- word: "belittle"
+  part_of_speech: "verb"
+  definition: "To make something seem less important."
+  example_sentence: "He belittled her efforts in front of the team."
+- word: "beneath"
+  part_of_speech: "preposition"
+  definition: "Under or below something."
+  example_sentence: "The treasure was buried beneath the old tree."
+- word: "beneficiary"
+  part_of_speech: "noun"
+  definition: "A person who receives benefits."
+  example_sentence: "She was the beneficiary of her uncle’s estate."
+- word: "benign"
+  part_of_speech: "adjective"
+  definition: "Gentle or harmless."
+  example_sentence: "The benign climate was ideal for farming."
+- word: "betray"
+  part_of_speech: "verb"
+  definition: "To be disloyal or reveal a secret."
+  example_sentence: "He betrayed his friend’s trust by sharing the secret."
+- word: "beverage"
+  part_of_speech: "noun"
+  definition: "A drink other than water."
+  example_sentence: "The café offers a variety of beverages."
+- word: "beware"
+  part_of_speech: "verb"
+  definition: "To be cautious or wary."
+  example_sentence: "Beware of scams when shopping online."
+- word: "bicker"
+  part_of_speech: "verb"
+  definition: "To argue about petty matters."
+  example_sentence: "The siblings bickered over who got the front seat."
+- word: "bilateral"
+  part_of_speech: "adjective"
+  definition: "Involving two parties or sides."
+  example_sentence: "The countries signed a bilateral trade agreement."
+- word: "bind"
+  part_of_speech: "verb"
+  definition: "To tie or secure something."
+  example_sentence: "The contract binds both parties legally."
+- word: "biography"
+  part_of_speech: "noun"
+  definition: "A written account of someone’s life."
+  example_sentence: "She read a biography about a famous scientist."
+- word: "bleak"
+  part_of_speech: "adjective"
+  definition: "Cold, bare, or depressing."
+  example_sentence: "The economic outlook was bleak after the recession."
+- word: "blend"
+  part_of_speech: "noun"
+  definition: "A mixture of different elements."
+  example_sentence: "The dish was a blend of spicy and sweet flavors."
+- word: "bliss"
+  part_of_speech: "noun"
+  definition: "Perfect happiness or joy."
+  example_sentence: "The vacation was a moment of pure bliss."
+- word: "blunder"
+  part_of_speech: "noun"
+  definition: "A careless mistake."
+  example_sentence: "His blunder cost the team the game."
+- word: "blunt"
+  part_of_speech: "adjective"
+  definition: "Direct and not subtle."
+  example_sentence: "Her blunt criticism upset her colleague."
+- word: "boast"
+  part_of_speech: "verb"
+  definition: "To talk with excessive pride."
+  example_sentence: "He boasted about his high TOEFL score."
+- word: "bogus"
+  part_of_speech: "adjective"
+  definition: "Not genuine or fake."
+  example_sentence: "The website sold bogus products to unsuspecting customers."
+- word: "bolster"
+  part_of_speech: "verb"
+  definition: "To support or strengthen."
+  example_sentence: "The new data bolstered her argument."
+- word: "bond"
+  part_of_speech: "noun"
+  definition: "A connection or tie."
+  example_sentence: "The bond between the siblings was unbreakable."
+- word: "boom"
+  part_of_speech: "noun"
+  definition: "A period of rapid growth."
+  example_sentence: "The city experienced an economic boom."
+- word: "boost"
+  part_of_speech: "noun"
+  definition: "An increase or improvement."
+  example_sentence: "The grant gave a boost to the research project."
+- word: "bother"
+  part_of_speech: "verb"
+  definition: "To annoy or cause trouble."
+  example_sentence: "The loud noise bothered the students studying."
+- word: "bounty"
+  part_of_speech: "noun"
+  definition: "A generous amount or reward."
+  example_sentence: "The farmer’s market offered a bounty of fresh produce."
+- word: "brace"
+  part_of_speech: "verb"
+  definition: "To prepare for something challenging."
+  example_sentence: "She braced herself for the difficult exam."
+- word: "breach"
+  part_of_speech: "verb"
+  definition: "To break or violate."
+  example_sentence: "The hacker breached the company’s security system."
+- word: "breed"
+  part_of_speech: "noun"
+  definition: "A particular type or kind."
+  example_sentence: "This breed of dog is known for its loyalty."
+- word: "brevity"
+  part_of_speech: "noun"
+  definition: "The quality of being brief or concise."
+  example_sentence: "The brevity of her speech kept the audience engaged."
+- word: "brilliance"
+  part_of_speech: "noun"
+  definition: "Great intelligence or brightness."
+  example_sentence: "His brilliance in mathematics earned him a scholarship."
+- word: "brim"
+  part_of_speech: "noun"
+  definition: "The edge or rim of a container."
+  example_sentence: "The cup was filled to the brim with coffee."
+- word: "brittle"
+  part_of_speech: "adjective"
+  definition: "Fragile and easily broken."
+  example_sentence: "The brittle bones were a concern for the elderly patient."
+- word: "broaden"
+  part_of_speech: "verb"
+  definition: "To expand or make wider."
+  example_sentence: "Traveling can broaden one’s perspective."
+- word: "browse"
+  part_of_speech: "verb"
+  definition: "To look through casually."
+  example_sentence: "She browsed the library for new books."
+- word: "brunt"
+  part_of_speech: "noun"
+  definition: "The main impact or force of something."
+  example_sentence: "The coastal towns bore the brunt of the storm."
+- word: "budding"
+  part_of_speech: "adjective"
+  definition: "Beginning to develop or show promise."
+  example_sentence: "The budding artist displayed her work at the gallery."
+- word: "buffer"
+  part_of_speech: "verb"
+  definition: "To lessen or moderate the impact."
+  example_sentence: "Trees buffer the noise from the highway."
+- word: "bulge"
+  part_of_speech: "noun"
+  definition: "A swelling or outward projection."
+  example_sentence: "The bag had a bulge from the heavy books inside."
+- word: "bulk"
+  part_of_speech: "noun"
+  definition: "The majority or large size."
+  example_sentence: "The bulk of the work was completed by the team."
+- word: "burden"
+  part_of_speech: "verb"
+  definition: "To load heavily or oppress."
+  example_sentence: "The new regulations burdened small businesses."
+- word: "bustle"
+  part_of_speech: "verb"
+  definition: "To move with busy activity."
+  example_sentence: "The market bustled with shoppers in the morning."
