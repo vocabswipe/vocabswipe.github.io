@@ -1,0 +1,177 @@
+yaml
+- word: each
+  part_of_speech: determiner
+  definition: Every one of two or more people or things considered individually.
+  example_sentence: Each student received a certificate.
+- word: early
+  part_of_speech: adjective
+  definition: Happening or done before the usual or expected time.
+  example_sentence: She arrived early for the meeting.
+- word: east
+  part_of_speech: noun
+  definition: The direction toward the point where the sun rises.
+  example_sentence: The city is located in the east of the country.
+- word: easy
+  part_of_speech: adjective
+  definition: Not difficult or requiring little effort.
+  example_sentence: The recipe was easy to follow.
+- word: eat
+  part_of_speech: verb
+  definition: To consume food through the mouth.
+  example_sentence: They eat dinner together every night.
+- word: economic
+  part_of_speech: adjective
+  definition: Relating to the economy or financial matters.
+  example_sentence: The economic growth was slower this year.
+- word: economy
+  part_of_speech: noun
+  definition: The system of production, distribution, and consumption of goods and services.
+  example_sentence: The country’s economy is heavily reliant on tourism.
+- word: edge
+  part_of_speech: noun
+  definition: The outer limit or boundary of something.
+  example_sentence: She stood at the edge of the cliff.
+- word: education
+  part_of_speech: noun
+  definition: The process of receiving or giving systematic instruction.
+  example_sentence: Education is essential for personal growth.
+- word: effect
+  part_of_speech: noun
+  definition: A change that results from an action or cause.
+  example_sentence: The new policy had a positive effect on sales.
+- word: effort
+  part_of_speech: noun
+  definition: A vigorous or determined attempt to achieve something.
+  example_sentence: His effort in the project was commendable.
+- word: eight
+  part_of_speech: number
+  definition: The number equal to seven plus one.
+  example_sentence: She has eight cats at home.
+- word: either
+  part_of_speech: determiner
+  definition: One or the other of two options.
+  example_sentence: You can choose either the red or blue shirt.
+- word: election
+  part_of_speech: noun
+  definition: A formal process of choosing a person for public office.
+  example_sentence: The election will take place next month.
+- word: else
+  part_of_speech: adverb
+  definition: In addition to or different from something already mentioned.
+  example_sentence: What else do you need for the trip?
+- word: employee
+  part_of_speech: noun
+  definition: A person who works for a company or organization for wages.
+  example_sentence: The company hired a new employee last week.
+- word: end
+  part_of_speech: noun
+  definition: The final part or conclusion of something.
+  example_sentence: The movie had a surprising end.
+- word: energy
+  part_of_speech: noun
+  definition: The strength or power to perform activities or a usable power source.
+  example_sentence: Solar energy is a renewable resource.
+- word: enjoy
+  part_of_speech: verb
+  definition: To take pleasure or satisfaction in something.
+  example_sentence: They enjoy hiking in the mountains.
+- word: enough
+  part_of_speech: determiner
+  definition: As much or as many as required.
+  example_sentence: There is enough food for everyone.
+- word: enter
+  part_of_speech: verb
+  definition: To come or go into a place.
+  example_sentence: She entered the room quietly.
+- word: entire
+  part_of_speech: adjective
+  definition: Whole or complete, with no part left out.
+  example_sentence: He read the entire book in one day.
+- word: environment
+  part_of_speech: noun
+  definition: The surroundings or conditions in which a person, animal, or plant lives.
+  example_sentence: Protecting the environment is crucial for future generations.
+- word: environmental
+  part_of_speech: adjective
+  definition: Relating to the natural world and the impact of human activity on it.
+  example_sentence: They discussed environmental issues at the conference.
+- word: especially
+  part_of_speech: adverb
+  definition: To a greater extent or particularly.
+  example_sentence: She loves chocolate, especially dark chocolate.
+- word: establish
+  part_of_speech: verb
+  definition: To set up or create something on a firm basis.
+  example_sentence: They worked to establish a new community center.
+- word: even
+  part_of_speech: adverb
+  definition: Used to emphasize something surprising or extreme.
+  example_sentence: Even the teacher was surprised by the results.
+- word: evening
+  part_of_speech: noun
+  definition: The time period at the end of the day, usually after 6 p.m.
+  example_sentence: They went for a walk in the evening.
+- word: event
+  part_of_speech: noun
+  definition: Something that happens, especially something important.
+  example_sentence: The concert was a major event in the city.
+- word: ever
+  part_of_speech: adverb
+  definition: At any time or in any way.
+  example_sentence: Have you ever visited Paris?
+- word: every
+  part_of_speech: determiner
+  definition: Each one of a group, without exception.
+  example_sentence: Every student must submit their homework.
+- word: everybody
+  part_of_speech: pronoun
+  definition: Every person.
+  example_sentence: Everybody enjoyed the party last night.
+- word: everyone
+  part_of_speech: pronoun
+  definition: Every person in a group.
+  example_sentence: Everyone clapped after the performance.
+- word: everything
+  part_of_speech: pronoun
+  definition: All things or all aspects of a situation.
+  example_sentence: She packed everything for the trip.
+- word: evidence
+  part_of_speech: noun
+  definition: Information or facts indicating whether something is true.
+  example_sentence: The police found evidence at the crime scene.
+- word: exactly
+  part_of_speech: adverb
+  definition: In a precise or accurate manner.
+  example_sentence: He knew exactly what to say during the meeting.
+- word: example
+  part_of_speech: noun
+  definition: A thing characteristic of its kind or illustrating a general rule.
+  example_sentence: She gave an example to explain the concept.
+- word: executive
+  part_of_speech: noun
+  definition: A person with senior managerial responsibility in an organization.
+  example_sentence: The executive made key decisions for the company.
+- word: exist
+  part_of_speech: verb
+  definition: To have reality or being.
+  example_sentence: Many species no longer exist due to extinction.
+- word: expect
+  part_of_speech: verb
+  definition: To believe something will happen or to look forward to it.
+  example_sentence: They expect to finish the project by Friday.
+- word: experience
+  part_of_speech: noun
+  definition: Knowledge or skill gained through involvement in something.
+  example_sentence: Her experience in teaching helped her manage the class.
+- word: expert
+  part_of_speech: noun
+  definition: A person with extensive knowledge or skill in a particular area.
+  example_sentence: The expert gave advice on cybersecurity.
+- word: explain
+  part_of_speech: verb
+  definition: To make something understandable by describing it in detail.
+  example_sentence: She explained the rules of the game clearly.
+- word: eye
+  part_of_speech: noun
+  definition: The organ of sight or a point of view.
+  example_sentence: He has a sharp eye for detail.
