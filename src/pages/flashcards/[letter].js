@@ -3,6 +3,7 @@ import { getAvailableLetters, getWordsByLetter } from '../../lib/data';
 import Flashcard from '../../components/Flashcard';
 
 export default function Flashcards({ letter, words }) {
+  console.log('Flashcards rendered for letter:', letter, 'with words:', words.length);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextCard = () => {
@@ -45,21 +46,39 @@ export default function Flashcards({ letter, words }) {
 }
 
 export async function getStaticPaths() {
-  const letters = getAvailableLetters();
-  console.log('Generated paths for letters:', letters);
-  const paths = letters.map((letter) => ({
-    params: { letter },
-  }));
-  return {
-    paths,
-    fallback: false,
-  };
+  console.log('Running getStaticPaths');
+  try {
+    const letters = getAvailableLetters();
+    console.log('Generated paths for letters:', letters);
+    const paths = letters.map((letter) => ({
+      params: { letter },
+    }));
+    return {
+      paths,
+      fallback: false,
+    };
+  } catch (error) {
+    console.error('getStaticPaths error:', error);
+    return {
+      paths: [],
+      fallback: false,
+    };
+  }
 }
 
 export async function getStaticProps({ params }) {
-  const { letter } = params;
-  const words = getWordsByLetter(letter);
-  return {
-    props: { letter, words },
-  };
+  console.log('Running getStaticProps for letter:', params.letter);
+  try {
+    const { letter } = params;
+    const words = getWordsByLetter(letter);
+    console.log(`getStaticProps words for ${letter}:`, words.length);
+    return {
+      props: { letter, words },
+    };
+  } catch (error) {
+    console.error('getStaticProps error:', error);
+    return {
+      props: { letter: params.letter, words: [] },
+    };
+  }
 }
