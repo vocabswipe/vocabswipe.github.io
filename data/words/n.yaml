@@ -1,0 +1,105 @@
+yaml
+- word: name
+  part_of_speech: noun
+  definition: A word or set of words by which a person or thing is known.
+  example_sentence: She wrote her name on the top of the paper.
+- word: nation
+  part_of_speech: noun
+  definition: A large group of people united by common culture or government.
+  example_sentence: The nation celebrated its independence day.
+- word: national
+  part_of_speech: adjective
+  definition: Relating to or characteristic of a nation.
+  example_sentence: The national anthem was played before the game.
+- word: natural
+  part_of_speech: adjective
+  definition: Existing in or derived from nature; not artificial.
+  example_sentence: The park is known for its natural beauty.
+- word: nature
+  part_of_speech: noun
+  definition: The physical world and everything in it, or the essential character of something.
+  example_sentence: She loves spending time in nature.
+- word: near
+  part_of_speech: preposition
+  definition: Close to in distance, time, or relationship.
+  example_sentence: The store is near the train station.
+- word: nearly
+  part_of_speech: adverb
+  definition: Almost or not quite.
+  example_sentence: They nearly missed their flight due to traffic.
+- word: necessary
+  part_of_speech: adjective
+  definition: Required or essential for a purpose.
+  example_sentence: Water is necessary for survival.
+- word: need
+  part_of_speech: verb
+  definition: To require something because it is essential or important.
+  example_sentence: I need to finish my homework tonight.
+- word: network
+  part_of_speech: noun
+  definition: A system of interconnected people or things, often for communication.
+  example_sentence: The company upgraded its computer network.
+- word: never
+  part_of_speech: adverb
+  definition: At no time or not ever.
+  example_sentence: She has never been to Europe.
+- word: new
+  part_of_speech: adjective
+  definition: Recently created, discovered, or not previously experienced.
+  example_sentence: He bought a new phone yesterday.
+- word: news
+  part_of_speech: noun
+  definition: Newly received or noteworthy information, especially about recent events.
+  example_sentence: The news reported a storm approaching the coast.
+- word: next
+  part_of_speech: adjective
+  definition: Coming immediately after the present one in time or sequence.
+  example_sentence: The next train arrives in ten minutes.
+- word: nice
+  part_of_speech: adjective
+  definition: Pleasant, agreeable, or attractive.
+  example_sentence: They had a nice time at the party.
+- word: night
+  part_of_speech: noun
+  definition: The time between evening and morning when it is dark.
+  example_sentence: The stars were bright last night.
+- word: no
+  part_of_speech: determiner
+  definition: Used to give a negative response or indicate absence.
+  example_sentence: There is no milk left in the fridge.
+- word: none
+  part_of_speech: pronoun
+  definition: Not any or not one of a group.
+  example_sentence: None of the books were available at the library.
+- word: nor
+  part_of_speech: conjunction
+  definition: Used to introduce a further negative statement.
+  example_sentence: She doesn’t like coffee, nor does she drink tea.
+- word: north
+  part_of_speech: noun
+  definition: The direction toward the point opposite the south.
+  example_sentence: They traveled north to visit their family.
+- word: not
+  part_of_speech: adverb
+  definition: Used to express negation or denial.
+  example_sentence: He is not coming to the meeting today.
+- word: note
+  part_of_speech: noun
+  definition: A brief written record or a tone in music.
+  example_sentence: She took a note during the lecture.
+- word: nothing
+  part_of_speech: pronoun
+  definition: Not anything; no single thing.
+  example_sentence: There was nothing to eat in the house.
+- word: notice
+  part_of_speech: verb
+  definition: To become aware of or observe something.
+  example_sentence: Did you notice the new painting on the wall?
+- word: now
+  part_of_speech: adverb
+  definition: At the present time or moment.
+  example_sentence: I’m busy now, but I’ll call you later.
+- word: number
+  part_of_speech: noun
+  definition: A mathematical value or an amount of something.
+  example_sentence: The number of students in the class is twenty.
