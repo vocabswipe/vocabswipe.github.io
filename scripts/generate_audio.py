@@ -23,18 +23,38 @@ def generate_tts_audio(word, output_file, voice="en-US"):
         return False
 
 # Configuration
-# Resolve paths relative to the project root (two levels up from scripts/)
-PROJECT_ROOT = Path(__file__).parent.parent
+# Resolve project root as an absolute path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+# Fallback: Hard-code project root if needed (uncomment and set if issues persist)
+# PROJECT_ROOT = Path(r"D:\vocabswipe.github.io")
 YAML_DIR = PROJECT_ROOT / "data" / "words"
 AUDIO_DIR = PROJECT_ROOT / "public" / "audio"
 LETTERS = "abcdefghijklmnopqrstuvwxyz"
 
-# Setup logging (console only, no log file)
+# Setup logging (console only)
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
     handlers=[logging.StreamHandler()]
 )
+
+def validate_yaml_dir():
+    """Validate that the YAML directory exists and list its contents for debugging."""
+    if not YAML_DIR.exists():
+        logging.error(f"YAML directory does not exist: {YAML_DIR}")
+        return False
+    if not YAML_DIR.is_dir():
+        logging.error(f"YAML directory is not a directory: {YAML_DIR}")
+        return False
+    
+    # List .yaml files for debugging
+    yaml_files = list(YAML_DIR.glob("*.yaml"))
+    if not yaml_files:
+        logging.warning(f"No .yaml files found in {YAML_DIR}")
+    else:
+        logging.info(f"Found {len(yaml_files)} .yaml files in {YAML_DIR}: {[f.name for f in yaml_files]}")
+    
+    return True
 
 def load_yaml_files():
     """Load all .yaml files and collect word entries with their source letter."""
@@ -152,6 +172,11 @@ def main():
     logging.info(f"Project root: {PROJECT_ROOT}")
     logging.info(f"YAML directory: {YAML_DIR}")
     logging.info(f"Audio directory: {AUDIO_DIR}")
+
+    # Validate YAML directory
+    if not validate_yaml_dir():
+        logging.error("Cannot proceed due to YAML directory issues. Exiting.")
+        return
 
     # Ensure audio directories exist
     ensure_audio_directories()
