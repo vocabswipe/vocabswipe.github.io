@@ -1,176 +1,420 @@
-- word: dark
-  part_of_speech: adjective
-  definition: Having little or no light or a deep color.
-  example_sentence: The room was dark after the power went out.
-- word: data
-  part_of_speech: noun
-  definition: Facts or information used for analysis or decision-making.
-  example_sentence: The scientist collected data for the experiment.
-- word: daughter
-  part_of_speech: noun
-  definition: A female child in relation to her parents.
-  example_sentence: Her daughter loves to read adventure books.
-- word: day
-  part_of_speech: noun
-  definition: A period of 24 hours or the time when it is light outside.
-  example_sentence: They spent the day hiking in the mountains.
-- word: deal
-  part_of_speech: verb
-  definition: To handle or negotiate an agreement.
-  example_sentence: She made a deal to sell her old car.
-- word: death
-  part_of_speech: noun
-  definition: The end of life for a person or organism.
-  example_sentence: The news of his death shocked the community.
-- word: debate
-  part_of_speech: noun
-  definition: A formal discussion or argument on a topic.
-  example_sentence: The candidates participated in a debate before the election.
-- word: decade
-  part_of_speech: noun
-  definition: A period of ten years.
-  example_sentence: The city has changed a lot over the past decade.
-- word: decide
-  part_of_speech: verb
-  definition: To make a choice or judgment after consideration.
-  example_sentence: They decided to move to a new city.
-- word: decision
-  part_of_speech: noun
-  definition: A conclusion reached after considering options.
-  example_sentence: Her decision to study abroad was life-changing.
-- word: deep
-  part_of_speech: adjective
-  definition: Extending far down or having great meaning.
-  example_sentence: The lake was too deep to swim in safely.
-- word: defense
-  part_of_speech: noun
-  definition: Protection against attack or the act of defending in court.
-  example_sentence: The lawyer built a strong defense for her client.
-- word: degree
-  part_of_speech: noun
-  definition: A unit of measurement or an academic qualification.
-  example_sentence: She earned a degree in computer science.
-- word: Democrat
-  part_of_speech: noun
-  definition: A member of the Democratic Party in the United States.
-  example_sentence: The Democrat proposed a new healthcare plan.
-- word: democratic
-  part_of_speech: adjective
-  definition: Relating to or supporting democracy.
-  example_sentence: The country holds democratic elections every four years.
-- word: describe
-  part_of_speech: verb
-  definition: To give details about something or someone.
-  example_sentence: He described the sunset as breathtaking.
-- word: design
-  part_of_speech: verb
-  definition: To plan or create something with a specific purpose.
-  example_sentence: She designed a new logo for the company.
-- word: despite
-  part_of_speech: preposition
-  definition: In spite of; regardless of.
-  example_sentence: Despite the rain, they continued the game.
-- word: detail
-  part_of_speech: noun
-  definition: A small part or piece of information.
-  example_sentence: She included every detail in her report.
-- word: determine
-  part_of_speech: verb
-  definition: To decide or establish something definitively.
-  example_sentence: The test results will determine her next steps.
-- word: develop
-  part_of_speech: verb
-  definition: To grow, improve, or create something.
-  example_sentence: They plan to develop a new software application.
-- word: development
-  part_of_speech: noun
-  definition: The process of growing or creating something.
-  example_sentence: The development of the park took two years.
-- word: die
-  part_of_speech: verb
-  definition: To stop living or cease to exist.
-  example_sentence: The plant will die without water.
-- word: difference
-  part_of_speech: noun
-  definition: The way in which two or more things are not the same.
-  example_sentence: There’s a big difference between the two plans.
-- word: different
-  part_of_speech: adjective
-  definition: Not the same as another or each other.
-  example_sentence: Each student has a different learning style.
-- word: difficult
-  part_of_speech: adjective
-  definition: Hard to do, understand, or deal with.
-  example_sentence: The math problem was difficult to solve.
-- word: dinner
-  part_of_speech: noun
-  definition: The main meal of the day, usually eaten in the evening.
-  example_sentence: They had chicken and rice for dinner.
-- word: direction
-  part_of_speech: noun
-  definition: The course along which something moves or a way of managing.
-  example_sentence: Follow the direction of the arrows to the exit.
-- word: director
-  part_of_speech: noun
-  definition: A person who manages or leads an organization or project.
-  example_sentence: The director of the museum gave a speech.
-- word: discover
-  part_of_speech: verb
-  definition: To find or learn something for the first time.
-  example_sentence: She discovered a new species of fish.
-- word: discuss
-  part_of_speech: verb
-  definition: To talk about something with others to share ideas.
-  example_sentence: They met to discuss the project timeline.
-- word: discussion
-  part_of_speech: noun
-  definition: A conversation or debate about a topic.
-  example_sentence: The discussion about the new policy lasted hours.
-- word: disease
-  part_of_speech: noun
-  definition: An illness or medical condition affecting the body.
-  example_sentence: Scientists are researching a cure for the disease.
-- word: do
-  part_of_speech: verb
-  definition: To perform an action or activity.
-  example_sentence: She will do her homework after school.
-- word: doctor
-  part_of_speech: noun
-  definition: A medical professional who treats illnesses.
-  example_sentence: The doctor prescribed medicine for her cold.
-- word: dog
-  part_of_speech: noun
-  definition: A common domestic animal often kept as a pet.
-  example_sentence: The dog barked at the mail carrier.
-- word: door
-  part_of_speech: noun
-  definition: A movable barrier used to open or close an entrance.
-  example_sentence: She knocked on the door before entering.
-- word: down
-  part_of_speech: preposition
-  definition: Toward a lower place or position.
-  example_sentence: The ball rolled down the hill.
-- word: draw
-  part_of_speech: verb
-  definition: To create a picture or pull something toward oneself.
-  example_sentence: She loves to draw landscapes with pencils.
-- word: dream
-  part_of_speech: noun
-  definition: A series of thoughts or images during sleep or an ambition.
-  example_sentence: Her dream is to travel the world.
-- word: drive
-  part_of_speech: verb
-  definition: To operate a vehicle or push something forward.
-  example_sentence: He learned to drive a car last summer.
-- word: drop
-  part_of_speech: verb
-  definition: To let something fall or decrease.
-  example_sentence: Be careful not to drop the glass.
-- word: drug
-  part_of_speech: noun
-  definition: A substance used as medicine or illegally for recreation.
-  example_sentence: The doctor prescribed a drug for her infection.
-- word: during
-  part_of_speech: preposition
-  definition: Throughout the time of an event or period.
-  example_sentence: She read a book during the flight.
+- word: "damp"
+  part_of_speech: "adjective"
+  definition: "Slightly wet or moist."
+  example_sentence: "The damp clothes took hours to dry."
+- word: "dangle"
+  part_of_speech: "verb"
+  definition: "To hang loosely or swing."
+  example_sentence: "The keys dangled from the chain."
+- word: "dare"
+  part_of_speech: "verb"
+  definition: "To have the courage to do something."
+  example_sentence: "She dared to challenge the professor’s theory."
+- word: "daunt"
+  part_of_speech: "verb"
+  definition: "To intimidate or discourage."
+  example_sentence: "The difficult exam did not daunt her."
+- word: "dawn"
+  part_of_speech: "noun"
+  definition: "The beginning or first light of day."
+  example_sentence: "The dawn of the digital age transformed communication."
+- word: "daze"
+  part_of_speech: "verb"
+  definition: "To stun or confuse."
+  example_sentence: "The bright lights dazed the performer."
+- word: "debate"
+  part_of_speech: "noun"
+  definition: "A formal discussion on a topic."
+  example_sentence: "The debate focused on environmental policies."
+- word: "debris"
+  part_of_speech: "noun"
+  definition: "Scattered fragments or remains."
+  example_sentence: "Debris from the storm littered the streets."
+- word: "decade"
+  part_of_speech: "noun"
+  definition: "A period of ten years."
+  example_sentence: "The city changed dramatically over a decade."
+- word: "deceive"
+  part_of_speech: "verb"
+  definition: "To mislead or trick."
+  example_sentence: "The advertisement deceived customers about the product."
+- word: "decipher"
+  part_of_speech: "verb"
+  definition: "To decode or interpret."
+  example_sentence: "Archaeologists deciphered the ancient script."
+- word: "declare"
+  part_of_speech: "verb"
+  definition: "To announce formally or state."
+  example_sentence: "The government declared a state of emergency."
+- word: "decline"
+  part_of_speech: "verb"
+  definition: "To decrease or refuse."
+  example_sentence: "She declined the invitation due to prior commitments."
+- word: "decompose"
+  part_of_speech: "verb"
+  definition: "To break down into simpler parts."
+  example_sentence: "Organic matter decomposes in the compost pile."
+- word: "decorate"
+  part_of_speech: "verb"
+  definition: "To adorn or embellish."
+  example_sentence: "They decorated the hall for the festival."
+- word: "dedicate"
+  part_of_speech: "verb"
+  definition: "To commit to a purpose or cause."
+  example_sentence: "She dedicated her life to scientific research."
+- word: "deduce"
+  part_of_speech: "verb"
+  definition: "To infer from evidence."
+  example_sentence: "Detectives deduced the suspect’s motive."
+- word: "deem"
+  part_of_speech: "verb"
+  definition: "To consider or judge."
+  example_sentence: "The project was deemed a success by the committee."
+- word: "default"
+  part_of_speech: "noun"
+  definition: "A failure to meet an obligation."
+  example_sentence: "The company faced default on its loan payments."
+- word: "defect"
+  part_of_speech: "noun"
+  definition: "An imperfection or flaw."
+  example_sentence: "The product was recalled due to a defect."
+- word: "defend"
+  part_of_speech: "verb"
+  definition: "To protect from harm or criticism."
+  example_sentence: "The lawyer defended her client in court."
+- word: "defer"
+  part_of_speech: "verb"
+  definition: "To delay or postpone."
+  example_sentence: "They deferred the meeting to next week."
+- word: "deficient"
+  part_of_speech: "adjective"
+  definition: "Lacking or inadequate."
+  example_sentence: "The diet was deficient in essential nutrients."
+- word: "define"
+  part_of_speech: "verb"
+  definition: "To explain the meaning of something."
+  example_sentence: "The dictionary defines the word clearly."
+- word: "definite"
+  part_of_speech: "adjective"
+  definition: "Clearly stated or certain."
+  example_sentence: "She gave a definite answer to the question."
+- word: "deflect"
+  part_of_speech: "verb"
+  definition: "To turn aside or redirect."
+  example_sentence: "He deflected the criticism with humor."
+- word: "deform"
+  part_of_speech: "verb"
+  definition: "To distort or misshape."
+  example_sentence: "The heat deformed the plastic container."
+- word: "defy"
+  part_of_speech: "verb"
+  definition: "To resist or challenge openly."
+  example_sentence: "The rebels defied the government’s orders."
+- word: "degrade"
+  part_of_speech: "verb"
+  definition: "To lower in quality or dignity."
+  example_sentence: "Pollution degraded the river’s ecosystem."
+- word: "delegate"
+  part_of_speech: "verb"
+  definition: "To assign a task to another."
+  example_sentence: "The manager delegated the project to her team."
+- word: "deliberate"
+  part_of_speech: "adjective"
+  definition: "Done intentionally or carefully."
+  example_sentence: "Her deliberate approach ensured accuracy."
+- word: "delicate"
+  part_of_speech: "adjective"
+  definition: "Fragile or easily damaged."
+  example_sentence: "The delicate vase required careful handling."
+- word: "delight"
+  part_of_speech: "noun"
+  definition: "Great pleasure or joy."
+  example_sentence: "The performance was a delight to watch."
+- word: "delineate"
+  part_of_speech: "verb"
+  definition: "To describe or outline precisely."
+  example_sentence: "The report delineated the project’s goals."
+- word: "deliver"
+  part_of_speech: "verb"
+  definition: "To bring or hand over."
+  example_sentence: "The courier delivered the package on time."
+- word: "delude"
+  part_of_speech: "verb"
+  definition: "To deceive or mislead."
+  example_sentence: "He deluded himself into believing he could win."
+- word: "demand"
+  part_of_speech: "noun"
+  definition: "A strong request or need."
+  example_sentence: "The demand for renewable energy is growing."
+- word: "demeanor"
+  part_of_speech: "noun"
+  definition: "Behavior or outward manner."
+  example_sentence: "Her calm demeanor impressed the interviewer."
+- word: "demise"
+  part_of_speech: "noun"
+  definition: "The end or death of something."
+  example_sentence: "The demise of the factory affected the town."
+- word: "demolish"
+  part_of_speech: "verb"
+  definition: "To destroy or tear down."
+  example_sentence: "The old building was demolished to make way for a park."
+- word: "demonstrate"
+  part_of_speech: "verb"
+  definition: "To show or prove clearly."
+  example_sentence: "The experiment demonstrated the hypothesis."
+- word: "denote"
+  part_of_speech: "verb"
+  definition: "To indicate or represent."
+  example_sentence: "The symbol denotes danger."
+- word: "dense"
+  part_of_speech: "adjective"
+  definition: "Closely packed or complex."
+  example_sentence: "The dense forest was difficult to navigate."
+- word: "deny"
+  part_of_speech: "verb"
+  definition: "To refuse or contradict."
+  example_sentence: "He denied the accusations against him."
+- word: "depart"
+  part_of_speech: "verb"
+  definition: "To leave or set out."
+  example_sentence: "The train departed from the station on time."
+- word: "depend"
+  part_of_speech: "verb"
+  definition: "To rely on something."
+  example_sentence: "The project’s success depends on funding."
+- word: "depict"
+  part_of_speech: "verb"
+  definition: "To represent or describe."
+  example_sentence: "The painting depicts a serene landscape."
+- word: "deplete"
+  part_of_speech: "verb"
+  definition: "To reduce or use up."
+  example_sentence: "Overfishing depleted the ocean’s resources."
+- word: "deploy"
+  part_of_speech: "verb"
+  definition: "To position or use effectively."
+  example_sentence: "The army deployed troops to the border."
+- word: "deport"
+  part_of_speech: "verb"
+  definition: "To expel from a country."
+  example_sentence: "The government deported the illegal immigrants."
+- word: "deposit"
+  part_of_speech: "noun"
+  definition: "A sum of money placed in an account."
+  example_sentence: "She made a deposit into her savings account."
+- word: "deprive"
+  part_of_speech: "verb"
+  definition: "To take away or withhold."
+  example_sentence: "Lack of sleep deprived him of focus."
+- word: "derive"
+  part_of_speech: "verb"
+  definition: "To obtain or originate from."
+  example_sentence: "The word derives from Latin roots."
+- word: "descend"
+  part_of_speech: "verb"
+  definition: "To move downward."
+  example_sentence: "The hikers descended the steep trail."
+- word: "describe"
+  part_of_speech: "verb"
+  definition: "To give an account of something."
+  example_sentence: "She described the scene in vivid detail."
+- word: "deserve"
+  part_of_speech: "verb"
+  definition: "To be worthy of something."
+  example_sentence: "Her efforts deserved recognition."
+- word: "design"
+  part_of_speech: "noun"
+  definition: "A plan or pattern."
+  example_sentence: "The design of the building was innovative."
+- word: "desolate"
+  part_of_speech: "adjective"
+  definition: "Barren or deserted."
+  example_sentence: "The desolate island had no inhabitants."
+- word: "despair"
+  part_of_speech: "noun"
+  definition: "A state of hopelessness."
+  example_sentence: "He felt despair after failing the exam."
+- word: "despise"
+  part_of_speech: "verb"
+  definition: "To strongly dislike or scorn."
+  example_sentence: "She despised dishonesty in any form."
+- word: "destiny"
+  part_of_speech: "noun"
+  definition: "A predetermined course of events."
+  example_sentence: "He believed hard work shaped his destiny."
+- word: "deter"
+  part_of_speech: "verb"
+  definition: "To discourage or prevent."
+  example_sentence: "High costs deterred them from traveling."
+- word: "deteriorate"
+  part_of_speech: "verb"
+  definition: "To become worse over time."
+  example_sentence: "The building deteriorated due to neglect."
+- word: "determine"
+  part_of_speech: "verb"
+  definition: "To decide or establish."
+  example_sentence: "Tests will determine the cause of the issue."
+- word: "detriment"
+  part_of_speech: "noun"
+  definition: "Harm or disadvantage."
+  example_sentence: "Skipping meals is a detriment to health."
+- word: "devastate"
+  part_of_speech: "verb"
+  definition: "To destroy or overwhelm."
+  example_sentence: "The hurricane devastated the coastal town."
+- word: "deviate"
+  part_of_speech: "verb"
+  definition: "To depart from a standard or path."
+  example_sentence: "The project deviated from its original plan."
+- word: "device"
+  part_of_speech: "noun"
+  definition: "A tool or mechanism."
+  example_sentence: "The device improved communication efficiency."
+- word: "devise"
+  part_of_speech: "verb"
+  definition: "To plan or invent."
+  example_sentence: "They devised a strategy to increase sales."
+- word: "devote"
+  part_of_speech: "verb"
+  definition: "To dedicate time or effort."
+  example_sentence: "She devoted her weekends to studying."
+- word: "diagnose"
+  part_of_speech: "verb"
+  definition: "To identify a condition or problem."
+  example_sentence: "The doctor diagnosed the patient with flu."
+- word: "dictate"
+  part_of_speech: "verb"
+  definition: "To prescribe or command."
+  example_sentence: "The rules dictate strict compliance."
+- word: "differ"
+  part_of_speech: "verb"
+  definition: "To be unlike or distinct."
+  example_sentence: "Their opinions differ on the issue."
+- word: "diffuse"
+  part_of_speech: "verb"
+  definition: "To spread or scatter widely."
+  example_sentence: "The fragrance diffused throughout the room."
+- word: "digest"
+  part_of_speech: "verb"
+  definition: "To process or understand."
+  example_sentence: "It took time to digest the complex information."
+- word: "digital"
+  part_of_speech: "adjective"
+  definition: "Relating to electronic technology."
+  example_sentence: "Digital tools enhanced the classroom experience."
+- word: "dilemma"
+  part_of_speech: "noun"
+  definition: "A difficult choice between options."
+  example_sentence: "She faced a dilemma about her career path."
+- word: "diligent"
+  part_of_speech: "adjective"
+  definition: "Hardworking and careful."
+  example_sentence: "The diligent student earned top grades."
+- word: "diminish"
+  part_of_speech: "verb"
+  definition: "To reduce or lessen."
+  example_sentence: "The resources diminished over time."
+- word: "diplomatic"
+  part_of_speech: "adjective"
+  definition: "Tactful in dealing with others."
+  example_sentence: "His diplomatic response avoided conflict."
+- word: "dire"
+  part_of_speech: "adjective"
+  definition: "Extremely serious or urgent."
+  example_sentence: "The region faced dire consequences from the drought."
+- word: "discard"
+  part_of_speech: "verb"
+  definition: "To throw away or abandon."
+  example_sentence: "They discarded outdated equipment."
+- word: "discern"
+  part_of_speech: "verb"
+  definition: "To perceive or recognize."
+  example_sentence: "She discerned a pattern in the data."
+- word: "discharge"
+  part_of_speech: "verb"
+  definition: "To release or dismiss."
+  example_sentence: "The hospital discharged the patient."
+- word: "discipline"
+  part_of_speech: "noun"
+  definition: "Training to ensure proper behavior."
+  example_sentence: "Discipline is essential for academic success."
+- word: "disclose"
+  part_of_speech: "verb"
+  definition: "To reveal or make known."
+  example_sentence: "The company disclosed its financial results."
+- word: "discord"
+  part_of_speech: "noun"
+  definition: "Lack of agreement or harmony."
+  example_sentence: "Discord among team members delayed progress."
+- word: "discount"
+  part_of_speech: "verb"
+  definition: "To disregard or reduce in value."
+  example_sentence: "Scientists discounted the flawed study."
+- word: "discourse"
+  part_of_speech: "noun"
+  definition: "Written or spoken communication."
+  example_sentence: "The lecture was a discourse on philosophy."
+- word: "discover"
+  part_of_speech: "verb"
+  definition: "To find or learn something new."
+  example_sentence: "Researchers discovered a new species."
+- word: "discreet"
+  part_of_speech: "adjective"
+  definition: "Careful to avoid attention."
+  example_sentence: "She was discreet about her plans."
+- word: "discrepancy"
+  part_of_speech: "noun"
+  definition: "A difference or inconsistency."
+  example_sentence: "The discrepancy in the data raised questions."
+- word: "discriminate"
+  part_of_speech: "verb"
+  definition: "To make a distinction or treat unfairly."
+  example_sentence: "Laws prohibit employers from discriminating."
+- word: "discuss"
+  part_of_speech: "verb"
+  definition: "To talk about or examine."
+  example_sentence: "The panel discussed climate change solutions."
+- word: "disdain"
+  part_of_speech: "noun"
+  definition: "A feeling of contempt or scorn."
+  example_sentence: "He showed disdain for the outdated methods."
+- word: "disguise"
+  part_of_speech: "verb"
+  definition: "To conceal or alter appearance."
+  example_sentence: "She disguised her voice during the call."
+- word: "disintegrate"
+  part_of_speech: "verb"
+  definition: "To break into small parts."
+  example_sentence: "The old manuscript disintegrated when touched."
+- word: "dismal"
+  part_of_speech: "adjective"
+  definition: "Gloomy or depressing."
+  example_sentence: "The dismal weather canceled the picnic."
+- word: "dismiss"
+  part_of_speech: "verb"
+  definition: "To reject or send away."
+  example_sentence: "The judge dismissed the case for lack of evidence."
+- word: "disorder"
+  part_of_speech: "noun"
+  definition: "A state of confusion or illness."
+  example_sentence: "The disorder in the classroom disrupted learning."
+- word: "disparity"
+  part_of_speech: "noun"
+  definition: "A significant difference."
+  example_sentence: "The disparity in income levels was evident."
+- word: "dispatch"
+  part_of_speech: "verb"
+  definition: "To send off quickly."
+  example_sentence: "The company dispatched the order immediately."
+- word: "disperse"
+  part_of_speech: "verb"
+  definition: "To scatter or spread widely."
+  example_sentence: "The crowd dispersed after the event."
+- word: "displace"
+  part_of_speech: "verb"
+  definition: "To move from its usual place."
+  example_sentence: "The war displaced thousands of families."
+- word: "display"
+  part_of_speech: "verb"
+  definition: "To show or exhibit."
+  example_sentence: "The museum displayed ancient artifacts."
