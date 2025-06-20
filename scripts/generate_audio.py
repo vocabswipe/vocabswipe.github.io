@@ -10,15 +10,16 @@ from gtts import gTTS
 def generate_tts_audio(word, output_file, voice="en-us"):
     """
     Generate audio using Google Text-to-Speech (gTTS) for American English.
-    Saves the audio as an MP3 file.
+    Saves the audio as an MP3 file, overwriting if it exists.
     """
     try:
         # Create TTS object with American English
         tts = gTTS(text=word, lang=voice, slow=False)
-        # Save to MP3 file
+        # Save to MP3 file (overwrites if exists)
         tts.save(output_file)
         # Verify file exists and is not empty
         if os.path.exists(output_file) and os.path.getsize(output_file) > 0:
+            logging.debug(f"Generated audio for '{word}' at {output_file}")
             return True
         else:
             logging.error(f"Generated file '{output_file}' is empty or invalid")
@@ -113,28 +114,23 @@ def ensure_audio_directories():
         try:
             os.makedirs(audio_path, exist_ok=True)
         except Exception as e:
-            logging.error(f"Failed to create directory {audio_path}: {str(e)}")
+            logging.error(f"Error creating directory {audio_path}: {e}")
 
 def generate_audio_files(word_entries):
-    """Generate audio files for each word with a progress bar."""
+    """Generate audio files for each word, overwriting existing ones."""
     total_entries = len(word_entries)
     logging.info(f"Processing {total_entries} total entries")
     
     generated = 0
-    skipped = 0
     failed = 0
 
-    with tqdm(total=total_entries, desc="Generating audio", unit="word") as pbar:
+    with tqdm(total=total_entries, desc="Generating audio files", unit="word") as pbar:
         for letter, word in word_entries:
             audio_path = AUDIO_DIR / letter / f"{word}.mp3"
             
-            if audio_path.exists() and audio_path.stat().st_size > 0:
-                skipped += 1
-                pbar.update(1)
-                continue
-
+            # Overwrite existing file
             try:
-                if generate_tts_audio(word, audio_path, voice="en-us"):
+                if generate_tts_audio(word, audio_path, '.'):
                     generated += 1
                 else:
                     failed += 1
@@ -144,13 +140,14 @@ def generate_audio_files(word_entries):
             
             pbar.update(1)
 
-    return generated, skipped, failed
+    return generated, failed
 
 def validate_audio_files(word_entries):
     """Validate that every word has an audio file and no extra audio files exist."""
     missing_audio = []
     extra_audio = []
     empty_audio_dirs = []
+
     word_set = {(letter, word) for letter, word in word_entries}
 
     for letter in LETTERS:
@@ -210,7 +207,7 @@ def main():
         logging.warning(f"Found {len(duplicates)} duplicate words. Please resolve before proceeding.")
 
     # Generate audio files
-    generated, skipped, failed = generate_audio_files(word_entries)
+    generated, failed = generate_audio_files(word_entries)
 
     # Validate audio files
     missing_audio, extra_audio, empty_audio_dirs = validate_audio_files(word_entries)
@@ -219,8 +216,7 @@ def main():
     total_entries = len(word_entries)
     logging.info("\n=== Audio Generation Summary ===")
     logging.info(f"Total entries processed: {total_entries}")
-    logging.info(f"Audio files generated: {generated}")
-    logging.info(f"Audio files skipped (already exist): {skipped}")
+    logging.info(f"Audio files generated (or overwritten): {generated}")
     logging.info(f"Audio generation failures: {failed}")
     logging.info(f"Duplicate words: {len(duplicates)}")
     logging.info(f"Missing audio files: {len(missing_audio)}")
