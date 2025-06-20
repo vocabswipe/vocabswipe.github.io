@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 
-const wordsDir = path.join(process.cwd(), 'data', 'words');
+const wordsDir = path.join(process.cwd(), '..', 'data', 'words');
 
 export function getAvailableLetters() {
   try {
