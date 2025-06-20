@@ -1,216 +1,412 @@
-- word: machine
-  part_of_speech: noun
-  definition: A device that uses energy to perform a task.
-  example_sentence: The factory uses a machine to cut metal.
-- word: magazine
-  part_of_speech: noun
-  definition: A periodical publication or a storage compartment for ammunition.
-  example_sentence: She read a fashion magazine at the salon.
-- word: main
-  part_of_speech: adjective
-  definition: Most important or principal.
-  example_sentence: The main entrance is at the front of the building.
-- word: maintain
-  part_of_speech: verb
-  definition: To keep something in good condition or continue something.
-  example_sentence: He works to maintain the park’s cleanliness.
-- word: major
-  part_of_speech: adjective
-  definition: Significant or important in size or scope.
-  example_sentence: The city faced a major traffic delay today.
-- word: make
-  part_of_speech: verb
-  definition: To create or produce something.
-  example_sentence: She made a cake for the party.
-- word: man
-  part_of_speech: noun
-  definition: An adult male human being.
-  example_sentence: The man helped carry the heavy boxes.
-- word: manage
-  part_of_speech: verb
-  definition: To be in charge of or handle something successfully.
-  example_sentence: She manages a team of ten employees.
-- word: management
-  part_of_speech: noun
-  definition: The process of controlling or organizing something.
-  example_sentence: Good management is key to a successful business.
-- word: manager
-  part_of_speech: noun
-  definition: A person responsible for controlling or administering an organization.
-  example_sentence: The manager approved the new project plan.
-- word: many
-  part_of_speech: determiner
-  definition: A large number of people or things.
-  example_sentence: Many students attended the lecture.
-- word: market
-  part_of_speech: noun
-  definition: A place where goods are bought and sold or a demand for a product.
-  example_sentence: She bought fresh vegetables at the market.
-- word: marriage
-  part_of_speech: noun
-  definition: The legal or formal union of two people as partners.
-  example_sentence: Their marriage was celebrated with a big party.
-- word: material
-  part_of_speech: noun
-  definition: The substance used to make something or information for a purpose.
-  example_sentence: The dress was made from soft material.
-- word: matter
-  part_of_speech: noun
-  definition: A subject or situation under consideration or physical substance.
-  example_sentence: The matter was discussed during the meeting.
-- word: may
-  part_of_speech: verb
-  definition: Expressing possibility or permission.
-  example_sentence: You may leave the room after the exam.
-- word: maybe
-  part_of_speech: adverb
-  definition: Possibly; perhaps.
-  example_sentence: Maybe we’ll go to the beach tomorrow.
-- word: me
-  part_of_speech: pronoun
-  definition: The objective form of the pronoun referring to oneself.
-  example_sentence: She gave me a book to read.
-- word: mean
-  part_of_speech: verb
-  definition: To intend to convey or indicate something.
-  example_sentence: What did you mean by that comment?
-- word: measure
-  part_of_speech: verb
-  definition: To determine the size, amount, or degree of something.
-  example_sentence: He measured the room before buying furniture.
-- word: media
-  part_of_speech: noun
-  definition: The means of communication, such as television or newspapers.
-  example_sentence: The media covered the event extensively.
-- word: medical
-  part_of_speech: adjective
-  definition: Relating to the science or practice of medicine.
-  example_sentence: She received medical treatment for her injury.
-- word: meet
-  part_of_speech: verb
-  definition: To come into contact or have a meeting with someone.
-  example_sentence: They agreed to meet at the café.
-- word: meeting
-  part_of_speech: noun
-  definition: A gathering of people for discussion or a specific purpose.
-  example_sentence: The team had a meeting to plan the project.
-- word: member
-  part_of_speech: noun
-  definition: A person or thing belonging to a group or organization.
-  example_sentence: She is a member of the book club.
-- word: memory
-  part_of_speech: noun
-  definition: The ability to recall information or experiences.
-  example_sentence: He has a fond memory of his childhood.
-- word: mention
-  part_of_speech: verb
-  definition: To refer to something briefly or casually.
-  example_sentence: She didn’t mention the party to me.
-- word: message
-  part_of_speech: noun
-  definition: A communication sent or received, often in writing or speech.
-  example_sentence: He left a message on her voicemail.
-- word: method
-  part_of_speech: noun
-  definition: A particular way of doing something.
-  example_sentence: They used a new method to solve the problem.
-- word: middle
-  part_of_speech: noun
-  definition: The central point or position between two extremes.
-  example_sentence: She sat in the middle of the room.
-- word: might
-  part_of_speech: verb
-  definition: Expressing possibility or past conditional situations.
-  example_sentence: It might rain this afternoon.
-- word: million
-  part_of_speech: number
-  definition: A number equal to one thousand thousand.
-  example_sentence: The city has a population of over a million.
-- word: mind
-  part_of_speech: noun
-  definition: The part of a person that thinks, feels, and remembers.
-  example_sentence: She made up her mind to study harder.
-- word: minute
-  part_of_speech: noun
-  definition: A unit of time equal to 60 seconds.
-  example_sentence: The meeting started a few minutes late.
-- word: miss
-  part_of_speech: verb
-  definition: To fail to hit, reach, or notice something.
-  example_sentence: Don’t miss the bus or you’ll be late.
-- word: mission
-  part_of_speech: noun
-  definition: An important task or purpose, often involving travel.
-  example_sentence: The team was sent on a rescue mission.
-- word: model
-  part_of_speech: noun
-  definition: A representation or example of something or a person posing for art or fashion.
-  example_sentence: The new car model was unveiled at the show.
-- word: modern
-  part_of_speech: adjective
-  definition: Relating to the present or recent times.
-  example_sentence: The house has a modern design with large windows.
-- word: moment
-  part_of_speech: noun
-  definition: A very brief period of time or a significant point.
-  example_sentence: The moment she walked in, everyone cheered.
-- word: money
-  part_of_speech: noun
-  definition: A medium of exchange for goods and services.
-  example_sentence: He saved money to buy a new phone.
-- word: month
-  part_of_speech: noun
-  definition: A period of time roughly equal to one twelfth of a year.
-  example_sentence: The rent is due at the end of the month.
-- word: more
-  part_of_speech: determiner
-  definition: A greater or additional amount or degree.
-  example_sentence: She needs more time to finish the project.
-- word: morning
-  part_of_speech: noun
-  definition: The time period from midnight to noon.
-  example_sentence: He goes for a run every morning.
-- word: most
-  part_of_speech: determiner
-  definition: The greatest amount or number.
-  example_sentence: Most people enjoy the festival.
-- word: mother
-  part_of_speech: noun
-  definition: A female parent.
-  example_sentence: Her mother taught her how to cook.
-- word: mouth
-  part_of_speech: noun
-  definition: The opening in the face used for eating and speaking.
-  example_sentence: He spoke with food in his mouth.
-- word: move
-  part_of_speech: verb
-  definition: To change position or go from one place to another.
-  example_sentence: They plan to move to a bigger house.
-- word: movement
-  part_of_speech: noun
-  definition: The act of moving or a group working toward a common goal.
-  example_sentence: The environmental movement gained support.
-- word: movie
-  part_of_speech: noun
-  definition: A motion picture or film shown in cinemas or on television.
-  example_sentence: They watched a new movie last night.
-- word: much
-  part_of_speech: determiner
-  definition: A large amount or to a great extent.
-  example_sentence: She didn’t eat much for lunch.
-- word: music
-  part_of_speech: noun
-  definition: Sounds arranged in a way that is pleasant or expressive.
-  example_sentence: She listens to music while studying.
-- word: must
-  part_of_speech: verb
-  definition: To be required or obliged to do something.
-  example_sentence: You must wear a seatbelt while driving.
-- word: my
-  part_of_speech: pronoun
-  definition: Belonging to or associated with the speaker.
-  example_sentence: My dog loves to play fetch.
-- word: myself
-  part_of_speech: pronoun
-  definition: Used by the speaker to refer to themselves as the object of an action.
-  example_sentence: I made dinner for myself tonight.
+- word: "magnificent"
+  part_of_speech: "adjective"
+  definition: "Impressive or splendid."
+  example_sentence: "The magnificent palace attracted many visitors."
+- word: "magnitude"
+  part_of_speech: "noun"
+  definition: "Great size, extent, or importance."
+  example_sentence: "The magnitude of the earthquake was alarming."
+- word: "maintain"
+  part_of_speech: "verb"
+  definition: "To keep in existence or condition."
+  example_sentence: "She maintained her focus during the exam."
+- word: "maintenance"
+  part_of_speech: "noun"
+  definition: "The act of keeping in good condition."
+  example_sentence: "Regular maintenance ensured the machine’s efficiency."
+- word: "major"
+  part_of_speech: "adjective"
+  definition: "Significant or primary."
+  example_sentence: "The major issue was funding shortages."
+- word: "majority"
+  part_of_speech: "noun"
+  definition: "The greater number or part."
+  example_sentence: "The majority of students passed the test."
+- word: "manage"
+  part_of_speech: "verb"
+  definition: "To handle or control."
+  example_sentence: "She managed the project effectively."
+- word: "manifest"
+  part_of_speech: "verb"
+  definition: "To show clearly or make evident."
+  example_sentence: "His enthusiasm manifested in his speech."
+- word: "manipulate"
+  part_of_speech: "verb"
+  definition: "To handle skillfully or influence."
+  example_sentence: "The scientist manipulated the data for clarity."
+- word: "manual"
+  part_of_speech: "adjective"
+  definition: "Operated by hand or involving physical work."
+  example_sentence: "The manual labor was physically demanding."
+- word: "manufacture"
+  part_of_speech: "verb"
+  definition: "To produce goods on a large scale."
+  example_sentence: "The factory manufactures car parts."
+- word: "manuscript"
+  part_of_speech: "noun"
+  definition: "A handwritten or typed document."
+  example_sentence: "The manuscript was submitted for review."
+- word: "margin"
+  part_of_speech: "noun"
+  definition: "The edge or difference."
+  example_sentence: "The company won by a narrow margin."
+- word: "marine"
+  part_of_speech: "adjective"
+  definition: "Relating to the sea."
+  example_sentence: "Marine ecosystems are vital to biodiversity."
+- word: "market"
+  part_of_speech: "noun"
+  definition: "A place or system for buying and selling."
+  example_sentence: "The market for renewable energy is growing."
+- word: "marvel"
+  part_of_speech: "verb"
+  definition: "To be amazed or astonished."
+  example_sentence: "She marveled at the intricate design."
+- word: "mass"
+  part_of_speech: "noun"
+  definition: "A large quantity or body."
+  example_sentence: "The mass of data required analysis."
+- word: "master"
+  part_of_speech: "verb"
+  definition: "To gain proficiency or control."
+  example_sentence: "He mastered the language in two years."
+- word: "material"
+  part_of_speech: "noun"
+  definition: "The substance or matter used in production."
+  example_sentence: "The building used sustainable materials."
+- word: "maternal"
+  part_of_speech: "adjective"
+  definition: "Relating to a mother or motherhood."
+  example_sentence: "Her maternal instincts guided her decisions."
+- word: "mathematical"
+  part_of_speech: "adjective"
+  definition: "Relating to mathematics."
+  example_sentence: "The mathematical model predicted outcomes."
+- word: "mature"
+  part_of_speech: "adjective"
+  definition: "Fully developed or grown."
+  example_sentence: "The mature trees provided ample shade."
+- word: "maximize"
+  part_of_speech: "verb"
+  definition: "To make as large or effective as possible."
+  example_sentence: "They maximized efficiency with new tools."
+- word: "maximum"
+  part_of_speech: "noun"
+  definition: "The greatest amount possible."
+  example_sentence: "The maximum capacity was reached."
+- word: "meager"
+  part_of_speech: "adjective"
+  definition: "Lacking in quantity or quality."
+  example_sentence: "The meager harvest disappointed the farmers."
+- word: "mean"
+  part_of_speech: "noun"
+  definition: "The average or method."
+  example_sentence: "The mean score was calculated for the class."
+- word: "measure"
+  part_of_speech: "verb"
+  definition: "To assess or determine size or quantity."
+  example_sentence: "They measured the room for new furniture."
+- word: "mechanism"
+  part_of_speech: "noun"
+  definition: "A system or device for operation."
+  example_sentence: "The mechanism of the clock was intricate."
+- word: "mediate"
+  part_of_speech: "verb"
+  definition: "To resolve disputes between parties."
+  example_sentence: "She mediated the conflict successfully."
+- word: "medical"
+  part_of_speech: "adjective"
+  definition: "Relating to medicine or health."
+  example_sentence: "The medical team responded quickly."
+- word: "medieval"
+  part_of_speech: "adjective"
+  definition: "Relating to the Middle Ages."
+  example_sentence: "The medieval castle was well-preserved."
+- word: "medium"
+  part_of_speech: "noun"
+  definition: "A means or substance through which something occurs."
+  example_sentence: "The medium of communication was email."
+- word: "meet"
+  part_of_speech: "verb"
+  definition: "To come into contact or fulfill."
+  example_sentence: "They met the project deadline."
+- word: "melody"
+  part_of_speech: "noun"
+  definition: "A sequence of musical notes."
+  example_sentence: "The melody was soothing and memorable."
+- word: "memorable"
+  part_of_speech: "adjective"
+  definition: "Worth remembering or notable."
+  example_sentence: "The speech was memorable for its clarity."
+- word: "memory"
+  part_of_speech: "noun"
+  definition: "The ability to recall or store information."
+  example_sentence: "Her memory of the event was vivid."
+- word: "menace"
+  part_of_speech: "noun"
+  definition: "A threat or danger."
+  example_sentence: "Pollution is a menace to the environment."
+- word: "mental"
+  part_of_speech: "adjective"
+  definition: "Relating to the mind."
+  example_sentence: "Mental health is a critical issue."
+- word: "mention"
+  part_of_speech: "verb"
+  definition: "To refer to briefly."
+  example_sentence: "She mentioned the new policy in her speech."
+- word: "mentor"
+  part_of_speech: "noun"
+  definition: "A trusted advisor or guide."
+  example_sentence: "Her mentor guided her career choices."
+- word: "merge"
+  part_of_speech: "verb"
+  definition: "To combine or blend."
+  example_sentence: "The companies merged to increase profits."
+- word: "merit"
+  part_of_speech: "noun"
+  definition: "Quality or worthiness."
+  example_sentence: "The proposal had considerable merit."
+- word: "method"
+  part_of_speech: "noun"
+  definition: "A procedure or way of doing something."
+  example_sentence: "The scientific method guided their research."
+- word: "meticulous"
+  part_of_speech: "adjective"
+  definition: "Extremely careful and precise."
+  example_sentence: "Her meticulous work earned praise."
+- word: "migrate"
+  part_of_speech: "verb"
+  definition: "To move from one place to another."
+  example_sentence: "Birds migrate seasonally to warmer regions."
+- word: "mild"
+  part_of_speech: "adjective"
+  definition: "Gentle or not severe."
+  example_sentence: "The mild climate suited agriculture."
+- word: "militant"
+  part_of_speech: "adjective"
+  definition: "Aggressive in support of a cause."
+  example_sentence: "The militant group demanded reforms."
+- word: "mimic"
+  part_of_speech: "verb"
+  definition: "To imitate or copy."
+  example_sentence: "The robot mimicked human movements."
+- word: "mind"
+  part_of_speech: "noun"
+  definition: "The faculty of thought or intellect."
+  example_sentence: "Her mind was sharp and analytical."
+- word: "minimize"
+  part_of_speech: "verb"
+  definition: "To reduce to the smallest amount."
+  example_sentence: "They minimized waste through recycling."
+- word: "minimum"
+  part_of_speech: "noun"
+  definition: "The smallest amount possible."
+  example_sentence: "The minimum requirement was met."
+- word: "minor"
+  part_of_speech: "adjective"
+  definition: "Less important or small."
+  example_sentence: "The issue was minor but annoying."
+- word: "minority"
+  part_of_speech: "noun"
+  definition: "The smaller part or group."
+  example_sentence: "A minority of voters opposed the plan."
+- word: "minute"
+  part_of_speech: "adjective"
+  definition: "Extremely small or detailed."
+  example_sentence: "The minute details were carefully examined."
+- word: "miracle"
+  part_of_speech: "noun"
+  definition: "An extraordinary or surprising event."
+  example_sentence: "Her recovery was considered a miracle."
+- word: "mirror"
+  part_of_speech: "verb"
+  definition: "To reflect or resemble."
+  example_sentence: "The results mirrored previous findings."
+- word: "mislead"
+  part_of_speech: "verb"
+  definition: "To deceive or give a wrong idea."
+  example_sentence: "The advertisement misled consumers."
+- word: "mission"
+  part_of_speech: "noun"
+  definition: "A purpose or assigned task."
+  example_sentence: "The mission was to promote education."
+- word: "mistake"
+  part_of_speech: "noun"
+  definition: "An error or misunderstanding."
+  example_sentence: "The mistake was corrected quickly."
+- word: "mitigate"
+  part_of_speech: "verb"
+  definition: "To make less severe or intense."
+  example_sentence: "They mitigated risks with careful planning."
+- word: "mix"
+  part_of_speech: "verb"
+  definition: "To combine or blend."
+  example_sentence: "She mixed the ingredients for the recipe."
+- word: "mobile"
+  part_of_speech: "adjective"
+  definition: "Able to move or be moved."
+  example_sentence: "The mobile app enhanced accessibility."
+- word: "moderate"
+  part_of_speech: "adjective"
+  definition: "Average or not extreme."
+  example_sentence: "The climate was moderate year-round."
+- word: "modern"
+  part_of_speech: "adjective"
+  definition: "Relating to the present or recent times."
+  example_sentence: "The modern design was innovative."
+- word: "modest"
+  part_of_speech: "adjective"
+  definition: "Humble or not excessive."
+  example_sentence: "Her modest approach earned respect."
+- word: "modify"
+  part_of_speech: "verb"
+  definition: "To alter or adjust."
+  example_sentence: "They modified the plan to meet needs."
+- word: "moisture"
+  part_of_speech: "noun"
+  definition: "Water or liquid in small amounts."
+  example_sentence: "The soil retained enough moisture for crops."
+- word: "molecule"
+  part_of_speech: "noun"
+  definition: "The smallest unit of a chemical compound."
+  example_sentence: "The molecule was studied in the lab."
+- word: "momentum"
+  part_of_speech: "noun"
+  definition: "The force or speed of motion."
+  example_sentence: "The campaign gained momentum quickly."
+- word: "monitor"
+  part_of_speech: "verb"
+  definition: "To observe or check regularly."
+  example_sentence: "They monitored the experiment closely."
+- word: "monument"
+  part_of_speech: "noun"
+  definition: "A structure honoring an event or person."
+  example_sentence: "The monument commemorated the war heroes."
+- word: "moral"
+  part_of_speech: "adjective"
+  definition: "Relating to right and wrong."
+  example_sentence: "The decision raised moral questions."
+- word: "motive"
+  part_of_speech: "noun"
+  definition: "A reason for doing something."
+  example_sentence: "Her motive was to help the community."
+- word: "motivate"
+  part_of_speech: "verb"
+  definition: "To inspire or encourage action."
+  example_sentence: "The coach motivated the team to win."
+- word: "mount"
+  part_of_speech: "verb"
+  definition: "To climb or increase."
+  example_sentence: "Tensions mounted during the debate."
+- word: "move"
+  part_of_speech: "verb"
+  definition: "To change position or act."
+  example_sentence: "They moved to improve efficiency."
+- word: "multiple"
+  part_of_speech: "adjective"
+  definition: "Having many parts or instances."
+  example_sentence: "The project had multiple phases."
+- word: "municipal"
+  part_of_speech: "adjective"
+  definition: "Relating to a city or local government."
+  example_sentence: "The municipal council approved the budget."
+- word: "murmur"
+  part_of_speech: "noun"
+  definition: "A soft or low sound."
+  example_sentence: "The murmur of the stream was calming."
+- word: "muscle"
+  part_of_speech: "noun"
+  definition: "Tissue for movement or strength."
+  example_sentence: "Exercise strengthens muscle tissue."
+- word: "museum"
+  part_of_speech: "noun"
+  definition: "A place for preserving artifacts."
+  example_sentence: "The museum displayed ancient relics."
+- word: "music"
+  part_of_speech: "noun"
+  definition: "Art of sound arranged in patterns."
+  example_sentence: "Music enhanced the film’s atmosphere."
+- word: "mutual"
+  part_of_speech: "adjective"
+  definition: "Shared or reciprocal."
+  example_sentence: "They had a mutual respect for each other."
+- word: "myth"
+  part_of_speech: "noun"
+  definition: "A traditional story or false belief."
+  example_sentence: "The myth was debunked by science."
+- word: "magnify"
+  part_of_speech: "verb"
+  definition: "To enlarge or exaggerate."
+  example_sentence: "The lens magnified the tiny details."
+- word: "maiden"
+  part_of_speech: "adjective"
+  definition: "First or initial."
+  example_sentence: "The maiden voyage was a success."
+- word: "mainstream"
+  part_of_speech: "noun"
+  definition: "The dominant trend or culture."
+  example_sentence: "The idea entered the mainstream."
+- word: "malleable"
+  part_of_speech: "adjective"
+  definition: "Easily shaped or influenced."
+  example_sentence: "The malleable material was ideal for sculpting."
+- word: "mandatory"
+  part_of_speech: "adjective"
+  definition: "Required or compulsory."
+  example_sentence: "Attendance was mandatory for the course."
+- word: "maneuver"
+  part_of_speech: "verb"
+  definition: "To move skillfully or strategically."
+  example_sentence: "They maneuvered through the negotiations."
+- word: "mar"
+  part_of_speech: "verb"
+  definition: "To damage or spoil."
+  example_sentence: "The scratch marred the painting."
+- word: "mature"
+  part_of_speech: "verb"
+  definition: "To develop or ripen."
+  example_sentence: "The plan matured over several months."
+- word: "mediate"
+  part_of_speech: "verb"
+  definition: "To act as an intermediary."
+  example_sentence: "He mediated between the opposing sides."
+- word: "mellow"
+  part_of_speech: "adjective"
+  definition: "Soft or relaxed in tone."
+  example_sentence: "The mellow music created a calm mood."
+- word: "merge"
+  part_of_speech: "verb"
+  definition: "To unite or combine."
+  example_sentence: "The rivers merged into one stream."
+- word: "migrate"
+  part_of_speech: "verb"
+  definition: "To relocate periodically."
+  example_sentence: "The workers migrated for seasonal jobs."
+- word: "mimic"
+  part_of_speech: "noun"
+  definition: "A person who imitates."
+  example_sentence: "The mimic replicated the professor’s lecture."
+- word: "monitor"
+  part_of_speech: "noun"
+  definition: "A device or person that observes."
+  example_sentence: "The monitor displayed real-time data."
+- word: "monument"
+  part_of_speech: "noun"
+  definition: "A lasting symbol or tribute."
+  example_sentence: "The monument honored historical figures."
+- word: "motive"
+  part_of_speech: "noun"
+  definition: "An underlying reason."
+  example_sentence: "The motive behind the decision was clear."
+- word: "mundane"
+  part_of_speech: "adjective"
+  definition: "Ordinary or lacking excitement."
+  example_sentence: "The mundane tasks consumed her time."
+- word: "murmur"
+  part_of_speech: "verb"
+  definition: "To speak softly or indistinctly."
+  example_sentence: "They murmured their agreement."
+- word: "mythical"
+  part_of_speech: "adjective"
+  definition: "Based on myth or imaginary."
+  example_sentence: "The mythical creature fascinated the audience."
