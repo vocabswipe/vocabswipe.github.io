@@ -1,456 +1,992 @@
-- word: safe
-  part_of_speech: adjective
-  definition: Free from harm or danger.
-  example_sentence: She felt safe in her home.
-- word: same
-  part_of_speech: adjective
-  definition: Identical or not different.
-  example_sentence: They wore the same color shirt to the event.
-- word: save
-  part_of_speech: verb
-  definition: To keep safe or rescue from harm; to store for future use.
-  example_sentence: He saved money for a new car.
-- word: say
-  part_of_speech: verb
-  definition: To express something in words.
-  example_sentence: She said hello to her neighbor.
-- word: scene
-  part_of_speech: noun
-  definition: A place where an event occurs or a part of a play or movie.
-  example_sentence: The crime scene was carefully examined.
-- word: school
-  part_of_speech: noun
-  definition: An institution for educating children or a group of fish.
-  example_sentence: The children walked to school every morning.
-- word: science
-  part_of_speech: noun
-  definition: The study of the natural world through observation and experiment.
-  example_sentence: She loves learning about science in class.
-- word: scientist
-  part_of_speech: noun
-  definition: A person who studies or works in science.
-  example_sentence: The scientist discovered a new species.
-- word: score
-  part_of_speech: noun
-  definition: The number of points achieved in a game or test.
-  example_sentence: The team’s final score was 3 to 1.
-- word: sea
-  part_of_speech: noun
-  definition: A large body of saltwater.
-  example_sentence: They sailed across the sea to a new land.
-- word: season
-  part_of_speech: noun
-  definition: A division of the year marked by weather or an activity period.
-  example_sentence: Winter is her favorite season.
-- word: seat
-  part_of_speech: noun
-  definition: A place to sit or a position in an organization.
-  example_sentence: She took a seat by the window.
-- word: second
-  part_of_speech: adjective
-  definition: Coming after the first in order or time.
-  example_sentence: He finished in second place in the race.
-- word: section
-  part_of_speech: noun
-  definition: A distinct part or division of something.
-  example_sentence: The book’s final section was the most exciting.
-- word: security
-  part_of_speech: noun
-  definition: The state of being safe or measures to ensure safety.
-  example_sentence: The airport increased security for the holidays.
-- word: see
-  part_of_speech: verb
-  definition: To perceive with the eyes or understand.
-  example_sentence: I can see the stars clearly tonight.
-- word: seek
-  part_of_speech: verb
-  definition: To try to find or obtain something.
-  example_sentence: They seek a solution to the problem.
-- word: seem
-  part_of_speech: verb
-  definition: To give the impression of being something.
-  example_sentence: She seems happy with her new job.
-- word: self
-  part_of_speech: noun
-  definition: A person’s essential being or identity.
-  example_sentence: He focused on improving his self through meditation.
-- word: sell
-  part_of_speech: verb
-  definition: To give something in exchange for money.
-  example_sentence: They plan to sell their old furniture.
-- word: send
-  part_of_speech: verb
-  definition: To cause something to be delivered to a destination.
-  example_sentence: She sent a letter to her friend.
-- word: senior
-  part_of_speech: adjective
-  definition: Older or higher in rank or status.
-  example_sentence: He is a senior member of the team.
-- word: sense
-  part_of_speech: noun
-  definition: A faculty for perceiving or understanding something.
-  example_sentence: Her sense of direction is excellent.
-- word: series
-  part_of_speech: noun
-  definition: A number of things or events arranged in order.
-  example_sentence: They watched a new series on television.
-- word: serious
-  part_of_speech: adjective
-  definition: Important or requiring careful thought; not joking.
-  example_sentence: The doctor described her condition as serious.
-- word: serve
-  part_of_speech: verb
-  definition: To perform duties or provide something for others.
-  example_sentence: She served dinner to the guests.
-- word: service
-  part_of_speech: noun
-  definition: The act of helping or a system supplying a public need.
-  example_sentence: The restaurant provided excellent service.
-- word: set
-  part_of_speech: verb
-  definition: To put in a specific position or arrange something.
-  example_sentence: He set the table for dinner.
-- word: seven
-  part_of_speech: number
-  definition: The number equal to six plus one.
-  example_sentence: There are seven days in a week.
-- word: several
-  part_of_speech: determiner
-  definition: More than two but not many.
-  example_sentence: Several students raised their hands.
-- word: shake
-  part_of_speech: verb
-  definition: To move quickly back and forth or tremble.
-  example_sentence: She shook the bottle before opening it.
-- word: share
-  part_of_speech: verb
-  definition: To divide and distribute or use together.
-  example_sentence: They share an apartment to save money.
-- word: she
-  part_of_speech: pronoun
-  definition: A female person or animal previously mentioned.
-  example_sentence: She went to the park with her dog.
-- word: short
-  part_of_speech: adjective
-  definition: Having little length or duration.
-  example_sentence: The meeting was short and productive.
-- word: shot
-  part_of_speech: noun
-  definition: An attempt or a single discharge of a weapon.
-  example_sentence: He took a shot at the basketball hoop.
-- word: should
-  part_of_speech: verb
-  definition: Used to indicate obligation or probability.
-  example_sentence: You should finish your homework before playing.
-- word: show
-  part_of_speech: verb
-  definition: To display or make something visible.
-  example_sentence: She showed her drawings to the class.
-- word: side
-  part_of_speech: noun
-  definition: A surface or position beside something.
-  example_sentence: The house is on the left side of the street.
-- word: sign
-  part_of_speech: noun
-  definition: A gesture or symbol conveying information.
-  example_sentence: The stop sign was at the intersection.
-- word: significant
-  part_of_speech: adjective
-  definition: Important or having a special meaning.
-  example_sentence: The discovery was significant for science.
-- word: similar
-  part_of_speech: adjective
-  definition: Having a resemblance in appearance or nature.
-  example_sentence: Their houses look very similar.
-- word: simple
-  part_of_speech: adjective
-  definition: Easy to understand or not complicated.
-  example_sentence: The recipe was simple to follow.
-- word: simply
-  part_of_speech: adverb
-  definition: In a straightforward or plain manner.
-  example_sentence: She simply explained the rules.
-- word: since
-  part_of_speech: preposition
-  definition: From a time in the past until now.
-  example_sentence: He’s been working here since last year.
-- word: sing
-  part_of_speech: verb
-  definition: To produce musical sounds with the voice.
-  example_sentence: She loves to sing in the choir.
-- word: single
-  part_of_speech: adjective
-  definition: One only or not married.
-  example_sentence: He bought a single ticket for the movie.
-- word: sister
-  part_of_speech: noun
-  definition: A female sibling.
-  example_sentence: Her sister helped her choose a dress.
-- word: sit
-  part_of_speech: verb
-  definition: To rest with the body supported by the buttocks.
-  example_sentence: They sit at the front of the classroom.
-- word: site
-  part_of_speech: noun
-  definition: A place where something is located or happens.
-  example_sentence: The site of the new school is near the river.
-- word: situation
-  part_of_speech: noun
-  definition: A set of circumstances or a state of affairs.
-  example_sentence: The situation required careful handling.
-- word: six
-  part_of_speech: number
-  definition: The number equal to five plus one.
-  example_sentence: She has six cats at home.
-- word: size
-  part_of_speech: noun
-  definition: The extent or dimensions of something.
-  example_sentence: The shirt was too small for her size.
-- word: skill
-  part_of_speech: noun
-  definition: The ability to do something well, usually gained through training.
-  example_sentence: His cooking skill improved with practice.
-- word: skin
-  part_of_speech: noun
-  definition: The outer covering of the body of a person or animal.
-  example_sentence: She applied lotion to her dry skin.
-- word: small
-  part_of_speech: adjective
-  definition: Little in size or amount.
-  example_sentence: The small house was cozy and warm.
-- word: smile
-  part_of_speech: verb
-  definition: To form an expression of happiness with the mouth.
-  example_sentence: She smiled when she saw her friend.
-- word: so
-  part_of_speech: adverb
-  definition: To such a great extent or therefore.
-  example_sentence: The movie was so exciting that they watched it twice.
-- word: social
-  part_of_speech: adjective
-  definition: Relating to society or interaction with others.
-  example_sentence: She enjoys social events like parties.
-- word: society
-  part_of_speech: noun
-  definition: A community of people living together or sharing interests.
-  example_sentence: Technology has changed modern society.
-- word: soldier
-  part_of_speech: noun
-  definition: A person who serves in an army.
-  example_sentence: The soldier was honored for bravery.
-- word: some
-  part_of_speech: determiner
-  definition: An unspecified amount or number of.
-  example_sentence: She ate some cookies after lunch.
-- word: somebody
-  part_of_speech: pronoun
-  definition: An unspecified person.
-  example_sentence: Somebody left their bag on the bench.
-- word: someone
-  part_of_speech: pronoun
-  definition: An unspecified person.
-  example_sentence: Someone called while you were out.
-- word: something
-  part_of_speech: pronoun
-  definition: An unspecified thing.
-  example_sentence: She felt something was wrong.
-- word: sometimes
-  part_of_speech: adverb
-  definition: Occasionally, but not always.
-  example_sentence: He sometimes walks to work.
-- word: son
-  part_of_speech: noun
-  definition: A male child in relation to his parents.
-  example_sentence: Their son is studying abroad this year.
-- word: song
-  part_of_speech: noun
-  definition: A short musical composition with lyrics.
-  example_sentence: She wrote a song for the talent show.
-- word: soon
-  part_of_speech: adverb
-  definition: In a short time or quickly.
-  example_sentence: The bus will be here soon.
-- word: sort
-  part_of_speech: verb
-  definition: To arrange or classify things into groups.
-  example_sentence: He sorted the clothes by color.
-- word: sound
-  part_of_speech: noun
-  definition: Vibrations that travel through the air and can be heard.
-  example_sentence: The sound of birds woke her up.
-- word: source
-  part_of_speech: noun
-  definition: A place or thing from which something comes.
-  example_sentence: The river is a source of fresh water.
-- word: south
-  part_of_speech: noun
-  definition: The direction opposite to north.
-  example_sentence: They traveled south for warmer weather.
-- word: space
-  part_of_speech: noun
-  definition: An area that is empty or the region beyond Earth’s atmosphere.
-  example_sentence: The room had plenty of space for furniture.
-- word: speak
-  part_of_speech: verb
-  definition: To communicate or express thoughts in spoken words.
-  example_sentence: She speaks three languages fluently.
-- word: special
-  part_of_speech: adjective
-  definition: Better, greater, or different from what is usual.
-  example_sentence: They planned a special dinner for her birthday.
-- word: specific
-  part_of_speech: adjective
-  definition: Clearly defined or particular.
-  example_sentence: He gave specific instructions for the task.
-- word: speech
-  part_of_speech: noun
-  definition: The act of speaking or a formal address.
-  example_sentence: The president delivered a powerful speech.
-- word: spend
-  part_of_speech: verb
-  definition: To use money or time on something.
-  example_sentence: She spent the afternoon reading a book.
-- word: sport
-  part_of_speech: noun
-  definition: An activity involving physical exertion and skill.
-  example_sentence: Soccer is his favorite sport.
-- word: spring
-  part_of_speech: noun
-  definition: The season after winter or a coiled object that stores energy.
-  example_sentence: Flowers bloom beautifully in spring.
-- word: staff
-  part_of_speech: noun
-  definition: The employees of an organization.
-  example_sentence: The staff at the hotel were very friendly.
-- word: stage
-  part_of_speech: noun
-  definition: A point or period in a process or a platform for performances.
-  example_sentence: The play was performed on a large stage.
-- word: stand
-  part_of_speech: verb
-  definition: To be in or rise to an upright position.
-  example_sentence: He stood up to greet the guests.
-- word: standard
-  part_of_speech: noun
-  definition: A level of quality or a rule used as a measure.
-  example_sentence: The product meets high safety standards.
-- word: star
-  part_of_speech: noun
-  definition: A celestial body or a famous performer.
-  example_sentence: The sky was full of stars at night.
-- word: start
-  part_of_speech: verb
-  definition: To begin something.
-  example_sentence: They start their day with a morning run.
-- word: state
-  part_of_speech: noun
-  definition: A condition or a political division of a country.
-  example_sentence: The state of California is known for its beaches.
-- word: statement
-  part_of_speech: noun
-  definition: A formal expression of facts or opinions.
-  example_sentence: The company issued a statement about the new product.
-- word: station
-  part_of_speech: noun
-  definition: A place where a particular activity or service occurs.
-  example_sentence: She waited at the train station.
-- word: stay
-  part_of_speech: verb
-  definition: To remain in a place or condition.
-  example_sentence: They decided to stay at a hotel overnight.
-- word: step
-  part_of_speech: noun
-  definition: A movement made by lifting the foot or a stage in a process.
-  example_sentence: She took a step toward the door.
-- word: still
-  part_of_speech: adverb
-  definition: Up to and including the present or without movement.
-  example_sentence: He is still working on his project.
-- word: stock
-  part_of_speech: noun
-  definition: A supply of goods or shares in a company.
-  example_sentence: The store has a large stock of books.
-- word: stop
-  part_of_speech: verb
-  definition: To bring or come to an end.
-  example_sentence: The bus stopped at the corner.
-- word: store
-  part_of_speech: noun
-  definition: A place where goods are sold or a supply kept for future use.
-  example_sentence: She went to the store to buy groceries.
-- word: story
-  part_of_speech: noun
-  definition: A narrative or account of events, real or imagined.
-  example_sentence: He told a funny story at the party.
-- word: strategy
-  part_of_speech: noun
-  definition: A plan of action to achieve a goal.
-  example_sentence: The team developed a strategy to win the game.
-- word: street
-  part_of_speech: noun
-  definition: A public road in a city or town.
-  example_sentence: The street was busy with traffic.
-- word: strong
-  part_of_speech: adjective
-  definition: Having great physical power or intensity.
-  example_sentence: She felt strong after months of training.
-- word: structure
-  part_of_speech: noun
-  definition: The arrangement of parts or a building or object.
-  example_sentence: The structure of the bridge was impressive.
-- word: student
-  part_of_speech: noun
-  definition: A person who is studying at a school or university.
-  example_sentence: The student worked hard to pass the exam.
-- word: study
-  part_of_speech: verb
-  definition: To acquire knowledge through learning or research.
-  example_sentence: She studies biology at the university.
-- word: stuff
-  part_of_speech: noun
-  definition: Unspecified material or belongings.
-  example_sentence: He packed his stuff for the trip.
-- word: style
-  part_of_speech: noun
-  definition: A particular manner or way of doing something.
-  example_sentence: Her style of writing is very unique.
-- word: subject
-  part_of_speech: noun
-  definition: A topic or area of study or the doer of an action in a sentence.
-  example_sentence: Math is her favorite subject in school.
-- word: success
-  part_of_speech: noun
-  definition: The achievement of a goal or favorable outcome.
-  example_sentence: The event was a huge success.
-- word: such
-  part_of_speech: determiner
-  definition: Of a particular kind or to a great degree.
-  example_sentence: She had never seen such a beautiful sunset.
-- word: sudden
-  part_of_speech: adjective
-  definition: Happening quickly and unexpectedly.
-  example_sentence: A sudden noise startled everyone.
-- word: suggest
-  part_of_speech: verb
-  definition: To propose an idea or plan for consideration.
-  example_sentence: He suggested going to the park.
-- word: summer
-  part_of_speech: noun
-  definition: The season after spring and before autumn.
-  example_sentence: They went camping during the summer.
-- word: support
-  part_of_speech: verb
-  definition: To help, encourage, or provide for something.
-  example_sentence: She supports her friend’s new business.
-- word: sure
-  part_of_speech: adjective
-  definition: Certain or confident about something.
-  example_sentence: Are you sure you locked the door?
-- word: surface
-  part_of_speech: noun
-  definition: The outside or top layer of something.
-  example_sentence: The surface of the lake was calm.
-- word: system
-  part_of_speech: noun
-  definition: A set of connected things or parts working together.
-  example_sentence: The school has a new grading system.
+- word: "sacred"
+  part_of_speech: "adjective"
+  definition: "Holy or highly respected."
+  example_sentence: "The sacred site was preserved."
+- word: "sacrifice"
+  part_of_speech: "noun"
+  definition: "An offering or act of giving up."
+  example_sentence: "Her sacrifice helped the team succeed."
+- word: "safe"
+  part_of_speech: "adjective"
+  definition: "Secure or free from harm."
+  example_sentence: "The safe environment encouraged learning."
+- word: "sake"
+  part_of_speech: "noun"
+  definition: "Purpose or benefit."
+  example_sentence: "They acted for the sake of fairness."
+- word: "sample"
+  part_of_speech: "noun"
+  definition: "A small part representing the whole."
+  example_sentence: "The sample was analyzed in the lab."
+- word: "sanction"
+  part_of_speech: "noun"
+  definition: "Official approval or penalty."
+  example_sentence: "The sanction affected international trade."
+- word: "satisfy"
+  part_of_speech: "verb"
+  definition: "To meet needs or expectations."
+  example_sentence: "The results satisfied the researchers."
+- word: "save"
+  part_of_speech: "verb"
+  definition: "To rescue or preserve."
+  example_sentence: "They saved resources for future use."
+- word: "scale"
+  part_of_speech: "noun"
+  definition: "A range or measuring system."
+  example_sentence: "The scale of the project was massive."
+- word: "scan"
+  part_of_speech: "verb"
+  definition: "To examine or read quickly."
+  example_sentence: "She scanned the document for errors."
+- word: "scarce"
+  part_of_speech: "adjective"
+  definition: "Rare or insufficient."
+  example_sentence: "Water was scarce in the region."
+- word: "scatter"
+  part_of_speech: "verb"
+  definition: "To spread or disperse."
+  example_sentence: "The seeds were scattered across the field."
+- word: "scenario"
+  part_of_speech: "noun"
+  definition: "A possible sequence of events."
+  example_sentence: "The scenario was discussed in the meeting."
+- word: "schedule"
+  part_of_speech: "noun"
+  definition: "A plan or timetable."
+  example_sentence: "The schedule was tightly organized."
+- word: "scheme"
+  part_of_speech: "noun"
+  definition: "A plan or system."
+  example_sentence: "The scheme improved efficiency."
+- word: "scholar"
+  part_of_speech: "noun"
+  definition: "An academic or learned person."
+  example_sentence: "The scholar published a new study."
+- word: "scope"
+  part_of_speech: "noun"
+  definition: "The range or extent."
+  example_sentence: "The scope of the research was broad."
+- word: "score"
+  part_of_speech: "noun"
+  definition: "A result or mark."
+  example_sentence: "Her score on the exam was high."
+- word: "scramble"
+  part_of_speech: "verb"
+  definition: "To move quickly or mix."
+  example_sentence: "They scrambled to meet the deadline."
+- word: "screen"
+  part_of_speech: "verb"
+  definition: "To examine or filter."
+  example_sentence: "They screened applicants carefully."
+- word: "scrutiny"
+  part_of_speech: "noun"
+  definition: "Close examination."
+  example_sentence: "The policy faced intense scrutiny."
+- word: "search"
+  part_of_speech: "verb"
+  definition: "To look for or investigate."
+  example_sentence: "She searched for relevant data."
+- word: "season"
+  part_of_speech: "noun"
+  definition: "A period of time or climate."
+  example_sentence: "The season affected crop growth."
+- word: "seat"
+  part_of_speech: "noun"
+  definition: "A place to sit or position."
+  example_sentence: "She reserved a seat for the lecture."
+- word: "second"
+  part_of_speech: "adjective"
+  definition: "Next after the first."
+  example_sentence: "The second phase began promptly."
+- word: "section"
+  part_of_speech: "noun"
+  definition: "A part or division."
+  example_sentence: "The section of the book was informative."
+- word: "sector"
+  part_of_speech: "noun"
+  definition: "A part of an economy or area."
+  example_sentence: "The technology sector grew rapidly."
+- word: "secure"
+  part_of_speech: "verb"
+  definition: "To obtain or protect."
+  example_sentence: "They secured funding for the project."
+- word: "seek"
+  part_of_speech: "verb"
+  definition: "To search or pursue."
+  example_sentence: "She sought advice from experts."
+- word: "seem"
+  part_of_speech: "verb"
+  definition: "To appear or give the impression."
+  example_sentence: "The solution seemed effective."
+- word: "segment"
+  part_of_speech: "noun"
+  definition: "A portion or division."
+  example_sentence: "The segment of the market was analyzed."
+- word: "select"
+  part_of_speech: "verb"
+  definition: "To choose or pick."
+  example_sentence: "They selected the best candidate."
+- word: "self"
+  part_of_speech: "noun"
+  definition: "One’s own identity or personality."
+  example_sentence: "Her sense of self was strong."
+- word: "seminar"
+  part_of_speech: "noun"
+  definition: "A meeting for discussion or training."
+  example_sentence: "The seminar covered new techniques."
+- word: "sense"
+  part_of_speech: "noun"
+  definition: "A faculty or perception."
+  example_sentence: "Her sense of direction was excellent."
+- word: "sensitive"
+  part_of_speech: "adjective"
+  definition: "Responsive or easily affected."
+  example_sentence: "The issue was sensitive to the community."
+- word: "sentence"
+  part_of_speech: "noun"
+  definition: "A group of words or punishment."
+  example_sentence: "The sentence clarified the argument."
+- word: "separate"
+  part_of_speech: "verb"
+  definition: "To divide or distinguish."
+  example_sentence: "They separated the data into categories."
+- word: "sequence"
+  part_of_speech: "noun"
+  definition: "An order or series."
+  example_sentence: "The sequence of events was documented."
+- word: "series"
+  part_of_speech: "noun"
+  definition: "A set of related things."
+  example_sentence: "The series of lectures was popular."
+- word: "serious"
+  part_of_speech: "adjective"
+  definition: "Important or grave."
+  example_sentence: "The issue required serious attention."
+- word: "serve"
+  part_of_speech: "verb"
+  definition: "To provide or perform."
+  example_sentence: "She served on the committee."
+- word: "service"
+  part_of_speech: "noun"
+  definition: "Work done or assistance."
+  example_sentence: "The service improved customer satisfaction."
+- word: "session"
+  part_of_speech: "noun"
+  definition: "A meeting or period of activity."
+  example_sentence: "The session focused on policy changes."
+- word: "set"
+  part_of_speech: "verb"
+  definition: "To place or establish."
+  example_sentence: "They set a new standard."
+- word: "settle"
+  part_of_speech: "verb"
+  definition: "To resolve or establish."
+  example_sentence: "They settled the dispute amicably."
+- word: "several"
+  part_of_speech: "adjective"
+  definition: "More than two but not many."
+  example_sentence: "Several students attended the workshop."
+- word: "severe"
+  part_of_speech: "adjective"
+  definition: "Harsh or intense."
+  example_sentence: "The severe weather delayed the event."
+- word: "shade"
+  part_of_speech: "noun"
+  definition: "A shadow or variation."
+  example_sentence: "The shade of the tree was cooling."
+- word: "shadow"
+  part_of_speech: "noun"
+  definition: "A dark shape or influence."
+  example_sentence: "The shadow of the past lingered."
+- word: "shake"
+  part_of_speech: "verb"
+  definition: "To tremble or agitate."
+  example_sentence: "The news shook the community."
+- word: "shape"
+  part_of_speech: "verb"
+  definition: "To form or influence."
+  example_sentence: "Her ideas shaped the policy."
+- word: "share"
+  part_of_speech: "verb"
+  definition: "To divide or distribute."
+  example_sentence: "They shared the resources equally."
+- word: "sharp"
+  part_of_speech: "adjective"
+  definition: "Clear, keen, or sudden."
+  example_sentence: "Her sharp intellect was admired."
+- word: "shed"
+  part_of_speech: "verb"
+  definition: "To cast off or reveal."
+  example_sentence: "The study shed light on the issue."
+- word: "sheer"
+  part_of_speech: "adjective"
+  definition: "Pure or steep."
+  example_sentence: "The sheer effort impressed everyone."
+- word: "shelter"
+  part_of_speech: "noun"
+  definition: "A place of refuge or protection."
+  example_sentence: "The shelter housed those in need."
+- word: "shift"
+  part_of_speech: "verb"
+  definition: "To move or change."
+  example_sentence: "They shifted focus to sustainability."
+- word: "shine"
+  part_of_speech: "verb"
+  definition: "To emit light or excel."
+  example_sentence: "Her talent shone during the presentation."
+- word: "ship"
+  part_of_speech: "verb"
+  definition: "To transport or send."
+  example_sentence: "They shipped the goods overseas."
+- word: "shock"
+  part_of_speech: "noun"
+  definition: "A sudden surprise or disturbance."
+  example_sentence: "The news came as a shock."
+- word: "shoot"
+  part_of_speech: "verb"
+  definition: "To fire or sprout."
+  example_sentence: "The plant began to shoot upward."
+- word: "shore"
+  part_of_speech: "noun"
+  definition: "The edge of a body of water."
+  example_sentence: "The shore was lined with trees."
+- word: "short"
+  part_of_speech: "adjective"
+  definition: "Brief or lacking."
+  example_sentence: "The short lecture was concise."
+- word: "show"
+  part_of_speech: "verb"
+  definition: "To display or demonstrate."
+  example_sentence: "She showed her findings to the class."
+- word: "shrewd"
+  part_of_speech: "adjective"
+  definition: "Clever or astute."
+  example_sentence: "His shrewd strategy won the deal."
+- word: "shrink"
+  part_of_speech: "verb"
+  definition: "To reduce or contract."
+  example_sentence: "The budget began to shrink."
+- word: "shuttle"
+  part_of_speech: "noun"
+  definition: "A vehicle for regular transport."
+  example_sentence: "The shuttle connected the campuses."
+- word: "shy"
+  part_of_speech: "adjective"
+  definition: "Timid or reserved."
+  example_sentence: "The shy student spoke softly."
+- word: "sight"
+  part_of_speech: "noun"
+  definition: "The ability to see or a view."
+  example_sentence: "The sight of the mountain was breathtaking."
+- word: "sign"
+  part_of_speech: "noun"
+  definition: "A symbol or indication."
+  example_sentence: "The sign pointed to the exit."
+- word: "signal"
+  part_of_speech: "noun"
+  definition: "A gesture or indication."
+  example_sentence: "The signal prompted immediate action."
+- word: "significant"
+  part_of_speech: "adjective"
+  definition: "Important or meaningful."
+  example_sentence: "The discovery was significant."
+- word: "silent"
+  part_of_speech: "adjective"
+  definition: "Without sound or quiet."
+  example_sentence: "The silent room aided concentration."
+- word: "similar"
+  part_of_speech: "adjective"
+  definition: "Alike or resembling."
+  example_sentence: "The results were similar to predictions."
+- word: "simple"
+  part_of_speech: "adjective"
+  definition: "Easy or plain."
+  example_sentence: "The simple design was effective."
+- word: "simulate"
+  part_of_speech: "verb"
+  definition: "To imitate or model."
+  example_sentence: "The software simulated real conditions."
+- word: "simultaneous"
+  part_of_speech: "adjective"
+  definition: "Occurring at the same time."
+  example_sentence: "The events were simultaneous."
+- word: "single"
+  part_of_speech: "adjective"
+  definition: "One or individual."
+  example_sentence: "A single error caused the delay."
+- word: "site"
+  part_of_speech: "noun"
+  definition: "A location or area."
+  example_sentence: "The site was chosen for research."
+- word: "situation"
+  part_of_speech: "noun"
+  definition: "A set of circumstances."
+  example_sentence: "The situation required quick decisions."
+- word: "size"
+  part_of_speech: "noun"
+  definition: "The extent or dimensions."
+  example_sentence: "The size of the sample was adequate."
+- word: "sketch"
+  part_of_speech: "noun"
+  definition: "A rough drawing or outline."
+  example_sentence: "The sketch captured the idea."
+- word: "skill"
+  part_of_speech: "noun"
+  definition: "An ability or expertise."
+  example_sentence: "Her skill in analysis was evident."
+- word: "skip"
+  part_of_speech: "verb"
+  definition: "To omit or move lightly."
+  example_sentence: "She skipped the irrelevant section."
+- word: "slender"
+  part_of_speech: "adjective"
+  definition: "Slim or slight."
+  example_sentence: "The slender evidence was unconvincing."
+- word: "slice"
+  part_of_speech: "noun"
+  definition: "A thin piece or portion."
+  example_sentence: "A slice of the budget was allocated."
+- word: "slide"
+  part_of_speech: "verb"
+  definition: "To slip or decline."
+  example_sentence: "The economy began to slide."
+- word: "slight"
+  part_of_speech: "adjective"
+  definition: "Small or minor."
+  example_sentence: "A slight change improved the design."
+- word: "slow"
+  part_of_speech: "adjective"
+  definition: "Not fast or gradual."
+  example_sentence: "The slow process required patience."
+- word: "smart"
+  part_of_speech: "adjective"
+  definition: "Intelligent or quick."
+  example_sentence: "Her smart solution saved time."
+- word: "smooth"
+  part_of_speech: "adjective"
+  definition: "Even or without friction."
+  example_sentence: "The smooth transition was successful."
+- word: "snap"
+  part_of_speech: "verb"
+  definition: "To break suddenly or act quickly."
+  example_sentence: "They snapped into action."
+- word: "soar"
+  part_of_speech: "verb"
+  definition: "To rise or fly high."
+  example_sentence: "Prices began to soar unexpectedly."
+- word: "social"
+  part_of_speech: "adjective"
+  definition: "Relating to society or interaction."
+  example_sentence: "Social issues were debated."
+- word: "society"
+  part_of_speech: "noun"
+  definition: "A community or organized group."
+  example_sentence: "Society benefited from the reforms."
+- word: "soft"
+  part_of_speech: "adjective"
+  definition: "Gentle or not hard."
+  example_sentence: "The soft fabric was comfortable."
+- word: "soil"
+  part_of_speech: "noun"
+  definition: "The top layer of earth."
+  example_sentence: "The soil was fertile for crops."
+- word: "sole"
+  part_of_speech: "adjective"
+  definition: "Only or single."
+  example_sentence: "She was the sole author of the paper."
+- word: "solid"
+  part_of_speech: "adjective"
+  definition: "Firm or substantial."
+  example_sentence: "The solid evidence supported the claim."
+- word: "solution"
+  part_of_speech: "noun"
+  definition: "An answer or means of solving."
+  example_sentence: "The solution addressed the problem."
+- word: "solve"
+  part_of_speech: "verb"
+  definition: "To find an answer or resolution."
+  example_sentence: "They solved the equation quickly."
+- word: "somewhat"
+  part_of_speech: "adverb"
+  definition: "To some extent."
+  example_sentence: "The results were somewhat unexpected."
+- word: "soon"
+  part_of_speech: "adverb"
+  definition: "In a short time."
+  example_sentence: "The report will be ready soon."
+- word: "sophisticated"
+  part_of_speech: "adjective"
+  definition: "Complex or refined."
+  example_sentence: "The sophisticated technology impressed her."
+- word: "sort"
+  part_of_speech: "verb"
+  definition: "To arrange or classify."
+  example_sentence: "They sorted the data by category."
+- word: "sound"
+  part_of_speech: "noun"
+  definition: "A noise or vibration."
+  example_sentence: "The sound of the bell signaled the start."
+- word: "source"
+  part_of_speech: "noun"
+  definition: "An origin or supply."
+  example_sentence: "The source of the information was reliable."
+- word: "space"
+  part_of_speech: "noun"
+  definition: "An area or expanse."
+  example_sentence: "The space was used for experiments."
+- word: "span"
+  part_of_speech: "noun"
+  definition: "The length or extent."
+  example_sentence: "The span of the bridge was impressive."
+- word: "spare"
+  part_of_speech: "adjective"
+  definition: "Extra or unused."
+  example_sentence: "She had spare time for research."
+- word: "spark"
+  part_of_speech: "verb"
+  definition: "To ignite or initiate."
+  example_sentence: "The speech sparked a debate."
+- word: "spatial"
+  part_of_speech: "adjective"
+  definition: "Relating to space."
+  example_sentence: "Spatial awareness was tested."
+- word: "speak"
+  part_of_speech: "verb"
+  definition: "To talk or express."
+  example_sentence: "She spoke confidently at the conference."
+- word: "special"
+  part_of_speech: "adjective"
+  definition: "Unique or important."
+  example_sentence: "The special event drew a crowd."
+- word: "species"
+  part_of_speech: "noun"
+  definition: "A group of similar organisms."
+  example_sentence: "The species was newly discovered."
+- word: "specific"
+  part_of_speech: "adjective"
+  definition: "Particular or detailed."
+  example_sentence: "Specific instructions were provided."
+- word: "specify"
+  part_of_speech: "verb"
+  definition: "To state or identify clearly."
+  example_sentence: "She specified the requirements."
+- word: "specimen"
+  part_of_speech: "noun"
+  definition: "A sample for study."
+  example_sentence: "The specimen was examined closely."
+- word: "spectrum"
+  part_of_speech: "noun"
+  definition: "A range or band of variations."
+  example_sentence: "The spectrum of opinions was diverse."
+- word: "speculate"
+  part_of_speech: "verb"
+  definition: "To guess or theorize."
+  example_sentence: "They speculated about the outcome."
+- word: "speed"
+  part_of_speech: "noun"
+  definition: "The rate of motion."
+  example_sentence: "The speed of the process was improved."
+- word: "spell"
+  part_of_speech: "verb"
+  definition: "To write or name letters."
+  example_sentence: "She spelled the word correctly."
+- word: "spend"
+  part_of_speech: "verb"
+  definition: "To use money or time."
+  example_sentence: "They spent hours analyzing data."
+- word: "sphere"
+  part_of_speech: "noun"
+  definition: "A round object or domain."
+  example_sentence: "Her influence extended to every sphere."
+- word: "spice"
+  part_of_speech: "noun"
+  definition: "A seasoning or excitement."
+  example_sentence: "The spice added flavor to the dish."
+- word: "spill"
+  part_of_speech: "verb"
+  definition: "To overflow or reveal."
+  example_sentence: "The spill contaminated the river."
+- word: "spin"
+  part_of_speech: "verb"
+  definition: "To rotate or interpret."
+  example_sentence: "They spun the story to their advantage."
+- word: "spirit"
+  part_of_speech: "noun"
+  definition: "A mood or essence."
+  example_sentence: "The spirit of collaboration was strong."
+- word: "split"
+  part_of_speech: "verb"
+  definition: "To divide or separate."
+  example_sentence: "They split the tasks evenly."
+- word: "sponsor"
+  part_of_speech: "noun"
+  definition: "A supporter or funder."
+  example_sentence: "The sponsor backed the event."
+- word: "spot"
+  part_of_speech: "noun"
+  definition: "A place or mark."
+  example_sentence: "The spot was ideal for research."
+- word: "spread"
+  part_of_speech: "verb"
+  definition: "To extend or distribute."
+  example_sentence: "The news spread quickly."
+- word: "spring"
+  part_of_speech: "verb"
+  definition: "To arise or jump."
+  example_sentence: "New ideas began to spring up."
+- word: "sprinkle"
+  part_of_speech: "verb"
+  definition: "To scatter lightly."
+  example_sentence: "She sprinkled examples in her speech."
+- word: "spur"
+  part_of_speech: "verb"
+  definition: "To stimulate or encourage."
+  example_sentence: "The challenge spurred innovation."
+- word: "square"
+  part_of_speech: "noun"
+  definition: "A shape or open area."
+  example_sentence: "The square was a public gathering place."
+- word: "squeeze"
+  part_of_speech: "verb"
+  definition: "To press or extract."
+  example_sentence: "They squeezed more time into the schedule."
+- word: "stability"
+  part_of_speech: "noun"
+  definition: "The state of being stable."
+  example_sentence: "Economic stability was a priority."
+- word: "stable"
+  part_of_speech: "adjective"
+  definition: "Steady or secure."
+  example_sentence: "The stable platform supported growth."
+- word: "stack"
+  part_of_speech: "verb"
+  definition: "To pile or arrange."
+  example_sentence: "They stacked the books neatly."
+- word: "staff"
+  part_of_speech: "noun"
+  definition: "Employees or a support."
+  example_sentence: "The staff was well-trained."
+- word: "stage"
+  part_of_speech: "noun"
+  definition: "A phase or platform."
+  example_sentence: "The project reached a critical stage."
+- word: "stain"
+  part_of_speech: "noun"
+  definition: "A mark or discoloration."
+  example_sentence: "The stain was removed from the fabric."
+- word: "stake"
+  part_of_speech: "noun"
+  definition: "An interest or risk."
+  example_sentence: "They had a stake in the outcome."
+- word: "stall"
+  part_of_speech: "verb"
+  definition: "To stop or delay."
+  example_sentence: "The negotiations began to stall."
+- word: "stamp"
+  part_of_speech: "noun"
+  definition: "A mark or seal."
+  example_sentence: "The stamp validated the document."
+- word: "stand"
+  part_of_speech: "verb"
+  definition: "To rise or remain."
+  example_sentence: "She stood firm on her decision."
+- word: "standard"
+  part_of_speech: "noun"
+  definition: "A level of quality or norm."
+  example_sentence: "The standard was rigorously applied."
+- word: "stare"
+  part_of_speech: "verb"
+  definition: "To look intently."
+  example_sentence: "He stared at the complex equation."
+- word: "start"
+  part_of_speech: "verb"
+  definition: "To begin or initiate."
+  example_sentence: "They started the experiment early."
+- word: "state"
+  part_of_speech: "noun"
+  definition: "A condition or government."
+  example_sentence: "The state of the economy was stable."
+- word: "statement"
+  part_of_speech: "noun"
+  definition: "A declaration or report."
+  example_sentence: "The statement clarified the policy."
+- word: "static"
+  part_of_speech: "adjective"
+  definition: "Unchanging or stationary."
+  example_sentence: "The static data showed no trends."
+- word: "station"
+  part_of_speech: "noun"
+  definition: "A place or position."
+  example_sentence: "The station was a research hub."
+- word: "statistics"
+  part_of_speech: "noun"
+  definition: "Data or numerical analysis."
+  example_sentence: "Statistics supported the hypothesis."
+- word: "statue"
+  part_of_speech: "noun"
+  definition: "A sculpted figure."
+  example_sentence: "The statue honored a historical figure."
+- word: "status"
+  part_of_speech: "noun"
+  definition: "A position or condition."
+  example_sentence: "Her status as a leader was recognized."
+- word: "stay"
+  part_of_speech: "verb"
+  definition: "To remain or continue."
+  example_sentence: "They stayed focused on the goal."
+- word: "steady"
+  part_of_speech: "adjective"
+  definition: "Stable or consistent."
+  example_sentence: "The steady progress was encouraging."
+- word: "steep"
+  part_of_speech: "adjective"
+  definition: "Sharp or high."
+  example_sentence: "The steep slope challenged hikers."
+- word: "steer"
+  part_of_speech: "verb"
+  definition: "To guide or direct."
+  example_sentence: "She steered the team to success."
+- word: "stem"
+  part_of_speech: "noun"
+  definition: "A part of a plant or origin."
+  example_sentence: "The stem supported the flower."
+- word: "step"
+  part_of_speech: "noun"
+  definition: "An action or stage."
+  example_sentence: "The step forward was significant."
+- word: "stick"
+  part_of_speech: "verb"
+  definition: "To adhere or remain."
+  example_sentence: "They stuck to the original plan."
+- word: "stiff"
+  part_of_speech: "adjective"
+  definition: "Rigid or formal."
+  example_sentence: "The stiff rules limited flexibility."
+- word: "still"
+  part_of_speech: "adverb"
+  definition: "Up to now or motionless."
+  example_sentence: "The issue was still unresolved."
+- word: "stimulate"
+  part_of_speech: "verb"
+  definition: "To encourage or activate."
+  example_sentence: "The lecture stimulated discussion."
+- word: "stipulate"
+  part_of_speech: "verb"
+  definition: "To specify or require."
+  example_sentence: "The contract stipulated deadlines."
+- word: "stir"
+  part_of_speech: "verb"
+  definition: "To mix or provoke."
+  example_sentence: "Her speech stirred emotions."
+- word: "stock"
+  part_of_speech: "noun"
+  definition: "A supply or share."
+  example_sentence: "The stock of materials was sufficient."
+- word: "stop"
+  part_of_speech: "verb"
+  definition: "To halt or end."
+  example_sentence: "They stopped the experiment early."
+- word: "storage"
+  part_of_speech: "noun"
+  definition: "The act of keeping or space."
+  example_sentence: "Storage of data was secure."
+- word: "store"
+  part_of_speech: "verb"
+  definition: "To keep or stock."
+  example_sentence: "They stored samples for analysis."
+- word: "storm"
+  part_of_speech: "noun"
+  definition: "A severe weather event or disturbance."
+  example_sentence: "The storm delayed the project."
+- word: "story"
+  part_of_speech: "noun"
+  definition: "A narrative or account."
+  example_sentence: "The story illustrated the concept."
+- word: "straight"
+  part_of_speech: "adjective"
+  definition: "Direct or linear."
+  example_sentence: "The straight path was quickest."
+- word: "strain"
+  part_of_speech: "noun"
+  definition: "Stress or type."
+  example_sentence: "The strain of work was intense."
+- word: "strange"
+  part_of_speech: "adjective"
+  definition: "Unusual or unfamiliar."
+  example_sentence: "The strange result prompted review."
+- word: "strategy"
+  part_of_speech: "noun"
+  definition: "A plan or approach."
+  example_sentence: "The strategy improved outcomes."
+- word: "stream"
+  part_of_speech: "noun"
+  definition: "A flow or sequence."
+  example_sentence: "The stream of data was analyzed."
+- word: "strength"
+  part_of_speech: "noun"
+  definition: "Power or resilience."
+  example_sentence: "Her strength inspired the team."
+- word: "stress"
+  part_of_speech: "noun"
+  definition: "Pressure or emphasis."
+  example_sentence: "The stress of exams was overwhelming."
+- word: "stretch"
+  part_of_speech: "verb"
+  definition: "To extend or expand."
+  example_sentence: "They stretched the budget carefully."
+- word: "strict"
+  part_of_speech: "adjective"
+  definition: "Rigid or precise."
+  example_sentence: "The strict guidelines ensured safety."
+- word: "strike"
+  part_of_speech: "verb"
+  definition: "To hit or protest."
+  example_sentence: "The workers struck for better wages."
+- word: "string"
+  part_of_speech: "noun"
+  definition: "A thin cord or sequence."
+  example_sentence: "The string of events was logical."
+- word: "strip"
+  part_of_speech: "verb"
+  definition: "To remove or clear."
+  example_sentence: "They stripped the old paint away."
+- word: "strive"
+  part_of_speech: "verb"
+  definition: "To make great effort."
+  example_sentence: "She strove for academic excellence."
+- word: "stroke"
+  part_of_speech: "noun"
+  definition: "A blow or movement."
+  example_sentence: "The stroke of genius solved the issue."
+- word: "strong"
+  part_of_speech: "adjective"
+  definition: "Powerful or firm."
+  example_sentence: "The strong argument convinced them."
+- word: "structure"
+  part_of_speech: "noun"
+  definition: "An arrangement or building."
+  example_sentence: "The structure of the essay was clear."
+- word: "struggle"
+  part_of_speech: "verb"
+  definition: "To effort or fight."
+  example_sentence: "They struggled to meet the deadline."
+- word: "student"
+  part_of_speech: "noun"
+  definition: "A person who studies."
+  example_sentence: "The student excelled in her research."
+- word: "study"
+  part_of_speech: "noun"
+  definition: "Research or learning."
+  example_sentence: "The study revealed new insights."
+- word: "stuff"
+  part_of_speech: "noun"
+  definition: "Material or substance."
+  example_sentence: "The stuff was analyzed for quality."
+- word: "stumble"
+  part_of_speech: "verb"
+  definition: "To trip or make an error."
+  example_sentence: "She stumbled over the complex question."
+- word: "stun"
+  part_of_speech: "verb"
+  definition: "To shock or amaze."
+  example_sentence: "The discovery stunned the scientists."
+- word: "style"
+  part_of_speech: "noun"
+  definition: "A manner or fashion."
+  example_sentence: "Her writing style was engaging."
+- word: "subject"
+  part_of_speech: "noun"
+  definition: "A topic or person under study."
+  example_sentence: "The subject of the lecture was biology."
+- word: "submit"
+  part_of_speech: "verb"
+  definition: "To present or yield."
+  example_sentence: "She submitted her paper on time."
+- word: "subsequent"
+  part_of_speech: "adjective"
+  definition: "Following or later."
+  example_sentence: "Subsequent events confirmed the theory."
+- word: "subsidy"
+  part_of_speech: "noun"
+  definition: "Financial support."
+  example_sentence: "The subsidy aided the farmers."
+- word: "substance"
+  part_of_speech: "noun"
+  definition: "Material or essence."
+  example_sentence: "The substance was tested for purity."
+- word: "substantial"
+  part_of_speech: "adjective"
+  definition: "Significant or large."
+  example_sentence: "The grant provided substantial support."
+- word: "substitute"
+  part_of_speech: "verb"
+  definition: "To replace or stand in."
+  example_sentence: "They substituted one method for another."
+- word: "subtle"
+  part_of_speech: "adjective"
+  definition: "Delicate or not obvious."
+  example_sentence: "The subtle difference was noted."
+- word: "subtract"
+  part_of_speech: "verb"
+  definition: "To take away."
+  example_sentence: "She subtracted expenses from revenue."
+- word: "succeed"
+  part_of_speech: "verb"
+  definition: "To achieve or prosper."
+  example_sentence: "They succeeded in their efforts."
+- word: "success"
+  part_of_speech: "noun"
+  definition: "Achievement or favorable outcome."
+  example_sentence: "The success of the project was celebrated."
+- word: "such"
+  part_of_speech: "adjective"
+  definition: "Of a kind or extent."
+  example_sentence: "Such challenges required teamwork."
+- word: "sudden"
+  part_of_speech: "adjective"
+  definition: "Unexpected or quick."
+  example_sentence: "The sudden change surprised everyone."
+- word: "suffer"
+  part_of_speech: "verb"
+  definition: "To endure or experience pain."
+  example_sentence: "They suffered from resource shortages."
+- word: "sufficient"
+  part_of_speech: "adjective"
+  definition: "Enough or adequate."
+  example_sentence: "The evidence was sufficient."
+- word: "suggest"
+  part_of_speech: "verb"
+  definition: "To propose or imply."
+  example_sentence: "She suggested a new approach."
+- word: "suit"
+  part_of_speech: "verb"
+  definition: "To be appropriate or fit."
+  example_sentence: "The schedule suited everyone."
+- word: "sum"
+  part_of_speech: "noun"
+  definition: "The total or essence."
+  example_sentence: "The sum of the parts was impressive."
+- word: "summary"
+  part_of_speech: "noun"
+  definition: "A brief statement of main points."
+  example_sentence: "The summary outlined the findings."
+- word: "summit"
+  part_of_speech: "noun"
+  definition: "A peak or high-level meeting."
+  example_sentence: "The summit addressed global issues."
+- word: "supply"
+  part_of_speech: "noun"
+  definition: "A stock or provision."
+  example_sentence: "The supply of materials was adequate."
+- word: "support"
+  part_of_speech: "verb"
+  definition: "To sustain or endorse."
+  example_sentence: "They supported the new policy."
+- word: "suppose"
+  part_of_speech: "verb"
+  definition: "To assume or believe."
+  example_sentence: "She supposed the meeting was canceled."
+- word: "supreme"
+  part_of_speech: "adjective"
+  definition: "Highest in rank or quality."
+  example_sentence: "The supreme court made the ruling."
+- word: "sure"
+  part_of_speech: "adjective"
+  definition: "Certain or confident."
+  example_sentence: "She was sure of her decision."
+- word: "surface"
+  part_of_speech: "noun"
+  definition: "The outer layer or appearance."
+  example_sentence: "The surface of the lake was calm."
+- word: "surge"
+  part_of_speech: "verb"
+  definition: "To rise or increase suddenly."
+  example_sentence: "Demand for the product surged."
+- word: "surplus"
+  part_of_speech: "noun"
+  definition: "An excess or remainder."
+  example_sentence: "The surplus was donated."
+- word: "surprise"
+  part_of_speech: "noun"
+  definition: "An unexpected event."
+  example_sentence: "The result was a surprise to all."
+- word: "surround"
+  part_of_speech: "verb"
+  definition: "To encircle or enclose."
+  example_sentence: "Trees surrounded the campus."
+- word: "survey"
+  part_of_speech: "noun"
+  definition: "A study or examination."
+  example_sentence: "The survey collected public opinions."
+- word: "survive"
+  part_of_speech: "verb"
+  definition: "To continue to exist."
+  example_sentence: "The species survived harsh conditions."
+- word: "suspect"
+  part_of_speech: "verb"
+  definition: "To believe or distrust."
+  example_sentence: "They suspected an error in the data."
+- word: "suspend"
+  part_of_speech: "verb"
+  definition: "To pause or hang."
+  example_sentence: "They suspended the project temporarily."
+- word: "sustain"
+  part_of_speech: "verb"
+  definition: "To maintain or support."
+  example_sentence: "The funds sustained the research."
+- word: "swallow"
+  part_of_speech: "verb"
+  definition: "To ingest or accept."
+  example_sentence: "She swallowed her pride and apologized."
+- word: "swap"
+  part_of_speech: "verb"
+  definition: "To exchange or trade."
+  example_sentence: "They swapped ideas during the session."
+- word: "sway"
+  part_of_speech: "verb"
+  definition: "To influence or move."
+  example_sentence: "Her argument swayed the audience."
+- word: "sweep"
+  part_of_speech: "verb"
+  definition: "To clean or move broadly."
+  example_sentence: "The reform swept through the system."
+- word: "swift"
+  part_of_speech: "adjective"
+  definition: "Quick or rapid."
+  example_sentence: "The swift response prevented delays."
+- word: "swing"
+  part_of_speech: "verb"
+  definition: "To move or shift."
+  example_sentence: "Opinions began to swing in favor."
+- word: "switch"
+  part_of_speech: "verb"
+  definition: "To change or exchange."
+  example_sentence: "They switched to a new method."
+- word: "symbol"
+  part_of_speech: "noun"
+  definition: "A sign or representation."
+  example_sentence: "The symbol conveyed deep meaning."
+- word: "symmetry"
+  part_of_speech: "noun"
+  definition: "Balance or proportion."
+  example_sentence: "The symmetry of the design was pleasing."
+- word: "symptom"
+  part_of_speech: "noun"
+  definition: "A sign or indication."
+  example_sentence: "The symptom suggested a problem."
+- word: "synchronize"
+  part_of_speech: "verb"
+  definition: "To align or coordinate."
+  example_sentence: "They synchronized their efforts."
+- word: "synthetic"
+  part_of_speech: "adjective"
+  definition: "Artificial or man-made."
+  example_sentence: "The synthetic material was durable."
+- word: "system"
+  part_of_speech: "noun"
+  definition: "An organized set or structure."
+  example_sentence: "The system streamlined operations."
+- word: "systematic"
+  part_of_speech: "adjective"
+  definition: "Methodical or organized."
+  example_sentence: "The systematic approach yielded results."
