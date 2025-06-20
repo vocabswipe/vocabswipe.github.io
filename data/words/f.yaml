@@ -1,216 +1,352 @@
-- word: face
-  part_of_speech: noun
-  definition: The front part of a person's head or an expression.
-  example_sentence: She had a big smile on her face.
-- word: fact
-  part_of_speech: noun
-  definition: Something that is known to be true.
-  example_sentence: It’s a fact that the Earth orbits the Sun.
-- word: factor
-  part_of_speech: noun
-  definition: Something that contributes to a result or situation.
-  example_sentence: Weather was a key factor in the event’s success.
-- word: fail
-  part_of_speech: verb
-  definition: To be unsuccessful in achieving a goal.
-  example_sentence: He tried hard but failed the exam.
-- word: fall
-  part_of_speech: verb
-  definition: To drop or descend under the force of gravity.
-  example_sentence: The leaves fall from the trees in autumn.
-- word: family
-  part_of_speech: noun
-  definition: A group of people related by blood or marriage.
-  example_sentence: She spent the weekend with her family.
-- word: far
-  part_of_speech: adverb
-  definition: At or to a great distance.
-  example_sentence: They traveled far to attend the concert.
-- word: fast
-  part_of_speech: adjective
-  definition: Moving or capable of moving quickly.
-  example_sentence: The fast car sped by on the highway.
-- word: father
-  part_of_speech: noun
-  definition: A male parent.
-  example_sentence: Her father taught her how to ride a bike.
-- word: fear
-  part_of_speech: noun
-  definition: An unpleasant emotion caused by the threat of danger.
-  example_sentence: He overcame his fear of heights.
-- word: federal
-  part_of_speech: adjective
-  definition: Relating to the central government of a country.
-  example_sentence: The federal government passed a new law.
-- word: feel
-  part_of_speech: verb
-  definition: To experience an emotion or sensation.
-  example_sentence: She felt happy after hearing the good news.
-- word: feeling
-  part_of_speech: noun
-  definition: An emotional state or reaction.
-  example_sentence: He shared his feelings about the project.
-- word: few
-  part_of_speech: determiner
-  definition: A small number of something.
-  example_sentence: Only a few people attended the meeting.
-- word: field
-  part_of_speech: noun
-  definition: An open area of land or a branch of study.
-  example_sentence: She works in the field of biology.
-- word: fight
-  part_of_speech: verb
-  definition: To engage in a physical or verbal struggle.
-  example_sentence: They fought for their rights at the protest.
-- word: figure
-  part_of_speech: noun
-  definition: A number, shape, or a person of importance.
-  example_sentence: The figure on the chart shows sales growth.
-- word: fill
-  part_of_speech: verb
-  definition: To make something full or complete.
-  example_sentence: She filled the glass with water.
-- word: film
-  part_of_speech: noun
-  definition: A movie or a thin layer of material.
-  example_sentence: They watched a new film at the cinema.
-- word: final
-  part_of_speech: adjective
-  definition: Coming at the end or being the last.
-  example_sentence: The final exam was challenging.
-- word: finally
-  part_of_speech: adverb
-  definition: After a long time or at the end of a process.
-  example_sentence: They finally finished the project.
-- word: financial
-  part_of_speech: adjective
-  definition: Relating to money or finances.
-  example_sentence: She sought financial advice for her savings.
-- word: find
-  part_of_speech: verb
-  definition: To discover or locate something.
-  example_sentence: He found his keys under the couch.
-- word: fine
-  part_of_speech: adjective
-  definition: Of high quality or acceptable.
-  example_sentence: The weather is fine for a picnic today.
-- word: finish
-  part_of_speech: verb
-  definition: To complete or bring something to an end.
-  example_sentence: She finished her homework before dinner.
-- word: fire
-  part_of_speech: noun
-  definition: The process of burning or a destructive blaze.
-  example_sentence: They gathered around the fire to stay warm.
-- word: firm
-  part_of_speech: noun
-  definition: A business or company.
-  example_sentence: She works for a law firm downtown.
-- word: first
-  part_of_speech: adjective
-  definition: Coming before all others in time or order.
-  example_sentence: He was the first to arrive at the party.
-- word: fish
-  part_of_speech: noun
-  definition: A cold-blooded animal living in water.
-  example_sentence: They caught a big fish in the lake.
-- word: five
-  part_of_speech: number
-  definition: The number equal to four plus one.
-  example_sentence: She bought five apples at the market.
-- word: floor
-  part_of_speech: noun
-  definition: The surface of a room on which one stands.
-  example_sentence: The floor was made of polished wood.
-- word: fly
-  part_of_speech: verb
-  definition: To move through the air or to operate an aircraft.
-  example_sentence: The bird flew high above the trees.
-- word: focus
-  part_of_speech: verb
-  definition: To concentrate attention or effort on something.
-  example_sentence: She focused on studying for the exam.
-- word: follow
-  part_of_speech: verb
-  definition: To go after or come after someone or something.
-  example_sentence: Follow the signs to the museum.
-- word: food
-  part_of_speech: noun
-  definition: Any substance consumed to provide nutritional support.
-  example_sentence: They prepared delicious food for the party.
-- word: foot
-  part_of_speech: noun
-  definition: The lower part of the leg or a unit of measurement.
-  example_sentence: He injured his foot while running.
-- word: for
-  part_of_speech: preposition
-  definition: Indicating the purpose, recipient, or duration of something.
-  example_sentence: This gift is for you.
-- word: force
-  part_of_speech: noun
-  definition: Strength or power exerted on an object.
-  example_sentence: The police used force to control the crowd.
-- word: foreign
-  part_of_speech: adjective
-  definition: Belonging to or coming from another country.
-  example_sentence: She studies foreign languages at school.
-- word: forget
-  part_of_speech: verb
-  definition: To fail to remember something.
-  example_sentence: Don’t forget to call me tomorrow.
-- word: form
-  part_of_speech: noun
-  definition: The shape or structure of something or a document to be filled out.
-  example_sentence: Please fill out this form with your details.
-- word: former
-  part_of_speech: adjective
-  definition: Having been previously or earlier in time.
-  example_sentence: The former president gave a speech.
-- word: forward
-  part_of_speech: adverb
-  definition: Toward the front or in the direction of progress.
-  example_sentence: She stepped forward to accept the award.
-- word: four
-  part_of_speech: number
-  definition: The number equal to three plus one.
-  example_sentence: They have four children.
-- word: free
-  part_of_speech: adjective
-  definition: Not under control or without cost.
-  example_sentence: The museum offers free entry on Sundays.
-- word: freedom
-  part_of_speech: noun
-  definition: The state of being free or having liberty.
-  example_sentence: Freedom of speech is a fundamental right.
-- word: friend
-  part_of_speech: noun
-  definition: A person with whom one has a bond of mutual affection.
-  example_sentence: She met her best friend in high school.
-- word: from
-  part_of_speech: preposition
-  definition: Indicating the starting point of something.
-  example_sentence: He traveled from Paris to London.
-- word: front
-  part_of_speech: noun
-  definition: The side or part of something that faces forward.
-  example_sentence: The front of the house has a beautiful garden.
-- word: full
-  part_of_speech: adjective
-  definition: Containing or holding as much as possible.
-  example_sentence: The glass is full of water.
-- word: fun
-  part_of_speech: noun
-  definition: Enjoyment or amusement.
-  example_sentence: The party was a lot of fun.
-- word: function
-  part_of_speech: noun
-  definition: The purpose or role of something or an organized event.
-  example_sentence: The function of this tool is to cut wood.
-- word: fund
-  part_of_speech: noun
-  definition: A sum of money saved or made available for a purpose.
-  example_sentence: The charity raised funds for the hospital.
-- word: future
-  part_of_speech: noun
-  definition: The time or events that are yet to come.
-  example_sentence: She plans for a bright future in technology.
+- word: "fabricate"
+  part_of_speech: "verb"
+  definition: "To create or make up, often with intent to deceive."
+  example_sentence: "The witness fabricated a story to avoid trouble."
+- word: "facilitate"
+  part_of_speech: "verb"
+  definition: "To make easier or assist in progress."
+  example_sentence: "The new software facilitates data analysis."
+- word: "faction"
+  part_of_speech: "noun"
+  definition: "A small, organized group within a larger one."
+  example_sentence: "A faction within the party opposed the new policy."
+- word: "factor"
+  part_of_speech: "noun"
+  definition: "A component or influence contributing to a result."
+  example_sentence: "Economic factors influenced the decision."
+- word: "fade"
+  part_of_speech: "verb"
+  definition: "To lose brightness or strength gradually."
+  example_sentence: "The colors of the painting faded over time."
+- word: "fallacy"
+  part_of_speech: "noun"
+  definition: "A mistaken belief or flawed reasoning."
+  example_sentence: "The argument was based on a logical fallacy."
+- word: "falter"
+  part_of_speech: "verb"
+  definition: "To hesitate or weaken."
+  example_sentence: "Her confidence faltered during the presentation."
+- word: "fame"
+  part_of_speech: "noun"
+  definition: "Widespread recognition or renown."
+  example_sentence: "The author achieved fame with her novel."
+- word: "familiar"
+  part_of_speech: "adjective"
+  definition: "Well-known or easily recognized."
+  example_sentence: "The song was familiar to the audience."
+- word: "famine"
+  part_of_speech: "noun"
+  definition: "An extreme scarcity of food."
+  example_sentence: "The famine affected millions in the region."
+- word: "fanatic"
+  part_of_speech: "noun"
+  definition: "A person with excessive enthusiasm for a cause."
+  example_sentence: "The fanatic supported the team in every match."
+- word: "fascinate"
+  part_of_speech: "verb"
+  definition: "To attract or hold intense interest."
+  example_sentence: "The documentary fascinated viewers with its insights."
+- word: "fashion"
+  part_of_speech: "noun"
+  definition: "A popular style or trend."
+  example_sentence: "The designer set a new fashion trend."
+- word: "fasten"
+  part_of_speech: "verb"
+  definition: "To secure or attach."
+  example_sentence: "She fastened her seatbelt before takeoff."
+- word: "fatal"
+  part_of_speech: "adjective"
+  definition: "Causing death or disaster."
+  example_sentence: "The accident was fatal for the driver."
+- word: "fatigue"
+  part_of_speech: "noun"
+  definition: "Extreme tiredness from effort."
+  example_sentence: "Fatigue set in after hours of studying."
+- word: "fault"
+  part_of_speech: "noun"
+  definition: "A defect or responsibility for error."
+  example_sentence: "The machine’s failure was due to a fault."
+- word: "favor"
+  part_of_speech: "verb"
+  definition: "To prefer or support."
+  example_sentence: "The committee favored the new proposal."
+- word: "feasible"
+  part_of_speech: "adjective"
+  definition: "Possible or practical to achieve."
+  example_sentence: "The plan was feasible within the budget."
+- word: "feature"
+  part_of_speech: "noun"
+  definition: "A distinctive attribute or aspect."
+  example_sentence: "The phone’s main feature is its camera."
+- word: "feeble"
+  part_of_speech: "adjective"
+  definition: "Weak or lacking strength."
+  example_sentence: "His feeble attempt failed to convince anyone."
+- word: "fertile"
+  part_of_speech: "adjective"
+  definition: "Capable of producing crops or offspring."
+  example_sentence: "The fertile soil supported a rich harvest."
+- word: "fervent"
+  part_of_speech: "adjective"
+  definition: "Showing intense enthusiasm or passion."
+  example_sentence: "Her fervent speech inspired the crowd."
+- word: "fester"
+  part_of_speech: "verb"
+  definition: "To worsen or become infected over time."
+  example_sentence: "The untreated wound began to fester."
+- word: "feud"
+  part_of_speech: "noun"
+  definition: "A prolonged conflict or quarrel."
+  example_sentence: "The feud between the families lasted decades."
+- word: "fiber"
+  part_of_speech: "noun"
+  definition: "A thread-like structure or dietary material."
+  example_sentence: "Whole grains are rich in dietary fiber."
+- word: "fiction"
+  part_of_speech: "noun"
+  definition: "Literature created from imagination."
+  example_sentence: "She prefers reading fiction over nonfiction."
+- word: "fierce"
+  part_of_speech: "adjective"
+  definition: "Intensely aggressive or strong."
+  example_sentence: "The fierce competition pushed them to excel."
+- word: "figure"
+  part_of_speech: "noun"
+  definition: "A number, shape, or prominent person."
+  example_sentence: "The scientist was a key figure in the discovery."
+- word: "filter"
+  part_of_speech: "verb"
+  definition: "To pass through a device to remove impurities."
+  example_sentence: "The system filters water for drinking."
+- word: "final"
+  part_of_speech: "adjective"
+  definition: "Last or conclusive."
+  example_sentence: "The final decision rested with the board."
+- word: "finance"
+  part_of_speech: "noun"
+  definition: "The management of money or funds."
+  example_sentence: "She studied finance to manage investments."
+- word: "finite"
+  part_of_speech: "adjective"
+  definition: "Having limits or bounds."
+  example_sentence: "The Earth’s resources are finite."
+- word: "firm"
+  part_of_speech: "adjective"
+  definition: "Solid or resolute."
+  example_sentence: "Her firm handshake conveyed confidence."
+- word: "fiscal"
+  part_of_speech: "adjective"
+  definition: "Relating to government revenue or finance."
+  example_sentence: "The fiscal policy aimed to reduce debt."
+- word: "fit"
+  part_of_speech: "verb"
+  definition: "To be suitable or in good condition."
+  example_sentence: "The dress fit her perfectly."
+- word: "fix"
+  part_of_speech: "verb"
+  definition: "To repair or make permanent."
+  example_sentence: "The technician fixed the broken machine."
+- word: "flair"
+  part_of_speech: "noun"
+  definition: "A natural talent or stylishness."
+  example_sentence: "She has a flair for creative writing."
+- word: "flame"
+  part_of_speech: "noun"
+  definition: "A burning gas or intense passion."
+  example_sentence: "The flame of the candle flickered in the wind."
+- word: "flare"
+  part_of_speech: "verb"
+  definition: "To burst or burn suddenly."
+  example_sentence: "Tensions flared during the heated debate."
+- word: "flaw"
+  part_of_speech: "noun"
+  definition: "An imperfection or weakness."
+  example_sentence: "The design had a critical flaw."
+- word: "flee"
+  part_of_speech: "verb"
+  definition: "To run away from danger."
+  example_sentence: "The villagers fled from the flood."
+- word: "fleet"
+  part_of_speech: "noun"
+  definition: "A group of ships or vehicles."
+  example_sentence: "The company operates a fleet of trucks."
+- word: "flexible"
+  part_of_speech: "adjective"
+  definition: "Capable of bending or adapting."
+  example_sentence: "The flexible schedule suited her needs."
+- word: "flourish"
+  part_of_speech: "verb"
+  definition: "To grow or succeed vigorously."
+  example_sentence: "The business flourished in the new market."
+- word: "fluctuate"
+  part_of_speech: "verb"
+  definition: "To vary or change irregularly."
+  example_sentence: "The stock prices fluctuated daily."
+- word: "fluid"
+  part_of_speech: "adjective"
+  definition: "Smooth or capable of flowing."
+  example_sentence: "Her fluid movements impressed the judges."
+- word: "focus"
+  part_of_speech: "verb"
+  definition: "To concentrate attention or effort."
+  example_sentence: "She focused on preparing for the TOEFL."
+- word: "foe"
+  part_of_speech: "noun"
+  definition: "An enemy or opponent."
+  example_sentence: "The politician viewed the rival as a foe."
+- word: "foil"
+  part_of_speech: "verb"
+  definition: "To prevent or thwart."
+  example_sentence: "Quick action foiled the robbery attempt."
+- word: "fold"
+  part_of_speech: "verb"
+  definition: "To bend or collapse."
+  example_sentence: "She folded the paper into a crane."
+- word: "foment"
+  part_of_speech: "verb"
+  definition: "To stir up or promote."
+  example_sentence: "The speech fomented unrest among the crowd."
+- word: "forbid"
+  part_of_speech: "verb"
+  definition: "To prohibit or order against."
+  example_sentence: "The rules forbid smoking on campus."
+- word: "force"
+  part_of_speech: "noun"
+  definition: "Strength or power exerted."
+  example_sentence: "The force of the wind toppled trees."
+- word: "forecast"
+  part_of_speech: "verb"
+  definition: "To predict or estimate."
+  example_sentence: "Meteorologists forecast rain for tomorrow."
+- word: "forefront"
+  part_of_speech: "noun"
+  definition: "The leading or most important position."
+  example_sentence: "She was at the forefront of the movement."
+- word: "foresee"
+  part_of_speech: "verb"
+  definition: "To predict or anticipate."
+  example_sentence: "No one could foresee the economic downturn."
+- word: "forge"
+  part_of_speech: "verb"
+  definition: "To create or shape with effort."
+  example_sentence: "They forged a strong alliance."
+- word: "formal"
+  part_of_speech: "adjective"
+  definition: "Following established rules or conventions."
+  example_sentence: "The event required formal attire."
+- word: "formidable"
+  part_of_speech: "adjective"
+  definition: "Inspiring fear or respect due to strength."
+  example_sentence: "The team faced a formidable opponent."
+- word: "fortify"
+  part_of_speech: "verb"
+  definition: "To strengthen or protect."
+  example_sentence: "The walls were fortified against attacks."
+- word: "fortitude"
+  part_of_speech: "noun"
+  definition: "Strength or courage in adversity."
+  example_sentence: "Her fortitude helped her overcome challenges."
+- word: "fortunate"
+  part_of_speech: "adjective"
+  definition: "Lucky or favored by fortune."
+  example_sentence: "He was fortunate to win the scholarship."
+- word: "foster"
+  part_of_speech: "verb"
+  definition: "To promote growth or development."
+  example_sentence: "The program fosters creativity in students."
+- word: "found"
+  part_of_speech: "verb"
+  definition: "To establish or set up."
+  example_sentence: "She founded a nonprofit organization."
+- word: "foundation"
+  part_of_speech: "noun"
+  definition: "The basis or groundwork of something."
+  example_sentence: "The course provided a strong foundation in science."
+- word: "fraction"
+  part_of_speech: "noun"
+  definition: "A small part or proportion."
+  example_sentence: "Only a fraction of the data was analyzed."
+- word: "fragile"
+  part_of_speech: "adjective"
+  definition: "Easily broken or delicate."
+  example_sentence: "The fragile glass required careful handling."
+- word: "fragment"
+  part_of_speech: "noun"
+  definition: "A small piece or part."
+  example_sentence: "Fragments of pottery were found at the site."
+- word: "frantic"
+  part_of_speech: "adjective"
+  definition: "Wildly excited or desperate."
+  example_sentence: "The frantic search for the lost child continued."
+- word: "fraud"
+  part_of_speech: "noun"
+  definition: "Deceit or trickery for gain."
+  example_sentence: "The company was accused of fraud."
+- word: "frequent"
+  part_of_speech: "adjective"
+  definition: "Occurring often or regularly."
+  example_sentence: "Frequent rains disrupted the schedule."
+- word: "friction"
+  part_of_speech: "noun"
+  definition: "Conflict or resistance between surfaces."
+  example_sentence: "Friction between the teams slowed progress."
+- word: "fringe"
+  part_of_speech: "noun"
+  definition: "The outer edge or marginal part."
+  example_sentence: "She lived on the fringe of society."
+- word: "frivolous"
+  part_of_speech: "adjective"
+  definition: "Lacking seriousness or importance."
+  example_sentence: "The lawsuit was dismissed as frivolous."
+- word: "frontier"
+  part_of_speech: "noun"
+  definition: "A border or unexplored area."
+  example_sentence: "Space is considered the final frontier."
+- word: "frugal"
+  part_of_speech: "adjective"
+  definition: "Economical or avoiding waste."
+  example_sentence: "Her frugal habits saved her money."
+- word: "fruitful"
+  part_of_speech: "adjective"
+  definition: "Productive or successful."
+  example_sentence: "The meeting was fruitful and led to new ideas."
+- word: "frustrate"
+  part_of_speech: "verb"
+  definition: "To cause feelings of discouragement."
+  example_sentence: "The delays frustrated the project team."
+- word: "fuel"
+  part_of_speech: "noun"
+  definition: "A material used to produce energy."
+  example_sentence: "The car runs on renewable fuel."
+- word: "fulfill"
+  part_of_speech: "verb"
+  definition: "To meet or complete a requirement."
+  example_sentence: "She fulfilled her dream of studying abroad."
+- word: "function"
+  part_of_speech: "noun"
+  definition: "A purpose or role."
+  example_sentence: "The device’s function is to monitor temperature."
+- word: "fundamental"
+  part_of_speech: "adjective"
+  definition: "Basic or essential."
+  example_sentence: "Freedom is a fundamental human right."
+- word: "furnish"
+  part_of_speech: "verb"
+  definition: "To supply or equip."
+  example_sentence: "The office was furnished with modern equipment."
+- word: "furtive"
+  part_of_speech: "adjective"
+  definition: "Secretive or sly."
+  example_sentence: "His furtive glance suggested he was hiding something."
+- word: "fuse"
+  part_of_speech: "verb"
+  definition: "To blend or join together."
+  example_sentence: "The cultures fused to create a unique style."
+- word: "futile"
+  part_of_speech: "adjective"
+  definition: "Pointless or ineffective."
+  example_sentence: "Their efforts to save the old tree were futile."
+- word: "fuzzy"
+  part_of_speech: "adjective"
+  definition: "Unclear or indistinct."
+  example_sentence: "The image on the screen was fuzzy."
