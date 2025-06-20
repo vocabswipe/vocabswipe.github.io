@@ -6,11 +6,13 @@ export default function SearchBar() {
   const [results, setResults] = useState([]);
   const [searchIndex, setSearchIndex] = useState([]);
 
-  // Load search index on mount
   useEffect(() => {
-    fetch('/data/search.json')
+    fetch('/vocabswipe.github.io/data/search.json')
       .then((res) => res.json())
-      .then((data) => setSearchIndex(data))
+      .then((data) => {
+        console.log('Search index loaded:', data.length);
+        setSearchIndex(data);
+      })
       .catch((error) => console.error('Error loading search index:', error));
   }, []);
 
@@ -25,7 +27,8 @@ export default function SearchBar() {
     const filtered = searchIndex.filter((item) =>
       item.word.toLowerCase().includes(value)
     );
-    setResults(filtered.slice(0, 10)); // Limit to 10 results
+    console.log('Search results:', filtered);
+    setResults(filtered.slice(0, 10));
   };
 
   return (
