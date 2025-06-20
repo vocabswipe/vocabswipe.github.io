@@ -53,6 +53,7 @@ def validate_yaml_dir():
 def load_yaml_file(yaml_path, letter):
     """Load a single .yaml file."""
     word_entries = []
+    seen_words = set()  # Track unique words in this file
     try:
         with open(yaml_path, "r", encoding="utf-8") as f:
             data = yaml.safe_load(f) or []
@@ -71,6 +72,10 @@ def load_yaml_file(yaml_path, letter):
                 if not word:
                     logging.warning(f"Empty word in {letter}.yaml")
                     continue
+                if word in seen_words:
+                    logging.warning(f"Duplicate word '{word}' in {letter}.yaml; keeping first occurrence")
+                    continue
+                seen_words.add(word)
                 word_entries.append((letter, word))
     except Exception as e:
         logging.error(f"Error reading {yaml_path}: {e}")
@@ -103,7 +108,7 @@ def check_duplicates(word_to_letter):
     """Identify and report duplicate words across .yaml files."""
     duplicates = {word: letters for word, letters in word_to_letter.items() if len(letters) > 1}
     if duplicates:
-        logging.warning("Found duplicate words:")
+        logging.warning("Found duplicate words across files:")
         for word, letters in duplicates.items():
             logging.warning(f"  Word '{word}' appears in {', '.join(letters)}")
     return duplicates
@@ -245,7 +250,7 @@ def main():
 
     duplicates = check_duplicates(word_to_letter)
     if duplicates:
-        logging.warning(f"Found {len(duplicates)} duplicate words. Please resolve before proceeding.")
+        logging.warning(f"Found {len(duplicates)} duplicate words across files. Please review.")
 
     generated, skipped, failed = generate_audio_files(word_entries, overwrite)
     missing_audio, extra_audio, empty_audio_dirs = validate_audio_files(word_entries)
