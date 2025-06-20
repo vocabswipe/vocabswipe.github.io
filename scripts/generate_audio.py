@@ -8,10 +8,7 @@ from gtts import gTTS
 
 # TTS function using gTTS for American English
 def generate_tts_audio(word, output_file):
-    """
-    Generate audio using Google Text-to-Speech (gTTS) for American English.
-    Saves audio to an MP3 file.
-    """
+    """Generate audio using Google Text-to-Speech (gTTS) for American English."""
     try:
         tts = gTTS(text=word, lang='en', tld='us', slow=False)
         tts.save(output_file)
@@ -53,55 +50,68 @@ def validate_yaml_dir():
         logging.info(f"Found {len(yaml_files)} .yaml files in {YAML_DIR}")
     return True
 
-def load_yaml_files():
-    """Load all .yaml files and collect word entries with their source letter."""
+def load_yaml_file(yaml_path, letter):
+    """Load a single .yaml file and collect word entries."""
+    word_entries = []
+    try:
+        with open(yaml_path, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f) or []
+            if not isinstance(data, list):
+                logging.warning(f"Invalid format in {yaml_path}: expected a list")
+                return word_entries
+            if not data:
+                logging.warning(f"No entries in {yaml_path}")
+                return word_entries
+            for entry in data:
+                word = entry.get("word", "")
+                if not isinstance(word, str):
+                    logging.warning(f"Invalid word type in {letter}.yaml: {word} (expected string)")
+                    continue
+                word = word.strip().lower()
+                if not word:
+                    logging.warning(f"Empty word in {letter}.yaml")
+                    continue
+                word_entries.append((letter, word))
+    except Exception as e:
+        logging.error(f"Error reading {yaml_path}: {str(e)}")
+    return word_entries
+
+def load_yaml_files(letters=LETTERS):
+    """Load specified .yaml files and collect word entries."""
     word_entries = []
     word_to_letter = defaultdict(list)
     missing_files = []
     empty_files = []
 
-    for letter in LETTERS:
+    for letter in letters:
         yaml_path = YAML_DIR / f"{letter}.yaml"
         if not yaml_path.exists():
             missing_files.append(letter)
+            logging.warning(f"Missing .yaml file for letter: {letter}")
             continue
-
-        try:
-            with open(yaml_path, "r", encoding="utf-8") as f:
-                data = yaml.safe_load(f) or []
-                if not isinstance(data, list):
-                    logging.warning(f"Invalid format in {yaml_path}: expected a list")
-                    empty_files.append(letter)
-                    continue
-                if not data:
-                    logging.warning(f"No entries in {yaml_path}")
-                    empty_files.append(letter)
-                    continue
-                for entry in data:
-                    word = entry.get("word", "").strip().lower()
-                    if not word:
-                        logging.warning(f"Empty or invalid word in {letter}.yaml")
-                        continue
-                    word_entries.append((letter, word))
-                    word_to_letter[word].append(letter)
-        except Exception as e:
-            logging.error(f"Error reading {yaml_path}: {str(e)}")
+        entries = load_yaml_file(yaml_path, letter)
+        if not entries:
             empty_files.append(letter)
+            continue
+        for entry in entries:
+            word = entry[1]
+            word_entries.append(entry)
+            word_to_letter[word].append(letter)
 
-    return word_entries, word_to_letter, missing_files, empty_files
+    return word_entries, word_to_letter, empty_files, missing_files
 
 def check_duplicates(word_to_letter):
     """Identify and report duplicate words across .yaml files."""
-    duplicates = {word: letters for word, letters in word_to_letter.items() if len(letters) > 1}
+    duplicates = {word: word: letters for word, letters in word_to_letter.items() if len(letters) > 1}
     if duplicates:
-        logging.warning("Found duplicate words:")
-        for word, letters in duplicates.items():
-            logging.warning(f"  Word '{word}' appears in {', '.join(letters)}")
+        logging.warning("Found duplicate duplicates words:")
+        for word, word, letters in duplicates.items():
+            logging.warning(f"  Word Word '{word}' appears appears in {', '.join(letters)}")
     return duplicates
 
-def ensure_audio_directories():
-    """Create audio directories for each letter if they don't exist."""
-    for letter in LETTERS:
+def ensure_audio_directories(letters=LETTERS):
+    """Create audio directories for specified letters."""
+    for letter in letters:
         audio_path = AUDIO_DIR / letter
         try:
             os.makedirs(audio_path, exist_ok=True)
@@ -148,8 +158,9 @@ def validate_audio_files(word_entries):
     empty_audio_dirs = []
 
     word_set = {(letter, word) for letter, word in word_entries}
+    letters = {letter for letter, _ in word_set}
 
-    for letter in LETTERS:
+    for letter in letters:
         audio_dir = AUDIO_DIR / letter
         if not audio_dir.exists():
             empty_audio_dirs.append(letter)
@@ -171,27 +182,60 @@ def validate_audio_files(word_entries):
 
     return missing_audio, extra_audio, empty_audio_dirs
 
-def main():
-    """Main function to orchestrate audio generation and validation."""
-    # Prompt user for overwrite choice
+def get_user_mode():
+    """Prompt user to select generation mode."""
     while True:
-        response = input("Do you want to overwrite existing audio files? [y/n]: ").strip().lower()
+        print("\nSelect mode:")
+        print("[1] Specific YAML file (e.g., a for a.yaml)")
+        print("[2] All YAML files (A-Z)")
+        print("[q] Quit")
+        choice = input("Enter choice [1/2/q]: ").strip().lower()
+        if choice in ['1', '2', 'q']:
+            return choice
+        print("Invalid choice. Please enter 1, 2, or q.")
+
+def get_letter():
+    """Prompt user for a single letter."""
+    while True:
+        letter = input("Enter letter (a-z): ").strip().lower()
+        if letter in LETTERS:
+            return letter
+        print("Invalid letter. Please enter a letter from a-z.")
+
+def get_overwrite_choice():
+    """Prompt user for overwrite option."""
+    while True:
+        response = input("Overwrite existing audio files? [y/n]: ").strip().lower()
         if response in ['y', 'n']:
-            overwrite = response == 'y'
-            logging.info(f"User chose to {'overwrite' if overwrite else 'skip'} existing audio files")
-            break
+            return response == 'y'
         print("Please enter 'y' or 'n'.")
 
-    # Validate YAML directory
+def main():
+    """Main function to orchestrate audio generation and validation."""
+    mode = get_user_mode()
+    if mode == 'q':
+        print("Exiting.")
+        return
+
+    overwrite = get_overwrite_choice()
+    logging.info(f"User chose to {'overwrite' if overwrite else 'skip'} existing audio files")
+
     if not validate_yaml_dir():
         logging.error("Cannot proceed due to YAML directory issues. Exiting.")
         return
 
-    # Ensure audio directories exist
-    ensure_audio_directories()
+    if mode == '1':
+        letter = get_letter()
+        letters = [letter]
+        yaml_path = YAML_DIR / f"{letter}.yaml"
+        if not yaml_path.exists():
+            logging.error(f"{letter}.yaml not found in {YAML_DIR}")
+            return
+    else:
+        letters = LETTERS
 
-    # Load all .yaml files
-    word_entries, word_to_letter, missing_files, empty_files = load_yaml_files()
+    ensure_audio_directories(letters)
+    word_entries, word_to_letter, missing_files, empty_files = load_yaml_files(letters)
     
     if missing_files:
         logging.warning(f"Missing .yaml files for letters: {', '.join(missing_files)}")
@@ -202,18 +246,13 @@ def main():
         logging.error("No valid entries found in .yaml files. Exiting.")
         return
 
-    # Check for duplicates
     duplicates = check_duplicates(word_to_letter)
     if duplicates:
         logging.warning(f"Found {len(duplicates)} duplicate words. Please resolve before proceeding.")
 
-    # Generate audio files
-    generated, skipped, failed = generate_audio_files(word_entries, overwrite=overwrite)
-
-    # Validate audio files
+    generated, skipped, failed = generate_audio_files(word_entries, overwrite)
     missing_audio, extra_audio, empty_audio_dirs = validate_audio_files(word_entries)
 
-    # Summary
     logging.info("\n=== Audio Generation Summary ===")
     logging.info(f"Total entries processed: {len(word_entries)}")
     logging.info(f"Audio files generated: {generated}")
