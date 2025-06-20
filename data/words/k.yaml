@@ -1,412 +1,192 @@
-- word: "keen"
-  part_of_speech: "adjective"
-  definition: "Sharp or intensely interested."
-  example_sentence: "She has a keen interest in biology."
-- word: "kernel"
-  part_of_speech: "noun"
-  definition: "The central or essential part."
-  example_sentence: "The kernel of the argument was fairness."
-- word: "key"
-  part_of_speech: "adjective"
-  definition: "Crucial or essential."
-  example_sentence: "The key factor was their teamwork."
-- word: "kindle"
-  part_of_speech: "verb"
-  definition: "To ignite or inspire."
-  example_sentence: "Her speech kindled enthusiasm in the crowd."
-- word: "kinetics"
-  part_of_speech: "noun"
-  definition: "The study of motion and its causes."
-  example_sentence: "Kinetics is a branch of physics."
-- word: "kingdom"
-  part_of_speech: "noun"
-  definition: "A realm or classification in biology."
-  example_sentence: "The animal kingdom includes diverse species."
-- word: "kiosk"
-  part_of_speech: "noun"
-  definition: "A small stand for selling goods."
-  example_sentence: "The kiosk sold newspapers and snacks."
-- word: "knack"
-  part_of_speech: "noun"
-  definition: "A natural skill or talent."
-  example_sentence: "She has a knack for solving puzzles."
-- word: "knead"
-  part_of_speech: "verb"
-  definition: "To work dough or massage."
-  example_sentence: "He kneaded the dough for bread."
-- word: "knight"
-  part_of_speech: "noun"
-  definition: "A medieval warrior or honored person."
-  example_sentence: "The knight was loyal to the king."
-- word: "knit"
-  part_of_speech: "verb"
-  definition: "To join closely or create fabric."
-  example_sentence: "She knit a scarf for winter."
-- word: "knot"
-  part_of_speech: "noun"
-  definition: "A tangle or fastening."
-  example_sentence: "The knot in the rope was secure."
-- word: "knowledge"
-  part_of_speech: "noun"
-  definition: "Information or understanding gained."
-  example_sentence: "Her knowledge of history impressed the professor."
-- word: "kudos"
-  part_of_speech: "noun"
-  definition: "Praise or recognition."
-  example_sentence: "She earned kudos for her research."
-- word: "keen"
-  part_of_speech: "adjective"
-  definition: "Perceptive or sharp."
-  example_sentence: "His keen observation solved the mystery."
-- word: "keeper"
-  part_of_speech: "noun"
-  definition: "A person who guards or maintains."
-  example_sentence: "The zookeeper cared for the animals."
-- word: "kerosene"
-  part_of_speech: "noun"
-  definition: "A fuel used for lighting or heating."
-  example_sentence: "The lamp ran on kerosene."
-- word: "keynote"
-  part_of_speech: "noun"
-  definition: "The main theme or speech."
-  example_sentence: "The keynote address inspired the audience."
-- word: "kilometer"
-  part_of_speech: "noun"
-  definition: "A unit of length equal to 1,000 meters."
-  example_sentence: "The race covered ten kilometers."
-- word: "kin"
-  part_of_speech: "noun"
-  definition: "Family or relatives."
-  example_sentence: "She visited her kin during the holidays."
-- word: "kind"
-  part_of_speech: "adjective"
-  definition: "Gentle or considerate."
-  example_sentence: "His kind gesture warmed her heart."
-- word: "kinetic"
-  part_of_speech: "adjective"
-  definition: "Relating to motion."
-  example_sentence: "Kinetic energy powers the machine."
-- word: "kink"
-  part_of_speech: "noun"
-  definition: "A twist or problem."
-  example_sentence: "The plan had a kink that needed fixing."
-- word: "kit"
-  part_of_speech: "noun"
-  definition: "A set of tools or supplies."
-  example_sentence: "The first-aid kit was well-stocked."
-- word: "knee"
-  part_of_speech: "noun"
-  definition: "The joint between thigh and shin."
-  example_sentence: "She injured her knee during the hike."
-- word: "knack"
-  part_of_speech: "noun"
-  definition: "An acquired skill."
-  example_sentence: "He has a knack for public speaking."
-- word: "knit"
-  part_of_speech: "verb"
-  definition: "To unite or heal."
-  example_sentence: "The community knit together after the crisis."
-- word: "knock"
-  part_of_speech: "verb"
-  definition: "To strike or criticize."
-  example_sentence: "They knocked the proposal for lack of funds."
-- word: "knot"
-  part_of_speech: "verb"
-  definition: "To tie or entangle."
-  example_sentence: "She knotted the rope tightly."
-- word: "know"
-  part_of_speech: "verb"
-  definition: "To understand or be aware."
-  example_sentence: "He knows the subject thoroughly."
-- word: "kaleidoscope"
-  part_of_speech: "noun"
-  definition: "A device or variety of patterns."
-  example_sentence: "The festival was a kaleidoscope of colors."
-- word: "keen"
-  part_of_speech: "adjective"
-  definition: "Eager or enthusiastic."
-  example_sentence: "She was keen to join the debate team."
-- word: "keep"
-  part_of_speech: "verb"
-  definition: "To maintain or retain."
-  example_sentence: "They kept records of all transactions."
-- word: "ken"
-  part_of_speech: "noun"
-  definition: "Range of knowledge or perception."
-  example_sentence: "The issue was beyond her ken."
-- word: "kernel"
-  part_of_speech: "noun"
-  definition: "A grain or seed."
-  example_sentence: "The corn kernel was used in the experiment."
-- word: "key"
-  part_of_speech: "noun"
-  definition: "A tool for unlocking or solution."
-  example_sentence: "The key to success was preparation."
-- word: "kick"
-  part_of_speech: "verb"
-  definition: "To strike with the foot."
-  example_sentence: "He kicked the ball into the goal."
-- word: "kid"
-  part_of_speech: "noun"
-  definition: "A young child or goat."
-  example_sentence: "The kids enjoyed the science."
-- word: "kill"
-  part_of_speech: "verb"
-  definition: "To cause death or end."
-  example_sentence: "The frost killed the crops."
-- word: "kiln"
-  part_of_speech: "noun"
-  definition: "An oven for firing ceramics."
-  example_sentence: "The pottery was baked in a kiln."
-- word: "kind"
-  part_of_speech: "noun"
-  definition: "A type or category."
-  example_sentence: "This kind of plant thrives in shade."
-- word: "kindness"
-  part_of_speech: "noun"
-  definition: "The quality of being friendly or generous."
-  example_sentence: "Her kindness touched everyone."
-- word: "king"
-  part_of_speech: "noun"
-  definition: "A male ruler or leader."
-  example_sentence: "The king addressed the nation."
-- word: "kiosk"
-  part_of_speech: "noun"
-  definition: "A booth for information or tickets."
-  example_sentence: "The kiosk provided campus maps."
-- word: "kiss"
-  part_of_speech: "verb"
-  definition: "To touch with the lips as affection."
-  example_sentence: "She kissed the trophy after winning."
-- word: "kit"
-  part_of_speech: "noun"
-  definition: "A collection of equipment."
-  example_sentence: "The repair kit fixed the issue."
-- word: "kite"
-  part_of_speech: "noun"
-  definition: "A toy flown in the wind."
-  example_sentence: "They flew a kite in the park."
-- word: "knack"
-  part_of_speech: "noun"
-  definition: "A clever way of doing something."
-  example_sentence: "Her knack for negotiation sealed the deal."
-- word: "knee"
-  part_of_speech: "noun"
-  definition: "A joint in the leg."
-  example_sentence: "He knelt on one knee to propose."
-- word: "knife"
-  part_of_speech: "noun"
-  definition: "A cutting tool with a blade."
-  example_sentence: "The chef sharpened the knife."
-- word: "knight"
-  part_of_speech: "verb"
-  definition: "To confer knighthood."
-  example_sentence: "The queen knighted the scientist."
-- word: "knit"
-  part_of_speech: "noun"
-  definition: "A fabric made by knitting."
-  example_sentence: "The knit sweater was cozy."
-- word: "knock"
-  part_of_speech: "noun"
-  definition: "A sharp blow or criticism."
-  example_sentence: "The plan took a knock from reviewers."
-- word: "knot"
-  part_of_speech: "noun"
-  definition: "A unit of speed in aviation."
-  example_sentence: "The plane flew at 500 knots."
-- word: "know"
-  part_of_speech: "verb"
-  definition: "To be acquainted with."
-  example_sentence: "She knows the city well."
-- word: "knowledge"
-  part_of_speech: "noun"
-  definition: "Facts or skills acquired."
-  example_sentence: "Knowledge of coding is valuable."
-- word: "krypton"
-  part_of_speech: "noun"
-  definition: "A chemical element used in lighting."
-  example_sentence: "Krypton is a noble gas."
-- word: "keen"
-  part_of_speech: "verb"
-  definition: "To wail or lament."
-  example_sentence: "They keened at the ceremony."
-- word: "keep"
-  part_of_speech: "noun"
-  definition: "Maintenance or stronghold."
-  example_sentence: "The castle’s keep was fortified."
-- word: "kernel"
-  part_of_speech: "noun"
-  definition: "The core of a computer system."
-  example_sentence: "The kernel manages the software."
-- word: "key"
-  part_of_speech: "verb"
-  definition: "To enter data or tune."
-  example_sentence: "She keyed the information into the system."
-- word: "kick"
-  part_of_speech: "noun"
-  definition: "A thrill or sudden action."
-  example_sentence: "The adventure gave her a kick."
-- word: "kid"
-  part_of_speech: "verb"
-  definition: "To tease or joke."
-  example_sentence: "He kidded her about her new haircut."
-- word: "kill"
-  part_of_speech: "noun"
-  definition: "The act of killing."
-  example_sentence: "The hunt ended with a quick kill."
-- word: "kiln"
-  part_of_speech: "noun"
-  definition: "A furnace for processing materials."
-  example_sentence: "The bricks were fired in a kiln."
-- word: "kind"
-  part_of_speech: "adjective"
-  definition: "Sympathetic or helpful."
-  example_sentence: "The kind stranger offered directions."
-- word: "kindle"
-  part_of_speech: "noun"
-  definition: "Material for starting a fire."
-  example_sentence: "They gathered kindle for the campfire."
-- word: "king"
-  part_of_speech: "noun"
-  definition: "A dominant figure in a field."
-  example_sentence: "He was the king of chess."
-- word: "kinship"
-  part_of_speech: "noun"
-  definition: "Family relationship or bond."
-  example_sentence: "Kinship united the community."
-- word: "kiosk"
-  part_of_speech: "noun"
-  definition: "A small open-fronted shop."
-  example_sentence: "The kiosk offered souvenirs."
-- word: "kiss"
-  part_of_speech: "noun"
-  definition: "A touch with the lips."
-  example_sentence: "She blew a kiss to the audience."
-- word: "kite"
-  part_of_speech: "verb"
-  definition: "To soar or fly high."
-  example_sentence: "The bird kited above the field."
-- word: "knack"
-  part_of_speech: "noun"
-  definition: "An ability to do something well."
-  example_sentence: "His knack for math was evident."
-- word: "knee"
-  part_of_speech: "verb"
-  definition: "To strike with the knee."
-  example_sentence: "He kneed the bag during training."
-- word: "knife"
-  part_of_speech: "verb"
-  definition: "To cut with a knife."
-  example_sentence: "She knifed through the tough meat."
-- word: "knight"
-  part_of_speech: "noun"
-  definition: "A chess piece."
-  example_sentence: "The knight moved in an L-shape."
-- word: "knit"
-  part_of_speech: "verb"
-  definition: "To form by interlacing yarn."
-  example_sentence: "She knit a blanket for the charity."
-- word: "knock"
-  part_of_speech: "verb"
-  definition: "To tap on a door."
-  example_sentence: "He knocked before entering."
-- word: "knot"
-  part_of_speech: "verb"
-  definition: "To form a loop or tie."
-  example_sentence: "They knotted the strings together."
-- word: "know"
-  part_of_speech: "noun"
-  definition: "Understanding or awareness."
-  example_sentence: "Her know of the topic was deep."
-- word: "knowledgeable"
-  part_of_speech: "adjective"
-  definition: "Well-informed or educated."
-  example_sentence: "The guide was knowledgeable about history."
-- word: "kale"
-  part_of_speech: "noun"
-  definition: "A type of leafy vegetable."
-  example_sentence: "Kale is rich in nutrients."
-- word: "kangaroo"
-  part_of_speech: "noun"
-  definition: "A marsupial native to Australia."
-  example_sentence: "The kangaroo hopped across the plain."
-- word: "karst"
-  part_of_speech: "noun"
-  definition: "A landscape with limestone features."
-  example_sentence: "The karst region had unique caves."
-- word: "kayak"
-  part_of_speech: "noun"
-  definition: "A small narrow boat."
-  example_sentence: "They paddled the kayak down the river."
-- word: "keel"
-  part_of_speech: "noun"
-  definition: "The backbone of a ship."
-  example_sentence: "The keel stabilized the vessel."
-- word: "keen"
-  part_of_speech: "adjective"
-  definition: "Finely sharpened or acute."
-  example_sentence: "Her keen senses detected the change."
-- word: "keep"
-  part_of_speech: "verb"
-  definition: "To preserve or continue."
-  example_sentence: "They kept the tradition alive."
-- word: "kennel"
-  part_of_speech: "noun"
-  definition: "A shelter for dogs."
-  example_sentence: "The dog stayed in the kennel."
-- word: "kern"
-  part_of_speech: "noun"
-  definition: "A part of a typeface letter."
-  example_sentence: "The kern adjusted the font spacing."
-- word: "key"
-  part_of_speech: "noun"
-  definition: "A musical tone or pitch."
-  example_sentence: "The song was in a minor key."
-- word: "kick"
-  part_of_speech: "verb"
-  definition: "To start or launch."
-  example_sentence: "They kicked off the campaign."
-- word: "kid"
-  part_of_speech: "noun"
-  definition: "A young person."
-  example_sentence: "The kid excelled in science."
-- word: "kill"
-  part_of_speech: "verb"
-  definition: "To stop or cancel."
-  example_sentence: "They killed the project due to costs."
-- word: "kiln"
-  part_of_speech: "noun"
-  definition: "A furnace for drying wood."
-  example_sentence: "The lumber was dried in a kiln."
-- word: "kind"
-  part_of_speech: "noun"
-  definition: "A group with similar traits."
-  example_sentence: "This kind of fish is rare."
-- word: "kindness"
-  part_of_speech: "noun"
-  definition: "An act of being kind."
-  example_sentence: "His kindness helped her recover."
-- word: "king"
-  part_of_speech: "noun"
-  definition: "A card or piece in games."
-  example_sentence: "The king was played in the card game."
-- word: "kinship"
-  part_of_speech: "noun"
-  definition: "A sense of connection."
-  example_sentence: "They felt kinship through shared goals."
-- word: "kiosk"
-  part_of_speech: "noun"
-  definition: "A digital information stand."
-  example_sentence: "The kiosk displayed flight details."
-- word: "kiss"
-  part_of_speech: "noun"
-  definition: "A symbolic gesture."
-  example_sentence: "The kiss sealed their agreement."
-- word: "kite"
-  part_of_speech: "noun"
-  definition: "A predatory bird."
-  example_sentence: "The kite soared over the hills."
-- word: "knack"
-  part_of_speech: "noun"
-  definition: "A special ability."
-  example_sentence: "Her knack for design was praised."
+- word: keen
+  part_of_speech: adjective
+  definition: Sharp or intensely interested.
+  example_sentence: She has a keen interest in biology.
+- word: kernel
+  part_of_speech: noun
+  definition: The central or essential part.
+  example_sentence: The kernel of the argument was fairness.
+- word: key
+  part_of_speech: adjective
+  definition: Crucial or essential.
+  example_sentence: The key factor was their teamwork.
+- word: kindle
+  part_of_speech: verb
+  definition: To ignite or inspire.
+  example_sentence: Her speech kindled enthusiasm in the crowd.
+- word: kinetics
+  part_of_speech: noun
+  definition: The study of motion and its causes.
+  example_sentence: Kinetics is a branch of physics.
+- word: kingdom
+  part_of_speech: noun
+  definition: A realm or classification in biology.
+  example_sentence: The animal kingdom includes diverse species.
+- word: kiosk
+  part_of_speech: noun
+  definition: A small stand for selling goods.
+  example_sentence: The kiosk sold newspapers and snacks.
+- word: knack
+  part_of_speech: noun
+  definition: A natural skill or talent.
+  example_sentence: She has a knack for solving puzzles.
+- word: knead
+  part_of_speech: verb
+  definition: To work dough or massage.
+  example_sentence: He kneaded the dough for bread.
+- word: knight
+  part_of_speech: noun
+  definition: A medieval warrior or honored person.
+  example_sentence: The knight was loyal to the king.
+- word: knit
+  part_of_speech: verb
+  definition: To join closely or create fabric.
+  example_sentence: She knit a scarf for winter.
+- word: knot
+  part_of_speech: noun
+  definition: A tangle or fastening.
+  example_sentence: The knot in the rope was secure.
+- word: knowledge
+  part_of_speech: noun
+  definition: Information or understanding gained.
+  example_sentence: Her knowledge of history impressed the professor.
+- word: kudos
+  part_of_speech: noun
+  definition: Praise or recognition.
+  example_sentence: She earned kudos for her research.
+- word: keeper
+  part_of_speech: noun
+  definition: A person who guards or maintains.
+  example_sentence: The zookeeper cared for the animals.
+- word: kerosene
+  part_of_speech: noun
+  definition: A fuel used for lighting or heating.
+  example_sentence: The lamp ran on kerosene.
+- word: keynote
+  part_of_speech: noun
+  definition: The main theme or speech.
+  example_sentence: The keynote address inspired the audience.
+- word: kilometer
+  part_of_speech: noun
+  definition: A unit of length equal to 1,000 meters.
+  example_sentence: The race covered ten kilometers.
+- word: kin
+  part_of_speech: noun
+  definition: Family or relatives.
+  example_sentence: She visited her kin during the holidays.
+- word: kind
+  part_of_speech: adjective
+  definition: Gentle or considerate.
+  example_sentence: His kind gesture warmed her heart.
+- word: kinetic
+  part_of_speech: adjective
+  definition: Relating to motion.
+  example_sentence: Kinetic energy powers the machine.
+- word: kink
+  part_of_speech: noun
+  definition: A twist or problem.
+  example_sentence: The plan had a kink that needed fixing.
+- word: kit
+  part_of_speech: noun
+  definition: A set of tools or supplies.
+  example_sentence: The first-aid kit was well-stocked.
+- word: knee
+  part_of_speech: noun
+  definition: The joint between thigh and shin.
+  example_sentence: She injured her knee during the hike.
+- word: knock
+  part_of_speech: verb
+  definition: To strike or criticize.
+  example_sentence: They knocked the proposal for lack of funds.
+- word: know
+  part_of_speech: verb
+  definition: To understand or be aware.
+  example_sentence: He knows the subject thoroughly.
+- word: kaleidoscope
+  part_of_speech: noun
+  definition: A device or variety of patterns.
+  example_sentence: The festival was a kaleidoscope of colors.
+- word: keep
+  part_of_speech: verb
+  definition: To maintain or retain.
+  example_sentence: They kept records of all transactions.
+- word: ken
+  part_of_speech: noun
+  definition: Range of knowledge or perception.
+  example_sentence: The issue was beyond her ken.
+- word: kick
+  part_of_speech: verb
+  definition: To strike with the foot.
+  example_sentence: He kicked the ball into the goal.
+- word: kid
+  part_of_speech: noun
+  definition: A young child or goat.
+  example_sentence: The kids enjoyed the science.
+- word: kill
+  part_of_speech: verb
+  definition: To cause death or end.
+  example_sentence: The frost killed the crops.
+- word: kiln
+  part_of_speech: noun
+  definition: An oven for firing ceramics.
+  example_sentence: The pottery was baked in a kiln.
+- word: kindness
+  part_of_speech: noun
+  definition: The quality of being friendly or generous.
+  example_sentence: Her kindness touched everyone.
+- word: king
+  part_of_speech: noun
+  definition: A male ruler or leader.
+  example_sentence: The king addressed the nation.
+- word: kiss
+  part_of_speech: verb
+  definition: To touch with the lips as affection.
+  example_sentence: She kissed the trophy after winning.
+- word: kite
+  part_of_speech: noun
+  definition: A toy flown in the wind.
+  example_sentence: They flew a kite in the park.
+- word: knife
+  part_of_speech: noun
+  definition: A cutting tool with a blade.
+  example_sentence: The chef sharpened the knife.
+- word: krypton
+  part_of_speech: noun
+  definition: A chemical element used in lighting.
+  example_sentence: Krypton is a noble gas.
+- word: kinship
+  part_of_speech: noun
+  definition: Family relationship or bond.
+  example_sentence: Kinship united the community.
+- word: knowledgeable
+  part_of_speech: adjective
+  definition: Well-informed or educated.
+  example_sentence: The guide was knowledgeable about history.
+- word: kale
+  part_of_speech: noun
+  definition: A type of leafy vegetable.
+  example_sentence: Kale is rich in nutrients.
+- word: kangaroo
+  part_of_speech: noun
+  definition: A marsupial native to Australia.
+  example_sentence: The kangaroo hopped across the plain.
+- word: karst
+  part_of_speech: noun
+  definition: A landscape with limestone features.
+  example_sentence: The karst region had unique caves.
+- word: kayak
+  part_of_speech: noun
+  definition: A small narrow boat.
+  example_sentence: They paddled the kayak down the river.
+- word: keel
+  part_of_speech: noun
+  definition: The backbone of a ship.
+  example_sentence: The keel stabilized the vessel.
+- word: kennel
+  part_of_speech: noun
+  definition: A shelter for dogs.
+  example_sentence: The dog stayed in the kennel.
+- word: kern
+  part_of_speech: noun
+  definition: A part of a typeface letter.
+  example_sentence: The kern adjusted the font spacing.

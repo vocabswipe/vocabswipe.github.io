@@ -1,412 +1,396 @@
-- word: "wage"
-  part_of_speech: "noun"
-  definition: "Payment for work or services."
-  example_sentence: "The company offered a competitive wage."
-- word: "wander"
-  part_of_speech: "verb"
-  definition: "To move aimlessly or roam."
-  example_sentence: "They wandered through the forest."
-- word: "ward"
-  part_of_speech: "noun"
-  definition: "A division or protected area."
-  example_sentence: "The hospital ward was quiet."
-- word: "warehouse"
-  part_of_speech: "noun"
-  definition: "A large storage building."
-  example_sentence: "The warehouse held surplus goods."
-- word: "warm"
-  part_of_speech: "adjective"
-  definition: "Moderately hot or friendly."
-  example_sentence: "Her warm smile welcomed everyone."
-- word: "warn"
-  part_of_speech: "verb"
-  definition: "To alert or caution."
-  example_sentence: "They warned against the risks."
-- word: "warrant"
-  part_of_speech: "verb"
-  definition: "To justify or guarantee."
-  example_sentence: "The evidence warranted further study."
-- word: "waste"
-  part_of_speech: "noun"
-  definition: "Unwanted or unusable material."
-  example_sentence: "The factory reduced waste significantly."
-- word: "watch"
-  part_of_speech: "verb"
-  definition: "To observe or monitor."
-  example_sentence: "She watched the experiment closely."
-- word: "water"
-  part_of_speech: "noun"
-  definition: "A clear liquid essential for life."
-  example_sentence: "The water was tested for purity."
-- word: "wave"
-  part_of_speech: "noun"
-  definition: "A moving ridge or gesture."
-  example_sentence: "A wave of enthusiasm swept the crowd."
-- word: "way"
-  part_of_speech: "noun"
-  definition: "A method or path."
-  example_sentence: "They found a new way to solve the issue."
-- word: "weak"
-  part_of_speech: "adjective"
-  definition: "Lacking strength or force."
-  example_sentence: "The weak signal caused delays."
-- word: "wealth"
-  part_of_speech: "noun"
-  definition: "Abundance of resources or money."
-  example_sentence: "The region’s wealth came from trade."
-- word: "weapon"
-  part_of_speech: "noun"
-  definition: "A tool used for defense or attack."
-  example_sentence: "The museum displayed ancient weapons."
-- word: "wear"
-  part_of_speech: "verb"
-  definition: "To use as clothing or erode."
-  example_sentence: "The fabric wore out quickly."
-- word: "weather"
-  part_of_speech: "noun"
-  definition: "Atmospheric conditions."
-  example_sentence: "The weather affected the crops."
-- word: "weave"
-  part_of_speech: "verb"
-  definition: "To interlace or create."
-  example_sentence: "She wove a compelling narrative."
-- word: "web"
-  part_of_speech: "noun"
-  definition: "A network or structure."
-  example_sentence: "The web of connections was complex."
-- word: "wedding"
-  part_of_speech: "noun"
-  definition: "A marriage ceremony."
-  example_sentence: "The wedding was beautifully organized."
-- word: "weigh"
-  part_of_speech: "verb"
-  definition: "To measure mass or consider."
-  example_sentence: "They weighed the pros and cons."
-- word: "welcome"
-  part_of_speech: "verb"
-  definition: "To greet or accept warmly."
-  example_sentence: "She welcomed the new students."
-- word: "welfare"
-  part_of_speech: "noun"
-  definition: "Well-being or aid."
-  example_sentence: "The policy improved public welfare."
-- word: "well"
-  part_of_speech: "adverb"
-  definition: "In a good or satisfactory way."
-  example_sentence: "The team performed well."
-- word: "west"
-  part_of_speech: "noun"
-  definition: "A cardinal direction."
-  example_sentence: "The sun sets in the west."
-- word: "wet"
-  part_of_speech: "adjective"
-  definition: "Covered with liquid."
-  example_sentence: "The wet pavement was slippery."
-- word: "wheel"
-  part_of_speech: "noun"
-  definition: "A circular object for motion."
-  example_sentence: "The wheel revolutionized transport."
-- word: "whereas"
-  part_of_speech: "conjunction"
-  definition: "In contrast or comparison."
-  example_sentence: "She excelled, whereas others struggled."
-- word: "wherever"
-  part_of_speech: "adverb"
-  definition: "In any place."
-  example_sentence: "They traveled wherever opportunities arose."
-- word: "while"
-  part_of_speech: "noun"
-  definition: "A period of time."
-  example_sentence: "They worked for a while."
-- word: "whisper"
-  part_of_speech: "verb"
-  definition: "To speak softly."
-  example_sentence: "She whispered the secret."
-- word: "whole"
-  part_of_speech: "adjective"
-  definition: "Entire or complete."
-  example_sentence: "The whole class participated."
-- word: "widespread"
-  part_of_speech: "adjective"
-  definition: "Distributed over a large area."
-  example_sentence: "The practice was widespread."
-- word: "width"
-  part_of_speech: "noun"
-  definition: "The measurement of extent across."
-  example_sentence: "The width of the river was vast."
-- word: "wild"
-  part_of_speech: "adjective"
-  definition: "Untamed or natural."
-  example_sentence: "The wild forest was untouched."
-- word: "will"
-  part_of_speech: "noun"
-  definition: "Determination or intention."
-  example_sentence: "Her will to succeed was strong."
-- word: "willing"
-  part_of_speech: "adjective"
-  definition: "Ready or eager."
-  example_sentence: "She was willing to help."
-- word: "win"
-  part_of_speech: "verb"
-  definition: "To achieve victory."
-  example_sentence: "They won the debate convincingly."
-- word: "wind"
-  part_of_speech: "noun"
-  definition: "Moving air or to turn."
-  example_sentence: "The wind powered the turbine."
-- word: "window"
-  part_of_speech: "noun"
-  definition: "An opening or opportunity."
-  example_sentence: "The window allowed natural light."
-- word: "wing"
-  part_of_speech: "noun"
-  definition: "A structure for flight or section."
-  example_sentence: "The bird’s wing was injured."
-- word: "winter"
-  part_of_speech: "noun"
-  definition: "The coldest season."
-  example_sentence: "Winter delayed the project."
-- word: "wipe"
-  part_of_speech: "verb"
-  definition: "To clean or remove."
-  example_sentence: "She wiped the board clean."
-- word: "wire"
-  part_of_speech: "noun"
-  definition: "A thin metal strand."
-  example_sentence: "The wire connected the circuit."
-- word: "wisdom"
-  part_of_speech: "noun"
-  definition: "Knowledge and good judgment."
-  example_sentence: "Her wisdom guided the team."
-- word: "wise"
-  part_of_speech: "adjective"
-  definition: "Having knowledge or judgment."
-  example_sentence: "His wise decision saved resources."
-- word: "wish"
-  part_of_speech: "verb"
-  definition: "To desire or hope."
-  example_sentence: "She wished for success."
-- word: "withdraw"
-  part_of_speech: "verb"
-  definition: "To remove or retreat."
-  example_sentence: "They withdrew the proposal."
-- word: "withhold"
-  part_of_speech: "verb"
-  definition: "To hold back or refuse."
-  example_sentence: "They withheld critical information."
-- word: "within"
-  part_of_speech: "preposition"
-  definition: "Inside or not beyond."
-  example_sentence: "The task was completed within a day."
-- word: "without"
-  part_of_speech: "preposition"
-  definition: "Lacking or not involving."
-  example_sentence: "They proceeded without approval."
-- word: "witness"
-  part_of_speech: "noun"
-  definition: "A person who sees an event."
-  example_sentence: "The witness described the incident."
-- word: "wonder"
-  part_of_speech: "verb"
-  definition: "To be curious or marvel."
-  example_sentence: "She wondered about the outcome."
-- word: "wood"
-  part_of_speech: "noun"
-  definition: "Hard material from trees."
-  example_sentence: "The wood was used for construction."
-- word: "word"
-  part_of_speech: "noun"
-  definition: "A unit of language."
-  example_sentence: "Her word was trustworthy."
-- word: "work"
-  part_of_speech: "noun"
-  definition: "Activity or employment."
-  example_sentence: "Her work improved efficiency."
-- word: "world"
-  part_of_speech: "noun"
-  definition: "The earth or a realm."
-  example_sentence: "The discovery impacted the world."
-- word: "worry"
-  part_of_speech: "verb"
-  definition: "To feel anxious or concerned."
-  example_sentence: "She worried about the results."
-- word: "worse"
-  part_of_speech: "adjective"
-  definition: "More bad or severe."
-  example_sentence: "The situation grew worse."
-- word: "worth"
-  part_of_speech: "noun"
-  definition: "Value or merit."
-  example_sentence: "The project’s worth was evident."
-- word: "worthy"
-  part_of_speech: "adjective"
-  definition: "Deserving or valuable."
-  example_sentence: "The cause was worthy of support."
-- word: "wound"
-  part_of_speech: "noun"
-  definition: "An injury or harm."
-  example_sentence: "The wound healed quickly."
-- word: "wrap"
-  part_of_speech: "verb"
-  definition: "To cover or enclose."
-  example_sentence: "They wrapped the gift carefully."
-- word: "wreck"
-  part_of_speech: "verb"
-  definition: "To destroy or ruin."
-  example_sentence: "The storm wrecked the plans."
-- word: "wrestle"
-  part_of_speech: "verb"
-  definition: "To struggle or grapple."
-  example_sentence: "She wrestled with the decision."
-- word: "write"
-  part_of_speech: "verb"
-  definition: "To compose or record."
-  example_sentence: "She wrote a detailed report."
-- word: "wrong"
-  part_of_speech: "adjective"
-  definition: "Incorrect or unjust."
-  example_sentence: "The wrong answer was corrected."
-- word: "wage"
-  part_of_speech: "verb"
-  definition: "To engage in or carry on."
-  example_sentence: "They waged a campaign for change."
-- word: "wait"
-  part_of_speech: "verb"
-  definition: "To stay or delay."
-  example_sentence: "They waited for the results."
-- word: "walk"
-  part_of_speech: "verb"
-  definition: "To move on foot."
-  example_sentence: "She walked to the seminar."
-- word: "wall"
-  part_of_speech: "noun"
-  definition: "A vertical structure or barrier."
-  example_sentence: "The wall separated the rooms."
-- word: "want"
-  part_of_speech: "verb"
-  definition: "To desire or need."
-  example_sentence: "She wanted more information."
-- word: "war"
-  part_of_speech: "noun"
-  definition: "A conflict or struggle."
-  example_sentence: "The war affected the economy."
-- word: "warmth"
-  part_of_speech: "noun"
-  definition: "Heat or affection."
-  example_sentence: "The warmth of the room was comforting."
-- word: "wash"
-  part_of_speech: "verb"
-  definition: "To clean with water."
-  example_sentence: "They washed the equipment thoroughly."
-- word: "wasteful"
-  part_of_speech: "adjective"
-  definition: "Using more than necessary."
-  example_sentence: "The wasteful process was revised."
-- word: "wave"
-  part_of_speech: "verb"
-  definition: "To gesture or move back and forth."
-  example_sentence: "She waved to the audience."
-- word: "weaken"
-  part_of_speech: "verb"
-  definition: "To make or become less strong."
-  example_sentence: "The structure weakened over time."
-- word: "wealthy"
-  part_of_speech: "adjective"
-  definition: "Having much wealth."
-  example_sentence: "The wealthy donor funded the project."
-- word: "weird"
-  part_of_speech: "adjective"
-  definition: "Strange or unusual."
-  example_sentence: "The weird noise puzzled them."
-- word: "weld"
-  part_of_speech: "verb"
-  definition: "To join by heating or pressure."
-  example_sentence: "They welded the parts together."
-- word: "well-known"
-  part_of_speech: "adjective"
-  definition: "Widely recognized."
-  example_sentence: "The well-known scientist lectured."
-- word: "whenever"
-  part_of_speech: "adverb"
-  definition: "At any time."
-  example_sentence: "Visit whenever you’re free."
-- word: "where"
-  part_of_speech: "adverb"
-  definition: "In or to what place."
-  example_sentence: "Where did they conduct the study?"
-- word: "whether"
-  part_of_speech: "conjunction"
-  definition: "Indicating alternatives or doubt."
-  example_sentence: "They debated whether to proceed."
-- word: "which"
-  part_of_speech: "pronoun"
-  definition: "What particular one."
-  example_sentence: "Which method was most effective?"
-- word: "whistle"
-  part_of_speech: "verb"
-  definition: "To make a high-pitched sound."
-  example_sentence: "He whistled to signal the start."
-- word: "white"
-  part_of_speech: "adjective"
-  definition: "Color of snow or pure."
-  example_sentence: "The white paper was blank."
-- word: "who"
-  part_of_speech: "pronoun"
-  definition: "What or which person."
-  example_sentence: "Who led the research team?"
-- word: "wholehearted"
-  part_of_speech: "adjective"
-  definition: "Fully committed or sincere."
-  example_sentence: "Her wholehearted effort was admired."
-- word: "why"
-  part_of_speech: "adverb"
-  definition: "For what reason."
-  example_sentence: "Why was the project delayed?"
-- word: "wicked"
-  part_of_speech: "adjective"
-  definition: "Evil or morally bad."
-  example_sentence: "The wicked act was condemned."
-- word: "wide"
-  part_of_speech: "adjective"
-  definition: "Broad or extensive."
-  example_sentence: "The wide river was impressive."
-- word: "wilderness"
-  part_of_speech: "noun"
-  definition: "A wild or uncultivated area."
-  example_sentence: "The wilderness was explored."
-- word: "willpower"
-  part_of_speech: "noun"
-  definition: "Control exerted by one’s will."
-  example_sentence: "Her willpower drove her success."
-- word: "windy"
-  part_of_speech: "adjective"
-  definition: "Having strong winds."
-  example_sentence: "The windy day disrupted plans."
-- word: "winner"
-  part_of_speech: "noun"
-  definition: "One who achieves victory."
-  example_sentence: "The winner received an award."
-- word: "wipe"
-  part_of_speech: "noun"
-  definition: "An act of cleaning or removing."
-  example_sentence: "A quick wipe cleaned the surface."
-- word: "wireless"
-  part_of_speech: "adjective"
-  definition: "Without wires or cables."
-  example_sentence: "The wireless device was convenient."
-- word: "wit"
-  part_of_speech: "noun"
-  definition: "Cleverness or humor."
-  example_sentence: "Her wit entertained the group."
-- word: "withdraw"
-  part_of_speech: "verb"
-  definition: "To take back or retreat."
-  example_sentence: "They withdrew from the agreement."
-- word: "wonderful"
-  part_of_speech: "adjective"
-  definition: "Inspiring delight or admiration."
-  example_sentence: "The wonderful view inspired them."
-- word: "workshop"
-  part_of_speech: "noun"
-  definition: "A meeting for hands-on work."
-  example_sentence: "The workshop taught new skills."
+- word: wage
+  part_of_speech: noun
+  definition: Payment for work or services.
+  example_sentence: The company offered a competitive wage.
+- word: wander
+  part_of_speech: verb
+  definition: To move aimlessly or roam.
+  example_sentence: They wandered through the forest.
+- word: ward
+  part_of_speech: noun
+  definition: A division or protected area.
+  example_sentence: The hospital ward was quiet.
+- word: warehouse
+  part_of_speech: noun
+  definition: A large storage building.
+  example_sentence: The warehouse held surplus goods.
+- word: warm
+  part_of_speech: adjective
+  definition: Moderately hot or friendly.
+  example_sentence: Her warm smile welcomed everyone.
+- word: warn
+  part_of_speech: verb
+  definition: To alert or caution.
+  example_sentence: They warned against the risks.
+- word: warrant
+  part_of_speech: verb
+  definition: To justify or guarantee.
+  example_sentence: The evidence warranted further study.
+- word: waste
+  part_of_speech: noun
+  definition: Unwanted or unusable material.
+  example_sentence: The factory reduced waste significantly.
+- word: watch
+  part_of_speech: verb
+  definition: To observe or monitor.
+  example_sentence: She watched the experiment closely.
+- word: water
+  part_of_speech: noun
+  definition: A clear liquid essential for life.
+  example_sentence: The water was tested for purity.
+- word: wave
+  part_of_speech: noun
+  definition: A moving ridge or gesture.
+  example_sentence: A wave of enthusiasm swept the crowd.
+- word: way
+  part_of_speech: noun
+  definition: A method or path.
+  example_sentence: They found a new way to solve the issue.
+- word: weak
+  part_of_speech: adjective
+  definition: Lacking strength or force.
+  example_sentence: The weak signal caused delays.
+- word: wealth
+  part_of_speech: noun
+  definition: Abundance of resources or money.
+  example_sentence: The region’s wealth came from trade.
+- word: weapon
+  part_of_speech: noun
+  definition: A tool used for defense or attack.
+  example_sentence: The museum displayed ancient weapons.
+- word: wear
+  part_of_speech: verb
+  definition: To use as clothing or erode.
+  example_sentence: The fabric wore out quickly.
+- word: weather
+  part_of_speech: noun
+  definition: Atmospheric conditions.
+  example_sentence: The weather affected the crops.
+- word: weave
+  part_of_speech: verb
+  definition: To interlace or create.
+  example_sentence: She wove a compelling narrative.
+- word: web
+  part_of_speech: noun
+  definition: A network or structure.
+  example_sentence: The web of connections was complex.
+- word: wedding
+  part_of_speech: noun
+  definition: A marriage ceremony.
+  example_sentence: The wedding was beautifully organized.
+- word: weigh
+  part_of_speech: verb
+  definition: To measure mass or consider.
+  example_sentence: They weighed the pros and cons.
+- word: welcome
+  part_of_speech: verb
+  definition: To greet or accept warmly.
+  example_sentence: She welcomed the new students.
+- word: welfare
+  part_of_speech: noun
+  definition: Well-being or aid.
+  example_sentence: The policy improved public welfare.
+- word: well
+  part_of_speech: adverb
+  definition: In a good or satisfactory way.
+  example_sentence: The team performed well.
+- word: west
+  part_of_speech: noun
+  definition: A cardinal direction.
+  example_sentence: The sun sets in the west.
+- word: wet
+  part_of_speech: adjective
+  definition: Covered with liquid.
+  example_sentence: The wet pavement was slippery.
+- word: wheel
+  part_of_speech: noun
+  definition: A circular object for motion.
+  example_sentence: The wheel revolutionized transport.
+- word: whereas
+  part_of_speech: conjunction
+  definition: In contrast or comparison.
+  example_sentence: She excelled, whereas others struggled.
+- word: wherever
+  part_of_speech: adverb
+  definition: In any place.
+  example_sentence: They traveled wherever opportunities arose.
+- word: while
+  part_of_speech: noun
+  definition: A period of time.
+  example_sentence: They worked for a while.
+- word: whisper
+  part_of_speech: verb
+  definition: To speak softly.
+  example_sentence: She whispered the secret.
+- word: whole
+  part_of_speech: adjective
+  definition: Entire or complete.
+  example_sentence: The whole class participated.
+- word: widespread
+  part_of_speech: adjective
+  definition: Distributed over a large area.
+  example_sentence: The practice was widespread.
+- word: width
+  part_of_speech: noun
+  definition: The measurement of extent across.
+  example_sentence: The width of the river was vast.
+- word: wild
+  part_of_speech: adjective
+  definition: Untamed or natural.
+  example_sentence: The wild forest was untouched.
+- word: will
+  part_of_speech: noun
+  definition: Determination or intention.
+  example_sentence: Her will to succeed was strong.
+- word: willing
+  part_of_speech: adjective
+  definition: Ready or eager.
+  example_sentence: She was willing to help.
+- word: win
+  part_of_speech: verb
+  definition: To achieve victory.
+  example_sentence: They won the debate convincingly.
+- word: wind
+  part_of_speech: noun
+  definition: Moving air or to turn.
+  example_sentence: The wind powered the turbine.
+- word: window
+  part_of_speech: noun
+  definition: An opening or opportunity.
+  example_sentence: The window allowed natural light.
+- word: wing
+  part_of_speech: noun
+  definition: A structure for flight or section.
+  example_sentence: The bird’s wing was injured.
+- word: winter
+  part_of_speech: noun
+  definition: The coldest season.
+  example_sentence: Winter delayed the project.
+- word: wipe
+  part_of_speech: verb
+  definition: To clean or remove.
+  example_sentence: She wiped the board clean.
+- word: wire
+  part_of_speech: noun
+  definition: A thin metal strand.
+  example_sentence: The wire connected the circuit.
+- word: wisdom
+  part_of_speech: noun
+  definition: Knowledge and good judgment.
+  example_sentence: Her wisdom guided the team.
+- word: wise
+  part_of_speech: adjective
+  definition: Having knowledge or judgment.
+  example_sentence: His wise decision saved resources.
+- word: wish
+  part_of_speech: verb
+  definition: To desire or hope.
+  example_sentence: She wished for success.
+- word: withdraw
+  part_of_speech: verb
+  definition: To remove or retreat.
+  example_sentence: They withdrew the proposal.
+- word: withhold
+  part_of_speech: verb
+  definition: To hold back or refuse.
+  example_sentence: They withheld critical information.
+- word: within
+  part_of_speech: preposition
+  definition: Inside or not beyond.
+  example_sentence: The task was completed within a day.
+- word: without
+  part_of_speech: preposition
+  definition: Lacking or not involving.
+  example_sentence: They proceeded without approval.
+- word: witness
+  part_of_speech: noun
+  definition: A person who sees an event.
+  example_sentence: The witness described the incident.
+- word: wonder
+  part_of_speech: verb
+  definition: To be curious or marvel.
+  example_sentence: She wondered about the outcome.
+- word: wood
+  part_of_speech: noun
+  definition: Hard material from trees.
+  example_sentence: The wood was used for construction.
+- word: word
+  part_of_speech: noun
+  definition: A unit of language.
+  example_sentence: Her word was trustworthy.
+- word: work
+  part_of_speech: noun
+  definition: Activity or employment.
+  example_sentence: Her work improved efficiency.
+- word: world
+  part_of_speech: noun
+  definition: The earth or a realm.
+  example_sentence: The discovery impacted the world.
+- word: worry
+  part_of_speech: verb
+  definition: To feel anxious or concerned.
+  example_sentence: She worried about the results.
+- word: worse
+  part_of_speech: adjective
+  definition: More bad or severe.
+  example_sentence: The situation grew worse.
+- word: worth
+  part_of_speech: noun
+  definition: Value or merit.
+  example_sentence: The project’s worth was evident.
+- word: worthy
+  part_of_speech: adjective
+  definition: Deserving or valuable.
+  example_sentence: The cause was worthy of support.
+- word: wound
+  part_of_speech: noun
+  definition: An injury or harm.
+  example_sentence: The wound healed quickly.
+- word: wrap
+  part_of_speech: verb
+  definition: To cover or enclose.
+  example_sentence: They wrapped the gift carefully.
+- word: wreck
+  part_of_speech: verb
+  definition: To destroy or ruin.
+  example_sentence: The storm wrecked the plans.
+- word: wrestle
+  part_of_speech: verb
+  definition: To struggle or grapple.
+  example_sentence: She wrestled with the decision.
+- word: write
+  part_of_speech: verb
+  definition: To compose or record.
+  example_sentence: She wrote a detailed report.
+- word: wrong
+  part_of_speech: adjective
+  definition: Incorrect or unjust.
+  example_sentence: The wrong answer was corrected.
+- word: wait
+  part_of_speech: verb
+  definition: To stay or delay.
+  example_sentence: They waited for the results.
+- word: walk
+  part_of_speech: verb
+  definition: To move on foot.
+  example_sentence: She walked to the seminar.
+- word: wall
+  part_of_speech: noun
+  definition: A vertical structure or barrier.
+  example_sentence: The wall separated the rooms.
+- word: want
+  part_of_speech: verb
+  definition: To desire or need.
+  example_sentence: She wanted more information.
+- word: war
+  part_of_speech: noun
+  definition: A conflict or struggle.
+  example_sentence: The war affected the economy.
+- word: warmth
+  part_of_speech: noun
+  definition: Heat or affection.
+  example_sentence: The warmth of the room was comforting.
+- word: wash
+  part_of_speech: verb
+  definition: To clean with water.
+  example_sentence: They washed the equipment thoroughly.
+- word: wasteful
+  part_of_speech: adjective
+  definition: Using more than necessary.
+  example_sentence: The wasteful process was revised.
+- word: weaken
+  part_of_speech: verb
+  definition: To make or become less strong.
+  example_sentence: The structure weakened over time.
+- word: wealthy
+  part_of_speech: adjective
+  definition: Having much wealth.
+  example_sentence: The wealthy donor funded the project.
+- word: weird
+  part_of_speech: adjective
+  definition: Strange or unusual.
+  example_sentence: The weird noise puzzled them.
+- word: weld
+  part_of_speech: verb
+  definition: To join by heating or pressure.
+  example_sentence: They welded the parts together.
+- word: well-known
+  part_of_speech: adjective
+  definition: Widely recognized.
+  example_sentence: The well-known scientist lectured.
+- word: whenever
+  part_of_speech: adverb
+  definition: At any time.
+  example_sentence: Visit whenever you’re free.
+- word: where
+  part_of_speech: adverb
+  definition: In or to what place.
+  example_sentence: Where did they conduct the study?
+- word: whether
+  part_of_speech: conjunction
+  definition: Indicating alternatives or doubt.
+  example_sentence: They debated whether to proceed.
+- word: which
+  part_of_speech: pronoun
+  definition: What particular one.
+  example_sentence: Which method was most effective?
+- word: whistle
+  part_of_speech: verb
+  definition: To make a high-pitched sound.
+  example_sentence: He whistled to signal the start.
+- word: white
+  part_of_speech: adjective
+  definition: Color of snow or pure.
+  example_sentence: The white paper was blank.
+- word: who
+  part_of_speech: pronoun
+  definition: What or which person.
+  example_sentence: Who led the research team?
+- word: wholehearted
+  part_of_speech: adjective
+  definition: Fully committed or sincere.
+  example_sentence: Her wholehearted effort was admired.
+- word: why
+  part_of_speech: adverb
+  definition: For what reason.
+  example_sentence: Why was the project delayed?
+- word: wicked
+  part_of_speech: adjective
+  definition: Evil or morally bad.
+  example_sentence: The wicked act was condemned.
+- word: wide
+  part_of_speech: adjective
+  definition: Broad or extensive.
+  example_sentence: The wide river was impressive.
+- word: wilderness
+  part_of_speech: noun
+  definition: A wild or uncultivated area.
+  example_sentence: The wilderness was explored.
+- word: willpower
+  part_of_speech: noun
+  definition: Control exerted by one’s will.
+  example_sentence: Her willpower drove her success.
+- word: windy
+  part_of_speech: adjective
+  definition: Having strong winds.
+  example_sentence: The windy day disrupted plans.
+- word: winner
+  part_of_speech: noun
+  definition: One who achieves victory.
+  example_sentence: The winner received an award.
+- word: wireless
+  part_of_speech: adjective
+  definition: Without wires or cables.
+  example_sentence: The wireless device was convenient.
+- word: wit
+  part_of_speech: noun
+  definition: Cleverness or humor.
+  example_sentence: Her wit entertained the group.
+- word: wonderful
+  part_of_speech: adjective
+  definition: Inspiring delight or admiration.
+  example_sentence: The wonderful view inspired them.
+- word: workshop
+  part_of_speech: noun
+  definition: A meeting for hands-on work.
+  example_sentence: The workshop taught new skills.

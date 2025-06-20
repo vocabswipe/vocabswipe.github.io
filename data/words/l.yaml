@@ -1,416 +1,332 @@
-- word: "label"
-  part_of_speech: "noun"
-  definition: "A tag or description."
-  example_sentence: "The label on the jar listed the ingredients."
-- word: "labor"
-  part_of_speech: "noun"
-  definition: "Work, especially physical work."
-  example_sentence: "Manual labor was required for the construction."
-- word: "laboratory"
-  part_of_speech: "noun"
-  definition: "A place for scientific experiments."
-  example_sentence: "The laboratory conducted cutting-edge research."
-- word: "labyrinth"
-  part_of_speech: "noun"
-  definition: "A complex maze or network."
-  example_sentence: "The labyrinth of streets confused the tourists."
-- word: "lace"
-  part_of_speech: "noun"
-  definition: "A delicate fabric or cord."
-  example_sentence: "The dress was adorned with fine lace."
-- word: "lack"
-  part_of_speech: "verb"
-  definition: "To be without or deficient in."
-  example_sentence: "They lack the resources to expand."
-- word: "lag"
-  part_of_speech: "verb"
-  definition: "To fall behind or delay."
-  example_sentence: "The project lagged due to funding issues."
-- word: "lament"
-  part_of_speech: "verb"
-  definition: "To express sorrow or regret."
-  example_sentence: "She lamented the loss of her favorite book."
-- word: "landmark"
-  part_of_speech: "noun"
-  definition: "A significant event or feature."
-  example_sentence: "The treaty was a landmark in diplomacy."
-- word: "landscape"
-  part_of_speech: "noun"
-  definition: "The visible features of an area."
-  example_sentence: "The landscape was breathtaking at sunset."
-- word: "language"
-  part_of_speech: "noun"
-  definition: "A system of communication."
-  example_sentence: "Learning a new language improves cognition."
-- word: "lapse"
-  part_of_speech: "noun"
-  definition: "A temporary failure or decline."
-  example_sentence: "A lapse in judgment led to the error."
-- word: "large"
-  part_of_speech: "adjective"
-  definition: "Big in size or amount."
-  example_sentence: "The large audience applauded the speaker."
-- word: "lateral"
-  part_of_speech: "adjective"
-  definition: "Relating to the side."
-  example_sentence: "The lateral movement confused the opponent."
-- word: "latitude"
-  part_of_speech: "noun"
-  definition: "Distance north or south of the equator."
-  example_sentence: "The city is located at a high latitude."
-- word: "launch"
-  part_of_speech: "verb"
-  definition: "To start or set in motion."
-  example_sentence: "The company launched a new product."
-- word: "lavish"
-  part_of_speech: "adjective"
-  definition: "Extravagant or abundant."
-  example_sentence: "The lavish banquet impressed the guests."
-- word: "law"
-  part_of_speech: "noun"
-  definition: "A rule established by authority."
-  example_sentence: "The law protects endangered species."
-- word: "lax"
-  part_of_speech: "adjective"
-  definition: "Not strict or careless."
-  example_sentence: "The lax regulations led to problems."
-- word: "layer"
-  part_of_speech: "noun"
-  definition: "A single thickness or level."
-  example_sentence: "The cake had multiple layers of frosting."
-- word: "lead"
-  part_of_speech: "verb"
-  definition: "To guide or direct."
-  example_sentence: "She led the team to victory."
-- word: "leadership"
-  part_of_speech: "noun"
-  definition: "The act of leading or guiding."
-  example_sentence: "Her leadership inspired confidence."
-- word: "league"
-  part_of_speech: "noun"
-  definition: "A group or alliance."
-  example_sentence: "The teams formed a competitive league."
-- word: "lean"
-  part_of_speech: "verb"
-  definition: "To incline or rely on."
-  example_sentence: "They lean on technology for efficiency."
-- word: "leap"
-  part_of_speech: "verb"
-  definition: "To jump or advance quickly."
-  example_sentence: "The company leaped forward with innovation."
-- word: "learn"
-  part_of_speech: "verb"
-  definition: "To acquire knowledge or skills."
-  example_sentence: "She learned Spanish for her travels."
-- word: "lease"
-  part_of_speech: "noun"
-  definition: "A contract for renting property."
-  example_sentence: "They signed a lease for the apartment."
-- word: "lecture"
-  part_of_speech: "noun"
-  definition: "An educational speech."
-  example_sentence: "The lecture covered climate change."
-- word: "legacy"
-  part_of_speech: "noun"
-  definition: "Something handed down from the past."
-  example_sentence: "Her legacy was a scholarship fund."
-- word: "legal"
-  part_of_speech: "adjective"
-  definition: "Relating to the law."
-  example_sentence: "The contract was legally binding."
-- word: "legend"
-  part_of_speech: "noun"
-  definition: "A traditional story or notable person."
-  example_sentence: "The legend of the hero inspired many."
-- word: "legislation"
-  part_of_speech: "noun"
-  definition: "Laws or the process of making them."
-  example_sentence: "New legislation addressed pollution."
-- word: "legitimate"
-  part_of_speech: "adjective"
-  definition: "Lawful or reasonable."
-  example_sentence: "Her concerns were legitimate."
-- word: "leisure"
-  part_of_speech: "noun"
-  definition: "Free time for relaxation."
-  example_sentence: "She enjoyed reading in her leisure time."
-- word: "lend"
-  part_of_speech: "verb"
-  definition: "To give temporarily."
-  example_sentence: "The bank lent money for the project."
-- word: "length"
-  part_of_speech: "noun"
-  definition: "The extent from end to end."
-  example_sentence: "The length of the river was measured."
-- word: "lens"
-  part_of_speech: "noun"
-  definition: "A piece of glass for focusing light."
-  example_sentence: "The camera’s lens captured clear images."
-- word: "lessen"
-  part_of_speech: "verb"
-  definition: "To reduce or decrease."
-  example_sentence: "The medicine lessened her pain."
-- word: "lethal"
-  part_of_speech: "adjective"
-  definition: "Causing death or destruction."
-  example_sentence: "The chemical was lethal in high doses."
-- word: "level"
-  part_of_speech: "noun"
-  definition: "A position or degree of value."
-  example_sentence: "The course was designed for all levels."
-- word: "leverage"
-  part_of_speech: "noun"
-  definition: "Advantage or influence."
-  example_sentence: "Her skills gave her leverage in negotiations."
-- word: "levy"
-  part_of_speech: "verb"
-  definition: "To impose or collect a tax."
-  example_sentence: "The government levied a new tax."
-- word: "liable"
-  part_of_speech: "adjective"
-  definition: "Legally responsible or likely."
-  example_sentence: "The company is liable for damages."
-- word: "liberal"
-  part_of_speech: "adjective"
-  definition: "Open to new ideas or generous."
-  example_sentence: "The liberal policy encouraged innovation."
-- word: "liberate"
-  part_of_speech: "verb"
-  definition: "To set free or release."
-  example_sentence: "The reforms liberated the economy."
-- word: "liberty"
-  part_of_speech: "noun"
-  definition: "Freedom or independence."
-  example_sentence: "The constitution protects personal liberty."
-- word: "license"
-  part_of_speech: "noun"
-  definition: "Official permission or permit."
-  example_sentence: "She obtained a license to practice law."
-- word: "likelihood"
-  part_of_speech: "noun"
-  definition: "The chance or probability."
-  example_sentence: "The likelihood of rain increased."
-- word: "likewise"
-  part_of_speech: "adverb"
-  definition: "In the same way."
-  example_sentence: "She studied hard, and he did likewise."
-- word: "limit"
-  part_of_speech: "noun"
-  definition: "A boundary or restriction."
-  example_sentence: "The budget set a limit on spending."
-- word: "linger"
-  part_of_speech: "verb"
-  definition: "To stay longer or delay leaving."
-  example_sentence: "The smell of flowers lingered in the air."
-- word: "link"
-  part_of_speech: "verb"
-  definition: "To connect or associate."
-  example_sentence: "The study linked diet to health."
-- word: "liquid"
-  part_of_speech: "noun"
-  definition: "A fluid substance."
-  example_sentence: "The liquid was tested for purity."
-- word: "list"
-  part_of_speech: "verb"
-  definition: "To make an ordered record."
-  example_sentence: "She listed the project requirements."
-- word: "literal"
-  part_of_speech: "adjective"
-  definition: "Exact or without exaggeration."
-  example_sentence: "His words were taken in a literal sense."
-- word: "literature"
-  part_of_speech: "noun"
-  definition: "Written works of artistic value."
-  example_sentence: "She studied English literature."
-- word: "livelihood"
-  part_of_speech: "noun"
-  definition: "A means of earning a living."
-  example_sentence: "Farming is their primary livelihood."
-- word: "lively"
-  part_of_speech: "adjective"
-  definition: "Full of energy or enthusiasm."
-  example_sentence: "The lively discussion engaged everyone."
-- word: "load"
-  part_of_speech: "noun"
-  definition: "A burden or amount carried."
-  example_sentence: "The truck carried a heavy load."
-- word: "loan"
-  part_of_speech: "noun"
-  definition: "Something lent, usually money."
-  example_sentence: "She applied for a student loan."
-- word: "lobby"
-  part_of_speech: "verb"
-  definition: "To influence or persuade."
-  example_sentence: "They lobbied for environmental reforms."
-- word: "local"
-  part_of_speech: "adjective"
-  definition: "Relating to a specific area."
-  example_sentence: "The local community supported the event."
-- word: "locate"
-  part_of_speech: "verb"
-  definition: "To find or establish the position."
-  example_sentence: "They located the source of the problem."
-- word: "logic"
-  part_of_speech: "noun"
-  definition: "Reasoning or rational thought."
-  example_sentence: "Her argument was based on sound logic."
-- word: "longevity"
-  part_of_speech: "noun"
-  definition: "Long life or duration."
-  example_sentence: "The product’s longevity impressed consumers."
-- word: "loom"
-  part_of_speech: "verb"
-  definition: "To appear large or threatening."
-  example_sentence: "The deadline loomed over the team."
-- word: "loop"
-  part_of_speech: "noun"
-  definition: "A circular shape or sequence."
-  example_sentence: "The program ran in a continuous loop."
-- word: "loose"
-  part_of_speech: "adjective"
-  definition: "Not tight or confined."
-  example_sentence: "The loose screws caused the issue."
-- word: "loot"
-  part_of_speech: "verb"
-  definition: "To steal or plunder."
-  example_sentence: "The thieves looted the abandoned store."
-- word: "loyal"
-  part_of_speech: "adjective"
-  definition: "Faithful or devoted."
-  example_sentence: "Her loyal support helped the team."
-- word: "lucid"
-  part_of_speech: "adjective"
-  definition: "Clear or easily understood."
-  example_sentence: "The lucid explanation clarified the topic."
-- word: "lull"
-  part_of_speech: "noun"
-  definition: "A period of calm or quiet."
-  example_sentence: "A lull in the storm allowed repairs."
-- word: "lumber"
-  part_of_speech: "noun"
-  definition: "Timber or wood for building."
-  example_sentence: "They ordered lumber for the house."
-- word: "luminous"
-  part_of_speech: "adjective"
-  definition: "Bright or radiant."
-  example_sentence: "The luminous stars lit up the night."
-- word: "lunar"
-  part_of_speech: "adjective"
-  definition: "Relating to the moon."
-  example_sentence: "The lunar eclipse attracted astronomers."
-- word: "lure"
-  part_of_speech: "verb"
-  definition: "To attract or entice."
-  example_sentence: "The offer lured her to the new job."
-- word: "lush"
-  part_of_speech: "adjective"
-  definition: "Rich or abundant."
-  example_sentence: "The lush forest was full of wildlife."
-- word: "luxury"
-  part_of_speech: "noun"
-  definition: "Comfort or extravagance."
-  example_sentence: "The hotel offered luxury accommodations."
-- word: "lyric"
-  part_of_speech: "noun"
-  definition: "Words of a song or poem."
-  example_sentence: "The lyric expressed deep emotion."
-- word: "label"
-  part_of_speech: "verb"
-  definition: "To assign a category or name."
-  example_sentence: "They labeled the boxes for shipping."
-- word: "labor"
-  part_of_speech: "verb"
-  definition: "To work hard or toil."
-  example_sentence: "They labored to finish the project."
-- word: "lace"
-  part_of_speech: "verb"
-  definition: "To fasten with a cord."
-  example_sentence: "She laced her shoes tightly."
-- word: "lag"
-  part_of_speech: "noun"
-  definition: "A delay or falling behind."
-  example_sentence: "The lag in production caused losses."
-- word: "lament"
-  part_of_speech: "noun"
-  definition: "An expression of grief."
-  example_sentence: "Her lament echoed through the hall."
-- word: "land"
-  part_of_speech: "verb"
-  definition: "To arrive or come to rest."
-  example_sentence: "The plane landed safely."
-- word: "lapse"
-  part_of_speech: "verb"
-  definition: "To slip or decline."
-  example_sentence: "Her focus lapsed during the lecture."
-- word: "lash"
-  part_of_speech: "verb"
-  definition: "To strike or secure."
-  example_sentence: "They lashed the cargo to the deck."
-- word: "latent"
-  part_of_speech: "adjective"
-  definition: "Hidden or undeveloped."
-  example_sentence: "Her latent talent emerged later."
-- word: "laud"
-  part_of_speech: "verb"
-  definition: "To praise highly."
-  example_sentence: "Critics lauded the new novel."
-- word: "lavish"
-  part_of_speech: "verb"
-  definition: "To give generously."
-  example_sentence: "She lavished attention on her students."
-- word: "layer"
-  part_of_speech: "verb"
-  definition: "To arrange in layers."
-  example_sentence: "They layered the materials for insulation."
-- word: "lead"
-  part_of_speech: "noun"
-  definition: "A position of guidance."
-  example_sentence: "She took the lead in the discussion."
-- word: "lean"
-  part_of_speech: "adjective"
-  definition: "Slim or efficient."
-  example_sentence: "The lean budget cut unnecessary costs."
-- word: "leap"
-  part_of_speech: "noun"
-  definition: "A sudden jump or advance."
-  example_sentence: "The leap in technology was remarkable."
-- word: "lecture"
-  part_of_speech: "verb"
-  definition: "To deliver an educational talk."
-  example_sentence: "He lectured on modern economics."
-- word: "lend"
-  part_of_speech: "verb"
-  definition: "To contribute or add."
-  example_sentence: "Her expertise lent credibility to the report."
-- word: "level"
-  part_of_speech: "verb"
-  definition: "To make even or equal."
-  example_sentence: "They leveled the ground for construction."
-- word: "leverage"
-  part_of_speech: "verb"
-  definition: "To use to gain advantage."
-  example_sentence: "They leveraged their skills to win."
-- word: "liable"
-  part_of_speech: "adjective"
-  definition: "Likely or prone."
-  example_sentence: "The area is liable to flooding."
-- word: "linger"
-  part_of_speech: "verb"
-  definition: "To persist or remain."
-  example_sentence: "The memory lingered in her mind."
-- word: "link"
-  part_of_speech: "noun"
-  definition: "A connection or relationship."
-  example_sentence: "The link between diet and health was clear."
-- word: "list"
-  part_of_speech: "noun"
-  definition: "A series of items."
-  example_sentence: "The list included all requirements."
-- word: "lobby"
-  part_of_speech: "noun"
-  definition: "A group influencing decisions."
-  example_sentence: "The environmental lobby pushed for change."
-- word: "lure"
-  part_of_speech: "noun"
-  definition: "Something that attracts."
-  example_sentence: "The lure of adventure drew her in."
+- word: label
+  part_of_speech: noun
+  definition: A tag or description.
+  example_sentence: The label on the jar listed the ingredients.
+- word: labor
+  part_of_speech: noun
+  definition: Work, especially physical work.
+  example_sentence: Manual labor was required for the construction.
+- word: laboratory
+  part_of_speech: noun
+  definition: A place for scientific experiments.
+  example_sentence: The laboratory conducted cutting-edge research.
+- word: labyrinth
+  part_of_speech: noun
+  definition: A complex maze or network.
+  example_sentence: The labyrinth of streets confused the tourists.
+- word: lace
+  part_of_speech: noun
+  definition: A delicate fabric or cord.
+  example_sentence: The dress was adorned with fine lace.
+- word: lack
+  part_of_speech: verb
+  definition: To be without or deficient in.
+  example_sentence: They lack the resources to expand.
+- word: lag
+  part_of_speech: verb
+  definition: To fall behind or delay.
+  example_sentence: The project lagged due to funding issues.
+- word: lament
+  part_of_speech: verb
+  definition: To express sorrow or regret.
+  example_sentence: She lamented the loss of her favorite book.
+- word: landmark
+  part_of_speech: noun
+  definition: A significant event or feature.
+  example_sentence: The treaty was a landmark in diplomacy.
+- word: landscape
+  part_of_speech: noun
+  definition: The visible features of an area.
+  example_sentence: The landscape was breathtaking at sunset.
+- word: language
+  part_of_speech: noun
+  definition: A system of communication.
+  example_sentence: Learning a new language improves cognition.
+- word: lapse
+  part_of_speech: noun
+  definition: A temporary failure or decline.
+  example_sentence: A lapse in judgment led to the error.
+- word: large
+  part_of_speech: adjective
+  definition: Big in size or amount.
+  example_sentence: The large audience applauded the speaker.
+- word: lateral
+  part_of_speech: adjective
+  definition: Relating to the side.
+  example_sentence: The lateral movement confused the opponent.
+- word: latitude
+  part_of_speech: noun
+  definition: Distance north or south of the equator.
+  example_sentence: The city is located at a high latitude.
+- word: launch
+  part_of_speech: verb
+  definition: To start or set in motion.
+  example_sentence: The company launched a new product.
+- word: lavish
+  part_of_speech: adjective
+  definition: Extravagant or abundant.
+  example_sentence: The lavish banquet impressed the guests.
+- word: law
+  part_of_speech: noun
+  definition: A rule established by authority.
+  example_sentence: The law protects endangered species.
+- word: lax
+  part_of_speech: adjective
+  definition: Not strict or careless.
+  example_sentence: The lax regulations led to problems.
+- word: layer
+  part_of_speech: noun
+  definition: A single thickness or level.
+  example_sentence: The cake had multiple layers of frosting.
+- word: lead
+  part_of_speech: verb
+  definition: To guide or direct.
+  example_sentence: She led the team to victory.
+- word: leadership
+  part_of_speech: noun
+  definition: The act of leading or guiding.
+  example_sentence: Her leadership inspired confidence.
+- word: league
+  part_of_speech: noun
+  definition: A group or alliance.
+  example_sentence: The teams formed a competitive league.
+- word: lean
+  part_of_speech: verb
+  definition: To incline or rely on.
+  example_sentence: They lean on technology for efficiency.
+- word: leap
+  part_of_speech: verb
+  definition: To jump or advance quickly.
+  example_sentence: The company leaped forward with innovation.
+- word: learn
+  part_of_speech: verb
+  definition: To acquire knowledge or skills.
+  example_sentence: She learned Spanish for her travels.
+- word: lease
+  part_of_speech: noun
+  definition: A contract for renting property.
+  example_sentence: They signed a lease for the apartment.
+- word: lecture
+  part_of_speech: noun
+  definition: An educational speech.
+  example_sentence: The lecture covered climate change.
+- word: legacy
+  part_of_speech: noun
+  definition: Something handed down from the past.
+  example_sentence: Her legacy was a scholarship fund.
+- word: legal
+  part_of_speech: adjective
+  definition: Relating to the law.
+  example_sentence: The contract was legally binding.
+- word: legend
+  part_of_speech: noun
+  definition: A traditional story or notable person.
+  example_sentence: The legend of the hero inspired many.
+- word: legislation
+  part_of_speech: noun
+  definition: Laws or the process of making them.
+  example_sentence: New legislation addressed pollution.
+- word: legitimate
+  part_of_speech: adjective
+  definition: Lawful or reasonable.
+  example_sentence: Her concerns were legitimate.
+- word: leisure
+  part_of_speech: noun
+  definition: Free time for relaxation.
+  example_sentence: She enjoyed reading in her leisure time.
+- word: lend
+  part_of_speech: verb
+  definition: To give temporarily.
+  example_sentence: The bank lent money for the project.
+- word: length
+  part_of_speech: noun
+  definition: The extent from end to end.
+  example_sentence: The length of the river was measured.
+- word: lens
+  part_of_speech: noun
+  definition: A piece of glass for focusing light.
+  example_sentence: The camera’s lens captured clear images.
+- word: lessen
+  part_of_speech: verb
+  definition: To reduce or decrease.
+  example_sentence: The medicine lessened her pain.
+- word: lethal
+  part_of_speech: adjective
+  definition: Causing death or destruction.
+  example_sentence: The chemical was lethal in high doses.
+- word: level
+  part_of_speech: noun
+  definition: A position or degree of value.
+  example_sentence: The course was designed for all levels.
+- word: leverage
+  part_of_speech: noun
+  definition: Advantage or influence.
+  example_sentence: Her skills gave her leverage in negotiations.
+- word: levy
+  part_of_speech: verb
+  definition: To impose or collect a tax.
+  example_sentence: The government levied a new tax.
+- word: liable
+  part_of_speech: adjective
+  definition: Legally responsible or likely.
+  example_sentence: The company is liable for damages.
+- word: liberal
+  part_of_speech: adjective
+  definition: Open to new ideas or generous.
+  example_sentence: The liberal policy encouraged innovation.
+- word: liberate
+  part_of_speech: verb
+  definition: To set free or release.
+  example_sentence: The reforms liberated the economy.
+- word: liberty
+  part_of_speech: noun
+  definition: Freedom or independence.
+  example_sentence: The constitution protects personal liberty.
+- word: license
+  part_of_speech: noun
+  definition: Official permission or permit.
+  example_sentence: She obtained a license to practice law.
+- word: likelihood
+  part_of_speech: noun
+  definition: The chance or probability.
+  example_sentence: The likelihood of rain increased.
+- word: likewise
+  part_of_speech: adverb
+  definition: In the same way.
+  example_sentence: She studied hard, and he did likewise.
+- word: limit
+  part_of_speech: noun
+  definition: A boundary or restriction.
+  example_sentence: The budget set a limit on spending.
+- word: linger
+  part_of_speech: verb
+  definition: To stay longer or delay leaving.
+  example_sentence: The smell of flowers lingered in the air.
+- word: link
+  part_of_speech: verb
+  definition: To connect or associate.
+  example_sentence: The study linked diet to health.
+- word: liquid
+  part_of_speech: noun
+  definition: A fluid substance.
+  example_sentence: The liquid was tested for purity.
+- word: list
+  part_of_speech: verb
+  definition: To make an ordered record.
+  example_sentence: She listed the project requirements.
+- word: literal
+  part_of_speech: adjective
+  definition: Exact or without exaggeration.
+  example_sentence: His words were taken in a literal sense.
+- word: literature
+  part_of_speech: noun
+  definition: Written works of artistic value.
+  example_sentence: She studied English literature.
+- word: livelihood
+  part_of_speech: noun
+  definition: A means of earning a living.
+  example_sentence: Farming is their primary livelihood.
+- word: lively
+  part_of_speech: adjective
+  definition: Full of energy or enthusiasm.
+  example_sentence: The lively discussion engaged everyone.
+- word: load
+  part_of_speech: noun
+  definition: A burden or amount carried.
+  example_sentence: The truck carried a heavy load.
+- word: loan
+  part_of_speech: noun
+  definition: Something lent, usually money.
+  example_sentence: She applied for a student loan.
+- word: lobby
+  part_of_speech: verb
+  definition: To influence or persuade.
+  example_sentence: They lobbied for environmental reforms.
+- word: local
+  part_of_speech: adjective
+  definition: Relating to a specific area.
+  example_sentence: The local community supported the event.
+- word: locate
+  part_of_speech: verb
+  definition: To find or establish the position.
+  example_sentence: They located the source of the problem.
+- word: logic
+  part_of_speech: noun
+  definition: Reasoning or rational thought.
+  example_sentence: Her argument was based on sound logic.
+- word: longevity
+  part_of_speech: noun
+  definition: Long life or duration.
+  example_sentence: The product’s longevity impressed consumers.
+- word: loom
+  part_of_speech: verb
+  definition: To appear large or threatening.
+  example_sentence: The deadline loomed over the team.
+- word: loop
+  part_of_speech: noun
+  definition: A circular shape or sequence.
+  example_sentence: The program ran in a continuous loop.
+- word: loose
+  part_of_speech: adjective
+  definition: Not tight or confined.
+  example_sentence: The loose screws caused the issue.
+- word: loot
+  part_of_speech: verb
+  definition: To steal or plunder.
+  example_sentence: The thieves looted the abandoned store.
+- word: loyal
+  part_of_speech: adjective
+  definition: Faithful or devoted.
+  example_sentence: Her loyal support helped the team.
+- word: lucid
+  part_of_speech: adjective
+  definition: Clear or easily understood.
+  example_sentence: The lucid explanation clarified the topic.
+- word: lull
+  part_of_speech: noun
+  definition: A period of calm or quiet.
+  example_sentence: A lull in the storm allowed repairs.
+- word: lumber
+  part_of_speech: noun
+  definition: Timber or wood for building.
+  example_sentence: They ordered lumber for the house.
+- word: luminous
+  part_of_speech: adjective
+  definition: Bright or radiant.
+  example_sentence: The luminous stars lit up the night.
+- word: lunar
+  part_of_speech: adjective
+  definition: Relating to the moon.
+  example_sentence: The lunar eclipse attracted astronomers.
+- word: lure
+  part_of_speech: verb
+  definition: To attract or entice.
+  example_sentence: The offer lured her to the new job.
+- word: lush
+  part_of_speech: adjective
+  definition: Rich or abundant.
+  example_sentence: The lush forest was full of wildlife.
+- word: luxury
+  part_of_speech: noun
+  definition: Comfort or extravagance.
+  example_sentence: The hotel offered luxury accommodations.
+- word: lyric
+  part_of_speech: noun
+  definition: Words of a song or poem.
+  example_sentence: The lyric expressed deep emotion.
+- word: land
+  part_of_speech: verb
+  definition: To arrive or come to rest.
+  example_sentence: The plane landed safely.
+- word: lash
+  part_of_speech: verb
+  definition: To strike or secure.
+  example_sentence: They lashed the cargo to the deck.
+- word: latent
+  part_of_speech: adjective
+  definition: Hidden or undeveloped.
+  example_sentence: Her latent talent emerged later.
+- word: laud
+  part_of_speech: verb
+  definition: To praise highly.
+  example_sentence: Critics lauded the new novel.

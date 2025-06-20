@@ -1,200 +1,168 @@
-- word: "quaint"
-  part_of_speech: "adjective"
-  definition: "Charmingly old-fashioned or unusual."
-  example_sentence: "The quaint village attracted many tourists."
-- word: "qualify"
-  part_of_speech: "verb"
-  definition: "To meet requirements or make eligible."
-  example_sentence: "She qualified for the scholarship program."
-- word: "quality"
-  part_of_speech: "noun"
-  definition: "The standard or degree of excellence."
-  example_sentence: "The quality of the research was outstanding."
-- word: "quantity"
-  part_of_speech: "noun"
-  definition: "An amount or number."
-  example_sentence: "The store ordered a large quantity of goods."
-- word: "quarrel"
-  part_of_speech: "noun"
-  definition: "A disagreement or argument."
-  example_sentence: "The quarrel disrupted the meeting."
-- word: "quarrel"
-  part_of_speech: "verb"
-  definition: "To argue or dispute."
-  example_sentence: "They quarreled over the project’s direction."
-- word: "quarter"
-  part_of_speech: "noun"
-  definition: "One fourth of a whole or a district."
-  example_sentence: "The city’s historic quarter was preserved."
-- word: "query"
-  part_of_speech: "noun"
-  definition: "A question or inquiry."
-  example_sentence: "Her query about the data was answered."
-- word: "query"
-  part_of_speech: "verb"
-  definition: "To ask or question."
-  example_sentence: "He queried the validity of the results."
-- word: "quest"
-  part_of_speech: "noun"
-  definition: "A search or pursuit."
-  example_sentence: "The quest for knowledge drove her studies."
-- word: "question"
-  part_of_speech: "noun"
-  definition: "An inquiry or problem."
-  example_sentence: "The question required critical thinking."
-- word: "question"
-  part_of_speech: "verb"
-  definition: "To ask or challenge."
-  example_sentence: "She questioned the speaker’s claims."
-- word: "questionable"
-  part_of_speech: "adjective"
-  definition: "Doubtful or suspicious."
-  example_sentence: "The decision was questionable."
-- word: "queue"
-  part_of_speech: "noun"
-  definition: "A line or sequence."
-  example_sentence: "They joined the queue for tickets."
-- word: "queue"
-  part_of_speech: "verb"
-  definition: "To form or wait in a line."
-  example_sentence: "Students queued outside the lecture hall."
-- word: "quick"
-  part_of_speech: "adjective"
-  definition: "Fast or prompt."
-  example_sentence: "Her quick response saved time."
-- word: "quiet"
-  part_of_speech: "adjective"
-  definition: "Silent or calm."
-  example_sentence: "The quiet library was ideal for studying."
-- word: "quit"
-  part_of_speech: "verb"
-  definition: "To stop or abandon."
-  example_sentence: "She quit the project due to conflicts."
-- word: "quiz"
-  part_of_speech: "noun"
-  definition: "A short test or questioning."
-  example_sentence: "The quiz covered the week’s material."
-- word: "quiz"
-  part_of_speech: "verb"
-  definition: "To question or test."
-  example_sentence: "The teacher quizzed them on vocabulary."
-- word: "quota"
-  part_of_speech: "noun"
-  definition: "A fixed share or limit."
-  example_sentence: "The team met their sales quota."
-- word: "quote"
-  part_of_speech: "verb"
-  definition: "To repeat or cite."
-  example_sentence: "She quoted a famous scientist in her essay."
-- word: "quote"
-  part_of_speech: "noun"
-  definition: "A cited passage or price estimate."
-  example_sentence: "The quote inspired the audience."
-- word: "qualification"
-  part_of_speech: "noun"
-  definition: "A skill or attribute that makes suitable."
-  example_sentence: "Her qualifications impressed the panel."
-- word: "qualified"
-  part_of_speech: "adjective"
-  definition: "Having the necessary skills or eligibility."
-  example_sentence: "He was qualified for the position."
-- word: "qualitative"
-  part_of_speech: "adjective"
-  definition: "Relating to quality or characteristics."
-  example_sentence: "The study used qualitative methods."
-- word: "quantitative"
-  part_of_speech: "adjective"
-  definition: "Relating to quantity or measurable data."
-  example_sentence: "Quantitative analysis supported the theory."
-- word: "quell"
-  part_of_speech: "verb"
-  definition: "To suppress or calm."
-  example_sentence: "They quelled the unrest quickly."
-- word: "quench"
-  part_of_speech: "verb"
-  definition: "To satisfy or extinguish."
-  example_sentence: "Water quenched her thirst."
-- word: "querulous"
-  part_of_speech: "adjective"
-  definition: "Complaining or fretful."
-  example_sentence: "His querulous tone annoyed the group."
-- word: "quest"
-  part_of_speech: "verb"
-  definition: "To search or pursue."
-  example_sentence: "They quested for rare artifacts."
-- word: "questionnaire"
-  part_of_speech: "noun"
-  definition: "A set of questions for data collection."
-  example_sentence: "The questionnaire gathered student feedback."
-- word: "quicken"
-  part_of_speech: "verb"
-  definition: "To speed up or stimulate."
-  example_sentence: "The news quickened their efforts."
-- word: "quietly"
-  part_of_speech: "adverb"
-  definition: "In a silent or subtle manner."
-  example_sentence: "She worked quietly to avoid disturbance."
-- word: "quintessential"
-  part_of_speech: "adjective"
-  definition: "Representing the perfect example."
-  example_sentence: "Her work was the quintessential model."
-- word: "quirk"
-  part_of_speech: "noun"
-  definition: "An unusual trait or habit."
-  example_sentence: "His quirk of humming was endearing."
-- word: "quorum"
-  part_of_speech: "noun"
-  definition: "The minimum number required for a meeting."
-  example_sentence: "The quorum was met for the vote."
-- word: "quotation"
-  part_of_speech: "noun"
-  definition: "A cited passage or stated price."
-  example_sentence: "The quotation clarified the argument."
-- word: "quarry"
-  part_of_speech: "noun"
-  definition: "A site for extracting stone or a target."
-  example_sentence: "The quarry supplied marble for the building."
-- word: "quarry"
-  part_of_speech: "verb"
-  definition: "To extract or pursue."
-  example_sentence: "They quarried stone for construction."
-- word: "quarterly"
-  part_of_speech: "adjective"
-  definition: "Occurring every three months."
-  example_sentence: "The quarterly report was reviewed."
-- word: "quash"
-  part_of_speech: "verb"
-  definition: "To suppress or annul."
-  example_sentence: "The court quashed the invalid ruling."
-- word: "quaintly"
-  part_of_speech: "adverb"
-  definition: "In a charmingly old-fashioned way."
-  example_sentence: "The shop was quaintly decorated."
-- word: "quickness"
-  part_of_speech: "noun"
-  definition: "The quality of being fast."
-  example_sentence: "Her quickness in response was impressive."
-- word: "quietude"
-  part_of_speech: "noun"
-  definition: "A state of calm or tranquility."
-  example_sentence: "The quietude of the forest was soothing."
-- word: "quirky"
-  part_of_speech: "adjective"
-  definition: "Unusual or eccentric."
-  example_sentence: "The quirky design stood out."
-- word: "quaintness"
-  part_of_speech: "noun"
-  definition: "The quality of being charmingly unusual."
-  example_sentence: "The quaintness of the town was memorable."
-- word: "qualitatively"
-  part_of_speech: "adverb"
-  definition: "In terms of quality or characteristics."
-  example_sentence: "The data was analyzed qualitatively."
-- word: "quantitatively"
-  part_of_speech: "adverb"
-  definition: "In terms of quantity or measurable data."
-  example_sentence: "The results were evaluated quantitatively."
-- word: "quixotic"
-  part_of_speech: "adjective"
-  definition: "Unrealistically optimistic or impractical."
-  example_sentence: "His quixotic plan was inspiring but flawed."
+- word: quaint
+  part_of_speech: adjective
+  definition: Charmingly old-fashioned or unusual.
+  example_sentence: The quaint village attracted many tourists.
+- word: qualify
+  part_of_speech: verb
+  definition: To meet requirements or make eligible.
+  example_sentence: She qualified for the scholarship program.
+- word: quality
+  part_of_speech: noun
+  definition: The standard or degree of excellence.
+  example_sentence: The quality of the research was outstanding.
+- word: quantity
+  part_of_speech: noun
+  definition: An amount or number.
+  example_sentence: The store ordered a large quantity of goods.
+- word: quarrel
+  part_of_speech: noun
+  definition: A disagreement or argument.
+  example_sentence: The quarrel disrupted the meeting.
+- word: quarter
+  part_of_speech: noun
+  definition: One fourth of a whole or a district.
+  example_sentence: The city’s historic quarter was preserved.
+- word: query
+  part_of_speech: noun
+  definition: A question or inquiry.
+  example_sentence: Her query about the data was answered.
+- word: quest
+  part_of_speech: noun
+  definition: A search or pursuit.
+  example_sentence: The quest for knowledge drove her studies.
+- word: question
+  part_of_speech: noun
+  definition: An inquiry or problem.
+  example_sentence: The question required critical thinking.
+- word: questionable
+  part_of_speech: adjective
+  definition: Doubtful or suspicious.
+  example_sentence: The decision was questionable.
+- word: queue
+  part_of_speech: noun
+  definition: A line or sequence.
+  example_sentence: They joined the queue for tickets.
+- word: quick
+  part_of_speech: adjective
+  definition: Fast or prompt.
+  example_sentence: Her quick response saved time.
+- word: quiet
+  part_of_speech: adjective
+  definition: Silent or calm.
+  example_sentence: The quiet library was ideal for studying.
+- word: quit
+  part_of_speech: verb
+  definition: To stop or abandon.
+  example_sentence: She quit the project due to conflicts.
+- word: quiz
+  part_of_speech: noun
+  definition: A short test or questioning.
+  example_sentence: The quiz covered the week’s material.
+- word: quota
+  part_of_speech: noun
+  definition: A fixed share or limit.
+  example_sentence: The team met their sales quota.
+- word: quote
+  part_of_speech: verb
+  definition: To repeat or cite.
+  example_sentence: She quoted a famous scientist in her essay.
+- word: qualification
+  part_of_speech: noun
+  definition: A skill or attribute that makes suitable.
+  example_sentence: Her qualifications impressed the panel.
+- word: qualified
+  part_of_speech: adjective
+  definition: Having the necessary skills or eligibility.
+  example_sentence: He was qualified for the position.
+- word: qualitative
+  part_of_speech: adjective
+  definition: Relating to quality or characteristics.
+  example_sentence: The study used qualitative methods.
+- word: quantitative
+  part_of_speech: adjective
+  definition: Relating to quantity or measurable data.
+  example_sentence: Quantitative analysis supported the theory.
+- word: quell
+  part_of_speech: verb
+  definition: To suppress or calm.
+  example_sentence: They quelled the unrest quickly.
+- word: quench
+  part_of_speech: verb
+  definition: To satisfy or extinguish.
+  example_sentence: Water quenched her thirst.
+- word: querulous
+  part_of_speech: adjective
+  definition: Complaining or fretful.
+  example_sentence: His querulous tone annoyed the group.
+- word: questionnaire
+  part_of_speech: noun
+  definition: A set of questions for data collection.
+  example_sentence: The questionnaire gathered student feedback.
+- word: quicken
+  part_of_speech: verb
+  definition: To speed up or stimulate.
+  example_sentence: The news quickened their efforts.
+- word: quietly
+  part_of_speech: adverb
+  definition: In a silent or subtle manner.
+  example_sentence: She worked quietly to avoid disturbance.
+- word: quintessential
+  part_of_speech: adjective
+  definition: Representing the perfect example.
+  example_sentence: Her work was the quintessential model.
+- word: quirk
+  part_of_speech: noun
+  definition: An unusual trait or habit.
+  example_sentence: His quirk of humming was endearing.
+- word: quorum
+  part_of_speech: noun
+  definition: The minimum number required for a meeting.
+  example_sentence: The quorum was met for the vote.
+- word: quotation
+  part_of_speech: noun
+  definition: A cited passage or stated price.
+  example_sentence: The quotation clarified the argument.
+- word: quarry
+  part_of_speech: noun
+  definition: A site for extracting stone or a target.
+  example_sentence: The quarry supplied marble for the building.
+- word: quarterly
+  part_of_speech: adjective
+  definition: Occurring every three months.
+  example_sentence: The quarterly report was reviewed.
+- word: quash
+  part_of_speech: verb
+  definition: To suppress or annul.
+  example_sentence: The court quashed the invalid ruling.
+- word: quaintly
+  part_of_speech: adverb
+  definition: In a charmingly old-fashioned way.
+  example_sentence: The shop was quaintly decorated.
+- word: quickness
+  part_of_speech: noun
+  definition: The quality of being fast.
+  example_sentence: Her quickness in response was impressive.
+- word: quietude
+  part_of_speech: noun
+  definition: A state of calm or tranquility.
+  example_sentence: The quietude of the forest was soothing.
+- word: quirky
+  part_of_speech: adjective
+  definition: Unusual or eccentric.
+  example_sentence: The quirky design stood out.
+- word: quaintness
+  part_of_speech: noun
+  definition: The quality of being charmingly unusual.
+  example_sentence: The quaintness of the town was memorable.
+- word: qualitatively
+  part_of_speech: adverb
+  definition: In terms of quality or characteristics.
+  example_sentence: The data was analyzed qualitatively.
+- word: quantitatively
+  part_of_speech: adverb
+  definition: In terms of quantity or measurable data.
+  example_sentence: The results were evaluated quantitatively.
+- word: quixotic
+  part_of_speech: adjective
+  definition: Unrealistically optimistic or impractical.
+  example_sentence: His quixotic plan was inspiring but flawed.
