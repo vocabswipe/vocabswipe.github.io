@@ -33,10 +33,10 @@ def validate_yaml_dir():
     return True
 
 def deduplicate_yaml_file(yaml_path, letter):
-    """Deduplicate entries in a single .yaml file, keeping first occurrence."""
+    """Deduplicate and remove invalid entries in a single .yaml file."""
     original_entries = []
-    deduplicated_entries = []
-    seen_words = set()
+    valid_entries = []
+    seen_words = set()  # Track unique words
     duplicates_removed = 0
     invalid_entries = 0
 
@@ -51,12 +51,12 @@ def deduplicate_yaml_file(yaml_path, letter):
         for entry in original_entries:
             word = entry.get("word")
             if not isinstance(word, str):
-                logging.warning(f"Invalid word type in {letter}.yaml: {word} (expected string)")
+                logging.warning(f"Removed invalid entry in {letter}.yaml: word='{word}' (expected string)")
                 invalid_entries += 1
                 continue
             word = word.strip().lower()
             if not word:
-                logging.warning(f"Empty word in {letter}.yaml")
+                logging.warning(f"Removed empty word in {letter}.yaml")
                 invalid_entries += 1
                 continue
             if word in seen_words:
@@ -64,65 +64,65 @@ def deduplicate_yaml_file(yaml_path, letter):
                 duplicates_removed += 1
                 continue
             seen_words.add(word)
-            deduplicated_entries.append(entry)
+            valid_entries.append(entry)
 
-        # Write back deduplicated entries
-        if deduplicated_entries != original_entries:
+        # Write back valid entries
+        if valid_entries != original_entries:
             with open(yaml_path, "w", encoding="utf-8") as f:
-                yaml.safe_dump(deduplicated_entries, f, allow_unicode=True, sort_keys=False)
-            logging.info(f"Updated {yaml_path}: removed {duplicates_removed} duplicates")
+                yaml.safe_dump(valid_entries, f, allow_unicode=True, sort_keys=False)
+            logging.info(f"Updated {yaml_path}: removed {duplicates_removed} duplicates, {invalid_entries} invalid entries")
         
-        return len(original_entries), len(deduplicated_entries), duplicates_removed, invalid_entries, True
+        return len(original_entries), len(valid_entries), duplicates_removed, invalid_entries, True
     except Exception as e:
         logging.error(f"Error processing {yaml_path}: {e}")
         return 0, 0, 0, 0, False
 
 def deduplicate_yaml_files():
-    """Deduplicate all .yaml files with progress bar."""
+    """Deduplicate and clean all .yaml files with progress bar."""
     total_files = 0
     processed_files = 0
     total_entries = 0
-    total_deduplicated = 0
+    total_valid = 0
     total_duplicates_removed = 0
     total_invalid_entries = 0
     failed_files = []
 
     if not validate_yaml_dir():
-        return total_files, processed_files, total_entries, total_deduplicated, total_duplicates_removed, total_invalid_entries, failed_files
+        return total_files, processed_files, total_entries, total_valid, total_duplicates_removed, total_invalid_entries, failed_files
 
     yaml_files = [YAML_DIR / f"{letter}.yaml" for letter in LETTERS]
     total_files = len([f for f in yaml_files if f.exists()])
 
-    with tqdm(total=total_files, desc="Deduplicating YAML files", unit="file", position=0, leave=True) as pbar:
+    with tqdm(total=total_files, desc="Cleaning YAML files", unit="file", position=0, leave=True) as pbar:
         for letter in LETTERS:
             yaml_path = YAML_DIR / f"{letter}.yaml"
             if not yaml_path.exists():
                 pbar.update(1)
                 continue
-            entries_count, dedup_count, dups_removed, invalid_count, success = deduplicate_yaml_file(yaml_path, letter)
+            entries_count, valid_count, dups_removed, invalid_count, success = deduplicate_yaml_file(yaml_path, letter)
             processed_files += 1
             total_entries += entries_count
-            total_deduplicated += dedup_count
+            total_valid += valid_count
             total_duplicates_removed += dups_removed
             total_invalid_entries += invalid_count
             if not success:
                 failed_files.append(letter)
             pbar.update(1)
 
-    return total_files, processed_files, total_entries, total_deduplicated, total_duplicates_removed, total_invalid_entries, failed_files
+    return total_files, processed_files, total_entries, total_valid, total_duplicates_removed, total_invalid_entries, failed_files
 
 def main():
-    """Main function to deduplicate YAML files and report summary."""
-    total_files, processed_files, total_entries, total_deduplicated, total_duplicates_removed, total_invalid_entries, failed_files = deduplicate_yaml_files()
+    """Main function to clean YAML files and report summary."""
+    total_files, processed_files, total_entries, total_valid, total_duplicates_removed, total_invalid_entries, failed_files = deduplicate_yaml_files()
 
     # Summary report
-    logging.info("\n=== Deduplication Summary ===")
+    logging.info("\n=== YAML Cleanup Summary ===")
     logging.info(f"Total .yaml files found: {total_files}")
     logging.info(f"Files processed: {processed_files}")
     logging.info(f"Total entries processed: {total_entries}")
-    logging.info(f"Deduplicated entries retained: {total_deduplicated}")
+    logging.info(f"Valid entries retained: {total_valid}")
     logging.info(f"Duplicate entries removed: {total_duplicates_removed}")
-    logging.info(f"Invalid entries skipped: {total_invalid_entries}")
+    logging.info(f"Invalid entries removed: {total_invalid_entries}")
     logging.info(f"Failed files: {len(failed_files)}")
     if failed_files:
         logging.warning("Failed files:")
@@ -132,7 +132,7 @@ def main():
     if total_duplicates_removed == 0 and total_invalid_entries == 0 and not failed_files:
         logging.info("Success: No duplicates or invalid entries found!")
     else:
-        logging.warning("Issues detected. Please review console output for details.")
+        logging.info("Cleanup completed. Please review console output for details.")
 
 if __name__ == "__main__":
     main()
