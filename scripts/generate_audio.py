@@ -83,7 +83,7 @@ def load_yaml_files(letters=LETTERS):
     missing_files = []
     empty_files = []
 
-    for letter in word_letters:
+    for letter in letters:
         yaml_path = YAML_DIR / f"{letter}.yaml"
         if not yaml_path.exists():
             missing_files.append(letter)
