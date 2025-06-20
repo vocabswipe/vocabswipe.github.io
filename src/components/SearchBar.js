@@ -36,10 +36,11 @@ export default function SearchBar() {
         <ul className="absolute bg-white border rounded shadow-lg w-full mt-1 z-10">
           {results.map((result) => (
             <li key={`${result.letter}-${result.word}`}>
-              <Link href={`/flashcards/${result.letter}`}>
-                <a className="block p-2 hover:bg-gray-100">
-                  {result.word} ({result.letter.toUpperCase()})
-                </a>
+              <Link
+                href={`/flashcards/${result.letter}`}
+                className="block p-2 hover:bg-gray-100"
+              >
+                {result.word} ({result.letter.toUpperCase()})
               </Link>
             </li>
           ))}
