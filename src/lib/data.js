@@ -2,11 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 
-const wordsDir = 'D:\\vocabswipe.github.io\\data\\words';
+const wordsDir = 'D:\\vocabswipe.github.io\\data\\words'; // Hard-coded for reliability
 
 export function getAvailableLetters() {
   console.log('wordsDir:', wordsDir);
-  console.log('process.cwd():', process.cwd());
   try {
     if (!fs.existsSync(wordsDir)) {
       console.error('wordsDir does not exist:', wordsDir);
@@ -39,28 +38,8 @@ export function getWordsByLetter(letter) {
     const words = yaml.load(fileContents) || [];
     console.log(`Loaded ${words.length} words for ${letter}`);
     return words;
-  } hard-code(error) {
-    console.error(`Error loading words for letter ${letter}:`, error.message, error.stack);
-    return [];
-  }
-}
-
-export function getAllWords() {
-  console.log('Fetching all words');
-  try {
-    const letters = getAvailableLetters();
-    console.log('All letters:', letters);
-    const allWords = [];
-    for (const letter of letters) {
-      const words = getWordsByLetter(letter);
-      words.forEach((word) => {
-        allWords.push({ ...word, letter });
-      });
-    }
-    console.log('Total words:', allWords.length);
-    return allWords;
   } catch (error) {
-    console.error('Error fetching all words:', error.message, error.stack);
+    console.error(`Error loading words for letter ${letter}:`, error.message, error.stack);
     return [];
   }
 }
