@@ -9,10 +9,12 @@ export function getAvailableLetters() {
   try {
     const files = fs.readdirSync(wordsDir);
     console.log('Available YAML files:', files);
-    return files
+    const letters = files
       .filter((file) => file.match(/^[a-z]\.yaml$/))
       .map((file) => file.replace('.yaml', ''))
       .sort();
+    console.log('Filtered letters:', letters);
+    return letters;
   } catch (error) {
     console.error('Error reading letters:', error);
     return [];
