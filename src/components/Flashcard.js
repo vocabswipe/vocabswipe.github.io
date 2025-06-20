@@ -1,21 +1,39 @@
-import { useState, useEffect } from 'react';
-import Howl from 'howler';
+import { useState, useEffect, useRef } from 'react';
+import { Howl } from 'howler';
 
 export default function Flashcard({ word, letter }) {
   const [flipped, setFlipped] = useState(false);
   const audioSrc = `/audio/${letter}/${word.word}.mp3`;
+  const soundRef = useRef(null);
 
   const playAudio = () => {
-    const sound = new Howl.Howl({
+    if (soundRef.current) {
+      soundRef.current.play();
+      return;
+    }
+
+    soundRef.current = new Howl({
       src: [audioSrc],
       format: ['mp3'],
+      onend: () => {
+        console.log('Audio playback ended');
+      },
+      onloaderror: (id, error) => {
+        console.error('Audio load error:', error);
+      },
+      onplayerror: (id, error) => {
+        console.error('Audio play error:', error);
+      },
     });
-    sound.play();
+
+    soundRef.current.play();
   };
 
   useEffect(() => {
     return () => {
-      Howl.Howl.unload(); // Clean up audio on unmount
+      if (soundRef.current) {
+        soundRef.current.unload(); // Clean up audio on unmount
+      }
     };
   }, []);
 
