@@ -1,11 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function SearchBar() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
+  const [searchIndex, setSearchIndex] = useState([]);
 
-  const handleSearch = async (e) => {
+  // Load search index on mount
+  useEffect(() => {
+    fetch('/data/search.json')
+      .then((res) => res.json())
+      .then((data) => setSearchIndex(data))
+      .catch((error) => console.error('Error loading search index:', error));
+  }, []);
+
+  const handleSearch = (e) => {
     const value = e.target.value.trim().toLowerCase();
     setQuery(value);
     if (value.length < 2) {
@@ -13,14 +22,10 @@ export default function SearchBar() {
       return;
     }
 
-    try {
-      const res = await fetch(`/api/search?q=${encodeURIComponent(value)}`);
-      const data = await res.json();
-      setResults(data.slice(0, 10)); // Limit to 10 results
-    } catch (error) {
-      console.error('Search error:', error);
-      setResults([]);
-    }
+    const filtered = searchIndex.filter((item) =>
+      item.word.toLowerCase().includes(value)
+    );
+    setResults(filtered.slice(0, 10)); // Limit to 10 results
   };
 
   return (
