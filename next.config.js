@@ -1,4 +1,3 @@
-// next.config.js
 module.exports = {
   basePath: '/vocabswipe.github.io',
   assetPrefix: '/vocabswipe.github.io/',
