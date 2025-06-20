@@ -7,25 +7,21 @@ import logging
 from gtts import gTTS
 
 # TTS function using gTTS for American English
-def generate_tts_audio(word, output_file, voice="en-us"):
+def generate_tts_audio(word, output_file):
     """
     Generate audio using Google Text-to-Speech (gTTS) for American English.
     Saves audio to an MP3 file.
     """
     try:
-        # Create TTS object with American English
-        tts = gTTS(text=word, lang=voice, slow=False)
-        # Save to MP3 file
+        tts = gTTS(text=word, lang='en', tld='us', slow=False)
         tts.save(output_file)
-        # Verify file exists and is not empty
         if os.path.exists(output_file) and os.path.getsize(output_file) > 0:
-            logging.debug(f"Generated audio for '{word}' at {output_file}")
             return True
         else:
             logging.error(f"Generated file '{output_file}' is empty or invalid")
             return False
     except Exception as e:
-        logging.error(f"Failed to generate audio for '{word}' with gTTS: {str(e)}")
+        logging.error(f"Failed to generate audio for '{word}': {str(e)}")
         return False
 
 # Configuration
@@ -34,10 +30,10 @@ YAML_DIR = PROJECT_ROOT / "data" / "words"
 AUDIO_DIR = PROJECT_ROOT / "public" / "audio"
 LETTERS = "abcdefghijklmnopqrstuvwxyz"
 
-# Setup logging (console only)
+# Setup logging (console only, minimal output)
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
+    format="%(message)s",
     handlers=[logging.StreamHandler()]
 )
 
@@ -54,13 +50,11 @@ def validate_yaml_dir():
     if not yaml_files:
         logging.warning(f"No .yaml files found in {YAML_DIR}")
     else:
-        logging.info(f"Found {len(yaml_files)} .yaml files in {YAML_DIR}: {[f.name for f in yaml_files]}")
-    
+        logging.info(f"Found {len(yaml_files)} .yaml files in {YAML_DIR}")
     return True
 
 def load_yaml_files():
     """Load all .yaml files and collect word entries with their source letter."""
-    logging.info(f"Looking for .yaml files in: {YAML_DIR}")
     word_entries = []
     word_to_letter = defaultdict(list)
     missing_files = []
@@ -70,7 +64,6 @@ def load_yaml_files():
         yaml_path = YAML_DIR / f"{letter}.yaml"
         if not yaml_path.exists():
             missing_files.append(letter)
-            logging.debug(f"Missing .yaml file: {yaml_path}")
             continue
 
         try:
@@ -108,41 +101,40 @@ def check_duplicates(word_to_letter):
 
 def ensure_audio_directories():
     """Create audio directories for each letter if they don't exist."""
-    logging.info(f"Ensuring audio directories exist in: {AUDIO_DIR}")
     for letter in LETTERS:
         audio_path = AUDIO_DIR / letter
         try:
             os.makedirs(audio_path, exist_ok=True)
         except Exception as e:
-            logging.error(f"Failed to create directory {audio_path}: {str(e)}")
+            logging.error(f"Error creating directory {audio_path}: {str(e)}")
 
 def generate_audio_files(word_entries, overwrite=False):
     """Generate audio files for each word, with overwrite option."""
     total_entries = len(word_entries)
-    logging.info(f"Processing {total_entries} total entries")
+    logging.info(f"Processing {total_entries} entries")
     
     generated = 0
     skipped = 0
     failed = 0
 
-    with tqdm(total=total_entries, desc="Generating audio", unit="word") as pbar:
+    # Clean progress bar
+    with tqdm(total=total_entries, desc="Generating audio", unit="word", position=0, leave=True) as pbar:
         for letter, word in word_entries:
             audio_path = AUDIO_DIR / letter / f"{word}.mp3"
             
             # Skip if not overwriting and file exists with non-zero size
             if not overwrite and audio_path.exists() and audio_path.stat().st_size > 0:
-                logging.debug(f"Skipped existing audio for '{word}' in {letter}")
                 skipped += 1
                 pbar.update(1)
                 continue
 
             try:
-                if generate_tts_audio(word, audio_path, voice="en-us"):
+                if generate_tts_audio(word, audio_path):
                     generated += 1
                 else:
                     failed += 1
             except Exception as e:
-                logging.error(f"Unexpected error for '{word}' in {letter}: {str(e)}")
+                logging.error(f"Error generating audio for '{word}' in {letter}: {str(e)}")
                 failed += 1
             
             pbar.update(1)
@@ -181,8 +173,6 @@ def validate_audio_files(word_entries):
 
 def main():
     """Main function to orchestrate audio generation and validation."""
-    logging.info("Starting audio generation process")
-
     # Prompt user for overwrite choice
     while True:
         response = input("Do you want to overwrite existing audio files? [y/n]: ").strip().lower()
@@ -191,11 +181,6 @@ def main():
             logging.info(f"User chose to {'overwrite' if overwrite else 'skip'} existing audio files")
             break
         print("Please enter 'y' or 'n'.")
-
-    # Log resolved paths
-    logging.info(f"Project root: {PROJECT_ROOT}")
-    logging.info(f"YAML directory: {YAML_DIR}")
-    logging.info(f"Audio directory: {AUDIO_DIR}")
 
     # Validate YAML directory
     if not validate_yaml_dir():
@@ -229,9 +214,8 @@ def main():
     missing_audio, extra_audio, empty_audio_dirs = validate_audio_files(word_entries)
 
     # Summary
-    total_entries = len(word_entries)
     logging.info("\n=== Audio Generation Summary ===")
-    logging.info(f"Total entries processed: {total_entries}")
+    logging.info(f"Total entries processed: {len(word_entries)}")
     logging.info(f"Audio files generated: {generated}")
     logging.info(f"Audio files skipped (already exist): {skipped}")
     logging.info(f"Audio generation failures: {failed}")
@@ -256,8 +240,6 @@ def main():
         logging.info("Success: All entries have corresponding audio files, no duplicates or issues detected!")
     else:
         logging.warning("Issues detected. Please review console output for details.")
-
-    logging.info("Audio generation process completed.")
 
 if __name__ == "__main__":
     main()
