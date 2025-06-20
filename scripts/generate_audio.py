@@ -13,13 +13,6 @@ def generate_tts_audio(word, output_file, voice="en-US"):
     Replace with your actual TTS implementation (e.g., AWS Polly, Google TTS).
     """
     try:
-        # Example: Replace with real TTS code
-        # import boto3
-        # polly = boto3.client('polly')
-        # response = polly.synthesize_speech(Text=word, OutputFormat='mp3', VoiceId='Joanna')
-        # with open(output_file, 'wb') as f:
-        #     f.write(response['AudioStream'].read())
-        
         # Simulate TTS generation for now
         time.sleep(0.1)  # Simulate API call delay
         with open(output_file, 'wb') as f:
@@ -30,10 +23,12 @@ def generate_tts_audio(word, output_file, voice="en-US"):
         return False
 
 # Configuration
-YAML_DIR = "data/words"
-AUDIO_DIR = "public/audio"
+# Resolve paths relative to the project root (two levels up from scripts/)
+PROJECT_ROOT = Path(__file__).parent.parent
+YAML_DIR = PROJECT_ROOT / "data" / "words"
+AUDIO_DIR = PROJECT_ROOT / "public" / "audio"
 LETTERS = "abcdefghijklmnopqrstuvwxyz"
-LOG_FILE = "audio_generation.log"
+LOG_FILE = PROJECT_ROOT / "scripts" / "audio_generation.log"
 
 # Setup logging
 logging.basicConfig(
@@ -47,19 +42,24 @@ logging.basicConfig(
 
 def load_yaml_files():
     """Load all .yaml files and collect word entries with their source letter."""
+    logging.info(f"Looking for .yaml files in: {YAML_DIR}")
     word_entries = []
     word_to_letter = defaultdict(list)  # Track duplicates: word -> list of letters
     missing_files = []
 
     for letter in LETTERS:
-        yaml_path = Path(YAML_DIR) / f"{letter}.yaml"
+        yaml_path = YAML_DIR / f"{letter}.yaml"
         if not yaml_path.exists():
             missing_files.append(letter)
+            logging.debug(f"Missing .yaml file: {yaml_path}")
             continue
 
         try:
             with open(yaml_path, "r", encoding="utf-8") as f:
                 data = yaml.safe_load(f) or []
+                if not isinstance(data, list):
+                    logging.warning(f"Invalid format in {yaml_path}: expected a list")
+                    continue
                 for entry in data:
                     word = entry.get("word", "").strip().lower()
                     if not word:
@@ -83,8 +83,13 @@ def check_duplicates(word_to_letter):
 
 def ensure_audio_directories():
     """Create audio directories for each letter if they don't exist."""
+    logging.info(f"Ensuring audio directories exist in: {AUDIO_DIR}")
     for letter in LETTERS:
-        os.makedirs(Path(AUDIO_DIR) / letter, exist_ok=True)
+        audio_path = AUDIO_DIR / letter
+        try:
+            os.makedirs(audio_path, exist_ok=True)
+        except Exception as e:
+            logging.error(f"Failed to create directory {audio_path}: {str(e)}")
 
 def generate_audio_files(word_entries):
     """Generate audio files for each word with a progress bar."""
@@ -98,7 +103,7 @@ def generate_audio_files(word_entries):
     # Progress bar
     with tqdm(total=total_entries, desc="Generating audio", unit="word") as pbar:
         for letter, word in word_entries:
-            audio_path = Path(AUDIO_DIR) / letter / f"{word}.mp3"
+            audio_path = AUDIO_DIR / letter / f"{word}.mp3"
             
             if audio_path.exists():
                 skipped += 1
@@ -125,7 +130,7 @@ def validate_audio_files(word_entries):
     word_set = {(letter, word) for letter, word in word_entries}
 
     for letter in LETTERS:
-        audio_dir = Path(AUDIO_DIR) / letter
+        audio_dir = AUDIO_DIR / letter
         if not audio_dir.exists():
             continue
 
@@ -146,6 +151,12 @@ def validate_audio_files(word_entries):
 def main():
     """Main function to orchestrate audio generation and validation."""
     logging.info("Starting audio generation process")
+
+    # Log resolved paths for debugging
+    logging.info(f"Project root: {PROJECT_ROOT}")
+    logging.info(f"YAML directory: {YAML_DIR}")
+    logging.info(f"Audio directory: {AUDIO_DIR}")
+    logging.info(f"Log file: {LOG_FILE}")
 
     # Ensure audio directories exist
     ensure_audio_directories()
