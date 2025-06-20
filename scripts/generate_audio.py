@@ -8,7 +8,7 @@ from gtts import gTTS
 
 # TTS function using gTTS for American English
 def generate_tts_audio(word, output_file):
-    """Generate audio using Google Text-to-Speech (gTTS) for American English."""
+    """Generate audio using Google Text-to-Speech (gTTS) for a single word."""
     try:
         tts = gTTS(text=word, lang='en', tld='us', slow=False)
         tts.save(output_file)
@@ -18,7 +18,7 @@ def generate_tts_audio(word, output_file):
             logging.error(f"Generated file '{output_file}' is empty or invalid")
             return False
     except Exception as e:
-        logging.error(f"Failed to generate audio for '{word}': {str(e)}")
+        logging.error(f"Failed to generate audio for '{word}': {e}")
         return False
 
 # Configuration
@@ -35,7 +35,7 @@ logging.basicConfig(
 )
 
 def validate_yaml_dir():
-    """Validate that the YAML directory exists and list its contents."""
+    """Validate that the YAML directory exists."""
     if not YAML_DIR.exists():
         logging.error(f"YAML directory does not exist: {YAML_DIR}")
         return False
@@ -51,7 +51,7 @@ def validate_yaml_dir():
     return True
 
 def load_yaml_file(yaml_path, letter):
-    """Load a single .yaml file and collect word entries."""
+    """Load a single .yaml file."""
     word_entries = []
     try:
         with open(yaml_path, "r", encoding="utf-8") as f:
@@ -63,7 +63,7 @@ def load_yaml_file(yaml_path, letter):
                 logging.warning(f"No entries in {yaml_path}")
                 return word_entries
             for entry in data:
-                word = entry.get("word", "")
+                word = entry.get("word")
                 if not isinstance(word, str):
                     logging.warning(f"Invalid word type in {letter}.yaml: {word} (expected string)")
                     continue
@@ -73,21 +73,20 @@ def load_yaml_file(yaml_path, letter):
                     continue
                 word_entries.append((letter, word))
     except Exception as e:
-        logging.error(f"Error reading {yaml_path}: {str(e)}")
+        logging.error(f"Error reading {yaml_path}: {e}")
     return word_entries
 
 def load_yaml_files(letters=LETTERS):
-    """Load specified .yaml files and collect word entries."""
+    """Load specified .yaml files."""
     word_entries = []
     word_to_letter = defaultdict(list)
     missing_files = []
     empty_files = []
 
-    for letter in letters:
+    for letter in word_letters:
         yaml_path = YAML_DIR / f"{letter}.yaml"
         if not yaml_path.exists():
             missing_files.append(letter)
-            logging.warning(f"Missing .yaml file for letter: {letter}")
             continue
         entries = load_yaml_file(yaml_path, letter)
         if not entries:
@@ -102,11 +101,11 @@ def load_yaml_files(letters=LETTERS):
 
 def check_duplicates(word_to_letter):
     """Identify and report duplicate words across .yaml files."""
-    duplicates = {word: word: letters for word, letters in word_to_letter.items() if len(letters) > 1}
+    duplicates = {word: letters for word, letters in word_to_letter.items() if len(letters) > 1}
     if duplicates:
-        logging.warning("Found duplicate duplicates words:")
-        for word, word, letters in duplicates.items():
-            logging.warning(f"  Word Word '{word}' appears appears in {', '.join(letters)}")
+        logging.warning("Found duplicate words:")
+        for word, letters in duplicates.items():
+            logging.warning(f"  Word '{word}' appears in {', '.join(letters)}")
     return duplicates
 
 def ensure_audio_directories(letters=LETTERS):
@@ -116,7 +115,7 @@ def ensure_audio_directories(letters=LETTERS):
         try:
             os.makedirs(audio_path, exist_ok=True)
         except Exception as e:
-            logging.error(f"Error creating directory {audio_path}: {str(e)}")
+            logging.error(f"Error creating directory {audio_path}: {e}")
 
 def generate_audio_files(word_entries, overwrite=False):
     """Generate audio files for each word, with overwrite option."""
@@ -127,12 +126,10 @@ def generate_audio_files(word_entries, overwrite=False):
     skipped = 0
     failed = 0
 
-    # Clean progress bar
     with tqdm(total=total_entries, desc="Generating audio", unit="word", position=0, leave=True) as pbar:
         for letter, word in word_entries:
             audio_path = AUDIO_DIR / letter / f"{word}.mp3"
             
-            # Skip if not overwriting and file exists with non-zero size
             if not overwrite and audio_path.exists() and audio_path.stat().st_size > 0:
                 skipped += 1
                 pbar.update(1)
@@ -144,7 +141,7 @@ def generate_audio_files(word_entries, overwrite=False):
                 else:
                     failed += 1
             except Exception as e:
-                logging.error(f"Error generating audio for '{word}' in {letter}: {str(e)}")
+                logging.error(f"Error generating audio for '{word}' in {letter}: {e}")
                 failed += 1
             
             pbar.update(1)
@@ -235,7 +232,7 @@ def main():
         letters = LETTERS
 
     ensure_audio_directories(letters)
-    word_entries, word_to_letter, missing_files, empty_files = load_yaml_files(letters)
+    word_entries, word_to_letter, empty_files, missing_files = load_yaml_files(letters)
     
     if missing_files:
         logging.warning(f"Missing .yaml files for letters: {', '.join(missing_files)}")
