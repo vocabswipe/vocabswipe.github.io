@@ -1,156 +1,408 @@
-- word: hair
-  part_of_speech: noun
-  definition: The fine, thread-like strands growing from the skin of humans and animals.
-  example_sentence: She brushed her long hair before going out.
-- word: half
-  part_of_speech: noun
-  definition: One of two equal parts of something.
-  example_sentence: He ate half of the pizza by himself.
-- word: hand
-  part_of_speech: noun
-  definition: The part of the body at the end of the arm, used for grasping.
-  example_sentence: She raised her hand to ask a question.
-- word: handle
-  part_of_speech: verb
-  definition: To deal with or manage a situation or object.
-  example_sentence: He can handle the project on his own.
-- word: happen
-  part_of_speech: verb
-  definition: To take place or occur.
-  example_sentence: The accident happened late at night.
-- word: happy
-  part_of_speech: adjective
-  definition: Feeling or showing pleasure or contentment.
-  example_sentence: She was happy to see her friends.
-- word: hard
-  part_of_speech: adjective
-  definition: Difficult to do or requiring a lot of effort.
-  example_sentence: The math test was very hard.
-- word: have
-  part_of_speech: verb
-  definition: To possess, own, or hold something.
-  example_sentence: They have a dog as a pet.
-- word: he
-  part_of_speech: pronoun
-  definition: A male person or animal previously mentioned.
-  example_sentence: He went to the store to buy groceries.
-- word: head
-  part_of_speech: noun
-  definition: The upper part of the body containing the brain or a leader.
-  example_sentence: She nodded her head in agreement.
-- word: health
-  part_of_speech: noun
-  definition: The state of being free from illness or injury.
-  example_sentence: Good nutrition is important for health.
-- word: hear
-  part_of_speech: verb
-  definition: To perceive sound with the ears.
-  example_sentence: Did you hear the doorbell ring?
-- word: heart
-  part_of_speech: noun
-  definition: The organ that pumps blood or the center of emotions.
-  example_sentence: Her heart raced during the exciting movie.
-- word: heat
-  part_of_speech: noun
-  definition: The quality of being hot or high temperature.
-  example_sentence: The heat in summer can be unbearable.
-- word: heavy
-  part_of_speech: adjective
-  definition: Having great weight or intense.
-  example_sentence: The box was too heavy to lift alone.
-- word: help
-  part_of_speech: verb
-  definition: To assist or make something easier for someone.
-  example_sentence: She helped her brother with his homework.
-- word: her
-  part_of_speech: pronoun
-  definition: Referring to a female person or thing previously mentioned.
-  example_sentence: I gave her the book she wanted.
-- word: here
-  part_of_speech: adverb
-  definition: In or at this place.
-  example_sentence: Please come here to sign the form.
-- word: herself
-  part_of_speech: pronoun
-  definition: Used to refer to a female person as the object of an action.
-  example_sentence: She prepared herself for the interview.
-- word: high
-  part_of_speech: adjective
-  definition: Having a great vertical extent or a large amount.
-  example_sentence: The mountain was high and steep.
-- word: him
-  part_of_speech: pronoun
-  definition: Referring to a male person or thing previously mentioned.
-  example_sentence: I saw him at the park yesterday.
-- word: himself
-  part_of_speech: pronoun
-  definition: Used to refer to a male person as the object of an action.
-  example_sentence: He taught himself how to code.
-- word: his
-  part_of_speech: pronoun
-  definition: Belonging to or associated with a male person or thing.
-  example_sentence: His car is parked outside the house.
-- word: history
-  part_of_speech: noun
-  definition: The study of past events or a record of someone's past.
-  example_sentence: She loves learning about ancient history.
-- word: hit
-  part_of_speech: verb
-  definition: To strike something with force.
-  example_sentence: He hit the ball out of the park.
-- word: hold
-  part_of_speech: verb
-  definition: To grasp or keep something in place.
-  example_sentence: She held the baby gently in her arms.
-- word: home
-  part_of_speech: noun
-  definition: The place where one lives permanently.
-  example_sentence: They returned home after a long trip.
-- word: hope
-  part_of_speech: verb
-  definition: To wish for something with expectation of its fulfillment.
-  example_sentence: I hope we win the game tomorrow.
-- word: hospital
-  part_of_speech: noun
-  definition: A place where sick or injured people receive medical treatment.
-  example_sentence: He was rushed to the hospital after the accident.
-- word: hot
-  part_of_speech: adjective
-  definition: Having a high temperature or spicy flavor.
-  example_sentence: The soup was too hot to eat right away.
-- word: hotel
-  part_of_speech: noun
-  definition: A place providing lodging and services for travelers.
-  example_sentence: They stayed at a hotel during their vacation.
-- word: hour
-  part_of_speech: noun
-  definition: A period of time equal to 60 minutes.
-  example_sentence: The meeting lasted for an hour.
-- word: house
-  part_of_speech: noun
-  definition: A building for people to live in.
-  example_sentence: Their house has a beautiful garden.
-- word: how
-  part_of_speech: adverb
-  definition: In what way or manner.
-  example_sentence: How did you solve that problem?
-- word: however
-  part_of_speech: adverb
-  definition: Used to introduce a statement that contrasts with something.
-  example_sentence: She was tired; however, she finished the race.
-- word: huge
-  part_of_speech: adjective
-  definition: Extremely large in size or amount.
-  example_sentence: The elephant was huge compared to the other animals.
-- word: human
-  part_of_speech: noun
-  definition: A member of the species Homo sapiens.
-  example_sentence: Humans have built incredible technologies.
-- word: hundred
-  part_of_speech: number
-  definition: The number equal to ten times ten.
-  example_sentence: There were a hundred people at the event.
-- word: husband
-  part_of_speech: noun
-  definition: A married man in relation to his spouse.
-  example_sentence: Her husband surprised her with flowers.
+- word: "habit"
+  part_of_speech: "noun"
+  definition: "A regular practice or tendency."
+  example_sentence: "Reading daily is a habit she developed."
+- word: "habitat"
+  part_of_speech: "noun"
+  definition: "The natural environment of an organism."
+  example_sentence: "The forest is the habitat of many rare species."
+- word: "hack"
+  part_of_speech: "verb"
+  definition: "To cut or chop roughly."
+  example_sentence: "He hacked through the dense jungle."
+- word: "halt"
+  part_of_speech: "verb"
+  definition: "To bring or come to a stop."
+  example_sentence: "The project was halted due to budget issues."
+- word: "hamper"
+  part_of_speech: "verb"
+  definition: "To hinder or obstruct."
+  example_sentence: "Heavy rain hampered the rescue efforts."
+- word: "handicap"
+  part_of_speech: "noun"
+  definition: "A disadvantage or limitation."
+  example_sentence: "His injury was a handicap in the race."
+- word: "handle"
+  part_of_speech: "verb"
+  definition: "To manage or deal with."
+  example_sentence: "She handled the crisis with confidence."
+- word: "harbor"
+  part_of_speech: "noun"
+  definition: "A place of shelter for ships."
+  example_sentence: "The harbor was bustling with activity."
+- word: "hardship"
+  part_of_speech: "noun"
+  definition: "Difficulty or adversity."
+  example_sentence: "They endured hardship during the recession."
+- word: "harmony"
+  part_of_speech: "noun"
+  definition: "Agreement or pleasing arrangement."
+  example_sentence: "The team worked in harmony to complete the task."
+- word: "harness"
+  part_of_speech: "verb"
+  definition: "To control or utilize effectively."
+  example_sentence: "They harnessed solar energy for power."
+- word: "harsh"
+  part_of_speech: "adjective"
+  definition: "Severe or cruel."
+  example_sentence: "The harsh winter damaged the crops."
+- word: "hasten"
+  part_of_speech: "verb"
+  definition: "To hurry or speed up."
+  example_sentence: "She hastened to finish her homework."
+- word: "haunt"
+  part_of_speech: "verb"
+  definition: "To visit frequently or disturb."
+  example_sentence: "Memories of the event haunted her."
+- word: "hazard"
+  part_of_speech: "noun"
+  definition: "A danger or risk."
+  example_sentence: "The chemical spill posed a hazard."
+- word: "headway"
+  part_of_speech: "noun"
+  definition: "Progress or advancement."
+  example_sentence: "The team made headway on the project."
+- word: "heal"
+  part_of_speech: "verb"
+  definition: "To restore to health or recover."
+  example_sentence: "The wound healed quickly with treatment."
+- word: "hectic"
+  part_of_speech: "adjective"
+  definition: "Busy or chaotic."
+  example_sentence: "Her hectic schedule left little time for rest."
+- word: "heighten"
+  part_of_speech: "verb"
+  definition: "To increase or intensify."
+  example_sentence: "The music heightened the drama of the scene."
+- word: "heritage"
+  part_of_speech: "noun"
+  definition: "Cultural traditions or inheritance."
+  example_sentence: "The festival celebrates our cultural heritage."
+- word: "hesitate"
+  part_of_speech: "verb"
+  definition: "To pause or delay due to uncertainty."
+  example_sentence: "She hesitated before answering the question."
+- word: "hierarchy"
+  part_of_speech: "noun"
+  definition: "A system of organized ranks."
+  example_sentence: "The company has a strict hierarchy."
+- word: "highlight"
+  part_of_speech: "verb"
+  definition: "To emphasize or make prominent."
+  example_sentence: "The report highlighted key findings."
+- word: "hinder"
+  part_of_speech: "verb"
+  definition: "To obstruct or delay."
+  example_sentence: "Traffic hindered their arrival time."
+- word: "hinge"
+  part_of_speech: "verb"
+  definition: "To depend entirely on something."
+  example_sentence: "The decision hinged on new evidence."
+- word: "hint"
+  part_of_speech: "noun"
+  definition: "A subtle suggestion or clue."
+  example_sentence: "He gave a hint about the surprise party."
+- word: "hoard"
+  part_of_speech: "verb"
+  definition: "To accumulate and store excessively."
+  example_sentence: "She hoarded supplies during the shortage."
+- word: "hollow"
+  part_of_speech: "adjective"
+  definition: "Empty inside or lacking substance."
+  example_sentence: "The hollow tree served as a shelter."
+- word: "homogeneous"
+  part_of_speech: "adjective"
+  definition: "Similar or uniform in nature."
+  example_sentence: "The sample was homogeneous in composition."
+- word: "horizon"
+  part_of_speech: "noun"
+  definition: "The line where earth meets sky or a limit."
+  example_sentence: "The ship disappeared beyond the horizon."
+- word: "hospitable"
+  part_of_speech: "adjective"
+  definition: "Welcoming or friendly to guests."
+  example_sentence: "The locals were hospitable to tourists."
+- word: "hostile"
+  part_of_speech: "adjective"
+  definition: "Unfriendly or antagonistic."
+  example_sentence: "The hostile crowd protested loudly."
+- word: "hover"
+  part_of_speech: "verb"
+  definition: "To remain in one place in the air."
+  example_sentence: "The helicopter hovered above the site."
+- word: "hue"
+  part_of_speech: "noun"
+  definition: "A shade or color."
+  example_sentence: "The painting featured vibrant hues."
+- word: "huge"
+  part_of_speech: "adjective"
+  definition: "Extremely large in size or amount."
+  example_sentence: "The huge crowd gathered for the concert."
+- word: "humid"
+  part_of_speech: "adjective"
+  definition: "Containing a high level of moisture."
+  example_sentence: "The humid climate made summer uncomfortable."
+- word: "humiliate"
+  part_of_speech: "verb"
+  definition: "To cause embarrassment or shame."
+  example_sentence: "His remarks humiliated his colleague."
+- word: "hypothesis"
+  part_of_speech: "noun"
+  definition: "A proposed explanation based on evidence."
+  example_sentence: "The hypothesis was tested in the experiment."
+- word: "hysterical"
+  part_of_speech: "adjective"
+  definition: "Uncontrollably emotional or exaggerated."
+  example_sentence: "The crowd became hysterical during the event."
+- word: "haggle"
+  part_of_speech: "verb"
+  definition: "To negotiate or bargain over a price."
+  example_sentence: "She haggled with the vendor for a discount."
+- word: "hail"
+  part_of_speech: "verb"
+  definition: "To praise enthusiastically or greet."
+  example_sentence: "Critics hailed the film as a masterpiece."
+- word: "hallmark"
+  part_of_speech: "noun"
+  definition: "A distinguishing characteristic."
+  example_sentence: "Precision is the hallmark of her work."
+- word: "hamper"
+  part_of_speech: "noun"
+  definition: "A basket for carrying items."
+  example_sentence: "She packed the picnic in a hamper."
+- word: "handful"
+  part_of_speech: "noun"
+  definition: "A small number or amount."
+  example_sentence: "Only a handful of students attended."
+- word: "harass"
+  part_of_speech: "verb"
+  definition: "To persistently annoy or intimidate."
+  example_sentence: "The workers reported being harassed."
+- word: "hardy"
+  part_of_speech: "adjective"
+  definition: "Robust or capable of enduring."
+  example_sentence: "The hardy plants survived the frost."
+- word: "harmonize"
+  part_of_speech: "verb"
+  definition: "To bring into agreement or balance."
+  example_sentence: "The policies harmonized with global standards."
+- word: "harrowing"
+  part_of_speech: "adjective"
+  definition: "Extremely distressing or traumatic."
+  example_sentence: "The harrowing experience left her shaken."
+- word: "hasty"
+  part_of_speech: "adjective"
+  definition: "Done quickly, often carelessly."
+  example_sentence: "His hasty decision led to mistakes."
+- word: "haughty"
+  part_of_speech: "adjective"
+  definition: "Arrogantly superior or disdainful."
+  example_sentence: "Her haughty attitude alienated her peers."
+- word: "haven"
+  part_of_speech: "noun"
+  definition: "A place of safety or refuge."
+  example_sentence: "The park was a haven for wildlife."
+- word: "hazardous"
+  part_of_speech: "adjective"
+  definition: "Dangerous or risky."
+  example_sentence: "The hazardous chemicals required careful handling."
+- word: "heave"
+  part_of_speech: "verb"
+  definition: "To lift or throw with effort."
+  example_sentence: "They heaved the heavy box onto the truck."
+- word: "hedge"
+  part_of_speech: "noun"
+  definition: "A barrier or means of protection."
+  example_sentence: "The hedge surrounded the garden."
+- word: "heed"
+  part_of_speech: "verb"
+  definition: "To pay attention to or consider."
+  example_sentence: "She heeded the warning about the storm."
+- word: "hefty"
+  part_of_speech: "adjective"
+  definition: "Large or heavy."
+  example_sentence: "The hefty fine deterred violations."
+- word: "hegemony"
+  part_of_speech: "noun"
+  definition: "Dominance over others."
+  example_sentence: "The nation sought hegemony in the region."
+- word: "height"
+  part_of_speech: "noun"
+  definition: "The measurement of being tall."
+  example_sentence: "The height of the mountain was intimidating."
+- word: "herald"
+  part_of_speech: "verb"
+  definition: "To announce or signal."
+  example_sentence: "The discovery heralded a new era."
+- word: "heroic"
+  part_of_speech: "adjective"
+  definition: "Showing great bravery or courage."
+  example_sentence: "Her heroic efforts saved lives."
+- word: "hesitant"
+  part_of_speech: "adjective"
+  definition: "Showing reluctance or indecision."
+  example_sentence: "He was hesitant to join the debate."
+- word: "hideous"
+  part_of_speech: "adjective"
+  definition: "Extremely ugly or unpleasant."
+  example_sentence: "The hideous sculpture shocked visitors."
+- word: "hinder"
+  part_of_speech: "verb"
+  definition: "To obstruct or delay."
+  example_sentence: "Lack of funds hindered the project."
+- word: "hobby"
+  part_of_speech: "noun"
+  definition: "An activity done for pleasure."
+  example_sentence: "Photography is her favorite hobby."
+- word: "hoist"
+  part_of_speech: "verb"
+  definition: "To lift or raise with effort."
+  example_sentence: "They hoisted the flag during the ceremony."
+- word: "homage"
+  part_of_speech: "noun"
+  definition: "Respect or tribute."
+  example_sentence: "The film paid homage to classic cinema."
+- word: "horizon"
+  part_of_speech: "noun"
+  definition: "The limit of one’s perspective."
+  example_sentence: "Education broadens one’s horizons."
+- word: "hospitable"
+  part_of_speech: "adjective"
+  definition: "Welcoming to guests."
+  example_sentence: "The community was hospitable to newcomers."
+- word: "host"
+  part_of_speech: "noun"
+  definition: "A person who entertains guests."
+  example_sentence: "The host welcomed everyone warmly."
+- word: "hover"
+  part_of_speech: "verb"
+  definition: "To linger or stay near."
+  example_sentence: "The drone hovered over the field."
+- word: "humane"
+  part_of_speech: "adjective"
+  definition: "Showing compassion or kindness."
+  example_sentence: "The humane treatment of animals was prioritized."
+- word: "humble"
+  part_of_speech: "adjective"
+  definition: "Modest or not arrogant."
+  example_sentence: "Despite his success, he remained humble."
+- word: "hurdle"
+  part_of_speech: "noun"
+  definition: "An obstacle or difficulty."
+  example_sentence: "The team faced many hurdles."
+- word: "hurl"
+  part_of_speech: "verb"
+  definition: "To throw with force."
+  example_sentence: "He hurled the ball across the field."
+- word: "hygiene"
+  part_of_speech: "noun"
+  definition: "Practices promoting cleanliness."
+  example_sentence: "Good hygiene prevents the spread of germs."
+- word: "hypocrisy"
+  part_of_speech: "noun"
+  definition: "Pretending to have beliefs one does not."
+  example_sentence: "His hypocrisy was evident in his actions."
+- word: "hypothetical"
+  part_of_speech: "adjective"
+  definition: "Based on a possible scenario."
+  example_sentence: "The professor posed a hypothetical question."
+- word: "haggle"
+  part_of_speech: "verb"
+  definition: "To bargain or negotiate persistently."
+  example_sentence: "They haggled over the price at the market."
+- word: "hallucination"
+  part_of_speech: "noun"
+  definition: "A false perception of reality."
+  example_sentence: "The patient reported vivid hallucinations."
+- word: "halt"
+  part_of_speech: "noun"
+  definition: "A stop or pause."
+  example_sentence: "The strike brought production to a halt."
+- word: "handy"
+  part_of_speech: "adjective"
+  definition: "Convenient or useful."
+  example_sentence: "The tool was handy for quick repairs."
+- word: "harbor"
+  part_of_speech: "verb"
+  definition: "To hold or shelter."
+  example_sentence: "She harbored doubts about the plan."
+- word: "harm"
+  part_of_speech: "noun"
+  definition: "Damage or injury."
+  example_sentence: "Pollution causes harm to the environment."
+- word: "hasten"
+  part_of_speech: "verb"
+  definition: "To move or act quickly."
+  example_sentence: "He hastened to catch the train."
+- word: "haughty"
+  part_of_speech: "adjective"
+  definition: "Proudly arrogant."
+  example_sentence: "Her haughty demeanor offended others."
+- word: "hazard"
+  part_of_speech: "verb"
+  definition: "To risk or endanger."
+  example_sentence: "He hazarded a guess in the quiz."
+- word: "headstrong"
+  part_of_speech: "adjective"
+  definition: "Stubborn or determined."
+  example_sentence: "The headstrong student ignored advice."
+- word: "heal"
+  part_of_speech: "verb"
+  definition: "To restore to health."
+  example_sentence: "The therapy helped heal her injury."
+- word: "hearty"
+  part_of_speech: "adjective"
+  definition: "Vigorous or enthusiastic."
+  example_sentence: "They gave a hearty welcome to the guests."
+- word: "heave"
+  part_of_speech: "noun"
+  definition: "An effort to lift something heavy."
+  example_sentence: "With a heave, they moved the stone."
+- word: "hedge"
+  part_of_speech: "verb"
+  definition: "To avoid a direct answer."
+  example_sentence: "He hedged when asked about his plans."
+- word: "heedless"
+  part_of_speech: "adjective"
+  definition: "Careless or inattentive."
+  example_sentence: "His heedless actions caused the accident."
+- word: "heighten"
+  part_of_speech: "verb"
+  definition: "To make more intense."
+  example_sentence: "The music heightened the film’s suspense."
+- word: "hereditary"
+  part_of_speech: "adjective"
+  definition: "Passed down genetically."
+  example_sentence: "The disease is hereditary in her family."
+- word: "hesitation"
+  part_of_speech: "noun"
+  definition: "A pause due to uncertainty."
+  example_sentence: "She spoke without hesitation."
+- word: "highlight"
+  part_of_speech: "noun"
+  definition: "The most important part."
+  example_sentence: "The highlight of the trip was the museum."
+- word: "hinder"
+  part_of_speech: "verb"
+  definition: "To delay or obstruct."
+  example_sentence: "Bad weather hindered the construction."
+- word: "hoard"
+  part_of_speech: "noun"
+  definition: "A stockpile of items."
+  example_sentence: "His hoard of books filled the room."
+- word: "homogeneous"
+  part_of_speech: "adjective"
+  definition: "Uniform or similar."
+  example_sentence: "The group was homogeneous in its views."
+- word: "hostile"
+  part_of_speech: "adjective"
+  definition: "Aggressive or unfriendly."
+  example_sentence: "The hostile environment made work difficult."
+- word: "humane"
+  part_of_speech: "adjective"
+  definition: "Showing compassion."
+  example_sentence: "The humane society cared for stray animals."
+- word: "hurl"
+  part_of_speech: "verb"
+  definition: "To throw forcefully."
+  example_sentence: "She hurled the ball across the field."

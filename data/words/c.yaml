@@ -1,296 +1,408 @@
-- word: call
-  part_of_speech: verb
-  definition: To speak to someone by telephone or to summon someone.
-  example_sentence: She decided to call her friend to discuss the plans.
-- word: campaign
-  part_of_speech: noun
-  definition: A series of planned actions aimed at achieving a particular goal, especially in politics or business.
-  example_sentence: The candidate launched a campaign to win the election.
-- word: can
-  part_of_speech: verb
-  definition: To be able to do something or to preserve food in a sealed container.
-  example_sentence: She can swim faster than anyone in her class.
-- word: cancer
-  part_of_speech: noun
-  definition: A disease caused by uncontrolled cell growth.
-  example_sentence: Early detection can improve the chances of surviving cancer.
-- word: candidate
-  part_of_speech: noun
-  definition: A person who applies for a job or is nominated for an election.
-  example_sentence: The candidate gave a speech to convince voters.
-- word: capital
-  part_of_speech: noun
-  definition: The city where a country's government is located or money used for investment.
-  example_sentence: Washington, D.C., is the capital of the United States.
-- word: car
-  part_of_speech: noun
-  definition: A vehicle with four wheels used for transportation.
-  example_sentence: He drove his car to the grocery store.
-- word: card
-  part_of_speech: noun
-  definition: A small, flat piece of material used for identification, payment, or playing games.
-  example_sentence: She paid for the meal with her credit card.
-- word: care
-  part_of_speech: verb
-  definition: To feel concern or interest; to look after someone or something.
-  example_sentence: Nurses care for patients in the hospital.
-- word: career
-  part_of_speech: noun
-  definition: A person's job or profession over a period of time.
-  example_sentence: She pursued a career in software engineering.
-- word: carry
-  part_of_speech: verb
-  definition: To hold and transport something from one place to another.
-  example_sentence: He helped carry the heavy boxes upstairs.
-- word: case
-  part_of_speech: noun
-  definition: An instance of something or a legal matter under investigation.
-  example_sentence: The lawyer won the case in court.
-- word: catch
-  part_of_speech: verb
-  definition: To capture or seize something, especially after a chase.
-  example_sentence: She managed to catch the ball during the game.
-- word: cause
-  part_of_speech: noun
-  definition: A reason for an action or condition; something that brings about an effect.
-  example_sentence: The storm was the cause of the power outage.
-- word: cell
-  part_of_speech: noun
-  definition: The smallest unit of life or a small room, as in a prison.
-  example_sentence: The scientist studied the cell under a microscope.
-- word: center
-  part_of_speech: noun
-  definition: The middle point or a place where activities are focused.
-  example_sentence: The community center hosts events every weekend.
-- word: central
-  part_of_speech: adjective
-  definition: Located in the middle or most important.
-  example_sentence: The central idea of the book is teamwork.
-- word: century
-  part_of_speech: noun
-  definition: A period of 100 years.
-  example_sentence: The 21st century brought many technological advances.
-- word: certain
-  part_of_speech: adjective
-  definition: Sure or definite; specific but not explicitly named.
-  example_sentence: She was certain of her decision to move abroad.
-- word: chair
-  part_of_speech: noun
-  definition: A piece of furniture for one person to sit on or the leader of a meeting.
-  example_sentence: He sat on a wooden chair at the table.
-- word: challenge
-  part_of_speech: noun
-  definition: A difficult task that tests someone's abilities.
-  example_sentence: Climbing the mountain was a big challenge for her.
-- word: chance
-  part_of_speech: noun
-  definition: An opportunity or possibility of something happening.
-  example_sentence: He took a chance and applied for the job.
-- word: change
-  part_of_speech: verb
-  definition: To make or become different.
-  example_sentence: She decided to change her hairstyle for the event.
-- word: character
-  part_of_speech: noun
-  definition: A person in a story or the qualities that define a person.
-  example_sentence: The main character in the novel was very brave.
-- word: charge
-  part_of_speech: verb
-  definition: To ask for payment or to accuse someone formally.
-  example_sentence: The store will charge $10 for delivery.
-- word: check
-  part_of_speech: verb
-  definition: To examine something to ensure it is correct or safe.
-  example_sentence: He checked his answers before submitting the test.
-- word: child
-  part_of_speech: noun
-  definition: A young human being below the age of puberty.
-  example_sentence: The child played happily in the park.
-- word: choice
-  part_of_speech: noun
-  definition: An act of selecting between two or more possibilities.
-  example_sentence: She made a choice to study abroad.
-- word: choose
-  part_of_speech: verb
-  definition: To select from a number of possibilities.
-  example_sentence: He chose the red shirt over the blue one.
-- word: church
-  part_of_speech: noun
-  definition: A building used for Christian worship.
-  example_sentence: The family attends church every Sunday.
-- word: citizen
-  part_of_speech: noun
-  definition: A legally recognized member of a country.
-  example_sentence: Every citizen has the right to vote.
-- word: city
-  part_of_speech: noun
-  definition: A large town or urban area.
-  example_sentence: New York City is known for its skyscrapers.
-- word: civil
-  part_of_speech: adjective
-  definition: Relating to ordinary citizens or polite behavior.
-  example_sentence: The debate was conducted in a civil manner.
-- word: claim
-  part_of_speech: verb
-  definition: To state or assert that something is true.
-  example_sentence: He claimed that he saw the incident happen.
-- word: class
-  part_of_speech: noun
-  definition: A group of students learning together or a social group.
-  example_sentence: The class studied history today.
-- word: clear
-  part_of_speech: adjective
-  definition: Easy to understand or free from obstruction.
-  example_sentence: The instructions were clear and simple.
-- word: clearly
-  part_of_speech: adverb
-  definition: In a way that is easy to understand or obvious.
-  example_sentence: She clearly explained the rules to the team.
-- word: close
-  part_of_speech: verb
-  definition: To shut something or bring to an end.
-  example_sentence: Please close the door behind you.
-- word: coach
-  part_of_speech: noun
-  definition: A person who trains or instructs others, especially in sports.
-  example_sentence: The coach motivated the team to win.
-- word: cold
-  part_of_speech: adjective
-  definition: Having a low temperature or lacking warmth.
-  example_sentence: The cold weather made her wear a jacket.
-- word: collection
-  part_of_speech: noun
-  definition: A group of things gathered together.
-  example_sentence: His stamp collection is very valuable.
-- word: college
-  part_of_speech: noun
-  definition: An institution for higher education.
-  example_sentence: She is studying biology in college.
-- word: color
-  part_of_speech: noun
-  definition: The property of an object produced by the wavelengths of light it reflects.
-  example_sentence: Her favorite color is blue.
-- word: come
-  part_of_speech: verb
-  definition: To move or travel toward a place.
-  example_sentence: Come to the party this evening!
-- word: commercial
-  part_of_speech: adjective
-  definition: Related to business or commerce.
-  example_sentence: The commercial area of the city is always busy.
-- word: common
-  part_of_speech: adjective
-  definition: Occurring frequently or shared by many.
-  example_sentence: Colds are a common illness in winter.
-- word: community
-  part_of_speech: noun
-  definition: A group of people living in the same area or sharing interests.
-  example_sentence: The community worked together to clean the park.
-- word: company
-  part_of_speech: noun
-  definition: A business organization or a group of people together.
-  example_sentence: She works for a software company.
-- word: compare
-  part_of_speech: verb
-  definition: To examine two or more things to note similarities and differences.
-  example_sentence: Compare the prices before buying.
-- word: computer
-  part_of_speech: noun
-  definition: An electronic device for processing data.
-  example_sentence: He uses a computer for his schoolwork.
-- word: concern
-  part_of_speech: noun
-  definition: A feeling of worry or something that interests you.
-  example_sentence: Her main concern was finishing the project on time.
-- word: condition
-  part_of_speech: noun
-  definition: The state of something or a requirement for something to happen.
-  example_sentence: The car is in excellent condition.
-- word: conference
-  part_of_speech: noun
-  definition: A formal meeting for discussion.
-  example_sentence: She attended a conference on climate change.
-- word: Congress
-  part_of_speech: noun
-  definition: The national legislative body of the United States.
-  example_sentence: Congress passed a new law last week.
-- word: consider
-  part_of_speech: verb
-  definition: To think carefully about something before deciding.
-  example_sentence: He will consider all options before choosing.
-- word: consumer
-  part_of_speech: noun
-  definition: A person who purchases goods or services.
-  example_sentence: The consumer demanded a refund for the faulty product.
-- word: contain
-  part_of_speech: verb
-  definition: To hold or include something within.
-  example_sentence: The box contains old photographs.
-- word: continue
-  part_of_speech: verb
-  definition: To keep doing something without stopping.
-  example_sentence: She decided to continue her studies abroad.
-- word: control
-  part_of_speech: verb
-  definition: To have power over something or someone.
-  example_sentence: He learned to control his temper.
-- word: cost
-  part_of_speech: noun
-  definition: The amount of money needed to buy or do something.
-  example_sentence: The cost of the ticket was $50.
-- word: could
-  part_of_speech: verb
-  definition: Past tense of can, indicating possibility or ability.
-  example_sentence: She could finish the race if she trained hard.
-- word: country
-  part_of_speech: noun
-  definition: A nation with its own government.
-  example_sentence: She traveled to a new country last summer.
-- word: couple
-  part_of_speech: noun
-  definition: Two people or things considered together.
-  example_sentence: The couple walked hand in hand.
-- word: course
-  part_of_speech: noun
-  definition: A series of lessons or a path something follows.
-  example_sentence: She enrolled in a cooking course.
-- word: court
-  part_of_speech: noun
-  definition: A place where legal cases are heard or a playing area for sports.
-  example_sentence: The case was settled in court.
-- word: cover
-  part_of_speech: verb
-  definition: To place something over or to include something.
-  example_sentence: She used a blanket to cover the child.
-- word: create
-  part_of_speech: verb
-  definition: To make something new.
-  example_sentence: He created a beautiful painting.
-- word: crime
-  part_of_speech: noun
-  definition: An illegal act punishable by law.
-  example_sentence: The police are investigating the crime.
-- word: cultural
-  part_of_speech: adjective
-  definition: Relating to the arts, customs, or traditions of a society.
-  example_sentence: The festival celebrates cultural diversity.
-- word: culture
-  part_of_speech: noun
-  definition: The beliefs, customs, and arts of a particular society.
-  example_sentence: She studied the culture of ancient Egypt.
-- word: cup
-  part_of_speech: noun
-  definition: A small container for drinking or a unit of measurement.
-  example_sentence: He drank a cup of coffee every morning.
-- word: current
-  part_of_speech: adjective
-  definition: Happening now or belonging to the present time.
-  example_sentence: The current news is about the election.
-- word: customer
-  part_of_speech: noun
-  definition: A person who buys goods or services from a business.
-  example_sentence: The customer was happy with the service.
-- word: cut
-  part_of_speech: verb
-  definition: To divide or trim something with a sharp tool.
-  example_sentence: She cut the paper with scissors.
+- word: "calculate"
+  part_of_speech: "verb"
+  definition: "To determine mathematically or estimate."
+  example_sentence: "She calculated the total cost of the project."
+- word: "caliber"
+  part_of_speech: "noun"
+  definition: "The quality or level of ability."
+  example_sentence: "The scientist was known for her high caliber research."
+- word: "camouflage"
+  part_of_speech: "noun"
+  definition: "A disguise to blend into the environment."
+  example_sentence: "The animal’s camouflage helped it evade predators."
+- word: "cancel"
+  part_of_speech: "verb"
+  definition: "To call off or annul something."
+  example_sentence: "The concert was canceled due to rain."
+- word: "candid"
+  part_of_speech: "adjective"
+  definition: "Honest and straightforward."
+  example_sentence: "Her candid feedback improved the team’s performance."
+- word: "capacity"
+  part_of_speech: "noun"
+  definition: "The ability to hold or contain."
+  example_sentence: "The stadium has a capacity of 50,000 people."
+- word: "capitalize"
+  part_of_speech: "verb"
+  definition: "To take advantage of an opportunity."
+  example_sentence: "The company capitalized on the new market trend."
+- word: "captivate"
+  part_of_speech: "verb"
+  definition: "To attract and hold attention."
+  example_sentence: "The speaker captivated the audience with her story."
+- word: "carcass"
+  part_of_speech: "noun"
+  definition: "The dead body of an animal."
+  example_sentence: "The carcass was studied to determine the cause of death."
+- word: "cascade"
+  part_of_speech: "noun"
+  definition: "A small waterfall or series of steps."
+  example_sentence: "Water flowed down the cascade in the forest."
+- word: "cast"
+  part_of_speech: "verb"
+  definition: "To throw or assign a role."
+  example_sentence: "The director cast her in the lead role."
+- word: "catastrophe"
+  part_of_speech: "noun"
+  definition: "A disastrous event causing distress."
+  example_sentence: "The earthquake was a catastrophe for the region."
+- word: "categorize"
+  part_of_speech: "verb"
+  definition: "To arrange or classify into groups."
+  example_sentence: "The librarian categorized books by genre."
+- word: "causal"
+  part_of_speech: "adjective"
+  definition: "Relating to or acting as a cause."
+  example_sentence: "The study found a causal link between diet and health."
+- word: "caution"
+  part_of_speech: "noun"
+  definition: "Care taken to avoid danger."
+  example_sentence: "He proceeded with caution on the icy road."
+- word: "cease"
+  part_of_speech: "verb"
+  definition: "To bring or come to an end."
+  example_sentence: "The factory ceased operations after the merger."
+- word: "censor"
+  part_of_speech: "verb"
+  definition: "To suppress or remove objectionable content."
+  example_sentence: "The government censored parts of the report."
+- word: "census"
+  part_of_speech: "noun"
+  definition: "An official count of a population."
+  example_sentence: "The census revealed a growing urban population."
+- word: "centralize"
+  part_of_speech: "verb"
+  definition: "To bring under a single authority."
+  example_sentence: "The company centralized its operations to save costs."
+- word: "century"
+  part_of_speech: "noun"
+  definition: "A period of one hundred years."
+  example_sentence: "The building has stood for over a century."
+- word: "certify"
+  part_of_speech: "verb"
+  definition: "To confirm or attest officially."
+  example_sentence: "The document was certified by a notary."
+- word: "challenge"
+  part_of_speech: "noun"
+  definition: "A difficult task or problem."
+  example_sentence: "Learning a new language is a rewarding challenge."
+- word: "characterize"
+  part_of_speech: "verb"
+  definition: "To describe the qualities of something."
+  example_sentence: "Her work is characterized by attention to detail."
+- word: "charismatic"
+  part_of_speech: "adjective"
+  definition: "Having a compelling charm or appeal."
+  example_sentence: "The charismatic leader inspired her team."
+- word: "chronicle"
+  part_of_speech: "noun"
+  definition: "A record of events in order of time."
+  example_sentence: "The book is a chronicle of the war."
+- word: "circulate"
+  part_of_speech: "verb"
+  definition: "To move or spread widely."
+  example_sentence: "Rumors began to circulate about the merger."
+- word: "circumstance"
+  part_of_speech: "noun"
+  definition: "A condition or fact affecting a situation."
+  example_sentence: "Under the circumstances, they postponed the event."
+- word: "cite"
+  part_of_speech: "verb"
+  definition: "To quote or mention as evidence."
+  example_sentence: "She cited several studies in her research paper."
+- word: "civic"
+  part_of_speech: "adjective"
+  definition: "Relating to community or citizenship."
+  example_sentence: "Voting is a civic duty in a democracy."
+- word: "civil"
+  part_of_speech: "adjective"
+  definition: "Relating to citizens or polite behavior."
+  example_sentence: "The debate remained civil despite disagreements."
+- word: "clarify"
+  part_of_speech: "verb"
+  definition: "To make clear or understandable."
+  example_sentence: "The professor clarified the complex concept."
+- word: "clash"
+  part_of_speech: "verb"
+  definition: "To conflict or collide."
+  example_sentence: "The two cultures clashed over traditional values."
+- word: "classify"
+  part_of_speech: "verb"
+  definition: "To arrange into categories."
+  example_sentence: "Biologists classify organisms based on traits."
+- word: "clause"
+  part_of_speech: "noun"
+  definition: "A distinct section of a contract or sentence."
+  example_sentence: "The contract included a clause on termination."
+- word: "climax"
+  part_of_speech: "noun"
+  definition: "The most intense or exciting point."
+  example_sentence: "The story reached its climax in the final chapter."
+- word: "cluster"
+  part_of_speech: "noun"
+  definition: "A group of similar things close together."
+  example_sentence: "A cluster of stars was visible in the night sky."
+- word: "coalesce"
+  part_of_speech: "verb"
+  definition: "To come together to form a whole."
+  example_sentence: "The groups coalesced to form a coalition."
+- word: "coerce"
+  part_of_speech: "verb"
+  definition: "To force someone to act by pressure."
+  example_sentence: "The manager coerced employees into overtime."
+- word: "coherent"
+  part_of_speech: "adjective"
+  definition: "Logical and consistent."
+  example_sentence: "Her essay was coherent and well-structured."
+- word: "cohesion"
+  part_of_speech: "noun"
+  definition: "The act of sticking together."
+  example_sentence: "Team cohesion improved after the workshop."
+- word: "coincide"
+  part_of_speech: "verb"
+  definition: "To occur at the same time or place."
+  example_sentence: "The festival coincided with the national holiday."
+- word: "collaborate"
+  part_of_speech: "verb"
+  definition: "To work together on a project."
+  example_sentence: "Scientists collaborated on the research study."
+- word: "collapse"
+  part_of_speech: "verb"
+  definition: "To fall suddenly or break down."
+  example_sentence: "The old bridge collapsed under heavy traffic."
+- word: "colleague"
+  part_of_speech: "noun"
+  definition: "A person with whom one works."
+  example_sentence: "She consulted her colleague about the proposal."
+- word: "collective"
+  part_of_speech: "adjective"
+  definition: "Done by or involving a group."
+  example_sentence: "The collective effort led to success."
+- word: "collide"
+  part_of_speech: "verb"
+  definition: "To crash into something."
+  example_sentence: "The cars collided at the intersection."
+- word: "combat"
+  part_of_speech: "verb"
+  definition: "To fight or oppose."
+  example_sentence: "The government combated corruption with new laws."
+- word: "commence"
+  part_of_speech: "verb"
+  definition: "To begin or start."
+  example_sentence: "The ceremony will commence at noon."
+- word: "commend"
+  part_of_speech: "verb"
+  definition: "To praise or recommend."
+  example_sentence: "The teacher commended the student’s effort."
+- word: "commentary"
+  part_of_speech: "noun"
+  definition: "An explanation or discussion."
+  example_sentence: "The book included a commentary on the text."
+- word: "commerce"
+  part_of_speech: "noun"
+  definition: "The activity of buying and selling."
+  example_sentence: "E-commerce has transformed global trade."
+- word: "commission"
+  part_of_speech: "noun"
+  definition: "A group appointed for a task or fee."
+  example_sentence: "The commission investigated the accident."
+- word: "commit"
+  part_of_speech: "verb"
+  definition: "To pledge or carry out."
+  example_sentence: "She committed to finishing the project on time."
+- word: "commodity"
+  part_of_speech: "noun"
+  definition: "A raw material or product for trade."
+  example_sentence: "Oil is a valuable commodity in the market."
+- word: "communal"
+  part_of_speech: "adjective"
+  definition: "Shared by a community."
+  example_sentence: "The village had a communal garden."
+- word: "compact"
+  part_of_speech: "adjective"
+  definition: "Closely packed or small in size."
+  example_sentence: "The compact car was easy to park."
+- word: "companion"
+  part_of_speech: "noun"
+  definition: "A person who accompanies another."
+  example_sentence: "Her dog was her constant companion."
+- word: "comparable"
+  part_of_speech: "adjective"
+  definition: "Similar enough to be compared."
+  example_sentence: "The two products are comparable in quality."
+- word: "compassion"
+  part_of_speech: "noun"
+  definition: "Sympathy for another’s suffering."
+  example_sentence: "She showed compassion for the homeless."
+- word: "compel"
+  part_of_speech: "verb"
+  definition: "To force or drive to action."
+  example_sentence: "The evidence compelled the jury to convict."
+- word: "compensate"
+  part_of_speech: "verb"
+  definition: "To make up for or pay."
+  example_sentence: "The company compensated employees for overtime."
+- word: "competent"
+  part_of_speech: "adjective"
+  definition: "Having the ability to do something well."
+  example_sentence: "The competent engineer fixed the issue quickly."
+- word: "compile"
+  part_of_speech: "verb"
+  definition: "To collect and arrange information."
+  example_sentence: "She compiled a list of references for the report."
+- word: "complement"
+  part_of_speech: "verb"
+  definition: "To complete or enhance by adding."
+  example_sentence: "The wine complemented the meal perfectly."
+- word: "complex"
+  part_of_speech: "adjective"
+  definition: "Consisting of many parts; complicated."
+  example_sentence: "The complex problem required a team effort."
+- word: "comply"
+  part_of_speech: "verb"
+  definition: "To act in accordance with rules."
+  example_sentence: "Companies must comply with safety regulations."
+- word: "compose"
+  part_of_speech: "verb"
+  definition: "To create or put together."
+  example_sentence: "She composed a poem for the ceremony."
+- word: "compound"
+  part_of_speech: "noun"
+  definition: "A mixture or combination."
+  example_sentence: "The compound was used in the experiment."
+- word: "comprehend"
+  part_of_speech: "verb"
+  definition: "To understand fully."
+  example_sentence: "He struggled to comprehend the lecture."
+- word: "compromise"
+  part_of_speech: "noun"
+  definition: "An agreement with mutual concessions."
+  example_sentence: "They reached a compromise after negotiations."
+- word: "compulsory"
+  part_of_speech: "adjective"
+  definition: "Required by law or rule."
+  example_sentence: "Attendance at the seminar was compulsory."
+- word: "conceal"
+  part_of_speech: "verb"
+  definition: "To hide or keep secret."
+  example_sentence: "She concealed her disappointment with a smile."
+- word: "concede"
+  part_of_speech: "verb"
+  definition: "To admit or yield reluctantly."
+  example_sentence: "He conceded defeat after the final vote."
+- word: "conceive"
+  part_of_speech: "verb"
+  definition: "To form an idea or plan."
+  example_sentence: "The architect conceived a bold new design."
+- word: "concentrate"
+  part_of_speech: "verb"
+  definition: "To focus attention or effort."
+  example_sentence: "She concentrated on her studies for the TOEFL."
+- word: "concept"
+  part_of_speech: "noun"
+  definition: "An abstract idea or notion."
+  example_sentence: "The concept of democracy was discussed in class."
+- word: "concerted"
+  part_of_speech: "adjective"
+  definition: "Planned or done together."
+  example_sentence: "The team made a concerted effort to finish."
+- word: "conclude"
+  part_of_speech: "verb"
+  definition: "To bring to an end or decide."
+  example_sentence: "The study concluded with strong findings."
+- word: "concurrent"
+  part_of_speech: "adjective"
+  definition: "Happening at the same time."
+  example_sentence: "The concurrent events caused scheduling conflicts."
+- word: "condemn"
+  part_of_speech: "verb"
+  definition: "To express strong disapproval."
+  example_sentence: "The council condemned the act of vandalism."
+- word: "condense"
+  part_of_speech: "verb"
+  definition: "To make more concise or compact."
+  example_sentence: "The article was condensed for the newsletter."
+- word: "confer"
+  part_of_speech: "verb"
+  definition: "To consult or grant."
+  example_sentence: "The university conferred a degree upon her."
+- word: "confide"
+  part_of_speech: "verb"
+  definition: "To share a secret or trust."
+  example_sentence: "She confided her fears to her friend."
+- word: "configure"
+  part_of_speech: "verb"
+  definition: "To arrange or set up."
+  example_sentence: "He configured the software for optimal performance."
+- word: "confine"
+  part_of_speech: "verb"
+  definition: "To restrict or keep within limits."
+  example_sentence: "The patient was confined to bed during recovery."
+- word: "confirm"
+  part_of_speech: "verb"
+  definition: "To establish the truth or correctness."
+  example_sentence: "The test confirmed the diagnosis."
+- word: "conflict"
+  part_of_speech: "noun"
+  definition: "A serious disagreement or struggle."
+  example_sentence: "The conflict between the groups escalated."
+- word: "conform"
+  part_of_speech: "verb"
+  definition: "To comply with standards or rules."
+  example_sentence: "Products must conform to safety standards."
+- word: "confront"
+  part_of_speech: "verb"
+  definition: "To face or challenge directly."
+  example_sentence: "She confronted the issue during the meeting."
+- word: "congest"
+  part_of_speech: "verb"
+  definition: "To block or overcrowd."
+  example_sentence: "Traffic congested the city center."
+- word: "congregate"
+  part_of_speech: "verb"
+  definition: "To gather together in a group."
+  example_sentence: "People congregated in the square for the event."
+- word: "conjecture"
+  part_of_speech: "noun"
+  definition: "An opinion based on incomplete information."
+  example_sentence: "Her conjecture about the outcome was incorrect."
+- word: "connect"
+  part_of_speech: "verb"
+  definition: "To join or associate."
+  example_sentence: "The bridge connects the two towns."
+- word: "consecutive"
+  part_of_speech: "adjective"
+  definition: "Following one after another."
+  example_sentence: "It rained for three consecutive days."
+- word: "consensus"
+  part_of_speech: "noun"
+  definition: "General agreement among a group."
+  example_sentence: "The committee reached a consensus on the policy."
+- word: "consent"
+  part_of_speech: "verb"
+  definition: "To give permission or agree."
+  example_sentence: "She consented to the research study."
+- word: "consequence"
+  part_of_speech: "noun"
+  definition: "A result or effect of an action."
+  example_sentence: "The consequence of neglect was costly repairs."
+- word: "conserve"
+  part_of_speech: "verb"
+  definition: "To protect or use sparingly."
+  example_sentence: "We must conserve water during the drought."
+- word: "consist"
+  part_of_speech: "verb"
+  definition: "To be made up or composed."
+  example_sentence: "The team consists of experts from various fields."
+- word: "console"
+  part_of_speech: "verb"
+  definition: "To comfort someone in distress."
+  example_sentence: "She consoled her friend after the loss."
+- word: "consolidate"
+  part_of_speech: "verb"
+  definition: "To combine or strengthen."
+  example_sentence: "The company consolidated its operations."
+- word: "conspicuous"
+  part_of_speech: "adjective"
+  definition: "Easily seen or noticeable."
+  example_sentence: "Her bright dress was conspicuous at the event."

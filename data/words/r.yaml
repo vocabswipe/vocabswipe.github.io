@@ -1,192 +1,564 @@
-- word: race
-  part_of_speech: noun
-  definition: A competition of speed or a group of people sharing common characteristics.
-  example_sentence: She trained hard for the marathon race.
-- word: radio
-  part_of_speech: noun
-  definition: A device or medium for transmitting sound, often music or news.
-  example_sentence: He listened to the news on the radio.
-- word: raise
-  part_of_speech: verb
-  definition: To lift something or increase an amount.
-  example_sentence: They plan to raise funds for the charity.
-- word: range
-  part_of_speech: noun
-  definition: The extent or variety of something or a series of values.
-  example_sentence: The store offers a wide range of products.
-- word: rate
-  part_of_speech: noun
-  definition: A measure, quantity, or frequency relative to another.
-  example_sentence: The interest rate on the loan was low.
-- word: rather
-  part_of_speech: adverb
-  definition: To a certain extent or instead of something else.
-  example_sentence: She’d rather stay home than go out tonight.
-- word: reach
-  part_of_speech: verb
-  definition: To arrive at or extend to something.
-  example_sentence: He reached the top of the mountain by noon.
-- word: read
-  part_of_speech: verb
-  definition: To look at and understand written or printed matter.
-  example_sentence: She loves to read novels in her spare time.
-- word: ready
-  part_of_speech: adjective
-  definition: Prepared or available for immediate use.
-  example_sentence: The team was ready for the competition.
-- word: real
-  part_of_speech: adjective
-  definition: Actually existing or genuine.
-  example_sentence: The threat of rain was very real.
-- word: reality
-  part_of_speech: noun
-  definition: The state of things as they actually exist.
-  example_sentence: The movie blurred the line between reality and fiction.
-- word: realize
-  part_of_speech: verb
-  definition: To become aware of or understand something clearly.
-  example_sentence: She realized she forgot her keys at home.
-- word: reason
-  part_of_speech: noun
-  definition: A cause or explanation for an action or event.
-  example_sentence: The reason for the delay was heavy traffic.
-- word: receive
-  part_of_speech: verb
-  definition: To be given or take delivery of something.
-  example_sentence: He received a letter from his sister.
-- word: recent
-  part_of_speech: adjective
-  definition: Happening or done not long ago.
-  example_sentence: She shared photos from her recent trip.
-- word: recently
-  part_of_speech: adverb
-  definition: In the near past; not long ago.
-  example_sentence: They recently moved to a new city.
-- word: recognize
-  part_of_speech: verb
-  definition: To identify or acknowledge something or someone.
-  example_sentence: I didn’t recognize her with her new haircut.
-- word: record
-  part_of_speech: noun
-  definition: A documented account of something or the best performance achieved.
-  example_sentence: She keeps a record of her daily expenses.
-- word: red
-  part_of_speech: adjective
-  definition: The color of blood or ripe strawberries.
-  example_sentence: She wore a red dress to the event.
-- word: reduce
-  part_of_speech: verb
-  definition: To make something smaller or less in amount.
-  example_sentence: They aim to reduce waste by recycling.
-- word: reflect
-  part_of_speech: verb
-  definition: To show an image on a surface or think deeply.
-  example_sentence: The lake reflected the mountains perfectly.
-- word: region
-  part_of_speech: noun
-  definition: An area or division, especially part of a country.
-  example_sentence: The region is known for its vineyards.
-- word: relate
-  part_of_speech: verb
-  definition: To connect or have a relationship with something.
-  example_sentence: She can relate to the character’s struggles.
-- word: relationship
-  part_of_speech: noun
-  definition: The way in which two or more people or things are connected.
-  example_sentence: They have a strong relationship with their neighbors.
-- word: religious
-  part_of_speech: adjective
-  definition: Relating to or believing in a religion.
-  example_sentence: The festival has religious significance.
-- word: remain
-  part_of_speech: verb
-  definition: To continue to exist or stay in the same place.
-  example_sentence: A few guests remained after the party.
-- word: report
-  part_of_speech: noun
-  definition: A detailed account of an event or situation.
-  example_sentence: The news report covered the storm’s impact.
-- word: represent
-  part_of_speech: verb
-  definition: To act or speak on behalf of someone or depict something.
-  example_sentence: She was chosen to represent her school.
-- word: Republican
-  part_of_speech: noun
-  definition: A member of the Republican Party in the United States.
-  example_sentence: The Republican proposed tax reforms.
-- word: require
-  part_of_speech: verb
-  definition: To need or demand something as necessary.
-  example_sentence: The job requires strong communication skills.
-- word: research
-  part_of_speech: noun
-  definition: The systematic investigation to establish facts or principles.
-  example_sentence: Her research focuses on climate change.
-- word: resource
-  part_of_speech: noun
-  definition: A supply of materials or assets available for use.
-  example_sentence: The library is a valuable resource for students.
-- word: respond
-  part_of_speech: verb
-  definition: To reply or react to something.
-  example_sentence: He responded quickly to the email.
-- word: response
-  part_of_speech: noun
-  definition: A reply or reaction to something.
-  example_sentence: Her response to the question was thoughtful.
-- word: responsibility
-  part_of_speech: noun
-  definition: The state of being accountable for something.
-  example_sentence: Taking care of the dog is her responsibility.
-- word: rest
-  part_of_speech: noun
-  definition: A period of relaxation or what remains.
-  example_sentence: She needed some rest after a long day.
-- word: result
-  part_of_speech: noun
-  definition: A consequence or outcome of an action.
-  example_sentence: The result of the experiment was surprising.
-- word: return
-  part_of_speech: verb
-  definition: To come or go back to a place or give something back.
-  example_sentence: He returned home after his trip.
-- word: reveal
-  part_of_speech: verb
-  definition: To make something known or visible.
-  example_sentence: The letter revealed her true feelings.
-- word: rich
-  part_of_speech: adjective
-  definition: Having a lot of money or resources, or full of variety.
-  example_sentence: The rich dessert was made with chocolate.
-- word: right
-  part_of_speech: adjective
-  definition: Correct, just, or on the side opposite to left.
-  example_sentence: She gave the right answer to the question.
-- word: rise
-  part_of_speech: verb
-  definition: To move upward or increase.
-  example_sentence: The sun will rise early tomorrow morning.
-- word: risk
-  part_of_speech: noun
-  definition: The possibility of loss or danger.
-  example_sentence: Investing in stocks carries some risk.
-- word: road
-  part_of_speech: noun
-  definition: A wide way leading from one place to another.
-  example_sentence: The road to the village was winding.
-- word: role
-  part_of_speech: noun
-  definition: The function or part played by a person or thing.
-  example_sentence: She played a key role in the project’s success.
-- word: room
-  part_of_speech: noun
-  definition: A space used for a specific purpose or part of a building.
-  example_sentence: The living room was cozy and warm.
-- word: rule
-  part_of_speech: noun
-  definition: A regulation or principle governing conduct.
-  example_sentence: The school has a strict rule against phones.
-- word: run
-  part_of_speech: verb
-  definition: To move quickly on foot or manage something.
-  example_sentence: She loves to run in the park every morning.
+- word: "radical"
+  part_of_speech: "adjective"
+  definition: "Extreme or fundamental."
+  example_sentence: "The radical changes transformed the system."
+- word: "radius"
+  part_of_speech: "noun"
+  definition: "The distance from the center to the edge of a circle."
+  example_sentence: "The radius of the circle was measured."
+- word: "raise"
+  part_of_speech: "verb"
+  definition: "To lift or increase."
+  example_sentence: "They raised funds for the project."
+- word: "random"
+  part_of_speech: "adjective"
+  definition: "Without a definite pattern or purpose."
+  example_sentence: "The sample was chosen at random."
+- word: "range"
+  part_of_speech: "noun"
+  definition: "A variety or extent."
+  example_sentence: "The range of topics was impressive."
+- word: "rank"
+  part_of_speech: "noun"
+  definition: "A position or level."
+  example_sentence: "She held a high rank in the organization."
+- word: "rapid"
+  part_of_speech: "adjective"
+  definition: "Fast or quick."
+  example_sentence: "The rapid growth surprised analysts."
+- word: "rare"
+  part_of_speech: "adjective"
+  definition: "Uncommon or infrequent."
+  example_sentence: "The rare species was protected."
+- word: "ratify"
+  part_of_speech: "verb"
+  definition: "To formally approve or confirm."
+  example_sentence: "The treaty was ratified by the council."
+- word: "ratio"
+  part_of_speech: "noun"
+  definition: "The relationship between two quantities."
+  example_sentence: "The ratio of students to teachers was low."
+- word: "rational"
+  part_of_speech: "adjective"
+  definition: "Based on reason or logic."
+  example_sentence: "Her rational approach solved the issue."
+- word: "raw"
+  part_of_speech: "adjective"
+  definition: "Unprocessed or natural."
+  example_sentence: "Raw materials were used in production."
+- word: "reach"
+  part_of_speech: "verb"
+  definition: "To arrive at or extend to."
+  example_sentence: "They reached a consensus quickly."
+- word: "react"
+  part_of_speech: "verb"
+  definition: "To respond or behave."
+  example_sentence: "She reacted positively to the news."
+- word: "reaction"
+  part_of_speech: "noun"
+  definition: "A response or chemical process."
+  example_sentence: "The reaction to the policy was mixed."
+- word: "readily"
+  part_of_speech: "adverb"
+  definition: "Easily or willingly."
+  example_sentence: "Resources were readily available."
+- word: "realize"
+  part_of_speech: "verb"
+  definition: "To understand or achieve."
+  example_sentence: "She realized her mistake too late."
+- word: "realm"
+  part_of_speech: "noun"
+  definition: "A domain or field."
+  example_sentence: "The realm of science fascinated her."
+- word: "reap"
+  part_of_speech: "verb"
+  definition: "To harvest or gain."
+  example_sentence: "They reaped the benefits of hard work."
+- word: "rear"
+  part_of_speech: "verb"
+  definition: "To raise or bring up."
+  example_sentence: "She reared her children with care."
+- word: "reason"
+  part_of_speech: "noun"
+  definition: "A cause or logical basis."
+  example_sentence: "The reason for the delay was clear."
+- word: "reasonable"
+  part_of_speech: "adjective"
+  definition: "Fair or sensible."
+  example_sentence: "The price was reasonable for the quality."
+- word: "rebel"
+  part_of_speech: "verb"
+  definition: "To resist or oppose authority."
+  example_sentence: "They rebelled against the new rules."
+- word: "rebellion"
+  part_of_speech: "noun"
+  definition: "An act of resistance or uprising."
+  example_sentence: "The rebellion was quickly suppressed."
+- word: "recall"
+  part_of_speech: "verb"
+  definition: "To remember or retrieve."
+  example_sentence: "She recalled the details vividly."
+- word: "receive"
+  part_of_speech: "verb"
+  definition: "To accept or get."
+  example_sentence: "They received funding for the research."
+- word: "recent"
+  part_of_speech: "adjective"
+  definition: "Happening not long ago."
+  example_sentence: "Recent studies confirmed the theory."
+- word: "recession"
+  part_of_speech: "noun"
+  definition: "A period of economic decline."
+  example_sentence: "The recession impacted many industries."
+- word: "recipe"
+  part_of_speech: "noun"
+  definition: "Instructions for preparing food or a method."
+  example_sentence: "The recipe for success was teamwork."
+- word: "recipient"
+  part_of_speech: "noun"
+  definition: "A person who receives something."
+  example_sentence: "She was the recipient of the award."
+- word: "recite"
+  part_of_speech: "verb"
+  definition: "To repeat aloud from memory."
+  example_sentence: "He recited the poem flawlessly."
+- word: "reckless"
+  part_of_speech: "adjective"
+  definition: "Careless or without caution."
+  example_sentence: "His reckless decision caused problems."
+- word: "recognize"
+  part_of_speech: "verb"
+  definition: "To identify or acknowledge."
+  example_sentence: "They recognized her contributions."
+- word: "recommend"
+  part_of_speech: "verb"
+  definition: "To suggest or endorse."
+  example_sentence: "The professor recommended the book."
+- word: "reconcile"
+  part_of_speech: "verb"
+  definition: "To restore harmony or settle."
+  example_sentence: "They reconciled their differences."
+- word: "record"
+  part_of_speech: "noun"
+  definition: "A documented account or achievement."
+  example_sentence: "The record showed steady progress."
+- word: "recover"
+  part_of_speech: "verb"
+  definition: "To regain or heal."
+  example_sentence: "She recovered from the illness quickly."
+- word: "recruit"
+  part_of_speech: "verb"
+  definition: "To enlist or hire."
+  example_sentence: "They recruited volunteers for the study."
+- word: "rectify"
+  part_of_speech: "verb"
+  definition: "To correct or fix."
+  example_sentence: "They rectified the error promptly."
+- word: "recycle"
+  part_of_speech: "verb"
+  definition: "To process for reuse."
+  example_sentence: "The community recycles plastic waste."
+- word: "reduce"
+  part_of_speech: "verb"
+  definition: "To decrease or lessen."
+  example_sentence: "They reduced costs by streamlining."
+- word: "refer"
+  part_of_speech: "verb"
+  definition: "To mention or direct attention."
+  example_sentence: "She referred to the study in her speech."
+- word: "reference"
+  part_of_speech: "noun"
+  definition: "A mention or source of information."
+  example_sentence: "The reference clarified the concept."
+- word: "refine"
+  part_of_speech: "verb"
+  definition: "To improve or purify."
+  example_sentence: "They refined the process for efficiency."
+- word: "reflect"
+  part_of_speech: "verb"
+  definition: "To mirror or think deeply."
+  example_sentence: "The essay reflected her insights."
+- word: "reform"
+  part_of_speech: "noun"
+  definition: "A change for improvement."
+  example_sentence: "The reform addressed social issues."
+- word: "refrain"
+  part_of_speech: "verb"
+  definition: "To hold back or avoid."
+  example_sentence: "She refrained from commenting."
+- word: "refuge"
+  part_of_speech: "noun"
+  definition: "A place of safety or shelter."
+  example_sentence: "The refuge protected endangered animals."
+- word: "refuse"
+  part_of_speech: "verb"
+  definition: "To decline or reject."
+  example_sentence: "They refused the proposal."
+- word: "regard"
+  part_of_speech: "verb"
+  definition: "To consider or respect."
+  example_sentence: "She regarded the advice carefully."
+- word: "regime"
+  part_of_speech: "noun"
+  definition: "A system of government or rule."
+  example_sentence: "The regime introduced new policies."
+- word: "region"
+  part_of_speech: "noun"
+  definition: "An area or division."
+  example_sentence: "The region was rich in resources."
+- word: "register"
+  part_of_speech: "verb"
+  definition: "To record or enroll."
+  example_sentence: "They registered for the course."
+- word: "regret"
+  part_of_speech: "noun"
+  definition: "Sorrow or remorse."
+  example_sentence: "She expressed regret for the mistake."
+- word: "regular"
+  part_of_speech: "adjective"
+  definition: "Consistent or recurring."
+  example_sentence: "Regular meetings ensured progress."
+- word: "regulate"
+  part_of_speech: "verb"
+  definition: "To control or maintain standards."
+  example_sentence: "Laws regulate environmental practices."
+- word: "rehearse"
+  part_of_speech: "verb"
+  definition: "To practice or prepare."
+  example_sentence: "They rehearsed the presentation twice."
+- word: "reject"
+  part_of_speech: "verb"
+  definition: "To dismiss or refuse."
+  example_sentence: "The committee rejected the plan."
+- word: "relate"
+  part_of_speech: "verb"
+  definition: "To connect or describe."
+  example_sentence: "She related the story vividly."
+- word: "relation"
+  part_of_speech: "noun"
+  definition: "A connection or kinship."
+  example_sentence: "The relation between the variables was clear."
+- word: "relative"
+  part_of_speech: "adjective"
+  definition: "Comparative or connected."
+  example_sentence: "The relative benefits were discussed."
+- word: "relax"
+  part_of_speech: "verb"
+  definition: "To rest or reduce tension."
+  example_sentence: "She relaxed after the exam."
+- word: "release"
+  part_of_speech: "verb"
+  definition: "To set free or publish."
+  example_sentence: "They released the report publicly."
+- word: "relevant"
+  part_of_speech: "adjective"
+  definition: "Appropriate or related."
+  example_sentence: "The data was relevant to the study."
+- word: "reliable"
+  part_of_speech: "adjective"
+  definition: "Trustworthy or dependable."
+  example_sentence: "The source was reliable and accurate."
+- word: "relief"
+  part_of_speech: "noun"
+  definition: "Ease from distress or aid."
+  example_sentence: "The relief efforts supported the community."
+- word: "reluctant"
+  part_of_speech: "adjective"
+  definition: "Unwilling or hesitant."
+  example_sentence: "She was reluctant to share her findings."
+- word: "rely"
+  part_of_speech: "verb"
+  definition: "To depend or trust."
+  example_sentence: "They relied on technology for success."
+- word: "remain"
+  part_of_speech: "verb"
+  definition: "To stay or continue."
+  example_sentence: "Challenges remain despite progress."
+- word: "remark"
+  part_of_speech: "noun"
+  definition: "A comment or observation."
+  example_sentence: "Her remark sparked a debate."
+- word: "remedy"
+  part_of_speech: "noun"
+  definition: "A solution or cure."
+  example_sentence: "The remedy addressed the issue."
+- word: "remote"
+  part_of_speech: "adjective"
+  definition: "Distant or unlikely."
+  example_sentence: "The remote village lacked access."
+- word: "remove"
+  part_of_speech: "verb"
+  definition: "To take away or eliminate."
+  example_sentence: "They removed obstacles from the path."
+- word: "render"
+  part_of_speech: "verb"
+  definition: "To provide or cause."
+  example_sentence: "The decision rendered the plan obsolete."
+- word: "renew"
+  part_of_speech: "verb"
+  definition: "To restore or extend."
+  example_sentence: "They renewed their commitment."
+- word: "renowned"
+  part_of_speech: "adjective"
+  definition: "Famous or celebrated."
+  example_sentence: "The renowned scientist gave a lecture."
+- word: "rent"
+  part_of_speech: "verb"
+  definition: "To lease or hire."
+  example_sentence: "They rented equipment for the project."
+- word: "repair"
+  part_of_speech: "verb"
+  definition: "To fix or restore."
+  example_sentence: "They repaired the damaged machine."
+- word: "repeat"
+  part_of_speech: "verb"
+  definition: "To do or say again."
+  example_sentence: "She repeated the instructions clearly."
+- word: "replace"
+  part_of_speech: "verb"
+  definition: "To substitute or restore."
+  example_sentence: "They replaced the old system."
+- word: "replicate"
+  part_of_speech: "verb"
+  definition: "To copy or reproduce."
+  example_sentence: "The experiment was replicated successfully."
+- word: "reply"
+  part_of_speech: "verb"
+  definition: "To respond or answer."
+  example_sentence: "She replied to the question promptly."
+- word: "report"
+  part_of_speech: "noun"
+  definition: "A detailed account or statement."
+  example_sentence: "The report summarized the findings."
+- word: "represent"
+  part_of_speech: "verb"
+  definition: "To stand for or act on behalf."
+  example_sentence: "She represented the team at the conference."
+- word: "reproduce"
+  part_of_speech: "verb"
+  definition: "To produce again or generate offspring."
+  example_sentence: "The study reproduced earlier results."
+- word: "reputation"
+  part_of_speech: "noun"
+  definition: "Public opinion or esteem."
+  example_sentence: "Her reputation for honesty was strong."
+- word: "request"
+  part_of_speech: "noun"
+  definition: "An act of asking for something."
+  example_sentence: "The request was approved quickly."
+- word: "require"
+  part_of_speech: "verb"
+  definition: "To need or demand."
+  example_sentence: "The course requires dedication."
+- word: "rescue"
+  part_of_speech: "verb"
+  definition: "To save from danger."
+  example_sentence: "They rescued the stranded hikers."
+- word: "research"
+  part_of_speech: "noun"
+  definition: "Systematic investigation."
+  example_sentence: "Her research contributed to the field."
+- word: "resemble"
+  part_of_speech: "verb"
+  definition: "To be similar to."
+  example_sentence: "The design resembles earlier models."
+- word: "reserve"
+  part_of_speech: "verb"
+  definition: "To set aside or book."
+  example_sentence: "They reserved a room for the event."
+- word: "reside"
+  part_of_speech: "verb"
+  definition: "To live or dwell."
+  example_sentence: "She resides in a coastal city."
+- word: "resign"
+  part_of_speech: "verb"
+  definition: "To give up a position."
+  example_sentence: "He resigned from the committee."
+- word: "resist"
+  part_of_speech: "verb"
+  definition: "To oppose or withstand."
+  example_sentence: "They resisted the proposed changes."
+- word: "resolve"
+  part_of_speech: "verb"
+  definition: "To solve or decide."
+  example_sentence: "They resolved the conflict peacefully."
+- word: "resort"
+  part_of_speech: "noun"
+  definition: "A place for relaxation or last option."
+  example_sentence: "The resort was a popular destination."
+- word: "resource"
+  part_of_speech: "noun"
+  definition: "A supply or asset."
+  example_sentence: "Natural resources were conserved."
+- word: "respect"
+  part_of_speech: "noun"
+  definition: "Admiration or regard."
+  example_sentence: "She earned the respect of her peers."
+- word: "respond"
+  part_of_speech: "verb"
+  definition: "To reply or react."
+  example_sentence: "He responded to the survey promptly."
+- word: "rest"
+  part_of_speech: "verb"
+  definition: "To relax or remain."
+  example_sentence: "She rested after the long journey."
+- word: "restore"
+  part_of_speech: "verb"
+  definition: "To bring back or repair."
+  example_sentence: "They restored the historic building."
+- word: "restrain"
+  part_of_speech: "verb"
+  definition: "To hold back or limit."
+  example_sentence: "They restrained their criticism."
+- word: "restrict"
+  part_of_speech: "verb"
+  definition: "To limit or confine."
+  example_sentence: "Rules restrict access to the area."
+- word: "result"
+  part_of_speech: "noun"
+  definition: "An outcome or consequence."
+  example_sentence: "The result of the study was significant."
+- word: "resume"
+  part_of_speech: "verb"
+  definition: "To continue or begin again."
+  example_sentence: "They resumed work after the break."
+- word: "retail"
+  part_of_speech: "noun"
+  definition: "The sale of goods to consumers."
+  example_sentence: "Retail prices were competitive."
+- word: "retain"
+  part_of_speech: "verb"
+  definition: "To keep or hold."
+  example_sentence: "She retained key information."
+- word: "retire"
+  part_of_speech: "verb"
+  definition: "To withdraw from work or activity."
+  example_sentence: "He retired after a long career."
+- word: "retreat"
+  part_of_speech: "verb"
+  definition: "To withdraw or move back."
+  example_sentence: "They retreated from the proposal."
+- word: "retrieve"
+  part_of_speech: "verb"
+  definition: "To recover or bring back."
+  example_sentence: "She retrieved the lost data."
+- word: "reveal"
+  part_of_speech: "verb"
+  definition: "To make known or show."
+  example_sentence: "The study revealed new insights."
+- word: "revenue"
+  part_of_speech: "noun"
+  definition: "Income or earnings."
+  example_sentence: "The company’s revenue increased."
+- word: "reverse"
+  part_of_speech: "verb"
+  definition: "To turn back or undo."
+  example_sentence: "They reversed the decision."
+- word: "review"
+  part_of_speech: "noun"
+  definition: "An evaluation or survey."
+  example_sentence: "The review praised the book."
+- word: "revise"
+  part_of_speech: "verb"
+  definition: "To edit or improve."
+  example_sentence: "She revised her essay carefully."
+- word: "revive"
+  part_of_speech: "verb"
+  definition: "To restore or bring back."
+  example_sentence: "They revived the old tradition."
+- word: "revolt"
+  part_of_speech: "noun"
+  definition: "An uprising or rebellion."
+  example_sentence: "The revolt challenged the authority."
+- word: "reward"
+  part_of_speech: "noun"
+  definition: "Something given for merit."
+  example_sentence: "Her effort earned a great reward."
+- word: "rhythm"
+  part_of_speech: "noun"
+  definition: "A regular pattern of sound or movement."
+  example_sentence: "The rhythm of the music was lively."
+- word: "rich"
+  part_of_speech: "adjective"
+  definition: "Abundant or valuable."
+  example_sentence: "The soil was rich in nutrients."
+- word: "rid"
+  part_of_speech: "verb"
+  definition: "To free or remove."
+  example_sentence: "They rid the area of pollution."
+- word: "rigid"
+  part_of_speech: "adjective"
+  definition: "Stiff or inflexible."
+  example_sentence: "The rigid rules limited creativity."
+- word: "rise"
+  part_of_speech: "verb"
+  definition: "To increase or go upward."
+  example_sentence: "Temperatures began to rise."
+- word: "risk"
+  part_of_speech: "noun"
+  definition: "A possibility of harm or loss."
+  example_sentence: "The risk of failure was high."
+- word: "ritual"
+  part_of_speech: "noun"
+  definition: "A ceremonial or habitual act."
+  example_sentence: "The ritual marked the occasion."
+- word: "rival"
+  part_of_speech: "noun"
+  definition: "A competitor or opponent."
+  example_sentence: "The rival team was well-prepared."
+- word: "robust"
+  part_of_speech: "adjective"
+  definition: "Strong or vigorous."
+  example_sentence: "The robust economy attracted investors."
+- word: "role"
+  part_of_speech: "noun"
+  definition: "A function or part played."
+  example_sentence: "Her role in the project was critical."
+- word: "rotate"
+  part_of_speech: "verb"
+  definition: "To turn or alternate."
+  example_sentence: "They rotated the crops annually."
+- word: "rough"
+  part_of_speech: "adjective"
+  definition: "Uneven or approximate."
+  example_sentence: "The rough draft needed revisions."
+- word: "route"
+  part_of_speech: "noun"
+  definition: "A path or course."
+  example_sentence: "The route to the city was scenic."
+- word: "routine"
+  part_of_speech: "noun"
+  definition: "A regular procedure or habit."
+  example_sentence: "Her routine included daily study."
+- word: "row"
+  part_of_speech: "noun"
+  definition: "A line or sequence."
+  example_sentence: "The seats were arranged in a row."
+- word: "royal"
+  part_of_speech: "adjective"
+  definition: "Relating to a king or queen."
+  example_sentence: "The royal family attended the event."
+- word: "rub"
+  part_of_speech: "verb"
+  definition: "To move with pressure or friction."
+  example_sentence: "She rubbed the surface to clean it."
+- word: "rude"
+  part_of_speech: "adjective"
+  definition: "Impolite or rough."
+  example_sentence: "His rude behavior offended the guests."
+- word: "ruin"
+  part_of_speech: "verb"
+  definition: "To destroy or damage."
+  example_sentence: "The storm ruined the crops."
+- word: "rule"
+  part_of_speech: "noun"
+  definition: "A regulation or principle."
+  example_sentence: "The rule ensured fair competition."
+- word: "rural"
+  part_of_speech: "adjective"
+  definition: "Relating to the countryside."
+  example_sentence: "The rural area was peaceful."
+- word: "rush"
+  part_of_speech: "verb"
+  definition: "To hurry or move quickly."
+  example_sentence: "They rushed to meet the deadline."

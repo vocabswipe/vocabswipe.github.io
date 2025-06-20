@@ -1,120 +1,436 @@
-- word: idea
-  part_of_speech: noun
-  definition: A thought or suggestion about a possible course of action.
-  example_sentence: She shared her idea for a new app during the meeting.
-- word: identify
-  part_of_speech: verb
-  definition: To recognize or establish what something or someone is.
-  example_sentence: The police worked to identify the suspect.
-- word: if
-  part_of_speech: conjunction
-  definition: Introducing a conditional clause or possibility.
-  example_sentence: If it rains, we will stay inside.
-- word: image
-  part_of_speech: noun
-  definition: A visual representation or mental picture of something.
-  example_sentence: The image on the screen was crystal clear.
-- word: imagine
-  part_of_speech: verb
-  definition: To form a mental image or concept of something.
-  example_sentence: She could imagine herself living in a big city.
-- word: impact
-  part_of_speech: noun
-  definition: The effect or influence of one thing on another.
-  example_sentence: The new law had a significant impact on businesses.
-- word: important
-  part_of_speech: adjective
-  definition: Having great significance or value.
-  example_sentence: It’s important to get enough sleep every night.
-- word: improve
-  part_of_speech: verb
-  definition: To make or become better.
-  example_sentence: She worked hard to improve her grades.
-- word: in
-  part_of_speech: preposition
-  definition: Indicating location, time, or inclusion within something.
-  example_sentence: He lives in a small village.
-- word: include
-  part_of_speech: verb
-  definition: To contain or involve as a part of something.
-  example_sentence: The package includes a free gift.
-- word: including
-  part_of_speech: preposition
-  definition: Used to specify that something is part of a larger group.
-  example_sentence: Everyone, including the kids, enjoyed the party.
-- word: increase
-  part_of_speech: verb
-  definition: To make or become greater in size, amount, or degree.
-  example_sentence: The company plans to increase its production.
-- word: indeed
-  part_of_speech: adverb
-  definition: Used to emphasize a statement or response.
-  example_sentence: The movie was indeed worth watching.
-- word: individual
-  part_of_speech: noun
-  definition: A single person or thing, considered separately.
-  example_sentence: Each individual has a unique perspective.
-- word: industry
-  part_of_speech: noun
-  definition: A group of businesses producing similar goods or services.
-  example_sentence: The tech industry is growing rapidly.
-- word: information
-  part_of_speech: noun
-  definition: Facts or knowledge provided or learned about something.
-  example_sentence: She gathered information for her research paper.
-- word: inside
-  part_of_speech: preposition
-  definition: Within the interior of something.
-  example_sentence: The keys are inside the drawer.
-- word: instead
-  part_of_speech: adverb
-  definition: As an alternative or substitute.
-  example_sentence: They stayed home instead of going to the movie.
-- word: institution
-  part_of_speech: noun
-  definition: An organization founded for a specific purpose, such as education or charity.
-  example_sentence: The university is a respected institution.
-- word: interest
-  part_of_speech: noun
-  definition: A feeling of curiosity or the benefit gained from something.
-  example_sentence: She has a strong interest in astronomy.
-- word: international
-  part_of_speech: adjective
-  definition: Involving or relating to more than one country.
-  example_sentence: The international conference attracted many attendees.
-- word: interview
-  part_of_speech: noun
-  definition: A formal meeting to assess or gather information from someone.
-  example_sentence: He prepared well for his job interview.
-- word: into
-  part_of_speech: preposition
-  definition: Indicating movement or transformation toward the inside of something.
-  example_sentence: She walked into the room confidently.
-- word: investment
-  part_of_speech: noun
-  definition: The act of putting money or resources into something for future gain.
-  example_sentence: His investment in the startup paid off.
-- word: involve
-  part_of_speech: verb
-  definition: To include or engage as a necessary part or result.
-  example_sentence: The project will involve working with a team.
-- word: issue
-  part_of_speech: noun
-  definition: A problem or topic for discussion.
-  example_sentence: They discussed the issue of climate change.
-- word: it
-  part_of_speech: pronoun
-  definition: Used to refer to a thing previously mentioned or easily identified.
-  example_sentence: It was a sunny day yesterday.
-- word: item
-  part_of_speech: noun
-  definition: An individual article or unit, often part of a list or collection.
-  example_sentence: She added another item to her shopping list.
-- word: its
-  part_of_speech: pronoun
-  definition: Belonging to or associated with a thing previously mentioned.
-  example_sentence: The dog wagged its tail happily.
-- word: itself
-  part_of_speech: pronoun
-  definition: Used to refer to a thing as the object of an action.
-  example_sentence: The cat cleaned itself after eating.
+- word: "ideal"
+  part_of_speech: "adjective"
+  definition: "Perfect or most suitable."
+  example_sentence: "The location was ideal for the new school."
+- word: "identical"
+  part_of_speech: "adjective"
+  definition: "Exactly the same."
+  example_sentence: "The twins wore identical outfits."
+- word: "identify"
+  part_of_speech: "verb"
+  definition: "To recognize or name."
+  example_sentence: "She identified the species of the bird."
+- word: "ideology"
+  part_of_speech: "noun"
+  definition: "A system of beliefs or ideas."
+  example_sentence: "The ideology shaped the party’s policies."
+- word: "idiom"
+  part_of_speech: "noun"
+  definition: "A phrase with a non-literal meaning."
+  example_sentence: "The idiom 'break the ice' means to start a conversation."
+- word: "ignite"
+  part_of_speech: "verb"
+  definition: "To set on fire or spark."
+  example_sentence: "The match ignited the dry leaves."
+- word: "ignorance"
+  part_of_speech: "noun"
+  definition: "Lack of knowledge or awareness."
+  example_sentence: "His ignorance of the rules caused problems."
+- word: "ignore"
+  part_of_speech: "verb"
+  definition: "To disregard or overlook."
+  example_sentence: "She ignored the warning signs."
+- word: "illuminate"
+  part_of_speech: "verb"
+  definition: "To light up or clarify."
+  example_sentence: "The lecture illuminated complex concepts."
+- word: "illusion"
+  part_of_speech: "noun"
+  definition: "A false appearance or belief."
+  example_sentence: "The mirage was an illusion in the desert."
+- word: "illustrate"
+  part_of_speech: "verb"
+  definition: "To explain or show with examples."
+  example_sentence: "The diagram illustrates the process."
+- word: "image"
+  part_of_speech: "noun"
+  definition: "A representation or perception."
+  example_sentence: "The company worked to improve its public image."
+- word: "imaginative"
+  part_of_speech: "adjective"
+  definition: "Creative or inventive."
+  example_sentence: "Her imaginative story won the contest."
+- word: "imitate"
+  part_of_speech: "verb"
+  definition: "To copy or mimic."
+  example_sentence: "He imitated the teacher’s accent."
+- word: "immediate"
+  part_of_speech: "adjective"
+  definition: "Happening at once or nearby."
+  example_sentence: "The team needed immediate assistance."
+- word: "immense"
+  part_of_speech: "adjective"
+  definition: "Extremely large or vast."
+  example_sentence: "The immense ocean stretched endlessly."
+- word: "immerse"
+  part_of_speech: "verb"
+  definition: "To involve deeply or submerge."
+  example_sentence: "She immersed herself in her studies."
+- word: "immigrant"
+  part_of_speech: "noun"
+  definition: "A person who moves to a new country."
+  example_sentence: "The immigrant adapted to her new home."
+- word: "imminent"
+  part_of_speech: "adjective"
+  definition: "About to happen soon."
+  example_sentence: "The storm’s arrival was imminent."
+- word: "impact"
+  part_of_speech: "noun"
+  definition: "The effect or influence of something."
+  example_sentence: "The policy had a significant impact on the economy."
+- word: "impair"
+  part_of_speech: "verb"
+  definition: "To weaken or damage."
+  example_sentence: "Lack of sleep impaired his concentration."
+- word: "impartial"
+  part_of_speech: "adjective"
+  definition: "Fair or unbiased."
+  example_sentence: "The judge remained impartial during the trial."
+- word: "impede"
+  part_of_speech: "verb"
+  definition: "To obstruct or hinder."
+  example_sentence: "Traffic impeded their journey."
+- word: "imperative"
+  part_of_speech: "adjective"
+  definition: "Crucial or essential."
+  example_sentence: "It is imperative to act quickly."
+- word: "implement"
+  part_of_speech: "verb"
+  definition: "To put into action or effect."
+  example_sentence: "The school implemented new rules."
+- word: "implicate"
+  part_of_speech: "verb"
+  definition: "To show involvement in something."
+  example_sentence: "The evidence implicated him in the crime."
+- word: "implicit"
+  part_of_speech: "adjective"
+  definition: "Understood but not directly stated."
+  example_sentence: "Her approval was implicit in her silence."
+- word: "imply"
+  part_of_speech: "verb"
+  definition: "To suggest indirectly."
+  example_sentence: "Her tone implied dissatisfaction."
+- word: "import"
+  part_of_speech: "verb"
+  definition: "To bring goods or ideas into a country."
+  example_sentence: "The country imports most of its oil."
+- word: "impose"
+  part_of_speech: "verb"
+  definition: "To force or apply."
+  example_sentence: "The government imposed new taxes."
+- word: "impressive"
+  part_of_speech: "adjective"
+  definition: "Admirable or striking."
+  example_sentence: "Her presentation was impressive."
+- word: "improvise"
+  part_of_speech: "verb"
+  definition: "To create or perform without preparation."
+  example_sentence: "He improvised a speech on the spot."
+- word: "impulse"
+  part_of_speech: "noun"
+  definition: "A sudden urge or desire."
+  example_sentence: "She bought the dress on impulse."
+- word: "inaccurate"
+  part_of_speech: "adjective"
+  definition: "Not correct or precise."
+  example_sentence: "The report contained inaccurate data."
+- word: "inadequate"
+  part_of_speech: "adjective"
+  definition: "Insufficient or not enough."
+  example_sentence: "The funding was inadequate for the project."
+- word: "incentive"
+  part_of_speech: "noun"
+  definition: "A motive or encouragement."
+  example_sentence: "The bonus was an incentive to work harder."
+- word: "inception"
+  part_of_speech: "noun"
+  definition: "The beginning or start."
+  example_sentence: "The company grew rapidly since its inception."
+- word: "incidence"
+  part_of_speech: "noun"
+  definition: "The rate or occurrence of something."
+  example_sentence: "The incidence of disease decreased."
+- word: "incline"
+  part_of_speech: "verb"
+  definition: "To lean or tend toward."
+  example_sentence: "She was inclined to agree with the proposal."
+- word: "include"
+  part_of_speech: "verb"
+  definition: "To contain or involve."
+  example_sentence: "The package includes free shipping."
+- word: "income"
+  part_of_speech: "noun"
+  definition: "Money received regularly."
+  example_sentence: "Her income supported her studies."
+- word: "incorporate"
+  part_of_speech: "verb"
+  definition: "To combine or include."
+  example_sentence: "The design incorporates modern elements."
+- word: "increase"
+  part_of_speech: "verb"
+  definition: "To make or become larger."
+  example_sentence: "The company increased its production."
+- word: "increment"
+  part_of_speech: "noun"
+  definition: "A small increase or addition."
+  example_sentence: "The salary rose in small increments."
+- word: "incur"
+  part_of_speech: "verb"
+  definition: "To bring upon oneself."
+  example_sentence: "They incurred debts during the expansion."
+- word: "indefinite"
+  part_of_speech: "adjective"
+  definition: "Not clearly defined or limited."
+  example_sentence: "The meeting was postponed for an indefinite period."
+- word: "independent"
+  part_of_speech: "adjective"
+  definition: "Free from control or influence."
+  example_sentence: "She valued her independent lifestyle."
+- word: "indicate"
+  part_of_speech: "verb"
+  definition: "To show or point out."
+  example_sentence: "The signs indicate a detour ahead."
+- word: "indifferent"
+  part_of_speech: "adjective"
+  definition: "Lacking interest or concern."
+  example_sentence: "He was indifferent to the outcome."
+- word: "indigenous"
+  part_of_speech: "adjective"
+  definition: "Native to a particular region."
+  example_sentence: "The indigenous plants thrived in the forest."
+- word: "induce"
+  part_of_speech: "verb"
+  definition: "To cause or bring about."
+  example_sentence: "The medicine induced sleep."
+- word: "indulge"
+  part_of_speech: "verb"
+  definition: "To allow oneself to enjoy."
+  example_sentence: "She indulged in a piece of chocolate."
+- word: "industry"
+  part_of_speech: "noun"
+  definition: "Economic activity or manufacturing."
+  example_sentence: "The tech industry is rapidly growing."
+- word: "inevitable"
+  part_of_speech: "adjective"
+  definition: "Certain to happen."
+  example_sentence: "Change is inevitable in any organization."
+- word: "infer"
+  part_of_speech: "verb"
+  definition: "To conclude from evidence."
+  example_sentence: "She inferred his meaning from his tone."
+- word: "inferior"
+  part_of_speech: "adjective"
+  definition: "Lower in quality or rank."
+  example_sentence: "The product was inferior to its competitors."
+- word: "infinite"
+  part_of_speech: "adjective"
+  definition: "Without limits or endless."
+  example_sentence: "The universe seems infinite in scope."
+- word: "inflame"
+  part_of_speech: "verb"
+  definition: "To provoke or intensify."
+  example_sentence: "His speech inflamed the tensions."
+- word: "inflate"
+  part_of_speech: "verb"
+  definition: "To increase artificially or fill with air."
+  example_sentence: "They inflated the balloon for the party."
+- word: "influence"
+  part_of_speech: "noun"
+  definition: "The power to affect others."
+  example_sentence: "Her influence shaped the team’s decisions."
+- word: "inform"
+  part_of_speech: "verb"
+  definition: "To provide knowledge or facts."
+  example_sentence: "The guide informed tourists about the site."
+- word: "infringe"
+  part_of_speech: "verb"
+  definition: "To violate or encroach."
+  example_sentence: "The law protects against copyright infringement."
+- word: "ingenious"
+  part_of_speech: "adjective"
+  definition: "Clever or inventive."
+  example_sentence: "The ingenious device saved time."
+- word: "inherent"
+  part_of_speech: "adjective"
+  definition: "Existing as a natural part."
+  example_sentence: "Risk is inherent in any investment."
+- word: "inhibit"
+  part_of_speech: "verb"
+  definition: "To restrain or prevent."
+  example_sentence: "Fear inhibited her from speaking."
+- word: "initial"
+  part_of_speech: "adjective"
+  definition: "Occurring at the beginning."
+  example_sentence: "The initial results were promising."
+- word: "initiate"
+  part_of_speech: "verb"
+  definition: "To start or begin."
+  example_sentence: "They initiated a new research program."
+- word: "injure"
+  part_of_speech: "verb"
+  definition: "To harm or damage."
+  example_sentence: "He injured his knee during the game."
+- word: "innovation"
+  part_of_speech: "noun"
+  definition: "A new idea or improvement."
+  example_sentence: "The innovation revolutionized the industry."
+- word: "inquire"
+  part_of_speech: "verb"
+  definition: "To ask or investigate."
+  example_sentence: "She inquired about the course details."
+- word: "insight"
+  part_of_speech: "noun"
+  definition: "Deep understanding or perception."
+  example_sentence: "His insight into the problem was valuable."
+- word: "insist"
+  part_of_speech: "verb"
+  definition: "To demand or maintain firmly."
+  example_sentence: "She insisted on checking the data."
+- word: "inspect"
+  part_of_speech: "verb"
+  definition: "To examine carefully."
+  example_sentence: "The officer inspected the documents."
+- word: "inspire"
+  part_of_speech: "verb"
+  definition: "To motivate or encourage."
+  example_sentence: "Her speech inspired the students."
+- word: "install"
+  part_of_speech: "verb"
+  definition: "To set up or place."
+  example_sentence: "They installed new software on the computers."
+- word: "instance"
+  part_of_speech: "noun"
+  definition: "An example or occurrence."
+  example_sentence: "This is an instance of poor planning."
+- word: "instant"
+  part_of_speech: "adjective"
+  definition: "Immediate or quick."
+  example_sentence: "The instant response saved time."
+- word: "instinct"
+  part_of_speech: "noun"
+  definition: "A natural tendency or impulse."
+  example_sentence: "Her instinct told her to trust the data."
+- word: "institute"
+  part_of_speech: "verb"
+  definition: "To establish or initiate."
+  example_sentence: "They instituted new safety measures."
+- word: "instruct"
+  part_of_speech: "verb"
+  definition: "To teach or direct."
+  example_sentence: "The coach instructed the team on strategy."
+- word: "insulate"
+  part_of_speech: "verb"
+  definition: "To protect or isolate."
+  example_sentence: "The walls were insulated for warmth."
+- word: "integrate"
+  part_of_speech: "verb"
+  definition: "To combine into a whole."
+  example_sentence: "The school integrated new technology."
+- word: "integrity"
+  part_of_speech: "noun"
+  definition: "Honesty or moral uprightness."
+  example_sentence: "Her integrity earned her respect."
+- word: "intellect"
+  part_of_speech: "noun"
+  definition: "The ability to think and reason."
+  example_sentence: "His intellect shone in the debate."
+- word: "intense"
+  part_of_speech: "adjective"
+  definition: "Extreme or strong."
+  example_sentence: "The intense heat made hiking difficult."
+- word: "intent"
+  part_of_speech: "noun"
+  definition: "Purpose or intention."
+  example_sentence: "Her intent was to help the community."
+- word: "interact"
+  part_of_speech: "verb"
+  definition: "To act upon one another."
+  example_sentence: "Students interacted during the group activity."
+- word: "interfere"
+  part_of_speech: "verb"
+  definition: "To obstruct or meddle."
+  example_sentence: "Noise interfered with her concentration."
+- word: "interim"
+  part_of_speech: "adjective"
+  definition: "Temporary or provisional."
+  example_sentence: "An interim solution was put in place."
+- word: "interior"
+  part_of_speech: "noun"
+  definition: "The inner part or inside."
+  example_sentence: "The interior of the building was modern."
+- word: "intermediate"
+  part_of_speech: "adjective"
+  definition: "In between beginner and advanced."
+  example_sentence: "She took an intermediate language course."
+- word: "interpret"
+  part_of_speech: "verb"
+  definition: "To explain or understand meaning."
+  example_sentence: "The scholar interpreted the ancient text."
+- word: "interrupt"
+  part_of_speech: "verb"
+  definition: "To break the continuity of something."
+  example_sentence: "The phone call interrupted the meeting."
+- word: "interval"
+  part_of_speech: "noun"
+  definition: "A period or gap between events."
+  example_sentence: "There was a short interval between classes."
+- word: "intervene"
+  part_of_speech: "verb"
+  definition: "To come between or mediate."
+  example_sentence: "The teacher intervened in the dispute."
+- word: "intimate"
+  part_of_speech: "adjective"
+  definition: "Close or personal."
+  example_sentence: "They shared an intimate friendship."
+- word: "intricate"
+  part_of_speech: "adjective"
+  definition: "Complex or detailed."
+  example_sentence: "The intricate design amazed everyone."
+- word: "intrigue"
+  part_of_speech: "verb"
+  definition: "To arouse curiosity or interest."
+  example_sentence: "The mystery intrigued the readers."
+- word: "intrinsic"
+  part_of_speech: "adjective"
+  definition: "Inherent or essential."
+  example_sentence: "The intrinsic value of the artifact was high."
+- word: "introduce"
+  part_of_speech: "verb"
+  definition: "To present or bring into use."
+  example_sentence: "They introduced a new curriculum."
+- word: "invade"
+  part_of_speech: "verb"
+  definition: "To enter forcefully or intrude."
+  example_sentence: "The army invaded the neighboring territory."
+- word: "invalid"
+  part_of_speech: "adjective"
+  definition: "Not legally or factually valid."
+  example_sentence: "The contract was declared invalid."
+- word: "invent"
+  part_of_speech: "verb"
+  definition: "To create or devise something new."
+  example_sentence: "She invented a time-saving device."
+- word: "invest"
+  part_of_speech: "verb"
+  definition: "To commit resources for gain."
+  example_sentence: "He invested in renewable energy."
+- word: "investigate"
+  part_of_speech: "verb"
+  definition: "To examine or inquire into."
+  example_sentence: "The team investigated the accident."
+- word: "invisible"
+  part_of_speech: "adjective"
+  definition: "Unable to be seen."
+  example_sentence: "The gas was invisible but dangerous."
+- word: "invite"
+  part_of_speech: "verb"
+  definition: "To request the presence of."
+  example_sentence: "They invited her to the conference."
+- word: "invoke"
+  part_of_speech: "verb"
+  definition: "To call upon or cite."
+  example_sentence: "She invoked the law to support her case."
+- word: "involve"
+  part_of_speech: "verb"
+  definition: "To include or engage."
+  example_sentence: "The project involved multiple teams."

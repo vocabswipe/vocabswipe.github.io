@@ -1,268 +1,688 @@
-- word: table
-  part_of_speech: noun
-  definition: A piece of furniture with a flat top and legs or a chart of information.
-  example_sentence: They sat around the table for dinner.
-- word: take
-  part_of_speech: verb
-  definition: To grasp, carry, or accept something.
-  example_sentence: She took the book from the shelf.
-- word: talk
-  part_of_speech: verb
-  definition: To speak or converse with someone.
-  example_sentence: They talked about their plans for the weekend.
-- word: task
-  part_of_speech: noun
-  definition: A piece of work to be done or undertaken.
-  example_sentence: Finishing the report was her main task today.
-- word: tax
-  part_of_speech: noun
-  definition: A mandatory financial charge imposed by the government.
-  example_sentence: She paid her income tax on time.
-- word: teach
-  part_of_speech: verb
-  definition: To impart knowledge or skills to someone.
-  example_sentence: He teaches math at the high school.
-- word: teacher
-  part_of_speech: noun
-  definition: A person who instructs or educates others.
-  example_sentence: The teacher explained the lesson clearly.
-- word: team
-  part_of_speech: noun
-  definition: A group of individuals who work together toward a common goal.
-  example_sentence: The soccer team practiced every afternoon.
-- word: technology
-  part_of_speech: noun
-  definition: The application of scientific knowledge for practical purposes.
-  example_sentence: Technology has transformed how we communicate.
-- word: television
-  part_of_speech: noun
-  definition: A device or medium for receiving and displaying broadcast images and sound.
-  example_sentence: They watched a movie on television last night.
-- word: tell
-  part_of_speech: verb
-  definition: To communicate information or a story to someone.
-  example_sentence: She told her friend about the trip.
-- word: ten
-  part_of_speech: number
-  definition: The number equal to nine plus one.
-  example_sentence: There are ten apples in the basket.
-- word: tend
-  part_of_speech: verb
-  definition: To be inclined to do something or care for something.
-  example_sentence: He tends to forget his keys often.
-- word: term
-  part_of_speech: noun
-  definition: A word or phrase for a specific thing or a fixed period of time.
-  example_sentence: The school term ends in June.
-- word: test
-  part_of_speech: noun
-  definition: A procedure to evaluate knowledge, ability, or performance.
-  example_sentence: The students prepared for the math test.
-- word: than
-  part_of_speech: conjunction
-  definition: Used to introduce the second element in a comparison.
-  example_sentence: She is taller than her brother.
-- word: thank
-  part_of_speech: verb
-  definition: To express gratitude to someone.
-  example_sentence: He thanked her for the gift.
-- word: that
-  part_of_speech: pronoun
-  definition: Used to identify a specific person or thing observed or mentioned.
-  example_sentence: That is the house they want to buy.
-- word: the
-  part_of_speech: article
-  definition: Used to refer to specific or known things.
-  example_sentence: The dog barked at the mail carrier.
-- word: their
-  part_of_speech: pronoun
-  definition: Belonging to or associated with people or things previously mentioned.
-  example_sentence: Their car was parked outside.
-- word: them
-  part_of_speech: pronoun
-  definition: Referring to people or things as the object of a verb or preposition.
-  example_sentence: She gave them a warm welcome.
-- word: themselves
-  part_of_speech: pronoun
-  definition: Used to refer to people or things as the object of an action.
-  example_sentence: They prepared themselves for the challenge.
-- word: then
-  part_of_speech: adverb
-  definition: At that time or as a consequence.
-  example_sentence: She finished her work and then went home.
-- word: theory
-  part_of_speech: noun
-  definition: An explanation based on observation and reasoning.
-  example_sentence: The scientist tested her theory with an experiment.
-- word: there
-  part_of_speech: adverb
-  definition: In or at that place or used to indicate existence.
-  example_sentence: There is a park near my house.
-- word: these
-  part_of_speech: pronoun
-  definition: Referring to multiple people or things near the speaker.
-  example_sentence: These books are my favorites.
-- word: they
-  part_of_speech: pronoun
-  definition: Referring to people or things previously mentioned.
-  example_sentence: They went to the beach yesterday.
-- word: thing
-  part_of_speech: noun
-  definition: An object, event, or idea that is not specifically named.
-  example_sentence: She forgot to pack one important thing.
-- word: think
-  part_of_speech: verb
-  definition: To have an opinion or use the mind to consider something.
-  example_sentence: I think this is the best solution.
-- word: third
-  part_of_speech: adjective
-  definition: Coming after the second in order or rank.
-  example_sentence: She finished in third place in the race.
-- word: this
-  part_of_speech: pronoun
-  definition: Referring to a specific person or thing near the speaker.
-  example_sentence: This is my favorite song.
-- word: those
-  part_of_speech: pronoun
-  definition: Referring to multiple people or things farther away.
-  example_sentence: Those trees are very tall.
-- word: though
-  part_of_speech: conjunction
-  definition: Despite the fact that; however.
-  example_sentence: She went running, though it was raining.
-- word: thought
-  part_of_speech: noun
-  definition: An idea or the process of thinking.
-  example_sentence: He shared his thoughts on the project.
-- word: thousand
-  part_of_speech: number
-  definition: The number equal to ten times one hundred.
-  example_sentence: The event attracted a thousand visitors.
-- word: three
-  part_of_speech: number
-  definition: The number equal to two plus one.
-  example_sentence: She has three cats at home.
-- word: through
-  part_of_speech: preposition
-  definition: Moving from one side to the other of something.
-  example_sentence: They walked through the forest.
-- word: throughout
-  part_of_speech: preposition
-  definition: In every part of or during the whole time of something.
-  example_sentence: The festival was celebrated throughout the city.
-- word: throw
-  part_of_speech: verb
-  definition: To propel something through the air with force.
-  example_sentence: He threw the ball to his dog.
-- word: thus
-  part_of_speech: adverb
-  definition: As a result or in this way.
-  example_sentence: She studied hard, thus passing the exam.
-- word: time
-  part_of_speech: noun
-  definition: The indefinite continued progress of existence or a specific moment.
-  example_sentence: They met at the same time every day.
-- word: to
-  part_of_speech: preposition
-  definition: Indicating direction, purpose, or recipient.
-  example_sentence: She walked to the store.
-- word: today
-  part_of_speech: adverb
-  definition: On or during the present day.
-  example_sentence: I have a meeting today at noon.
-- word: together
-  part_of_speech: adverb
-  definition: With or in the company of others.
-  example_sentence: They worked together on the project.
-- word: tonight
-  part_of_speech: adverb
-  definition: On or during the present evening or night.
-  example_sentence: We’re watching a movie tonight.
-- word: too
-  part_of_speech: adverb
-  definition: To a higher degree than is desirable or also.
-  example_sentence: The soup was too hot to eat.
-- word: top
-  part_of_speech: noun
-  definition: The highest part or point of something.
-  example_sentence: The view from the top of the hill was stunning.
-- word: total
-  part_of_speech: adjective
-  definition: Complete or including everything.
-  example_sentence: The total cost was $50.
-- word: touch
-  part_of_speech: verb
-  definition: To come into contact with something.
-  example_sentence: She touched the soft fabric of the dress.
-- word: toward
-  part_of_speech: preposition
-  definition: In the direction of or with respect to.
-  example_sentence: He walked toward the sunset.
-- word: town
-  part_of_speech: noun
-  definition: A small urban area or settlement.
-  example_sentence: The town is known for its historic buildings.
-- word: trade
-  part_of_speech: noun
-  definition: The act of buying and selling goods or services.
-  example_sentence: International trade boosts the economy.
-- word: traditional
-  part_of_speech: adjective
-  definition: Relating to customs or beliefs passed down over time.
-  example_sentence: They wore traditional clothing for the festival.
-- word: training
-  part_of_speech: noun
-  definition: The process of learning skills for a particular job or activity.
-  example_sentence: The company offers training for new employees.
-- word: travel
-  part_of_speech: verb
-  definition: To go from one place to another, often over a distance.
-  example_sentence: She loves to travel to new countries.
-- word: treat
-  part_of_speech: verb
-  definition: To behave toward or deal with in a certain way; to provide medical care.
-  example_sentence: The doctor treated her injury quickly.
-- word: treatment
-  part_of_speech: noun
-  definition: Medical care or the manner in which something is handled.
-  example_sentence: The treatment for the illness was effective.
-- word: tree
-  part_of_speech: noun
-  definition: A tall plant with a trunk, branches, and leaves.
-  example_sentence: The tree in the yard bloomed with flowers.
-- word: trial
-  part_of_speech: noun
-  definition: A formal examination of evidence in a court or a test.
-  example_sentence: The trial lasted for three days.
-- word: trouble
-  part_of_speech: noun
-  definition: Difficulty or problems.
-  example_sentence: He had trouble solving the puzzle.
-- word: true
-  part_of_speech: adjective
-  definition: In accordance with fact or reality.
-  example_sentence: The statement he made was true.
-- word: truth
-  part_of_speech: noun
-  definition: The quality or state of being true or factual.
-  example_sentence: She always seeks the truth in every situation.
-- word: try
-  part_of_speech: verb
-  definition: To make an effort to do something.
-  example_sentence: He will try to fix the computer tomorrow.
-- word: turn
-  part_of_speech: verb
-  definition: To move or cause to move in a circular direction.
-  example_sentence: She turned the key to start the car.
-- word: TV
-  part_of_speech: noun
-  definition: An abbreviation for television.
-  example_sentence: They watched the game on TV.
-- word: two
-  part_of_speech: number
-  definition: The number equal to one plus one.
-  example_sentence: She has two dogs at home.
-- word: type
-  part_of_speech: noun
-  definition: A category of things having common characteristics.
-  example_sentence: This is a new type of smartphone.
+- word: "tactic"
+  part_of_speech: "noun"
+  definition: "A strategy or plan to achieve a goal."
+  example_sentence: "The tactic improved their campaign success."
+- word: "tailor"
+  part_of_speech: "verb"
+  definition: "To customize or adapt."
+  example_sentence: "She tailored the course to student needs."
+- word: "taint"
+  part_of_speech: "verb"
+  definition: "To contaminate or spoil."
+  example_sentence: "The scandal tainted the company’s reputation."
+- word: "talent"
+  part_of_speech: "noun"
+  definition: "A natural ability or skill."
+  example_sentence: "Her talent for writing was evident."
+- word: "tangible"
+  part_of_speech: "adjective"
+  definition: "Touchable or concrete."
+  example_sentence: "The benefits were tangible and measurable."
+- word: "target"
+  part_of_speech: "noun"
+  definition: "A goal or objective."
+  example_sentence: "The target was to reduce emissions."
+- word: "task"
+  part_of_speech: "noun"
+  definition: "A piece of work or duty."
+  example_sentence: "The task required careful planning."
+- word: "taste"
+  part_of_speech: "noun"
+  definition: "A sense or preference."
+  example_sentence: "Her taste in literature was refined."
+- word: "technical"
+  part_of_speech: "adjective"
+  definition: "Relating to specialized knowledge or techniques."
+  example_sentence: "The technical report was detailed."
+- word: "technique"
+  part_of_speech: "noun"
+  definition: "A method or skill."
+  example_sentence: "The technique improved efficiency."
+- word: "technology"
+  part_of_speech: "noun"
+  definition: "The application of scientific knowledge."
+  example_sentence: "Technology transformed the industry."
+- word: "tedious"
+  part_of_speech: "adjective"
+  definition: "Boring or repetitive."
+  example_sentence: "The tedious task took hours."
+- word: "temper"
+  part_of_speech: "noun"
+  definition: "A mood or disposition."
+  example_sentence: "His calm temper eased tensions."
+- word: "temperature"
+  part_of_speech: "noun"
+  definition: "A measure of heat or cold."
+  example_sentence: "The temperature affected the experiment."
+- word: "temporary"
+  part_of_speech: "adjective"
+  definition: "Lasting for a short time."
+  example_sentence: "The solution was only temporary."
+- word: "tempt"
+  part_of_speech: "verb"
+  definition: "To entice or persuade."
+  example_sentence: "The offer tempted her to join."
+- word: "tend"
+  part_of_speech: "verb"
+  definition: "To be inclined or care for."
+  example_sentence: "She tends to focus on details."
+- word: "tendency"
+  part_of_speech: "noun"
+  definition: "An inclination or trend."
+  example_sentence: "There was a tendency to innovate."
+- word: "tense"
+  part_of_speech: "adjective"
+  definition: "Nervous or strained."
+  example_sentence: "The tense atmosphere was noticeable."
+- word: "tension"
+  part_of_speech: "noun"
+  definition: "Stress or strain."
+  example_sentence: "The tension delayed negotiations."
+- word: "term"
+  part_of_speech: "noun"
+  definition: "A word or period."
+  example_sentence: "The term was defined clearly."
+- word: "terminal"
+  part_of_speech: "noun"
+  definition: "An endpoint or station."
+  example_sentence: "The airport terminal was busy."
+- word: "terminate"
+  part_of_speech: "verb"
+  definition: "To end or conclude."
+  example_sentence: "They terminated the contract early."
+- word: "terrain"
+  part_of_speech: "noun"
+  definition: "The physical features of land."
+  example_sentence: "The terrain challenged the hikers."
+- word: "terrible"
+  part_of_speech: "adjective"
+  definition: "Awful or severe."
+  example_sentence: "The storm caused terrible damage."
+- word: "terrific"
+  part_of_speech: "adjective"
+  definition: "Wonderful or impressive."
+  example_sentence: "Her presentation was terrific."
+- word: "territory"
+  part_of_speech: "noun"
+  definition: "An area or region."
+  example_sentence: "The territory was rich in resources."
+- word: "test"
+  part_of_speech: "noun"
+  definition: "An examination or trial."
+  example_sentence: "The test assessed their knowledge."
+- word: "testify"
+  part_of_speech: "verb"
+  definition: "To give evidence or statement."
+  example_sentence: "She testified about her findings."
+- word: "text"
+  part_of_speech: "noun"
+  definition: "Written material or message."
+  example_sentence: "The text was analyzed for clarity."
+- word: "texture"
+  part_of_speech: "noun"
+  definition: "The feel or appearance of a surface."
+  example_sentence: "The texture of the fabric was smooth."
+- word: "theme"
+  part_of_speech: "noun"
+  definition: "A central idea or topic."
+  example_sentence: "The theme of the conference was sustainability."
+- word: "theory"
+  part_of_speech: "noun"
+  definition: "A system of ideas explaining something."
+  example_sentence: "The theory was tested experimentally."
+- word: "thereby"
+  part_of_speech: "adverb"
+  definition: "By that means."
+  example_sentence: "They simplified the process, thereby saving time."
+- word: "therefore"
+  part_of_speech: "adverb"
+  definition: "As a result or consequently."
+  example_sentence: "The data was clear; therefore, they proceeded."
+- word: "thermal"
+  part_of_speech: "adjective"
+  definition: "Relating to heat."
+  example_sentence: "Thermal energy powered the system."
+- word: "thesis"
+  part_of_speech: "noun"
+  definition: "A statement or research paper."
+  example_sentence: "Her thesis explored climate change."
+- word: "thin"
+  part_of_speech: "adjective"
+  definition: "Slim or not dense."
+  example_sentence: "The thin evidence was unconvincing."
+- word: "think"
+  part_of_speech: "verb"
+  definition: "To consider or reason."
+  example_sentence: "She thought deeply about the issue."
+- word: "thorough"
+  part_of_speech: "adjective"
+  definition: "Complete or detailed."
+  example_sentence: "The thorough analysis impressed the team."
+- word: "though"
+  part_of_speech: "conjunction"
+  definition: "Despite the fact."
+  example_sentence: "Though tired, she continued working."
+- word: "thought"
+  part_of_speech: "noun"
+  definition: "An idea or mental process."
+  example_sentence: "Her thought process was logical."
+- word: "threat"
+  part_of_speech: "noun"
+  definition: "A danger or risk."
+  example_sentence: "The threat to the ecosystem was serious."
+- word: "threshold"
+  part_of_speech: "noun"
+  definition: "A point of entry or limit."
+  example_sentence: "They crossed the threshold of innovation."
+- word: "thrive"
+  part_of_speech: "verb"
+  definition: "To prosper or flourish."
+  example_sentence: "The business thrived in the market."
+- word: "thus"
+  part_of_speech: "adverb"
+  definition: "As a result or in this way."
+  example_sentence: "They planned carefully, thus succeeding."
+- word: "tide"
+  part_of_speech: "noun"
+  definition: "The rise and fall of the sea."
+  example_sentence: "The tide affected coastal research."
+- word: "tight"
+  part_of_speech: "adjective"
+  definition: "Secure or restricted."
+  example_sentence: "The tight schedule demanded focus."
+- word: "time"
+  part_of_speech: "noun"
+  definition: "A duration or moment."
+  example_sentence: "Time was critical for the project."
+- word: "timely"
+  part_of_speech: "adjective"
+  definition: "Occurring at an appropriate time."
+  example_sentence: "The timely response avoided delays."
+- word: "tiny"
+  part_of_speech: "adjective"
+  definition: "Very small."
+  example_sentence: "The tiny sample was analyzed."
+- word: "tissue"
+  part_of_speech: "noun"
+  definition: "A group of cells or material."
+  example_sentence: "The tissue was studied under a microscope."
+- word: "title"
+  part_of_speech: "noun"
+  definition: "A name or designation."
+  example_sentence: "The title of the book was intriguing."
+- word: "tolerate"
+  part_of_speech: "verb"
+  definition: "To allow or endure."
+  example_sentence: "She tolerated the minor errors."
+- word: "tone"
+  part_of_speech: "noun"
+  definition: "A sound or manner."
+  example_sentence: "Her tone was confident and clear."
+- word: "tool"
+  part_of_speech: "noun"
+  definition: "An instrument or means."
+  example_sentence: "The tool simplified the task."
+- word: "top"
+  part_of_speech: "noun"
+  definition: "The highest point or priority."
+  example_sentence: "The top issue was sustainability."
+- word: "topic"
+  part_of_speech: "noun"
+  definition: "A subject or theme."
+  example_sentence: "The topic sparked lively debate."
+- word: "total"
+  part_of_speech: "adjective"
+  definition: "Complete or entire."
+  example_sentence: "The total cost was calculated."
+- word: "touch"
+  part_of_speech: "verb"
+  definition: "To contact or affect."
+  example_sentence: "Her speech touched the audience."
+- word: "tough"
+  part_of_speech: "adjective"
+  definition: "Difficult or strong."
+  example_sentence: "The tough problem required creativity."
+- word: "tour"
+  part_of_speech: "noun"
+  definition: "A trip or journey."
+  example_sentence: "The tour of the campus was informative."
+- word: "trace"
+  part_of_speech: "verb"
+  definition: "To track or outline."
+  example_sentence: "They traced the source of the issue."
+- word: "track"
+  part_of_speech: "noun"
+  definition: "A path or record."
+  example_sentence: "The track of progress was clear."
+- word: "trade"
+  part_of_speech: "noun"
+  definition: "Exchange or commerce."
+  example_sentence: "Trade boosted the economy."
+- word: "tradition"
+  part_of_speech: "noun"
+  definition: "A custom or belief."
+  example_sentence: "The tradition was passed down for generations."
+- word: "traffic"
+  part_of_speech: "noun"
+  definition: "Movement of vehicles or activity."
+  example_sentence: "Traffic delayed the experiment."
+- word: "tragedy"
+  part_of_speech: "noun"
+  definition: "A disastrous event or drama."
+  example_sentence: "The tragedy affected the community."
+- word: "trail"
+  part_of_speech: "noun"
+  definition: "A path or evidence."
+  example_sentence: "The trail led to new discoveries."
+- word: "train"
+  part_of_speech: "verb"
+  definition: "To teach or prepare."
+  example_sentence: "They trained the staff thoroughly."
+- word: "trait"
+  part_of_speech: "noun"
+  definition: "A characteristic or quality."
+  example_sentence: "Her best trait was perseverance."
+- word: "transfer"
+  part_of_speech: "verb"
+  definition: "To move or convey."
+  example_sentence: "They transferred the data securely."
+- word: "transform"
+  part_of_speech: "verb"
+  definition: "To change significantly."
+  example_sentence: "The policy transformed the industry."
+- word: "transition"
+  part_of_speech: "noun"
+  definition: "A change or shift."
+  example_sentence: "The transition was smooth and effective."
+- word: "translate"
+  part_of_speech: "verb"
+  definition: "To convert into another language or form."
+  example_sentence: "She translated the document accurately."
+- word: "transmit"
+  part_of_speech: "verb"
+  definition: "To send or convey."
+  example_sentence: "They transmitted the signal clearly."
+- word: "transparent"
+  part_of_speech: "adjective"
+  definition: "Clear or open."
+  example_sentence: "The process was transparent and fair."
+- word: "transport"
+  part_of_speech: "verb"
+  definition: "To carry or move."
+  example_sentence: "They transported supplies to the site."
+- word: "trap"
+  part_of_speech: "noun"
+  definition: "A device or situation that confines."
+  example_sentence: "The trap caught the invasive species."
+- word: "travel"
+  part_of_speech: "verb"
+  definition: "To journey or move."
+  example_sentence: "She traveled to conduct research."
+- word: "treat"
+  part_of_speech: "verb"
+  definition: "To handle or provide care."
+  example_sentence: "They treated the issue with urgency."
+- word: "treatment"
+  part_of_speech: "noun"
+  definition: "The act of treating or a remedy."
+  example_sentence: "The treatment improved her condition."
+- word: "trend"
+  part_of_speech: "noun"
+  definition: "A general direction or tendency."
+  example_sentence: "The trend favored renewable energy."
+- word: "trial"
+  part_of_speech: "noun"
+  definition: "A test or legal proceeding."
+  example_sentence: "The trial tested the new method."
+- word: "tribute"
+  part_of_speech: "noun"
+  definition: "An act or gift honoring someone."
+  example_sentence: "The tribute honored the scientist."
+- word: "trigger"
+  part_of_speech: "verb"
+  definition: "To cause or initiate."
+  example_sentence: "The event triggered a debate."
+- word: "trim"
+  part_of_speech: "verb"
+  definition: "To cut or reduce."
+  example_sentence: "They trimmed the budget carefully."
+- word: "trip"
+  part_of_speech: "noun"
+  definition: "A journey or stumble."
+  example_sentence: "The trip to the lab was productive."
+- word: "triumph"
+  part_of_speech: "noun"
+  definition: "A victory or success."
+  example_sentence: "The triumph boosted their confidence."
+- word: "trivial"
+  part_of_speech: "adjective"
+  definition: "Of little importance."
+  example_sentence: "The issue was trivial and ignored."
+- word: "tropical"
+  part_of_speech: "adjective"
+  definition: "Relating to the tropics."
+  example_sentence: "The tropical climate supported biodiversity."
+- word: "trouble"
+  part_of_speech: "noun"
+  definition: "Difficulty or problem."
+  example_sentence: "The trouble was resolved quickly."
+- word: "true"
+  part_of_speech: "adjective"
+  definition: "In accordance with fact."
+  example_sentence: "Her statement was true."
+- word: "trust"
+  part_of_speech: "noun"
+  definition: "Reliance or confidence."
+  example_sentence: "The team built trust through collaboration."
+- word: "try"
+  part_of_speech: "verb"
+  definition: "To attempt or test."
+  example_sentence: "She tried to solve the problem."
+- word: "tune"
+  part_of_speech: "noun"
+  definition: "A melody or adjustment."
+  example_sentence: "The tune was memorable and catchy."
+- word: "tunnel"
+  part_of_speech: "noun"
+  definition: "An underground passage."
+  example_sentence: "The tunnel facilitated transport."
+- word: "turn"
+  part_of_speech: "verb"
+  definition: "To rotate or shift."
+  example_sentence: "They turned their focus to research."
+- word: "tutor"
+  part_of_speech: "noun"
+  definition: "A private teacher."
+  example_sentence: "The tutor helped her with vocabulary."
+- word: "twist"
+  part_of_speech: "verb"
+  definition: "To turn or distort."
+  example_sentence: "They twisted the facts in their favor."
+- word: "type"
+  part_of_speech: "noun"
+  definition: "A category or kind."
+  example_sentence: "The type of data was numerical."
+- word: "typical"
+  part_of_speech: "adjective"
+  definition: "Usual or representative."
+  example_sentence: "The behavior was typical of students."
+- word: "tactile"
+  part_of_speech: "adjective"
+  definition: "Relating to touch."
+  example_sentence: "The tactile experience enhanced learning."
+- word: "tainted"
+  part_of_speech: "adjective"
+  definition: "Contaminated or spoiled."
+  example_sentence: "The tainted sample was discarded."
+- word: "tally"
+  part_of_speech: "verb"
+  definition: "To count or record."
+  example_sentence: "They tallied the survey results."
+- word: "tame"
+  part_of_speech: "verb"
+  definition: "To domesticate or control."
+  example_sentence: "They tamed the chaotic process."
+- word: "tangible"
+  part_of_speech: "adjective"
+  definition: "Perceptible by touch or clear."
+  example_sentence: "The tangible benefits were immediate."
+- word: "tap"
+  part_of_speech: "verb"
+  definition: "To draw from or strike lightly."
+  example_sentence: "They tapped resources for the project."
+- word: "target"
+  part_of_speech: "verb"
+  definition: "To aim or focus on."
+  example_sentence: "They targeted specific issues."
+- word: "tax"
+  part_of_speech: "noun"
+  definition: "A financial charge."
+  example_sentence: "The tax funded public services."
+- word: "teach"
+  part_of_speech: "verb"
+  definition: "To impart knowledge."
+  example_sentence: "She taught the class effectively."
+- word: "team"
+  part_of_speech: "noun"
+  definition: "A group working together."
+  example_sentence: "The team collaborated on the project."
+- word: "temptation"
+  part_of_speech: "noun"
+  definition: "The desire to do something."
+  example_sentence: "She resisted the temptation to skip class."
+- word: "tenant"
+  part_of_speech: "noun"
+  definition: "A person who rents property."
+  example_sentence: "The tenant signed a lease agreement."
+- word: "tender"
+  part_of_speech: "adjective"
+  definition: "Gentle or sensitive."
+  example_sentence: "Her tender approach calmed the situation."
+- word: "term"
+  part_of_speech: "verb"
+  definition: "To name or designate."
+  example_sentence: "They termed the approach innovative."
+- word: "terrain"
+  part_of_speech: "noun"
+  definition: "A stretch of land."
+  example_sentence: "The terrain was studied for its features."
+- word: "testimony"
+  part_of_speech: "noun"
+  definition: "A formal statement or evidence."
+  example_sentence: "Her testimony supported the claim."
+- word: "theoretical"
+  part_of_speech: "adjective"
+  definition: "Based on theory, not practice."
+  example_sentence: "The theoretical model was tested."
+- word: "therapy"
+  part_of_speech: "noun"
+  definition: "Treatment to improve health."
+  example_sentence: "The therapy aided her recovery."
+- word: "thick"
+  part_of_speech: "adjective"
+  definition: "Dense or wide."
+  example_sentence: "The thick fog delayed the experiment."
+- word: "threaten"
+  part_of_speech: "verb"
+  definition: "To express intent to harm."
+  example_sentence: "The policy threatened local businesses."
+- word: "threshold"
+  part_of_speech: "noun"
+  definition: "A level or boundary."
+  example_sentence: "They reached the threshold of success."
+- word: "thrive"
+  part_of_speech: "verb"
+  definition: "To grow vigorously."
+  example_sentence: "The species thrived in the habitat."
+- word: "tide"
+  part_of_speech: "noun"
+  definition: "A trend or flow."
+  example_sentence: "The tide of opinion shifted."
+- word: "tilt"
+  part_of_speech: "verb"
+  definition: "To slant or incline."
+  example_sentence: "The balance tilted in their favor."
+- word: "timber"
+  part_of_speech: "noun"
+  definition: "Wood used for building."
+  example_sentence: "The timber was sourced sustainably."
+- word: "tolerance"
+  part_of_speech: "noun"
+  definition: "The ability to accept or endure."
+  example_sentence: "Tolerance was key to collaboration."
+- word: "tone"
+  part_of_speech: "verb"
+  definition: "To give a particular quality."
+  example_sentence: "Her speech toned down the debate."
+- word: "topic"
+  part_of_speech: "noun"
+  definition: "A subject of discussion."
+  example_sentence: "The topic was relevant to the course."
+- word: "torch"
+  part_of_speech: "noun"
+  definition: "A light or symbol of guidance."
+  example_sentence: "The torch led the way in the dark."
+- word: "torrent"
+  part_of_speech: "noun"
+  definition: "A strong flow or outpouring."
+  example_sentence: "A torrent of data overwhelmed the system."
+- word: "torture"
+  part_of_speech: "noun"
+  definition: "Severe pain or suffering."
+  example_sentence: "The torture of uncertainty was stressful."
+- word: "total"
+  part_of_speech: "noun"
+  definition: "The complete amount."
+  example_sentence: "The total exceeded expectations."
+- word: "touch"
+  part_of_speech: "noun"
+  definition: "Contact or a small amount."
+  example_sentence: "A touch of creativity improved the design."
+- word: "tough"
+  part_of_speech: "adjective"
+  definition: "Strong or challenging."
+  example_sentence: "The tough material withstood pressure."
+- word: "tourist"
+  part_of_speech: "noun"
+  definition: "A person who travels for pleasure."
+  example_sentence: "The tourist visited historical sites."
+- word: "toxic"
+  part_of_speech: "adjective"
+  definition: "Poisonous or harmful."
+  example_sentence: "The toxic substance was removed."
+- word: "trace"
+  part_of_speech: "noun"
+  definition: "A small amount or evidence."
+  example_sentence: "A trace of the chemical was detected."
+- word: "tradition"
+  part_of_speech: "noun"
+  definition: "A long-established custom."
+  example_sentence: "The tradition shaped their culture."
+- word: "tragic"
+  part_of_speech: "adjective"
+  definition: "Causing great sadness."
+  example_sentence: "The tragic event affected many."
+- word: "train"
+  part_of_speech: "noun"
+  definition: "A series or vehicle."
+  example_sentence: "The train of thought was logical."
+- word: "trait"
+  part_of_speech: "noun"
+  definition: "A distinguishing feature."
+  example_sentence: "Her trait of honesty was admired."
+- word: "transfer"
+  part_of_speech: "noun"
+  definition: "The act of moving something."
+  example_sentence: "The transfer of funds was quick."
+- word: "transform"
+  part_of_speech: "verb"
+  definition: "To change in form or nature."
+  example_sentence: "They transformed the old building."
+- word: "transition"
+  part_of_speech: "verb"
+  definition: "To shift or change."
+  example_sentence: "They transitioned to a new system."
+- word: "translate"
+  part_of_speech: "verb"
+  definition: "To express in another language."
+  example_sentence: "She translated the text accurately."
+- word: "transmission"
+  part_of_speech: "noun"
+  definition: "The act of sending or conveying."
+  example_sentence: "The transmission of data was secure."
+- word: "transparent"
+  part_of_speech: "adjective"
+  definition: "See-through or open."
+  example_sentence: "The transparent policy built trust."
+- word: "trap"
+  part_of_speech: "verb"
+  definition: "To catch or confine."
+  example_sentence: "They trapped the error in the code."
+- word: "trauma"
+  part_of_speech: "noun"
+  definition: "A severe injury or shock."
+  example_sentence: "The trauma required immediate care."
+- word: "treaty"
+  part_of_speech: "noun"
+  definition: "A formal agreement."
+  example_sentence: "The treaty promoted peace."
+- word: "trend"
+  part_of_speech: "verb"
+  definition: "To show a tendency."
+  example_sentence: "The data trended upward."
+- word: "trial"
+  part_of_speech: "noun"
+  definition: "An experiment or test."
+  example_sentence: "The trial confirmed the hypothesis."
+- word: "tribute"
+  part_of_speech: "noun"
+  definition: "An expression of admiration."
+  example_sentence: "The tribute honored her contributions."
+- word: "trigger"
+  part_of_speech: "noun"
+  definition: "A cause or initiator."
+  example_sentence: "The trigger for change was clear."
+- word: "trim"
+  part_of_speech: "noun"
+  definition: "A cut or adjustment."
+  example_sentence: "The trim reduced excess costs."
+- word: "triumph"
+  part_of_speech: "verb"
+  definition: "To achieve victory."
+  example_sentence: "They triumphed over challenges."
+- word: "trivial"
+  part_of_speech: "adjective"
+  definition: "Insignificant or minor."
+  example_sentence: "The trivial detail was overlooked."
+- word: "tropical"
+  part_of_speech: "adjective"
+  definition: "Characteristic of the tropics."
+  example_sentence: "The tropical forest was diverse."
+- word: "trouble"
+  part_of_speech: "verb"
+  definition: "To disturb or bother."
+  example_sentence: "The issue troubled the team."
+- word: "true"
+  part_of_speech: "adjective"
+  definition: "Accurate or genuine."
+  example_sentence: "The results were true to predictions."
+- word: "trust"
+  part_of_speech: "verb"
+  definition: "To rely or believe."
+  example_sentence: "They trusted her expertise."
+- word: "try"
+  part_of_speech: "noun"
+  definition: "An attempt or effort."
+  example_sentence: "Her try at the task succeeded."
+- word: "tune"
+  part_of_speech: "verb"
+  definition: "To adjust or harmonize."
+  example_sentence: "They tuned the system for efficiency."
+- word: "tunnel"
+  part_of_speech: "verb"
+  definition: "To dig or create a passage."
+  example_sentence: "They tunneled through the mountain."
+- word: "turbulence"
+  part_of_speech: "noun"
+  definition: "Unrest or disturbance."
+  example_sentence: "The turbulence disrupted the flight."
+- word: "turnover"
+  part_of_speech: "noun"
+  definition: "The rate of replacement or revenue."
+  example_sentence: "The turnover of staff was low."
+- word: "tutor"
+  part_of_speech: "verb"
+  definition: "To teach or guide."
+  example_sentence: "She tutored students in science."
+- word: "twist"
+  part_of_speech: "noun"
+  definition: "A turn or distortion."
+  example_sentence: "The plot twist surprised the audience."
+- word: "type"
+  part_of_speech: "verb"
+  definition: "To categorize or write."
+  example_sentence: "They typed the report quickly."
+- word: "typical"
+  part_of_speech: "adjective"
+  definition: "Conforming to a type."
+  example_sentence: "The response was typical of the group."
