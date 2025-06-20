@@ -1,292 +1,416 @@
-- word: a
-  part_of_speech: article
-  definition: The first letter of the alphabet or an indefinite article used before a singular noun.
-  example_sentence: She saw a dog running in the park.
-- word: able
-  part_of_speech: adjective
-  definition: Having the power, skill, or means to do something.
-  example_sentence: He is able to solve complex math problems quickly.
-- word: about
-  part_of_speech: preposition
-  definition: On the subject of or concerning something.
-  example_sentence: She talked about her favorite book.
-- word: above
-  part_of_speech: preposition
-  definition: In a higher position than something else.
-  example_sentence: The painting hangs above the fireplace.
-- word: accept
-  part_of_speech: verb
-  definition: To receive or agree to something offered.
-  example_sentence: He decided to accept the job offer.
-- word: according
-  part_of_speech: preposition
-  definition: As stated by or in agreement with something.
-  example_sentence: According to the weather report, it will rain today.
-- word: account
-  part_of_speech: noun
-  definition: A record of financial transactions or a description of an event.
-  example_sentence: She opened a savings account at the bank.
-- word: across
-  part_of_speech: preposition
-  definition: From one side to the other of something.
-  example_sentence: They walked across the bridge to reach the other side.
-- word: act
-  part_of_speech: verb
-  definition: To do something or perform in a play.
-  example_sentence: She acted quickly to save the child from danger.
-- word: action
-  part_of_speech: noun
-  definition: The process of doing something to achieve a result.
-  example_sentence: The team took action to complete the project on time.
-- word: activity
-  part_of_speech: noun
-  definition: A specific action or pursuit, often for enjoyment or work.
-  example_sentence: Hiking is her favorite outdoor activity.
-- word: actually
-  part_of_speech: adverb
-  definition: Used to emphasize a fact or truth, often correcting a misconception.
-  example_sentence: He actually finished the race despite the injury.
-- word: add
-  part_of_speech: verb
-  definition: To combine or join something to increase the total.
-  example_sentence: She added sugar to her coffee.
-- word: address
-  part_of_speech: noun
-  definition: The details of where someone lives or an organization is located.
-  example_sentence: Please write your address on the form.
-- word: administration
-  part_of_speech: noun
-  definition: The management or operation of an organization or government.
-  example_sentence: The administration announced new policies for the school.
-- word: admit
-  part_of_speech: verb
-  definition: To confess or allow entry.
-  example_sentence: He admitted his mistake during the meeting.
-- word: adult
-  part_of_speech: noun
-  definition: A fully grown person or animal.
-  example_sentence: The movie is suitable for adults only.
-- word: affect
-  part_of_speech: verb
-  definition: To influence or cause a change in something.
-  example_sentence: The weather can affect your mood.
-- word: after
-  part_of_speech: preposition
-  definition: Following in time or place.
-  example_sentence: They went to dinner after the movie.
-- word: again
-  part_of_speech: adverb
-  definition: One more time or in return.
-  example_sentence: She tried again after failing the first time.
-- word: against
-  part_of_speech: preposition
-  definition: In opposition to or in contact with.
-  example_sentence: He leaned against the wall while waiting.
-- word: age
-  part_of_speech: noun
-  definition: The length of time a person or thing has existed.
-  example_sentence: She is proud of her age and experience.
-- word: agency
-  part_of_speech: noun
-  definition: An organization or business that provides a specific service.
-  example_sentence: The travel agency booked their vacation.
-- word: agent
-  part_of_speech: noun
-  definition: A person who acts on behalf of another or a substance that causes a reaction.
-  example_sentence: The real estate agent helped them find a house.
-- word: ago
-  part_of_speech: adverb
-  definition: In the past, before the present time.
-  example_sentence: They met two years ago at a conference.
-- word: agree
-  part_of_speech: verb
-  definition: To have the same opinion or to consent to something.
-  example_sentence: They agreed to meet at the park.
-- word: agreement
-  part_of_speech: noun
-  definition: A mutual understanding or contract between parties.
-  example_sentence: The two companies signed an agreement to collaborate.
-- word: ahead
-  part_of_speech: adverb
-  definition: In front or further forward in time or place.
-  example_sentence: She walked ahead of the group to lead the way.
-- word: air
-  part_of_speech: noun
-  definition: The invisible mixture of gases that surrounds the Earth.
-  example_sentence: The fresh air in the mountains was refreshing.
-- word: all
-  part_of_speech: determiner
-  definition: The whole quantity or extent of something.
-  example_sentence: All students must complete the assignment.
-- word: allow
-  part_of_speech: verb
-  definition: To permit or give permission for something.
-  example_sentence: The teacher allowed extra time for the test.
-- word: almost
-  part_of_speech: adverb
-  definition: Nearly but not completely.
-  example_sentence: She was almost finished with her homework.
-- word: alone
-  part_of_speech: adjective
-  definition: Being by oneself, without others.
-  example_sentence: He prefers to work alone on projects.
-- word: along
-  part_of_speech: preposition
-  definition: Moving or extending in a line or direction.
-  example_sentence: They walked along the riverbank.
-- word: already
-  part_of_speech: adverb
-  definition: By this time or as early as now.
-  example_sentence: She had already left when I arrived.
-- word: also
-  part_of_speech: adverb
-  definition: In addition or as well.
-  example_sentence: He plays soccer and also enjoys tennis.
-- word: although
-  part_of_speech: conjunction
-  definition: Despite the fact that; even though.
-  example_sentence: Although it was raining, they went hiking.
-- word: always
-  part_of_speech: adverb
-  definition: At all times or on every occasion.
-  example_sentence: She always arrives early for meetings.
-- word: American
-  part_of_speech: adjective
-  definition: Relating to the United States or its people.
-  example_sentence: American culture is diverse and vibrant.
-- word: among
-  part_of_speech: preposition
-  definition: Surrounded by or in the middle of.
-  example_sentence: She felt comfortable among her friends.
-- word: amount
-  part_of_speech: noun
-  definition: The total quantity or extent of something.
-  example_sentence: The amount of work increased this month.
-- word: analysis
-  part_of_speech: noun
-  definition: A detailed examination of something to understand its parts.
-  example_sentence: The scientist conducted an analysis of the data.
-- word: and
-  part_of_speech: conjunction
-  definition: Used to connect words, phrases, or clauses.
-  example_sentence: She bought apples and oranges at the market.
-- word: animal
-  part_of_speech: noun
-  definition: A living creature that moves and breathes, such as a mammal or bird.
-  example_sentence: The zoo has a variety of animals on display.
-- word: another
-  part_of_speech: determiner
-  definition: One more or an additional one.
-  example_sentence: She ordered another coffee to stay awake.
-- word: answer
-  part_of_speech: verb
-  definition: To respond to a question or situation.
-  example_sentence: He answered the phone after two rings.
-- word: any
-  part_of_speech: determiner
-  definition: One, some, or all, regardless of quantity.
-  example_sentence: Do you have any questions about the lesson?
-- word: anyone
-  part_of_speech: pronoun
-  definition: Any person or people in general.
-  example_sentence: Anyone can join the club if interested.
-- word: anything
-  part_of_speech: pronoun
-  definition: Any object, event, or matter.
-  example_sentence: She didn’t want to eat anything for dinner.
-- word: appear
-  part_of_speech: verb
-  definition: To become visible or seem to be true.
-  example_sentence: The sun appeared from behind the clouds.
-- word: apply
-  part_of_speech: verb
-  definition: To make a formal request or to put something into use.
-  example_sentence: She applied for a scholarship to study abroad.
-- word: approach
-  part_of_speech: verb
-  definition: To come near or closer to something or someone.
-  example_sentence: He approached the problem with caution.
-- word: area
-  part_of_speech: noun
-  definition: A region or part of a place or surface.
-  example_sentence: The park is a popular area for families.
-- word: argue
-  part_of_speech: verb
-  definition: To present reasons for or against something; to dispute.
-  example_sentence: They argued about the best movie to watch.
-- word: arm
-  part_of_speech: noun
-  definition: The upper limb of the human body or a branch of an organization.
-  example_sentence: She carried the books in her arms.
-- word: around
-  part_of_speech: preposition
-  definition: Surrounding or on all sides of something.
-  example_sentence: They sat around the campfire singing songs.
-- word: arrive
-  part_of_speech: verb
-  definition: To reach a destination.
-  example_sentence: The train arrived at the station on time.
-- word: art
-  part_of_speech: noun
-  definition: The creation of works that are beautiful or expressive.
-  example_sentence: She studied art at the university.
-- word: article
-  part_of_speech: noun
-  definition: A piece of writing or an object considered as part of a group.
-  example_sentence: He read an interesting article in the newspaper.
-- word: artist
-  part_of_speech: noun
-  definition: A person who creates art, such as paintings or music.
-  example_sentence: The artist painted a portrait of the family.
-- word: as
-  part_of_speech: preposition
-  definition: In the role or function of; to the same degree.
-  example_sentence: She works as a teacher at the school.
-- word: ask
-  part_of_speech: verb
-  definition: To request information or something from someone.
-  example_sentence: He asked for directions to the museum.
-- word: assume
-  part_of_speech: verb
-  definition: To suppose something to be true without proof.
-  example_sentence: She assumed he was coming to the party.
-- word: at
-  part_of_speech: preposition
-  definition: Used to indicate a location or time.
-  example_sentence: They met at the coffee shop.
-- word: attack
-  part_of_speech: verb
-  definition: To act violently against someone or something.
-  example_sentence: The dog did not attack when approached.
-- word: attention
-  part_of_speech: noun
-  definition: The act of focusing one’s mind on something.
-  example_sentence: The teacher asked for the students’ attention.
-- word: attorney
-  part_of_speech: noun
-  definition: A lawyer or legal representative.
-  example_sentence: The attorney prepared the case for trial.
-- word: audience
-  part_of_speech: noun
-  definition: A group of people watching or listening to something.
-  example_sentence: The audience clapped after the performance.
-- word: author
-  part_of_speech: noun
-  definition: A person who writes a book, article, or other text.
-  example_sentence: The author signed copies of her new novel.
-- word: authority
-  part_of_speech: noun
-  definition: The power to make decisions or a person in charge.
-  example_sentence: The mayor has the authority to approve the budget.
-- word: available
-  part_of_speech: adjective
-  definition: Able to be used or obtained.
-  example_sentence: Tickets are available for the concert.
-- word: avoid
-  part_of_speech: verb
-  definition: To keep away from or prevent something from happening.
-  example_sentence: She tried to avoid the busy streets.
-- word: away
-  part_of_speech: adverb
-  definition: At a distance or not present.
-  example_sentence: He moved away from his hometown last year.
+- word: "abandon"
+  part_of_speech: "verb"
+  definition: "To give up or leave something completely."
+  example_sentence: "The explorers had to abandon their mission due to harsh weather conditions."
+- word: "abate"
+  part_of_speech: "verb"
+  definition: "To become less intense or widespread."
+  example_sentence: "The storm began to abate after hours of heavy rain."
+- word: "abbreviate"
+  part_of_speech: "verb"
+  definition: "To shorten a word or phrase."
+  example_sentence: "The term 'television' is often abbreviated to 'TV'."
+- word: "abdicate"
+  part_of_speech: "verb"
+  definition: "To renounce or relinquish a throne or responsibility."
+  example_sentence: "The king chose to abdicate his throne to live a simpler life."
+- word: "aberration"
+  part_of_speech: "noun"
+  definition: "A departure from what is normal or expected."
+  example_sentence: "The sudden drop in temperature was an aberration for the summer season."
+- word: "abhor"
+  part_of_speech: "verb"
+  definition: "To regard with disgust or hatred."
+  example_sentence: "She abhors cruelty to animals and supports conservation efforts."
+- word: "abject"
+  part_of_speech: "adjective"
+  definition: "Extremely bad or degraded; miserable."
+  example_sentence: "The refugees lived in abject poverty in the makeshift camp."
+- word: "abolish"
+  part_of_speech: "verb"
+  definition: "To officially end or eliminate something."
+  example_sentence: "The government voted to abolish outdated laws on trade."
+- word: "abound"
+  part_of_speech: "verb"
+  definition: "To exist in large numbers or amounts."
+  example_sentence: "Wildflowers abound in the meadows during spring."
+- word: "abrupt"
+  part_of_speech: "adjective"
+  definition: "Sudden and unexpected."
+  example_sentence: "The meeting came to an abrupt end when the fire alarm sounded."
+- word: "absolute"
+  part_of_speech: "adjective"
+  definition: "Complete or total; not limited."
+  example_sentence: "The dictator demanded absolute loyalty from his followers."
+- word: "absorb"
+  part_of_speech: "verb"
+  definition: "To take in or soak up something."
+  example_sentence: "Sponges absorb water quickly due to their porous structure."
+- word: "abstain"
+  part_of_speech: "verb"
+  definition: "To restrain oneself from doing something."
+  example_sentence: "He decided to abstain from voting due to a conflict of interest."
+- word: "abstract"
+  part_of_speech: "adjective"
+  definition: "Existing as a concept rather than a concrete reality."
+  example_sentence: "Her abstract ideas about art were difficult to understand."
+- word: "abundant"
+  part_of_speech: "adjective"
+  definition: "Present in large quantities."
+  example_sentence: "The region is known for its abundant natural resources."
+- word: "abusive"
+  part_of_speech: "adjective"
+  definition: "Involving cruelty or violence."
+  example_sentence: "The abusive behavior of the manager led to several resignations."
+- word: "accelerate"
+  part_of_speech: "verb"
+  definition: "To increase speed or rate."
+  example_sentence: "The company plans to accelerate production to meet demand."
+- word: "accentuate"
+  part_of_speech: "verb"
+  definition: "To emphasize or make more noticeable."
+  example_sentence: "Her speech accentuated the need for environmental reform."
+- word: "accessible"
+  part_of_speech: "adjective"
+  definition: "Easily approached or obtained."
+  example_sentence: "The museum is accessible to people with disabilities."
+- word: "acclaim"
+  part_of_speech: "noun"
+  definition: "Enthusiastic praise or approval."
+  example_sentence: "The novel received widespread acclaim from critics."
+- word: "accommodate"
+  part_of_speech: "verb"
+  definition: "To provide space or adjust to suit needs."
+  example_sentence: "The hotel can accommodate up to 200 guests."
+- word: "accompany"
+  part_of_speech: "verb"
+  definition: "To go along with or provide support."
+  example_sentence: "A guide will accompany the tourists through the ruins."
+- word: "accomplish"
+  part_of_speech: "verb"
+  definition: "To achieve or complete successfully."
+  example_sentence: "She worked hard to accomplish her academic goals."
+- word: "accord"
+  part_of_speech: "noun"
+  definition: "An agreement or harmony."
+  example_sentence: "The countries signed an accord to promote trade."
+- word: "accountable"
+  part_of_speech: "adjective"
+  definition: "Responsible for actions or decisions."
+  example_sentence: "Leaders must be accountable for their decisions."
+- word: "accumulate"
+  part_of_speech: "verb"
+  definition: "To gather or collect over time."
+  example_sentence: "Dust tends to accumulate in unused rooms."
+- word: "accurate"
+  part_of_speech: "adjective"
+  definition: "Correct or free from error."
+  example_sentence: "The scientist provided accurate data for the study."
+- word: "accuse"
+  part_of_speech: "verb"
+  definition: "To charge someone with wrongdoing."
+  example_sentence: "The politician was accused of corruption."
+- word: "achieve"
+  part_of_speech: "verb"
+  definition: "To successfully complete or attain."
+  example_sentence: "She achieved high scores on her TOEFL exam."
+- word: "acknowledge"
+  part_of_speech: "verb"
+  definition: "To recognize or admit the truth of something."
+  example_sentence: "He acknowledged his mistake during the presentation."
+- word: "acquire"
+  part_of_speech: "verb"
+  definition: "To gain possession or knowledge of something."
+  example_sentence: "She acquired new skills through online courses."
+- word: "acquit"
+  part_of_speech: "verb"
+  definition: "To declare not guilty of a charge."
+  example_sentence: "The jury decided to acquit the defendant."
+- word: "adapt"
+  part_of_speech: "verb"
+  definition: "To adjust to new conditions."
+  example_sentence: "Immigrants often adapt to new cultural norms."
+- word: "adequate"
+  part_of_speech: "adjective"
+  definition: "Sufficient for a specific need."
+  example_sentence: "The supplies were adequate for the expedition."
+- word: "adhere"
+  part_of_speech: "verb"
+  definition: "To stick to or follow closely."
+  example_sentence: "Students must adhere to the university’s code of conduct."
+- word: "adjacent"
+  part_of_speech: "adjective"
+  definition: "Next to or adjoining something."
+  example_sentence: "The library is adjacent to the lecture hall."
+- word: "adjust"
+  part_of_speech: "verb"
+  definition: "To alter or move slightly to fit."
+  example_sentence: "He adjusted his schedule to attend the seminar."
+- word: "administer"
+  part_of_speech: "verb"
+  definition: "To manage or supervise the execution of something."
+  example_sentence: "The nurse will administer the vaccine."
+- word: "admire"
+  part_of_speech: "verb"
+  definition: "To regard with respect or approval."
+  example_sentence: "She admires her professor’s dedication to teaching."
+- word: "admit"
+  part_of_speech: "verb"
+  definition: "To allow entry or confess to something."
+  example_sentence: "He admitted his role in the project’s failure."
+- word: "adopt"
+  part_of_speech: "verb"
+  definition: "To take up or accept as one’s own."
+  example_sentence: "The school adopted a new curriculum."
+- word: "adverse"
+  part_of_speech: "adjective"
+  definition: "Unfavorable or harmful."
+  example_sentence: "Adverse weather conditions delayed the flight."
+- word: "advocate"
+  part_of_speech: "verb"
+  definition: "To support or recommend publicly."
+  example_sentence: "She advocates for equal access to education."
+- word: "aesthetic"
+  part_of_speech: "adjective"
+  definition: "Concerned with beauty or art."
+  example_sentence: "The building’s aesthetic design attracted many visitors."
+- word: "affiliate"
+  part_of_speech: "verb"
+  definition: "To associate with a larger organization."
+  example_sentence: "The college is affiliated with a national research network."
+- word: "affirm"
+  part_of_speech: "verb"
+  definition: "To state or confirm as true."
+  example_sentence: "The court affirmed the legality of the contract."
+- word: "affluent"
+  part_of_speech: "adjective"
+  definition: "Having a great deal of wealth."
+  example_sentence: "The affluent neighborhood had large, luxurious homes."
+- word: "afford"
+  part_of_speech: "verb"
+  definition: "To have the means to do something."
+  example_sentence: "She can afford to study abroad next semester."
+- word: "agenda"
+  part_of_speech: "noun"
+  definition: "A list of items to be discussed or done."
+  example_sentence: "The meeting’s agenda included budget planning."
+- word: "aggravate"
+  part_of_speech: "verb"
+  definition: "To make a situation worse."
+  example_sentence: "Ignoring the issue will only aggravate the problem."
+- word: "aggregate"
+  part_of_speech: "noun"
+  definition: "A whole formed by combining parts."
+  example_sentence: "The aggregate of data supported the hypothesis."
+- word: "aggressive"
+  part_of_speech: "adjective"
+  definition: "Forceful or ready to attack."
+  example_sentence: "The company adopted an aggressive marketing strategy."
+- word: "agile"
+  part_of_speech: "adjective"
+  definition: "Able to move quickly and easily."
+  example_sentence: "The agile athlete excelled in the competition."
+- word: "agitate"
+  part_of_speech: "verb"
+  definition: "To disturb or excite emotionally."
+  example_sentence: "The speech agitated the crowd into action."
+- word: "allocate"
+  part_of_speech: "verb"
+  definition: "To distribute for a specific purpose."
+  example_sentence: "The committee will allocate funds for research."
+- word: "allude"
+  part_of_speech: "verb"
+  definition: "To refer to indirectly."
+  example_sentence: "The professor alluded to a famous study in her lecture."
+- word: "alter"
+  part_of_speech: "verb"
+  definition: "To change or modify."
+  example_sentence: "They altered the design to reduce costs."
+- word: "alternative"
+  part_of_speech: "noun"
+  definition: "Another option or choice."
+  example_sentence: "Solar energy is an alternative to fossil fuels."
+- word: "ambiguous"
+  part_of_speech: "adjective"
+  definition: "Open to multiple interpretations."
+  example_sentence: "The instructions were ambiguous and caused confusion."
+- word: "ambition"
+  part_of_speech: "noun"
+  definition: "A strong desire to achieve something."
+  example_sentence: "Her ambition drove her to excel in her studies."
+- word: "ample"
+  part_of_speech: "adjective"
+  definition: "More than enough in quantity."
+  example_sentence: "The library provided ample resources for the project."
+- word: "amplify"
+  part_of_speech: "verb"
+  definition: "To increase in strength or volume."
+  example_sentence: "The speaker amplified her voice to reach the audience."
+- word: "analogous"
+  part_of_speech: "adjective"
+  definition: "Similar or comparable in certain respects."
+  example_sentence: "The human heart is analogous to a pump."
+- word: "analyze"
+  part_of_speech: "verb"
+  definition: "To examine in detail."
+  example_sentence: "Scientists analyzed the data to draw conclusions."
+- word: "anecdote"
+  part_of_speech: "noun"
+  definition: "A short, interesting story."
+  example_sentence: "He shared an anecdote about his travels."
+- word: "annihilate"
+  part_of_speech: "verb"
+  definition: "To destroy completely."
+  example_sentence: "The army sought to annihilate the enemy forces."
+- word: "anomaly"
+  part_of_speech: "noun"
+  definition: "Something that deviates from the norm."
+  example_sentence: "The warm winter was an anomaly in the region."
+- word: "anonymous"
+  part_of_speech: "adjective"
+  definition: "Without a known name or identity."
+  example_sentence: "The donation was made by an anonymous benefactor."
+- word: "antagonize"
+  part_of_speech: "verb"
+  definition: "To provoke hostility or opposition."
+  example_sentence: "His comments antagonized his colleagues."
+- word: "anticipate"
+  part_of_speech: "verb"
+  definition: "To expect or predict."
+  example_sentence: "She anticipated a high score on the exam."
+- word: "antique"
+  part_of_speech: "noun"
+  definition: "An old, valuable object."
+  example_sentence: "The museum displayed an antique vase."
+- word: "anxiety"
+  part_of_speech: "noun"
+  definition: "A feeling of nervousness or worry."
+  example_sentence: "Test anxiety affected her performance."
+- word: "apathy"
+  part_of_speech: "noun"
+  definition: "Lack of interest or concern."
+  example_sentence: "Voter apathy led to low turnout at the election."
+- word: "apparent"
+  part_of_speech: "adjective"
+  definition: "Clearly visible or understood."
+  example_sentence: "Her disappointment was apparent to everyone."
+- word: "appeal"
+  part_of_speech: "verb"
+  definition: "To make a serious request or attract."
+  example_sentence: "The charity appealed for more donations."
+- word: "append"
+  part_of_speech: "verb"
+  definition: "To add something as an attachment."
+  example_sentence: "She appended a note to the report."
+- word: "appreciate"
+  part_of_speech: "verb"
+  definition: "To recognize the value of something."
+  example_sentence: "I appreciate your help with the project."
+- word: "apprehension"
+  part_of_speech: "noun"
+  definition: "Anxiety or fear about the future."
+  example_sentence: "She felt apprehension before the interview."
+- word: "appropriate"
+  part_of_speech: "adjective"
+  definition: "Suitable or proper."
+  example_sentence: "Casual clothing is not appropriate for the formal event."
+- word: "approve"
+  part_of_speech: "verb"
+  definition: "To officially agree or accept."
+  example_sentence: "The committee approved the new policy."
+- word: "approximate"
+  part_of_speech: "adjective"
+  definition: "Close to the actual, but not exact."
+  example_sentence: "The approximate cost of the trip was $500."
+- word: "arbitrary"
+  part_of_speech: "adjective"
+  definition: "Based on random choice rather than reason."
+  example_sentence: "The decision seemed arbitrary and unfair."
+- word: "arid"
+  part_of_speech: "adjective"
+  definition: "Extremely dry, lacking moisture."
+  example_sentence: "The arid desert supported little vegetation."
+- word: "arouse"
+  part_of_speech: "verb"
+  definition: "To awaken or stimulate."
+  example_sentence: "The speech aroused strong emotions in the audience."
+- word: "articulate"
+  part_of_speech: "verb"
+  definition: "To express clearly in words."
+  example_sentence: "She articulated her ideas confidently in the debate."
+- word: "ascend"
+  part_of_speech: "verb"
+  definition: "To move or rise upward."
+  example_sentence: "The hikers ascended the steep mountain."
+- word: "ascertain"
+  part_of_speech: "verb"
+  definition: "To find out or determine with certainty."
+  example_sentence: "Researchers ascertained the cause of the outbreak."
+- word: "aspire"
+  part_of_speech: "verb"
+  definition: "To have a strong desire to achieve something."
+  example_sentence: "He aspires to become a renowned scientist."
+- word: "assess"
+  part_of_speech: "verb"
+  definition: "To evaluate or estimate."
+  example_sentence: "Teachers assess students’ progress through exams."
+- word: "assert"
+  part_of_speech: "verb"
+  definition: "To state confidently or forcefully."
+  example_sentence: "She asserted her opinion during the discussion."
+- word: "asset"
+  part_of_speech: "noun"
+  definition: "A valuable item or quality."
+  example_sentence: "Her language skills were an asset to the team."
+- word: "assign"
+  part_of_speech: "verb"
+  definition: "To designate or allocate a task."
+  example_sentence: "The professor assigned a research paper to the class."
+- word: "assimilate"
+  part_of_speech: "verb"
+  definition: "To absorb or integrate into a group."
+  example_sentence: "Immigrants often assimilate into the local culture."
+- word: "assist"
+  part_of_speech: "verb"
+  definition: "To help or support."
+  example_sentence: "Volunteers assisted with the charity event."
+- word: "assume"
+  part_of_speech: "verb"
+  definition: "To take for granted or accept without proof."
+  example_sentence: "Don’t assume the meeting is canceled without checking."
+- word: "assure"
+  part_of_speech: "verb"
+  definition: "To make certain or convince."
+  example_sentence: "He assured the team that the project was on track."
+- word: "astonish"
+  part_of_speech: "verb"
+  definition: "To surprise or amaze greatly."
+  example_sentence: "Her performance astonished the audience."
+- word: "attain"
+  part_of_speech: "verb"
+  definition: "To achieve or reach."
+  example_sentence: "He attained his goal of earning a degree."
+- word: "attribute"
+  part_of_speech: "verb"
+  definition: "To regard as caused by something."
+  example_sentence: "She attributed her success to hard work."
+- word: "authentic"
+  part_of_speech: "adjective"
+  definition: "Genuine or real."
+  example_sentence: "The museum displayed authentic artifacts."
+- word: "authorize"
+  part_of_speech: "verb"
+  definition: "To give official permission."
+  example_sentence: "The manager authorized the budget increase."
+- word: "autonomous"
+  part_of_speech: "adjective"
+  definition: "Independent or self-governing."
+  example_sentence: "The autonomous region set its own policies."
+- word: "avail"
+  part_of_speech: "verb"
+  definition: "To make use of or benefit from."
+  example_sentence: "Students should avail themselves of library resources."
+- word: "avert"
+  part_of_speech: "verb"
+  definition: "To prevent or turn away."
+  example_sentence: "Quick action helped avert a disaster."
