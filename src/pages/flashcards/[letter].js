@@ -46,6 +46,7 @@ export default function Flashcards({ letter, words }) {
 
 export async function getStaticPaths() {
   const letters = getAvailableLetters();
+  console.log('Generated paths for letters:', letters);
   const paths = letters.map((letter) => ({
     params: { letter },
   }));
