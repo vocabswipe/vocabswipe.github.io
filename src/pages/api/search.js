@@ -1,4 +1,4 @@
-import { getAllWords } from '../../../lib/data';
+import { getAllWords } from '../../lib/data';
 
 export default function handler(req, res) {
   const { q } = req.query;
