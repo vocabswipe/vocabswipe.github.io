@@ -9,10 +9,12 @@ export default function Home({ letters }) {
       <SearchBar />
       <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-4 mt-6">
         {letters.map((letter) => (
-          <Link key={letter} href={`/flashcards/${letter}`}>
-            <a className="bg-blue-500 text-white text-center p-4 rounded hover:bg-blue-600">
-              {letter.toUpperCase()}
-            </a>
+          <Link
+            key={letter}
+            href={`/flashcards/${letter}`}
+            className="bg-blue-500 text-white text-center p-4 rounded hover:bg-blue-600"
+          >
+            {letter.toUpperCase()}
           </Link>
         ))}
       </div>
