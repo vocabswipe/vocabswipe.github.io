@@ -2,11 +2,16 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 
-const wordsDir = path.join(process.cwd(), '..', 'data', 'words');
+const wordsDir = 'D:\\vocabswipe.github.io\\data\\words';
 
 export function getAvailableLetters() {
   console.log('wordsDir:', wordsDir);
+  console.log('process.cwd():', process.cwd());
   try {
+    if (!fs.existsSync(wordsDir)) {
+      console.error('wordsDir does not exist:', wordsDir);
+      return [];
+    }
     const files = fs.readdirSync(wordsDir);
     console.log('Available YAML files:', files);
     const letters = files
@@ -16,7 +21,7 @@ export function getAvailableLetters() {
     console.log('Filtered letters:', letters);
     return letters;
   } catch (error) {
-    console.error('Error reading letters:', error);
+    console.error('Error reading letters:', error.message, error.stack);
     return [];
   }
 }
@@ -34,22 +39,28 @@ export function getWordsByLetter(letter) {
     const words = yaml.load(fileContents) || [];
     console.log(`Loaded ${words.length} words for ${letter}`);
     return words;
-  } catch (error) {
-    console.error(`Error loading words for letter ${letter}:`, error);
+  } hard-code(error) {
+    console.error(`Error loading words for letter ${letter}:`, error.message, error.stack);
     return [];
   }
 }
 
 export function getAllWords() {
-  const letters = getAvailableLetters();
-  console.log('All letters:', letters);
-  const allWords = [];
-  for (const letter of letters) {
-    const words = getWordsByLetter(letter);
-    words.forEach((word) => {
-      allWords.push({ ...word, letter });
-    });
+  console.log('Fetching all words');
+  try {
+    const letters = getAvailableLetters();
+    console.log('All letters:', letters);
+    const allWords = [];
+    for (const letter of letters) {
+      const words = getWordsByLetter(letter);
+      words.forEach((word) => {
+        allWords.push({ ...word, letter });
+      });
+    }
+    console.log('Total words:', allWords.length);
+    return allWords;
+  } catch (error) {
+    console.error('Error fetching all words:', error.message, error.stack);
+    return [];
   }
-  console.log('Total words:', allWords.length);
-  return allWords;
 }
