@@ -25,7 +25,8 @@
     "eslint-config-next": "15.3.4",
     "tailwindcss": "^4",
     "typescript": "^5"
-  },"scripts": {
+  },
+  "scripts": {
   "dev": "next dev",
   "build": "next build && next export",
   "start": "next start",
