@@ -3,10 +3,11 @@ import { Howl } from 'howler';
 
 export default function Flashcard({ word, letter }) {
   const [flipped, setFlipped] = useState(false);
-  const audioSrc = `/audio/${letter}/${word.word}.mp3`;
+  const audioSrc = `/vocabswipe.github.io/audio/${letter}/${word.word}.mp3`;
   const soundRef = useRef(null);
 
   const playAudio = () => {
+    console.log('Playing audio:', audioSrc);
     if (soundRef.current) {
       soundRef.current.play();
       return;
@@ -15,15 +16,9 @@ export default function Flashcard({ word, letter }) {
     soundRef.current = new Howl({
       src: [audioSrc],
       format: ['mp3'],
-      onend: () => {
-        console.log('Audio playback ended');
-      },
-      onloaderror: (id, error) => {
-        console.error('Audio load error:', error);
-      },
-      onplayerror: (id, error) => {
-        console.error('Audio play error:', error);
-      },
+      onend: () => console.log('Audio playback ended'),
+      onloaderror: (id, error) => console.error('Audio load error:', error),
+      onplayerror: (id, error) => console.error('Audio play error:', error),
     });
 
     soundRef.current.play();
@@ -32,7 +27,7 @@ export default function Flashcard({ word, letter }) {
   useEffect(() => {
     return () => {
       if (soundRef.current) {
-        soundRef.current.unload(); // Clean up audio on unmount
+        soundRef.current.unload();
       }
     };
   }, []);
@@ -50,10 +45,10 @@ export default function Flashcard({ word, letter }) {
           <p className="text-gray-500 italic mt-2">{word.example_sentence}</p>
           <button
             onClick={(e) => {
-              e.stopPropagation(); // Prevent flip on audio click
+              e.stopPropagation();
               playAudio();
             }}
-            className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+            className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
           >
             Play Audio
           </button>
