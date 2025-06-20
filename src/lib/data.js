@@ -35,7 +35,7 @@ export function getWordsByLetter(letter) {
     console.log(`Loaded ${words.length} words for ${letter}`);
     return words;
   } catch (error) {
-    console.error(`Error loading words for letter ${letter}:`, error);
+    console.error('Error loading words for letter ${letter}:', error);
     return [];
   }
 }
