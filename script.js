@@ -57,22 +57,22 @@ function setupEventListeners() {
         tapCount++;
 
         if (tapCount === 1) {
-            // Single tap: Schedule audio playback
+            // Single tap: Preload and schedule audio playback
+            const audioFile = isFlipped ? 
+                words[currentLetter][currentWordIndex].sentence_audio_file : 
+                words[currentLetter][currentWordIndex].word_audio_file;
             setTimeout(() => {
                 if (tapCount === 1) {
-                    const audioFile = isFlipped ? 
-                        words[currentLetter][currentWordIndex].sentence_audio_file : 
-                        words[currentLetter][currentWordIndex].word_audio_file;
                     playAudioWithDelay(audioFile);
                 }
                 tapCount = 0; // Reset after processing
             }, doubleTapThreshold);
         } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
             // Double tap: Flip card and play appropriate audio
-            flipCard();
             const audioFile = isFlipped ? 
-                words[currentLetter][currentWordIndex].sentence_audio_file : 
-                words[currentLetter][currentWordIndex].word_audio_file;
+                words[currentLetter][currentWordIndex].word_audio_file : // Back to front
+                words[currentLetter][currentWordIndex].sentence_audio_file; // Front to back
+            flipCard();
             playAudioWithDelay(audioFile);
             tapCount = 0; // Reset after double tap
         }
@@ -84,17 +84,21 @@ function setupEventListeners() {
     const hammer = new Hammer(card);
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
     hammer.on('swipeleft', () => {
-        nextWord();
         const audioFile = isFlipped ? 
-            words[currentLetter][currentWordIndex].sentence_audio_file : 
-            words[currentLetter][currentWordIndex].word_audio_file;
+            words[currentLetter][currentWordIndex + 1]?.sentence_audio_file || 
+            words[currentLetter][0].sentence_audio_file : 
+            words[currentLetter][currentWordIndex + 1]?.word_audio_file || 
+            words[currentLetter][0].word_audio_file;
+        nextWord();
         playAudioWithDelay(audioFile);
     });
     hammer.on('swiperight', () => {
-        prevWord();
         const audioFile = isFlipped ? 
-            words[currentLetter][currentWordIndex].sentence_audio_file : 
-            words[currentLetter][currentWordIndex].word_audio_file;
+            words[currentLetter][currentWordIndex - 1]?.sentence_audio_file || 
+            words[currentLetter][words[currentLetter].length - 1].sentence_audio_file : 
+            words[currentLetter][currentWordIndex - 1]?.word_audio_file || 
+            words[currentLetter][words[currentLetter].length - 1].word_audio_file;
+        prevWord();
         playAudioWithDelay(audioFile);
     });
 
@@ -103,6 +107,10 @@ function setupEventListeners() {
         currentLetter = e.target.value;
         currentWordIndex = 0;
         isFlipped = false;
+        if (currentAudio) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+        }
         displayWord();
     });
 }
@@ -117,10 +125,12 @@ function playAudioWithDelay(audioFile) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
     }
+    // Preload audio
+    currentAudio = new Audio(`data/audio/${audioFile}`);
+    currentAudio.preload = 'auto'; // Ensure preload
     setTimeout(() => {
-        currentAudio = new Audio(`data/audio/${audioFile}`);
         currentAudio.play().catch(error => console.error('Audio playback error:', error));
-    }, 200); // 0.2-second delay
+    }, 200); // 0.2-second delay after action
 }
 
 function flipCard() {
