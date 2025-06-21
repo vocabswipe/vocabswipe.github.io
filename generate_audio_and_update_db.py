@@ -91,8 +91,8 @@ def process_batch():
                 pbar.update(1)
                 continue
 
-            # Generate audio file
-            content = f"{word}. {entry['part_of_speech']}. {entry['definition_th']}. {entry['example_en']}."
+            # Generate audio file for the single word
+            content = word  # Only the word (e.g., "abandon")
             hash_input = content.encode('utf-8')
             audio_hash = hashlib.md5(hash_input).hexdigest()
             audio_filename = f"word_{audio_hash}.mp3"
