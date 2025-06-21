@@ -65,9 +65,9 @@ def validate_entry(entry):
     return all(field in entry and isinstance(entry[field], str) and entry[field].strip() for field in required_fields)
 
 def get_audio_filename(word, text, prefix):
-    """Generate unique audio filename based on word, MD5 hash, and prefix."""
+    """Generate unique audio filename based on word, prefix, and MD5 hash."""
     safe_word = word.lower().replace(' ', '_')  # Replace spaces for filename safety
-    return f"{safe_word}_{prefix}_{hashlib.md5(text.encode('utf-8')).hexdigest()}.mp3"
+    return f"{safe_word}_{prefix}+{hashlib.md5(text.encode('utf-8')).hexdigest()}.mp3"
 
 def process_entries(entries):
     """Process vocabulary entries and update database."""
@@ -92,12 +92,12 @@ def process_entries(entries):
         }
 
         # Generate word audio with 0.3-second pause
-        word_text = f"<speak>{new_entry['word']}<break time='0.3s'/></speak>"
+        word_text = f"<speak><break time='0.3s'/>{new_entry['word']}</speak>"
         word_audio_filename = get_audio_filename(new_entry['word'], new_entry['word'], 'word')
         word_audio_path = os.path.join(AUDIO_DIR, word_audio_filename)
 
         # Generate sentence audio with 0.3-second pause
-        sentence_text = f"<speak>{new_entry['example_en']}<break time='0.3s'/></speak>"
+        sentence_text = f"<speak><break time='0.3s'/>{new_entry['example_en']}</speak>"
         sentence_audio_filename = get_audio_filename(new_entry['word'], new_entry['example_en'], 'sentence')
         sentence_audio_path = os.path.join(AUDIO_DIR, sentence_audio_filename)
 
