@@ -1,110 +1,130 @@
-// Initialize variables
-let vocabData = [];
-let currentCardIndex = 0;
-let filteredVocab = [];
-
-// DOM elements
-const flashcard = document.getElementById('flashcard');
-const wordEl = document.getElementById('word');
-const partOfSpeechEl = document.getElementById('partOfSpeech');
-const definitionEnEl = document.getElementById('definitionEn');
-const definitionThEl = document.getElementById('definitionTh');
-const exampleEnEl = document.getElementById('exampleEn');
-const exampleThEl = document.getElementById('exampleTh');
-const playAudioBtn = document.getElementById('playAudio');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const cardCountEl = document.getElementById('cardCount');
-const searchInput = document.getElementById('searchInput');
-const errorMessage = document.getElementById('errorMessage');
-
-// Load YAML data
-async function loadVocabData() {
-    try {
-        const response = await fetch('./vocab_database.yaml');
-        if (!response.ok) throw new Error('Failed to load vocab_database.yaml');
-        const yamlText = await response.text();
-        vocabData = jsyaml.load(yamlText) || [];
-        filteredVocab = vocabData;
-        if (vocabData.length === 0) {
-            showError('No vocabulary data found.');
-            return;
+// Initialize app
+async function init() {
+    // Load words from YAML
+    async function loadWords() {
+        try {
+            const response = await fetch('./vocab_database.yaml');
+            if (!response.ok) throw new Error('Failed to load vocab_database.yaml');
+            const yamlText = await response.text();
+            return jsyaml.load(yamlText) || [];
+        } catch (error) {
+            console.error('Error loading YAML:', error);
+            return [];
         }
-        displayCard(currentCardIndex);
-    } catch (error) {
-        showError(`Error loading vocabulary: ${error.message}`);
     }
-}
 
-// Display card at index
-function displayCard(index) {
-    if (filteredVocab.length === 0 || index < 0 || index >= filteredVocab.length) {
-        showError('No cards available.');
+    // Shuffle array (Fisher-Yates algorithm)
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    const words = await loadWords();
+    if (words.length === 0) {
+        document.getElementById('word').textContent = 'Error loading words';
+        document.getElementById('totalWords').textContent = '0';
         return;
     }
-    const card = filteredVocab[index];
-    wordEl.textContent = card.word;
-    partOfSpeechEl.textContent = `Part of Speech: ${card.part_of_speech}`;
-    definitionEnEl.textContent = `Definition (EN): ${card.definition_en}`;
-    definitionThEl.textContent = `Definition (TH): ${card.definition_th}`;
-    exampleEnEl.textContent = `Example (EN): ${card.example_en}`;
-    exampleThEl.textContent = `Example (TH): ${card.example_th}`;
-    cardCountEl.textContent = `Card ${index + 1} of ${filteredVocab.length}`;
-    flashcard.classList.remove('flipped'); // Reset to front
-    playAudioBtn.onclick = () => playAudio(card.audio_file);
-    errorMessage.classList.add('hidden');
-}
 
-// Play audio
-function playAudio(audioFile) {
-    const audio = new Audio(`./audio/${audioFile}`);
-    audio.play().catch(error => {
-        showError(`Error playing audio: ${error.message}`);
+    // Shuffle words
+    const shuffledWords = shuffleArray([...words]);
+
+    // Update total words stat
+    document.getElementById('totalWords').textContent = words.length.toLocaleString();
+
+    let currentIndex = 0;
+    const flashcard = document.getElementById('flashcard');
+    const wordEl = document.getElementById('word');
+    const wordBackEl = document.getElementById('wordBack');
+    const posEl = document.getElementById('partOfSpeech');
+    const defEnEl = document.getElementById('definitionEn');
+    const defThEl = document.getElementById('definitionTh');
+    const exEnEl = document.getElementById('exampleEn');
+    const exThEl = document.getElementById('exampleTh');
+    const audioEl = document.getElementById('wordAudio');
+    const playAudioBtn = document.getElementById('playAudio');
+    let audioTimeout = null;
+    let isTransitioning = false;
+
+    // Function to update card content
+    function updateCard(index, direction = null) {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        flashcard.classList.add('transitioning');
+
+        if (direction) {
+            flashcard.classList.add(`swiping-${direction}`);
+        }
+
+        // Wait for the exit animation to complete
+        setTimeout(() => {
+            // Update content
+            const wordData = shuffledWords[index];
+            wordEl.textContent = wordData.word;
+            wordBackEl.textContent = wordData.word;
+            posEl.textContent = wordData.part_of_speech;
+            defEnEl.textContent = wordData.definition_en;
+            defThEl.textContent = wordData.definition_th;
+            exEnEl.textContent = wordData.example_en;
+            exThEl.textContent = wordData.example_th;
+            audioEl.src = `./audio/${wordData.audio_file}`;
+
+            // Reset card position and state
+            flashcard.style.transform = 'translateX(0)';
+            flashcard.style.opacity = '1';
+            flashcard.classList.remove('swiping-left', 'swiping-right', 'flipped');
+
+            // Play audio after reset
+            playAudioWithDelay();
+
+            // Re-enable interactions
+            requestAnimationFrame(() => {
+                isTransitioning = false;
+                flashcard.classList.remove('transitioning');
+            });
+        }, 400); // Match CSS transition duration
+    }
+
+    // Play audio with 0.2s delay
+    function playAudioWithDelay() {
+        if (audioTimeout) clearTimeout(audioTimeout);
+        audioTimeout = setTimeout(() => {
+            audioEl.play().catch(error => console.error('Audio playback error:', error));
+        }, 200); // 200ms = 0.2 seconds
+    }
+
+    // Initial card
+    updateCard(currentIndex);
+
+    // Swipe and tap handling with Hammer.js
+    const hammer = new Hammer(flashcard);
+    hammer.on('swipeleft', () => {
+        if (currentIndex < shuffledWords.length - 1) {
+            currentIndex++;
+            updateCard(currentIndex, 'right');
+        }
+    });
+    hammer.on('swiperight', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCard(currentIndex, 'left');
+        }
+    });
+    hammer.on('tap', () => {
+        playAudioWithDelay();
+    });
+    hammer.on('doubletap', () => {
+        flashcard.classList.toggle('flipped');
+    });
+
+    // Play audio button on back of card
+    playAudioBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent tap event from triggering
+        playAudioWithDelay();
     });
 }
 
-// Show error message
-function showError(message) {
-    errorMessage.textContent = message;
-    errorMessage.classList.remove('hidden');
-}
-
-// Flip card on click
-flashcard.addEventListener('click', () => {
-    flashcard.classList.toggle('flipped');
-});
-
-// Navigation
-prevBtn.addEventListener('click', () => {
-    if (currentCardIndex > 0) {
-        currentCardIndex--;
-        displayCard(currentCardIndex);
-    }
-});
-nextBtn.addEventListener('click', () => {
-    if (currentCardIndex < filteredVocab.length - 1) {
-        currentCardIndex++;
-        displayCard(currentCardIndex);
-    }
-});
-
-// Search/filter
-searchInput.addEventListener('input', () => {
-    const query = searchInput.value.toLowerCase();
-    filteredVocab = vocabData.filter(card => 
-        card.word.toLowerCase().includes(query) || 
-        card.part_of_speech.toLowerCase().includes(query)
-    );
-    currentCardIndex = 0;
-    if (filteredVocab.length === 0) {
-        showError('No matching words found.');
-        flashcard.style.display = 'none';
-        cardCountEl.textContent = '';
-    } else {
-        flashcard.style.display = 'block';
-        displayCard(currentCardIndex);
-    }
-});
-
-// Load data on page load
-loadVocabData();
+init();
