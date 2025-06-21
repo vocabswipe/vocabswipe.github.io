@@ -3,34 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VocabSwipe - Vocabulary Flashcards</title>
-    <!-- Google Fonts: Inter -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+    <title>VocabSwipe</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="stats">Total words: <span id="totalWords">0</span></div>
-        <div class="flashcard" id="flashcard">
-            <!-- Front of card -->
-            <div class="card-front">
-                <h2 id="word"></h2>
-            </div>
-            <!-- Back of card -->
-            <div class="card-back">
-                <h2 id="wordBack"></h2>
-                <p id="partOfSpeech" class="part-of-speech"></p>
-                <p id="definitionTh"></p>
-                <p id="exampleEn" class="example"></p>
-                <p id="exampleTh" class="example"></p>
-            </div>
-        </div>
-    </div>
-    <audio id="wordAudio" preload="auto"></audio>
-    <!-- js-yaml CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
-    <!-- Hammer.js CDN -->
-    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+    <select id="letter-select">
+        <option value="a">A</option>
+        <!-- Add B-Z options -->
+    </select>
+    <div class="flashcard"></div>
     <script src="script.js"></script>
 </body>
 </html>
