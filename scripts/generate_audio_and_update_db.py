@@ -64,9 +64,10 @@ def validate_entry(entry):
     required_fields = ['word', 'part_of_speech', 'definition_th', 'example_en', 'example_th']
     return all(field in entry and isinstance(entry[field], str) and entry[field].strip() for field in required_fields)
 
-def get_audio_filename(text, prefix):
-    """Generate unique audio filename based on MD5 hash and prefix."""
-    return f"{prefix}_{hashlib.md5(text.encode('utf-8')).hexdigest()}.mp3"
+def get_audio_filename(word, text, prefix):
+    """Generate unique audio filename based on word, MD5 hash, and prefix."""
+    safe_word = word.lower().replace(' ', '_')  # Replace spaces for filename safety
+    return f"{safe_word}_{prefix}_{hashlib.md5(text.encode('utf-8')).hexdigest()}.mp3"
 
 def process_entries(entries):
     """Process vocabulary entries and update database."""
@@ -90,14 +91,14 @@ def process_entries(entries):
             'sentence_audio_file': ''
         }
 
-        # Generate word audio
-        word_text = new_entry['word']
-        word_audio_filename = get_audio_filename(word_text, 'word')
+        # Generate word audio with 0.3-second pause
+        word_text = f"<speak>{new_entry['word']}<break time='0.3s'/></speak>"
+        word_audio_filename = get_audio_filename(new_entry['word'], new_entry['word'], 'word')
         word_audio_path = os.path.join(AUDIO_DIR, word_audio_filename)
 
-        # Generate sentence audio with 1-second pause
-        sentence_text = f"<speak>{new_entry['word']}. <break time='1s'/>{new_entry['example_en']}</speak>"
-        sentence_audio_filename = get_audio_filename(f"{new_entry['word']}. {new_entry['example_en']}", 'sentence')
+        # Generate sentence audio with 0.3-second pause
+        sentence_text = f"<speak>{new_entry['example_en']}<break time='0.3s'/></speak>"
+        sentence_audio_filename = get_audio_filename(new_entry['word'], new_entry['example_en'], 'sentence')
         sentence_audio_path = os.path.join(AUDIO_DIR, sentence_audio_filename)
 
         # Skip if both audio files exist
@@ -108,7 +109,7 @@ def process_entries(entries):
             continue
 
         # Generate audio files
-        word_success = generate_audio(word_text, word_audio_path) if not os.path.exists(word_audio_path) else True
+        word_success = generate_audio(word_text, word_audio_path, use_ssml=True) if not os.path.exists(word_audio_path) else True
         sentence_success = generate_audio(sentence_text, sentence_audio_path, use_ssml=True) if not os.path.exists(sentence_audio_path) else True
 
         if word_success and sentence_success:
