@@ -4,33 +4,32 @@ import hashlib
 import boto3
 import sys
 from tqdm import tqdm
-from pathlib import Path
 
-# AWS Polly client (replace with your credentials)
+# AWS Polly client
 polly_client = boto3.client('polly', region_name='us-east-1')
 
-# Resolve absolute paths based on script location
-SCRIPT_DIR = Path(__file__).parent  # scripts/
-REPO_ROOT = SCRIPT_DIR.parent  # vocabswipe.github.io/
-TEMP_VOCAB_PATH = REPO_ROOT / 'data' / 'temp' / 'temp_vocab.yaml'
-DATABASE_PATH = REPO_ROOT / 'data' / 'vocab_database.yaml'
-AUDIO_DIR = REPO_ROOT / 'data' / 'audio'
-BATCH_DIR = REPO_ROOT / 'data' / 'temp' / 'batches'
+# Resolve absolute paths
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))  # D:\vocabswipe.github.io\scripts
+REPO_ROOT = os.path.dirname(SCRIPT_DIR)  # D:\vocabswipe.github.io
+TEMP_VOCAB_PATH = os.path.join(REPO_ROOT, 'data', 'temp', 'temp_vocab.yaml')
+DATABASE_PATH = os.path.join(REPO_ROOT, 'data', 'vocab_database.yaml')
+AUDIO_DIR = os.path.join(REPO_ROOT, 'data', 'audio')
+BATCH_DIR = os.path.join(REPO_ROOT, 'data', 'temp', 'batches')
 
 def load_yaml(file_path):
-    file_path = Path(file_path)  # Ensure Path object
-    if not file_path.exists():
-        print(f"Error: {file_path} does not exist. Please create it or run spreadsheet_to_yaml.py to generate it.")
+    print(f"Attempting to load: {file_path}")  # Debug path
+    if not os.path.exists(file_path):
+        print(f"Error: {file_path} does not exist. Please create it with valid YAML content.")
         return []
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
-            return yaml.safe_load(f) or []
+            data = yaml.safe_load(f)
+            return data if data is not None else []
     except Exception as e:
         print(f"Error loading {file_path}: {e}")
         return []
 
 def save_yaml(data, file_path):
-    file_path = Path(file_path)
     try:
         with open(file_path, 'w', encoding='utf-8') as f:
             yaml.safe_dump(data, f, allow_unicode=True, sort_keys=False)
@@ -38,7 +37,6 @@ def save_yaml(data, file_path):
         print(f"Error saving {file_path}: {e}")
 
 def generate_audio(text, output_path):
-    output_path = Path(output_path)
     try:
         response = polly_client.synthesize_speech(
             Text=text,
@@ -59,7 +57,7 @@ def get_word_directory(word):
 def validate_entry(entry):
     required_fields = ['word', 'part_of_speech', 'definition_th', 'example_en', 'example_th']
     return all(
-        isinstance(entry.get(field), str) and entry.get(field) not in [None, '']
+        isinstance(entry.get(field), str) and entry.get(field).strip() not in [None, '']
         for field in required_fields
     ) and isinstance(entry.get('audio_file', ''), str)
 
@@ -68,7 +66,7 @@ def process_batch():
     temp_entries = load_yaml(TEMP_VOCAB_PATH)
     if not temp_entries:
         print("No entries found in temp_vocab.yaml. Exiting.")
-        return
+        return False
 
     # Load existing database
     database = load_yaml(DATABASE_PATH)
@@ -104,9 +102,9 @@ def process_batch():
             hash_input = content.encode('utf-8')
             audio_hash = hashlib.md5(hash_input).hexdigest()
             audio_filename = f"word_{audio_hash}.mp3"
-            audio_path = AUDIO_DIR / audio_filename
+            audio_path = os.path.join(AUDIO_DIR, audio_filename)
 
-            if not audio_path.exists():
+            if not os.path.exists(audio_path):
                 if not generate_audio(content, audio_path):
                     invalid_entries.append(entry)
                     pbar.update(1)
@@ -130,16 +128,23 @@ def process_batch():
     if invalid_entries:
         print("Invalid entries:", invalid_entries)
 
-    # Clear temp_vocab.yaml
-    save_yaml([], TEMP_VOCAB_PATH)
+    # Clear temp_vocab.yaml only if successful
+    if valid_entries:
+        save_yaml([], TEMP_VOCAB_PATH)
+        return True
+    return False
 
 def main():
     # Ensure directories exist
-    AUDIO_DIR.mkdir(parents=True, exist_ok=True)
-    BATCH_DIR.mkdir(parents=True, exist_ok=True)
-    TEMP_VOCAB_PATH.parent.mkdir(parents=True, exist_ok=True)
+    os.makedirs(AUDIO_DIR, exist_ok=True)
+    os.makedirs(BATCH_DIR, exist_ok=True)
+    os.makedirs(os.path.dirname(TEMP_VOCAB_PATH), exist_ok=True)
 
-    process_batch()
+    success = process_batch()
+    if success:
+        print("Batch processed successfully. temp_vocab.yaml cleared.")
+    else:
+        print("Batch processing failed. temp_vocab.yaml not cleared.")
 
 if __name__ == "__main__":
     main()
