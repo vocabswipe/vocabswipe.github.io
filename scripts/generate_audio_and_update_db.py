@@ -79,21 +79,32 @@ def process_entries(entries):
             invalid_entries.append(entry)
             continue
 
+        # Create a new entry with audio fields
+        new_entry = {
+            'word': entry['word'],
+            'part_of_speech': entry['part_of_speech'],
+            'definition_th': entry['definition_th'],
+            'example_en': entry['example_en'],
+            'example_th': entry['example_th'],
+            'word_audio_file': '',
+            'sentence_audio_file': ''
+        }
+
         # Generate word audio
-        word_text = entry['word']
+        word_text = new_entry['word']
         word_audio_filename = get_audio_filename(word_text, 'word')
         word_audio_path = os.path.join(AUDIO_DIR, word_audio_filename)
 
         # Generate sentence audio with 1-second pause
-        sentence_text = f"<speak>{entry['word']}. <break time='1s'/>{entry['example_en']}</speak>"
-        sentence_audio_filename = get_audio_filename(f"{entry['word']}. {entry['example_en']}", 'sentence')
+        sentence_text = f"<speak>{new_entry['word']}. <break time='1s'/>{new_entry['example_en']}</speak>"
+        sentence_audio_filename = get_audio_filename(f"{new_entry['word']}. {new_entry['example_en']}", 'sentence')
         sentence_audio_path = os.path.join(AUDIO_DIR, sentence_audio_filename)
 
         # Skip if both audio files exist
         if os.path.exists(word_audio_path) and os.path.exists(sentence_audio_path):
-            entry['word_audio_file'] = word_audio_filename
-            entry['sentence_audio_file'] = sentence_audio_filename
-            valid_entries.append(entry)
+            new_entry['word_audio_file'] = word_audio_filename
+            new_entry['sentence_audio_file'] = sentence_audio_filename
+            valid_entries.append(new_entry)
             continue
 
         # Generate audio files
@@ -101,9 +112,9 @@ def process_entries(entries):
         sentence_success = generate_audio(sentence_text, sentence_audio_path, use_ssml=True) if not os.path.exists(sentence_audio_path) else True
 
         if word_success and sentence_success:
-            entry['word_audio_file'] = word_audio_filename
-            entry['sentence_audio_file'] = sentence_audio_filename
-            valid_entries.append(entry)
+            new_entry['word_audio_file'] = word_audio_filename
+            new_entry['sentence_audio_file'] = sentence_audio_filename
+            valid_entries.append(new_entry)
         else:
             invalid_entries.append(entry)
 
