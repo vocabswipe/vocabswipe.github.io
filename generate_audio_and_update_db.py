@@ -102,7 +102,7 @@ def remove_main_duplicates(main_entries):
     return unique_entries
 
 def check_missing_audio(main_entries):
-    """ costes Check for missing audio files in main database."""
+    """Check for missing audio files in main database."""
     missing = []
     for entry in main_entries:
         audio_path = os.path.join(AUDIO_DIR, entry['audio_file'])
@@ -181,9 +181,9 @@ def main():
         logging.info(f"{Fore.GREEN}Cleared {TEMP_DB_FILE}")
         return
 
-    # Process valid entries with progress bar
-    print(f"{Fore.CYAN}Generating audio for {len(valid_entries)} valid entries...")
-    for entry in tqdm(valid_entries, desc=f"{Fore.GREEN}Processing", bar_format="{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}]"):
+    # Process valid entries with single-line progress bar
+    print(f"{Fore.CYAN}Generating audio for {len(valid_entries)} entries...")
+    for entry in tqdm(valid_entries, desc=f"{Fore.GREEN}Processing", bar_format="{desc}: {percentage:3.0f}%|{bar:20}| {n}/{total} [{elapsed}<{remaining}]", leave=False):
         word = entry['word']
         audio_file = generate_audio(word, entry)
         if audio_file:
