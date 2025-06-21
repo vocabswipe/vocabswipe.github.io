@@ -11,26 +11,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function loadWords() {
     fetch('../data/vocab_database.yaml')
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) throw new Error('Failed to load vocab_database.yaml');
+            return response.text();
+        })
         .then(yamlText => {
-            words = jsyaml.load(yamlText); // Requires js-yaml library
+            words = jsyaml.load(yamlText) || {};
+            if (!words[currentLetter] || !words[currentLetter].length) {
+                console.warn(`No words found for letter ${currentLetter}`);
+                findFirstNonEmptyLetter();
+            }
             displayWord();
+        })
+        .catch(error => {
+            console.error('Error loading words:', error);
+            alert('Failed to load vocabulary data.');
         });
+}
+
+function findFirstNonEmptyLetter() {
+    const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
+                     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'other'];
+    for (let letter of letters) {
+        if (words[letter] && words[letter].length > 0) {
+            currentLetter = letter;
+            currentWordIndex = 0;
+            document.getElementById('letter-select').value = currentLetter;
+            displayWord();
+            return;
+        }
+    }
+    alert('No words available in the database.');
 }
 
 function setupEventListeners() {
     const card = document.querySelector('.flashcard');
-    card.addEventListener('click', () => {
-        if (!isFlipped) {
-            playAudioWithDelay(isFlipped ? words[currentLetter][currentWordIndex].sentence_audio_file : words[currentLetter][currentWordIndex].word_audio_file);
+    const front = document.querySelector('.front');
+    const back = document.querySelector('.back');
+
+    // Single tap to play audio
+    card.addEventListener('click', (e) => {
+        if (e.detail === 1) { // Ensure single tap
+            const audioFile = isFlipped ? 
+                words[currentLetter][currentWordIndex].sentence_audio_file : 
+                words[currentLetter][currentWordIndex].word_audio_file;
+            playAudioWithDelay(audioFile);
         }
     });
+
+    // Double tap to flip
     card.addEventListener('dblclick', () => {
         flipCard();
-        playAudioWithDelay(words[currentLetter][currentWordIndex].sentence_audio_file);
+        if (isFlipped) {
+            playAudioWithDelay(words[currentLetter][currentWordIndex].sentence_audio_file);
+        }
     });
 
-    // Swipe gestures (using Hammer.js or similar)
+    // Swipe gestures
     const hammer = new Hammer(card);
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
     hammer.on('swipeleft', () => {
@@ -42,7 +79,7 @@ function setupEventListeners() {
         playAudioWithDelay(words[currentLetter][currentWordIndex].word_audio_file);
     });
 
-    // Dropdown for A-Z selection
+    // Letter selection
     document.getElementById('letter-select').addEventListener('change', (e) => {
         currentLetter = e.target.value;
         currentWordIndex = 0;
@@ -52,53 +89,62 @@ function setupEventListeners() {
 }
 
 function playAudioWithDelay(audioFile) {
+    if (!audioFile) {
+        console.warn('No audio file available');
+        return;
+    }
     setTimeout(() => {
         const audio = new Audio(`../data/audio/${audioFile}`);
-        audio.play();
+        audio.play().catch(error => console.error('Audio playback error:', error));
     }, 200); // 0.2-second delay
 }
 
 function flipCard() {
-    const card = document.querySelector('.flashcard');
     isFlipped = !isFlipped;
-    card.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
+    const card = document.querySelector('.flashcard');
+    card.classList.toggle('flipped', isFlipped);
     displayWord();
 }
 
 function displayWord() {
-    const wordData = words[currentLetter][currentWordIndex];
-    const card = document.querySelector('.flashcard');
-    if (isFlipped) {
-        card.innerHTML = `
-            <div class="back">
-                <h2>${wordData.word}</h2>
-                <p>Part of Speech: ${wordData.part_of_speech}</p>
-                <p>Thai: ${wordData.definition_th}</p>
-                <p>Example: ${wordData.example_en}</p>
-                <p>ตัวอย่าง: ${wordData.example_th}</p>
-            </div>
-        `;
-    } else {
-        card.innerHTML = `<h2>${wordData.word}</h2>`;
+    if (!words[currentLetter] || !words[currentLetter][currentWordIndex]) {
+        console.warn('No word available to display');
+        return;
     }
+    const wordData = words[currentLetter][currentWordIndex];
+    const front = document.querySelector('.front');
+    const back = document.querySelector('.back');
+
+    front.innerHTML = `<h2>${wordData.word}</h2>`;
+    back.innerHTML = `
+        <h2>${wordData.word}</h2>
+        <p><strong>Part of Speech:</strong> ${wordData.part_of_speech}</p>
+        <p><strong>Thai:</strong> ${wordData.definition_th}</p>
+        <p><strong>Example:</strong> ${wordData.example_en}</p>
+        <p><strong>ตัวอย่าง:</strong> ${wordData.example_th}</p>
+    `;
 }
 
 function nextWord() {
+    if (!words[currentLetter]) return;
     if (currentWordIndex < words[currentLetter].length - 1) {
         currentWordIndex++;
     } else {
         currentWordIndex = 0;
     }
     isFlipped = false;
+    document.querySelector('.flashcard').classList.remove('flipped');
     displayWord();
 }
 
 function prevWord() {
+    if (!words[currentLetter]) return;
     if (currentWordIndex > 0) {
         currentWordIndex--;
     } else {
         currentWordIndex = words[currentLetter].length - 1;
     }
     isFlipped = false;
+    document.querySelector('.flashcard').classList.remove('flipped');
     displayWord();
 }
