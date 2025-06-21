@@ -58,22 +58,26 @@ function setupEventListeners() {
 
         if (tapCount === 1) {
             // Single tap: Preload and schedule audio playback
-            const audioFile = isFlipped ? 
-                words[currentLetter][currentWordIndex].sentence_audio_file : 
-                words[currentLetter][currentWordIndex].word_audio_file;
             setTimeout(() => {
                 if (tapCount === 1) {
-                    playAudioWithDelay(audioFile);
+                    if (isFlipped) {
+                        playBackCardAudio();
+                    } else {
+                        const audioFile = words[currentLetter][currentWordIndex].word_audio_file;
+                        playAudioWithDelay(audioFile);
+                    }
                 }
                 tapCount = 0; // Reset after processing
             }, doubleTapThreshold);
         } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
             // Double tap: Flip card and play appropriate audio
-            const audioFile = isFlipped ? 
-                words[currentLetter][currentWordIndex].word_audio_file : // Back to front
-                words[currentLetter][currentWordIndex].sentence_audio_file; // Front to back
             flipCard();
-            playAudioWithDelay(audioFile);
+            if (isFlipped) {
+                playBackCardAudio();
+            } else {
+                const audioFile = words[currentLetter][currentWordIndex].word_audio_file;
+                playAudioWithDelay(audioFile);
+            }
             tapCount = 0; // Reset after double tap
         }
 
@@ -84,22 +88,28 @@ function setupEventListeners() {
     const hammer = new Hammer(card);
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
     hammer.on('swipeleft', () => {
+        const nextIndex = currentWordIndex < words[currentLetter].length - 1 ? currentWordIndex + 1 : 0;
         const audioFile = isFlipped ? 
-            words[currentLetter][currentWordIndex + 1]?.sentence_audio_file || 
-            words[currentLetter][0].sentence_audio_file : 
-            words[currentLetter][currentWordIndex + 1]?.word_audio_file || 
-            words[currentLetter][0].word_audio_file;
+            words[currentLetter][nextIndex].sentence_audio_file : 
+            words[currentLetter][nextIndex].word_audio_file;
         nextWord();
-        playAudioWithDelay(audioFile);
+        if (isFlipped) {
+            playBackCardAudio();
+        } else {
+            playAudioWithDelay(audioFile);
+        }
     });
     hammer.on('swiperight', () => {
+        const prevIndex = currentWordIndex > 0 ? currentWordIndex - 1 : words[currentLetter].length - 1;
         const audioFile = isFlipped ? 
-            words[currentLetter][currentWordIndex - 1]?.sentence_audio_file || 
-            words[currentLetter][words[currentLetter].length - 1].sentence_audio_file : 
-            words[currentLetter][currentWordIndex - 1]?.word_audio_file || 
-            words[currentLetter][words[currentLetter].length - 1].word_audio_file;
+            words[currentLetter][prevIndex].sentence_audio_file : 
+            words[currentLetter][prevIndex].word_audio_file;
         prevWord();
-        playAudioWithDelay(audioFile);
+        if (isFlipped) {
+            playBackCardAudio();
+        } else {
+            playAudioWithDelay(audioFile);
+        }
     });
 
     // Letter selection
@@ -127,9 +137,37 @@ function playAudioWithDelay(audioFile) {
     }
     // Preload audio
     currentAudio = new Audio(`data/audio/${audioFile}`);
-    currentAudio.preload = 'auto'; // Ensure preload
+    currentAudio.preload = 'auto';
     setTimeout(() => {
         currentAudio.play().catch(error => console.error('Audio playback error:', error));
+    }, 200); // 0.2-second delay after action
+}
+
+function playBackCardAudio() {
+    const wordAudioFile = words[currentLetter][currentWordIndex].word_audio_file;
+    const sentenceAudioFile = words[currentLetter][currentWordIndex].sentence_audio_file;
+    if (!wordAudioFile || !sentenceAudioFile) {
+        console.warn('Missing audio files for back card');
+        return;
+    }
+    // Stop any currently playing audio
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+    // Play word audio
+    currentAudio = new Audio(`data/audio/${wordAudioFile}`);
+    currentAudio.preload = 'auto';
+    setTimeout(() => {
+        currentAudio.play().catch(error => console.error('Word audio playback error:', error));
+        // Schedule sentence audio after word audio ends + 1-second pause
+        currentAudio.onended = () => {
+            setTimeout(() => {
+                currentAudio = new Audio(`data/audio/${sentenceAudioFile}`);
+                currentAudio.preload = 'auto';
+                currentAudio.play().catch(error => console.error('Sentence audio playback error:', error));
+            }, 1000); // 1-second pause
+        };
     }, 200); // 0.2-second delay after action
 }
 
