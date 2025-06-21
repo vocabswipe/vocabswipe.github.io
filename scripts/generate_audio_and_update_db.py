@@ -91,14 +91,14 @@ def process_entries(entries):
             'sentence_audio_file': ''
         }
 
-        # Generate word audio with 0.3-second pause
-        word_text = f"<speak><break time='0.3s'/>{new_entry['word']}</speak>"
+        # Generate word audio with 0.5-second pause
+        word_text = f"<speak><break time='0.5s'/>{new_entry['word']}</speak>"
         word_audio_filename = get_audio_filename(new_entry['word'], new_entry['word'], 'word')
         word_audio_path = os.path.join(AUDIO_DIR, word_audio_filename)
 
-        # Generate sentence audio with 0.3-second pause
-        sentence_text = f"<speak><break time='0.3s'/>{new_entry['example_en']}</speak>"
-        sentence_audio_filename = get_audio_filename(new_entry['word'], new_entry['example_en'], 'sentence')
+        # Generate combined audio with 0.5-second pause + word + 1-second pause + sentence
+        sentence_text = f"<speak><break time='0.5s'/>{new_entry['word']}. <break time='1s'/>{new_entry['example_en']}</speak>"
+        sentence_audio_filename = get_audio_filename(new_entry['word'], f"{new_entry['word']}. {new_entry['example_en']}", 'sentence')
         sentence_audio_path = os.path.join(AUDIO_DIR, sentence_audio_filename)
 
         # Skip if both audio files exist
