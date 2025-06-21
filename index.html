@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VocabSwipe - Vocabulary Flashcards</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,15 +20,13 @@
             <div class="card-back">
                 <h2 id="wordBack"></h2>
                 <p id="partOfSpeech" class="part-of-speech"></p>
-                <p id="definitionEn"></p>
                 <p id="definitionTh"></p>
                 <p id="exampleEn" class="example"></p>
                 <p id="exampleTh" class="example"></p>
-                <button id="playAudio" class="play-audio-btn">Play Audio</button>
             </div>
         </div>
     </div>
-    <audio id="wordAudio" preload="none"></audio>
+    <audio id="wordAudio" preload="auto"></audio>
     <!-- js-yaml CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <!-- Hammer.js CDN -->
