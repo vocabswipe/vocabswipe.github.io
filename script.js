@@ -36,16 +36,15 @@ async function init() {
     document.getElementById('totalWords').textContent = words.length.toLocaleString();
 
     let currentIndex = 0;
+    let isFlipped = false;
     const flashcard = document.getElementById('flashcard');
     const wordEl = document.getElementById('word');
     const wordBackEl = document.getElementById('wordBack');
     const posEl = document.getElementById('partOfSpeech');
-    const defEnEl = document.getElementById('definitionEn');
     const defThEl = document.getElementById('definitionTh');
     const exEnEl = document.getElementById('exampleEn');
     const exThEl = document.getElementById('exampleTh');
     const audioEl = document.getElementById('wordAudio');
-    const playAudioBtn = document.getElementById('playAudio');
     let audioTimeout = null;
     let isTransitioning = false;
 
@@ -59,23 +58,26 @@ async function init() {
             flashcard.classList.add(`swiping-${direction}`);
         }
 
+        // Preload audio for the next card
+        const wordData = shuffledWords[index];
+        audioEl.src = `./audio/${wordData.audio_file}`;
+        audioEl.load(); // Preload audio to reduce playback delay
+
         // Wait for the exit animation to complete
         setTimeout(() => {
             // Update content
-            const wordData = shuffledWords[index];
             wordEl.textContent = wordData.word;
             wordBackEl.textContent = wordData.word;
-            posEl.textContent = wordData.part_of_speech;
-            defEnEl.textContent = wordData.definition_en;
+            posEl.textContent = `(${wordData.part_of_speech})`;
             defThEl.textContent = wordData.definition_th;
             exEnEl.textContent = wordData.example_en;
             exThEl.textContent = wordData.example_th;
-            audioEl.src = `./audio/${wordData.audio_file}`;
 
             // Reset card position and state
             flashcard.style.transform = 'translateX(0)';
             flashcard.style.opacity = '1';
-            flashcard.classList.remove('swiping-left', 'swiping-right', 'flipped');
+            flashcard.classList.remove('swiping-left', 'swiping-right');
+            flashcard.classList.toggle('flipped', isFlipped); // Preserve flipped state
 
             // Play audio after reset
             playAudioWithDelay();
@@ -88,12 +90,12 @@ async function init() {
         }, 400); // Match CSS transition duration
     }
 
-    // Play audio with 0.2s delay
+    // Play audio with 0.1s delay
     function playAudioWithDelay() {
         if (audioTimeout) clearTimeout(audioTimeout);
         audioTimeout = setTimeout(() => {
             audioEl.play().catch(error => console.error('Audio playback error:', error));
-        }, 200); // 200ms = 0.2 seconds
+        }, 100); // 100ms = 0.1 seconds
     }
 
     // Initial card
@@ -117,13 +119,8 @@ async function init() {
         playAudioWithDelay();
     });
     hammer.on('doubletap', () => {
+        isFlipped = !isFlipped;
         flashcard.classList.toggle('flipped');
-    });
-
-    // Play audio button on back of card
-    playAudioBtn.addEventListener('click', (e) => {
-        e.stopPropagation(); // Prevent tap event from triggering
-        playAudioWithDelay();
     });
 }
 
