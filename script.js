@@ -1,178 +1,156 @@
-// script.js
-let currentWordIndex = 0;
-let currentLetter = 'a';
-let words = {};
-let isFlipped = false;
-let currentAudio = null; // Track currently playing audio
+import os
+import yaml
+from tqdm import tqdm
+import boto3
+import hashlib
 
-document.addEventListener('DOMContentLoaded', () => {
-    loadWords();
-    setupEventListeners();
-});
+# Define paths using absolute paths
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+TEMP_VOCAB_PATH = os.path.join(BASE_DIR, 'data', 'temp', 'temp_vocab.yaml')
+VOCAB_DB_PATH = os.path.join(BASE_DIR, 'data', 'vocab_database.yaml')
+AUDIO_DIR = os.path.join(BASE_DIR, 'data', 'audio')
 
-function loadWords() {
-    fetch('data/vocab_database.yaml')
-        .then(response => {
-            if (!response.ok) throw new Error('Failed to load vocab_database.yaml');
-            return response.text();
-        })
-        .then(yamlText => {
-            words = jsyaml.load(yamlText) || {};
-            if (!words[currentLetter] || !words[currentLetter].length) {
-                console.warn(`No words found for letter ${currentLetter}`);
-                findFirstNonEmptyLetter();
-            }
-            displayWord();
-        })
-        .catch(error => {
-            console.error('Error loading words:', error);
-            alert('Failed to load vocabulary data.');
-        });
-}
+# Ensure audio directory exists
+os.makedirs(AUDIO_DIR, exist_ok=True)
 
-function findFirstNonEmptyLetter() {
-    const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
-                     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'other'];
-    for (let letter of letters) {
-        if (words[letter] && words[letter].length > 0) {
-            currentLetter = letter;
-            currentWordIndex = 0;
-            document.getElementById('letter-select').value = currentLetter;
-            displayWord();
-            return;
+# Initialize AWS Polly client
+polly_client = boto3.client('polly', region_name='us-east-1')
+
+def load_yaml(file_path):
+    """Load YAML file and return its content."""
+    print(f"Attempting to load: {file_path}")
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            return yaml.safe_load(file) or []
+    except FileNotFoundError:
+        print(f"Error: {file_path} does not exist. Please create it with valid YAML content.")
+        return {'a': [], 'b': [], 'c': [], 'd': [], 'e': [], 'f': [], 'g': [], 'h': [], 'i': [], 'j': [],
+                'k': [], 'l': [], 'm': [], 'n': [], 'o': [], 'p': [], 'q': [], 'r': [], 's': [], 't': [],
+                'u': [], 'v': [], 'w': [], 'x': [], 'y': [], 'z': [], 'other': []} if file_path == VOCAB_DB_PATH else []
+    except yaml.YAMLError as e:
+        print(f"Error parsing YAML file {file_path}: {e}")
+        return []
+
+def save_yaml(data, file_path):
+    """Save data to YAML file."""
+    with open(file_path, 'w', encoding='utf-8') as file:
+        yaml.safe_dump(data, file, allow_unicode=True, sort_keys=False)
+
+def generate_audio(text, output_path, use_ssml=False):
+    """Generate audio using AWS Polly and save to output_path."""
+    try:
+        if use_ssml:
+            response = polly_client.synthesize_speech(
+                Text=text,
+                TextType='ssml',
+                OutputFormat='mp3',
+                VoiceId='Matthew',
+                SampleRate='16000'  # Lower sample rate for smaller files
+            )
+        else:
+            response = polly_client.synthesize_speech(
+                Text=text,
+                OutputFormat='mp3',
+                VoiceId='Matthew',
+                SampleRate='16000'  # Lower sample rate for smaller files
+            )
+        with open(output_path, 'wb') as file:
+            file.write(response['AudioStream'].read())
+        return True
+    except Exception as e:
+        print(f"Error generating audio for {text}: {e}")
+        return False
+
+def validate_entry(entry):
+    """Validate vocabulary entry."""
+    required_fields = ['word', 'part_of_speech', 'definition_th', 'example_en', 'example_th']
+    return all(field in entry and isinstance(entry[field], str) and entry[field].strip() for field in required_fields)
+
+def get_audio_filename(word, text, prefix):
+    """Generate unique audio filename based on word, prefix, and MD5 hash."""
+    safe_word = word.lower().replace(' ', '_')  # Replace spaces for filename safety
+    return f"{safe_word}_{prefix}+{hashlib.md5(text.encode('utf-8')).hexdigest()}.mp3"
+
+def process_entries(entries):
+    """Process vocabulary entries and update database."""
+    vocab_db = load_yaml(VOCAB_DB_PATH)
+    valid_entries = []
+    invalid_entries = []
+
+    for entry in tqdm(entries, desc="Processing"):
+        if not validate_entry(entry):
+            invalid_entries.append(entry)
+            continue
+
+        # Create a new entry with audio fields
+        new_entry = {
+            'word': entry['word'],
+            'part_of_speech': entry['part_of_speech'],
+            'definition_th': entry['definition_th'],
+            'example_en': entry['example_en'],
+            'example_th': entry['example_th'],
+            'word_audio_file': '',
+            'sentence_audio_file': ''
         }
-    }
-    alert('No words available in the database.');
-}
 
-function setupEventListeners() {
-    const card = document.querySelector('.flashcard');
-    let tapCount = 0;
-    let lastTapTime = 0;
-    const doubleTapThreshold = 300; // ms to distinguish single vs. double tap
+        # Generate word audio without initial pause
+        word_text = f"<speak>{new_entry['word']}</speak>"
+        word_audio_filename = get_audio_filename(new_entry['word'], new_entry['word'], 'word')
+        word_audio_path = os.path.join(AUDIO_DIR, word_audio_filename)
 
-    // Handle taps
-    card.addEventListener('click', (e) => {
-        const currentTime = new Date().getTime();
-        tapCount++;
+        # Generate combined audio without initial pause, keep pause between word and sentence
+        sentence_text = f"<speak>{new_entry['word']}. <break time='1s'/>{new_entry['example_en']}</speak>"
+        sentence_audio_filename = get_audio_filename(new_entry['word'], f"{new_entry['word']}. {new_entry['example_en']}", 'sentence')
+        sentence_audio_path = os.path.join(AUDIO_DIR, sentence_audio_filename)
 
-        if (tapCount === 1) {
-            // Single tap: Wait to confirm no double tap
-            setTimeout(() => {
-                if (tapCount === 1) {
-                    const audioFile = isFlipped ? 
-                        words[currentLetter][currentWordIndex].sentence_audio_file : 
-                        words[currentLetter][currentWordIndex].word_audio_file;
-                    playAudio(audioFile);
-                }
-                tapCount = 0; // Reset after processing
-            }, doubleTapThreshold);
-        } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
-            // Double tap: Flip card and play appropriate audio
-            flipCard();
-            const audioFile = isFlipped ? 
-                words[currentLetter][currentWordIndex].sentence_audio_file : 
-                words[currentLetter][currentWordIndex].word_audio_file;
-            playAudio(audioFile);
-            tapCount = 0; // Reset after double tap
-        }
+        # Skip if both audio files exist
+        if os.path.exists(word_audio_path) and os.path.exists(sentence_audio_path):
+            new_entry['word_audio_file'] = word_audio_filename
+            new_entry['sentence_audio_file'] = sentence_audio_filename
+            valid_entries.append(new_entry)
+            continue
 
-        lastTapTime = currentTime;
-    });
+        # Generate audio files
+        word_success = generate_audio(word_text, word_audio_path, use_ssml=True) if not os.path.exists(word_audio_path) else True
+        sentence_success = generate_audio(sentence_text, sentence_audio_path, use_ssml=True) if not os.path.exists(sentence_audio_path) else True
 
-    // Swipe gestures
-    const hammer = new Hammer(card);
-    hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
-    hammer.on('swipeleft', () => {
-        const nextIndex = currentWordIndex < words[currentLetter].length - 1 ? currentWordIndex + 1 : 0;
-        const audioFile = isFlipped ? 
-            words[currentLetter][nextIndex].sentence_audio_file : 
-            words[currentLetter][nextIndex].word_audio_file;
-        nextWord();
-        playAudio(audioFile);
-    });
-    hammer.on('swiperight', () => {
-        const prevIndex = currentWordIndex > 0 ? currentWordIndex - 1 : words[currentLetter].length - 1;
-        const audioFile = isFlipped ? 
-            words[currentLetter][prevIndex].sentence_audio_file : 
-            words[currentLetter][prevIndex].word_audio_file;
-        prevWord();
-        playAudio(audioFile);
-    });
+        if word_success and sentence_success:
+            new_entry['word_audio_file'] = word_audio_filename
+            new_entry['sentence_audio_file'] = sentence_audio_filename
+            valid_entries.append(new_entry)
+        else:
+            invalid_entries.append(entry)
 
-    // Letter selection
-    document.getElementById('letter-select').addEventListener('change', (e) => {
-        currentLetter = e.target.value;
-        currentWordIndex = 0;
-        isFlipped = false;
-        if (currentAudio) {
-            currentAudio.pause();
-            currentAudio.currentTime = 0;
-        }
-        displayWord();
-    });
-}
+    # Update database
+    for entry in valid_entries:
+        word = entry['word'].lower()
+        first_char = word[0] if word[0].isalpha() else 'other'
+        vocab_db.setdefault(first_char, [])
+        if not any(e['word'].lower() == word for e in vocab_db[first_char]):
+            vocab_db[first_char].append(entry)
+            vocab_db[first_char] = sorted(vocab_db[first_char], key=lambda x: x['word'].lower())
 
-function playAudio(audioFile) {
-    if (!audioFile) {
-        console.warn('No audio file available');
-        return;
-    }
-    // Stop any currently playing audio
-    if (currentAudio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-    }
-    // Preload audio and wait for canplaythrough
-    currentAudio = new Audio(`data/audio/${audioFile}`);
-    currentAudio.preload = 'auto';
-    currentAudio.addEventListener('canplaythrough', () => {
-        currentAudio.play().catch(error => console.error('Audio playback error:', error));
-    }, { once: true });
-}
+    save_yaml(vocab_db, VOCAB_DB_PATH)
+    return valid_entries, invalid_entries
 
-function flipCard() {
-    isFlipped = !isFlipped;
-    const card = document.querySelector('.flashcard');
-    card.classList.toggle('flipped', isFlipped);
-    displayWord();
-}
+def main():
+    """Main function to process temp_vocab.yaml and update vocab_database.yaml."""
+    entries = load_yaml(TEMP_VOCAB_PATH)
+    if not entries:
+        print("No entries to process in temp_vocab.yaml")
+        return
 
-function displayWord() {
-    if (!words[currentLetter] || !words[currentLetter][currentWordIndex]) {
-        console.warn('No word available to display');
-        return;
-    }
-    const wordData = words[currentLetter][currentWordIndex];
-    const front = document.querySelector('.front');
-    const back = document.querySelector('.back');
+    valid_entries, invalid_entries = process_entries(entries)
+    print(f"Processed {len(entries)} entries: {len(valid_entries)} valid, {len(invalid_entries)} invalid")
+    if invalid_entries:
+        print("Invalid entries:", invalid_entries)
 
-    front.innerHTML = `<h2>${wordData.word}</h2>`;
-    back.innerHTML = `
-        <h2 class="english">${wordData.word}</h2>
-        <p class="english part-of-speech">(${wordData.part_of_speech})</p>
-        <p class="thai">${wordData.definition_th}</p>
-        <p class="english">${wordData.example_en}</p>
-        <p class="thai">${wordData.example_th}</p>
-    `;
-}
+    # Clear temp_vocab.yaml if at least one valid entry
+    if valid_entries:
+        save_yaml([], TEMP_VOCAB_PATH)
+        print("Batch processed successfully. temp_vocab.yaml cleared.")
+    else:
+        print("Batch processing failed. temp_vocab.yaml not cleared.")
 
-function nextWord() {
-    if (!words[currentLetter]) return;
-    if (currentWordIndex < words[currentLetter].length - 1) {
-        currentWordIndex++;
-    } else {
-        currentWordIndex = 0;
-    }
-    displayWord();
-}
-
-function prevWord() {
-    if (!words[currentLetter]) return;
-    if (currentWordIndex > 0) {
-        currentWordIndex--;
-    } else {
-        currentWordIndex = words[currentLetter].length - 1;
-    }
-    displayWord();
-}
+if __name__ == "__main__":
+    main()
