@@ -3,7 +3,7 @@ let currentWordIndex = 0;
 let currentLetter = 'a';
 let words = {};
 let isFlipped = false;
-let currentAudio = null; // Track current audio
+let currentAudio = null; // Track currently playing audio
 
 document.addEventListener('DOMContentLoaded', () => {
     loadWords();
@@ -31,7 +31,7 @@ function loadWords() {
 }
 
 function findFirstNonEmptyLetter() {
-    const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+    const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
                      'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'other'];
     for (let letter of letters) {
         if (words[letter] && words[letter].length > 0) {
@@ -47,39 +47,54 @@ function findFirstNonEmptyLetter() {
 
 function setupEventListeners() {
     const card = document.querySelector('.flashcard');
-    const front = document.querySelector('.front');
-    const back = document.querySelector('.back');
+    let tapCount = 0;
+    let lastTapTime = 0;
+    const doubleTapThreshold = 300; // ms to distinguish single vs. double tap
 
-    // Single tap to play audio with 0.2s delay
+    // Handle taps
     card.addEventListener('click', (e) => {
-        if (e.detail === 1) {
-            const audioFile = isFlipped ?
-                words[currentLetter][currentWordIndex].sentence_audio_file :
+        const currentTime = new Date().getTime();
+        tapCount++;
+
+        if (tapCount === 1) {
+            // Single tap: Schedule audio playback
+            setTimeout(() => {
+                if (tapCount === 1) {
+                    const audioFile = isFlipped ? 
+                        words[currentLetter][currentWordIndex].sentence_audio_file : 
+                        words[currentLetter][currentWordIndex].word_audio_file;
+                    playAudioWithDelay(audioFile);
+                }
+                tapCount = 0; // Reset after processing
+            }, doubleTapThreshold);
+        } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
+            // Double tap: Flip card and play appropriate audio
+            flipCard();
+            const audioFile = isFlipped ? 
+                words[currentLetter][currentWordIndex].sentence_audio_file : 
                 words[currentLetter][currentWordIndex].word_audio_file;
             playAudioWithDelay(audioFile);
+            tapCount = 0; // Reset after double tap
         }
+
+        lastTapTime = currentTime;
     });
 
-    // Double tap to flip and play corresponding audio
-    card.addEventListener('dblclick', () => {
-        flipCard();
-        const audioFile = isFlipped ?
-            words[currentLetter][currentWordIndex].sentence_audio_file :
-            words[currentLetter][currentWordIndex].word_audio_file;
-        playAudioWithDelay(audioFile);
-    });
-
-    // Swipe gestures with audio playback
+    // Swipe gestures
     const hammer = new Hammer(card);
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
     hammer.on('swipeleft', () => {
         nextWord();
-        const audioFile = words[currentLetter][currentWordIndex].word_audio_file;
+        const audioFile = isFlipped ? 
+            words[currentLetter][currentWordIndex].sentence_audio_file : 
+            words[currentLetter][currentWordIndex].word_audio_file;
         playAudioWithDelay(audioFile);
     });
     hammer.on('swiperight', () => {
         prevWord();
-        const audioFile = words[currentLetter][currentWordIndex].word_audio_file;
+        const audioFile = isFlipped ? 
+            words[currentLetter][currentWordIndex].sentence_audio_file : 
+            words[currentLetter][currentWordIndex].word_audio_file;
         playAudioWithDelay(audioFile);
     });
 
@@ -101,7 +116,6 @@ function playAudioWithDelay(audioFile) {
     if (currentAudio) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
-        currentAudio = null;
     }
     setTimeout(() => {
         currentAudio = new Audio(`data/audio/${audioFile}`);
@@ -127,11 +141,11 @@ function displayWord() {
 
     front.innerHTML = `<h2>${wordData.word}</h2>`;
     back.innerHTML = `
-        <h2>${wordData.word}</h2>
-        <p class="part-of-speech">(${wordData.part_of_speech})</p>
-        <p class="definition-th">${wordData.definition_th}</p>
-        <p class="example-en">${wordData.example_en}</p>
-        <p class="example-th">${wordData.example_th}</p>
+        <h2 class="english">${wordData.word}</h2>
+        <p class="english part-of-speech">(${wordData.part_of_speech})</p>
+        <p class="thai">${wordData.definition_th}</p>
+        <p class="english">${wordData.example_en}</p>
+        <p class="thai">${wordData.example_th}</p>
     `;
 }
 
@@ -142,8 +156,6 @@ function nextWord() {
     } else {
         currentWordIndex = 0;
     }
-    isFlipped = false;
-    document.querySelector('.flashcard').classList.remove('flipped');
     displayWord();
 }
 
@@ -154,7 +166,5 @@ function prevWord() {
     } else {
         currentWordIndex = words[currentLetter].length - 1;
     }
-    isFlipped = false;
-    document.querySelector('.flashcard').classList.remove('flipped');
     displayWord();
 }
