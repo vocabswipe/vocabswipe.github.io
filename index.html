@@ -3,52 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VocabSwipe - Learn Vocabulary</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- js-yaml CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
-    <!-- Custom CSS -->
+    <title>VocabSwipe - Vocabulary Flashcards</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
-    <div class="container mx-auto p-4 max-w-2xl">
-        <!-- Header -->
-        <h1 class="text-4xl font-bold text-center text-blue-600 mb-6">VocabSwipe</h1>
-
-        <!-- Search Bar -->
-        <div class="mb-4">
-            <input id="searchInput" type="text" placeholder="Search words..." class="w-full p-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
-
-        <!-- Flashcard Container -->
-        <div id="flashcard" class="bg-white rounded-lg shadow-lg p-6 cursor-pointer perspective-1000 relative min-h-[300px] flex items-center justify-center transition-transform duration-500 transform-style-preserve-3d">
-            <div class="absolute inset-0 backface-hidden flex flex-col items-center justify-center">
-                <h2 id="word" class="text-3xl font-semibold text-gray-800"></h2>
-                <p class="text-gray-500 mt-2">Click to flip</p>
+<body>
+    <div class="container">
+        <div class="stats">Total words: <span id="totalWords">0</span></div>
+        <div class="flashcard" id="flashcard">
+            <!-- Front of card -->
+            <div class="card-front">
+                <h2 id="word"></h2>
             </div>
-            <div class="absolute inset-0 backface-hidden rotate-y-180 flex flex-col items-center justify-center">
-                <p id="partOfSpeech" class="text-lg text-gray-600 italic"></p>
-                <p id="definitionEn" class="text-lg text-gray-800 mt-2"></p>
-                <p id="definitionTh" class="text-lg text-gray-800 mt-2"></p>
-                <p id="exampleEn" class="text-md text-gray-600 mt-2"></p>
-                <p id="exampleTh" class="text-md text-gray-600 mt-2"></p>
-                <button id="playAudio" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none">Play Audio</button>
+            <!-- Back of card -->
+            <div class="card-back">
+                <h2 id="wordBack"></h2>
+                <p id="partOfSpeech" class="part-of-speech"></p>
+                <p id="definitionEn"></p>
+                <p id="definitionTh"></p>
+                <p id="exampleEn" class="example"></p>
+                <p id="exampleTh" class="example"></p>
+                <button id="playAudio" class="play-audio-btn">Play Audio</button>
             </div>
         </div>
-
-        <!-- Navigation -->
-        <div class="flex justify-between mt-4">
-            <button id="prevBtn" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 focus:outline-none">Previous</button>
-            <span id="cardCount" class="text-lg text-gray-600"></span>
-            <button id="nextBtn" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 focus:outline-none">Next</button>
-        </div>
-
-        <!-- Error Message -->
-        <p id="errorMessage" class="text-red-500 text-center mt-4 hidden"></p>
     </div>
-
-    <!-- Custom JavaScript -->
+    <audio id="wordAudio" preload="none"></audio>
+    <!-- js-yaml CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <!-- Hammer.js CDN -->
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
