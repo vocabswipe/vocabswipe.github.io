@@ -3,6 +3,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Arial', sans-serif; /* Default for English */
 }
 
 body {
@@ -33,7 +34,6 @@ body {
     border-radius: 5px;
     background-color: #fff;
     cursor: pointer;
-    font-family: 'Roboto', sans-serif;
 }
 
 .flashcard-container {
@@ -83,38 +83,32 @@ body {
 }
 
 h2 {
+    font-family: 'Arial', sans-serif; /* English word */
     font-size: 2em;
     margin-bottom: 10px;
     color: #333;
-    font-family: 'Roboto', sans-serif;
 }
 
-.part-of-speech {
+p.english {
+    font-family: 'Arial', sans-serif; /* English text */
     font-size: 1em;
-    font-style: italic;
+    margin: 5px 0;
     color: #555;
-    margin-bottom: 15px;
-    font-family: 'Roboto', sans-serif;
 }
 
-.definition-th {
-    font-size: 1.2em;
+p.thai {
+    font-family: 'Noto Sans Thai', sans-serif; /* Thai text */
+    font-size: 1em;
+    margin: 5px 0;
+    color: #555;
+}
+
+p.part-of-speech {
+    font-style: italic; /* Italic for part of speech */
+}
+
+strong {
     color: #333;
-    margin-bottom: 20px;
-    font-family: 'Noto Sans Thai', sans-serif;
-}
-
-.example-en {
-    font-size: 1em;
-    color: #555;
-    margin-bottom: 10px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.example-th {
-    font-size: 1em;
-    color: #555;
-    font-family: 'Noto Sans Thai', sans-serif;
 }
 
 /* Responsive adjustments */
@@ -125,10 +119,10 @@ h2 {
     h2 {
         font-size: 1.8em;
     }
-    .part-of-speech, .definition-th, .example-en, .example-th {
+    p {
         font-size: 0.9em;
     }
 }
 
-/* Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+Thai:wght@400;700&display=swap');
+/* Import Google Fonts for Thai */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&display=swap');
