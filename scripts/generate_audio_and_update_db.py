@@ -16,6 +16,9 @@ AUDIO_DIR = 'data/audio'
 BATCH_DIR = 'data/temp/batches'
 
 def load_yaml(file_path):
+    if not os.path.exists(file_path):
+        print(f"Error: {file_path} does not exist. Please create it or run spreadsheet_to_yaml.py to generate it.")
+        return []
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             return yaml.safe_load(f) or []
@@ -36,7 +39,7 @@ def generate_audio(text, output_path):
             Text=text,
             OutputFormat='mp3',
             VoiceId='Matthew',  # Male American English voice
-            Engine='neural'     # Neural TTS for improved quality
+            Engine='standard'   # Standard engine for cost efficiency
         )
         with open(output_path, 'wb') as f:
             f.write(response['AudioStream'].read())
@@ -49,17 +52,17 @@ def get_word_directory(word):
     return word[0].lower() if word and word[0].isalpha() else 'other'
 
 def validate_entry(entry):
-    required_fields = ['word', 'part_of_speech', 'definition_th', 'example_en', 'example_th', 'audio_file']
+    required_fields = ['word', 'part_of_speech', 'definition_th', 'example_en', 'example_th']
     return all(
         isinstance(entry.get(field), str) and entry.get(field) not in [None, '']
-        for field in required_fields if field != 'audio_file'
-    ) and isinstance(entry.get('audio_file'), str)
+        for field in required_fields
+    ) and isinstance(entry.get('audio_file', ''), str)
 
 def process_batch():
     # Load temp vocab
     temp_entries = load_yaml(TEMP_VOCAB_PATH)
     if not temp_entries:
-        print("No entries found in temp_vocab.yaml")
+        print("No entries found in temp_vocab.yaml. Exiting.")
         return
 
     # Load existing database
@@ -91,8 +94,8 @@ def process_batch():
                 pbar.update(1)
                 continue
 
-            # Generate audio file for the single word
-            content = word  # Only the word (e.g., "abandon")
+            # Generate audio file (male American English)
+            content = f"{word}. {entry['part_of_speech']}. {entry['example_en']}."
             hash_input = content.encode('utf-8')
             audio_hash = hashlib.md5(hash_input).hexdigest()
             audio_filename = f"word_{audio_hash}.mp3"
