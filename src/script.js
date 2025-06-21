@@ -1,127 +1,104 @@
-// Initialize app
-async function init() {
-    // Load words from YAML
-    async function loadWords() {
-        try {
-            const response = await fetch('./vocab_database.yaml');
-            if (!response.ok) throw new Error('Failed to load vocab_database.yaml');
-            const yamlText = await response.text();
-            return jsyaml.load(yamlText) || [];
-        } catch (error) {
-            console.error('Error loading YAML:', error);
-            return [];
+// script.js
+let currentWordIndex = 0;
+let currentLetter = 'a';
+let words = {};
+let isFlipped = false;
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadWords();
+    setupEventListeners();
+});
+
+function loadWords() {
+    fetch('../data/vocab_database.yaml')
+        .then(response => response.text())
+        .then(yamlText => {
+            words = jsyaml.load(yamlText); // Requires js-yaml library
+            displayWord();
+        });
+}
+
+function setupEventListeners() {
+    const card = document.querySelector('.flashcard');
+    card.addEventListener('click', () => {
+        if (!isFlipped) {
+            playAudioWithDelay(isFlipped ? words[currentLetter][currentWordIndex].sentence_audio_file : words[currentLetter][currentWordIndex].word_audio_file);
         }
-    }
+    });
+    card.addEventListener('dblclick', () => {
+        flipCard();
+        playAudioWithDelay(words[currentLetter][currentWordIndex].sentence_audio_file);
+    });
 
-    // Shuffle array (Fisher-Yates algorithm)
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    }
-
-    const words = await loadWords();
-    if (words.length === 0) {
-        document.getElementById('word').textContent = 'Error loading words';
-        document.getElementById('totalWords').textContent = '0';
-        return;
-    }
-
-    // Shuffle words
-    const shuffledWords = shuffleArray([...words]);
-
-    // Update total words stat
-    document.getElementById('totalWords').textContent = words.length.toLocaleString();
-
-    let currentIndex = 0;
-    let isFlipped = false;
-    const flashcard = document.getElementById('flashcard');
-    const wordEl = document.getElementById('word');
-    const wordBackEl = document.getElementById('wordBack');
-    const posEl = document.getElementById('partOfSpeech');
-    const defThEl = document.getElementById('definitionTh');
-    const exEnEl = document.getElementById('exampleEn');
-    const exThEl = document.getElementById('exampleTh');
-    const audioEl = document.getElementById('wordAudio');
-    let audioTimeout = null;
-    let isTransitioning = false;
-
-    // Function to update card content
-    function updateCard(index, direction = null) {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        flashcard.classList.add('transitioning');
-
-        if (direction) {
-            flashcard.classList.add(`swiping-${direction}`);
-        }
-
-        // Preload audio for the next card
-        const wordData = shuffledWords[index];
-        audioEl.src = `./audio/${wordData.audio_file}`;
-        audioEl.load(); // Preload audio to reduce playback delay
-
-        // Wait for the exit animation to complete
-        setTimeout(() => {
-            // Update content
-            wordEl.textContent = wordData.word;
-            wordBackEl.textContent = wordData.word;
-            posEl.textContent = `(${wordData.part_of_speech})`;
-            defThEl.textContent = wordData.definition_th;
-            exEnEl.textContent = wordData.example_en;
-            exThEl.textContent = wordData.example_th;
-
-            // Reset card position and state
-            flashcard.style.transform = 'translateX(0)';
-            flashcard.style.opacity = '1';
-            flashcard.classList.remove('swiping-left', 'swiping-right');
-            flashcard.classList.toggle('flipped', isFlipped); // Preserve flipped state
-
-            // Play audio after reset
-            playAudioWithDelay();
-
-            // Re-enable interactions
-            requestAnimationFrame(() => {
-                isTransitioning = false;
-                flashcard.classList.remove('transitioning');
-            });
-        }, 400); // Match CSS transition duration
-    }
-
-    // Play audio with 0.1s delay
-    function playAudioWithDelay() {
-        if (audioTimeout) clearTimeout(audioTimeout);
-        audioTimeout = setTimeout(() => {
-            audioEl.play().catch(error => console.error('Audio playback error:', error));
-        }, 100); // 100ms = 0.1 seconds
-    }
-
-    // Initial card
-    updateCard(currentIndex);
-
-    // Swipe and tap handling with Hammer.js
-    const hammer = new Hammer(flashcard);
+    // Swipe gestures (using Hammer.js or similar)
+    const hammer = new Hammer(card);
+    hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
     hammer.on('swipeleft', () => {
-        if (currentIndex < shuffledWords.length - 1) {
-            currentIndex++;
-            updateCard(currentIndex, 'right');
-        }
+        nextWord();
+        playAudioWithDelay(words[currentLetter][currentWordIndex].word_audio_file);
     });
     hammer.on('swiperight', () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateCard(currentIndex, 'left');
-        }
+        prevWord();
+        playAudioWithDelay(words[currentLetter][currentWordIndex].word_audio_file);
     });
-    hammer.on('tap', () => {
-        playAudioWithDelay();
-    });
-    hammer.on('doubletap', () => {
-        isFlipped = !isFlipped;
-        flashcard.classList.toggle('flipped');
+
+    // Dropdown for A-Z selection
+    document.getElementById('letter-select').addEventListener('change', (e) => {
+        currentLetter = e.target.value;
+        currentWordIndex = 0;
+        isFlipped = false;
+        displayWord();
     });
 }
 
-init();
+function playAudioWithDelay(audioFile) {
+    setTimeout(() => {
+        const audio = new Audio(`../data/audio/${audioFile}`);
+        audio.play();
+    }, 200); // 0.2-second delay
+}
+
+function flipCard() {
+    const card = document.querySelector('.flashcard');
+    isFlipped = !isFlipped;
+    card.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
+    displayWord();
+}
+
+function displayWord() {
+    const wordData = words[currentLetter][currentWordIndex];
+    const card = document.querySelector('.flashcard');
+    if (isFlipped) {
+        card.innerHTML = `
+            <div class="back">
+                <h2>${wordData.word}</h2>
+                <p>Part of Speech: ${wordData.part_of_speech}</p>
+                <p>Thai: ${wordData.definition_th}</p>
+                <p>Example: ${wordData.example_en}</p>
+                <p>ตัวอย่าง: ${wordData.example_th}</p>
+            </div>
+        `;
+    } else {
+        card.innerHTML = `<h2>${wordData.word}</h2>`;
+    }
+}
+
+function nextWord() {
+    if (currentWordIndex < words[currentLetter].length - 1) {
+        currentWordIndex++;
+    } else {
+        currentWordIndex = 0;
+    }
+    isFlipped = false;
+    displayWord();
+}
+
+function prevWord() {
+    if (currentWordIndex > 0) {
+        currentWordIndex--;
+    } else {
+        currentWordIndex = words[currentLetter].length - 1;
+    }
+    isFlipped = false;
+    displayWord();
+}
