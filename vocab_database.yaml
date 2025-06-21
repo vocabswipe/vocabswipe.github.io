@@ -2791,3 +2791,696 @@
   example_en: This is a simple task.
   example_th: นี่เป็นงานง่าย
   audio_file: word_a87c199733035a12c3b3ca66c56a6dac.mp3
+- word: since
+  part_of_speech: preposition
+  definition_en: from a past time until now
+  definition_th: ตั้งแต่
+  example_en: I’ve been here since morning.
+  example_th: ฉันอยู่ที่นี่ตั้งแต่เช้า
+  audio_file: word_8a29b3a0c9f7621954633887623bae37.mp3
+- word: single
+  part_of_speech: adjective
+  definition_en: one only
+  definition_th: เดี่ยว; โสด
+  example_en: I’m a single parent.
+  example_th: ฉันเป็นพ่อแม่เลี้ยงเดี่ยว
+  audio_file: word_12103ab1275fd7e5a92d8a88bb091d4a.mp3
+- word: sit
+  part_of_speech: verb
+  definition_en: to rest on a seat
+  definition_th: นั่ง
+  example_en: Sit on the chair.
+  example_th: นั่งบนเก้าอี้
+  audio_file: word_34c5807df776b56d699c5fa450788752.mp3
+- word: small
+  part_of_speech: adjective
+  definition_en: little in size
+  definition_th: เล็ก
+  example_en: This is a small dog.
+  example_th: นี่เป็นสุนัขตัวเล็ก
+  audio_file: word_ed1ea4e33d976b8be4215b1f8a44682f.mp3
+- word: so
+  part_of_speech: adverb
+  definition_en: to such a great extent
+  definition_th: มาก; จึง
+  example_en: I’m so tired.
+  example_th: ฉันเหนื่อยมาก
+  audio_file: word_b8274acb565657aa035e73f93e02e8d1.mp3
+- word: some
+  part_of_speech: determiner
+  definition_en: an unspecified amount
+  definition_th: บาง; บ้าง
+  example_en: I need some water.
+  example_th: ฉันต้องการน้ำบ้าง
+  audio_file: word_46c0bdc2756c7959e9d13b912178f284.mp3
+- word: something
+  part_of_speech: pronoun
+  definition_en: an unspecified thing
+  definition_th: บางสิ่ง
+  example_en: I forgot something.
+  example_th: ฉันลืมบางสิ่ง
+  audio_file: word_ec82f5ba5ed3a817c55ea09fc175f211.mp3
+- word: soon
+  part_of_speech: adverb
+  definition_en: in a short time
+  definition_th: เร็วๆ นี้
+  example_en: I’ll call you soon.
+  example_th: ฉันจะโทรหาคุณเร็วๆ นี้
+  audio_file: word_9ebe4429ea5b885f724c09c268e74027.mp3
+- word: sound
+  part_of_speech: noun
+  definition_en: something you hear
+  definition_th: เสียง
+  example_en: I heard a strange sound.
+  example_th: ฉันได้ยินเสียงแปลกๆ
+  audio_file: word_4a7d42bb0a3ab9783a1e293e8094dc21.mp3
+- word: speak
+  part_of_speech: verb
+  definition_en: to say words
+  definition_th: พูด
+  example_en: Can you speak Thai?
+  example_th: คุณพูดภาษาไทยได้ไหม?
+  audio_file: word_aae352231a6cd76323ef21d0a98d3bdb.mp3
+- word: special
+  part_of_speech: adjective
+  definition_en: different or important
+  definition_th: พิเศษ
+  example_en: Today is a special day.
+  example_th: วันนี้เป็นวันพิเศษ
+  audio_file: word_af743ee7d8b90b27a1d4b9c67e40784b.mp3
+- word: stand
+  part_of_speech: verb
+  definition_en: to be on your feet
+  definition_th: ยืน
+  example_en: Stand up, please.
+  example_th: ยืนขึ้นหน่อยค่ะ
+  audio_file: word_31e0fab76e14512024c4915974909812.mp3
+- word: start
+  part_of_speech: verb
+  definition_en: to begin something
+  definition_th: เริ่ม
+  example_en: Let’s start the game.
+  example_th: มาเริ่มเกมกัน
+  audio_file: word_54b22d1adcdea9a6961c636e25f3b976.mp3
+- word: state
+  part_of_speech: noun
+  definition_en: a condition or a region of a country
+  definition_th: สภาพ; รัฐ
+  example_en: The state of the economy is good.
+  example_th: สภาพเศรษฐกิจดี
+  audio_file: word_217801f9db607d433e3cf48a6f9fcab0.mp3
+- word: stay
+  part_of_speech: verb
+  definition_en: to remain in a place
+  definition_th: อยู่; พัก
+  example_en: I’ll stay home tonight.
+  example_th: คืนนี้ฉันจะอยู่บ้าน
+  audio_file: word_c1e5c992cab902477299e73d079e5290.mp3
+- word: step
+  part_of_speech: noun
+  definition_en: a movement made by lifting the foot
+  definition_th: ก้าว
+  example_en: Take one step forward.
+  example_th: ก้าวไปข้างหน้าหนึ่งก้าว
+  audio_file: word_db2f1189ef84bbb990128e6bd70031f8.mp3
+- word: still
+  part_of_speech: adverb
+  definition_en: up to now or not moving
+  definition_th: ยังคง; นิ่ง
+  example_en: I’m still waiting.
+  example_th: ฉันยังคงรออยู่
+  audio_file: word_54d83d0b105f01c08387c7de78d9f6f1.mp3
+- word: stop
+  part_of_speech: verb
+  definition_en: to end an action
+  definition_th: หยุด
+  example_en: Stop the car!
+  example_th: หยุดรถ!
+  audio_file: word_53a5736d152c17d07d9f339509f10a38.mp3
+- word: story
+  part_of_speech: noun
+  definition_en: a description of events
+  definition_th: เรื่องราว
+  example_en: Tell me a story.
+  example_th: เล่าเรื่องราวให้ฉันฟัง
+  audio_file: word_12e602d3f6f97729e06799f016a40e45.mp3
+- word: strong
+  part_of_speech: adjective
+  definition_en: having great power
+  definition_th: แข็งแรง
+  example_en: He is very strong.
+  example_th: เขาแข็งแรงมาก
+  audio_file: word_ec98471e8d890f2d53245194418bc131.mp3
+- word: student
+  part_of_speech: noun
+  definition_en: a person who studies
+  definition_th: นักเรียน
+  example_en: She’s a good student.
+  example_th: เธอเป็นนักเรียนที่ดี
+  audio_file: word_ed259c19ddbdde915f1e2503b49c81b3.mp3
+- word: study
+  part_of_speech: verb
+  definition_en: to learn about a subject
+  definition_th: ศึกษา
+  example_en: I study English.
+  example_th: ฉันศึกษภาษาอังกฤษ
+  audio_file: word_90161163f8ba41cb17a13143f2f04e33.mp3
+- word: such
+  part_of_speech: determiner
+  definition_en: of a particular kind
+  definition_th: เช่น
+  example_en: I’ve never seen such beauty.
+  example_th: ฉันไม่เคยเห็นความสวยงามเช่นนี้
+  audio_file: word_492a9c1734ded1fb9dbcc783681e1db5.mp3
+- word: support
+  part_of_speech: verb
+  definition_en: to help or encourage
+  definition_th: สนับสนุน
+  example_en: I support your decision.
+  example_th: ฉันสนับสนุนการตัดสินใจของคุณ
+  audio_file: word_bfaf2e4e3639d7d7358354608477545a.mp3
+- word: sure
+  part_of_speech: adjective
+  definition_en: certain or confident
+  definition_th: แน่นอน
+  example_en: Are you sure?
+  example_th: คุณแน่ใจหรือ?
+  audio_file: word_8d7b246ec0dcceda3768d736c1f98952.mp3
+- word: system
+  part_of_speech: noun
+  definition_en: a set of connected things
+  definition_th: ระบบ
+  example_en: The system works well.
+  example_th: ระบบทำงานได้ดี
+  audio_file: word_3c394ed0535ef761010e7bc2546a3bee.mp3
+- word: take
+  part_of_speech: verb
+  definition_en: to get or carry something
+  definition_th: เอา; นำ
+  example_en: Take this book.
+  example_th: เอาเล่มนี้ไป
+  audio_file: word_f96e8f65d2dfa399f8ee91ea90ee2fbf.mp3
+- word: talk
+  part_of_speech: verb
+  definition_en: to speak or discuss
+  definition_th: พูดคุย
+  example_en: Let’s talk about the plan.
+  example_th: มาพูดคุยเกี่ยวกับแผนกัน
+  audio_file: word_aae8981d7246808f83d6809795db7bc1.mp3
+- word: team
+  part_of_speech: noun
+  definition_en: a group working together
+  definition_th: ทีม
+  example_en: Our team won.
+  example_th: ทีมของเราชนะ
+  audio_file: word_08e46e44ab7e29240469279f62d49889.mp3
+- word: tell
+  part_of_speech: verb
+  definition_en: to give information
+  definition_th: บอก
+  example_en: Tell me the truth.
+  example_th: บอกความจริงกับฉัน
+  audio_file: word_a9838a038686e1111fb1612ab0b2ac3e.mp3
+- word: than
+  part_of_speech: conjunction
+  definition_en: used to compare
+  definition_th: กว่า
+  example_en: She’s taller than me.
+  example_th: เธอสูงกว่าฉัน
+  audio_file: word_3666f3b6a7a3299d425479a4146c19ca.mp3
+- word: that
+  part_of_speech: pronoun
+  definition_en: used to refer to a thing or person
+  definition_th: นั้น
+  example_en: That is my car.
+  example_th: นั่นคือรถของฉัน
+  audio_file: word_b7b6e7c9d224c105671dc13a7e1f18d4.mp3
+- word: the
+  part_of_speech: determiner
+  definition_en: used to specify a noun
+  definition_th: นี้; นั้น
+  example_en: The sun is shining.
+  example_th: ดวงอาทิตย์กำลังส่องแสง
+  audio_file: word_14af0554d725e25f350cb79f065d21ab.mp3
+- word: their
+  part_of_speech: pronoun
+  definition_en: belonging to them
+  definition_th: ของพวกเขา
+  example_en: This is their house.
+  example_th: นี่คือบ้านของพวกเขา
+  audio_file: word_2b4f2222bd794fef3d56e8589c34dd3e.mp3
+- word: them
+  part_of_speech: pronoun
+  definition_en: a group of people or things
+  definition_th: พวกเขา
+  example_en: I gave it to them.
+  example_th: ฉันให้มันกับพวกเขา
+  audio_file: word_8fbe9cf0fd6492bca7db9674bb499d75.mp3
+- word: then
+  part_of_speech: adverb
+  definition_en: at that time or next
+  definition_th: ตอนนั้น; จากนั้น
+  example_en: I’ll see you then.
+  example_th: ฉันจะพบคุณตอนนั้น
+  audio_file: word_2fcb736ebed4c2ae456d4bfc1118bf38.mp3
+- word: there
+  part_of_speech: adverb
+  definition_en: in or at that place
+  definition_th: ที่นั่น
+  example_en: The book is there.
+  example_th: หนังสืออยู่ที่นั่น
+  audio_file: word_3f4f6fcb8775fdc7960327c23527a804.mp3
+- word: these
+  part_of_speech: pronoun
+  definition_en: more than one thing near you
+  definition_th: เหล่านี้
+  example_en: These are my shoes.
+  example_th: นี่คือรองเท้าของฉัน
+  audio_file: word_ba8c4b6725eab8f44f85bdc2bf7cbd81.mp3
+- word: they
+  part_of_speech: pronoun
+  definition_en: a group of people or things
+  definition_th: พวกเขา
+  example_en: They are coming.
+  example_th: พวกเขากำลังมา
+  audio_file: word_9a42bcb9330f4d9cb57fa5d59c33cd7f.mp3
+- word: thing
+  part_of_speech: noun
+  definition_en: an object or idea
+  definition_th: สิ่ง
+  example_en: What’s that thing?
+  example_th: สิ่งนั้นคืออะไร?
+  audio_file: word_e709cf785d4d27e281fb85b2863d4c1e.mp3
+- word: think
+  part_of_speech: verb
+  definition_en: to use your mind
+  definition_th: คิด
+  example_en: I think it’s true.
+  example_th: ฉันคิดว่ามันจริง
+  audio_file: word_18296f23a191627e09c8fc9b29577bb4.mp3
+- word: this
+  part_of_speech: pronoun
+  definition_en: a thing near you
+  definition_th: นี้
+  example_en: This is my phone.
+  example_th: นี่คือโทรศัพท์ของฉัน
+  audio_file: word_265749844585dfececc1658fa9de4482.mp3
+- word: those
+  part_of_speech: pronoun
+  definition_en: things farther away
+  definition_th: เหล่านั้น
+  example_en: Those are my books.
+  example_th: นั่นคือหนังสือของฉัน
+  audio_file: word_d9585ee55ead0186be1e06d25addef5d.mp3
+- word: though
+  part_of_speech: conjunction
+  definition_en: despite the fact that
+  definition_th: แม้ว่า
+  example_en: It’s hard, though I’ll try.
+  example_th: มันยาก แม้ว่าฉันจะลอง
+  audio_file: word_e9c121872f1aef1a25d76d3c8a5885f4.mp3
+- word: three
+  part_of_speech: number
+  definition_en: the number 3
+  definition_th: สาม
+  example_en: I have three cats.
+  example_th: ฉันมีแมวสามตัว
+  audio_file: word_88bd7832abca1d582df8270daaf00a5f.mp3
+- word: through
+  part_of_speech: preposition
+  definition_en: from one side to the other
+  definition_th: ผ่าน
+  example_en: Walk through the park.
+  example_th: เดินผ่านสวนสาธารณะ
+  audio_file: word_727f6a94f791834b0e8a24443ef4dbb4.mp3
+- word: time
+  part_of_speech: noun
+  definition_en: the period when things happen
+  definition_th: เวลา
+  example_en: What time is it?
+  example_th: ตอนนี้กี่โมง?
+  audio_file: word_52f5d080d0e36c066301af54e1fa876a.mp3
+- word: to
+  part_of_speech: preposition
+  definition_en: toward a place or person
+  definition_th: ไปยัง
+  example_en: I’m going to school.
+  example_th: ฉันกำลังไปโรงเรียน
+  audio_file: word_b052d5a7c6b5d0c4139e6cea2a439ed3.mp3
+- word: today
+  part_of_speech: adverb
+  definition_en: on this day
+  definition_th: วันนี้
+  example_en: Today is sunny.
+  example_th: วันนี้แดดออก
+  audio_file: word_a169eb29d96aa92701857231388a51ff.mp3
+- word: together
+  part_of_speech: adverb
+  definition_en: with each other
+  definition_th: ด้วยกัน
+  example_en: Let’s work together.
+  example_th: มาทำงานด้วยกัน
+  audio_file: word_7aaf71b46c6138a3ba95337f01154f61.mp3
+- word: too
+  part_of_speech: adverb
+  definition_en: also or excessively
+  definition_th: ด้วย; เกินไป
+  example_en: It’s too hot.
+  example_th: มันร้อนเกินไป
+  audio_file: word_bafa2f26ff3ad79178214213cc7f9f43.mp3
+- word: top
+  part_of_speech: noun
+  definition_en: the highest part
+  definition_th: ด้านบน
+  example_en: The book is on the top shelf.
+  example_th: หนังสืออยู่บนชั้นด้านบน
+  audio_file: word_1931720072b260cd1820dc70aadbfae9.mp3
+- word: toward
+  part_of_speech: preposition
+  definition_en: in the direction of
+  definition_th: ไปทาง
+  example_en: Walk toward the light.
+  example_th: เดินไปทางแสง
+  audio_file: word_390cd1145cde227b6d78ff13bee8b0ac.mp3
+- word: travel
+  part_of_speech: verb
+  definition_en: to go from one place to another
+  definition_th: เดินทาง
+  example_en: I love to travel.
+  example_th: ฉันรักการเดินทาง
+  audio_file: word_35ace0ffc79eb6ae17d0021c888765b2.mp3
+- word: 'TRUE'
+  part_of_speech: adjective
+  definition_en: in accordance with fact
+  definition_th: จริง
+  example_en: Is that true?
+  example_th: นั่นจริงหรือ?
+  audio_file: word_59e984896352641e8a07cd87324b7a94.mp3
+- word: try
+  part_of_speech: verb
+  definition_en: to attempt something
+  definition_th: พยายาม
+  example_en: Try again.
+  example_th: ลองอีกครั้ง
+  audio_file: word_40b9e7aab3c521d16186e835f90165a1.mp3
+- word: turn
+  part_of_speech: verb
+  definition_en: to change direction or position
+  definition_th: หมุน; เลี้ยว
+  example_en: Turn left.
+  example_th: เลี้ยวซ้าย
+  audio_file: word_3e2d20463ad8ad00253dd9c45208552d.mp3
+- word: two
+  part_of_speech: number
+  definition_en: the number 2
+  definition_th: สอง
+  example_en: I have two books.
+  example_th: ฉันมีหนังสือสองเล่ม
+  audio_file: word_6f48555c56fdcedd970de79c1a084034.mp3
+- word: type
+  part_of_speech: noun
+  definition_en: a kind or category
+  definition_th: ประเภท
+  example_en: What type of music do you like?
+  example_th: คุณชอบเพลงประเภทไหน?
+  audio_file: word_88db3f1735dcc69aa06502b58f91895c.mp3
+- word: under
+  part_of_speech: preposition
+  definition_en: below something
+  definition_th: ใต้
+  example_en: The cat is under the table.
+  example_th: แมวอยู่ใต้โต๊ะ
+  audio_file: word_0e35f8590a5f25dcfb52f2c47edec344.mp3
+- word: understand
+  part_of_speech: verb
+  definition_en: to know the meaning of something
+  definition_th: เข้าใจ
+  example_en: I understand the lesson.
+  example_th: ฉันเข้าใจบทเรียน
+  audio_file: word_a2f8aed6377762d521561c0a55b5b686.mp3
+- word: until
+  part_of_speech: preposition
+  definition_en: up to a certain time
+  definition_th: จนกระทั่ง
+  example_en: Wait until tomorrow.
+  example_th: รอจนถึงพรุ่งนี้
+  audio_file: word_5879406762e9868063afbd6678038cbe.mp3
+- word: up
+  part_of_speech: preposition
+  definition_en: toward a higher place
+  definition_th: ขึ้น
+  example_en: Go up the stairs.
+  example_th: ขึ้นบันไดไป
+  audio_file: word_64f96b4843c758463b71f2f7368f6baf.mp3
+- word: use
+  part_of_speech: verb
+  definition_en: to employ something for a purpose
+  definition_th: ใช้
+  example_en: Use this pen.
+  example_th: ใช้ปากกานี้
+  audio_file: word_f75efc0a110d78507ba5582837d328b2.mp3
+- word: very
+  part_of_speech: adverb
+  definition_en: to a high degree
+  definition_th: มาก
+  example_en: It’s very cold.
+  example_th: มันหนาวมาก
+  audio_file: word_7b2b2e8923a83631c3232e399c1266b6.mp3
+- word: view
+  part_of_speech: noun
+  definition_en: what can be seen or an opinion
+  definition_th: มุมมอง; ทัศนียภาพ
+  example_en: The view is beautiful.
+  example_th: ทัศนียภาพสวยงาม
+  audio_file: word_2198f12128bc5bf1b1d486b00ce3145b.mp3
+- word: visit
+  part_of_speech: verb
+  definition_en: to go to see someone or a place
+  definition_th: เยี่ยม
+  example_en: I’ll visit my friend.
+  example_th: ฉันจะไปเยี่ยมเพื่อน
+  audio_file: word_ad4660730906b6ab56be30976b90e481.mp3
+- word: wait
+  part_of_speech: verb
+  definition_en: to stay until something happens
+  definition_th: รอ
+  example_en: Wait for the bus.
+  example_th: รอรถบัส
+  audio_file: word_333f2f787c6cd9cf38d46ed5145690af.mp3
+- word: walk
+  part_of_speech: verb
+  definition_en: to move on foot
+  definition_th: เดิน
+  example_en: I walk to school.
+  example_th: ฉันเดินไปโรงเรียน
+  audio_file: word_0de95340b3cadd5bf9b1de9805b1ed96.mp3
+- word: want
+  part_of_speech: verb
+  definition_en: to desire something
+  definition_th: ต้องการ
+  example_en: I want a new phone.
+  example_th: ฉันต้องการโทรศัพท์ใหม่
+  audio_file: word_6379225f2e8e55b66c5078bddb164931.mp3
+- word: war
+  part_of_speech: noun
+  definition_en: a conflict between groups
+  definition_th: สงคราม
+  example_en: The war ended last year.
+  example_th: สงครามจบเมื่อปีที่แล้ว
+  audio_file: word_f8dee15e7797a1455330f7cf37327c76.mp3
+- word: watch
+  part_of_speech: verb
+  definition_en: to look at something
+  definition_th: ดู
+  example_en: Watch the movie.
+  example_th: ดูหนัง
+  audio_file: word_f4103a57802099b75159bee71c108a0c.mp3
+- word: water
+  part_of_speech: noun
+  definition_en: a clear liquid essential for life
+  definition_th: น้ำ
+  example_en: Drink more water.
+  example_th: ดื่มน้ำให้มากขึ้น
+  audio_file: word_633704bbc04becb59ee6cf531b65ebde.mp3
+- word: way
+  part_of_speech: noun
+  definition_en: a method or path
+  definition_th: วิธี; ทาง
+  example_en: This is the way home.
+  example_th: นี่คือทางกลับบ้าน
+  audio_file: word_46b456a3353e9fc031609a6c7046a402.mp3
+- word: we
+  part_of_speech: pronoun
+  definition_en: the speaker and others
+  definition_th: เรา
+  example_en: We are friends.
+  example_th: เราเป็นเพื่อนกัน
+  audio_file: word_b06f1c1d3442e68e98b467f003b5da48.mp3
+- word: week
+  part_of_speech: noun
+  definition_en: a period of seven days
+  definition_th: สัปดาห์
+  example_en: I’ll see you next week.
+  example_th: ฉันจะพบคุณสัปดาห์หน้า
+  audio_file: word_5dee722d727ad8bba09bb8199d0b1078.mp3
+- word: well
+  part_of_speech: adverb
+  definition_en: in a good or satisfactory way
+  definition_th: ดี
+  example_en: She sings well.
+  example_th: เธอร้องเพลงเก่ง
+  audio_file: word_570e92ff7bf0a0f42d319e8c23366fab.mp3
+- word: what
+  part_of_speech: pronoun
+  definition_en: used to ask for information
+  definition_th: อะไร
+  example_en: What is your name?
+  example_th: คุณชื่ออะไร?
+  audio_file: word_58a180f666c6975872f8dc8adca599bb.mp3
+- word: when
+  part_of_speech: adverb
+  definition_en: at what time
+  definition_th: เมื่อไหร่
+  example_en: When are you coming?
+  example_th: คุณจะมาเมื่อไหร่?
+  audio_file: word_87095b9e4dbc8e400cb0b96522bd45e3.mp3
+- word: where
+  part_of_speech: adverb
+  definition_en: in what place
+  definition_th: ที่ไหน
+  example_en: Where is my book?
+  example_th: หนังสือของฉันอยู่ที่ไหน?
+  audio_file: word_5e8753d38664fa780994b76fab537b44.mp3
+- word: which
+  part_of_speech: pronoun
+  definition_en: used to ask about a choice
+  definition_th: อันไหน
+  example_en: Which one is yours?
+  example_th: อันไหนเป็นของคุณ?
+  audio_file: word_6b5f75224d7292fd52679880fd2e52e4.mp3
+- word: while
+  part_of_speech: conjunction
+  definition_en: during the time that
+  definition_th: ในขณะที่
+  example_en: I read while waiting.
+  example_th: ฉันอ่านหนังสือในขณะที่รอ
+  audio_file: word_1ae84de4d78a435931b6e4fc551382c7.mp3
+- word: white
+  part_of_speech: adjective
+  definition_en: the color of snow
+  definition_th: สีขาว
+  example_en: I have a white shirt.
+  example_th: ฉันมีเสื้อสีขาว
+  audio_file: word_acfbc80066fe0f5976514174133454b5.mp3
+- word: who
+  part_of_speech: pronoun
+  definition_en: used to ask about a person
+  definition_th: ใคร
+  example_en: Who is she?
+  example_th: เธอเป็นใคร?
+  audio_file: word_951a4f597c0a467b1dd8a1112345b3d2.mp3
+- word: why
+  part_of_speech: adverb
+  definition_en: for what reason
+  definition_th: ทำไม
+  example_en: Why are you late?
+  example_th: ทำไมคุณมาสาย?
+  audio_file: word_a0e27381799273816ce26c6850611823.mp3
+- word: will
+  part_of_speech: modal verb
+  definition_en: used to show future action
+  definition_th: จะ
+  example_en: I will call you.
+  example_th: ฉันจะโทรหาคุณ
+  audio_file: word_c8f9668280346379f73cf6f9cd3169ed.mp3
+- word: win
+  part_of_speech: verb
+  definition_en: to succeed in a competition
+  definition_th: ชนะ
+  example_en: Our team will win.
+  example_th: ทีมของเราจะชนะ
+  audio_file: word_d9d9eaa3d0b06dcdb24caa6b60cae84f.mp3
+- word: with
+  part_of_speech: preposition
+  definition_en: in the company of
+  definition_th: กับ
+  example_en: I’m with my friend.
+  example_th: ฉันอยู่กับเพื่อน
+  audio_file: word_aa440eaa334e6555693170a4e2c527e0.mp3
+- word: woman
+  part_of_speech: noun
+  definition_en: an adult female person
+  definition_th: ผู้หญิง
+  example_en: She’s a kind woman.
+  example_th: เธอเป็นผู้หญิงใจดี
+  audio_file: word_6f1fd0ebf54e3641d160e0284da14b7c.mp3
+- word: work
+  part_of_speech: noun
+  definition_en: activity done for a purpose
+  definition_th: งาน
+  example_en: I have a lot of work.
+  example_th: ฉันมีงานเยอะ
+  audio_file: word_b08cdfdfc00578e6219d69919077badf.mp3
+- word: world
+  part_of_speech: noun
+  definition_en: the earth or everything in existence
+  definition_th: โลก
+  example_en: The world is big.
+  example_th: โลกกว้างใหญ่
+  audio_file: word_f8b95cb6555dc8e413b10a35a1b2cac5.mp3
+- word: would
+  part_of_speech: modal verb
+  definition_en: used to show possibility or politeness
+  definition_th: จะ
+  example_en: Would you like tea?
+  example_th: คุณอยากดื่มชาไหม?
+  audio_file: word_c141cb0318a64464819fbf6d7193e099.mp3
+- word: write
+  part_of_speech: verb
+  definition_en: to put words on paper
+  definition_th: เขียน
+  example_en: Write your name.
+  example_th: เขียนชื่อของคุณ
+  audio_file: word_58ded8e55c35e51d660524c6387179d7.mp3
+- word: year
+  part_of_speech: noun
+  definition_en: a period of 12 months
+  definition_th: ปี
+  example_en: It’s a new year.
+  example_th: เป็นปีใหม่
+  audio_file: word_e92ac6056a2fc0927cb288686a13a12e.mp3
+- word: yellow
+  part_of_speech: adjective
+  definition_en: the color of lemons
+  definition_th: สีเหลือง
+  example_en: I have a yellow bag.
+  example_th: ฉันมีกระเป๋าสีเหลือง
+  audio_file: word_41967c606c96ebbb47d83c668dc5500b.mp3
+- word: 'yes'
+  part_of_speech: adverb
+  definition_en: used to agree or confirm
+  definition_th: ใช่
+  example_en: Yes, I agree.
+  example_th: ใช่ ฉันเห็นด้วย
+  audio_file: word_2cc2accdd56f9cf8728a90077e125fd8.mp3
+- word: you
+  part_of_speech: pronoun
+  definition_en: the person being addressed
+  definition_th: คุณ
+  example_en: I love you.
+  example_th: ฉันรักคุณ
+  audio_file: word_43d4ca15fe2c296f34e1547562b4727c.mp3
+- word: young
+  part_of_speech: adjective
+  definition_en: having lived for a short time
+  definition_th: หนุ่ม; สาว
+  example_en: She’s a young girl.
+  example_th: เธอเป็นเด็กสาว
+  audio_file: word_2d16ce1de414424d3f4ca736f915592e.mp3
+- word: your
+  part_of_speech: pronoun
+  definition_en: belonging to you
+  definition_th: ของคุณ
+  example_en: This is your book.
+  example_th: นี่คือหนังสือของคุณ
+  audio_file: word_b63d1e5484ce4015de6ec2dd911d3139.mp3
