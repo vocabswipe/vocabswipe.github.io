@@ -102,7 +102,7 @@ def remove_main_duplicates(main_entries):
     return unique_entries
 
 def check_missing_audio(main_entries):
-    """Check for missing audio files in main database."""
+    """ costes Check for missing audio files in main database."""
     missing = []
     for entry in main_entries:
         audio_path = os.path.join(AUDIO_DIR, entry['audio_file'])
@@ -147,10 +147,6 @@ def main():
     print(f"{Fore.BLUE}Started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"{Fore.BLUE}{'=' * 50}\n")
 
-    # Empty temp file at start
-    save_yaml([], TEMP_DB_FILE)
-    logging.info(f"{Fore.GREEN}Cleared {TEMP_DB_FILE}")
-
     # Load main and temp databases
     main_db = load_yaml(MAIN_DB_FILE)
     temp_db = load_yaml(TEMP_DB_FILE)
@@ -180,6 +176,9 @@ def main():
     if not valid_entries:
         logging.info(f"{Fore.YELLOW}No valid entries to process after validation and duplicate check.")
         print_summary(main_db, check_missing_audio(main_db), invalid_count)
+        # Clear temp file
+        save_yaml([], TEMP_DB_FILE)
+        logging.info(f"{Fore.GREEN}Cleared {TEMP_DB_FILE}")
         return
 
     # Process valid entries with progress bar
@@ -199,6 +198,10 @@ def main():
 
     # Print summary
     print_summary(main_db, check_missing_audio(main_db), invalid_count)
+
+    # Clear temp file after all tasks
+    save_yaml([], TEMP_DB_FILE)
+    logging.info(f"{Fore.GREEN}Cleared {TEMP_DB_FILE}")
 
 if __name__ == "__main__":
     main()
