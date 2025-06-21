@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadWords() {
-    fetch('../data/vocab_database.yaml')
+    fetch('data/vocab_database.yaml') // Updated path
         .then(response => {
             if (!response.ok) throw new Error('Failed to load vocab_database.yaml');
             return response.text();
@@ -94,7 +94,7 @@ function playAudioWithDelay(audioFile) {
         return;
     }
     setTimeout(() => {
-        const audio = new Audio(`../data/audio/${audioFile}`);
+        const audio = new Audio(`data/audio/${audioFile}`); // Updated path
         audio.play().catch(error => console.error('Audio playback error:', error));
     }, 200); // 0.2-second delay
 }
