@@ -57,14 +57,14 @@ function setupEventListeners() {
         tapCount++;
 
         if (tapCount === 1) {
-            // Single tap: Preload and schedule audio playback
+            // Single tap: Wait to confirm no double tap
             setTimeout(() => {
                 if (tapCount === 1) {
                     if (isFlipped) {
                         playBackCardAudio();
                     } else {
                         const audioFile = words[currentLetter][currentWordIndex].word_audio_file;
-                        playAudioWithDelay(audioFile);
+                        playAudio(audioFile);
                     }
                 }
                 tapCount = 0; // Reset after processing
@@ -76,7 +76,7 @@ function setupEventListeners() {
                 playBackCardAudio();
             } else {
                 const audioFile = words[currentLetter][currentWordIndex].word_audio_file;
-                playAudioWithDelay(audioFile);
+                playAudio(audioFile);
             }
             tapCount = 0; // Reset after double tap
         }
@@ -89,26 +89,22 @@ function setupEventListeners() {
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
     hammer.on('swipeleft', () => {
         const nextIndex = currentWordIndex < words[currentLetter].length - 1 ? currentWordIndex + 1 : 0;
-        const audioFile = isFlipped ? 
-            words[currentLetter][nextIndex].sentence_audio_file : 
-            words[currentLetter][nextIndex].word_audio_file;
         nextWord();
         if (isFlipped) {
             playBackCardAudio();
         } else {
-            playAudioWithDelay(audioFile);
+            const audioFile = words[currentLetter][currentWordIndex].word_audio_file;
+            playAudio(audioFile);
         }
     });
     hammer.on('swiperight', () => {
         const prevIndex = currentWordIndex > 0 ? currentWordIndex - 1 : words[currentLetter].length - 1;
-        const audioFile = isFlipped ? 
-            words[currentLetter][prevIndex].sentence_audio_file : 
-            words[currentLetter][prevIndex].word_audio_file;
         prevWord();
         if (isFlipped) {
             playBackCardAudio();
         } else {
-            playAudioWithDelay(audioFile);
+            const audioFile = words[currentLetter][currentWordIndex].word_audio_file;
+            playAudio(audioFile);
         }
     });
 
@@ -125,7 +121,7 @@ function setupEventListeners() {
     });
 }
 
-function playAudioWithDelay(audioFile) {
+function playAudio(audioFile) {
     if (!audioFile) {
         console.warn('No audio file available');
         return;
@@ -135,12 +131,10 @@ function playAudioWithDelay(audioFile) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
     }
-    // Preload audio
+    // Preload and play audio
     currentAudio = new Audio(`data/audio/${audioFile}`);
     currentAudio.preload = 'auto';
-    setTimeout(() => {
-        currentAudio.play().catch(error => console.error('Audio playback error:', error));
-    }, 200); // 0.2-second delay after action
+    currentAudio.play().catch(error => console.error('Audio playback error:', error));
 }
 
 function playBackCardAudio() {
@@ -158,17 +152,16 @@ function playBackCardAudio() {
     // Play word audio
     currentAudio = new Audio(`data/audio/${wordAudioFile}`);
     currentAudio.preload = 'auto';
-    setTimeout(() => {
-        currentAudio.play().catch(error => console.error('Word audio playback error:', error));
-        // Schedule sentence audio after word audio ends + 1-second pause
-        currentAudio.onended = () => {
-            setTimeout(() => {
-                currentAudio = new Audio(`data/audio/${sentenceAudioFile}`);
-                currentAudio.preload = 'auto';
-                currentAudio.play().catch(error => console.error('Sentence audio playback error:', error));
-            }, 1000); // 1-second pause
-        };
-    }, 200); // 0.2-second delay after action
+    currentAudio.play().catch(error => console.error('Word audio playback error:', error));
+    
+    // Schedule sentence audio after word audio ends + 1-second pause
+    currentAudio.addEventListener('ended', () => {
+        setTimeout(() => {
+            currentAudio = new Audio(`data/audio/${sentenceAudioFile}`);
+            currentAudio.preload = 'auto';
+            currentAudio.play().catch(error => console.error('Sentence audio playback error:', error));
+        }, 1000); // 1-second pause
+    }, { once: true }); // Ensure event listener fires only once
 }
 
 function flipCard() {
