@@ -9,14 +9,17 @@ from pathlib import Path
 # AWS Polly client (replace with your credentials)
 polly_client = boto3.client('polly', region_name='us-east-1')
 
-# Directories
-TEMP_VOCAB_PATH = 'data/temp/temp_vocab.yaml'
-DATABASE_PATH = 'data/vocab_database.yaml'
-AUDIO_DIR = 'data/audio'
-BATCH_DIR = 'data/temp/batches'
+# Resolve absolute paths based on script location
+SCRIPT_DIR = Path(__file__).parent  # scripts/
+REPO_ROOT = SCRIPT_DIR.parent  # vocabswipe.github.io/
+TEMP_VOCAB_PATH = REPO_ROOT / 'data' / 'temp' / 'temp_vocab.yaml'
+DATABASE_PATH = REPO_ROOT / 'data' / 'vocab_database.yaml'
+AUDIO_DIR = REPO_ROOT / 'data' / 'audio'
+BATCH_DIR = REPO_ROOT / 'data' / 'temp' / 'batches'
 
 def load_yaml(file_path):
-    if not os.path.exists(file_path):
+    file_path = Path(file_path)  # Ensure Path object
+    if not file_path.exists():
         print(f"Error: {file_path} does not exist. Please create it or run spreadsheet_to_yaml.py to generate it.")
         return []
     try:
@@ -27,6 +30,7 @@ def load_yaml(file_path):
         return []
 
 def save_yaml(data, file_path):
+    file_path = Path(file_path)
     try:
         with open(file_path, 'w', encoding='utf-8') as f:
             yaml.safe_dump(data, f, allow_unicode=True, sort_keys=False)
@@ -34,12 +38,13 @@ def save_yaml(data, file_path):
         print(f"Error saving {file_path}: {e}")
 
 def generate_audio(text, output_path):
+    output_path = Path(output_path)
     try:
         response = polly_client.synthesize_speech(
             Text=text,
             OutputFormat='mp3',
             VoiceId='Matthew',  # Male American English voice
-            Engine='standard'   # Standard engine for cost efficiency
+            Engine='standard'
         )
         with open(output_path, 'wb') as f:
             f.write(response['AudioStream'].read())
@@ -94,14 +99,14 @@ def process_batch():
                 pbar.update(1)
                 continue
 
-            # Generate audio file (male American English)
+            # Generate audio file
             content = f"{word}. {entry['part_of_speech']}. {entry['example_en']}."
             hash_input = content.encode('utf-8')
             audio_hash = hashlib.md5(hash_input).hexdigest()
             audio_filename = f"word_{audio_hash}.mp3"
-            audio_path = os.path.join(AUDIO_DIR, audio_filename)
+            audio_path = AUDIO_DIR / audio_filename
 
-            if not os.path.exists(audio_path):
+            if not audio_path.exists():
                 if not generate_audio(content, audio_path):
                     invalid_entries.append(entry)
                     pbar.update(1)
@@ -130,9 +135,9 @@ def process_batch():
 
 def main():
     # Ensure directories exist
-    os.makedirs(AUDIO_DIR, exist_ok=True)
-    os.makedirs(BATCH_DIR, exist_ok=True)
-    os.makedirs(os.path.dirname(TEMP_VOCAB_PATH), exist_ok=True)
+    AUDIO_DIR.mkdir(parents=True, exist_ok=True)
+    BATCH_DIR.mkdir(parents=True, exist_ok=True)
+    TEMP_VOCAB_PATH.parent.mkdir(parents=True, exist_ok=True)
 
     process_batch()
 
