@@ -4,6 +4,7 @@ let currentLetter = 'a';
 let words = {};
 let isFlipped = false;
 let currentAudio = null; // Track currently playing audio
+let audioCache = new Map(); // Cache for preloaded audio
 
 document.addEventListener('DOMContentLoaded', () => {
     loadWords();
@@ -21,8 +22,10 @@ function loadWords() {
             if (!words[currentLetter] || !words[currentLetter].length) {
                 console.warn(`No words found for letter ${currentLetter}`);
                 findFirstNonEmptyLetter();
+            } else {
+                displayWord();
+                preloadAudio(); // Preload audio for initial word
             }
-            displayWord();
         })
         .catch(error => {
             console.error('Error loading words:', error);
@@ -39,6 +42,7 @@ function findFirstNonEmptyLetter() {
             currentWordIndex = 0;
             document.getElementById('letter-select').value = currentLetter;
             displayWord();
+            preloadAudio();
             return;
         }
     }
@@ -84,6 +88,7 @@ function setupEventListeners() {
     const hammer = new Hammer(card);
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
     hammer.on('swipeleft', () => {
+        if (!words[currentLetter]) return;
         const nextIndex = currentWordIndex < words[currentLetter].length - 1 ? currentWordIndex + 1 : 0;
         const audioFile = isFlipped ? 
             words[currentLetter][nextIndex].sentence_audio_file : 
@@ -92,6 +97,7 @@ function setupEventListeners() {
         playAudio(audioFile);
     });
     hammer.on('swiperight', () => {
+        if (!words[currentLetter]) return;
         const prevIndex = currentWordIndex > 0 ? currentWordIndex - 1 : words[currentLetter].length - 1;
         const audioFile = isFlipped ? 
             words[currentLetter][prevIndex].sentence_audio_file : 
@@ -104,9 +110,50 @@ function setupEventListeners() {
     document.getElementById('letter-select').addEventListener('change', (e) => {
         currentLetter = e.target.value;
         currentWordIndex = 0;
-        isFlipped = false;
-        stopAudio(); // Stop audio when changing letters
-        displayWord();
+        // Maintain isFlipped state
+        stopAudio(); // Stop any playing audio
+        if (words[currentLetter] && words[currentLetter].length > 0) {
+            displayWord();
+            preloadAudio();
+            // Do not auto-play audio on letter change
+        } else {
+            console.warn(`No words found for letter ${currentLetter}`);
+            findFirstNonEmptyLetter();
+        }
+    });
+}
+
+function preloadAudio() {
+    if (!words[currentLetter] || !words[currentLetter][currentWordIndex]) return;
+
+    const currentWord = words[currentLetter][currentWordIndex];
+    const nextIndex = currentWordIndex < words[currentLetter].length - 1 ? currentWordIndex + 1 : 0;
+    const nextWord = words[currentLetter][nextIndex];
+
+    // Preload current word's audio
+    const currentAudioFiles = [
+        currentWord.word_audio_file,
+        currentWord.sentence_audio_file
+    ];
+
+    // Preload next word's audio
+    const nextAudioFiles = nextWord ? [
+        nextWord.word_audio_file,
+        nextWord.sentence_audio_file
+    ] : [];
+
+    // Combine and preload all audio files
+    [...currentAudioFiles, ...nextAudioFiles].forEach(audioFile => {
+        if (audioFile && !audioCache.has(audioFile)) {
+            const audio = new Audio(`data/audio/${audioFile}`);
+            audio.preload = 'auto';
+            audio.load(); // Start loading
+            audioCache.set(audioFile, audio);
+            audio.addEventListener('error', () => {
+                console.error(`Failed to preload audio: data/audio/${audioFile}`);
+                audioCache.delete(audioFile); // Remove failed audio from cache
+            }, { once: true });
+        }
     });
 }
 
@@ -123,41 +170,55 @@ function playAudio(audioFile) {
         console.warn('No audio file available');
         return;
     }
+
     // Stop any currently playing audio
     stopAudio();
 
-    // Create new audio object
-    currentAudio = new Audio(`data/audio/${audioFile}`);
-    currentAudio.preload = 'auto';
+    // Check if audio is in cache
+    let audio = audioCache.get(audioFile);
+    if (!audio) {
+        // Not in cache, create new audio object
+        audio = new Audio(`data/audio/${audioFile}`);
+        audio.preload = 'auto';
+        audioCache.set(audioFile, audio);
+        audio.load(); // Start loading
+    }
 
-    // Attempt to play audio once it can play through
+    currentAudio = audio;
+
+    // Attempt to play audio
     const playAudioWhenReady = () => {
         currentAudio.play().catch(error => {
             console.error('Audio playback error:', error);
-            // Fallback: Retry playback after a short delay
+            // Retry playback after a short delay
             setTimeout(() => {
                 currentAudio.play().catch(err => console.error('Retry failed:', err));
             }, 100);
         });
     };
 
-    // Wait for canplaythrough or handle errors
-    currentAudio.addEventListener('canplaythrough', playAudioWhenReady, { once: true });
-    currentAudio.addEventListener('error', () => {
-        console.error(`Error loading audio: data/audio/${audioFile}`);
-        currentAudio = null;
-    }, { once: true });
-
-    // Trigger loading
-    currentAudio.load();
+    // Check if audio is ready to play
+    if (audio.readyState >= audio.HAVE_ENOUGH_DATA) {
+        // Audio is already loaded
+        playAudioWhenReady();
+    } else {
+        // Wait for canplaythrough
+        audio.addEventListener('canplaythrough', playAudioWhenReady, { once: true });
+        audio.addEventListener('error', () => {
+            console.error(`Error loading audio: data/audio/${audioFile}`);
+            audioCache.delete(audioFile);
+            currentAudio = null;
+        }, { once: true });
+    }
 }
 
 function flipCard() {
     isFlipped = !isFlipped;
     const card = document.querySelector('.flashcard');
     card.classList.toggle('flipped', isFlipped);
-    stopAudio(); // Stop audio when flipping
+    stopAudio();
     displayWord();
+    preloadAudio(); // Preload audio for flipped state
 }
 
 function displayWord() {
@@ -186,8 +247,9 @@ function nextWord() {
     } else {
         currentWordIndex = 0;
     }
-    stopAudio(); // Stop audio when switching words
+    stopAudio();
     displayWord();
+    preloadAudio();
 }
 
 function prevWord() {
@@ -197,6 +259,7 @@ function prevWord() {
     } else {
         currentWordIndex = words[currentLetter].length - 1;
     }
-    stopAudio(); // Stop audio when switching words
+    stopAudio();
     displayWord();
+    preloadAudio();
 }
