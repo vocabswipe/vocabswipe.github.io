@@ -3,6 +3,7 @@ let currentWordIndex = 0;
 let currentLetter = 'a';
 let words = {};
 let isFlipped = false;
+let currentAudio = null; // Track current audio
 
 document.addEventListener('DOMContentLoaded', () => {
     loadWords();
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadWords() {
-    fetch('data/vocab_database.yaml') // Updated path
+    fetch('data/vocab_database.yaml')
         .then(response => {
             if (!response.ok) throw new Error('Failed to load vocab_database.yaml');
             return response.text();
@@ -30,7 +31,7 @@ function loadWords() {
 }
 
 function findFirstNonEmptyLetter() {
-    const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
+    const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
                      'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'other'];
     for (let letter of letters) {
         if (words[letter] && words[letter].length > 0) {
@@ -49,34 +50,37 @@ function setupEventListeners() {
     const front = document.querySelector('.front');
     const back = document.querySelector('.back');
 
-    // Single tap to play audio
+    // Single tap to play audio with 0.2s delay
     card.addEventListener('click', (e) => {
-        if (e.detail === 1) { // Ensure single tap
-            const audioFile = isFlipped ? 
-                words[currentLetter][currentWordIndex].sentence_audio_file : 
+        if (e.detail === 1) {
+            const audioFile = isFlipped ?
+                words[currentLetter][currentWordIndex].sentence_audio_file :
                 words[currentLetter][currentWordIndex].word_audio_file;
             playAudioWithDelay(audioFile);
         }
     });
 
-    // Double tap to flip
+    // Double tap to flip and play corresponding audio
     card.addEventListener('dblclick', () => {
         flipCard();
-        if (isFlipped) {
-            playAudioWithDelay(words[currentLetter][currentWordIndex].sentence_audio_file);
-        }
+        const audioFile = isFlipped ?
+            words[currentLetter][currentWordIndex].sentence_audio_file :
+            words[currentLetter][currentWordIndex].word_audio_file;
+        playAudioWithDelay(audioFile);
     });
 
-    // Swipe gestures
+    // Swipe gestures with audio playback
     const hammer = new Hammer(card);
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
     hammer.on('swipeleft', () => {
         nextWord();
-        playAudioWithDelay(words[currentLetter][currentWordIndex].word_audio_file);
+        const audioFile = words[currentLetter][currentWordIndex].word_audio_file;
+        playAudioWithDelay(audioFile);
     });
     hammer.on('swiperight', () => {
         prevWord();
-        playAudioWithDelay(words[currentLetter][currentWordIndex].word_audio_file);
+        const audioFile = words[currentLetter][currentWordIndex].word_audio_file;
+        playAudioWithDelay(audioFile);
     });
 
     // Letter selection
@@ -93,9 +97,15 @@ function playAudioWithDelay(audioFile) {
         console.warn('No audio file available');
         return;
     }
+    // Stop any currently playing audio
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        currentAudio = null;
+    }
     setTimeout(() => {
-        const audio = new Audio(`data/audio/${audioFile}`); // Updated path
-        audio.play().catch(error => console.error('Audio playback error:', error));
+        currentAudio = new Audio(`data/audio/${audioFile}`);
+        currentAudio.play().catch(error => console.error('Audio playback error:', error));
     }, 200); // 0.2-second delay
 }
 
@@ -118,10 +128,10 @@ function displayWord() {
     front.innerHTML = `<h2>${wordData.word}</h2>`;
     back.innerHTML = `
         <h2>${wordData.word}</h2>
-        <p><strong>Part of Speech:</strong> ${wordData.part_of_speech}</p>
-        <p><strong>Thai:</strong> ${wordData.definition_th}</p>
-        <p><strong>Example:</strong> ${wordData.example_en}</p>
-        <p><strong>ตัวอย่าง:</strong> ${wordData.example_th}</p>
+        <p class="part-of-speech">(${wordData.part_of_speech})</p>
+        <p class="definition-th">${wordData.definition_th}</p>
+        <p class="example-en">${wordData.example_en}</p>
+        <p class="example-th">${wordData.example_th}</p>
     `;
 }
 
