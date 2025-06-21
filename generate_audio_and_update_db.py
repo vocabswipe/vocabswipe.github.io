@@ -1,6 +1,7 @@
 import yaml
 import os
 import hashlib
+from datetime import datetime
 from gtts import gTTS
 from tqdm import tqdm
 from colorama import init, Fore, Style
@@ -17,6 +18,12 @@ MAIN_DB_FILE = 'vocab_database.yaml'
 TEMP_DB_FILE = 'temp_vocab.yaml'
 AUDIO_DIR = 'audio'
 
+# Required fields for each entry
+REQUIRED_FIELDS = [
+    'word', 'part_of_speech', 'definition_en', 'definition_th',
+    'example_en', 'example_th', 'audio_file'
+]
+
 # Ensure audio directory exists
 os.makedirs(AUDIO_DIR, exist_ok=True)
 
@@ -24,14 +31,43 @@ def load_yaml(file_path):
     """Load YAML file or return empty list if file doesn't exist."""
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
-            return yaml.safe_load(f) or []
+            data = yaml.safe_load(f)
+            return data if isinstance(data, list) else []
     except FileNotFoundError:
+        return []
+    except yaml.YAMLError as e:
+        logging.error(f"{Fore.RED}Failed to parse {file_path}: {e}")
         return []
 
 def save_yaml(data, file_path):
     """Save data to YAML file."""
     with open(file_path, 'w', encoding='utf-8') as f:
         yaml.safe_dump(data, f, allow_unicode=True, sort_keys=False)
+
+def validate_entry(entry):
+    """Validate an entry for required fields and non-empty strings."""
+    errors = []
+    if not isinstance(entry, dict):
+        return False, ["Entry is not a dictionary"]
+    
+    # Check for missing fields
+    for field in REQUIRED_FIELDS:
+        if field not in entry:
+            errors.append(f"Missing field: {field}")
+    
+    # Check for empty or non-string values
+    for field in REQUIRED_FIELDS:
+        if field in entry:
+            if not isinstance(entry[field], str):
+                errors.append(f"Field '{field}' is not a string")
+            elif field != 'audio_file' and not entry[field].strip():  # Allow empty audio_file
+                errors.append(f"Field '{field}' is empty")
+    
+    # Ensure audio_file is empty in temp file
+    if 'audio_file' in entry and entry['audio_file'].strip():
+        errors.append("Field 'audio_file' must be empty in temp file")
+    
+    return len(errors) == 0, errors
 
 def generate_hash(entry):
     """Generate MD5 hash from English word, part of speech, definition, and example."""
@@ -93,10 +129,11 @@ def generate_audio(word, entry):
         logging.error(f"{Fore.RED}Failed to generate audio for '{word}': {e}")
         return None
 
-def print_summary(main_entries, missing_audio):
+def print_summary(main_entries, missing_audio, invalid_count):
     """Print summary of database status."""
     print(f"\n{Fore.MAGENTA}{Style.BRIGHT}=== VocabSwipe Database Summary ===")
     print(f"{Fore.CYAN}Total entries in {MAIN_DB_FILE}: {len(main_entries)}")
+    print(f"{Fore.CYAN}Invalid entries skipped in {TEMP_DB_FILE}: {invalid_count}")
     if missing_audio:
         print(f"{Fore.RED}Missing audio files: {len(missing_audio)} words ({', '.join(missing_audio)})")
     else:
@@ -121,16 +158,33 @@ def main():
     # Remove duplicates from main database
     main_db = remove_main_duplicates(main_db)
 
-    # Check for duplicates in temp file
-    temp_entries = check_duplicates(temp_db, main_db)
-    if not temp_entries:
-        logging.info(f"{Fore.YELLOW}No new entries to process after duplicate check.")
-        print_summary(main_db, check_missing_audio(main_db))
+    if not temp_db:
+        logging.info(f"{Fore.YELLOW}No entries in {TEMP_DB_FILE} to process.")
+        print_summary(main_db, check_missing_audio(main_db), 0)
         return
 
-    # Process temporary entries with progress bar
-    print(f"{Fore.CYAN}Generating audio for {len(temp_entries)} entries...")
-    for entry in tqdm(temp_entries, desc=f"{Fore.GREEN}Processing", bar_format="{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}]"):
+    # Validate temp entries
+    valid_entries = []
+    invalid_count = 0
+    print(f"{Fore.CYAN}Validating {len(temp_db)} entries in {TEMP_DB_FILE}...")
+    for entry in temp_db:
+        is_valid, errors = validate_entry(entry)
+        if is_valid:
+            valid_entries.append(entry)
+        else:
+            invalid_count += 1
+            logging.error(f"{Fore.RED}Invalid entry for word '{entry.get('word', 'unknown')}': {'; '.join(errors)}")
+
+    # Check for duplicates in valid entries
+    valid_entries = check_duplicates(valid_entries, main_db)
+    if not valid_entries:
+        logging.info(f"{Fore.YELLOW}No valid entries to process after validation and duplicate check.")
+        print_summary(main_db, check_missing_audio(main_db), invalid_count)
+        return
+
+    # Process valid entries with progress bar
+    print(f"{Fore.CYAN}Generating audio for {len(valid_entries)} valid entries...")
+    for entry in tqdm(valid_entries, desc=f"{Fore.GREEN}Processing", bar_format="{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}]"):
         word = entry['word']
         audio_file = generate_audio(word, entry)
         if audio_file:
@@ -141,11 +195,10 @@ def main():
 
     # Save updated main database
     save_yaml(main_db, MAIN_DB_FILE)
-    logging.info(f"{Fore.GREEN}Appended {len(temp_entries)} entries to {MAIN_DB_FILE}")
+    logging.info(f"{Fore.GREEN}Appended {len(valid_entries)} entries to {MAIN_DB_FILE}")
 
     # Print summary
-    print_summary(main_db, check_missing_audio(main_db))
+    print_summary(main_db, check_missing_audio(main_db), invalid_count)
 
 if __name__ == "__main__":
-    from datetime import datetime
     main()
