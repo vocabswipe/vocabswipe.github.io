@@ -3,6 +3,7 @@ import yaml
 from tqdm import tqdm
 import boto3
 import hashlib
+import random
 
 # Define paths using absolute paths
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -15,6 +16,9 @@ os.makedirs(AUDIO_DIR, exist_ok=True)
 
 # Initialize AWS Polly client
 polly_client = boto3.client('polly', region_name='us-east-1')
+
+# List of favorite voices (all en-US, neural)
+FAVORITE_VOICES = ['Joanna', 'Joey', 'Kendra', 'Matthew', 'Stephen']
 
 def load_yaml(file_path):
     """Load YAML file and return its content."""
@@ -36,7 +40,7 @@ def save_yaml(data, file_path):
     with open(file_path, 'w', encoding='utf-8') as file:
         yaml.safe_dump(data, file, allow_unicode=True, sort_keys=False)
 
-def generate_audio(text, output_path, use_ssml=False):
+def generate_audio(text, output_path, voice_id, use_ssml=False):
     """Generate audio using AWS Polly and save to output_path."""
     try:
         if use_ssml:
@@ -44,19 +48,21 @@ def generate_audio(text, output_path, use_ssml=False):
                 Text=text,
                 TextType='ssml',
                 OutputFormat='mp3',
-                VoiceId='Matthew'
+                VoiceId=voice_id,
+                Engine='neural'
             )
         else:
             response = polly_client.synthesize_speech(
                 Text=text,
                 OutputFormat='mp3',
-                VoiceId='Matthew'
+                VoiceId=voice_id,
+                Engine='neural'
             )
         with open(output_path, 'wb') as file:
             file.write(response['AudioStream'].read())
         return True
     except Exception as e:
-        print(f"Error generating audio for {text}: {e}")
+        print(f"Error generating audio for {text} with voice {voice_id}: {e}")
         return False
 
 def validate_entry(entry):
@@ -64,10 +70,10 @@ def validate_entry(entry):
     required_fields = ['word', 'part_of_speech', 'definition_th', 'example_en', 'example_th']
     return all(field in entry and isinstance(entry[field], str) and entry[field].strip() for field in required_fields)
 
-def get_audio_filename(word, text, prefix):
-    """Generate unique audio filename based on word, prefix, and MD5 hash."""
+def get_audio_filename(word, text, prefix, voice_id):
+    """Generate unique audio filename based on word, prefix, voice_id, and MD5 hash."""
     safe_word = word.lower().replace(' ', '_')  # Replace spaces for filename safety
-    return f"{safe_word}_{prefix}+{hashlib.md5(text.encode('utf-8')).hexdigest()}.mp3"
+    return f"{safe_word}_{prefix}+{voice_id}+{hashlib.md5(text.encode('utf-8')).hexdigest()}.mp3"
 
 def process_entries(entries):
     """Process vocabulary entries and update database."""
@@ -80,7 +86,10 @@ def process_entries(entries):
             invalid_entries.append(entry)
             continue
 
-        # Create a new entry with audio fields
+        # Randomly select a voice for this entry
+        selected_voice = random.choice(FAVORITE_VOICES)
+
+        # Create a new entry with audio fields and voice_id
         new_entry = {
             'word': entry['word'],
             'part_of_speech': entry['part_of_speech'],
@@ -88,29 +97,40 @@ def process_entries(entries):
             'example_en': entry['example_en'],
             'example_th': entry['example_th'],
             'word_audio_file': '',
-            'sentence_audio_file': ''
+            'sentence_audio_file': '',
+            'voice_id': selected_voice
         }
 
         # Generate word audio (no pause)
         word_text = f"<speak>{new_entry['word']}</speak>"
-        word_audio_filename = get_audio_filename(new_entry['word'], new_entry['word'], 'word')
+        word_audio_filename = get_audio_filename(new_entry['word'], new_entry['word'], 'word', selected_voice)
         word_audio_path = os.path.join(AUDIO_DIR, word_audio_filename)
 
         # Generate sentence audio (word + sentence, no pauses)
         sentence_text = f"<speak>{new_entry['word']}. {new_entry['example_en']}</speak>"
-        sentence_audio_filename = get_audio_filename(new_entry['word'], f"{new_entry['word']}. {new_entry['example_en']}", 'sentence')
+        sentence_audio_filename = get_audio_filename(new_entry['word'], f"{new_entry['word']}. {new_entry['example_en']}", 'sentence', selected_voice)
         sentence_audio_path = os.path.join(AUDIO_DIR, sentence_audio_filename)
 
-        # Skip if both audio files exist
-        if os.path.exists(word_audio_path) and os.path.exists(sentence_audio_path):
+        # Check if entry exists in database and has the same voice
+        word_lower = new_entry['word'].lower()
+        first_char = word_lower[0] if word_lower[0].isalpha() else 'other'
+        existing_entry = None
+        if first_char in vocab_db and vocab_db[first_char]:
+            existing_entry = next((e for e in vocab_db[first_char] if e['word'].lower() == word_lower), None)
+
+        # Skip if audio files exist and voice matches
+        if (existing_entry and
+            existing_entry.get('voice_id') == selected_voice and
+            os.path.exists(word_audio_path) and
+            os.path.exists(sentence_audio_path)):
             new_entry['word_audio_file'] = word_audio_filename
             new_entry['sentence_audio_file'] = sentence_audio_filename
             valid_entries.append(new_entry)
             continue
 
         # Generate audio files
-        word_success = generate_audio(word_text, word_audio_path, use_ssml=True) if not os.path.exists(word_audio_path) else True
-        sentence_success = generate_audio(sentence_text, sentence_audio_path, use_ssml=True) if not os.path.exists(sentence_audio_path) else True
+        word_success = generate_audio(word_text, word_audio_path, selected_voice, use_ssml=True) if not os.path.exists(word_audio_path) else True
+        sentence_success = generate_audio(sentence_text, sentence_audio_path, selected_voice, use_ssml=True) if not os.path.exists(sentence_audio_path) else True
 
         if word_success and sentence_success:
             new_entry['word_audio_file'] = word_audio_filename
@@ -124,9 +144,10 @@ def process_entries(entries):
         word = entry['word'].lower()
         first_char = word[0] if word[0].isalpha() else 'other'
         vocab_db.setdefault(first_char, [])
-        if not any(e['word'].lower() == word for e in vocab_db[first_char]):
-            vocab_db[first_char].append(entry)
-            vocab_db[first_char] = sorted(vocab_db[first_char], key=lambda x: x['word'].lower())
+        # Remove existing entry if it exists
+        vocab_db[first_char] = [e for e in vocab_db[first_char] if e['word'].lower() != word]
+        vocab_db[first_char].append(entry)
+        vocab_db[first_char] = sorted(vocab_db[first_char], key=lambda x: x['word'].lower())
 
     save_yaml(vocab_db, VOCAB_DB_PATH)
     return valid_entries, invalid_entries
