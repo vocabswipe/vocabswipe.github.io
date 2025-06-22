@@ -1,4 +1,748 @@
-a: []
+a:
+- word: a-bomb
+  part_of_speech: noun
+  definition_th: ระเบิดปรมาณู
+  example_en: The a-bomb was devastating.
+  example_th: ระเบิดปรมาณูนั้นร้ายแรง
+  word_audio_file: a-bomb_word+Kendra+5c3174da3086a09828cdd712c7187263.mp3
+  sentence_audio_file: a-bomb_sentence+Kendra+8700f70628c4fae8e0804908666befea.mp3
+  voice_id: Kendra
+- word: aback
+  part_of_speech: adverb
+  definition_th: โดยไม่คาดคิด
+  example_en: She was taken aback by the news.
+  example_th: เธอรู้สึกตกใจโดยไม่คาดคิดจากข่าวนั้น
+  word_audio_file: aback_word+Matthew+f740458218f30210f39a389b50287b07.mp3
+  sentence_audio_file: aback_sentence+Matthew+93b11f7cb909e06513fc2d41b3e65f28.mp3
+  voice_id: Matthew
+- word: abacus
+  part_of_speech: noun
+  definition_th: ลูกคิด
+  example_en: He used an abacus to calculate.
+  example_th: เขาใช้ลูกคิดในการคำนวณ
+  word_audio_file: abacus_word+Matthew+13f27b1072bbf7719d0d267b083ff91c.mp3
+  sentence_audio_file: abacus_sentence+Matthew+5d8d911184893bd82b85830a4918b7ae.mp3
+  voice_id: Matthew
+- word: abalone
+  part_of_speech: noun
+  definition_th: หอยเป๋าฮื้อ
+  example_en: They ate abalone for dinner.
+  example_th: พวกเขากินหอยเป๋าฮื้อเป็นอาหารเย็น
+  word_audio_file: abalone_word+Stephen+6e1ba55b046f7d62bbd6dc33b63d5ec7.mp3
+  sentence_audio_file: abalone_sentence+Stephen+93e2bcdfbd9ca7014ad4a4e56a9770fd.mp3
+  voice_id: Stephen
+- word: abandon
+  part_of_speech: verb
+  definition_th: ละทิ้ง
+  example_en: They had to abandon the car.
+  example_th: พวกเขาต้องละทิ้งรถยนต์
+  word_audio_file: abandon_word+Kendra+b0bbb2218aa3c78802a8ed8c78aa2cae.mp3
+  sentence_audio_file: abandon_sentence+Kendra+6e839a7321d8764b2548355d2ce11ab6.mp3
+  voice_id: Kendra
+- word: abandoned
+  part_of_speech: adjective
+  definition_th: ถูกทิ้งร้าง
+  example_en: The house was abandoned.
+  example_th: บ้านนั้นถูกทิ้งร้าง
+  word_audio_file: abandoned_word+Kendra+81f3d2a447d9c5579b446ff048827de1.mp3
+  sentence_audio_file: abandoned_sentence+Kendra+c7560a3459c8379fa5b45de3f97959cd.mp3
+  voice_id: Kendra
+- word: abandonment
+  part_of_speech: noun
+  definition_th: การละทิ้ง
+  example_en: The abandonment of the project was sad.
+  example_th: การละทิ้งโครงการนั้นน่าเศร้า
+  word_audio_file: abandonment_word+Matthew+cec281b90d30099b86d3101272dcd734.mp3
+  sentence_audio_file: abandonment_sentence+Matthew+1149cb2237cfb23e90950bce1c89124f.mp3
+  voice_id: Matthew
+- word: abashed
+  part_of_speech: adjective
+  definition_th: อาย
+  example_en: He felt abashed after the mistake.
+  example_th: เขารู้สึกอายหลังจากทำผิด
+  word_audio_file: abashed_word+Joey+bfab2bf03630d4dac61f44c5418155aa.mp3
+  sentence_audio_file: abashed_sentence+Joey+803abfe42d25b54807e89a41997559de.mp3
+  voice_id: Joey
+- word: abate
+  part_of_speech: verb
+  definition_th: ลดลง
+  example_en: The storm began to abate.
+  example_th: พายุเริ่มลดลง
+  word_audio_file: abate_word+Joey+0cd2269e449dec70464bd16e373fcfe5.mp3
+  sentence_audio_file: abate_sentence+Joey+b7e69a9efb51afdf53f683e6f878adeb.mp3
+  voice_id: Joey
+- word: abatement
+  part_of_speech: noun
+  definition_th: การลดลง
+  example_en: There was an abatement in noise.
+  example_th: มีการลดลงของเสียงรบกวน
+  word_audio_file: abatement_word+Stephen+906c190094d7e608e0fdb3bff7a65152.mp3
+  sentence_audio_file: abatement_sentence+Stephen+dfc87916a2d538c74626a9af3007bb17.mp3
+  voice_id: Stephen
+- word: abattoir
+  part_of_speech: noun
+  definition_th: โรงฆ่าสัตว์
+  example_en: The meat came from an abattoir.
+  example_th: เนื้อมาจากโรงฆ่าสัตว์
+  word_audio_file: abattoir_word+Matthew+e587a347a4e9f72368964df31d91d53d.mp3
+  sentence_audio_file: abattoir_sentence+Matthew+d28ee581a3000c9bee2941249424941a.mp3
+  voice_id: Matthew
+- word: abbess
+  part_of_speech: noun
+  definition_th: แม่ชีใหญ่
+  example_en: The abbess led the convent.
+  example_th: แม่ชีใหญ่เป็นผู้นำสำนักชี
+  word_audio_file: abbess_word+Joanna+a1d81391bea49fe9e0c24d72478d14ee.mp3
+  sentence_audio_file: abbess_sentence+Joanna+1ae09e37bbcecdf976e6cca0d252dd26.mp3
+  voice_id: Joanna
+- word: abbey
+  part_of_speech: noun
+  definition_th: วัดใหญ่
+  example_en: They visited an ancient abbey.
+  example_th: พวกเขาไปเยือนวัดใหญ่โบราณ
+  word_audio_file: abbey_word+Stephen+ab3358313efb03210a1babfb372246f1.mp3
+  sentence_audio_file: abbey_sentence+Stephen+161a1756e647ba1c9f44da7ab3e549d1.mp3
+  voice_id: Stephen
+- word: abbot
+  part_of_speech: noun
+  definition_th: เจ้าอาวาส
+  example_en: The abbot blessed the visitors.
+  example_th: เจ้าอาวาสอวยพรผู้มาเยือน
+  word_audio_file: abbot_word+Joey+8b2fd85fa6bec435e3bc0c92e49e09f7.mp3
+  sentence_audio_file: abbot_sentence+Joey+eb9da7086002568932d815bab3348b88.mp3
+  voice_id: Joey
+- word: abbreviate
+  part_of_speech: verb
+  definition_th: ย่อ
+  example_en: They abbreviate the name to USA.
+  example_th: พวกเขาย่อชื่อเป็นสหรัฐอเมริกา
+  word_audio_file: abbreviate_word+Joanna+a2be6c9a39d7b8ca11a8148e4b9ab344.mp3
+  sentence_audio_file: abbreviate_sentence+Joanna+af54f1896e95667227e7bd9aa6b0f7a1.mp3
+  voice_id: Joanna
+- word: abbreviation
+  part_of_speech: noun
+  definition_th: คำย่อ
+  example_en: Dr. is an abbreviation.
+  example_th: ดร. เป็นคำย่อ
+  word_audio_file: abbreviation_word+Matthew+c70297aef4aaaf33412a0707587f38e4.mp3
+  sentence_audio_file: abbreviation_sentence+Matthew+9e040fd840cd825f4d50d9301dfe40de.mp3
+  voice_id: Matthew
+- word: abdicate
+  part_of_speech: verb
+  definition_th: สละราชสมบัติ
+  example_en: The king chose to abdicate.
+  example_th: กษัตริย์เลือกที่จะสละราชสมบัติ
+  word_audio_file: abdicate_word+Stephen+3b1bbc2715b167e7d6b4e617800f8046.mp3
+  sentence_audio_file: abdicate_sentence+Stephen+60de1aae6c81710b94aed4aa84d59f3d.mp3
+  voice_id: Stephen
+- word: abdomen
+  part_of_speech: noun
+  definition_th: ท้อง
+  example_en: He felt pain in his abdomen.
+  example_th: เขารู้สึกเจ็บที่ท้อง
+  word_audio_file: abdomen_word+Stephen+d942b0c27fc71fcc95b77d658e5ac0af.mp3
+  sentence_audio_file: abdomen_sentence+Stephen+66aba5c7808aef0c4f46c60551d26fe7.mp3
+  voice_id: Stephen
+- word: abdominal
+  part_of_speech: adjective
+  definition_th: เกี่ยวกับท้อง
+  example_en: She did abdominal exercises.
+  example_th: เธอทำการออกกำลังกายเกี่ยวกับท้อง
+  word_audio_file: abdominal_word+Joey+c8fd036c669451d116e9b428515a44d4.mp3
+  sentence_audio_file: abdominal_sentence+Joey+a385b2088e7d26db8fa01150ad611ee1.mp3
+  voice_id: Joey
+- word: abdominals
+  part_of_speech: noun
+  definition_th: กล้ามเนื้อท้อง
+  example_en: He trained his abdominals daily.
+  example_th: เขาฝึกกล้ามเนื้อท้องทุกวัน
+  word_audio_file: abdominals_word+Stephen+8c551d7e31484ba1ddd33600569ecc5d.mp3
+  sentence_audio_file: abdominals_sentence+Stephen+8a17d215218dc29af1050c88f4ebfdf9.mp3
+  voice_id: Stephen
+- word: abduct
+  part_of_speech: verb
+  definition_th: ลักพาตัว
+  example_en: The child was abducted.
+  example_th: เด็กถูก ลักพาตัว
+  word_audio_file: abduct_word+Joanna+eec3e0a57ee490c261d7077033589a31.mp3
+  sentence_audio_file: abduct_sentence+Joanna+a1a0532b35db1987cd1f7271b4ff1d2c.mp3
+  voice_id: Joanna
+- word: aberrant
+  part_of_speech: adjective
+  definition_th: ผิดปกติ
+  example_en: His behavior was aberrant.
+  example_th: พฤติกรรมของเขาผิดปกติ
+  word_audio_file: aberrant_word+Matthew+bd4124f03b2746a4b7db2a4d20474b4d.mp3
+  sentence_audio_file: aberrant_sentence+Matthew+2491a4ebdbf1c8af09bcfe59d9f488e4.mp3
+  voice_id: Matthew
+- word: aberration
+  part_of_speech: noun
+  definition_th: ความผิดปกติ
+  example_en: The result was an aberration.
+  example_th: ผลลัพธ์นั้นเป็นความผิดปกติ
+  word_audio_file: aberration_word+Matthew+624976c9d720e069aba792427e17cc13.mp3
+  sentence_audio_file: aberration_sentence+Matthew+f687e891eda14fc8041990a9bfd16ab2.mp3
+  voice_id: Matthew
+- word: abet
+  part_of_speech: verb
+  definition_th: ช่วยเหลือ (ในทางผิด)
+  example_en: She helped abet the crime.
+  example_th: เธอช่วยเหลือในการก่ออาชญากรรม
+  word_audio_file: abet_word+Matthew+7962a6d175a88780941846aff40185ed.mp3
+  sentence_audio_file: abet_sentence+Matthew+da584e16eca118c84df0e2345ff7bb51.mp3
+  voice_id: Matthew
+- word: abeyance
+  part_of_speech: noun
+  definition_th: การพักไว้
+  example_en: The plan was in abeyance.
+  example_th: แผนนั้นถูกพักไว้
+  word_audio_file: abeyance_word+Joey+854df6faf461ee67d63c9d52eb3d8385.mp3
+  sentence_audio_file: abeyance_sentence+Joey+5ef8badc44430e80ada17eaa32444a45.mp3
+  voice_id: Joey
+- word: abhor
+  part_of_speech: verb
+  definition_th: เกลียด
+  example_en: He abhors violence.
+  example_th: เขาเกลียดความรุนแรง
+  word_audio_file: abhor_word+Stephen+4345dd773256d0f018bbcb77790331e4.mp3
+  sentence_audio_file: abhor_sentence+Stephen+139d59aa4151213a67ae08b291c226de.mp3
+  voice_id: Stephen
+- word: abhorrence
+  part_of_speech: noun
+  definition_th: ความเกลียดชัง
+  example_en: She felt abhorrence for cruelty.
+  example_th: เธอรู้สึกเกลียดชังต่อความโหดร้าย
+  word_audio_file: abhorrence_word+Kendra+11e3da817368036eaf8519189bb3056e.mp3
+  sentence_audio_file: abhorrence_sentence+Kendra+442283be6c1c5f797391aca2cc0758ef.mp3
+  voice_id: Kendra
+- word: abhorrent
+  part_of_speech: adjective
+  definition_th: น่ารังเกียจ
+  example_en: The act was abhorrent.
+  example_th: การกระทำนั้นน่ารังเกียจ
+  word_audio_file: abhorrent_word+Kendra+087461cf18b36e34888a97d283deb67a.mp3
+  sentence_audio_file: abhorrent_sentence+Kendra+f9ea81f8f8d058027f84b5b3f473171e.mp3
+  voice_id: Kendra
+- word: abide
+  part_of_speech: verb
+  definition_th: ทน
+  example_en: She couldn’t abide the noise.
+  example_th: เธอทนเสียงดังไม่ได้
+  word_audio_file: abide_word+Matthew+a757906a6646359fba718fc0b15c3e1f.mp3
+  sentence_audio_file: abide_sentence+Matthew+76b5e764d44858e95e0135e3be13d902.mp3
+  voice_id: Matthew
+- word: abide by
+  part_of_speech: verb
+  definition_th: ปฏิบัติตาม
+  example_en: He will abide by the rules.
+  example_th: เขาจะปฏิบัติตามกฎ
+  word_audio_file: abide_by_word+Matthew+33edc6c062d79f51354c060a6b0e4e8e.mp3
+  sentence_audio_file: abide_by_sentence+Matthew+2bb82adebc93fa7cd627fe7ca29f0d75.mp3
+  voice_id: Matthew
+- word: abiding
+  part_of_speech: adjective
+  definition_th: ยั่งยืน
+  example_en: She has an abiding love for music.
+  example_th: เธอมีความรักที่ยั่งยืนต่อดนตรี
+  word_audio_file: abiding_word+Stephen+12f9c46a2f99fa00a451f9d9db9d511c.mp3
+  sentence_audio_file: abiding_sentence+Stephen+40f22e6561786911dc27d0b6f781b037.mp3
+  voice_id: Stephen
+- word: ability
+  part_of_speech: noun
+  definition_th: ความสามารถ
+  example_en: She has great ability in math.
+  example_th: เธอมีความสามารถดีในคณิตศาสตร์
+  word_audio_file: ability_word+Matthew+424dbe533d5a5b0904ee6f79262caa5c.mp3
+  sentence_audio_file: ability_sentence+Matthew+153842f72cf740b79c8a6b6a5e7fc441.mp3
+  voice_id: Matthew
+- word: abject
+  part_of_speech: adjective
+  definition_th: น่าสังเวช
+  example_en: They lived in abject poverty.
+  example_th: พวกเขาอยู่ในความยากจนที่น่าสังเวช
+  word_audio_file: abject_word+Joanna+cc337b00dd2de6adbc7acb77e78d44c4.mp3
+  sentence_audio_file: abject_sentence+Joanna+3539bb882dfcf55248477f54e225e9b1.mp3
+  voice_id: Joanna
+- word: abjure
+  part_of_speech: verb
+  definition_th: สละ
+  example_en: He abjured his old beliefs.
+  example_th: เขาสละความเชื่อเก่า
+  word_audio_file: abjure_word+Joey+dfff8fae917a84a0e5bd5423d37d1a2a.mp3
+  sentence_audio_file: abjure_sentence+Joey+ad9dcc29594a62576e2bc4a5a12a3572.mp3
+  voice_id: Joey
+- word: ablaze
+  part_of_speech: adjective
+  definition_th: ลุกโชน
+  example_en: The house was ablaze.
+  example_th: บ้านนั้นลุกโชน
+  word_audio_file: ablaze_word+Kendra+8bd7e3ba6809f38ce78c0fc6abfd6343.mp3
+  sentence_audio_file: ablaze_sentence+Kendra+53c10d82dc9b965ac707eeb0dab69c2e.mp3
+  voice_id: Kendra
+- word: able
+  part_of_speech: adjective
+  definition_th: สามารถ
+  example_en: She is able to sing well.
+  example_th: เธอสามารถร้องเพลงได้ดี
+  word_audio_file: able_word+Kendra+c0db7d4e3cbad2b18c767c659f448a11.mp3
+  sentence_audio_file: able_sentence+Kendra+10dd78c56982573b083569398cd072b6.mp3
+  voice_id: Kendra
+- word: able-bodied
+  part_of_speech: adjective
+  definition_th: ร่างกายสมบูรณ์
+  example_en: He is an able-bodied worker.
+  example_th: เขาเป็นผู้ทำงานที่มีร่างกายสมบูรณ์
+  word_audio_file: able-bodied_word+Stephen+48449e7b409f2a0ee6ab365f0fc0e2bb.mp3
+  sentence_audio_file: able-bodied_sentence+Stephen+62a2e7817700de05885baab89b27002e.mp3
+  voice_id: Stephen
+- word: ablutions
+  part_of_speech: noun
+  definition_th: การชำระร่างกาย
+  example_en: He performed his morning ablutions.
+  example_th: เขาทำการชำระร่างกายในตอนเช้า
+  word_audio_file: ablutions_word+Kendra+483ddd1c948b4bec978da58c6902af12.mp3
+  sentence_audio_file: ablutions_sentence+Kendra+4eaf63e7695c79c2705d748a5fbfd613.mp3
+  voice_id: Kendra
+- word: ably
+  part_of_speech: adverb
+  definition_th: อย่างชำนาญ
+  example_en: She led the team ably.
+  example_th: เธอนำทีมอย่างชำนาญ
+  word_audio_file: ably_word+Matthew+3bd7ba8d52736ba034ee963001213361.mp3
+  sentence_audio_file: ably_sentence+Matthew+300e6f851686fffc17147d41af3bf93f.mp3
+  voice_id: Matthew
+- word: abnormal
+  part_of_speech: adjective
+  definition_th: ผิดปกติ
+  example_en: The test showed abnormal results.
+  example_th: การทดสอบแสดงผลลัพธ์ที่ผิดปกติ
+  word_audio_file: abnormal_word+Joey+79e3d51a81199a960a370f6e4f0ba40c.mp3
+  sentence_audio_file: abnormal_sentence+Joey+97c286755c8fc2ddf5b5304015f7b217.mp3
+  voice_id: Joey
+- word: abnormality
+  part_of_speech: noun
+  definition_th: ความผิดปกติ
+  example_en: The doctor found an abnormality.
+  example_th: หมอพบความผิดปกติ
+  word_audio_file: abnormality_word+Joanna+64d280f7c98f40317dbfe055f2949eb2.mp3
+  sentence_audio_file: abnormality_sentence+Joanna+3fd761c15a19312ec2a6e17f01df3564.mp3
+  voice_id: Joanna
+- word: abnormally
+  part_of_speech: adverb
+  definition_th: อย่างผิดปกติ
+  example_en: The plant grew abnormally fast.
+  example_th: พืชนั้นเติบโตอย่างผิดปกติเร็ว
+  word_audio_file: abnormally_word+Joanna+4f4250824160765a0687bb005cf55562.mp3
+  sentence_audio_file: abnormally_sentence+Joanna+f7ee8f02cb16cda9171458032882cbc1.mp3
+  voice_id: Joanna
+- word: aboard
+  part_of_speech: preposition
+  definition_th: บนยานพาหนะ
+  example_en: They went aboard the ship.
+  example_th: พวกเขาขึ้นไปบนเรือ
+  word_audio_file: aboard_word+Joanna+4347e4d8624b1b2f84d9f8504706a6e1.mp3
+  sentence_audio_file: aboard_sentence+Joanna+7c4be30483cb4cc78dc7c8ebcf6a1a95.mp3
+  voice_id: Joanna
+- word: abode
+  part_of_speech: noun
+  definition_th: ที่อยู่อาศัย
+  example_en: His abode was simple.
+  example_th: ที่อยู่อาศัยของเขาง่าย ๆ
+  word_audio_file: abode_word+Joanna+9d72aa552f6628526ab1e193d4aa0f2b.mp3
+  sentence_audio_file: abode_sentence+Joanna+31075564995e51a2cf8a9237ceb4d023.mp3
+  voice_id: Joanna
+- word: abolish
+  part_of_speech: verb
+  definition_th: ยกเลิก
+  example_en: They abolished the old law.
+  example_th: พวกเขายกเลิกกฎหมายเก่า
+  word_audio_file: abolish_word+Matthew+ef78574d7169116b9b0955828c16247f.mp3
+  sentence_audio_file: abolish_sentence+Matthew+81ec1aa6ce60e5423efb2de4a8ec31df.mp3
+  voice_id: Matthew
+- word: abolition
+  part_of_speech: noun
+  definition_th: การยกเลิก
+  example_en: Abolition ended slavery.
+  example_th: การยกเลิกทำให้การเป็นทาสสิ้นสุด
+  word_audio_file: abolition_word+Stephen+5fe14cb07b86dad3ca764c3dbc9e55c9.mp3
+  sentence_audio_file: abolition_sentence+Stephen+9f61a27bda6d1cbbf5232817afef0b69.mp3
+  voice_id: Stephen
+- word: abolitionist
+  part_of_speech: noun
+  definition_th: ผู้สนับสนุนการยกเลิก
+  example_en: She was an abolitionist.
+  example_th: เธอเป็นผู้สนับสนุนการยกเลิก
+  word_audio_file: abolitionist_word+Matthew+13c15f18125c7474c44179af6dbd0a27.mp3
+  sentence_audio_file: abolitionist_sentence+Matthew+fdedabb04d649c4fe3efc401695c5adb.mp3
+  voice_id: Matthew
+- word: abominable
+  part_of_speech: adjective
+  definition_th: น่าสะอิดสะเอียน
+  example_en: The smell was abominable.
+  example_th: กลิ่นนั้นน่าสะอิดสะเอียน
+  word_audio_file: abominable_word+Joey+a6fe9a6bf53d044baffd9335b47a22d7.mp3
+  sentence_audio_file: abominable_sentence+Joey+a754071d03bead0c10aa1b45f0894869.mp3
+  voice_id: Joey
+- word: abomination
+  part_of_speech: noun
+  definition_th: สิ่งที่น่ารังเกียจ
+  example_en: The crime was an abomination.
+  example_th: อาชญากรรมนั้นเป็นสิ่งที่น่ารังเกียจ
+  word_audio_file: abomination_word+Stephen+75c9753b02492863ea19ae472d988c60.mp3
+  sentence_audio_file: abomination_sentence+Stephen+af032b03a4849b704ab8d298d047888d.mp3
+  voice_id: Stephen
+- word: aboriginal
+  part_of_speech: adjective
+  definition_th: พื้นเมือง
+  example_en: They met aboriginal people.
+  example_th: พวกเขาพบคนพื้นเมือง
+  word_audio_file: aboriginal_word+Joanna+f671e3525053f2633e61d1a8c7ab30d0.mp3
+  sentence_audio_file: aboriginal_sentence+Joanna+4abfc3d028b42225cb49298f76e6534d.mp3
+  voice_id: Joanna
+- word: aborigines
+  part_of_speech: noun
+  definition_th: ชาวพื้นเมือง
+  example_en: The aborigines shared their culture.
+  example_th: ชาวพื้นเมืองแบ่งปันวัฒนธรรมของพวกเขา
+  word_audio_file: aborigines_word+Stephen+653e0ed7cd3912fcda85a42a6a107243.mp3
+  sentence_audio_file: aborigines_sentence+Stephen+d2b6fecde4a693aaa2369d37649fe221.mp3
+  voice_id: Stephen
+- word: abort
+  part_of_speech: verb
+  definition_th: ยุติ
+  example_en: They had to abort the mission.
+  example_th: พวกเขาต้องยุติภารกิจ
+  word_audio_file: abort_word+Joey+5bb94a1c12413a2e5d14deabab29f2aa.mp3
+  sentence_audio_file: abort_sentence+Joey+aae046910ab7f42359d82ff389fe9143.mp3
+  voice_id: Joey
+- word: abortion
+  part_of_speech: noun
+  definition_th: การทำแท้ง
+  example_en: She considered an abortion.
+  example_th: เธอพิจารณาการทำแท้ง
+  word_audio_file: abortion_word+Joanna+4808d65f5142ac87aebfcf37a629baf9.mp3
+  sentence_audio_file: abortion_sentence+Joanna+85cfd495a22c1f4460ff240e9053c776.mp3
+  voice_id: Joanna
+- word: abortionist
+  part_of_speech: noun
+  definition_th: ผู้ทำแท้ง
+  example_en: The abortionist performed the procedure.
+  example_th: ผู้ทำแท้งดำเนินการตามขั้นตอน
+  word_audio_file: abortionist_word+Stephen+076850c37b4000512becb63c1f2eed30.mp3
+  sentence_audio_file: abortionist_sentence+Stephen+c25820ab7028b65325435880163d58f0.mp3
+  voice_id: Stephen
+- word: abortive
+  part_of_speech: adjective
+  definition_th: ไม่สำเร็จ
+  example_en: The attempt was abortive.
+  example_th: ความพยายามนั้นไม่สำเร็จ
+  word_audio_file: abortive_word+Matthew+f11b697963ac5c7af4a95d79e2eb3db5.mp3
+  sentence_audio_file: abortive_sentence+Matthew+81671adc0f01df2d619f3c69873f58b8.mp3
+  voice_id: Matthew
+- word: abound
+  part_of_speech: verb
+  definition_th: มีมากมาย
+  example_en: Fish abound in the lake.
+  example_th: ปลามีมากมายในทะเลสาบ
+  word_audio_file: abound_word+Kendra+6f82b7849f362c4ff753d3b69f6e2544.mp3
+  sentence_audio_file: abound_sentence+Kendra+efbb9110c233f69fe8a76dd1d4a7814c.mp3
+  voice_id: Kendra
+- word: about
+  part_of_speech: preposition
+  definition_th: เกี่ยวกับ
+  example_en: The book is about history.
+  example_th: หนังสือเล่มนี้เกี่ยวกับประวัติศาสตร์
+  word_audio_file: about_word+Kendra+46b3931b9959c927df4fc65fdee94b07.mp3
+  sentence_audio_file: about_sentence+Kendra+15d1330901a77980f7d95132d5ed3585.mp3
+  voice_id: Kendra
+- word: about-face
+  part_of_speech: noun
+  definition_th: การเปลี่ยนทิศทาง
+  example_en: He did an about-face on the issue.
+  example_th: เขาเปลี่ยนทิศทางในประเด็นนั้น
+  word_audio_file: about-face_word+Joey+c19e21d0d807915ea3d2de2bb4a129d6.mp3
+  sentence_audio_file: about-face_sentence+Joey+1b3e684b2fa3bd837d766efc60290e62.mp3
+  voice_id: Joey
+- word: about-turn
+  part_of_speech: noun
+  definition_th: การหันหลังกลับ
+  example_en: The army made an about-turn.
+  example_th: กองทัพทำการหันหลังกลับ
+  word_audio_file: about-turn_word+Matthew+9404672eeb7651a5d1e4812f014e3fe8.mp3
+  sentence_audio_file: about-turn_sentence+Matthew+ef2cb1e8ead927c0f7a031db1f4d7dc3.mp3
+  voice_id: Matthew
+- word: above
+  part_of_speech: preposition
+  definition_th: เหนือ
+  example_en: The plane flew above the clouds.
+  example_th: เครื่องบินบินเหนือเมฆ
+  word_audio_file: above_word+Joey+55a9d6aa251e3c334db4ab4055a4a004.mp3
+  sentence_audio_file: above_sentence+Joey+cb7592f950016fd9e2786e7ce1efa18b.mp3
+  voice_id: Joey
+- word: aboveboard
+  part_of_speech: adjective
+  definition_th: ซื่อสัตย์
+  example_en: The deal was aboveboard.
+  example_th: ข้อตกลงนั้นซื่อสัตย์
+  word_audio_file: aboveboard_word+Stephen+ffd19ce26d32082c30f7dcbfa1b88784.mp3
+  sentence_audio_file: aboveboard_sentence+Stephen+20227991e67018bbf56c3762b16ceacd.mp3
+  voice_id: Stephen
+- word: abracadabra
+  part_of_speech: noun
+  definition_th: คำวิเศษ
+  example_en: He said abracadabra and vanished.
+  example_th: เขาพูดคำวิเศษและหายตัวไป
+  word_audio_file: abracadabra_word+Joanna+ec5287c45f0e70ec22d52e8bcbeeb640.mp3
+  sentence_audio_file: abracadabra_sentence+Joanna+1176fcb1913cccc9c0bb36291ebdbc10.mp3
+  voice_id: Joanna
+- word: abrade
+  part_of_speech: verb
+  definition_th: ขูด
+  example_en: The rope abraded his skin.
+  example_th: เชือกขูดผิวของเขา
+  word_audio_file: abrade_word+Matthew+bbe7821b4d9a6955a216d05558c3f530.mp3
+  sentence_audio_file: abrade_sentence+Matthew+25ffc1da5b066b2521dd881809713f5d.mp3
+  voice_id: Matthew
+- word: abrasion
+  part_of_speech: noun
+  definition_th: รอยขูด
+  example_en: She had an abrasion on her knee.
+  example_th: เธอมีรอยขูดที่เข่า
+  word_audio_file: abrasion_word+Matthew+ee47963265439407c1bddb3886ec8ad3.mp3
+  sentence_audio_file: abrasion_sentence+Matthew+7e7403a0f3679bde3429ac17eea989dd.mp3
+  voice_id: Matthew
+- word: abrasive
+  part_of_speech: adjective
+  definition_th: หยาบ
+  example_en: His tone was abrasive.
+  example_th: น้ำเสียงของเขาหยาบ
+  word_audio_file: abrasive_word+Joey+98dd2a77f081989a185cb652662eea41.mp3
+  sentence_audio_file: abrasive_sentence+Joey+17c56fcb9be0fbd6aedc703173b47bc8.mp3
+  voice_id: Joey
+- word: abreast
+  part_of_speech: adverb
+  definition_th: เคียงข้าง
+  example_en: They walked abreast.
+  example_th: พวกเขาเดินเคียงข้าง
+  word_audio_file: abreast_word+Joey+ebb6a1674c55d43d62b9fcbdbc2ec0e4.mp3
+  sentence_audio_file: abreast_sentence+Joey+cad9465c1d9b559ae59458ad211fecd3.mp3
+  voice_id: Joey
+- word: abridged
+  part_of_speech: adjective
+  definition_th: ย่อ
+  example_en: He read an abridged book.
+  example_th: เขาอ่านหนังสือที่ย่อ
+  word_audio_file: abridged_word+Matthew+47f00a3da9b4a6df1c48709a41fd43e5.mp3
+  sentence_audio_file: abridged_sentence+Matthew+6fbfbed49a81ae30d2920ac67708b453.mp3
+  voice_id: Matthew
+- word: abroad
+  part_of_speech: adverb
+  definition_th: ต่างประเทศ
+  example_en: She studied abroad.
+  example_th: เธอเรียนที่ต่างประเทศ
+  word_audio_file: abroad_word+Joey+6e7f0fc6c372403f6003b6513c1e7c6d.mp3
+  sentence_audio_file: abroad_sentence+Joey+6e12ec6088c25ff7565f8c18f165c477.mp3
+  voice_id: Joey
+- word: abrogate
+  part_of_speech: verb
+  definition_th: ยกเลิก
+  example_en: They abrogated the treaty.
+  example_th: พวกเขายกเลิกสนธิสัญญา
+  word_audio_file: abrogate_word+Kendra+69e92a90f9dd8a777cc7db6a8774575d.mp3
+  sentence_audio_file: abrogate_sentence+Kendra+de94729b4e48341241399d5d8504260c.mp3
+  voice_id: Kendra
+- word: abrupt
+  part_of_speech: adjective
+  definition_th: กะทันหัน
+  example_en: The meeting ended abrupt.
+  example_th: การประชุมจบลงอย่างกะทันหัน
+  word_audio_file: abrupt_word+Joey+3ac007024ea42490a2ba07312810e135.mp3
+  sentence_audio_file: abrupt_sentence+Joey+4facce4d487cfc7fee56c52c00dc620d.mp3
+  voice_id: Joey
+- word: abs
+  part_of_speech: noun
+  definition_th: กล้ามท้อง
+  example_en: He worked on his abs.
+  example_th: เขาออกกำลังกล้ามท้อง
+  word_audio_file: abs_word+Kendra+f9ac6b05beccb0fc5837b6a7fef4c1d3.mp3
+  sentence_audio_file: abs_sentence+Kendra+2ebe4d6266227b1a5aa39aa5fa9a60a3.mp3
+  voice_id: Kendra
+- word: abscess
+  part_of_speech: noun
+  definition_th: ฝี
+  example_en: The abscess needed treatment.
+  example_th: ฝีนั้นต้องรักษา
+  word_audio_file: abscess_word+Kendra+2afbd1f77f50d6871aceaaf079d4e4ee.mp3
+  sentence_audio_file: abscess_sentence+Kendra+e4e3e2a472f27a68f5afd12108f550c1.mp3
+  voice_id: Kendra
+- word: abscond
+  part_of_speech: verb
+  definition_th: หลบหนี
+  example_en: The thief absconded with money.
+  example_th: โจรหลบหนีพร้อมเงิน
+  word_audio_file: abscond_word+Joanna+96dbd0384be46fe8adc8b8d5d528c897.mp3
+  sentence_audio_file: abscond_sentence+Joanna+96529b26b70ad3d5ec16338ea3a704c2.mp3
+  voice_id: Joanna
+- word: abseil
+  part_of_speech: verb
+  definition_th: โรยตัว
+  example_en: They abseiled down the cliff.
+  example_th: พวกเขาโรยตัวลงจากหน้าผา
+  word_audio_file: abseil_word+Joanna+3864c4464a5e80137f78a931931418ef.mp3
+  sentence_audio_file: abseil_sentence+Joanna+0ba6aa8dc6646315676f61e267bdfd32.mp3
+  voice_id: Joanna
+- word: absence
+  part_of_speech: noun
+  definition_th: การขาด
+  example_en: His absence was noticed.
+  example_th: การขาดของเขาถูกสังเกต
+  word_audio_file: absence_word+Joey+351be24aa3154abeb916761294b6f8ad.mp3
+  sentence_audio_file: absence_sentence+Joey+feb36bdddfbfd0f764766cdc8858f7a8.mp3
+  voice_id: Joey
+- word: absent
+  part_of_speech: adjective
+  definition_th: ขาด
+  example_en: She was absent from work.
+  example_th: เธอขาดงาน
+  word_audio_file: absent_word+Stephen+e5671794bf87ebab2a0d5e0ded530e68.mp3
+  sentence_audio_file: absent_sentence+Stephen+1dce5eabd89c67c48aab29f74642c28c.mp3
+  voice_id: Stephen
+- word: absent-minded
+  part_of_speech: adjective
+  definition_th: ใจลอย
+  example_en: He is very absent-minded.
+  example_th: เขาใจลอยมาก
+  word_audio_file: absent-minded_word+Stephen+8f5a75f9c965b5dc43b8071b7d259f27.mp3
+  sentence_audio_file: absent-minded_sentence+Stephen+964098624b8bd6dbbdc9fffa61b4cfe8.mp3
+  voice_id: Stephen
+- word: absentee
+  part_of_speech: noun
+  definition_th: ผู้ที่ไม่อยู่
+  example_en: The absentee missed the vote.
+  example_th: ผู้ที่ไม่อยู่พลาดการลงคะแนน
+  word_audio_file: absentee_word+Joanna+afbbedf49ba232c2dad0403dcf17ed99.mp3
+  sentence_audio_file: absentee_sentence+Joanna+baa1bdfadc6de3e082df18e695d94a1e.mp3
+  voice_id: Joanna
+- word: absenteeism
+  part_of_speech: noun
+  definition_th: การขาดงานบ่อย
+  example_en: Absenteeism affected productivity.
+  example_th: การขาดงานบ่อยส่งผลต่อผลผลิต
+  word_audio_file: absenteeism_word+Kendra+76aef21d59a3e967a4a6fa8eae971e77.mp3
+  sentence_audio_file: absenteeism_sentence+Kendra+e3c013d8d2dcd3344db0c1cdceffc93d.mp3
+  voice_id: Kendra
+- word: absentia
+  part_of_speech: noun
+  definition_th: การไม่อยู่
+  example_en: He was tried in absentia.
+  example_th: เขาถูกตัดสินโดยไม่อยู่
+  word_audio_file: absentia_word+Kendra+2ab8d3149cb54efe8cf9412b0b4c29bb.mp3
+  sentence_audio_file: absentia_sentence+Kendra+3aeb7e88ca0e6cc97a1565bab59ff372.mp3
+  voice_id: Kendra
+- word: absinthe
+  part_of_speech: noun
+  definition_th: เหล้าสีเขียว
+  example_en: They sipped absinthe at the bar.
+  example_th: พวกเขาจิบเหล้าสีเขียวที่บาร์
+  word_audio_file: absinthe_word+Matthew+82f01f9aed38edbc47c0e06b6a0953f7.mp3
+  sentence_audio_file: absinthe_sentence+Matthew+28405d12a6895a9a8f5be2b1ca410f41.mp3
+  voice_id: Matthew
+- word: absolute
+  part_of_speech: adjective
+  definition_th: สมบูรณ์
+  example_en: She has absolute confidence.
+  example_th: เธอมีความมั่นใจอย่างสมบูรณ์
+  word_audio_file: absolute_word+Matthew+dc4d53aa0d117d8b189b36d161af4e96.mp3
+  sentence_audio_file: absolute_sentence+Matthew+bb8b328e590982f2e979ed94f7055174.mp3
+  voice_id: Matthew
+- word: absolute majority
+  part_of_speech: noun
+  definition_th: เสียงข้างมากสัมบูรณ์
+  example_en: They won an absolute majority.
+  example_th: พวกเขาได้เสียงข้างมากสัมบูรณ์
+  word_audio_file: absolute_majority_word+Matthew+4b6a7cf5aa456ef8573c3f13464c73d9.mp3
+  sentence_audio_file: absolute_majority_sentence+Matthew+bdd95d119bb0e8b9a9a65ee5050fe930.mp3
+  voice_id: Matthew
+- word: absolute zero
+  part_of_speech: noun
+  definition_th: ศูนย์สัมบูรณ์
+  example_en: Absolute zero is very cold.
+  example_th: ศุนย์สัมบูรณ์เย็นมาก
+  word_audio_file: absolute_zero_word+Kendra+55a2cf58ba8dc7b788bb5ad32f288530.mp3
+  sentence_audio_file: absolute_zero_sentence+Kendra+f0d77e65df2e136dc57b3ddf94a7dfa0.mp3
+  voice_id: Kendra
+- word: absolutely
+  part_of_speech: adverb
+  definition_th: อย่างแน่นอน
+  example_en: I absolutely agree with you.
+  example_th: ฉันเห็นด้วยกับคุณอย่างแน่นอน
+  word_audio_file: absolutely_word+Stephen+ed847449571e6ea5c068228c5e9efe3f.mp3
+  sentence_audio_file: absolutely_sentence+Stephen+71f4c06eb0e4ca20505a7de1ee54c635.mp3
+  voice_id: Stephen
+- word: absolution
+  part_of_speech: noun
+  definition_th: การอภัยบาป
+  example_en: He sought absolution.
+  example_th: เขาขอการอภัยบาป
+  word_audio_file: absolution_word+Joey+854b819e796f656947340d8110d13c31.mp3
+  sentence_audio_file: absolution_sentence+Joey+7d0ce88f182d2762f1ecb70e945f4ea9.mp3
+  voice_id: Joey
+- word: absolutism
+  part_of_speech: noun
+  definition_th: ระบอบสมบูรนัย
+  example_en: Absolutism ruled the kingdom.
+  example_th: ระบอบสมบูรณัยปกครองอาณาจักร
+  word_audio_file: absolutism_word+Kendra+4916e8eb302f52849c57f6f9c45fab77.mp3
+  sentence_audio_file: absolutism_sentence+Kendra+6ff20438f6d7c8c5b5d9f087bcd917c4.mp3
+  voice_id: Kendra
+- word: absolve
+  part_of_speech: verb
+  definition_th: ยกโทษ
+  example_en: She absolved him of blame.
+  example_th: เธอยกโทษให้เขา
+  word_audio_file: absolve_word+Joey+0836f37f53116f6f6b91b87143d02990.mp3
+  sentence_audio_file: absolve_sentence+Joey+01bb3f9b2e1a9f9479d54445452d4d2f.mp3
+  voice_id: Joey
+- word: absorb
+  part_of_speech: verb
+  definition_th: ดูดซับ
+  example_en: The cloth absorbed the water.
+  example_th: ผ้าดูดซับน้ำ
+  word_audio_file: absorb_word+Joey+5185afb632a22ee838a6ddbe11efe57e.mp3
+  sentence_audio_file: absorb_sentence+Joey+be40d6e0e6091febae5c852959a12984.mp3
+  voice_id: Joey
+- word: absorbed
+  part_of_speech: adjective
+  definition_th: จดจ่อ
+  example_en: She was absorbed in reading.
+  example_th: เธอดจ่อกับการอ่าน
+  word_audio_file: absorbed_word+Joanna+33baa9dca884c175e30aae8afef0fcf9.mp3
+  sentence_audio_file: absorbed_sentence+Joanna+7cf8ca8be7f95c3780d7189fd01763d6.mp3
+  voice_id: Joanna
+- word: absorbent
+  part_of_speech: adjective
+  definition_th: ดูดซับได้
+  example_en: The towel is absorbent.
+  example_th: ผ้าเช็ดตัวนั้นดูดซับได้
+  word_audio_file: absorbent_word+Joanna+a160307d1776758d362dd137d8e68af3.mp3
+  sentence_audio_file: absorbent_sentence+Joanna+f13e86f4c765d1f495a99e9625dc07bd.mp3
+  voice_id: Joanna
+- word: absorber
+  part_of_speech: noun
+  definition_th: สิ่งที่ดูดซับ
+  example_en: The car has a shock absorber.
+  example_th: รถมีสิ่งที่ดูดซับแรงกระแทก
+  word_audio_file: absorber_word+Matthew+795f069c46d0840fd21068676b809edc.mp3
+  sentence_audio_file: absorber_sentence+Matthew+10507caa76f67e5c8f388d83fc29a8dd.mp3
+  voice_id: Matthew
+- word: absorbing
+  part_of_speech: adjective
+  definition_th: น่าสนใจ
+  example_en: The movie was absorbing.
+  example_th: ภาพยนตร์นั้นน่าสนใจ
+  word_audio_file: absorbing_word+Kendra+cf8fafb9998f81c2acb2360f7121435e.mp3
+  sentence_audio_file: absorbing_sentence+Kendra+6a13af4242e2d6060ee8c27bc246d98a.mp3
+  voice_id: Kendra
 b: []
 c: []
 d: []
