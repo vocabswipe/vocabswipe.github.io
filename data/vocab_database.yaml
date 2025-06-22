@@ -1,4 +1,12 @@
 a:
+- word: a la carte
+  part_of_speech: adverb
+  definition_th: ตามเมนู
+  example_en: We ordered a la carte.
+  example_th: เราสั่งอาหารตามเมนู
+  word_audio_file: a_la_carte_word+Joanna+0a601c2970a16e5f87ca367d3dadf549.mp3
+  sentence_audio_file: a_la_carte_sentence+Joanna+013881777230b16af4afae8a109e5760.mp3
+  voice_id: Joanna
 - word: A-bomb
   part_of_speech: noun
   definition_th: ระเบิดปรมาณู
@@ -7,6 +15,22 @@ a:
   word_audio_file: a-bomb_word+Stephen+252ca784eca6b56c07124fa5aab82b98.mp3
   sentence_audio_file: a-bomb_sentence+Stephen+30bebd31142533b7c3919eb9e010feb4.mp3
   voice_id: Stephen
+- word: a-list
+  part_of_speech: noun
+  definition_th: รายชื่อคนสำคัญ
+  example_en: She’s on the A-list.
+  example_th: เธออยู่ในรายชื่อคนสำคัญ
+  word_audio_file: a-list_word+Joanna+2b2dcd3380f13829dd0cb95c556d740b.mp3
+  sentence_audio_file: a-list_sentence+Joanna+2f33d4e18f885777891481b3661b2168.mp3
+  voice_id: Joanna
+- word: a.m.
+  part_of_speech: abbreviation
+  definition_th: ก่อนเที่ยง
+  example_en: The meeting is at 9 a.m.
+  example_th: การประชุมอยู่ที่ 9 โมงเช้า
+  word_audio_file: a.m._word+Matthew+85a0ae0c49fe92b6718faec211d911c1.mp3
+  sentence_audio_file: a.m._sentence+Matthew+0acb017b68346591667fb1d7d8421c1f.mp3
+  voice_id: Matthew
 - word: aback
   part_of_speech: adverb
   definition_th: โดยไม่คาดคิด
@@ -4799,6 +4823,86 @@ a:
   word_audio_file: air_freshener_word+Joey+e80f9290d4767ae136c9c44e5a2c6ffc.mp3
   sentence_audio_file: air_freshener_sentence+Joey+41fb7f040a1caa21cf4c3d16b0b0087c.mp3
   voice_id: Joey
+- word: air miles
+  part_of_speech: noun
+  definition_th: ไมล์สะสม
+  example_en: He used air miles for a free ticket.
+  example_th: เขาใช้ไมล์สะสมเพื่อซื้อตั๋วฟรี
+  word_audio_file: air_miles_word+Joanna+a8e65b97769069776306e47e4bf0259d.mp3
+  sentence_audio_file: air_miles_sentence+Joanna+a9a85714c8e77342bf8a6288fa3a8b5e.mp3
+  voice_id: Joanna
+- word: air pistol
+  part_of_speech: noun
+  definition_th: ปืนลมพก
+  example_en: She practiced with an air pistol.
+  example_th: เธอฝึกยิงด้วยปืนลมพก
+  word_audio_file: air_pistol_word+Joey+24e3e4499127e1152c99084673b5dba2.mp3
+  sentence_audio_file: air_pistol_sentence+Joey+291897289a7caaf657a1f12504aea1ae.mp3
+  voice_id: Joey
+- word: air power
+  part_of_speech: noun
+  definition_th: พลังอากาศ
+  example_en: The country strengthened its air power.
+  example_th: ประเทศนั้นเสริมพลังอากาศ
+  word_audio_file: air_power_word+Joey+6e65c7637e2e8beafe9d25ee70e08f8e.mp3
+  sentence_audio_file: air_power_sentence+Joey+08424916f4d2ac1120b322a34bc3bb3c.mp3
+  voice_id: Joey
+- word: air rage
+  part_of_speech: noun
+  definition_th: ความโกรธบนเครื่องบิน
+  example_en: Air rage incidents are increasing.
+  example_th: เหตุการณ์ความโกรธบนเครื่องบินกำลังเพิ่มขึ้น
+  word_audio_file: air_rage_word+Kendra+48dcf40e38f8af699c56b9db27eed516.mp3
+  sentence_audio_file: air_rage_sentence+Kendra+147477afe95f07d14a7d8dc65bba95b3.mp3
+  voice_id: Kendra
+- word: air raid
+  part_of_speech: noun
+  definition_th: การโจมตีทางอากาศ
+  example_en: The city survived an air raid.
+  example_th: เมืองนั้นรอดจากการโจมตีทางอากาศ
+  word_audio_file: air_raid_word+Joanna+a7543d8711eee048459456f3c70ecc63.mp3
+  sentence_audio_file: air_raid_sentence+Joanna+60b0309924f8dcf3ed3072328a9395c5.mp3
+  voice_id: Joanna
+- word: air rifle
+  part_of_speech: noun
+  definition_th: ปืนลมยาว
+  example_en: He shot cans with an air rifle.
+  example_th: เขายิงกระป๋องด้วยปืนลมยาว
+  word_audio_file: air_rifle_word+Stephen+e81847bcce54bdb82eced5a7e4b2f876.mp3
+  sentence_audio_file: air_rifle_sentence+Stephen+ef9bbf987c866e5037299c6aed27f2c9.mp3
+  voice_id: Stephen
+- word: air terminal
+  part_of_speech: noun
+  definition_th: อาคารผู้โดยสาร
+  example_en: We waited at the air terminal.
+  example_th: เรารอที่อาคารผู้โดยสาร
+  word_audio_file: air_terminal_word+Stephen+8738ef43f80c121f4e0c6f2ede0298e6.mp3
+  sentence_audio_file: air_terminal_sentence+Stephen+026fe09295f20f09af5c2bca247bb051.mp3
+  voice_id: Stephen
+- word: air time
+  part_of_speech: noun
+  definition_th: เวลาออกอากาศ
+  example_en: The show got more air time.
+  example_th: รายการนี้ได้เวลาออกอากาศเพิ่ม
+  word_audio_file: air_time_word+Joey+d733fbdd6a6ffc29b6b483f7aeafad8b.mp3
+  sentence_audio_file: air_time_sentence+Joey+b9c37f296a673dd287fe3309f5ee09ca.mp3
+  voice_id: Joey
+- word: air traffic control
+  part_of_speech: noun
+  definition_th: การควบคุมจราจรทางอากาศ
+  example_en: Air traffic control guided the plane.
+  example_th: การควบคุมจราจรทางอากาศนำทางเครื่องบิน
+  word_audio_file: air_traffic_control_word+Stephen+111368869a05b2e96f9eded013d578bd.mp3
+  sentence_audio_file: air_traffic_control_sentence+Stephen+d70abcdb004135f72749ac551ce0bc24.mp3
+  voice_id: Stephen
+- word: air traffic controller
+  part_of_speech: noun
+  definition_th: ผู้ควบคุมจราจรทางอากาศ
+  example_en: The air traffic controller was busy.
+  example_th: ผู้ควบคุมจราจรทางอากาศยุ่งมาก
+  word_audio_file: air_traffic_controller_word+Joanna+7a169f834443347cfad9b2036f8deaef.mp3
+  sentence_audio_file: air_traffic_controller_sentence+Joanna+3bf9b7ff74bec950ba79590d0fc1eb89.mp3
+  voice_id: Joanna
 - word: air-conditioned
   part_of_speech: adjective
   definition_th: มีเครื่องปรับอากาศ
@@ -4823,6 +4927,14 @@ a:
   word_audio_file: air-cooled_word+Stephen+ff367361bb0e81a2b754fc5190ad6a49.mp3
   sentence_audio_file: air-cooled_sentence+Stephen+3f507ca910bad3589f4afdc644edb2f1.mp3
   voice_id: Stephen
+- word: air-to-air
+  part_of_speech: adjective
+  definition_th: อากาศสู่อากาศ
+  example_en: The jet fired an air-to-air missile.
+  example_th: เครื่องบินยิงขีปนาวุธอากาศสู่อากาศ
+  word_audio_file: air-to-air_word+Joey+d6751509b3c38e9720f2c2759c93e593.mp3
+  sentence_audio_file: air-to-air_sentence+Joey+6ff61283f6bcfdce7b332e6085a1f911.mp3
+  voice_id: Joey
 - word: airbag
   part_of_speech: noun
   definition_th: ถุงลมนิรภัย
@@ -4959,6 +5071,1686 @@ a:
   word_audio_file: airlift_word+Kendra+cb5a82154da55c1d60b207976322febe.mp3
   sentence_audio_file: airlift_sentence+Kendra+a8dc3e53111e6a79aa4a6a7af3f2bf11.mp3
   voice_id: Kendra
+- word: airline
+  part_of_speech: noun
+  definition_th: สายการบิน
+  example_en: The airline canceled the flight.
+  example_th: สายการบินยกเลิกเที่ยวบิน
+  word_audio_file: airline_word+Joey+6d2f2f94fa73ef5eb2bbae22b368290a.mp3
+  sentence_audio_file: airline_sentence+Joey+32b1a4f1c2a2eff2cdbc8e316836dfa4.mp3
+  voice_id: Joey
+- word: airliner
+  part_of_speech: noun
+  definition_th: เครื่องบินโดยสาร
+  example_en: The airliner landed safely.
+  example_th: เครื่องบินโดยสารลงจอดอย่างปลอดภัย
+  word_audio_file: airliner_word+Kendra+a495acff5657585ac2006d75fe79b5b9.mp3
+  sentence_audio_file: airliner_sentence+Kendra+fca7d176618204389f9049310cac5371.mp3
+  voice_id: Kendra
+- word: airlock
+  part_of_speech: noun
+  definition_th: ช่องล็อกอากาศ
+  example_en: The astronaut entered the airlock.
+  example_th: นักบินอวกาศเข้าสู่ช่องล็อกอากาศ
+  word_audio_file: airlock_word+Stephen+a014728ad80ad061acbed537a39289bb.mp3
+  sentence_audio_file: airlock_sentence+Stephen+a4ad12a25aaf0581f9961b716fd9f17f.mp3
+  voice_id: Stephen
+- word: airmail
+  part_of_speech: noun
+  definition_th: ไปรษณีย์อากาศ
+  example_en: She sent the letter by airmail.
+  example_th: เธอส่งจดหมายทางไปรษณีย์อากาศ
+  word_audio_file: airmail_word+Kendra+c784655672fdf93091749710f2e9428b.mp3
+  sentence_audio_file: airmail_sentence+Kendra+39cb801ab4cdc24683ff4ad61f44c2aa.mp3
+  voice_id: Kendra
+- word: airman
+  part_of_speech: noun
+  definition_th: นักบินทหาร
+  example_en: The airman flew the jet.
+  example_th: นักบินทหารขับเครื่องบินเจ็ท
+  word_audio_file: airman_word+Joanna+f258fae58d438a723ad13efc7ea97fbd.mp3
+  sentence_audio_file: airman_sentence+Joanna+d458cfd0772514673c904f6e1dd5452b.mp3
+  voice_id: Joanna
+- word: airplane
+  part_of_speech: noun
+  definition_th: เครื่องบิน
+  example_en: The airplane took off on time.
+  example_th: เครื่องบินออกตัวตรงเวลา
+  word_audio_file: airplane_word+Matthew+45ea37a8b034ece4d08639d18d913ad0.mp3
+  sentence_audio_file: airplane_sentence+Matthew+84967c6cd7db1481f711a98b09c67398.mp3
+  voice_id: Matthew
+- word: airplay
+  part_of_speech: noun
+  definition_th: การออกอากาศ
+  example_en: The song got a lot of airplay.
+  example_th: เพลงนี้ได้รับการออกอากาศมาก
+  word_audio_file: airplay_word+Joey+4b81dcdd7f8a7f9e959381503f192465.mp3
+  sentence_audio_file: airplay_sentence+Joey+13f691c0b39aa8355a2755dd16abd67e.mp3
+  voice_id: Joey
+- word: airport
+  part_of_speech: noun
+  definition_th: สนามบิน
+  example_en: We arrived at the airport early.
+  example_th: เรามาถึงสนามบิน早く
+  word_audio_file: airport_word+Matthew+4a776428d7409fc7091a8e2aaecbff48.mp3
+  sentence_audio_file: airport_sentence+Matthew+0eba1a4cb88e9f43992bcbd7e1e135f3.mp3
+  voice_id: Matthew
+- word: airport tax
+  part_of_speech: noun
+  definition_th: ภาษีสนามบิน
+  example_en: The airport tax was included in the ticket.
+  example_th: ภาษีสนามบินรวมอยู่ในตั๋ว
+  word_audio_file: airport_tax_word+Joey+da4f8b8bb18620a898dc9a020ba51fdc.mp3
+  sentence_audio_file: airport_tax_sentence+Joey+7cde716e8be3b65e9af297b9ad19d205.mp3
+  voice_id: Joey
+- word: airship
+  part_of_speech: noun
+  definition_th: เรือเหาะ
+  example_en: The airship floated above the festival.
+  example_th: เรือเหาะลอยอยู่เหนือเทศกาล
+  word_audio_file: airship_word+Matthew+745ad43bcc0d196ade6a81d1aa6ecd8d.mp3
+  sentence_audio_file: airship_sentence+Matthew+2364d76e09a37ccf7bb2d21c1e432987.mp3
+  voice_id: Matthew
+- word: airshow
+  part_of_speech: noun
+  definition_th: การแสดงทางอากาศ
+  example_en: The airshow featured stunt planes.
+  example_th: การแสดงทางอากาศมีเครื่องบินผาดโผน
+  word_audio_file: airshow_word+Kendra+f8b6a0e2ad72f455040a6255c2c35a34.mp3
+  sentence_audio_file: airshow_sentence+Kendra+25bdd9e43ae4b0988cd298b3da14670e.mp3
+  voice_id: Kendra
+- word: airsick
+  part_of_speech: adjective
+  definition_th: เมาเครื่องบิน
+  example_en: She felt airsick during the flight.
+  example_th: เธอรู้สึกเมาเครื่องบินระหว่างเที่ยวบิน
+  word_audio_file: airsick_word+Joey+0c0e0a5bf8763a08583236fe16680db7.mp3
+  sentence_audio_file: airsick_sentence+Joey+a6d1cda643aa50812037fb4820d58803.mp3
+  voice_id: Joey
+- word: airspace
+  part_of_speech: noun
+  definition_th: น่านฟ้า
+  example_en: The plane entered restricted airspace.
+  example_th: เครื่องบินเข้าสู่น่านฟ้าที่จำกัด
+  word_audio_file: airspace_word+Joanna+455604687f17dc466cb5491d3d9bceef.mp3
+  sentence_audio_file: airspace_sentence+Joanna+cafffbe9335d3fea5c49ec90057962b7.mp3
+  voice_id: Joanna
+- word: airspeed
+  part_of_speech: noun
+  definition_th: ความเร็วในอากาศ
+  example_en: The pilot checked the airspeed.
+  example_th: นักบินตรวจสอบความเร็วในอากาศ
+  word_audio_file: airspeed_word+Joey+ace543409ca191238b2ea049ba69490d.mp3
+  sentence_audio_file: airspeed_sentence+Joey+b5880f39fb8a012842d2fa039bcf5820.mp3
+  voice_id: Joey
+- word: airstrike
+  part_of_speech: noun
+  definition_th: การโจมตีทางอากาศ
+  example_en: The airstrike targeted the base.
+  example_th: การโจมตีทางอากาศมุ่งเป้าไปที่ฐาน
+  word_audio_file: airstrike_word+Matthew+f920d6c3ef8f15e84def1c06adf5efc8.mp3
+  sentence_audio_file: airstrike_sentence+Matthew+674b3f0b4c919e9822ba6a6d8214f991.mp3
+  voice_id: Matthew
+- word: airstrip
+  part_of_speech: noun
+  definition_th: ลานบิน
+  example_en: The plane landed on a small airstrip.
+  example_th: เครื่องบินลงจอดบนลานบินเล็ก
+  word_audio_file: airstrip_word+Matthew+f8a81edb5b707089abe2795bd80bc2f5.mp3
+  sentence_audio_file: airstrip_sentence+Matthew+458a8dec1b7453b981002b976c2d103f.mp3
+  voice_id: Matthew
+- word: airtight
+  part_of_speech: adjective
+  definition_th: ปิดสนิท
+  example_en: The container is airtight.
+  example_th: ภาชนะนี้ปิดสนิท
+  word_audio_file: airtight_word+Joanna+c4f1bc6a47db1ba43275f97fa3dc7827.mp3
+  sentence_audio_file: airtight_sentence+Joanna+3cd1f5747bfec50fbe196900f045bc37.mp3
+  voice_id: Joanna
+- word: airwaves
+  part_of_speech: noun
+  definition_th: คลื่นวิทยุ
+  example_en: The news spread over the airwaves.
+  example_th: ข่าวแพร่กระจายผ่านคลื่นวิทยุ
+  word_audio_file: airwaves_word+Joey+047901e3d0f35166b6e1aa46e5ade3bb.mp3
+  sentence_audio_file: airwaves_sentence+Joey+98e965026fcb51397d7286f07d8ed6a9.mp3
+  voice_id: Joey
+- word: airway
+  part_of_speech: noun
+  definition_th: ทางเดินหายใจ
+  example_en: The doctor cleared the airway.
+  example_th: หมอล้างทางเดินหายใจ
+  word_audio_file: airway_word+Kendra+2d9839729d0cd709f0091bf699e52a71.mp3
+  sentence_audio_file: airway_sentence+Kendra+ce4996b92a747d99e163403dfaacc1a8.mp3
+  voice_id: Kendra
+- word: airwoman
+  part_of_speech: noun
+  definition_th: นักบินหญิง
+  example_en: The airwoman flew the mission.
+  example_th: นักบินหญิงปฏิบัติภารกิจ
+  word_audio_file: airwoman_word+Stephen+7b2fa56472a14a1374278cad430351ea.mp3
+  sentence_audio_file: airwoman_sentence+Stephen+1b060dd5d33a45c1c39d2fc397e1dbb2.mp3
+  voice_id: Stephen
+- word: airworthy
+  part_of_speech: adjective
+  definition_th: เหมาะสมต่อการบิน
+  example_en: The plane was deemed airworthy.
+  example_th: เครื่องบินได้รับการพิจารณาว่าเหมาะสมต่อการบิน
+  word_audio_file: airworthy_word+Joanna+4088e98d4a1da046cdf3d6dd1369d01f.mp3
+  sentence_audio_file: airworthy_sentence+Joanna+f6d80fab1962a33952edd8845fb8486e.mp3
+  voice_id: Joanna
+- word: airy
+  part_of_speech: adjective
+  definition_th: โปร่งสบาย
+  example_en: The room feels airy.
+  example_th: ห้องนี้รู้สึกโปร่งสบาย
+  word_audio_file: airy_word+Matthew+7509db377c2cc3199b960287c4310eb9.mp3
+  sentence_audio_file: airy_sentence+Matthew+6d90cd6d079437417d698b36ad139106.mp3
+  voice_id: Matthew
+- word: aisle
+  part_of_speech: noun
+  definition_th: ทางเดิน
+  example_en: She walked down the aisle.
+  example_th: เธอเดินไปตามทางเดิน
+  word_audio_file: aisle_word+Matthew+beac3deb49b10f4710bcd0c2a417d82e.mp3
+  sentence_audio_file: aisle_sentence+Matthew+69ceead5b2b45290bdb10deb62d8eef6.mp3
+  voice_id: Matthew
+- word: ajar
+  part_of_speech: adjective
+  definition_th: แง้ม
+  example_en: The door was left ajar.
+  example_th: ประตูถูกทิ้งไว้แง้ม
+  word_audio_file: ajar_word+Stephen+9b2e0ec2ed3739f707d25743e46dede8.mp3
+  sentence_audio_file: ajar_sentence+Stephen+7631a24f9a128ce6336f4f77a7108c23.mp3
+  voice_id: Stephen
+- word: aka
+  part_of_speech: abbreviation
+  definition_th: หรือที่รู้จักในนาม
+  example_en: The singer, aka Star, performed.
+  example_th: นักร้อง หรือที่รู้จักในนามสตาร์ แสดง
+  word_audio_file: aka_word+Joey+6ac933301a3933c8a22ceebea7000326.mp3
+  sentence_audio_file: aka_sentence+Joey+1d77634bdac7a99507f585160f329f83.mp3
+  voice_id: Joey
+- word: akimbo
+  part_of_speech: adverb
+  definition_th: เท้าสะเอว
+  example_en: She stood with arms akimbo.
+  example_th: เธอยืนเท้าสะเอว
+  word_audio_file: akimbo_word+Joey+29e8c18008b1d2e0e7a7349f45fb8571.mp3
+  sentence_audio_file: akimbo_sentence+Joey+3d5dad2058a0371d79c75a81b5bbff3f.mp3
+  voice_id: Joey
+- word: akin
+  part_of_speech: adjective
+  definition_th: คล้ายกัน
+  example_en: Their ideas are akin.
+  example_th: ความคิดของพวกเขาคล้ายกัน
+  word_audio_file: akin_word+Joanna+ac2e5ffdc1dc113160bae9dfe1e02475.mp3
+  sentence_audio_file: akin_sentence+Joanna+1e889cf2d783dc2467e283cc30f99232.mp3
+  voice_id: Joanna
+- word: al dente
+  part_of_speech: adjective
+  definition_th: กรอบนิดหน่อย
+  example_en: The pasta was al dente.
+  example_th: พาสต้าคงความกรอบนิดหน่อย
+  word_audio_file: al_dente_word+Joey+1a7b4eb71ee929b8c3ac8d87d6eb2306.mp3
+  sentence_audio_file: al_dente_sentence+Joey+0cf7176320be110531c6e733a407123f.mp3
+  voice_id: Joey
+- word: alabaster
+  part_of_speech: noun
+  definition_th: หินยิปซัม
+  example_en: The statue was made of alabaster.
+  example_th: รูปปั้นทำจากหินยิปซัม
+  word_audio_file: alabaster_word+Joanna+c28798922e751ec35bf64ab82dea70c4.mp3
+  sentence_audio_file: alabaster_sentence+Joanna+640004ac398b4ba626164505005b54c0.mp3
+  voice_id: Joanna
+- word: alacrity
+  part_of_speech: noun
+  definition_th: ความกระตือรือร้น
+  example_en: He accepted with alacrity.
+  example_th: เขายอมรับด้วยความกระตือรือร้น
+  word_audio_file: alacrity_word+Kendra+c105d78468822239a36e7558e47d6dab.mp3
+  sentence_audio_file: alacrity_sentence+Kendra+be243328713f0df8c4ca581d3c1e90fb.mp3
+  voice_id: Kendra
+- word: alarm
+  part_of_speech: noun
+  definition_th: สัญญาณเตือน
+  example_en: The alarm woke her up.
+  example_th: สัญญาณเตือนปลุกเธอ
+  word_audio_file: alarm_word+Kendra+6486b4e98228b83d4b13d54febe5f170.mp3
+  sentence_audio_file: alarm_sentence+Kendra+d5e87a2f4f28bf90cb937e17959dce18.mp3
+  voice_id: Kendra
+- word: alarm clock
+  part_of_speech: noun
+  definition_th: นาฬิกาปลุก
+  example_en: The alarm clock rang at 6 a.m.
+  example_th: นาฬิกาปลุกดังตอน 6 โมงเช้า
+  word_audio_file: alarm_clock_word+Kendra+84237414768c8a8df7444f577769f582.mp3
+  sentence_audio_file: alarm_clock_sentence+Kendra+3619899bfef3e26f214f1ebc54f3d0f0.mp3
+  voice_id: Kendra
+- word: alarmed
+  part_of_speech: adjective
+  definition_th: ตื่นตระหนก
+  example_en: She looked alarmed.
+  example_th: เธอดูตื่นตระหนก
+  word_audio_file: alarmed_word+Joey+945a8edaa81e4fd08330369d98e91578.mp3
+  sentence_audio_file: alarmed_sentence+Joey+669d6e39f60ce63d3b0c9bf4d6a81b59.mp3
+  voice_id: Joey
+- word: alarming
+  part_of_speech: adjective
+  definition_th: น่าตกใจ
+  example_en: The news was alarming.
+  example_th: ข่าวนี้น่าตกใจ
+  word_audio_file: alarming_word+Joey+d703a2f077e6979bd9ae6a1b6815302e.mp3
+  sentence_audio_file: alarming_sentence+Joey+8338620369d1d618a9beb2a38e811c38.mp3
+  voice_id: Joey
+- word: alarmist
+  part_of_speech: noun
+  definition_th: ผู้ตื่นตระหนกเกินเหตุ
+  example_en: He’s an alarmist about climate change.
+  example_th: เขาเป็นผู้ตื่นตระหนกเกินเหตุเกี่ยวกับการเปลี่ยนแปลงสภาพอากาศ
+  word_audio_file: alarmist_word+Kendra+ab063aabc7b9f218b985e64d0cb78dfa.mp3
+  sentence_audio_file: alarmist_sentence+Kendra+8a465cee5622d7064ead2c8da04f6e80.mp3
+  voice_id: Kendra
+- word: alas
+  part_of_speech: interjection
+  definition_th: อนิจจา
+  example_en: Alas, we lost the game.
+  example_th: อนิจจา เราแพ้เกม
+  word_audio_file: alas_word+Joey+30fe61944e1cdd4b81145d87ae2de708.mp3
+  sentence_audio_file: alas_sentence+Joey+c88f64b0a2c3d5878570bd0c6e0cded9.mp3
+  voice_id: Joey
+- word: Albanian
+  part_of_speech: adjective
+  definition_th: ชาวแอลเบเนีย
+  example_en: She is Albanian.
+  example_th: เธอเป็นชาวแอลเบเนีย
+  word_audio_file: albanian_word+Kendra+a716b6a3e8cf5994165d64d712db61d8.mp3
+  sentence_audio_file: albanian_sentence+Kendra+db62ac78cf4a0c297fac055b45adf39f.mp3
+  voice_id: Kendra
+- word: albatross
+  part_of_speech: noun
+  definition_th: นกอัลบาทรอส
+  example_en: The albatross soared over the ocean.
+  example_th: นกอัลบาทรอสโบยบินเหนือมหาสมุทร
+  word_audio_file: albatross_word+Stephen+352ad5a293c7a1c38be28965ae5a1645.mp3
+  sentence_audio_file: albatross_sentence+Stephen+7872f5058cd22b89ae18c38a23f6fa2d.mp3
+  voice_id: Stephen
+- word: albeit
+  part_of_speech: conjunction
+  definition_th: ถึงแม้ว่า
+  example_en: He tried, albeit unsuccessfully.
+  example_th: เขาพยายาม ถึงแม้ว่าจะไม่สำเร็จ
+  word_audio_file: albeit_word+Joanna+6cba26e8a7756eda39f553bd457c2785.mp3
+  sentence_audio_file: albeit_sentence+Joanna+dfdfe8b66fc0cd119f69ead454b60ae2.mp3
+  voice_id: Joanna
+- word: albino
+  part_of_speech: noun
+  definition_th: เผือก
+  example_en: The albino rabbit was rare.
+  example_th: กระต่ายเผือกนั้นหายาก
+  word_audio_file: albino_word+Matthew+cbe7855c7afdb4a521ee4d1a63d89e89.mp3
+  sentence_audio_file: albino_sentence+Matthew+db57bd4ca5f983f13d85e4c303102191.mp3
+  voice_id: Matthew
+- word: album
+  part_of_speech: noun
+  definition_th: อัลบั้ม
+  example_en: She bought a new music album.
+  example_th: เธอซื้ออัลบั้มเพลงใหม่
+  word_audio_file: album_word+Kendra+a4b2d20f456833bcdac42e73edad64c0.mp3
+  sentence_audio_file: album_sentence+Kendra+edc45fb2d256a02302e63a32e18106bc.mp3
+  voice_id: Kendra
+- word: albumen
+  part_of_speech: noun
+  definition_th: ไข่ขาว
+  example_en: Albumen is used in cooking.
+  example_th: ไข่ขาวใช้ในการทำอาหาร
+  word_audio_file: albumen_word+Matthew+355108f7a639874ec4739b7ffb1f512e.mp3
+  sentence_audio_file: albumen_sentence+Matthew+8049e7c0fb99f9abaf5975cf4dead6f7.mp3
+  voice_id: Matthew
+- word: albumin
+  part_of_speech: noun
+  definition_th: อัลบูมิน
+  example_en: Albumin is a protein.
+  example_th: อัลบูมินเป็นโปรตีน
+  word_audio_file: albumin_word+Joey+dff6986f8f78e2906f19dc1071987493.mp3
+  sentence_audio_file: albumin_sentence+Joey+cbcf9a87fb3dae3f5033f41a73df4d26.mp3
+  voice_id: Joey
+- word: alchemical
+  part_of_speech: adjective
+  definition_th: เกี่ยวกับการเล่นแร่แปรธาตุ
+  example_en: He studied alchemical texts.
+  example_th: เขาศึกษาตำราการเล่นแร่แปรธาตุ
+  word_audio_file: alchemical_word+Stephen+540071c4440235ae48ab7039b69b4799.mp3
+  sentence_audio_file: alchemical_sentence+Stephen+eb809ff3a7bd84ffb3fd8b767f19d115.mp3
+  voice_id: Stephen
+- word: alchemist
+  part_of_speech: noun
+  definition_th: นักเล่นแร่แปรธาตุ
+  example_en: The alchemist sought gold.
+  example_th: นักเล่นแร่แปรธาตุแสวงหาทองคำ
+  word_audio_file: alchemist_word+Joey+132b133aafe31bcfae1d48e8c2ebbfbf.mp3
+  sentence_audio_file: alchemist_sentence+Joey+9c9a87772d605b159bea6d0c5a0719eb.mp3
+  voice_id: Joey
+- word: alchemy
+  part_of_speech: noun
+  definition_th: การเล่นแร่แปรธาตุ
+  example_en: Alchemy was practiced long ago.
+  example_th: การเล่นแร่แปรธาตุถูกปฏิบัติเมื่อนานมาแล้ว
+  word_audio_file: alchemy_word+Stephen+a6c674204c36eef8643c642e08de8635.mp3
+  sentence_audio_file: alchemy_sentence+Stephen+46d2e00cfc95c77ce34fb7dcb72a57c2.mp3
+  voice_id: Stephen
+- word: alcohol
+  part_of_speech: noun
+  definition_th: แอลกอฮอล์
+  example_en: He doesn’t drink alcohol.
+  example_th: เขาไม่ดื่มแอลกอฮอล์
+  word_audio_file: alcohol_word+Stephen+babf88f32d20f9e229a64f85adf79677.mp3
+  sentence_audio_file: alcohol_sentence+Stephen+1c65532821685016705afd6e02e64055.mp3
+  voice_id: Stephen
+- word: alcoholic
+  part_of_speech: adjective
+  definition_th: เกี่ยวกับแอลกอฮอล์
+  example_en: She avoided alcoholic drinks.
+  example_th: เธอหลีกเลี่ยงเครื่องดื่มแอลกอฮอล์
+  word_audio_file: alcoholic_word+Joanna+49c50ba2129b7730c3a9150d15ecf8c8.mp3
+  sentence_audio_file: alcoholic_sentence+Joanna+91d6ac96455018e01a0afea0abeac9c0.mp3
+  voice_id: Joanna
+- word: alcoholism
+  part_of_speech: noun
+  definition_th: โรคพิษสุรา
+  example_en: He sought help for alcoholism.
+  example_th: เขาแสวงหาความช่วยเหลือจากโรคพิษสุรา
+  word_audio_file: alcoholism_word+Kendra+200835bcb883fb722310617b07fd9a71.mp3
+  sentence_audio_file: alcoholism_sentence+Kendra+76905b02b5685bfe4d03dc0a240ed05d.mp3
+  voice_id: Kendra
+- word: alcopop
+  part_of_speech: noun
+  definition_th: เครื่องดื่มแอลกอฮอล์รสหวาน
+  example_en: Teenagers drank alcopops.
+  example_th: วัยรุ่นดื่มเครื่องดื่มแอลกอฮอล์รสหวาน
+  word_audio_file: alcopop_word+Joanna+459413994e9b6ad51e8bcef90b65269c.mp3
+  sentence_audio_file: alcopop_sentence+Joanna+21a21ab7a342cd44b02cee0dc242814b.mp3
+  voice_id: Joanna
+- word: alcove
+  part_of_speech: noun
+  definition_th: ซอกผนัง
+  example_en: The bed was in an alcove.
+  example_th: เตียงอยู่ในซอกผนัง
+  word_audio_file: alcove_word+Joanna+6f49eb2813cd4f3c46407ab90c258251.mp3
+  sentence_audio_file: alcove_sentence+Joanna+23d323b217e5b22caa0c2a29d889ff3e.mp3
+  voice_id: Joanna
+- word: alder
+  part_of_speech: noun
+  definition_th: ต้นอัลเดอร์
+  example_en: Alders grew by the river.
+  example_th: ต้นอัลเดอร์เติบโตริมแม่น้ำ
+  word_audio_file: alder_word+Joanna+a488b191f174e04d4f2374179643cb83.mp3
+  sentence_audio_file: alder_sentence+Joanna+48e8bf419b2086b97cc37dbd117a891b.mp3
+  voice_id: Joanna
+- word: alderman
+  part_of_speech: noun
+  definition_th: สมาชิกสภาเมือง
+  example_en: The alderman attended the meeting.
+  example_th: สมาชิกสภาเมืองเข้าร่วมประชุม
+  word_audio_file: alderman_word+Kendra+f27147cf6d5d782c71fd333bd33eb4e3.mp3
+  sentence_audio_file: alderman_sentence+Kendra+6e78892a66b6a8149141aee9bc6bd3f9.mp3
+  voice_id: Kendra
+- word: alderwoman
+  part_of_speech: noun
+  definition_th: สมาชิกสภาเมืองหญิง
+  example_en: The alderwoman proposed a law.
+  example_th: สมาชิกสภาเมืองหญิงเสนอกฎหมาย
+  word_audio_file: alderwoman_word+Joey+a0bf306b064151a665ddc336787a4090.mp3
+  sentence_audio_file: alderwoman_sentence+Joey+d8b9d5ba4df4166be61cd4c664ba54db.mp3
+  voice_id: Joey
+- word: ale
+  part_of_speech: noun
+  definition_th: เบียร์เอล
+  example_en: He ordered a pint of ale.
+  example_th: เขาสั่งเบียร์เอลหนึ่งไพน์
+  word_audio_file: ale_word+Joey+f7a3803365a55b197a3b43bc64aacc13.mp3
+  sentence_audio_file: ale_sentence+Joey+8e360038986f668d69d6b88978383d20.mp3
+  voice_id: Joey
+- word: alert
+  part_of_speech: adjective
+  definition_th: ตื่นตัว
+  example_en: The guard stayed alert.
+  example_th: ยามคงความตื่นตัว
+  word_audio_file: alert_word+Matthew+7ed21143076d0cca420653d4345baa2f.mp3
+  sentence_audio_file: alert_sentence+Matthew+0b12a1a67f2cdf565016cb93d0a298bb.mp3
+  voice_id: Matthew
+- word: alertness
+  part_of_speech: noun
+  definition_th: ความตื่นตัว
+  example_en: Her alertness saved them.
+  example_th: ความตื่นตัวของเธอช่วยพวกเขา
+  word_audio_file: alertness_word+Stephen+b1bfdef67652915cea5f7079ea74f029.mp3
+  sentence_audio_file: alertness_sentence+Stephen+ff8e63cdcf57836c2ffc5155c080a83e.mp3
+  voice_id: Stephen
+- word: alfalfa
+  part_of_speech: noun
+  definition_th: หญ้าอัลฟัลฟา
+  example_en: Farmers grew alfalfa for cattle.
+  example_th: เกษตรกรปลูกหญ้าอัลฟัลฟาให้วัว
+  word_audio_file: alfalfa_word+Joanna+99282e748905b82a6ad3d28ba65e220a.mp3
+  sentence_audio_file: alfalfa_sentence+Joanna+0cc82139c2df76f7d4e4af2eaa98b20a.mp3
+  voice_id: Joanna
+- word: alfresco
+  part_of_speech: adverb
+  definition_th: กลางแจ้ง
+  example_en: They dined alfresco.
+  example_th: พวกเขาทานอาหารกลางแจ้ง
+  word_audio_file: alfresco_word+Joanna+7d3303a4e8dcb9ed1e08f935a1f0a529.mp3
+  sentence_audio_file: alfresco_sentence+Joanna+79a51caa0cd9582c6f3ec5f29892dfa9.mp3
+  voice_id: Joanna
+- word: algae
+  part_of_speech: noun
+  definition_th: สาหร่าย
+  example_en: Algae grew in the pond.
+  example_th: สาหร่ายเติบโตในบ่อ
+  word_audio_file: algae_word+Joanna+4360ef4885ef72b644fb783634a7f958.mp3
+  sentence_audio_file: algae_sentence+Joanna+3025a3d200508ea2421cc17141379fba.mp3
+  voice_id: Joanna
+- word: algal
+  part_of_speech: adjective
+  definition_th: เกี่ยวกับสาหร่าย
+  example_en: The water had an algal bloom.
+  example_th: น้ำมีสาหร่ายบาน
+  word_audio_file: algal_word+Stephen+b480baeb3bcad871a30cb3a2c73614ab.mp3
+  sentence_audio_file: algal_sentence+Stephen+ffc46b065582d3ce2373c464429140e9.mp3
+  voice_id: Stephen
+- word: algebra
+  part_of_speech: noun
+  definition_th: พีชคณิต
+  example_en: She studied algebra in school.
+  example_th: เธอเรียนพีชคณิตในโรงเรียน
+  word_audio_file: algebra_word+Joey+384712ec65183407ac811fff2f4c4798.mp3
+  sentence_audio_file: algebra_sentence+Joey+0c543f5cda7fe029d9daf924db124065.mp3
+  voice_id: Joey
+- word: algebraic
+  part_of_speech: adjective
+  definition_th: เกี่ยวกับพีชคณิต
+  example_en: He solved an algebraic equation.
+  example_th: เขาแก้สมการพีชคณิต
+  word_audio_file: algebraic_word+Kendra+c7f6ad568392380a8f4b4cecbaccb64c.mp3
+  sentence_audio_file: algebraic_sentence+Kendra+1a010e3ab46b72fcf0df3733b38a765e.mp3
+  voice_id: Kendra
+- word: Algerian
+  part_of_speech: adjective
+  definition_th: ชาวแอลจีเรีย
+  example_en: The Algerian team won.
+  example_th: ทีมแอลจีเรียชนะ
+  word_audio_file: algerian_word+Matthew+45c0842e3235c3575ebf65dec63f4d2e.mp3
+  sentence_audio_file: algerian_sentence+Matthew+d464b7283dd99cb17eacf2b05a02bcec.mp3
+  voice_id: Matthew
+- word: algorithm
+  part_of_speech: noun
+  definition_th: อัลกอริทึม
+  example_en: The app uses an algorithm.
+  example_th: แอปใช้อัลกอริทึม
+  word_audio_file: algorithm_word+Joanna+ed469618898d75b149e5c7c4b6a1c415.mp3
+  sentence_audio_file: algorithm_sentence+Joanna+06dc1197ec393d26cd0cf6afcfd66afb.mp3
+  voice_id: Joanna
+- word: alias
+  part_of_speech: noun
+  definition_th: นามแฝง
+  example_en: He used an alias online.
+  example_th: เขาใช้นามแฝงออนไลน์
+  word_audio_file: alias_word+Kendra+724874d1be77f450a09b305fc1534afb.mp3
+  sentence_audio_file: alias_sentence+Kendra+f194e99f5cdfe4f68f5ec8c1bde53904.mp3
+  voice_id: Kendra
+- word: alibi
+  part_of_speech: noun
+  definition_th: ข้อแก้ตัว
+  example_en: He had a strong alibi.
+  example_th: เขามีข้อแก้ตัวที่แน่นหนา
+  word_audio_file: alibi_word+Kendra+9c4425ef1ba7aebb80922acb0f3aa463.mp3
+  sentence_audio_file: alibi_sentence+Kendra+ca554b251683736cfc8ed3b9b4d652f4.mp3
+  voice_id: Kendra
+- word: alien
+  part_of_speech: noun
+  definition_th: มนุษย์ต่างดาว
+  example_en: The movie was about aliens.
+  example_th: ภาพยนตร์เกี่ยวกับมนุษย์ต่างดาว
+  word_audio_file: alien_word+Joanna+273910799eacaacec06aba83c9d54906.mp3
+  sentence_audio_file: alien_sentence+Joanna+3d132435ec795e22150ef6b8ac449ea8.mp3
+  voice_id: Joanna
+- word: alienate
+  part_of_speech: verb
+  definition_th: ทำให้เหินห่าง
+  example_en: His behavior alienated friends.
+  example_th: พฤติกรรมของเขาทำให้เพื่อนเหินห่าง
+  word_audio_file: alienate_word+Joey+0e518234e8a1034b24fe0f2f437dfe20.mp3
+  sentence_audio_file: alienate_sentence+Joey+7400067a52dc6b264a623473692bc210.mp3
+  voice_id: Joey
+- word: alight
+  part_of_speech: verb
+  definition_th: ลงจาก
+  example_en: Passengers alighted from the bus.
+  example_th: ผู้โดยสารลงจากรถบัส
+  word_audio_file: alight_word+Matthew+7ffa0803febfd54c55b79fcf9f25031b.mp3
+  sentence_audio_file: alight_sentence+Matthew+56c4f267c34eff6645ecb5f3f119b208.mp3
+  voice_id: Matthew
+- word: align
+  part_of_speech: verb
+  definition_th: จัดแนว
+  example_en: Align the text to the left.
+  example_th: จัดแนวข้อความไปทางซ้าย
+  word_audio_file: align_word+Joey+f792d1afb0399dce47533bead9d71a8a.mp3
+  sentence_audio_file: align_sentence+Joey+07423cc2d9d5c42e88d8964deed966fd.mp3
+  voice_id: Joey
+- word: alignment
+  part_of_speech: noun
+  definition_th: การจัดแนว
+  example_en: The alignment was perfect.
+  example_th: การจัดแนวสมบูรณ์แบบ
+  word_audio_file: alignment_word+Stephen+5a159214b169da90d96590d47fff379e.mp3
+  sentence_audio_file: alignment_sentence+Stephen+2b0e0a0cbcde3debde14582d25d2058c.mp3
+  voice_id: Stephen
+- word: alike
+  part_of_speech: adjective
+  definition_th: เหมือนกัน
+  example_en: The twins look alike.
+  example_th: ฝาแฝดดูเหมือนกัน
+  word_audio_file: alike_word+Joey+48bb082d4244476f2ef109e51f8f7554.mp3
+  sentence_audio_file: alike_sentence+Joey+12805c4aeaa3bdec82cf6d7e1e9c3ca7.mp3
+  voice_id: Joey
+- word: alimentary canal
+  part_of_speech: noun
+  definition_th: ลำไส้
+  example_en: Food passes through the alimentary canal.
+  example_th: อาหารผ่านลำไส้
+  word_audio_file: alimentary_canal_word+Kendra+81a00e7247a4db53acb20df7b01cf46e.mp3
+  sentence_audio_file: alimentary_canal_sentence+Kendra+2ee1760af7bc5106ac19e467c9e90683.mp3
+  voice_id: Kendra
+- word: alimony
+  part_of_speech: noun
+  definition_th: ค่าเลี้ยงดู
+  example_en: He paid alimony monthly.
+  example_th: เขาจ่ายค่าเลี้ยงดูรายเดือน
+  word_audio_file: alimony_word+Joanna+fa6a00b065ee4c871dcc64fcff7ca8cf.mp3
+  sentence_audio_file: alimony_sentence+Joanna+6be424f03755b3868a521edaaf88f693.mp3
+  voice_id: Joanna
+- word: alive
+  part_of_speech: adjective
+  definition_th: มีชีวิต
+  example_en: The plant is still alive.
+  example_th: พืชยังมีชีวิตอยู่
+  word_audio_file: alive_word+Kendra+7bd3d5f5b3cdb13aed632121206e729c.mp3
+  sentence_audio_file: alive_sentence+Kendra+c04b46330a7a64e2b5a68064449f111d.mp3
+  voice_id: Kendra
+- word: alkali
+  part_of_speech: noun
+  definition_th: ด่าง
+  example_en: Alkali neutralizes acid.
+  example_th: ด่างทำให้กรดเป็นกลาง
+  word_audio_file: alkali_word+Joanna+f7f41ad5328d528a751c55fa2fcf7273.mp3
+  sentence_audio_file: alkali_sentence+Joanna+b01c86b35e784adadd5da99ff75afdcc.mp3
+  voice_id: Joanna
+- word: alkaline
+  part_of_speech: adjective
+  definition_th: เป็นด่าง
+  example_en: The soil was alkaline.
+  example_th: ดินเป็นด่าง
+  word_audio_file: alkaline_word+Joanna+0d290155f2106c14555647c03395900d.mp3
+  sentence_audio_file: alkaline_sentence+Joanna+991cf65498932b85f09e2413e25bb5dd.mp3
+  voice_id: Joanna
+- word: all
+  part_of_speech: determiner
+  definition_th: ทั้งหมด
+  example_en: All students passed.
+  example_th: นักเรียนทั้งหมดผ่าน
+  word_audio_file: all_word+Matthew+a181a603769c1f98ad927e7367c7aa51.mp3
+  sentence_audio_file: all_sentence+Matthew+1f347939426152b5552482fcd5e007b7.mp3
+  voice_id: Matthew
+- word: all clear
+  part_of_speech: noun
+  definition_th: สัญญาณปลอดภัย
+  example_en: The siren gave the all clear.
+  example_th: ไซเรนให้สัญญาณปลอดภัย
+  word_audio_file: all_clear_word+Joey+58339831864eac2f2cf06fb7cea7c744.mp3
+  sentence_audio_file: all_clear_sentence+Joey+9c00512c925d110855b7ad6090cc3cdb.mp3
+  voice_id: Joey
+- word: all right
+  part_of_speech: adjective
+  definition_th: ไม่เป็นไร
+  example_en: Everything is all right.
+  example_th: ทุกอย่างไม่เป็นไร
+  word_audio_file: all_right_word+Joey+67787c5a3a7b3a7cea96d77aa1f6d338.mp3
+  sentence_audio_file: all_right_sentence+Joey+c5af4c35dc265ea6620aedebc2138be2.mp3
+  voice_id: Joey
+- word: all-American
+  part_of_speech: adjective
+  definition_th: อเมริกันแท้
+  example_en: He’s an all-American athlete.
+  example_th: เขาเป็นนักกีฬาอเมริกันแท้
+  word_audio_file: all-american_word+Joey+a5df8592dc98b15fb62a4d707655e7c2.mp3
+  sentence_audio_file: all-american_sentence+Joey+0f6b149105192887f713f0b26aec1b2a.mp3
+  voice_id: Joey
+- word: all-around
+  part_of_speech: adjective
+  definition_th: รอบด้าน
+  example_en: She’s an all-around performer.
+  example_th: เธอเป็นนักแสดงรอบด้าน
+  word_audio_file: all-around_word+Stephen+0a38e544e6d4c0a45a93d877bc503254.mp3
+  sentence_audio_file: all-around_sentence+Stephen+1be0aa6c5f6eea9ae228eee3d477708e.mp3
+  voice_id: Stephen
+- word: all-comers
+  part_of_speech: noun
+  definition_th: ทุกคนที่มา
+  example_en: The race was open to all-comers.
+  example_th: การแข่งขันเปิดให้ทุกคนที่มา
+  word_audio_file: all-comers_word+Matthew+457409f743cf51490987c41bfeea0e72.mp3
+  sentence_audio_file: all-comers_sentence+Matthew+1f178fdbcb21c9c9d76068302b46b0ea.mp3
+  voice_id: Matthew
+- word: all-embracing
+  part_of_speech: adjective
+  definition_th: ครอบคลุมทั้งหมด
+  example_en: The plan is all-embracing.
+  example_th: แผนนี้ครอบคลุมทั้งหมด
+  word_audio_file: all-embracing_word+Kendra+5f6e73868dfac083b14ad54dda2378d9.mp3
+  sentence_audio_file: all-embracing_sentence+Kendra+da49478fb1c977ee7db318a65c02673e.mp3
+  voice_id: Kendra
+- word: all-in-one
+  part_of_speech: adjective
+  definition_th: รวมในหนึ่งเดียว
+  example_en: It’s an all-in-one printer.
+  example_th: มันเป็นเครื่องพิมพ์รวมในหนึ่งเดียว
+  word_audio_file: all-in-one_word+Joanna+65990263c67b8daf359804c3de327ac8.mp3
+  sentence_audio_file: all-in-one_sentence+Joanna+a0b31dc7a037aa94a4c12ce2149f4023.mp3
+  voice_id: Joanna
+- word: all-inclusive
+  part_of_speech: adjective
+  definition_th: รวมทุกอย่าง
+  example_en: The vacation was all-inclusive.
+  example_th: วันหยุดนี้รวมทุกอย่าง
+  word_audio_file: all-inclusive_word+Stephen+f53db6e4b316691e9be135790a36cf8c.mp3
+  sentence_audio_file: all-inclusive_sentence+Stephen+d06e08842448059147661cd37d69311e.mp3
+  voice_id: Stephen
+- word: all-out
+  part_of_speech: adjective
+  definition_th: เต็มที่
+  example_en: They launched an all-out attack.
+  example_th: พวกเขาเริ่มการโจมตีเต็มที่
+  word_audio_file: all-out_word+Joanna+7fccbcfb2a6d33f69b0d54fb690f2877.mp3
+  sentence_audio_file: all-out_sentence+Joanna+793a802bd58f0831aa6234036304b234.mp3
+  voice_id: Joanna
+- word: all-over
+  part_of_speech: adjective
+  definition_th: ทั่วทั้ง
+  example_en: The pattern was all-over.
+  example_th: ลายนั้นอยู่ทั่วทั้ง
+  word_audio_file: all-over_word+Matthew+1756ccecdfbc55b5421e15169c1b887f.mp3
+  sentence_audio_file: all-over_sentence+Matthew+e9132b59411f134e8cf9fd7008451f2a.mp3
+  voice_id: Matthew
+- word: all-points bulletin
+  part_of_speech: noun
+  definition_th: ประกาศทั่วทุกหน่วย
+  example_en: Police issued an all-points bulletin.
+  example_th: ตำรวจออกประกาศทั่วทุกหน่วย
+  word_audio_file: all-points_bulletin_word+Stephen+01bddddb8504e645e5dcd515470488b8.mp3
+  sentence_audio_file: all-points_bulletin_sentence+Stephen+2a406e85557e0c405dc93a4fc7bc7b37.mp3
+  voice_id: Stephen
+- word: all-powerful
+  part_of_speech: adjective
+  definition_th: มีอำนาจทุกอย่าง
+  example_en: The king was all-powerful.
+  example_th: กษัตริย์มีอำนาจทุกอย่าง
+  word_audio_file: all-powerful_word+Joanna+8b4f200e527dcdb031b7487ef7f2c84c.mp3
+  sentence_audio_file: all-powerful_sentence+Joanna+622581a9df7c72d937f5f316a82332cd.mp3
+  voice_id: Joanna
+- word: all-purpose
+  part_of_speech: adjective
+  definition_th: ใช้ได้หลากหลาย
+  example_en: It’s an all-purpose cleaner.
+  example_th: มันเป็นน้ำยาทำความสะอาดใช้ได้หลากหลาย
+  word_audio_file: all-purpose_word+Kendra+47120d468092b0454a5339358bb8718c.mp3
+  sentence_audio_file: all-purpose_sentence+Kendra+a6b69e21259e913a39662a9bb3b3b9f1.mp3
+  voice_id: Kendra
+- word: all-purpose flour
+  part_of_speech: noun
+  definition_th: แป้งอเนกประสงค์
+  example_en: She baked with all-purpose flour.
+  example_th: เธอบเกด้วยแป้งอเนกประสงค์
+  word_audio_file: all-purpose_flour_word+Stephen+5b61645a72641b3cd2317ad11feb253b.mp3
+  sentence_audio_file: all-purpose_flour_sentence+Stephen+7160dbbdb25793eb3b53932c63b6db56.mp3
+  voice_id: Stephen
+- word: all-round
+  part_of_speech: adjective
+  definition_th: รอบด้าน
+  example_en: He’s an all-round student.
+  example_th: เขาเป็นนักเรียนรอบด้าน
+  word_audio_file: all-round_word+Stephen+589a1ada0a9db9615ce98b864817b54d.mp3
+  sentence_audio_file: all-round_sentence+Stephen+18f6c93ad33757f0da83aa088f4c4814.mp3
+  voice_id: Stephen
+- word: all-star
+  part_of_speech: adjective
+  definition_th: ดาราระดับสูง
+  example_en: The all-star team competed.
+  example_th: ทีมดาราระดับสูงแข่งขัน
+  word_audio_file: all-star_word+Matthew+373ddc425866c8aa1e2ed7183d2b3df1.mp3
+  sentence_audio_file: all-star_sentence+Matthew+9a0503be1f4e8d2144e35f7b41e61840.mp3
+  voice_id: Matthew
+- word: all-time
+  part_of_speech: adjective
+  definition_th: ตลอดกาล
+  example_en: It’s an all-time record.
+  example_th: มันเป็นสถิติตลอดกาล
+  word_audio_file: all-time_word+Joanna+05859813c4cc760b54413c65dd2f579f.mp3
+  sentence_audio_file: all-time_sentence+Joanna+b141f99dfb5d03cc4df3a67142b46a6f.mp3
+  voice_id: Joanna
+- word: All-weather
+  part_of_speech: adjective
+  definition_th: ใช้ได้ทุกสภาพอากาศ
+  example_en: It’s an all-weather jacket.
+  example_th: มันเป็นแจ็คเก็ตใช้ได้ทุกสภาพอากาศ
+  word_audio_file: all-weather_word+Joanna+f4ae6bb2c004b792a60ad3cdc16453df.mp3
+  sentence_audio_file: all-weather_sentence+Joanna+6081d85f6c14adbf26862c395239e6d7.mp3
+  voice_id: Joanna
+- word: All-you-can-eat
+  part_of_speech: adjective
+  definition_th: กินไม่อั้น
+  example_en: They offer an all-you-can-eat buffet.
+  example_th: พวกเขาเสนอบุฟเฟต์กินไม่อั้น
+  word_audio_file: all-you-can-eat_word+Matthew+314ee7758a9b09acc4f42a26e42fc95b.mp3
+  sentence_audio_file: all-you-can-eat_sentence+Matthew+74ca6438f8ce59dfced46972ee583afb.mp3
+  voice_id: Matthew
+- word: Allah
+  part_of_speech: noun
+  definition_th: อัลลอฮ์
+  example_en: Muslims worship Allah.
+  example_th: มุสลิมนับถืออัลลอฮ์
+  word_audio_file: allah_word+Stephen+11222a0756cc9ff760155f9f28b61e0a.mp3
+  sentence_audio_file: allah_sentence+Stephen+1addce40a7eb2d07add33d271ac00379.mp3
+  voice_id: Stephen
+- word: allay
+  part_of_speech: verb
+  definition_th: บรรเทา
+  example_en: He allayed her fears.
+  example_th: เขาบรรเทาความกลัวของเธอ
+  word_audio_file: allay_word+Kendra+3354e229b0b9db2e6285854b3a96ff6b.mp3
+  sentence_audio_file: allay_sentence+Kendra+5a02a53ba5f3c0dd5cb067683e0b527a.mp3
+  voice_id: Kendra
+- word: allegation
+  part_of_speech: noun
+  definition_th: ข้อกล่าวหา
+  example_en: The allegation was false.
+  example_th: ข้อกล่าวหานั้นเป็นเท็จ
+  word_audio_file: allegation_word+Kendra+ad36fdd2f5bc95249074de822d73de38.mp3
+  sentence_audio_file: allegation_sentence+Kendra+92049c08dd8c35ccd1424df3ee6db72a.mp3
+  voice_id: Kendra
+- word: allege
+  part_of_speech: verb
+  definition_th: กล่าวหา
+  example_en: They allege he stole.
+  example_th: พวกเขากล่าวหาว่าเขาขโมย
+  word_audio_file: allege_word+Stephen+4f37c29e88e9ad8f747b5ffae2824fb2.mp3
+  sentence_audio_file: allege_sentence+Stephen+8d94874eb35a531c087f25dfd0150330.mp3
+  voice_id: Stephen
+- word: alleged
+  part_of_speech: adjective
+  definition_th: ที่ถูกกล่าวหา
+  example_en: The alleged thief escaped.
+  example_th: ผู้ต้องหาที่ถูกกล่าวหาหนีไป
+  word_audio_file: alleged_word+Joanna+e12ee38673be3a1e8c222688389dd353.mp3
+  sentence_audio_file: alleged_sentence+Joanna+d6f227cff6f8909c342563b99bb67d0d.mp3
+  voice_id: Joanna
+- word: allegedly
+  part_of_speech: adverb
+  definition_th: ตามที่ถูกกล่าวหา
+  example_en: He allegedly cheated.
+  example_th: เขาถูกกล่าวหาว่าโกง
+  word_audio_file: allegedly_word+Kendra+0143035d69816a31edfc0e606339d17d.mp3
+  sentence_audio_file: allegedly_sentence+Kendra+6a6d53c3142d9da8b04bb4467b43f836.mp3
+  voice_id: Kendra
+- word: allegiance
+  part_of_speech: noun
+  definition_th: ความจงรักภักดี
+  example_en: He pledged allegiance.
+  example_th: เขาสาบานว่าจะจงรักภักดี
+  word_audio_file: allegiance_word+Matthew+db160b6710475646be9feeca9da0d657.mp3
+  sentence_audio_file: allegiance_sentence+Matthew+fa32cad75c4732a52e1321435e630aed.mp3
+  voice_id: Matthew
+- word: allegorical
+  part_of_speech: adjective
+  definition_th: เชิงเปรียบเทียบ
+  example_en: The story is allegorical.
+  example_th: เรื่องนี้เป็นเชิงเปรียบเทียบ
+  word_audio_file: allegorical_word+Kendra+c5e46d0d7953f22205836f7e43f6abb8.mp3
+  sentence_audio_file: allegorical_sentence+Kendra+8615eccb9bb1bdc7232f39b39e69d94c.mp3
+  voice_id: Kendra
+- word: allegory
+  part_of_speech: noun
+  definition_th: อุปมานิทัศน์
+  example_en: The book is an allegory.
+  example_th: หนังสือเล่มนี้เป็นอุปมานิทัศน์
+  word_audio_file: allegory_word+Stephen+83f106e9c3d4af6b9986e8a44b5fd223.mp3
+  sentence_audio_file: allegory_sentence+Stephen+7297428c5886264a1f7673e2464f09cb.mp3
+  voice_id: Stephen
+- word: allegro
+  part_of_speech: adverb
+  definition_th: เร็ว
+  example_en: Play the piece allegro.
+  example_th: เล่นชิ้นนี้อย่างเร็ว
+  word_audio_file: allegro_word+Joey+cf5f65126b4f2ab7b74b79b8f3f4398c.mp3
+  sentence_audio_file: allegro_sentence+Joey+037902b2b5c83ba51a48aa2faccb3b42.mp3
+  voice_id: Joey
+- word: allergen
+  part_of_speech: noun
+  definition_th: สารก่อภูมิแพ้
+  example_en: Pollen is an allergen.
+  example_th: เกสรเป็นสารก่อภูมิแพ้
+  word_audio_file: allergen_word+Joey+949dc52f7621c3046eafa12c17239702.mp3
+  sentence_audio_file: allergen_sentence+Joey+a83ea5b98beb5ea045b5214197814b49.mp3
+  voice_id: Joey
+- word: allergic
+  part_of_speech: adjective
+  definition_th: แพ้
+  example_en: She’s allergic to cats.
+  example_th: เธอแพ้แมว
+  word_audio_file: allergic_word+Joey+9afa87089f6f62bff95bbc6f1825f80d.mp3
+  sentence_audio_file: allergic_sentence+Joey+7c9285ea4eef68289c98da089fbb8a6a.mp3
+  voice_id: Joey
+- word: allergist
+  part_of_speech: noun
+  definition_th: แพทย์ภูมิแพ้
+  example_en: The allergist tested her.
+  example_th: แพทย์ภูมิแพ้ทดสอบเธอ
+  word_audio_file: allergist_word+Kendra+6f7d77e7c28ff2fe7b29c63c7c903fae.mp3
+  sentence_audio_file: allergist_sentence+Kendra+8bfe3a8f9cc841bb44bb06e2d9a3364b.mp3
+  voice_id: Kendra
+- word: allergy
+  part_of_speech: noun
+  definition_th: ภูมิแพ้
+  example_en: He has a peanut allergy.
+  example_th: เขามีภูมิแพ้ถั่วลิสง
+  word_audio_file: allergy_word+Joey+e13d519f1da4a4e37af747205ba9ca23.mp3
+  sentence_audio_file: allergy_sentence+Joey+64cedf704e79e59597d1a857325a7a55.mp3
+  voice_id: Joey
+- word: alleviate
+  part_of_speech: verb
+  definition_th: บรรเทา
+  example_en: Medicine alleviated his pain.
+  example_th: ยาบรรเทาอาการปวดของเขา
+  word_audio_file: alleviate_word+Joey+2c0f79c24b777b5002cbb1d5f9e244c7.mp3
+  sentence_audio_file: alleviate_sentence+Joey+d817ffda84009854f975d7bc0865d2c9.mp3
+  voice_id: Joey
+- word: alley
+  part_of_speech: noun
+  definition_th: ตรอก
+  example_en: The cat ran down the alley.
+  example_th: แมววิ่งลงไปในตรอก
+  word_audio_file: alley_word+Joey+686a23c44fc9a652c7eb6c04e6d749da.mp3
+  sentence_audio_file: alley_sentence+Joey+8a5dca628e221a6cac8b103a39323288.mp3
+  voice_id: Joey
+- word: alley cat
+  part_of_speech: noun
+  definition_th: แมวจรจัด
+  example_en: An alley cat ate scraps.
+  example_th: แมวจรจัดกินเศษอาหาร
+  word_audio_file: alley_cat_word+Kendra+eb020d910c0b0c875472034a2710dcfb.mp3
+  sentence_audio_file: alley_cat_sentence+Kendra+a4f46547394de56111dd38d4c565b07f.mp3
+  voice_id: Kendra
+- word: alleyway
+  part_of_speech: noun
+  definition_th: ตรอกเล็ก
+  example_en: The alleyway was narrow.
+  example_th: ตรอกเล็กนั้นแคบ
+  word_audio_file: alleyway_word+Joanna+99fb938fd8d81292b35148e1071ab7b3.mp3
+  sentence_audio_file: alleyway_sentence+Joanna+4b9b4639958259701a5a9776bc81e779.mp3
+  voice_id: Joanna
+- word: alliance
+  part_of_speech: noun
+  definition_th: พันธมิตร
+  example_en: The countries formed an alliance.
+  example_th: ประเทศเหล่านี้ก่อตั้งพันธมิตร
+  word_audio_file: alliance_word+Joanna+89dae41c0d705ceb55aa778e27033d7b.mp3
+  sentence_audio_file: alliance_sentence+Joanna+1380f17e443580be5749457aced3e1d1.mp3
+  voice_id: Joanna
+- word: allied
+  part_of_speech: adjective
+  definition_th: เป็นพันธมิตร
+  example_en: Allied forces worked together.
+  example_th: กองกำลังพันธมิตรทำงานร่วมกัน
+  word_audio_file: allied_word+Matthew+c60132c6236e92b782d73f6cb1f2efda.mp3
+  sentence_audio_file: allied_sentence+Matthew+e8dbde30afa3487c4f3adf262ba0a265.mp3
+  voice_id: Matthew
+- word: alligator
+  part_of_speech: noun
+  definition_th: จระเข้
+  example_en: An alligator swam in the swamp.
+  example_th: จระเข้ว่ายอยู่ในหนอง
+  word_audio_file: alligator_word+Joey+88a93408a0dfb56cff34d324e40933ce.mp3
+  sentence_audio_file: alligator_sentence+Joey+3c3b55cd035fe4090a11665167efb403.mp3
+  voice_id: Joey
+- word: alliteration
+  part_of_speech: noun
+  definition_th: การสัมผัสอักษร
+  example_en: Alliteration makes poems catchy.
+  example_th: การสัมผัสอักษรทำให้กลอนติดหู
+  word_audio_file: alliteration_word+Stephen+6273e062555e65ea850137e743f73fe9.mp3
+  sentence_audio_file: alliteration_sentence+Stephen+f5a2c43b116ab3f7dc2d2ced74a68d15.mp3
+  voice_id: Stephen
+- word: alliterative
+  part_of_speech: adjective
+  definition_th: เกี่ยวกับการสัมผัสอักษร
+  example_en: The phrase is alliterative.
+  example_th: วลีนี้มีการสัมผัสอักษร
+  word_audio_file: alliterative_word+Stephen+60f594a6d1863e81f23d8f910262af56.mp3
+  sentence_audio_file: alliterative_sentence+Stephen+700d52cf65eb0a775cff658d1c041bf7.mp3
+  voice_id: Stephen
+- word: allocate
+  part_of_speech: verb
+  definition_th: จัดสรร
+  example_en: They allocated funds for schools.
+  example_th: พวกเขาจัดสรรเงินให้โรงเรียน
+  word_audio_file: allocate_word+Stephen+bc4f94b1e72eb1d45c0fd8ca866b7f1a.mp3
+  sentence_audio_file: allocate_sentence+Stephen+164d16caa98aa3924c7e0a18f18b2b26.mp3
+  voice_id: Stephen
+- word: allocation
+  part_of_speech: noun
+  definition_th: การจัดสรร
+  example_en: The allocation was fair.
+  example_th: การจัดสรรนี้ยุติธรรม
+  word_audio_file: allocation_word+Joey+950f407814b8478d3082a186bf0eec9b.mp3
+  sentence_audio_file: allocation_sentence+Joey+aa6ed6682ec5a73dc88fb4c628cadf38.mp3
+  voice_id: Joey
+- word: allot
+  part_of_speech: verb
+  definition_th: แบ่งปัน
+  example_en: They allotted tasks to everyone.
+  example_th: พวกเขาแบ่งงานให้ทุกคน
+  word_audio_file: allot_word+Joanna+d122994b9bf5ad05fbcdd12af33a411a.mp3
+  sentence_audio_file: allot_sentence+Joanna+d78230fe5879357a11790f0a7d7f3df8.mp3
+  voice_id: Joanna
+- word: allotment
+  part_of_speech: noun
+  definition_th: ส่วนแบ่ง
+  example_en: Each got an allotment of food.
+  example_th: ทุกคนได้รับส่วนแบ่งอาหาร
+  word_audio_file: allotment_word+Joanna+88e7216e57ce5976598e28cec972d9fe.mp3
+  sentence_audio_file: allotment_sentence+Joanna+002df55453f480784eabb31f9a5d5acd.mp3
+  voice_id: Joanna
+- word: allow
+  part_of_speech: verb
+  definition_th: อนุญาต
+  example_en: They allow pets.
+  example_th: พวกเขาอนุญาตให้เลี้ยงสัตว์
+  word_audio_file: allow_word+Stephen+b394126a0e52e75f1e3d535d0fb0d33c.mp3
+  sentence_audio_file: allow_sentence+Stephen+764822d9ce792641250d43b3123927d2.mp3
+  voice_id: Stephen
+- word: allow for
+  part_of_speech: phrasal verb
+  definition_th: เผื่อไว้
+  example_en: We allowed for delays.
+  example_th: เราเผื่อเวลาไว้สำหรับความล่าช้า
+  word_audio_file: allow_for_word+Joey+f3198d23b4098dfaf714706a27f0d875.mp3
+  sentence_audio_file: allow_for_sentence+Joey+e73c345e7c86572a269d8dfeef0f2cfd.mp3
+  voice_id: Joey
+- word: allowable
+  part_of_speech: adjective
+  definition_th: ยินดี
+  example_en: She’s amenable to suggestions.
+  example_th: เธอยินดีรับข้อเสนอ
+  word_audio_file: allowable_word+Joanna+398332bcf1c9afeb388a92ed464df12a.mp3
+  sentence_audio_file: allowable_sentence+Joanna+87c318ef23203c903ab612f1f61c9895.mp3
+  voice_id: Joanna
+- word: allowance
+  part_of_speech: noun
+  definition_th: เงินช่วยเหลือ
+  example_en: He gets a monthly allowance.
+  example_th: เขาได้รับเงินช่วยเหลือรายเดือน
+  word_audio_file: allowance_word+Stephen+6508daf87f38ab1c1686989f9051215e.mp3
+  sentence_audio_file: allowance_sentence+Stephen+aecdda384d07ca9ab52ffeabe4ecedc3.mp3
+  voice_id: Stephen
+- word: alloy
+  part_of_speech: noun
+  definition_th: โลหะผสม
+  example_en: The ring is made of alloy.
+  example_th: แหวนทำจากโลหะผสม
+  word_audio_file: alloy_word+Joanna+78b82064884b15d740b0d1fb69df3903.mp3
+  sentence_audio_file: alloy_sentence+Joanna+41bad81754c62c6c6b0fc888519afd13.mp3
+  voice_id: Joanna
+- word: allspice
+  part_of_speech: noun
+  definition_th: เครื่องเทศผสม
+  example_en: She added allspice to the recipe.
+  example_th: เธอเติมเครื่องเทศผสมลงในสูตรอาหาร
+  word_audio_file: allspice_word+Matthew+69e1f252521b46b2facc8615f97e0362.mp3
+  sentence_audio_file: allspice_sentence+Matthew+4ef6986a66ee5913c8f1f78bab21b61e.mp3
+  voice_id: Matthew
+- word: allude
+  part_of_speech: verb
+  definition_th: พาดถึง
+  example_en: She alluded to the problem.
+  example_th: เธอพูดพาดถึงปัญหานั้น
+  word_audio_file: allude_word+Kendra+b15b44f64c20fbdbc569d858b3b07a86.mp3
+  sentence_audio_file: allude_sentence+Kendra+9ab960e6a0dda18152d96b4059a81644.mp3
+  voice_id: Kendra
+- word: Allure
+  part_of_speech: noun
+  definition_th: เสน่ห์
+  example_en: The city’s allure.
+  example_th: เมืองนี้มีเสน่ห์
+  word_audio_file: allure_word+Joanna+96d7ff37c28eb61bb2ca2486f4842aad.mp3
+  sentence_audio_file: allure_sentence+Joanna+3ad548053f4b4e11dae8a6637b139bfa.mp3
+  voice_id: Joanna
+- word: Alluring
+  part_of_speech: adjective
+  definition_th: มีเสน่ห์
+  example_en: Her smile was alluring.
+  example_th: รอยยิ้มของเธอมีเสน่ห์
+  word_audio_file: alluring_word+Stephen+e06fc4bbab3f8f3c8493432470ea73c6.mp3
+  sentence_audio_file: alluring_sentence+Stephen+f24a0d1b4bcf03afb516e32ea8d7ba14.mp3
+  voice_id: Stephen
+- word: Allusion
+  part_of_speech: noun
+  definition_th: การพาดพิง
+  example_en: His speech was full of allusions.
+  example_th: คำพูดของเขามีการพาดพิงมาก
+  word_audio_file: allusion_word+Joanna+67a5dc0cbd7e77e2f6a2ca517eeccf8d.mp3
+  sentence_audio_file: allusion_sentence+Joanna+4b16a3500c5b623f304b9418e7934184.mp3
+  voice_id: Joanna
+- word: Allusive
+  part_of_speech: adjective
+  definition_th: ที่พาดพิง
+  example_en: His tone was allusive.
+  example_th: น้ำเสียงของเขามีการพาดพิง
+  word_audio_file: allusive_word+Joey+1a29ef6624db74717df3b33658c2b43c.mp3
+  sentence_audio_file: allusive_sentence+Joey+dcc45fa377fe3d332f7c66b04b950fdd.mp3
+  voice_id: Joey
+- word: Alluvial
+  part_of_speech: adjective
+  definition_th: เกี่ยวกับตะกอนน้ำท่วม
+  example_en: The alluvial soil was fertile.
+  example_th: ดินตะกอนน้ำท่วมอุดมสมบูรณ์
+  word_audio_file: alluvial_word+Kendra+f3b65f675d13d81c12d3bb30b0190cd1.mp3
+  sentence_audio_file: alluvial_sentence+Kendra+de76cd2cb3ee1014bc6e7b69089bb4b8.mp3
+  voice_id: Kendra
+- word: Ally
+  part_of_speech: noun
+  definition_th: พันธมิตร
+  example_en: She’s my ally in the project.
+  example_th: เธอเป็นพันธมิตรของฉันในโครงการ
+  word_audio_file: ally_word+Kendra+0dd87782600574e2f791bcfe639d4fcc.mp3
+  sentence_audio_file: ally_sentence+Kendra+f65c4269b67b11c5b4fb73559615f7b5.mp3
+  voice_id: Kendra
+- word: Alma mater
+  part_of_speech: noun
+  definition_th: มหาวิทยาลัยที่จบ
+  example_en: He visited his alma mater.
+  example_th: เขาเยี่ยมมหาวิทยาลัยที่จบ
+  word_audio_file: alma_mater_word+Stephen+96bb4c6916739849fb1bb53d11ad7855.mp3
+  sentence_audio_file: alma_mater_sentence+Stephen+de920a94b88cd7cffa90ba9b624ee8de.mp3
+  voice_id: Stephen
+- word: Almanac
+  part_of_speech: noun
+  definition_th: ปฏิทินประจำปี
+  example_en: The almanac predicted rain.
+  example_th: ปฏิทินประจำปีทำนายว่าฝนจะตก
+  word_audio_file: almanac_word+Joanna+9cb55c76560ac06ac45332482bda45a7.mp3
+  sentence_audio_file: almanac_sentence+Joanna+b622af243e2a10dddfc5125ed19c0ebc.mp3
+  voice_id: Joanna
+- word: Almighty
+  part_of_speech: adjective
+  definition_th: มีพลังสูงสุด
+  example_en: They prayed to the Almighty.
+  example_th: พวกเขาอธิษฐานต่อผู้มีพลังสูงสุด
+  word_audio_file: almighty_word+Stephen+28e0ff913ce278902b4ccb1ae9c0638c.mp3
+  sentence_audio_file: almighty_sentence+Stephen+5a7897f8619c4a62c0869cc08100ffae.mp3
+  voice_id: Stephen
+- word: Almond
+  part_of_speech: noun
+  definition_th: อัลมอนด์
+  example_en: She ate almonds as a snack.
+  example_th: She เธอกินอัลมอนด์เป็นอาหารว่าง
+  word_audio_file: almond_word+Stephen+24417c248047e6e9d24231e8107312a8.mp3
+  sentence_audio_file: almond_sentence+Stephen+274282085de2b5f638320e0366c0af7e.mp3
+  voice_id: Stephen
+- word: Almost
+  part_of_speech: adverb
+  definition_th: เกือบ
+  example_en: We’re almost done.
+  example_th: เราเกือบเสร็จแล้ว
+  word_audio_file: almost_word+Joey+301acc9847f5c6ea34402c17ff8cfec7.mp3
+  sentence_audio_file: almost_sentence+Joey+68168bef464a8f1a06d101a1af5aff23.mp3
+  voice_id: Joey
+- word: Alms
+  part_of_speech: noun
+  definition_th: ของบริจาค
+  example_en: He gave alms to the poor.
+  example_th: เขาให้ของบริจาคแก่คนยากจน
+  word_audio_file: alms_word+Joanna+216c09d593a1bdaa58e08f862903d77a.mp3
+  sentence_audio_file: alms_sentence+Joanna+dde732992f2e72742331d2fb39355b65.mp3
+  voice_id: Joanna
+- word: Aloe vera
+  part_of_speech: noun
+  definition_th: ว่านหางจระเข้
+  example_en: Aloe vera soothes burns.
+  example_th: ว่านว่านหางจระเข้ช่วยบรรเทาอาการแผลไหม้
+  word_audio_file: aloe_vera_word+Joanna+2d0bc2847e06047fb424bcedfa170c23.mp3
+  sentence_audio_file: aloe_vera_sentence+Joanna+ba5582f7a703dd2cfabb801a47461b7b.mp3
+  voice_id: Joanna
+- word: Aloft
+  part_of_speech: adverb
+  definition_th: ลอยอยู่ในอากาศ
+  example_en: The flag was held aloft.
+  example_th: ธงถูกชูขึ้นลอยอยู่ในอากาศ
+  word_audio_file: aloft_word+Joanna+c69a727c368f13dbc9550375d40fce84.mp3
+  sentence_audio_file: aloft_sentence+Joanna+8e19fbee9e794b0320b028937de680be.mp3
+  voice_id: Joanna
+- word: Alone
+  part_of_speech: adjective
+  definition_th: เพียงลำพัง
+  example_en: She lives alone.
+  example_th: เธออาศัยอยู่เพียงลำพัง
+  word_audio_file: alone_word+Kendra+00e55a2100eaf7eccc8517d5c9f2389d.mp3
+  sentence_audio_file: alone_sentence+Kendra+02e830f8a829d98183ebefa4db2ac279.mp3
+  voice_id: Kendra
+- word: Along
+  part_of_speech: preposition
+  definition_th: ตาม
+  example_en: Walk along the road.
+  example_th: เดินตามถนน
+  word_audio_file: along_word+Matthew+7e7ba34dfc97750b561d4d6d1dbeacf2.mp3
+  sentence_audio_file: along_sentence+Matthew+db297e79793ac4099fa5a3e4a8254557.mp3
+  voice_id: Matthew
+- word: Alongside
+  part_of_speech: preposition
+  definition_th: เคียงข้าง
+  example_en: The boat sailed alongside.
+  example_th: เรือแล่นเคียงข้าง
+  word_audio_file: alongside_word+Joey+77bcdac947cc99be5391282a062ea62d.mp3
+  sentence_audio_file: alongside_sentence+Joey+fd48897f2296753900b5a7f1f75ee2a9.mp3
+  voice_id: Joey
+- word: Aloof
+  part_of_speech: adjective
+  definition_th: เย็นชา
+  example_en: He remained aloof.
+  example_th: เขาเขายังคงเย็นชา
+  word_audio_file: aloof_word+Matthew+804a12d1e1a3b825a50652ed4003f32c.mp3
+  sentence_audio_file: aloof_sentence+Matthew+1455192cca92b341c2bb6c1605c81174.mp3
+  voice_id: Matthew
+- word: Aloud
+  part_of_speech: adverb
+  definition_th: ดัง
+  example_en: She read aloud.
+  example_th: เธออ่านออกเสียงดัง
+  word_audio_file: aloud_word+Joanna+ba9ac842354ec8c3789dc2455c0ddbc4.mp3
+  sentence_audio_file: aloud_sentence+Joanna+d09576fc2f1d8cd43d41eb260fcb5627.mp3
+  voice_id: Joanna
+- word: Alpaca
+  part_of_speech: noun
+  definition_th: อัลปาก้า
+  example_en: The alpaca’s wool was soft.
+  example_th: ขนของอัลปากกก้านุ่ม
+  word_audio_file: alpaca_word+Stephen+cd5597c2fd8eecced26e89d98488988b.mp3
+  sentence_audio_file: alpaca_sentence+Stephen+65e0c2b838634c9bd06e2dc5cc76ca91.mp3
+  voice_id: Stephen
+- word: Alphabet
+  part_of_speech: noun
+  definition_th: ตัวอักษร
+  example_en: She learned the alphabet.
+  example_th: She เธอเรียนรู้ตัวอักษร
+  word_audio_file: alphabet_word+Joanna+49c3fc5da1c39b28dd9e2956e7aec9a9.mp3
+  sentence_audio_file: alphabet_sentence+Joanna+764cbdb00f71060f6cd82215bace4709.mp3
+  voice_id: Joanna
+- word: Alphabetical
+  part_of_speech: adjective
+  definition_th: ตามลำดับตัวอักษร
+  example_en: The list is alphabetical.
+  example_th: รายการนี้จัดตามลำดับตัวอักษร
+  word_audio_file: alphabetical_word+Stephen+a0ee51ab33d5ba89aafaa01217622395.mp3
+  sentence_audio_file: alphabetical_sentence+Stephen+e7e5baa86617b35300bd5a6ebbac3044.mp3
+  voice_id: Stephen
+- word: Already
+  part_of_speech: adverb
+  definition_th: แล้ว
+  example_en: She’s already here.
+  example_th: She’s เธอมาถึงแล้ว
+  word_audio_file: already_word+Stephen+28459cb0e9e8ababd4c73cb1059a37e9.mp3
+  sentence_audio_file: already_sentence+Stephen+457446a0f078ebe9be5b08bca8934590.mp3
+  voice_id: Stephen
+- word: Alright
+  part_of_speech: adverb
+  definition_th: ตกลง
+  example_en: Alright, let’s go.
+  example_th: ตกลง ไปกันเถอะ
+  word_audio_file: alright_word+Stephen+f4abc77d498c89880f67331609406774.mp3
+  sentence_audio_file: alright_sentence+Stephen+dcbb23d190a12f239aa4d0e1cd216823.mp3
+  voice_id: Stephen
+- word: Alsatian
+  part_of_speech: noun
+  definition_th: สุนัขอัลเซเชียน
+  example_en: The Alsatian barked loudly.
+  example_th: The สุนัขอัลเซเชียนเห่าดัง
+  word_audio_file: alsatian_word+Joanna+74413d5da27111eb9d4f2a0c760489d2.mp3
+  sentence_audio_file: alsatian_sentence+Joanna+25ece926067ba11d81a0a0cf578500b5.mp3
+  voice_id: Joanna
+- word: Altar girl
+  part_of_speech: noun
+  definition_th: เด็กหญิงช่วยพิธี
+  example_en: The altar girl assisted.
+  example_th: เด็กหญิงช่วยพิธีช่วยเหลือ
+  word_audio_file: altar_girl_word+Joanna+f8dbeb481052a4c98f0fc7038104e198.mp3
+  sentence_audio_file: altar_girl_sentence+Joanna+b1b08028c7e044713d4309d09923cd34.mp3
+  voice_id: Joanna
+- word: altarpiece
+  part_of_speech: noun
+  definition_th: ภาพแท่นบูชา
+  example_en: The altarpiece was beautiful.
+  example_th: ภาพแท่นบูชาสวยงาม
+  word_audio_file: altarpiece_word+Joanna+46fcb8f3d83c9d3ff3e523269678be99.mp3
+  sentence_audio_file: altarpiece_sentence+Joanna+48123b47a6d693cddebfd4647230c6a3.mp3
+  voice_id: Joanna
+- word: Alter
+  part_of_speech: verb
+  definition_th: เปลี่ยนแปลง
+  example_en: She altered her dress.
+  example_th: เธอเปลี่ยนแปลงชุดของเธอ
+  word_audio_file: alter_word+Joanna+b85145adbca4dc969d89cf96e9546a8b.mp3
+  sentence_audio_file: alter_sentence+Joanna+1c74e106d427d76cd4d9cfbc4cea2ee7.mp3
+  voice_id: Joanna
+- word: Altercation
+  part_of_speech: noun
+  definition_th: การทะเลาะวิวาท
+  example_en: They had an altercation.
+  example_th: พวกเขามีการทะเลาะวิวาท
+  word_audio_file: altercation_word+Matthew+41a0993e4370b6d33afdffe9c795b54d.mp3
+  sentence_audio_file: altercation_sentence+Matthew+23e1305dab972f0869bb954506e6a333.mp3
+  voice_id: Matthew
+- word: alternate
+  part_of_speech: verb
+  definition_th: สลับกัน
+  example_en: They alternate shifts.
+  example_th: พวกเขาสลับกะกัน
+  word_audio_file: alternate_word+Joanna+a13a40f51bb5a8bd2a918d20d2e1fa41.mp3
+  sentence_audio_file: alternate_sentence+Joanna+70c9ba7eab1fe713dc0d74f8a61e1e5d.mp3
+  voice_id: Joanna
+- word: alternating current
+  part_of_speech: noun
+  definition_th: กระแสสลับ
+  example_en: The device uses alternating current.
+  example_th: อุปกรณ์ใช้กระแสสลับ
+  word_audio_file: alternating_current_word+Kendra+27edeb3ebc945146a1b1b3cc4ebb87ed.mp3
+  sentence_audio_file: alternating_current_sentence+Kendra+71e9ef24ae4542f38b63c1e1cad37aa2.mp3
+  voice_id: Kendra
+- word: alternative
+  part_of_speech: noun
+  definition_th: ทางเลือก
+  example_en: We need an alternative plan.
+  example_th: เราต้องการแผนทางเลือก
+  word_audio_file: alternative_word+Joanna+a04fe4e390a7c7d5d4583f85d24e164d.mp3
+  sentence_audio_file: alternative_sentence+Joanna+0ba11f1764202301bfa7ce5d573810b0.mp3
+  voice_id: Joanna
+- word: alternatively
+  part_of_speech: adverb
+  definition_th: หรืออีกทางหนึ่ง
+  example_en: Alternatively, we can walk.
+  example_th: หรืออีกทางหนึ่ง เราสามารถเดินได้
+  word_audio_file: alternatively_word+Kendra+a08bc8fd7d140246d10b799e3f7b543d.mp3
+  sentence_audio_file: alternatively_sentence+Kendra+0f6538ef10ff30654263951c522abdcc.mp3
+  voice_id: Kendra
+- word: alternator
+  part_of_speech: noun
+  definition_th: เครื่องกำเนิดไฟฟ้าสลับ
+  example_en: The car’s alternator failed.
+  example_th: เครื่องกำเนิดไฟฟ้าสลับของรถเสีย
+  word_audio_file: alternator_word+Stephen+da9c10d24ad18a63e74ee9ece5301dc7.mp3
+  sentence_audio_file: alternator_sentence+Stephen+07814f0aaaf677c58f0c3e9e1c4f4510.mp3
+  voice_id: Stephen
+- word: although
+  part_of_speech: conjunction
+  definition_th: ถึงแม้ว่า
+  example_en: Although it rained, she went.
+  example_th: ถึงแม้ว่าฝนจะตก เธอก็ไป
+  word_audio_file: although_word+Stephen+94ede22f3c8c4cbc1b7430816405dd09.mp3
+  sentence_audio_file: although_sentence+Stephen+483f0c10322ffc322f3dd972d22e9505.mp3
+  voice_id: Stephen
+- word: altimeter
+  part_of_speech: noun
+  definition_th: เครื่องวัดความสูง
+  example_en: The altimeter showed 5,000 feet.
+  example_th: เครื่องวัดความสูงแสดง 5,000 ฟุต
+  word_audio_file: altimeter_word+Matthew+44c8d8e91267fe8a427d45769693f052.mp3
+  sentence_audio_file: altimeter_sentence+Matthew+c47bf9528f045f1bbd734ae86c388b17.mp3
+  voice_id: Matthew
+- word: altitude
+  part_of_speech: noun
+  definition_th: ความสูง
+  example_en: The plane flew at high altitude.
+  example_th: เครื่องบินบินที่ความสูงมาก
+  word_audio_file: altitude_word+Matthew+14d893303d2d61e5965e96e2c9fe3bfa.mp3
+  sentence_audio_file: altitude_sentence+Matthew+810eb2be8cb20472bd8039cf8fee37e6.mp3
+  voice_id: Matthew
+- word: alto
+  part_of_speech: noun
+  definition_th: เสียงกลาง
+  example_en: She sings alto in the choir.
+  example_th: เธอร้องเสียงกลางในคณะนักร้องประสานเสียง
+  word_audio_file: alto_word+Matthew+329d0259b8f9da84744c10e4bf085dd6.mp3
+  sentence_audio_file: alto_sentence+Matthew+1574b5d75ee6770a9502e83bf08a51f6.mp3
+  voice_id: Matthew
+- word: altogether
+  part_of_speech: adverb
+  definition_th: ทั้งหมด
+  example_en: It’s altogether different.
+  example_th: มันต่างกันทั้งหมด
+  word_audio_file: altogether_word+Matthew+b61c0eb9fc4d7e92c022ecea3bc0a2cf.mp3
+  sentence_audio_file: altogether_sentence+Matthew+b30b21d60f169c0c280755c7ff1368e9.mp3
+  voice_id: Matthew
+- word: altostratus
+  part_of_speech: noun
+  definition_th: เมฆชั้นสูง
+  example_en: Altostratus clouds covered the sky.
+  example_th: เมฆชั้นสูงปกคลุมท้องฟ้า
+  word_audio_file: altostratus_word+Joanna+fb1420bff8c695da794549efc7398e10.mp3
+  sentence_audio_file: altostratus_sentence+Joanna+b3b9caa6f31007a4bdf46a3422298bf7.mp3
+  voice_id: Joanna
+- word: altruism
+  part_of_speech: noun
+  definition_th: ความเสียสละ
+  example_en: Her altruism inspired others.
+  example_th: ความเสียสละของเธอสร้างแรงบันดาลใจให้ผู้อื่น
+  word_audio_file: altruism_word+Kendra+fb75220f44a85db49baa56f01a69710a.mp3
+  sentence_audio_file: altruism_sentence+Kendra+2212906955def5c4c6390b92560b6b93.mp3
+  voice_id: Kendra
+- word: altruistic
+  part_of_speech: adjective
+  definition_th: ที่เสียสละ
+  example_en: His altruistic deed was selfless.
+  example_th: การกระทำที่เสียสละของเขาไร้ตัวตน
+  word_audio_file: altruistic_word+Stephen+c7d8b8c4561162bcebb628eb1eabe023.mp3
+  sentence_audio_file: altruistic_sentence+Stephen+3f743ebb51c9da779361a98567459069.mp3
+  voice_id: Stephen
+- word: alum
+  part_of_speech: noun
+  definition_th: สารส้ม
+  example_en: Alum is used in dyeing.
+  example_th: สารส้มใช้ในการย้อมผ้า
+  word_audio_file: alum_word+Joanna+501d9937b7ca9d3f94034244b9be1222.mp3
+  sentence_audio_file: alum_sentence+Joanna+845cd2b4fb9b9fd3d8468a67996670eb.mp3
+  voice_id: Joanna
+- word: aluminum
+  part_of_speech: noun
+  definition_th: อะลูมิเนียม
+  example_en: The can is made of aluminum.
+  example_th: กระป๋องทำจากอะลูมิเนียม
+  word_audio_file: aluminum_word+Matthew+ba001792c0a731f518e03952bc3df2f8.mp3
+  sentence_audio_file: aluminum_sentence+Matthew+697a3fd2d1550f1dbf7838102bd49700.mp3
+  voice_id: Matthew
+- word: alumnus
+  part_of_speech: noun
+  definition_th: ศิษย์เก่า
+  example_en: He’s an alumnus of the college.
+  example_th: เขาเป็นศิษย์เก่าของวิทยาลัย
+  word_audio_file: alumnus_word+Joey+7643543a51feff03d1d845d3e0b3b625.mp3
+  sentence_audio_file: alumnus_sentence+Joey+8ba24e3daac656617056b4b781166df3.mp3
+  voice_id: Joey
+- word: always
+  part_of_speech: adverb
+  definition_th: เสมอ
+  example_en: She’s always late.
+  example_th: เธอมาสายเสมอ
+  word_audio_file: always_word+Matthew+f9f90eeaf400d228facde6bc48da5cfb.mp3
+  sentence_audio_file: always_sentence+Matthew+56dd9dedafae5b7718915c3c9ae4a2d3.mp3
+  voice_id: Matthew
+- word: Alzheimer’s disease
+  part_of_speech: noun
+  definition_th: โรคอัลไซเมอร์
+  example_en: He was diagnosed with Alzheimer’s disease.
+  example_th: เขาถูกวินิจฉัยว่าเป็นโรคอัลไซเมอร์
+  word_audio_file: alzheimer’s_disease_word+Joey+d2df7f652e3783d861711d2096a9625b.mp3
+  sentence_audio_file: alzheimer’s_disease_sentence+Joey+a47a6be87fdd6360c87817dfe7e34d63.mp3
+  voice_id: Joey
+- word: amalgam
+  part_of_speech: noun
+  definition_th: ส่วนผสม
+  example_en: The book is an amalgam of ideas.
+  example_th: หนังสือเป็นส่วนผสมของความคิด
+  word_audio_file: amalgam_word+Stephen+f733aabccdbe64f55daca05d8fd92ef5.mp3
+  sentence_audio_file: amalgam_sentence+Stephen+90a75d9cb03e4651c103419d993bc401.mp3
+  voice_id: Stephen
+- word: amalgamate
+  part_of_speech: verb
+  definition_th: รวมกัน
+  example_en: The companies amalgamated.
+  example_th: บริษัทรวมกัน
+  word_audio_file: amalgamate_word+Joanna+39f7b440573896de75b72ee47b6a789d.mp3
+  sentence_audio_file: amalgamate_sentence+Joanna+e768a5a5977fa24ccfc6f1c503fedd97.mp3
+  voice_id: Joanna
+- word: amass
+  part_of_speech: verb
+  definition_th: สะสม
+  example_en: He amassed a fortune.
+  example_th: เขาสะสมทรัพย์สมบัติ
+  word_audio_file: amass_word+Matthew+c2de0a65731b75f3522ea2d293e01608.mp3
+  sentence_audio_file: amass_sentence+Matthew+554258657437cc975a4bda710b30d756.mp3
+  voice_id: Matthew
+- word: amateur
+  part_of_speech: noun
+  definition_th: มือสมัครเล่น
+  example_en: She’s an amateur photographer.
+  example_th: เธอเป็นช่างภาพมือสมัครเล่น
+  word_audio_file: amateur_word+Joey+356042d9747bdc14e0055408b9430b2a.mp3
+  sentence_audio_file: amateur_sentence+Joey+59c8ffd1c6de1780376d03ca4907f0f8.mp3
+  voice_id: Joey
+- word: amateurish
+  part_of_speech: adjective
+  definition_th: เหมือนมือสมัครเล่น
+  example_en: The painting looks amateurish.
+  example_th: ภาพวาดดูเหมือนมือสมัครเล่น
+  word_audio_file: amateurish_word+Joanna+605130cabea2fbd0a77c7d8a627a510b.mp3
+  sentence_audio_file: amateurish_sentence+Joanna+48c796f5ed6532a3dd2f52e749e94ae8.mp3
+  voice_id: Joanna
+- word: amateurism
+  part_of_speech: noun
+  definition_th: ความเป็นมือสมัครเล่น
+  example_en: Amateurism is valued in the event.
+  example_th: ความเป็นมือสมัครเล่นได้รับการชื่นชมในงานนี้
+  word_audio_file: amateurism_word+Joanna+417133def01bf91515bb2762c765a6b5.mp3
+  sentence_audio_file: amateurism_sentence+Joanna+4af674c9f58633bedd0165affa06e72c.mp3
+  voice_id: Joanna
+- word: amaze
+  part_of_speech: verb
+  definition_th: ทำให้ประหลาดใจ
+  example_en: Her talent amazed everyone.
+  example_th: พรสวรรค์ของเธอทำให้ทุกคนประหลาดใจ
+  word_audio_file: amaze_word+Stephen+291e14f29a535028ef1d081f73e6b9fd.mp3
+  sentence_audio_file: amaze_sentence+Stephen+668f397ea9859442a3796d15f0257e30.mp3
+  voice_id: Stephen
+- word: amazement
+  part_of_speech: noun
+  definition_th: ความประหลาดใจ
+  example_en: They stared in amazement.
+  example_th: พวกเขาจ้องมองด้วยความประหลาดใจ
+  word_audio_file: amazement_word+Joanna+d8cce3b7944a6501909fa94f53b82cbc.mp3
+  sentence_audio_file: amazement_sentence+Joanna+177bbe1b9cf079e816b78e56190d55e0.mp3
+  voice_id: Joanna
+- word: amazing
+  part_of_speech: adjective
+  definition_th: น่าทึ่ง
+  example_en: The view was amazing.
+  example_th: วิวนั้นน่าทึ่ง
+  word_audio_file: amazing_word+Stephen+922c8158165d7c6528b9194c86b54b01.mp3
+  sentence_audio_file: amazing_sentence+Stephen+674d47b5811d2b68b5869f8361aed9ec.mp3
+  voice_id: Stephen
+- word: amazon
+  part_of_speech: noun
+  definition_th: นักรบหญิง
+  example_en: She fought like an Amazon.
+  example_th: เธอต่อสู้เหมือนนักรบหญิง
+  word_audio_file: amazon_word+Kendra+2d0d4809e6bdb6f4db3e547f27b1873c.mp3
+  sentence_audio_file: amazon_sentence+Kendra+9dfb29adad02737b64f548fcc337b25d.mp3
+  voice_id: Kendra
+- word: amazonian
+  part_of_speech: adjective
+  definition_th: เหมือนนักรบหญิง
+  example_en: Her strength is Amazonian.
+  example_th: ความแข็งแกร่งของเธอเหมือนนักรบหญิง
+  word_audio_file: amazonian_word+Joey+8f2393496580d1b637969c982ac259af.mp3
+  sentence_audio_file: amazonian_sentence+Joey+f6026d640e1af426ed30c71cc80c015a.mp3
+  voice_id: Joey
+- word: ambassador
+  part_of_speech: noun
+  definition_th: เอกอัครราชทูต
+  example_en: The ambassador met the president.
+  example_th: เอกอัครราชทูตพบประธานาธิบดี
+  word_audio_file: ambassador_word+Joey+1a4b20eddc8791015b5a02ae3b8e65a6.mp3
+  sentence_audio_file: ambassador_sentence+Joey+396ddab9470b751e4f1fa8af220d2f78.mp3
+  voice_id: Joey
+- word: ambassadorial
+  part_of_speech: adjective
+  definition_th: เกี่ยวกับทูต
+  example_en: She took on ambassadorial duties.
+  example_th: เธอรับหน้าที่เกี่ยวกับทูต
+  word_audio_file: ambassadorial_word+Stephen+b4f1317d742fa118dc90be4576dc360c.mp3
+  sentence_audio_file: ambassadorial_sentence+Stephen+95c1e2a7258d42d11ea11dc0bbb0618e.mp3
+  voice_id: Stephen
+- word: amber
+  part_of_speech: noun
+  definition_th: อำพัน
+  example_en: The insect was trapped in amber.
+  example_th: แมลงติดอยู่ในอำพัน
+  word_audio_file: amber_word+Kendra+59548977279905234b7ed3b1710837f2.mp3
+  sentence_audio_file: amber_sentence+Kendra+9a51c61b6b8508be82d68c0479efdc22.mp3
+  voice_id: Kendra
+- word: ambiance
+  part_of_speech: noun
+  definition_th: บรรยากาศ
+  example_en: The restaurant has a cozy ambiance.
+  example_th: ร้านอาหารมีบรรยากาศอบอุ่น
+  word_audio_file: ambiance_word+Joey+5084a84009e6798b6f12e5d5ad19c0f5.mp3
+  sentence_audio_file: ambiance_sentence+Joey+07da3dd91b21e0ecf52c67a7c0fa1cde.mp3
+  voice_id: Joey
+- word: ambidextrous
+  part_of_speech: adjective
+  definition_th: ใช้สองมือได้
+  example_en: He’s ambidextrous and writes with both hands.
+  example_th: เขาใช้สองมือได้และเขียนด้วยมือทั้งสอง
+  word_audio_file: ambidextrous_word+Joey+e886ed9473b35e2fc1d2f8573e136d64.mp3
+  sentence_audio_file: ambidextrous_sentence+Joey+6cfb72bbae919f28dde3c030e4b44022.mp3
+  voice_id: Joey
+- word: ambience
+  part_of_speech: noun
+  definition_th: บรรยากาศ
+  example_en: The café’s ambience was relaxing.
+  example_th: ร้านกาแฟมีบรรยากาศผ่อนคลาย
+  word_audio_file: ambience_word+Joanna+166ab3e1a71e985726644cfffcf5f246.mp3
+  sentence_audio_file: ambience_sentence+Joanna+37cb646d12c24a71ad46935db59b847f.mp3
+  voice_id: Joanna
+- word: ambient
+  part_of_speech: adjective"
+  definition_th: รอบข้าง
+  example_en: The ambient temperature was cool.
+  example_th: อุณหภูมิรอบข้างเย็นสบาย
+  word_audio_file: ambient_word+Joey+fff66a4d00c8ed7bb7814ff29d0faca2.mp3
+  sentence_audio_file: ambient_sentence+Joey+20fdfdf1f589225a87de830847e61ad3.mp3
+  voice_id: Joey
+- word: ambiguity
+  part_of_speech: noun"
+  definition_th: ความกำกง
+  example_en: The rule’s ambiguity confused them.
+  example_th: ความกำกงของกฎทำให้พวกเขาสับสน
+  word_audio_file: ambiguity_word+Kendra+3e5451f35e07811ca10e54c73dc35edc.mp3
+  sentence_audio_file: ambiguity_sentence+Kendra+bc3f6fdae253592fd20ff4d79b1530dc.mp3
+  voice_id: Kendra
+- word: ambiguous
+  part_of_speech: adjective
+  definition_th: กำกวม
+  example_en: His answer was ambiguous.
+  example_th: คำตอบของเขากำกวม
+  word_audio_file: ambiguous_word+Kendra+1f2a1ba9f974029c8e43ae8f59637f4c.mp3
+  sentence_audio_file: ambiguous_sentence+Kendra+d86ec6f52866156bacca0466e1a9c528.mp3
+  voice_id: Kendra
+- word: ambit
+  part_of_speech: noun
+  definition_th: ขอบเขต
+  example_en: The law’s ambit is limited.
+  example_th: ขอบเขตของกฎหมายจำกัด
+  word_audio_file: ambit_word+Kendra+6444b2263dd46e97cb199ad8f3b5a361.mp3
+  sentence_audio_file: ambit_sentence+Kendra+4543802ecb157b03a26a40dd22a6ce51.mp3
+  voice_id: Kendra
+- word: ambition
+  part_of_speech: noun"
+  definition_th: ความทะเยอทะยาน
+  example_en: Her ambition drove her success.
+  example_th: ความทะเยอทะยานของเธอผลักดันสู่ความสำเร็จ
+  word_audio_file: ambition_word+Kendra+6cb0759c6962606c7fa95712b6b50d31.mp3
+  sentence_audio_file: ambition_sentence+Kendra+2e45796f6fd35a54bcc263781b7acffc.mp3
+  voice_id: Kendra
+- word: ambitious
+  part_of_speech: adjective
+  definition_th: ทะเยอทะยาน
+  example_en: She’s ambitious and hardworking.
+  example_th: เธอทะเยอทะยานและทำงานหนัก
+  word_audio_file: ambitious_word+Joanna+d8d592ac4dcf5f24b5d73b67a89f1f4c.mp3
+  sentence_audio_file: ambitious_sentence+Joanna+98df6ea25eb2d92eaedb19058363d053.mp3
+  voice_id: Joanna
+- word: ambivalent
+  part_of_speech: adjective
+  definition_th: สองจิตสองใจ
+  example_en: He felt ambivalent about moving.
+  example_th: เขารู้สึกสองจิตสองใจเกี่ยวกับการย้าย
+  word_audio_file: ambivalent_word+Matthew+8bb93245d8d95e2053cd01ff5a8790cf.mp3
+  sentence_audio_file: ambivalent_sentence+Matthew+cc9cd28708c0a22522bdff9c4b9bdcb8.mp3
+  voice_id: Matthew
+- word: amble
+  part_of_speech: verb
+  definition_th: เดินเรื่อยเปื่อย
+  example_en: They ambled through the park.
+  example_th: พวกเขาเดินเรื่อยเปื่อยในสวน
+  word_audio_file: amble_word+Kendra+7fe55c0b1b19233677ebba33473de4c5.mp3
+  sentence_audio_file: amble_sentence+Kendra+26a94409e6a569fb3dd3aacc84948f7b.mp3
+  voice_id: Kendra
+- word: amend
+  part_of_speech: verb
+  definition_th: แก้ไข
+  example_en: They amended the contract.
+  example_th: พวกเขาแก้ไขสัญญา
+  word_audio_file: amend_word+Joanna+f1a91827018f161918c734379d32c6e3.mp3
+  sentence_audio_file: amend_sentence+Joanna+2f480a9e71977e0ad345b979535ed3fc.mp3
+  voice_id: Joanna
+- word: amiable
+  part_of_speech: adjective
+  definition_th: เป็นมิตร
+  example_en: He’s amiable and kind.
+  example_th: เขาเป็นมิตรและใจดี
+  word_audio_file: amiable_word+Stephen+56064e65eb97731e2527b936b9efde62.mp3
+  sentence_audio_file: amiable_sentence+Stephen+5d2745528ef3f87c7ba93c796fa001be.mp3
+  voice_id: Stephen
+- word: Amidships
+  part_of_speech: adverb
+  definition_th: กลางลำเรือ
+  example_en: The cargo was stored amidships.
+  example_th: สินค้าถูกเก็บไว้กลางลำเรือ
+  word_audio_file: amidships_word+Joey+2b8de75aedfeea38aca70e8c75ce0d3e.mp3
+  sentence_audio_file: amidships_sentence+Joey+cb9ac33bf40db34899a10f2e2a511822.mp3
+  voice_id: Joey
+- word: Amity
+  part_of_speech: noun
+  definition_th: ความสัมพันธ์อันดี
+  example_en: Amity grew between them.
+  example_th: ความสัมพันธ์อันดีเติบโตระหว่างพวกเขา
+  word_audio_file: amity_word+Stephen+261d87afea675fb08ae610ff44663955.mp3
+  sentence_audio_file: amity_sentence+Stephen+f5c29879972883a31a74b24c46a3bf3e.mp3
+  voice_id: Stephen
+- word: Ammunition
+  part_of_speech: noun
+  definition_th: เครื่องกระสุน
+  example_en: They stocked ammunition.
+  example_th: พวกเขาเก็บเครื่องกระสุน
+  word_audio_file: ammunition_word+Kendra+18c5b5c7381f5d9eecaa5b06a6bb4960.mp3
+  sentence_audio_file: ammunition_sentence+Kendra+619902aef9f0074cb98c1044708bd9d7.mp3
+  voice_id: Kendra
+- word: Amoeba
+  part_of_speech: noun
+  definition_th: อะมีบา
+  example_en: An amoeba splits to reproduce.
+  example_th: อะมีบาแบ่งตัวเพื่อสืบพันธุ์
+  word_audio_file: amoeba_word+Stephen+8928573c3df02beb1f39314f0976698a.mp3
+  sentence_audio_file: amoeba_sentence+Stephen+8c99ec14a0920f8161504607faeb33c2.mp3
+  voice_id: Stephen
 b: []
 c: []
 d: []
