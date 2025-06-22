@@ -1,4 +1,3 @@
-// script.js
 let currentWordIndex = 0;
 let currentLetter = 'a';
 let words = {};
@@ -36,7 +35,7 @@ function loadWords() {
 
 function findFirstNonEmptyLetter() {
     const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
-                     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'other'];
+                     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     for (let letter of letters) {
         if (words[letter] && words[letter].length > 0) {
             currentLetter = letter;
