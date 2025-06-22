@@ -4,6 +4,7 @@ from tqdm import tqdm
 import boto3
 import hashlib
 import random
+from collections import defaultdict
 
 # Define paths using absolute paths
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -92,9 +93,85 @@ def get_audio_filename(word, text, prefix, voice_id):
     safe_word = word.lower().replace(' ', '_')
     return f"{safe_word}_{prefix}+{voice_id}+{hashlib.md5(text.encode('utf-8')).hexdigest()}.mp3"
 
+def check_duplicates(vocab_db):
+    """Check for and remove duplicates in vocab_database.yaml, keeping the first occurrence."""
+    duplicates = defaultdict(list)
+    duplicate_count = 0
+
+    # Collect duplicates
+    for letter in vocab_db:
+        seen_words = set()
+        for entry in vocab_db[letter]:
+            word_lower = entry['word'].lower()
+            if word_lower in seen_words:
+                duplicates[letter].append(entry)
+            else:
+                seen_words.add(word_lower)
+
+    # Remove duplicates, keeping the first occurrence
+    for letter in duplicates:
+        for dup_entry in duplicates[letter]:
+            vocab_db[letter] = [e for e in vocab_db[letter] if e['word'].lower() != dup_entry['word'].lower()] + \
+                               [next(e for e in vocab_db[letter] if e['word'].lower() == dup_entry['word'].lower())]
+            duplicate_count += 1
+
+    if duplicate_count > 0:
+        print(f"Removed {duplicate_count} duplicate entries from vocab_database.yaml")
+        save_yaml(vocab_db, VOCAB_DB_PATH)
+    
+    return duplicate_count
+
+def validate_audio_files(vocab_db):
+    """Validate that all entries in vocab_database.yaml have corresponding audio files."""
+    missing_audio = []
+    for letter in vocab_db:
+        for entry in vocab_db[letter]:
+            word_audio_path = os.path.join(AUDIO_DIR, entry.get('word_audio_file', ''))
+            sentence_audio_path = os.path.join(AUDIO_DIR, entry.get('sentence_audio_file', ''))
+            if not os.path.exists(word_audio_path):
+                missing_audio.append((entry['word'], 'word_audio_file', entry.get('word_audio_file', '')))
+            if not os.path.exists(sentence_audio_path):
+                missing_audio.append((entry['word'], 'sentence_audio_file', entry.get('sentence_audio_file', '')))
+    
+    return missing_audio
+
+def generate_summary_report(vocab_db, valid_entries, invalid_entries, duplicate_count, missing_audio):
+    """Generate a summary report of the processing results."""
+    total_words = sum(len(vocab_db[letter]) for letter in vocab_db)
+    new_words_by_letter = defaultdict(int)
+    
+    for entry in valid_entries:
+        word_lower = entry['word'].lower()
+        first_char = word_lower[0]
+        new_words_by_letter[first_char] += 1
+
+    print("\n=== Vocabulary Processing Summary Report ===")
+    print(f"Total words in vocab_database.yaml: {total_words}")
+    print(f"Newly added words: {len(valid_entries)}")
+    if new_words_by_letter:
+        print("New words by letter:")
+        for letter, count in sorted(new_words_by_letter.items()):
+            print(f"  {letter.upper()}: {count}")
+    else:
+        print("  No new words added.")
+    print(f"Invalid entries: {len(invalid_entries)}")
+    if invalid_entries:
+        print("Invalid entries details:", invalid_entries)
+    print(f"Duplicates removed: {duplicate_count}")
+    print(f"Entries with missing audio files: {len(missing_audio)}")
+    if missing_audio:
+        print("Missing audio files:")
+        for word, audio_type, file_name in missing_audio:
+            print(f"  Word: {word}, Type: {audio_type}, File: {file_name}")
+    print("====================================\n")
+
 def process_entries(entries):
     """Process vocabulary entries and update database."""
     vocab_db = load_yaml(VOCAB_DB_PATH)
+    
+    # Check for duplicates before processing new entries
+    duplicate_count = check_duplicates(vocab_db)
+    
     valid_entries = []
     invalid_entries = []
 
@@ -173,6 +250,13 @@ def process_entries(entries):
         vocab_db[first_char] = sorted(vocab_db[first_char], key=lambda x: x['word'].lower())
 
     save_yaml(vocab_db, VOCAB_DB_PATH)
+    
+    # Validate audio files after updating the database
+    missing_audio = validate_audio_files(vocab_db)
+    
+    # Generate summary report
+    generate_summary_report(vocab_db, valid_entries, invalid_entries, duplicate_count, missing_audio)
+    
     return valid_entries, invalid_entries
 
 def main():
@@ -187,9 +271,7 @@ def main():
 
     valid_entries, invalid_entries = process_entries(entries)
     print(f"Processed {len(entries)} entries: {len(valid_entries)} valid, {len(invalid_entries)} invalid")
-    if invalid_entries:
-        print("Invalid entries:", invalid_entries)
-
+    
     # Clear temp_vocab.yaml if at least one valid entry
     if valid_entries:
         save_yaml([], TEMP_VOCAB_PATH)
