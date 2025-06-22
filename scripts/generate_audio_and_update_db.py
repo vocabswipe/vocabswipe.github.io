@@ -5,6 +5,7 @@ import boto3
 import hashlib
 import random
 from collections import defaultdict
+import time  # Added for timestamp formatting
 
 # Define paths using absolute paths
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -150,7 +151,7 @@ def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, 
     # Prepare report
     report = [
         "=== Vocabulary Database Processing Report ===",
-        f"Date and Time: {os.time.strftime('%Y-%m-%d %H:%M:%S')}",
+        f"Date and Time: {time.strftime('%Y-%m-%d %H:%M:%S')}",  # Fixed: os.time -> time
         "",
         f"Total Words in Database: {total_words}",
         f"Initial Words (before processing): {initial_word_count}",
@@ -182,7 +183,7 @@ def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, 
     # Print and save report
     report_text = "\n".join(report)
     print(report_text)
-    report_path = os.path.join(BASE_DIR, 'data', 'reports', f"vocab_report_{os.time.strftime('%Y%m%d_%H%M%S')}.txt")
+    report_path = os.path.join(BASE_DIR, 'data', 'reports', f"vocab_report_{time.strftime('%Y%m%d_%H%M%S')}.txt")  # Fixed: os.time -> time
     os.makedirs(os.path.dirname(report_path), exist_ok=True)
     with open(report_path, 'w', encoding='utf-8') as f:
         f.write(report_text)
