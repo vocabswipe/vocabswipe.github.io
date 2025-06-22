@@ -185,7 +185,7 @@ def clean_redundant_audio_files(vocab_db):
             if entry.get('word_audio_file'):
                 referenced_audio_files.add(entry['word_audio_file'])
             if entry.get('sentence_audio_file'):
-                referenced_audio_files.add(entry['sentence_audio_file'))
+                referenced_audio_files.add(entry['sentence_audio_file'])
     
     deleted_count = 0
     for filename in os.listdir(AUDIO_DIR):
