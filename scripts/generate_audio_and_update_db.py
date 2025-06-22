@@ -177,33 +177,17 @@ def verify_audio_files(vocab_db):
                 missing_audio.append((entry['word'], 'sentence_audio_file', sentence_audio_path))
     return missing_audio
 
-def clean_redundant_audio_files(vocab_db):
-    """Delete audio files in AUDIO_DIR that are not referenced in vocab_db."""
-    referenced_audio_files = set()
-    for letter in vocab_db:
-        for entry in vocab_db[letter]:
-            if entry.get('word_audio_file'):
-                referenced_audio_files.add(entry['word_audio_file'])
-            if entry.get('sentence_audio_file'):
-                referenced_audio_files.add(entry['sentence_audio_file'])
-    
-    deleted_count = 0
-    for filename in os.listdir(AUDIO_DIR):
-        if filename not in referenced_audio_files:
-            audio_path = os.path.join(AUDIO_DIR, filename)
-            try:
-                os.remove(audio_path)
-                logger.info(f"Deleted unreferenced audio file: {audio_path}")
-                deleted_count += 1
-            except OSError as e:
-                logger.error(f"Error deleting audio file {audio_path}: {e}")
-    
-    return deleted_count
-
-def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, missing_audio, initial_word_count, skipped_entries, deleted_audio_count):
+def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, missing_audio, initial_word_count, skipped_entries):
     """Generate a summary report of the processing results."""
     total_words = sum(len(entries) for entries in vocab_db.values())
     new_words_by_letter = defaultdict(int)
+    total_audio_files = 0
+    for letter in vocab_db:
+        for entry in vocab_db[letter]:
+            if entry.get('word_audio_file'):
+                total_audio_files += 1
+            if entry.get('sentence_audio_file'):
+                total_audio_files += 1
     for entry in valid_entries:
         word_lower = entry['word'].lower()
         first_char = word_lower[0]
@@ -217,7 +201,7 @@ def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, 
         f"Initial Words (before processing): {initial_word_count}",
         f"Newly Added Words: {len(valid_entries) - skipped_entries}",
         f"Skipped Entries (already processed): {skipped_entries}",
-        f"Redundant Audio Files Deleted: {deleted_audio_count}",
+        f"Total Audio Files (should be 2x entries): {total_audio_files} (Expected: {2 * total_words})",
     ]
     
     if new_words_by_letter:
@@ -334,9 +318,8 @@ def process_entries(entries):
 
     duplicates, removed_count = check_duplicates(vocab_db)
     missing_audio = verify_audio_files(vocab_db)
-    deleted_audio_count = clean_redundant_audio_files(vocab_db)
     save_yaml(vocab_db, VOCAB_DB_PATH)
-    generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, missing_audio, initial_word_count, skipped_entries, deleted_audio_count)
+    generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, missing_audio, initial_word_count, skipped_entries)
     
     return valid_entries, invalid_entries
 
