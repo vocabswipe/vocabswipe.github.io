@@ -17,6 +17,8 @@ yaml
   example_en: "Smartphones are ubiquitous."
   example_th: "สมาร์ทโฟนอยู่ทุกหนแห่ง"
 
+Notice that, there is no spaces between lines.
+
 Using the provided word list, create entries for each word with:
 word: The English word.
 
