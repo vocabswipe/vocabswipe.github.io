@@ -4,6 +4,7 @@ from tqdm import tqdm
 import boto3
 import hashlib
 import random
+from collections import defaultdict
 
 # Define paths using absolute paths
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -92,9 +93,108 @@ def get_audio_filename(word, text, prefix, voice_id):
     safe_word = word.lower().replace(' ', '_')
     return f"{safe_word}_{prefix}+{voice_id}+{hashlib.md5(text.encode('utf-8')).hexdigest()}.mp3"
 
+def check_duplicates(vocab_db):
+    """Check for and remove duplicate words in vocab_db, keeping the last entry."""
+    duplicates = defaultdict(list)
+    for letter in vocab_db:
+        seen_words = set()
+        for entry in vocab_db[letter]:
+            word_lower = entry['word'].lower()
+            if word_lower in seen_words:
+                duplicates[letter].append(word_lower)
+            seen_words.add(word_lower)
+    
+    # Remove duplicates, keeping the last entry
+    removed_count = 0
+    for letter in vocab_db:
+        if letter in duplicates:
+            unique_entries = []
+            seen_words = set()
+            for entry in reversed(vocab_db[letter]):  # Process in reverse to keep last entry
+                word_lower = entry['word'].lower()
+                if word_lower not in seen_words:
+                    unique_entries.append(entry)
+                    seen_words.add(word_lower)
+                else:
+                    removed_count += 1
+            vocab_db[letter] = list(reversed(unique_entries))  # Restore original order
+            vocab_db[letter] = sorted(vocab_db[letter], key=lambda x: x['word'].lower())
+    
+    return duplicates, removed_count
+
+def verify_audio_files(vocab_db):
+    """Verify that all entries in vocab_db have corresponding audio files."""
+    missing_audio = []
+    for letter in vocab_db:
+        for entry in vocab_db[letter]:
+            word_audio_path = os.path.join(AUDIO_DIR, entry.get('word_audio_file', ''))
+            sentence_audio_path = os.path.join(AUDIO_DIR, entry.get('sentence_audio_file', ''))
+            if not os.path.exists(word_audio_path):
+                missing_audio.append((entry['word'], 'word_audio_file', word_audio_path))
+            if not os.path.exists(sentence_audio_path):
+                missing_audio.append((entry['word'], 'sentence_audio_file', sentence_audio_path))
+    return missing_audio
+
+def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, missing_audio, initial_word_count):
+    """Generate a summary report of the processing results."""
+    # Count total words
+    total_words = sum(len(entries) for entries in vocab_db.values())
+    
+    # Count newly added words by letter
+    new_words_by_letter = defaultdict(int)
+    for entry in valid_entries:
+        word_lower = entry['word'].lower()
+        first_char = word_lower[0]
+        new_words_by_letter[first_char] += 1
+    
+    # Prepare report
+    report = [
+        "=== Vocabulary Database Processing Report ===",
+        f"Date and Time: {os.time.strftime('%Y-%m-%d %H:%M:%S')}",
+        "",
+        f"Total Words in Database: {total_words}",
+        f"Initial Words (before processing): {initial_word_count}",
+        f"Newly Added Words: {len(valid_entries)}",
+    ]
+    
+    if new_words_by_letter:
+        report.append("\nNew Words Added by Letter:")
+        for letter in sorted(new_words_by_letter.keys()):
+            report.append(f"  {letter.upper()}: {new_words_by_letter[letter]}")
+    
+    if duplicates:
+        report.append("\nDuplicates Found and Removed:")
+        for letter in duplicates:
+            report.append(f"  {letter.upper()}: {', '.join(duplicates[letter])}")
+        report.append(f"Total Duplicates Removed: {removed_count}")
+    else:
+        report.append("\nNo Duplicates Found.")
+    
+    if missing_audio:
+        report.append("\nMissing Audio Files:")
+        for word, audio_type, path in missing_audio:
+            report.append(f"  Word: {word}, Missing: {audio_type}, Path: {path}")
+    else:
+        report.append("\nAll Audio Files Present.")
+    
+    report.append("\n=== End of Report ===")
+    
+    # Print and save report
+    report_text = "\n".join(report)
+    print(report_text)
+    report_path = os.path.join(BASE_DIR, 'data', 'reports', f"vocab_report_{os.time.strftime('%Y%m%d_%H%M%S')}.txt")
+    os.makedirs(os.path.dirname(report_path), exist_ok=True)
+    with open(report_path, 'w', encoding='utf-8') as f:
+        f.write(report_text)
+    print(f"Report saved to: {report_path}")
+
 def process_entries(entries):
     """Process vocabulary entries and update database."""
     vocab_db = load_yaml(VOCAB_DB_PATH)
+    
+    # Count initial words
+    initial_word_count = sum(len(entries) for entries in vocab_db.values())
+    
     valid_entries = []
     invalid_entries = []
 
@@ -172,7 +272,18 @@ def process_entries(entries):
         vocab_db[first_char].append(entry)
         vocab_db[first_char] = sorted(vocab_db[first_char], key=lambda x: x['word'].lower())
 
+    # Check for duplicates and remove them
+    duplicates, removed_count = check_duplicates(vocab_db)
+    
+    # Verify audio files
+    missing_audio = verify_audio_files(vocab_db)
+    
+    # Save updated database
     save_yaml(vocab_db, VOCAB_DB_PATH)
+    
+    # Generate summary report
+    generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, missing_audio, initial_word_count)
+    
     return valid_entries, invalid_entries
 
 def main():
