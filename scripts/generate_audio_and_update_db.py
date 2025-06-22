@@ -45,7 +45,11 @@ def save_yaml(data, file_path):
         yaml.safe_dump(data, file, allow_unicode=True, sort_keys=False)
 
 def append_to_log(entries):
-    """Append entries to temp_vocab_log.yaml."""
+    """Append entries to temp_vocab_log.yaml, creating a blank file if it doesn't exist."""
+    if not os.path.exists(TEMP_VOCAB_LOG_PATH):
+        print(f"Creating blank {TEMP_VOCAB_LOG_PATH}")
+        save_yaml([], TEMP_VOCAB_LOG_PATH)
+    
     existing_log = load_yaml(TEMP_VOCAB_LOG_PATH)
     if not isinstance(existing_log, list):
         existing_log = []
