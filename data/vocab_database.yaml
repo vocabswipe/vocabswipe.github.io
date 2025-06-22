@@ -1511,6 +1511,1918 @@ a:
   word_audio_file: accused_word+Joanna+1ab4bf2f27ac81447b87574cb0e77e1d.mp3
   sentence_audio_file: accused_sentence+Joanna+aaabca453b82141f74ea8853085a6326.mp3
   voice_id: Joanna
+- word: accuser
+  part_of_speech: noun
+  definition_th: ผู้กล่าวหา
+  example_en: The accuser pointed at the suspect.
+  example_th: ผู้กล่าวหาชี้ไปที่ผู้ต้องสงสัย
+  word_audio_file: accuser_word+Joey+5a1fca23d005c5a0eda80fc9ab6e460e.mp3
+  sentence_audio_file: accuser_sentence+Joey+1e895ea62dd50d2b792d1c48662bd316.mp3
+  voice_id: Joey
+- word: accusing
+  part_of_speech: adjective
+  definition_th: กล่าวหา
+  example_en: She gave him an accusing look.
+  example_th: เธอมองเขาด้วยสายตากล่าวหา
+  word_audio_file: accusing_word+Joanna+57abc21ab6e6f4db2d94b9819d168680.mp3
+  sentence_audio_file: accusing_sentence+Joanna+90651fe0f0c23f228ccedd6aff87c399.mp3
+  voice_id: Joanna
+- word: accustom
+  part_of_speech: verb
+  definition_th: ทำให้คุ้นเคย
+  example_en: He accustomed himself to the cold.
+  example_th: เขาทำให้ตัวเองคุ้นเคยกับความหนาว
+  word_audio_file: accustom_word+Kendra+9095783d814d50e9de6d2b554fc7667f.mp3
+  sentence_audio_file: accustom_sentence+Kendra+29ecbe4cf2cba2e55e3a56da0f2575b2.mp3
+  voice_id: Kendra
+- word: accustomed
+  part_of_speech: adjective
+  definition_th: คุ้นเคย
+  example_en: She is accustomed to waking early.
+  example_th: เธอคุ้นเคยกับการตื่นเช้า
+  word_audio_file: accustomed_word+Kendra+127604b318d10d8fc44cd434c4ad692e.mp3
+  sentence_audio_file: accustomed_sentence+Kendra+e1f0f324d669079b2069e52bfec4219e.mp3
+  voice_id: Kendra
+- word: ace
+  part_of_speech: noun
+  definition_th: เอซ (ไพ่)
+  example_en: He played an ace in the game.
+  example_th: เขาเล่นไพ่เอซในเกม
+  word_audio_file: ace_word+Joanna+360e2ece07507675dced80ba867d6dcd.mp3
+  sentence_audio_file: ace_sentence+Joanna+697b8a4d63b7a44090d0ecfd7c43bc99.mp3
+  voice_id: Joanna
+- word: acerbic
+  part_of_speech: adjective
+  definition_th: คมคาย
+  example_en: His acerbic comment upset her.
+  example_th: คำพูดคมคายของเขาทำให้เธอไม่พอใจ
+  word_audio_file: acerbic_word+Kendra+390b1d86f45f55392001ee6f588bbda1.mp3
+  sentence_audio_file: acerbic_sentence+Kendra+198704b54fee318f24f189fe574dd19e.mp3
+  voice_id: Kendra
+- word: acerbity
+  part_of_speech: noun
+  definition_th: ความคมคาย
+  example_en: Her speech was full of acerbity.
+  example_th: คำพูดของเธอเต็มไปด้วยความคมคาย
+  word_audio_file: acerbity_word+Stephen+8ecf6b125a20049cc6d74f1fb8073039.mp3
+  sentence_audio_file: acerbity_sentence+Stephen+e8b8aa5e76bf79932e3b8a99397b182c.mp3
+  voice_id: Stephen
+- word: acetate
+  part_of_speech: noun
+  definition_th: อะซิเตท
+  example_en: The fabric is made of acetate.
+  example_th: ผ้าทำจากอะซิเตท
+  word_audio_file: acetate_word+Kendra+906dbcd18790399614dfb8afcb8d4a8b.mp3
+  sentence_audio_file: acetate_sentence+Kendra+8656c86da4d5878a1e9d27b872fcae58.mp3
+  voice_id: Kendra
+- word: acetic acid
+  part_of_speech: noun
+  definition_th: กรดอะซิติก
+  example_en: Vinegar contains acetic acid.
+  example_th: น้ำส้มสายชูมีกรดอะซิติก
+  word_audio_file: acetic_acid_word+Joanna+516aa90a2552022428676c42db4939bd.mp3
+  sentence_audio_file: acetic_acid_sentence+Joanna+0f4a278b6e3bcc6cbb2927aff038d81a.mp3
+  voice_id: Joanna
+- word: acetone
+  part_of_speech: noun
+  definition_th: อะซิโตน
+  example_en: She used acetone to remove polish.
+  example_th: เธอใช้อะซิโตนล้างยาทาเล็บ
+  word_audio_file: acetone_word+Matthew+d6b0054ebc36047d02dff1c038bb1459.mp3
+  sentence_audio_file: acetone_sentence+Matthew+a55765e48a6955bd923424b74e4f49a9.mp3
+  voice_id: Matthew
+- word: acetylene
+  part_of_speech: noun
+  definition_th: อะเซทิลีน
+  example_en: Acetylene is used in welding.
+  example_th: อะเซทิลีนใช้ในการเชื่อม
+  word_audio_file: acetylene_word+Matthew+114e4d769fadf1997d5becc4c7d88b69.mp3
+  sentence_audio_file: acetylene_sentence+Matthew+a4fcd4a61c6acb992502c053d0720c04.mp3
+  voice_id: Matthew
+- word: ache
+  part_of_speech: verb
+  definition_th: ปวด
+  example_en: My head aches badly.
+  example_th: หัวฉันปวดมาก
+  word_audio_file: ache_word+Joanna+971f5dc4b6d2e06a073200edd8457eb6.mp3
+  sentence_audio_file: ache_sentence+Joanna+ea847dbbbfcb5021ebbd1050b30f27a1.mp3
+  voice_id: Joanna
+- word: achievable
+  part_of_speech: adjective
+  definition_th: ทำได้
+  example_en: The goal is achievable.
+  example_th: เป้าหมายนี้ทำได้
+  word_audio_file: achievable_word+Stephen+e1497e48a803716314dcaa2db80a80ab.mp3
+  sentence_audio_file: achievable_sentence+Stephen+7f0af20ebc81a1b435bed356f0c3a707.mp3
+  voice_id: Stephen
+- word: achieve
+  part_of_speech: verb
+  definition_th: บรรลุ
+  example_en: She achieved her dreams.
+  example_th: เธอบรรลุความฝันของเธอ
+  word_audio_file: achieve_word+Kendra+754faff639576f7a88ff3974c0d63ca4.mp3
+  sentence_audio_file: achieve_sentence+Kendra+7a060ac667c3c32135202aa733519bed.mp3
+  voice_id: Kendra
+- word: achievement
+  part_of_speech: noun
+  definition_th: ความสำเร็จ
+  example_en: Graduation was a great achievement.
+  example_th: การจบการศึกษาเป็นความสำเร็จที่ยิ่งใหญ่
+  word_audio_file: achievement_word+Joanna+55824ad4959e2d9b965227bbc833c960.mp3
+  sentence_audio_file: achievement_sentence+Joanna+1d9e819eafedf0b88643f0d62d5258c2.mp3
+  voice_id: Joanna
+- word: achiever
+  part_of_speech: noun
+  definition_th: ผู้ประสบความสำเร็จ
+  example_en: He is a high achiever.
+  example_th: เขาเป็นผู้ประสบความสำเร็จสูง
+  word_audio_file: achiever_word+Joanna+9459c74788305aff7167b759282c661f.mp3
+  sentence_audio_file: achiever_sentence+Joanna+f6cf72d33ef92e37633f1e74367ee09c.mp3
+  voice_id: Joanna
+- word: Achilles heel
+  part_of_speech: noun
+  definition_th: จุดอ่อน
+  example_en: Pride is his Achilles heel.
+  example_th: ความหยิ่งคือจุดอ่อนของเขา
+  word_audio_file: achilles_heel_word+Stephen+17b2b580fa2c1fa72f9ad68d277b4dcc.mp3
+  sentence_audio_file: achilles_heel_sentence+Stephen+6148c5c23c164df5772a5365f640e74d.mp3
+  voice_id: Stephen
+- word: Achilles tendon
+  part_of_speech: noun
+  definition_th: เอ็นร้อยหวาย
+  example_en: He injured his Achilles tendon.
+  example_th: เขาได้รับบาดเจ็บที่เอ็นร้อยหวาย
+  word_audio_file: achilles_tendon_word+Joey+a08da1d2749f004a94d011b1ca6f1e3e.mp3
+  sentence_audio_file: achilles_tendon_sentence+Joey+8bcadc29d1de3b6de00a9722d1ac5230.mp3
+  voice_id: Joey
+- word: achingly
+  part_of_speech: adverb
+  definition_th: อย่างเจ็บปวด
+  example_en: The song was achingly beautiful.
+  example_th: เพลงนั้นสวยงามอย่างเจ็บปวด
+  word_audio_file: achingly_word+Kendra+90b5535d02dd7019ad95ba460d669401.mp3
+  sentence_audio_file: achingly_sentence+Kendra+3f0d361c073ff128c194ff62b01948a7.mp3
+  voice_id: Kendra
+- word: achoo
+  part_of_speech: interjection
+  definition_th: ฮัดชิ่ว
+  example_en: Achoo! I sneezed loudly.
+  example_th: ฮัดชิ่ว! ฉันจามดังมาก
+  word_audio_file: achoo_word+Stephen+e7259f8ebbfc5a9d73f4d1ed5f4011c6.mp3
+  sentence_audio_file: achoo_sentence+Stephen+9b83b4e6d7a73779a37aebb4f03e7fa3.mp3
+  voice_id: Stephen
+- word: achy
+  part_of_speech: adjective
+  definition_th: ปวดเมื่อย
+  example_en: My legs feel achy.
+  example_th: ขาของฉันรู้สึกปวดเมื่อย
+  word_audio_file: achy_word+Joey+47630aba8d9660b22d85bfa19d954de9.mp3
+  sentence_audio_file: achy_sentence+Joey+f95d2adaf7baf0fa4af6d88debebe30c.mp3
+  voice_id: Joey
+- word: acid
+  part_of_speech: noun
+  definition_th: กรด
+  example_en: Lemon juice contains acid.
+  example_th: น้ำมะนาวมีกรด
+  word_audio_file: acid_word+Matthew+f923389424a4f813fe311e13e24932f1.mp3
+  sentence_audio_file: acid_sentence+Matthew+9a6f62089924f4e72f60742871c2b1f3.mp3
+  voice_id: Matthew
+- word: acid house
+  part_of_speech: noun
+  definition_th: ดนตรีแอซิดเฮาส์
+  example_en: Acid house was popular in the 80s.
+  example_th: ดนตรีแอซิดเฮาส์เป็นที่นิยมในยุค 80
+  word_audio_file: acid_house_word+Stephen+49695002063a4ef84cb945a76d6e670b.mp3
+  sentence_audio_file: acid_house_sentence+Stephen+2f5f7d26f599af2cb4596892ebf3fdff.mp3
+  voice_id: Stephen
+- word: acid rain
+  part_of_speech: noun
+  definition_th: ฝนกรด
+  example_en: Acid rain harms forests.
+  example_th: ฝนกรดทำลายป่าไม้
+  word_audio_file: acid_rain_word+Joanna+b65a1a56c68131c0e60bb53822cb05ed.mp3
+  sentence_audio_file: acid_rain_sentence+Joanna+e1b2f677640e57d8e675682bb0968ff2.mp3
+  voice_id: Joanna
+- word: acid test
+  part_of_speech: noun
+  definition_th: การทดสอบขั้นเด็ดขาด
+  example_en: This is the acid test.
+  example_th: นี่คือการทดสอบขั้นเด็ดขาด
+  word_audio_file: acid_test_word+Joey+a849b94260a0737392742ee603b3672d.mp3
+  sentence_audio_file: acid_test_sentence+Joey+c331cf319cb46cd7654f73f4d68b7beb.mp3
+  voice_id: Joey
+- word: acidic
+  part_of_speech: adjective
+  definition_th: เป็นกรด
+  example_en: The drink tastes acidic.
+  example_th: เครื่องดื่มมีรสเป็นกรด
+  word_audio_file: acidic_word+Kendra+985679536bf2de0c75dffcef84333f10.mp3
+  sentence_audio_file: acidic_sentence+Kendra+b762f04f31fc1e1bfce9711b54c0a32d.mp3
+  voice_id: Kendra
+- word: acidity
+  part_of_speech: noun
+  definition_th: ความเป็นกรด
+  example_en: The soil has high acidity.
+  example_th: ดินมีความเป็นกรดสูง
+  word_audio_file: acidity_word+Joey+954cffa8ce76a2759d976911cd72891b.mp3
+  sentence_audio_file: acidity_sentence+Joey+9fd5aee952e9c986e6623a72fa06a54b.mp3
+  voice_id: Joey
+- word: acknowledge
+  part_of_speech: verb
+  definition_th: ยอมรับ
+  example_en: She acknowledged her mistake.
+  example_th: เธอยอมรับความผิดของเธอ
+  word_audio_file: acknowledge_word+Stephen+7daca0569890410155f9fbb480e40e88.mp3
+  sentence_audio_file: acknowledge_sentence+Stephen+85914574e7c50cf34ea01cbcb9f8a76d.mp3
+  voice_id: Stephen
+- word: acknowledgment
+  part_of_speech: noun
+  definition_th: การยอมรับ
+  example_en: He nodded in acknowledgment.
+  example_th: เขาพยักหน้าเป็นการยอมรับ
+  word_audio_file: acknowledgment_word+Matthew+a5c4f9ddaf0239bfc60b54fe6e184293.mp3
+  sentence_audio_file: acknowledgment_sentence+Matthew+8fca516c07d2f06e7132530b01f16d85.mp3
+  voice_id: Matthew
+- word: acme
+  part_of_speech: noun
+  definition_th: จุดสูงสุด
+  example_en: She reached the acme of success.
+  example_th: เธอถึงจุดสูงสุดของความสำเร็จ
+  word_audio_file: acme_word+Kendra+53bce4f1dfa0fe8e7ca126f91b35d3a6.mp3
+  sentence_audio_file: acme_sentence+Kendra+0703cc74d2f9725a338bd820b6a3f1a6.mp3
+  voice_id: Kendra
+- word: acne
+  part_of_speech: noun
+  definition_th: สิว
+  example_en: Teenagers often have acne.
+  example_th: วัยรุ่นมักมีสิว
+  word_audio_file: acne_word+Joey+450e166c06161deddfc97749332c61cb.mp3
+  sentence_audio_file: acne_sentence+Joey+f8d5c82916d93adae2a31d09ed6cf9be.mp3
+  voice_id: Joey
+- word: acolyte
+  part_of_speech: noun
+  definition_th: ผู้ช่วย
+  example_en: He was an acolyte in the church.
+  example_th: เขาเป็นผู้ช่วยในโบสถ์
+  word_audio_file: acolyte_word+Joanna+b637af78ada000a39023b4ead9db041a.mp3
+  sentence_audio_file: acolyte_sentence+Joanna+5ad1c12668626c9f874fb1dc447f68fa.mp3
+  voice_id: Joanna
+- word: acorn
+  part_of_speech: noun
+  definition_th: ผลโอ๊ก
+  example_en: Squirrels collect acorns.
+  example_th: กระรอกเก็บผลโอ๊ก
+  word_audio_file: acorn_word+Joey+ece8e3803fb3b8e5e081f3c90abea858.mp3
+  sentence_audio_file: acorn_sentence+Joey+0ae029426daf4a06f8d53a8b52d78cab.mp3
+  voice_id: Joey
+- word: acoustic
+  part_of_speech: adjective
+  definition_th: เกี่ยวกับเสียง
+  example_en: She plays an acoustic guitar.
+  example_th: เธอเล่นกีตาร์อะคูสติก
+  word_audio_file: acoustic_word+Joey+776fe453bbe310a63f35302daf0c77b9.mp3
+  sentence_audio_file: acoustic_sentence+Joey+ded1e5830094881cbace601f6c1d2ec3.mp3
+  voice_id: Joey
+- word: acquaint
+  part_of_speech: verb
+  definition_th: ทำให้รู้จัก
+  example_en: Let me acquaint you with the rules.
+  example_th: ให้ฉันทำให้คุณรู้จักกับกฎ
+  word_audio_file: acquaint_word+Kendra+b4ba8f499a6a9d3f2c5b3bcc46bba1a9.mp3
+  sentence_audio_file: acquaint_sentence+Kendra+937e10f6128b9da927195e299151208b.mp3
+  voice_id: Kendra
+- word: acquaintance
+  part_of_speech: noun
+  definition_th: คนรู้จัก
+  example_en: He’s just an acquaintance.
+  example_th: เขาเป็นแค่คนรู้จัก
+  word_audio_file: acquaintance_word+Matthew+2dc4d2f10d0e1a28098abb65d5dcf9fc.mp3
+  sentence_audio_file: acquaintance_sentence+Matthew+0380a9994b1e602c67605ef6acde7bec.mp3
+  voice_id: Matthew
+- word: acquainted
+  part_of_speech: adjective
+  definition_th: รู้จัก
+  example_en: We are well acquainted.
+  example_th: เรารู้จักกันดี
+  word_audio_file: acquainted_word+Stephen+6a44efc4f7c0811ae9340887b03ef5de.mp3
+  sentence_audio_file: acquainted_sentence+Stephen+25b57e3565614963b65ddcdc055c55d5.mp3
+  voice_id: Stephen
+- word: acquiesce
+  part_of_speech: verb
+  definition_th: ยินยอม
+  example_en: She acquiesced to the plan.
+  example_th: เธอยินยอมต่อแผน
+  word_audio_file: acquiesce_word+Joanna+2f38a131b80b048f96eb167d685fa1de.mp3
+  sentence_audio_file: acquiesce_sentence+Joanna+de4cf72e7761aa5b8e08c123c7c5d587.mp3
+  voice_id: Joanna
+- word: acquiescence
+  part_of_speech: noun
+  definition_th: การยินยอม
+  example_en: Her acquiescence surprised us.
+  example_th: การยินยอมของเธอทำให้เราประหลาดใจ
+  word_audio_file: acquiescence_word+Matthew+6c2db8788dd88887d32d8d10735ce3eb.mp3
+  sentence_audio_file: acquiescence_sentence+Matthew+d154cfa22f0afa87fdccf98f24e65fd3.mp3
+  voice_id: Matthew
+- word: acquiescent
+  part_of_speech: adjective
+  definition_th: ยินยอม
+  example_en: He was acquiescent to orders.
+  example_th: เขายินยอมต่อคำสั่ง
+  word_audio_file: acquiescent_word+Matthew+ec5a17dd2a260f680625ae2887c1ae61.mp3
+  sentence_audio_file: acquiescent_sentence+Matthew+7a68725d9dcf75bce751ee4daaa3ce8b.mp3
+  voice_id: Matthew
+- word: acquire
+  part_of_speech: verb
+  definition_th: ได้มา
+  example_en: She acquired new skills.
+  example_th: เธอได้ทักษะใหม่มา
+  word_audio_file: acquire_word+Joanna+86a4fa105ff51b8c3be84734797d8144.mp3
+  sentence_audio_file: acquire_sentence+Joanna+5cd14f02291a5c9fd3df1c1b42187dd7.mp3
+  voice_id: Joanna
+- word: acquired immune deficiency syndrome
+  part_of_speech: noun
+  definition_th: โรคเอดส์
+  example_en: AIDS is a serious condition.
+  example_th: โรคเอดส์เป็นภาวะร้ายแรง
+  word_audio_file: acquired_immune_deficiency_syndrome_word+Stephen+52327a8b09554fdf5d30341333cc3f5f.mp3
+  sentence_audio_file: acquired_immune_deficiency_syndrome_sentence+Stephen+a10420baad13c89deab088aa0819355c.mp3
+  voice_id: Stephen
+- word: acquirer
+  part_of_speech: noun
+  definition_th: ผู้ได้มา
+  example_en: The acquirer bought the company.
+  example_th: ผู้ได้มาซื้อบริษัท
+  word_audio_file: acquirer_word+Kendra+4cb3ff0d6d8a31d67d7091780d917fd7.mp3
+  sentence_audio_file: acquirer_sentence+Kendra+05f10bc4ac5afc939c68b38489470dd2.mp3
+  voice_id: Kendra
+- word: acquisition
+  part_of_speech: noun
+  definition_th: การได้มา
+  example_en: The acquisition was successful.
+  example_th: การได้มาประสบความสำเร็จ
+  word_audio_file: acquisition_word+Joey+316ef3e92a326604a5f6d8e796e5995f.mp3
+  sentence_audio_file: acquisition_sentence+Joey+3f825aabd1b5eb16d7cd71cb48bd35a9.mp3
+  voice_id: Joey
+- word: acquisitive
+  part_of_speech: adjective
+  definition_th: อยากได้
+  example_en: He has an acquisitive nature.
+  example_th: เขามีนิสัยอยากได้
+  word_audio_file: acquisitive_word+Joey+57643419b8f4ed0908833b06e48af963.mp3
+  sentence_audio_file: acquisitive_sentence+Joey+13717bcfb3ae47de0177f014a963df6e.mp3
+  voice_id: Joey
+- word: acquit
+  part_of_speech: verb
+  definition_th: ยกฟ้อง
+  example_en: The jury acquitted him.
+  example_th: คณะลูกขุนยกฟ้องเขา
+  word_audio_file: acquit_word+Matthew+0d1cbb93e90cbe1d3fb18801c1b56a95.mp3
+  sentence_audio_file: acquit_sentence+Matthew+7b56961f65597ca9d94f6ed818700e94.mp3
+  voice_id: Matthew
+- word: acquittal
+  part_of_speech: noun
+  definition_th: การยกฟ้อง
+  example_en: The acquittal was unexpected.
+  example_th: การยกฟ้องนั้นคาดไม่ถึง
+  word_audio_file: acquittal_word+Kendra+12c45c1ed025b41888e5d4b19ba100e4.mp3
+  sentence_audio_file: acquittal_sentence+Kendra+311db1461d61495212b85f92502f661b.mp3
+  voice_id: Kendra
+- word: acre
+  part_of_speech: noun
+  definition_th: เอเคอร์
+  example_en: The farm is ten acres.
+  example_th: ฟาร์มมีสิบเอเคอร์
+  word_audio_file: acre_word+Matthew+be0608aeaa6a12e4b25c011ad358c0e8.mp3
+  sentence_audio_file: acre_sentence+Matthew+9179479929e1a7a96c0f800085db2afc.mp3
+  voice_id: Matthew
+- word: acreage
+  part_of_speech: noun
+  definition_th: พื้นที่เอเคอร์
+  example_en: The acreage was vast.
+  example_th: พื้นที่เอเคอร์กว้างใหญ่
+  word_audio_file: acreage_word+Joey+326e6568ee8952b3fc337c4c093a9b63.mp3
+  sentence_audio_file: acreage_sentence+Joey+262d5b5bfc7bb3311c55778de3a7a6af.mp3
+  voice_id: Joey
+- word: acrid
+  part_of_speech: adjective
+  definition_th: ฉุน
+  example_en: The smoke was acrid.
+  example_th: ควันนั้นฉุน
+  word_audio_file: acrid_word+Stephen+66cef92aec0379102da31b570f232f6e.mp3
+  sentence_audio_file: acrid_sentence+Stephen+eccad76e34bcb00d2f12ba8c54ff1dd2.mp3
+  voice_id: Stephen
+- word: acrimonious
+  part_of_speech: adjective
+  definition_th: รุนแรง
+  example_en: Their debate was acrimonious.
+  example_th: การโต้วาทีของพวกเขารุนแรง
+  word_audio_file: acrimonious_word+Stephen+f97d2b2331250002213544f4a1bb37e2.mp3
+  sentence_audio_file: acrimonious_sentence+Stephen+78ee3b6776bc9b5fae1d6ef5a93a1bd1.mp3
+  voice_id: Stephen
+- word: acrimony
+  part_of_speech: noun
+  definition_th: ความรุนแรง
+  example_en: The divorce was full of acrimony.
+  example_th: การหย่าร้างเต็มไปด้วยความรุนแรง
+  word_audio_file: acrimony_word+Joey+a246c59fdccea42bc48202156a5f72de.mp3
+  sentence_audio_file: acrimony_sentence+Joey+763573f4f0138aba3c7f9c950005bce4.mp3
+  voice_id: Joey
+- word: acrobat
+  part_of_speech: noun
+  definition_th: นักกายกรรม
+  example_en: The acrobat flipped in the air.
+  example_th: นักกายกรรมตีลังกาในอากาศ
+  word_audio_file: acrobat_word+Matthew+76cca62bc98e5e821269b46033a28fb9.mp3
+  sentence_audio_file: acrobat_sentence+Matthew+2c8b96d94ee85fd6e95174fe0097509e.mp3
+  voice_id: Matthew
+- word: acrobatic
+  part_of_speech: adjective
+  definition_th: กายกรรม
+  example_en: She performed an acrobatic move.
+  example_th: เธอแสดงท่ากายกรรม
+  word_audio_file: acrobatic_word+Matthew+ec79cd4a6da8933390ef1b7a3251f547.mp3
+  sentence_audio_file: acrobatic_sentence+Matthew+02ffaf7ae55a6ee05f42bb291866a3f5.mp3
+  voice_id: Matthew
+- word: acrobatics
+  part_of_speech: noun
+  definition_th: การแสดงกายกรรม
+  example_en: Acrobatics amazed the crowd.
+  example_th: การแสดงกายกรรมทำให้ฝูงชนตื่นตะลึง
+  word_audio_file: acrobatics_word+Joey+17c6eb9052be7eb8db499fad6dfe13f5.mp3
+  sentence_audio_file: acrobatics_sentence+Joey+6ba714958a8bf4f5ccdf3d486cf5bb40.mp3
+  voice_id: Joey
+- word: acronym
+  part_of_speech: noun
+  definition_th: ตัวย่อ
+  example_en: NASA is an acronym.
+  example_th: นาซาคือตัวย่อ
+  word_audio_file: acronym_word+Joey+162c7a3f5e48f2b787b232eba385b71c.mp3
+  sentence_audio_file: acronym_sentence+Joey+34cf29e10883104da3a008719c8697c9.mp3
+  voice_id: Joey
+- word: across
+  part_of_speech: preposition
+  definition_th: ข้าม
+  example_en: She walked across the street.
+  example_th: เธอเดินข้ามถนน
+  word_audio_file: across_word+Matthew+c55704728716728d5e1b6d3857b503a6.mp3
+  sentence_audio_file: across_sentence+Matthew+012c31a52882a12c05e5ce04553c5bef.mp3
+  voice_id: Matthew
+- word: acrylic
+  part_of_speech: noun
+  definition_th: อะคริลิก
+  example_en: She painted with acrylic.
+  example_th: เธอวาดภาพด้วยอะคริลิก
+  word_audio_file: acrylic_word+Stephen+08d15aa867ed817bae6586be046f6f74.mp3
+  sentence_audio_file: acrylic_sentence+Stephen+f8f085e725b35c7778ac74aef03d63ea.mp3
+  voice_id: Stephen
+- word: act
+  part_of_speech: verb
+  definition_th: ปฏิบัติ
+  example_en: He acted quickly.
+  example_th: เขาปฏิบัติอย่างรวดเร็ว
+  word_audio_file: act_word+Stephen+316c9c3ed45a83ee318b1f859d9b8b79.mp3
+  sentence_audio_file: act_sentence+Stephen+b3956610ad464dcae71f44f882e21cf6.mp3
+  voice_id: Stephen
+- word: act of God
+  part_of_speech: noun
+  definition_th: ภัยธรรมชาติ
+  example_en: The flood was an act of God.
+  example_th: น้ำท่วมเป็นภัยธรรมชาติ
+  word_audio_file: act_of_god_word+Stephen+a2d9726708d30e563d20d2a9332727db.mp3
+  sentence_audio_file: act_of_god_sentence+Stephen+b0139fd6c92a4626fd2c6127208cdfac.mp3
+  voice_id: Stephen
+- word: acting
+  part_of_speech: noun
+  definition_th: การแสดง
+  example_en: Her acting was superb.
+  example_th: การแสดงของเธอยอดเยี่ยม
+  word_audio_file: acting_word+Kendra+d9fc1779071baf6f9520282c1ff0326a.mp3
+  sentence_audio_file: acting_sentence+Kendra+dd9ac6ebc5a0293079368ea4e91b7e88.mp3
+  voice_id: Kendra
+- word: action
+  part_of_speech: noun
+  definition_th: การกระทำ
+  example_en: We need action now.
+  example_th: เราต้องการการกระทำตอนนี้
+  word_audio_file: action_word+Joanna+418c5509e2171d55b0aee5c2ea4442b5.mp3
+  sentence_audio_file: action_sentence+Joanna+3cd7e836a54ed6c20041e4e4dcb1f266.mp3
+  voice_id: Joanna
+- word: action replay
+  part_of_speech: noun
+  definition_th: การเล่นซ้ำ
+  example_en: The action replay showed the goal.
+  example_th: การเล่นซ้ำแสดงให้เห็นประตู
+  word_audio_file: action_replay_word+Joanna+8b7365524674f465494b116235db3d32.mp3
+  sentence_audio_file: action_replay_sentence+Joanna+a3aea84bc9adce26fc90e9e0d1a36c4c.mp3
+  voice_id: Joanna
+- word: activate
+  part_of_speech: verb
+  definition_th: กระตุ้น
+  example_en: He activated the alarm.
+  example_th: เขากระตุ้นสัญญาณเตือน
+  word_audio_file: activate_word+Stephen+d4ee0fbbeb7ffd4fd7a7d477a7ecd922.mp3
+  sentence_audio_file: activate_sentence+Stephen+f05c1e7d659367c9b87e79927a005aa2.mp3
+  voice_id: Stephen
+- word: active
+  part_of_speech: adjective
+  definition_th: เคลื่อนไหว
+  example_en: She is an active child.
+  example_th: เธอเป็นเด็กที่เคลื่อนไหว
+  word_audio_file: active_word+Matthew+c76a5e84e4bdee527e274ea30c680d79.mp3
+  sentence_audio_file: active_sentence+Matthew+7cfe45748ac088ba97edabc6b8b2ce13.mp3
+  voice_id: Matthew
+- word: active duty
+  part_of_speech: noun
+  definition_th: หน้าที่ทหาร
+  example_en: He is on active duty.
+  example_th: เขาอยู่ในหน้าที่ทหาร
+  word_audio_file: active_duty_word+Joey+d66ec9183d58a09de5fd209e006acd70.mp3
+  sentence_audio_file: active_duty_sentence+Joey+fe34836c3bbeacd0b006e0bebc9542e7.mp3
+  voice_id: Joey
+- word: activism
+  part_of_speech: noun
+  definition_th: การเคลื่อนไหว
+  example_en: Her activism changed laws.
+  example_th: การเคลื่อนไหวของเธอเปลี่ยนกฎหมาย
+  word_audio_file: activism_word+Matthew+61610553f5aa6df962f3101be84b5f1a.mp3
+  sentence_audio_file: activism_sentence+Matthew+74ff02c52ee546c9a88862ea926a8ac1.mp3
+  voice_id: Matthew
+- word: activist
+  part_of_speech: noun
+  definition_th: นักเคลื่อนไหว
+  example_en: He is a climate activist.
+  example_th: เขาเป็นนักเคลื่อนไหวด้านสภาพภูมิอากาศ
+  word_audio_file: activist_word+Joanna+d0b3cce92838841946ac0fed1ad4faa1.mp3
+  sentence_audio_file: activist_sentence+Joanna+1998280bec32a98e68812092552e7c9a.mp3
+  voice_id: Joanna
+- word: activity
+  part_of_speech: noun
+  definition_th: กิจกรรม
+  example_en: Swimming is a fun activity.
+  example_th: การว่ายน้ำเป็นกิจกรรมที่สนุก
+  word_audio_file: activity_word+Matthew+69a256025f66e4ce5d15c9dd7225d357.mp3
+  sentence_audio_file: activity_sentence+Matthew+da81252c98c7e6ce791d53c7d2044d60.mp3
+  voice_id: Matthew
+- word: actor
+  part_of_speech: noun
+  definition_th: นักแสดงชาย
+  example_en: He is a famous actor.
+  example_th: เขาเป็นนักแสดงชายที่มีชื่อเสียง
+  word_audio_file: actor_word+Kendra+8e62561c3ac6d3fb0016e9a34a2caa5d.mp3
+  sentence_audio_file: actor_sentence+Kendra+8611caa27d4d8963158be7f312df34f5.mp3
+  voice_id: Kendra
+- word: actress
+  part_of_speech: noun
+  definition_th: นักแสดงหญิง
+  example_en: She became an actress.
+  example_th: เธอกลายเป็นนักแสดงหญิง
+  word_audio_file: actress_word+Kendra+d109f71f89b98e6f3990a0adbfaeb913.mp3
+  sentence_audio_file: actress_sentence+Kendra+ca86bb4c232bd519f846a31b1ea254b1.mp3
+  voice_id: Kendra
+- word: actual
+  part_of_speech: adjective
+  definition_th: จริง
+  example_en: The actual price was lower.
+  example_th: ราคาจริงต่ำกว่า
+  word_audio_file: actual_word+Matthew+5157e3c765af93679ea07052f30f0a6e.mp3
+  sentence_audio_file: actual_sentence+Matthew+211e19547452474d3309d586e1da82c9.mp3
+  voice_id: Matthew
+- word: actuality
+  part_of_speech: noun
+  definition_th: ความจริง
+  example_en: In actuality, he was kind.
+  example_th: ในความจริง, เขาใจดี
+  word_audio_file: actuality_word+Joanna+5c345002130371d896f5cede7a9ce78f.mp3
+  sentence_audio_file: actuality_sentence+Joanna+58d7f11d1bb45506d3968f01dca02102.mp3
+  voice_id: Joanna
+- word: actually
+  part_of_speech: adverb
+  definition_th: จริงๆ
+  example_en: I actually like it.
+  example_th: ฉันจริงๆ ชอบมัน
+  word_audio_file: actually_word+Stephen+7ddf80803ddb70e671c6633a1f4d1943.mp3
+  sentence_audio_file: actually_sentence+Stephen+aee5266d946a663af5590f32b8303c11.mp3
+  voice_id: Stephen
+- word: actuarial
+  part_of_speech: adjective
+  definition_th: เกี่ยวกับการคำนวณความเสี่ยง
+  example_en: She studied actuarial science.
+  example_th: เธอเรียนวิทยาการคำนวณความเสี่ยง
+  word_audio_file: actuarial_word+Matthew+1e6dd62bdcfeaf0be6ee98eec13e389a.mp3
+  sentence_audio_file: actuarial_sentence+Matthew+8d3e2a63a23bf44edd421eecd59cf8ca.mp3
+  voice_id: Matthew
+- word: actuary
+  part_of_speech: noun
+  definition_th: นักคณิตศาสตร์ประกันภัย
+  example_en: An actuary assesses risks.
+  example_th: นักคณิตศาสตร์ประกันภัยประเมินความเสี่ยง
+  word_audio_file: actuary_word+Kendra+f740cc3f0cd48c6cce19044b35ceb286.mp3
+  sentence_audio_file: actuary_sentence+Kendra+49dc33d58998caef6675a8eba6cfcd20.mp3
+  voice_id: Kendra
+- word: actuate
+  part_of_speech: verb
+  definition_th: กระตุ้น
+  example_en: The switch actuates the machine.
+  example_th: สวิตช์กระตุ้นเครื่อง
+  word_audio_file: actuate_word+Matthew+c49e9f8fbd82208636340f2a0bd56110.mp3
+  sentence_audio_file: actuate_sentence+Matthew+ef359fc096797f22c6fbda97f2bb8532.mp3
+  voice_id: Matthew
+- word: acuity
+  part_of_speech: noun
+  definition_th: ความคมชัด
+  example_en: Her mental acuity impressed us.
+  example_th: ความคมชัดทางจิตใจของเธอทำให้เราประทับใจ
+  word_audio_file: acuity_word+Stephen+e2cd7fd7bfcf7809a463b2d243b787fd.mp3
+  sentence_audio_file: acuity_sentence+Stephen+9ce9a73d62a3b851ff1ad866040915de.mp3
+  voice_id: Stephen
+- word: acumen
+  part_of_speech: noun
+  definition_th: ความเฉลียวฉลาด
+  example_en: His business acumen is remarkable.
+  example_th: ความเฉลียวฉลาดทางธุรกิจของเขาน่าทึ่ง
+  word_audio_file: acumen_word+Matthew+4050b64e0375e0ab881313b4059e6344.mp3
+  sentence_audio_file: acumen_sentence+Matthew+49b8dced4a52702ddbdb622e5ad5601d.mp3
+  voice_id: Matthew
+- word: acupressure
+  part_of_speech: noun
+  definition_th: การนวดกดจุด
+  example_en: Acupressure relieves stress.
+  example_th: การนวดกดจุดช่วยลดความเครียด
+  word_audio_file: acupressure_word+Kendra+6badc72f36c69e1e19be33b9cba7b18a.mp3
+  sentence_audio_file: acupressure_sentence+Kendra+ec440ffd8161855e989d17e9dc91f7ec.mp3
+  voice_id: Kendra
+- word: acupuncture
+  part_of_speech: noun
+  definition_th: การฝังเข็ม
+  example_en: She tried acupuncture for pain.
+  example_th: เธอทดลองฝังเข็มเพื่อรักษาอาการปวด
+  word_audio_file: acupuncture_word+Stephen+07f00cd78b5e3113ae1ae5504b4c61b4.mp3
+  sentence_audio_file: acupuncture_sentence+Stephen+63fecd3ba605982c565cb1df02bce850.mp3
+  voice_id: Stephen
+- word: acupuncturist
+  part_of_speech: noun
+  definition_th: หมอฝังเข็ม
+  example_en: The acupuncturist was skilled.
+  example_th: หมอฝังเข็มมีความชำนาญ
+  word_audio_file: acupuncturist_word+Stephen+55950573253c1656beeeaefb6517368c.mp3
+  sentence_audio_file: acupuncturist_sentence+Stephen+c678b8031a06ff057b0dd05e8d3e29a1.mp3
+  voice_id: Stephen
+- word: acute
+  part_of_speech: adjective
+  definition_th: รุนแรง
+  example_en: He felt acute pain.
+  example_th: เขารู้สึกปวดรุนแรง
+  word_audio_file: acute_word+Matthew+56777c15206fb38e633e9cdc42e5f25e.mp3
+  sentence_audio_file: acute_sentence+Matthew+d21487118ace7ea524b6adcac8660b7a.mp3
+  voice_id: Matthew
+- word: acutely
+  part_of_speech: adverb
+  definition_th: อย่างรุนแรง
+  example_en: She was acutely aware of danger.
+  example_th: เธอตระหนักถึงอันตรายอย่างรุนแรง
+  word_audio_file: acutely_word+Joanna+b0188a9d291009e66fdfb0ee8f91e467.mp3
+  sentence_audio_file: acutely_sentence+Joanna+449fbc5677d29e84911789865c1e30e4.mp3
+  voice_id: Joanna
+- word: ad
+  part_of_speech: noun
+  definition_th: โฆษณา
+  example_en: I saw an ad on TV.
+  example_th: ฉันเห็นโฆษณาทางทีวี
+  word_audio_file: ad_word+Joanna+523af537946b79c4f8369ed39ba78605.mp3
+  sentence_audio_file: ad_sentence+Joanna+e7e21618c4ff501ff0dd1e10a91810f3.mp3
+  voice_id: Joanna
+- word: ad agency
+  part_of_speech: noun
+  definition_th: บริษัทโฆษณา
+  example_en: She works at an ad agency.
+  example_th: เธอทำงานที่บริษัทโฆษณา
+  word_audio_file: ad_agency_word+Joey+71b550fbef7b8deeb9054ea0ba0b33b4.mp3
+  sentence_audio_file: ad_agency_sentence+Joey+60fa00756c02fd67d10d7296aa4d1597.mp3
+  voice_id: Joey
+- word: ad campaign
+  part_of_speech: noun
+  definition_th: แคมเปญโฆษณา
+  example_en: The ad campaign was effective.
+  example_th: แคมเปญโฆษณาประสทบความสำเร็จ
+  word_audio_file: ad_campaign_word+Stephen+66061a3186de02150118adfbe7e88366.mp3
+  sentence_audio_file: ad_campaign_sentence+Stephen+7da9899281fb9bb5e64d0922612a2a71.mp3
+  voice_id: Stephen
+- word: ad hoc
+  part_of_speech: adjective
+  definition_th: เฉพาะกิจ
+  example_en: They formed an ad hoc team.
+  example_th: พวกเขาตั้งทีมเฉพาะกิจ
+  word_audio_file: ad_hoc_word+Stephen+39d3f865fa084b45028e9e18ae3378b2.mp3
+  sentence_audio_file: ad_hoc_sentence+Stephen+2bfc2112df0a8a9988ce480c5625df62.mp3
+  voice_id: Stephen
+- word: ad infinitum
+  part_of_speech: adverb
+  definition_th: ไม่มีที่สิ้นสุด
+  example_en: The pattern repeats ad infinitum.
+  example_th: ลวดลายซ้ำไม่มีที่สิ้นสุด
+  word_audio_file: ad_infinitum_word+Joey+c12baa91da9cf9cd3e30275a132bde1f.mp3
+  sentence_audio_file: ad_infinitum_sentence+Joey+90afd537a015181b9fcfa0fee12cb52f.mp3
+  voice_id: Joey
+- word: ad nauseam
+  part_of_speech: adverb
+  definition_th: จนน่ารำคาญ
+  example_en: He repeated it ad nauseam.
+  example_th: เขาพูดซ้ำจนน่ารำคาญ
+  word_audio_file: ad_nauseam_word+Kendra+39e5ded9d78f1e2f1a8253015d4fc988.mp3
+  sentence_audio_file: ad_nauseam_sentence+Kendra+4349106c2d2a4fa1fb03bb533e669bf6.mp3
+  voice_id: Kendra
+- word: ad-lib
+  part_of_speech: verb
+  definition_th: ด้นสด
+  example_en: She ad-libbed her lines.
+  example_th: เธอด้นสดบทของเธอ
+  word_audio_file: ad-lib_word+Joanna+df980e672acd5133c42135d83a5c91e1.mp3
+  sentence_audio_file: ad-lib_sentence+Joanna+d7f602491d0d4aea9fd2831d83f449d0.mp3
+  voice_id: Joanna
+- word: adage
+  part_of_speech: noun
+  definition_th: สุภาษิต
+  example_en: The adage proved true.
+  example_th: สุภาษิตนั้นเป็นจริง
+  word_audio_file: adage_word+Joanna+35c002a3a4d58f3964bf8acd679c0d41.mp3
+  sentence_audio_file: adage_sentence+Joanna+8215859b22f1d5bee60d1962efa8dc71.mp3
+  voice_id: Joanna
+- word: adagio
+  part_of_speech: noun
+  definition_th: จังหวะช้า
+  example_en: The adagio was beautiful.
+  example_th: จังหวะช้าสวยงาม
+  word_audio_file: adagio_word+Joey+86c4d82fc0aedd1666acb0abe4619a43.mp3
+  sentence_audio_file: adagio_sentence+Joey+734280aebcbd47d75ad4f17b92b4a9da.mp3
+  voice_id: Joey
+- word: adamant
+  part_of_speech: adjective
+  definition_th: แน่วแน่
+  example_en: He was adamant about his choice.
+  example_th: เขาแน่วแน่เกี่ยวกับการเลือกของเขา
+  word_audio_file: adamant_word+Matthew+4c69d38dea1bb8797cdd52a17f861901.mp3
+  sentence_audio_file: adamant_sentence+Matthew+f889dc0d63ba2ab6c728b14836f20f7b.mp3
+  voice_id: Matthew
+- word: Adam’s apple
+  part_of_speech: noun
+  definition_th: ลูกกระเดือก
+  example_en: His Adam’s apple moved.
+  example_th: ลูกกระเดือกของเขาเคลื่อนไหว
+  word_audio_file: adam’s_apple_word+Stephen+af9fba6566998cafd71d743b5a240e32.mp3
+  sentence_audio_file: adam’s_apple_sentence+Stephen+8cf83ffdfaee2c981f1db459b45d7b47.mp3
+  voice_id: Stephen
+- word: adapt
+  part_of_speech: verb
+  definition_th: ปรับตัว
+  example_en: She adapted to the culture.
+  example_th: เธอปรับตัวเข้ากับวัฒนธรรม
+  word_audio_file: adapt_word+Matthew+0b859acdc7747ee0509ffc1024158987.mp3
+  sentence_audio_file: adapt_sentence+Matthew+8d49d64252cb78417e3b3ed208422e8d.mp3
+  voice_id: Matthew
+- word: adaptable
+  part_of_speech: adjective
+  definition_th: ปรับตัวได้
+  example_en: He is highly adaptable.
+  example_th: เขาปรับตัวได้สูง
+  word_audio_file: adaptable_word+Stephen+086172d2c6adb0bead1ea63413a6ea1f.mp3
+  sentence_audio_file: adaptable_sentence+Stephen+75433207aa529ff74889a2d3721b8937.mp3
+  voice_id: Stephen
+- word: adaptation
+  part_of_speech: noun
+  definition_th: การปรับตัว
+  example_en: The movie is an adaptation.
+  example_th: ภาพยนตร์เป็นการปรับตัว
+  word_audio_file: adaptation_word+Kendra+7278ff6867951985342661df1aedf80a.mp3
+  sentence_audio_file: adaptation_sentence+Kendra+750db3cac65a12e94b4edc26eb27d855.mp3
+  voice_id: Kendra
+- word: adapted
+  part_of_speech: adjective
+  definition_th: ดัดแปลง
+  example_en: The book was adapted for film.
+  example_th: หนังสือถูกดัดแปลงเป็นภาพยนตร์
+  word_audio_file: adapted_word+Kendra+fcb84bd21a9a5f8a70e419f49bf22fb3.mp3
+  sentence_audio_file: adapted_sentence+Kendra+456c7d985a96e267ef94439b82af108c.mp3
+  voice_id: Kendra
+- word: adaption
+  part_of_speech: noun
+  definition_th: การดัดแปลง
+  example_en: The adaption was successful.
+  example_th: การดัดแปลงประสบความสำเร็จ
+  word_audio_file: adaption_word+Matthew+f33ac33a8d32bbbb113300530b557d45.mp3
+  sentence_audio_file: adaption_sentence+Matthew+41123e541ed19bcfa9bc90227d7724a5.mp3
+  voice_id: Matthew
+- word: adaptive
+  part_of_speech: adjective
+  definition_th: ที่ปรับตัวได้
+  example_en: The system is adaptive.
+  example_th: ระบบนี้ปรับตัวได้
+  word_audio_file: adaptive_word+Joanna+8cb043b2dace9afc0680e6bae5cd316f.mp3
+  sentence_audio_file: adaptive_sentence+Joanna+fa31b01c175fbaa5031b6c66ce13a276.mp3
+  voice_id: Joanna
+- word: adaptor
+  part_of_speech: noun
+  definition_th: อะแดปเตอร์
+  example_en: I need an adaptor for this.
+  example_th: ฉันต้องการอะแดปเตอร์สำหรับอันนี้
+  word_audio_file: adaptor_word+Joanna+808fcc71e01e4705e4fb790ad173f2f8.mp3
+  sentence_audio_file: adaptor_sentence+Joanna+32490287c0fccc517bd1260e272c918c.mp3
+  voice_id: Joanna
+- word: add
+  part_of_speech: verb
+  definition_th: บวก
+  example_en: Add two and three.
+  example_th: บวกสองกับสาม
+  word_audio_file: add_word+Joey+34ec78fcc91ffb1e54cd85e4a0924332.mp3
+  sentence_audio_file: add_sentence+Joey+d7fe1af7ce4b86ea0ea129da45d6d982.mp3
+  voice_id: Joey
+- word: add in
+  part_of_speech: verb
+  definition_th: เพิ่มเข้าไป
+  example_en: Add in some salt.
+  example_th: เพิ่มเกลือเข้าไป
+  word_audio_file: add_in_word+Joey+3cb0b43246fe26b717b6a35e3d0bd17b.mp3
+  sentence_audio_file: add_in_sentence+Joey+24c5dee0fea7e6268d014e9393e75b97.mp3
+  voice_id: Joey
+- word: add on
+  part_of_speech: verb
+  definition_th: เพิ่มเติม
+  example_en: They added on a porch.
+  example_th: พวกเขาเพิ่มระเบียง
+  word_audio_file: add_on_word+Joey+af2658253426ef7f71adc6ff15d34879.mp3
+  sentence_audio_file: add_on_sentence+Joey+c4068beafac959739ea44ff207503f84.mp3
+  voice_id: Joey
+- word: add up
+  part_of_speech: verb
+  definition_th: รวมยอด
+  example_en: The costs add up.
+  example_th: ค่าใช้จ่ายรวมยอดแล้ว
+  word_audio_file: add_up_word+Matthew+2623bc725cd1cc0b77968399ac666cdc.mp3
+  sentence_audio_file: add_up_sentence+Matthew+79de85f34bfeb60b08546da7c0126775.mp3
+  voice_id: Matthew
+- word: add up to
+  part_of_speech: verb
+  definition_th: รวมเป็น
+  example_en: It adds up to $50.
+  example_th: มันรวมเป็น $50
+  word_audio_file: add_up_to_word+Matthew+d8721479e748ca3e2e13ac994909c339.mp3
+  sentence_audio_file: add_up_to_sentence+Matthew+8eebbcd3bccf01f3c530321ff38acd3e.mp3
+  voice_id: Matthew
+- word: add-on
+  part_of_speech: noun
+  definition_th: ส่วนเสริม
+  example_en: The app has an add-on.
+  example_th: แอปนี้มีส่วนเสริม
+  word_audio_file: add-on_word+Stephen+95fb9c1306407243a8a0686003796fa0.mp3
+  sentence_audio_file: add-on_sentence+Stephen+716223cc1179916da26a428340a7b7ea.mp3
+  voice_id: Stephen
+- word: added
+  part_of_speech: adjective
+  definition_th: ที่เพิ่ม
+  example_en: The added features are great.
+  example_th: คุณสมบัติที่เพิ่มมาเยี่ยมมาก
+  word_audio_file: added_word+Stephen+b60ed88355ac3f6898fd8a7ab1734d06.mp3
+  sentence_audio_file: added_sentence+Stephen+105124521ec5f723777f3a8d8fa3ba96.mp3
+  voice_id: Stephen
+- word: added value
+  part_of_speech: noun
+  definition_th: มูลค่าเพิ่ม
+  example_en: The service brings added value.
+  example_th: บริการนี้เพิ่มมูลค่า
+  word_audio_file: added_value_word+Kendra+8f390bbea374620dd9436cc1dbd25d2f.mp3
+  sentence_audio_file: added_value_sentence+Kendra+58de5951be6c2e69c3f92bf83911f24a.mp3
+  voice_id: Kendra
+- word: addendum
+  part_of_speech: noun
+  definition_th: ภาคผนวก
+  example_en: The contract has an addendum.
+  example_th: สัญญามีภาคผนวก
+  word_audio_file: addendum_word+Joanna+d0961ada35c1699f498633f9bdec1334.mp3
+  sentence_audio_file: addendum_sentence+Joanna+4315f069c4d14a827f68bad8b1c063c5.mp3
+  voice_id: Joanna
+- word: adder
+  part_of_speech: noun
+  definition_th: งูพิษ
+  example_en: An adder bit him.
+  example_th: งูพิษกัดเขา
+  word_audio_file: adder_word+Joey+9371bdcfd91f1da2db03465490aad8d5.mp3
+  sentence_audio_file: adder_sentence+Joey+dc9c545b321c87330848f5b1c3499be8.mp3
+  voice_id: Joey
+- word: addict
+  part_of_speech: noun
+  definition_th: ผู้ติดยา
+  example_en: He is a drug addict.
+  example_th: เขาเป็นผู้ติดยา
+  word_audio_file: addict_word+Joey+dd15d5adf6349f5ca53e7a2641d41ab7.mp3
+  sentence_audio_file: addict_sentence+Joey+b8d6dec5a14814d1ad96e00cea32abad.mp3
+  voice_id: Joey
+- word: addicted
+  part_of_speech: adjective
+  definition_th: ติด
+  example_en: She is addicted to coffee.
+  example_th: เธอติดกาแฟ
+  word_audio_file: addicted_word+Stephen+db64b85f94d8a1017faa53326dc3166c.mp3
+  sentence_audio_file: addicted_sentence+Stephen+df494569bafe021613cd808b88b8ab79.mp3
+  voice_id: Stephen
+- word: addiction
+  part_of_speech: noun
+  definition_th: การติด
+  example_en: His addiction was dangerous.
+  example_th: การติดของเขาอันตราย
+  word_audio_file: addiction_word+Matthew+d357888b5a5b229aaf68cf46874bba92.mp3
+  sentence_audio_file: addiction_sentence+Matthew+18ed7ffc9a77b142d7366bec2afb46a2.mp3
+  voice_id: Matthew
+- word: addictive
+  part_of_speech: adjective
+  definition_th: ที่ทำให้ติด
+  example_en: This game is addictive.
+  example_th: เกมนี้ทำให้ติด
+  word_audio_file: addictive_word+Stephen+1d39f9b5b36b764b6c61f4dc4a106095.mp3
+  sentence_audio_file: addictive_sentence+Stephen+7bc20c9415ad80a95c1473491644497b.mp3
+  voice_id: Stephen
+- word: addition
+  part_of_speech: noun
+  definition_th: การบวก
+  example_en: Addition is a math skill.
+  example_th: การบวกเป็นทักษะคณิตศาสตร์
+  word_audio_file: addition_word+Stephen+2b2ae8740b2b5403b5075bd7cbc6ceaa.mp3
+  sentence_audio_file: addition_sentence+Stephen+2cc8b81871729123444435ee43deb555.mp3
+  voice_id: Stephen
+- word: additional
+  part_of_speech: adjective
+  definition_th: เพิ่มเติม
+  example_en: We need additional time.
+  example_th: เราต้องการเวลาเพิ่มเติม
+  word_audio_file: additional_word+Matthew+15610cc2660e28558e4b5db089797908.mp3
+  sentence_audio_file: additional_sentence+Matthew+7801ba9196055ac309235b3400bc5fe2.mp3
+  voice_id: Matthew
+- word: additionally
+  part_of_speech: adverb
+  definition_th: นอกจากนี้
+  example_en: Additionally, we offer support.
+  example_th: นอกจากนี้, เราให้การสนับสนุน
+  word_audio_file: additionally_word+Stephen+df610180a55cc99aa4a86f042cc64eaf.mp3
+  sentence_audio_file: additionally_sentence+Stephen+71df8547bff594d786d4ec1d9187f85b.mp3
+  voice_id: Stephen
+- word: additive
+  part_of_speech: noun
+  definition_th: สารเติมแต่ง
+  example_en: The food has no additives.
+  example_th: อาหารไม่มีสารเติมแต่ง
+  word_audio_file: additive_word+Matthew+496a7ccbdcacad75e85f9fe91d56f1ac.mp3
+  sentence_audio_file: additive_sentence+Matthew+9d46b5deb6e67551b7da5c52f1137e20.mp3
+  voice_id: Matthew
+- word: addle
+  part_of_speech: verb
+  definition_th: ทำให้สับสน
+  example_en: The noise addled her thoughts.
+  example_th: เสียงรบกวนทำให้ความคิดของเธอสับสน
+  word_audio_file: addle_word+Matthew+af471df2125c8b8c72b1c8417187eb58.mp3
+  sentence_audio_file: addle_sentence+Matthew+0b6fa88549f8a02ac6b6a7ed7b0d6d4b.mp3
+  voice_id: Matthew
+- word: addled
+  part_of_speech: adjective
+  definition_th: สับสน
+  example_en: His mind was addled.
+  example_th: จิตใจของเขาสับสน
+  word_audio_file: addled_word+Matthew+fc5f6c63b6bb66aeb3c1f60eba4e4049.mp3
+  sentence_audio_file: addled_sentence+Matthew+37abf73db237a05f0bbd5d4df668a0a0.mp3
+  voice_id: Matthew
+- word: address
+  part_of_speech: noun
+  definition_th: ที่อยู่
+  example_en: Write your address.
+  example_th: เขียนที่อยู่ของคุณ
+  word_audio_file: address_word+Stephen+884d9804999fc47a3c2694e49ad2536a.mp3
+  sentence_audio_file: address_sentence+Stephen+53b6a2094bf17c9bb1617ae52b1272fd.mp3
+  voice_id: Stephen
+- word: address book
+  part_of_speech: noun
+  definition_th: สมุดที่อยู่
+  example_en: She checked her address book.
+  example_th: เธอตรวจสอบสมุดที่อยู่
+  word_audio_file: address_book_word+Stephen+9711c2f0f4e6a6997beb2948431346bc.mp3
+  sentence_audio_file: address_book_sentence+Stephen+d3199dea3fd2488322739c1fa8e62e2b.mp3
+  voice_id: Stephen
+- word: addressee
+  part_of_speech: noun
+  definition_th: ผู้รับจดหมาย
+  example_en: The addressee was absent.
+  example_th: ผู้รับจดหมายไม่อยู่
+  word_audio_file: addressee_word+Matthew+9fdc5c1153a80ce8a433960c63e4700b.mp3
+  sentence_audio_file: addressee_sentence+Matthew+0f2844635dab70daad26b9b7dc855dbb.mp3
+  voice_id: Matthew
+- word: adduce
+  part_of_speech: verb
+  definition_th: ยกตัวอย่าง
+  example_en: He adduced evidence.
+  example_th: เขายกหลักฐาน
+  word_audio_file: adduce_word+Joey+9a95e070ae8bef417b1435824ccab1d8.mp3
+  sentence_audio_file: adduce_sentence+Joey+2fc4292b9835189062bd9d31da9cb73a.mp3
+  voice_id: Joey
+- word: adenoids
+  part_of_speech: noun
+  definition_th: ต่อมทอนซิล
+  example_en: His adenoids were swollen.
+  example_th: ต่อมทอนซิลของเขาบวม
+  word_audio_file: adenoids_word+Joey+92d8ad17e9e3c4e8600419934a6abecb.mp3
+  sentence_audio_file: adenoids_sentence+Joey+67527e32ae78d9c1a65407e8b0cb69d6.mp3
+  voice_id: Joey
+- word: adept
+  part_of_speech: adjective
+  definition_th: ชำนาญ
+  example_en: She is adept at cooking.
+  example_th: เธอชำนาญในการทำอาหาร
+  word_audio_file: adept_word+Stephen+1fe538d226cf8f5200895c1962a85861.mp3
+  sentence_audio_file: adept_sentence+Stephen+0c5f7588802a010824a1048f467c0d26.mp3
+  voice_id: Stephen
+- word: adequacy
+  part_of_speech: noun
+  definition_th: ความเพียงพอ
+  example_en: The adequacy of funds was questioned.
+  example_th: ความเพียงพอของเงินถูกตั้งคำถาม
+  word_audio_file: adequacy_word+Stephen+31fd0bec11d4f49d9bc9ca804f85b2ab.mp3
+  sentence_audio_file: adequacy_sentence+Stephen+fe116cf044d7d44e30396dd790f6ec23.mp3
+  voice_id: Stephen
+- word: adequalely
+  part_of_speech: adverb
+  definition_th: อย่างเพียงพอ
+  example_en: She prepared adequately.
+  example_th: เธอเตรียมตัวอย่างเพียงพอ
+  word_audio_file: adequalely_word+Stephen+91a423cc3cb35e06ad58460c5cbfccc2.mp3
+  sentence_audio_file: adequalely_sentence+Stephen+316ebc614cf8ccbe28bd03061a0f1708.mp3
+  voice_id: Stephen
+- word: adequate
+  part_of_speech: adjective
+  definition_th: เพียงพอ
+  example_en: The supply is adequate.
+  example_th: อุปทานเพียงพอ
+  word_audio_file: adequate_word+Joey+8454e7eea03ed6fb4b9b9fd8289cf589.mp3
+  sentence_audio_file: adequate_sentence+Joey+6c0df2552b502abe7fbcb21ab154f89e.mp3
+  voice_id: Joey
+- word: ADHD
+  part_of_speech: noun
+  definition_th: โรคสมาธิสั้น
+  example_en: He was diagnosed with ADHD.
+  example_th: เขาถูกวินิจฉัยว่าเป็นโรคสมาธิสั้น
+  word_audio_file: adhd_word+Kendra+4f6a51bf8c4a614d5409f689b90153d0.mp3
+  sentence_audio_file: adhd_sentence+Kendra+b9356e8c416ecb10145d4670873b5d08.mp3
+  voice_id: Kendra
+- word: adhere
+  part_of_speech: verb
+  definition_th: ยึดติด
+  example_en: The tape adhered to the paper.
+  example_th: เทปยึดติดกับกระดาษ
+  word_audio_file: adhere_word+Kendra+e2325955c56e3af895605a187bfcc3ba.mp3
+  sentence_audio_file: adhere_sentence+Kendra+911ab9db58f265eb8d2ac4c7f1173ade.mp3
+  voice_id: Kendra
+- word: adherence
+  part_of_speech: noun
+  definition_th: การยึดมั่น
+  example_en: Her adherence to rules was strict.
+  example_th: การยึดมั่นในกฎของเธอเข้มงวด
+  word_audio_file: adherence_word+Stephen+c12deff8310d6be9f198d6cf3e1eabc3.mp3
+  sentence_audio_file: adherence_sentence+Stephen+7be56192ed1c1762b1af198a4689fdb5.mp3
+  voice_id: Stephen
+- word: adherent
+  part_of_speech: noun
+  definition_th: ผู้ยึดมั่น
+  example_en: He is an adherent to the cause.
+  example_th: เขาเป็นผู้ยึดมั่นในสาเหตุ
+  word_audio_file: adherent_word+Matthew+448db323c1bfb83f901812a9959a2cdd.mp3
+  sentence_audio_file: adherent_sentence+Matthew+1ce681c576a10377f503af748ba5c652.mp3
+  voice_id: Matthew
+- word: adhesion
+  part_of_speech: noun
+  definition_th: การยึดติด
+  example_en: The adhesion of paint was strong.
+  example_th: การยึดติดของสีแข็งแรง
+  word_audio_file: adhesion_word+Joey+0412d114755f8ef74225f97f57687bec.mp3
+  sentence_audio_file: adhesion_sentence+Joey+0684d5c22e15963379fdced7e450e190.mp3
+  voice_id: Joey
+- word: adhesive
+  part_of_speech: noun
+  definition_th: กาว
+  example_en: She used adhesive tape.
+  example_th: เธอใช้เทปกาว
+  word_audio_file: adhesive_word+Joey+4b427b9686cf5554ab0925cff7fc03f5.mp3
+  sentence_audio_file: adhesive_sentence+Joey+cc25276ef26303fafd8f6ab93e3ef808.mp3
+  voice_id: Joey
+- word: adieu
+  part_of_speech: interjection
+  definition_th: ลาก่อน
+  example_en: She said adieu and left.
+  example_th: เธอกล่าวลาก่อนและจากไป
+  word_audio_file: adieu_word+Joey+cc954e979e29e0ca2c81b08d5181220c.mp3
+  sentence_audio_file: adieu_sentence+Joey+cb7e87979ef49e1341daf9cb9d4b62cc.mp3
+  voice_id: Joey
+- word: adjacent
+  part_of_speech: adjective
+  definition_th: ติดกัน
+  example_en: The park is adjacent to school.
+  example_th: สวนสาธารณะติดกับโรงเรียน
+  word_audio_file: adjacent_word+Stephen+b367c0426f1719ac592a56ff58f8f348.mp3
+  sentence_audio_file: adjacent_sentence+Stephen+f87aea16666d30b5518e3fe58898c9a2.mp3
+  voice_id: Stephen
+- word: adjectival
+  part_of_speech: adjective
+  definition_th: เกี่ยวกับคำวิเศษ
+  example_en: It’s an adjectival phrase.
+  example_th: มันเป็นวลีเกี่ยวกับคำวิเศษ
+  word_audio_file: adjectival_word+Kendra+9786c2ee3986e1bcad64a093055e7ab0.mp3
+  sentence_audio_file: adjectival_sentence+Kendra+fd6894c3dd20112ce5bd0f666aa2a879.mp3
+  voice_id: Kendra
+- word: adjective
+  part_of_speech: noun
+  definition_th: คำวิเศษ
+  example_en: Big is an adjective.
+  example_th: ใหญ่เป็นคำวิเศษ
+  word_audio_file: adjective_word+Stephen+d807ae6a52090d45e3499bc2d862a6c0.mp3
+  sentence_audio_file: adjective_sentence+Stephen+b25c92d2b0b75c5296bdeb49bc2d8cfa.mp3
+  voice_id: Stephen
+- word: adjoin
+  part_of_speech: verb
+  definition_th: ติดต่อกัน
+  example_en: Their houses adjoin.
+  example_th: บ้านของพวกเขาติดต่อกัน
+  word_audio_file: adjoin_word+Kendra+6f0d8df96254f11fee62f8fd35f1095b.mp3
+  sentence_audio_file: adjoin_sentence+Kendra+49ef2304da9cadc39da038b287d60d0b.mp3
+  voice_id: Kendra
+- word: adjourn
+  part_of_speech: verb
+  definition_th: เลื่อน
+  example_en: The meeting was adjourned.
+  example_th: การประชุมถูกเลื่อน
+  word_audio_file: adjourn_word+Matthew+6dfec71e2b2502048331240d966f05a5.mp3
+  sentence_audio_file: adjourn_sentence+Matthew+d277cf35aedbaf0f93f0759dc5b58134.mp3
+  voice_id: Matthew
+- word: adjournment
+  part_of_speech: noun
+  definition_th: การเลื่อน
+  example_en: The adjournment was announced.
+  example_th: การเลื่อนถูกประกาศ
+  word_audio_file: adjournment_word+Kendra+e322933765ade34487431845446377f0.mp3
+  sentence_audio_file: adjournment_sentence+Kendra+936b9ff78e3f92fa1e05d5841ca6039c.mp3
+  voice_id: Kendra
+- word: adjudge
+  part_of_speech: verb
+  definition_th: ตัดสิน
+  example_en: He was adjudged guilty.
+  example_th: เขาได้รับการตัดสินว่ามีความผิด
+  word_audio_file: adjudge_word+Joanna+fa885df67dc9b4dda8715a4f736d6e78.mp3
+  sentence_audio_file: adjudge_sentence+Joanna+e0466c8bc925459c80257f03194e9821.mp3
+  voice_id: Joanna
+- word: adjudicate
+  part_of_speech: verb
+  definition_th: ชี้ขาด
+  example_en: The court will adjudicate.
+  example_th: ศาลจะชี้ขาด
+  word_audio_file: adjudicate_word+Joey+3f36ff20b7b7c104e28f8e835e3282bc.mp3
+  sentence_audio_file: adjudicate_sentence+Joey+6bb4168faed0af2044c6081c705d00e4.mp3
+  voice_id: Joey
+- word: adjudication
+  part_of_speech: noun
+  definition_th: การชี้ขาด
+  example_en: The adjudication was fair.
+  example_th: การชี้ขาดนั้นยุติธรรม
+  word_audio_file: adjudication_word+Stephen+87905858fe4ef1a777063c07ce21cf12.mp3
+  sentence_audio_file: adjudication_sentence+Stephen+c3f0796788fcbc2b15501b09548d9531.mp3
+  voice_id: Stephen
+- word: adjunct
+  part_of_speech: noun
+  definition_th: ส่วนเสริม
+  example_en: She is an adjunct professor.
+  example_th: เธอเป็นอาจารย์พิเศษ
+  word_audio_file: adjunct_word+Stephen+d0a3357f0f465260fb39c111a7953524.mp3
+  sentence_audio_file: adjunct_sentence+Stephen+d07b124e4cbbc800c1bb33978dfec66b.mp3
+  voice_id: Stephen
+- word: adjust
+  part_of_speech: verb
+  definition_th: ปรับ
+  example_en: Adjust the mirror.
+  example_th: ปรับกระจก
+  word_audio_file: adjust_word+Stephen+3b7770f7743e8f01f0fd807f304a21d0.mp3
+  sentence_audio_file: adjust_sentence+Stephen+7bd9b5ce886343206b2171b819c21885.mp3
+  voice_id: Stephen
+- word: adjustable
+  part_of_speech: adjective
+  definition_th: ปรับได้
+  example_en: The chair is adjustable.
+  example_th: เก้าอี้ปรับได้
+  word_audio_file: adjustable_word+Stephen+e383f291730b7c9fd0f4e83edfb26c6b.mp3
+  sentence_audio_file: adjustable_sentence+Stephen+47167b8f3dc81e4c0a32b0756eadc13d.mp3
+  voice_id: Stephen
+- word: adjuster
+  part_of_speech: noun
+  definition_th: ผู้ปรับ
+  example_en: The adjuster checked the damage.
+  example_th: ผู้ปรับตรวจสอบความเสียหาย
+  word_audio_file: adjuster_word+Joanna+b27a0f171226cf184cbe16721f1cea90.mp3
+  sentence_audio_file: adjuster_sentence+Joanna+839bdef1a3a00bd2c1e9241ea30fcfaf.mp3
+  voice_id: Joanna
+- word: adjustment
+  part_of_speech: noun
+  definition_th: การปรับ
+  example_en: The adjustment fixed the issue.
+  example_th: การปรับแก้ไขปัญหา
+  word_audio_file: adjustment_word+Kendra+0e914cc98cda08103685107f54ecd01c.mp3
+  sentence_audio_file: adjustment_sentence+Kendra+2efdda8d1b546a2f8fb5ada3e566a056.mp3
+  voice_id: Kendra
+- word: adjutant
+  part_of_speech: noun
+  definition_th: ผู้ช่วยทหาร
+  example_en: The adjutant gave orders.
+  example_th: ผู้ช่วยทหารออกคำสั่ง
+  word_audio_file: adjutant_word+Stephen+27abf9eae11f0da15d7a572988dab10c.mp3
+  sentence_audio_file: adjutant_sentence+Stephen+1098780efad7276095a6bda386d7ab96.mp3
+  voice_id: Stephen
+- word: adman
+  part_of_speech: noun
+  definition_th: นักโฆษณา
+  example_en: The adman created the slogan.
+  example_th: นักโฆษณาคุณสร้างคำขวัญ
+  word_audio_file: adman_word+Joanna+77af70d33dc01eae2f3b0101bc396fd6.mp3
+  sentence_audio_file: adman_sentence+Joanna+bd0be73ecc94cc1cd278f9a2b66fabe6.mp3
+  voice_id: Joanna
+- word: admin
+  part_of_speech: noun
+  definition_th: ผู้บริหาร
+  example_en: The admin updated the system.
+  example_th: ผู้บริหารอัปเดตระบบ
+  word_audio_file: admin_word+Joey+21232f297a57a5a743894a0e4a801fc3.mp3
+  sentence_audio_file: admin_sentence+Joey+185f65a76a99b2dc326124a6f0cf36ad.mp3
+  voice_id: Joey
+- word: administer
+  part_of_speech: verb
+  definition_th: จัดการ
+  example_en: She administered the test.
+  example_th: เธอจัดการสอบ
+  word_audio_file: administer_word+Stephen+5a69888814ba29b9c047c759c1469be7.mp3
+  sentence_audio_file: administer_sentence+Stephen+808fc4675869248946f6a8bd29169475.mp3
+  voice_id: Stephen
+- word: administration
+  part_of_speech: noun
+  definition_th: การบริหาร
+  example_en: The administration made changes.
+  example_th: การบริหารเปลี่ยนแปลง
+  word_audio_file: administration_word+Joey+e52e7ce4ac2458867d05eaad577560db.mp3
+  sentence_audio_file: administration_sentence+Joey+41d3a260725d7fbc4dc8ca4d5df339a6.mp3
+  voice_id: Joey
+- word: administrative
+  part_of_speech: adjective
+  definition_th: เกี่ยวกับการบริหาร
+  example_en: He does administrative work.
+  example_th: เขาทำงานด้านการบริหาร
+  word_audio_file: administrative_word+Joey+09707f5ba4ef21bcd3baa99ed5c10d12.mp3
+  sentence_audio_file: administrative_sentence+Joey+bf615c18a9ae0071239ca5bca1125e99.mp3
+  voice_id: Joey
+- word: administrator
+  part_of_speech: noun
+  definition_th: ผู้บริหาร
+  example_en: The administrator runs the school.
+  example_th: ผู้บริหารบริหารโรงเรียน
+  word_audio_file: administrator_word+Matthew+200ceb26807d6bf99fd6f4f0d1ca54d4.mp3
+  sentence_audio_file: administrator_sentence+Matthew+8f97909abb47df9499fdeec2c6a4e3ab.mp3
+  voice_id: Matthew
+- word: admirable
+  part_of_speech: adjective
+  definition_th: น่าชื่นชม
+  example_en: Her effort is admirable.
+  example_th: ความพยายามของเธอน่าชื่นชม
+  word_audio_file: admirable_word+Matthew+cce734a6aa343a7633a080c7eb1ee05b.mp3
+  sentence_audio_file: admirable_sentence+Matthew+206801395e75b68b19deb9a884174a5e.mp3
+  voice_id: Matthew
+- word: admiral
+  part_of_speech: noun
+  definition_th: พลเรือเอก
+  example_en: The admiral led the fleet.
+  example_th: พลเรือเอกนำกองเรือ
+  word_audio_file: admiral_word+Joey+fbf65f0ee1cefca87d627b620f19a037.mp3
+  sentence_audio_file: admiral_sentence+Joey+be67f887d329fe32901e5cd369ac7e9e.mp3
+  voice_id: Joey
+- word: admiration
+  part_of_speech: noun
+  definition_th: ความชื่นชม
+  example_en: She expressed admiration.
+  example_th: เธอแสดงความชื่นชม
+  word_audio_file: admiration_word+Matthew+26689c5f2aa286281008cd08429c364a.mp3
+  sentence_audio_file: admiration_sentence+Matthew+5ab0626ade8e4eecd699bf862cb61fbd.mp3
+  voice_id: Matthew
+- word: admire
+  part_of_speech: verb
+  definition_th: ชื่นชม
+  example_en: I admire her courage.
+  example_th: ฉันชื่นชมความกล้าของเธอ
+  word_audio_file: admire_word+Matthew+44b2e6d950b2b6b1b6c81463c03b94fd.mp3
+  sentence_audio_file: admire_sentence+Matthew+1ecf32a603dcd804b40596bcfdf4e3d7.mp3
+  voice_id: Matthew
+- word: admirer
+  part_of_speech: noun
+  definition_th: ผู้ชื่นชม
+  example_en: She has an secret admirer.
+  example_th: เธอมีผู้ชื่นชมลับๆ
+  word_audio_file: admirer_word+Joey+17381a989ad09c0997d5e7117488f9a9.mp3
+  sentence_audio_file: admirer_sentence+Joey+27e396dfb5bbae13f8cf87e926232d9b.mp3
+  voice_id: Joey
+- word: admiring
+  part_of_speech: adjective
+  definition_th: ที่ชื่นชม
+  example_en: He gave an admiring glance.
+  example_th: เขมัองด้วยสายตาที่ชื่นชม
+  word_audio_file: admiring_word+Stephen+f298cd9b48b6e700c392e914fdd773a0.mp3
+  sentence_audio_file: admiring_sentence+Stephen+443eaf0cb2af13b0d320bb82c32664c0.mp3
+  voice_id: Stephen
+- word: admissible
+  part_of_speech: adjective
+  definition_th: ยอมรับได้
+  example_en: The evidence is admissible.
+  example_th: หลักฐานนั้นยอมรับได้
+  word_audio_file: admissible_word+Kendra+2862f816f3eaff82fc0513697c6ee592.mp3
+  sentence_audio_file: admissible_sentence+Kendra+d0238e5595b5c7ee5db4f54ea4f40030.mp3
+  voice_id: Kendra
+- word: admission
+  part_of_speech: noun
+  definition_th: การยอมรับ
+  example_en: His admission surprised us.
+  example_th: การยอมรับของเขาทำให้เราประหลาดใจ
+  word_audio_file: admission_word+Joey+281edb7c3cf81e3b67aaa09df4e313f5.mp3
+  sentence_audio_file: admission_sentence+Joey+26204dbc66951f404d33c365a77ad829.mp3
+  voice_id: Joey
+- word: admit
+  part_of_speech: verb
+  definition_th: ยอมรับ
+  example_en: She admitted her fault.
+  example_th: เธอยอมรับความผิดของเธอ
+  word_audio_file: admit_word+Joey+8d8bfbd10b5f6d48eb9691bb4871de62.mp3
+  sentence_audio_file: admit_sentence+Joey+81d79aa6bcf7b1453605779d704a1d4f.mp3
+  voice_id: Joey
+- word: admittance
+  part_of_speech: noun
+  definition_th: การเข้า
+  example_en: No admittance without a pass.
+  example_th: ห้ามเข้าโดยไม่มีบัตร
+  word_audio_file: admittance_word+Matthew+36c6d2da33e439cd6832ad51c9cff186.mp3
+  sentence_audio_file: admittance_sentence+Matthew+fdaac6c60ae59bf261f650dfdf341a65.mp3
+  voice_id: Matthew
+- word: admitted
+  part_of_speech: adverb
+  definition_th: อย่างยอมรับ
+  example_en: Admittedly, I was wrong.
+  example_th: อย่างยอมรับ, ฉันผิด
+  word_audio_file: admitted_word+Kendra+228d58eccdf6411184ad665467955e5a.mp3
+  sentence_audio_file: admitted_sentence+Kendra+a296e38647c1ff3894a3197209c74066.mp3
+  voice_id: Kendra
+- word: admixture
+  part_of_speech: noun
+  definition_th: การผสม
+  example_en: The admixture improved flavor.
+  example_th: การผสมช่วยเพิ่มรสชาติ
+  word_audio_file: admixture_word+Kendra+d60868deba571376cca595bf61526345.mp3
+  sentence_audio_file: admixture_sentence+Kendra+3dab1b4abe538de1ce1f1ca4b7817958.mp3
+  voice_id: Kendra
+- word: admonish
+  part_of_speech: verb
+  definition_th: ตักเตือน
+  example_en: She admonished the student.
+  example_th: เธอตักเตือนนักเรียน
+  word_audio_file: admonish_word+Matthew+9639dab3289eecf11151059d78671917.mp3
+  sentence_audio_file: admonish_sentence+Matthew+ff402af161999dd1bf8723378603d095.mp3
+  voice_id: Matthew
+- word: admonishment
+  part_of_speech: noun
+  definition_th: การตักเตือน
+  example_en: His admonishment was gentle.
+  example_th: การตักเตือนของเขาเบาๆ
+  word_audio_file: admonishment_word+Joey+d2e4c740ad8edd7b7367449d956be1fa.mp3
+  sentence_audio_file: admonishment_sentence+Joey+640eaa22a03a1302ea57584b9245f61e.mp3
+  voice_id: Joey
+- word: admonition
+  part_of_speech: noun
+  definition_th: คำตักเตือน
+  example_en: She ignored the admonition.
+  example_th: เธอไม่สนใจคำตักเตือน
+  word_audio_file: admonition_word+Matthew+e43fd1f89dbc258fe651ac8ecaa7a61a.mp3
+  sentence_audio_file: admonition_sentence+Matthew+f3eb7f6ff6be0b8858a48a9171f03ab5.mp3
+  voice_id: Matthew
+- word: ado
+  part_of_speech: noun
+  definition_th: ความวุ่นวาย
+  example_en: Much ado about nothing.
+  example_th: ความวุ่นวายโดยเปล่าประโยชน์
+  word_audio_file: ado_word+Joanna+421359a899e6aeb972c11a26fb52ad15.mp3
+  sentence_audio_file: ado_sentence+Joanna+6a6af8636c2010ad5e3d8c74680bcc1c.mp3
+  voice_id: Joanna
+- word: adobe
+  part_of_speech: noun
+  definition_th: อิฐดิบ
+  example_en: The house is made of adobe.
+  example_th: บ้านทำจากอิฐดิบ
+  word_audio_file: adobe_word+Joanna+9d903ccd68212f85fc2e700e4733e52f.mp3
+  sentence_audio_file: adobe_sentence+Joanna+7bef976c2640c1a82c4f3f9c04621fd9.mp3
+  voice_id: Joanna
+- word: adolescence
+  part_of_speech: noun
+  definition_th: วัยรุ่น
+  example_en: Adolescence is a tough phase.
+  example_th: วัยรุ่นเป็นช่วงที่ยาก
+  word_audio_file: adolescence_word+Joey+303e029e7c45270cd9b6e6cab4cd78f2.mp3
+  sentence_audio_file: adolescence_sentence+Joey+342aa1cda5c907c9e4df77b86d1f7817.mp3
+  voice_id: Joey
+- word: adolescent
+  part_of_speech: noun
+  definition_th: วัยรุ่น
+  example_en: He is an adolescent boy.
+  example_th: เขาเป็นเด็กวัยรุ่น
+  word_audio_file: adolescent_word+Joey+20b6f6d20a459ff729df0d3bd197d49f.mp3
+  sentence_audio_file: adolescent_sentence+Joey+b46c5ecb89f65721d717c0093f68aafa.mp3
+  voice_id: Joey
+- word: adopt
+  part_of_speech: verb
+  definition_th: รับมาเลี้ยง
+  example_en: They adopted a child.
+  example_th: พวกเขารับเด็กมาเลี้ยง
+  word_audio_file: adopt_word+Joey+8d0b67176348f44964d3344848c95208.mp3
+  sentence_audio_file: adopt_sentence+Joey+3986834cb0a08787cbad515ea6ef7a0d.mp3
+  voice_id: Joey
+- word: adoption
+  part_of_speech: noun
+  definition_th: การรับมาเลี้ยง
+  example_en: Adoption brought them closer.
+  example_th: การรับมาเลี้ยงทำให้พวกเขาใกล้ชิดกัน
+  word_audio_file: adoption_word+Matthew+319495d3f42bbdbb87c4c00529cd3f76.mp3
+  sentence_audio_file: adoption_sentence+Matthew+4f73e1a18ee9e6d4c92e837b4ec5afd0.mp3
+  voice_id: Matthew
+- word: adoptive
+  part_of_speech: adjective
+  definition_th: ที่รับมาเลี้ยง
+  example_en: Her adoptive parents are kind.
+  example_th: พ่อแม่บุญธรรมของเธอใจดี
+  word_audio_file: adoptive_word+Kendra+2e27b58e9744e2294ba4984d30b67c2f.mp3
+  sentence_audio_file: adoptive_sentence+Kendra+0df02e56b368fb7c2c643d62c047c57e.mp3
+  voice_id: Kendra
+- word: adorable
+  part_of_speech: adjective
+  definition_th: น่ารัก
+  example_en: The kitten is adorable.
+  example_th: ลูกแมวน่ารัก
+  word_audio_file: adorable_word+Stephen+08b38d4e516e1c00f1da3450bb329486.mp3
+  sentence_audio_file: adorable_sentence+Stephen+e2e55e1825e97d999d100cd455f704a4.mp3
+  voice_id: Stephen
+- word: adoration
+  part_of_speech: noun
+  definition_th: ความรัก
+  example_en: She gazed in adoration.
+  example_th: เธอมองด้วยความรัก
+  word_audio_file: adoration_word+Joanna+a33ace26e2905bb7b85d65d1f9104488.mp3
+  sentence_audio_file: adoration_sentence+Joanna+3e9e8b2cba8a94260565e49f46926562.mp3
+  voice_id: Joanna
+- word: adore
+  part_of_speech: verb
+  definition_th: รักมาก
+  example_en: She adores chocolate.
+  example_th: เธอรักช็อกโกแลตมาก
+  word_audio_file: adore_word+Kendra+3333c68f2910d11d85c10a82dc6c0989.mp3
+  sentence_audio_file: adore_sentence+Kendra+a20a893dfc2e1f366e86a18620f3ea7a.mp3
+  voice_id: Kendra
+- word: adoring
+  part_of_speech: adjective
+  definition_th: ที่รักมาก
+  example_en: He gave an adoring smile.
+  example_th: เขาให้รอยยิ้มที่รักมาก
+  word_audio_file: adoring_word+Joey+238c8500b523b22dcac624f453553056.mp3
+  sentence_audio_file: adoring_sentence+Joey+5026700cb030c68b8b673c8fca11f3de.mp3
+  voice_id: Joey
+- word: adorn
+  part_of_speech: verb
+  definition_th: ประดับ
+  example_en: She adorned the room.
+  example_th: เธอประดับห้อง
+  word_audio_file: adorn_word+Joey+4d03e7e5a92c5f56488651ea717cf464.mp3
+  sentence_audio_file: adorn_sentence+Joey+e93b86012dcfe867638fed8b75cfd7e0.mp3
+  voice_id: Joey
+- word: adornment
+  part_of_speech: noun
+  definition_th: การประดับ
+  example_en: The adornment was festive.
+  example_th: การประดับนั้นรื่นเริง
+  word_audio_file: adornment_word+Matthew+f215cd950830395a34419b4a1705c8a9.mp3
+  sentence_audio_file: adornment_sentence+Matthew+f7257074540da8e3cf8ecaaa7cd393f7.mp3
+  voice_id: Matthew
+- word: adrenalin
+  part_of_speech: noun
+  definition_th: อะดรีนาลิน
+  example_en: Adrenalin surged during the race.
+  example_th: อะดรีนาลินพุ่งในระหว่างการแข่ง
+  word_audio_file: adrenalin_word+Joey+b6086d9323ca26226a4ec4c8c8918c34.mp3
+  sentence_audio_file: adrenalin_sentence+Joey+2b77fec13e567b10fe1703c4900d1db7.mp3
+  voice_id: Joey
+- word: adrift
+  part_of_speech: adjective
+  definition_th: ลอยไป
+  example_en: The boat was adrift.
+  example_th: เรือลอยไป
+  word_audio_file: adrift_word+Stephen+8a3fd5be41bff93b2015c23170ae25a1.mp3
+  sentence_audio_file: adrift_sentence+Stephen+3265ec058be7af7b9fd2503056c39a96.mp3
+  voice_id: Stephen
+- word: adroit
+  part_of_speech: adjective
+  definition_th: คล่องแคล่ว
+  example_en: She is adroit at solving puzzles.
+  example_th: เธอคลอ่งแคล่วในการแก้ปริศนา
+  word_audio_file: adroit_word+Matthew+9bb7ff35c05290eacba12226c3a4030a.mp3
+  sentence_audio_file: adroit_sentence+Matthew+78e657948fc6552634886ab1a6a2d2bb.mp3
+  voice_id: Matthew
+- word: adulation
+  part_of_speech: noun
+  definition_th: การยกย่อง
+  example_en: The star received adulation.
+  example_th: ดาราได้รับการยกย่อง
+  word_audio_file: adulation_word+Stephen+215d4d3a4561ef40ebe8c8ce3d4ecd4d.mp3
+  sentence_audio_file: adulation_sentence+Stephen+4771a4e5d2dc65cf6fb53daec2aeacc5.mp3
+  voice_id: Stephen
+- word: adulatory
+  part_of_speech: adjective
+  definition_th: ที่ยกย่อง
+  example_en: His tone was adulatory.
+  example_th: น้ำเสียงของเขายกยอ่ง
+  word_audio_file: adulatory_word+Joanna+814dadaf02ac993627e3dcc907b2fc65.mp3
+  sentence_audio_file: adulatory_sentence+Joanna+7c71ca6561002def072d1e5e04ae5ef8.mp3
+  voice_id: Joanna
+- word: adult
+  part_of_speech: noun
+  definition_th: ผู้ใหญ่
+  example_en: She is an adult now.
+  example_th: ช่วยอเป็นผู้ใหญ่แล้ว
+  word_audio_file: adult_word+Stephen+2e85a22d0ffa063c211acd8f34952360.mp3
+  sentence_audio_file: adult_sentence+Stephen+2fc68c98886b5bdcf6850c8e47ed1dcb.mp3
+  voice_id: Stephen
+- word: adult education
+  part_of_speech: noun
+  definition_th: การศึกษาผู้ใหญ่
+  example_en: He joined adult education classes.
+  example_th: เขาเข้าร่วมชั้นเรียนการศึกษาผู้ใหญ่
+  word_audio_file: adult_education_word+Kendra+57a5c478c4856fd3d5cf36bb445aaa23.mp3
+  sentence_audio_file: adult_education_sentence+Kendra+7e1f2ce4ec8ed9a3582e0f537fd57efa.mp3
+  voice_id: Kendra
+- word: adulterate
+  part_of_speech: verb
+  definition_th: เจือปน
+  example_en: They adulterated the wine.
+  example_th: พวกเขาเจือปนไวน์
+  word_audio_file: adulterate_word+Joey+76754351a4bbb51a05a045c8a533d50d.mp3
+  sentence_audio_file: adulterate_sentence+Joey+93eba598665b0f6c8275cf1f9d18080b.mp3
+  voice_id: Joey
+- word: adulterer
+  part_of_speech: noun
+  definition_th: ผู้ล่วงประเวณีชาย
+  example_en: He was called an adulterer.
+  example_th: เขาเรียกถูกว่าเป็นผู้ล่วงประเวณีชาย
+  word_audio_file: adulterer_word+Joanna+0caff187d42edc08264017410c07b477.mp3
+  sentence_audio_file: adulterer_sentence+Joanna+5ba9d010468dafbecc24c67bb3530195.mp3
+  voice_id: Joanna
+- word: adulteress
+  part_of_speech: noun
+  definition_th: ผู้ล่วงประเวณีหญิง
+  example_en: She was branded an adulteress.
+  example_th: ช่วยอถูกตีตราว่าเป็นผู้ล่วงประเวณีหญิง
+  word_audio_file: adulteress_word+Stephen+b724e70dd7c834b3f63de5be7aca3f85.mp3
+  sentence_audio_file: adulteress_sentence+Stephen+0bb3a94185d6117069db3cfe12d98f54.mp3
+  voice_id: Stephen
+- word: adulterous
+  part_of_speech: adjective
+  definition_th: เกี่ยวกับการล่วงประเวณี
+  example_en: They had an adulterous affair.
+  example_th: พวกเขามีความสัมพันธ์ล่วงประเวณี
+  word_audio_file: adulterous_word+Joey+9b95fb0e87ea084fd103e1005e61cfe5.mp3
+  sentence_audio_file: adulterous_sentence+Joey+4a5ac81d50b815acf062ec5e3e773f0e.mp3
+  voice_id: Joey
+- word: adultery
+  part_of_speech: noun
+  definition_th: การลการล่วงประเวณี
+  example_en: Adultery caused their divorce.
+  example_th: การล่วงประเวณีทำให้พวกเขาหย่าร้าง
+  word_audio_file: adultery_word+Joey+29c7b2634d15aa7e821e48168938fb05.mp3
+  sentence_audio_file: adultery_sentence+Joey+d77cc1856e510cf0bfa40c19ea7b3d3b.mp3
+  voice_id: Joey
+- word: adulthood
+  part_of_speech: noun
+  definition_th: วัยผู้ใหญ่
+  example_en: She reached adulthood.
+  example_th: ช่วยอถึงวัยผู้ใหญ่
+  word_audio_file: adulthood_word+Stephen+a74a293d82e6a352f388df93b6c49e3a.mp3
+  sentence_audio_file: adulthood_sentence+Stephen+fdcae57c315f38c161cd55cad3b8c2bd.mp3
+  voice_id: Stephen
+- word: advance
+  part_of_speech: verb
+  definition_th: ก้าวหน้า
+  example_en: The army advanced.
+  example_th: กองทัพก้าวหน้า
+  word_audio_file: advance_word+Joanna+e0bd4e89620ec924b27166975a2dda57.mp3
+  sentence_audio_file: advance_sentence+Joanna+5fd70381f9d8e38c8466aa695f8176cc.mp3
+  voice_id: Joanna
+- word: advanced
+  part_of_speech: adjective
+  definition_th: ก้าวหน้า
+  example_en: She took advanced classes.
+  example_th: ช่วยอเรียนชั้นสูง
+  word_audio_file: advanced_word+Matthew+37c3450b6618a349e4890dcafff6b505.mp3
+  sentence_audio_file: advanced_sentence+Matthew+db9cb9a9a1b22b1caa02e19a6319972d.mp3
+  voice_id: Matthew
+- word: advancement
+  part_of_speech: noun
+  definition_th: ความก้าวหน้า
+  example_en: His advancement was rapid.
+  example_th: ความก้าวหน้าของเขาเร็ว
+  word_audio_file: advancement_word+Joanna+1a5c1f880f2b371fe7f59c6394a78f89.mp3
+  sentence_audio_file: advancement_sentence+Joanna+b3d8016235504a5205d8a6cc3c1ff05a.mp3
+  voice_id: Joanna
+- word: advantage
+  part_of_speech: noun
+  definition_th: ข้อได้เปรียบ
+  example_en: She had an advantage.
+  example_th: ช่วยอมีข้อได้เป่รียบ
+  word_audio_file: advantage_word+Stephen+2290dc931ca9f51d5e44b6d6dba081d7.mp3
+  sentence_audio_file: advantage_sentence+Stephen+074220f56a8f0a9f587fcd99f52aeba6.mp3
+  voice_id: Stephen
+- word: advantaged
+  part_of_speech: adjective
+  definition_th: ได้เปรียบ
+  example_en: He is an advantaged student.
+  example_th: เขาเป็นนักเรียนที่ได้เปรียบ
+  word_audio_file: advantaged_word+Joey+997f502cd7a198b5d9de05a5011b48ea.mp3
+  sentence_audio_file: advantaged_sentence+Joey+8eecb77e08df1f81b27af4f0d9a1ac22.mp3
+  voice_id: Joey
+- word: advantageous
+  part_of_speech: adjective
+  definition_th: ที่ได้เปรียบ
+  example_en: The deal was advantageous.
+  example_th: ข้อตกลงนั้นได้เปรียบ
+  word_audio_file: advantageous_word+Matthew+53379c98c6f9a4276dd2fbcaa50fd87c.mp3
+  sentence_audio_file: advantageous_sentence+Matthew+4d7cc19867f01198318f09227949e639.mp3
+  voice_id: Matthew
+- word: advent
+  part_of_speech: noun
+  definition_th: การมาถึง
+  example_en: The advent of technology changed.
+  example_th: การมาถึงของเทคโนโลยีเปลี่ยนแปลง
+  word_audio_file: advent_word+Kendra+79181e621a6def7d3001234738c8b1ca.mp3
+  sentence_audio_file: advent_sentence+Kendra+f8a5d6dff80aaaf5178ff6e605c4b72e.mp3
+  voice_id: Kendra
+- word: adventure
+  part_of_speech: noun
+  definition_th: การผจญภัย
+  example_en: They went on an adventure.
+  example_th: พวกเขาไปผจญภัย
+  word_audio_file: adventure_word+Matthew+7cb4872d414053539d11f7c1270eafdc.mp3
+  sentence_audio_file: adventure_sentence+Matthew+26976ada055f996621ee0f79f21f9154.mp3
+  voice_id: Matthew
+- word: adventurer
+  part_of_speech: noun
+  definition_th: นักผจญภัย
+  example_en: He is an adventurer.
+  example_th: เขาเป็นนักผจญภัย
+  word_audio_file: adventurer_word+Stephen+521e749d2ac014592f7a160b4be5c62b.mp3
+  sentence_audio_file: adventurer_sentence+Stephen+d4c3ad9b774eaf8e7c52c2df8ec83b14.mp3
+  voice_id: Stephen
+- word: adventuresome
+  part_of_speech: adjective
+  definition_th: ชอบผจญภัย
+  example_en: She is adventuresome.
+  example_th: ช่วยอชอบผจญภัย
+  word_audio_file: adventuresome_word+Joey+d0388c8c37610c20bad6ba94ac4fa157.mp3
+  sentence_audio_file: adventuresome_sentence+Joey+62d7bdb999d54a22cf47c098adc4c302.mp3
+  voice_id: Joey
+- word: adventurism
+  part_of_speech: noun
+  definition_th: ลัทธิผจญภัย
+  example_en: Adventurousism led to risks.
+  example_th: ลัทธิผจญภัยนำไปสู่ความเสี่ยง
+  word_audio_file: adventurism_word+Kendra+550e77a89efc5026b524ce8b81769502.mp3
+  sentence_audio_file: adventurism_sentence+Kendra+65ca98104ae3dfac429339313548c97a.mp3
+  voice_id: Kendra
+- word: adventurist
+  part_of_speech: noun
+  definition_th: ผู้ชอบผจญภัย
+  example_en: The adventurist explored jungles.
+  example_th: ผู้ชอบผจญภัยสำรวจป่า
+  word_audio_file: adventurist_word+Joey+3820a0a95398975eb19001a79201db02.mp3
+  sentence_audio_file: adventurist_sentence+Joey+db6e74e81a169d177903ecd88aecea15.mp3
+  voice_id: Joey
+- word: adventurous
+  part_of_speech: adjective
+  definition_th: ผจญภัย
+  example_en: He is an adventurous traveler.
+  example_th: เขาเป็นนักท่องเที่ยวที่ผจญภัย
+  word_audio_file: adventurous_word+Joey+16d268106de0ef01acc23d6a502d2c12.mp3
+  sentence_audio_file: adventurous_sentence+Joey+16d5d21c24483f5d4fe9d0079d387f1e.mp3
+  voice_id: Joey
+- word: adverb
+  part_of_speech: noun
+  definition_th: คำกริยา
+  example_en: Quickly is an adverb.
+  example_th: เร็วเป็นคำกวิริยา
+  word_audio_file: adverb_word+Stephen+1a6072781ed3ddaf321f7111062f8a70.mp3
+  sentence_audio_file: adverb_sentence+Stephen+31d4f2ddd9dd851e08aae1cc712c1868.mp3
+  voice_id: Stephen
+- word: adverbial
+  part_of_speech: adjective
+  definition_th: เกี่ยวกับกริยา
+  example_en: It’s an adverbial clause.
+  example_th: มันเป็นอนุประโยคเกี่ยวกับกริยา
+  word_audio_file: adverbial_word+Joey+a768a13290340480fca89d7cc2397226.mp3
+  sentence_audio_file: adverbial_sentence+Joey+db186eb10e4a0a022b7896ad1bbbf320.mp3
+  voice_id: Joey
+- word: adversarial
+  part_of_speech: adjective
+  definition_th: เป็นปฏิปักษ์
+  example_en: Their relationship is adversarial.
+  example_th: ความสัมพันธ์ของพวกเขาเป็นปฏิปักษ์
+  word_audio_file: adversarial_word+Joey+3254163a500e28024b7c7a0db5877f61.mp3
+  sentence_audio_file: adversarial_sentence+Joey+3b13e42a88431ca6c298807ac120ea41.mp3
+  voice_id: Joey
+- word: adversary
+  part_of_speech: noun
+  definition_th: คู่แข่ง
+  example_en: He faced his adversary.
+  example_th: เขาเผชิญหน้ากับคู่แข่ง
+  word_audio_file: adversary_word+Joanna+30f4656a496df335f5d2f90fe5d5c2bf.mp3
+  sentence_audio_file: adversary_sentence+Joanna+4c68e813c6dc4a033c7aa6fcab5a13c7.mp3
+  voice_id: Joanna
+- word: adverse
+  part_of_speech: adjective
+  definition_th: ไม่พึงประสงค์
+  example_en: Adverse weather delayed flights.
+  example_th: สภาพอากาศไม่พึงประสงค์ทำให้เที่ยวบินล่าช้า
+  word_audio_file: adverse_word+Joanna+8abdad3ba6bcf4a7125fa5e6f029ae69.mp3
+  sentence_audio_file: adverse_sentence+Joanna+7b14e54f3dc96a1613482a5248cfe1ef.mp3
+  voice_id: Joanna
+- word: adversity
+  part_of_speech: noun
+  definition_th: ความทุกข์ยาก
+  example_en: She overcame adversity.
+  example_th: เธอเอาชนะความทุกข์ยาก
+  word_audio_file: adversity_word+Stephen+beb62c585877d4d234b7b4674b18f642.mp3
+  sentence_audio_file: adversity_sentence+Stephen+11d5e690b427c965b4e03e40ddef13e3.mp3
+  voice_id: Stephen
+- word: advert
+  part_of_speech: noun
+  definition_th: โฆษณา
+  example_en: The advert was catchy.
+  example_th: โฆษณานั้นติดหู
+  word_audio_file: advert_word+Stephen+e09377547186b1e96b7847d526f27945.mp3
+  sentence_audio_file: advert_sentence+Stephen+f347aaab5704b4bca054c9025aca8da5.mp3
+  voice_id: Stephen
+- word: advertise
+  part_of_speech: verb
+  definition_th: โฆษณา
+  example_en: They advertise on TV.
+  example_th: พวกเขาโฆษณาทางทีวี
+  word_audio_file: advertise_word+Joanna+91b7834deae78bbc46757130a1282886.mp3
+  sentence_audio_file: advertise_sentence+Joanna+99c41db58b806299d28db9647c3af7d7.mp3
+  voice_id: Joanna
+- word: advertisement
+  part_of_speech: noun
+  definition_th: การโฆษณา
+  example_en: The advertisement was colorful.
+  example_th: การโฆษณานั้นมีสีสัน
+  word_audio_file: advertisement_word+Kendra+f3334ac9ef26166dedebd319a18f9cc7.mp3
+  sentence_audio_file: advertisement_sentence+Kendra+5c90ee91cd0b9abab28d7ef9be3efaf4.mp3
+  voice_id: Kendra
+- word: advertiser
+  part_of_speech: noun
+  definition_th: ผู้โฆษณา
+  example_en: The advertiser paid well.
+  example_th: ผู้โฆษณาจ่ายดี
+  word_audio_file: advertiser_word+Stephen+02452e3484c42211b1c2884ad9b60c93.mp3
+  sentence_audio_file: advertiser_sentence+Stephen+b0721f4cf8b54186d732b35dbb4a26bf.mp3
+  voice_id: Stephen
+- word: advertising
+  part_of_speech: noun
+  definition_th: การโฆษณา
+  example_en: Advertising boosts sales.
+  example_th: การโฆษณาช่วยเพิ่มยอดขาย
+  word_audio_file: advertising_word+Stephen+e5b0ffb160573324c7e5986d88ddde3a.mp3
+  sentence_audio_file: advertising_sentence+Stephen+7e2ac8bf0fdf07a85a225ed239e0f4a9.mp3
+  voice_id: Stephen
+- word: advertising agency
+  part_of_speech: noun
+  definition_th: บริษัทโฆษณา
+  example_en: The advertising agency won awards.
+  example_th: บริษัทโฆษณาคว้ารางวัล
+  word_audio_file: advertising_agency_word+Joanna+6c20a7a18f6551aedae9e53ca97a94e0.mp3
+  sentence_audio_file: advertising_agency_sentence+Joanna+8e5bc39b9a7b09727f4aff122f825575.mp3
+  voice_id: Joanna
+- word: advertising campaign
+  part_of_speech: noun
+  definition_th: แคมเปญโฆษณา
+  example_en: The campaign was successful.
+  example_th: แคมเปญประสบความสำเร็จ
+  word_audio_file: advertising_campaign_word+Joey+186e4d85b13216cd14aaad1e31d55984.mp3
+  sentence_audio_file: advertising_campaign_sentence+Joey+7297c01979d9f2fe923e761fcbcf67a9.mp3
+  voice_id: Joey
+- word: advice
+  part_of_speech: noun
+  definition_th: คำแนะนำ
+  example_en: She gave good advice.
+  example_th: เธอให้คำแนะนำที่ดี
+  word_audio_file: advice_word+Joey+fd99cadea9d8ef6a1ffcc52a2e3e8017.mp3
+  sentence_audio_file: advice_sentence+Joey+1627acae4d2a2ab174db5b5077d9be4e.mp3
+  voice_id: Joey
+- word: advice column
+  part_of_speech: noun
+  definition_th: คอลัมน์คำแนะนำ
+  example_en: She writes an advice column.
+  example_th: เธอเขียนคอลัมน์คำแนะนำ
+  word_audio_file: advice_column_word+Matthew+dc0b6158b7fda099c0aa31f748d55a81.mp3
+  sentence_audio_file: advice_column_sentence+Matthew+8a0c2735308595ec84e7883b305412d1.mp3
+  voice_id: Matthew
+- word: advice columnist
+  part_of_speech: noun
+  definition_th: นักเขียนคอลัมน์คำแนะนำ
+  example_en: The advice columnist helped many.
+  example_th: นักเขียนคอลัมน์คำแนะนำช่วยได้หลายคน
+  word_audio_file: advice_columnist_word+Joanna+2e08455c41fc8d8be31092797e4f6ad7.mp3
+  sentence_audio_file: advice_columnist_sentence+Joanna+cf0d039e8d1302a34823e785687ad5ea.mp3
+  voice_id: Joanna
+- word: advice line
+  part_of_speech: noun
+  definition_th: สายด่วนคำแนะนำ
+  example_en: She called the advice line.
+  example_th: เธอโทรไปสายด่วนคำแนะนำ
+  word_audio_file: advice_line_word+Stephen+539cf1a4151b4f6c9bb501611b679468.mp3
+  sentence_audio_file: advice_line_sentence+Stephen+2989ad851dd283c88a08e4a4cfffa3ee.mp3
+  voice_id: Stephen
+- word: advisable
+  part_of_speech: adjective
+  definition_th: ควรทำ
+  example_en: It’s advisable to save money.
+  example_th: ควรประหยัดเงิน
+  word_audio_file: advisable_word+Kendra+3637a8f00a24f6a46a7d6fa6fe8d2e18.mp3
+  sentence_audio_file: advisable_sentence+Kendra+ef3c266fded27c0ff8878fe8a563d55f.mp3
+  voice_id: Kendra
+- word: advise
+  part_of_speech: verb
+  definition_th: แนะนำ
+  example_en: He advised her to study.
+  example_th: เขาแนะนำให้เธอเรียน
+  word_audio_file: advise_word+Stephen+a9aa299fb148193285e62321fb253ce4.mp3
+  sentence_audio_file: advise_sentence+Stephen+e5845b4c1b257ec90366908909f17c58.mp3
+  voice_id: Stephen
+- word: advisedly
+  part_of_speech: adverb
+  definition_th: อย่างรอบคอบ
+  example_en: She spoke advisedly.
+  example_th: เธอพูดอย่างรอบคอบ
+  word_audio_file: advisedly_word+Joey+26c326b16b5cabb49811d2aff17a8777.mp3
+  sentence_audio_file: advisedly_sentence+Joey+1005496f8ec8d393b6c935ca7dec486b.mp3
+  voice_id: Joey
+- word: advisement
+  part_of_speech: noun
+  definition_th: การพิจารณา
+  example_en: The matter is under advisement.
+  example_th: เรื่องนี้อยู่ระหว่างการพิจารณา
+  word_audio_file: advisement_word+Stephen+d3647ba4eeeaf26bd1bb9669e59228b3.mp3
+  sentence_audio_file: advisement_sentence+Stephen+09ce3d828916fc4f0a1a677225b925a0.mp3
+  voice_id: Stephen
+- word: adviser
+  part_of_speech: noun
+  definition_th: ที่ปรึกษา
+  example_en: He is her adviser.
+  example_th: เขาเป็นที่ปรึกษาของเธอ
+  word_audio_file: adviser_word+Kendra+c0f7bbe14aaee1b771e9ea23dd7883ea.mp3
+  sentence_audio_file: adviser_sentence+Kendra+e6623418188a4c1715acc163b0abe19e.mp3
+  voice_id: Kendra
+- word: advisory
+  part_of_speech: adjective
+  definition_th: ที่ให้คำแนะนำ
+  example_en: It’s an advisory role.
+  example_th: มันเป็นบทบาทที่ให้คำแนะนำ
+  word_audio_file: advisory_word+Matthew+dd4d5708d7c019ee9203a9bd57c68cd2.mp3
+  sentence_audio_file: advisory_sentence+Matthew+19f517eb6d8a372609403b76381ded5d.mp3
+  voice_id: Matthew
+- word: advocacy
+  part_of_speech: noun
+  definition_th: การสนับสนุน
+  example_en: Her advocacy helped the cause.
+  example_th: การสนับสนุนของเธอช่วยสาเหตุ
+  word_audio_file: advocacy_word+Stephen+b94ad99e5dc27b3365d5d2aa77d73ff0.mp3
+  sentence_audio_file: advocacy_sentence+Stephen+806b6293b3631b524787833a1e8a9062.mp3
+  voice_id: Stephen
+- word: advocate
+  part_of_speech: verb
+  definition_th: สนับสนุน
+  example_en: She advocates for peace.
+  example_th: เธอสนับสนุนสันติภาพ
+  word_audio_file: advocate_word+Kendra+b3a7cc7edf249f3c914b7e0c1a6a4f16.mp3
+  sentence_audio_file: advocate_sentence+Kendra+3e108daa04a32694098a255beb27d7f2.mp3
+  voice_id: Kendra
+- word: adwoman
+  part_of_speech: noun
+  definition_th: นักโฆษณาหญิง
+  example_en: The adwoman designed the ad.
+  example_th: นักโฆษณาหญิงออกแบบโฆษณา
+  word_audio_file: adwoman_word+Stephen+b720ce9d5ee2d4220d5dcda1fe359f8a.mp3
+  sentence_audio_file: adwoman_sentence+Stephen+1986820a1be1adf35432a266200fbfb8.mp3
+  voice_id: Stephen
 b: []
 c: []
 d: []
