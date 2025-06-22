@@ -8,7 +8,7 @@ import random
 # Define paths using absolute paths
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 TEMP_VOCAB_PATH = os.path.join(BASE_DIR, 'data', 'temp', 'temp_vocab.yaml')
-TEMP_VOCAB_LOG_PATH = os.path.join(BASE_DIR, 'data', 'temp', 'temp_vocab_log.yaml')  # New log file path
+TEMP_VOCAB_LOG_PATH = os.path.join(BASE_DIR, 'data', 'temp', 'temp_vocab_log.yaml')
 VOCAB_DB_PATH = os.path.join(BASE_DIR, 'data', 'vocab_database.yaml')
 AUDIO_DIR = os.path.join(BASE_DIR, 'data', 'audio')
 
@@ -30,9 +30,11 @@ def load_yaml(file_path):
             return yaml.safe_load(file) or []
     except FileNotFoundError:
         print(f"Error: {file_path} does not exist. Please create it with valid YAML content.")
-        return {'a': [], 'b': [], 'c': [], 'd': [], 'e': [], 'f': [], 'g': [], 'h': [], 'i': [], 'j': [],
-                'k': [], 'l': [], 'm': [], 'n': [], 'o': [], 'p': [], 'q': [], 'r': [], 's': [], 't': [],
-                'u': [], 'v': [], 'w': [], 'x': [], 'y': [], 'z': [], 'other': []} if file_path == VOCAB_DB_PATH else []
+        return {
+            'a': [], 'b': [], 'c': [], 'd': [], 'e': [], 'f': [], 'g': [], 'h': [], 'i': [], 'j': [],
+            'k': [], 'l': [], 'm': [], 'n': [], 'o': [], 'p': [], 'q': [], 'r': [], 's': [], 't': [],
+            'u': [], 'v': [], 'w': [], 'x': [], 'y': [], 'z': []
+        } if file_path == VOCAB_DB_PATH else []
     except yaml.YAMLError as e:
         print(f"Error parsing YAML file {file_path}: {e}")
         return []
@@ -83,7 +85,7 @@ def validate_entry(entry):
 
 def get_audio_filename(word, text, prefix, voice_id):
     """Generate unique audio filename based on word, prefix, voice_id, and MD5 hash."""
-    safe_word = word.lower().replace(' ', '_')  # Replace spaces for filename safety
+    safe_word = word.lower().replace(' ', '_')
     return f"{safe_word}_{prefix}+{voice_id}+{hashlib.md5(text.encode('utf-8')).hexdigest()}.mp3"
 
 def process_entries(entries):
@@ -94,6 +96,13 @@ def process_entries(entries):
 
     for entry in tqdm(entries, desc="Processing"):
         if not validate_entry(entry):
+            invalid_entries.append(entry)
+            continue
+
+        word_lower = entry['word'].lower()
+        # Skip entries that don't start with a letter
+        if not word_lower or not word_lower[0].isalpha():
+            print(f"Skipping entry '{entry['word']}' - does not start with a letter")
             invalid_entries.append(entry)
             continue
 
@@ -123,8 +132,7 @@ def process_entries(entries):
         sentence_audio_path = os.path.join(AUDIO_DIR, sentence_audio_filename)
 
         # Check if entry exists in database and has the same voice
-        word_lower = new_entry['word'].lower()
-        first_char = word_lower[0] if word_lower[0].isalpha() else 'other'
+        first_char = word_lower[0]
         existing_entry = None
         if first_char in vocab_db and vocab_db[first_char]:
             existing_entry = next((e for e in vocab_db[first_char] if e['word'].lower() == word_lower), None)
@@ -153,7 +161,7 @@ def process_entries(entries):
     # Update database
     for entry in valid_entries:
         word = entry['word'].lower()
-        first_char = word[0] if word[0].isalpha() else 'other'
+        first_char = word[0]
         vocab_db.setdefault(first_char, [])
         # Remove existing entry if it exists
         vocab_db[first_char] = [e for e in vocab_db[first_char] if e['word'].lower() != word]
@@ -174,9 +182,7 @@ def main():
     append_to_log(entries)
 
     valid_entries, invalid_entries = process_entries(entries)
-    print(f"Processed {len(entries)} entries:
-
- {len(valid_entries)} valid, {len(invalid_entries)} invalid")
+    print(f"Processed {len(entries)} entries: {len(valid_entries)} valid, {len(invalid_entries)} invalid")
     if invalid_entries:
         print("Invalid entries:", invalid_entries)
 
