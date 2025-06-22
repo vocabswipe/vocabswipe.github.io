@@ -1,0 +1,32 @@
+Generate a temp_vocab.yaml code box for a vocabulary database, formatted as shown below:
+yaml
+
+- word: "tentative"
+  part_of_speech: "adjective"
+  definition_th: "ไม่แน่นอน"
+  example_en: "They made a tentative plan."
+  example_th: "พวกเขาทำแผนที่ไม่แน่นอน"
+- word: "thrive"
+  part_of_speech: "verb"
+  definition_th: "เจริญรุ่งเรือง"
+  example_en: "The business thrived."
+  example_th: "ธุรกิจเจริญรุ่งเรือง"
+- word: "ubiquitous"
+  part_of_speech: "adjective"
+  definition_th: "อยู่ทุกหนแห่ง"
+  example_en: "Smartphones are ubiquitous."
+  example_th: "สมาร์ทโฟนอยู่ทุกหนแห่ง"
+
+Using the provided word list, create entries for each word with:
+word: The English word.
+
+part_of_speech: The word’s part of speech (e.g., noun, verb, adjective).
+
+definition_th: A concise Thai translation of the word’s primary meaning.
+
+example_en: A simple English example sentence using the word.
+
+example_th: The Thai translation of the English example sentence.
+
+Ensure the entries are suitable for American English learners, with clear, simple example sentences and accurate Thai translations. The word list is:
+

@@ -8,11 +8,13 @@ import random
 # Define paths using absolute paths
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 TEMP_VOCAB_PATH = os.path.join(BASE_DIR, 'data', 'temp', 'temp_vocab.yaml')
+TEMP_VOCAB_LOG_PATH = os.path.join(BASE_DIR, 'data', 'temp', 'temp_vocab_log.yaml')  # New log file path
 VOCAB_DB_PATH = os.path.join(BASE_DIR, 'data', 'vocab_database.yaml')
 AUDIO_DIR = os.path.join(BASE_DIR, 'data', 'audio')
 
-# Ensure audio directory exists
+# Ensure audio and temp directories exist
 os.makedirs(AUDIO_DIR, exist_ok=True)
+os.makedirs(os.path.dirname(TEMP_VOCAB_PATH), exist_ok=True)
 
 # Initialize AWS Polly client
 polly_client = boto3.client('polly', region_name='us-east-1')
@@ -39,6 +41,15 @@ def save_yaml(data, file_path):
     """Save data to YAML file."""
     with open(file_path, 'w', encoding='utf-8') as file:
         yaml.safe_dump(data, file, allow_unicode=True, sort_keys=False)
+
+def append_to_log(entries):
+    """Append entries to temp_vocab_log.yaml."""
+    existing_log = load_yaml(TEMP_VOCAB_LOG_PATH)
+    if not isinstance(existing_log, list):
+        existing_log = []
+    existing_log.extend(entries)
+    save_yaml(existing_log, TEMP_VOCAB_LOG_PATH)
+    print(f"Appended {len(entries)} entries to {TEMP_VOCAB_LOG_PATH}")
 
 def generate_audio(text, output_path, voice_id, use_ssml=False):
     """Generate audio using AWS Polly and save to output_path."""
@@ -159,8 +170,13 @@ def main():
         print("No entries to process in temp_vocab.yaml")
         return
 
+    # Append entries to log file before processing
+    append_to_log(entries)
+
     valid_entries, invalid_entries = process_entries(entries)
-    print(f"Processed {len(entries)} entries: {len(valid_entries)} valid, {len(invalid_entries)} invalid")
+    print(f"Processed {len(entries)} entries:
+
+ {len(valid_entries)} valid, {len(invalid_entries)} invalid")
     if invalid_entries:
         print("Invalid entries:", invalid_entries)
 
