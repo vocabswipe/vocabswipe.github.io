@@ -13343,7 +13343,215 @@ a:
   word_audio_file: azure_word+Matthew+cf04a02e37b774fc311a48f605c3c597.mp3
   sentence_audio_file: azure_sentence+Matthew+2002ebbcc86fb7fb85a841d6d1b367d1.mp3
   voice_id: Matthew
-b: []
+b:
+- word: babble
+  part_of_speech: verb
+  definition_th: พูดพล่าม
+  example_en: The baby babbles happily.
+  example_th: ทารกพูดพล่ามอย่างมีความสุข
+  word_audio_file: babble_word+Matthew+27d34b40d7adafe2e00c3503543e0ca9.mp3
+  sentence_audio_file: babble_sentence+Matthew+1ba8980ea7b81df13989db850a6814c2.mp3
+  voice_id: Matthew
+- word: babe
+  part_of_speech: noun
+  definition_th: ที่รัก
+  example_en: He called her babe.
+  example_th: เขาเรียกเธอว่าที่รัก
+  word_audio_file: babe_word+Matthew+420fc26fa13e665e32ca17ea781c645a.mp3
+  sentence_audio_file: babe_sentence+Matthew+a50a842ed4952eb036a63b2ab3235122.mp3
+  voice_id: Matthew
+- word: Babel
+  part_of_speech: noun
+  definition_th: ความสับสน
+  example_en: The meeting was like Babel.
+  example_th: การประชุมเหมือนบาเบล
+  word_audio_file: babel_word+Matthew+53718118d84d26983528d262b37ea0be.mp3
+  sentence_audio_file: babel_sentence+Matthew+2374fa118e2d591678961c6128fb1db6.mp3
+  voice_id: Matthew
+- word: baboon
+  part_of_speech: noun
+  definition_th: ลิงบาบูน
+  example_en: The baboon climbed the tree.
+  example_th: ลิงบาบูนปีนต้นไม้
+  word_audio_file: baboon_word+Matthew+c4442e6e8420c452dfeb43463e045d58.mp3
+  sentence_audio_file: baboon_sentence+Matthew+a0edc6ad9825be4bb22fb41ddb89a186.mp3
+  voice_id: Matthew
+- word: baby
+  part_of_speech: noun
+  definition_th: ทารก
+  example_en: The baby is sleeping.
+  example_th: ทารกกำลังนอนหลับ
+  word_audio_file: baby_word+Matthew+6848d756da66e55b42f79c0728e351ad.mp3
+  sentence_audio_file: baby_sentence+Matthew+8619f1569b6d72aa63e40f8a1c8a7f8e.mp3
+  voice_id: Matthew
+- word: baby boom
+  part_of_speech: noun
+  definition_th: การเพิ่มประชากร
+  example_en: The baby boom followed the war.
+  example_th: การเพิ่มประชากรเกิดขึ้นหลังสงคราม
+  word_audio_file: baby_boom_word+Matthew+0999c2430b51e9aa76f8f2945c1ac8ec.mp3
+  sentence_audio_file: baby_boom_sentence+Matthew+2dc72e9c5096a8876df31c6e58ef8a7a.mp3
+  voice_id: Matthew
+- word: baby boomer
+  part_of_speech: noun
+  definition_th: ผู้เกิดช่วงเพิ่มประชากร
+  example_en: She is a baby boomer.
+  example_th: เธอเป็นผู้เกิดช่วงเพิ่มประชากร
+  word_audio_file: baby_boomer_word+Matthew+e6e343b29d0dcec9483d97370beed52f.mp3
+  sentence_audio_file: baby_boomer_sentence+Matthew+b6e0a9c5d1fd2ba0594da4bb413233d3.mp3
+  voice_id: Matthew
+- word: baby buggy
+  part_of_speech: noun
+  definition_th: รถเข็นเด็ก
+  example_en: She pushed the baby buggy.
+  example_th: เธอเข็นรถเข็นเด็ก
+  word_audio_file: baby_buggy_word+Matthew+f543421410f10ee4419f018ca57b5cff.mp3
+  sentence_audio_file: baby_buggy_sentence+Matthew+baf88eb5e428ad82042ff07354c734ac.mp3
+  voice_id: Matthew
+- word: baby fat
+  part_of_speech: noun
+  definition_th: ไขมันเด็ก
+  example_en: He lost his baby fat.
+  example_th: เขาเสียไขมันเด็กไป
+  word_audio_file: baby_fat_word+Matthew+4a580078f2f216acb61a101fd6257e5b.mp3
+  sentence_audio_file: baby_fat_sentence+Matthew+76d9bf5c3d9a0a77de465341c72bd8a9.mp3
+  voice_id: Matthew
+- word: baby tooth
+  part_of_speech: noun
+  definition_th: ฟันน้ำนม
+  example_en: Her baby tooth fell out.
+  example_th: ฟันน้ำนมของเธอหลุด
+  word_audio_file: baby_tooth_word+Matthew+6ce55ac76e66422b1734322a7e90fc4e.mp3
+  sentence_audio_file: baby_tooth_sentence+Matthew+691ea1c899146ea84ea27fa5e109265d.mp3
+  voice_id: Matthew
+- word: babyhood
+  part_of_speech: noun
+  definition_th: วัยทารก
+  example_en: She enjoyed her babyhood.
+  example_th: เธอสนุกกับวัยทารก
+  word_audio_file: babyhood_word+Matthew+872fb659d00ddbf80996e5a75fbff266.mp3
+  sentence_audio_file: babyhood_sentence+Matthew+246a93062b53681c1f05bbd4e4aa0543.mp3
+  voice_id: Matthew
+- word: babyish
+  part_of_speech: adjective
+  definition_th: เหมือนเด็ก
+  example_en: His behavior is babyish.
+  example_th: พฤติกรรมของเขาเหมือนเด็ก
+  word_audio_file: babyish_word+Matthew+bf48dd2fec276416274f8e8e0a0941e5.mp3
+  sentence_audio_file: babyish_sentence+Matthew+d02eb63214b4bb1c5f3500b48d4bd89a.mp3
+  voice_id: Matthew
+- word: babysit
+  part_of_speech: verb
+  definition_th: เลี้ยงเด็ก
+  example_en: She babysits for money.
+  example_th: เธอเลี้ยงเด็กเพื่อเงิน
+  word_audio_file: babysit_word+Matthew+a46a1ca36f029a5d250002cb87ee7265.mp3
+  sentence_audio_file: babysit_sentence+Matthew+ab6410455ff7b1d4f988882af0b17f2e.mp3
+  voice_id: Matthew
+- word: babytalk
+  part_of_speech: noun
+  definition_th: ภาษาเด็ก
+  example_en: She used babytalk with the child.
+  example_th: เธอใช้ภาษาเด็กกับเด็ก
+  word_audio_file: babytalk_word+Matthew+5a198675e4fdcc7bf45a83dcae89576b.mp3
+  sentence_audio_file: babytalk_sentence+Matthew+f41d26c6777ef81125ce7ef30a7fe9f0.mp3
+  voice_id: Matthew
+- word: baccalaureate
+  part_of_speech: noun
+  definition_th: ปริญญาตรี
+  example_en: He earned a baccalaureate.
+  example_th: เขาได้รับปริญญาตรี
+  word_audio_file: baccalaureate_word+Matthew+6b86ab113b3eff3bbf5158e248afd7e4.mp3
+  sentence_audio_file: baccalaureate_sentence+Matthew+e1a1d2c52202b427e655508ae83ecf12.mp3
+  voice_id: Matthew
+- word: bachelor
+  part_of_speech: noun
+  definition_th: โสด
+  example_en: He is a bachelor.
+  example_th: เขาเป็นโสด
+  word_audio_file: bachelor_word+Matthew+c2b7dae3df98550763dfaa494e550aeb.mp3
+  sentence_audio_file: bachelor_sentence+Matthew+b4b3dfeaf9d49882fb798a8e3b289d07.mp3
+  voice_id: Matthew
+- word: Bachelor of Arts
+  part_of_speech: noun
+  definition_th: ศิลปศาสตรบัณฑิต
+  example_en: She has a Bachelor of Arts.
+  example_th: เธอมีปริญญาศิลปศาสตรบัณฑิต
+  word_audio_file: bachelor_of_arts_word+Matthew+d98b1452bf75bfb4bcb7f271137b6272.mp3
+  sentence_audio_file: bachelor_of_arts_sentence+Matthew+dde38afb21c28fbbd8b602cc374629a4.mp3
+  voice_id: Matthew
+- word: Bachelor of Science
+  part_of_speech: noun
+  definition_th: วิทยาศาสตรบัณฑิต
+  example_en: He earned a Bachelor of Science.
+  example_th: เขาได้รับปริญญาวิทยาศาสตรบัณฑิต
+  word_audio_file: bachelor_of_science_word+Matthew+d380c252cd52d9b3890792bbfe9983f7.mp3
+  sentence_audio_file: bachelor_of_science_sentence+Matthew+e783f6f41dafd74f9f7530a87b79d442.mp3
+  voice_id: Matthew
+- word: bachelor party
+  part_of_speech: noun
+  definition_th: ปาร์ตี้หนุ่มโสด
+  example_en: They threw a bachelor party.
+  example_th: พวกเขาจัดปาร์ตี้หนุ่มโสด
+  word_audio_file: bachelor_party_word+Matthew+eb7d0d76ba968b5870a76a630e5e2ef9.mp3
+  sentence_audio_file: bachelor_party_sentence+Matthew+cdfe0eeca1a09a460af96ff5410bb232.mp3
+  voice_id: Matthew
+- word: bachelorette
+  part_of_speech: noun
+  definition_th: สาวโสด
+  example_en: She is a bachelorette.
+  example_th: เธอเป็นสาวโสด
+  word_audio_file: bachelorette_word+Matthew+bab081ddc8870c1f2d81c67dca2ba3d2.mp3
+  sentence_audio_file: bachelorette_sentence+Matthew+035a7709ecc5fe74beb464e9e12d332e.mp3
+  voice_id: Matthew
+- word: bachelorette party
+  part_of_speech: noun
+  definition_th: ปาร์ตี้สาวโสด
+  example_en: They planned a bachelorette party.
+  example_th: พวกเขาวางแผนปาร์ตี้สาวโสด
+  word_audio_file: bachelorette_party_word+Matthew+c377c68d6a67fc11255758a7764647b3.mp3
+  sentence_audio_file: bachelorette_party_sentence+Matthew+95b67f2586126999a8ea006a85473aeb.mp3
+  voice_id: Matthew
+- word: bachelor’s degree
+  part_of_speech: noun
+  definition_th: ปริญญาตรี
+  example_en: She got her bachelor’s degree.
+  example_th: เธอได้รับปริญญาตรี
+  word_audio_file: bachelor’s_degree_word+Matthew+59f0b30dabc31ecebd0cc4750c82fda8.mp3
+  sentence_audio_file: bachelor’s_degree_sentence+Matthew+aa7995cff102d9f020bb5372c975bdb7.mp3
+  voice_id: Matthew
+- word: bacillus
+  part_of_speech: noun
+  definition_th: แบคทีเรีย
+  example_en: The bacillus caused illness.
+  example_th: แบคทีเรียทำให้เกิดโรค
+  word_audio_file: bacillus_word+Matthew+33ca5967876d66863684380d60ed8d4b.mp3
+  sentence_audio_file: bacillus_sentence+Matthew+8263e832ecca389063e7c2b9afe00f48.mp3
+  voice_id: Matthew
+- word: back
+  part_of_speech: noun
+  definition_th: หลัง
+  example_en: He hurt his back.
+  example_th: เขาเจ็บหลัง
+  word_audio_file: back_word+Matthew+469bba0a564235dfceede42db14f17b0.mp3
+  sentence_audio_file: back_sentence+Matthew+8b5bd6507c246a10e6001799f7db1f59.mp3
+  voice_id: Matthew
+- word: back away
+  part_of_speech: verb
+  definition_th: ถอยหลัง
+  example_en: She backed away from danger.
+  example_th: เธอถอยหลังจากอันตราย
+  word_audio_file: back_away_word+Matthew+7d19015f33defaf9d1c783d1b1c4daac.mp3
+  sentence_audio_file: back_away_sentence+Matthew+25ceb4e21008de7616fbff5687f194ef.mp3
+  voice_id: Matthew
+- word: back down
+  part_of_speech: verb
+  definition_th: ยอมถอย
+  example_en: He refused to back down.
+  example_th: เขาปฏิเสธที่จะยอมถอย
+  word_audio_file: back_down_word+Matthew+eb7f0bbb09a0b7d9c230b242a4b9544c.mp3
+  sentence_audio_file: back_down_sentence+Matthew+218f38ed5162648d82617fbfb7680241.mp3
+  voice_id: Matthew
 c: []
 d: []
 e: []
