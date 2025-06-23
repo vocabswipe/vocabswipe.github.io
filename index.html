@@ -9,39 +9,25 @@
     <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
 </head>
 <body>
+    <header>
+        <div class="logo">VocabSwipe <span class="slogan">Master Words, Swipe Smart!</span></div>
+    </header>
     <div class="container">
         <select id="letter-select">
-            <option value="a">A</option>
-            <option value="b">B</option>
-            <option value="c">C</option>
-            <option value="d">D</option>
-            <option value="e">E</option>
-            <option value="f">F</option>
-            <option value="g">G</option>
-            <option value="h">H</option>
-            <option value="i">I</option>
-            <option value="j">J</option>
-            <option value="k">K</option>
-            <option value="l">L</option>
-            <option value="m">M</option>
-            <option value="n">N</option>
-            <option value="o">O</option>
-            <option value="p">P</option>
-            <option value="q">Q</option>
-            <option value="r">R</option>
-            <option value="s">S</option>
-            <option value="t">T</option>
-            <option value="u">U</option>
-            <option value="v">V</option>
-            <option value="w">W</option>
-            <option value="x">X</option>
-            <option value="y">Y</option>
-            <option value="z">Z</option>
+            <option value="all">All</option>
+            <!-- Options removed for simplicity; populate dynamically if needed -->
         </select>
         <div class="flashcard-container">
             <div class="flashcard">
-                <div class="front"></div>
-                <div class="back"></div>
+                <div class="front">
+                    <h2 id="word"></h2>
+                    <div class="freq-bar" id="front-freq-bar"></div>
+                </div>
+                <div class="back">
+                    <h2 id="back-word"></h2>
+                    <p id="back-details"></p>
+                    <div class="freq-bar" id="back-freq-bar"></div>
+                </div>
             </div>
         </div>
     </div>
