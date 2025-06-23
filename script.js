@@ -4,7 +4,6 @@ let words = [];
 let isFlipped = false;
 let currentAudio = null;
 let audioCache = new Map();
-let maxFreq = 0;
 const MAX_CACHE_SIZE = 10;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,10 +23,9 @@ function loadWords() {
                 console.warn('No words found in vocab_database.yaml');
                 return;
             }
-            maxFreq = words[0]?.freq || 1; // Use first word's freq as max
-            words.sort((a, b) => b.freq - a.freq); // Sort by freq descending
+            // Sort by rank ascending
+            words.sort((a, b) => a.rank - b.rank);
             displayWord();
-            updateFrequencyBar();
             preloadAudio();
         })
         .catch(error => {
@@ -72,29 +70,29 @@ function setupEventListeners() {
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
     hammer.on('swipeleft', () => {
         if (words.length) {
-            currentWordIndex = (currentWordIndex + 1) % words.length;
-            if (isFlipped) {
-                playAudio(words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0]);
-            } else {
+            if (!isFlipped) {
+                currentWordIndex = (currentWordIndex + 1) % words.length;
                 playAudio(words[currentWordIndex].word_audio_file[0]);
+            } else {
+                currentWordIndex = (currentWordIndex + 1) % words.length;
+                playAudio(words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0]);
             }
             stopAudio();
             displayWord();
-            updateFrequencyBar();
             preloadAudio();
         }
     });
     hammer.on('swiperight', () => {
         if (words.length) {
-            currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
-            if (isFlipped) {
-                playAudio(words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0]);
-            } else {
+            if (!isFlipped) {
+                currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
                 playAudio(words[currentWordIndex].word_audio_file[0]);
+            } else {
+                currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
+                playAudio(words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0]);
             }
             stopAudio();
             displayWord();
-            updateFrequencyBar();
             preloadAudio();
         }
     });
@@ -202,16 +200,6 @@ function displayWord() {
         <p id="back-details" class="english">${backCard.definition_en}</p>
         <p class="english">${backCard.example_en}</p>
     `;
-    updateFrequencyBar();
-}
-
-function updateFrequencyBar() {
-    if (!words[currentWordIndex] || !maxFreq) return;
-    const freq = words[currentWordIndex].freq;
-    const freqPercent = (freq / maxFreq) * 100;
-    const hue = 120 - (freqPercent * 1.2); // Red (0) to Green (120)
-    document.getElementById('front-freq-bar').style.background = `linear-gradient(to right, hsl(${hue}, 100%, 50%), hsl(120, 100%, 50%))`;
-    document.getElementById('back-freq-bar').style.background = `linear-gradient(to right, hsl(${hue}, 100%, 50%), hsl(120, 100%, 50%))`;
-    document.getElementById('front-freq-bar').style.width = `${freqPercent}%`;
-    document.getElementById('back-freq-bar').style.width = `${freqPercent}%`;
+    document.getElementById('front-freq').textContent = `Freq: ${wordData.freq}`;
+    document.getElementById('back-freq').textContent = `Freq: ${wordData.freq}`;
 }
