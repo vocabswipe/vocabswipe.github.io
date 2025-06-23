@@ -9,9 +9,7 @@ import logging
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
-from rich.progress import Progress, BarColumn, TextColumn, TimeRemainingColumn
-from rich.prompt import Confirm
-from rich import box
+from rich.progress import Progress, BarColumn, TextColumn, SpinnerColumn
 from rich.text import Text
 
 # Initialize rich console
@@ -107,7 +105,7 @@ def generate_audio(text, output_path, voice_id, use_ssml=False):
         return True
     except Exception as e:
         logger.error(f"Error generating audio for '{text}': {e}")
-        console.print(f"[red]⚠ Audio Generation Failed for '{text}': {e}[/red]")
+        console.print(f"[red]⚠ Audio Generation Failed for '{text}'[/red]")
         return False
 
 def validate_entry(entry):
@@ -169,28 +167,23 @@ def verify_audio_files(vocab_db):
     return missing_audio
 
 def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, missing_audio, first_word, last_word):
-    """Generate a high-tech summary report using rich."""
-    table = Table(title="📊 Vocabulary Processing Report", box=box.ROUNDED, style="cyan")
+    """Generate a concise high-tech summary report."""
+    table = Table(title="📊 Vocabulary Sync Report", box=box.MINIMAL, style="cyan")
     table.add_column("Metric", style="bold")
     table.add_column("Value", justify="right")
-
-    table.add_row("Timestamp", time.strftime('%Y-%m-%d %H:%M:%S'))
-    table.add_row("Total Entries Processed", str(len(valid_entries)))
-    table.add_row("Valid Entries", f"[green]{len(valid_entries)}[/green]")
+    
+    table.add_row("Processed", str(len(valid_entries)))
+    table.add_row("Valid", f"[green]{len(valid_entries)}[/green]")
     table.add_row("Duplicates Removed", f"[yellow]{removed_count}[/yellow]" if removed_count else "0")
-    table.add_row("First Word", first_word or "N/A")
-    table.add_row("Last Word", last_word or "N/A")
     table.add_row("Database Size", str(len(vocab_db)))
 
     console.print(table)
 
     if missing_audio:
         console.print(Panel(
-            "\n".join([f"⚠ Missing Audio: {word} ({audio_type}, index {index})" for word, audio_type, index, _ in missing_audio]),
-            title="Audio Verification", border_style="red"
+            "\n".join([f"⚠ {word} ({audio_type}, index {index})" for word, audio_type, index, _ in missing_audio]),
+            title="Missing Audio", border_style="red", expand=False
         ))
-    else:
-        console.print("[green]✓ All Audio Files Verified[/green]")
 
     report_path = os.path.join(BASE_DIR, 'data', 'reports', f"vocab_report_{time.strftime('%Y%m%d_%H%M%S')}.txt")
     with open(report_path, 'w', encoding='utf-8') as f:
@@ -198,10 +191,10 @@ def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, 
         if missing_audio:
             f.write("\nMissing Audio Files:\n" + "\n".join([f"{word} ({audio_type}, index {index})" for word, audio_type, index, _ in missing_audio]))
     logger.info(f"Report saved to: {report_path}")
-    console.print(Panel(f"[green]Mission Complete: Report saved to {report_path}[/green]", title="Status", border_style="green"))
+    console.print(f"[green]✓ Report Saved: {report_path}[/green]")
 
 def process_entries(entries):
-    """Process vocabulary entries with rich progress tracking."""
+    """Process entries with a single-line download-style progress bar."""
     vocab_db = load_file(VOCAB_DB_PATH, file_type='yaml')
     if not isinstance(vocab_db, list):
         logger.warning(f"{VOCAB_DB_PATH} invalid. Initializing as empty list.")
@@ -213,13 +206,14 @@ def process_entries(entries):
     last_word = None
 
     with Progress(
-        TextColumn("[progress.description]{task.description}"),
-        BarColumn(),
+        SpinnerColumn(),
+        "[progress.description]{task.description}",
+        BarColumn(bar_width=20),
         "[progress.percentage]{task.percentage:>3.0f}%",
-        TimeRemainingColumn(),
-        console=console
+        console=console,
+        refresh_per_second=10
     ) as progress:
-        task = progress.add_task("[cyan]Processing Vocabulary Core...", total=len(entries))
+        task = progress.add_task("[cyan]Syncing Vocabulary...", total=len(entries))
 
         for entry in entries:
             if not validate_entry(entry):
@@ -316,59 +310,34 @@ def process_entries(entries):
     return valid_entries, invalid_entries
 
 def main():
-    """Main function with high-tech UX."""
-    # Display startup screen
+    """Main function with streamlined high-tech UX."""
+    # Display startup message
     console.print(Panel(
-        Text(
-            "┳━┓  ┳━┓\n"
-            "┣━┫ ┣┳┫ VocabSync v2.1\n"
-            "┻ ┻ ┣┻┫ Neural-Powered Vocabulary Processor\n"
-            "    ┣┳┻┓ by xAI Labs\n"
-            "┻┻┻┻┻┻┻┻",
-            style="bold cyan"
-        ),
-        title="System Boot", border_style="blue", box=box.DOUBLE
+        Text("VocabSync v2.1\nNeural-Powered Vocabulary Processor", style="bold cyan"),
+        title="System Boot", border_style="blue", expand=False
     ))
 
-    # Prompt user to start
-    if not Confirm.ask("[bold cyan]Initialize Vocabulary Processing Core?[/bold cyan]"):
-        console.print("[yellow]Operation Aborted.[/yellow]")
-        return
-
-    console.print("[green]✓ System Initialized. Loading Input Data...[/green]")
+    console.print("[cyan]Initializing Vocabulary Sync...[/cyan]")
     entries = load_file(TEMP_VOCAB_JSONL_PATH, file_type='jsonl')
     if not entries:
-        console.print(Panel("[yellow]No entries found in temp_vocab_multi_cards.jsonl. Operation Terminated.[/yellow]", title="Status", border_style="yellow"))
+        console.print("[yellow]No entries found in temp_vocab_multi_cards.jsonl.[/yellow]")
         logger.warning("No entries to process")
         return
 
-    console.print(f"[cyan]Loaded {len(entries)} Entries for Processing.[/cyan]")
+    console.print(f"[cyan]Processing {len(entries)} Entries...[/cyan]")
     append_to_log(entries)
-
-    # Process entries with progress tracking
     valid_entries, invalid_entries = process_entries(entries)
     
-    # Display processing summary
-    console.print(Panel(
-        f"Processed [bold]{len(entries)}[/bold] Entries:\n"
-        f"[green]✓ {len(valid_entries)} Valid[/green]\n"
-        f"[red]✗ {len(invalid_entries)} Invalid[/red]",
-        title="Processing Summary", border_style="blue"
-    ))
-
     if invalid_entries:
+        console.print(f"[yellow]⚠ {len(invalid_entries)} Invalid Entries Detected. See vocab_processing.log.[/yellow]")
         logger.warning(f"Invalid entries: {invalid_entries}")
-        console.print("[yellow]Warning: Invalid entries detected. Check vocab_processing.log for details.[/yellow]")
 
     if valid_entries:
-        if Confirm.ask("[bold cyan]Clear temp_vocab_multi_cards.jsonl?[/bold cyan]"):
-            save_file([], TEMP_VOCAB_JSONL_PATH, file_type='json')
-            console.print("[green]✓ Input File Cleared.[/green]")
-            logger.info("Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.")
-        else:
-            console.print("[yellow]Input File Retained.[/yellow]")
+        save_file([], TEMP_VOCAB_JSONL_PATH, file_type='json')
+        console.print("[green]✓ Input File Processed and Cleared.[/green]")
+        logger.info("Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.")
     else:
-        console.print("[red]✗ Batch Processing Failed. Input File Not Cleared.[/red]")
+        console.print("[red]✗ Processing Failed. Input File Not Cleared.[/red]")
         logger.warning("Batch processing failed. temp_vocab_multi_cards.jsonl not cleared.")
 
 if __name__ == "__main__":
