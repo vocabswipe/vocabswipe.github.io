@@ -122,7 +122,7 @@ def validate_entry(entry):
         logger.warning(f"Invalid entry - back_cards must be a non-empty list: {entry}")
         return False
     for card in entry['back_cards']:
-        if not all(k in card for k in ['definition_th', 'example_en', 'example_th']):
+        if not all(k in card for k in ['definition_en', 'example_en']):
             logger.warning(f"Invalid back_card in entry: {entry}")
             return False
     return True
