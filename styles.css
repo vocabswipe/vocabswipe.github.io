@@ -43,17 +43,6 @@ header {
     gap: 20px;
 }
 
-#letter-select {
-    width: 100%;
-    max-width: 200px;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #333;
-    border-radius: 5px;
-    background-color: #fff;
-    cursor: pointer;
-}
-
 .flashcard-container {
     width: 100%;
     perspective: 1000px;
@@ -125,14 +114,6 @@ p.part-of-speech {
     font-style: italic;
 }
 
-.freq-bar {
-    height: 10px;
-    width: 0; /* Will be set dynamically */
-    border-radius: 5px;
-    margin-top: 10px;
-    transition: width 0.3s ease;
-}
-
 @media (max-width: 360px) {
     .flashcard {
         height: 450px;
@@ -142,9 +123,6 @@ p.part-of-speech {
     }
     p {
         font-size: 0.9em;
-    }
-    .freq-bar {
-        height: 8px;
     }
 }
 
