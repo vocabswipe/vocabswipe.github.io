@@ -21,14 +21,14 @@ logger = logging.getLogger(__name__)
 
 # Define paths using absolute paths
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-TEMP_VOCAB_JSON_PATH = os.path.join(BASE_DIR, 'data', 'temp', 'temp_vocab.json')
+TEMP_VOCAB_JSONL_PATH = os.path.join(BASE_DIR, 'temp', 'temp_vocab_multi_cards.jsonl')
 TEMP_VOCAB_LOG_PATH = os.path.join(BASE_DIR, 'data', 'temp', 'temp_vocab_log.yaml')
 VOCAB_DB_PATH = os.path.join(BASE_DIR, 'data', 'vocab_database.yaml')
 AUDIO_DIR = os.path.join(BASE_DIR, 'data', 'audio')
 
 # Ensure audio, temp, and reports directories exist
 os.makedirs(AUDIO_DIR, exist_ok=True)
-os.makedirs(os.path.dirname(TEMP_VOCAB_JSON_PATH), exist_ok=True)
+os.makedirs(os.path.dirname(TEMP_VOCAB_JSONL_PATH), exist_ok=True)
 os.makedirs(os.path.join(BASE_DIR, 'data', 'reports'), exist_ok=True)
 
 # Initialize AWS Polly client with error handling
@@ -42,26 +42,22 @@ except Exception as e:
 # Use only Matthew's voice (en-US, neural)
 FAVORITE_VOICES = ['Matthew']
 
-def load_file(file_path, file_type='yaml'):
-    """Load YAML or JSON file and return its content."""
+def load_file(file_path, file_type='jsonl'):
+    """Load JSONL or YAML file and return its content."""
     logger.info(f"Attempting to load: {file_path}")
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
-            if file_type == 'json':
-                data = json.load(file) or []
+            if file_type == 'jsonl':
+                data = [json.loads(line) for line in file if line.strip()]
             else:
                 data = yaml.safe_load(file) or []
             return data
     except FileNotFoundError:
         logger.warning(f"{file_path} does not exist. Creating default structure.")
-        return {
-            'a': [], 'b': [], 'c': [], 'd': [], 'e': [], 'f': [], 'g': [], 'h': [], 'i': [], 'j': [],
-            'k': [], 'l': [], 'm': [], 'n': [], 'o': [], 'p': [], 'q': [], 'r': [], 's': [], 't': [],
-            'u': [], 'v': [], 'w': [], 'x': [], 'y': [], 'z': []
-        } if file_path == VOCAB_DB_PATH else []
+        return [] if file_type == 'jsonl' else {}
     except (yaml.YAMLError, json.JSONDecodeError) as e:
         logger.error(f"Error parsing {file_type.upper()} file {file_path}: {e}")
-        return []
+        return [] if file_type == 'jsonl' else {}
 
 def save_file(data, file_path, file_type='yaml'):
     """Save data to YAML or JSON file."""
@@ -118,47 +114,45 @@ def generate_audio(text, output_path, voice_id, use_ssml=False):
 
 def validate_entry(entry):
     """Validate vocabulary entry."""
-    required_fields = ['word', 'part_of_speech', 'definition_th', 'example_en', 'example_th']
-    valid = all(field in entry and isinstance(entry[field], str) and entry[field].strip() for field in required_fields)
-    if not valid:
-        logger.warning(f"Invalid entry: {entry}")
-    return valid
+    required_fields = ['word', 'rank', 'freq', 'back_cards']
+    if not all(field in entry for field in required_fields):
+        logger.warning(f"Invalid entry - missing required fields: {entry}")
+        return False
+    if not isinstance(entry['back_cards'], list) or len(entry['back_cards']) < 1:
+        logger.warning(f"Invalid entry - back_cards must be a non-empty list: {entry}")
+        return False
+    for card in entry['back_cards']:
+        if not all(k in card for k in ['definition_th', 'example_en', 'example_th']):
+            logger.warning(f"Invalid back_card in entry: {entry}")
+            return False
+    return True
 
-def get_audio_filename(word, text, prefix, voice_id):
-    """Generate unique audio filename based on word, prefix, voice_id, and MD5 hash."""
+def get_audio_filename(word, text, prefix, voice_id, index=0):
+    """Generate unique audio filename based on word, prefix, voice_id, MD5 hash, and index."""
     safe_word = word.lower().replace(' ', '_')
-    return f"{safe_word}_{prefix}+{voice_id}+{hashlib.md5(text.encode('utf-8')).hexdigest()}.mp3"
+    return f"{safe_word}_{prefix}_{index}+{voice_id}+{hashlib.md5(text.encode('utf-8')).hexdigest()}.mp3"
 
 def check_duplicates(vocab_db):
     """Check for and remove duplicate words in vocab_db, keeping the last entry."""
-    duplicates = defaultdict(list)
-    for letter in vocab_db:
-        seen_words = set()
-        for entry in vocab_db[letter]:
-            word_lower = entry['word'].lower()
-            if word_lower in seen_words:
-                duplicates[letter].append(word_lower)
+    seen_words = set()
+    duplicates = []
+    for i, entry in enumerate(vocab_db):
+        word_lower = entry['word'].lower()
+        if word_lower in seen_words:
+            duplicates.append((i, word_lower))
+        else:
             seen_words.add(word_lower)
     
     removed_count = 0
     redundant_audio_files = []
-    for letter in vocab_db:
-        if letter in duplicates:
-            unique_entries = []
-            seen_words = set()
-            for entry in reversed(vocab_db[letter]):
-                word_lower = entry['word'].lower()
-                if word_lower not in seen_words:
-                    unique_entries.append(entry)
-                    seen_words.add(word_lower)
-                else:
-                    removed_count += 1
-                    if entry.get('word_audio_file'):
-                        redundant_audio_files.append(os.path.join(AUDIO_DIR, entry['word_audio_file']))
-                    if entry.get('sentence_audio_file'):
-                        redundant_audio_files.append(os.path.join(AUDIO_DIR, entry['sentence_audio_file']))
-            vocab_db[letter] = list(reversed(unique_entries))
-            vocab_db[letter] = sorted(vocab_db[letter], key=lambda x: x['word'].lower())
+    for i, word_lower in reversed(duplicates):
+        removed_count += 1
+        entry = vocab_db[i]
+        if entry.get('word_audio_file'):
+            redundant_audio_files.extend([os.path.join(AUDIO_DIR, f) for f in entry['word_audio_file'] if f])
+        if entry.get('sentence_audio_file'):
+            redundant_audio_files.extend([os.path.join(AUDIO_DIR, f) for f in entry['sentence_audio_file'] if f])
+        vocab_db.pop(i)
     
     for audio_file in redundant_audio_files:
         if os.path.exists(audio_file):
@@ -173,60 +167,53 @@ def check_duplicates(vocab_db):
 def verify_audio_files(vocab_db):
     """Verify that all entries in vocab_db have corresponding audio files."""
     missing_audio = []
-    for letter in vocab_db:
-        for entry in vocab_db[letter]:
-            word_audio_path = os.path.join(AUDIO_DIR, entry.get('word_audio_file', ''))
-            sentence_audio_path = os.path.join(AUDIO_DIR, entry.get('sentence_audio_file', ''))
-            if not os.path.exists(word_audio_path):
-                missing_audio.append((entry['word'], 'word_audio_file', word_audio_path))
-            if not os.path.exists(sentence_audio_path):
-                missing_audio.append((entry['word'], 'sentence_audio_file', sentence_audio_path))
+    for entry in vocab_db:
+        word_audio_files = entry.get('word_audio_file', [])
+        sentence_audio_files = entry.get('sentence_audio_file', [])
+        for i, audio_file in enumerate(word_audio_files):
+            if audio_file and not os.path.exists(os.path.join(AUDIO_DIR, audio_file)):
+                missing_audio.append((entry['word'], 'word_audio_file', i, audio_file))
+        for i, audio_file in enumerate(sentence_audio_files):
+            if audio_file and not os.path.exists(os.path.join(AUDIO_DIR, audio_file)):
+                missing_audio.append((entry['word'], 'sentence_audio_file', i, audio_file))
     return missing_audio
 
 def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, missing_audio, initial_word_count, skipped_entries):
     """Generate a summary report of the processing results."""
-    total_words = sum(len(entries) for entries in vocab_db.values())
-    new_words_by_letter = defaultdict(int)
-    total_audio_files = 0
-    for letter in vocab_db:
-        for entry in vocab_db[letter]:
-            if entry.get('word_audio_file'):
-                total_audio_files += 1
-            if entry.get('sentence_audio_file'):
-                total_audio_files += 1
-    for entry in valid_entries:
-        word_lower = entry['word'].lower()
-        first_char = word_lower[0]
-        new_words_by_letter[first_char] += 1
-    
+    total_words = len(vocab_db)
+    total_audio_files = sum(len(entry.get('word_audio_file', [])) + len(entry.get('sentence_audio_file', [])) for entry in vocab_db)
+    new_words = len(valid_entries) - skipped_entries
+
     report = [
         "=== Vocabulary Database Processing Report ===",
         f"Date and Time: {time.strftime('%Y-%m-%d %H:%M:%S')}",
         "",
         f"Total Words in Database: {total_words}",
         f"Initial Words (before processing): {initial_word_count}",
-        f"Newly Added Words: {len(valid_entries) - skipped_entries}",
+        f"Newly Added Words: {new_words}",
         f"Skipped Entries (already processed): {skipped_entries}",
-        f"Total Audio Files (should be 2x entries): {total_audio_files} (Expected: {2 * total_words})",
+        f"Total Audio Files (should be 6x entries): {total_audio_files} (Expected: {6 * total_words})",
     ]
     
-    if new_words_by_letter:
-        report.append("\nNew Words Added by Letter:")
-        for letter in sorted(new_words_by_letter.keys()):
-            report.append(f"  {letter.upper()}: {new_words_by_letter[letter]}")
+    if new_words > 0:
+        report.append("\nNew Words Added:")
+        for entry in valid_entries[:min(5, len(valid_entries))]:  # Show up to 5 new words
+            report.append(f"  {entry['word']} (Rank: {entry['rank']})")
+        if len(valid_entries) > 5:
+            report.append(f"  ... and {len(valid_entries) - 5} more")
     
     if duplicates:
         report.append("\nDuplicates Found and Removed:")
-        for letter in duplicates:
-            report.append(f"  {letter.upper()}: {', '.join(duplicates[letter])}")
+        for _, word in duplicates:
+            report.append(f"  {word}")
         report.append(f"Total Duplicates Removed: {removed_count}")
     else:
         report.append("\nNo Duplicates Found.")
     
     if missing_audio:
         report.append("\nMissing Audio Files:")
-        for word, audio_type, path in missing_audio:
-            report.append(f"  Word: {word}, Missing: {audio_type}, Path: {path}")
+        for word, audio_type, index, path in missing_audio:
+            report.append(f"  Word: {word}, Type: {audio_type}, Index: {index}, Path: {path}")
     else:
         report.append("\nAll Audio Files Present.")
     
@@ -242,11 +229,11 @@ def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, 
 def process_entries(entries):
     """Process vocabulary entries and update database."""
     vocab_db = load_file(VOCAB_DB_PATH, file_type='yaml')
-    if not isinstance(vocab_db, dict):
-        logger.error(f"{VOCAB_DB_PATH} is not a dictionary. Initializing default structure.")
-        vocab_db = {chr(i): [] for i in range(ord('a'), ord('z') + 1)}
-    
-    initial_word_count = sum(len(entries) for entries in vocab_db.values())
+    if not isinstance(vocab_db, list):
+        logger.warning(f"{VOCAB_DB_PATH} is not a list or empty. Initializing as empty list.")
+        vocab_db = []
+
+    initial_word_count = len(vocab_db)
     valid_entries = []
     invalid_entries = []
     skipped_entries = 0
@@ -257,25 +244,15 @@ def process_entries(entries):
             continue
 
         word_lower = entry['word'].lower()
-        if not word_lower or not word_lower[0].isalpha():
-            logger.info(f"Skipping entry '{entry['word']}' - does not start with a letter")
-            continue
-
-        first_char = word_lower[0]
-        existing_entry = None
-        if first_char in vocab_db and vocab_db[first_char]:
-            existing_entry = next((e for e in vocab_db[first_char] if e['word'].lower() == word_lower), None)
+        existing_entry = next((e for e in vocab_db if e['word'].lower() == word_lower), None)
 
         if existing_entry and existing_entry.get('voice_id') == 'Matthew':
             voice = existing_entry['voice_id']
-            word_text = f"<speak>{entry['word']}</speak>"
-            sentence_text = f"<speak>{entry['word']}. {entry['example_en']}</speak>"
-            word_audio_filename = get_audio_filename(entry['word'], entry['word'], 'word', voice)
-            sentence_audio_filename = get_audio_filename(entry['word'], f"{entry['word']}. {entry['example_en']}", 'sentence', voice)
-            word_audio_path = os.path.join(AUDIO_DIR, word_audio_filename)
-            sentence_audio_path = os.path.join(AUDIO_DIR, sentence_audio_filename)
+            word_audio_files = existing_entry.get('word_audio_file', [])
+            sentence_audio_files = existing_entry.get('sentence_audio_file', [])
+            all_audio_exist = all(os.path.exists(os.path.join(AUDIO_DIR, f)) for f in word_audio_files + sentence_audio_files)
 
-            if os.path.exists(word_audio_path) and os.path.exists(sentence_audio_path):
+            if all_audio_exist:
                 logger.info(f"Skipping entry '{entry['word']}' - audio files already exist with voice {voice}")
                 skipped_entries += 1
                 valid_entries.append(existing_entry)
@@ -285,60 +262,53 @@ def process_entries(entries):
         selected_voice = 'Matthew'
         new_entry = {
             'word': entry['word'],
-            'part_of_speech': entry['part_of_speech'],
-            'definition_th': entry['definition_th'],
-            'example_en': entry['example_en'],
-            'example_th': entry['example_th'],
-            'word_audio_file': '',
-            'sentence_audio_file': '',
+            'rank': entry['rank'],
+            'freq': entry['freq'],
+            'back_cards': entry['back_cards'],
+            'word_audio_file': [],
+            'sentence_audio_file': [],
             'voice_id': selected_voice
         }
 
         # Delete existing audio files if they exist with a different voice
         if existing_entry and existing_entry.get('voice_id') != 'Matthew':
-            if existing_entry.get('word_audio_file'):
-                word_audio_path = os.path.join(AUDIO_DIR, existing_entry['word_audio_file'])
-                if os.path.exists(word_audio_path):
+            for audio_file in existing_entry.get('word_audio_file', []) + existing_entry.get('sentence_audio_file', []):
+                audio_path = os.path.join(AUDIO_DIR, audio_file)
+                if os.path.exists(audio_path):
                     try:
-                        os.remove(word_audio_path)
-                        logger.info(f"Deleted old audio file with different voice: {word_audio_path}")
+                        os.remove(audio_path)
+                        logger.info(f"Deleted old audio file with different voice: {audio_path}")
                     except OSError as e:
-                        logger.error(f"Error deleting old audio file {word_audio_path}: {e}")
-            if existing_entry.get('sentence_audio_file'):
-                sentence_audio_path = os.path.join(AUDIO_DIR, existing_entry['sentence_audio_file'])
-                if os.path.exists(sentence_audio_path):
-                    try:
-                        os.remove(sentence_audio_path)
-                        logger.info(f"Deleted old audio file with different voice: {sentence_audio_path}")
-                    except OSError as e:
-                        logger.error(f"Error deleting old audio file {sentence_audio_path}: {e}")
+                        logger.error(f"Error deleting old audio file {audio_path}: {e}")
 
+        # Generate audio for word and each back card
         word_text = f"<speak>{new_entry['word']}</speak>"
         word_audio_filename = get_audio_filename(new_entry['word'], new_entry['word'], 'word', selected_voice)
         word_audio_path = os.path.join(AUDIO_DIR, word_audio_filename)
-
-        sentence_text = f"<speak>{new_entry['word']}. {new_entry['example_en']}</speak>"
-        sentence_audio_filename = get_audio_filename(new_entry['word'], f"{new_entry['word']}. {new_entry['example_en']}", 'sentence', selected_voice)
-        sentence_audio_path = os.path.join(AUDIO_DIR, sentence_audio_filename)
-
         word_success = generate_audio(word_text, word_audio_path, selected_voice, use_ssml=True) if not os.path.exists(word_audio_path) else True
-        sentence_success = generate_audio(sentence_text, sentence_audio_path, selected_voice, use_ssml=True) if not os.path.exists(sentence_audio_path) else True
+        new_entry['word_audio_file'].append(word_audio_filename if word_success else '')
 
-        if word_success and sentence_success:
-            new_entry['word_audio_file'] = word_audio_filename
-            new_entry['sentence_audio_file'] = sentence_audio_filename
+        sentence_audio_files = []
+        for i, card in enumerate(new_entry['back_cards']):
+            sentence_text = f"<speak>{new_entry['word']}. {card['example_en']}</speak>"
+            sentence_audio_filename = get_audio_filename(new_entry['word'], f"{new_entry['word']}. {card['example_en']}", 'sentence', selected_voice, i)
+            sentence_audio_path = os.path.join(AUDIO_DIR, sentence_audio_filename)
+            sentence_success = generate_audio(sentence_text, sentence_audio_path, selected_voice, use_ssml=True) if not os.path.exists(sentence_audio_path) else True
+            sentence_audio_files.append(sentence_audio_filename if sentence_success else '')
+
+        new_entry['sentence_audio_file'] = sentence_audio_files
+
+        if word_success and all(sentence_audio_files):
             valid_entries.append(new_entry)
         else:
             invalid_entries.append(entry)
 
     # Update database
     for entry in valid_entries:
-        word = entry['word'].lower()
-        first_char = word[0]
-        vocab_db.setdefault(first_char, [])
-        vocab_db[first_char] = [e for e in vocab_db[first_char] if e['word'].lower() != word]
-        vocab_db[first_char].append(entry)
-        vocab_db[first_char] = sorted(vocab_db[first_char], key=lambda x: x['word'].lower())
+        word_lower = entry['word'].lower()
+        vocab_db = [e for e in vocab_db if e['word'].lower() != word_lower]
+        vocab_db.append(entry)
+    vocab_db.sort(key=lambda x: x['rank'])  # Sort by rank for consistency
 
     duplicates, removed_count = check_duplicates(vocab_db)
     missing_audio = verify_audio_files(vocab_db)
@@ -348,10 +318,10 @@ def process_entries(entries):
     return valid_entries, invalid_entries
 
 def main():
-    """Main function to process temp_vocab.json and update vocab_database.yaml."""
-    entries = load_file(TEMP_VOCAB_JSON_PATH, file_type='json')
+    """Main function to process temp_vocab_multi_cards.jsonl and update vocab_database.yaml."""
+    entries = load_file(TEMP_VOCAB_JSONL_PATH, file_type='jsonl')
     if not entries:
-        logger.warning("No entries to process in temp_vocab.json")
+        logger.warning("No entries to process in temp_vocab_multi_cards.jsonl")
         return
 
     append_to_log(entries)
@@ -361,10 +331,10 @@ def main():
         logger.warning(f"Invalid entries: {invalid_entries}")
 
     if valid_entries:
-        save_file([], TEMP_VOCAB_JSON_PATH, file_type='json')
-        logger.info("Batch processed successfully. temp_vocab.json cleared.")
+        save_file([], TEMP_VOCAB_JSONL_PATH, file_type='json')  # Clear JSONL (save as empty JSON)
+        logger.info("Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.")
     else:
-        logger.warning("Batch processing failed. temp_vocab.json not cleared.")
+        logger.warning("Batch processing failed. temp_vocab_multi_cards.jsonl not cleared.")
 
 if __name__ == "__main__":
     main()
