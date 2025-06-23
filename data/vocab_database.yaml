@@ -1,1 +1,456 @@
-
+- word: the
+  rank: 1
+  freq: 50033612
+  part_of_speech: article
+  back_cards:
+  - definition_en: Used to specify a particular noun.
+    example_en: The dog barked loudly in the park.
+  - definition_en: Indicates something well-known or unique.
+    example_en: The sun sets slowly behind the mountain.
+  - definition_en: Refers to a specific group or class.
+    example_en: The students in the class were attentive.
+  - definition_en: Used before superlatives or ordinal numbers.
+    example_en: She won the first prize in the competition.
+  - definition_en: Points to something previously mentioned.
+    example_en: I found a book, and the book was fascinating.
+  word_audio_file:
+  - the_word_0+Matthew+8fc42c6ddf9966db3b09e84365034357.mp3
+  sentence_audio_file:
+  - the_sentence_0+Matthew+fa198537089fdfa3c1b21d5c13ddeca4.mp3
+  - the_sentence_1+Matthew+ca9f3e54a6312b5e5055c99595d176ef.mp3
+  - the_sentence_2+Matthew+55b26cd1faf4f335006a7e53f6e2585e.mp3
+  - the_sentence_3+Matthew+b9826264a5331e9146d71d86c7184a92.mp3
+  - the_sentence_4+Matthew+59db5024f26cbee5915353efac234ade.mp3
+  voice_id: Matthew
+- word: be
+  rank: 2
+  freq: 32394756
+  part_of_speech: verb
+  back_cards:
+  - definition_en: To exist or occur.
+    example_en: A new festival will be in town next week.
+  - definition_en: To act as or serve as.
+    example_en: She wants to be a doctor when she grows up.
+  - definition_en: To indicate a state or condition.
+    example_en: He is tired after a long day at work.
+  - definition_en: Used to form continuous tenses.
+    example_en: They are playing soccer in the field.
+  - definition_en: To represent identity or equivalence.
+    example_en: This is the best coffee shop in town.
+  word_audio_file:
+  - be_word_0+Matthew+910955a907e739b81ec8855763108a29.mp3
+  sentence_audio_file:
+  - be_sentence_0+Matthew+9c28875592e8e41183d9b7766adcb274.mp3
+  - be_sentence_1+Matthew+83fe19766e420289898769aadea9bb91.mp3
+  - be_sentence_2+Matthew+aa7839f802c0a13009a251a8ec4c151c.mp3
+  - be_sentence_3+Matthew+0ffc1b9577bfebc5bc592f94d205db3c.mp3
+  - be_sentence_4+Matthew+b989b9f8ac1f8c5bd67c443b1ea76915.mp3
+  voice_id: Matthew
+- word: and
+  rank: 3
+  freq: 24778098
+  part_of_speech: conjunction
+  back_cards:
+  - definition_en: Connects two ideas or items.
+    example_en: I bought apples and oranges at the market.
+  - definition_en: Joins clauses in a sentence.
+    example_en: She studied hard and passed the exam.
+  - definition_en: Indicates additional information.
+    example_en: The hike was long and very scenic.
+  - definition_en: Shows simultaneous actions.
+    example_en: He was singing and dancing at the party.
+  - definition_en: Links related concepts.
+    example_en: The project requires time and effort.
+  word_audio_file:
+  - and_word_0+Matthew+be5d5d37542d75f93a87094459f76678.mp3
+  sentence_audio_file:
+  - and_sentence_0+Matthew+b1dfb3fd535f7bfcdecc697f4158b813.mp3
+  - and_sentence_1+Matthew+a65c482530e75877ef4739f9e26ee948.mp3
+  - and_sentence_2+Matthew+e1d1ea037fd5d9f2d450713f393aba00.mp3
+  - and_sentence_3+Matthew+7fdd88c2416aee55ec2e1712d2fad6cc.mp3
+  - and_sentence_4+Matthew+f81fa0955e340b9a4dae2093f526ac5f.mp3
+  voice_id: Matthew
+- word: a
+  rank: 4
+  freq: 24225478
+  part_of_speech: article
+  back_cards:
+  - definition_en: Refers to a non-specific singular noun.
+    example_en: I saw a cat in the garden.
+  - definition_en: Introduces something new.
+    example_en: She found a book on the shelf.
+  - definition_en: Used with professions or roles.
+    example_en: He works as a teacher in a school.
+  - definition_en: Indicates one of many.
+    example_en: A bird flew over the forest.
+  - definition_en: Used in expressions of quantity.
+    example_en: I need a dozen eggs for the recipe.
+  word_audio_file:
+  - a_word_0+Matthew+0cc175b9c0f1b6a831c399e269772661.mp3
+  sentence_audio_file:
+  - a_sentence_0+Matthew+22f46b8b12430e183038d083e7fabc48.mp3
+  - a_sentence_1+Matthew+8936015ff3aab9382fdd5991e48c39fc.mp3
+  - a_sentence_2+Matthew+f89d5967f0de34a5dd94a2b1f6749599.mp3
+  - a_sentence_3+Matthew+c8f292c97ac11e915a9bddd985b755d8.mp3
+  - a_sentence_4+Matthew+5a4b4606d3550ff5a82ed27f2314973b.mp3
+  voice_id: Matthew
+- word: of
+  rank: 5
+  freq: 23159162
+  part_of_speech: preposition
+  back_cards:
+  - definition_en: Indicates possession or belonging.
+    example_en: The leaves of the tree turned red.
+  - definition_en: Shows composition or material.
+    example_en: The house is made of wood.
+  - definition_en: Denotes a part or quantity.
+    example_en: A slice of cake was left on the plate.
+  - definition_en: Expresses association or connection.
+    example_en: She is a friend of my sister.
+  - definition_en: Refers to content or subject.
+    example_en: They talked of their plans for the weekend.
+  word_audio_file:
+  - of_word_0+Matthew+8bf8854bebe108183caeb845c7676ae4.mp3
+  sentence_audio_file:
+  - of_sentence_0+Matthew+ac47bab44295a96497b27cabfcfa5144.mp3
+  - of_sentence_1+Matthew+aab982581126f34e4253b8dc7597e801.mp3
+  - of_sentence_2+Matthew+0c0e2dcb07a52dd9c4d3f9bafd3e00b1.mp3
+  - of_sentence_3+Matthew+b1cec4004545070f6af05caa0584ad1b.mp3
+  - of_sentence_4+Matthew+5d0b8f376f541b41732e82361cce5691.mp3
+  voice_id: Matthew
+- word: in
+  rank: 7
+  freq: 15670692
+  part_of_speech: preposition
+  back_cards:
+  - definition_en: Indicates location or position.
+    example_en: The keys are in the drawer.
+  - definition_en: Refers to a period of time.
+    example_en: We met in the summer of last year.
+  - definition_en: Shows a state or condition.
+    example_en: She is in a good mood today.
+  - definition_en: Denotes involvement or participation.
+    example_en: He works in the tech industry.
+  - definition_en: Expresses manner or means.
+    example_en: They communicated in writing.
+  word_audio_file:
+  - in_word_0+Matthew+13b5bfe96f3e2fe411c9f66f4a582adf.mp3
+  sentence_audio_file:
+  - in_sentence_0+Matthew+1388197e0008d9c8ed82673e532dc4c4.mp3
+  - in_sentence_1+Matthew+72290aad8af886ad02968f74ce8b293f.mp3
+  - in_sentence_2+Matthew+beffba5df3fccb7f38d4e1e424ea1354.mp3
+  - in_sentence_3+Matthew+cc4704c752fbd51d227bc157fadeafeb.mp3
+  - in_sentence_4+Matthew+b67183cf059c2d53a6f7cb755bfb7108.mp3
+  voice_id: Matthew
+- word: i
+  rank: 8
+  freq: 14217601
+  part_of_speech: pronoun
+  back_cards:
+  - definition_en: Refers to the speaker or writer.
+    example_en: I am going to the park.
+  - definition_en: Expresses personal opinion.
+    example_en: I think this movie is amazing.
+  - definition_en: Indicates personal action.
+    example_en: I finished my homework early.
+  - definition_en: Used in self-description.
+    example_en: I am a student at the university.
+  - definition_en: Shows personal preference.
+    example_en: I prefer tea over coffee.
+  word_audio_file:
+  - i_word_0+Matthew+865c0c0b4ab0e063e5caa3387c1a8741.mp3
+  sentence_audio_file:
+  - i_sentence_0+Matthew+28ea8c93bf4090dbcfa1a571fb5bbc9d.mp3
+  - i_sentence_1+Matthew+24d1fe84c72348e3af29494207bc357b.mp3
+  - i_sentence_2+Matthew+a8e36ab2157251d4c44cc057442c046f.mp3
+  - i_sentence_3+Matthew+78981d3d38b9feb49447c0a9feef8363.mp3
+  - i_sentence_4+Matthew+dcd2730ef15602622cd64ebdc7784e7d.mp3
+  voice_id: Matthew
+- word: you
+  rank: 9
+  freq: 12079413
+  part_of_speech: pronoun
+  back_cards:
+  - definition_en: Addresses the person being spoken to.
+    example_en: You should try this new restaurant.
+  - definition_en: Refers to a general audience.
+    example_en: You can learn a lot from books.
+  - definition_en: Indicates a specific person.
+    example_en: I saw you at the concert last night.
+  - definition_en: Used in giving advice.
+    example_en: You need to rest after a long day.
+  - definition_en: Expresses a direct request.
+    example_en: Can you help me with this task?
+  word_audio_file:
+  - you_word_0+Matthew+639bae9ac6b3e1a84cebb7b403297b79.mp3
+  sentence_audio_file:
+  - you_sentence_0+Matthew+411c3858eeebbb0c5698c7664e33fd1d.mp3
+  - you_sentence_1+Matthew+1f98ebd579c33ec70a3cd70c6c708844.mp3
+  - you_sentence_2+Matthew+0afb53373761cbb932ea6a6011c03037.mp3
+  - you_sentence_3+Matthew+a73d0b26f22b880a5805f1e26ed4222c.mp3
+  - you_sentence_4+Matthew+b677c1b0f4f66b232099847430696ff9.mp3
+  voice_id: Matthew
+- word: it
+  rank: 10
+  freq: 11042044
+  part_of_speech: pronoun
+  back_cards:
+  - definition_en: Refers to a non-living thing.
+    example_en: The book is on the table; pick it up.
+  - definition_en: Used for animals or objects.
+    example_en: The dog wagged it tail happily.
+  - definition_en: Refers to a situation or event.
+    example_en: It rained all day yesterday.
+  - definition_en: Acts as a placeholder subject.
+    example_en: It is important to stay hydrated.
+  - definition_en: Points to something previously mentioned.
+    example_en: I found a phone, but it was broken.
+  word_audio_file:
+  - it_word_0+Matthew+0d149b90e7394297301c90191ae775f0.mp3
+  sentence_audio_file:
+  - it_sentence_0+Matthew+b272a65edad51eb62ddec0624b3a5377.mp3
+  - it_sentence_1+Matthew+ae840cdeac2ff26cec21df787da961dd.mp3
+  - it_sentence_2+Matthew+5c6932211d32590c18a11bbb79d89637.mp3
+  - it_sentence_3+Matthew+13174f09de995db80b3ace3b26765be3.mp3
+  - it_sentence_4+Matthew+9831a541be5ec02af774fb089d24085b.mp3
+  voice_id: Matthew
+- word: have
+  rank: 11
+  freq: 10514314
+  part_of_speech: verb
+  back_cards:
+  - definition_en: To possess or own.
+    example_en: I have a new car.
+  - definition_en: To experience or undergo.
+    example_en: She had a great time at the party.
+  - definition_en: To consume or take.
+    example_en: They have breakfast together every morning.
+  - definition_en: To indicate obligation.
+    example_en: You have to finish your work by noon.
+  - definition_en: To show a relationship.
+    example_en: He has two sisters in college.
+  word_audio_file:
+  - have_word_0+Matthew+b42dad5453b2128a32f6612b13ea5d9f.mp3
+  sentence_audio_file:
+  - have_sentence_0+Matthew+3879194ac16b0d99d810e5c0433dc9a9.mp3
+  - have_sentence_1+Matthew+be17305c5bc78ba278b6a2d39d2f7562.mp3
+  - have_sentence_2+Matthew+757843996e6caf0b65160ea81f42488b.mp3
+  - have_sentence_3+Matthew+68e59a6e2015337d2fb01d6239e17795.mp3
+  - have_sentence_4+Matthew+715dac0a3457d1ec48575c51057c829e.mp3
+  voice_id: Matthew
+- word: to
+  rank: 12
+  freq: 9232572
+  part_of_speech: preposition
+  back_cards:
+  - definition_en: Indicates movement toward a place.
+    example_en: We drove to the beach last weekend.
+  - definition_en: Shows a goal or purpose.
+    example_en: She trains to run a marathon.
+  - definition_en: Denotes a recipient or target.
+    example_en: He sent a letter to his cousin.
+  - definition_en: Marks an infinitive verb form.
+    example_en: I need to finish this report.
+  - definition_en: Refers to a time limit.
+    example_en: The shop is open to seven tonight.
+  word_audio_file:
+  - to_word_0+Matthew+01b6e20344b68835c5ed1ddedf20d531.mp3
+  sentence_audio_file:
+  - to_sentence_0+Matthew+ff110fc90dc7180f589d92ab0a9baa98.mp3
+  - to_sentence_1+Matthew+cb18cbfd7361b11d63c82d614230b171.mp3
+  - to_sentence_2+Matthew+42d2b84236db8d507fb8d8490fc0bfa3.mp3
+  - to_sentence_3+Matthew+eba5a32d9a14cd1bb37fc6e09b1e6f24.mp3
+  - to_sentence_4+Matthew+7c3a216be0938dc831832a7a7d3c155d.mp3
+  voice_id: Matthew
+- word: that
+  rank: 13
+  freq: 8319512
+  part_of_speech: pronoun
+  back_cards:
+  - definition_en: Refers to a specific thing or person.
+    example_en: I like that painting on the wall.
+  - definition_en: Introduces a defining clause.
+    example_en: The book that I read was thrilling.
+  - definition_en: Used for emphasis.
+    example_en: It was that moment when everything changed.
+  - definition_en: Points to a previously mentioned idea.
+    example_en: She said she was tired, and that was true.
+  - definition_en: Connects to a result or reason.
+    example_en: He was so late that he missed the meeting.
+  word_audio_file:
+  - that_word_0+Matthew+21582c6c30be1217322cdb9aebaf4a59.mp3
+  sentence_audio_file:
+  - that_sentence_0+Matthew+db39b535db27353bc91e7802115518d9.mp3
+  - that_sentence_1+Matthew+7368a926b4464008d4a7b955c5ee0dd4.mp3
+  - that_sentence_2+Matthew+4caacbe67962e977b2b67fcaa927d48f.mp3
+  - that_sentence_3+Matthew+067e0191c441d2d87a70e369d63d2f2a.mp3
+  - that_sentence_4+Matthew+3bd9579a06d7360fdda8ab68109410f8.mp3
+  voice_id: Matthew
+- word: for
+  rank: 14
+  freq: 8194970
+  part_of_speech: preposition
+  back_cards:
+  - definition_en: Indicates purpose or reason.
+    example_en: She bought flowers for the party.
+  - definition_en: Shows duration of time.
+    example_en: They stayed for three hours.
+  - definition_en: Denotes a recipient.
+    example_en: This gift is for my brother.
+  - definition_en: Expresses support or favor.
+    example_en: I am voting for the new policy.
+  - definition_en: Refers to a cause or motive.
+    example_en: He was praised for his hard work.
+  word_audio_file:
+  - for_word_0+Matthew+d55669822f1a8cf72ec1911e462a54eb.mp3
+  sentence_audio_file:
+  - for_sentence_0+Matthew+c2291bab4c3874f00502465304636f34.mp3
+  - for_sentence_1+Matthew+6b63b62620c4fb2f9e4eaac742f7226e.mp3
+  - for_sentence_2+Matthew+bf4b15cce54b46fb451a51ad016b3c25.mp3
+  - for_sentence_3+Matthew+30685daef37806a5469bb50ada246509.mp3
+  - for_sentence_4+Matthew+ec0de5864e37f6aa9dbdd0556a0998cf.mp3
+  voice_id: Matthew
+- word: do
+  rank: 15
+  freq: 8186412
+  part_of_speech: verb
+  back_cards:
+  - definition_en: To perform an action.
+    example_en: I do my exercises every morning.
+  - definition_en: To complete or finish.
+    example_en: She did her homework before dinner.
+  - definition_en: Used for emphasis.
+    example_en: You do need to listen carefully.
+  - definition_en: To ask about an action.
+    example_en: What do you do for a living?
+  - definition_en: To substitute for another verb.
+    example_en: He cleans as well as she does.
+  word_audio_file:
+  - do_word_0+Matthew+d4579b2688d675235f402f6b4b43bcbf.mp3
+  sentence_audio_file:
+  - do_sentence_0+Matthew+cc0b9087da92a770277ffb4f1aca7c76.mp3
+  - do_sentence_1+Matthew+b0b17c539c901e4b24f26a93a5c570df.mp3
+  - do_sentence_2+Matthew+5c29f8ef9546c42608ccc4e8d5d1a069.mp3
+  - do_sentence_3+Matthew+20e0aded81b30d1b078e7cad957ff9dd.mp3
+  - do_sentence_4+Matthew+08819d926ef96e8a01a139ca64cc6a97.mp3
+  voice_id: Matthew
+- word: he
+  rank: 16
+  freq: 6467470
+  part_of_speech: pronoun
+  back_cards:
+  - definition_en: Refers to a male person.
+    example_en: He is my best friend.
+  - definition_en: Used to describe an individual.
+    example_en: He works as a chef in a restaurant.
+  - definition_en: Points to a specific man mentioned.
+    example_en: I saw him, and he waved back.
+  - definition_en: Used in storytelling.
+    example_en: He climbed the mountain alone.
+  - definition_en: Refers to a male in a role.
+    example_en: He is the captain of the team.
+  word_audio_file:
+  - he_word_0+Matthew+6f96cfdfe5ccc627cadf24b41725caa4.mp3
+  sentence_audio_file:
+  - he_sentence_0+Matthew+3062d0bab2b8cc70c47922d2a94e96e1.mp3
+  - he_sentence_1+Matthew+714e66d6dd235d160eb04f8bb9749625.mp3
+  - he_sentence_2+Matthew+0a2a151b9f78889886ad61c8d88e131f.mp3
+  - he_sentence_3+Matthew+8e7e07a554670aea94f59c2b7310257b.mp3
+  - he_sentence_4+Matthew+f9929dece3e6cac3afc2456c56325f69.mp3
+  voice_id: Matthew
+- word: with
+  rank: 17
+  freq: 6442861
+  part_of_speech: preposition
+  back_cards:
+  - definition_en: Indicates accompaniment.
+    example_en: She went to the party with her friends.
+  - definition_en: Shows the means or tool used.
+    example_en: He cut the paper with scissors.
+  - definition_en: Denotes association or relationship.
+    example_en: I work with a great team.
+  - definition_en: Expresses manner or condition.
+    example_en: She spoke with confidence.
+  - definition_en: Refers to possession of something.
+    example_en: The man with the hat is my uncle.
+  word_audio_file:
+  - with_word_0+Matthew+23a58bf9274bedb19375e527a0744fa9.mp3
+  sentence_audio_file:
+  - with_sentence_0+Matthew+2aae8a25c08a7787fb5fa5f25ef5eeec.mp3
+  - with_sentence_1+Matthew+d087312ac41547196f8612b5f04c15c2.mp3
+  - with_sentence_2+Matthew+5ea0dab9bbcad7d0f4ce02808546561b.mp3
+  - with_sentence_3+Matthew+d89ecd03afce1375c2465339e911e02a.mp3
+  - with_sentence_4+Matthew+7c1874333872825ec0c72c21721689f8.mp3
+  voice_id: Matthew
+- word: 'on'
+  rank: 18
+  freq: 6080156
+  part_of_speech: preposition
+  back_cards:
+  - definition_en: Indicates position or location.
+    example_en: The cup is on the table.
+  - definition_en: Refers to a specific time.
+    example_en: We meet on Fridays.
+  - definition_en: Shows attachment or contact.
+    example_en: The picture hangs on the wall.
+  - definition_en: Denotes a topic or subject.
+    example_en: She gave a talk on climate change.
+  - definition_en: Expresses dependence or basis.
+    example_en: His decision was based on facts.
+  word_audio_file:
+  - on_word_0+Matthew+ed2b5c0139cec8ad2873829dc1117d50.mp3
+  sentence_audio_file:
+  - on_sentence_0+Matthew+2509c24c2047a7436981cff34bf5e8cb.mp3
+  - on_sentence_1+Matthew+827defdb45b2678c9362339c3bf02762.mp3
+  - on_sentence_2+Matthew+2cf533d957401bdac636e3a4316b5721.mp3
+  - on_sentence_3+Matthew+8a10aa86616dd257604b2c5c2447927b.mp3
+  - on_sentence_4+Matthew+066f893b7a91fd081462fcd946195629.mp3
+  voice_id: Matthew
+- word: this
+  rank: 19
+  freq: 5541440
+  part_of_speech: pronoun
+  back_cards:
+  - definition_en: Refers to something nearby or current.
+    example_en: This book is my favorite.
+  - definition_en: Points to a specific thing.
+    example_en: I bought this shirt yesterday.
+  - definition_en: Introduces something being discussed.
+    example_en: This is why I love hiking.
+  - definition_en: Used to emphasize the present moment.
+    example_en: This summer has been amazing.
+  - definition_en: Refers to a close object or idea.
+    example_en: This idea could change everything.
+  word_audio_file:
+  - this_word_0+Matthew+9e925e9341b490bfd3b4c4ca3b0c1ef2.mp3
+  sentence_audio_file:
+  - this_sentence_0+Matthew+3d01080bd1c52e1eba328d40d566e787.mp3
+  - this_sentence_1+Matthew+3da4749b73d846a3de85e31ad73df217.mp3
+  - this_sentence_2+Matthew+fee11134d0ba96a159e454c0410b2b87.mp3
+  - this_sentence_3+Matthew+cfc87e857075dcc527953fcf7733a8bd.mp3
+  - this_sentence_4+Matthew+f069165f64f2018ffddfc620fc54b44d.mp3
+  voice_id: Matthew
+- word: n't
+  rank: 20
+  freq: 5285354
+  part_of_speech: adverb
+  back_cards:
+  - definition_en: Contracts 'not' to negate a verb.
+    example_en: I can't go to the party tonight.
+  - definition_en: Used to deny an action.
+    example_en: She doesn't like spicy food.
+  - definition_en: Indicates prohibition.
+    example_en: You shouldn't run in the hallway.
+  - definition_en: Expresses inability.
+    example_en: He won't finish the project on time.
+  - definition_en: Negates a statement.
+    example_en: They aren't coming to the meeting.
+  word_audio_file:
+  - n't_word_0+Matthew+e8773a742acd3c51389aad168d103ae4.mp3
+  sentence_audio_file:
+  - n't_sentence_0+Matthew+84a88698a587f64b32e532b2df7d85b9.mp3
+  - n't_sentence_1+Matthew+567b3d62e41558bc670f3af530899267.mp3
+  - n't_sentence_2+Matthew+f38439aee5ccb5a5af4d5a229d77d17f.mp3
+  - n't_sentence_3+Matthew+b4327228ac04f318fa5e4ba9e3698640.mp3
+  - n't_sentence_4+Matthew+4d299947f346f62310d54c5f4fb3801c.mp3
+  voice_id: Matthew
