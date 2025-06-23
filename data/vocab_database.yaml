@@ -13,6 +13,16 @@
     example_en: She won the first prize in the competition.
   - definition_en: Points to something previously mentioned.
     example_en: I found a book, and the book was fascinating.
+  - definition_en: Specifies a particular noun known in context.
+    example_en: The cat slept on the windowsill.
+  - definition_en: Refers to a unique or specific entity.
+    example_en: The moon glowed brightly last night.
+  - definition_en: Denotes a general class or group.
+    example_en: The elephant is a gentle giant.
+  - definition_en: Used before superlatives or ordinals.
+    example_en: She’s the fastest runner in school.
+  - definition_en: Points to something previously mentioned.
+    example_en: He bought a phone, and the phone was new.
   word_audio_file:
   - the_word_0+Matthew+8fc42c6ddf9966db3b09e84365034357.mp3
   sentence_audio_file:
@@ -21,6 +31,11 @@
   - the_sentence_2+Matthew+55b26cd1faf4f335006a7e53f6e2585e.mp3
   - the_sentence_3+Matthew+b9826264a5331e9146d71d86c7184a92.mp3
   - the_sentence_4+Matthew+59db5024f26cbee5915353efac234ade.mp3
+  - the_sentence_5+Matthew+7a2955473178db7b70f9ff8ee7da60d8.mp3
+  - the_sentence_6+Matthew+de22b9dcb8c8e31098a2f558eff4353d.mp3
+  - the_sentence_7+Matthew+dfff15ffe263199418fd3bff6b51b23f.mp3
+  - the_sentence_8+Matthew+a4e057225f20f674e5dc4e17ed0573f7.mp3
+  - the_sentence_9+Matthew+86ffe1103f1fdae61e39ffe180d9fc5f.mp3
   voice_id: Matthew
 - word: be
   rank: 2
@@ -37,6 +52,16 @@
     example_en: They are playing soccer in the field.
   - definition_en: To represent identity or equivalence.
     example_en: This is the best coffee shop in town.
+  - definition_en: Indicates existence or presence.
+    example_en: There is a bird in the tree.
+  - definition_en: Describes a role or position.
+    example_en: He will be manager next month.
+  - definition_en: Expresses a state or condition.
+    example_en: I am tired after work.
+  - definition_en: Forms continuous tenses.
+    example_en: They are studying for the test.
+  - definition_en: Shows identity or equivalence.
+    example_en: This is my best friend.
   word_audio_file:
   - be_word_0+Matthew+910955a907e739b81ec8855763108a29.mp3
   sentence_audio_file:
@@ -45,6 +70,11 @@
   - be_sentence_2+Matthew+aa7839f802c0a13009a251a8ec4c151c.mp3
   - be_sentence_3+Matthew+0ffc1b9577bfebc5bc592f94d205db3c.mp3
   - be_sentence_4+Matthew+b989b9f8ac1f8c5bd67c443b1ea76915.mp3
+  - be_sentence_5+Matthew+c7179b76fd2b8f8f7a122b3d4a69b94f.mp3
+  - be_sentence_6+Matthew+f95a63de2f1018501f2ef84fc9bc9451.mp3
+  - be_sentence_7+Matthew+7fb48d5c5c0257f7f81b21ed7289d5c5.mp3
+  - be_sentence_8+Matthew+95cdb68843ed61653a5d5fcd7ae50703.mp3
+  - be_sentence_9+Matthew+0f8584d6afbb904104cc8d59a0a29733.mp3
   voice_id: Matthew
 - word: and
   rank: 3
@@ -61,6 +91,16 @@
     example_en: He was singing and dancing at the party.
   - definition_en: Links related concepts.
     example_en: The project requires time and effort.
+  - definition_en: Connects two items or ideas.
+    example_en: I ate pizza and salad for dinner.
+  - definition_en: Joins actions happening together.
+    example_en: She sang and danced at the party.
+  - definition_en: Adds sequential information.
+    example_en: He worked and then relaxed.
+  - definition_en: Links clauses for cause-effect.
+    example_en: It snowed, and school closed.
+  - definition_en: Combines descriptive adjectives.
+    example_en: The house was big and bright.
   word_audio_file:
   - and_word_0+Matthew+be5d5d37542d75f93a87094459f76678.mp3
   sentence_audio_file:
@@ -69,6 +109,11 @@
   - and_sentence_2+Matthew+e1d1ea037fd5d9f2d450713f393aba00.mp3
   - and_sentence_3+Matthew+7fdd88c2416aee55ec2e1712d2fad6cc.mp3
   - and_sentence_4+Matthew+f81fa0955e340b9a4dae2093f526ac5f.mp3
+  - and_sentence_5+Matthew+a6b959e552d291878c6b3c51378cb806.mp3
+  - and_sentence_6+Matthew+362383bda33c35741769557e70a62dd9.mp3
+  - and_sentence_7+Matthew+56cf72523c8cadda4b54f68b17610dec.mp3
+  - and_sentence_8+Matthew+2151d7e0518686a315cd1faddbd5bc25.mp3
+  - and_sentence_9+Matthew+a880040fce325e88c1e9dfe74bb6df43.mp3
   voice_id: Matthew
 - word: a
   rank: 4
@@ -85,6 +130,16 @@
     example_en: A bird flew over the forest.
   - definition_en: Used in expressions of quantity.
     example_en: I need a dozen eggs for the recipe.
+  - definition_en: Introduces a non-specific singular noun.
+    example_en: A dog ran across the yard.
+  - definition_en: Refers to one of many items.
+    example_en: I need a pen for the meeting.
+  - definition_en: Mentions something for the first time.
+    example_en: She told a joke at the party.
+  - definition_en: Indicates a class or role.
+    example_en: He’s a doctor at the hospital.
+  - definition_en: Used in quantity expressions.
+    example_en: It costs a dollar per apple.
   word_audio_file:
   - a_word_0+Matthew+0cc175b9c0f1b6a831c399e269772661.mp3
   sentence_audio_file:
@@ -93,6 +148,11 @@
   - a_sentence_2+Matthew+f89d5967f0de34a5dd94a2b1f6749599.mp3
   - a_sentence_3+Matthew+c8f292c97ac11e915a9bddd985b755d8.mp3
   - a_sentence_4+Matthew+5a4b4606d3550ff5a82ed27f2314973b.mp3
+  - a_sentence_5+Matthew+4143fa0b55da1f3ffd12636fa4224d5d.mp3
+  - a_sentence_6+Matthew+36f29b80b69b8be913a6447ea197fdab.mp3
+  - a_sentence_7+Matthew+d81323ce8cb69310bec1ee2932f40daa.mp3
+  - a_sentence_8+Matthew+f8e97371532f2f231a86102dd5c4d36f.mp3
+  - a_sentence_9+Matthew+d62422e133c838d218f729eb1d37569e.mp3
   voice_id: Matthew
 - word: of
   rank: 5
@@ -109,6 +169,16 @@
     example_en: She is a friend of my sister.
   - definition_en: Refers to content or subject.
     example_en: They talked of their plans for the weekend.
+  - definition_en: Shows possession or belonging.
+    example_en: The keys of the car are lost.
+  - definition_en: Indicates origin or source.
+    example_en: The wine of Tuscany is famous.
+  - definition_en: Denotes a portion or quantity.
+    example_en: A piece of pie is left.
+  - definition_en: Describes material or content.
+    example_en: The ring is made of gold.
+  - definition_en: Expresses cause or reason.
+    example_en: She cried of joy at the news.
   word_audio_file:
   - of_word_0+Matthew+8bf8854bebe108183caeb845c7676ae4.mp3
   sentence_audio_file:
@@ -117,6 +187,11 @@
   - of_sentence_2+Matthew+0c0e2dcb07a52dd9c4d3f9bafd3e00b1.mp3
   - of_sentence_3+Matthew+b1cec4004545070f6af05caa0584ad1b.mp3
   - of_sentence_4+Matthew+5d0b8f376f541b41732e82361cce5691.mp3
+  - of_sentence_5+Matthew+186d3986371903c4348fb6a92d40ad6b.mp3
+  - of_sentence_6+Matthew+63ae6076a24dbd7f7c08b8175605706e.mp3
+  - of_sentence_7+Matthew+094de1911a05f33da9582f7ae04953d1.mp3
+  - of_sentence_8+Matthew+c5bd9b4b00686926d44da94b37d8ea8b.mp3
+  - of_sentence_9+Matthew+141637d187388cba2f5eeb7df3d9f426.mp3
   voice_id: Matthew
 - word: in
   rank: 7
@@ -133,6 +208,16 @@
     example_en: He works in the tech industry.
   - definition_en: Expresses manner or means.
     example_en: They communicated in writing.
+  - definition_en: Shows location within a space.
+    example_en: The book is in the bag.
+  - definition_en: Refers to a time period.
+    example_en: We met in June last year.
+  - definition_en: Describes a state or mood.
+    example_en: He’s in a good mood today.
+  - definition_en: Indicates participation.
+    example_en: She works in marketing.
+  - definition_en: Expresses manner or means.
+    example_en: They paid in cash.
   word_audio_file:
   - in_word_0+Matthew+13b5bfe96f3e2fe411c9f66f4a582adf.mp3
   sentence_audio_file:
@@ -141,6 +226,11 @@
   - in_sentence_2+Matthew+beffba5df3fccb7f38d4e1e424ea1354.mp3
   - in_sentence_3+Matthew+cc4704c752fbd51d227bc157fadeafeb.mp3
   - in_sentence_4+Matthew+b67183cf059c2d53a6f7cb755bfb7108.mp3
+  - in_sentence_5+Matthew+fb3f38c2f70daf652211679ab2417759.mp3
+  - in_sentence_6+Matthew+bfd78ef81dc33a9bca4cf86f2ea8d76b.mp3
+  - in_sentence_7+Matthew+3a16c5b1465366cdf3b6e12750e92758.mp3
+  - in_sentence_8+Matthew+cbaec4e2e9a78a978786bdde1c19e06c.mp3
+  - in_sentence_9+Matthew+34bf6d9819efe9f4cca2498e5c712a07.mp3
   voice_id: Matthew
 - word: I
   rank: 8
@@ -157,6 +247,16 @@
     example_en: I am a student at the university.
   - definition_en: Shows personal preference.
     example_en: I prefer tea over coffee.
+  - definition_en: Refers to the speaker personally.
+    example_en: I love to read at night.
+  - definition_en: Expresses personal views.
+    example_en: I think the plan will work.
+  - definition_en: Describes personal actions.
+    example_en: I baked cookies yesterday.
+  - definition_en: Shares personal experiences.
+    example_en: I saw a rainbow this morning.
+  - definition_en: States personal intentions.
+    example_en: I will call you tomorrow.
   word_audio_file:
   - i_word_0+Matthew+865c0c0b4ab0e063e5caa3387c1a8741.mp3
   sentence_audio_file:
@@ -165,6 +265,11 @@
   - i_sentence_2+Matthew+a8e36ab2157251d4c44cc057442c046f.mp3
   - i_sentence_3+Matthew+78981d3d38b9feb49447c0a9feef8363.mp3
   - i_sentence_4+Matthew+dcd2730ef15602622cd64ebdc7784e7d.mp3
+  - i_sentence_5+Matthew+0da05c867e3c133e644e1836858be37b.mp3
+  - i_sentence_6+Matthew+95c45079cac923ecc90f8a93f4ef7675.mp3
+  - i_sentence_7+Matthew+6c85285f36821bf76c8f8f9fc33f2d9c.mp3
+  - i_sentence_8+Matthew+f07dd59a40e56a15b77184f330bce713.mp3
+  - i_sentence_9+Matthew+2b2c35a114be11f046a03637f3bd2632.mp3
   voice_id: Matthew
 - word: you
   rank: 9
@@ -181,6 +286,16 @@
     example_en: You need to rest after a long day.
   - definition_en: Expresses a direct request.
     example_en: Can you help me with this task?
+  - definition_en: Addresses the person spoken to.
+    example_en: You seem happy today.
+  - definition_en: Refers to people generally.
+    example_en: You should eat healthy food.
+  - definition_en: Gives directions or advice.
+    example_en: You turn right at the light.
+  - definition_en: Shares common experiences.
+    example_en: You know how fun summer is.
+  - definition_en: Used in casual address.
+    example_en: You all are welcome here.
   word_audio_file:
   - you_word_0+Matthew+639bae9ac6b3e1a84cebb7b403297b79.mp3
   sentence_audio_file:
@@ -189,6 +304,11 @@
   - you_sentence_2+Matthew+0afb53373761cbb932ea6a6011c03037.mp3
   - you_sentence_3+Matthew+a73d0b26f22b880a5805f1e26ed4222c.mp3
   - you_sentence_4+Matthew+b677c1b0f4f66b232099847430696ff9.mp3
+  - you_sentence_5+Matthew+c664f3a9e582eed9b3d01db8df7dbe05.mp3
+  - you_sentence_6+Matthew+e49485b9f62c4c72a8a5c9604a13556c.mp3
+  - you_sentence_7+Matthew+ba952c00ee331c5b4646bda018b68989.mp3
+  - you_sentence_8+Matthew+bbff3e8b5c5919f67d1bd92e008006a4.mp3
+  - you_sentence_9+Matthew+ff1853d6b69ef3e4960146cde9b1abe8.mp3
   voice_id: Matthew
 - word: it
   rank: 10
@@ -205,6 +325,16 @@
     example_en: It is important to stay hydrated.
   - definition_en: Points to something previously mentioned.
     example_en: I found a phone, but it was broken.
+  - definition_en: Refers to a specific object.
+    example_en: I dropped the cup, and it broke.
+  - definition_en: Describes weather or time.
+    example_en: It’s sunny this afternoon.
+  - definition_en: Acts as a placeholder subject.
+    example_en: It feels nice to relax.
+  - definition_en: Refers to an animal.
+    example_en: The cat jumped, and it landed.
+  - definition_en: Points to a situation.
+    example_en: It was a great concert.
   word_audio_file:
   - it_word_0+Matthew+0d149b90e7394297301c90191ae775f0.mp3
   sentence_audio_file:
@@ -213,6 +343,11 @@
   - it_sentence_2+Matthew+5c6932211d32590c18a11bbb79d89637.mp3
   - it_sentence_3+Matthew+13174f09de995db80b3ace3b26765be3.mp3
   - it_sentence_4+Matthew+9831a541be5ec02af774fb089d24085b.mp3
+  - it_sentence_5+Matthew+7ba42cfd699e5e99d3ab0082b64577ee.mp3
+  - it_sentence_6+Matthew+c6ae10406d16a321ba7f1ec4828a6536.mp3
+  - it_sentence_7+Matthew+afef7039f23dde0057b7d79c4eeddcf8.mp3
+  - it_sentence_8+Matthew+697ac332f98a1ae7a83d8b43b5f42cd2.mp3
+  - it_sentence_9+Matthew+fba33dfbccf7cba57fd4612cabf4ec56.mp3
   voice_id: Matthew
 - word: have
   rank: 11
@@ -229,6 +364,16 @@
     example_en: You have to finish your work by noon.
   - definition_en: To show a relationship.
     example_en: He has two sisters in college.
+  - definition_en: To possess or own.
+    example_en: I have a new laptop.
+  - definition_en: To experience something.
+    example_en: She had fun at the park.
+  - definition_en: To perform a task.
+    example_en: They have lunch at noon.
+  - definition_en: Indicates obligation.
+    example_en: You have to be on time.
+  - definition_en: Causes something to happen.
+    example_en: He had his hair cut.
   word_audio_file:
   - have_word_0+Matthew+b42dad5453b2128a32f6612b13ea5d9f.mp3
   sentence_audio_file:
@@ -237,6 +382,11 @@
   - have_sentence_2+Matthew+757843996e6caf0b65160ea81f42488b.mp3
   - have_sentence_3+Matthew+68e59a6e2015337d2fb01d6239e17795.mp3
   - have_sentence_4+Matthew+715dac0a3457d1ec48575c51057c829e.mp3
+  - have_sentence_5+Matthew+43cfee74b863d9f9f3ce4c7b618671e1.mp3
+  - have_sentence_6+Matthew+58038270416c09613cc4649ae0575656.mp3
+  - have_sentence_7+Matthew+4bb2ca0226e53cb57452f3dfdfea5951.mp3
+  - have_sentence_8+Matthew+bc0ef5081f83ba0048f9a809034eac7b.mp3
+  - have_sentence_9+Matthew+c40a6678352ca00659aac377a775a632.mp3
   voice_id: Matthew
 - word: to
   rank: 12
@@ -253,6 +403,26 @@
     example_en: I need to finish this report.
   - definition_en: Refers to a time limit.
     example_en: The shop is open to seven tonight.
+  - definition_en: Indicates direction or destination.
+    example_en: I walked to the store today.
+  - definition_en: Shows purpose or intent.
+    example_en: She studies to become a lawyer.
+  - definition_en: Denotes a recipient.
+    example_en: I gave a book to my sister.
+  - definition_en: Marks time or extent.
+    example_en: The shop is open to midnight.
+  - definition_en: Expresses comparison.
+    example_en: The score was two to one.
+  - definition_en: Shows movement to a place.
+    example_en: We went to the beach.
+  - definition_en: Indicates a goal.
+    example_en: He trains to win the race.
+  - definition_en: Identifies a recipient.
+    example_en: She sent a card to her mom.
+  - definition_en: Sets a time limit.
+    example_en: It’s ten minutes to eight.
+  - definition_en: Relates to a connection.
+    example_en: This key is to the safe.
   word_audio_file:
   - to_word_0+Matthew+01b6e20344b68835c5ed1ddedf20d531.mp3
   sentence_audio_file:
@@ -261,6 +431,16 @@
   - to_sentence_2+Matthew+42d2b84236db8d507fb8d8490fc0bfa3.mp3
   - to_sentence_3+Matthew+eba5a32d9a14cd1bb37fc6e09b1e6f24.mp3
   - to_sentence_4+Matthew+7c3a216be0938dc831832a7a7d3c155d.mp3
+  - to_sentence_5+Matthew+86fc59053b1abc31182b87fff1c5d15e.mp3
+  - to_sentence_6+Matthew+3cfba7e30f4bbeccb338f1a6dcc41c1c.mp3
+  - to_sentence_7+Matthew+84c395c45d2f81cb7e3bdae0ce2b8e19.mp3
+  - to_sentence_8+Matthew+5f107656243a6b33a8714de3989dd5b8.mp3
+  - to_sentence_9+Matthew+8a576417c3b5d7876c069945bfdc9fae.mp3
+  - to_sentence_10+Matthew+49479a4a0f8173c758b6115570e60ef7.mp3
+  - to_sentence_11+Matthew+08f123be6304edb03a9d0ffe1ab63fa0.mp3
+  - to_sentence_12+Matthew+b47ab169b10302d11e2f3c2a9d5b5718.mp3
+  - to_sentence_13+Matthew+8cdfac28ada6c0789a8ab73f898f32a7.mp3
+  - to_sentence_14+Matthew+f6e769e62b83c1d94e8885bbdcf06e78.mp3
   voice_id: Matthew
 - word: that
   rank: 13
@@ -277,6 +457,16 @@
     example_en: She said she was tired, and that was true.
   - definition_en: Connects to a result or reason.
     example_en: He was so late that he missed the meeting.
+  - definition_en: Points to a specific thing.
+    example_en: That chair is broken.
+  - definition_en: Introduces a clause.
+    example_en: The dog that barked was loud.
+  - definition_en: Refers to an idea.
+    example_en: He said that he was late.
+  - definition_en: Shows degree.
+    example_en: It’s not that far to walk.
+  - definition_en: Connects a result.
+    example_en: She ran so fast that she won.
   word_audio_file:
   - that_word_0+Matthew+21582c6c30be1217322cdb9aebaf4a59.mp3
   sentence_audio_file:
@@ -285,6 +475,11 @@
   - that_sentence_2+Matthew+4caacbe67962e977b2b67fcaa927d48f.mp3
   - that_sentence_3+Matthew+067e0191c441d2d87a70e369d63d2f2a.mp3
   - that_sentence_4+Matthew+3bd9579a06d7360fdda8ab68109410f8.mp3
+  - that_sentence_5+Matthew+bb9d585929f5dabc065456e0125a9348.mp3
+  - that_sentence_6+Matthew+b72a11d6260daafb8b6f228926e63b39.mp3
+  - that_sentence_7+Matthew+150a46b55f568c21c3090b9002b1c44d.mp3
+  - that_sentence_8+Matthew+7e0e3319403c6cc99c53731eeee18954.mp3
+  - that_sentence_9+Matthew+4f7cca11cc112986aaf19e0d39f3d275.mp3
   voice_id: Matthew
 - word: for
   rank: 14
@@ -301,6 +496,16 @@
     example_en: I am voting for the new policy.
   - definition_en: Refers to a cause or motive.
     example_en: He was praised for his hard work.
+  - definition_en: Shows purpose.
+    example_en: I got a gift for you.
+  - definition_en: Indicates duration.
+    example_en: He stayed for two hours.
+  - definition_en: Denotes a beneficiary.
+    example_en: This cake is for the team.
+  - definition_en: Expresses support.
+    example_en: I’m for the new rule.
+  - definition_en: States a reason.
+    example_en: She was fined for speeding.
   word_audio_file:
   - for_word_0+Matthew+d55669822f1a8cf72ec1911e462a54eb.mp3
   sentence_audio_file:
@@ -309,6 +514,11 @@
   - for_sentence_2+Matthew+bf4b15cce54b46fb451a51ad016b3c25.mp3
   - for_sentence_3+Matthew+30685daef37806a5469bb50ada246509.mp3
   - for_sentence_4+Matthew+ec0de5864e37f6aa9dbdd0556a0998cf.mp3
+  - for_sentence_5+Matthew+846140d1b2a394cd4c6267f3399cc8a4.mp3
+  - for_sentence_6+Matthew+71899cb7a1a5e097d8ea7fbc510ce733.mp3
+  - for_sentence_7+Matthew+b3805d097060f4cd50a01150b8831178.mp3
+  - for_sentence_8+Matthew+5fda96f13bfc896c3bd3f1fa0b408f7c.mp3
+  - for_sentence_9+Matthew+b372cb7b37a66e77b70a45bb05bad0f8.mp3
   voice_id: Matthew
 - word: do
   rank: 15
@@ -325,6 +535,16 @@
     example_en: What do you do for a living?
   - definition_en: To substitute for another verb.
     example_en: He cleans as well as she does.
+  - definition_en: Performs an action.
+    example_en: I do yoga every morning.
+  - definition_en: Asks about activities.
+    example_en: What do you do at work?
+  - definition_en: Emphasizes action.
+    example_en: I do want to go hiking.
+  - definition_en: Completes a task.
+    example_en: She did the dishes.
+  - definition_en: Behaves in a way.
+    example_en: He does well in school.
   word_audio_file:
   - do_word_0+Matthew+d4579b2688d675235f402f6b4b43bcbf.mp3
   sentence_audio_file:
@@ -333,6 +553,11 @@
   - do_sentence_2+Matthew+5c29f8ef9546c42608ccc4e8d5d1a069.mp3
   - do_sentence_3+Matthew+20e0aded81b30d1b078e7cad957ff9dd.mp3
   - do_sentence_4+Matthew+08819d926ef96e8a01a139ca64cc6a97.mp3
+  - do_sentence_5+Matthew+d9fd6d08d5304205a0b96d74a02e7c8a.mp3
+  - do_sentence_6+Matthew+8d2e651d07a45432a3b07ddb7b3789ec.mp3
+  - do_sentence_7+Matthew+56995e7c985e7f922b28a2a4b1e1786a.mp3
+  - do_sentence_8+Matthew+bd013806fc99899be2fa4f826ae27489.mp3
+  - do_sentence_9+Matthew+fa059f73337fb3ad79faeb102d158e8a.mp3
   voice_id: Matthew
 - word: he
   rank: 16
@@ -349,6 +574,16 @@
     example_en: He climbed the mountain alone.
   - definition_en: Refers to a male in a role.
     example_en: He is the captain of the team.
+  - definition_en: Refers to a male person.
+    example_en: He bought a new jacket.
+  - definition_en: Describes a male’s role.
+    example_en: He is the team captain.
+  - definition_en: Used in narratives.
+    example_en: He climbed the tall mountain.
+  - definition_en: Refers to a male animal.
+    example_en: The horse galloped, and he neighed.
+  - definition_en: Shares a male’s view.
+    example_en: He says the movie was great.
   word_audio_file:
   - he_word_0+Matthew+6f96cfdfe5ccc627cadf24b41725caa4.mp3
   sentence_audio_file:
@@ -357,6 +592,11 @@
   - he_sentence_2+Matthew+0a2a151b9f78889886ad61c8d88e131f.mp3
   - he_sentence_3+Matthew+8e7e07a554670aea94f59c2b7310257b.mp3
   - he_sentence_4+Matthew+f9929dece3e6cac3afc2456c56325f69.mp3
+  - he_sentence_5+Matthew+582d15c4ea13dd4b61b3042872371fab.mp3
+  - he_sentence_6+Matthew+74eac5a3d5d9ec1c719b8d6d080aa9aa.mp3
+  - he_sentence_7+Matthew+1d2702755abda43891a6ad97c5d1dac0.mp3
+  - he_sentence_8+Matthew+95305b5e9526a7130e1deeeb99b8117e.mp3
+  - he_sentence_9+Matthew+63c0ddc4bd1f18c00f50ce1ce618821f.mp3
   voice_id: Matthew
 - word: with
   rank: 17
@@ -373,6 +613,16 @@
     example_en: She spoke with confidence.
   - definition_en: Refers to possession of something.
     example_en: The man with the hat is my uncle.
+  - definition_en: Shows accompaniment.
+    example_en: I went with my brother.
+  - definition_en: Indicates a tool used.
+    example_en: She wrote with a pencil.
+  - definition_en: Describes a feature.
+    example_en: The car with the dent is mine.
+  - definition_en: Expresses manner.
+    example_en: He spoke with enthusiasm.
+  - definition_en: Denotes a cause.
+    example_en: She shivered with cold.
   word_audio_file:
   - with_word_0+Matthew+23a58bf9274bedb19375e527a0744fa9.mp3
   sentence_audio_file:
@@ -381,6 +631,11 @@
   - with_sentence_2+Matthew+5ea0dab9bbcad7d0f4ce02808546561b.mp3
   - with_sentence_3+Matthew+d89ecd03afce1375c2465339e911e02a.mp3
   - with_sentence_4+Matthew+7c1874333872825ec0c72c21721689f8.mp3
+  - with_sentence_5+Matthew+b384ea3dc70b8f86a5854bf2f7870856.mp3
+  - with_sentence_6+Matthew+2a70b0fe8e86e05e6d6d3960b42884da.mp3
+  - with_sentence_7+Matthew+fe9d5b4f2caa35acdf11ce61999a2f98.mp3
+  - with_sentence_8+Matthew+ccd6d933d935f075788c22393548468f.mp3
+  - with_sentence_9+Matthew+606731a51eb4b48c6f2bcac0e2dee8eb.mp3
   voice_id: Matthew
 - word: 'on'
   rank: 18
@@ -397,6 +652,16 @@
     example_en: She gave a talk on climate change.
   - definition_en: Expresses dependence or basis.
     example_en: His decision was based on facts.
+  - definition_en: Indicates surface contact.
+    example_en: The cup is on the desk.
+  - definition_en: Refers to a time.
+    example_en: The meeting is on Friday.
+  - definition_en: Shows a topic.
+    example_en: He wrote a book on history.
+  - definition_en: Denotes reliance.
+    example_en: She lives on her savings.
+  - definition_en: Describes a state.
+    example_en: The TV is on now.
   word_audio_file:
   - on_word_0+Matthew+ed2b5c0139cec8ad2873829dc1117d50.mp3
   sentence_audio_file:
@@ -405,6 +670,11 @@
   - on_sentence_2+Matthew+2cf533d957401bdac636e3a4316b5721.mp3
   - on_sentence_3+Matthew+8a10aa86616dd257604b2c5c2447927b.mp3
   - on_sentence_4+Matthew+066f893b7a91fd081462fcd946195629.mp3
+  - on_sentence_5+Matthew+211ad05c1f0595c637db282ff79f5a29.mp3
+  - on_sentence_6+Matthew+0bb2d3e8aa3fbdd38a3f0e325ffed2dd.mp3
+  - on_sentence_7+Matthew+af74541f4f30a487758523399ddd7633.mp3
+  - on_sentence_8+Matthew+b0a42d49dd9fad5292f3739c08fafa24.mp3
+  - on_sentence_9+Matthew+044327083259cce6fba863fcd57ca994.mp3
   voice_id: Matthew
 - word: this
   rank: 19
@@ -421,6 +691,16 @@
     example_en: This summer has been amazing.
   - definition_en: Refers to a close object or idea.
     example_en: This idea could change everything.
+  - definition_en: Points to a nearby thing.
+    example_en: This table is wobbly.
+  - definition_en: Refers to current time.
+    example_en: This month is very busy.
+  - definition_en: Introduces a topic.
+    example_en: This problem needs solving.
+  - definition_en: Emphasizes a person.
+    example_en: This woman helped me.
+  - definition_en: Describes an event.
+    example_en: This happened last week.
   word_audio_file:
   - this_word_0+Matthew+9e925e9341b490bfd3b4c4ca3b0c1ef2.mp3
   sentence_audio_file:
@@ -429,6 +709,11 @@
   - this_sentence_2+Matthew+fee11134d0ba96a159e454c0410b2b87.mp3
   - this_sentence_3+Matthew+cfc87e857075dcc527953fcf7733a8bd.mp3
   - this_sentence_4+Matthew+f069165f64f2018ffddfc620fc54b44d.mp3
+  - this_sentence_5+Matthew+005df17d1df4277a3a3b3e2f81218213.mp3
+  - this_sentence_6+Matthew+ab90f8c55bcb3d325ca9b5bbdafdfc62.mp3
+  - this_sentence_7+Matthew+6f2a32771d9442ac02a78320d3558699.mp3
+  - this_sentence_8+Matthew+7a176a348755b4f9b8c01bc0154d5188.mp3
+  - this_sentence_9+Matthew+8717945a29c7f185c62cae368614efa1.mp3
   voice_id: Matthew
 - word: n't
   rank: 20
@@ -445,6 +730,16 @@
     example_en: He won't finish the project on time.
   - definition_en: Negates a statement.
     example_en: They aren't coming to the meeting.
+  - definition_en: Negates a verb in contractions.
+    example_en: I don’t like spicy food.
+  - definition_en: Denies a state.
+    example_en: She isn’t at home now.
+  - definition_en: Refutes presence.
+    example_en: They aren’t coming today.
+  - definition_en: Negates an action.
+    example_en: He didn’t finish the task.
+  - definition_en: Used in casual negation.
+    example_en: It wasn’t that difficult.
   word_audio_file:
   - n't_word_0+Matthew+e8773a742acd3c51389aad168d103ae4.mp3
   sentence_audio_file:
@@ -453,4 +748,9 @@
   - n't_sentence_2+Matthew+f38439aee5ccb5a5af4d5a229d77d17f.mp3
   - n't_sentence_3+Matthew+b4327228ac04f318fa5e4ba9e3698640.mp3
   - n't_sentence_4+Matthew+4d299947f346f62310d54c5f4fb3801c.mp3
+  - n't_sentence_5+Matthew+5fd9f9b7edb7fb91bee6e82d92619334.mp3
+  - n't_sentence_6+Matthew+b9b69dc39a834212dcc5b1dfee726619.mp3
+  - n't_sentence_7+Matthew+60fb1dbfa7af329ade6f2b63bdcc84e1.mp3
+  - n't_sentence_8+Matthew+cc2856ab9fad006aba2bb73038a6340a.mp3
+  - n't_sentence_9+Matthew+12170d534dec80c6802451c1f7a0b6cd.mp3
   voice_id: Matthew

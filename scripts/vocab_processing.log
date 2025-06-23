@@ -8352,3 +8352,134 @@ expected <block end>, but found '<block mapping start>'
 2025-06-24 03:19:15,575 - __main__ - INFO - Saved data to D:\vocabswipe.github.io\data\vocab_database.yaml
 2025-06-24 03:19:15,576 - __main__ - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250624_031915.txt
 2025-06-24 03:19:15,577 - __main__ - WARNING - Batch processing failed. temp_vocab_multi_cards.jsonl not cleared.
+2025-06-24 03:22:49,916 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-24 03:22:50,110 - __main__ - INFO - AWS Polly client initialized successfully.
+2025-06-24 03:22:50,110 - __main__ - INFO - Attempting to load: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 03:22:50,111 - __main__ - INFO - Attempting to load: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 03:22:55,866 - __main__ - INFO - Saved data to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 03:22:55,866 - __main__ - INFO - Appended 20 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 03:22:55,874 - __main__ - INFO - Attempting to load: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 03:22:57,324 - __main__ - INFO - Generated audio for '<speak>the. The cat slept on the windowsill.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\the_sentence_5+Matthew+7a2955473178db7b70f9ff8ee7da60d8.mp3
+2025-06-24 03:22:57,673 - __main__ - INFO - Generated audio for '<speak>the. The moon glowed brightly last night.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\the_sentence_6+Matthew+de22b9dcb8c8e31098a2f558eff4353d.mp3
+2025-06-24 03:22:58,023 - __main__ - INFO - Generated audio for '<speak>the. The elephant is a gentle giant.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\the_sentence_7+Matthew+dfff15ffe263199418fd3bff6b51b23f.mp3
+2025-06-24 03:22:58,369 - __main__ - INFO - Generated audio for '<speak>the. She’s the fastest runner in school.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\the_sentence_8+Matthew+a4e057225f20f674e5dc4e17ed0573f7.mp3
+2025-06-24 03:22:58,719 - __main__ - INFO - Generated audio for '<speak>the. He bought a phone, and the phone was new.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\the_sentence_9+Matthew+86ffe1103f1fdae61e39ffe180d9fc5f.mp3
+2025-06-24 03:22:58,719 - __main__ - INFO - Updated entry 'the' with new sentences
+2025-06-24 03:22:59,075 - __main__ - INFO - Generated audio for '<speak>be. There is a bird in the tree.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\be_sentence_5+Matthew+c7179b76fd2b8f8f7a122b3d4a69b94f.mp3
+2025-06-24 03:22:59,425 - __main__ - INFO - Generated audio for '<speak>be. He will be manager next month.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\be_sentence_6+Matthew+f95a63de2f1018501f2ef84fc9bc9451.mp3
+2025-06-24 03:22:59,767 - __main__ - INFO - Generated audio for '<speak>be. I am tired after work.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\be_sentence_7+Matthew+7fb48d5c5c0257f7f81b21ed7289d5c5.mp3
+2025-06-24 03:23:00,131 - __main__ - INFO - Generated audio for '<speak>be. They are studying for the test.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\be_sentence_8+Matthew+95cdb68843ed61653a5d5fcd7ae50703.mp3
+2025-06-24 03:23:00,477 - __main__ - INFO - Generated audio for '<speak>be. This is my best friend.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\be_sentence_9+Matthew+0f8584d6afbb904104cc8d59a0a29733.mp3
+2025-06-24 03:23:00,477 - __main__ - INFO - Updated entry 'be' with new sentences
+2025-06-24 03:23:00,849 - __main__ - INFO - Generated audio for '<speak>and. I ate pizza and salad for dinner.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\and_sentence_5+Matthew+a6b959e552d291878c6b3c51378cb806.mp3
+2025-06-24 03:23:01,204 - __main__ - INFO - Generated audio for '<speak>and. She sang and danced at the party.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\and_sentence_6+Matthew+362383bda33c35741769557e70a62dd9.mp3
+2025-06-24 03:23:01,564 - __main__ - INFO - Generated audio for '<speak>and. He worked and then relaxed.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\and_sentence_7+Matthew+56cf72523c8cadda4b54f68b17610dec.mp3
+2025-06-24 03:23:01,917 - __main__ - INFO - Generated audio for '<speak>and. It snowed, and school closed.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\and_sentence_8+Matthew+2151d7e0518686a315cd1faddbd5bc25.mp3
+2025-06-24 03:23:02,270 - __main__ - INFO - Generated audio for '<speak>and. The house was big and bright.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\and_sentence_9+Matthew+a880040fce325e88c1e9dfe74bb6df43.mp3
+2025-06-24 03:23:02,270 - __main__ - INFO - Updated entry 'and' with new sentences
+2025-06-24 03:23:02,604 - __main__ - INFO - Generated audio for '<speak>a. A dog ran across the yard.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\a_sentence_5+Matthew+4143fa0b55da1f3ffd12636fa4224d5d.mp3
+2025-06-24 03:23:02,998 - __main__ - INFO - Generated audio for '<speak>a. I need a pen for the meeting.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\a_sentence_6+Matthew+36f29b80b69b8be913a6447ea197fdab.mp3
+2025-06-24 03:23:03,334 - __main__ - INFO - Generated audio for '<speak>a. She told a joke at the party.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\a_sentence_7+Matthew+d81323ce8cb69310bec1ee2932f40daa.mp3
+2025-06-24 03:23:03,667 - __main__ - INFO - Generated audio for '<speak>a. He’s a doctor at the hospital.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\a_sentence_8+Matthew+f8e97371532f2f231a86102dd5c4d36f.mp3
+2025-06-24 03:23:04,002 - __main__ - INFO - Generated audio for '<speak>a. It costs a dollar per apple.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\a_sentence_9+Matthew+d62422e133c838d218f729eb1d37569e.mp3
+2025-06-24 03:23:04,003 - __main__ - INFO - Updated entry 'a' with new sentences
+2025-06-24 03:23:04,353 - __main__ - INFO - Generated audio for '<speak>of. The keys of the car are lost.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\of_sentence_5+Matthew+186d3986371903c4348fb6a92d40ad6b.mp3
+2025-06-24 03:23:04,721 - __main__ - INFO - Generated audio for '<speak>of. The wine of Tuscany is famous.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\of_sentence_6+Matthew+63ae6076a24dbd7f7c08b8175605706e.mp3
+2025-06-24 03:23:05,077 - __main__ - INFO - Generated audio for '<speak>of. A piece of pie is left.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\of_sentence_7+Matthew+094de1911a05f33da9582f7ae04953d1.mp3
+2025-06-24 03:23:05,457 - __main__ - INFO - Generated audio for '<speak>of. The ring is made of gold.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\of_sentence_8+Matthew+c5bd9b4b00686926d44da94b37d8ea8b.mp3
+2025-06-24 03:23:05,806 - __main__ - INFO - Generated audio for '<speak>of. She cried of joy at the news.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\of_sentence_9+Matthew+141637d187388cba2f5eeb7df3d9f426.mp3
+2025-06-24 03:23:05,807 - __main__ - INFO - Updated entry 'of' with new sentences
+2025-06-24 03:23:06,276 - __main__ - INFO - Generated audio for '<speak>to. I walked to the store today.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\to_sentence_5+Matthew+86fc59053b1abc31182b87fff1c5d15e.mp3
+2025-06-24 03:23:06,631 - __main__ - INFO - Generated audio for '<speak>to. She studies to become a lawyer.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\to_sentence_6+Matthew+3cfba7e30f4bbeccb338f1a6dcc41c1c.mp3
+2025-06-24 03:23:06,992 - __main__ - INFO - Generated audio for '<speak>to. I gave a book to my sister.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\to_sentence_7+Matthew+84c395c45d2f81cb7e3bdae0ce2b8e19.mp3
+2025-06-24 03:23:07,357 - __main__ - INFO - Generated audio for '<speak>to. The shop is open to midnight.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\to_sentence_8+Matthew+5f107656243a6b33a8714de3989dd5b8.mp3
+2025-06-24 03:23:07,812 - __main__ - INFO - Generated audio for '<speak>to. The score was two to one.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\to_sentence_9+Matthew+8a576417c3b5d7876c069945bfdc9fae.mp3
+2025-06-24 03:23:07,812 - __main__ - INFO - Updated entry 'to' with new sentences
+2025-06-24 03:23:08,156 - __main__ - INFO - Generated audio for '<speak>in. The book is in the bag.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\in_sentence_5+Matthew+fb3f38c2f70daf652211679ab2417759.mp3
+2025-06-24 03:23:08,528 - __main__ - INFO - Generated audio for '<speak>in. We met in June last year.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\in_sentence_6+Matthew+bfd78ef81dc33a9bca4cf86f2ea8d76b.mp3
+2025-06-24 03:23:08,872 - __main__ - INFO - Generated audio for '<speak>in. He’s in a good mood today.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\in_sentence_7+Matthew+3a16c5b1465366cdf3b6e12750e92758.mp3
+2025-06-24 03:23:09,215 - __main__ - INFO - Generated audio for '<speak>in. She works in marketing.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\in_sentence_8+Matthew+cbaec4e2e9a78a978786bdde1c19e06c.mp3
+2025-06-24 03:23:09,568 - __main__ - INFO - Generated audio for '<speak>in. They paid in cash.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\in_sentence_9+Matthew+34bf6d9819efe9f4cca2498e5c712a07.mp3
+2025-06-24 03:23:09,568 - __main__ - INFO - Updated entry 'in' with new sentences
+2025-06-24 03:23:09,896 - __main__ - INFO - Generated audio for '<speak>I. I love to read at night.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\i_sentence_5+Matthew+0da05c867e3c133e644e1836858be37b.mp3
+2025-06-24 03:23:10,232 - __main__ - INFO - Generated audio for '<speak>I. I think the plan will work.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\i_sentence_6+Matthew+95c45079cac923ecc90f8a93f4ef7675.mp3
+2025-06-24 03:23:10,577 - __main__ - INFO - Generated audio for '<speak>I. I baked cookies yesterday.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\i_sentence_7+Matthew+6c85285f36821bf76c8f8f9fc33f2d9c.mp3
+2025-06-24 03:23:10,908 - __main__ - INFO - Generated audio for '<speak>I. I saw a rainbow this morning.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\i_sentence_8+Matthew+f07dd59a40e56a15b77184f330bce713.mp3
+2025-06-24 03:23:11,293 - __main__ - INFO - Generated audio for '<speak>I. I will call you tomorrow.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\i_sentence_9+Matthew+2b2c35a114be11f046a03637f3bd2632.mp3
+2025-06-24 03:23:11,293 - __main__ - INFO - Updated entry 'I' with new sentences
+2025-06-24 03:23:11,629 - __main__ - INFO - Generated audio for '<speak>you. You seem happy today.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\you_sentence_5+Matthew+c664f3a9e582eed9b3d01db8df7dbe05.mp3
+2025-06-24 03:23:11,969 - __main__ - INFO - Generated audio for '<speak>you. You should eat healthy food.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\you_sentence_6+Matthew+e49485b9f62c4c72a8a5c9604a13556c.mp3
+2025-06-24 03:23:12,317 - __main__ - INFO - Generated audio for '<speak>you. You turn right at the light.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\you_sentence_7+Matthew+ba952c00ee331c5b4646bda018b68989.mp3
+2025-06-24 03:23:12,656 - __main__ - INFO - Generated audio for '<speak>you. You know how fun summer is.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\you_sentence_8+Matthew+bbff3e8b5c5919f67d1bd92e008006a4.mp3
+2025-06-24 03:23:12,995 - __main__ - INFO - Generated audio for '<speak>you. You all are welcome here.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\you_sentence_9+Matthew+ff1853d6b69ef3e4960146cde9b1abe8.mp3
+2025-06-24 03:23:12,995 - __main__ - INFO - Updated entry 'you' with new sentences
+2025-06-24 03:23:13,343 - __main__ - INFO - Generated audio for '<speak>it. I dropped the cup, and it broke.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\it_sentence_5+Matthew+7ba42cfd699e5e99d3ab0082b64577ee.mp3
+2025-06-24 03:23:13,687 - __main__ - INFO - Generated audio for '<speak>it. It’s sunny this afternoon.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\it_sentence_6+Matthew+c6ae10406d16a321ba7f1ec4828a6536.mp3
+2025-06-24 03:23:14,034 - __main__ - INFO - Generated audio for '<speak>it. It feels nice to relax.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\it_sentence_7+Matthew+afef7039f23dde0057b7d79c4eeddcf8.mp3
+2025-06-24 03:23:14,376 - __main__ - INFO - Generated audio for '<speak>it. The cat jumped, and it landed.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\it_sentence_8+Matthew+697ac332f98a1ae7a83d8b43b5f42cd2.mp3
+2025-06-24 03:23:14,713 - __main__ - INFO - Generated audio for '<speak>it. It was a great concert.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\it_sentence_9+Matthew+fba33dfbccf7cba57fd4612cabf4ec56.mp3
+2025-06-24 03:23:14,713 - __main__ - INFO - Updated entry 'it' with new sentences
+2025-06-24 03:23:15,058 - __main__ - INFO - Generated audio for '<speak>have. I have a new laptop.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\have_sentence_5+Matthew+43cfee74b863d9f9f3ce4c7b618671e1.mp3
+2025-06-24 03:23:15,403 - __main__ - INFO - Generated audio for '<speak>have. She had fun at the park.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\have_sentence_6+Matthew+58038270416c09613cc4649ae0575656.mp3
+2025-06-24 03:23:15,799 - __main__ - INFO - Generated audio for '<speak>have. They have lunch at noon.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\have_sentence_7+Matthew+4bb2ca0226e53cb57452f3dfdfea5951.mp3
+2025-06-24 03:23:16,143 - __main__ - INFO - Generated audio for '<speak>have. You have to be on time.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\have_sentence_8+Matthew+bc0ef5081f83ba0048f9a809034eac7b.mp3
+2025-06-24 03:23:16,492 - __main__ - INFO - Generated audio for '<speak>have. He had his hair cut.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\have_sentence_9+Matthew+c40a6678352ca00659aac377a775a632.mp3
+2025-06-24 03:23:16,493 - __main__ - INFO - Updated entry 'have' with new sentences
+2025-06-24 03:23:16,840 - __main__ - INFO - Generated audio for '<speak>to. We went to the beach.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\to_sentence_10+Matthew+49479a4a0f8173c758b6115570e60ef7.mp3
+2025-06-24 03:23:17,200 - __main__ - INFO - Generated audio for '<speak>to. He trains to win the race.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\to_sentence_11+Matthew+08f123be6304edb03a9d0ffe1ab63fa0.mp3
+2025-06-24 03:23:17,542 - __main__ - INFO - Generated audio for '<speak>to. She sent a card to her mom.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\to_sentence_12+Matthew+b47ab169b10302d11e2f3c2a9d5b5718.mp3
+2025-06-24 03:23:17,900 - __main__ - INFO - Generated audio for '<speak>to. It’s ten minutes to eight.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\to_sentence_13+Matthew+8cdfac28ada6c0789a8ab73f898f32a7.mp3
+2025-06-24 03:23:18,256 - __main__ - INFO - Generated audio for '<speak>to. This key is to the safe.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\to_sentence_14+Matthew+f6e769e62b83c1d94e8885bbdcf06e78.mp3
+2025-06-24 03:23:18,256 - __main__ - INFO - Updated entry 'to' with new sentences
+2025-06-24 03:23:18,604 - __main__ - INFO - Generated audio for '<speak>that. That chair is broken.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\that_sentence_5+Matthew+bb9d585929f5dabc065456e0125a9348.mp3
+2025-06-24 03:23:18,975 - __main__ - INFO - Generated audio for '<speak>that. The dog that barked was loud.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\that_sentence_6+Matthew+b72a11d6260daafb8b6f228926e63b39.mp3
+2025-06-24 03:23:19,317 - __main__ - INFO - Generated audio for '<speak>that. He said that he was late.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\that_sentence_7+Matthew+150a46b55f568c21c3090b9002b1c44d.mp3
+2025-06-24 03:23:19,663 - __main__ - INFO - Generated audio for '<speak>that. It’s not that far to walk.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\that_sentence_8+Matthew+7e0e3319403c6cc99c53731eeee18954.mp3
+2025-06-24 03:23:20,010 - __main__ - INFO - Generated audio for '<speak>that. She ran so fast that she won.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\that_sentence_9+Matthew+4f7cca11cc112986aaf19e0d39f3d275.mp3
+2025-06-24 03:23:20,011 - __main__ - INFO - Updated entry 'that' with new sentences
+2025-06-24 03:23:20,407 - __main__ - INFO - Generated audio for '<speak>for. I got a gift for you.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\for_sentence_5+Matthew+846140d1b2a394cd4c6267f3399cc8a4.mp3
+2025-06-24 03:23:20,753 - __main__ - INFO - Generated audio for '<speak>for. He stayed for two hours.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\for_sentence_6+Matthew+71899cb7a1a5e097d8ea7fbc510ce733.mp3
+2025-06-24 03:23:21,117 - __main__ - INFO - Generated audio for '<speak>for. This cake is for the team.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\for_sentence_7+Matthew+b3805d097060f4cd50a01150b8831178.mp3
+2025-06-24 03:23:21,460 - __main__ - INFO - Generated audio for '<speak>for. I’m for the new rule.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\for_sentence_8+Matthew+5fda96f13bfc896c3bd3f1fa0b408f7c.mp3
+2025-06-24 03:23:21,840 - __main__ - INFO - Generated audio for '<speak>for. She was fined for speeding.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\for_sentence_9+Matthew+b372cb7b37a66e77b70a45bb05bad0f8.mp3
+2025-06-24 03:23:21,841 - __main__ - INFO - Updated entry 'for' with new sentences
+2025-06-24 03:23:22,191 - __main__ - INFO - Generated audio for '<speak>do. I do yoga every morning.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\do_sentence_5+Matthew+d9fd6d08d5304205a0b96d74a02e7c8a.mp3
+2025-06-24 03:23:22,557 - __main__ - INFO - Generated audio for '<speak>do. What do you do at work?</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\do_sentence_6+Matthew+8d2e651d07a45432a3b07ddb7b3789ec.mp3
+2025-06-24 03:23:22,897 - __main__ - INFO - Generated audio for '<speak>do. I do want to go hiking.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\do_sentence_7+Matthew+56995e7c985e7f922b28a2a4b1e1786a.mp3
+2025-06-24 03:23:23,243 - __main__ - INFO - Generated audio for '<speak>do. She did the dishes.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\do_sentence_8+Matthew+bd013806fc99899be2fa4f826ae27489.mp3
+2025-06-24 03:23:23,592 - __main__ - INFO - Generated audio for '<speak>do. He does well in school.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\do_sentence_9+Matthew+fa059f73337fb3ad79faeb102d158e8a.mp3
+2025-06-24 03:23:23,593 - __main__ - INFO - Updated entry 'do' with new sentences
+2025-06-24 03:23:23,991 - __main__ - INFO - Generated audio for '<speak>he. He bought a new jacket.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\he_sentence_5+Matthew+582d15c4ea13dd4b61b3042872371fab.mp3
+2025-06-24 03:23:24,331 - __main__ - INFO - Generated audio for '<speak>he. He is the team captain.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\he_sentence_6+Matthew+74eac5a3d5d9ec1c719b8d6d080aa9aa.mp3
+2025-06-24 03:23:24,685 - __main__ - INFO - Generated audio for '<speak>he. He climbed the tall mountain.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\he_sentence_7+Matthew+1d2702755abda43891a6ad97c5d1dac0.mp3
+2025-06-24 03:23:25,035 - __main__ - INFO - Generated audio for '<speak>he. The horse galloped, and he neighed.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\he_sentence_8+Matthew+95305b5e9526a7130e1deeeb99b8117e.mp3
+2025-06-24 03:23:25,425 - __main__ - INFO - Generated audio for '<speak>he. He says the movie was great.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\he_sentence_9+Matthew+63c0ddc4bd1f18c00f50ce1ce618821f.mp3
+2025-06-24 03:23:25,425 - __main__ - INFO - Updated entry 'he' with new sentences
+2025-06-24 03:23:25,791 - __main__ - INFO - Generated audio for '<speak>with. I went with my brother.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\with_sentence_5+Matthew+b384ea3dc70b8f86a5854bf2f7870856.mp3
+2025-06-24 03:23:26,138 - __main__ - INFO - Generated audio for '<speak>with. She wrote with a pencil.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\with_sentence_6+Matthew+2a70b0fe8e86e05e6d6d3960b42884da.mp3
+2025-06-24 03:23:26,489 - __main__ - INFO - Generated audio for '<speak>with. The car with the dent is mine.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\with_sentence_7+Matthew+fe9d5b4f2caa35acdf11ce61999a2f98.mp3
+2025-06-24 03:23:26,837 - __main__ - INFO - Generated audio for '<speak>with. He spoke with enthusiasm.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\with_sentence_8+Matthew+ccd6d933d935f075788c22393548468f.mp3
+2025-06-24 03:23:27,188 - __main__ - INFO - Generated audio for '<speak>with. She shivered with cold.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\with_sentence_9+Matthew+606731a51eb4b48c6f2bcac0e2dee8eb.mp3
+2025-06-24 03:23:27,188 - __main__ - INFO - Updated entry 'with' with new sentences
+2025-06-24 03:23:27,567 - __main__ - INFO - Generated audio for '<speak>on. The cup is on the desk.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\on_sentence_5+Matthew+211ad05c1f0595c637db282ff79f5a29.mp3
+2025-06-24 03:23:27,917 - __main__ - INFO - Generated audio for '<speak>on. The meeting is on Friday.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\on_sentence_6+Matthew+0bb2d3e8aa3fbdd38a3f0e325ffed2dd.mp3
+2025-06-24 03:23:28,267 - __main__ - INFO - Generated audio for '<speak>on. He wrote a book on history.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\on_sentence_7+Matthew+af74541f4f30a487758523399ddd7633.mp3
+2025-06-24 03:23:28,611 - __main__ - INFO - Generated audio for '<speak>on. She lives on her savings.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\on_sentence_8+Matthew+b0a42d49dd9fad5292f3739c08fafa24.mp3
+2025-06-24 03:23:28,955 - __main__ - INFO - Generated audio for '<speak>on. The TV is on now.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\on_sentence_9+Matthew+044327083259cce6fba863fcd57ca994.mp3
+2025-06-24 03:23:28,955 - __main__ - INFO - Updated entry 'on' with new sentences
+2025-06-24 03:23:29,303 - __main__ - INFO - Generated audio for '<speak>this. This table is wobbly.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\this_sentence_5+Matthew+005df17d1df4277a3a3b3e2f81218213.mp3
+2025-06-24 03:23:29,647 - __main__ - INFO - Generated audio for '<speak>this. This month is very busy.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\this_sentence_6+Matthew+ab90f8c55bcb3d325ca9b5bbdafdfc62.mp3
+2025-06-24 03:23:30,001 - __main__ - INFO - Generated audio for '<speak>this. This problem needs solving.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\this_sentence_7+Matthew+6f2a32771d9442ac02a78320d3558699.mp3
+2025-06-24 03:23:30,340 - __main__ - INFO - Generated audio for '<speak>this. This woman helped me.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\this_sentence_8+Matthew+7a176a348755b4f9b8c01bc0154d5188.mp3
+2025-06-24 03:23:30,681 - __main__ - INFO - Generated audio for '<speak>this. This happened last week.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\this_sentence_9+Matthew+8717945a29c7f185c62cae368614efa1.mp3
+2025-06-24 03:23:30,681 - __main__ - INFO - Updated entry 'this' with new sentences
+2025-06-24 03:23:31,018 - __main__ - INFO - Generated audio for '<speak>n't. I don’t like spicy food.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\n't_sentence_5+Matthew+5fd9f9b7edb7fb91bee6e82d92619334.mp3
+2025-06-24 03:23:31,361 - __main__ - INFO - Generated audio for '<speak>n't. She isn’t at home now.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\n't_sentence_6+Matthew+b9b69dc39a834212dcc5b1dfee726619.mp3
+2025-06-24 03:23:31,697 - __main__ - INFO - Generated audio for '<speak>n't. They aren’t coming today.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\n't_sentence_7+Matthew+60fb1dbfa7af329ade6f2b63bdcc84e1.mp3
+2025-06-24 03:23:32,040 - __main__ - INFO - Generated audio for '<speak>n't. He didn’t finish the task.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\n't_sentence_8+Matthew+cc2856ab9fad006aba2bb73038a6340a.mp3
+2025-06-24 03:23:32,381 - __main__ - INFO - Generated audio for '<speak>n't. It wasn’t that difficult.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\n't_sentence_9+Matthew+12170d534dec80c6802451c1f7a0b6cd.mp3
+2025-06-24 03:23:32,381 - __main__ - INFO - Updated entry 'n't' with new sentences
+2025-06-24 03:23:32,466 - __main__ - INFO - Saved data to D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 03:23:32,468 - __main__ - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250624_032332.txt
+2025-06-24 03:23:32,469 - __main__ - INFO - Saved data to D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 03:23:32,469 - __main__ - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
