@@ -199,7 +199,12 @@ function displayWord() {
     const maxFreq = words[0]?.freq || 1;
     const relFreq = (wordData.freq / maxFreq) * 100;
 
-    front.innerHTML = `<h2>${wordData.word}</h2><div id="front-rank" class="rank">Rank: ${wordData.rank}</div><div id="front-freq" class="freq">${relFreq.toFixed(1)}%</div>`;
+    // Calculate color based on relative frequency (0% red, 100% green)
+    const red = Math.round(255 * (1 - relFreq / 100)); // Red decreases from 255 to 0
+    const green = Math.round(255 * (relFreq / 100));   // Green increases from 0 to 255
+    const color = `rgb(${red}, ${green}, 0)`;          // No blue for simplicity
+
+    front.innerHTML = `<h2>${wordData.word}</h2><div id="front-rank" class="rank">Rank: ${wordData.rank}</div><div id="front-freq" class="freq" style="color: ${color}">${relFreq.toFixed(1)}%</div>`;
     back.innerHTML = `
         <h2 class="english">${wordData.word}</h2>
         <div class="back-template">
@@ -208,7 +213,7 @@ function displayWord() {
                 <p id="back-example" class="example">${backCard.example_en}</p>
             </div>
             <div id="back-rank" class="rank">Rank: ${wordData.rank}</div>
-            <div id="back-freq" class="freq">${relFreq.toFixed(1)}%</div>
+            <div id="back-freq" class="freq" style="color: ${color}">${relFreq.toFixed(1)}%</div>
         </div>
     `;
 }
