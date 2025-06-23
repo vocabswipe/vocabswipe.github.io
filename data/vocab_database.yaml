@@ -23,6 +23,14 @@ a:
   word_audio_file: a-list_word+Matthew+d889914b3748a9c1a9dd7583b1ed7103.mp3
   sentence_audio_file: a-list_sentence+Matthew+8bc2aad069e55945cf884a045401824b.mp3
   voice_id: Matthew
+- word: A-side
+  part_of_speech: noun
+  definition_th: หน้า A ของแผ่นเสียง
+  example_en: The A-side was a hit.
+  example_th: หน้า A ของแผ่นเสียงได้รับความนิยม
+  word_audio_file: a-side_word+Matthew+96bd4d33fc294bcbcdeb602cb99200c9.mp3
+  sentence_audio_file: a-side_sentence+Matthew+89fa4848c6dad71ce3003d688cf724a1.mp3
+  voice_id: Matthew
 - word: a.m.
   part_of_speech: abbreviation
   definition_th: ก่อนเที่ยง
@@ -9934,6 +9942,822 @@ a:
   example_th: พวกเขาทำงานตลอดเวลา
   word_audio_file: around-the-clock_word+Matthew+e3a1668b5abe3f20563d67c083f1a79e.mp3
   sentence_audio_file: around-the-clock_sentence+Matthew+cd6e14b8ed67fa2c589903635db643f8.mp3
+  voice_id: Matthew
+- word: arousal
+  part_of_speech: noun
+  definition_th: การกระตุ้น
+  example_en: The movie caused arousal in the audience.
+  example_th: ภาพยนตร์ทำให้เกิดการกระตุ้นในผู้ชม
+  word_audio_file: arousal_word+Matthew+148eba2ec3550106190de6025007649c.mp3
+  sentence_audio_file: arousal_sentence+Matthew+8cc95df01cc9e86299f4816fb1920fbc.mp3
+  voice_id: Matthew
+- word: arouse
+  part_of_speech: verb
+  definition_th: กระตุ้น
+  example_en: The speech aroused strong emotions.
+  example_th: คำปราศรัยกระตุ้นอารมณ์รุนแรง
+  word_audio_file: arouse_word+Matthew+c3462fe773ddac57ee0a8cf0fbef3b3e.mp3
+  sentence_audio_file: arouse_sentence+Matthew+227ae10bcbc8c4bc8f16fc11a687091d.mp3
+  voice_id: Matthew
+- word: arraign
+  part_of_speech: verb
+  definition_th: กล่าวหาในศาล
+  example_en: The suspect was arraigned today.
+  example_th: ผู้ต้องหาถูกกล่าวหาในศาลวันนี้
+  word_audio_file: arraign_word+Matthew+044bbb9002139795a9304b1e61cf9cc7.mp3
+  sentence_audio_file: arraign_sentence+Matthew+5222ab5e10fb327b6aa1544bc1f1f0cf.mp3
+  voice_id: Matthew
+- word: arraignment
+  part_of_speech: noun
+  definition_th: การกล่าวหาในศาล
+  example_en: Her arraignment is scheduled for Monday.
+  example_th: การกล่าวหาในศาลของเธอกำหนดไว้ในวันจันทร์
+  word_audio_file: arraignment_word+Matthew+5dda0a3626bc4b16a924ccc72ff4654a.mp3
+  sentence_audio_file: arraignment_sentence+Matthew+a3f996814bb906c8a2d076fa9e0ea517.mp3
+  voice_id: Matthew
+- word: arrange
+  part_of_speech: verb
+  definition_th: จัด
+  example_en: She arranged the flowers beautifully.
+  example_th: เธอจัดดอกไม้ได้สวยงาม
+  word_audio_file: arrange_word+Matthew+38d05e65a44270fbdb0fc1427257be1d.mp3
+  sentence_audio_file: arrange_sentence+Matthew+b8497cd02205df3edf50d245085bd11f.mp3
+  voice_id: Matthew
+- word: arranged
+  part_of_speech: adjective
+  definition_th: ที่ถูกจัด
+  example_en: The books were arranged neatly.
+  example_th: หนังสือถูกจัดอย่างเรียบร้อย
+  word_audio_file: arranged_word+Matthew+d5d7450938d6318e3c79086e35042dbb.mp3
+  sentence_audio_file: arranged_sentence+Matthew+577620ff7c6e3fe8b63634ab0c3de23a.mp3
+  voice_id: Matthew
+- word: arranged marriage
+  part_of_speech: noun
+  definition_th: การแต่งงานที่จัดโดยครอบครัว
+  example_en: They had an arranged marriage.
+  example_th: พวกเขามีการแต่งงานที่จัดโดยครอบครัว
+  word_audio_file: arranged_marriage_word+Matthew+3132317f9fe78d83ee3c379629eec3ee.mp3
+  sentence_audio_file: arranged_marriage_sentence+Matthew+9ff6419722fd37fe887b8197542aaacf.mp3
+  voice_id: Matthew
+- word: arrangement
+  part_of_speech: noun
+  definition_th: การจัด
+  example_en: The arrangement of seats was perfect.
+  example_th: การจัดที่นั่งสมบูรณ์แบบ
+  word_audio_file: arrangement_word+Matthew+cfdebd33ee18f6a4e58822dbfb1cf1a7.mp3
+  sentence_audio_file: arrangement_sentence+Matthew+81cf19c613b0482c7495c477875df1c0.mp3
+  voice_id: Matthew
+- word: arranger
+  part_of_speech: noun
+  definition_th: ผู้จัด
+  example_en: The arranger planned the event.
+  example_th: ผู้จัดวางแผนงาน
+  word_audio_file: arranger_word+Matthew+6f86810cd8a76fcf25984c82cc40c219.mp3
+  sentence_audio_file: arranger_sentence+Matthew+6ec9e01ea116a129527d7ab6e1f938a8.mp3
+  voice_id: Matthew
+- word: arrant
+  part_of_speech: adjective
+  definition_th: เต็มที่
+  example_en: He’s an arrant fool.
+  example_th: เขาเป็นคนโง่เต็มที่
+  word_audio_file: arrant_word+Matthew+a4a3f0817066e7d2d931a81382e9909d.mp3
+  sentence_audio_file: arrant_sentence+Matthew+5885f155782a7eaf15fd3aef8353570a.mp3
+  voice_id: Matthew
+- word: array
+  part_of_speech: noun
+  definition_th: แถว
+  example_en: An array of dishes was served.
+  example_th: แถวของจานอาหารถูกเสิร์ฟ
+  word_audio_file: array_word+Matthew+f1f713c9e000f5d3f280adbd124df4f5.mp3
+  sentence_audio_file: array_sentence+Matthew+5ec05efd7d2804d8551f8bd279e91b55.mp3
+  voice_id: Matthew
+- word: arrayed
+  part_of_speech: adjective
+  definition_th: ที่ถูกจัดเรียง
+  example_en: The soldiers were arrayed in formation.
+  example_th: ทหารถูกจัดเรียงในรูปแบบ
+  word_audio_file: arrayed_word+Matthew+0dff6c466e1d46b7fe86d2c8e8f553e6.mp3
+  sentence_audio_file: arrayed_sentence+Matthew+6d92dce28945f9dcc0828badf457275b.mp3
+  voice_id: Matthew
+- word: arrears
+  part_of_speech: noun
+  definition_th: หนี้ค้างชำระ
+  example_en: He was in arrears with rent.
+  example_th: เขาค้างชำระค่าเช่า
+  word_audio_file: arrears_word+Matthew+8097e23b14ab0360365b300826c5f551.mp3
+  sentence_audio_file: arrears_sentence+Matthew+1eb0d9bc746b5c77f5586edd19d477d8.mp3
+  voice_id: Matthew
+- word: arrest
+  part_of_speech: verb
+  definition_th: จับกุม
+  example_en: The police arrested the thief.
+  example_th: ตำรวจจับกุมโจร
+  word_audio_file: arrest_word+Matthew+b6a6ca37a5282cbe169bcfe65b0d6789.mp3
+  sentence_audio_file: arrest_sentence+Matthew+6e903c5f07e30865ba5aa051c48af0b5.mp3
+  voice_id: Matthew
+- word: arrestable
+  part_of_speech: adjective
+  definition_th: ที่สามารถจับกุมได้
+  example_en: The offense is arrestable.
+  example_th: ความผิดนั้นสามารถจับกุมได้
+  word_audio_file: arrestable_word+Matthew+1b05e1669bb3b3f237d2c177a6be5c13.mp3
+  sentence_audio_file: arrestable_sentence+Matthew+ed11414700e1c1971e198491eb5c8021.mp3
+  voice_id: Matthew
+- word: arrival
+  part_of_speech: noun
+  definition_th: การมาถึง
+  example_en: Her arrival was unexpected.
+  example_th: การมาถึงของเธอไม่คาดคิด
+  word_audio_file: arrival_word+Matthew+0d4144ffc7e8e66a72800ea2b4101fd0.mp3
+  sentence_audio_file: arrival_sentence+Matthew+f7945b9b6c04bc4434023ed496af917b.mp3
+  voice_id: Matthew
+- word: arrive
+  part_of_speech: verb
+  definition_th: มาถึง
+  example_en: They arrived at the airport.
+  example_th: พวกเขามาถึงที่สนามบิน
+  word_audio_file: arrive_word+Matthew+a2f26a443b13754ae4f7b62c60568a36.mp3
+  sentence_audio_file: arrive_sentence+Matthew+adabb4f1221009c386c4878f08b37ee9.mp3
+  voice_id: Matthew
+- word: arriviste
+  part_of_speech: noun
+  definition_th: ผู้ทะเยอทะยานใหม่
+  example_en: He’s an arriviste in politics.
+  example_th: เขาเป็นผู้ทะเยอทะยานใหม่ในวงการเมือง
+  word_audio_file: arriviste_word+Matthew+980981c11bf08b70a078e93f837211da.mp3
+  sentence_audio_file: arriviste_sentence+Matthew+b36182bfdfd91edbf2c3211d7818c362.mp3
+  voice_id: Matthew
+- word: arrogant
+  part_of_speech: adjective
+  definition_th: หยิ่ง
+  example_en: His arrogant attitude annoyed everyone.
+  example_th: ทัศนคติหยิ่งของเขาทำให้ทุกคนรำคาญ
+  word_audio_file: arrogant_word+Matthew+71d248300114f34a32fda2b8ddb55b9e.mp3
+  sentence_audio_file: arrogant_sentence+Matthew+87f7a15467305c4bdd040d1f4cd784f0.mp3
+  voice_id: Matthew
+- word: arrogate
+  part_of_speech: verb
+  definition_th: อ้างสิทธิ์โดยมิชอบ
+  example_en: He arrogated power to himself.
+  example_th: เขาอ้างสิทธิ์ในอำนาจให้ตัวเอง
+  word_audio_file: arrogate_word+Matthew+7354f667fd2924c3c33e0799aa782010.mp3
+  sentence_audio_file: arrogate_sentence+Matthew+d9962793a17193d8b181042c05a04c5f.mp3
+  voice_id: Matthew
+- word: arrow
+  part_of_speech: noun
+  definition_th: ลูกศร
+  example_en: The arrow hit the target.
+  example_th: ลูกศรโดนเป้า
+  word_audio_file: arrow_word+Matthew+9022a153e6190f10d9b57aa4232b8aea.mp3
+  sentence_audio_file: arrow_sentence+Matthew+90d6cc9e268f75ed25e80133e55b9eba.mp3
+  voice_id: Matthew
+- word: arrowhead
+  part_of_speech: noun
+  definition_th: หัวลูกศร
+  example_en: They found an ancient arrowhead.
+  example_th: พวกเขาพบหัวลูกศรโบราณ
+  word_audio_file: arrowhead_word+Matthew+82bd1387fa21cb2bdc7626000a7d3bf2.mp3
+  sentence_audio_file: arrowhead_sentence+Matthew+98b4204aaa0f49f0b33a45af065e3576.mp3
+  voice_id: Matthew
+- word: arrowroot
+  part_of_speech: noun
+  definition_th: แป้งเท้ายายม่อม
+  example_en: Arrowroot is used in cooking.
+  example_th: แป้งเท้ายายม่อมใช้ในการปรุงอาหาร
+  word_audio_file: arrowroot_word+Matthew+31c994c37684c514db96d9c46e8228b1.mp3
+  sentence_audio_file: arrowroot_sentence+Matthew+c751542b0666aaddc25f78e95e1ac47a.mp3
+  voice_id: Matthew
+- word: arroyo
+  part_of_speech: noun
+  definition_th: ลำธารแห้ง
+  example_en: The arroyo was dry this season.
+  example_th: ลำธารแห้งในฤดูกาลนี้
+  word_audio_file: arroyo_word+Matthew+9de2dc4967b054f52ff994b4f42f27a6.mp3
+  sentence_audio_file: arroyo_sentence+Matthew+6a4f9e81b599c23ca847afe228b4892c.mp3
+  voice_id: Matthew
+- word: arsenal
+  part_of_speech: noun
+  definition_th: คลังแสง
+  example_en: The army’s arsenal was stocked.
+  example_th: คลังแสงของกองทัพถูกเก็บเต็ม
+  word_audio_file: arsenal_word+Matthew+1c5442c0461e5186126aaba26edd6857.mp3
+  sentence_audio_file: arsenal_sentence+Matthew+6f84ad33a164d122a3037ce0e7e9a815.mp3
+  voice_id: Matthew
+- word: arsenic
+  part_of_speech: noun
+  definition_th: สารหนู
+  example_en: Arsenic is a dangerous poison.
+  example_th: สารหนูเป็นยาพิษอันตราย
+  word_audio_file: arsenic_word+Matthew+0765874a313ce115023e01847b82b59e.mp3
+  sentence_audio_file: arsenic_sentence+Matthew+28057487ce66712b23c0e483313ed490.mp3
+  voice_id: Matthew
+- word: arson
+  part_of_speech: noun
+  definition_th: การวางเพลิง
+  example_en: The fire was caused by arson.
+  example_th: ไฟไหม้เกิดจากการวางเพลิง
+  word_audio_file: arson_word+Matthew+6a16a4a7a0b07bcf1600fc4d361b853d.mp3
+  sentence_audio_file: arson_sentence+Matthew+343224d8b77221e52754f347498bf6a3.mp3
+  voice_id: Matthew
+- word: arsonist
+  part_of_speech: noun
+  definition_th: ผู้วางเพลิง
+  example_en: The arsonist was caught.
+  example_th: ผู้วางเพลิงถูกจับ
+  word_audio_file: arsonist_word+Matthew+1af5b23003d31ba0bdc0daa5eee820bd.mp3
+  sentence_audio_file: arsonist_sentence+Matthew+f56c0a5249592182be1cca19ae2baa3c.mp3
+  voice_id: Matthew
+- word: art
+  part_of_speech: noun
+  definition_th: ศิลปะ
+  example_en: She loves modern art.
+  example_th: เธอรักศิลปะสมัยใหม่
+  word_audio_file: art_word+Matthew+2c5f64ab07ccb3e410aa97fc09687cc3.mp3
+  sentence_audio_file: art_sentence+Matthew+e0ddb73de24604079082234549122737.mp3
+  voice_id: Matthew
+- word: art form
+  part_of_speech: noun
+  definition_th: รูปแบบศิลปะ
+  example_en: Dance is an art form.
+  example_th: การเต้นรำเป็นรูปแบบศิลปะ
+  word_audio_file: art_form_word+Matthew+1e209728f32ca6d14a95ee0df8894047.mp3
+  sentence_audio_file: art_form_sentence+Matthew+38387b6122812b0f4757ac9f6a87bcb7.mp3
+  voice_id: Matthew
+- word: art-house
+  part_of_speech: adjective
+  definition_th: ศิลปะเฉพาะกลุ่ม
+  example_en: She loves art-house films.
+  example_th: เธอรักภาพยนตร์ศิลปะเฉพาะกลุ่ม
+  word_audio_file: art-house_word+Matthew+90319955c6a64f901761ce8c7469236d.mp3
+  sentence_audio_file: art-house_sentence+Matthew+32df2eff3738680e5ba22773961dc294.mp3
+  voice_id: Matthew
+- word: artefact
+  part_of_speech: noun
+  definition_th: สิ่งประดิษฐ์โบราณ
+  example_en: The museum displayed an artefact.
+  example_th: พิพิธภัณฑ์จัดแสดงสิ่งประดิษฐ์โบราณ
+  word_audio_file: artefact_word+Matthew+77c29fec59a2f6fe8cc7490e266d7c2d.mp3
+  sentence_audio_file: artefact_sentence+Matthew+96792a9d264cf03ae3dba34205f83a52.mp3
+  voice_id: Matthew
+- word: arterial
+  part_of_speech: adjective
+  definition_th: เกี่ยวกับหลอดเลือดแดง
+  example_en: The arterial road was busy.
+  example_th: ถนนสายหลักเกี่ยวกับหลอดเลือดแดงคับคั่ง
+  word_audio_file: arterial_word+Matthew+be8d61288e85081522cd64ba32591780.mp3
+  sentence_audio_file: arterial_sentence+Matthew+3c3f92db9b379410a1b4860d0a63846f.mp3
+  voice_id: Matthew
+- word: arteriosclerosis
+  part_of_speech: noun
+  definition_th: หลอดเลือดแดงแข็ง
+  example_en: Arteriosclerosis can cause heart issues.
+  example_th: หลอดเลือดแดงแข็งอาจทำให้เกิดปัญหาหัวใจ
+  word_audio_file: arteriosclerosis_word+Matthew+7b07d66eb725bab2e17d4dc0b5d5a8d8.mp3
+  sentence_audio_file: arteriosclerosis_sentence+Matthew+098570d1e55f87b3b8328b333e94e12a.mp3
+  voice_id: Matthew
+- word: artery
+  part_of_speech: noun
+  definition_th: หลอดเลือดแดง
+  example_en: The artery was blocked.
+  example_th: หลอดเลือดแดงถูกอุดกั้น
+  word_audio_file: artery_word+Matthew+94a60fd57525952bb334980534ce3ca3.mp3
+  sentence_audio_file: artery_sentence+Matthew+d73a851d2838de60248d3c2331baff6b.mp3
+  voice_id: Matthew
+- word: artful
+  part_of_speech: adjective
+  definition_th: เจ้าเล่ห์
+  example_en: His artful dodge fooled them.
+  example_th: การหลบเลี่ยงอย่างเจ้าเล่ห์ของเขาหลอกพวกเขา
+  word_audio_file: artful_word+Matthew+470c59badb8f51186a9efcdab99ec348.mp3
+  sentence_audio_file: artful_sentence+Matthew+7e9aefdea14821727b16176ab6fcad3e.mp3
+  voice_id: Matthew
+- word: arthritic
+  part_of_speech: adjective
+  definition_th: เกี่ยวกับข้ออักเสบ
+  example_en: His arthritic hands hurt daily.
+  example_th: มือที่มีข้ออักเสบของเขาเจ็บทุกวัน
+  word_audio_file: arthritic_word+Matthew+b5cc95cfe3db715aae328bc7f927f4c8.mp3
+  sentence_audio_file: arthritic_sentence+Matthew+9778fe30e7be229e7ab2067392d4e4fe.mp3
+  voice_id: Matthew
+- word: arthritis
+  part_of_speech: noun
+  definition_th: ข้ออักเสบ
+  example_en: Arthritis affects her knees.
+  example_th: ข้ออักเสบส่งผลต่อหัวเข่าของเธอ
+  word_audio_file: arthritis_word+Matthew+33e241041546f27407dd511037a7c92b.mp3
+  sentence_audio_file: arthritis_sentence+Matthew+1b27af1e852b58a5be883c1985d489fa.mp3
+  voice_id: Matthew
+- word: artichoke
+  part_of_speech: noun
+  definition_th: อาร์ติโชก
+  example_en: She cooked an artichoke dish.
+  example_th: เธอปรุงอาหารจากอาร์ติโชก
+  word_audio_file: artichoke_word+Matthew+027086dff18471311f7816dba7f92909.mp3
+  sentence_audio_file: artichoke_sentence+Matthew+2e011e8d2045378ca7767411d1c0732b.mp3
+  voice_id: Matthew
+- word: article
+  part_of_speech: noun
+  definition_th: บทความ
+  example_en: He wrote an article.
+  example_th: เขาเขียนบทความ
+  word_audio_file: article_word+Matthew+92a2b5cb9c6906035c2864fa225e1940.mp3
+  sentence_audio_file: article_sentence+Matthew+08f4cad308c99302a108380ac65cec20.mp3
+  voice_id: Matthew
+- word: article of faith
+  part_of_speech: noun
+  definition_th: หลักความเชื่อ
+  example_en: Honesty is an article of faith.
+  example_th: ความซื่อสัตย์เป็นหลักความเชื่อ
+  word_audio_file: article_of_faith_word+Matthew+5a3acbb69803138f68609d22035f9847.mp3
+  sentence_audio_file: article_of_faith_sentence+Matthew+b2eb6e260b90f3b9dc2b26e936e19537.mp3
+  voice_id: Matthew
+- word: articulate
+  part_of_speech: adjective
+  definition_th: ชัดเจน
+  example_en: She is an articulate speaker.
+  example_th: เธอเป็นผู้พูดที่ชัดเจน
+  word_audio_file: articulate_word+Matthew+bff16c0273dc98fb504f7bacefa9c5c5.mp3
+  sentence_audio_file: articulate_sentence+Matthew+caa7d16624889da8d98c3e1b5275038c.mp3
+  voice_id: Matthew
+- word: articulated
+  part_of_speech: adjective
+  definition_th: ที่เชื่อมต่อกัน
+  example_en: The articulated bus turned slowly.
+  example_th: รถบัสที่เชื่อมต่อกันเลี้ยวช้าๆ
+  word_audio_file: articulated_word+Matthew+b008d0ac5dce2d92d8bc061e5e77eb29.mp3
+  sentence_audio_file: articulated_sentence+Matthew+e27ee6c785d3fdcc6aad37ea1c30ad38.mp3
+  voice_id: Matthew
+- word: articulation
+  part_of_speech: noun
+  definition_th: การออกเสียง
+  example_en: Her articulation was clear.
+  example_th: การออกเสียงของเธอชัดเจน
+  word_audio_file: articulation_word+Matthew+cf483ae32bb8aba207d4e2487a7c5ac9.mp3
+  sentence_audio_file: articulation_sentence+Matthew+8129d502627385cf34e7063fe4fade67.mp3
+  voice_id: Matthew
+- word: artifact
+  part_of_speech: noun
+  definition_th: สิ่งประดิษฐ์โบราณ
+  example_en: The artifact was ancient.
+  example_th: สิ่งประดิษฐ์นั้นโบราณ
+  word_audio_file: artifact_word+Matthew+8e5b948a454515dbabfc7eb718daa52f.mp3
+  sentence_audio_file: artifact_sentence+Matthew+59d8dbed24562f542abf0bf3e8680027.mp3
+  voice_id: Matthew
+- word: artifice
+  part_of_speech: noun
+  definition_th: เล่ห์เหลี่ยม
+  example_en: He used artifice to win.
+  example_th: เขาใช้เล่ห์เหลี่ยมเพื่อชนะ
+  word_audio_file: artifice_word+Matthew+9d86ea311fd7d46558d2f91973a03eb5.mp3
+  sentence_audio_file: artifice_sentence+Matthew+b10ee00c6a3b1c23669cf14ed02e1ff5.mp3
+  voice_id: Matthew
+- word: artificial
+  part_of_speech: adjective
+  definition_th: เทียม
+  example_en: The flowers were artificial.
+  example_th: ดอกไม้เป็นของเทียม
+  word_audio_file: artificial_word+Matthew+13fd1a10d5921e99bd06b81590017ed6.mp3
+  sentence_audio_file: artificial_sentence+Matthew+320ebc78b9eeb4ea0b431827ae86060f.mp3
+  voice_id: Matthew
+- word: artificial insemination
+  part_of_speech: noun
+  definition_th: การผสมเทียม
+  example_en: Artificial insemination helped the couple.
+  example_th: การผสมเทียมช่วยคู่รัก
+  word_audio_file: artificial_insemination_word+Matthew+5199fbc2cba06fa18476922479fe7177.mp3
+  sentence_audio_file: artificial_insemination_sentence+Matthew+15a896d385795d1053b5ec9c428d33f8.mp3
+  voice_id: Matthew
+- word: artificial intelligence
+  part_of_speech: noun
+  definition_th: ปัญญาประดิษฐ์
+  example_en: Artificial intelligence powers robots.
+  example_th: ปัญญาประดิษฐ์ขับเคลื่อนหุ่นยนต์
+  word_audio_file: artificial_intelligence_word+Matthew+2dd0692ccbadb1132a63c285eaf76547.mp3
+  sentence_audio_file: artificial_intelligence_sentence+Matthew+52552bcb653fd12e0fc452546e2557c1.mp3
+  voice_id: Matthew
+- word: artificial respiration
+  part_of_speech: noun
+  definition_th: การช่วยหายใจ
+  example_en: She needed artificial respiration.
+  example_th: เธอต้องการการช่วยหายใจ
+  word_audio_file: artificial_respiration_word+Matthew+1875f830e789e7782869af86e5ca399b.mp3
+  sentence_audio_file: artificial_respiration_sentence+Matthew+151133a3a89222fc4ca49bccafea09de.mp3
+  voice_id: Matthew
+- word: artillery
+  part_of_speech: noun
+  definition_th: ปืนใหญ่
+  example_en: The artillery fired loudly.
+  example_th: ปืนใหญ่ยิงดัง
+  word_audio_file: artillery_word+Matthew+36233ed8c181dfacc945ad598fb4f1a1.mp3
+  sentence_audio_file: artillery_sentence+Matthew+2f94186e91748e78a255dfb5e15a16b1.mp3
+  voice_id: Matthew
+- word: artisan
+  part_of_speech: noun
+  definition_th: ช่างฝีมือ
+  example_en: The artisan crafted a chair.
+  example_th: ช่างฝีมือสร้างเก้าอี้
+  word_audio_file: artisan_word+Matthew+8d361d0ecc9521f29c2c20aca2e40275.mp3
+  sentence_audio_file: artisan_sentence+Matthew+b97cce735e08ce6182d9996b55c4edd0.mp3
+  voice_id: Matthew
+- word: artist
+  part_of_speech: noun
+  definition_th: ศิลปิน
+  example_en: The artist painted a portrait.
+  example_th: ศิลปินวาดภาพเหมือน
+  word_audio_file: artist_word+Matthew+0441f9e2d94c39a70e21b83829259aa4.mp3
+  sentence_audio_file: artist_sentence+Matthew+b43873ee9ee53c3f6f1d06c879def205.mp3
+  voice_id: Matthew
+- word: artiste
+  part_of_speech: noun
+  definition_th: นักแสดงศิลปะ
+  example_en: The artiste performed gracefully.
+  example_th: นักแสดงศิลปะแสดงอย่างสง่างาม
+  word_audio_file: artiste_word+Matthew+76a9e4fa77d4da21ba43a6499ff2c1d7.mp3
+  sentence_audio_file: artiste_sentence+Matthew+844fc8e08417f43cc24fed94bcf23727.mp3
+  voice_id: Matthew
+- word: artistic
+  part_of_speech: adjective
+  definition_th: เกี่ยวกับศิลปะ
+  example_en: Her artistic skills impressed everyone.
+  example_th: ทักษะด้านศิลปะของเธอทำให้ทุกคนประทับใจ
+  word_audio_file: artistic_word+Matthew+2004f8074cbbd6111e8a23ab9488415b.mp3
+  sentence_audio_file: artistic_sentence+Matthew+eb31201eb7c6a0958ed238299a015e18.mp3
+  voice_id: Matthew
+- word: artistry
+  part_of_speech: noun
+  definition_th: ฝีมือศิลปะ
+  example_en: His artistry was exceptional.
+  example_th: ฝีมือศิลปะของเขายอดเยี่ยม
+  word_audio_file: artistry_word+Matthew+5c9f8df30da0dcc00a328249a8fa1637.mp3
+  sentence_audio_file: artistry_sentence+Matthew+fdbc88f48116f85d3a17d1d6234176b5.mp3
+  voice_id: Matthew
+- word: artless
+  part_of_speech: adjective
+  definition_th: ไร้เล่ห์เหลี่ยม
+  example_en: Her artless smile was charming.
+  example_th: รอยยิ้มไร้เล่ห์เหลี่ยมของเธอน่าหลงใหล
+  word_audio_file: artless_word+Matthew+1df9a9315e3cd60efe46c1c9d6b7c089.mp3
+  sentence_audio_file: artless_sentence+Matthew+0397344f7207e1224618744d2558d994.mp3
+  voice_id: Matthew
+- word: artsy
+  part_of_speech: adjective
+  definition_th: หลงใหลศิลปะ
+  example_en: She has an artsy style.
+  example_th: เธอมีสไตล์ที่หลงใหลศิลปะ
+  word_audio_file: artsy_word+Matthew+388171d2a24ba2e8e84a71f5214401da.mp3
+  sentence_audio_file: artsy_sentence+Matthew+803bca2e4a22979f0c6e961d9cd55ad2.mp3
+  voice_id: Matthew
+- word: artsy-fartsy
+  part_of_speech: adjective
+  definition_th: ศิลปะเกินจริง
+  example_en: The decor was artsy-fartsy.
+  example_th: การตกแต่งดูศิลปะเกินจริง
+  word_audio_file: artsy-fartsy_word+Matthew+8b134604c492b578ab41123c7972a34e.mp3
+  sentence_audio_file: artsy-fartsy_sentence+Matthew+06a529593f0db14b139adc80401798d9.mp3
+  voice_id: Matthew
+- word: artwork
+  part_of_speech: noun
+  definition_th: งานศิลปะ
+  example_en: The artwork was stunning.
+  example_th: งานศิลปะนั้นน่าทึ่ง
+  word_audio_file: artwork_word+Matthew+431a210e866f6a0b95ea506860e8e5cd.mp3
+  sentence_audio_file: artwork_sentence+Matthew+7bbf52e2d9164a40d73e524f60527a1c.mp3
+  voice_id: Matthew
+- word: arty
+  part_of_speech: adjective
+  definition_th: หลงใหลศิลปะ
+  example_en: His arty photos were unique.
+  example_th: ภาพถ่ายที่หลงใหลศิลปะของเขาไม่เหมือนใคร
+  word_audio_file: arty_word+Matthew+84659539fc6d9efe79cb090c5df28c8c.mp3
+  sentence_audio_file: arty_sentence+Matthew+bc82e8a310b460684b420addc0a612e8.mp3
+  voice_id: Matthew
+- word: arugula
+  part_of_speech: noun
+  definition_th: ผักร็อกเก็ต
+  example_en: She added arugula to the salad.
+  example_th: เธอใส่ผักร็อกเก็ตในสลัด
+  word_audio_file: arugula_word+Matthew+3c8ed333bd431cdccf111067270dd0f6.mp3
+  sentence_audio_file: arugula_sentence+Matthew+55836c957b153c7d9ac0f74669962037.mp3
+  voice_id: Matthew
+- word: as
+  part_of_speech: conjunction
+  definition_th: ในฐานะ
+  example_en: He works as a teacher.
+  example_th: เขาทำงานในฐานะครู
+  word_audio_file: as_word+Matthew+f970e2767d0cfe75876ea857f92e319b.mp3
+  sentence_audio_file: as_sentence+Matthew+a53cf4264f308b6cff4047df4006c67f.mp3
+  voice_id: Matthew
+- word: ASAP
+  part_of_speech: adverb
+  definition_th: โดยเร็วที่สุด
+  example_en: Please finish this ASAP.
+  example_th: กรุณาทำสิ่งนี้ให้เสร็จโดยเร็วที่สุด
+  word_audio_file: asap_word+Matthew+9310a615c4fefc86c7599ad3975a5b59.mp3
+  sentence_audio_file: asap_sentence+Matthew+5857ee786f9b407abbb44f85eaa66abc.mp3
+  voice_id: Matthew
+- word: asbestos
+  part_of_speech: noun
+  definition_th: แร่ใยหิน
+  example_en: Asbestos is dangerous to health.
+  example_th: แร่ใยหินอันตรายต่อสุขภาพ
+  word_audio_file: asbestos_word+Matthew+23615dda839bcf38d6da1cfb0b479955.mp3
+  sentence_audio_file: asbestos_sentence+Matthew+b0949057d49d8f3818b979831432d2b2.mp3
+  voice_id: Matthew
+- word: ascend
+  part_of_speech: verb
+  definition_th: ขึ้น
+  example_en: They ascended the mountain.
+  example_th: พวกเขาขึ้นเขา
+  word_audio_file: ascend_word+Matthew+ed45840f6a6415ca5eb50ae607e9449f.mp3
+  sentence_audio_file: ascend_sentence+Matthew+7c4d5b3d88ebaa57fc357d19ba22916f.mp3
+  voice_id: Matthew
+- word: ascendancy
+  part_of_speech: noun
+  definition_th: อำนาจเด่น
+  example_en: The party gained ascendancy.
+  example_th: พรรคได้รับอำนาจเด่น
+  word_audio_file: ascendancy_word+Matthew+45d62f43d6f59291905d097790f74ade.mp3
+  sentence_audio_file: ascendancy_sentence+Matthew+fe308123610f4b81f5df4b25b6baaaaf.mp3
+  voice_id: Matthew
+- word: ascendant
+  part_of_speech: adjective
+  definition_th: ที่กำลังขึ้น
+  example_en: Her influence is ascendant.
+  example_th: อิทธิพลของเธอกำลังขึ้น
+  word_audio_file: ascendant_word+Matthew+939c9214abcaf5f831f4062d9a1ee8fa.mp3
+  sentence_audio_file: ascendant_sentence+Matthew+7aeb808337dc617782d1c43cfd88c700.mp3
+  voice_id: Matthew
+- word: ascendency
+  part_of_speech: noun
+  definition_th: อำนาจเด่น
+  example_en: His ascendency was clear.
+  example_th: อำนาจเด่นของเขาชัดเจน
+  word_audio_file: ascendency_word+Matthew+8f783e89da8590d428ded147729f029d.mp3
+  sentence_audio_file: ascendency_sentence+Matthew+ff509cf59ed720cf42cc8caac3596fff.mp3
+  voice_id: Matthew
+- word: ascending
+  part_of_speech: adjective
+  definition_th: ที่กำลังขึ้น
+  example_en: The numbers are in ascending order.
+  example_th: ตัวเลขอยู่ในลำดับที่กำลังขึ้น
+  word_audio_file: ascending_word+Matthew+9c9ab624360885fcf93b7643c93b6748.mp3
+  sentence_audio_file: ascending_sentence+Matthew+9eb4e3abeba6071b858c7c55ed156e62.mp3
+  voice_id: Matthew
+- word: ascension
+  part_of_speech: noun
+  definition_th: การขึ้น
+  example_en: His ascension to power was quick.
+  example_th: การขึ้นสู่อำนาจของเขารวดเร็ว
+  word_audio_file: ascension_word+Matthew+addac03e2ac2f62d1a7e766874af16b3.mp3
+  sentence_audio_file: ascension_sentence+Matthew+f8fb890049c22cc2313a9a289db72339.mp3
+  voice_id: Matthew
+- word: ascent
+  part_of_speech: noun
+  definition_th: การขึ้น
+  example_en: The ascent was steep.
+  example_th: การขึ้นนั้นชัน
+  word_audio_file: ascent_word+Matthew+a1a9983bfbfb713ce08ab3961e93f741.mp3
+  sentence_audio_file: ascent_sentence+Matthew+9f7ed61d72b638e521289fcdfdd5c76e.mp3
+  voice_id: Matthew
+- word: ascertain
+  part_of_speech: verb
+  definition_th: ยืนยัน
+  example_en: They ascertained the truth.
+  example_th: พวกเขายืนยันความจริง
+  word_audio_file: ascertain_word+Matthew+40424976ec44205ee357f4e3a2cf4bfa.mp3
+  sentence_audio_file: ascertain_sentence+Matthew+3134d851271d4017a33965b54d4338ef.mp3
+  voice_id: Matthew
+- word: ascetic
+  part_of_speech: adjective
+  definition_th: สมถะ
+  example_en: He lived an ascetic life.
+  example_th: เขาดำรงชีวิตแบบสมถะ
+  word_audio_file: ascetic_word+Matthew+8d2490fbacef9189ea2557a654bbfd2b.mp3
+  sentence_audio_file: ascetic_sentence+Matthew+74653395b7a011b7f6091a4432fcc8dc.mp3
+  voice_id: Matthew
+- word: asceticism
+  part_of_speech: noun
+  definition_th: ความสมถะ
+  example_en: Asceticism shaped his philosophy.
+  example_th: ความสมถะกำหนดปรัชญาของเขา
+  word_audio_file: asceticism_word+Matthew+7b8b4f476f2bf19e8c0646f242cbdf06.mp3
+  sentence_audio_file: asceticism_sentence+Matthew+4f3818fd567a8d08f402fe6d6a86f38b.mp3
+  voice_id: Matthew
+- word: ascorbic acid
+  part_of_speech: noun
+  definition_th: กรดแอสคอร์บิก
+  example_en: Ascorbic acid is in oranges.
+  example_th: กรดแอสคอร์บิกอยู่ในส้ม
+  word_audio_file: ascorbic_acid_word+Matthew+487822f0665f60b7ec722e87633d831c.mp3
+  sentence_audio_file: ascorbic_acid_sentence+Matthew+143a18456773facea7640efb08f0df78.mp3
+  voice_id: Matthew
+- word: ascribe
+  part_of_speech: verb
+  definition_th: ระบุว่าเป็นของ
+  example_en: They ascribed the success to her.
+  example_th: พวกเขาระบุว่าความสำเร็จเป็นของเธอ
+  word_audio_file: ascribe_word+Matthew+5d8857af5f8c956006e1e4bf00c602d6.mp3
+  sentence_audio_file: ascribe_sentence+Matthew+606d8beaac1bb78b807de5432a52e99f.mp3
+  voice_id: Matthew
+- word: asexual
+  part_of_speech: adjective
+  definition_th: ไร้เพศ
+  example_en: The plant is asexual.
+  example_th: พืชนั้นไร้เพศ
+  word_audio_file: asexual_word+Matthew+7f9bd2eb241bb40a75bd53f9a4d2c53f.mp3
+  sentence_audio_file: asexual_sentence+Matthew+941b79c0eaabb498cb839b5455791ab7.mp3
+  voice_id: Matthew
+- word: ash
+  part_of_speech: noun
+  definition_th: ขี้เถ้า
+  example_en: The fire left ash behind.
+  example_th: ไฟทิ้งขี้เถ้าไว้
+  word_audio_file: ash_word+Matthew+2852f697a9f8581725c6fc6a5472a2e5.mp3
+  sentence_audio_file: ash_sentence+Matthew+d99adc1fd76e6ecb84aa182eec1b2cd2.mp3
+  voice_id: Matthew
+- word: Ash Wednesday
+  part_of_speech: noun
+  definition_th: วันพุธรับเถ้า
+  example_en: Ash Wednesday marks Lent.
+  example_th: วันพุธรับเถ้าคือจุดเริ่มต้นของเทศกาลมหาพรต
+  word_audio_file: ash_wednesday_word+Matthew+c0f781eb38ea69587150cd719aad12d4.mp3
+  sentence_audio_file: ash_wednesday_sentence+Matthew+919b0963b57db00be7a33d27720368fc.mp3
+  voice_id: Matthew
+- word: ashamed
+  part_of_speech: adjective
+  definition_th: อาย
+  example_en: She felt ashamed of her mistake.
+  example_th: เธอรู้สึกอายกับความผิดพลาดของเธอ
+  word_audio_file: ashamed_word+Matthew+41273acb23c652a1fdcaa4b47901f691.mp3
+  sentence_audio_file: ashamed_sentence+Matthew+2501f04212a95c748090158dbdc960c7.mp3
+  voice_id: Matthew
+- word: ashen
+  part_of_speech: adjective
+  definition_th: ซีดเหมือนขี้เถ้า
+  example_en: His face was ashen with fear.
+  example_th: ใบหน้าของเขาซีดเหมือนขี้เถ้าด้วยความกลัว
+  word_audio_file: ashen_word+Matthew+eea1fefe34baa4e9d2cd6c3bb84dc326.mp3
+  sentence_audio_file: ashen_sentence+Matthew+a207f7f67aab67a7e9d7176fb80bc33d.mp3
+  voice_id: Matthew
+- word: ashen-faced
+  part_of_speech: adjective
+  definition_th: หน้าซีด
+  example_en: She was ashen-faced after the news.
+  example_th: เธอหน้าซีดหลังจากได้ยินข่าว
+  word_audio_file: ashen-faced_word+Matthew+a19feb70f4f7054049106497abd7291d.mp3
+  sentence_audio_file: ashen-faced_sentence+Matthew+e65fde500e4c33bd914fb8f6fc16b1bb.mp3
+  voice_id: Matthew
+- word: ashore
+  part_of_speech: adverb
+  definition_th: ขึ้นฝั่ง
+  example_en: They swam ashore.
+  example_th: พวกเขาว่ายน้ำขึ้นฝั่ง
+  word_audio_file: ashore_word+Matthew+d4b0dc3bf018b5202de785bf53f1f2b3.mp3
+  sentence_audio_file: ashore_sentence+Matthew+a8f80d82e9e18e20191cba1e884414a5.mp3
+  voice_id: Matthew
+- word: ashtray
+  part_of_speech: noun
+  definition_th: ที่เขี่ยบุหรี่
+  example_en: The ashtray was full.
+  example_th: ที่เขี่ยบุหรี่เต็ม
+  word_audio_file: ashtray_word+Matthew+6c8a61559311684c50c105251a0384d3.mp3
+  sentence_audio_file: ashtray_sentence+Matthew+8771341c37a62444d8ca8122e028ba51.mp3
+  voice_id: Matthew
+- word: Asian
+  part_of_speech: adjective
+  definition_th: เอเชีย
+  example_en: She loves Asian culture.
+  example_th: เธอรักวัฒนธรรมเอเชีย
+  word_audio_file: asian_word+Matthew+32547be4653a13e1009e513426eeae62.mp3
+  sentence_audio_file: asian_sentence+Matthew+784f0165015d28b7ab6285e2a0aed6f1.mp3
+  voice_id: Matthew
+- word: Asiatic
+  part_of_speech: adjective
+  definition_th: เกี่ยวกับเอเชีย
+  example_en: The Asiatic lion is rare.
+  example_th: สิงโตเอเชียนั้นหายาก
+  word_audio_file: asiatic_word+Matthew+b7a566fc210b695b7be671448d232ee5.mp3
+  sentence_audio_file: asiatic_sentence+Matthew+48a99b1c64a17b52a480d8e23904e919.mp3
+  voice_id: Matthew
+- word: aside
+  part_of_speech: adverb
+  definition_th: ข้าง ๆ
+  example_en: She stepped aside.
+  example_th: เธอก้าวไปข้าง ๆ
+  word_audio_file: aside_word+Matthew+58a5bd4d1fe1914a7438e768c0627486.mp3
+  sentence_audio_file: aside_sentence+Matthew+52b47331194a0214b0cb745072951971.mp3
+  voice_id: Matthew
+- word: asinine
+  part_of_speech: adjective
+  definition_th: โง่เขลา
+  example_en: His asinine comment annoyed her.
+  example_th: ความคิดเห็นโง่เขลาของเขาทำให้เธอรำคาญ
+  word_audio_file: asinine_word+Matthew+7defab04f53b95aa63bf68e95324f893.mp3
+  sentence_audio_file: asinine_sentence+Matthew+6deb2c1a0be7b2bef3eb2f83ca0a8d91.mp3
+  voice_id: Matthew
+- word: ask
+  part_of_speech: verb
+  definition_th: ถาม
+  example_en: She asked a question.
+  example_th: เธอถามคำถาม
+  word_audio_file: ask_word+Matthew+5ed33f7008771c9d49e3716aeaeca581.mp3
+  sentence_audio_file: ask_sentence+Matthew+d10856d31dad2ff62cbba47f428da69d.mp3
+  voice_id: Matthew
+- word: askance
+  part_of_speech: adverb
+  definition_th: ด้วยความสงสัย
+  example_en: He looked askance at her.
+  example_th: เขามองเธอด้วยความสงสัย
+  word_audio_file: askance_word+Matthew+680d71f3269650204944ddf992803566.mp3
+  sentence_audio_file: askance_sentence+Matthew+5927bc9c4adc2ade1c383fb2b72937b6.mp3
+  voice_id: Matthew
+- word: askew
+  part_of_speech: adjective
+  definition_th: เอียง
+  example_en: The picture was askew.
+  example_th: รูปภาพนั้นเอียง
+  word_audio_file: askew_word+Matthew+2b682f6ecf5ddfbd57e6f9f078eafafd.mp3
+  sentence_audio_file: askew_sentence+Matthew+9c595be17836eb9a0d054f9c1746f309.mp3
+  voice_id: Matthew
+- word: asking price
+  part_of_speech: noun
+  definition_th: ราคาที่เสนอ
+  example_en: The asking price was high.
+  example_th: ราคาที่เสนอสูง
+  word_audio_file: asking_price_word+Matthew+3d5769a2bd3f042f5ac21a8b215f104e.mp3
+  sentence_audio_file: asking_price_sentence+Matthew+951a861f413399d186e13693f38a36f5.mp3
+  voice_id: Matthew
+- word: asleep
+  part_of_speech: adjective
+  definition_th: หลับ
+  example_en: The baby is asleep.
+  example_th: ทารกหลับ
+  word_audio_file: asleep_word+Matthew+efdf8d1b7982706502aab0844b27b66c.mp3
+  sentence_audio_file: asleep_sentence+Matthew+70786fec4240c4faf0265437f3be2923.mp3
+  voice_id: Matthew
+- word: asparagus
+  part_of_speech: noun
+  definition_th: หน่อไม้ฝรั่ง
+  example_en: She cooked asparagus for dinner.
+  example_th: เธอปรุงหน่อไม้ฝรั่งสำหรับมื้อเย็น
+  word_audio_file: asparagus_word+Matthew+08090207f34b0fd062aead92c418ceed.mp3
+  sentence_audio_file: asparagus_sentence+Matthew+169c5d0d062e69eb66bd2e5418bb8f4b.mp3
+  voice_id: Matthew
+- word: aspect
+  part_of_speech: noun
+  definition_th: แง่มุม
+  example_en: Every aspect was considered.
+  example_th: ทุกแง่มุมได้รับการพิจารณา
+  word_audio_file: aspect_word+Matthew+e67e20d1ede0aa95923794d188c65fe0.mp3
+  sentence_audio_file: aspect_sentence+Matthew+7d4ce1c42c2ee933e6d04b2e49965ab0.mp3
+  voice_id: Matthew
+- word: aspen
+  part_of_speech: noun
+  definition_th: ต้นแอสเพน
+  example_en: The aspen leaves trembled.
+  example_th: ใบต้นแอสเพนสั่นไหว
+  word_audio_file: aspen_word+Matthew+91a343c02e6c4e10b023216ecfcd69e7.mp3
+  sentence_audio_file: aspen_sentence+Matthew+0daa071abf9584aec5b4a27c97954eaf.mp3
+  voice_id: Matthew
+- word: asperity
+  part_of_speech: noun
+  definition_th: ความหยาบกระด้าง
+  example_en: Her asperity surprised him.
+  example_th: ความหยาบกระด้างของเธอทำให้เขาประหลาดใจ
+  word_audio_file: asperity_word+Matthew+0d4755935e558d7436f1a05fac3f1ada.mp3
+  sentence_audio_file: asperity_sentence+Matthew+82b1447fa483dce8af49bd39a3d21f45.mp3
+  voice_id: Matthew
+- word: aspersions
+  part_of_speech: noun
+  definition_th: การใส่ร้าย
+  example_en: She cast aspersions on his character.
+  example_th: เธอใส่ร้ายต่อตัวตนของเขา
+  word_audio_file: aspersions_word+Matthew+79fb335b7505266b8fa8c3baf2d1f8de.mp3
+  sentence_audio_file: aspersions_sentence+Matthew+48a60276e3684a056d5a8c1ee7a16d02.mp3
+  voice_id: Matthew
+- word: asphalt
+  part_of_speech: noun
+  definition_th: ยางมะตอย
+  example_en: The road was paved with asphalt.
+  example_th: ถนนถูกปูด้วยยางมะตอย
+  word_audio_file: asphalt_word+Matthew+6c5c1da91145e323a78c062d9c557def.mp3
+  sentence_audio_file: asphalt_sentence+Matthew+ec7fe4004eed53f3e6d79d035614bcee.mp3
+  voice_id: Matthew
+- word: asphyxia
+  part_of_speech: noun
+  definition_th: การขาดอากาศหายใจ
+  example_en: The victim died of asphyxia.
+  example_th: เหยื่อเสียชีวิตจากการขาดอากาศหายใจ
+  word_audio_file: asphyxia_word+Matthew+8f1b4df1eb1ca00b5862b0071e43d65d.mp3
+  sentence_audio_file: asphyxia_sentence+Matthew+5f64682edd125b5571285c479ddb4c5c.mp3
+  voice_id: Matthew
+- word: asphyxiate
+  part_of_speech: verb
+  definition_th: ทำให้ขาดอากาศหายใจ
+  example_en: The smoke could asphyxiate them.
+  example_th: ควันอาจทำให้พวกเขาขาดอากาศหายใจ
+  word_audio_file: asphyxiate_word+Matthew+30ab017bd5af76f4a2778a9344beb16b.mp3
+  sentence_audio_file: asphyxiate_sentence+Matthew+19278d147db532a6bbdae7e8e8b0ba65.mp3
   voice_id: Matthew
 b: []
 c: []
