@@ -13,35 +13,27 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadWords() {
-    Promise.all([
-        fetch('data/vocab_database.yaml').then(response => {
+    fetch('data/vocab_database.yaml')
+        .then(response => {
             if (!response.ok) throw new Error('Failed to load vocab_database.yaml');
             return response.text();
-        }),
-        fetch('data/COCA_WordFrequency.csv').then(response => {
-            if (!response.ok) throw new Error('Failed to load COCA_WordFrequency.csv');
-            return response.text();
         })
-    ]).then(([yamlText, csvText]) => {
-        words = jsyaml.load(yamlText) || [];
-        if (!words.length) {
-            console.warn('No words found in vocab_database.yaml');
-            return;
-        }
-        Papa.parse(csvText, {
-            header: true,
-            complete: (result) => {
-                maxFreq = Math.max(...result.data.map(row => parseInt(row.freq || 0)));
-                words.sort((a, b) => b.freq - a.freq); // Sort by freq descending
-                displayWord();
-                updateFrequencyBar();
-                preloadAudio();
+        .then(yamlText => {
+            words = jsyaml.load(yamlText) || [];
+            if (!words.length) {
+                console.warn('No words found in vocab_database.yaml');
+                return;
             }
+            maxFreq = words[0]?.freq || 1; // Use first word's freq as max
+            words.sort((a, b) => b.freq - a.freq); // Sort by freq descending
+            displayWord();
+            updateFrequencyBar();
+            preloadAudio();
+        })
+        .catch(error => {
+            console.error('Error loading words:', error);
+            alert('Failed to load vocabulary data.');
         });
-    }).catch(error => {
-        console.error('Error loading data:', error);
-        alert('Failed to load vocabulary or frequency data.');
-    });
 }
 
 function setupEventListeners() {
@@ -207,9 +199,8 @@ function displayWord() {
     front.innerHTML = `<h2>${wordData.word}</h2>`;
     back.innerHTML = `
         <h2 class="english">${wordData.word}</h2>
-        <p id="back-details" class="thai">${backCard.definition_th}</p>
+        <p id="back-details" class="english">${backCard.definition_en}</p>
         <p class="english">${backCard.example_en}</p>
-        <p class="thai">${backCard.example_th}</p>
     `;
     updateFrequencyBar();
 }
