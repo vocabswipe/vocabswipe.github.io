@@ -6,8 +6,18 @@ import boto3
 import hashlib
 import time
 import logging
+from rich.console import Console
+from rich.panel import Panel
+from rich.table import Table
+from rich.progress import Progress, BarColumn, TextColumn, TimeRemainingColumn
+from rich.prompt import Confirm
+from rich import box
+from rich.text import Text
 
-# Set up logging
+# Initialize rich console
+console = Console()
+
+# Set up logging (same as original)
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -18,30 +28,32 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Define paths using absolute paths
+# Define paths (same as original)
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 TEMP_VOCAB_JSONL_PATH = os.path.join(BASE_DIR, 'data', 'temp', 'temp_vocab_multi_cards.jsonl')
 TEMP_VOCAB_LOG_PATH = os.path.join(BASE_DIR, 'data', 'temp', 'temp_vocab_log.yaml')
 VOCAB_DB_PATH = os.path.join(BASE_DIR, 'data', 'vocab_database.yaml')
 AUDIO_DIR = os.path.join(BASE_DIR, 'data', 'audio')
 
-# Ensure directories exist
+# Ensure directories exist (same as original)
 os.makedirs(AUDIO_DIR, exist_ok=True)
 os.makedirs(os.path.dirname(TEMP_VOCAB_JSONL_PATH), exist_ok=True)
 os.makedirs(os.path.join(BASE_DIR, 'data', 'reports'), exist_ok=True)
 
-# Initialize AWS Polly client
+# Initialize AWS Polly client (same as original)
 try:
     polly_client = boto3.client('polly', region_name='us-east-1')
     logger.info("AWS Polly client initialized successfully.")
+    console.print("[green]✓ Neural Audio Synthesis Engine Online[/green]")
 except Exception as e:
     logger.error(f"Failed to initialize AWS Polly client: {e}")
+    console.print(Panel(f"[red]Alert: Failed to initialize Neural Audio Synthesis Engine\nError: {e}[/red]", title="System Error", border_style="red"))
     raise
 
 FAVORITE_VOICES = ['Matthew']
 
+# Original functions (unchanged for brevity)
 def load_file(file_path, file_type='jsonl'):
-    """Load JSONL or YAML file."""
     logger.info(f"Loading: {file_path}")
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
@@ -56,7 +68,6 @@ def load_file(file_path, file_type='jsonl'):
         return [] if file_type == 'jsonl' else {}
 
 def save_file(data, file_path, file_type='yaml'):
-    """Save data to YAML or JSON file."""
     try:
         with open(file_path, 'w', encoding='utf-8') as file:
             if file_type == 'json':
@@ -69,7 +80,6 @@ def save_file(data, file_path, file_type='yaml'):
         raise
 
 def append_to_log(entries):
-    """Append entries to temp_vocab_log.yaml."""
     if not os.path.exists(TEMP_VOCAB_LOG_PATH):
         logger.info(f"Creating blank {TEMP_VOCAB_LOG_PATH}")
         save_file([], TEMP_VOCAB_LOG_PATH, file_type='yaml')
@@ -83,7 +93,6 @@ def append_to_log(entries):
     logger.info(f"Appended {len(entries)} entries to {TEMP_VOCAB_LOG_PATH}")
 
 def generate_audio(text, output_path, voice_id, use_ssml=False):
-    """Generate audio using AWS Polly."""
     try:
         response = polly_client.synthesize_speech(
             Text=text,
@@ -98,10 +107,10 @@ def generate_audio(text, output_path, voice_id, use_ssml=False):
         return True
     except Exception as e:
         logger.error(f"Error generating audio for '{text}': {e}")
+        console.print(f"[red]⚠ Audio Generation Failed for '{text}': {e}[/red]")
         return False
 
 def validate_entry(entry):
-    """Validate vocabulary entry."""
     required_fields = ['word', 'rank', 'freq', 'part_of_speech', 'back_cards']
     if not all(field in entry for field in required_fields):
         logger.warning(f"Invalid entry - missing fields: {entry}")
@@ -116,12 +125,10 @@ def validate_entry(entry):
     return True
 
 def get_audio_filename(word, text, prefix, voice_id, index=0):
-    """Generate unique audio filename."""
     safe_word = word.lower().replace(' ', '_')
     return f"{safe_word}_{prefix}_{index}+{voice_id}+{hashlib.md5(text.encode('utf-8')).hexdigest()}.mp3"
 
 def check_duplicates(vocab_db):
-    """Remove duplicates, keeping the last entry."""
     seen_words = set()
     duplicates = []
     for i, entry in enumerate(vocab_db):
@@ -151,7 +158,6 @@ def check_duplicates(vocab_db):
     return duplicates, removed_count
 
 def verify_audio_files(vocab_db):
-    """Verify audio files exist for all entries."""
     missing_audio = []
     for entry in vocab_db:
         for i, audio_file in enumerate(entry.get('word_audio_file', [])):
@@ -163,39 +169,39 @@ def verify_audio_files(vocab_db):
     return missing_audio
 
 def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, missing_audio, first_word, last_word):
-    """Generate a concise summary report."""
-    report = [
-        "┌──────────────────────────────┐",
-        "│ Vocabulary Processing Report │",
-        f"│ {time.strftime('%Y-%m-%d %H:%M:%S')} │",
-        "└──────────────────────────────┘",
-        "",
-        f"Total Words Processed: {len(valid_entries)}",
-        f"First Word: {first_word or 'N/A'}",
-        f"Last Word: {last_word or 'N/A'}",
-        f"Total Words in Database: {len(vocab_db)}",
-        "",
-        "Duplicates:",
-        f"  {removed_count} duplicates removed." if duplicates else "  No duplicates found.",
-        "",
-        "Audio Files:",
-        "  All audio files present." if not missing_audio else
-        "\n".join([f"  Missing: {word} ({audio_type}, index {index})" for word, audio_type, index, _ in missing_audio]),
-        "",
-        "┌──────────────────────────────┐",
-        "│ Processing Complete          │",
-        "└──────────────────────────────┘"
-    ]
-    
-    report_text = '\n'.join(report)
-    print(report_text)
+    """Generate a high-tech summary report using rich."""
+    table = Table(title="📊 Vocabulary Processing Report", box=box.ROUNDED, style="cyan")
+    table.add_column("Metric", style="bold")
+    table.add_column("Value", justify="right")
+
+    table.add_row("Timestamp", time.strftime('%Y-%m-%d %H:%M:%S'))
+    table.add_row("Total Entries Processed", str(len(valid_entries)))
+    table.add_row("Valid Entries", f"[green]{len(valid_entries)}[/green]")
+    table.add_row("Duplicates Removed", f"[yellow]{removed_count}[/yellow]" if removed_count else "0")
+    table.add_row("First Word", first_word or "N/A")
+    table.add_row("Last Word", last_word or "N/A")
+    table.add_row("Database Size", str(len(vocab_db)))
+
+    console.print(table)
+
+    if missing_audio:
+        console.print(Panel(
+            "\n".join([f"⚠ Missing Audio: {word} ({audio_type}, index {index})" for word, audio_type, index, _ in missing_audio]),
+            title="Audio Verification", border_style="red"
+        ))
+    else:
+        console.print("[green]✓ All Audio Files Verified[/green]")
+
     report_path = os.path.join(BASE_DIR, 'data', 'reports', f"vocab_report_{time.strftime('%Y%m%d_%H%M%S')}.txt")
     with open(report_path, 'w', encoding='utf-8') as f:
-        f.write(report_text)
+        f.write(str(table))
+        if missing_audio:
+            f.write("\nMissing Audio Files:\n" + "\n".join([f"{word} ({audio_type}, index {index})" for word, audio_type, index, _ in missing_audio]))
     logger.info(f"Report saved to: {report_path}")
+    console.print(Panel(f"[green]Mission Complete: Report saved to {report_path}[/green]", title="Status", border_style="green"))
 
 def process_entries(entries):
-    """Process vocabulary entries and update database."""
+    """Process vocabulary entries with rich progress tracking."""
     vocab_db = load_file(VOCAB_DB_PATH, file_type='yaml')
     if not isinstance(vocab_db, list):
         logger.warning(f"{VOCAB_DB_PATH} invalid. Initializing as empty list.")
@@ -206,82 +212,95 @@ def process_entries(entries):
     first_word = None
     last_word = None
 
-    for entry in tqdm(entries, desc="Processing entries", unit="word"):
-        if not validate_entry(entry):
-            invalid_entries.append(entry)
-            continue
+    with Progress(
+        TextColumn("[progress.description]{task.description}"),
+        BarColumn(),
+        "[progress.percentage]{task.percentage:>3.0f}%",
+        TimeRemainingColumn(),
+        console=console
+    ) as progress:
+        task = progress.add_task("[cyan]Processing Vocabulary Core...", total=len(entries))
 
-        word_lower = entry['word'].lower()
-        if not first_word:
-            first_word = entry['word']
-        last_word = entry['word']
+        for entry in entries:
+            if not validate_entry(entry):
+                invalid_entries.append(entry)
+                progress.advance(task)
+                continue
 
-        existing_entry = next((e for e in vocab_db if e['word'].lower() == word_lower and e.get('voice_id') == 'Matthew'), None)
+            word_lower = entry['word'].lower()
+            if not first_word:
+                first_word = entry['word']
+            last_word = entry['word']
 
-        if existing_entry:
-            existing_cards = {card['example_en']: card for card in existing_entry['back_cards']}
-            new_cards = {card['example_en']: card for card in entry['back_cards']}
-            merged_cards = list(existing_cards.values()) + [card for example, card in new_cards.items() if example not in existing_cards]
-            existing_entry['back_cards'] = merged_cards
+            existing_entry = next((e for e in vocab_db if e['word'].lower() == word_lower and e.get('voice_id') == 'Matthew'), None)
 
-            sentence_audio_files = existing_entry.get('sentence_audio_file', [])
-            for i, card in enumerate(merged_cards):
-                if i >= len(sentence_audio_files) or card['example_en'] not in [c['example_en'] for c in existing_cards.values()]:
-                    sentence_text = f"<speak>{existing_entry['word']}. {card['example_en']}</speak>"
-                    sentence_audio_filename = get_audio_filename(existing_entry['word'], f"{existing_entry['word']}. {card['example_en']}", 'sentence', 'Matthew', i)
-                    sentence_audio_path = os.path.join(AUDIO_DIR, sentence_audio_filename)
-                    sentence_success = generate_audio(sentence_text, sentence_audio_path, 'Matthew', use_ssml=True) if not os.path.exists(sentence_audio_path) else True
-                    if sentence_success and i >= len(sentence_audio_files):
-                        sentence_audio_files.append(sentence_audio_filename)
-                    elif sentence_success:
-                        sentence_audio_files[i] = sentence_audio_filename
-            existing_entry['sentence_audio_file'] = sentence_audio_files
+            if existing_entry:
+                existing_cards = {card['example_en']: card for card in existing_entry['back_cards']}
+                new_cards = {card['example_en']: card for card in entry['back_cards']}
+                merged_cards = list(existing_cards.values()) + [card for example, card in new_cards.items() if example not in existing_cards]
+                existing_entry['back_cards'] = merged_cards
 
-            valid_entries.append(existing_entry)
-            continue
+                sentence_audio_files = existing_entry.get('sentence_audio_file', [])
+                for i, card in enumerate(merged_cards):
+                    if i >= len(sentence_audio_files) or card['example_en'] not in [c['example_en'] for c in existing_cards.values()]:
+                        sentence_text = f"<speak>{existing_entry['word']}. {card['example_en']}</speak>"
+                        sentence_audio_filename = get_audio_filename(existing_entry['word'], f"{existing_entry['word']}. {card['example_en']}", 'sentence', 'Matthew', i)
+                        sentence_audio_path = os.path.join(AUDIO_DIR, sentence_audio_filename)
+                        sentence_success = generate_audio(sentence_text, sentence_audio_path, 'Matthew', use_ssml=True) if not os.path.exists(sentence_audio_path) else True
+                        if sentence_success and i >= len(sentence_audio_files):
+                            sentence_audio_files.append(sentence_audio_filename)
+                        elif sentence_success:
+                            sentence_audio_files[i] = sentence_audio_filename
+                existing_entry['sentence_audio_file'] = sentence_audio_files
 
-        selected_voice = 'Matthew'
-        new_entry = {
-            'word': entry['word'],
-            'rank': entry['rank'],
-            'freq': entry['freq'],
-            'part_of_speech': entry['part_of_speech'],
-            'back_cards': entry['back_cards'],
-            'word_audio_file': [],
-            'sentence_audio_file': [],
-            'voice_id': selected_voice
-        }
+                valid_entries.append(existing_entry)
+                progress.advance(task)
+                continue
 
-        if existing_entry and existing_entry.get('voice_id') != 'Matthew':
-            for audio_file in existing_entry.get('word_audio_file', []) + existing_entry.get('sentence_audio_file', []):
-                audio_path = os.path.join(AUDIO_DIR, audio_file)
-                if os.path.exists(audio_path):
-                    try:
-                        os.remove(audio_path)
-                        logger.info(f"Deleted old audio file: {audio_path}")
-                    except OSError as e:
-                        logger.error(f"Error deleting old audio file {audio_path}: {e}")
+            selected_voice = 'Matthew'
+            new_entry = {
+                'word': entry['word'],
+                'rank': entry['rank'],
+                'freq': entry['freq'],
+                'part_of_speech': entry['part_of_speech'],
+                'back_cards': entry['back_cards'],
+                'word_audio_file': [],
+                'sentence_audio_file': [],
+                'voice_id': selected_voice
+            }
 
-        word_text = f"<speak>{new_entry['word']}</speak>"
-        word_audio_filename = get_audio_filename(new_entry['word'], new_entry['word'], 'word', selected_voice)
-        word_audio_path = os.path.join(AUDIO_DIR, word_audio_filename)
-        word_success = generate_audio(word_text, word_audio_path, selected_voice, use_ssml=True) if not os.path.exists(word_audio_path) else True
-        new_entry['word_audio_file'].append(word_audio_filename if word_success else '')
+            if existing_entry and existing_entry.get('voice_id') != 'Matthew':
+                for audio_file in existing_entry.get('word_audio_file', []) + existing_entry.get('sentence_audio_file', []):
+                    audio_path = os.path.join(AUDIO_DIR, audio_file)
+                    if os.path.exists(audio_path):
+                        try:
+                            os.remove(audio_path)
+                            logger.info(f"Deleted old audio file: {audio_path}")
+                        except OSError as e:
+                            logger.error(f"Error deleting old audio file {audio_path}: {e}")
 
-        sentence_audio_files = []
-        for i, card in enumerate(new_entry['back_cards']):
-            sentence_text = f"<speak>{new_entry['word']}. {card['example_en']}</speak>"
-            sentence_audio_filename = get_audio_filename(new_entry['word'], f"{new_entry['word']}. {card['example_en']}", 'sentence', selected_voice, i)
-            sentence_audio_path = os.path.join(AUDIO_DIR, sentence_audio_filename)
-            sentence_success = generate_audio(sentence_text, sentence_audio_path, selected_voice, use_ssml=True) if not os.path.exists(sentence_audio_path) else True
-            sentence_audio_files.append(sentence_audio_filename if sentence_success else '')
+            word_text = f"<speak>{new_entry['word']}</speak>"
+            word_audio_filename = get_audio_filename(new_entry['word'], new_entry['word'], 'word', selected_voice)
+            word_audio_path = os.path.join(AUDIO_DIR, word_audio_filename)
+            word_success = generate_audio(word_text, word_audio_path, selected_voice, use_ssml=True) if not os.path.exists(word_audio_path) else True
+            new_entry['word_audio_file'].append(word_audio_filename if word_success else '')
 
-        new_entry['sentence_audio_file'] = sentence_audio_files
+            sentence_audio_files = []
+            for i, card in enumerate(new_entry['back_cards']):
+                sentence_text = f"<speak>{new_entry['word']}. {card['example_en']}</speak>"
+                sentence_audio_filename = get_audio_filename(new_entry['word'], f"{new_entry['word']}. {card['example_en']}", 'sentence', selected_voice, i)
+                sentence_audio_path = os.path.join(AUDIO_DIR, sentence_audio_filename)
+                sentence_success = generate_audio(sentence_text, sentence_audio_path, selected_voice, use_ssml=True) if not os.path.exists(sentence_audio_path) else True
+                sentence_audio_files.append(sentence_audio_filename if sentence_success else '')
 
-        if word_success and all(sentence_audio_files):
-            valid_entries.append(new_entry)
-        else:
-            invalid_entries.append(entry)
+            new_entry['sentence_audio_file'] = sentence_audio_files
+
+            if word_success and all(sentence_audio_files):
+                valid_entries.append(new_entry)
+            else:
+                invalid_entries.append(entry)
+
+            progress.advance(task)
 
     for entry in valid_entries:
         word_lower = entry['word'].lower()
@@ -297,28 +316,59 @@ def process_entries(entries):
     return valid_entries, invalid_entries
 
 def main():
-    """Main function to process vocabulary entries."""
-    print("┌──────────────────────────────┐")
-    print("│ Starting Vocabulary Processing │")
-    print("└──────────────────────────────┘")
-    
+    """Main function with high-tech UX."""
+    # Display startup screen
+    console.print(Panel(
+        Text(
+            "┳━┓  ┳━┓\n"
+            "┣━┫ ┣┳┫ VocabSync v2.1\n"
+            "┻ ┻ ┣┻┫ Neural-Powered Vocabulary Processor\n"
+            "    ┣┳┻┓ by xAI Labs\n"
+            "┻┻┻┻┻┻┻┻",
+            style="bold cyan"
+        ),
+        title="System Boot", border_style="blue", box=box.DOUBLE
+    ))
+
+    # Prompt user to start
+    if not Confirm.ask("[bold cyan]Initialize Vocabulary Processing Core?[/bold cyan]"):
+        console.print("[yellow]Operation Aborted.[/yellow]")
+        return
+
+    console.print("[green]✓ System Initialized. Loading Input Data...[/green]")
     entries = load_file(TEMP_VOCAB_JSONL_PATH, file_type='jsonl')
     if not entries:
-        print("\nNo entries to process in temp_vocab_multi_cards.jsonl")
+        console.print(Panel("[yellow]No entries found in temp_vocab_multi_cards.jsonl. Operation Terminated.[/yellow]", title="Status", border_style="yellow"))
         logger.warning("No entries to process")
         return
 
+    console.print(f"[cyan]Loaded {len(entries)} Entries for Processing.[/cyan]")
     append_to_log(entries)
+
+    # Process entries with progress tracking
     valid_entries, invalid_entries = process_entries(entries)
     
-    print(f"\nProcessed {len(entries)} entries: {len(valid_entries)} valid, {len(invalid_entries)} invalid")
+    # Display processing summary
+    console.print(Panel(
+        f"Processed [bold]{len(entries)}[/bold] Entries:\n"
+        f"[green]✓ {len(valid_entries)} Valid[/green]\n"
+        f"[red]✗ {len(invalid_entries)} Invalid[/red]",
+        title="Processing Summary", border_style="blue"
+    ))
+
     if invalid_entries:
         logger.warning(f"Invalid entries: {invalid_entries}")
+        console.print("[yellow]Warning: Invalid entries detected. Check vocab_processing.log for details.[/yellow]")
 
     if valid_entries:
-        save_file([], TEMP_VOCAB_JSONL_PATH, file_type='json')
-        logger.info("Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.")
+        if Confirm.ask("[bold cyan]Clear temp_vocab_multi_cards.jsonl?[/bold cyan]"):
+            save_file([], TEMP_VOCAB_JSONL_PATH, file_type='json')
+            console.print("[green]✓ Input File Cleared.[/green]")
+            logger.info("Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.")
+        else:
+            console.print("[yellow]Input File Retained.[/yellow]")
     else:
+        console.print("[red]✗ Batch Processing Failed. Input File Not Cleared.[/red]")
         logger.warning("Batch processing failed. temp_vocab_multi_cards.jsonl not cleared.")
 
 if __name__ == "__main__":
