@@ -50,30 +50,30 @@ except Exception as e:
 FAVORITE_VOICES = ['Matthew']
 
 # Unchanged functions
-def load_file(file_path, file_type='jsonl'):
-    logger.info(f"Loading: {file_path}")
+def load_file(filename, file_type='jsonl'):
+    logger.info(f"Loading: {filename}")
     try:
-        with open(file_path, 'r', encoding='utf-8') as file:
+        with open(filename, 'r', encoding='utf-8') as f:
             if file_type == 'jsonl':
-                return [json.loads(line) for line in file if line.strip()]
-            return yaml.safe_load(file) or []
+                return [json.loads(line.strip()) for line in f if line.strip()]
+            return yaml.safe_load(f) or []
     except FileNotFoundError:
-        logger.warning(f"{file_path} not found. Returning default structure.")
-        return [] if file_type == 'jsonl' else {}
+        logger.warning(f"{filename} not found. Using default structure.")
+        return [] if file_type == 'jsonl' else []
     except (yaml.YAMLError, json.JSONDecodeError) as e:
-        logger.error(f"Error parsing {file_type.upper()} file {file_path}: {e}")
-        return [] if file_type == 'jsonl' else {}
+        logger.error(f"Error parsing '{filename}': {e}")
+        return [] if file_type == 'jsonl' else []
 
-def save_file(data, file_path, file_type='yaml'):
+def save_file(data, filename, file_type='yaml'):
     try:
-        with open(file_path, 'w', encoding='utf-8') as file:
+        with open(filename, 'w', encoding='utf-8') as f:
             if file_type == 'json':
-                json.dump(data, file, ensure_ascii=False, indent=2)
+                json.dump(data, f, ensure_ascii=False, indent=2)
             else:
-                yaml.safe_dump(data, file, allow_unicode=True, sort_keys=False)
-        logger.info(f"Saved data to {file_path}")
+                yaml.safe_dump(data, f, allow_unicode=True)
+        logger.info(f"Successfully saved: {filename}")
     except Exception as e:
-        logger.error(f"Error saving {file_type.upper()} file {file_path}: {e}")
+        logger.error(f"Error saving '{filename}': {e}")
         raise
 
 def append_to_log(entries):
@@ -98,8 +98,8 @@ def generate_audio(text, output_path, voice_id, use_ssml=False):
             VoiceId=voice_id,
             Engine='neural'
         )
-        with open(output_path, 'wb') as file:
-            file.write(response['AudioStream'].read())
+        with open(output_path, 'wb') as f:
+            f.write(response['AudioStream'].read())
         logger.info(f"Generated audio for '{text}' at {output_path}")
         return True
     except Exception as e:
@@ -166,7 +166,7 @@ def verify_audio_files(vocab_db):
     return missing_audio
 
 def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, missing_audio, first_word, last_word):
-    """Generate a concise high-tech summary report without fancy boxes."""
+    """Generate a concise high-tech summary report with confirmation."""
     table = Table(title="📊 Vocabulary Sync Report", style="cyan", show_lines=True)
     table.add_column("Metric", style="bold")
     table.add_column("Value", justify="right")
@@ -184,11 +184,19 @@ def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, 
             title="Missing Audio", border_style="red", expand=False
         ))
 
+    # Confirmation message
+    confirmation = []
+    confirmation.append("[green]✓ All Entries Have Audio Files[/green]" if not missing_audio else "[red]✗ Some Audio Files Missing[/red]")
+    confirmation.append("[green]✓ No Duplicates or Redundant Audio Files[/green]" if removed_count == 0 and not duplicates else "[red]✗ Duplicates Detected and Removed[/red]")
+    console.print(Panel("\n".join(confirmation), title="Confirmation", border_style="green", expand=False))
+
     report_path = os.path.join(BASE_DIR, 'data', 'reports', f"vocab_report_{time.strftime('%Y%m%d_%H%M%S')}.txt")
     with open(report_path, 'w', encoding='utf-8') as f:
         f.write(str(table))
+        f.write("\n\nConfirmation:\n")
+        f.write("\n".join([line.strip("[green]").strip("[/green]").strip("[red]").strip("[/red]") for line in confirmation]))
         if missing_audio:
-            f.write("\nMissing Audio Files:\n" + "\n".join([f"{word} ({audio_type}, index {index})" for word, audio_type, index, _ in missing_audio]))
+            f.write("\n\nMissing Audio Files:\n" + "\n".join([f"{word} ({audio_type}, index {index})" for word, audio_type, index, _ in missing_audio]))
     logger.info(f"Report saved to: {report_path}")
     console.print(f"[green]✓ Report Saved: {report_path}[/green]")
 
