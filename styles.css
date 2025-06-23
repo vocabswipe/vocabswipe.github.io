@@ -17,7 +17,7 @@ body {
 
 header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     width: 100%;
     max-width: 400px;
 }
@@ -40,7 +40,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
 }
 
 .flashcard-container {
@@ -105,17 +105,6 @@ p.english {
     color: #555;
 }
 
-p.thai {
-    font-family: 'Noto Sans Thai', sans-serif;
-    font-size: 1em;
-    margin: 5px 0;
-    color: #555;
-}
-
-p.part-of-speech {
-    font-style: italic;
-}
-
 .freq-bar {
     height: 10px;
     width: 0; /* Dynamically set by JS */
@@ -138,5 +127,3 @@ p.part-of-speech {
         height: 8px;
     }
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&display=swap');
