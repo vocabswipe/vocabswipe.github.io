@@ -15,25 +15,6 @@ body {
     overflow-x: hidden;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 10px;
-    width: 100%;
-    max-width: 400px;
-}
-
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #2c3e50;
-}
-
-.slogan {
-    font-size: 0.8em;
-    color: #7f8c8d;
-    font-style: italic;
-}
-
 .container {
     width: 100%;
     max-width: 400px;
@@ -105,12 +86,12 @@ p.english {
     color: #555;
 }
 
-.freq-bar {
-    height: 10px;
-    width: 0; /* Dynamically set by JS */
-    border-radius: 5px;
-    margin-top: 10px;
-    transition: width 0.3s ease;
+.freq {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.8em;
+    color: #777;
 }
 
 @media (max-width: 360px) {
@@ -123,7 +104,7 @@ p.english {
     p {
         font-size: 0.9em;
     }
-    .freq-bar {
-        height: 8px;
+    .freq {
+        font-size: 0.7em;
     }
 }
