@@ -114,7 +114,7 @@ def generate_audio(text, output_path, voice_id, use_ssml=False):
 
 def validate_entry(entry):
     """Validate vocabulary entry."""
-    required_fields = ['word', 'rank', 'freq', 'back_cards']
+    required_fields = ['word', 'rank', 'freq', 'part_of_speech', 'back_cards']
     if not all(field in entry for field in required_fields):
         logger.warning(f"Invalid entry - missing required fields: {entry}")
         return False
@@ -264,6 +264,7 @@ def process_entries(entries):
             'word': entry['word'],
             'rank': entry['rank'],
             'freq': entry['freq'],
+            'part_of_speech': entry['part_of_speech'],
             'back_cards': entry['back_cards'],
             'word_audio_file': [],
             'sentence_audio_file': [],
