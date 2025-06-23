@@ -14,23 +14,25 @@ document.addEventListener('DOMContentLoaded', () => {
 function loadWords() {
     fetch('data/vocab_database.yaml')
         .then(response => {
-            if (!response.ok) throw new Error('Failed to load vocab_database.yaml');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status} - Check if vocab_database.yaml exists in data/`);
+            }
             return response.text();
         })
         .then(yamlText => {
             words = jsyaml.load(yamlText) || [];
             if (!words.length) {
                 console.warn('No words found in vocab_database.yaml');
+                alert('No vocabulary data available. Please ensure vocab_database.yaml is populated.');
                 return;
             }
-            // Sort by rank ascending
-            words.sort((a, b) => a.rank - b.rank);
+            words.sort((a, b) => a.rank - b.rank); // Sort by rank ascending
             displayWord();
             preloadAudio();
         })
         .catch(error => {
-            console.error('Error loading words:', error);
-            alert('Failed to load vocabulary data.');
+            console.error('Error loading words:', error.message);
+            alert('Failed to load vocabulary data. Check the console for details.');
         });
 }
 
@@ -56,11 +58,6 @@ function setupEventListeners() {
             }, doubleTapThreshold);
         } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
             flipCard();
-            const audioFile = isFlipped ? 
-                words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || 
-                words[currentWordIndex].word_audio_file[0] : 
-                words[currentWordIndex].word_audio_file[0];
-            playAudio(audioFile);
             tapCount = 0;
         }
         lastTapTime = currentTime;
@@ -181,7 +178,11 @@ function flipCard() {
     card.classList.toggle('flipped', isFlipped);
     stopAudio();
     displayWord();
-    preloadAudio();
+    const audioFile = isFlipped ? 
+        words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || 
+        words[currentWordIndex].word_audio_file[0] : 
+        words[currentWordIndex].word_audio_file[0];
+    playAudio(audioFile);
 }
 
 function displayWord() {
@@ -194,12 +195,13 @@ function displayWord() {
     const back = document.querySelector('.back');
     const backCard = wordData.back_cards[currentBackCardIndex];
 
-    front.innerHTML = `<h2>${wordData.word}</h2>`;
+    front.innerHTML = `<h2>${wordData.word}</h2><div id="front-freq" class="freq">Freq: ${wordData.freq}</div>`;
     back.innerHTML = `
         <h2 class="english">${wordData.word}</h2>
-        <p id="back-details" class="english">${backCard.definition_en}</p>
-        <p class="english">${backCard.example_en}</p>
+        <div class="back-content">
+            <p class="definition">${backCard.definition_en}</p>
+            <p class="example">${backCard.example_en}</p>
+        </div>
+        <div id="back-freq" class="freq">Freq: ${wordData.freq}</div>
     `;
-    document.getElementById('front-freq').textContent = `Freq: ${wordData.freq}`;
-    document.getElementById('back-freq').textContent = `Freq: ${wordData.freq}`;
 }
