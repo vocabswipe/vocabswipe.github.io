@@ -11,11 +11,12 @@ from rich.panel import Panel
 from rich.table import Table
 from rich.progress import Progress, BarColumn, TextColumn, SpinnerColumn
 from rich.text import Text
+from rich.box import box  # Added to fix NameError
 
 # Initialize rich console
 console = Console()
 
-# Set up logging (same as original)
+# Set up logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -26,19 +27,19 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Define paths (same as original)
+# Define paths
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 TEMP_VOCAB_JSONL_PATH = os.path.join(BASE_DIR, 'data', 'temp', 'temp_vocab_multi_cards.jsonl')
 TEMP_VOCAB_LOG_PATH = os.path.join(BASE_DIR, 'data', 'temp', 'temp_vocab_log.yaml')
 VOCAB_DB_PATH = os.path.join(BASE_DIR, 'data', 'vocab_database.yaml')
 AUDIO_DIR = os.path.join(BASE_DIR, 'data', 'audio')
 
-# Ensure directories exist (same as original)
+# Ensure directories exist
 os.makedirs(AUDIO_DIR, exist_ok=True)
 os.makedirs(os.path.dirname(TEMP_VOCAB_JSONL_PATH), exist_ok=True)
 os.makedirs(os.path.join(BASE_DIR, 'data', 'reports'), exist_ok=True)
 
-# Initialize AWS Polly client (same as original)
+# Initialize AWS Polly client
 try:
     polly_client = boto3.client('polly', region_name='us-east-1')
     logger.info("AWS Polly client initialized successfully.")
@@ -50,7 +51,7 @@ except Exception as e:
 
 FAVORITE_VOICES = ['Matthew']
 
-# Original functions (unchanged for brevity)
+# Unchanged functions (for brevity)
 def load_file(file_path, file_type='jsonl'):
     logger.info(f"Loading: {file_path}")
     try:
@@ -207,13 +208,13 @@ def process_entries(entries):
 
     with Progress(
         SpinnerColumn(),
-        "[progress.description]{task.description}",
+        TextColumn("[cyan]{task.description}"),
         BarColumn(bar_width=20),
-        "[progress.percentage]{task.percentage:>3.0f}%",
+        TextColumn("{task.percentage:>3.0f}%"),
         console=console,
         refresh_per_second=10
     ) as progress:
-        task = progress.add_task("[cyan]Syncing Vocabulary...", total=len(entries))
+        task = progress.add_task("Syncing Vocabulary...", total=len(entries))
 
         for entry in entries:
             if not validate_entry(entry):
@@ -311,7 +312,6 @@ def process_entries(entries):
 
 def main():
     """Main function with streamlined high-tech UX."""
-    # Display startup message
     console.print(Panel(
         Text("VocabSync v2.1\nNeural-Powered Vocabulary Processor", style="bold cyan"),
         title="System Boot", border_style="blue", expand=False
