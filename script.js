@@ -199,7 +199,7 @@ function displayWord() {
     const maxFreq = words[0]?.freq || 1;
     const relFreq = (wordData.freq / maxFreq) * 100;
 
-    front.innerHTML = `<h2>${wordData.word}</h2><div id="front-freq" class="freq">${relFreq.toFixed(1)}%</div>`;
+    front.innerHTML = `<h2>${wordData.word}</h2><div id="front-rank" class="rank">Rank: ${wordData.rank}</div><div id="front-freq" class="freq">${relFreq.toFixed(1)}%</div>`;
     back.innerHTML = `
         <h2 class="english">${wordData.word}</h2>
         <div class="back-template">
@@ -207,6 +207,7 @@ function displayWord() {
                 <p id="back-definition" class="definition">${backCard.definition_en}</p>
                 <p id="back-example" class="example">${backCard.example_en}</p>
             </div>
+            <div id="back-rank" class="rank">Rank: ${wordData.rank}</div>
             <div id="back-freq" class="freq">${relFreq.toFixed(1)}%</div>
         </div>
     `;
