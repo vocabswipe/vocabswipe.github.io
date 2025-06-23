@@ -23,10 +23,7 @@ function loadWords() {
                 console.warn('No words found in vocab_database.yaml');
                 return;
             }
-            // Sort by freq (descending) for front card order
-            words.sort((a, b) => b.freq - a.freq);
             displayWord();
-            updateFrequencyBar();
             preloadAudio();
         })
         .catch(error => {
@@ -72,48 +69,42 @@ function setupEventListeners() {
     hammer.on('swipeleft', () => {
         if (words.length) {
             currentWordIndex = (currentWordIndex + 1) % words.length;
-            currentBackCardIndex = 0;
+            if (isFlipped) {
+                playAudio(words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0]);
+            } else {
+                playAudio(words[currentWordIndex].word_audio_file[0]);
+            }
             stopAudio();
             displayWord();
-            updateFrequencyBar();
-            playAudio(words[currentWordIndex].word_audio_file[0]);
+            preloadAudio();
         }
     });
     hammer.on('swiperight', () => {
         if (words.length) {
             currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
-            currentBackCardIndex = 0;
+            if (isFlipped) {
+                playAudio(words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0]);
+            } else {
+                playAudio(words[currentWordIndex].word_audio_file[0]);
+            }
             stopAudio();
             displayWord();
-            updateFrequencyBar();
-            playAudio(words[currentWordIndex].word_audio_file[0]);
+            preloadAudio();
         }
     });
     hammer.on('swipeup', () => {
         if (isFlipped && words[currentWordIndex].back_cards) {
             currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
             displayWord();
-            const audioFile = words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0];
-            playAudio(audioFile);
+            playAudio(words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0]);
         }
     });
     hammer.on('swipedown', () => {
         if (isFlipped && words[currentWordIndex].back_cards) {
             currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
             displayWord();
-            const audioFile = words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0];
-            playAudio(audioFile);
+            playAudio(words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0]);
         }
-    });
-
-    document.getElementById('letter-select').addEventListener('change', (e) => {
-        currentWordIndex = 0;
-        currentBackCardIndex = 0;
-        stopAudio();
-        audioCache.clear();
-        displayWord();
-        updateFrequencyBar();
-        preloadAudio();
     });
 }
 
@@ -206,24 +197,4 @@ function displayWord() {
         <p class="english">${backCard.example_en}</p>
         <p class="thai">${backCard.example_th}</p>
     `;
-    updateFrequencyBar();
-}
-
-function updateFrequencyBar() {
-    if (!words[currentWordIndex]) return;
-    const freq = words[currentWordIndex].freq;
-    // Load max frequency from COCA_WordFrequency.csv
-    fetch('data/COCA_WordFrequency.csv')
-        .then(response => response.text())
-        .then(csvText => {
-            const lines = csvText.trim().split('\n');
-            const maxFreq = Math.max(...lines.slice(1).map(line => parseInt(line.split(',')[2] || 0)));
-            const freqPercent = (freq / maxFreq) * 100;
-            const hue = 120 - (freqPercent * 1.2); // Red (0) to Green (120)
-            document.getElementById('front-freq-bar').style.background = `linear-gradient(to right, hsl(${hue}, 100%, 50%), hsl(120, 100%, 50%))`;
-            document.getElementById('back-freq-bar').style.background = `linear-gradient(to right, hsl(${hue}, 100%, 50%), hsl(120, 100%, 50%))`;
-            document.getElementById('front-freq-bar').style.width = `${freqPercent}%`;
-            document.getElementById('back-freq-bar').style.width = `${freqPercent}%`;
-        })
-        .catch(error => console.error('Error loading COCA_WordFrequency.csv:', error));
 }
