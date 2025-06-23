@@ -5,11 +5,21 @@ let isFlipped = false;
 let currentAudio = null;
 let audioCache = new Map();
 const MAX_CACHE_SIZE = 10;
+let audioUnlocked = false; // Flag to track if audio is unlocked by user gesture
 
 document.addEventListener('DOMContentLoaded', () => {
     loadWords();
     setupEventListeners();
 });
+
+// Unlock audio on first user interaction
+document.body.addEventListener('touchstart', unlockAudio, { once: true });
+document.body.addEventListener('click', unlockAudio, { once: true });
+
+function unlockAudio() {
+    audioUnlocked = true;
+    console.log('Audio unlocked for autoplay on mobile.');
+}
 
 function loadWords() {
     fetch('data/vocab_database.yaml')
@@ -69,11 +79,11 @@ function setupEventListeners() {
         if (words.length) {
             if (!isFlipped) {
                 currentWordIndex = (currentWordIndex + 1) % words.length;
-                playAudio(words[currentWordIndex].word_audio_file[0]);
+                playAudioAfterEvent(words[currentWordIndex].word_audio_file[0]);
             } else {
                 currentWordIndex = (currentWordIndex + 1) % words.length;
                 currentBackCardIndex = 0; // Reset to first back card when changing words
-                playAudio(words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0]);
+                playAudioAfterEvent(words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0]);
             }
             stopAudio();
             displayWord();
@@ -84,11 +94,11 @@ function setupEventListeners() {
         if (words.length) {
             if (!isFlipped) {
                 currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
-                playAudio(words[currentWordIndex].word_audio_file[0]);
+                playAudioAfterEvent(words[currentWordIndex].word_audio_file[0]);
             } else {
                 currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
                 currentBackCardIndex = 0; // Reset to first back card when changing words
-                playAudio(words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0]);
+                playAudioAfterEvent(words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0]);
             }
             stopAudio();
             displayWord();
@@ -99,14 +109,14 @@ function setupEventListeners() {
         if (isFlipped && words[currentWordIndex].back_cards) {
             currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
             displayWord();
-            playAudio(words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0]);
+            playAudioAfterEvent(words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0]);
         }
     });
     hammer.on('swipedown', () => {
         if (isFlipped && words[currentWordIndex].back_cards) {
             currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
             displayWord();
-            playAudio(words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0]);
+            playAudioAfterEvent(words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0]);
         }
     });
 }
@@ -174,6 +184,18 @@ function playAudio(audioFile) {
     }
 }
 
+function playAudioAfterEvent(audioFile) {
+    if (!audioFile) {
+        console.warn('No audio file available');
+        return;
+    }
+    if (audioUnlocked) {
+        playAudio(audioFile);
+    } else {
+        console.warn('Audio playback blocked until unlocked by user gesture.');
+    }
+}
+
 function flipCard() {
     isFlipped = !isFlipped;
     const card = document.querySelector('.flashcard');
@@ -184,7 +206,7 @@ function flipCard() {
         words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || 
         words[currentWordIndex].word_audio_file[0] : 
         words[currentWordIndex].word_audio_file[0];
-    playAudio(audioFile);
+    playAudioAfterEvent(audioFile);
 }
 
 function displayWord() {
