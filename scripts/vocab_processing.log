@@ -9578,3 +9578,100 @@ expected <block end>, but found '<block mapping start>'
 2025-06-24 03:56:02,184 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250624_035602.txt
 2025-06-24 03:56:02,185 - INFO - Saved data to D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
 2025-06-24 03:56:02,185 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
+2025-06-24 03:59:46,143 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-24 03:59:46,331 - INFO - AWS Polly client initialized successfully.
+2025-06-24 04:00:08,976 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 04:00:08,977 - ERROR - Error parsing JSONL file D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl: Extra data: line 1 column 115 (char 114)
+2025-06-24 04:00:08,981 - WARNING - No entries to process
+2025-06-24 04:08:50,447 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-24 04:08:50,643 - INFO - AWS Polly client initialized successfully.
+2025-06-24 04:08:50,653 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 04:08:50,655 - ERROR - Error parsing JSONL file D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl: Expecting ',' delimiter: line 1 column 17 (char 16)
+2025-06-24 04:08:50,656 - WARNING - No entries to process
+2025-06-24 04:17:58,271 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-24 04:17:58,453 - INFO - AWS Polly client initialized successfully.
+2025-06-24 04:17:58,463 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 04:17:58,464 - ERROR - Error parsing JSONL file D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl: Expecting ',' delimiter: line 2 column 1 (char 568)
+2025-06-24 04:17:58,465 - WARNING - No entries to process
+2025-06-24 04:22:34,740 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-24 04:22:34,929 - INFO - AWS Polly client initialized successfully.
+2025-06-24 04:22:34,940 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 04:22:34,941 - ERROR - Error parsing JSONL file D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl: Expecting ',' delimiter: line 1 column 153 (char 152)
+2025-06-24 04:22:34,942 - WARNING - No entries to process
+2025-06-24 04:27:53,631 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-24 04:27:53,816 - INFO - AWS Polly client initialized successfully.
+2025-06-24 04:27:53,826 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 04:27:53,829 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 04:27:59,910 - INFO - Saved data to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 04:27:59,910 - INFO - Appended 10 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 04:27:59,918 - INFO - Loading: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 04:28:01,930 - INFO - Generated audio for '<speak>against</speak>' at D:\vocabswipe.github.io\data\audio\against_word_0+Matthew+36a383994590c1a836800f68a08d00ba.mp3
+2025-06-24 04:28:02,596 - INFO - Generated audio for '<speak>against. She voted against the new policy at the meeting.</speak>' at D:\vocabswipe.github.io\data\audio\against_sentence_0+Matthew+0a1bcfe355d6877303f59a90ef3d471f.mp3
+2025-06-24 04:28:02,968 - INFO - Generated audio for '<speak>against. The ladder was leaning against the wall.</speak>' at D:\vocabswipe.github.io\data\audio\against_sentence_1+Matthew+23bbe6632d1c1fa941dff56e6ae43c52.mp3
+2025-06-24 04:28:03,365 - INFO - Generated audio for '<speak>against. The dark clouds stood out against the bright sky.</speak>' at D:\vocabswipe.github.io\data\audio\against_sentence_2+Matthew+976c61113072bca681f5ab30ecde48fa.mp3
+2025-06-24 04:28:03,782 - INFO - Generated audio for '<speak>against. They stocked up on food against the coming storm.</speak>' at D:\vocabswipe.github.io\data\audio\against_sentence_3+Matthew+f1558988265863ddc960b0d06603d9c0.mp3
+2025-06-24 04:28:04,156 - INFO - Generated audio for '<speak>against. The case was filed against the company for fraud.</speak>' at D:\vocabswipe.github.io\data\audio\against_sentence_4+Matthew+ebc1aec2f6606c350e322dccd927f8b8.mp3
+2025-06-24 04:28:04,490 - INFO - Generated audio for '<speak>run</speak>' at D:\vocabswipe.github.io\data\audio\run_word_0+Matthew+a53108f7543b75adbb34afc035d4cdf6.mp3
+2025-06-24 04:28:04,883 - INFO - Generated audio for '<speak>run. She runs in the park every morning.</speak>' at D:\vocabswipe.github.io\data\audio\run_sentence_0+Matthew+05e6587e777feaddb7a428f9502dcd04.mp3
+2025-06-24 04:28:05,284 - INFO - Generated audio for '<speak>run. He runs a small bakery downtown.</speak>' at D:\vocabswipe.github.io\data\audio\run_sentence_1+Matthew+fe2d579722f01a14077343311fc528a6.mp3
+2025-06-24 04:28:05,649 - INFO - Generated audio for '<speak>run. The river runs through the valley.</speak>' at D:\vocabswipe.github.io\data\audio\run_sentence_2+Matthew+d0531ed30a9488f2ae31db217ce8a702.mp3
+2025-06-24 04:28:06,030 - INFO - Generated audio for '<speak>run. They decided to run for class president.</speak>' at D:\vocabswipe.github.io\data\audio\run_sentence_3+Matthew+18c5a88e38b42e085d583205f4990b83.mp3
+2025-06-24 04:28:06,396 - INFO - Generated audio for '<speak>run. The old car still runs smoothly.</speak>' at D:\vocabswipe.github.io\data\audio\run_sentence_4+Matthew+79557dd291a898c3ccf56ac313cd70db.mp3
+2025-06-24 04:28:06,799 - INFO - Generated audio for '<speak>guy</speak>' at D:\vocabswipe.github.io\data\audio\guy_word_0+Matthew+92d06f151d61fc2d4e64dae37577d3d2.mp3
+2025-06-24 04:28:07,175 - INFO - Generated audio for '<speak>guy. That guy at the store was really helpful.</speak>' at D:\vocabswipe.github.io\data\audio\guy_sentence_0+Matthew+d5399ef3f80ba7e270901a4cba7b7732.mp3
+2025-06-24 04:28:08,791 - INFO - Generated audio for '<speak>guy. Hey, guys, let’s grab some pizza tonight.</speak>' at D:\vocabswipe.github.io\data\audio\guy_sentence_1+Matthew+b70ecb4119f5ef5e3672f09361b9d89c.mp3
+2025-06-24 04:28:09,202 - INFO - Generated audio for '<speak>guy. The delivery guy left the package at the door.</speak>' at D:\vocabswipe.github.io\data\audio\guy_sentence_2+Matthew+415cc269141d7fb272a7d66b4ebfc5b9.mp3
+2025-06-24 04:28:09,580 - INFO - Generated audio for '<speak>guy. He’s a funny guy who always makes us laugh.</speak>' at D:\vocabswipe.github.io\data\audio\guy_sentence_3+Matthew+eea80539210bb6e7961c853f63497f0e.mp3
+2025-06-24 04:28:09,959 - INFO - Generated audio for '<speak>guy. Some guy was fishing by the lake all day.</speak>' at D:\vocabswipe.github.io\data\audio\guy_sentence_4+Matthew+f0439e9568d6f72cacc7f2eaa92422c3.mp3
+2025-06-24 04:28:10,330 - INFO - Generated audio for '<speak>about. We talked about our plans for the weekend.</speak>' at D:\vocabswipe.github.io\data\audio\about_sentence_5+Matthew+46379d3c49ebf9f87816115a05db7497.mp3
+2025-06-24 04:28:10,738 - INFO - Generated audio for '<speak>about. She wandered about the garden, admiring the flowers.</speak>' at D:\vocabswipe.github.io\data\audio\about_sentence_6+Matthew+9d69171b17b95b727d51533f519ec30d.mp3
+2025-06-24 04:28:11,146 - INFO - Generated audio for '<speak>about. The meeting lasted about an hour.</speak>' at D:\vocabswipe.github.io\data\audio\about_sentence_7+Matthew+5dd1a99deda1e48bd0b8282095b33597.mp3
+2025-06-24 04:28:11,558 - INFO - Generated audio for '<speak>about. He wrote a book about climate change.</speak>' at D:\vocabswipe.github.io\data\audio\about_sentence_8+Matthew+fdd960586b138e9b2ae7c3d0eb8a58c5.mp3
+2025-06-24 04:28:11,969 - INFO - Generated audio for '<speak>about. There’s a lot of excitement about the new park.</speak>' at D:\vocabswipe.github.io\data\audio\about_sentence_9+Matthew+5d1043e8681eff1e472863319ce5eab8.mp3
+2025-06-24 04:28:12,305 - INFO - Generated audio for '<speak>case</speak>' at D:\vocabswipe.github.io\data\audio\case_word_0+Matthew+cd14c323902024e72c850aa828d634a7.mp3
+2025-06-24 04:28:12,687 - INFO - Generated audio for '<speak>case. This is a clear case of misunderstanding.</speak>' at D:\vocabswipe.github.io\data\audio\case_sentence_0+Matthew+6425be370c93f93876d3ccec18b05639.mp3
+2025-06-24 04:28:13,093 - INFO - Generated audio for '<speak>case. The lawyer won the case in court.</speak>' at D:\vocabswipe.github.io\data\audio\case_sentence_1+Matthew+1b828a695ffdf6c9ef7d2f8b4fb9c701.mp3
+2025-06-24 04:28:13,467 - INFO - Generated audio for '<speak>case. She packed her clothes in a small case.</speak>' at D:\vocabswipe.github.io\data\audio\case_sentence_2+Matthew+392f675e0bc1b9509b795cf4e1f2f948.mp3
+2025-06-24 04:28:13,835 - INFO - Generated audio for '<speak>case. The detective worked on a missing person case.</speak>' at D:\vocabswipe.github.io\data\audio\case_sentence_3+Matthew+33631881b93fc41dda755ea27ef60c99.mp3
+2025-06-24 04:28:14,219 - INFO - Generated audio for '<speak>case. In any case, we’ll meet at the café.</speak>' at D:\vocabswipe.github.io\data\audio\case_sentence_4+Matthew+a52f7c3aa1229da3035fbfd0daf4f229.mp3
+2025-06-24 04:28:14,627 - INFO - Generated audio for '<speak>question</speak>' at D:\vocabswipe.github.io\data\audio\question_word_0+Matthew+5494af1f14a8c19939968c3e9e2d4f79.mp3
+2025-06-24 04:28:15,041 - INFO - Generated audio for '<speak>question. She asked a question about the homework.</speak>' at D:\vocabswipe.github.io\data\audio\question_sentence_0+Matthew+67d20825369131f4f2d013bd4c722e09.mp3
+2025-06-24 04:28:15,448 - INFO - Generated audio for '<speak>question. The question of funding was debated at the meeting.</speak>' at D:\vocabswipe.github.io\data\audio\question_sentence_1+Matthew+36de7aa2857e7955d4a32144e6664f31.mp3
+2025-06-24 04:28:15,822 - INFO - Generated audio for '<speak>question. There’s no question that she’s the best candidate.</speak>' at D:\vocabswipe.github.io\data\audio\question_sentence_2+Matthew+7ae49d26b1ff9d751a96ffdd2b109d23.mp3
+2025-06-24 04:28:16,210 - INFO - Generated audio for '<speak>question. The math question stumped the whole class.</speak>' at D:\vocabswipe.github.io\data\audio\question_sentence_3+Matthew+31738470ade6425b0d73c339f275fec7.mp3
+2025-06-24 04:28:16,590 - INFO - Generated audio for '<speak>question. The reporter raised a question during the press conference.</speak>' at D:\vocabswipe.github.io\data\audio\question_sentence_4+Matthew+cd0f0b35e8af1d681a4d784d981862c9.mp3
+2025-06-24 04:28:16,993 - INFO - Generated audio for '<speak>work. She found work as a graphic designer.</speak>' at D:\vocabswipe.github.io\data\audio\work_sentence_5+Matthew+7150edb1a919586747019acc390f8a9b.mp3
+2025-06-24 04:28:17,366 - INFO - Generated audio for '<speak>work. The garden required a lot of work to maintain.</speak>' at D:\vocabswipe.github.io\data\audio\work_sentence_6+Matthew+a96a652f5f97c17f88f3ffb48b05f80f.mp3
+2025-06-24 04:28:17,803 - INFO - Generated audio for '<speak>work. His latest work is a bestselling novel.</speak>' at D:\vocabswipe.github.io\data\audio\work_sentence_7+Matthew+6bc84e404b01eb046bb1c7038cad9a1d.mp3
+2025-06-24 04:28:18,213 - INFO - Generated audio for '<speak>work. We finished the group work before the deadline.</speak>' at D:\vocabswipe.github.io\data\audio\work_sentence_8+Matthew+174c253e6a218810a3e79c7187b91f79.mp3
+2025-06-24 04:28:18,622 - INFO - Generated audio for '<speak>work. He leaves for work at seven every morning.</speak>' at D:\vocabswipe.github.io\data\audio\work_sentence_9+Matthew+655fabb1fb4c664ebe39387869b6f118.mp3
+2025-06-24 04:28:19,030 - INFO - Generated audio for '<speak>night</speak>' at D:\vocabswipe.github.io\data\audio\night_word_0+Matthew+93a04b066fd81a1017825f2dcda313b2.mp3
+2025-06-24 04:28:19,544 - INFO - Generated audio for '<speak>night. The stars were bright in the night sky.</speak>' at D:\vocabswipe.github.io\data\audio\night_sentence_0+Matthew+ffa7917396f3f3c3230453a36aa3aea3.mp3
+2025-06-24 04:28:19,957 - INFO - Generated audio for '<speak>night. We had a fun game night with friends.</speak>' at D:\vocabswipe.github.io\data\audio\night_sentence_1+Matthew+6777d9c368591f979b5916e77762f11e.mp3
+2025-06-24 04:28:20,324 - INFO - Generated audio for '<speak>night. She stayed up all night studying for the exam.</speak>' at D:\vocabswipe.github.io\data\audio\night_sentence_2+Matthew+b358ee6ab38469efac6ff64d15b06ae3.mp3
+2025-06-24 04:28:20,691 - INFO - Generated audio for '<speak>night. The concert was held on Friday night.</speak>' at D:\vocabswipe.github.io\data\audio\night_sentence_3+Matthew+35f9369865ebba75ff7e413489406d03.mp3
+2025-06-24 04:28:21,080 - INFO - Generated audio for '<speak>night. The forest seemed eerie at night.</speak>' at D:\vocabswipe.github.io\data\audio\night_sentence_4+Matthew+c825c0b19fcd64368426c45eb376e9ad.mp3
+2025-06-24 04:28:21,421 - INFO - Generated audio for '<speak>live</speak>' at D:\vocabswipe.github.io\data\audio\live_word_0+Matthew+d0dbe915091d400bd8ee7f27f0791303.mp3
+2025-06-24 04:28:21,796 - INFO - Generated audio for '<speak>live. They live in a small house by the lake.</speak>' at D:\vocabswipe.github.io\data\audio\live_sentence_0+Matthew+e297f6b6d1a1e832d5b621a00ceb6d40.mp3
+2025-06-24 04:28:22,206 - INFO - Generated audio for '<speak>live. The old tree has lived for over a century.</speak>' at D:\vocabswipe.github.io\data\audio\live_sentence_1+Matthew+e57eb6682b57e0daca574db77e8d2791.mp3
+2025-06-24 04:28:22,584 - INFO - Generated audio for '<speak>live. She lives a quiet life in the countryside.</speak>' at D:\vocabswipe.github.io\data\audio\live_sentence_2+Matthew+530e6817dd749bae3721fdbae4f14494.mp3
+2025-06-24 04:28:22,955 - INFO - Generated audio for '<speak>live. The band will play live on TV tonight.</speak>' at D:\vocabswipe.github.io\data\audio\live_sentence_3+Matthew+8c6f70cc27be8e76649dcf6ff536ff44.mp3
+2025-06-24 04:28:23,342 - INFO - Generated audio for '<speak>live. He loves to live adventurously, always traveling.</speak>' at D:\vocabswipe.github.io\data\audio\live_sentence_4+Matthew+b428a7058565f8d108281dbe67822cec.mp3
+2025-06-24 04:28:23,741 - INFO - Generated audio for '<speak>game</speak>' at D:\vocabswipe.github.io\data\audio\game_word_0+Matthew+c8d46d341bea4fd5bff866a65ff8aea9.mp3
+2025-06-24 04:28:24,152 - INFO - Generated audio for '<speak>game. The kids played a game of soccer in the park.</speak>' at D:\vocabswipe.github.io\data\audio\game_sentence_0+Matthew+836c08225509643f77e560756b496951.mp3
+2025-06-24 04:28:24,562 - INFO - Generated audio for '<speak>game. Chess is a game that requires strategy.</speak>' at D:\vocabswipe.github.io\data\audio\game_sentence_1+Matthew+0de9a1aea21067981b38612b1097d44b.mp3
+2025-06-24 04:28:24,972 - INFO - Generated audio for '<speak>game. The basketball game went into overtime.</speak>' at D:\vocabswipe.github.io\data\audio\game_sentence_2+Matthew+de917096861b720c04764917c4e5862d.mp3
+2025-06-24 04:28:25,347 - INFO - Generated audio for '<speak>game. He was up to his usual games at the party.</speak>' at D:\vocabswipe.github.io\data\audio\game_sentence_3+Matthew+a5fef870e4f187a43edf0a275fedf72e.mp3
+2025-06-24 04:28:25,780 - INFO - Generated audio for '<speak>game. She spent hours playing a new game on her phone.</speak>' at D:\vocabswipe.github.io\data\audio\game_sentence_4+Matthew+f3d34a89f14943c73a4c662a52fdebe2.mp3
+2025-06-24 04:28:26,302 - INFO - Saved data to D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 04:32:52,996 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-24 04:32:53,188 - INFO - AWS Polly client initialized successfully.
+2025-06-24 04:32:53,194 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 04:32:53,196 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 04:32:59,210 - INFO - Saved data to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 04:32:59,210 - INFO - Appended 10 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 04:32:59,219 - INFO - Loading: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 04:33:00,407 - INFO - Saved data to D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 04:33:00,410 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250624_043300.txt
+2025-06-24 04:33:00,413 - INFO - Saved data to D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 04:33:00,414 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.

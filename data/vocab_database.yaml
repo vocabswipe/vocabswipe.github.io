@@ -1405,6 +1405,16 @@
     example_en: They walked about the park.
   - definition_en: Used to indicate approximation.
     example_en: It costs about ten dollars.
+  - definition_en: Concerning or related to something.
+    example_en: We talked about our plans for the weekend.
+  - definition_en: Indicating movement within an area.
+    example_en: She wandered about the garden, admiring the flowers.
+  - definition_en: Approximately or nearly.
+    example_en: The meeting lasted about an hour.
+  - definition_en: Indicating a topic or subject.
+    example_en: He wrote a book about climate change.
+  - definition_en: In the vicinity or surroundings.
+    example_en: There’s a lot of excitement about the new park.
   word_audio_file:
   - about_word_0+Matthew+46b3931b9959c927df4fc65fdee94b07.mp3
   sentence_audio_file:
@@ -1413,6 +1423,11 @@
   - about_sentence_2+Matthew+b858a338d6fb56cbd81d0942748b6902.mp3
   - about_sentence_3+Matthew+eb25b7e116f31e220bfd8b0890ab4002.mp3
   - about_sentence_4+Matthew+488ae4b97d7e021a241bb704afd6189d.mp3
+  - about_sentence_5+Matthew+46379d3c49ebf9f87816115a05db7497.mp3
+  - about_sentence_6+Matthew+9d69171b17b95b727d51533f519ec30d.mp3
+  - about_sentence_7+Matthew+5dd1a99deda1e48bd0b8282095b33597.mp3
+  - about_sentence_8+Matthew+fdd960586b138e9b2ae7c3d0eb8a58c5.mp3
+  - about_sentence_9+Matthew+5d1043e8681eff1e472863319ce5eab8.mp3
   voice_id: Matthew
 - word: their
   rank: 46
@@ -3055,6 +3070,16 @@
     example_en: The team’s work paid off.
   - definition_en: Refers to a product of effort.
     example_en: Her work is on display.
+  - definition_en: A job or employment.
+    example_en: She found work as a graphic designer.
+  - definition_en: Effort or activity to achieve something.
+    example_en: The garden required a lot of work to maintain.
+  - definition_en: A product of creative effort.
+    example_en: His latest work is a bestselling novel.
+  - definition_en: A task or project.
+    example_en: We finished the group work before the deadline.
+  - definition_en: A place of employment.
+    example_en: He leaves for work at seven every morning.
   word_audio_file:
   - work_word_0+Matthew+67e92c8765a9bc7fb2d335c459de9eb5.mp3
   sentence_audio_file:
@@ -3063,6 +3088,11 @@
   - work_sentence_2+Matthew+54907a7d2427f35dba7de4afbbd91a8c.mp3
   - work_sentence_3+Matthew+ba4609f287b16b2e8e4866c6f415c7ab.mp3
   - work_sentence_4+Matthew+4b0053272b05f47c27874b34028f7d6c.mp3
+  - work_sentence_5+Matthew+7150edb1a919586747019acc390f8a9b.mp3
+  - work_sentence_6+Matthew+a96a652f5f97c17f88f3ffb48b05f80f.mp3
+  - work_sentence_7+Matthew+6bc84e404b01eb046bb1c7038cad9a1d.mp3
+  - work_sentence_8+Matthew+174c253e6a218810a3e79c7187b91f79.mp3
+  - work_sentence_9+Matthew+655fabb1fb4c664ebe39387869b6f118.mp3
   voice_id: Matthew
 - word: life
   rank: 116
@@ -4839,4 +4869,196 @@
   - such_sentence_2+Matthew+18a4d0bb21fcc2850bafc110307e4b45.mp3
   - such_sentence_3+Matthew+3a30324bd70b86cababa1a1f6acb0bf5.mp3
   - such_sentence_4+Matthew+1cb99c516ec23e9d8f66b1cb3faa7394.mp3
+  voice_id: Matthew
+- word: against
+  rank: 201
+  freq: 467705
+  part_of_speech: preposition
+  back_cards:
+  - definition_en: In opposition to something.
+    example_en: She voted against the new policy at the meeting.
+  - definition_en: In contact with or touching.
+    example_en: The ladder was leaning against the wall.
+  - definition_en: In contrast to something.
+    example_en: The dark clouds stood out against the bright sky.
+  - definition_en: In preparation for something.
+    example_en: They stocked up on food against the coming storm.
+  - definition_en: In a legal or competitive context.
+    example_en: The case was filed against the company for fraud.
+  word_audio_file:
+  - against_word_0+Matthew+36a383994590c1a836800f68a08d00ba.mp3
+  sentence_audio_file:
+  - against_sentence_0+Matthew+0a1bcfe355d6877303f59a90ef3d471f.mp3
+  - against_sentence_1+Matthew+23bbe6632d1c1fa941dff56e6ae43c52.mp3
+  - against_sentence_2+Matthew+976c61113072bca681f5ab30ecde48fa.mp3
+  - against_sentence_3+Matthew+f1558988265863ddc960b0d06603d9c0.mp3
+  - against_sentence_4+Matthew+ebc1aec2f6606c350e322dccd927f8b8.mp3
+  voice_id: Matthew
+- word: run
+  rank: 202
+  freq: 465066
+  part_of_speech: verb
+  back_cards:
+  - definition_en: To move quickly on foot.
+    example_en: She runs in the park every morning.
+  - definition_en: To manage or operate something.
+    example_en: He runs a small bakery downtown.
+  - definition_en: To flow or move like a liquid.
+    example_en: The river runs through the valley.
+  - definition_en: To compete in a race or election.
+    example_en: They decided to run for class president.
+  - definition_en: To function or operate.
+    example_en: The old car still runs smoothly.
+  word_audio_file:
+  - run_word_0+Matthew+a53108f7543b75adbb34afc035d4cdf6.mp3
+  sentence_audio_file:
+  - run_sentence_0+Matthew+05e6587e777feaddb7a428f9502dcd04.mp3
+  - run_sentence_1+Matthew+fe2d579722f01a14077343311fc528a6.mp3
+  - run_sentence_2+Matthew+d0531ed30a9488f2ae31db217ce8a702.mp3
+  - run_sentence_3+Matthew+18c5a88e38b42e085d583205f4990b83.mp3
+  - run_sentence_4+Matthew+79557dd291a898c3ccf56ac313cd70db.mp3
+  voice_id: Matthew
+- word: guy
+  rank: 203
+  freq: 464082
+  part_of_speech: noun
+  back_cards:
+  - definition_en: An informal term for a man.
+    example_en: That guy at the store was really helpful.
+  - definition_en: Used to refer to a person in a casual way.
+    example_en: Hey, guys, let’s grab some pizza tonight.
+  - definition_en: A person in a specific role or context.
+    example_en: The delivery guy left the package at the door.
+  - definition_en: Used to describe someone with certain traits.
+    example_en: He’s a funny guy who always makes us laugh.
+  - definition_en: A term for someone in a story or situation.
+    example_en: Some guy was fishing by the lake all day.
+  word_audio_file:
+  - guy_word_0+Matthew+92d06f151d61fc2d4e64dae37577d3d2.mp3
+  sentence_audio_file:
+  - guy_sentence_0+Matthew+d5399ef3f80ba7e270901a4cba7b7732.mp3
+  - guy_sentence_1+Matthew+b70ecb4119f5ef5e3672f09361b9d89c.mp3
+  - guy_sentence_2+Matthew+415cc269141d7fb272a7d66b4ebfc5b9.mp3
+  - guy_sentence_3+Matthew+eea80539210bb6e7961c853f63497f0e.mp3
+  - guy_sentence_4+Matthew+f0439e9568d6f72cacc7f2eaa92422c3.mp3
+  voice_id: Matthew
+- word: case
+  rank: 205
+  freq: 458383
+  part_of_speech: noun
+  back_cards:
+  - definition_en: An instance or example of something.
+    example_en: This is a clear case of misunderstanding.
+  - definition_en: A legal matter or lawsuit.
+    example_en: The lawyer won the case in court.
+  - definition_en: A container for holding items.
+    example_en: She packed her clothes in a small case.
+  - definition_en: A situation requiring investigation.
+    example_en: The detective worked on a missing person case.
+  - definition_en: A set of circumstances or conditions.
+    example_en: In any case, we’ll meet at the café.
+  word_audio_file:
+  - case_word_0+Matthew+cd14c323902024e72c850aa828d634a7.mp3
+  sentence_audio_file:
+  - case_sentence_0+Matthew+6425be370c93f93876d3ccec18b05639.mp3
+  - case_sentence_1+Matthew+1b828a695ffdf6c9ef7d2f8b4fb9c701.mp3
+  - case_sentence_2+Matthew+392f675e0bc1b9509b795cf4e1f2f948.mp3
+  - case_sentence_3+Matthew+33631881b93fc41dda755ea27ef60c99.mp3
+  - case_sentence_4+Matthew+a52f7c3aa1229da3035fbfd0daf4f229.mp3
+  voice_id: Matthew
+- word: question
+  rank: 206
+  freq: 457301
+  part_of_speech: noun
+  back_cards:
+  - definition_en: A sentence seeking information.
+    example_en: She asked a question about the homework.
+  - definition_en: A topic or issue under discussion.
+    example_en: The question of funding was debated at the meeting.
+  - definition_en: A doubt or uncertainty.
+    example_en: There’s no question that she’s the best candidate.
+  - definition_en: A problem or challenge.
+    example_en: The math question stumped the whole class.
+  - definition_en: An inquiry in a formal setting.
+    example_en: The reporter raised a question during the press conference.
+  word_audio_file:
+  - question_word_0+Matthew+5494af1f14a8c19939968c3e9e2d4f79.mp3
+  sentence_audio_file:
+  - question_sentence_0+Matthew+67d20825369131f4f2d013bd4c722e09.mp3
+  - question_sentence_1+Matthew+36de7aa2857e7955d4a32144e6664f31.mp3
+  - question_sentence_2+Matthew+7ae49d26b1ff9d751a96ffdd2b109d23.mp3
+  - question_sentence_3+Matthew+31738470ade6425b0d73c339f275fec7.mp3
+  - question_sentence_4+Matthew+cd0f0b35e8af1d681a4d784d981862c9.mp3
+  voice_id: Matthew
+- word: night
+  rank: 208
+  freq: 452094
+  part_of_speech: noun
+  back_cards:
+  - definition_en: The time period after sunset.
+    example_en: The stars were bright in the night sky.
+  - definition_en: An evening spent socially.
+    example_en: We had a fun game night with friends.
+  - definition_en: A time of rest or sleep.
+    example_en: She stayed up all night studying for the exam.
+  - definition_en: A specific evening event.
+    example_en: The concert was held on Friday night.
+  - definition_en: A metaphor for darkness or mystery.
+    example_en: The forest seemed eerie at night.
+  word_audio_file:
+  - night_word_0+Matthew+93a04b066fd81a1017825f2dcda313b2.mp3
+  sentence_audio_file:
+  - night_sentence_0+Matthew+ffa7917396f3f3c3230453a36aa3aea3.mp3
+  - night_sentence_1+Matthew+6777d9c368591f979b5916e77762f11e.mp3
+  - night_sentence_2+Matthew+b358ee6ab38469efac6ff64d15b06ae3.mp3
+  - night_sentence_3+Matthew+35f9369865ebba75ff7e413489406d03.mp3
+  - night_sentence_4+Matthew+c825c0b19fcd64368426c45eb376e9ad.mp3
+  voice_id: Matthew
+- word: live
+  rank: 209
+  freq: 450380
+  part_of_speech: verb
+  back_cards:
+  - definition_en: To reside or dwell somewhere.
+    example_en: They live in a small house by the lake.
+  - definition_en: To be alive or exist.
+    example_en: The old tree has lived for over a century.
+  - definition_en: To experience or lead a lifestyle.
+    example_en: She lives a quiet life in the countryside.
+  - definition_en: To perform or broadcast in real-time.
+    example_en: The band will play live on TV tonight.
+  - definition_en: To thrive or enjoy life.
+    example_en: He loves to live adventurously, always traveling.
+  word_audio_file:
+  - live_word_0+Matthew+d0dbe915091d400bd8ee7f27f0791303.mp3
+  sentence_audio_file:
+  - live_sentence_0+Matthew+e297f6b6d1a1e832d5b621a00ceb6d40.mp3
+  - live_sentence_1+Matthew+e57eb6682b57e0daca574db77e8d2791.mp3
+  - live_sentence_2+Matthew+530e6817dd749bae3721fdbae4f14494.mp3
+  - live_sentence_3+Matthew+8c6f70cc27be8e76649dcf6ff536ff44.mp3
+  - live_sentence_4+Matthew+b428a7058565f8d108281dbe67822cec.mp3
+  voice_id: Matthew
+- word: game
+  rank: 210
+  freq: 445149
+  part_of_speech: noun
+  back_cards:
+  - definition_en: A competitive activity with rules.
+    example_en: The kids played a game of soccer in the park.
+  - definition_en: A form of entertainment or sport.
+    example_en: Chess is a game that requires strategy.
+  - definition_en: A single match or event.
+    example_en: The basketball game went into overtime.
+  - definition_en: A playful or mischievous act.
+    example_en: He was up to his usual games at the party.
+  - definition_en: A video or digital activity.
+    example_en: She spent hours playing a new game on her phone.
+  word_audio_file:
+  - game_word_0+Matthew+c8d46d341bea4fd5bff866a65ff8aea9.mp3
+  sentence_audio_file:
+  - game_sentence_0+Matthew+836c08225509643f77e560756b496951.mp3
+  - game_sentence_1+Matthew+0de9a1aea21067981b38612b1097d44b.mp3
+  - game_sentence_2+Matthew+de917096861b720c04764917c4e5862d.mp3
+  - game_sentence_3+Matthew+a5fef870e4f187a43edf0a275fedf72e.mp3
+  - game_sentence_4+Matthew+f3d34a89f14943c73a4c662a52fdebe2.mp3
   voice_id: Matthew
