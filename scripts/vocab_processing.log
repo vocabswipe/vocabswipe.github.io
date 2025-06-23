@@ -8001,3 +8001,79 @@ expected <block end>, but found '<block mapping start>'
 2025-06-23 22:08:24,869 - __main__ - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250623_220824.txt
 2025-06-23 22:08:24,876 - __main__ - INFO - Saved data to D:\vocabswipe.github.io\data\temp\temp_vocab.json
 2025-06-23 22:08:24,876 - __main__ - INFO - Batch processed successfully. temp_vocab.json cleared.
+2025-06-24 01:15:52,778 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-24 01:15:53,204 - __main__ - INFO - AWS Polly client initialized successfully.
+2025-06-24 01:15:53,206 - __main__ - INFO - Attempting to load: D:\vocabswipe.github.io\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 01:15:53,206 - __main__ - WARNING - D:\vocabswipe.github.io\temp\temp_vocab_multi_cards.jsonl does not exist. Creating default structure.
+2025-06-24 01:15:53,206 - __main__ - WARNING - No entries to process in temp_vocab_multi_cards.jsonl
+2025-06-24 01:18:01,662 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-24 01:18:01,854 - __main__ - INFO - AWS Polly client initialized successfully.
+2025-06-24 01:18:01,855 - __main__ - INFO - Attempting to load: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 01:18:01,855 - __main__ - INFO - Attempting to load: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 01:18:07,249 - __main__ - INFO - Saved data to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 01:18:07,249 - __main__ - INFO - Appended 10 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 01:18:07,256 - __main__ - INFO - Attempting to load: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 01:18:08,858 - __main__ - INFO - Generated audio for '<speak>the</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\the_word_0+Matthew+8fc42c6ddf9966db3b09e84365034357.mp3
+2025-06-24 01:18:09,268 - __main__ - INFO - Generated audio for '<speak>the. The dog is in the yard.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\the_sentence_0+Matthew+8da77ac9b0c04368bc78ae9cc8cf6283.mp3
+2025-06-24 01:18:09,627 - __main__ - INFO - Generated audio for '<speak>the. She read the book quietly.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\the_sentence_1+Matthew+2895ab092881a4b9b2002e1b9e61be5a.mp3
+2025-06-24 01:18:09,995 - __main__ - INFO - Generated audio for '<speak>the. The teacher is kind.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\the_sentence_2+Matthew+5789ed72d3fe46f09bbefaad9ec98410.mp3
+2025-06-24 01:18:10,511 - __main__ - INFO - Generated audio for '<speak>the. We visited the park today.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\the_sentence_3+Matthew+ed55d31970225eba2528a158c8e419ca.mp3
+2025-06-24 01:18:10,863 - __main__ - INFO - Generated audio for '<speak>the. The movie was exciting.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\the_sentence_4+Matthew+16afdf344aedb37547585ac816d12f77.mp3
+2025-06-24 01:18:11,213 - __main__ - INFO - Generated audio for '<speak>be</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\be_word_0+Matthew+910955a907e739b81ec8855763108a29.mp3
+2025-06-24 01:18:11,623 - __main__ - INFO - Generated audio for '<speak>be. I want to be a doctor.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\be_sentence_0+Matthew+e298d3bd9825867a8adde17f3742f1bf.mp3
+2025-06-24 01:18:11,982 - __main__ - INFO - Generated audio for '<speak>be. They will be here soon.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\be_sentence_1+Matthew+c6b0f0ed1880d71d100a6e10fbcd17a6.mp3
+2025-06-24 01:18:12,442 - __main__ - INFO - Generated audio for '<speak>be. He is my best friend.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\be_sentence_2+Matthew+2d8f7166988792de31df34937a539be8.mp3
+2025-06-24 01:18:12,800 - __main__ - INFO - Generated audio for '<speak>be. We can be happy together.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\be_sentence_3+Matthew+4cd4c7f7bb42977263b7faf0a4420e57.mp3
+2025-06-24 01:18:13,157 - __main__ - INFO - Generated audio for '<speak>be. She was late yesterday.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\be_sentence_4+Matthew+7b896e22e9a9ef01c500025ae877c403.mp3
+2025-06-24 01:18:13,494 - __main__ - INFO - Generated audio for '<speak>and</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\and_word_0+Matthew+be5d5d37542d75f93a87094459f76678.mp3
+2025-06-24 01:18:13,869 - __main__ - INFO - Generated audio for '<speak>and. I like coffee and tea.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\and_sentence_0+Matthew+6862f9658ca6ff620c9e43765ffe0317.mp3
+2025-06-24 01:18:14,237 - __main__ - INFO - Generated audio for '<speak>and. He runs and jumps daily.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\and_sentence_1+Matthew+a115c5c94c37522d189bc44c80486a17.mp3
+2025-06-24 01:18:14,596 - __main__ - INFO - Generated audio for '<speak>and. We need bread and butter.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\and_sentence_2+Matthew+b9a9988476fc6ae2f43ff63fab7ded77.mp3
+2025-06-24 01:18:14,961 - __main__ - INFO - Generated audio for '<speak>and. She sings and dances well.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\and_sentence_3+Matthew+05df8a59eef012a3dd96964db4813733.mp3
+2025-06-24 01:18:15,321 - __main__ - INFO - Generated audio for '<speak>and. The cat and dog play.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\and_sentence_4+Matthew+12b08be0504549efbec4cdcc1fc8fc9c.mp3
+2025-06-24 01:18:15,820 - __main__ - INFO - Generated audio for '<speak>a</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\a_word_0+Matthew+0cc175b9c0f1b6a831c399e269772661.mp3
+2025-06-24 01:18:16,231 - __main__ - INFO - Generated audio for '<speak>a. She has a new phone.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\a_sentence_0+Matthew+5af20df8aa05f30535724d96817e501e.mp3
+2025-06-24 01:18:16,641 - __main__ - INFO - Generated audio for '<speak>a. I saw a bird outside.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\a_sentence_1+Matthew+73d8d96ce260b7e3c6bf380b8e56706d.mp3
+2025-06-24 01:18:17,049 - __main__ - INFO - Generated audio for '<speak>a. He bought a car yesterday.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\a_sentence_2+Matthew+b5c63c737768210f4756c3ac63c3a7f6.mp3
+2025-06-24 01:18:17,463 - __main__ - INFO - Generated audio for '<speak>a. There is a park nearby.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\a_sentence_3+Matthew+5849ab57331e37e32243f41f45f02839.mp3
+2025-06-24 01:18:17,832 - __main__ - INFO - Generated audio for '<speak>a. She wrote a letter today.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\a_sentence_4+Matthew+30c3e9cf2dacd56f6233874b77e9791b.mp3
+2025-06-24 01:18:18,177 - __main__ - INFO - Generated audio for '<speak>of</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\of_word_0+Matthew+8bf8854bebe108183caeb845c7676ae4.mp3
+2025-06-24 01:18:18,586 - __main__ - INFO - Generated audio for '<speak>of. This is a book of poems.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\of_sentence_0+Matthew+9a35d48cb1f66113c96c7e4eb4788cd6.mp3
+2025-06-24 01:18:18,997 - __main__ - INFO - Generated audio for '<speak>of. He is a friend of mine.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\of_sentence_1+Matthew+da7404be4a07012a1bd7c94d519ebe45.mp3
+2025-06-24 01:18:19,437 - __main__ - INFO - Generated audio for '<speak>of. This is a photo of the family.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\of_sentence_2+Matthew+43014c6e91b77aa414c4d75b3ab36536.mp3
+2025-06-24 01:18:19,817 - __main__ - INFO - Generated audio for '<speak>of. The color of the sky is blue.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\of_sentence_3+Matthew+ef5f7b6315614d34caeea5ecc7bca711.mp3
+2025-06-24 01:18:20,224 - __main__ - INFO - Generated audio for '<speak>of. She is the queen of dance.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\of_sentence_4+Matthew+5ffb419734f97b47f7c3c21aa1f1e67a.mp3
+2025-06-24 01:18:20,640 - __main__ - INFO - Generated audio for '<speak>to</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\to_word_0+Matthew+01b6e20344b68835c5ed1ddedf20d531.mp3
+2025-06-24 01:18:21,047 - __main__ - INFO - Generated audio for '<speak>to. I go to school every day.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\to_sentence_0+Matthew+49a85b2d606b9afcea526cbf5a176529.mp3
+2025-06-24 01:18:21,407 - __main__ - INFO - Generated audio for '<speak>to. She gave a gift to him.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\to_sentence_1+Matthew+9f2e302000de4901ca3f02065541781a.mp3
+2025-06-24 01:18:21,763 - __main__ - INFO - Generated audio for '<speak>to. We walk to the store.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\to_sentence_2+Matthew+281a662cc555455873d7839377b00e78.mp3
+2025-06-24 01:18:22,128 - __main__ - INFO - Generated audio for '<speak>to. He listens to music at night.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\to_sentence_3+Matthew+1c6e0887fcab467058057e1ea62fdf97.mp3
+2025-06-24 01:18:22,495 - __main__ - INFO - Generated audio for '<speak>to. They travel to America soon.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\to_sentence_4+Matthew+de0a562f8828bb51f51c3c45f0b05ffb.mp3
+2025-06-24 01:18:22,826 - __main__ - INFO - Generated audio for '<speak>in</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\in_word_0+Matthew+13b5bfe96f3e2fe411c9f66f4a582adf.mp3
+2025-06-24 01:18:23,186 - __main__ - INFO - Generated audio for '<speak>in. The cat is in the box.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\in_sentence_0+Matthew+1673dd34f44d1fb9e97ec687c77e69d4.mp3
+2025-06-24 01:18:23,617 - __main__ - INFO - Generated audio for '<speak>in. I live in a small town.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\in_sentence_1+Matthew+9858a3f160324da70392c96843df5735.mp3
+2025-06-24 01:18:23,980 - __main__ - INFO - Generated audio for '<speak>in. She works in an office.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\in_sentence_2+Matthew+f730609ae6e83f4f707842ce831cec65.mp3
+2025-06-24 01:18:24,353 - __main__ - INFO - Generated audio for '<speak>in. The book is in my bag.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\in_sentence_3+Matthew+ca9d6f78b2657b5d855ab49a37147f88.mp3
+2025-06-24 01:18:24,711 - __main__ - INFO - Generated audio for '<speak>in. We play in the park.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\in_sentence_4+Matthew+ff1553c2ae5a117f76d408a6b704e6ec.mp3
+2025-06-24 01:18:25,041 - __main__ - INFO - Generated audio for '<speak>i</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\i_word_0+Matthew+865c0c0b4ab0e063e5caa3387c1a8741.mp3
+2025-06-24 01:18:25,396 - __main__ - INFO - Generated audio for '<speak>i. I like to read books.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\i_sentence_0+Matthew+aa4f8b7f57bb35c981e675c156f7cddc.mp3
+2025-06-24 01:18:25,754 - __main__ - INFO - Generated audio for '<speak>i. I am a student here.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\i_sentence_1+Matthew+ae3a8fb8a91cd9d84988a18beb6b73b6.mp3
+2025-06-24 01:18:26,096 - __main__ - INFO - Generated audio for '<speak>i. I eat rice every day.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\i_sentence_2+Matthew+92ccbb3d0b5cd78c8232a5086b054d7b.mp3
+2025-06-24 01:18:26,438 - __main__ - INFO - Generated audio for '<speak>i. I want to learn English.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\i_sentence_3+Matthew+042be9f58b05aecb8f03ceddb5631113.mp3
+2025-06-24 01:18:26,783 - __main__ - INFO - Generated audio for '<speak>i. I see the sun rise.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\i_sentence_4+Matthew+f96f220d93f706ab82bc594606289bc2.mp3
+2025-06-24 01:18:27,186 - __main__ - INFO - Generated audio for '<speak>you</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\you_word_0+Matthew+639bae9ac6b3e1a84cebb7b403297b79.mp3
+2025-06-24 01:18:27,540 - __main__ - INFO - Generated audio for '<speak>you. You are my friend.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\you_sentence_0+Matthew+0dd8317b29f61833b204ca225927bda5.mp3
+2025-06-24 01:18:27,904 - __main__ - INFO - Generated audio for '<speak>you. I help you every day.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\you_sentence_1+Matthew+5ee931984a12af4562e4fdc42659988e.mp3
+2025-06-24 01:18:28,255 - __main__ - INFO - Generated audio for '<speak>you. You can do it well.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\you_sentence_2+Matthew+ee14ac0a179903d2aeecdc023834e622.mp3
+2025-06-24 01:18:28,609 - __main__ - INFO - Generated audio for '<speak>you. I see you at school.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\you_sentence_3+Matthew+2d8043ba8f84e8e357731277ceee3cfe.mp3
+2025-06-24 01:18:28,961 - __main__ - INFO - Generated audio for '<speak>you. You like this song.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\you_sentence_4+Matthew+5dbcb7203f771798b774b07206d5d15e.mp3
+2025-06-24 01:18:29,339 - __main__ - INFO - Generated audio for '<speak>it</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\it_word_0+Matthew+0d149b90e7394297301c90191ae775f0.mp3
+2025-06-24 01:18:29,748 - __main__ - INFO - Generated audio for '<speak>it. It is a sunny day.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\it_sentence_0+Matthew+6e8393a4604adde019bf2cb8c8d00bcd.mp3
+2025-06-24 01:18:30,157 - __main__ - INFO - Generated audio for '<speak>it. I like it very much.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\it_sentence_1+Matthew+219e3759aa84117b674e546f1cbafb99.mp3
+2025-06-24 01:18:30,567 - __main__ - INFO - Generated audio for '<speak>it. It rains a lot here.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\it_sentence_2+Matthew+55fa21ef2d3e513ef8010f4e8f3df53e.mp3
+2025-06-24 01:18:30,924 - __main__ - INFO - Generated audio for '<speak>it. It feels cold outside.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\it_sentence_3+Matthew+8ffb4d432efc4a46dcf04bdf3df090fe.mp3
+2025-06-24 01:18:31,284 - __main__ - INFO - Generated audio for '<speak>it. It is time to go.</speak>' with voice Matthew at D:\vocabswipe.github.io\data\audio\it_sentence_4+Matthew+c1784b93bc1bc98f6996a7fac0cf7ecf.mp3
+2025-06-24 01:18:31,312 - __main__ - INFO - Saved data to D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 01:18:31,313 - __main__ - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250624_011831.txt
+2025-06-24 01:18:31,314 - __main__ - INFO - Saved data to D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 01:18:31,314 - __main__ - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
