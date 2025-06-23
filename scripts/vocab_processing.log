@@ -8984,3 +8984,597 @@ expected <block end>, but found '<block mapping start>'
 2025-06-24 03:39:00,015 - __main__ - WARNING - Invalid entries: [{'word': 'day', 'rank': 96, '': 1068902, 'part_of_speech': 'noun', 'back_cards': [{'definition_en': 'A 24-hour period.', 'example_en': 'It’s a sunny day outside.'}, {'definition_en': 'Refers to a specific time.', 'example_en': 'That day was unforgettable.'}, {'definition_en': 'Indicates a work period.', 'example_en': 'I had a long day at work.'}, {'definition_en': 'A period of time.', 'example_en': 'Back in my day, things were different.'}, {'definition_en': 'Refers to daylight hours.', 'example_en': 'The day is warm and bright.'}]}]
 2025-06-24 03:39:00,016 - __main__ - INFO - Saved data to D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
 2025-06-24 03:39:00,016 - __main__ - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
+2025-06-24 03:52:16,460 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-24 03:52:16,652 - INFO - AWS Polly client initialized successfully.
+2025-06-24 03:52:16,653 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 03:52:16,655 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 03:52:22,610 - INFO - Saved data to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 03:52:22,610 - INFO - Appended 100 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 03:52:22,619 - INFO - Loading: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 03:52:24,710 - INFO - Generated audio for '<speak>one. I need one more apple for the recipe.</speak>' at D:\vocabswipe.github.io\data\audio\one_sentence_5+Matthew+e4719028d6fd4453faa58808eae385ff.mp3
+2025-06-24 03:52:25,060 - INFO - Generated audio for '<speak>one. This is the one I was talking about.</speak>' at D:\vocabswipe.github.io\data\audio\one_sentence_6+Matthew+c74efb8f107371c2ac71c7cc144f1ce0.mp3
+2025-06-24 03:52:25,404 - INFO - Generated audio for '<speak>one. One should always be polite.</speak>' at D:\vocabswipe.github.io\data\audio\one_sentence_7+Matthew+3074e632bbe3d5ad3a57cf9538548d4f.mp3
+2025-06-24 03:52:25,752 - INFO - Generated audio for '<speak>one. She ate one slice of pizza.</speak>' at D:\vocabswipe.github.io\data\audio\one_sentence_8+Matthew+d905743d58bd3cda48bd5865b17b923b.mp3
+2025-06-24 03:52:26,100 - INFO - Generated audio for '<speak>one. He’s the one who won the race.</speak>' at D:\vocabswipe.github.io\data\audio\one_sentence_9+Matthew+8f5e9bfc184eba1ff1eb406519c561aa.mp3
+2025-06-24 03:52:26,419 - INFO - Generated audio for '<speak>us</speak>' at D:\vocabswipe.github.io\data\audio\us_word_0+Matthew+0b3b97fa66886c5688ee4ae80ec0c3c2.mp3
+2025-06-24 03:52:26,766 - INFO - Generated audio for '<speak>us. She invited us to the party.</speak>' at D:\vocabswipe.github.io\data\audio\us_sentence_0+Matthew+4fe359889946194bd81e9a86dde38d30.mp3
+2025-06-24 03:52:27,120 - INFO - Generated audio for '<speak>us. The teacher gave us homework.</speak>' at D:\vocabswipe.github.io\data\audio\us_sentence_1+Matthew+18271d346450ae17a07042d1a506d1fe.mp3
+2025-06-24 03:52:27,465 - INFO - Generated audio for '<speak>us. They saw us at the park.</speak>' at D:\vocabswipe.github.io\data\audio\us_sentence_2+Matthew+4537248b3674186aab8c0139ea307c0c.mp3
+2025-06-24 03:52:27,815 - INFO - Generated audio for '<speak>us. The coach motivated us to win.</speak>' at D:\vocabswipe.github.io\data\audio\us_sentence_3+Matthew+c5151fd170a55f3e1eb4d2ef3fe73f83.mp3
+2025-06-24 03:52:28,194 - INFO - Generated audio for '<speak>us. He sent us a thank-you note.</speak>' at D:\vocabswipe.github.io\data\audio\us_sentence_4+Matthew+da4610bbae545fddd518db5d6d4ee870.mp3
+2025-06-24 03:52:28,511 - INFO - Generated audio for '<speak>any</speak>' at D:\vocabswipe.github.io\data\audio\any_word_0+Matthew+100b8cad7cf2a56f6df78f171f97a1ec.mp3
+2025-06-24 03:52:28,901 - INFO - Generated audio for '<speak>any. Do you have any questions?</speak>' at D:\vocabswipe.github.io\data\audio\any_sentence_0+Matthew+da68127a6ca7f6cb9830a607ad5fd286.mp3
+2025-06-24 03:52:29,250 - INFO - Generated audio for '<speak>any. I don’t have any money left.</speak>' at D:\vocabswipe.github.io\data\audio\any_sentence_1+Matthew+ddbf67f8859ae6c831da9737f3a69b04.mp3
+2025-06-24 03:52:29,627 - INFO - Generated audio for '<speak>any. Take any book from the shelf.</speak>' at D:\vocabswipe.github.io\data\audio\any_sentence_2+Matthew+3337583f8dd317b796a68c5a98ddcd30.mp3
+2025-06-24 03:52:29,976 - INFO - Generated audio for '<speak>any. Any student can join the club.</speak>' at D:\vocabswipe.github.io\data\audio\any_sentence_3+Matthew+913f9727a1ed3afca7a0421c1a4ab512.mp3
+2025-06-24 03:52:30,325 - INFO - Generated audio for '<speak>any. Is there any coffee left?</speak>' at D:\vocabswipe.github.io\data\audio\any_sentence_4+Matthew+88ed02778849c9c380367f7e8f1ff195.mp3
+2025-06-24 03:52:30,652 - INFO - Generated audio for '<speak>those</speak>' at D:\vocabswipe.github.io\data\audio\those_word_0+Matthew+43a0a1e8212cd9140a5c1fa1ef5a5bac.mp3
+2025-06-24 03:52:31,001 - INFO - Generated audio for '<speak>those. Those books belong to the library.</speak>' at D:\vocabswipe.github.io\data\audio\those_sentence_0+Matthew+8c394936beddfdb3ddedde0061ac5343.mp3
+2025-06-24 03:52:31,370 - INFO - Generated audio for '<speak>those. Those stars are bright tonight.</speak>' at D:\vocabswipe.github.io\data\audio\those_sentence_1+Matthew+f00365bb0301d2a5a234ab553e8f66fe.mp3
+2025-06-24 03:52:31,880 - INFO - Generated audio for '<speak>those. Those cookies look delicious.</speak>' at D:\vocabswipe.github.io\data\audio\those_sentence_2+Matthew+f0e04d77991d6bf60bd97d6a812278ac.mp3
+2025-06-24 03:52:32,239 - INFO - Generated audio for '<speak>those. Those ideas were really creative.</speak>' at D:\vocabswipe.github.io\data\audio\those_sentence_3+Matthew+437df57a161aeb6aec855fd6f22e33b8.mp3
+2025-06-24 03:52:32,585 - INFO - Generated audio for '<speak>those. Those trees need trimming.</speak>' at D:\vocabswipe.github.io\data\audio\those_sentence_4+Matthew+4c06aeb2cbc65c08e8322fda3709acce.mp3
+2025-06-24 03:52:32,904 - INFO - Generated audio for '<speak>very</speak>' at D:\vocabswipe.github.io\data\audio\very_word_0+Matthew+f016441d00c16c9b912d05e9d81d894d.mp3
+2025-06-24 03:52:33,252 - INFO - Generated audio for '<speak>very. The soup is very hot.</speak>' at D:\vocabswipe.github.io\data\audio\very_sentence_0+Matthew+b0b9b7d1d0ebd2cddde960a56f8d7572.mp3
+2025-06-24 03:52:33,606 - INFO - Generated audio for '<speak>very. She’s very good at singing.</speak>' at D:\vocabswipe.github.io\data\audio\very_sentence_1+Matthew+83ac998f7302a0e6d2ba4ac88c858d48.mp3
+2025-06-24 03:52:33,960 - INFO - Generated audio for '<speak>very. It’s very cold outside today.</speak>' at D:\vocabswipe.github.io\data\audio\very_sentence_2+Matthew+6b2845612159046a6d3679190a2e33fb.mp3
+2025-06-24 03:52:34,312 - INFO - Generated audio for '<speak>very. He was very tired after work.</speak>' at D:\vocabswipe.github.io\data\audio\very_sentence_3+Matthew+1d2a5461431310076f84be20da59e2e3.mp3
+2025-06-24 03:52:34,658 - INFO - Generated audio for '<speak>very. This book is very interesting.</speak>' at D:\vocabswipe.github.io\data\audio\very_sentence_4+Matthew+28d62ce193d22674629f0623138f9d09.mp3
+2025-06-24 03:52:35,005 - INFO - Generated audio for '<speak>her. I gave her a new scarf.</speak>' at D:\vocabswipe.github.io\data\audio\her_sentence_5+Matthew+45a23bb81c69ace487c911d3af404a13.mp3
+2025-06-24 03:52:35,380 - INFO - Generated audio for '<speak>her. Her phone is on the table.</speak>' at D:\vocabswipe.github.io\data\audio\her_sentence_6+Matthew+ab62af9b36465f229f6e0897001ad32c.mp3
+2025-06-24 03:52:35,736 - INFO - Generated audio for '<speak>her. He saw her at the market.</speak>' at D:\vocabswipe.github.io\data\audio\her_sentence_7+Matthew+7e5f170f45e29a70ef775f3be6ee6dcf.mp3
+2025-06-24 03:52:36,181 - INFO - Generated audio for '<speak>her. The cat followed her home.</speak>' at D:\vocabswipe.github.io\data\audio\her_sentence_8+Matthew+778ea698cb14c2e61a2440a239962b0e.mp3
+2025-06-24 03:52:36,538 - INFO - Generated audio for '<speak>her. Her laptop needs charging.</speak>' at D:\vocabswipe.github.io\data\audio\her_sentence_9+Matthew+65399b8744a968c2d29e125fe2852849.mp3
+2025-06-24 03:52:37,214 - INFO - Generated audio for '<speak>need</speak>' at D:\vocabswipe.github.io\data\audio\need_word_0+Matthew+e877c56e4fb621e81fd30dbd114a545b.mp3
+2025-06-24 03:52:37,582 - INFO - Generated audio for '<speak>need. I need water after running.</speak>' at D:\vocabswipe.github.io\data\audio\need_sentence_0+Matthew+e25735cbd867bb353bb51b7d42630467.mp3
+2025-06-24 03:52:37,932 - INFO - Generated audio for '<speak>need. We need to finish this project.</speak>' at D:\vocabswipe.github.io\data\audio\need_sentence_1+Matthew+b29c860999e41c5d9ab3d43d88866902.mp3
+2025-06-24 03:52:38,281 - INFO - Generated audio for '<speak>need. She needs a new coat for winter.</speak>' at D:\vocabswipe.github.io\data\audio\need_sentence_2+Matthew+04605d661087a075e1c70f98cff47301.mp3
+2025-06-24 03:52:38,638 - INFO - Generated audio for '<speak>need. You need to call your mom.</speak>' at D:\vocabswipe.github.io\data\audio\need_sentence_3+Matthew+98f2ee41df9ed890d3d76f964e7d5bc1.mp3
+2025-06-24 03:52:38,985 - INFO - Generated audio for '<speak>need. They need help with homework.</speak>' at D:\vocabswipe.github.io\data\audio\need_sentence_4+Matthew+ac8cb9d653ac54c74c174125ba404193.mp3
+2025-06-24 03:52:39,357 - INFO - Generated audio for '<speak>back</speak>' at D:\vocabswipe.github.io\data\audio\back_word_0+Matthew+469bba0a564235dfceede42db14f17b0.mp3
+2025-06-24 03:52:39,705 - INFO - Generated audio for '<speak>back. I’ll be back in ten minutes.</speak>' at D:\vocabswipe.github.io\data\audio\back_sentence_0+Matthew+9653e1d3991e502bad68fb30bdbe8159.mp3
+2025-06-24 03:52:40,072 - INFO - Generated audio for '<speak>back. She stepped back from the edge.</speak>' at D:\vocabswipe.github.io\data\audio\back_sentence_1+Matthew+002034600ba017ea2f892522f06478e5.mp3
+2025-06-24 03:52:40,416 - INFO - Generated audio for '<speak>back. Think back to last summer.</speak>' at D:\vocabswipe.github.io\data\audio\back_sentence_2+Matthew+117ec3c550e8d0ed0fd8b0905814f192.mp3
+2025-06-24 03:52:40,789 - INFO - Generated audio for '<speak>back. The team backed him up.</speak>' at D:\vocabswipe.github.io\data\audio\back_sentence_3+Matthew+8775d016d3dacdd7a61093ebf4da8e59.mp3
+2025-06-24 03:52:41,133 - INFO - Generated audio for '<speak>back. He’s back to work now.</speak>' at D:\vocabswipe.github.io\data\audio\back_sentence_4+Matthew+fc3b5bbe842b91c53b6dbf615fa35225.mp3
+2025-06-24 03:52:41,477 - INFO - Generated audio for '<speak>there. The keys are over there.</speak>' at D:\vocabswipe.github.io\data\audio\there_sentence_5+Matthew+acb853e63e6a4d0c222441981f80de4a.mp3
+2025-06-24 03:52:41,819 - INFO - Generated audio for '<speak>there. There’s a dog in the yard.</speak>' at D:\vocabswipe.github.io\data\audio\there_sentence_6+Matthew+5c4ef214cf23695b9c962addc7e0ae12.mp3
+2025-06-24 03:52:42,166 - INFO - Generated audio for '<speak>there. Put the bag there, please.</speak>' at D:\vocabswipe.github.io\data\audio\there_sentence_7+Matthew+059d7f145d2a7c75a7031c35de4bea7f.mp3
+2025-06-24 03:52:42,530 - INFO - Generated audio for '<speak>there. There was a delay at work.</speak>' at D:\vocabswipe.github.io\data\audio\there_sentence_8+Matthew+e88e8ccb9ea838497687e8db1ae71de1.mp3
+2025-06-24 03:52:42,880 - INFO - Generated audio for '<speak>there. There you go, all done!</speak>' at D:\vocabswipe.github.io\data\audio\there_sentence_9+Matthew+c92468c5f0ce2f804ba3b03ca39b438a.mp3
+2025-06-24 03:52:43,200 - INFO - Generated audio for '<speak>should</speak>' at D:\vocabswipe.github.io\data\audio\should_word_0+Matthew+55f195813a158d82e2934cfac569575d.mp3
+2025-06-24 03:52:43,546 - INFO - Generated audio for '<speak>should. You should study for the test.</speak>' at D:\vocabswipe.github.io\data\audio\should_sentence_0+Matthew+e6da0d11ce2159d26b2ca2eb91cd56a7.mp3
+2025-06-24 03:52:43,893 - INFO - Generated audio for '<speak>should. He should arrive by noon.</speak>' at D:\vocabswipe.github.io\data\audio\should_sentence_1+Matthew+03741102ad6b7a72adc99518946cd9ba.mp3
+2025-06-24 03:52:44,238 - INFO - Generated audio for '<speak>should. We should try that new café.</speak>' at D:\vocabswipe.github.io\data\audio\should_sentence_2+Matthew+df8b3464009af81653f4242285eee3f8.mp3
+2025-06-24 03:52:44,584 - INFO - Generated audio for '<speak>should. I should call if I’m late.</speak>' at D:\vocabswipe.github.io\data\audio\should_sentence_3+Matthew+6926719b05d7432de938179e8670e803.mp3
+2025-06-24 03:52:44,929 - INFO - Generated audio for '<speak>should. She should help her team.</speak>' at D:\vocabswipe.github.io\data\audio\should_sentence_4+Matthew+ca88b3c400c57b8b8b6a0f11643eb6d3.mp3
+2025-06-24 03:52:45,248 - INFO - Generated audio for '<speak>even</speak>' at D:\vocabswipe.github.io\data\audio\even_word_0+Matthew+cc935c5faf4c8f7a0468d7552a9b8138.mp3
+2025-06-24 03:52:46,684 - INFO - Generated audio for '<speak>even. Even the kids understood it.</speak>' at D:\vocabswipe.github.io\data\audio\even_sentence_0+Matthew+6f3af2c1747c2182d7ec29457158f0db.mp3
+2025-06-24 03:52:47,035 - INFO - Generated audio for '<speak>even. She shared the candy even with strangers.</speak>' at D:\vocabswipe.github.io\data\audio\even_sentence_1+Matthew+e828607dbacbd6d2f21d732c83bf9359.mp3
+2025-06-24 03:52:47,386 - INFO - Generated audio for '<speak>even. It’s cold, even in summer.</speak>' at D:\vocabswipe.github.io\data\audio\even_sentence_2+Matthew+0f92a913aafec40132db30bcd05395ff.mp3
+2025-06-24 03:52:47,730 - INFO - Generated audio for '<speak>even. Even he joined the dance.</speak>' at D:\vocabswipe.github.io\data\audio\even_sentence_3+Matthew+b35f362b1dd4888951cab295332a6554.mp3
+2025-06-24 03:52:48,083 - INFO - Generated audio for '<speak>even. This is even better than before.</speak>' at D:\vocabswipe.github.io\data\audio\even_sentence_4+Matthew+05959e643f87f296ddbbbeac1fabe431.mp3
+2025-06-24 03:52:48,470 - INFO - Generated audio for '<speak>only</speak>' at D:\vocabswipe.github.io\data\audio\only_word_0+Matthew+6299ba2cbd9661a5e3872b715521cd6a.mp3
+2025-06-24 03:52:48,819 - INFO - Generated audio for '<speak>only. I have only one ticket.</speak>' at D:\vocabswipe.github.io\data\audio\only_sentence_0+Matthew+b4fbabd98852d7e939f015bc530a26cf.mp3
+2025-06-24 03:52:49,179 - INFO - Generated audio for '<speak>only. She only works part-time.</speak>' at D:\vocabswipe.github.io\data\audio\only_sentence_1+Matthew+b4673afb350197f28c89dc596f7abfbc.mp3
+2025-06-24 03:52:49,850 - INFO - Generated audio for '<speak>only. This is the only way out.</speak>' at D:\vocabswipe.github.io\data\audio\only_sentence_2+Matthew+829e7ef1b1c3f311be5cc51ab1f96873.mp3
+2025-06-24 03:52:50,199 - INFO - Generated audio for '<speak>only. He only wants chocolate.</speak>' at D:\vocabswipe.github.io\data\audio\only_sentence_3+Matthew+91fc0e1879c5c08d70adeeff4388e205.mp3
+2025-06-24 03:52:50,546 - INFO - Generated audio for '<speak>only. Only you can decide.</speak>' at D:\vocabswipe.github.io\data\audio\only_sentence_4+Matthew+6a821cdddf618c3d5b825d7c1a2b0303.mp3
+2025-06-24 03:52:50,926 - INFO - Generated audio for '<speak>many</speak>' at D:\vocabswipe.github.io\data\audio\many_word_0+Matthew+8cd283d8b7bacc277f2bae5e26ce6d1e.mp3
+2025-06-24 03:52:51,277 - INFO - Generated audio for '<speak>many. Many people attended the event.</speak>' at D:\vocabswipe.github.io\data\audio\many_sentence_0+Matthew+ae0ad9bea6887631cca66dc1edf1c7e5.mp3
+2025-06-24 03:52:51,624 - INFO - Generated audio for '<speak>many. She has many books.</speak>' at D:\vocabswipe.github.io\data\audio\many_sentence_1+Matthew+8b5135b387368bb0ef98b7889aba9b5d.mp3
+2025-06-24 03:52:51,970 - INFO - Generated audio for '<speak>many. There are many stars tonight.</speak>' at D:\vocabswipe.github.io\data\audio\many_sentence_2+Matthew+25b1ecae2af350e00d3d71a25e949209.mp3
+2025-06-24 03:52:52,335 - INFO - Generated audio for '<speak>many. Many students passed the exam.</speak>' at D:\vocabswipe.github.io\data\audio\many_sentence_3+Matthew+91d4a6c3ebcad7d36be233f88f4fa500.mp3
+2025-06-24 03:52:52,687 - INFO - Generated audio for '<speak>many. He asked many questions.</speak>' at D:\vocabswipe.github.io\data\audio\many_sentence_4+Matthew+2b0def2bc48ac59b02ecc4c9fd7a3269.mp3
+2025-06-24 03:52:53,001 - INFO - Generated audio for '<speak>really</speak>' at D:\vocabswipe.github.io\data\audio\really_word_0+Matthew+d2d92eb96ffa2135ad0471e5e520c46f.mp3
+2025-06-24 03:52:53,349 - INFO - Generated audio for '<speak>really. I really enjoyed the movie.</speak>' at D:\vocabswipe.github.io\data\audio\really_sentence_0+Matthew+5d715c00e899c5780aeac3fd3ce02ccc.mp3
+2025-06-24 03:52:53,697 - INFO - Generated audio for '<speak>really. She’s really tired after work.</speak>' at D:\vocabswipe.github.io\data\audio\really_sentence_1+Matthew+919f9e9271c7b4781f9b2c685b5146be.mp3
+2025-06-24 03:52:54,111 - INFO - Generated audio for '<speak>really. It’s really cold outside!</speak>' at D:\vocabswipe.github.io\data\audio\really_sentence_2+Matthew+496dfb7c3710393d7b117ace894a9bc0.mp3
+2025-06-24 03:52:54,512 - INFO - Generated audio for '<speak>really. He really knows his stuff.</speak>' at D:\vocabswipe.github.io\data\audio\really_sentence_3+Matthew+6af1422a7fe18fffb4028ca3bdc8b988.mp3
+2025-06-24 03:52:54,854 - INFO - Generated audio for '<speak>really. You really did that?</speak>' at D:\vocabswipe.github.io\data\audio\really_sentence_4+Matthew+0961d6df9dca57ef3edfece2de1bafa2.mp3
+2025-06-24 03:52:55,176 - INFO - Generated audio for '<speak>work</speak>' at D:\vocabswipe.github.io\data\audio\work_word_0+Matthew+67e92c8765a9bc7fb2d335c459de9eb5.mp3
+2025-06-24 03:52:55,532 - INFO - Generated audio for '<speak>work. She loves her work as a teacher.</speak>' at D:\vocabswipe.github.io\data\audio\work_sentence_0+Matthew+b7d557a3240e40872260e658853585f4.mp3
+2025-06-24 03:52:55,883 - INFO - Generated audio for '<speak>work. This project took a lot of work.</speak>' at D:\vocabswipe.github.io\data\audio\work_sentence_1+Matthew+377d438082f6758e13092ad0243b6a7e.mp3
+2025-06-24 03:52:56,251 - INFO - Generated audio for '<speak>work. He’s at work until five.</speak>' at D:\vocabswipe.github.io\data\audio\work_sentence_2+Matthew+54907a7d2427f35dba7de4afbbd91a8c.mp3
+2025-06-24 03:52:56,603 - INFO - Generated audio for '<speak>work. The team’s work paid off.</speak>' at D:\vocabswipe.github.io\data\audio\work_sentence_3+Matthew+ba4609f287b16b2e8e4866c6f415c7ab.mp3
+2025-06-24 03:52:56,955 - INFO - Generated audio for '<speak>work. Her work is on display.</speak>' at D:\vocabswipe.github.io\data\audio\work_sentence_4+Matthew+4b0053272b05f47c27874b34028f7d6c.mp3
+2025-06-24 03:52:57,278 - INFO - Generated audio for '<speak>life</speak>' at D:\vocabswipe.github.io\data\audio\life_word_0+Matthew+e155e1bb4a9c38e3baf90637ab7865df.mp3
+2025-06-24 03:52:57,624 - INFO - Generated audio for '<speak>life. Life in the city is busy.</speak>' at D:\vocabswipe.github.io\data\audio\life_sentence_0+Matthew+5777e8b1da914c6a1427cbbb14e59e78.mp3
+2025-06-24 03:52:57,977 - INFO - Generated audio for '<speak>life. Her life was full of adventure.</speak>' at D:\vocabswipe.github.io\data\audio\life_sentence_1+Matthew+35bc6672b9840c56d04870e9c8ddef69.mp3
+2025-06-24 03:52:58,594 - INFO - Generated audio for '<speak>life. He worked hard all his life.</speak>' at D:\vocabswipe.github.io\data\audio\life_sentence_2+Matthew+32526c20a1e15921e65b949ee264caaf.mp3
+2025-06-24 03:52:58,938 - INFO - Generated audio for '<speak>life. The party was full of life.</speak>' at D:\vocabswipe.github.io\data\audio\life_sentence_3+Matthew+bacb8480ab1b368d7a6a945b74caebac.mp3
+2025-06-24 03:52:59,283 - INFO - Generated audio for '<speak>life. She chose a simple life.</speak>' at D:\vocabswipe.github.io\data\audio\life_sentence_4+Matthew+e48683a4765a98eb20f805d2a8ef8bcc.mp3
+2025-06-24 03:52:59,599 - INFO - Generated audio for '<speak>why</speak>' at D:\vocabswipe.github.io\data\audio\why_word_0+Matthew+531e70a6745d07a8befbd79e5cc7e4c1.mp3
+2025-06-24 03:52:59,943 - INFO - Generated audio for '<speak>why. Why are you late today?</speak>' at D:\vocabswipe.github.io\data\audio\why_sentence_0+Matthew+7b1d0bcd95f718838531e82b2bb90d54.mp3
+2025-06-24 03:53:00,371 - INFO - Generated audio for '<speak>why. Why did you choose that?</speak>' at D:\vocabswipe.github.io\data\audio\why_sentence_1+Matthew+5a97e43b806f63c83b7e3b87bc66bc2f.mp3
+2025-06-24 03:53:00,760 - INFO - Generated audio for '<speak>why. Why is she so quiet?</speak>' at D:\vocabswipe.github.io\data\audio\why_sentence_2+Matthew+c10eea06fd80ac29cc3e0fb782352059.mp3
+2025-06-24 03:53:01,184 - INFO - Generated audio for '<speak>why. Why does the sky turn red?</speak>' at D:\vocabswipe.github.io\data\audio\why_sentence_3+Matthew+6bba0652f5137b7a951105846aa39b7e.mp3
+2025-06-24 03:53:01,613 - INFO - Generated audio for '<speak>why. Why not try something new?</speak>' at D:\vocabswipe.github.io\data\audio\why_sentence_4+Matthew+7d878b6085bb1b74ee51bbff3cbe25c0.mp3
+2025-06-24 03:53:02,025 - INFO - Generated audio for '<speak>right</speak>' at D:\vocabswipe.github.io\data\audio\right_word_0+Matthew+7c4f29407893c334a6cb7a87bf045c0d.mp3
+2025-06-24 03:53:03,334 - INFO - Generated audio for '<speak>right. You got the right answer.</speak>' at D:\vocabswipe.github.io\data\audio\right_sentence_0+Matthew+4939f82b70bf07106886a141866dea80.mp3
+2025-06-24 03:53:03,728 - INFO - Generated audio for '<speak>right. Turn right at the corner.</speak>' at D:\vocabswipe.github.io\data\audio\right_sentence_1+Matthew+125d476cf394ebb5229b4278de450114.mp3
+2025-06-24 03:53:04,086 - INFO - Generated audio for '<speak>right. It’s the right thing to do.</speak>' at D:\vocabswipe.github.io\data\audio\right_sentence_2+Matthew+90ce024352d02a67473b5ac135fcd23c.mp3
+2025-06-24 03:53:04,446 - INFO - Generated audio for '<speak>right. She’s the right person for the job.</speak>' at D:\vocabswipe.github.io\data\audio\right_sentence_3+Matthew+724291aa8a37200f7b8b7e6c5ec6c85e.mp3
+2025-06-24 03:53:04,807 - INFO - Generated audio for '<speak>right. He fought for his rights.</speak>' at D:\vocabswipe.github.io\data\audio\right_sentence_4+Matthew+2d380f4393209aed8d287903e7ac92e0.mp3
+2025-06-24 03:53:05,144 - INFO - Generated audio for '<speak>down</speak>' at D:\vocabswipe.github.io\data\audio\down_word_0+Matthew+74e8333ad11685ff3bdae589c8f6e34d.mp3
+2025-06-24 03:53:05,503 - INFO - Generated audio for '<speak>down. She walked down the stairs.</speak>' at D:\vocabswipe.github.io\data\audio\down_sentence_0+Matthew+291f6fa79af4946f5cff9b628ec63681.mp3
+2025-06-24 03:53:05,865 - INFO - Generated audio for '<speak>down. The book fell down.</speak>' at D:\vocabswipe.github.io\data\audio\down_sentence_1+Matthew+4e983430ecf9625fc1714565ab9639ca.mp3
+2025-06-24 03:53:06,236 - INFO - Generated audio for '<speak>down. Prices went down this month.</speak>' at D:\vocabswipe.github.io\data\audio\down_sentence_2+Matthew+e5e507ac5d65f527085076c2c6932327.mp3
+2025-06-24 03:53:06,592 - INFO - Generated audio for '<speak>down. Drive down the road.</speak>' at D:\vocabswipe.github.io\data\audio\down_sentence_3+Matthew+e81049449148c9cc7b41d1c70842d2c5.mp3
+2025-06-24 03:53:06,960 - INFO - Generated audio for '<speak>down. He’s feeling down today.</speak>' at D:\vocabswipe.github.io\data\audio\down_sentence_4+Matthew+812f3fdbea6edf6fe4ad68adf8678680.mp3
+2025-06-24 03:53:07,319 - INFO - Generated audio for '<speak>on. She wrote on the board.</speak>' at D:\vocabswipe.github.io\data\audio\on_sentence_10+Matthew+a50bcebee38d92ea009056ca69421014.mp3
+2025-06-24 03:53:07,713 - INFO - Generated audio for '<speak>on. We met on Monday.</speak>' at D:\vocabswipe.github.io\data\audio\on_sentence_11+Matthew+fad49a95968ac4a1221fd4245beda2a6.mp3
+2025-06-24 03:53:08,095 - INFO - Generated audio for '<speak>on. He spoke on climate change.</speak>' at D:\vocabswipe.github.io\data\audio\on_sentence_12+Matthew+72456abd72beba8d9057b619bee51548.mp3
+2025-06-24 03:53:08,452 - INFO - Generated audio for '<speak>on. Keep on working hard.</speak>' at D:\vocabswipe.github.io\data\audio\on_sentence_13+Matthew+09848fc07976fc2d73c31cd3d4ca622f.mp3
+2025-06-24 03:53:08,847 - INFO - Generated audio for '<speak>try</speak>' at D:\vocabswipe.github.io\data\audio\try_word_0+Matthew+080f651e3fcca17df3a47c2cecfcb880.mp3
+2025-06-24 03:53:09,255 - INFO - Generated audio for '<speak>try. I’ll try to call you later.</speak>' at D:\vocabswipe.github.io\data\audio\try_sentence_0+Matthew+9efeb17848b4a872f9d84179da929ee7.mp3
+2025-06-24 03:53:09,624 - INFO - Generated audio for '<speak>try. Try this new recipe.</speak>' at D:\vocabswipe.github.io\data\audio\try_sentence_1+Matthew+afc9eefbb3a054b8b77da912327d62a5.mp3
+2025-06-24 03:53:09,983 - INFO - Generated audio for '<speak>try. She tried to win the race.</speak>' at D:\vocabswipe.github.io\data\audio\try_sentence_2+Matthew+2977db120ce19873a871ff4ce8ecb72d.mp3
+2025-06-24 03:53:10,344 - INFO - Generated audio for '<speak>try. He tried to fix the leak.</speak>' at D:\vocabswipe.github.io\data\audio\try_sentence_3+Matthew+f10aa99728ff5d4b70fefa3e9b193b71.mp3
+2025-06-24 03:53:10,696 - INFO - Generated audio for '<speak>try. They tried their best.</speak>' at D:\vocabswipe.github.io\data\audio\try_sentence_4+Matthew+35f27ef2dd825c31801e3e246298a50c.mp3
+2025-06-24 03:53:11,027 - INFO - Generated audio for '<speak>let</speak>' at D:\vocabswipe.github.io\data\audio\let_word_0+Matthew+e1686078d1b60d351da5a87543a2a663.mp3
+2025-06-24 03:53:11,407 - INFO - Generated audio for '<speak>let. Let me help you with that.</speak>' at D:\vocabswipe.github.io\data\audio\let_sentence_0+Matthew+4b1940ce7e7cc398a209dfafad9f5f15.mp3
+2025-06-24 03:53:11,770 - INFO - Generated audio for '<speak>let. She let the kids play outside.</speak>' at D:\vocabswipe.github.io\data\audio\let_sentence_1+Matthew+9ea1e1261801d7c7e3ee4a162bd11d8c.mp3
+2025-06-24 03:53:12,133 - INFO - Generated audio for '<speak>let. Don’t let the food burn.</speak>' at D:\vocabswipe.github.io\data\audio\let_sentence_2+Matthew+9be0dbab735d3d4db5f28a5da012a8c1.mp3
+2025-06-24 03:53:12,515 - INFO - Generated audio for '<speak>let. Let’s go to the park.</speak>' at D:\vocabswipe.github.io\data\audio\let_sentence_3+Matthew+fc80469f809039a636c1160605662d3d.mp3
+2025-06-24 03:53:12,876 - INFO - Generated audio for '<speak>let. He let the balloon go.</speak>' at D:\vocabswipe.github.io\data\audio\let_sentence_4+Matthew+3e602e04e57712ae10a97c579e6e208f.mp3
+2025-06-24 03:53:13,249 - INFO - Generated audio for '<speak>something</speak>' at D:\vocabswipe.github.io\data\audio\something_word_0+Matthew+437b930db84b8079c2dd804a71936b5f.mp3
+2025-06-24 03:53:13,612 - INFO - Generated audio for '<speak>something. I forgot something at home.</speak>' at D:\vocabswipe.github.io\data\audio\something_sentence_0+Matthew+e8e37e02f8ce16fbdf8f07b9d84b11f5.mp3
+2025-06-24 03:53:13,974 - INFO - Generated audio for '<speak>something. She’s hiding something.</speak>' at D:\vocabswipe.github.io\data\audio\something_sentence_1+Matthew+a6a04a5bf2a5a92cc1577fff2e55b80a.mp3
+2025-06-24 03:53:14,341 - INFO - Generated audio for '<speak>something. Can you give me something to eat?</speak>' at D:\vocabswipe.github.io\data\audio\something_sentence_2+Matthew+dae3173edcbed5f310f4d18a238ab299.mp3
+2025-06-24 03:53:14,709 - INFO - Generated audio for '<speak>something. Something feels wrong here.</speak>' at D:\vocabswipe.github.io\data\audio\something_sentence_3+Matthew+1db19ad2fae85b2322581370043a9db8.mp3
+2025-06-24 03:53:15,093 - INFO - Generated audio for '<speak>something. There’s something in the box.</speak>' at D:\vocabswipe.github.io\data\audio\something_sentence_4+Matthew+18ae4f0ba99dec598e4247165aeaa698.mp3
+2025-06-24 03:53:15,502 - INFO - Generated audio for '<speak>too</speak>' at D:\vocabswipe.github.io\data\audio\too_word_0+Matthew+b403d3f0efbf4cb850d2d543758cb57c.mp3
+2025-06-24 03:53:15,867 - INFO - Generated audio for '<speak>too. This coffee is too hot.</speak>' at D:\vocabswipe.github.io\data\audio\too_sentence_0+Matthew+73d305da39891df8ceedc2b0a9ced92d.mp3
+2025-06-24 03:53:16,227 - INFO - Generated audio for '<speak>too. I’m going to the party too.</speak>' at D:\vocabswipe.github.io\data\audio\too_sentence_1+Matthew+8b8e28b77db21cf35d2bb2d383110d5f.mp3
+2025-06-24 03:53:16,589 - INFO - Generated audio for '<speak>too. It’s too cold to swim.</speak>' at D:\vocabswipe.github.io\data\audio\too_sentence_2+Matthew+5b48de14122865a2adea062a61c8e52b.mp3
+2025-06-24 03:53:16,952 - INFO - Generated audio for '<speak>too. She was tired and hungry too.</speak>' at D:\vocabswipe.github.io\data\audio\too_sentence_3+Matthew+4177d2c0c90c57a50ecde56e29300613.mp3
+2025-06-24 03:53:17,347 - INFO - Generated audio for '<speak>too. He wants to come too.</speak>' at D:\vocabswipe.github.io\data\audio\too_sentence_4+Matthew+2a533169a17487637c5ad5322b0fc378.mp3
+2025-06-24 03:53:17,676 - INFO - Generated audio for '<speak>call</speak>' at D:\vocabswipe.github.io\data\audio\call_word_0+Matthew+53b9e9679a8ea25880376080b76f98ad.mp3
+2025-06-24 03:53:18,033 - INFO - Generated audio for '<speak>call. Call me when you’re free.</speak>' at D:\vocabswipe.github.io\data\audio\call_sentence_0+Matthew+7c0a2f06708ef6726bcded53f8ddf0f4.mp3
+2025-06-24 03:53:18,394 - INFO - Generated audio for '<speak>call. They call their dog Max.</speak>' at D:\vocabswipe.github.io\data\audio\call_sentence_1+Matthew+d9cd4919ddfaf700dbfa0798967d40ed.mp3
+2025-06-24 03:53:18,747 - INFO - Generated audio for '<speak>call. She called for help.</speak>' at D:\vocabswipe.github.io\data\audio\call_sentence_2+Matthew+72d6df3e276bf85e6b60b0b3dba4cb39.mp3
+2025-06-24 03:53:19,106 - INFO - Generated audio for '<speak>call. He called it a great idea.</speak>' at D:\vocabswipe.github.io\data\audio\call_sentence_3+Matthew+b768f0465db0fba29425e61f8cc28fbf.mp3
+2025-06-24 03:53:19,497 - INFO - Generated audio for '<speak>call. I’ll call you later.</speak>' at D:\vocabswipe.github.io\data\audio\call_sentence_4+Matthew+1be3d2c724376e5a26a0b9844ec14214.mp3
+2025-06-24 03:53:19,905 - INFO - Generated audio for '<speak>woman</speak>' at D:\vocabswipe.github.io\data\audio\woman_word_0+Matthew+56609ab6ba04048adc2cbfafbe745e10.mp3
+2025-06-24 03:53:20,274 - INFO - Generated audio for '<speak>woman. The woman helped me find my way.</speak>' at D:\vocabswipe.github.io\data\audio\woman_sentence_0+Matthew+390e7f2a0f580894f711983aaae87350.mp3
+2025-06-24 03:53:20,658 - INFO - Generated audio for '<speak>woman. A woman won the award.</speak>' at D:\vocabswipe.github.io\data\audio\woman_sentence_1+Matthew+79f0be51ecdcd330a001551c1cc8e10c.mp3
+2025-06-24 03:53:21,033 - INFO - Generated audio for '<speak>woman. That woman is my teacher.</speak>' at D:\vocabswipe.github.io\data\audio\woman_sentence_2+Matthew+595835ac3471cd1dd4c4a02d1cf364a3.mp3
+2025-06-24 03:53:21,390 - INFO - Generated audio for '<speak>woman. She’s a business woman.</speak>' at D:\vocabswipe.github.io\data\audio\woman_sentence_3+Matthew+5aa09b5f134a286ca77f987425b5a37c.mp3
+2025-06-24 03:53:21,774 - INFO - Generated audio for '<speak>woman. The women gathered for the event.</speak>' at D:\vocabswipe.github.io\data\audio\woman_sentence_4+Matthew+cc5528df1f7b5936a44a95e8e9ec72d7.mp3
+2025-06-24 03:53:22,159 - INFO - Generated audio for '<speak>may</speak>' at D:\vocabswipe.github.io\data\audio\may_word_0+Matthew+9a4b6f884971dcb4a5172876b335baab.mp3
+2025-06-24 03:53:22,517 - INFO - Generated audio for '<speak>may. It may rain this afternoon.</speak>' at D:\vocabswipe.github.io\data\audio\may_sentence_0+Matthew+ce32c3b46d18611daf18d2921c3f6c7c.mp3
+2025-06-24 03:53:22,876 - INFO - Generated audio for '<speak>may. You may leave the room.</speak>' at D:\vocabswipe.github.io\data\audio\may_sentence_1+Matthew+3a1724c641e4f7484ab4fe60464c19cd.mp3
+2025-06-24 03:53:23,240 - INFO - Generated audio for '<speak>may. May you have a great day.</speak>' at D:\vocabswipe.github.io\data\audio\may_sentence_2+Matthew+b6bfda4f4d33e6362a56cf49ddf42895.mp3
+2025-06-24 03:53:23,600 - INFO - Generated audio for '<speak>may. She may come to the party.</speak>' at D:\vocabswipe.github.io\data\audio\may_sentence_3+Matthew+1339e357cb13d07e8e53b5b167236496.mp3
+2025-06-24 03:53:23,963 - INFO - Generated audio for '<speak>may. He may try again tomorrow.</speak>' at D:\vocabswipe.github.io\data\audio\may_sentence_4+Matthew+940d380abbb23274c6cd58dfab5f104e.mp3
+2025-06-24 03:53:24,311 - INFO - Generated audio for '<speak>still</speak>' at D:\vocabswipe.github.io\data\audio\still_word_0+Matthew+df55340f75b5da454e1c189d56d7f31b.mp3
+2025-06-24 03:53:24,672 - INFO - Generated audio for '<speak>still. She’s still working on it.</speak>' at D:\vocabswipe.github.io\data\audio\still_sentence_0+Matthew+c633258401239bbc48d2a0455bc4cb51.mp3
+2025-06-24 03:53:25,043 - INFO - Generated audio for '<speak>still. It’s still raining outside.</speak>' at D:\vocabswipe.github.io\data\audio\still_sentence_1+Matthew+894cc35d459b3b7750619080c2cc609e.mp3
+2025-06-24 03:53:25,405 - INFO - Generated audio for '<speak>still. He still believes in miracles.</speak>' at D:\vocabswipe.github.io\data\audio\still_sentence_2+Matthew+51309e3904d679f726df8faeca68b79f.mp3
+2025-06-24 03:53:25,769 - INFO - Generated audio for '<speak>still. The store is still open.</speak>' at D:\vocabswipe.github.io\data\audio\still_sentence_3+Matthew+4872e9023f87bd9d2c0731f1e26d6528.mp3
+2025-06-24 03:53:26,132 - INFO - Generated audio for '<speak>still. They’re still arguing.</speak>' at D:\vocabswipe.github.io\data\audio\still_sentence_4+Matthew+fe7fba174e26f73fb36406d4f211e4ae.mp3
+2025-06-24 03:53:26,464 - INFO - Generated audio for '<speak>through</speak>' at D:\vocabswipe.github.io\data\audio\through_word_0+Matthew+ca23ba209cc33678530392b7197fda4d.mp3
+2025-06-24 03:53:26,825 - INFO - Generated audio for '<speak>through. She walked through the forest.</speak>' at D:\vocabswipe.github.io\data\audio\through_sentence_0+Matthew+d7c818c69ec3959e559f5981791c724f.mp3
+2025-06-24 03:53:27,275 - INFO - Generated audio for '<speak>through. He read through the book.</speak>' at D:\vocabswipe.github.io\data\audio\through_sentence_1+Matthew+cb35d6f340c2a71fce03d4c0c62c3b06.mp3
+2025-06-24 03:53:27,641 - INFO - Generated audio for '<speak>through. We booked through an agency.</speak>' at D:\vocabswipe.github.io\data\audio\through_sentence_2+Matthew+f5e41d614d3dca57bad3b1f9f93ccdb6.mp3
+2025-06-24 03:53:28,004 - INFO - Generated audio for '<speak>through. They worked through the night.</speak>' at D:\vocabswipe.github.io\data\audio\through_sentence_3+Matthew+ec0c0e9e3754534cfe6c3fdd72bdf595.mp3
+2025-06-24 03:53:28,407 - INFO - Generated audio for '<speak>through. The river flows through the valley.</speak>' at D:\vocabswipe.github.io\data\audio\through_sentence_4+Matthew+6a1adfbe5f784d5b0809d9d2ed6b8a31.mp3
+2025-06-24 03:53:28,736 - INFO - Generated audio for '<speak>mean</speak>' at D:\vocabswipe.github.io\data\audio\mean_word_0+Matthew+b93db188572fc4d76cce5660f3823b0a.mp3
+2025-06-24 03:53:29,092 - INFO - Generated audio for '<speak>mean. What do you mean by that?</speak>' at D:\vocabswipe.github.io\data\audio\mean_sentence_0+Matthew+bb677d88b6f2ca1cf45bd05a98d74767.mp3
+2025-06-24 03:53:29,455 - INFO - Generated audio for '<speak>mean. Her smile meant she was happy.</speak>' at D:\vocabswipe.github.io\data\audio\mean_sentence_1+Matthew+f7142b50bb12029b2478aacc1d0422af.mp3
+2025-06-24 03:53:29,849 - INFO - Generated audio for '<speak>mean. I didn’t mean to upset you.</speak>' at D:\vocabswipe.github.io\data\audio\mean_sentence_2+Matthew+83242b7e15e42cd67c993dcef6f019ec.mp3
+2025-06-24 03:53:30,213 - INFO - Generated audio for '<speak>mean. This sign means stop.</speak>' at D:\vocabswipe.github.io\data\audio\mean_sentence_3+Matthew+07893a8a0ed43c2fedf3670bbcf9df17.mp3
+2025-06-24 03:53:30,572 - INFO - Generated audio for '<speak>mean. Dark clouds mean rain.</speak>' at D:\vocabswipe.github.io\data\audio\mean_sentence_4+Matthew+17f29fe26c8bb2bfc4d9a876516963f9.mp3
+2025-06-24 03:53:30,933 - INFO - Generated audio for '<speak>after</speak>' at D:\vocabswipe.github.io\data\audio\after_word_0+Matthew+632a2406bbcbcd553eec45ac14b40a0a.mp3
+2025-06-24 03:53:31,293 - INFO - Generated audio for '<speak>after. We’ll meet after lunch.</speak>' at D:\vocabswipe.github.io\data\audio\after_sentence_0+Matthew+16c2ff6e4776026c99e6f3998ff2cb7a.mp3
+2025-06-24 03:53:31,652 - INFO - Generated audio for '<speak>after. She arrived after him.</speak>' at D:\vocabswipe.github.io\data\audio\after_sentence_1+Matthew+24acdbdbd13a75dd2e5a5402c2f8dd38.mp3
+2025-06-24 03:53:32,013 - INFO - Generated audio for '<speak>after. The dog ran after the ball.</speak>' at D:\vocabswipe.github.io\data\audio\after_sentence_2+Matthew+c59269489f5a860777e0ba579a8b89e9.mp3
+2025-06-24 03:53:32,379 - INFO - Generated audio for '<speak>after. After the storm, it was calm.</speak>' at D:\vocabswipe.github.io\data\audio\after_sentence_3+Matthew+a235483498aeae083aeeacf2bfff22b4.mp3
+2025-06-24 03:53:32,742 - INFO - Generated audio for '<speak>after. Call me after five.</speak>' at D:\vocabswipe.github.io\data\audio\after_sentence_4+Matthew+38850013640ad2e6788fddc5b1dc9eb3.mp3
+2025-06-24 03:53:33,074 - INFO - Generated audio for '<speak>never</speak>' at D:\vocabswipe.github.io\data\audio\never_word_0+Matthew+c7561db7a418dd39b2201dfe110ab4a4.mp3
+2025-06-24 03:53:33,433 - INFO - Generated audio for '<speak>never. I’ve never been to Paris.</speak>' at D:\vocabswipe.github.io\data\audio\never_sentence_0+Matthew+63d884b9cd0951394492d0b7275b8e0f.mp3
+2025-06-24 03:53:33,788 - INFO - Generated audio for '<speak>never. She never forgets a name.</speak>' at D:\vocabswipe.github.io\data\audio\never_sentence_1+Matthew+daa1ebff6679bac569ae3b7b5d32e351.mp3
+2025-06-24 03:53:34,157 - INFO - Generated audio for '<speak>never. He never eats spicy food.</speak>' at D:\vocabswipe.github.io\data\audio\never_sentence_2+Matthew+a0687ffdf14065e8f7a4c849502b0859.mp3
+2025-06-24 03:53:34,515 - INFO - Generated audio for '<speak>never. They never argued before.</speak>' at D:\vocabswipe.github.io\data\audio\never_sentence_3+Matthew+007d3285802d644d03fa8bcadbe80666.mp3
+2025-06-24 03:53:34,871 - INFO - Generated audio for '<speak>never. I’ll never give up.</speak>' at D:\vocabswipe.github.io\data\audio\never_sentence_4+Matthew+7b8fc0997bb4f746bb2d399712da7a67.mp3
+2025-06-24 03:53:35,231 - INFO - Generated audio for '<speak>no. No, I won’t go.</speak>' at D:\vocabswipe.github.io\data\audio\no_sentence_5+Matthew+0964f0db1393e4ba6c0a26eb0995297d.mp3
+2025-06-24 03:53:35,589 - INFO - Generated audio for '<speak>no. There’s no water left.</speak>' at D:\vocabswipe.github.io\data\audio\no_sentence_6+Matthew+14be0ccc2cceedb1f26b1e7dfb21bbef.mp3
+2025-06-24 03:53:35,953 - INFO - Generated audio for '<speak>no. No way, that’s too risky!</speak>' at D:\vocabswipe.github.io\data\audio\no_sentence_7+Matthew+55698461622ca143baf69471092e229b.mp3
+2025-06-24 03:53:36,312 - INFO - Generated audio for '<speak>no. No, you’re wrong.</speak>' at D:\vocabswipe.github.io\data\audio\no_sentence_8+Matthew+620a23d3044dc7c946f31cf4beb46ab1.mp3
+2025-06-24 03:53:36,668 - INFO - Generated audio for '<speak>no. No smoking here.</speak>' at D:\vocabswipe.github.io\data\audio\no_sentence_9+Matthew+17dd90dfcc122ff2fc8b0048291fa2e2.mp3
+2025-06-24 03:53:36,995 - INFO - Generated audio for '<speak>world</speak>' at D:\vocabswipe.github.io\data\audio\world_word_0+Matthew+7d793037a0760186574b0282f2f435e7.mp3
+2025-06-24 03:53:37,356 - INFO - Generated audio for '<speak>world. The world is full of wonders.</speak>' at D:\vocabswipe.github.io\data\audio\world_sentence_0+Matthew+da7035987b59d39752fae9e17fbdcf54.mp3
+2025-06-24 03:53:37,721 - INFO - Generated audio for '<speak>world. She’s new to the world of art.</speak>' at D:\vocabswipe.github.io\data\audio\world_sentence_1+Matthew+16d039b1554d8052d0ec19f9794e9fbb.mp3
+2025-06-24 03:53:38,091 - INFO - Generated audio for '<speak>world. The world watched the event.</speak>' at D:\vocabswipe.github.io\data\audio\world_sentence_2+Matthew+72e81a5fc49cb1424d27ee752b1b333c.mp3
+2025-06-24 03:53:38,450 - INFO - Generated audio for '<speak>world. The world of science is vast.</speak>' at D:\vocabswipe.github.io\data\audio\world_sentence_3+Matthew+8d00a799db5329342882742a97aa5b8b.mp3
+2025-06-24 03:53:38,812 - INFO - Generated audio for '<speak>world. It’s a problem around the world.</speak>' at D:\vocabswipe.github.io\data\audio\world_sentence_4+Matthew+de74d937cbc6e323b997564b153b73e5.mp3
+2025-06-24 03:53:39,174 - INFO - Generated audio for '<speak>in. The cat is in the box.</speak>' at D:\vocabswipe.github.io\data\audio\in_sentence_10+Matthew+1673dd34f44d1fb9e97ec687c77e69d4.mp3
+2025-06-24 03:53:39,532 - INFO - Generated audio for '<speak>in. We’ll meet in an hour.</speak>' at D:\vocabswipe.github.io\data\audio\in_sentence_11+Matthew+6433820d7b27a74dd29201bab6a63b78.mp3
+2025-06-24 03:53:40,826 - INFO - Generated audio for '<speak>in. She’s in the choir.</speak>' at D:\vocabswipe.github.io\data\audio\in_sentence_12+Matthew+36a10ee6ad995b3fc43df30bc527a5f6.mp3
+2025-06-24 03:53:41,175 - INFO - Generated audio for '<speak>in. He’s in a good mood.</speak>' at D:\vocabswipe.github.io\data\audio\in_sentence_13+Matthew+2b3b384a75e4b42e27afa912a809823e.mp3
+2025-06-24 03:53:41,527 - INFO - Generated audio for '<speak>in. Sugar is in the recipe.</speak>' at D:\vocabswipe.github.io\data\audio\in_sentence_14+Matthew+919894404de173df4cb2c61d3c485c1a.mp3
+2025-06-24 03:53:41,925 - INFO - Generated audio for '<speak>feel</speak>' at D:\vocabswipe.github.io\data\audio\feel_word_0+Matthew+88698b6a4506539f5c5588da47a10171.mp3
+2025-06-24 03:53:42,272 - INFO - Generated audio for '<speak>feel. I feel happy today.</speak>' at D:\vocabswipe.github.io\data\audio\feel_sentence_0+Matthew+9470f5da1bbc1d028206550497992c72.mp3
+2025-06-24 03:53:42,619 - INFO - Generated audio for '<speak>feel. She felt the cold wind.</speak>' at D:\vocabswipe.github.io\data\audio\feel_sentence_1+Matthew+dcf3b7b5c54b8ea536854795b012d68c.mp3
+2025-06-24 03:53:42,969 - INFO - Generated audio for '<speak>feel. He feels it’s the right choice.</speak>' at D:\vocabswipe.github.io\data\audio\feel_sentence_2+Matthew+b3381f6b957fc738b52bfff4d12a9fac.mp3
+2025-06-24 03:53:43,317 - INFO - Generated audio for '<speak>feel. Feel the soft fabric.</speak>' at D:\vocabswipe.github.io\data\audio\feel_sentence_3+Matthew+2d3e94cdd3be38366bd6a691aafbf323.mp3
+2025-06-24 03:53:43,673 - INFO - Generated audio for '<speak>feel. I feel tired after work.</speak>' at D:\vocabswipe.github.io\data\audio\feel_sentence_4+Matthew+7613f1b37fec64e0a47c85f032f0f0dc.mp3
+2025-06-24 03:53:43,996 - INFO - Generated audio for '<speak>yeah</speak>' at D:\vocabswipe.github.io\data\audio\yeah_word_0+Matthew+29814d7ba6b9db8d5ab57fd57ceb9c1a.mp3
+2025-06-24 03:53:44,348 - INFO - Generated audio for '<speak>yeah. Yeah, I’ll be there.</speak>' at D:\vocabswipe.github.io\data\audio\yeah_sentence_0+Matthew+e7fdbdac959584ab3968d7b5f2554568.mp3
+2025-06-24 03:53:44,693 - INFO - Generated audio for '<speak>yeah. Yeah, that sounds good.</speak>' at D:\vocabswipe.github.io\data\audio\yeah_sentence_1+Matthew+a3fe93790df7621ccac20e4613b70e0e.mp3
+2025-06-24 03:53:45,044 - INFO - Generated audio for '<speak>yeah. Yeah, you’re right.</speak>' at D:\vocabswipe.github.io\data\audio\yeah_sentence_2+Matthew+046b9107bc19f9dbc1f27155633fa6d9.mp3
+2025-06-24 03:53:45,392 - INFO - Generated audio for '<speak>yeah. Yeah, let’s do it!</speak>' at D:\vocabswipe.github.io\data\audio\yeah_sentence_3+Matthew+f1ecf9878efd3a00081d261a1e06b934.mp3
+2025-06-24 03:53:45,743 - INFO - Generated audio for '<speak>yeah. Yeah, I get it now.</speak>' at D:\vocabswipe.github.io\data\audio\yeah_sentence_4+Matthew+ddc639bc6c7e0a9e06e0cf48dc628b03.mp3
+2025-06-24 03:53:46,068 - INFO - Generated audio for '<speak>great</speak>' at D:\vocabswipe.github.io\data\audio\great_word_0+Matthew+acaa16770db76c1ffb9cee51c3cabfcf.mp3
+2025-06-24 03:53:46,419 - INFO - Generated audio for '<speak>great. This is a great movie.</speak>' at D:\vocabswipe.github.io\data\audio\great_sentence_0+Matthew+cd3e969acedc65e847d95ac2c61225dc.mp3
+2025-06-24 03:53:46,768 - INFO - Generated audio for '<speak>great. A great tree stood in the park.</speak>' at D:\vocabswipe.github.io\data\audio\great_sentence_1+Matthew+167f3b074c19c5f6d27d560dd9efb616.mp3
+2025-06-24 03:53:47,114 - INFO - Generated audio for '<speak>great. She’s a great singer.</speak>' at D:\vocabswipe.github.io\data\audio\great_sentence_2+Matthew+b7eaaa6f5cdaaded98e5cf073f048d05.mp3
+2025-06-24 03:53:47,457 - INFO - Generated audio for '<speak>great. That’s a great idea!</speak>' at D:\vocabswipe.github.io\data\audio\great_sentence_3+Matthew+d8fb27b6ee33bf764ff076c069d07d43.mp3
+2025-06-24 03:53:47,800 - INFO - Generated audio for '<speak>great. He’s a great leader.</speak>' at D:\vocabswipe.github.io\data\audio\great_sentence_4+Matthew+e88ec08177bbb8911c644ad4418182ff.mp3
+2025-06-24 03:53:48,123 - INFO - Generated audio for '<speak>last</speak>' at D:\vocabswipe.github.io\data\audio\last_word_0+Matthew+98bd1c45684cf587ac2347a92dd7bb51.mp3
+2025-06-24 03:53:48,481 - INFO - Generated audio for '<speak>last. This is the last cookie.</speak>' at D:\vocabswipe.github.io\data\audio\last_sentence_0+Matthew+b985f734a0e11d37b0638b5cb39612f3.mp3
+2025-06-24 03:53:48,832 - INFO - Generated audio for '<speak>last. I saw her last week.</speak>' at D:\vocabswipe.github.io\data\audio\last_sentence_1+Matthew+ce62a350ebd96472a88464efb42bbf89.mp3
+2025-06-24 03:53:49,187 - INFO - Generated audio for '<speak>last. He was the last to leave.</speak>' at D:\vocabswipe.github.io\data\audio\last_sentence_2+Matthew+330891fae3cad3490970c85ed445d743.mp3
+2025-06-24 03:53:49,538 - INFO - Generated audio for '<speak>last. Last summer was hot.</speak>' at D:\vocabswipe.github.io\data\audio\last_sentence_3+Matthew+7af72ec5aaaaa9d08d87da6c6ebaa191.mp3
+2025-06-24 03:53:49,909 - INFO - Generated audio for '<speak>last. The movie lasts two hours.</speak>' at D:\vocabswipe.github.io\data\audio\last_sentence_4+Matthew+c7adb147cd0cf84d59703af7b838dbb1.mp3
+2025-06-24 03:53:50,228 - INFO - Generated audio for '<speak>child</speak>' at D:\vocabswipe.github.io\data\audio\child_word_0+Matthew+1b7d5726533ab525a8760351e9b5e415.mp3
+2025-06-24 03:53:50,574 - INFO - Generated audio for '<speak>child. The child played in the park.</speak>' at D:\vocabswipe.github.io\data\audio\child_sentence_0+Matthew+7df83b99b4dc6af925acd6be6016949d.mp3
+2025-06-24 03:53:50,928 - INFO - Generated audio for '<speak>child. She’s my youngest child.</speak>' at D:\vocabswipe.github.io\data\audio\child_sentence_1+Matthew+ddaab0506b1b2603edb5cfc4a8c49929.mp3
+2025-06-24 03:53:51,279 - INFO - Generated audio for '<speak>child. A child drew this picture.</speak>' at D:\vocabswipe.github.io\data\audio\child_sentence_2+Matthew+fa571a004c82ca8082914fc2d72dad45.mp3
+2025-06-24 03:53:51,626 - INFO - Generated audio for '<speak>child. He’s a child at heart.</speak>' at D:\vocabswipe.github.io\data\audio\child_sentence_3+Matthew+e1bc8322543533bd9b181aa97058f3ce.mp3
+2025-06-24 03:53:51,979 - INFO - Generated audio for '<speak>child. The child needs supervision.</speak>' at D:\vocabswipe.github.io\data\audio\child_sentence_4+Matthew+1cfd28c315b55261898e695f44339658.mp3
+2025-06-24 03:53:52,300 - INFO - Generated audio for '<speak>oh</speak>' at D:\vocabswipe.github.io\data\audio\oh_word_0+Matthew+c7218260ef2b966ab0454e07c55cf4e9.mp3
+2025-06-24 03:53:52,646 - INFO - Generated audio for '<speak>oh. Oh, you scared me!</speak>' at D:\vocabswipe.github.io\data\audio\oh_sentence_0+Matthew+2b07262592f4a41f12c8878c483327e0.mp3
+2025-06-24 03:53:52,994 - INFO - Generated audio for '<speak>oh. Oh, I forgot my keys.</speak>' at D:\vocabswipe.github.io\data\audio\oh_sentence_1+Matthew+d3c925b3a84b0a294d0e561f02e2f396.mp3
+2025-06-24 03:53:53,631 - INFO - Generated audio for '<speak>oh. Oh, that’s amazing!</speak>' at D:\vocabswipe.github.io\data\audio\oh_sentence_2+Matthew+4d721cb2b436bc8afd31a49a849de1f4.mp3
+2025-06-24 03:53:53,988 - INFO - Generated audio for '<speak>oh. Oh, it’s raining again.</speak>' at D:\vocabswipe.github.io\data\audio\oh_sentence_3+Matthew+98ad2a10b973a2289d467c7676b3e647.mp3
+2025-06-24 03:53:54,334 - INFO - Generated audio for '<speak>oh. Oh, now I see.</speak>' at D:\vocabswipe.github.io\data\audio\oh_sentence_4+Matthew+b6469625c1be0e6ea052325471cb2a38.mp3
+2025-06-24 03:53:54,652 - INFO - Generated audio for '<speak>over</speak>' at D:\vocabswipe.github.io\data\audio\over_word_0+Matthew+3b759a9ca80234563d87672350659b2b.mp3
+2025-06-24 03:53:54,999 - INFO - Generated audio for '<speak>over. The plane flew over the city.</speak>' at D:\vocabswipe.github.io\data\audio\over_sentence_0+Matthew+824f14b645dceb6f0898c9ac1b81398f.mp3
+2025-06-24 03:53:55,350 - INFO - Generated audio for '<speak>over. She jumped over the fence.</speak>' at D:\vocabswipe.github.io\data\audio\over_sentence_1+Matthew+31df4ad77037e9fcd2fa79f107b1fa48.mp3
+2025-06-24 03:53:55,695 - INFO - Generated audio for '<speak>over. The game is over now.</speak>' at D:\vocabswipe.github.io\data\audio\over_sentence_2+Matthew+4ad00b0e3ca91c1ebeede5d348325043.mp3
+2025-06-24 03:53:56,045 - INFO - Generated audio for '<speak>over. He’s over his budget.</speak>' at D:\vocabswipe.github.io\data\audio\over_sentence_3+Matthew+dd805df2d0333a42c90921734344df2a.mp3
+2025-06-24 03:53:56,396 - INFO - Generated audio for '<speak>over. They argued over money.</speak>' at D:\vocabswipe.github.io\data\audio\over_sentence_4+Matthew+31ab320131b2a65085f69979247fc78f.mp3
+2025-06-24 03:53:56,717 - INFO - Generated audio for '<speak>ask</speak>' at D:\vocabswipe.github.io\data\audio\ask_word_0+Matthew+5ed33f7008771c9d49e3716aeaeca581.mp3
+2025-06-24 03:53:57,065 - INFO - Generated audio for '<speak>ask. Ask her where she’s going.</speak>' at D:\vocabswipe.github.io\data\audio\ask_sentence_0+Matthew+803e5f8417dddfa46f87962903eb87dd.mp3
+2025-06-24 03:53:57,415 - INFO - Generated audio for '<speak>ask. I asked for more time.</speak>' at D:\vocabswipe.github.io\data\audio\ask_sentence_1+Matthew+a603bd97348ef19aa4716a313079a3b4.mp3
+2025-06-24 03:53:57,763 - INFO - Generated audio for '<speak>ask. They asked us to dinner.</speak>' at D:\vocabswipe.github.io\data\audio\ask_sentence_2+Matthew+6812dec1ee992c6f1fb5ec2bdc1594d4.mp3
+2025-06-24 03:53:58,184 - INFO - Generated audio for '<speak>ask. He asked about the job.</speak>' at D:\vocabswipe.github.io\data\audio\ask_sentence_3+Matthew+afbe087c95f042d7cadae3a34e77305b.mp3
+2025-06-24 03:53:59,107 - INFO - Generated audio for '<speak>ask. She asked for directions.</speak>' at D:\vocabswipe.github.io\data\audio\ask_sentence_4+Matthew+cd25d6330d010c63132677d56d47a18f.mp3
+2025-06-24 03:53:59,483 - INFO - Generated audio for '<speak>when. When is the meeting?</speak>' at D:\vocabswipe.github.io\data\audio\when_sentence_5+Matthew+a6793cf2e6fcff2b73a41a178dbd671c.mp3
+2025-06-24 03:53:59,861 - INFO - Generated audio for '<speak>when. Call when you’re ready.</speak>' at D:\vocabswipe.github.io\data\audio\when_sentence_6+Matthew+0f03b37fa020dacb9a275c70d3089b4e.mp3
+2025-06-24 03:54:00,211 - INFO - Generated audio for '<speak>when. When did you see him?</speak>' at D:\vocabswipe.github.io\data\audio\when_sentence_7+Matthew+02fb85387b0f2ea5f0e1303f069b8def.mp3
+2025-06-24 03:54:00,814 - INFO - Generated audio for '<speak>as. He runs as fast as a deer.</speak>' at D:\vocabswipe.github.io\data\audio\as_sentence_10+Matthew+f3083a830fa2b2c137f7a7e15b7fa369.mp3
+2025-06-24 03:54:01,163 - INFO - Generated audio for '<speak>as. Do as I told you.</speak>' at D:\vocabswipe.github.io\data\audio\as_sentence_11+Matthew+2265ba2b7101e1fd5909a1530a51e9e4.mp3
+2025-06-24 03:54:01,514 - INFO - Generated audio for '<speak>as. She sang as she worked.</speak>' at D:\vocabswipe.github.io\data\audio\as_sentence_12+Matthew+de658c9bd9f860ea9c46fb63e523d4ae.mp3
+2025-06-24 03:54:01,862 - INFO - Generated audio for '<speak>as. As it was late, we left.</speak>' at D:\vocabswipe.github.io\data\audio\as_sentence_13+Matthew+6e0bcb06d6dad41c7b796ce8a181804c.mp3
+2025-06-24 03:54:02,204 - INFO - Generated audio for '<speak>as. He works as a chef.</speak>' at D:\vocabswipe.github.io\data\audio\as_sentence_14+Matthew+09a8cd396426d6d9d8fca6d8fcba2289.mp3
+2025-06-24 03:54:02,529 - INFO - Generated audio for '<speak>school</speak>' at D:\vocabswipe.github.io\data\audio\school_word_0+Matthew+7516c3b35580b3490248629cff5e498c.mp3
+2025-06-24 03:54:02,880 - INFO - Generated audio for '<speak>school. The kids go to school daily.</speak>' at D:\vocabswipe.github.io\data\audio\school_sentence_0+Matthew+529caf250832607478be4ec5494d08bc.mp3
+2025-06-24 03:54:03,236 - INFO - Generated audio for '<speak>school. She teaches at a school.</speak>' at D:\vocabswipe.github.io\data\audio\school_sentence_1+Matthew+156bed75757175fe59f3fef45cb0c61a.mp3
+2025-06-24 03:54:03,592 - INFO - Generated audio for '<speak>school. School starts in September.</speak>' at D:\vocabswipe.github.io\data\audio\school_sentence_2+Matthew+854f13fe4d1ba7d07323a35033720afe.mp3
+2025-06-24 03:54:03,946 - INFO - Generated audio for '<speak>school. He’s from the old school.</speak>' at D:\vocabswipe.github.io\data\audio\school_sentence_3+Matthew+b6993dac736649c054d3b39b560bb91a.mp3
+2025-06-24 03:54:04,302 - INFO - Generated audio for '<speak>school. The school held a fair.</speak>' at D:\vocabswipe.github.io\data\audio\school_sentence_4+Matthew+f35ca3f5ad8688727d6ff53c3f35efdf.mp3
+2025-06-24 03:54:04,619 - INFO - Generated audio for '<speak>state</speak>' at D:\vocabswipe.github.io\data\audio\state_word_0+Matthew+9ed39e2ea931586b6a985a6942ef573e.mp3
+2025-06-24 03:54:04,966 - INFO - Generated audio for '<speak>state. She lives in a big state.</speak>' at D:\vocabswipe.github.io\data\audio\state_sentence_0+Matthew+c2de1e689744a12401db7bb51353b340.mp3
+2025-06-24 03:54:05,319 - INFO - Generated audio for '<speak>state. His state of mind is calm.</speak>' at D:\vocabswipe.github.io\data\audio\state_sentence_1+Matthew+c2d5e490e27aebbedc0c69ce83f02f94.mp3
+2025-06-24 03:54:05,668 - INFO - Generated audio for '<speak>state. The state passed a new law.</speak>' at D:\vocabswipe.github.io\data\audio\state_sentence_2+Matthew+966e17167c6d4a1c2a0384637a555423.mp3
+2025-06-24 03:54:06,015 - INFO - Generated audio for '<speak>state. The house is in a bad state.</speak>' at D:\vocabswipe.github.io\data\audio\state_sentence_3+Matthew+a4dcabb257138b02922d00f17f8b9c2e.mp3
+2025-06-24 03:54:06,363 - INFO - Generated audio for '<speak>state. Each state has its flag.</speak>' at D:\vocabswipe.github.io\data\audio\state_sentence_4+Matthew+d2d6769c616ad35d164b70fedc055e94.mp3
+2025-06-24 03:54:06,681 - INFO - Generated audio for '<speak>much</speak>' at D:\vocabswipe.github.io\data\audio\much_word_0+Matthew+ef56b0b0ddb93c2885892c06be830c68.mp3
+2025-06-24 03:54:07,030 - INFO - Generated audio for '<speak>much. I don’t have much time.</speak>' at D:\vocabswipe.github.io\data\audio\much_sentence_0+Matthew+6d140f7a90d8a6cb2708ff2692903f5d.mp3
+2025-06-24 03:54:07,379 - INFO - Generated audio for '<speak>much. She’s much better now.</speak>' at D:\vocabswipe.github.io\data\audio\much_sentence_1+Matthew+dafb95ee89d0b8b3157e9168fc3167b9.mp3
+2025-06-24 03:54:07,725 - INFO - Generated audio for '<speak>much. How much sugar do you need?</speak>' at D:\vocabswipe.github.io\data\audio\much_sentence_2+Matthew+451ad38de40aed6640c9c6bb416c0544.mp3
+2025-06-24 03:54:08,076 - INFO - Generated audio for '<speak>much. He talks too much.</speak>' at D:\vocabswipe.github.io\data\audio\much_sentence_3+Matthew+4025f4cde24f234e8f030c70826584c0.mp3
+2025-06-24 03:54:08,421 - INFO - Generated audio for '<speak>much. I like this much more.</speak>' at D:\vocabswipe.github.io\data\audio\much_sentence_4+Matthew+fdfdaefe608468355eb260dc11865f7b.mp3
+2025-06-24 03:54:08,740 - INFO - Generated audio for '<speak>talk</speak>' at D:\vocabswipe.github.io\data\audio\talk_word_0+Matthew+64b59718a47cf57a5e4f8443ff43d117.mp3
+2025-06-24 03:54:09,087 - INFO - Generated audio for '<speak>talk. Let’s talk about your plans.</speak>' at D:\vocabswipe.github.io\data\audio\talk_sentence_0+Matthew+d0b6b1035b7e2ecd1cc0744a06d99d74.mp3
+2025-06-24 03:54:09,438 - INFO - Generated audio for '<speak>talk. They talked about the weather.</speak>' at D:\vocabswipe.github.io\data\audio\talk_sentence_1+Matthew+79e00782edf7ce30f0359fd9cdce3183.mp3
+2025-06-24 03:54:09,785 - INFO - Generated audio for '<speak>talk. She talks to her friend daily.</speak>' at D:\vocabswipe.github.io\data\audio\talk_sentence_2+Matthew+555d3b41d306bcf36bf5c1c7511abf78.mp3
+2025-06-24 03:54:10,135 - INFO - Generated audio for '<speak>talk. He talked during the meeting.</speak>' at D:\vocabswipe.github.io\data\audio\talk_sentence_3+Matthew+aa724ba43fb6cdf1b37b36541b0157a5.mp3
+2025-06-24 03:54:10,485 - INFO - Generated audio for '<speak>talk. We talked for hours.</speak>' at D:\vocabswipe.github.io\data\audio\talk_sentence_4+Matthew+9838b1660eca44e033937b18d24b6112.mp3
+2025-06-24 03:54:10,826 - INFO - Generated audio for '<speak>out. He walked out the door.</speak>' at D:\vocabswipe.github.io\data\audio\out_sentence_5+Matthew+3600eb77e37058c1d2673138f861063a.mp3
+2025-06-24 03:54:11,170 - INFO - Generated audio for '<speak>out. The kids are out in the garden.</speak>' at D:\vocabswipe.github.io\data\audio\out_sentence_6+Matthew+978bc20bb3608057372072c05c01db6e.mp3
+2025-06-24 03:54:11,514 - INFO - Generated audio for '<speak>out. We ran out of paper.</speak>' at D:\vocabswipe.github.io\data\audio\out_sentence_7+Matthew+fc4a6d9ed44ad4e24093e6f826e2bcc9.mp3
+2025-06-24 03:54:11,853 - INFO - Generated audio for '<speak>out. The secret came out.</speak>' at D:\vocabswipe.github.io\data\audio\out_sentence_8+Matthew+8bd910986dd92e74bc073e7c9d042fc6.mp3
+2025-06-24 03:54:12,193 - INFO - Generated audio for '<speak>out. She handed out snacks.</speak>' at D:\vocabswipe.github.io\data\audio\out_sentence_9+Matthew+8888128a75bb5d9746f20f82cb210a96.mp3
+2025-06-24 03:54:12,508 - INFO - Generated audio for '<speak>keep</speak>' at D:\vocabswipe.github.io\data\audio\keep_word_0+Matthew+18ccf61d533b600bbf5a963359223fe4.mp3
+2025-06-24 03:54:12,854 - INFO - Generated audio for '<speak>keep. Keep your keys in your pocket.</speak>' at D:\vocabswipe.github.io\data\audio\keep_sentence_0+Matthew+68e06d9c21a356310a992cef87c5966b.mp3
+2025-06-24 03:54:13,211 - INFO - Generated audio for '<speak>keep. She keeps studying every night.</speak>' at D:\vocabswipe.github.io\data\audio\keep_sentence_1+Matthew+c881455356ff546de166f888adf94264.mp3
+2025-06-24 03:54:13,558 - INFO - Generated audio for '<speak>keep. Keep the room clean.</speak>' at D:\vocabswipe.github.io\data\audio\keep_sentence_2+Matthew+fa5cafc5fa65cfea36586f03a2f5aff1.mp3
+2025-06-24 03:54:13,911 - INFO - Generated audio for '<speak>keep. He keeps calm under pressure.</speak>' at D:\vocabswipe.github.io\data\audio\keep_sentence_3+Matthew+46c455c72f9360068276262c1d843beb.mp3
+2025-06-24 03:54:14,267 - INFO - Generated audio for '<speak>keep. They keep food in the pantry.</speak>' at D:\vocabswipe.github.io\data\audio\keep_sentence_4+Matthew+a2a465d6bc3304f33702a3af91c871ca.mp3
+2025-06-24 03:54:14,590 - INFO - Generated audio for '<speak>leave</speak>' at D:\vocabswipe.github.io\data\audio\leave_word_0+Matthew+6c374e70334072aeeb62ed46ea987838.mp3
+2025-06-24 03:54:14,938 - INFO - Generated audio for '<speak>leave. I’ll leave the house soon.</speak>' at D:\vocabswipe.github.io\data\audio\leave_sentence_0+Matthew+faa07b6c1ca27f42bd1d4d699b0a4ef8.mp3
+2025-06-24 03:54:15,290 - INFO - Generated audio for '<speak>leave. She left her job last month.</speak>' at D:\vocabswipe.github.io\data\audio\leave_sentence_1+Matthew+463344a58235ce555a9d029b2be34469.mp3
+2025-06-24 03:54:15,637 - INFO - Generated audio for '<speak>leave. Leave some cake for me.</speak>' at D:\vocabswipe.github.io\data\audio\leave_sentence_2+Matthew+5cdce9bf68775579a6a3e32128aac5b5.mp3
+2025-06-24 03:54:15,994 - INFO - Generated audio for '<speak>leave. The train leaves at six.</speak>' at D:\vocabswipe.github.io\data\audio\leave_sentence_3+Matthew+b8acd04901996f003fb04e3e0fad0d02.mp3
+2025-06-24 03:54:16,343 - INFO - Generated audio for '<speak>leave. He left his books to her.</speak>' at D:\vocabswipe.github.io\data\audio\leave_sentence_4+Matthew+923fbd29438d73b08d0c3077e3824204.mp3
+2025-06-24 03:54:17,586 - INFO - Generated audio for '<speak>put</speak>' at D:\vocabswipe.github.io\data\audio\put_word_0+Matthew+8e13ffc9fd9d6a6761231a764bdf106b.mp3
+2025-06-24 03:54:17,943 - INFO - Generated audio for '<speak>put. Put the book on the shelf.</speak>' at D:\vocabswipe.github.io\data\audio\put_sentence_0+Matthew+2c53728d8338a9ea35da3657e061be47.mp3
+2025-06-24 03:54:18,295 - INFO - Generated audio for '<speak>put. She put the blame on him.</speak>' at D:\vocabswipe.github.io\data\audio\put_sentence_1+Matthew+2b2d580ead0f79fdf24209d79fb0c3f0.mp3
+2025-06-24 03:54:18,649 - INFO - Generated audio for '<speak>put. He put effort into the project.</speak>' at D:\vocabswipe.github.io\data\audio\put_sentence_2+Matthew+5347a1982f4b586ae541cfccf2881870.mp3
+2025-06-24 03:54:19,005 - INFO - Generated audio for '<speak>put. I put my thoughts in writing.</speak>' at D:\vocabswipe.github.io\data\audio\put_sentence_3+Matthew+f481469e7c088eeefe4ae068bdf41e5e.mp3
+2025-06-24 03:54:19,364 - INFO - Generated audio for '<speak>put. Put your shoes by the door.</speak>' at D:\vocabswipe.github.io\data\audio\put_sentence_4+Matthew+a95a68aedbae2c861807797f1a8b064b.mp3
+2025-06-24 03:54:19,716 - INFO - Generated audio for '<speak>like. She sings like an angel.</speak>' at D:\vocabswipe.github.io\data\audio\like_sentence_5+Matthew+ca658de58ed3fadc0cdccd97aff770f3.mp3
+2025-06-24 03:54:20,067 - INFO - Generated audio for '<speak>like. It feels like summer.</speak>' at D:\vocabswipe.github.io\data\audio\like_sentence_6+Matthew+8139532c9e45c191cb17fabee1ecfeda.mp3
+2025-06-24 03:54:20,426 - INFO - Generated audio for '<speak>like. He looks like his dad.</speak>' at D:\vocabswipe.github.io\data\audio\like_sentence_7+Matthew+dd35ef7835fcd4a5c923bf59f2bab249.mp3
+2025-06-24 03:54:20,785 - INFO - Generated audio for '<speak>like. Foods like apples are healthy.</speak>' at D:\vocabswipe.github.io\data\audio\like_sentence_8+Matthew+1a60a20d20383aa7c48167f854b6e781.mp3
+2025-06-24 03:54:21,139 - INFO - Generated audio for '<speak>like. It tastes like chocolate.</speak>' at D:\vocabswipe.github.io\data\audio\like_sentence_9+Matthew+6154c7e26dab48e0138056826f6f6a4b.mp3
+2025-06-24 03:54:21,464 - INFO - Generated audio for '<speak>help</speak>' at D:\vocabswipe.github.io\data\audio\help_word_0+Matthew+657f8b8da628ef83cf69101b6817150a.mp3
+2025-06-24 03:54:21,820 - INFO - Generated audio for '<speak>help. Can you help me with this?</speak>' at D:\vocabswipe.github.io\data\audio\help_sentence_0+Matthew+935663df81788dc5583c5bc1610d8a88.mp3
+2025-06-24 03:54:22,172 - INFO - Generated audio for '<speak>help. This book helps with math.</speak>' at D:\vocabswipe.github.io\data\audio\help_sentence_1+Matthew+7628003ab689a15e3180e26f525baf6e.mp3
+2025-06-24 03:54:22,530 - INFO - Generated audio for '<speak>help. She helped him tie his shoes.</speak>' at D:\vocabswipe.github.io\data\audio\help_sentence_2+Matthew+fccf091c18e812156b7b1f8d593a061d.mp3
+2025-06-24 03:54:22,885 - INFO - Generated audio for '<speak>help. They helped clean the park.</speak>' at D:\vocabswipe.github.io\data\audio\help_sentence_3+Matthew+30021c1a36d208541362c0c19d218fd6.mp3
+2025-06-24 03:54:23,241 - INFO - Generated audio for '<speak>help. He helps at the shelter.</speak>' at D:\vocabswipe.github.io\data\audio\help_sentence_4+Matthew+680b55f25d510170064d0d0769eb442d.mp3
+2025-06-24 03:54:23,568 - INFO - Generated audio for '<speak>big</speak>' at D:\vocabswipe.github.io\data\audio\big_word_0+Matthew+d861877da56b8b4ceb35c8cbfdf65bb4.mp3
+2025-06-24 03:54:23,926 - INFO - Generated audio for '<speak>big. That’s a big dog!</speak>' at D:\vocabswipe.github.io\data\audio\big_sentence_0+Matthew+f7e061cabb34e5d6096b1d4af8acffd6.mp3
+2025-06-24 03:54:24,278 - INFO - Generated audio for '<speak>big. This is a big decision.</speak>' at D:\vocabswipe.github.io\data\audio\big_sentence_1+Matthew+29e622673b68f0ad2815a9884504b894.mp3
+2025-06-24 03:54:24,632 - INFO - Generated audio for '<speak>big. She has a big heart.</speak>' at D:\vocabswipe.github.io\data\audio\big_sentence_2+Matthew+8af22fd7cdccc43519b215be38d7ec95.mp3
+2025-06-24 03:54:24,991 - INFO - Generated audio for '<speak>big. It’s a big project.</speak>' at D:\vocabswipe.github.io\data\audio\big_sentence_3+Matthew+953732f07496e386755a8594ed044bdc.mp3
+2025-06-24 03:54:25,346 - INFO - Generated audio for '<speak>big. He got a big promotion.</speak>' at D:\vocabswipe.github.io\data\audio\big_sentence_4+Matthew+56bcb27ea8b89e68bbde5b48f78c4761.mp3
+2025-06-24 03:54:25,670 - INFO - Generated audio for '<speak>where</speak>' at D:\vocabswipe.github.io\data\audio\where_word_0+Matthew+567904efe9e64d9faf3e41ef402cb568.mp3
+2025-06-24 03:54:26,024 - INFO - Generated audio for '<speak>where. Where is my phone?</speak>' at D:\vocabswipe.github.io\data\audio\where_sentence_0+Matthew+2da245a8ee63a3cc7c4de93030a31c5b.mp3
+2025-06-24 03:54:26,375 - INFO - Generated audio for '<speak>where. I know where she lives.</speak>' at D:\vocabswipe.github.io\data\audio\where_sentence_1+Matthew+7cfc21983220f3fe591fb206b0805eb9.mp3
+2025-06-24 03:54:26,733 - INFO - Generated audio for '<speak>where. Where there’s smoke, there’s fire.</speak>' at D:\vocabswipe.github.io\data\audio\where_sentence_2+Matthew+c44d644624cdae76e4718011fafcb2c6.mp3
+2025-06-24 03:54:27,084 - INFO - Generated audio for '<speak>where. Where did you park?</speak>' at D:\vocabswipe.github.io\data\audio\where_sentence_3+Matthew+7b93cf27a7b9fa9bd7a9ae974c0b1b5c.mp3
+2025-06-24 03:54:27,432 - INFO - Generated audio for '<speak>where. That’s where I fell.</speak>' at D:\vocabswipe.github.io\data\audio\where_sentence_4+Matthew+941b80eb29eb69cc45abf9a526d8df79.mp3
+2025-06-24 03:54:27,758 - INFO - Generated audio for '<speak>same</speak>' at D:\vocabswipe.github.io\data\audio\same_word_0+Matthew+51037a4a37730f52c8732586d3aaa316.mp3
+2025-06-24 03:54:28,111 - INFO - Generated audio for '<speak>same. We have the same shirt.</speak>' at D:\vocabswipe.github.io\data\audio\same_sentence_0+Matthew+3f546712a82242acc159bd9e575e6ef2.mp3
+2025-06-24 03:54:28,469 - INFO - Generated audio for '<speak>same. It’s the same old story.</speak>' at D:\vocabswipe.github.io\data\audio\same_sentence_1+Matthew+3e06d494a57c3e0aa4011e6727429795.mp3
+2025-06-24 03:54:28,826 - INFO - Generated audio for '<speak>same. They think the same way.</speak>' at D:\vocabswipe.github.io\data\audio\same_sentence_2+Matthew+632348d77dd681758f3a324317b51b58.mp3
+2025-06-24 03:54:29,186 - INFO - Generated audio for '<speak>same. I want the same drink.</speak>' at D:\vocabswipe.github.io\data\audio\same_sentence_3+Matthew+50bef487566edf8aee8f9866759eb504.mp3
+2025-06-24 03:54:29,538 - INFO - Generated audio for '<speak>same. She looks the same.</speak>' at D:\vocabswipe.github.io\data\audio\same_sentence_4+Matthew+833e603cdc4213fd0d96daf7b431a90c.mp3
+2025-06-24 03:54:29,891 - INFO - Generated audio for '<speak>all. All the kids are here.</speak>' at D:\vocabswipe.github.io\data\audio\all_sentence_5+Matthew+f53d2b72fd6da15d09426559dde1aaac.mp3
+2025-06-24 03:54:30,245 - INFO - Generated audio for '<speak>all. He ate all the pie.</speak>' at D:\vocabswipe.github.io\data\audio\all_sentence_6+Matthew+ad38fe3f8ab7843aeae9ac7938a2af0c.mp3
+2025-06-24 03:54:30,601 - INFO - Generated audio for '<speak>all. All employees got a bonus.</speak>' at D:\vocabswipe.github.io\data\audio\all_sentence_7+Matthew+1695e68d7453bd078d86282c4d35ff20.mp3
+2025-06-24 03:54:30,954 - INFO - Generated audio for '<speak>all. All my friends came.</speak>' at D:\vocabswipe.github.io\data\audio\all_sentence_8+Matthew+239f754d099343a2e775948904a6543e.mp3
+2025-06-24 03:54:31,317 - INFO - Generated audio for '<speak>all. All the lights are off.</speak>' at D:\vocabswipe.github.io\data\audio\all_sentence_9+Matthew+bca6d911d93ef929aa198f4a8d89849a.mp3
+2025-06-24 03:54:31,643 - INFO - Generated audio for '<speak>own</speak>' at D:\vocabswipe.github.io\data\audio\own_word_0+Matthew+b515e18aa3fbe7d264d7ca5a95ef73e1.mp3
+2025-06-24 03:54:31,999 - INFO - Generated audio for '<speak>own. This is my own book.</speak>' at D:\vocabswipe.github.io\data\audio\own_sentence_0+Matthew+7ec01bcf1500e009adc3b60d091ba3da.mp3
+2025-06-24 03:54:32,352 - INFO - Generated audio for '<speak>own. She has her own car.</speak>' at D:\vocabswipe.github.io\data\audio\own_sentence_1+Matthew+b788847503a7a6b2ad793ebee7c963a9.mp3
+2025-06-24 03:54:32,708 - INFO - Generated audio for '<speak>own. He built his own house.</speak>' at D:\vocabswipe.github.io\data\audio\own_sentence_2+Matthew+d7097dadcca2495638b9d54ad4950830.mp3
+2025-06-24 03:54:33,060 - INFO - Generated audio for '<speak>own. They made their own food.</speak>' at D:\vocabswipe.github.io\data\audio\own_sentence_3+Matthew+1ba96a69ad38af32bfe6645b8b4d4013.mp3
+2025-06-24 03:54:33,414 - INFO - Generated audio for '<speak>own. I did it on my own.</speak>' at D:\vocabswipe.github.io\data\audio\own_sentence_4+Matthew+f9b46ef3e172183c93464115befd7b38.mp3
+2025-06-24 03:54:33,738 - INFO - Generated audio for '<speak>while</speak>' at D:\vocabswipe.github.io\data\audio\while_word_0+Matthew+901889f4f34f8ca18ac2f53d1fed346e.mp3
+2025-06-24 03:54:34,096 - INFO - Generated audio for '<speak>while. I read while waiting.</speak>' at D:\vocabswipe.github.io\data\audio\while_sentence_0+Matthew+18e4fff2f431e36bbcc0f7bc8ebffa64.mp3
+2025-06-24 03:54:34,452 - INFO - Generated audio for '<speak>while. She sang while cooking.</speak>' at D:\vocabswipe.github.io\data\audio\while_sentence_1+Matthew+ffcb2601d5311e58fdd7f88810258900.mp3
+2025-06-24 03:54:34,811 - INFO - Generated audio for '<speak>while. Stay here for a while.</speak>' at D:\vocabswipe.github.io\data\audio\while_sentence_2+Matthew+11461c2ba44a6b90fb1da4635f6aafb3.mp3
+2025-06-24 03:54:35,172 - INFO - Generated audio for '<speak>while. He’s tall, while she’s short.</speak>' at D:\vocabswipe.github.io\data\audio\while_sentence_3+Matthew+034b6d96709763bd0473fae488559ed9.mp3
+2025-06-24 03:54:35,533 - INFO - Generated audio for '<speak>while. We talked for a while.</speak>' at D:\vocabswipe.github.io\data\audio\while_sentence_4+Matthew+e98d85a185a56932a8acfbecaef65580.mp3
+2025-06-24 03:54:35,859 - INFO - Generated audio for '<speak>start</speak>' at D:\vocabswipe.github.io\data\audio\start_word_0+Matthew+ea2b2676c28c0db26d39331a336c6b92.mp3
+2025-06-24 03:54:36,208 - INFO - Generated audio for '<speak>start. Let’s start the meeting.</speak>' at D:\vocabswipe.github.io\data\audio\start_sentence_0+Matthew+1ea0df57013138a92c754809d75fa8b7.mp3
+2025-06-24 03:54:36,563 - INFO - Generated audio for '<speak>start. She started a new job.</speak>' at D:\vocabswipe.github.io\data\audio\start_sentence_1+Matthew+1b28d6d9eae2f2c1f23e65243e3410c7.mp3
+2025-06-24 03:54:36,916 - INFO - Generated audio for '<speak>start. The race starts at noon.</speak>' at D:\vocabswipe.github.io\data\audio\start_sentence_2+Matthew+ab3131f16c9ec78c3fdc1d54a7c39a08.mp3
+2025-06-24 03:54:37,277 - INFO - Generated audio for '<speak>start. He started writing a book.</speak>' at D:\vocabswipe.github.io\data\audio\start_sentence_3+Matthew+30c0e12fa6c792479051b295d02ee576.mp3
+2025-06-24 03:54:37,636 - INFO - Generated audio for '<speak>start. They started the party early.</speak>' at D:\vocabswipe.github.io\data\audio\start_sentence_4+Matthew+41f0e457e338477830b4139e93d25dc4.mp3
+2025-06-24 03:54:37,961 - INFO - Generated audio for '<speak>three</speak>' at D:\vocabswipe.github.io\data\audio\three_word_0+Matthew+35d6d33467aae9a2e3dccb4b6b027878.mp3
+2025-06-24 03:54:38,315 - INFO - Generated audio for '<speak>three. I have three cats.</speak>' at D:\vocabswipe.github.io\data\audio\three_sentence_0+Matthew+ed3a3993a4aab9538177c7ff37b1edb9.mp3
+2025-06-24 03:54:38,671 - INFO - Generated audio for '<speak>three. Three birds sat on the branch.</speak>' at D:\vocabswipe.github.io\data\audio\three_sentence_1+Matthew+855ee1f7bf408b5d1718f99dc8fefc30.mp3
+2025-06-24 03:54:39,021 - INFO - Generated audio for '<speak>three. She bought three apples.</speak>' at D:\vocabswipe.github.io\data\audio\three_sentence_2+Matthew+c40a2f0de0d04811113149950b26e390.mp3
+2025-06-24 03:54:39,375 - INFO - Generated audio for '<speak>three. Three days passed quickly.</speak>' at D:\vocabswipe.github.io\data\audio\three_sentence_3+Matthew+0d5597c53447edbd73d13f016c0528d6.mp3
+2025-06-24 03:54:39,726 - INFO - Generated audio for '<speak>three. He has three siblings.</speak>' at D:\vocabswipe.github.io\data\audio\three_sentence_4+Matthew+f853684a3489bc3a4be61571a0e428bd.mp3
+2025-06-24 03:54:40,053 - INFO - Generated audio for '<speak>high</speak>' at D:\vocabswipe.github.io\data\audio\high_word_0+Matthew+8d966b2253a917086c8604959e152243.mp3
+2025-06-24 03:54:40,413 - INFO - Generated audio for '<speak>high. The mountain is very high.</speak>' at D:\vocabswipe.github.io\data\audio\high_sentence_0+Matthew+efe8cb5ef028d738c8987e0036ece1ee.mp3
+2025-06-24 03:54:40,761 - INFO - Generated audio for '<speak>high. She has high hopes.</speak>' at D:\vocabswipe.github.io\data\audio\high_sentence_1+Matthew+07cb74ca1dc739d2c5c1f7af95a0011e.mp3
+2025-06-24 03:54:41,121 - INFO - Generated audio for '<speak>high. The kite flew high above.</speak>' at D:\vocabswipe.github.io\data\audio\high_sentence_2+Matthew+f360ec5b4d72f5440b6181a87343a42c.mp3
+2025-06-24 03:54:41,475 - INFO - Generated audio for '<speak>high. It’s a high-quality product.</speak>' at D:\vocabswipe.github.io\data\audio\high_sentence_3+Matthew+8967f85c42ea046a4093d5f91be61458.mp3
+2025-06-24 03:54:41,825 - INFO - Generated audio for '<speak>high. He has a high fever.</speak>' at D:\vocabswipe.github.io\data\audio\high_sentence_4+Matthew+325f2a3ab3450b41af1fda322ee044fb.mp3
+2025-06-24 03:54:42,150 - INFO - Generated audio for '<speak>every</speak>' at D:\vocabswipe.github.io\data\audio\every_word_0+Matthew+83ab982dd08483187289a75163dc50fe.mp3
+2025-06-24 03:54:42,508 - INFO - Generated audio for '<speak>every. Every student passed the test.</speak>' at D:\vocabswipe.github.io\data\audio\every_sentence_0+Matthew+ee4e1c43f5fb5d24c8eba053107a8302.mp3
+2025-06-24 03:54:42,859 - INFO - Generated audio for '<speak>every. I check my phone every hour.</speak>' at D:\vocabswipe.github.io\data\audio\every_sentence_1+Matthew+9cba82ae1bcb9e3acace7fcf35da74fd.mp3
+2025-06-24 03:54:43,216 - INFO - Generated audio for '<speak>every. Every seat was taken.</speak>' at D:\vocabswipe.github.io\data\audio\every_sentence_2+Matthew+37cc5b7bf3f132a62d5f871fb42c3446.mp3
+2025-06-24 03:54:43,570 - INFO - Generated audio for '<speak>every. She visits every summer.</speak>' at D:\vocabswipe.github.io\data\audio\every_sentence_3+Matthew+d0924c2ec88d059640dba3c92df456d3.mp3
+2025-06-24 03:54:43,924 - INFO - Generated audio for '<speak>every. Every child got a gift.</speak>' at D:\vocabswipe.github.io\data\audio\every_sentence_4+Matthew+68bc12748c6593ddd44f2b030de346d8.mp3
+2025-06-24 03:54:44,249 - INFO - Generated audio for '<speak>another</speak>' at D:\vocabswipe.github.io\data\audio\another_word_0+Matthew+b32d73e56ec99bc5ec8f83871cde708a.mp3
+2025-06-24 03:54:44,602 - INFO - Generated audio for '<speak>another. I need another pen.</speak>' at D:\vocabswipe.github.io\data\audio\another_sentence_0+Matthew+157d63fa4e530283d1cc17c1d9f67869.mp3
+2025-06-24 03:54:44,954 - INFO - Generated audio for '<speak>another. Try another flavor.</speak>' at D:\vocabswipe.github.io\data\audio\another_sentence_1+Matthew+66faff245ecd8894d95041220d6b5de3.mp3
+2025-06-24 03:54:45,311 - INFO - Generated audio for '<speak>another. She ate another cookie.</speak>' at D:\vocabswipe.github.io\data\audio\another_sentence_2+Matthew+45b6eb82b0dafbcdc402b21a1cf1c240.mp3
+2025-06-24 03:54:45,664 - INFO - Generated audio for '<speak>another. He bought another car.</speak>' at D:\vocabswipe.github.io\data\audio\another_sentence_3+Matthew+1b5e42d1558266121fbe0aed71884b09.mp3
+2025-06-24 03:54:46,017 - INFO - Generated audio for '<speak>another. Let’s watch another movie.</speak>' at D:\vocabswipe.github.io\data\audio\another_sentence_4+Matthew+4e2e27800a14b93bf3e8d5230dcac326.mp3
+2025-06-24 03:54:46,355 - INFO - Generated audio for '<speak>become</speak>' at D:\vocabswipe.github.io\data\audio\become_word_0+Matthew+86280ac8a7f8881407ba060c76d72d6a.mp3
+2025-06-24 03:54:46,714 - INFO - Generated audio for '<speak>become. She became a doctor.</speak>' at D:\vocabswipe.github.io\data\audio\become_sentence_0+Matthew+845acbe1eff64f885a8bb3507c985ff2.mp3
+2025-06-24 03:54:47,188 - INFO - Generated audio for '<speak>become. The caterpillar became a butterfly.</speak>' at D:\vocabswipe.github.io\data\audio\become_sentence_1+Matthew+35ecdf408ba25bf6e0e48f2a08a8924c.mp3
+2025-06-24 03:54:47,552 - INFO - Generated audio for '<speak>become. He became tired after running.</speak>' at D:\vocabswipe.github.io\data\audio\become_sentence_2+Matthew+3d794a8936ab7f3f4dead3cc5e7d5cf0.mp3
+2025-06-24 03:54:47,911 - INFO - Generated audio for '<speak>become. They became best friends.</speak>' at D:\vocabswipe.github.io\data\audio\become_sentence_3+Matthew+da8d5a34fc3772c96e6f6d96c2a15a33.mp3
+2025-06-24 03:54:48,270 - INFO - Generated audio for '<speak>become. The town became a city.</speak>' at D:\vocabswipe.github.io\data\audio\become_sentence_4+Matthew+72443e3fa9d42481d6ced3c87144a28f.mp3
+2025-06-24 03:54:48,600 - INFO - Generated audio for '<speak>most</speak>' at D:\vocabswipe.github.io\data\audio\most_word_0+Matthew+f7c0a09108cdf26287c1bc5af2ed1f93.mp3
+2025-06-24 03:54:48,950 - INFO - Generated audio for '<speak>most. She ate the most cake.</speak>' at D:\vocabswipe.github.io\data\audio\most_sentence_0+Matthew+735a2fd7e16c9d747d3f3e04d7fd0f0c.mp3
+2025-06-24 03:54:49,303 - INFO - Generated audio for '<speak>most. Most people like music.</speak>' at D:\vocabswipe.github.io\data\audio\most_sentence_1+Matthew+0133defa688c0e88d9987faf3ed61b12.mp3
+2025-06-24 03:54:49,660 - INFO - Generated audio for '<speak>most. This is the most fun I’ve had.</speak>' at D:\vocabswipe.github.io\data\audio\most_sentence_2+Matthew+731b96e802a93eed614782e0ec1d555f.mp3
+2025-06-24 03:54:50,018 - INFO - Generated audio for '<speak>most. He’s the most talented artist.</speak>' at D:\vocabswipe.github.io\data\audio\most_sentence_3+Matthew+29b79af3f635487d8773777b8b8b6251.mp3
+2025-06-24 03:54:50,375 - INFO - Generated audio for '<speak>most. Most days are sunny here.</speak>' at D:\vocabswipe.github.io\data\audio\most_sentence_4+Matthew+e8c172145fdf7668ce75c208421ddda3.mp3
+2025-06-24 03:54:50,705 - INFO - Generated audio for '<speak>between</speak>' at D:\vocabswipe.github.io\data\audio\between_word_0+Matthew+2942c466ae985c4fe2d8cc9d0c801501.mp3
+2025-06-24 03:54:51,065 - INFO - Generated audio for '<speak>between. The cat slept between us.</speak>' at D:\vocabswipe.github.io\data\audio\between_sentence_0+Matthew+f5e64fab630c45bab8aa2dd0f4e58d88.mp3
+2025-06-24 03:54:51,426 - INFO - Generated audio for '<speak>between. Choose between the two options.</speak>' at D:\vocabswipe.github.io\data\audio\between_sentence_1+Matthew+12484887490872e4f465d926a3d6758d.mp3
+2025-06-24 03:54:51,795 - INFO - Generated audio for '<speak>between. There’s trust between them.</speak>' at D:\vocabswipe.github.io\data\audio\between_sentence_2+Matthew+04f8c77f4e44ba590d95629183fbac13.mp3
+2025-06-24 03:54:52,157 - INFO - Generated audio for '<speak>between. Split the candy between the kids.</speak>' at D:\vocabswipe.github.io\data\audio\between_sentence_3+Matthew+087d86a5bcfc09fe993abf4b3d910aec.mp3
+2025-06-24 03:54:52,539 - INFO - Generated audio for '<speak>between. It’s between 5 and 10 miles.</speak>' at D:\vocabswipe.github.io\data\audio\between_sentence_4+Matthew+40733775cc343bb7c7c9ea3adcb879da.mp3
+2025-06-24 03:54:53,802 - INFO - Generated audio for '<speak>happen</speak>' at D:\vocabswipe.github.io\data\audio\happen_word_0+Matthew+00abeeeae7a8ed666043bbb83c6425e1.mp3
+2025-06-24 03:54:54,142 - INFO - Generated audio for '<speak>happen. What happened at the party?</speak>' at D:\vocabswipe.github.io\data\audio\happen_sentence_0+Matthew+8931406ee3e73f24e4a97f68d92a8284.mp3
+2025-06-24 03:54:54,488 - INFO - Generated audio for '<speak>happen. The accident happened quickly.</speak>' at D:\vocabswipe.github.io\data\audio\happen_sentence_1+Matthew+f1968a4009e0c5e9c7fb0858ee1e80c9.mp3
+2025-06-24 03:54:56,019 - INFO - Generated audio for '<speak>happen. I happened to see her.</speak>' at D:\vocabswipe.github.io\data\audio\happen_sentence_2+Matthew+e58704860dfe7ab0f04cbc2737ee19b2.mp3
+2025-06-24 03:54:56,361 - INFO - Generated audio for '<speak>happen. Something strange happened.</speak>' at D:\vocabswipe.github.io\data\audio\happen_sentence_3+Matthew+0fe4a61b3a2f5513586fc86e131f6ec8.mp3
+2025-06-24 03:54:56,701 - INFO - Generated audio for '<speak>happen. It happens every year.</speak>' at D:\vocabswipe.github.io\data\audio\happen_sentence_4+Matthew+ad101ae30d95df8c344b41616c8b099b.mp3
+2025-06-24 03:54:57,020 - INFO - Generated audio for '<speak>family</speak>' at D:\vocabswipe.github.io\data\audio\family_word_0+Matthew+0d3fda0bdbb9d619e09cdf3eecba7999.mp3
+2025-06-24 03:54:57,366 - INFO - Generated audio for '<speak>family. My family lives nearby.</speak>' at D:\vocabswipe.github.io\data\audio\family_sentence_0+Matthew+7bb1c3bd57ea372bbbd091a342c6f01a.mp3
+2025-06-24 03:54:57,715 - INFO - Generated audio for '<speak>family. The family eats dinner together.</speak>' at D:\vocabswipe.github.io\data\audio\family_sentence_1+Matthew+edf7c2adee3eaf035f557d255b3b7298.mp3
+2025-06-24 03:54:58,067 - INFO - Generated audio for '<speak>family. Cats are in the feline family.</speak>' at D:\vocabswipe.github.io\data\audio\family_sentence_2+Matthew+6d77b1d239f9e838b8cff5eca17901c9.mp3
+2025-06-24 03:54:58,414 - INFO - Generated audio for '<speak>family. She visited her family.</speak>' at D:\vocabswipe.github.io\data\audio\family_sentence_3+Matthew+d8d431fc3389f2d26561b23a1749fe3b.mp3
+2025-06-24 03:54:58,773 - INFO - Generated audio for '<speak>family. Their family owns the farm.</speak>' at D:\vocabswipe.github.io\data\audio\family_sentence_4+Matthew+19814fda6f028ebc83329fbea8e25434.mp3
+2025-06-24 03:54:59,119 - INFO - Generated audio for '<speak>over. The bird flew over the lake.</speak>' at D:\vocabswipe.github.io\data\audio\over_sentence_0+Matthew+503cf8e520d0c523f82833d5cd2aad1f.mp3
+2025-06-24 03:54:59,461 - INFO - Generated audio for '<speak>over. He jumped over the puddle.</speak>' at D:\vocabswipe.github.io\data\audio\over_sentence_1+Matthew+bebe9613a8223f002aadbf848fa4cb0b.mp3
+2025-06-24 03:54:59,804 - INFO - Generated audio for '<speak>over. The movie is over now.</speak>' at D:\vocabswipe.github.io\data\audio\over_sentence_2+Matthew+4f57d7fd0e7207a91b8c1d1994211631.mp3
+2025-06-24 03:55:00,150 - INFO - Generated audio for '<speak>over. She’s over her limit.</speak>' at D:\vocabswipe.github.io\data\audio\over_sentence_3+Matthew+43357613cc2e8566d106ffbd017372d7.mp3
+2025-06-24 03:55:00,501 - INFO - Generated audio for '<speak>over. They talked over coffee.</speak>' at D:\vocabswipe.github.io\data\audio\over_sentence_4+Matthew+486bb7668ff9eff46cff05eba48850bb.mp3
+2025-06-24 03:55:00,820 - INFO - Generated audio for '<speak>president</speak>' at D:\vocabswipe.github.io\data\audio\president_word_0+Matthew+c8d56be998c94089ea6e1147dc9253c1.mp3
+2025-06-24 03:55:01,170 - INFO - Generated audio for '<speak>president. The president gave a speech.</speak>' at D:\vocabswipe.github.io\data\audio\president_sentence_0+Matthew+9a05c084ae1a15f641c05fd3385eac6f.mp3
+2025-06-24 03:55:01,523 - INFO - Generated audio for '<speak>president. She’s the president of the club.</speak>' at D:\vocabswipe.github.io\data\audio\president_sentence_1+Matthew+3bb07d8012302b0ca4dd6f3129e022f0.mp3
+2025-06-24 03:55:01,871 - INFO - Generated audio for '<speak>president. The company president resigned.</speak>' at D:\vocabswipe.github.io\data\audio\president_sentence_2+Matthew+80b99a828ea2bb8c23306eec2a75431f.mp3
+2025-06-24 03:55:02,223 - INFO - Generated audio for '<speak>president. He ran for president.</speak>' at D:\vocabswipe.github.io\data\audio\president_sentence_3+Matthew+bbd102c91d81fe264b647ad5f8fe1632.mp3
+2025-06-24 03:55:02,576 - INFO - Generated audio for '<speak>president. The president signed the law.</speak>' at D:\vocabswipe.github.io\data\audio\president_sentence_4+Matthew+06ad1c85f7bf1b171ef8b89dbe948b23.mp3
+2025-06-24 03:55:02,890 - INFO - Generated audio for '<speak>old</speak>' at D:\vocabswipe.github.io\data\audio\old_word_0+Matthew+149603e6c03516362a8da23f624db945.mp3
+2025-06-24 03:55:03,233 - INFO - Generated audio for '<speak>old. The old tree fell down.</speak>' at D:\vocabswipe.github.io\data\audio\old_sentence_0+Matthew+726a3c29cb304e1b540b2d35b2baae40.mp3
+2025-06-24 03:55:03,571 - INFO - Generated audio for '<speak>old. She’s an old friend.</speak>' at D:\vocabswipe.github.io\data\audio\old_sentence_1+Matthew+ebcdca182484e5f04047398eb786d2bd.mp3
+2025-06-24 03:55:03,916 - INFO - Generated audio for '<speak>old. This phone is old.</speak>' at D:\vocabswipe.github.io\data\audio\old_sentence_2+Matthew+b1d39ef80e0ab107cd623a5c7d0813a5.mp3
+2025-06-24 03:55:04,270 - INFO - Generated audio for '<speak>old. The old days were fun.</speak>' at D:\vocabswipe.github.io\data\audio\old_sentence_3+Matthew+f4d67366a634e10576f5e51c0f42a8b0.mp3
+2025-06-24 03:55:04,618 - INFO - Generated audio for '<speak>old. He’s the old man of the team.</speak>' at D:\vocabswipe.github.io\data\audio\old_sentence_4+Matthew+d09a75ed9a6b1d5a49fa4f82dc9435b5.mp3
+2025-06-24 03:55:04,933 - INFO - Generated audio for '<speak>yes</speak>' at D:\vocabswipe.github.io\data\audio\yes_word_0+Matthew+a6105c0a611b41b08f1209506350279e.mp3
+2025-06-24 03:55:05,276 - INFO - Generated audio for '<speak>yes. Yes, I’ll come to the party.</speak>' at D:\vocabswipe.github.io\data\audio\yes_sentence_0+Matthew+1832dd8edb418ffed20f99882ba401be.mp3
+2025-06-24 03:55:05,617 - INFO - Generated audio for '<speak>yes. Yes, that’s correct.</speak>' at D:\vocabswipe.github.io\data\audio\yes_sentence_1+Matthew+ac5140b2e3d682f1b54f29fc5873f885.mp3
+2025-06-24 03:55:05,960 - INFO - Generated audio for '<speak>yes. Yes, I understand.</speak>' at D:\vocabswipe.github.io\data\audio\yes_sentence_2+Matthew+cd93ddad06eadaa164a376778e5c56d0.mp3
+2025-06-24 03:55:06,299 - INFO - Generated audio for '<speak>yes. Yes, you can go.</speak>' at D:\vocabswipe.github.io\data\audio\yes_sentence_3+Matthew+a4dedc0ba9590df220e17318a1e5891f.mp3
+2025-06-24 03:55:06,639 - INFO - Generated audio for '<speak>yes. Yes, we won!</speak>' at D:\vocabswipe.github.io\data\audio\yes_sentence_4+Matthew+72d68884880d5b6a990b2574e81dfd77.mp3
+2025-06-24 03:55:06,955 - INFO - Generated audio for '<speak>house</speak>' at D:\vocabswipe.github.io\data\audio\house_word_0+Matthew+2ca63cddd54f9490efad22421891a9d1.mp3
+2025-06-24 03:55:07,306 - INFO - Generated audio for '<speak>house. Their house is big.</speak>' at D:\vocabswipe.github.io\data\audio\house_sentence_0+Matthew+4dc3cf467725b5da67d2aafee645d4a1.mp3
+2025-06-24 03:55:07,650 - INFO - Generated audio for '<speak>house. I’m going to my house.</speak>' at D:\vocabswipe.github.io\data\audio\house_sentence_1+Matthew+4501cfe4f63e6fc4ffc305bdb29b79ff.mp3
+2025-06-24 03:55:07,987 - INFO - Generated audio for '<speak>house. The house was quiet.</speak>' at D:\vocabswipe.github.io\data\audio\house_sentence_2+Matthew+5957451e7542af613bf0bf03126699c9.mp3
+2025-06-24 03:55:08,329 - INFO - Generated audio for '<speak>house. The house of Smith is old.</speak>' at D:\vocabswipe.github.io\data\audio\house_sentence_3+Matthew+2e9d2742324ddd7dec7a3bd77d1828d4.mp3
+2025-06-24 03:55:08,680 - INFO - Generated audio for '<speak>house. She painted her house blue.</speak>' at D:\vocabswipe.github.io\data\audio\house_sentence_4+Matthew+bd38361556d368a2fa47dcd63b0cfb30.mp3
+2025-06-24 03:55:08,995 - INFO - Generated audio for '<speak>show</speak>' at D:\vocabswipe.github.io\data\audio\show_word_0+Matthew+a7dd12b1dab17d25467b0b0a4c8d4a92.mp3
+2025-06-24 03:55:09,337 - INFO - Generated audio for '<speak>show. Show me your drawing.</speak>' at D:\vocabswipe.github.io\data\audio\show_sentence_0+Matthew+307c1ceb1db2ab8a3df6f718de8b0659.mp3
+2025-06-24 03:55:09,684 - INFO - Generated audio for '<speak>show. He showed how to fix it.</speak>' at D:\vocabswipe.github.io\data\audio\show_sentence_1+Matthew+6cbf4fe46b3f1103277c12347c64e837.mp3
+2025-06-24 03:55:10,028 - INFO - Generated audio for '<speak>show. Her smile shows happiness.</speak>' at D:\vocabswipe.github.io\data\audio\show_sentence_2+Matthew+50c63f184c8853408e37d4f8dac7b5ef.mp3
+2025-06-24 03:55:10,371 - INFO - Generated audio for '<speak>show. They showed a new movie.</speak>' at D:\vocabswipe.github.io\data\audio\show_sentence_3+Matthew+9280ba9de593faf85d1e0a6bd4b56919.mp3
+2025-06-24 03:55:10,717 - INFO - Generated audio for '<speak>show. She showed us the way.</speak>' at D:\vocabswipe.github.io\data\audio\show_sentence_4+Matthew+48d5cc9e690efd9e95ca564eee38ab36.mp3
+2025-06-24 03:55:11,193 - INFO - Generated audio for '<speak>again</speak>' at D:\vocabswipe.github.io\data\audio\again_word_0+Matthew+639849f6b368019778991b32434354fc.mp3
+2025-06-24 03:55:11,540 - INFO - Generated audio for '<speak>again. Let’s try that again.</speak>' at D:\vocabswipe.github.io\data\audio\again_sentence_0+Matthew+df9f0808372c7b1255efd3a4cab8daf2.mp3
+2025-06-24 03:55:11,887 - INFO - Generated audio for '<speak>again. She called again yesterday.</speak>' at D:\vocabswipe.github.io\data\audio\again_sentence_1+Matthew+cb2359682ef30cfab799624df6a83012.mp3
+2025-06-24 03:55:12,232 - INFO - Generated audio for '<speak>again. He’s happy again.</speak>' at D:\vocabswipe.github.io\data\audio\again_sentence_2+Matthew+06346cc2b289c8dfa9e2061aeef3a672.mp3
+2025-06-24 03:55:13,109 - INFO - Generated audio for '<speak>again. It rained again today.</speak>' at D:\vocabswipe.github.io\data\audio\again_sentence_3+Matthew+6eb2bbae27a33fcf61454f003a9b74b3.mp3
+2025-06-24 03:55:13,704 - INFO - Generated audio for '<speak>again. Say that again, please.</speak>' at D:\vocabswipe.github.io\data\audio\again_sentence_4+Matthew+52271ac53a310e71b5eb138938dedfe6.mp3
+2025-06-24 03:55:14,023 - INFO - Generated audio for '<speak>student</speak>' at D:\vocabswipe.github.io\data\audio\student_word_0+Matthew+cd73502828457d15655bbd7a63fb0bc8.mp3
+2025-06-24 03:55:14,375 - INFO - Generated audio for '<speak>student. The student read the book.</speak>' at D:\vocabswipe.github.io\data\audio\student_sentence_0+Matthew+815d46a990f5365c4602a0f8f9fff167.mp3
+2025-06-24 03:55:14,727 - INFO - Generated audio for '<speak>student. She’s a college student.</speak>' at D:\vocabswipe.github.io\data\audio\student_sentence_1+Matthew+d45435bee1ff3259f234bac16865cbb8.mp3
+2025-06-24 03:55:15,075 - INFO - Generated audio for '<speak>student. The student aced the test.</speak>' at D:\vocabswipe.github.io\data\audio\student_sentence_2+Matthew+e26f624b13e2ebbc16b66de9f6aa73d1.mp3
+2025-06-24 03:55:15,425 - INFO - Generated audio for '<speak>student. Students gathered in the hall.</speak>' at D:\vocabswipe.github.io\data\audio\student_sentence_3+Matthew+27057a12fa56eef7e274b1accf8db123.mp3
+2025-06-24 03:55:15,773 - INFO - Generated audio for '<speak>student. He’s a bright student.</speak>' at D:\vocabswipe.github.io\data\audio\student_sentence_4+Matthew+dee5ec2071b076713f447aa42a6e0c30.mp3
+2025-06-24 03:55:16,365 - INFO - Generated audio for '<speak>so. It was cold, so we stayed in.</speak>' at D:\vocabswipe.github.io\data\audio\so_sentence_5+Matthew+92a0bca7c7707a715275ac7b9f1a07a2.mp3
+2025-06-24 03:55:16,711 - INFO - Generated audio for '<speak>so. The game was so exciting!</speak>' at D:\vocabswipe.github.io\data\audio\so_sentence_6+Matthew+8effc166943417db22a50041290886f8.mp3
+2025-06-24 03:55:17,053 - INFO - Generated audio for '<speak>so. She studied so she’d pass.</speak>' at D:\vocabswipe.github.io\data\audio\so_sentence_7+Matthew+861b9b5d17ed0622c3d5d74a6916c683.mp3
+2025-06-24 03:55:17,396 - INFO - Generated audio for '<speak>so. So, what’s your plan?</speak>' at D:\vocabswipe.github.io\data\audio\so_sentence_8+Matthew+01dc3cef3e6755eb651ef0661beccafa.mp3
+2025-06-24 03:55:17,750 - INFO - Generated audio for '<speak>so. He was late, so he ran.</speak>' at D:\vocabswipe.github.io\data\audio\so_sentence_9+Matthew+787575a23a1d318e0ec0f4824a01d811.mp3
+2025-06-24 03:55:18,063 - INFO - Generated audio for '<speak>seem</speak>' at D:\vocabswipe.github.io\data\audio\seem_word_0+Matthew+85814ce7d88361ec8eb8e07294043bc3.mp3
+2025-06-24 03:55:18,405 - INFO - Generated audio for '<speak>seem. She seems happy today.</speak>' at D:\vocabswipe.github.io\data\audio\seem_sentence_0+Matthew+1c19105f37192b7dfde8a5c378055b4d.mp3
+2025-06-24 03:55:18,751 - INFO - Generated audio for '<speak>seem. It seems like a good idea.</speak>' at D:\vocabswipe.github.io\data\audio\seem_sentence_1+Matthew+22361b100087751f86b1c0b9964ac391.mp3
+2025-06-24 03:55:19,098 - INFO - Generated audio for '<speak>seem. He seems tired after work.</speak>' at D:\vocabswipe.github.io\data\audio\seem_sentence_2+Matthew+431ae684a8f0465ca279ddaf5d2094bf.mp3
+2025-06-24 03:55:19,453 - INFO - Generated audio for '<speak>seem. The task seems difficult.</speak>' at D:\vocabswipe.github.io\data\audio\seem_sentence_3+Matthew+6448cee6387635c1eb57272ce28cf9ca.mp3
+2025-06-24 03:55:19,797 - INFO - Generated audio for '<speak>seem. They seem to get along.</speak>' at D:\vocabswipe.github.io\data\audio\seem_sentence_4+Matthew+f73dd1be41c2783b453a1be3f03d4332.mp3
+2025-06-24 03:55:20,110 - INFO - Generated audio for '<speak>might</speak>' at D:\vocabswipe.github.io\data\audio\might_word_0+Matthew+ad88adbdac50799a3bc8c02b217c6f76.mp3
+2025-06-24 03:55:20,453 - INFO - Generated audio for '<speak>might. It might snow tonight.</speak>' at D:\vocabswipe.github.io\data\audio\might_sentence_0+Matthew+92e655db3292c0c5075c6e401fa2d441.mp3
+2025-06-24 03:55:20,800 - INFO - Generated audio for '<speak>might. She might come to the party.</speak>' at D:\vocabswipe.github.io\data\audio\might_sentence_1+Matthew+569ede245417980a668e62e7d485df6a.mp3
+2025-06-24 03:55:21,142 - INFO - Generated audio for '<speak>might. He might win the race.</speak>' at D:\vocabswipe.github.io\data\audio\might_sentence_2+Matthew+7edd2ad0fae2965d601dc11ba77ba49f.mp3
+2025-06-24 03:55:21,486 - INFO - Generated audio for '<speak>might. That might be the problem.</speak>' at D:\vocabswipe.github.io\data\audio\might_sentence_3+Matthew+f0a11ea024fcffb402dce75798269187.mp3
+2025-06-24 03:55:21,827 - INFO - Generated audio for '<speak>might. You might like this book.</speak>' at D:\vocabswipe.github.io\data\audio\might_sentence_4+Matthew+74b01418b147680236d68da3ec087d01.mp3
+2025-06-24 03:55:22,141 - INFO - Generated audio for '<speak>part</speak>' at D:\vocabswipe.github.io\data\audio\part_word_0+Matthew+f4c9385f1902f7334b00b9b4ecd164de.mp3
+2025-06-24 03:55:22,483 - INFO - Generated audio for '<speak>part. This is part of the puzzle.</speak>' at D:\vocabswipe.github.io\data\audio\part_sentence_0+Matthew+f3df06c896ed29c8512f7b7a987a4838.mp3
+2025-06-24 03:55:22,836 - INFO - Generated audio for '<speak>part. The engine part broke.</speak>' at D:\vocabswipe.github.io\data\audio\part_sentence_1+Matthew+b370faf86c4f698c265d8f78ee421b93.mp3
+2025-06-24 03:55:23,185 - INFO - Generated audio for '<speak>part. She played a part in the play.</speak>' at D:\vocabswipe.github.io\data\audio\part_sentence_2+Matthew+cdca02c2e428136fb5e7380bc80ae015.mp3
+2025-06-24 03:55:23,529 - INFO - Generated audio for '<speak>part. Part of the cake is gone.</speak>' at D:\vocabswipe.github.io\data\audio\part_sentence_3+Matthew+8758a14edafaa25aaedb549268f308be.mp3
+2025-06-24 03:55:23,873 - INFO - Generated audio for '<speak>part. I read part of the book.</speak>' at D:\vocabswipe.github.io\data\audio\part_sentence_4+Matthew+2b330b7730c6294c33ae170a5a2cd765.mp3
+2025-06-24 03:55:24,189 - INFO - Generated audio for '<speak>hear</speak>' at D:\vocabswipe.github.io\data\audio\hear_word_0+Matthew+613d5e4f4cd6c68618ac86bd244c7153.mp3
+2025-06-24 03:55:24,531 - INFO - Generated audio for '<speak>hear. I hear music outside.</speak>' at D:\vocabswipe.github.io\data\audio\hear_sentence_0+Matthew+a5f3fb4581eac1c961e98e5a72a5c594.mp3
+2025-06-24 03:55:24,872 - INFO - Generated audio for '<speak>hear. She heard the news.</speak>' at D:\vocabswipe.github.io\data\audio\hear_sentence_1+Matthew+758261b52d86662d62ab6b1a192cfb07.mp3
+2025-06-24 03:55:25,220 - INFO - Generated audio for '<speak>hear. Have you heard from him?</speak>' at D:\vocabswipe.github.io\data\audio\hear_sentence_2+Matthew+af2bbe204e7022120b5b63f798e56455.mp3
+2025-06-24 03:55:25,566 - INFO - Generated audio for '<speak>hear. He heard a strange noise.</speak>' at D:\vocabswipe.github.io\data\audio\hear_sentence_3+Matthew+847580551008ab561a364aeac946f33b.mp3
+2025-06-24 03:55:25,909 - INFO - Generated audio for '<speak>hear. I heard about the party.</speak>' at D:\vocabswipe.github.io\data\audio\hear_sentence_4+Matthew+95a3d90a7bbeccb3fc1e96528fe6193c.mp3
+2025-06-24 03:55:26,227 - INFO - Generated audio for '<speak>its</speak>' at D:\vocabswipe.github.io\data\audio\its_word_0+Matthew+584826e70485130530f7f01a973d5637.mp3
+2025-06-24 03:55:26,573 - INFO - Generated audio for '<speak>its. The dog wagged its tail.</speak>' at D:\vocabswipe.github.io\data\audio\its_sentence_0+Matthew+059628ca133866f2745b48551477501d.mp3
+2025-06-24 03:55:26,918 - INFO - Generated audio for '<speak>its. The tree lost its leaves.</speak>' at D:\vocabswipe.github.io\data\audio\its_sentence_1+Matthew+dcffcdbf140084a70e178cc67ac03f19.mp3
+2025-06-24 03:55:27,258 - INFO - Generated audio for '<speak>its. The car has its keys.</speak>' at D:\vocabswipe.github.io\data\audio\its_sentence_2+Matthew+8c5a35a395f5d55e0655e19912835949.mp3
+2025-06-24 03:55:27,602 - INFO - Generated audio for '<speak>its. The house has its charm.</speak>' at D:\vocabswipe.github.io\data\audio\its_sentence_3+Matthew+e60b4f34bde890d38fb225553512f2e9.mp3
+2025-06-24 03:55:27,948 - INFO - Generated audio for '<speak>its. The book has its cover torn.</speak>' at D:\vocabswipe.github.io\data\audio\its_sentence_4+Matthew+15e6f218ca1b9e8f10781ff0c7384edc.mp3
+2025-06-24 03:55:28,266 - INFO - Generated audio for '<speak>place</speak>' at D:\vocabswipe.github.io\data\audio\place_word_0+Matthew+ebed715e82a0a0f3e950ef6565cdc4a8.mp3
+2025-06-24 03:55:28,615 - INFO - Generated audio for '<speak>place. This is a nice place to relax.</speak>' at D:\vocabswipe.github.io\data\audio\place_sentence_0+Matthew+33fdb5e716c2d1ad0270066ad0d67291.mp3
+2025-06-24 03:55:28,953 - INFO - Generated audio for '<speak>place. She took first place.</speak>' at D:\vocabswipe.github.io\data\audio\place_sentence_1+Matthew+30303dfe2c087b862ea73497efdab136.mp3
+2025-06-24 03:55:29,296 - INFO - Generated audio for '<speak>place. Save my place in line.</speak>' at D:\vocabswipe.github.io\data\audio\place_sentence_2+Matthew+2d3a240bff30d2c327e5f3b1cd552288.mp3
+2025-06-24 03:55:29,637 - INFO - Generated audio for '<speak>place. The place was quiet.</speak>' at D:\vocabswipe.github.io\data\audio\place_sentence_3+Matthew+5708dbbca704149eab538d4e0ed0e2c2.mp3
+2025-06-24 03:55:29,977 - INFO - Generated audio for '<speak>place. It’s a great place to visit.</speak>' at D:\vocabswipe.github.io\data\audio\place_sentence_4+Matthew+de11c0cd1b3d31b88e90ffb32f42e66e.mp3
+2025-06-24 03:55:31,241 - INFO - Generated audio for '<speak>problem</speak>' at D:\vocabswipe.github.io\data\audio\problem_word_0+Matthew+0861a099e9593791de261ebb86e75eac.mp3
+2025-06-24 03:55:31,606 - INFO - Generated audio for '<speak>problem. We have a problem with the car.</speak>' at D:\vocabswipe.github.io\data\audio\problem_sentence_0+Matthew+15ae444175b9ca6ae207f7bcc450157d.mp3
+2025-06-24 03:55:31,966 - INFO - Generated audio for '<speak>problem. This math problem is hard.</speak>' at D:\vocabswipe.github.io\data\audio\problem_sentence_1+Matthew+c01d3d907e40463f290c35bf103256bc.mp3
+2025-06-24 03:55:32,332 - INFO - Generated audio for '<speak>problem. The problem needs solving.</speak>' at D:\vocabswipe.github.io\data\audio\problem_sentence_2+Matthew+4e625f4efe9fe9565980097981d42635.mp3
+2025-06-24 03:55:32,692 - INFO - Generated audio for '<speak>problem. They faced many problems.</speak>' at D:\vocabswipe.github.io\data\audio\problem_sentence_3+Matthew+cdc2e0e348e7bf1fd7ef5fb6992565d4.mp3
+2025-06-24 03:55:33,050 - INFO - Generated audio for '<speak>problem. Her problem is time management.</speak>' at D:\vocabswipe.github.io\data\audio\problem_sentence_4+Matthew+4b94c7109a8653abfca1d8620ee19e91.mp3
+2025-06-24 03:55:33,409 - INFO - Generated audio for '<speak>where. Where are my glasses?</speak>' at D:\vocabswipe.github.io\data\audio\where_sentence_0+Matthew+36777cd49a91b690f0c65a1f62f00071.mp3
+2025-06-24 03:55:33,766 - INFO - Generated audio for '<speak>where. I know where he went.</speak>' at D:\vocabswipe.github.io\data\audio\where_sentence_1+Matthew+d9ec4bc75af39f10d41f52b8d0929b6d.mp3
+2025-06-24 03:55:34,123 - INFO - Generated audio for '<speak>where. Where there’s a will, there’s a way.</speak>' at D:\vocabswipe.github.io\data\audio\where_sentence_2+Matthew+8ef070c8cc91219def056e75ed972e20.mp3
+2025-06-24 03:55:34,478 - INFO - Generated audio for '<speak>where. Where did you park the car?</speak>' at D:\vocabswipe.github.io\data\audio\where_sentence_3+Matthew+851e79766b9bb857785c093a90c0519e.mp3
+2025-06-24 03:55:34,829 - INFO - Generated audio for '<speak>where. That’s where we met.</speak>' at D:\vocabswipe.github.io\data\audio\where_sentence_4+Matthew+da0261530732a141f11efd1f59f52772.mp3
+2025-06-24 03:55:35,165 - INFO - Generated audio for '<speak>believe</speak>' at D:\vocabswipe.github.io\data\audio\believe_word_0+Matthew+2d46f6286511bd2e22f9c02907274872.mp3
+2025-06-24 03:55:35,527 - INFO - Generated audio for '<speak>believe. I believe in her story.</speak>' at D:\vocabswipe.github.io\data\audio\believe_sentence_0+Matthew+b83fb38adeee68b0047833c01b38232d.mp3
+2025-06-24 03:55:35,889 - INFO - Generated audio for '<speak>believe. She believes in hard work.</speak>' at D:\vocabswipe.github.io\data\audio\believe_sentence_1+Matthew+df36a9888a4455e1d584760064afe08f.mp3
+2025-06-24 03:55:36,251 - INFO - Generated audio for '<speak>believe. He believes it will rain.</speak>' at D:\vocabswipe.github.io\data\audio\believe_sentence_2+Matthew+a449770638a5565a7adf2bdac811a15f.mp3
+2025-06-24 03:55:36,611 - INFO - Generated audio for '<speak>believe. They believe his excuse.</speak>' at D:\vocabswipe.github.io\data\audio\believe_sentence_3+Matthew+7c7611e7e0e1c02d2b7947ed2b75cbef.mp3
+2025-06-24 03:55:36,968 - INFO - Generated audio for '<speak>believe. I believe this is right.</speak>' at D:\vocabswipe.github.io\data\audio\believe_sentence_4+Matthew+c0145bbe3f67f1a87e17878aaa0b44a3.mp3
+2025-06-24 03:55:37,293 - INFO - Generated audio for '<speak>country</speak>' at D:\vocabswipe.github.io\data\audio\country_word_0+Matthew+e909c2d7067ea37437cf97fe11d91bd0.mp3
+2025-06-24 03:55:37,644 - INFO - Generated audio for '<speak>country. She loves her country.</speak>' at D:\vocabswipe.github.io\data\audio\country_sentence_0+Matthew+a9d885a92c13b5754ef121c008316506.mp3
+2025-06-24 03:55:38,001 - INFO - Generated audio for '<speak>country. The country has beautiful hills.</speak>' at D:\vocabswipe.github.io\data\audio\country_sentence_1+Matthew+4303680b491b32d193d1f6c60ec56675.mp3
+2025-06-24 03:55:38,355 - INFO - Generated audio for '<speak>country. He returned to his country.</speak>' at D:\vocabswipe.github.io\data\audio\country_sentence_2+Matthew+49a79314b15eb217d57788a5cafdc392.mp3
+2025-06-24 03:55:38,722 - INFO - Generated audio for '<speak>country. The country voted yesterday.</speak>' at D:\vocabswipe.github.io\data\audio\country_sentence_3+Matthew+479769211083a1c0a752227891052def.mp3
+2025-06-24 03:55:39,076 - INFO - Generated audio for '<speak>country. They live in the country.</speak>' at D:\vocabswipe.github.io\data\audio\country_sentence_4+Matthew+e3372f4ae9c83e9d43e39989d0b35a67.mp3
+2025-06-24 03:55:39,412 - INFO - Generated audio for '<speak>always</speak>' at D:\vocabswipe.github.io\data\audio\always_word_0+Matthew+f9f90eeaf400d228facde6bc48da5cfb.mp3
+2025-06-24 03:55:39,769 - INFO - Generated audio for '<speak>always. She’s always late for class.</speak>' at D:\vocabswipe.github.io\data\audio\always_sentence_0+Matthew+6cc8bcae1c2a8bbbb70fd6406f7424f0.mp3
+2025-06-24 03:55:40,130 - INFO - Generated audio for '<speak>always. He always smiles at me.</speak>' at D:\vocabswipe.github.io\data\audio\always_sentence_1+Matthew+05a1816ec6d476d71b4d3be26c3d59f8.mp3
+2025-06-24 03:55:40,496 - INFO - Generated audio for '<speak>always. I always eat breakfast.</speak>' at D:\vocabswipe.github.io\data\audio\always_sentence_2+Matthew+2e75ba9dce3d27e7c08dad99541eab5b.mp3
+2025-06-24 03:55:40,859 - INFO - Generated audio for '<speak>always. They always visit on Sundays.</speak>' at D:\vocabswipe.github.io\data\audio\always_sentence_3+Matthew+f485bc1cf7e71890f4d45cd40718f5ab.mp3
+2025-06-24 03:55:41,218 - INFO - Generated audio for '<speak>always. I’ll always remember this.</speak>' at D:\vocabswipe.github.io\data\audio\always_sentence_4+Matthew+76e152a872324b6a939f409c029dc1f3.mp3
+2025-06-24 03:55:41,543 - INFO - Generated audio for '<speak>week</speak>' at D:\vocabswipe.github.io\data\audio\week_word_0+Matthew+172a8327fcd3685ab3c0f740d031da09.mp3
+2025-06-24 03:55:41,895 - INFO - Generated audio for '<speak>week. I’m busy this week.</speak>' at D:\vocabswipe.github.io\data\audio\week_sentence_0+Matthew+041a969f3d745ed47818009f7d4b8362.mp3
+2025-06-24 03:55:42,250 - INFO - Generated audio for '<speak>week. She works five days a week.</speak>' at D:\vocabswipe.github.io\data\audio\week_sentence_1+Matthew+7b81bad0e38642f50a6eb97d09bdb82a.mp3
+2025-06-24 03:55:42,608 - INFO - Generated audio for '<speak>week. The trip is next week.</speak>' at D:\vocabswipe.github.io\data\audio\week_sentence_2+Matthew+7df7215c5e88fec33de1fb18ec618331.mp3
+2025-06-24 03:55:42,963 - INFO - Generated audio for '<speak>week. It took a week to finish.</speak>' at D:\vocabswipe.github.io\data\audio\week_sentence_3+Matthew+517c6c58b315f4a440eaa2ea1423c9de.mp3
+2025-06-24 03:55:43,323 - INFO - Generated audio for '<speak>week. The week starts on Monday.</speak>' at D:\vocabswipe.github.io\data\audio\week_sentence_4+Matthew+1851bbde52dabb4e2776607ef174aa52.mp3
+2025-06-24 03:55:43,652 - INFO - Generated audio for '<speak>point</speak>' at D:\vocabswipe.github.io\data\audio\point_word_0+Matthew+78ee54aa8f813885fe2fe20d232518b9.mp3
+2025-06-24 03:55:44,006 - INFO - Generated audio for '<speak>point. She made a good point.</speak>' at D:\vocabswipe.github.io\data\audio\point_sentence_0+Matthew+0169b1ce8a6853d40f7d7000ea5f6501.mp3
+2025-06-24 03:55:44,360 - INFO - Generated audio for '<speak>point. Meet me at this point.</speak>' at D:\vocabswipe.github.io\data\audio\point_sentence_1+Matthew+5904f3571b58e1bb474497e822e19833.mp3
+2025-06-24 03:55:44,719 - INFO - Generated audio for '<speak>point. He earned ten points.</speak>' at D:\vocabswipe.github.io\data\audio\point_sentence_2+Matthew+c89a7b7f80e79ec0e7dbdb7d98e21109.mp3
+2025-06-24 03:55:45,080 - INFO - Generated audio for '<speak>point. The point of the meeting was clear.</speak>' at D:\vocabswipe.github.io\data\audio\point_sentence_3+Matthew+2f33036a91f97712559106c5cc6748d2.mp3
+2025-06-24 03:55:45,435 - INFO - Generated audio for '<speak>point. At this point, we agree.</speak>' at D:\vocabswipe.github.io\data\audio\point_sentence_4+Matthew+a3459f8fdf5b63bde12dc2ebaaff233e.mp3
+2025-06-24 03:55:45,761 - INFO - Generated audio for '<speak>hand</speak>' at D:\vocabswipe.github.io\data\audio\hand_word_0+Matthew+573ce5969e9884d49d4fab77b09a306a.mp3
+2025-06-24 03:55:46,117 - INFO - Generated audio for '<speak>hand. She held the cup in her hand.</speak>' at D:\vocabswipe.github.io\data\audio\hand_sentence_0+Matthew+410016b226e5d36ac33526a089c25ca0.mp3
+2025-06-24 03:55:46,472 - INFO - Generated audio for '<speak>hand. Can you give me a hand?</speak>' at D:\vocabswipe.github.io\data\audio\hand_sentence_1+Matthew+ed670d70cdb4c7e6283e96248e7d60c9.mp3
+2025-06-24 03:55:46,832 - INFO - Generated audio for '<speak>hand. He had a hand in the plan.</speak>' at D:\vocabswipe.github.io\data\audio\hand_sentence_2+Matthew+f3894c3d7fd089187e9f54f684394427.mp3
+2025-06-24 03:55:47,187 - INFO - Generated audio for '<speak>hand. Raise your hand to speak.</speak>' at D:\vocabswipe.github.io\data\audio\hand_sentence_3+Matthew+632e2144047d125297a7aab5c3bc666d.mp3
+2025-06-24 03:55:47,545 - INFO - Generated audio for '<speak>hand. The project is in good hands.</speak>' at D:\vocabswipe.github.io\data\audio\hand_sentence_4+Matthew+6057a58e051f6805cbcbbb5c994225a9.mp3
+2025-06-24 03:55:47,873 - INFO - Generated audio for '<speak>off</speak>' at D:\vocabswipe.github.io\data\audio\off_word_0+Matthew+3262d48df5d75e3452f0f16b313b7808.mp3
+2025-06-24 03:55:48,224 - INFO - Generated audio for '<speak>off. She took the lid off.</speak>' at D:\vocabswipe.github.io\data\audio\off_sentence_0+Matthew+a549ccedc21fb2260184fb141c912848.mp3
+2025-06-24 03:55:48,573 - INFO - Generated audio for '<speak>off. Turn the light off.</speak>' at D:\vocabswipe.github.io\data\audio\off_sentence_1+Matthew+de656f599c01293dea8918c441a1ad8d.mp3
+2025-06-24 03:55:48,924 - INFO - Generated audio for '<speak>off. He’s off work today.</speak>' at D:\vocabswipe.github.io\data\audio\off_sentence_2+Matthew+fe077e69c4a7019554efd4c7bfe912f4.mp3
+2025-06-24 03:55:49,279 - INFO - Generated audio for '<speak>off. Wipe the dust off the table.</speak>' at D:\vocabswipe.github.io\data\audio\off_sentence_3+Matthew+2e217700e4dbb251f3ae915926801865.mp3
+2025-06-24 03:55:49,640 - INFO - Generated audio for '<speak>off. The sale is 20% off.</speak>' at D:\vocabswipe.github.io\data\audio\off_sentence_4+Matthew+2da7c8bb4857a439534082b3b1d3dd14.mp3
+2025-06-24 03:55:49,966 - INFO - Generated audio for '<speak>play</speak>' at D:\vocabswipe.github.io\data\audio\play_word_0+Matthew+a3b34c0871dc2fd51eec5559b68f709d.mp3
+2025-06-24 03:55:50,321 - INFO - Generated audio for '<speak>play. The kids play soccer.</speak>' at D:\vocabswipe.github.io\data\audio\play_sentence_0+Matthew+724cb6c1a68689e2b3d127a030cdcfe0.mp3
+2025-06-24 03:55:50,676 - INFO - Generated audio for '<speak>play. She plays the piano well.</speak>' at D:\vocabswipe.github.io\data\audio\play_sentence_1+Matthew+2eff0d3fb06757f7decbae9c3465bb4b.mp3
+2025-06-24 03:55:51,028 - INFO - Generated audio for '<speak>play. He played the lead role.</speak>' at D:\vocabswipe.github.io\data\audio\play_sentence_2+Matthew+523d1440404b430d3d7672937c030474.mp3
+2025-06-24 03:55:51,382 - INFO - Generated audio for '<speak>play. Play the video again.</speak>' at D:\vocabswipe.github.io\data\audio\play_sentence_3+Matthew+6eedeb1cba632b611da1e2c14d653930.mp3
+2025-06-24 03:55:51,735 - INFO - Generated audio for '<speak>play. They play in the park.</speak>' at D:\vocabswipe.github.io\data\audio\play_sentence_4+Matthew+2ea76e91412091960d4fa3f292f25f1e.mp3
+2025-06-24 03:55:53,477 - INFO - Generated audio for '<speak>turn</speak>' at D:\vocabswipe.github.io\data\audio\turn_word_0+Matthew+a850c17cba5eb16b0d3d40a106333bd5.mp3
+2025-06-24 03:55:53,827 - INFO - Generated audio for '<speak>turn. Turn the wheel to the left.</speak>' at D:\vocabswipe.github.io\data\audio\turn_sentence_0+Matthew+e3ff05ec4f92cbdb694ba04786f979f0.mp3
+2025-06-24 03:55:54,183 - INFO - Generated audio for '<speak>turn. She turned and walked away.</speak>' at D:\vocabswipe.github.io\data\audio\turn_sentence_1+Matthew+e1a9c18dfeb1bbbecfdffd31c93d0344.mp3
+2025-06-24 03:55:54,537 - INFO - Generated audio for '<speak>turn. The leaves turned red.</speak>' at D:\vocabswipe.github.io\data\audio\turn_sentence_2+Matthew+4fa29481ed838294777e9fbb5b9b19bb.mp3
+2025-06-24 03:55:54,895 - INFO - Generated audio for '<speak>turn. Let’s turn to the next topic.</speak>' at D:\vocabswipe.github.io\data\audio\turn_sentence_3+Matthew+fee184a444387824f1aa21050379789f.mp3
+2025-06-24 03:55:55,247 - INFO - Generated audio for '<speak>turn. It’s your turn to play.</speak>' at D:\vocabswipe.github.io\data\audio\turn_sentence_4+Matthew+786a408afbc3f0d4e5d59c8893d9656a.mp3
+2025-06-24 03:55:55,572 - INFO - Generated audio for '<speak>few</speak>' at D:\vocabswipe.github.io\data\audio\few_word_0+Matthew+7c3daa31f887c333291d5cf04e541db5.mp3
+2025-06-24 03:55:55,934 - INFO - Generated audio for '<speak>few. I have a few coins left.</speak>' at D:\vocabswipe.github.io\data\audio\few_sentence_0+Matthew+7a1beaab347ceace3280322fe26c2042.mp3
+2025-06-24 03:55:56,291 - INFO - Generated audio for '<speak>few. Few people came to the event.</speak>' at D:\vocabswipe.github.io\data\audio\few_sentence_1+Matthew+7732e37b7343132e2a4a893dc20ee253.mp3
+2025-06-24 03:55:56,645 - INFO - Generated audio for '<speak>few. She has a few friends here.</speak>' at D:\vocabswipe.github.io\data\audio\few_sentence_2+Matthew+0ba26ade64a0bba32f68ba0c1e544a03.mp3
+2025-06-24 03:55:57,026 - INFO - Generated audio for '<speak>few. There are few seats available.</speak>' at D:\vocabswipe.github.io\data\audio\few_sentence_3+Matthew+15bf176932a4964a70a30a1d0d83d77a.mp3
+2025-06-24 03:55:57,385 - INFO - Generated audio for '<speak>few. A few students stayed late.</speak>' at D:\vocabswipe.github.io\data\audio\few_sentence_4+Matthew+4c6f575bed1a497770c32d4cb9c15f4b.mp3
+2025-06-24 03:55:57,710 - INFO - Generated audio for '<speak>group</speak>' at D:\vocabswipe.github.io\data\audio\group_word_0+Matthew+db0f6f37ebeb6ea09489124345af2a45.mp3
+2025-06-24 03:55:58,068 - INFO - Generated audio for '<speak>group. The group met at the park.</speak>' at D:\vocabswipe.github.io\data\audio\group_sentence_0+Matthew+54424be88c50361ca0759cf5fb1c9252.mp3
+2025-06-24 03:55:58,433 - INFO - Generated audio for '<speak>group. She joined a study group.</speak>' at D:\vocabswipe.github.io\data\audio\group_sentence_1+Matthew+73d20f880e86e4ef2619aaba92b8528c.mp3
+2025-06-24 03:55:58,791 - INFO - Generated audio for '<speak>group. A group of birds flew by.</speak>' at D:\vocabswipe.github.io\data\audio\group_sentence_2+Matthew+492756ff454b90fa777d74b3b9e8c695.mp3
+2025-06-24 03:55:59,148 - INFO - Generated audio for '<speak>group. The group planned the event.</speak>' at D:\vocabswipe.github.io\data\audio\group_sentence_3+Matthew+adcd5263ea0373d1b6849634e248770f.mp3
+2025-06-24 03:55:59,503 - INFO - Generated audio for '<speak>group. They’re in the same group.</speak>' at D:\vocabswipe.github.io\data\audio\group_sentence_4+Matthew+7a492c2fd4d25b44ae8f7d1f302c623e.mp3
+2025-06-24 03:55:59,830 - INFO - Generated audio for '<speak>such</speak>' at D:\vocabswipe.github.io\data\audio\such_word_0+Matthew+6f129a2e6e103ea342a085875931830b.mp3
+2025-06-24 03:56:00,180 - INFO - Generated audio for '<speak>such. Such a nice day!</speak>' at D:\vocabswipe.github.io\data\audio\such_sentence_0+Matthew+87a23f4a6e051cdb4c38e3db2059c80d.mp3
+2025-06-24 03:56:00,534 - INFO - Generated audio for '<speak>such. I’ve never seen such beauty.</speak>' at D:\vocabswipe.github.io\data\audio\such_sentence_1+Matthew+8d1e44fcb8b61117d4b0295ff6c156d2.mp3
+2025-06-24 03:56:00,894 - INFO - Generated audio for '<speak>such. Such behavior is unacceptable.</speak>' at D:\vocabswipe.github.io\data\audio\such_sentence_2+Matthew+18a4d0bb21fcc2850bafc110307e4b45.mp3
+2025-06-24 03:56:01,251 - INFO - Generated audio for '<speak>such. He’s such a good friend.</speak>' at D:\vocabswipe.github.io\data\audio\such_sentence_3+Matthew+3a30324bd70b86cababa1a1f6acb0bf5.mp3
+2025-06-24 03:56:01,603 - INFO - Generated audio for '<speak>such. Such books are rare.</speak>' at D:\vocabswipe.github.io\data\audio\such_sentence_4+Matthew+1cb99c516ec23e9d8f66b1cb3faa7394.mp3
+2025-06-24 03:56:02,182 - INFO - Saved data to D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 03:56:02,184 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250624_035602.txt
+2025-06-24 03:56:02,185 - INFO - Saved data to D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 03:56:02,185 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
