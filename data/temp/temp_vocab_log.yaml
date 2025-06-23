@@ -26610,3 +26610,304 @@
     example_en: He won't finish the project on time.
   - definition_en: Negates a statement.
     example_en: They aren't coming to the meeting.
+- word: the
+  rank: 1
+  freq: 50033612
+  part_of_speech: article
+  back_cards:
+  - definition_en: Used to specify a particular noun.
+    example_en: The dog barked loudly in the park.
+  - definition_en: Indicates something well-known or unique.
+    example_en: The sun sets slowly behind the mountain.
+  - definition_en: Refers to a specific group or class.
+    example_en: The students in the class were attentive.
+  - definition_en: Used before superlatives or ordinal numbers.
+    example_en: She won the first prize in the competition.
+  - definition_en: Points to something previously mentioned.
+    example_en: I found a book, and the book was fascinating.
+- word: be
+  rank: 2
+  freq: 32394756
+  part_of_speech: verb
+  back_cards:
+  - definition_en: To exist or occur.
+    example_en: A new festival will be in town next week.
+  - definition_en: To act as or serve as.
+    example_en: She wants to be a doctor when she grows up.
+  - definition_en: To indicate a state or condition.
+    example_en: He is tired after a long day at work.
+  - definition_en: Used to form continuous tenses.
+    example_en: They are playing soccer in the field.
+  - definition_en: To represent identity or equivalence.
+    example_en: This is the best coffee shop in town.
+- word: and
+  rank: 3
+  freq: 24778098
+  part_of_speech: conjunction
+  back_cards:
+  - definition_en: Connects two ideas or items.
+    example_en: I bought apples and oranges at the market.
+  - definition_en: Joins clauses in a sentence.
+    example_en: She studied hard and passed the exam.
+  - definition_en: Indicates additional information.
+    example_en: The hike was long and very scenic.
+  - definition_en: Shows simultaneous actions.
+    example_en: He was singing and dancing at the party.
+  - definition_en: Links related concepts.
+    example_en: The project requires time and effort.
+- word: a
+  rank: 4
+  freq: 24225478
+  part_of_speech: article
+  back_cards:
+  - definition_en: Refers to a non-specific singular noun.
+    example_en: I saw a cat in the garden.
+  - definition_en: Introduces something new.
+    example_en: She found a book on the shelf.
+  - definition_en: Used with professions or roles.
+    example_en: He works as a teacher in a school.
+  - definition_en: Indicates one of many.
+    example_en: A bird flew over the forest.
+  - definition_en: Used in expressions of quantity.
+    example_en: I need a dozen eggs for the recipe.
+- word: of
+  rank: 5
+  freq: 23159162
+  part_of_speech: preposition
+  back_cards:
+  - definition_en: Indicates possession or belonging.
+    example_en: The leaves of the tree turned red.
+  - definition_en: Shows composition or material.
+    example_en: The house is made of wood.
+  - definition_en: Denotes a part or quantity.
+    example_en: A slice of cake was left on the plate.
+  - definition_en: Expresses association or connection.
+    example_en: She is a friend of my sister.
+  - definition_en: Refers to content or subject.
+    example_en: They talked of their plans for the weekend.
+- word: to
+  rank: 6
+  freq: 16770155
+  part_of_speech: preposition
+  back_cards:
+  - definition_en: Indicates direction or destination.
+    example_en: She walked to the store.
+  - definition_en: Shows purpose or intention.
+    example_en: He studies to become an engineer.
+  - definition_en: Denotes a recipient.
+    example_en: I gave a gift to my friend.
+  - definition_en: Marks an infinitive verb.
+    example_en: They want to learn how to cook.
+  - definition_en: Indicates a point in time.
+    example_en: The meeting is scheduled to five o'clock.
+- word: in
+  rank: 7
+  freq: 15670692
+  part_of_speech: preposition
+  back_cards:
+  - definition_en: Indicates location or position.
+    example_en: The keys are in the drawer.
+  - definition_en: Refers to a period of time.
+    example_en: We met in the summer of last year.
+  - definition_en: Shows a state or condition.
+    example_en: She is in a good mood today.
+  - definition_en: Denotes involvement or participation.
+    example_en: He works in the tech industry.
+  - definition_en: Expresses manner or means.
+    example_en: They communicated in writing.
+- word: I
+  rank: 8
+  freq: 14217601
+  part_of_speech: pronoun
+  back_cards:
+  - definition_en: Refers to the speaker or writer.
+    example_en: I am going to the park.
+  - definition_en: Expresses personal opinion.
+    example_en: I think this movie is amazing.
+  - definition_en: Indicates personal action.
+    example_en: I finished my homework early.
+  - definition_en: Used in self-description.
+    example_en: I am a student at the university.
+  - definition_en: Shows personal preference.
+    example_en: I prefer tea over coffee.
+- word: you
+  rank: 9
+  freq: 12079413
+  part_of_speech: pronoun
+  back_cards:
+  - definition_en: Addresses the person being spoken to.
+    example_en: You should try this new restaurant.
+  - definition_en: Refers to a general audience.
+    example_en: You can learn a lot from books.
+  - definition_en: Indicates a specific person.
+    example_en: I saw you at the concert last night.
+  - definition_en: Used in giving advice.
+    example_en: You need to rest after a long day.
+  - definition_en: Expresses a direct request.
+    example_en: Can you help me with this task?
+- word: it
+  rank: 10
+  freq: 11042044
+  part_of_speech: pronoun
+  back_cards:
+  - definition_en: Refers to a non-living thing.
+    example_en: The book is on the table; pick it up.
+  - definition_en: Used for animals or objects.
+    example_en: The dog wagged its tail happily.
+  - definition_en: Refers to a situation or event.
+    example_en: It rained all day yesterday.
+  - definition_en: Acts as a placeholder subject.
+    example_en: It is important to stay hydrated.
+  - definition_en: Points to something previously mentioned.
+    example_en: I found a phone, but it was broken.
+- word: have
+  rank: 11
+  freq: 10514314
+  part_of_speech: verb
+  back_cards:
+  - definition_en: To possess or own.
+    example_en: I have a new car.
+  - definition_en: To experience or undergo.
+    example_en: She had a great time at the party.
+  - definition_en: To consume or take.
+    example_en: They have breakfast together every morning.
+  - definition_en: To indicate obligation.
+    example_en: You have to finish your work by noon.
+  - definition_en: To show a relationship.
+    example_en: He has two sisters in college.
+- word: to
+  rank: 12
+  freq: 9232572
+  part_of_speech: preposition
+  back_cards:
+  - definition_en: Indicates movement toward a place.
+    example_en: We drove to the beach last weekend.
+  - definition_en: Shows a goal or purpose.
+    example_en: She trains to run a marathon.
+  - definition_en: Denotes a recipient or target.
+    example_en: He sent a letter to his cousin.
+  - definition_en: Marks an infinitive verb form.
+    example_en: I need to finish this report.
+  - definition_en: Refers to a time limit.
+    example_en: The shop is open to seven tonight.
+- word: that
+  rank: 13
+  freq: 8319512
+  part_of_speech: pronoun
+  back_cards:
+  - definition_en: Refers to a specific thing or person.
+    example_en: I like that painting on the wall.
+  - definition_en: Introduces a defining clause.
+    example_en: The book that I read was thrilling.
+  - definition_en: Used for emphasis.
+    example_en: It was that moment when everything changed.
+  - definition_en: Points to a previously mentioned idea.
+    example_en: She said she was tired, and that was true.
+  - definition_en: Connects to a result or reason.
+    example_en: He was so late that he missed the meeting.
+- word: for
+  rank: 14
+  freq: 8194970
+  part_of_speech: preposition
+  back_cards:
+  - definition_en: Indicates purpose or reason.
+    example_en: She bought flowers for the party.
+  - definition_en: Shows duration of time.
+    example_en: They stayed for three hours.
+  - definition_en: Denotes a recipient.
+    example_en: This gift is for my brother.
+  - definition_en: Expresses support or favor.
+    example_en: I am voting for the new policy.
+  - definition_en: Refers to a cause or motive.
+    example_en: He was praised for his hard work.
+- word: do
+  rank: 15
+  freq: 8186412
+  part_of_speech: verb
+  back_cards:
+  - definition_en: To perform an action.
+    example_en: I do my exercises every morning.
+  - definition_en: To complete or finish.
+    example_en: She did her homework before dinner.
+  - definition_en: Used for emphasis.
+    example_en: You do need to listen carefully.
+  - definition_en: To ask about an action.
+    example_en: What do you do for a living?
+  - definition_en: To substitute for another verb.
+    example_en: He cleans as well as she does.
+- word: he
+  rank: 16
+  freq: 6467470
+  part_of_speech: pronoun
+  back_cards:
+  - definition_en: Refers to a male person.
+    example_en: He is my best friend.
+  - definition_en: Used to describe an individual.
+    example_en: He works as a chef in a restaurant.
+  - definition_en: Points to a specific man mentioned.
+    example_en: I saw him, and he waved back.
+  - definition_en: Used in storytelling.
+    example_en: He climbed the mountain alone.
+  - definition_en: Refers to a male in a role.
+    example_en: He is the captain of the team.
+- word: with
+  rank: 17
+  freq: 6442861
+  part_of_speech: preposition
+  back_cards:
+  - definition_en: Indicates accompaniment.
+    example_en: She went to the party with her friends.
+  - definition_en: Shows the means or tool used.
+    example_en: He cut the paper with scissors.
+  - definition_en: Denotes association or relationship.
+    example_en: I work with a great team.
+  - definition_en: Expresses manner or condition.
+    example_en: She spoke with confidence.
+  - definition_en: Refers to possession of something.
+    example_en: The man with the hat is my uncle.
+- word: 'on'
+  rank: 18
+  freq: 6080156
+  part_of_speech: preposition
+  back_cards:
+  - definition_en: Indicates position or location.
+    example_en: The cup is on the table.
+  - definition_en: Refers to a specific time.
+    example_en: We meet on Fridays.
+  - definition_en: Shows attachment or contact.
+    example_en: The picture hangs on the wall.
+  - definition_en: Denotes a topic or subject.
+    example_en: She gave a talk on climate change.
+  - definition_en: Expresses dependence or basis.
+    example_en: His decision was based on facts.
+- word: this
+  rank: 19
+  freq: 5541440
+  part_of_speech: pronoun
+  back_cards:
+  - definition_en: Refers to something nearby or current.
+    example_en: This book is my favorite.
+  - definition_en: Points to a specific thing.
+    example_en: I bought this shirt yesterday.
+  - definition_en: Introduces something being discussed.
+    example_en: This is why I love hiking.
+  - definition_en: Used to emphasize the present moment.
+    example_en: This summer has been amazing.
+  - definition_en: Refers to a close object or idea.
+    example_en: This idea could change everything.
+- word: n't
+  rank: 20
+  freq: 5285354
+  part_of_speech: adverb
+  back_cards:
+  - definition_en: Contracts 'not' to negate a verb.
+    example_en: I can't go to the party tonight.
+  - definition_en: Used to deny an action.
+    example_en: She doesn't like spicy food.
+  - definition_en: Indicates prohibition.
+    example_en: You shouldn't run in the hallway.
+  - definition_en: Expresses inability.
+    example_en: He won't finish the project on time.
+  - definition_en: Negates a statement.
+    example_en: They aren't coming to the meeting.
+- []

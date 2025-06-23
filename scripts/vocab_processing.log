@@ -8274,3 +8274,46 @@ expected <block end>, but found '<block mapping start>'
 2025-06-24 02:15:19,969 - __main__ - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250624_021519.txt
 2025-06-24 02:15:19,971 - __main__ - INFO - Saved data to D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
 2025-06-24 02:15:19,971 - __main__ - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
+2025-06-24 03:06:40,253 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-24 03:06:40,449 - __main__ - INFO - AWS Polly client initialized successfully.
+2025-06-24 03:06:40,449 - __main__ - INFO - Attempting to load: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 03:06:40,450 - __main__ - INFO - Attempting to load: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 03:06:45,792 - __main__ - INFO - Saved data to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 03:06:45,793 - __main__ - INFO - Appended 20 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 03:06:45,800 - __main__ - INFO - Attempting to load: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 03:06:45,868 - __main__ - INFO - Skipping entry 'the' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,869 - __main__ - INFO - Skipping entry 'be' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,869 - __main__ - INFO - Skipping entry 'and' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,870 - __main__ - INFO - Skipping entry 'a' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,871 - __main__ - INFO - Skipping entry 'of' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,872 - __main__ - INFO - Skipping entry 'to' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,873 - __main__ - INFO - Skipping entry 'in' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,874 - __main__ - INFO - Skipping entry 'I' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,875 - __main__ - INFO - Skipping entry 'you' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,875 - __main__ - INFO - Skipping entry 'it' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,876 - __main__ - INFO - Skipping entry 'have' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,877 - __main__ - INFO - Skipping entry 'to' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,878 - __main__ - INFO - Skipping entry 'that' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,879 - __main__ - INFO - Skipping entry 'for' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,880 - __main__ - INFO - Skipping entry 'do' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,881 - __main__ - INFO - Skipping entry 'he' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,882 - __main__ - INFO - Skipping entry 'with' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,882 - __main__ - INFO - Skipping entry 'on' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,883 - __main__ - INFO - Skipping entry 'this' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,884 - __main__ - INFO - Skipping entry 'n't' - audio files already exist with voice Matthew
+2025-06-24 03:06:45,933 - __main__ - INFO - Saved data to D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 03:06:45,933 - __main__ - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250624_030645.txt
+2025-06-24 03:06:45,934 - __main__ - INFO - Saved data to D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 03:06:45,935 - __main__ - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
+2025-06-24 03:12:47,733 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-24 03:12:47,927 - __main__ - INFO - AWS Polly client initialized successfully.
+2025-06-24 03:12:47,927 - __main__ - INFO - Attempting to load: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 03:12:47,928 - __main__ - INFO - Attempting to load: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 03:12:53,544 - __main__ - INFO - Saved data to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 03:12:53,544 - __main__ - INFO - Appended 1 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 03:12:53,553 - __main__ - INFO - Attempting to load: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 03:12:53,629 - __main__ - WARNING - Invalid entry - missing required fields: []
+2025-06-24 03:12:53,681 - __main__ - INFO - Saved data to D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 03:12:53,682 - __main__ - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250624_031253.txt
+2025-06-24 03:12:53,683 - __main__ - WARNING - Invalid entries: [[]]
+2025-06-24 03:12:53,683 - __main__ - WARNING - Batch processing failed. temp_vocab_multi_cards.jsonl not cleared.
