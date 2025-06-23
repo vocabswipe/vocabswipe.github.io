@@ -1,4 +1,5 @@
 import os
+import json
 import yaml
 from tqdm import tqdm
 import boto3
@@ -10,7 +11,7 @@ import logging
 # Set up logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
         logging.FileHandler(os.path.join(os.path.dirname(__file__), 'vocab_processing.log'), encoding='utf-8'),
         logging.StreamHandler()
@@ -20,14 +21,14 @@ logger = logging.getLogger(__name__)
 
 # Define paths using absolute paths
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-TEMP_VOCAB_PATH = os.path.join(BASE_DIR, 'data', 'temp', 'temp_vocab.yaml')
+TEMP_VOCAB_JSON_PATH = os.path.join(BASE_DIR, 'data', 'temp', 'temp_vocab.json')
 TEMP_VOCAB_LOG_PATH = os.path.join(BASE_DIR, 'data', 'temp', 'temp_vocab_log.yaml')
 VOCAB_DB_PATH = os.path.join(BASE_DIR, 'data', 'vocab_database.yaml')
 AUDIO_DIR = os.path.join(BASE_DIR, 'data', 'audio')
 
 # Ensure audio, temp, and reports directories exist
 os.makedirs(AUDIO_DIR, exist_ok=True)
-os.makedirs(os.path.dirname(TEMP_VOCAB_PATH), exist_ok=True)
+os.makedirs(os.path.dirname(TEMP_VOCAB_JSON_PATH), exist_ok=True)
 os.makedirs(os.path.join(BASE_DIR, 'data', 'reports'), exist_ok=True)
 
 # Initialize AWS Polly client with error handling
@@ -41,12 +42,15 @@ except Exception as e:
 # Use only Matthew's voice (en-US, neural)
 FAVORITE_VOICES = ['Matthew']
 
-def load_yaml(file_path):
-    """Load YAML file and return its content."""
+def load_file(file_path, file_type='yaml'):
+    """Load YAML or JSON file and return its content."""
     logger.info(f"Attempting to load: {file_path}")
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
-            data = yaml.safe_load(file) or []
+            if file_type == 'json':
+                data = json.load(file) or []
+            else:
+                data = yaml.safe_load(file) or []
             return data
     except FileNotFoundError:
         logger.warning(f"{file_path} does not exist. Creating default structure.")
@@ -55,32 +59,35 @@ def load_yaml(file_path):
             'k': [], 'l': [], 'm': [], 'n': [], 'o': [], 'p': [], 'q': [], 'r': [], 's': [], 't': [],
             'u': [], 'v': [], 'w': [], 'x': [], 'y': [], 'z': []
         } if file_path == VOCAB_DB_PATH else []
-    except yaml.YAMLError as e:
-        logger.error(f"Error parsing YAML file {file_path}: {e}")
+    except (yaml.YAMLError, json.JSONDecodeError) as e:
+        logger.error(f"Error parsing {file_type.upper()} file {file_path}: {e}")
         return []
 
-def save_yaml(data, file_path):
-    """Save data to YAML file."""
+def save_file(data, file_path, file_type='yaml'):
+    """Save data to YAML or JSON file."""
     try:
         with open(file_path, 'w', encoding='utf-8') as file:
-            yaml.safe_dump(data, file, allow_unicode=True, sort_keys=False)
+            if file_type == 'json':
+                json.dump(data, file, ensure_ascii=False, indent=2)
+            else:
+                yaml.safe_dump(data, file, allow_unicode=True, sort_keys=False)
         logger.info(f"Saved data to {file_path}")
     except Exception as e:
-        logger.error(f"Error saving YAML file {file_path}: {e}")
+        logger.error(f"Error saving {file_type.upper()} file {file_path}: {e}")
         raise
 
 def append_to_log(entries):
     """Append entries to temp_vocab_log.yaml, creating a blank file if it doesn't exist."""
     if not os.path.exists(TEMP_VOCAB_LOG_PATH):
         logger.info(f"Creating blank {TEMP_VOCAB_LOG_PATH}")
-        save_yaml([], TEMP_VOCAB_LOG_PATH)
+        save_file([], TEMP_VOCAB_LOG_PATH, file_type='yaml')
     
-    existing_log = load_yaml(TEMP_VOCAB_LOG_PATH)
+    existing_log = load_file(TEMP_VOCAB_LOG_PATH, file_type='yaml')
     if not isinstance(existing_log, list):
         logger.warning(f"{TEMP_VOCAB_LOG_PATH} is not a list. Initializing as empty list.")
         existing_log = []
     existing_log.extend(entries)
-    save_yaml(existing_log, TEMP_VOCAB_LOG_PATH)
+    save_file(existing_log, TEMP_VOCAB_LOG_PATH, file_type='yaml')
     logger.info(f"Appended {len(entries)} entries to {TEMP_VOCAB_LOG_PATH}")
 
 def generate_audio(text, output_path, voice_id, use_ssml=False):
@@ -170,9 +177,9 @@ def verify_audio_files(vocab_db):
         for entry in vocab_db[letter]:
             word_audio_path = os.path.join(AUDIO_DIR, entry.get('word_audio_file', ''))
             sentence_audio_path = os.path.join(AUDIO_DIR, entry.get('sentence_audio_file', ''))
-            if not entry.get('word_audio_file') or not os.path.exists(word_audio_path):
+            if not os.path.exists(word_audio_path):
                 missing_audio.append((entry['word'], 'word_audio_file', word_audio_path))
-            if not entry.get('sentence_audio_file') or not os.path.exists(sentence_audio_path):
+            if not os.path.exists(sentence_audio_path):
                 missing_audio.append((entry['word'], 'sentence_audio_file', sentence_audio_path))
     return missing_audio
 
@@ -225,7 +232,7 @@ def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, 
     
     report.append("\n=== End of Report ===")
     
-    report_text = "\n".join(report)
+    report_text = '\n'.join(report)
     print(report_text)
     report_path = os.path.join(BASE_DIR, 'data', 'reports', f"vocab_report_{time.strftime('%Y%m%d_%H%M%S')}.txt")
     with open(report_path, 'w', encoding='utf-8') as f:
@@ -234,7 +241,7 @@ def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, 
 
 def process_entries(entries):
     """Process vocabulary entries and update database."""
-    vocab_db = load_yaml(VOCAB_DB_PATH)
+    vocab_db = load_file(VOCAB_DB_PATH, file_type='yaml')
     if not isinstance(vocab_db, dict):
         logger.error(f"{VOCAB_DB_PATH} is not a dictionary. Initializing default structure.")
         vocab_db = {chr(i): [] for i in range(ord('a'), ord('z') + 1)}
@@ -252,7 +259,6 @@ def process_entries(entries):
         word_lower = entry['word'].lower()
         if not word_lower or not word_lower[0].isalpha():
             logger.info(f"Skipping entry '{entry['word']}' - does not start with a letter")
-            invalid_entries.append(entry)
             continue
 
         first_char = word_lower[0]
@@ -336,16 +342,16 @@ def process_entries(entries):
 
     duplicates, removed_count = check_duplicates(vocab_db)
     missing_audio = verify_audio_files(vocab_db)
-    save_yaml(vocab_db, VOCAB_DB_PATH)
+    save_file(vocab_db, VOCAB_DB_PATH, file_type='yaml')
     generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, missing_audio, initial_word_count, skipped_entries)
     
     return valid_entries, invalid_entries
 
 def main():
-    """Main function to process temp_vocab.yaml and update vocab_database.yaml."""
-    entries = load_yaml(TEMP_VOCAB_PATH)
+    """Main function to process temp_vocab.json and update vocab_database.yaml."""
+    entries = load_file(TEMP_VOCAB_JSON_PATH, file_type='json')
     if not entries:
-        logger.warning("No entries to process in temp_vocab.yaml")
+        logger.warning("No entries to process in temp_vocab.json")
         return
 
     append_to_log(entries)
@@ -355,10 +361,10 @@ def main():
         logger.warning(f"Invalid entries: {invalid_entries}")
 
     if valid_entries:
-        save_yaml([], TEMP_VOCAB_PATH)
-        logger.info("Batch processed successfully. temp_vocab.yaml cleared.")
+        save_file([], TEMP_VOCAB_JSON_PATH, file_type='json')
+        logger.info("Batch processed successfully. temp_vocab.json cleared.")
     else:
-        logger.warning("Batch processing failed. temp_vocab.yaml not cleared.")
+        logger.warning("Batch processing failed. temp_vocab.json not cleared.")
 
 if __name__ == "__main__":
     main()
