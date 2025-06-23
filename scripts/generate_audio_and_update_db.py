@@ -3,7 +3,6 @@ import yaml
 from tqdm import tqdm
 import boto3
 import hashlib
-import random
 from collections import defaultdict
 import time
 import logging
@@ -39,8 +38,8 @@ except Exception as e:
     logger.error(f"Failed to initialize AWS Polly client: {e}")
     raise
 
-# List of favorite voices (all en-US, neural)
-FAVORITE_VOICES = ['Joanna', 'Joey', 'Kendra', 'Matthew', 'Stephen']
+# Use only Matthew's voice (en-US, neural)
+FAVORITE_VOICES = ['Matthew']
 
 def load_yaml(file_path):
     """Load YAML file and return its content."""
@@ -261,7 +260,7 @@ def process_entries(entries):
         if first_char in vocab_db and vocab_db[first_char]:
             existing_entry = next((e for e in vocab_db[first_char] if e['word'].lower() == word_lower), None)
 
-        if existing_entry and existing_entry.get('voice_id') in FAVORITE_VOICES:
+        if existing_entry and existing_entry.get('voice_id') == 'Matthew':
             voice = existing_entry['voice_id']
             word_text = f"<speak>{entry['word']}</speak>"
             sentence_text = f"<speak>{entry['word']}. {entry['example_en']}</speak>"
@@ -276,8 +275,8 @@ def process_entries(entries):
                 valid_entries.append(existing_entry)
                 continue
 
-        # Generate new audio
-        selected_voice = random.choice(FAVORITE_VOICES)
+        # Generate new audio with Matthew's voice
+        selected_voice = 'Matthew'
         new_entry = {
             'word': entry['word'],
             'part_of_speech': entry['part_of_speech'],
@@ -288,6 +287,25 @@ def process_entries(entries):
             'sentence_audio_file': '',
             'voice_id': selected_voice
         }
+
+        # Delete existing audio files if they exist with a different voice
+        if existing_entry and existing_entry.get('voice_id') != 'Matthew':
+            if existing_entry.get('word_audio_file'):
+                word_audio_path = os.path.join(AUDIO_DIR, existing_entry['word_audio_file'])
+                if os.path.exists(word_audio_path):
+                    try:
+                        os.remove(word_audio_path)
+                        logger.info(f"Deleted old audio file with different voice: {word_audio_path}")
+                    except OSError as e:
+                        logger.error(f"Error deleting old audio file {word_audio_path}: {e}")
+            if existing_entry.get('sentence_audio_file'):
+                sentence_audio_path = os.path.join(AUDIO_DIR, existing_entry['sentence_audio_file'])
+                if os.path.exists(sentence_audio_path):
+                    try:
+                        os.remove(sentence_audio_path)
+                        logger.info(f"Deleted old audio file with different voice: {sentence_audio_path}")
+                    except OSError as e:
+                        logger.error(f"Error deleting old audio file {sentence_audio_path}: {e}")
 
         word_text = f"<speak>{new_entry['word']}</speak>"
         word_audio_filename = get_audio_filename(new_entry['word'], new_entry['word'], 'word', selected_voice)
