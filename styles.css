@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif; /* Default for English */
+    font-family: 'Arial', sans-serif;
 }
 
 body {
@@ -13,6 +13,25 @@ body {
     background-color: #f0f0f0;
     padding: 10px;
     overflow-x: hidden;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.slogan {
+    font-size: 0.8em;
+    color: #7f8c8d;
+    font-style: italic;
 }
 
 .container {
@@ -82,35 +101,38 @@ body {
 }
 
 h2 {
-    font-family: 'Arial', sans-serif; /* English word */
+    font-family: 'Arial', sans-serif;
     font-size: 2em;
     margin-bottom: 10px;
     color: #333;
 }
 
 p.english {
-    font-family: 'Arial', sans-serif; /* English text */
+    font-family: 'Arial', sans-serif;
     font-size: 1em;
     margin: 5px 0;
     color: #555;
 }
 
 p.thai {
-    font-family: 'Noto Sans Thai', sans-serif; /* Thai text */
+    font-family: 'Noto Sans Thai', sans-serif;
     font-size: 1em;
     margin: 5px 0;
     color: #555;
 }
 
 p.part-of-speech {
-    font-style: italic; /* Italic for part of speech */
+    font-style: italic;
 }
 
-strong {
-    color: #333;
+.freq-bar {
+    height: 10px;
+    width: 0; /* Will be set dynamically */
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: width 0.3s ease;
 }
 
-/* Responsive adjustments */
 @media (max-width: 360px) {
     .flashcard {
         height: 450px;
@@ -121,7 +143,9 @@ strong {
     p {
         font-size: 0.9em;
     }
+    .freq-bar {
+        height: 8px;
+    }
 }
 
-/* Import Google Fonts for Thai */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&display=swap');
