@@ -1,7 +1,6 @@
 import os
 import json
 import yaml
-from tqdm import tqdm
 import boto3
 import hashlib
 import time
@@ -11,7 +10,6 @@ from rich.panel import Panel
 from rich.table import Table
 from rich.progress import Progress, BarColumn, TextColumn, SpinnerColumn
 from rich.text import Text
-from rich.box import box  # Added to fix NameError
 
 # Initialize rich console
 console = Console()
@@ -51,7 +49,7 @@ except Exception as e:
 
 FAVORITE_VOICES = ['Matthew']
 
-# Unchanged functions (for brevity)
+# Unchanged functions
 def load_file(file_path, file_type='jsonl'):
     logger.info(f"Loading: {file_path}")
     try:
@@ -168,8 +166,8 @@ def verify_audio_files(vocab_db):
     return missing_audio
 
 def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, missing_audio, first_word, last_word):
-    """Generate a concise high-tech summary report."""
-    table = Table(title="📊 Vocabulary Sync Report", box=box.MINIMAL, style="cyan")
+    """Generate a concise high-tech summary report without fancy boxes."""
+    table = Table(title="📊 Vocabulary Sync Report", style="cyan", show_lines=True)
     table.add_column("Metric", style="bold")
     table.add_column("Value", justify="right")
     
