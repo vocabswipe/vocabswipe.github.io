@@ -4,6 +4,7 @@ let words = [];
 let isFlipped = false;
 let currentAudio = null;
 let audioCache = new Map();
+let maxFreq = 0;
 const MAX_CACHE_SIZE = 10;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,24 +13,35 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadWords() {
-    fetch('data/vocab_database.yaml')
-        .then(response => {
+    Promise.all([
+        fetch('data/vocab_database.yaml').then(response => {
             if (!response.ok) throw new Error('Failed to load vocab_database.yaml');
             return response.text();
+        }),
+        fetch('data/COCA_WordFrequency.csv').then(response => {
+            if (!response.ok) throw new Error('Failed to load COCA_WordFrequency.csv');
+            return response.text();
         })
-        .then(yamlText => {
-            words = jsyaml.load(yamlText) || [];
-            if (!words.length) {
-                console.warn('No words found in vocab_database.yaml');
-                return;
+    ]).then(([yamlText, csvText]) => {
+        words = jsyaml.load(yamlText) || [];
+        if (!words.length) {
+            console.warn('No words found in vocab_database.yaml');
+            return;
+        }
+        Papa.parse(csvText, {
+            header: true,
+            complete: (result) => {
+                maxFreq = Math.max(...result.data.map(row => parseInt(row.freq || 0)));
+                words.sort((a, b) => b.freq - a.freq); // Sort by freq descending
+                displayWord();
+                updateFrequencyBar();
+                preloadAudio();
             }
-            displayWord();
-            preloadAudio();
-        })
-        .catch(error => {
-            console.error('Error loading words:', error);
-            alert('Failed to load vocabulary data.');
         });
+    }).catch(error => {
+        console.error('Error loading data:', error);
+        alert('Failed to load vocabulary or frequency data.');
+    });
 }
 
 function setupEventListeners() {
@@ -76,6 +88,7 @@ function setupEventListeners() {
             }
             stopAudio();
             displayWord();
+            updateFrequencyBar();
             preloadAudio();
         }
     });
@@ -89,6 +102,7 @@ function setupEventListeners() {
             }
             stopAudio();
             displayWord();
+            updateFrequencyBar();
             preloadAudio();
         }
     });
@@ -197,4 +211,16 @@ function displayWord() {
         <p class="english">${backCard.example_en}</p>
         <p class="thai">${backCard.example_th}</p>
     `;
+    updateFrequencyBar();
+}
+
+function updateFrequencyBar() {
+    if (!words[currentWordIndex] || !maxFreq) return;
+    const freq = words[currentWordIndex].freq;
+    const freqPercent = (freq / maxFreq) * 100;
+    const hue = 120 - (freqPercent * 1.2); // Red (0) to Green (120)
+    document.getElementById('front-freq-bar').style.background = `linear-gradient(to right, hsl(${hue}, 100%, 50%), hsl(120, 100%, 50%))`;
+    document.getElementById('back-freq-bar').style.background = `linear-gradient(to right, hsl(${hue}, 100%, 50%), hsl(120, 100%, 50%))`;
+    document.getElementById('front-freq-bar').style.width = `${freqPercent}%`;
+    document.getElementById('back-freq-bar').style.width = `${freqPercent}%`;
 }
