@@ -72,6 +72,7 @@ function setupEventListeners() {
                 playAudio(words[currentWordIndex].word_audio_file[0]);
             } else {
                 currentWordIndex = (currentWordIndex + 1) % words.length;
+                currentBackCardIndex = 0; // Reset to first back card when changing words
                 playAudio(words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0]);
             }
             stopAudio();
@@ -86,6 +87,7 @@ function setupEventListeners() {
                 playAudio(words[currentWordIndex].word_audio_file[0]);
             } else {
                 currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
+                currentBackCardIndex = 0; // Reset to first back card when changing words
                 playAudio(words[currentWordIndex].sentence_audio_file[currentBackCardIndex] || words[currentWordIndex].word_audio_file[0]);
             }
             stopAudio();
@@ -194,14 +196,18 @@ function displayWord() {
     const front = document.querySelector('.front');
     const back = document.querySelector('.back');
     const backCard = wordData.back_cards[currentBackCardIndex];
+    const maxFreq = words[0]?.freq || 1;
+    const relFreq = (wordData.freq / maxFreq) * 100;
 
-    front.innerHTML = `<h2>${wordData.word}</h2><div id="front-freq" class="freq">Freq: ${wordData.freq}</div>`;
+    front.innerHTML = `<h2>${wordData.word}</h2><div id="front-freq" class="freq">${relFreq.toFixed(1)}%</div>`;
     back.innerHTML = `
         <h2 class="english">${wordData.word}</h2>
-        <div class="back-content">
-            <p class="definition">${backCard.definition_en}</p>
-            <p class="example">${backCard.example_en}</p>
+        <div class="back-template">
+            <div class="card-info">
+                <p id="back-definition" class="definition">${backCard.definition_en}</p>
+                <p id="back-example" class="example">${backCard.example_en}</p>
+            </div>
+            <div id="back-freq" class="freq">${relFreq.toFixed(1)}%</div>
         </div>
-        <div id="back-freq" class="freq">Freq: ${wordData.freq}</div>
     `;
 }
