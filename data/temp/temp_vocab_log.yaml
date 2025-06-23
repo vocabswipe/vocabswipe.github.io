@@ -26160,3 +26160,153 @@
   - definition_th: มัน
     example_en: It is time to go.
     example_th: มันถึงเวลาที่จะไป
+- word: the
+  rank: 1
+  freq: 50033612
+  part_of_speech: article
+  back_cards:
+  - definition_en: Used to specify a particular noun.
+    example_en: The dog is in the yard.
+  - definition_en: Used with a singular noun to indicate a class.
+    example_en: She read the book quietly.
+  - definition_en: Used to indicate a unique entity.
+    example_en: The teacher is kind.
+  - definition_en: Used with a noun to refer to a specific place.
+    example_en: We visited the park today.
+  - definition_en: Used to emphasize a particular quality.
+    example_en: The movie was exciting.
+- word: be
+  rank: 2
+  freq: 32394756
+  part_of_speech: verb
+  back_cards:
+  - definition_en: To exist or live.
+    example_en: I want to be a doctor.
+  - definition_en: To occur or take place.
+    example_en: They will be here soon.
+  - definition_en: To have a specific state or quality.
+    example_en: He is my best friend.
+  - definition_en: To represent a possibility.
+    example_en: We can be happy together.
+  - definition_en: To indicate a past state.
+    example_en: She was late yesterday.
+- word: and
+  rank: 3
+  freq: 24778098
+  part_of_speech: conjunction
+  back_cards:
+  - definition_en: Used to connect similar items.
+    example_en: I like coffee and tea.
+  - definition_en: Used to add actions in a sequence.
+    example_en: He runs and jumps daily.
+  - definition_en: Used to link needs or requirements.
+    example_en: We need bread and butter.
+  - definition_en: Used to combine skills or talents.
+    example_en: She sings and dances well.
+  - definition_en: Used to join subjects of a sentence.
+    example_en: The cat and dog play.
+- word: a
+  rank: 4
+  freq: 24225478
+  part_of_speech: article
+  back_cards:
+  - definition_en: Used to refer to one of a kind.
+    example_en: She has a new phone.
+  - definition_en: Used to introduce a singular countable noun.
+    example_en: I saw a bird outside.
+  - definition_en: Used to indicate a single instance.
+    example_en: He bought a car yesterday.
+  - definition_en: Used to mention a general example.
+    example_en: There is a park nearby.
+  - definition_en: Used to specify a single item.
+    example_en: She wrote a letter today.
+- word: of
+  rank: 5
+  freq: 23159162
+  part_of_speech: preposition
+  back_cards:
+  - definition_en: Used to show possession.
+    example_en: This is a book of poems.
+  - definition_en: Used to indicate a relationship.
+    example_en: He is a friend of mine.
+  - definition_en: Used to describe content.
+    example_en: This is a photo of the family.
+  - definition_en: Used to specify a characteristic.
+    example_en: The color of the sky is blue.
+  - definition_en: Used to denote a field or domain.
+    example_en: She is the queen of dance.
+- word: to
+  rank: 6
+  freq: 16770155
+  part_of_speech: preposition
+  back_cards:
+  - definition_en: Used to indicate direction.
+    example_en: I go to school every day.
+  - definition_en: Used to show the recipient.
+    example_en: She gave a gift to him.
+  - definition_en: Used to express movement.
+    example_en: We walk to the store.
+  - definition_en: Used to indicate purpose or focus.
+    example_en: He listens to music at night.
+  - definition_en: Used to show destination.
+    example_en: They travel to America soon.
+- word: in
+  rank: 7
+  freq: 15670692
+  part_of_speech: preposition
+  back_cards:
+  - definition_en: Used to indicate location inside.
+    example_en: The cat is in the box.
+  - definition_th: Used to specify a place of residence.
+    example_en: I live in a small town.
+  - definition_en: Used to denote a work environment.
+    example_en: She works in an office.
+  - definition_en: Used to indicate containment.
+    example_en: The book is in my bag.
+  - definition_en: Used to show an activity location.
+    example_en: We play in the park.
+- word: i
+  rank: 8
+  freq: 14217601
+  part_of_speech: pronoun
+  back_cards:
+  - definition_en: Used as the first-person singular subject.
+    example_en: I like to read books.
+  - definition_en: Used to identify oneself.
+    example_en: I am a student here.
+  - definition_en: Used in daily actions.
+    example_en: I eat rice every day.
+  - definition_en: Used to express desire.
+    example_en: I want to learn English.
+  - definition_en: Used to describe observation.
+    example_en: I see the sun rise.
+- word: you
+  rank: 9
+  freq: 12079413
+  part_of_speech: pronoun
+  back_cards:
+  - definition_en: Used as the second-person singular subject.
+    example_en: You are my friend.
+  - definition_en: Used to offer assistance.
+    example_en: I help you every day.
+  - definition_en: Used to express capability.
+    example_en: You can do it well.
+  - definition_en: Used in social contexts.
+    example_en: I see you at school.
+  - definition_en: Used to share preferences.
+    example_en: You like this song.
+- word: it
+  rank: 10
+  freq: 11042044
+  part_of_speech: pronoun
+  back_cards:
+  - definition_en: Used to refer to weather conditions.
+    example_en: It is a sunny day.
+  - definition_en: Used to express approval.
+    example_en: I like it very much.
+  - definition_en: Used to indicate natural events.
+    example_en: It rains a lot here.
+  - definition_en: Used to describe sensations.
+    example_en: It feels cold outside.
+  - definition_en: Used to mark time or occasion.
+    example_en: It is time to go.
