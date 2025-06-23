@@ -8317,3 +8317,38 @@ expected <block end>, but found '<block mapping start>'
 2025-06-24 03:12:53,682 - __main__ - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250624_031253.txt
 2025-06-24 03:12:53,683 - __main__ - WARNING - Invalid entries: [[]]
 2025-06-24 03:12:53,683 - __main__ - WARNING - Batch processing failed. temp_vocab_multi_cards.jsonl not cleared.
+2025-06-24 03:16:35,454 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-24 03:16:35,644 - __main__ - INFO - AWS Polly client initialized successfully.
+2025-06-24 03:16:35,645 - __main__ - INFO - Attempting to load: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 03:16:35,646 - __main__ - ERROR - Error parsing JSONL file D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl: Expecting ':' delimiter: line 1 column 19 (char 18)
+2025-06-24 03:16:35,646 - __main__ - WARNING - No entries to process in temp_vocab_multi_cards.jsonl
+2025-06-24 03:19:09,916 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-24 03:19:10,109 - __main__ - INFO - AWS Polly client initialized successfully.
+2025-06-24 03:19:10,109 - __main__ - INFO - Attempting to load: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 03:19:10,110 - __main__ - INFO - Attempting to load: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 03:19:15,435 - __main__ - INFO - Saved data to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 03:19:15,435 - __main__ - INFO - Appended 20 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 03:19:15,443 - __main__ - INFO - Attempting to load: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 03:19:15,510 - __main__ - INFO - Skipping entry 'the' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,511 - __main__ - INFO - Skipping entry 'be' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,512 - __main__ - INFO - Skipping entry 'and' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,513 - __main__ - INFO - Skipping entry 'a' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,514 - __main__ - INFO - Skipping entry 'of' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,514 - __main__ - INFO - Skipping entry 'to' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,515 - __main__ - INFO - Skipping entry 'in' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,516 - __main__ - INFO - Skipping entry 'I' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,517 - __main__ - INFO - Skipping entry 'you' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,518 - __main__ - INFO - Skipping entry 'it' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,519 - __main__ - INFO - Skipping entry 'have' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,520 - __main__ - INFO - Skipping entry 'to' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,521 - __main__ - INFO - Skipping entry 'that' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,522 - __main__ - INFO - Skipping entry 'for' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,522 - __main__ - INFO - Skipping entry 'do' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,523 - __main__ - INFO - Skipping entry 'he' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,524 - __main__ - INFO - Skipping entry 'with' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,525 - __main__ - INFO - Skipping entry 'on' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,526 - __main__ - INFO - Skipping entry 'this' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,527 - __main__ - INFO - Skipping entry 'n't' - audio files already exist with voice Matthew
+2025-06-24 03:19:15,575 - __main__ - INFO - Saved data to D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 03:19:15,576 - __main__ - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250624_031915.txt
+2025-06-24 03:19:15,577 - __main__ - WARNING - Batch processing failed. temp_vocab_multi_cards.jsonl not cleared.
