@@ -16173,3 +16173,138 @@ expected <block end>, but found '<block mapping start>'
 2025-06-25 02:04:57,233 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250625_020457.txt
 2025-06-25 02:04:57,242 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
 2025-06-25 02:04:57,244 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
+2025-06-25 02:16:42,914 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-25 02:16:43,125 - INFO - AWS Polly client initialized successfully.
+2025-06-25 02:16:43,132 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 02:16:43,133 - ERROR - Error parsing 'D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl': Expecting ',' delimiter: line 1 column 526 (char 525)
+2025-06-25 02:16:43,134 - WARNING - No entries to process
+2025-06-25 02:36:28,276 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-25 02:36:28,489 - INFO - AWS Polly client initialized successfully.
+2025-06-25 02:36:28,495 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 02:36:28,496 - ERROR - Error parsing 'D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl': Expecting ',' delimiter: line 1 column 501 (char 500)
+2025-06-25 02:36:28,497 - WARNING - No entries to process
+2025-06-25 02:38:40,169 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-25 02:38:40,379 - INFO - AWS Polly client initialized successfully.
+2025-06-25 02:38:40,387 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 02:38:40,389 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 02:38:50,859 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 02:38:50,859 - INFO - Appended 20 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 02:38:50,876 - INFO - Loading: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-25 02:38:56,146 - INFO - Generated audio for '<speak>blow</speak>' at D:\vocabswipe.github.io\data\audio\blow_word_0+Matthew+5144abbeb84239f038276f8e36b2251d.mp3
+2025-06-25 02:38:56,696 - INFO - Generated audio for '<speak>blow. The wind blew the leaves across the yard.</speak>' at D:\vocabswipe.github.io\data\audio\blow_sentence_0+Matthew+c2593f833991b1e5a640e623654e8213.mp3
+2025-06-25 02:38:57,053 - INFO - Generated audio for '<speak>blow. He blew the trumpet loudly.</speak>' at D:\vocabswipe.github.io\data\audio\blow_sentence_1+Matthew+bfd8f1cb477e4373bf053f50829d1afb.mp3
+2025-06-25 02:38:57,388 - INFO - Generated audio for '<speak>blow. She blew her chance at the promotion.</speak>' at D:\vocabswipe.github.io\data\audio\blow_sentence_2+Matthew+cadc720056656fc761b2b7dfd0482039.mp3
+2025-06-25 02:38:57,740 - INFO - Generated audio for '<speak>blow. The tire blew on the highway.</speak>' at D:\vocabswipe.github.io\data\audio\blow_sentence_3+Matthew+151912b7b28371b02010e1b85a05bb4b.mp3
+2025-06-25 02:38:58,075 - INFO - Generated audio for '<speak>blow. Blow out the candles on your cake.</speak>' at D:\vocabswipe.github.io\data\audio\blow_sentence_4+Matthew+d28165e265180f7e1d7a472514b9ea60.mp3
+2025-06-25 02:38:58,376 - INFO - Generated audio for '<speak>object</speak>' at D:\vocabswipe.github.io\data\audio\object_word_0+Matthew+a8cfde6331bd59eb2ac96f8911c4b666.mp3
+2025-06-25 02:38:58,711 - INFO - Generated audio for '<speak>object. The object on the table is a book.</speak>' at D:\vocabswipe.github.io\data\audio\object_sentence_0+Matthew+aa7477c32929e2bc4e85fc9a7fe84fe5.mp3
+2025-06-25 02:38:59,047 - INFO - Generated audio for '<speak>object. Her object was to finish the race.</speak>' at D:\vocabswipe.github.io\data\audio\object_sentence_1+Matthew+e1b7ff86a3d4f4fc2eed0cfc391a971c.mp3
+2025-06-25 02:38:59,378 - INFO - Generated audio for '<speak>object. The cat is the object of affection.</speak>' at D:\vocabswipe.github.io\data\audio\object_sentence_2+Matthew+d733a729da52c5047fc6dc6d292b927f.mp3
+2025-06-25 02:38:59,724 - INFO - Generated audio for '<speak>object. The coder created a new object.</speak>' at D:\vocabswipe.github.io\data\audio\object_sentence_3+Matthew+642298f7934e809d23355782e2c7a6f7.mp3
+2025-06-25 02:39:00,063 - INFO - Generated audio for '<speak>object. The statue was the object of admiration.</speak>' at D:\vocabswipe.github.io\data\audio\object_sentence_4+Matthew+39ac95eedad6a5449af95f2c359f247b.mp3
+2025-06-25 02:39:00,363 - INFO - Generated audio for '<speak>express</speak>' at D:\vocabswipe.github.io\data\audio\express_word_0+Matthew+4ca65a8bdbeae8b6ee400801a8a8f812.mp3
+2025-06-25 02:39:00,699 - INFO - Generated audio for '<speak>express. She expressed her joy at the news.</speak>' at D:\vocabswipe.github.io\data\audio\express_sentence_0+Matthew+c85fca473f7013b5dee6f9c7c605205d.mp3
+2025-06-25 02:39:01,033 - INFO - Generated audio for '<speak>express. He expressed his ideas in the meeting.</speak>' at D:\vocabswipe.github.io\data\audio\express_sentence_1+Matthew+61f9515e641b71b2cb1a29416ac4bbe6.mp3
+2025-06-25 02:39:01,362 - INFO - Generated audio for '<speak>express. They expressed the package overnight.</speak>' at D:\vocabswipe.github.io\data\audio\express_sentence_2+Matthew+4de2f8ddeec31b25a0d129d1f113bbff.mp3
+2025-06-25 02:39:01,695 - INFO - Generated audio for '<speak>express. Her smile expressed her gratitude.</speak>' at D:\vocabswipe.github.io\data\audio\express_sentence_3+Matthew+f44323fa75b29eeaef0951032737ca91.mp3
+2025-06-25 02:39:02,085 - INFO - Generated audio for '<speak>express. The poet expressed love beautifully.</speak>' at D:\vocabswipe.github.io\data\audio\express_sentence_4+Matthew+8e44a06a2bf6b3d3747a74ba0585b3f0.mp3
+2025-06-25 02:39:02,381 - INFO - Generated audio for '<speak>huh</speak>' at D:\vocabswipe.github.io\data\audio\huh_word_0+Matthew+b71207f10d522d354a001768e21a78fe.mp3
+2025-06-25 02:39:02,715 - INFO - Generated audio for '<speak>huh. Huh, where did my keys go?</speak>' at D:\vocabswipe.github.io\data\audio\huh_sentence_0+Matthew+ae4bc4146de096164fa39a37186a06f8.mp3
+2025-06-25 02:39:03,051 - INFO - Generated audio for '<speak>huh. You’re leaving now? Huh?</speak>' at D:\vocabswipe.github.io\data\audio\huh_sentence_1+Matthew+2ab7cbe4b1ecea45d58f3852cab9a506.mp3
+2025-06-25 02:39:03,378 - INFO - Generated audio for '<speak>huh. Huh, you finished already?</speak>' at D:\vocabswipe.github.io\data\audio\huh_sentence_2+Matthew+5f6708a0fd0684ce895c889a6049b20c.mp3
+2025-06-25 02:39:03,719 - INFO - Generated audio for '<speak>huh. It’s late, huh?</speak>' at D:\vocabswipe.github.io\data\audio\huh_sentence_3+Matthew+a3e21d5a5fc7ec0342d54336a26d46fe.mp3
+2025-06-25 02:39:04,042 - INFO - Generated audio for '<speak>huh. Nice weather, huh?</speak>' at D:\vocabswipe.github.io\data\audio\huh_sentence_4+Matthew+a4c037ced600f6932d9929b3406ea4b2.mp3
+2025-06-25 02:39:04,341 - INFO - Generated audio for '<speak>encourage</speak>' at D:\vocabswipe.github.io\data\audio\encourage_word_0+Matthew+db007a5bcc6c069c10fe542fa1606827.mp3
+2025-06-25 02:39:04,681 - INFO - Generated audio for '<speak>encourage. She encouraged her friend to try again.</speak>' at D:\vocabswipe.github.io\data\audio\encourage_sentence_0+Matthew+12ba91b22b9f3683e55c9b23b7c0e5d4.mp3
+2025-06-25 02:39:05,038 - INFO - Generated audio for '<speak>encourage. The coach encouraged teamwork.</speak>' at D:\vocabswipe.github.io\data\audio\encourage_sentence_1+Matthew+47366801eccca12f76eb4b29d380e815.mp3
+2025-06-25 02:39:05,384 - INFO - Generated audio for '<speak>encourage. He encouraged her to join the club.</speak>' at D:\vocabswipe.github.io\data\audio\encourage_sentence_2+Matthew+8cc1509dad22bbbd5d3353f8b4d0e926.mp3
+2025-06-25 02:39:05,720 - INFO - Generated audio for '<speak>encourage. They encouraged recycling in the office.</speak>' at D:\vocabswipe.github.io\data\audio\encourage_sentence_3+Matthew+f02f3cd0e467c838ca81d1236dc4b158.mp3
+2025-06-25 02:39:06,061 - INFO - Generated audio for '<speak>encourage. Her words encouraged the students.</speak>' at D:\vocabswipe.github.io\data\audio\encourage_sentence_4+Matthew+0c003215b0bb5da60ac6024f4fb85026.mp3
+2025-06-25 02:39:06,395 - INFO - Generated audio for '<speak>matter. The matter was discussed in the meeting.</speak>' at D:\vocabswipe.github.io\data\audio\matter_sentence_5+Matthew+1f83425cbc9dbfd71c3c91c3aeeb6d60.mp3
+2025-06-25 02:39:06,727 - INFO - Generated audio for '<speak>matter. Organic matter enriched the soil.</speak>' at D:\vocabswipe.github.io\data\audio\matter_sentence_6+Matthew+745b3d8f1443d1d251f2bf8de13f0305.mp3
+2025-06-25 02:39:07,065 - INFO - Generated audio for '<speak>matter. What’s the matter with your car?</speak>' at D:\vocabswipe.github.io\data\audio\matter_sentence_7+Matthew+ddb1843e45d691eae8b164e78f277ba7.mp3
+2025-06-25 02:39:07,413 - INFO - Generated audio for '<speak>matter. The book’s matter was fascinating.</speak>' at D:\vocabswipe.github.io\data\audio\matter_sentence_8+Matthew+5d0d92372e895cb047c3308f52832129.mp3
+2025-06-25 02:39:07,718 - INFO - Generated audio for '<speak>blog</speak>' at D:\vocabswipe.github.io\data\audio\blog_word_0+Matthew+126ac9f6149081eb0e97c2e939eaad52.mp3
+2025-06-25 02:39:08,051 - INFO - Generated audio for '<speak>blog. She writes a blog about travel.</speak>' at D:\vocabswipe.github.io\data\audio\blog_sentence_0+Matthew+6652ceace344ff1a70479eeb1f6ee8af.mp3
+2025-06-25 02:39:08,379 - INFO - Generated audio for '<speak>blog. His blog discusses tech trends.</speak>' at D:\vocabswipe.github.io\data\audio\blog_sentence_1+Matthew+98e0b0933d7f91fb37e7afaebbe03c4b.mp3
+2025-06-25 02:39:08,740 - INFO - Generated audio for '<speak>blog. I read a blog about cooking tips.</speak>' at D:\vocabswipe.github.io\data\audio\blog_sentence_2+Matthew+d6c9e0e9e749d3e137c1c48cfdbebf67.mp3
+2025-06-25 02:39:09,075 - INFO - Generated audio for '<speak>blog. Her blog shares daily life stories.</speak>' at D:\vocabswipe.github.io\data\audio\blog_sentence_3+Matthew+bc92fde5283774e43f1031ad62d0d942.mp3
+2025-06-25 02:39:09,405 - INFO - Generated audio for '<speak>blog. The company’s blog attracts customers.</speak>' at D:\vocabswipe.github.io\data\audio\blog_sentence_4+Matthew+8bb00d1477fcbbc8f61dc5b0c7a3be16.mp3
+2025-06-25 02:39:09,707 - INFO - Generated audio for '<speak>smile</speak>' at D:\vocabswipe.github.io\data\audio\smile_word_0+Matthew+3ddaeb82fbba964fb3461d4e4f1342eb.mp3
+2025-06-25 02:39:10,078 - INFO - Generated audio for '<speak>smile. Her smile brightened the room.</speak>' at D:\vocabswipe.github.io\data\audio\smile_sentence_0+Matthew+78141777a76d56639481522533dfaf67.mp3
+2025-06-25 02:39:10,411 - INFO - Generated audio for '<speak>smile. He gave a smile to the stranger.</speak>' at D:\vocabswipe.github.io\data\audio\smile_sentence_1+Matthew+05a5e533a62c8b2c73420f4c55655eb6.mp3
+2025-06-25 02:39:10,740 - INFO - Generated audio for '<speak>smile. A smile crossed her face at the joke.</speak>' at D:\vocabswipe.github.io\data\audio\smile_sentence_2+Matthew+e23e5277eae463cdd72b8e030847b6ed.mp3
+2025-06-25 02:39:11,088 - INFO - Generated audio for '<speak>smile. The teacher’s smile encouraged him.</speak>' at D:\vocabswipe.github.io\data\audio\smile_sentence_3+Matthew+37c694f51ffcfbde961d7c690b18e2e2.mp3
+2025-06-25 02:39:11,444 - INFO - Generated audio for '<speak>smile. Her smile welcomed the guests.</speak>' at D:\vocabswipe.github.io\data\audio\smile_sentence_4+Matthew+037d3022dacffbfa9c32691b80c0699f.mp3
+2025-06-25 02:39:11,817 - INFO - Generated audio for '<speak>return. She returned home after work.</speak>' at D:\vocabswipe.github.io\data\audio\return_sentence_5+Matthew+f7e8034d56a7fdf36199714aa94a937a.mp3
+2025-06-25 02:39:12,149 - INFO - Generated audio for '<speak>return. He returned the borrowed book.</speak>' at D:\vocabswipe.github.io\data\audio\return_sentence_6+Matthew+fda0d9c2f44cf4c90bf061c68d456281.mp3
+2025-06-25 02:39:12,476 - INFO - Generated audio for '<speak>return. I’ll return your call later.</speak>' at D:\vocabswipe.github.io\data\audio\return_sentence_7+Matthew+23ce7af558014c8495327ee74ea69b5b.mp3
+2025-06-25 02:39:12,815 - INFO - Generated audio for '<speak>return. The investment returned a good profit.</speak>' at D:\vocabswipe.github.io\data\audio\return_sentence_8+Matthew+465c82b6d28a183be64a67774ead5491.mp3
+2025-06-25 02:39:13,150 - INFO - Generated audio for '<speak>return. The weather returned to normal.</speak>' at D:\vocabswipe.github.io\data\audio\return_sentence_9+Matthew+e2e4972699d2b4100223513ea035573a.mp3
+2025-06-25 02:39:13,448 - INFO - Generated audio for '<speak>belief</speak>' at D:\vocabswipe.github.io\data\audio\belief_word_0+Matthew+34f1fb185a8bda284f2e630a23dca814.mp3
+2025-06-25 02:39:13,781 - INFO - Generated audio for '<speak>belief. Her belief in justice drove her.</speak>' at D:\vocabswipe.github.io\data\audio\belief_sentence_0+Matthew+594560521f8cbb75530e7fc288978b0c.mp3
+2025-06-25 02:39:14,117 - INFO - Generated audio for '<speak>belief. His belief shapes his daily life.</speak>' at D:\vocabswipe.github.io\data\audio\belief_sentence_1+Matthew+ab86ca45cca1d635d39a20d4fa62720d.mp3
+2025-06-25 02:39:14,454 - INFO - Generated audio for '<speak>belief. It’s my belief that honesty matters.</speak>' at D:\vocabswipe.github.io\data\audio\belief_sentence_2+Matthew+1a05781cfa38ee1e17ed654bf6a990bc.mp3
+2025-06-25 02:39:14,806 - INFO - Generated audio for '<speak>belief. Their belief in the team paid off.</speak>' at D:\vocabswipe.github.io\data\audio\belief_sentence_3+Matthew+a13aca70ef3eaef92d3f43d857e9f547.mp3
+2025-06-25 02:39:15,191 - INFO - Generated audio for '<speak>belief. Freedom is a core belief of hers.</speak>' at D:\vocabswipe.github.io\data\audio\belief_sentence_4+Matthew+6da2ddd37a156e9bd45ddf56aa2e4b56.mp3
+2025-06-25 02:39:15,498 - INFO - Generated audio for '<speak>block</speak>' at D:\vocabswipe.github.io\data\audio\block_word_0+Matthew+14511f2f5564650d129ca7cabc333278.mp3
+2025-06-25 02:39:15,859 - INFO - Generated audio for '<speak>block. The block of wood was carved.</speak>' at D:\vocabswipe.github.io\data\audio\block_sentence_0+Matthew+d4c9d861678f679ef343038294883819.mp3
+2025-06-25 02:39:16,192 - INFO - Generated audio for '<speak>block. The store is two blocks away.</speak>' at D:\vocabswipe.github.io\data\audio\block_sentence_1+Matthew+15f4027b5e98b5b10ba25078bfa163f9.mp3
+2025-06-25 02:39:16,535 - INFO - Generated audio for '<speak>block. Fear was a block to her success.</speak>' at D:\vocabswipe.github.io\data\audio\block_sentence_2+Matthew+52b7c9e11608272c1776e7f3374f04dd.mp3
+2025-06-25 02:39:16,883 - INFO - Generated audio for '<speak>block. They bought a block of tickets.</speak>' at D:\vocabswipe.github.io\data\audio\block_sentence_3+Matthew+fab11cc3c518180ffe65827cb1c5bc84.mp3
+2025-06-25 02:39:17,242 - INFO - Generated audio for '<speak>block. She has a block of free time.</speak>' at D:\vocabswipe.github.io\data\audio\block_sentence_4+Matthew+1e976415d86e6fbe3c9bb0835b3c5600.mp3
+2025-06-25 02:39:17,544 - INFO - Generated audio for '<speak>debt</speak>' at D:\vocabswipe.github.io\data\audio\debt_word_0+Matthew+762f8817ab6af0971fe330dbf46a359a.mp3
+2025-06-25 02:39:17,876 - INFO - Generated audio for '<speak>debt. He paid off his student debt.</speak>' at D:\vocabswipe.github.io\data\audio\debt_sentence_0+Matthew+a3b036e3586ad4172e30a7a6f29b7a79.mp3
+2025-06-25 02:39:18,207 - INFO - Generated audio for '<speak>debt. The company has a large debt.</speak>' at D:\vocabswipe.github.io\data\audio\debt_sentence_1+Matthew+cd5b95e7b4aab6a3d630c7ed3270dd65.mp3
+2025-06-25 02:39:18,543 - INFO - Generated audio for '<speak>debt. She’s in debt after her trip.</speak>' at D:\vocabswipe.github.io\data\audio\debt_sentence_2+Matthew+b6634ee0dec947ca0bd230a6c8ecb7b6.mp3
+2025-06-25 02:39:18,879 - INFO - Generated audio for '<speak>debt. I owe a debt of gratitude.</speak>' at D:\vocabswipe.github.io\data\audio\debt_sentence_3+Matthew+f65c086e7aee9db9526ce00639aac5c8.mp3
+2025-06-25 02:39:19,203 - INFO - Generated audio for '<speak>debt. The debt weighed on his mind.</speak>' at D:\vocabswipe.github.io\data\audio\debt_sentence_4+Matthew+dfe5f51c4672ea32ecac95a880fead10.mp3
+2025-06-25 02:39:19,540 - INFO - Generated audio for '<speak>fire. The fire warmed the campsite.</speak>' at D:\vocabswipe.github.io\data\audio\fire_sentence_5+Matthew+ff4de98e1ad922558517ceebc4451fa8.mp3
+2025-06-25 02:39:19,879 - INFO - Generated audio for '<speak>fire. The fire destroyed the house.</speak>' at D:\vocabswipe.github.io\data\audio\fire_sentence_6+Matthew+4340e6d6ff56303d6c499ec8325f9e18.mp3
+2025-06-25 02:39:20,219 - INFO - Generated audio for '<speak>fire. The soldiers opened fire.</speak>' at D:\vocabswipe.github.io\data\audio\fire_sentence_7+Matthew+afb76c8836be351ebb59020b19f46de3.mp3
+2025-06-25 02:39:20,557 - INFO - Generated audio for '<speak>fire. We sat by the fire all night.</speak>' at D:\vocabswipe.github.io\data\audio\fire_sentence_8+Matthew+4b6058f13d816ef91aca2a72a91a2af4.mp3
+2025-06-25 02:39:20,858 - INFO - Generated audio for '<speak>labor</speak>' at D:\vocabswipe.github.io\data\audio\labor_word_0+Matthew+d552cecbaf1a5a64066b42e5d25d282a.mp3
+2025-06-25 02:39:21,189 - INFO - Generated audio for '<speak>labor. Manual labor built the bridge.</speak>' at D:\vocabswipe.github.io\data\audio\labor_sentence_0+Matthew+0542f2b58e351f487ffb014bba72147f.mp3
+2025-06-25 02:39:21,521 - INFO - Generated audio for '<speak>labor. She went into labor last night.</speak>' at D:\vocabswipe.github.io\data\audio\labor_sentence_1+Matthew+98190ad5e9efc9a75b41513a518af292.mp3
+2025-06-25 02:39:21,853 - INFO - Generated audio for '<speak>labor. Labor unions fought for rights.</speak>' at D:\vocabswipe.github.io\data\audio\labor_sentence_2+Matthew+5a343b7606cc55e0c21cf258423f405b.mp3
+2025-06-25 02:39:22,182 - INFO - Generated audio for '<speak>labor. His labor improved the garden.</speak>' at D:\vocabswipe.github.io\data\audio\labor_sentence_3+Matthew+c2d39e815f1c9d033f5ec1fe7216de1d.mp3
+2025-06-25 02:39:22,512 - INFO - Generated audio for '<speak>labor. The project was a labor of love.</speak>' at D:\vocabswipe.github.io\data\audio\labor_sentence_4+Matthew+345af92c4eb13beaaefd4206a7678048.mp3
+2025-06-25 02:39:22,870 - INFO - Generated audio for '<speak>understanding</speak>' at D:\vocabswipe.github.io\data\audio\understanding_word_0+Matthew+224daf9be15ab93177942a2f7581d45e.mp3
+2025-06-25 02:39:23,212 - INFO - Generated audio for '<speak>understanding. Her understanding of math improved.</speak>' at D:\vocabswipe.github.io\data\audio\understanding_sentence_0+Matthew+07f941380216f767513748508018c7a7.mp3
+2025-06-25 02:39:23,586 - INFO - Generated audio for '<speak>understanding. He showed understanding for her loss.</speak>' at D:\vocabswipe.github.io\data\audio\understanding_sentence_1+Matthew+05b250b7dd118cbffb8e46e3de6e3558.mp3
+2025-06-25 02:39:23,911 - INFO - Generated audio for '<speak>understanding. They reached an understanding.</speak>' at D:\vocabswipe.github.io\data\audio\understanding_sentence_2+Matthew+67acdeb5d710ec3a1a434c721ed574db.mp3
+2025-06-25 02:39:24,242 - INFO - Generated audio for '<speak>understanding. His understanding of history is deep.</speak>' at D:\vocabswipe.github.io\data\audio\understanding_sentence_3+Matthew+776e543ef31106bd48f92bd923753366.mp3
+2025-06-25 02:39:24,584 - INFO - Generated audio for '<speak>understanding. We have an understanding about work.</speak>' at D:\vocabswipe.github.io\data\audio\understanding_sentence_4+Matthew+528446c131d8cdfebde480e588647c75.mp3
+2025-06-25 02:39:24,916 - INFO - Generated audio for '<speak>neighborhood</speak>' at D:\vocabswipe.github.io\data\audio\neighborhood_word_0+Matthew+133b931a29daf5970eddf1ffbc2558ea.mp3
+2025-06-25 02:39:25,251 - INFO - Generated audio for '<speak>neighborhood. Our neighborhood is quiet and safe.</speak>' at D:\vocabswipe.github.io\data\audio\neighborhood_sentence_0+Matthew+11ff252063042a7fd3eb1a99fcdda4ca.mp3
+2025-06-25 02:39:25,646 - INFO - Generated audio for '<speak>neighborhood. The neighborhood helped clean the park.</speak>' at D:\vocabswipe.github.io\data\audio\neighborhood_sentence_1+Matthew+bae195ec2173681060a5be6d76687432.mp3
+2025-06-25 02:39:25,985 - INFO - Generated audio for '<speak>neighborhood. There’s a café in the neighborhood.</speak>' at D:\vocabswipe.github.io\data\audio\neighborhood_sentence_2+Matthew+e33de44169885dbc466eaaf84f388b8b.mp3
+2025-06-25 02:39:26,330 - INFO - Generated audio for '<speak>neighborhood. This neighborhood has old houses.</speak>' at D:\vocabswipe.github.io\data\audio\neighborhood_sentence_3+Matthew+d257d939107979380615f5b0009d1f72.mp3
+2025-06-25 02:39:26,664 - INFO - Generated audio for '<speak>neighborhood. Kids play in the neighborhood streets.</speak>' at D:\vocabswipe.github.io\data\audio\neighborhood_sentence_4+Matthew+58d28bd62bcad4cddd7a7cc40f574fcd.mp3
+2025-06-25 02:39:26,966 - INFO - Generated audio for '<speak>contract</speak>' at D:\vocabswipe.github.io\data\audio\contract_word_0+Matthew+800c327aefb3f9241513cbf551abbfda.mp3
+2025-06-25 02:39:27,306 - INFO - Generated audio for '<speak>contract. They signed a contract for the job.</speak>' at D:\vocabswipe.github.io\data\audio\contract_sentence_0+Matthew+1836387d2c2653e67eb7c84aad4943ad.mp3
+2025-06-25 02:39:27,683 - INFO - Generated audio for '<speak>contract. The contract outlined the terms.</speak>' at D:\vocabswipe.github.io\data\audio\contract_sentence_1+Matthew+e83e514523a04d90fc45eeae40216957.mp3
+2025-06-25 02:39:28,021 - INFO - Generated audio for '<speak>contract. She got a contract with a publisher.</speak>' at D:\vocabswipe.github.io\data\audio\contract_sentence_2+Matthew+85b6eff6892d62e1750165f1f718cf87.mp3
+2025-06-25 02:39:28,352 - INFO - Generated audio for '<speak>contract. The contract was worth millions.</speak>' at D:\vocabswipe.github.io\data\audio\contract_sentence_3+Matthew+c0d21c82a5445def6ccbd8e3b3f70203.mp3
+2025-06-25 02:39:28,708 - INFO - Generated audio for '<speak>contract. He honored the contract faithfully.</speak>' at D:\vocabswipe.github.io\data\audio\contract_sentence_4+Matthew+afe8752589ba85cc99e8c2416f873767.mp3
+2025-06-25 02:39:29,044 - INFO - Generated audio for '<speak>middle. The table stood in the middle.</speak>' at D:\vocabswipe.github.io\data\audio\middle_sentence_5+Matthew+a8f85ceae5f252fe7dac3ce3dd74e86c.mp3
+2025-06-25 02:39:29,373 - INFO - Generated audio for '<speak>middle. She’s in the middle of her book.</speak>' at D:\vocabswipe.github.io\data\audio\middle_sentence_6+Matthew+0fb8b2d06afa6e436bbe2e01933cad7e.mp3
+2025-06-25 02:39:29,717 - INFO - Generated audio for '<speak>middle. They met in the middle on price.</speak>' at D:\vocabswipe.github.io\data\audio\middle_sentence_7+Matthew+5b66c7bf8d625b96193a42cbe5f518ac.mp3
+2025-06-25 02:39:31,009 - INFO - Generated audio for '<speak>middle. The middle of the movie was slow.</speak>' at D:\vocabswipe.github.io\data\audio\middle_sentence_8+Matthew+9c638fcc46dd4baa67ed45a9271659cf.mp3
+2025-06-25 02:39:31,349 - INFO - Generated audio for '<speak>middle. He found a middle in the debate.</speak>' at D:\vocabswipe.github.io\data\audio\middle_sentence_9+Matthew+f4eaf220d4679ecf21bff0653d32e3f3.mp3
+2025-06-25 02:39:31,658 - INFO - Generated audio for '<speak>species</speak>' at D:\vocabswipe.github.io\data\audio\species_word_0+Matthew+cd3d20b9461987685a810f405a9fcfb2.mp3
+2025-06-25 02:39:32,003 - INFO - Generated audio for '<speak>species. The species of fish is endangered.</speak>' at D:\vocabswipe.github.io\data\audio\species_sentence_0+Matthew+e748a7cd00f8a48d3265ec9782d3c9a3.mp3
+2025-06-25 02:39:32,345 - INFO - Generated audio for '<speak>species. Scientists discovered a new species.</speak>' at D:\vocabswipe.github.io\data\audio\species_sentence_1+Matthew+2ab7ddb8e43a06bdffca0c8e8131d022.mp3
+2025-06-25 02:39:32,684 - INFO - Generated audio for '<speak>species. This species of plant grows fast.</speak>' at D:\vocabswipe.github.io\data\audio\species_sentence_2+Matthew+f2b33bf4bf454e93149de6c59af73e05.mp3
+2025-06-25 02:39:33,027 - INFO - Generated audio for '<speak>species. The forest hosts many species.</speak>' at D:\vocabswipe.github.io\data\audio\species_sentence_3+Matthew+2e29d75fff9bd8cebb45272daf2f0ace.mp3
+2025-06-25 02:39:33,419 - INFO - Generated audio for '<speak>species. A rare species lives in the lake.</speak>' at D:\vocabswipe.github.io\data\audio\species_sentence_4+Matthew+78077bbe5c92c5305499da83c745e31c.mp3
+2025-06-25 02:39:33,734 - INFO - Generated audio for '<speak>additional</speak>' at D:\vocabswipe.github.io\data\audio\additional_word_0+Matthew+15610cc2660e28558e4b5db089797908.mp3
+2025-06-25 02:39:34,086 - INFO - Generated audio for '<speak>additional. We need additional chairs for the party.</speak>' at D:\vocabswipe.github.io\data\audio\additional_sentence_0+Matthew+2e909f72486be9d8c8e0a8ca4695e0b6.mp3
+2025-06-25 02:39:34,423 - INFO - Generated audio for '<speak>additional. She provided additional details.</speak>' at D:\vocabswipe.github.io\data\audio\additional_sentence_1+Matthew+824ed1155f95ffb181f7a5b77e812ac2.mp3
+2025-06-25 02:39:34,761 - INFO - Generated audio for '<speak>additional. He worked additional hours this week.</speak>' at D:\vocabswipe.github.io\data\audio\additional_sentence_2+Matthew+f9a138353dd818aa4169fc371de64172.mp3
+2025-06-25 02:39:35,104 - INFO - Generated audio for '<speak>additional. The project needs additional funding.</speak>' at D:\vocabswipe.github.io\data\audio\additional_sentence_3+Matthew+505e2ed32ee951177fc9bb101bc6bdee.mp3
+2025-06-25 02:39:35,450 - INFO - Generated audio for '<speak>additional. They offered additional discounts.</speak>' at D:\vocabswipe.github.io\data\audio\additional_sentence_4+Matthew+8f14d8e4bc7307b1394ffe29db0f2cd5.mp3
+2025-06-25 02:39:39,029 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-25 02:39:39,046 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250625_023939.txt
+2025-06-25 02:39:39,055 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 02:39:39,056 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
