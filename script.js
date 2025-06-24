@@ -6,6 +6,8 @@ let currentAudio = null;
 let audioCache = new Map();
 const MAX_CACHE_SIZE = 10;
 let audioUnlocked = false;
+let minTransformedFreq = 0;
+let maxTransformedFreq = 1;
 
 document.addEventListener('DOMContentLoaded', () => {
     loadWords();
@@ -38,6 +40,11 @@ function loadWords() {
                 return;
             }
             words.sort((a, b) => a.rank - b.rank);
+            // Precompute min and max transformed frequencies
+            const c1 = 1000; // Shift constant to boost low frequencies
+            const transformedFreqs = words.map(word => Math.log10(word.freq + c1));
+            minTransformedFreq = Math.min(...transformedFreqs);
+            maxTransformedFreq = Math.max(...transformedFreqs);
             displayWord();
             preloadAudio();
         })
@@ -246,11 +253,14 @@ function displayWord() {
     const front = document.querySelector('.front');
     const back = document.querySelector('.back');
     const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: '', example_en: '' };
-    const maxFreq = words[0]?.freq || 1;
-    // Calculate relative frequency
-    const relFreq = (wordData.freq / maxFreq) * 100;
-    // Adjusted logarithmic scale to spread frequencies more evenly
-    const logFreq = Math.min(Math.max(Math.log10(relFreq + 0.1) / Math.log10(100.1) * 100, 0), 100);
+    const c1 = 1000; // Shift constant for first log
+    const c2 = 1; // Shift constant for second log
+    // First log transformation
+    const transformedFreq = Math.log10(wordData.freq + c1);
+    // Normalize to 0-100
+    const normalizedFreq = ((transformedFreq - minTransformedFreq) / (maxTransformedFreq - minTransformedFreq)) * 100;
+    // Second log transformation to spread low values
+    const finalFreq = Math.min(Math.max(Math.log10(normalizedFreq + c2) / Math.log10(100 + c2) * 100, 0), 100);
 
     front.innerHTML = `
         <div class="word-container">
@@ -261,7 +271,7 @@ function displayWord() {
             <div class="freq-container">
                 <span class="freq-label">Frequency</span>
                 <div class="freq-bar">
-                    <div class="freq-fill" style="width: ${logFreq}%;"></div>
+                    <div class="freq-fill" style="width: ${finalFreq}%;"></div>
                 </div>
             </div>
         </div>
@@ -280,7 +290,7 @@ function displayWord() {
                 <div class="freq-container">
                     <span class="freq-label">Frequency</span>
                     <div class="freq-bar">
-                        <div class="freq-fill" style="width: ${logFreq}%;"></div>
+                        <div class="freq-fill" style="width: ${finalFreq}%;"></div>
                     </div>
                 </div>
             </div>
