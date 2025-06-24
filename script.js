@@ -177,14 +177,14 @@ function preloadAudio() {
     audioFiles.forEach(audioFile => {
         const audio = new Audio(`data/audio/${audioFile}`);
         audio.preload = 'auto';
-    audio.load();
-    audioCache.set(audioFile, audio);
-    audio.addEventListener('canplaythrough', () => console.log(`Preloaded: data/audio/${audioFile}`), { once: true });
-    audio.addEventListener('error', () => {
-        console.error(`Failed to preload audio: data/audio/${audioFile}`);
-        audioCache.delete(audioFile);
-    }, { once: true });
-});
+        audio.load();
+        audioCache.set(audioFile, audio);
+        audio.addEventListener('canplaythrough', () => console.log(`Preloaded: data/audio/${audioFile}`), { once: true });
+        audio.addEventListener('error', () => {
+            console.error(`Failed to preload audio: data/audio/${audioFile}`);
+            audioCache.delete(audioFile);
+        }, { once: true });
+    });
 }
 
 function stopAudio() {
@@ -247,15 +247,10 @@ function displayWord() {
     const back = document.querySelector('.back');
     const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: '', example_en: '' };
     const maxFreq = words[0]?.freq || 1;
+    // Calculate relative frequency
     const relFreq = (wordData.freq / maxFreq) * 100;
-
-    // Use logarithmic scale for frequency bar
-    const logFreq = Math.min(Math.max(Math.log10(relFreq + 1) / Math.log10(101) * 100, 0), 100);
-    const red = Math.round(255 * (1 - relFreq / 100));
-    const green = Math.round(255 * (relFreq / 100));
-    const color = `rgb(${red}, ${green}, 0)`;
-    // Determine text color based on frequency for visibility
-    const textColor = relFreq > 50 ? '#ffffff' : '#000000'; // White for greener backgrounds, black for redder
+    // Adjusted logarithmic scale to spread frequencies more evenly
+    const logFreq = Math.min(Math.max(Math.log10(relFreq + 0.1) / Math.log10(100.1) * 100, 0), 100);
 
     front.innerHTML = `
         <div class="word-container">
@@ -266,8 +261,7 @@ function displayWord() {
             <div class="freq-container">
                 <span class="freq-label">Frequency</span>
                 <div class="freq-bar">
-                    <div class="freq-fill" style="width: ${logFreq}%; background-color: ${color};"></div>
-                    <span class="freq-text" style="color: ${textColor}">${relFreq.toFixed(1)}%</span>
+                    <div class="freq-fill" style="width: ${logFreq}%;"></div>
                 </div>
             </div>
         </div>
@@ -286,8 +280,7 @@ function displayWord() {
                 <div class="freq-container">
                     <span class="freq-label">Frequency</span>
                     <div class="freq-bar">
-                        <div class="freq-fill" style="width: ${logFreq}%; background-color: ${color};"></div>
-                        <span class="freq-text" style="color: ${textColor}">${relFreq.toFixed(1)}%</span>
+                        <div class="freq-fill" style="width: ${logFreq}%;"></div>
                     </div>
                 </div>
             </div>

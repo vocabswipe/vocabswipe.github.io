@@ -150,29 +150,24 @@ body {
 }
 
 .freq-bar {
-    width: 80px;
+    width: 160px;
     height: 8px;
     background: #e5e7eb;
     border-radius: 4px;
     overflow: hidden;
     position: relative;
-    display: flex;
-    align-items: center;
-    border: 1px solid #6b7280; /* Outline for frequency bar */
+    border: 1px solid #6b7280;
 }
 
 .freq-fill {
     height: 100%;
     transition: width 0.3s ease-in-out;
-}
-
-.freq-text {
-    position: absolute;
-    right: 4px;
-    font-size: 12px;
-    font-weight: 600; /* Bolder font for emphasis */
-    font-family: 'Inter', sans-serif;
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.8); /* Subtle white shadow for contrast */
+    background: linear-gradient(to right, 
+        #ff4d4d, /* Bright red */
+        #ff8c00, /* Bright orange */
+        #ffeb3b, /* Bright yellow */
+        #00cc00  /* Bright green */
+    );
 }
 
 @media (max-width: 768px) {
@@ -201,10 +196,6 @@ body {
     }
 
     .freq-bar {
-        width: 60px;
-    }
-
-    .freq-text {
-        font-size: 10px;
+        width: 120px;
     }
 }
