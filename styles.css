@@ -10,33 +10,28 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Center content vertically */
     min-height: 100vh;
     color: #1f2937;
 }
 
-.header {
-    width: 100%;
-    text-align: center;
-    padding: 20px 0;
-    margin-bottom: 16px;
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.slogan {
-    font-size: 24px;
-    font-weight: 700;
-    color: #1e40af;
-    letter-spacing: 0.05em;
-}
-
 .container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     width: 100%;
     max-width: 600px;
     padding: 16px;
+    padding-top: 40px; /* Move content down slightly */
+}
+
+.slogan {
+    font-family: 'Caveat', cursive;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e40af;
+    text-align: center;
+    margin-bottom: 12px;
 }
 
 .flashcard-container {
@@ -67,7 +62,7 @@ body {
     backface-visibility: hidden;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 24px;
     background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
     border-radius: 12px;
     border: 1px solid #e5e7eb;
@@ -86,7 +81,7 @@ body {
 }
 
 .front h2, .back h2 {
-    font-size: 32px;
+    font-size: 34px;
     font-weight: 700;
     color: #1e40af;
     text-align: center;
@@ -103,27 +98,29 @@ body {
 
 .card-info {
     flex-grow: 1;
-    padding: 10px 0;
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .definition, .example {
     font-size: 16px;
     color: #374151;
-    line-height: 1.6;
-    margin-bottom: 12px;
-    text-align: left;
+    line-height: 1.5;
+    margin-bottom: 8px;
+    text-align: center;
 }
 
-.definition strong, .example strong {
-    color: #1f2937;
-    font-weight: 600;
+.example {
+    font-style: italic;
 }
 
 .meta-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 10px;
+    padding-top: 8px;
     border-top: 1px solid #e5e7eb;
 }
 
@@ -134,14 +131,18 @@ body {
 }
 
 .freq {
-    background: rgba(229, 231, 235, 0.5);
+    background: rgba(229, 231, 235, 0.3);
     padding: 4px 8px;
     border-radius: 10px;
 }
 
 @media (max-width: 768px) {
+    .container {
+        padding-top: 20px; /* Slightly less padding on mobile */
+    }
+
     .slogan {
-        font-size: 20px;
+        font-size: 24px;
     }
 
     .flashcard {
