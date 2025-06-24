@@ -12,20 +12,8 @@ let maxTransformedFreq = 1;
 document.addEventListener('DOMContentLoaded', () => {
     loadWords();
     setupEventListeners();
-    setupTheme();
+    applySavedTheme(); // Apply saved theme on load
 });
-
-function setupTheme() {
-    const themeToggle = document.querySelector('.theme-toggle');
-    const savedTheme = localStorage.getItem('theme') || 'bright-theme';
-    document.body.className = savedTheme;
-
-    themeToggle.addEventListener('click', () => {
-        const isDark = document.body.classList.contains('dark-theme');
-        document.body.className = isDark ? 'bright-theme' : 'dark-theme';
-        localStorage.setItem('theme', document.body.className);
-    });
-}
 
 // Unlock audio on first user interaction
 document.body.addEventListener('touchstart', () => {
@@ -36,6 +24,25 @@ document.body.addEventListener('click', () => {
     audioUnlocked = true;
     console.log('Audio unlocked via click');
 }, { once: true });
+
+function applySavedTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+}
+
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+}
+
+function updateThemeIcon(theme) {
+    const themeIcon = document.querySelector('.theme-icon');
+    themeIcon.textContent = theme === 'light' ? '☀️' : '🌙';
+}
 
 function loadWords() {
     fetch('data/vocab_database.yaml')
@@ -53,7 +60,8 @@ function loadWords() {
                 return;
             }
             words.sort((a, b) => a.rank - b.rank);
-            const c1 = 1000;
+            // Precompute min and max transformed frequencies
+            const c1 = 1000; // Shift constant to boost low frequencies
             const transformedFreqs = words.map(word => Math.log10(word.freq + c1));
             minTransformedFreq = Math.min(...transformedFreqs);
             maxTransformedFreq = Math.max(...transformedFreqs);
@@ -71,6 +79,10 @@ function setupEventListeners() {
     let tapCount = 0;
     let lastTapTime = 0;
     const doubleTapThreshold = 300;
+
+    // Theme toggle event listener
+    const themeToggle = document.querySelector('.theme-toggle');
+    themeToggle.addEventListener('click', toggleTheme);
 
     card.addEventListener('click', (e) => {
         const currentTime = new Date().getTime();
@@ -265,10 +277,13 @@ function displayWord() {
     const front = document.querySelector('.front');
     const back = document.querySelector('.back');
     const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: '', example_en: '' };
-    const c1 = 1000;
-    const c2 = 1;
+    const c1 = 1000; // Shift constant for first log
+    const c2 = 1; // Shift constant for second log
+    // First log transformation
     const transformedFreq = Math.log10(wordData.freq + c1);
+    // Normalize to 0-100
     const normalizedFreq = ((transformedFreq - minTransformedFreq) / (maxTransformedFreq - minTransformedFreq)) * 100;
+    // Second log transformation to spread low values
     const finalFreq = Math.min(Math.max(Math.log10(normalizedFreq + c2) / Math.log10(100 + c2) * 100, 0), 100);
 
     front.innerHTML = `
