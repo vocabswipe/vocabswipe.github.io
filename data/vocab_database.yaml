@@ -7311,6 +7311,16 @@
     example_en: She looked around the room for her keys.
   - definition_en: Surrounding or encircling
     example_en: They put a fence around the garden.
+  - definition_en: In the surrounding area
+    example_en: There’s a great café around the corner.
+  - definition_en: Approximately in number or time
+    example_en: The project will take around three weeks.
+  - definition_en: Moving in a circle
+    example_en: The dog ran around the tree chasing its tail.
+  - definition_en: In various locations
+    example_en: They traveled around the city all day.
+  - definition_en: Enclosing or surrounding
+    example_en: She wrapped a scarf around her neck.
   freq: 324064
   part_of_speech: preposition
   rank: 307
@@ -7320,6 +7330,11 @@
   - around_sentence_2+Matthew+1c869b62a4c0192b3b8b2577c01ddaf2.mp3
   - around_sentence_3+Matthew+ee25ade386032f650f5599ff7717f63b.mp3
   - around_sentence_4+Matthew+a1d5e2bb09d8d4000b49dc6c04e73a94.mp3
+  - around_sentence_5+Matthew+2b70cd2e2ecca9a621afec3ef3b31a9f.mp3
+  - around_sentence_6+Matthew+54f0f59d4cfeabfcdaa48667241356ad.mp3
+  - around_sentence_7+Matthew+437680e9e9b842ffda0315f1ad145449.mp3
+  - around_sentence_8+Matthew+772c5de6e1eedb61e82c0885a96ae9c7.mp3
+  - around_sentence_9+Matthew+21da52040f21841f1a25d9a0a4e01db3.mp3
   voice_id: Matthew
   word: around
   word_audio_file:
@@ -7396,3 +7411,219 @@
   word: national
   word_audio_file:
   - national_word_0+Matthew+f82d71a6491c31b384ab5b57d85b6593.mp3
+- back_cards:
+  - definition_en: The number 4
+    example_en: She bought four apples from the market.
+  - definition_en: A group or set of four
+    example_en: The band consists of four members.
+  - definition_en: Indicating quantity
+    example_en: They stayed at the cabin for four days.
+  - definition_en: Referring to age
+    example_en: Her son is four years old now.
+  - definition_en: A position in a sequence
+    example_en: He finished in fourth place in the race.
+  freq: 319834
+  part_of_speech: adjective
+  rank: 311
+  sentence_audio_file:
+  - four_sentence_0+Matthew+e5918cc4dd9c6c919ae05c5c5b8cfaf4.mp3
+  - four_sentence_1+Matthew+0ab9d3cee792d291aee84d8e833c6a74.mp3
+  - four_sentence_2+Matthew+638ce12ff491c1140dd5f8dcab2cbfab.mp3
+  - four_sentence_3+Matthew+5beb33d28a1efc51a002f2c5a3f3016d.mp3
+  - four_sentence_4+Matthew+616e58404e7a27f8dcfcff0618f747d9.mp3
+  voice_id: Matthew
+  word: four
+  word_audio_file:
+  - four_word_0+Matthew+8cbad96aced40b3838dd9f07f6ef5772.mp3
+- back_cards:
+  - definition_en: A long, narrow mark
+    example_en: Draw a straight line on the paper.
+  - definition_en: A queue of people
+    example_en: We waited in line for the concert tickets.
+  - definition_en: A series or sequence
+    example_en: The product comes in a new line of colors.
+  - definition_en: A boundary or limit
+    example_en: The river marks the line between the two towns.
+  - definition_en: A communication connection
+    example_en: The phone line was down during the storm.
+  freq: 319492
+  part_of_speech: noun
+  rank: 312
+  sentence_audio_file:
+  - line_sentence_0+Matthew+d61038e86f0c9aef3c900757dfb369a8.mp3
+  - line_sentence_1+Matthew+9124f1ab1ac495b96353b4a3d3f65a5d.mp3
+  - line_sentence_2+Matthew+58c6afac2d454757f407a6e8b1b593ab.mp3
+  - line_sentence_3+Matthew+132b89bcbf72e7728e60b9edab82448e.mp3
+  - line_sentence_4+Matthew+614afaec48d95c7ac8f4f4aa91662f2e.mp3
+  voice_id: Matthew
+  word: line
+  word_audio_file:
+  - line_word_0+Matthew+6438c669e0d0de98e6929c2cc0fac474.mp3
+- back_cards:
+  - definition_en: A young female person
+    example_en: The girl played soccer with her friends.
+  - definition_en: A daughter
+    example_en: Their girl just started kindergarten.
+  - definition_en: A young woman in a casual context
+    example_en: The girls went out for coffee after work.
+  - definition_en: A term of endearment
+    example_en: She’s a sweet girl who loves to help others.
+  - definition_en: A member of a group
+    example_en: The scout troop welcomed a new girl this week.
+  freq: 319120
+  part_of_speech: noun
+  rank: 313
+  sentence_audio_file:
+  - girl_sentence_0+Matthew+fa410410310fbc2b8549300cd02a1724.mp3
+  - girl_sentence_1+Matthew+54e80b303a98a1215ede9f83d247602d.mp3
+  - girl_sentence_2+Matthew+8627ab3233c5fa367706e0f66a428ece.mp3
+  - girl_sentence_3+Matthew+f50907453efff3153fb5af83b4b5f4f4.mp3
+  - girl_sentence_4+Matthew+48c1bfc4f8bb2068acba1a47a298d8cc.mp3
+  voice_id: Matthew
+  word: girl
+  word_audio_file:
+  - girl_word_0+Matthew+28ca53d2b7bb4aa13549b4022c79dca1.mp3
+- back_cards:
+  - definition_en: To observe or look at
+    example_en: We sat on the hill to watch the sunset.
+  - definition_en: To monitor or keep track of
+    example_en: The teacher asked us to watch the clock.
+  - definition_en: To guard or protect
+    example_en: Can you watch my bag while I’m gone?
+  - definition_en: To view a show or event
+    example_en: They watch their favorite series every weekend.
+  - definition_en: To be cautious about
+    example_en: Watch your step on the icy sidewalk.
+  freq: 318772
+  part_of_speech: verb
+  rank: 315
+  sentence_audio_file:
+  - watch_sentence_0+Matthew+021b1b87dd59cb83dfc11b3867f637bf.mp3
+  - watch_sentence_1+Matthew+7cf61edad2598f3af5d2b8741a3df218.mp3
+  - watch_sentence_2+Matthew+0e1931f4b2365ee9eff7bbf752bcda5c.mp3
+  - watch_sentence_3+Matthew+582703d4194af43131560ce5f9ff09df.mp3
+  - watch_sentence_4+Matthew+eeb42841f5c9c991f957c71fd169afa8.mp3
+  voice_id: Matthew
+  word: watch
+  word_audio_file:
+  - watch_word_0+Matthew+d2974c96dc96b3f30a6168bcc4b25b02.mp3
+- back_cards:
+  - definition_en: Up to the time of
+    example_en: The store is open until 9 p.m.
+  - definition_en: Before a specified time
+    example_en: You can’t leave until you finish your homework.
+  - definition_en: Up to the point of
+    example_en: She worked until exhaustion every night.
+  - definition_en: Indicating duration
+    example_en: They stayed in the cabin until the storm passed.
+  - definition_en: Marking a condition
+    example_en: I won’t decide until I hear all the options.
+  freq: 318392
+  part_of_speech: preposition
+  rank: 316
+  sentence_audio_file:
+  - until_sentence_0+Matthew+ac9e36320879bc3227903378221363c1.mp3
+  - until_sentence_1+Matthew+41f8a84acb766cf25287935bc0264f57.mp3
+  - until_sentence_2+Matthew+3c51fefb64a248a894e612aecf45fa07.mp3
+  - until_sentence_3+Matthew+28fcf56308eed7de1e292ef8a6a7ef9d.mp3
+  - until_sentence_4+Matthew+8194b968dba93cfaf8a45082533654c3.mp3
+  voice_id: Matthew
+  word: until
+  word_audio_file:
+  - until_word_0+Matthew+3103a7d8f63cb184287c558ca51c6160.mp3
+- back_cards:
+  - definition_en: A male parent
+    example_en: Her father taught her how to ride a bike.
+  - definition_en: A founder or originator
+    example_en: He is considered the father of modern physics.
+  - definition_en: A respected elder
+    example_en: The village father gave wise advice to all.
+  - definition_en: A male ancestor
+    example_en: His father came to this country decades ago.
+  - definition_en: A religious leader
+    example_en: The congregation listened to Father John’s sermon.
+  freq: 318173
+  part_of_speech: noun
+  rank: 317
+  sentence_audio_file:
+  - father_sentence_0+Matthew+9144f128a2281f5010f431a888b3e628.mp3
+  - father_sentence_1+Matthew+d70bc1528c48cf50241c18615e43ab5a.mp3
+  - father_sentence_2+Matthew+8c96bfe3da05ed8ac14679784e9937ae.mp3
+  - father_sentence_3+Matthew+238563695f8b011c52aaa5b9db689040.mp3
+  - father_sentence_4+Matthew+883043820b70c17c896a249bf7516e18.mp3
+  voice_id: Matthew
+  word: father
+  word_audio_file:
+  - father_word_0+Matthew+0de959beaa82daa7df6ef2286d071a6d.mp3
+- back_cards:
+  - definition_en: To rest with the body supported by the buttocks
+    example_en: She likes to sit by the window and read.
+  - definition_en: To occupy a seat
+    example_en: Please sit at the front for the presentation.
+  - definition_en: To remain in a position
+    example_en: The book has been sitting on the shelf for years.
+  - definition_en: To pose for a portrait
+    example_en: The family sat for a photo at the reunion.
+  - definition_en: To be located or situated
+    example_en: The house sits on a quiet hill.
+  freq: 315022
+  part_of_speech: verb
+  rank: 318
+  sentence_audio_file:
+  - sit_sentence_0+Matthew+85c93082afd4c2de2598d679bd6fe3b3.mp3
+  - sit_sentence_1+Matthew+ae82c07b048c16f8ad36e5d4fca7a42f.mp3
+  - sit_sentence_2+Matthew+c9b976bcd86fc01e50bcb5dc61e4f207.mp3
+  - sit_sentence_3+Matthew+44bd5f7a9c7113e0f27e552aab25b9f5.mp3
+  - sit_sentence_4+Matthew+032786656629a393bf0661801e56f19f.mp3
+  voice_id: Matthew
+  word: sit
+  word_audio_file:
+  - sit_word_0+Matthew+87d4eeb7dec7686410748d174c0e0a11.mp3
+- back_cards:
+  - definition_en: To make something new
+    example_en: She loves to create art with recycled materials.
+  - definition_en: To bring into existence
+    example_en: The chef created a new dish for the menu.
+  - definition_en: To cause or produce
+    example_en: The announcement created excitement in the crowd.
+  - definition_en: To design or invent
+    example_en: The team worked to create a user-friendly app.
+  - definition_en: To establish or set up
+    example_en: They aim to create a community garden this spring.
+  freq: 314631
+  part_of_speech: verb
+  rank: 319
+  sentence_audio_file:
+  - create_sentence_0+Matthew+a6c8ff04ce1c8352cad120afe19b2987.mp3
+  - create_sentence_1+Matthew+62bf7af0cb52a4e20baaaa695ecd5b6f.mp3
+  - create_sentence_2+Matthew+ff2995399e61de4208b44bdf02e4a273.mp3
+  - create_sentence_3+Matthew+e38f8d1c4c3feb378cd46d88a89f1ab7.mp3
+  - create_sentence_4+Matthew+4d41071098e74b21d0d9c24333df9915.mp3
+  voice_id: Matthew
+  word: create
+  word_audio_file:
+  - create_word_0+Matthew+76ea0bebb3c22822b4f0dd9c9fd021c5.mp3
+- back_cards:
+  - definition_en: Facts or data provided
+    example_en: The website has information about local events.
+  - definition_en: Knowledge gained
+    example_en: She gathered information for her research paper.
+  - definition_en: Details about something specific
+    example_en: Can you give me information on train schedules?
+  - definition_en: Communication content
+    example_en: The email contained sensitive information.
+  - definition_en: General understanding
+    example_en: He lacks information about the new policies.
+  freq: 314341
+  part_of_speech: noun
+  rank: 320
+  sentence_audio_file:
+  - information_sentence_0+Matthew+9af54292f51ebdf5bfd35e8a3da6e851.mp3
+  - information_sentence_1+Matthew+a4a9a6354871b7672f163bdbe471e5b3.mp3
+  - information_sentence_2+Matthew+4bfa1da2f898a4db6066aad3c95925fa.mp3
+  - information_sentence_3+Matthew+ca7d9982c8e88461f6f826ab81579910.mp3
+  - information_sentence_4+Matthew+cf06b43bc219e7eaba26979abb958c9a.mp3
+  voice_id: Matthew
+  word: information
+  word_audio_file:
+  - information_word_0+Matthew+bb3ccd5881d651448ded1dac904054ac.mp3

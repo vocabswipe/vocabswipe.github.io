@@ -10338,3 +10338,73 @@ expected <block end>, but found '<block mapping start>'
 2025-06-24 13:46:29,308 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250624_134629.txt
 2025-06-24 13:46:29,311 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
 2025-06-24 13:46:29,312 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
+2025-06-24 13:53:39,891 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-24 13:53:40,095 - INFO - AWS Polly client initialized successfully.
+2025-06-24 13:53:40,101 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 13:53:40,103 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 13:53:46,973 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 13:53:46,973 - INFO - Appended 10 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 13:53:46,984 - INFO - Loading: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 13:53:49,624 - INFO - Generated audio for '<speak>four</speak>' at D:\vocabswipe.github.io\data\audio\four_word_0+Matthew+8cbad96aced40b3838dd9f07f6ef5772.mp3
+2025-06-24 13:53:49,983 - INFO - Generated audio for '<speak>four. She bought four apples from the market.</speak>' at D:\vocabswipe.github.io\data\audio\four_sentence_0+Matthew+e5918cc4dd9c6c919ae05c5c5b8cfaf4.mp3
+2025-06-24 13:53:50,385 - INFO - Generated audio for '<speak>four. The band consists of four members.</speak>' at D:\vocabswipe.github.io\data\audio\four_sentence_1+Matthew+0ab9d3cee792d291aee84d8e833c6a74.mp3
+2025-06-24 13:53:50,731 - INFO - Generated audio for '<speak>four. They stayed at the cabin for four days.</speak>' at D:\vocabswipe.github.io\data\audio\four_sentence_2+Matthew+638ce12ff491c1140dd5f8dcab2cbfab.mp3
+2025-06-24 13:53:51,110 - INFO - Generated audio for '<speak>four. Her son is four years old now.</speak>' at D:\vocabswipe.github.io\data\audio\four_sentence_3+Matthew+5beb33d28a1efc51a002f2c5a3f3016d.mp3
+2025-06-24 13:53:51,465 - INFO - Generated audio for '<speak>four. He finished in fourth place in the race.</speak>' at D:\vocabswipe.github.io\data\audio\four_sentence_4+Matthew+616e58404e7a27f8dcfcff0618f747d9.mp3
+2025-06-24 13:53:51,784 - INFO - Generated audio for '<speak>line</speak>' at D:\vocabswipe.github.io\data\audio\line_word_0+Matthew+6438c669e0d0de98e6929c2cc0fac474.mp3
+2025-06-24 13:53:52,181 - INFO - Generated audio for '<speak>line. Draw a straight line on the paper.</speak>' at D:\vocabswipe.github.io\data\audio\line_sentence_0+Matthew+d61038e86f0c9aef3c900757dfb369a8.mp3
+2025-06-24 13:53:52,529 - INFO - Generated audio for '<speak>line. We waited in line for the concert tickets.</speak>' at D:\vocabswipe.github.io\data\audio\line_sentence_1+Matthew+9124f1ab1ac495b96353b4a3d3f65a5d.mp3
+2025-06-24 13:53:52,888 - INFO - Generated audio for '<speak>line. The product comes in a new line of colors.</speak>' at D:\vocabswipe.github.io\data\audio\line_sentence_2+Matthew+58c6afac2d454757f407a6e8b1b593ab.mp3
+2025-06-24 13:53:53,246 - INFO - Generated audio for '<speak>line. The river marks the line between the two towns.</speak>' at D:\vocabswipe.github.io\data\audio\line_sentence_3+Matthew+132b89bcbf72e7728e60b9edab82448e.mp3
+2025-06-24 13:53:53,609 - INFO - Generated audio for '<speak>line. The phone line was down during the storm.</speak>' at D:\vocabswipe.github.io\data\audio\line_sentence_4+Matthew+614afaec48d95c7ac8f4f4aa91662f2e.mp3
+2025-06-24 13:53:53,927 - INFO - Generated audio for '<speak>girl</speak>' at D:\vocabswipe.github.io\data\audio\girl_word_0+Matthew+28ca53d2b7bb4aa13549b4022c79dca1.mp3
+2025-06-24 13:53:54,276 - INFO - Generated audio for '<speak>girl. The girl played soccer with her friends.</speak>' at D:\vocabswipe.github.io\data\audio\girl_sentence_0+Matthew+fa410410310fbc2b8549300cd02a1724.mp3
+2025-06-24 13:53:54,644 - INFO - Generated audio for '<speak>girl. Their girl just started kindergarten.</speak>' at D:\vocabswipe.github.io\data\audio\girl_sentence_1+Matthew+54e80b303a98a1215ede9f83d247602d.mp3
+2025-06-24 13:53:55,001 - INFO - Generated audio for '<speak>girl. The girls went out for coffee after work.</speak>' at D:\vocabswipe.github.io\data\audio\girl_sentence_2+Matthew+8627ab3233c5fa367706e0f66a428ece.mp3
+2025-06-24 13:53:55,392 - INFO - Generated audio for '<speak>girl. She’s a sweet girl who loves to help others.</speak>' at D:\vocabswipe.github.io\data\audio\girl_sentence_3+Matthew+f50907453efff3153fb5af83b4b5f4f4.mp3
+2025-06-24 13:53:55,770 - INFO - Generated audio for '<speak>girl. The scout troop welcomed a new girl this week.</speak>' at D:\vocabswipe.github.io\data\audio\girl_sentence_4+Matthew+48c1bfc4f8bb2068acba1a47a298d8cc.mp3
+2025-06-24 13:53:56,175 - INFO - Generated audio for '<speak>around. There’s a great café around the corner.</speak>' at D:\vocabswipe.github.io\data\audio\around_sentence_5+Matthew+2b70cd2e2ecca9a621afec3ef3b31a9f.mp3
+2025-06-24 13:53:56,529 - INFO - Generated audio for '<speak>around. The project will take around three weeks.</speak>' at D:\vocabswipe.github.io\data\audio\around_sentence_6+Matthew+54f0f59d4cfeabfcdaa48667241356ad.mp3
+2025-06-24 13:53:56,888 - INFO - Generated audio for '<speak>around. The dog ran around the tree chasing its tail.</speak>' at D:\vocabswipe.github.io\data\audio\around_sentence_7+Matthew+437680e9e9b842ffda0315f1ad145449.mp3
+2025-06-24 13:53:57,237 - INFO - Generated audio for '<speak>around. They traveled around the city all day.</speak>' at D:\vocabswipe.github.io\data\audio\around_sentence_8+Matthew+772c5de6e1eedb61e82c0885a96ae9c7.mp3
+2025-06-24 13:53:57,599 - INFO - Generated audio for '<speak>around. She wrapped a scarf around her neck.</speak>' at D:\vocabswipe.github.io\data\audio\around_sentence_9+Matthew+21da52040f21841f1a25d9a0a4e01db3.mp3
+2025-06-24 13:53:57,917 - INFO - Generated audio for '<speak>watch</speak>' at D:\vocabswipe.github.io\data\audio\watch_word_0+Matthew+d2974c96dc96b3f30a6168bcc4b25b02.mp3
+2025-06-24 13:53:58,271 - INFO - Generated audio for '<speak>watch. We sat on the hill to watch the sunset.</speak>' at D:\vocabswipe.github.io\data\audio\watch_sentence_0+Matthew+021b1b87dd59cb83dfc11b3867f637bf.mp3
+2025-06-24 13:53:58,621 - INFO - Generated audio for '<speak>watch. The teacher asked us to watch the clock.</speak>' at D:\vocabswipe.github.io\data\audio\watch_sentence_1+Matthew+7cf61edad2598f3af5d2b8741a3df218.mp3
+2025-06-24 13:53:58,983 - INFO - Generated audio for '<speak>watch. Can you watch my bag while I’m gone?</speak>' at D:\vocabswipe.github.io\data\audio\watch_sentence_2+Matthew+0e1931f4b2365ee9eff7bbf752bcda5c.mp3
+2025-06-24 13:53:59,354 - INFO - Generated audio for '<speak>watch. They watch their favorite series every weekend.</speak>' at D:\vocabswipe.github.io\data\audio\watch_sentence_3+Matthew+582703d4194af43131560ce5f9ff09df.mp3
+2025-06-24 13:53:59,766 - INFO - Generated audio for '<speak>watch. Watch your step on the icy sidewalk.</speak>' at D:\vocabswipe.github.io\data\audio\watch_sentence_4+Matthew+eeb42841f5c9c991f957c71fd169afa8.mp3
+2025-06-24 13:54:00,086 - INFO - Generated audio for '<speak>until</speak>' at D:\vocabswipe.github.io\data\audio\until_word_0+Matthew+3103a7d8f63cb184287c558ca51c6160.mp3
+2025-06-24 13:54:00,436 - INFO - Generated audio for '<speak>until. The store is open until 9 p.m.</speak>' at D:\vocabswipe.github.io\data\audio\until_sentence_0+Matthew+ac9e36320879bc3227903378221363c1.mp3
+2025-06-24 13:54:00,789 - INFO - Generated audio for '<speak>until. You can’t leave until you finish your homework.</speak>' at D:\vocabswipe.github.io\data\audio\until_sentence_1+Matthew+41f8a84acb766cf25287935bc0264f57.mp3
+2025-06-24 13:54:01,143 - INFO - Generated audio for '<speak>until. She worked until exhaustion every night.</speak>' at D:\vocabswipe.github.io\data\audio\until_sentence_2+Matthew+3c51fefb64a248a894e612aecf45fa07.mp3
+2025-06-24 13:54:01,497 - INFO - Generated audio for '<speak>until. They stayed in the cabin until the storm passed.</speak>' at D:\vocabswipe.github.io\data\audio\until_sentence_3+Matthew+28fcf56308eed7de1e292ef8a6a7ef9d.mp3
+2025-06-24 13:54:01,849 - INFO - Generated audio for '<speak>until. I won’t decide until I hear all the options.</speak>' at D:\vocabswipe.github.io\data\audio\until_sentence_4+Matthew+8194b968dba93cfaf8a45082533654c3.mp3
+2025-06-24 13:54:02,168 - INFO - Generated audio for '<speak>father</speak>' at D:\vocabswipe.github.io\data\audio\father_word_0+Matthew+0de959beaa82daa7df6ef2286d071a6d.mp3
+2025-06-24 13:54:02,517 - INFO - Generated audio for '<speak>father. Her father taught her how to ride a bike.</speak>' at D:\vocabswipe.github.io\data\audio\father_sentence_0+Matthew+9144f128a2281f5010f431a888b3e628.mp3
+2025-06-24 13:54:02,879 - INFO - Generated audio for '<speak>father. He is considered the father of modern physics.</speak>' at D:\vocabswipe.github.io\data\audio\father_sentence_1+Matthew+d70bc1528c48cf50241c18615e43ab5a.mp3
+2025-06-24 13:54:03,240 - INFO - Generated audio for '<speak>father. The village father gave wise advice to all.</speak>' at D:\vocabswipe.github.io\data\audio\father_sentence_2+Matthew+8c96bfe3da05ed8ac14679784e9937ae.mp3
+2025-06-24 13:54:03,647 - INFO - Generated audio for '<speak>father. His father came to this country decades ago.</speak>' at D:\vocabswipe.github.io\data\audio\father_sentence_3+Matthew+238563695f8b011c52aaa5b9db689040.mp3
+2025-06-24 13:54:04,000 - INFO - Generated audio for '<speak>father. The congregation listened to Father John’s sermon.</speak>' at D:\vocabswipe.github.io\data\audio\father_sentence_4+Matthew+883043820b70c17c896a249bf7516e18.mp3
+2025-06-24 13:54:04,366 - INFO - Generated audio for '<speak>sit</speak>' at D:\vocabswipe.github.io\data\audio\sit_word_0+Matthew+87d4eeb7dec7686410748d174c0e0a11.mp3
+2025-06-24 13:54:04,725 - INFO - Generated audio for '<speak>sit. She likes to sit by the window and read.</speak>' at D:\vocabswipe.github.io\data\audio\sit_sentence_0+Matthew+85c93082afd4c2de2598d679bd6fe3b3.mp3
+2025-06-24 13:54:05,117 - INFO - Generated audio for '<speak>sit. Please sit at the front for the presentation.</speak>' at D:\vocabswipe.github.io\data\audio\sit_sentence_1+Matthew+ae82c07b048c16f8ad36e5d4fca7a42f.mp3
+2025-06-24 13:54:05,509 - INFO - Generated audio for '<speak>sit. The book has been sitting on the shelf for years.</speak>' at D:\vocabswipe.github.io\data\audio\sit_sentence_2+Matthew+c9b976bcd86fc01e50bcb5dc61e4f207.mp3
+2025-06-24 13:54:06,961 - INFO - Generated audio for '<speak>sit. The family sat for a photo at the reunion.</speak>' at D:\vocabswipe.github.io\data\audio\sit_sentence_3+Matthew+44bd5f7a9c7113e0f27e552aab25b9f5.mp3
+2025-06-24 13:54:08,775 - INFO - Generated audio for '<speak>sit. The house sits on a quiet hill.</speak>' at D:\vocabswipe.github.io\data\audio\sit_sentence_4+Matthew+032786656629a393bf0661801e56f19f.mp3
+2025-06-24 13:54:09,283 - INFO - Generated audio for '<speak>create</speak>' at D:\vocabswipe.github.io\data\audio\create_word_0+Matthew+76ea0bebb3c22822b4f0dd9c9fd021c5.mp3
+2025-06-24 13:54:10,713 - INFO - Generated audio for '<speak>create. She loves to create art with recycled materials.</speak>' at D:\vocabswipe.github.io\data\audio\create_sentence_0+Matthew+a6c8ff04ce1c8352cad120afe19b2987.mp3
+2025-06-24 13:54:11,072 - INFO - Generated audio for '<speak>create. The chef created a new dish for the menu.</speak>' at D:\vocabswipe.github.io\data\audio\create_sentence_1+Matthew+62bf7af0cb52a4e20baaaa695ecd5b6f.mp3
+2025-06-24 13:54:11,442 - INFO - Generated audio for '<speak>create. The announcement created excitement in the crowd.</speak>' at D:\vocabswipe.github.io\data\audio\create_sentence_2+Matthew+ff2995399e61de4208b44bdf02e4a273.mp3
+2025-06-24 13:54:11,844 - INFO - Generated audio for '<speak>create. The team worked to create a user-friendly app.</speak>' at D:\vocabswipe.github.io\data\audio\create_sentence_3+Matthew+e38f8d1c4c3feb378cd46d88a89f1ab7.mp3
+2025-06-24 13:54:12,251 - INFO - Generated audio for '<speak>create. They aim to create a community garden this spring.</speak>' at D:\vocabswipe.github.io\data\audio\create_sentence_4+Matthew+4d41071098e74b21d0d9c24333df9915.mp3
+2025-06-24 13:54:12,663 - INFO - Generated audio for '<speak>information</speak>' at D:\vocabswipe.github.io\data\audio\information_word_0+Matthew+bb3ccd5881d651448ded1dac904054ac.mp3
+2025-06-24 13:54:14,564 - INFO - Generated audio for '<speak>information. The website has information about local events.</speak>' at D:\vocabswipe.github.io\data\audio\information_sentence_0+Matthew+9af54292f51ebdf5bfd35e8a3da6e851.mp3
+2025-06-24 13:54:15,575 - INFO - Generated audio for '<speak>information. She gathered information for her research paper.</speak>' at D:\vocabswipe.github.io\data\audio\information_sentence_1+Matthew+a4a9a6354871b7672f163bdbe471e5b3.mp3
+2025-06-24 13:54:15,939 - INFO - Generated audio for '<speak>information. Can you give me information on train schedules?</speak>' at D:\vocabswipe.github.io\data\audio\information_sentence_2+Matthew+4bfa1da2f898a4db6066aad3c95925fa.mp3
+2025-06-24 13:54:16,356 - INFO - Generated audio for '<speak>information. The email contained sensitive information.</speak>' at D:\vocabswipe.github.io\data\audio\information_sentence_3+Matthew+ca7d9982c8e88461f6f826ab81579910.mp3
+2025-06-24 13:54:16,758 - INFO - Generated audio for '<speak>information. He lacks information about the new policies.</speak>' at D:\vocabswipe.github.io\data\audio\information_sentence_4+Matthew+cf06b43bc219e7eaba26979abb958c9a.mp3
+2025-06-24 13:54:17,596 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 13:54:17,603 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250624_135417.txt
+2025-06-24 13:54:17,607 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 13:54:17,608 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
