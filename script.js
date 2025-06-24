@@ -6,12 +6,12 @@ let currentAudio = null;
 let audioCache = new Map();
 const MAX_CACHE_SIZE = 10;
 let audioUnlocked = false;
-let maxFreq = 1;
+let minTransformedFreq = 0;
+let maxTransformedFreq = 1;
 
 document.addEventListener('DOMContentLoaded', () => {
     loadWords();
     setupEventListeners();
-    setupThemeToggle();
 });
 
 // Unlock audio on first user interaction
@@ -23,21 +23,6 @@ document.body.addEventListener('click', () => {
     audioUnlocked = true;
     console.log('Audio unlocked via click');
 }, { once: true });
-
-function setupThemeToggle() {
-    const themeToggle = document.querySelector('.theme-toggle');
-    const themeIcon = themeToggle.querySelector('.theme-icon');
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    document.body.setAttribute('data-theme', currentTheme);
-    themeIcon.textContent = currentTheme === 'light' ? '☀️' : '🌙';
-
-    themeToggle.addEventListener('click', () => {
-        const newTheme = document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-        document.body.setAttribute('data-theme', newTheme);
-        themeIcon.textContent = newTheme === 'light' ? '☀️' : '🌙';
-        localStorage.setItem('theme', newTheme);
-    });
-}
 
 function loadWords() {
     fetch('data/vocab_database.yaml')
@@ -55,7 +40,11 @@ function loadWords() {
                 return;
             }
             words.sort((a, b) => a.rank - b.rank);
-            maxFreq = words[0]?.freq || 1; // Store max frequency (rank 1)
+            // Precompute min and max transformed frequencies
+            const c1 = 1000; // Shift constant to boost low frequencies
+            const transformedFreqs = words.map(word => Math.log10(word.freq + c1));
+            minTransformedFreq = Math.min(...transformedFreqs);
+            maxTransformedFreq = Math.max(...transformedFreqs);
             displayWord();
             preloadAudio();
         })
@@ -73,14 +62,8 @@ function setupEventListeners() {
 
     card.addEventListener('click', (e) => {
         const currentTime = new Date().getTime();
-        if (currentTime - lastTapTime < doubleTapThreshold) {
-            tapCount++;
-            if (tapCount === 2) {
-                flipCard();
-                tapCount = 0;
-            }
-        } else {
-            tapCount = 1;
+        tapCount++;
+        if (tapCount === 1) {
             setTimeout(() => {
                 if (tapCount === 1) {
                     const audioFile = isFlipped ? 
@@ -95,6 +78,9 @@ function setupEventListeners() {
                 }
                 tapCount = 0;
             }, doubleTapThreshold);
+        } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
+            flipCard();
+            tapCount = 0;
         }
         lastTapTime = currentTime;
     });
@@ -267,9 +253,14 @@ function displayWord() {
     const front = document.querySelector('.front');
     const back = document.querySelector('.back');
     const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: '', example_en: '' };
-    // Simplified frequency calculation
-    const relFreq = (wordData.freq / maxFreq) * 100;
-    const finalFreq = Math.min(Math.max(Math.log10(relFreq + 0.1) / Math.log10(100.1) * 100, 0), 100);
+    const c1 = 1000; // Shift constant for first log
+    const c2 = 1; // Shift constant for second log
+    // First log transformation
+    const transformedFreq = Math.log10(wordData.freq + c1);
+    // Normalize to 0-100
+    const normalizedFreq = ((transformedFreq - minTransformedFreq) / (maxTransformedFreq - minTransformedFreq)) * 100;
+    // Second log transformation to spread low values
+    const finalFreq = Math.min(Math.max(Math.log10(normalizedFreq + c2) / Math.log10(100 + c2) * 100, 0), 100);
 
     front.innerHTML = `
         <div class="word-container">
