@@ -12,25 +12,68 @@ let maxTransformedFreq = 1;
 document.addEventListener('DOMContentLoaded', () => {
     loadWords();
     setupEventListeners();
-    // Load saved theme or default to light
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.body.setAttribute('data-theme', savedTheme);
+    setupThemeToggle();
 });
+
+// Unlock audio on first user interaction
+document.body.addEventListener('touchstart', () => {
+    audioUnlocked = true;
+    console.log('Audio unlocked via touchstart');
+}, { once: true });
+document.body.addEventListener('click', () => {
+    audioUnlocked = true;
+    console.log('Audio unlocked via click');
+}, { once: true });
+
+function setupThemeToggle() {
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeIcon = themeToggle.querySelector('.theme-icon');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    document.body.setAttribute('data-theme', currentTheme);
+    themeIcon.textContent = currentTheme === 'light' ? '☀️' : '🌙';
+
+    themeToggle.addEventListener('click', () => {
+        const newTheme = document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        document.body.setAttribute('data-theme', newTheme);
+        themeIcon.textContent = newTheme === 'light' ? '☀️' : '🌙';
+        localStorage.setItem('theme', newTheme);
+    });
+}
+
+function loadWords() {
+    fetch('data/vocab_database.yaml')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status} - Check if vocab_database.yaml exists in data/`);
+            }
+            return response.text();
+        })
+        .then(yamlText => {
+            words = jsyaml.load(yamlText) || [];
+            if (!words.length) {
+                console.warn('No words found in vocab_database.yaml');
+                alert('No vocabulary data available. Please ensure vocab_database.yaml is populated.');
+                return;
+            }
+            words.sort((a, b) => a.rank - b.rank);
+            const c1 = 1000;
+            const transformedFreqs = words.map(word => Math.log10(word.freq + c1));
+            minTransformedFreq = Math.min(...transformedFreqs);
+            maxTransformedFreq = Math.max(...transformedFreqs);
+            displayWord();
+            preloadAudio();
+        })
+        .catch(error => {
+            console.error('Error loading words:', error.message);
+            alert('Failed to load vocabulary data. Check the console for details.');
+        });
+}
 
 function setupEventListeners() {
     const card = document.querySelector('.flashcard');
-    const themeToggle = document.querySelector('.theme-toggle');
     let tapCount = 0;
     let lastTapTime = 0;
     const doubleTapThreshold = 300;
-
-    // Theme toggle handler
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = document.body.getAttribute('data-theme') || 'light';
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        document.body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-    });
 
     card.addEventListener('click', (e) => {
         const currentTime = new Date().getTime();
@@ -129,46 +172,6 @@ function setupEventListeners() {
             preloadAudio();
         }
     });
-
-    // Unlock audio on first user interaction
-    document.body.addEventListener('touchstart', () => {
-        audioUnlocked = true;
-        console.log('Audio unlocked via touchstart');
-    }, { once: true });
-    document.body.addEventListener('click', () => {
-        audioUnlocked = true;
-        console.log('Audio unlocked via click');
-    }, { once: true });
-}
-
-function loadWords() {
-    fetch('data/vocab_database.yaml')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status} - Check if vocab_database.yaml exists in data/`);
-            }
-            return response.text();
-        })
-        .then(yamlText => {
-            words = jsyaml.load(yamlText) || [];
-            if (!words.length) {
-                console.warn('No words found in vocab_database.yaml');
-                alert('No vocabulary data available. Please ensure vocab_database.yaml is populated.');
-                return;
-            }
-            words.sort((a, b) => a.rank - b.rank);
-            // Precompute min and max transformed frequencies
-            const c1 = 1000;
-            const transformedFreqs = words.map(word => Math.log10(word.freq + c1));
-            minTransformedFreq = Math.min(...transformedFreqs);
-            maxTransformedFreq = Math.max(...transformedFreqs);
-            displayWord();
-            preloadAudio();
-        })
-        .catch(error => {
-            console.error('Error loading words:', error.message);
-            alert('Failed to load vocabulary data. Check the console for details.');
-        });
 }
 
 function preloadAudio() {
