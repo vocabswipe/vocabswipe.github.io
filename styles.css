@@ -25,13 +25,31 @@ body {
     padding-top: 40px;
 }
 
+.website-name {
+    font-family: 'Caveat', cursive;
+    font-size: 36px;
+    font-weight: 700;
+    color: #1e40af;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
 .slogan {
     font-family: 'Caveat', cursive;
     font-size: 28px;
     font-weight: 700;
     color: #1e40af;
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
+}
+
+.deck-version {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: 16px;
 }
 
 .flashcard-container {
@@ -175,8 +193,16 @@ body {
         padding-top: 20px;
     }
 
+    .website-name {
+        font-size: 30px;
+    }
+
     .slogan {
         font-size: 24px;
+    }
+
+    .deck-version {
+        font-size: 14px;
     }
 
     .flashcard {
