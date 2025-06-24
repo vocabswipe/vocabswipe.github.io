@@ -29,7 +29,7 @@ body[data-theme="dark"] {
     max-width: 600px;
     padding: 16px;
     padding-top: 40px;
-    position: relative; /* For positioning theme toggle */
+    position: relative;
 }
 
 .theme-toggle {
@@ -282,18 +282,10 @@ body[data-theme="dark"] .freq-label {
     border: 1px solid #6b7280;
 }
 
-body[data-theme="dark"] .freq-bar {
-    border-color: #9ca3af;
-}
-
 .freq-fill {
     height: 100%;
     transition: width 0.3s ease-in-out;
-    background: #ffffff;
-}
-
-body[data-theme="dark"] .freq-fill {
-    background: #1f2937; /* Dark background to match theme */
+    background: #ffffff; /* Consistent white fill in both themes */
 }
 
 @media (max-width: 768px) {
