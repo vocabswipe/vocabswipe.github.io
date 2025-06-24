@@ -170,7 +170,12 @@ body {
 .freq-bar {
     width: 160px;
     height: 8px;
-    background: #e5e7eb;
+    background: linear-gradient(to right, 
+        #ff4d4d, /* Bright red */
+        #ff8c00, /* Bright orange */
+        #ffeb3b, /* Bright yellow */
+        #00cc00  /* Bright green */
+    );
     border-radius: 4px;
     overflow: hidden;
     position: relative;
@@ -180,12 +185,7 @@ body {
 .freq-fill {
     height: 100%;
     transition: width 0.3s ease-in-out;
-    background: linear-gradient(to right, 
-        #ff4d4d, /* Bright red */
-        #ff8c00, /* Bright orange */
-        #ffeb3b, /* Bright yellow */
-        #00cc00  /* Bright green */
-    );
+    background: #ffffff; /* Solid white to reveal the gradient underneath */
 }
 
 @media (max-width: 768px) {
