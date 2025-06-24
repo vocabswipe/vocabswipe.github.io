@@ -9,8 +9,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
 </head>
-<body>
+<body class="bright-theme">
     <div class="container">
+        <button class="theme-toggle" aria-label="Toggle theme">
+            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path class="sun" d="M12 3v2m0 14v2m9-9h-2m-14 0H3m16.95-6.95l-1.414 1.414M6.364 17.364l-1.414 1.414M17.364 6.364l1.414-1.414M6.364 6.364l-1.414-1.414M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+                <path class="moon" d="M21 12.79A9 9 0 1112.21 3a7 7 0 008.79 9.79z" style="display: none;"/>
+            </svg>
+        </button>
         <h1 class="website-name">VocabSwipe</h1>
         <h2 class="slogan">Swipe to Master Your Vocabulary!</h2>
         <p class="deck-version">Top 5000 Frequently Used Words</p>
