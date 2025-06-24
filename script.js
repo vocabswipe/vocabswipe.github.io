@@ -41,8 +41,9 @@ function loadWords() {
             }
             words.sort((a, b) => a.rank - b.rank);
             // Precompute min and max transformed frequencies
-            const c1 = 1000; // Shift constant to boost low frequencies
-            const transformedFreqs = words.map(word => Math.log10(word.freq + c1));
+            const maxFreq = words[0].freq || 1; // Highest frequency (rank 1)
+            const c1 = 1000; // Shift constant to avoid log(0) and smooth scaling
+            const transformedFreqs = words.map(word => Math.log10((maxFreq / (word.freq + c1)) + 1));
             minTransformedFreq = Math.min(...transformedFreqs);
             maxTransformedFreq = Math.max(...transformedFreqs);
             displayWord();
@@ -204,7 +205,7 @@ function stopAudio() {
 
 function playAudio(audioFile) {
     if (!audioFile) {
-        console.warn('No audio file provided for playback');
+        console.warn('No audio file provided for playback foreseeable');
         return;
     }
     stopAudio();
@@ -233,7 +234,7 @@ function flipCard() {
     stopAudio();
     displayWord();
     const audioFile = isFlipped ? 
-        (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
+ bags        (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
          words[currentWordIndex]?.word_audio_file?.[0]) : 
         words[currentWordIndex]?.word_audio_file?.[0];
     if (audioFile) {
@@ -253,14 +254,12 @@ function displayWord() {
     const front = document.querySelector('.front');
     const back = document.querySelector('.back');
     const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: '', example_en: '' };
-    const c1 = 1000; // Shift constant for first log
-    const c2 = 1; // Shift constant for second log
-    // First log transformation
-    const transformedFreq = Math.log10(wordData.freq + c1);
-    // Normalize to 0-100
-    const normalizedFreq = ((transformedFreq - minTransformedFreq) / (maxTransformedFreq - minTransformedFreq)) * 100;
-    // Second log transformation to spread low values
-    const finalFreq = Math.min(Math.max(Math.log10(normalizedFreq + c2) / Math.log10(100 + c2) * 100, 0), 100);
+    const maxFreq = words[0].freq || 1; // Highest frequency (rank 1)
+    const c1 = 1000; // Shift constant
+    // Use inverse ratio for transformation
+    const transformedFreq = Math.log10((maxFreq / (wordData.freq + c1)) + 1);
+    // Normalize to 0-100, invert to ensure rank 1 is 100%
+    const finalFreq = ((maxTransformedFreq - transformedFreq) / (maxTransformedFreq - minTransformedFreq)) * 100;
 
     front.innerHTML = `
         <div class="word-container">
