@@ -228,19 +228,21 @@ function playAudio(audioFile) {
 }
 
 function flipCard() {
-    isFlipped = !isFlipped;
+    const wasFlipped = isFlipped; // Store previous state
+    isFlipped = !isFlipped; // Toggle flip state
     const card = document.querySelector('.flashcard');
     card.classList.toggle('flipped', isFlipped);
     stopAudio();
     displayWord();
+    // Play audio based on new state, prioritizing back card audio when flipping to back
     const audioFile = isFlipped ? 
         (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
          words[currentWordIndex]?.word_audio_file?.[0]) : 
         words[currentWordIndex]?.word_audio_file?.[0];
-    if (audioFile) {
+    if (audioFile && (!wasFlipped || isFlipped)) { // Play on front-to-back or back-to-front
         console.log(`Flip card: Playing audio for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
         playAudio(audioFile);
-    } else {
+    } else if (!audioFile) {
         console.warn(`No audio file for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
     }
 }
