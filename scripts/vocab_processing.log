@@ -10684,3 +10684,132 @@ expected <block end>, but found '<block mapping start>'
 2025-06-24 15:08:10,671 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250624_150810.txt
 2025-06-24 15:08:10,674 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
 2025-06-24 15:08:10,675 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
+2025-06-24 15:15:22,063 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-24 15:15:22,271 - INFO - AWS Polly client initialized successfully.
+2025-06-24 15:15:22,278 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 15:15:22,280 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 15:15:29,329 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 15:15:29,329 - INFO - Appended 20 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 15:15:29,339 - INFO - Loading: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 15:15:31,817 - INFO - Generated audio for '<speak>member</speak>' at D:\vocabswipe.github.io\data\audio\member_word_0+Matthew+aa08769cdcb26674c6706093503ff0a3.mp3
+2025-06-24 15:15:32,206 - INFO - Generated audio for '<speak>member. She’s a member of the book club.</speak>' at D:\vocabswipe.github.io\data\audio\member_sentence_0+Matthew+5b2fdfef58f2141714ac7d309e1bbd20.mp3
+2025-06-24 15:15:32,548 - INFO - Generated audio for '<speak>member. He’s a key member of the soccer team.</speak>' at D:\vocabswipe.github.io\data\audio\member_sentence_1+Matthew+ee6f534a711f7169669aac5a26780371.mp3
+2025-06-24 15:15:32,923 - INFO - Generated audio for '<speak>member. All members voted at the annual meeting.</speak>' at D:\vocabswipe.github.io\data\audio\member_sentence_2+Matthew+10fd09a1e8731529883c03bfab21bd6f.mp3
+2025-06-24 15:15:33,275 - INFO - Generated audio for '<speak>member. The beam is a structural member of the bridge.</speak>' at D:\vocabswipe.github.io\data\audio\member_sentence_3+Matthew+afa2b90160b49301ff9a146aab91b648.mp3
+2025-06-24 15:15:33,640 - INFO - Generated audio for '<speak>member. Members get discounts at the gym.</speak>' at D:\vocabswipe.github.io\data\audio\member_sentence_4+Matthew+6a7e8edcdc4d8d93acdc5cfd12fb7220.mp3
+2025-06-24 15:15:33,961 - INFO - Generated audio for '<speak>community</speak>' at D:\vocabswipe.github.io\data\audio\community_word_0+Matthew+82df41632da476065ce2997900554442.mp3
+2025-06-24 15:15:34,310 - INFO - Generated audio for '<speak>community. The community gathered for the festival.</speak>' at D:\vocabswipe.github.io\data\audio\community_sentence_0+Matthew+b49b94a7e0a1592dd7d2a25f754ca7ad.mp3
+2025-06-24 15:15:34,671 - INFO - Generated audio for '<speak>community. The online gaming community is very active.</speak>' at D:\vocabswipe.github.io\data\audio\community_sentence_1+Matthew+d3731532f6384735a3a4d0de4a202ef2.mp3
+2025-06-24 15:15:35,024 - INFO - Generated audio for '<speak>community. She found community in her church group.</speak>' at D:\vocabswipe.github.io\data\audio\community_sentence_2+Matthew+e62d3e3044011f9135788ed0be57fe9f.mp3
+2025-06-24 15:15:35,378 - INFO - Generated audio for '<speak>community. The scientific community welcomed the discovery.</speak>' at D:\vocabswipe.github.io\data\audio\community_sentence_3+Matthew+b5e595df55a7d25873dd9e2e3a89214b.mp3
+2025-06-24 15:15:35,728 - INFO - Generated audio for '<speak>community. The community raised funds for the park.</speak>' at D:\vocabswipe.github.io\data\audio\community_sentence_4+Matthew+23aac59eb99787fcf2fb3e2b3ed946da.mp3
+2025-06-24 15:15:36,041 - INFO - Generated audio for '<speak>once</speak>' at D:\vocabswipe.github.io\data\audio\once_word_0+Matthew+e2eff6c2dafd909df8508f891b385d88.mp3
+2025-06-24 15:15:36,388 - INFO - Generated audio for '<speak>once. I visited Paris once last summer.</speak>' at D:\vocabswipe.github.io\data\audio\once_sentence_0+Matthew+09d8e6f2dc830d8ecd7c5b3bdeacc40b.mp3
+2025-06-24 15:15:36,736 - INFO - Generated audio for '<speak>once. You can borrow my book, but only once.</speak>' at D:\vocabswipe.github.io\data\audio\once_sentence_1+Matthew+648a80b2a9034dd3460dedc764f75cf4.mp3
+2025-06-24 15:15:37,086 - INFO - Generated audio for '<speak>once. Once he arrives, we can start the meeting.</speak>' at D:\vocabswipe.github.io\data\audio\once_sentence_2+Matthew+b875eee88ec19b5a2e948d763743e761.mp3
+2025-06-24 15:15:38,145 - INFO - Generated audio for '<speak>once. She was once a teacher before retiring.</speak>' at D:\vocabswipe.github.io\data\audio\once_sentence_3+Matthew+61bdf32e05a0d2dbae8fe2b87239026d.mp3
+2025-06-24 15:15:38,556 - INFO - Generated audio for '<speak>once. I saw that movie once and loved it.</speak>' at D:\vocabswipe.github.io\data\audio\once_sentence_4+Matthew+b4b352b125b7b3ceda96bb02816a87f2.mp3
+2025-06-24 15:15:38,881 - INFO - Generated audio for '<speak>social</speak>' at D:\vocabswipe.github.io\data\audio\social_word_0+Matthew+36fa3a193d737e5ad86441e422ed5a78.mp3
+2025-06-24 15:15:39,271 - INFO - Generated audio for '<speak>social. She’s very social and loves parties.</speak>' at D:\vocabswipe.github.io\data\audio\social_sentence_0+Matthew+98b6ea8211aa206eac1eef8c99f076ea.mp3
+2025-06-24 15:15:39,636 - INFO - Generated audio for '<speak>social. The policy addresses social issues like poverty.</speak>' at D:\vocabswipe.github.io\data\audio\social_sentence_1+Matthew+503fd491dbe713d02e96b37e0df5e017.mp3
+2025-06-24 15:15:39,993 - INFO - Generated audio for '<speak>social. The club organizes social events monthly.</speak>' at D:\vocabswipe.github.io\data\audio\social_sentence_2+Matthew+7a96dbafdea8b8b678c9e21ad4993cc2.mp3
+2025-06-24 15:15:40,343 - INFO - Generated audio for '<speak>social. Social media helps her stay connected.</speak>' at D:\vocabswipe.github.io\data\audio\social_sentence_3+Matthew+2b5a5fc642c834d5592865c90608b8ae.mp3
+2025-06-24 15:15:40,706 - INFO - Generated audio for '<speak>social. Social workers support vulnerable families.</speak>' at D:\vocabswipe.github.io\data\audio\social_sentence_4+Matthew+d62f3603f4dbdf82f90927f7eaeae9ed.mp3
+2025-06-24 15:15:41,016 - INFO - Generated audio for '<speak>news</speak>' at D:\vocabswipe.github.io\data\audio\news_word_0+Matthew+508c75c8507a2ae5223dfd2faeb98122.mp3
+2025-06-24 15:15:41,361 - INFO - Generated audio for '<speak>news. I watched the news on TV last night.</speak>' at D:\vocabswipe.github.io\data\audio\news_sentence_0+Matthew+7b942e29d11944938f1226e6d78d27b9.mp3
+2025-06-24 15:15:41,733 - INFO - Generated audio for '<speak>news. The newspaper published breaking news.</speak>' at D:\vocabswipe.github.io\data\audio\news_sentence_1+Matthew+bb2cefa21a125902e91368f0a0267a80.mp3
+2025-06-24 15:15:42,085 - INFO - Generated audio for '<speak>news. Have you heard the news about her promotion?</speak>' at D:\vocabswipe.github.io\data\audio\news_sentence_2+Matthew+2108d810923ce73950a7988bc22a477b.mp3
+2025-06-24 15:15:42,448 - INFO - Generated audio for '<speak>news. The evening news covered the storm.</speak>' at D:\vocabswipe.github.io\data\audio\news_sentence_3+Matthew+27d42c0320852fdcbdadff4a65ec242b.mp3
+2025-06-24 15:15:42,802 - INFO - Generated audio for '<speak>news. The test results were good news for her.</speak>' at D:\vocabswipe.github.io\data\audio\news_sentence_4+Matthew+e1cf18ba02568794b26944fa8501ab44.mp3
+2025-06-24 15:15:43,266 - INFO - Generated audio for '<speak>allow</speak>' at D:\vocabswipe.github.io\data\audio\allow_word_0+Matthew+b394126a0e52e75f1e3d535d0fb0d33c.mp3
+2025-06-24 15:15:43,612 - INFO - Generated audio for '<speak>allow. The teacher allowed extra time for the test.</speak>' at D:\vocabswipe.github.io\data\audio\allow_sentence_0+Matthew+abdec63775686b4932a0bbda6292c750.mp3
+2025-06-24 15:15:43,985 - INFO - Generated audio for '<speak>allow. This ticket allows entry to the museum.</speak>' at D:\vocabswipe.github.io\data\audio\allow_sentence_1+Matthew+9861e6538e8cbb4fe4b696a4fdde78f7.mp3
+2025-06-24 15:15:44,391 - INFO - Generated audio for '<speak>allow. The budget allows for new equipment.</speak>' at D:\vocabswipe.github.io\data\audio\allow_sentence_2+Matthew+0a500e5369fe63d4e35d9b860250647c.mp3
+2025-06-24 15:15:44,737 - INFO - Generated audio for '<speak>allow. The rules don’t allow pets in the building.</speak>' at D:\vocabswipe.github.io\data\audio\allow_sentence_3+Matthew+1d7c4e833ebc75189f27e436aa78b00f.mp3
+2025-06-24 15:15:45,111 - INFO - Generated audio for '<speak>allow. Her schedule allows her to work from home.</speak>' at D:\vocabswipe.github.io\data\audio\allow_sentence_4+Matthew+91507ee8b6035b84aba881bec97741e0.mp3
+2025-06-24 15:15:45,423 - INFO - Generated audio for '<speak>win</speak>' at D:\vocabswipe.github.io\data\audio\win_word_0+Matthew+0b08bd98d279b88859b628cd8c061ae0.mp3
+2025-06-24 15:15:45,768 - INFO - Generated audio for '<speak>win. Our team won the championship game.</speak>' at D:\vocabswipe.github.io\data\audio\win_sentence_0+Matthew+41e39fd9c1c4a12a45e0e5ef7350094e.mp3
+2025-06-24 15:15:46,110 - INFO - Generated audio for '<speak>win. She won a scholarship for her grades.</speak>' at D:\vocabswipe.github.io\data\audio\win_sentence_1+Matthew+36877a5af5617d21b5acc4ac13eff239.mp3
+2025-06-24 15:15:46,448 - INFO - Generated audio for '<speak>win. He won her over with his kindness.</speak>' at D:\vocabswipe.github.io\data\audio\win_sentence_2+Matthew+67eacf0ca114daa33db01551c33b0cd2.mp3
+2025-06-24 15:15:46,789 - INFO - Generated audio for '<speak>win. They won against the odds in the debate.</speak>' at D:\vocabswipe.github.io\data\audio\win_sentence_3+Matthew+62d8e5532d5a0f4d0532ca41c7a0f806.mp3
+2025-06-24 15:15:47,127 - INFO - Generated audio for '<speak>win. I won a gift card in the raffle.</speak>' at D:\vocabswipe.github.io\data\audio\win_sentence_4+Matthew+22b8e6b28660ca36e26cc8aad0e283bf.mp3
+2025-06-24 15:15:47,443 - INFO - Generated audio for '<speak>body</speak>' at D:\vocabswipe.github.io\data\audio\body_word_0+Matthew+841a2d689ad86bd1611447453c22c6fc.mp3
+2025-06-24 15:15:47,789 - INFO - Generated audio for '<speak>body. Exercise keeps her body healthy.</speak>' at D:\vocabswipe.github.io\data\audio\body_sentence_0+Matthew+d495f85c39e24ab29cea95f7669df002.mp3
+2025-06-24 15:15:48,137 - INFO - Generated audio for '<speak>body. The student body elected a new president.</speak>' at D:\vocabswipe.github.io\data\audio\body_sentence_1+Matthew+79d375b8450a9c82edb94c24c3704b96.mp3
+2025-06-24 15:15:48,488 - INFO - Generated audio for '<speak>body. The body of the essay was well-written.</speak>' at D:\vocabswipe.github.io\data\audio\body_sentence_2+Matthew+2a9ba5a22a3a25d5f41b4a2e9579e83b.mp3
+2025-06-24 15:15:48,831 - INFO - Generated audio for '<speak>body. This book adds to the body of research.</speak>' at D:\vocabswipe.github.io\data\audio\body_sentence_3+Matthew+c5de03be78fab6399b36c0ff6711afc6.mp3
+2025-06-24 15:15:49,206 - INFO - Generated audio for '<speak>body. The police found a body near the river.</speak>' at D:\vocabswipe.github.io\data\audio\body_sentence_4+Matthew+f5ad0c72f3eb3f9e9fed9c30731fea7c.mp3
+2025-06-24 15:15:49,516 - INFO - Generated audio for '<speak>lead</speak>' at D:\vocabswipe.github.io\data\audio\lead_word_0+Matthew+13edbe8b95261c3a88680818cace44a4.mp3
+2025-06-24 15:15:49,862 - INFO - Generated audio for '<speak>lead. She led the team to the project site.</speak>' at D:\vocabswipe.github.io\data\audio\lead_sentence_0+Matthew+fdf926b3c42be92db9317f7d4691f271.mp3
+2025-06-24 15:15:50,253 - INFO - Generated audio for '<speak>lead. He leads the marketing department.</speak>' at D:\vocabswipe.github.io\data\audio\lead_sentence_1+Matthew+1964918b6c5de4f6d65379dcc9dce624.mp3
+2025-06-24 15:15:50,641 - INFO - Generated audio for '<speak>lead. Our school leads in the science fair.</speak>' at D:\vocabswipe.github.io\data\audio\lead_sentence_2+Matthew+8aa41b3d56d5850e0892918929a7af83.mp3
+2025-06-24 15:15:51,011 - INFO - Generated audio for '<speak>lead. His speech led to a heated discussion.</speak>' at D:\vocabswipe.github.io\data\audio\lead_sentence_3+Matthew+d0ea391753bee61b42054405255d862b.mp3
+2025-06-24 15:15:51,357 - INFO - Generated audio for '<speak>lead. She leads by demonstrating strong ethics.</speak>' at D:\vocabswipe.github.io\data\audio\lead_sentence_4+Matthew+6f25c12f1bf255e766210db0c5f51f7f.mp3
+2025-06-24 15:15:51,673 - INFO - Generated audio for '<speak>continue</speak>' at D:\vocabswipe.github.io\data\audio\continue_word_0+Matthew+7aa28ed115707345d0274032757e8991.mp3
+2025-06-24 15:15:52,024 - INFO - Generated audio for '<speak>continue. He continued working late into the night.</speak>' at D:\vocabswipe.github.io\data\audio\continue_sentence_0+Matthew+9ff85eac2574fdfe255cf93c64bbfa9b.mp3
+2025-06-24 15:15:52,482 - INFO - Generated audio for '<speak>continue. The rain continued all afternoon.</speak>' at D:\vocabswipe.github.io\data\audio\continue_sentence_1+Matthew+98f9cb74685891ac90175fc010a2d1da.mp3
+2025-06-24 15:15:52,830 - INFO - Generated audio for '<speak>continue. Let’s continue the meeting after lunch.</speak>' at D:\vocabswipe.github.io\data\audio\continue_sentence_2+Matthew+f06773d4c92aeb3b1e33e94bfe6c5bec.mp3
+2025-06-24 15:15:53,200 - INFO - Generated audio for '<speak>continue. They continued the lease for another year.</speak>' at D:\vocabswipe.github.io\data\audio\continue_sentence_3+Matthew+57dc5999cdbabb640fc9621cfed73077.mp3
+2025-06-24 15:15:53,554 - INFO - Generated audio for '<speak>continue. She continued her studies despite challenges.</speak>' at D:\vocabswipe.github.io\data\audio\continue_sentence_4+Matthew+6d4bed8b5b1c490a960fa44b3ead57b7.mp3
+2025-06-24 15:15:53,913 - INFO - Generated audio for '<speak>whether</speak>' at D:\vocabswipe.github.io\data\audio\whether_word_0+Matthew+7d767e6bb05138bb94abee483ea8abc6.mp3
+2025-06-24 15:15:54,260 - INFO - Generated audio for '<speak>whether. I’m unsure whether to call or text.</speak>' at D:\vocabswipe.github.io\data\audio\whether_sentence_0+Matthew+1926f59f6aee21967eb82dbcaef1a1b2.mp3
+2025-06-24 15:15:54,603 - INFO - Generated audio for '<speak>whether. She asked whether he was coming to the party.</speak>' at D:\vocabswipe.github.io\data\audio\whether_sentence_1+Matthew+c81a503ce14f1f639e5a7cfc29117967.mp3
+2025-06-24 15:15:54,951 - INFO - Generated audio for '<speak>whether. Whether it rains or shines, we’ll go hiking.</speak>' at D:\vocabswipe.github.io\data\audio\whether_sentence_2+Matthew+307bf5c6614ba8309e423fabe391d6c3.mp3
+2025-06-24 15:15:55,327 - INFO - Generated audio for '<speak>whether. They debated whether the plan would work.</speak>' at D:\vocabswipe.github.io\data\audio\whether_sentence_3+Matthew+f7c226d44b35e38aa118053b1d6c9826.mp3
+2025-06-24 15:15:55,695 - INFO - Generated audio for '<speak>whether. He wondered whether to accept the offer.</speak>' at D:\vocabswipe.github.io\data\audio\whether_sentence_4+Matthew+6a05e01f74b6b0d9b124a1f9b8b45e0a.mp3
+2025-06-24 15:15:56,011 - INFO - Generated audio for '<speak>enough</speak>' at D:\vocabswipe.github.io\data\audio\enough_word_0+Matthew+edc1e3ea2ca4939a55f1edf84a1fb85e.mp3
+2025-06-24 15:15:56,358 - INFO - Generated audio for '<speak>enough. We have enough food for the party.</speak>' at D:\vocabswipe.github.io\data\audio\enough_sentence_0+Matthew+087863e272efb98ae419deafbc3c7722.mp3
+2025-06-24 15:15:56,711 - INFO - Generated audio for '<speak>enough. She studied enough to pass the exam.</speak>' at D:\vocabswipe.github.io\data\audio\enough_sentence_1+Matthew+c17632ac69d9a8971e0fc830592c1040.mp3
+2025-06-24 15:15:57,064 - INFO - Generated audio for '<speak>enough. The room is big enough for two people.</speak>' at D:\vocabswipe.github.io\data\audio\enough_sentence_2+Matthew+f434d7b897d1ca0e4053ac6608a3960c.mp3
+2025-06-24 15:15:57,408 - INFO - Generated audio for '<speak>enough. I’ve had enough of this noise!</speak>' at D:\vocabswipe.github.io\data\audio\enough_sentence_3+Matthew+362ecbc67df6684f45fccb31780e96c3.mp3
+2025-06-24 15:15:57,809 - INFO - Generated audio for '<speak>enough. He runs fast enough to join the team.</speak>' at D:\vocabswipe.github.io\data\audio\enough_sentence_4+Matthew+eee0e9e618da2bafec9283d81514bf98.mp3
+2025-06-24 15:15:58,127 - INFO - Generated audio for '<speak>spend</speak>' at D:\vocabswipe.github.io\data\audio\spend_word_0+Matthew+d998ff3a339f9318bd7b6e98912e4043.mp3
+2025-06-24 15:15:58,533 - INFO - Generated audio for '<speak>spend. She spent $50 on new shoes.</speak>' at D:\vocabswipe.github.io\data\audio\spend_sentence_0+Matthew+de09740fe5546ca73bcde1733473c1d4.mp3
+2025-06-24 15:15:58,880 - INFO - Generated audio for '<speak>spend. We spent the weekend at the beach.</speak>' at D:\vocabswipe.github.io\data\audio\spend_sentence_1+Matthew+eeaec527d1521a222abc655a7e61418a.mp3
+2025-06-24 15:15:59,222 - INFO - Generated audio for '<speak>spend. He spent all his energy on the race.</speak>' at D:\vocabswipe.github.io\data\audio\spend_sentence_2+Matthew+03f7bc651e8ba9b1fed3c1eec6ebf9cb.mp3
+2025-06-24 15:15:59,572 - INFO - Generated audio for '<speak>spend. They spent hours planning the event.</speak>' at D:\vocabswipe.github.io\data\audio\spend_sentence_3+Matthew+a3de63183f030168547d60a9d30985d9.mp3
+2025-06-24 15:15:59,958 - INFO - Generated audio for '<speak>spend. She spends a lot on charity donations.</speak>' at D:\vocabswipe.github.io\data\audio\spend_sentence_4+Matthew+6e60f9f0f2f66de837d1a3de4adcfed0.mp3
+2025-06-24 15:16:00,270 - INFO - Generated audio for '<speak>level</speak>' at D:\vocabswipe.github.io\data\audio\level_word_0+Matthew+c9e9a848920877e76685b2e4e76de38d.mp3
+2025-06-24 15:16:00,682 - INFO - Generated audio for '<speak>level. She reached a new level in the game.</speak>' at D:\vocabswipe.github.io\data\audio\level_sentence_0+Matthew+8a28efd9919092944cf6fe58ee4ae744.mp3
+2025-06-24 15:16:01,032 - INFO - Generated audio for '<speak>level. The noise level was too high.</speak>' at D:\vocabswipe.github.io\data\audio\level_sentence_1+Matthew+db9608b0ef918da94d218343d6649303.mp3
+2025-06-24 15:16:01,391 - INFO - Generated audio for '<speak>level. The carpenter checked the level of the shelf.</speak>' at D:\vocabswipe.github.io\data\audio\level_sentence_2+Matthew+6eaaf40df4f05e19608b6a6c365ae92e.mp3
+2025-06-24 15:16:01,745 - INFO - Generated audio for '<speak>level. He’s at the executive level in the company.</speak>' at D:\vocabswipe.github.io\data\audio\level_sentence_3+Matthew+16910d432a34837da0525ae8ce417d76.mp3
+2025-06-24 15:16:02,107 - INFO - Generated audio for '<speak>level. This course is for advanced level students.</speak>' at D:\vocabswipe.github.io\data\audio\level_sentence_4+Matthew+e4cec5730f451d2d24ea1af7a420770e.mp3
+2025-06-24 15:16:02,419 - INFO - Generated audio for '<speak>able</speak>' at D:\vocabswipe.github.io\data\audio\able_word_0+Matthew+c0db7d4e3cbad2b18c767c659f448a11.mp3
+2025-06-24 15:16:02,836 - INFO - Generated audio for '<speak>able. She’s able to solve complex math problems.</speak>' at D:\vocabswipe.github.io\data\audio\able_sentence_0+Matthew+02cdf816653c9eb51d215ccc57834919.mp3
+2025-06-24 15:16:03,197 - INFO - Generated audio for '<speak>able. He was able to finish the project early.</speak>' at D:\vocabswipe.github.io\data\audio\able_sentence_1+Matthew+c447dfe34bc86d6cd8a95ab34f97742c.mp3
+2025-06-24 15:16:03,542 - INFO - Generated audio for '<speak>able. They’re able to travel this summer.</speak>' at D:\vocabswipe.github.io\data\audio\able_sentence_2+Matthew+8eb201fced4614362b3a9dc4f74f3942.mp3
+2025-06-24 15:16:03,894 - INFO - Generated audio for '<speak>able. I’m not able to drive without my glasses.</speak>' at D:\vocabswipe.github.io\data\audio\able_sentence_3+Matthew+29d5426b0cac5304f0ed317fd169d863.mp3
+2025-06-24 15:16:04,242 - INFO - Generated audio for '<speak>able. She’s able in both music and art.</speak>' at D:\vocabswipe.github.io\data\audio\able_sentence_4+Matthew+173751283928d7f847db6bf386e42e58.mp3
+2025-06-24 15:16:04,557 - INFO - Generated audio for '<speak>political</speak>' at D:\vocabswipe.github.io\data\audio\political_word_0+Matthew+df1f057434a08af54f6483994acf83b0.mp3
+2025-06-24 15:16:04,901 - INFO - Generated audio for '<speak>political. The political debate was heated.</speak>' at D:\vocabswipe.github.io\data\audio\political_sentence_0+Matthew+89fe01fe98af165a593745664d865078.mp3
+2025-06-24 15:16:05,290 - INFO - Generated audio for '<speak>political. Her decision was political, not practical.</speak>' at D:\vocabswipe.github.io\data\audio\political_sentence_1+Matthew+9366ab829814d11a91bbdda0801ad1c9.mp3
+2025-06-24 15:16:05,648 - INFO - Generated audio for '<speak>political. They discussed political reforms at the meeting.</speak>' at D:\vocabswipe.github.io\data\audio\political_sentence_2+Matthew+6168570e0554cfb89f9743487d39a828.mp3
+2025-06-24 15:16:06,005 - INFO - Generated audio for '<speak>political. The political rally drew a large crowd.</speak>' at D:\vocabswipe.github.io\data\audio\political_sentence_3+Matthew+ac73c79d3727f25f17d178c6f8197d75.mp3
+2025-06-24 15:16:06,406 - INFO - Generated audio for '<speak>political. His comment was a political move to gain favor.</speak>' at D:\vocabswipe.github.io\data\audio\political_sentence_4+Matthew+e511662985707b3d8e72e243a4d5735a.mp3
+2025-06-24 15:16:06,717 - INFO - Generated audio for '<speak>almost</speak>' at D:\vocabswipe.github.io\data\audio\almost_word_0+Matthew+5634275d694f8665957746c9619132f0.mp3
+2025-06-24 15:16:07,065 - INFO - Generated audio for '<speak>almost. We’re almost at the train station.</speak>' at D:\vocabswipe.github.io\data\audio\almost_sentence_0+Matthew+a8d09a1f2e203f88869de402aaaaa865.mp3
+2025-06-24 15:16:07,439 - INFO - Generated audio for '<speak>almost. He almost won the race but tripped.</speak>' at D:\vocabswipe.github.io\data\audio\almost_sentence_1+Matthew+8548a38a39e575f666dd40a805609bdd.mp3
+2025-06-24 15:16:07,851 - INFO - Generated audio for '<speak>almost. The project is almost complete.</speak>' at D:\vocabswipe.github.io\data\audio\almost_sentence_2+Matthew+7d6f525493a2407b420aa9bdd622a6bb.mp3
+2025-06-24 15:16:11,294 - INFO - Generated audio for '<speak>almost. Almost everyone attended the meeting.</speak>' at D:\vocabswipe.github.io\data\audio\almost_sentence_3+Matthew+1ae7f5caf8c097aafd9979b5822f767a.mp3
+2025-06-24 15:16:11,969 - INFO - Generated audio for '<speak>almost. It’s almost time for lunch.</speak>' at D:\vocabswipe.github.io\data\audio\almost_sentence_4+Matthew+c206a7a664b349b6c6673fd3d822155b.mp3
+2025-06-24 15:16:12,385 - INFO - Generated audio for '<speak>boy</speak>' at D:\vocabswipe.github.io\data\audio\boy_word_0+Matthew+1a699ad5e06aa8a6db3bcf9cfb2f00f2.mp3
+2025-06-24 15:16:13,156 - INFO - Generated audio for '<speak>boy. The boy played soccer in the park.</speak>' at D:\vocabswipe.github.io\data\audio\boy_sentence_0+Matthew+b783384f35af64a686c561ee38accd5e.mp3
+2025-06-24 15:16:13,789 - INFO - Generated audio for '<speak>boy. Her boy is starting school this year.</speak>' at D:\vocabswipe.github.io\data\audio\boy_sentence_1+Matthew+5b4b53ccf056056e9910a03d0bfca569.mp3
+2025-06-24 15:16:14,397 - INFO - Generated audio for '<speak>boy. The delivery boy brought our pizza.</speak>' at D:\vocabswipe.github.io\data\audio\boy_sentence_2+Matthew+9fb02c8803eeff6e0c49f5bfeb7da8e9.mp3
+2025-06-24 15:16:15,009 - INFO - Generated audio for '<speak>boy. Come on, boys, let’s get moving!</speak>' at D:\vocabswipe.github.io\data\audio\boy_sentence_3+Matthew+6cd2d44ac7f29a08432ea153672d3cac.mp3
+2025-06-24 15:16:15,662 - INFO - Generated audio for '<speak>boy. The boys went camping by the lake.</speak>' at D:\vocabswipe.github.io\data\audio\boy_sentence_4+Matthew+b12af19bd4d0c5758c15c4a453011399.mp3
+2025-06-24 15:16:15,987 - INFO - Generated audio for '<speak>university</speak>' at D:\vocabswipe.github.io\data\audio\university_word_0+Matthew+10238d6114894bb5edc39981835bbec9.mp3
+2025-06-24 15:16:19,210 - INFO - Generated audio for '<speak>university. She studies at a prestigious university.</speak>' at D:\vocabswipe.github.io\data\audio\university_sentence_0+Matthew+41420d709e6e183bb1f6fa67a49410ca.mp3
+2025-06-24 15:16:20,685 - INFO - Generated audio for '<speak>university. The university published a new study.</speak>' at D:\vocabswipe.github.io\data\audio\university_sentence_1+Matthew+39a03b8379d21c5a04335df031d93513.mp3
+2025-06-24 15:16:28,171 - INFO - Generated audio for '<speak>university. The university hosts events for students.</speak>' at D:\vocabswipe.github.io\data\audio\university_sentence_2+Matthew+1c54575c1988c6a4e31714dad28d07d4.mp3
+2025-06-24 15:16:29,638 - INFO - Generated audio for '<speak>university. He earned his degree from the university.</speak>' at D:\vocabswipe.github.io\data\audio\university_sentence_3+Matthew+81ada5b8a5efd0ba74f417a014545970.mp3
+2025-06-24 15:16:31,392 - INFO - Generated audio for '<speak>university. The university library is open late.</speak>' at D:\vocabswipe.github.io\data\audio\university_sentence_4+Matthew+2217c47584741d94d140c1a9e5ddba9a.mp3
+2025-06-24 15:16:32,317 - INFO - Generated audio for '<speak>before. We arrived before the movie started.</speak>' at D:\vocabswipe.github.io\data\audio\before_sentence_5+Matthew+cc59845b96774f075eeeabb7b40e5dcf.mp3
+2025-06-24 15:16:33,266 - INFO - Generated audio for '<speak>before. She stood before the audience.</speak>' at D:\vocabswipe.github.io\data\audio\before_sentence_6+Matthew+89837a546a45535f5e53835bb06eb793.mp3
+2025-06-24 15:16:34,263 - INFO - Generated audio for '<speak>before. Check your work before submitting it.</speak>' at D:\vocabswipe.github.io\data\audio\before_sentence_7+Matthew+aac8a754db8333d21603126d04ec558a.mp3
+2025-06-24 15:16:34,997 - INFO - Generated audio for '<speak>before. He testified before the judge.</speak>' at D:\vocabswipe.github.io\data\audio\before_sentence_8+Matthew+335c4081f0e7fd12cd0bd343875d7e1c.mp3
+2025-06-24 15:16:36,143 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 15:16:36,151 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250624_151636.txt
+2025-06-24 15:16:36,154 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 15:16:36,155 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.

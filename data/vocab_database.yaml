@@ -6192,6 +6192,14 @@
     example_en: Her name comes before mine on the list.
   - definition_en: In the presence of.
     example_en: The case was presented before the judge.
+  - definition_en: Earlier than a specific time
+    example_en: We arrived before the movie started.
+  - definition_en: In front of in space
+    example_en: She stood before the audience.
+  - definition_en: Prior to an event
+    example_en: Check your work before submitting it.
+  - definition_en: In the presence of
+    example_en: He testified before the judge.
   freq: 402959
   part_of_speech: preposition
   rank: 239
@@ -6201,6 +6209,10 @@
   - before_sentence_2+Matthew+a680ae5adaceaec153ac07fcfb84c4c3.mp3
   - before_sentence_3+Matthew+070e41bcdedcc56d161446d8b1075eaa.mp3
   - before_sentence_4+Matthew+1c241cdea542e29e5e59a16ac43f2ea6.mp3
+  - before_sentence_5+Matthew+cc59845b96774f075eeeabb7b40e5dcf.mp3
+  - before_sentence_6+Matthew+89837a546a45535f5e53835bb06eb793.mp3
+  - before_sentence_7+Matthew+aac8a754db8333d21603126d04ec558a.mp3
+  - before_sentence_8+Matthew+335c4081f0e7fd12cd0bd343875d7e1c.mp3
   voice_id: Matthew
   word: before
   word_audio_file:
@@ -8494,3 +8506,459 @@
   word: black
   word_audio_file:
   - black_word_0+Matthew+1ffd9e753c8054cc61456ac7fac1ac89.mp3
+- back_cards:
+  - definition_en: A person belonging to a group or organization
+    example_en: She’s a member of the book club.
+  - definition_en: An individual in a team
+    example_en: He’s a key member of the soccer team.
+  - definition_en: A participant in a formal association
+    example_en: All members voted at the annual meeting.
+  - definition_en: A part of a larger structure
+    example_en: The beam is a structural member of the bridge.
+  - definition_en: Someone subscribed to a service
+    example_en: Members get discounts at the gym.
+  freq: 292596
+  part_of_speech: noun
+  rank: 341
+  sentence_audio_file:
+  - member_sentence_0+Matthew+5b2fdfef58f2141714ac7d309e1bbd20.mp3
+  - member_sentence_1+Matthew+ee6f534a711f7169669aac5a26780371.mp3
+  - member_sentence_2+Matthew+10fd09a1e8731529883c03bfab21bd6f.mp3
+  - member_sentence_3+Matthew+afa2b90160b49301ff9a146aab91b648.mp3
+  - member_sentence_4+Matthew+6a7e8edcdc4d8d93acdc5cfd12fb7220.mp3
+  voice_id: Matthew
+  word: member
+  word_audio_file:
+  - member_word_0+Matthew+aa08769cdcb26674c6706093503ff0a3.mp3
+- back_cards:
+  - definition_en: A group of people living in the same area
+    example_en: The community gathered for the festival.
+  - definition_en: A group with shared interests
+    example_en: The online gaming community is very active.
+  - definition_en: A sense of belonging or support
+    example_en: She found community in her church group.
+  - definition_en: A professional or academic group
+    example_en: The scientific community welcomed the discovery.
+  - definition_en: A local population
+    example_en: The community raised funds for the park.
+  freq: 290489
+  part_of_speech: noun
+  rank: 342
+  sentence_audio_file:
+  - community_sentence_0+Matthew+b49b94a7e0a1592dd7d2a25f754ca7ad.mp3
+  - community_sentence_1+Matthew+d3731532f6384735a3a4d0de4a202ef2.mp3
+  - community_sentence_2+Matthew+e62d3e3044011f9135788ed0be57fe9f.mp3
+  - community_sentence_3+Matthew+b5e595df55a7d25873dd9e2e3a89214b.mp3
+  - community_sentence_4+Matthew+23aac59eb99787fcf2fb3e2b3ed946da.mp3
+  voice_id: Matthew
+  word: community
+  word_audio_file:
+  - community_word_0+Matthew+82df41632da476065ce2997900554442.mp3
+- back_cards:
+  - definition_en: At some time in the past
+    example_en: I visited Paris once last summer.
+  - definition_en: One time only
+    example_en: You can borrow my book, but only once.
+  - definition_en: As soon as
+    example_en: Once he arrives, we can start the meeting.
+  - definition_en: Formerly or in the past
+    example_en: She was once a teacher before retiring.
+  - definition_en: In a single instance
+    example_en: I saw that movie once and loved it.
+  freq: 290446
+  part_of_speech: adverb
+  rank: 343
+  sentence_audio_file:
+  - once_sentence_0+Matthew+09d8e6f2dc830d8ecd7c5b3bdeacc40b.mp3
+  - once_sentence_1+Matthew+648a80b2a9034dd3460dedc764f75cf4.mp3
+  - once_sentence_2+Matthew+b875eee88ec19b5a2e948d763743e761.mp3
+  - once_sentence_3+Matthew+61bdf32e05a0d2dbae8fe2b87239026d.mp3
+  - once_sentence_4+Matthew+b4b352b125b7b3ceda96bb02816a87f2.mp3
+  voice_id: Matthew
+  word: once
+  word_audio_file:
+  - once_word_0+Matthew+e2eff6c2dafd909df8508f891b385d88.mp3
+- back_cards:
+  - definition_en: Relating to interaction with others
+    example_en: She’s very social and loves parties.
+  - definition_en: Pertaining to society or its organization
+    example_en: The policy addresses social issues like poverty.
+  - definition_en: Involving group activities
+    example_en: The club organizes social events monthly.
+  - definition_en: Related to online platforms
+    example_en: Social media helps her stay connected.
+  - definition_en: Concerned with community welfare
+    example_en: Social workers support vulnerable families.
+  freq: 290372
+  part_of_speech: adjective
+  rank: 344
+  sentence_audio_file:
+  - social_sentence_0+Matthew+98b6ea8211aa206eac1eef8c99f076ea.mp3
+  - social_sentence_1+Matthew+503fd491dbe713d02e96b37e0df5e017.mp3
+  - social_sentence_2+Matthew+7a96dbafdea8b8b678c9e21ad4993cc2.mp3
+  - social_sentence_3+Matthew+2b5a5fc642c834d5592865c90608b8ae.mp3
+  - social_sentence_4+Matthew+d62f3603f4dbdf82f90927f7eaeae9ed.mp3
+  voice_id: Matthew
+  word: social
+  word_audio_file:
+  - social_word_0+Matthew+36fa3a193d737e5ad86441e422ed5a78.mp3
+- back_cards:
+  - definition_en: Information about recent events
+    example_en: I watched the news on TV last night.
+  - definition_en: Reports in media outlets
+    example_en: The newspaper published breaking news.
+  - definition_en: Updates shared informally
+    example_en: Have you heard the news about her promotion?
+  - definition_en: A broadcast or publication
+    example_en: The evening news covered the storm.
+  - definition_en: New or surprising information
+    example_en: The test results were good news for her.
+  freq: 289175
+  part_of_speech: noun
+  rank: 345
+  sentence_audio_file:
+  - news_sentence_0+Matthew+7b942e29d11944938f1226e6d78d27b9.mp3
+  - news_sentence_1+Matthew+bb2cefa21a125902e91368f0a0267a80.mp3
+  - news_sentence_2+Matthew+2108d810923ce73950a7988bc22a477b.mp3
+  - news_sentence_3+Matthew+27d42c0320852fdcbdadff4a65ec242b.mp3
+  - news_sentence_4+Matthew+e1cf18ba02568794b26944fa8501ab44.mp3
+  voice_id: Matthew
+  word: news
+  word_audio_file:
+  - news_word_0+Matthew+508c75c8507a2ae5223dfd2faeb98122.mp3
+- back_cards:
+  - definition_en: To permit or give permission
+    example_en: The teacher allowed extra time for the test.
+  - definition_en: To make something possible
+    example_en: This ticket allows entry to the museum.
+  - definition_en: To allocate or provide
+    example_en: The budget allows for new equipment.
+  - definition_en: To accept or tolerate
+    example_en: The rules don’t allow pets in the building.
+  - definition_en: To enable through flexibility
+    example_en: Her schedule allows her to work from home.
+  freq: 288559
+  part_of_speech: verb
+  rank: 346
+  sentence_audio_file:
+  - allow_sentence_0+Matthew+abdec63775686b4932a0bbda6292c750.mp3
+  - allow_sentence_1+Matthew+9861e6538e8cbb4fe4b696a4fdde78f7.mp3
+  - allow_sentence_2+Matthew+0a500e5369fe63d4e35d9b860250647c.mp3
+  - allow_sentence_3+Matthew+1d7c4e833ebc75189f27e436aa78b00f.mp3
+  - allow_sentence_4+Matthew+91507ee8b6035b84aba881bec97741e0.mp3
+  voice_id: Matthew
+  word: allow
+  word_audio_file:
+  - allow_word_0+Matthew+b394126a0e52e75f1e3d535d0fb0d33c.mp3
+- back_cards:
+  - definition_en: To achieve victory in a competition
+    example_en: Our team won the championship game.
+  - definition_en: To gain something through effort
+    example_en: She won a scholarship for her grades.
+  - definition_en: To persuade or convince
+    example_en: He won her over with his kindness.
+  - definition_en: To succeed in a challenge
+    example_en: They won against the odds in the debate.
+  - definition_en: To earn a prize or reward
+    example_en: I won a gift card in the raffle.
+  freq: 288308
+  part_of_speech: verb
+  rank: 347
+  sentence_audio_file:
+  - win_sentence_0+Matthew+41e39fd9c1c4a12a45e0e5ef7350094e.mp3
+  - win_sentence_1+Matthew+36877a5af5617d21b5acc4ac13eff239.mp3
+  - win_sentence_2+Matthew+67eacf0ca114daa33db01551c33b0cd2.mp3
+  - win_sentence_3+Matthew+62d8e5532d5a0f4d0532ca41c7a0f806.mp3
+  - win_sentence_4+Matthew+22b8e6b28660ca36e26cc8aad0e283bf.mp3
+  voice_id: Matthew
+  word: win
+  word_audio_file:
+  - win_word_0+Matthew+0b08bd98d279b88859b628cd8c061ae0.mp3
+- back_cards:
+  - definition_en: The physical structure of a person or animal
+    example_en: Exercise keeps her body healthy.
+  - definition_en: A group of people with a shared purpose
+    example_en: The student body elected a new president.
+  - definition_en: The main part of something
+    example_en: The body of the essay was well-written.
+  - definition_en: A collection of material
+    example_en: This book adds to the body of research.
+  - definition_en: A corpse or remains
+    example_en: The police found a body near the river.
+  freq: 287817
+  part_of_speech: noun
+  rank: 348
+  sentence_audio_file:
+  - body_sentence_0+Matthew+d495f85c39e24ab29cea95f7669df002.mp3
+  - body_sentence_1+Matthew+79d375b8450a9c82edb94c24c3704b96.mp3
+  - body_sentence_2+Matthew+2a9ba5a22a3a25d5f41b4a2e9579e83b.mp3
+  - body_sentence_3+Matthew+c5de03be78fab6399b36c0ff6711afc6.mp3
+  - body_sentence_4+Matthew+f5ad0c72f3eb3f9e9fed9c30731fea7c.mp3
+  voice_id: Matthew
+  word: body
+  word_audio_file:
+  - body_word_0+Matthew+841a2d689ad86bd1611447453c22c6fc.mp3
+- back_cards:
+  - definition_en: To guide or direct
+    example_en: She led the team to the project site.
+  - definition_en: To be in charge of
+    example_en: He leads the marketing department.
+  - definition_en: To be ahead in a competition
+    example_en: Our school leads in the science fair.
+  - definition_en: To cause or bring about
+    example_en: His speech led to a heated discussion.
+  - definition_en: To show the way by example
+    example_en: She leads by demonstrating strong ethics.
+  freq: 285740
+  part_of_speech: verb
+  rank: 349
+  sentence_audio_file:
+  - lead_sentence_0+Matthew+fdf926b3c42be92db9317f7d4691f271.mp3
+  - lead_sentence_1+Matthew+1964918b6c5de4f6d65379dcc9dce624.mp3
+  - lead_sentence_2+Matthew+8aa41b3d56d5850e0892918929a7af83.mp3
+  - lead_sentence_3+Matthew+d0ea391753bee61b42054405255d862b.mp3
+  - lead_sentence_4+Matthew+6f25c12f1bf255e766210db0c5f51f7f.mp3
+  voice_id: Matthew
+  word: lead
+  word_audio_file:
+  - lead_word_0+Matthew+13edbe8b95261c3a88680818cace44a4.mp3
+- back_cards:
+  - definition_en: To keep doing something
+    example_en: He continued working late into the night.
+  - definition_en: To proceed without stopping
+    example_en: The rain continued all afternoon.
+  - definition_en: To resume after a pause
+    example_en: Let’s continue the meeting after lunch.
+  - definition_en: To extend or prolong
+    example_en: They continued the lease for another year.
+  - definition_en: To persist in a course of action
+    example_en: She continued her studies despite challenges.
+  freq: 282352
+  part_of_speech: verb
+  rank: 350
+  sentence_audio_file:
+  - continue_sentence_0+Matthew+9ff85eac2574fdfe255cf93c64bbfa9b.mp3
+  - continue_sentence_1+Matthew+98f9cb74685891ac90175fc010a2d1da.mp3
+  - continue_sentence_2+Matthew+f06773d4c92aeb3b1e33e94bfe6c5bec.mp3
+  - continue_sentence_3+Matthew+57dc5999cdbabb640fc9621cfed73077.mp3
+  - continue_sentence_4+Matthew+6d4bed8b5b1c490a960fa44b3ead57b7.mp3
+  voice_id: Matthew
+  word: continue
+  word_audio_file:
+  - continue_word_0+Matthew+7aa28ed115707345d0274032757e8991.mp3
+- back_cards:
+  - definition_en: Expressing a choice between options
+    example_en: I’m unsure whether to call or text.
+  - definition_en: Indicating doubt or uncertainty
+    example_en: She asked whether he was coming to the party.
+  - definition_en: Introducing alternative possibilities
+    example_en: Whether it rains or shines, we’ll go hiking.
+  - definition_en: Used to question a condition
+    example_en: They debated whether the plan would work.
+  - definition_en: To consider one or another
+    example_en: He wondered whether to accept the offer.
+  freq: 280973
+  part_of_speech: conjunction
+  rank: 351
+  sentence_audio_file:
+  - whether_sentence_0+Matthew+1926f59f6aee21967eb82dbcaef1a1b2.mp3
+  - whether_sentence_1+Matthew+c81a503ce14f1f639e5a7cfc29117967.mp3
+  - whether_sentence_2+Matthew+307bf5c6614ba8309e423fabe391d6c3.mp3
+  - whether_sentence_3+Matthew+f7c226d44b35e38aa118053b1d6c9826.mp3
+  - whether_sentence_4+Matthew+6a05e01f74b6b0d9b124a1f9b8b45e0a.mp3
+  voice_id: Matthew
+  word: whether
+  word_audio_file:
+  - whether_word_0+Matthew+7d767e6bb05138bb94abee483ea8abc6.mp3
+- back_cards:
+  - definition_en: Sufficient in quantity or degree
+    example_en: We have enough food for the party.
+  - definition_en: To a satisfactory extent
+    example_en: She studied enough to pass the exam.
+  - definition_en: Indicating adequacy
+    example_en: The room is big enough for two people.
+  - definition_en: Used to express sufficiency
+    example_en: I’ve had enough of this noise!
+  - definition_en: Meeting a minimum requirement
+    example_en: He runs fast enough to join the team.
+  freq: 280789
+  part_of_speech: adverb
+  rank: 352
+  sentence_audio_file:
+  - enough_sentence_0+Matthew+087863e272efb98ae419deafbc3c7722.mp3
+  - enough_sentence_1+Matthew+c17632ac69d9a8971e0fc830592c1040.mp3
+  - enough_sentence_2+Matthew+f434d7b897d1ca0e4053ac6608a3960c.mp3
+  - enough_sentence_3+Matthew+362ecbc67df6684f45fccb31780e96c3.mp3
+  - enough_sentence_4+Matthew+eee0e9e618da2bafec9283d81514bf98.mp3
+  voice_id: Matthew
+  word: enough
+  word_audio_file:
+  - enough_word_0+Matthew+edc1e3ea2ca4939a55f1edf84a1fb85e.mp3
+- back_cards:
+  - definition_en: To use money to buy something
+    example_en: She spent $50 on new shoes.
+  - definition_en: To pass time in a particular way
+    example_en: We spent the weekend at the beach.
+  - definition_en: To use up resources or energy
+    example_en: He spent all his energy on the race.
+  - definition_en: To invest effort in something
+    example_en: They spent hours planning the event.
+  - definition_en: To allocate time or money
+    example_en: She spends a lot on charity donations.
+  freq: 280371
+  part_of_speech: verb
+  rank: 353
+  sentence_audio_file:
+  - spend_sentence_0+Matthew+de09740fe5546ca73bcde1733473c1d4.mp3
+  - spend_sentence_1+Matthew+eeaec527d1521a222abc655a7e61418a.mp3
+  - spend_sentence_2+Matthew+03f7bc651e8ba9b1fed3c1eec6ebf9cb.mp3
+  - spend_sentence_3+Matthew+a3de63183f030168547d60a9d30985d9.mp3
+  - spend_sentence_4+Matthew+6e60f9f0f2f66de837d1a3de4adcfed0.mp3
+  voice_id: Matthew
+  word: spend
+  word_audio_file:
+  - spend_word_0+Matthew+d998ff3a339f9318bd7b6e98912e4043.mp3
+- back_cards:
+  - definition_en: A position or stage in a process
+    example_en: She reached a new level in the game.
+  - definition_en: A degree of intensity or amount
+    example_en: The noise level was too high.
+  - definition_en: A flat or even surface
+    example_en: The carpenter checked the level of the shelf.
+  - definition_en: A rank or status
+    example_en: He’s at the executive level in the company.
+  - definition_en: A measure of skill or ability
+    example_en: This course is for advanced level students.
+  freq: 279770
+  part_of_speech: noun
+  rank: 354
+  sentence_audio_file:
+  - level_sentence_0+Matthew+8a28efd9919092944cf6fe58ee4ae744.mp3
+  - level_sentence_1+Matthew+db9608b0ef918da94d218343d6649303.mp3
+  - level_sentence_2+Matthew+6eaaf40df4f05e19608b6a6c365ae92e.mp3
+  - level_sentence_3+Matthew+16910d432a34837da0525ae8ce417d76.mp3
+  - level_sentence_4+Matthew+e4cec5730f451d2d24ea1af7a420770e.mp3
+  voice_id: Matthew
+  word: level
+  word_audio_file:
+  - level_word_0+Matthew+c9e9a848920877e76685b2e4e76de38d.mp3
+- back_cards:
+  - definition_en: Having the skill to do something
+    example_en: She’s able to solve complex math problems.
+  - definition_en: Capable of performing a task
+    example_en: He was able to finish the project early.
+  - definition_en: Having the resources or opportunity
+    example_en: They’re able to travel this summer.
+  - definition_en: Legally or physically permitted
+    example_en: I’m not able to drive without my glasses.
+  - definition_en: Competent in a specific area
+    example_en: She’s able in both music and art.
+  freq: 279559
+  part_of_speech: adjective
+  rank: 355
+  sentence_audio_file:
+  - able_sentence_0+Matthew+02cdf816653c9eb51d215ccc57834919.mp3
+  - able_sentence_1+Matthew+c447dfe34bc86d6cd8a95ab34f97742c.mp3
+  - able_sentence_2+Matthew+8eb201fced4614362b3a9dc4f74f3942.mp3
+  - able_sentence_3+Matthew+29d5426b0cac5304f0ed317fd169d863.mp3
+  - able_sentence_4+Matthew+173751283928d7f847db6bf386e42e58.mp3
+  voice_id: Matthew
+  word: able
+  word_audio_file:
+  - able_word_0+Matthew+c0db7d4e3cbad2b18c767c659f448a11.mp3
+- back_cards:
+  - definition_en: Relating to government or politics
+    example_en: The political debate was heated.
+  - definition_en: Involving power dynamics
+    example_en: Her decision was political, not practical.
+  - definition_en: Pertaining to public policy
+    example_en: They discussed political reforms at the meeting.
+  - definition_en: Concerning political parties
+    example_en: The political rally drew a large crowd.
+  - definition_en: Involving strategic maneuvering
+    example_en: His comment was a political move to gain favor.
+  freq: 279410
+  part_of_speech: adjective
+  rank: 356
+  sentence_audio_file:
+  - political_sentence_0+Matthew+89fe01fe98af165a593745664d865078.mp3
+  - political_sentence_1+Matthew+9366ab829814d11a91bbdda0801ad1c9.mp3
+  - political_sentence_2+Matthew+6168570e0554cfb89f9743487d39a828.mp3
+  - political_sentence_3+Matthew+ac73c79d3727f25f17d178c6f8197d75.mp3
+  - political_sentence_4+Matthew+e511662985707b3d8e72e243a4d5735a.mp3
+  voice_id: Matthew
+  word: political
+  word_audio_file:
+  - political_word_0+Matthew+df1f057434a08af54f6483994acf83b0.mp3
+- back_cards:
+  - definition_en: Nearly or very close to
+    example_en: We’re almost at the train station.
+  - definition_en: Not quite but close
+    example_en: He almost won the race but tripped.
+  - definition_en: Approaching a certain state
+    example_en: The project is almost complete.
+  - definition_en: Very nearly in quantity or extent
+    example_en: Almost everyone attended the meeting.
+  - definition_en: Close to a specific time
+    example_en: It’s almost time for lunch.
+  freq: 279393
+  part_of_speech: adverb
+  rank: 357
+  sentence_audio_file:
+  - almost_sentence_0+Matthew+a8d09a1f2e203f88869de402aaaaa865.mp3
+  - almost_sentence_1+Matthew+8548a38a39e575f666dd40a805609bdd.mp3
+  - almost_sentence_2+Matthew+7d6f525493a2407b420aa9bdd622a6bb.mp3
+  - almost_sentence_3+Matthew+1ae7f5caf8c097aafd9979b5822f767a.mp3
+  - almost_sentence_4+Matthew+c206a7a664b349b6c6673fd3d822155b.mp3
+  voice_id: Matthew
+  word: almost
+  word_audio_file:
+  - almost_word_0+Matthew+5634275d694f8665957746c9619132f0.mp3
+- back_cards:
+  - definition_en: A young male child
+    example_en: The boy played soccer in the park.
+  - definition_en: A son or young relative
+    example_en: Her boy is starting school this year.
+  - definition_en: A term for a young man
+    example_en: The delivery boy brought our pizza.
+  - definition_en: Used informally to address males
+    example_en: Come on, boys, let’s get moving!
+  - definition_en: A member of a group of youths
+    example_en: The boys went camping by the lake.
+  freq: 279283
+  part_of_speech: noun
+  rank: 358
+  sentence_audio_file:
+  - boy_sentence_0+Matthew+b783384f35af64a686c561ee38accd5e.mp3
+  - boy_sentence_1+Matthew+5b4b53ccf056056e9910a03d0bfca569.mp3
+  - boy_sentence_2+Matthew+9fb02c8803eeff6e0c49f5bfeb7da8e9.mp3
+  - boy_sentence_3+Matthew+6cd2d44ac7f29a08432ea153672d3cac.mp3
+  - boy_sentence_4+Matthew+b12af19bd4d0c5758c15c4a453011399.mp3
+  voice_id: Matthew
+  word: boy
+  word_audio_file:
+  - boy_word_0+Matthew+1a699ad5e06aa8a6db3bcf9cfb2f00f2.mp3
+- back_cards:
+  - definition_en: An institution for higher education
+    example_en: She studies at a prestigious university.
+  - definition_en: A place for academic research
+    example_en: The university published a new study.
+  - definition_en: A community of students and faculty
+    example_en: The university hosts events for students.
+  - definition_en: A center for advanced learning
+    example_en: He earned his degree from the university.
+  - definition_en: A campus or its facilities
+    example_en: The university library is open late.
+  freq: 279132
+  part_of_speech: noun
+  rank: 359
+  sentence_audio_file:
+  - university_sentence_0+Matthew+41420d709e6e183bb1f6fa67a49410ca.mp3
+  - university_sentence_1+Matthew+39a03b8379d21c5a04335df031d93513.mp3
+  - university_sentence_2+Matthew+1c54575c1988c6a4e31714dad28d07d4.mp3
+  - university_sentence_3+Matthew+81ada5b8a5efd0ba74f417a014545970.mp3
+  - university_sentence_4+Matthew+2217c47584741d94d140c1a9e5ddba9a.mp3
+  voice_id: Matthew
+  word: university
+  word_audio_file:
+  - university_word_0+Matthew+10238d6114894bb5edc39981835bbec9.mp3
