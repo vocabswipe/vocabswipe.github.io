@@ -5208,6 +5208,16 @@
     example_en: Wipe the dust off the table.
   - definition_en: Refers to a discount.
     example_en: The sale is 20% off.
+  - definition_en: Away from a place
+    example_en: She ran off to catch the bus.
+  - definition_en: Not in operation or use
+    example_en: Please turn the lights off.
+  - definition_en: At a distance or removed
+    example_en: The island is off the coast.
+  - definition_en: Not happening or canceled
+    example_en: The meeting is off due to rain.
+  - definition_en: Below the usual standard
+    example_en: His performance was a bit off today.
   freq: 479459
   part_of_speech: preposition
   rank: 195
@@ -5217,6 +5227,11 @@
   - off_sentence_2+Matthew+fe077e69c4a7019554efd4c7bfe912f4.mp3
   - off_sentence_3+Matthew+2e217700e4dbb251f3ae915926801865.mp3
   - off_sentence_4+Matthew+2da7c8bb4857a439534082b3b1d3dd14.mp3
+  - off_sentence_5+Matthew+2e2dac6970a567056de8b16205f0ce0b.mp3
+  - off_sentence_6+Matthew+7881f76de3b1d4ae3acef5f6d963019f.mp3
+  - off_sentence_7+Matthew+5e91078953adfd9787503c7cfccf03e5.mp3
+  - off_sentence_8+Matthew+f4dc8c1a1eae405c550ba30e26087289.mp3
+  - off_sentence_9+Matthew+94ddf550fc3203174789ef12f6fb6a5b.mp3
   voice_id: Matthew
   word: 'off'
   word_audio_file:
@@ -5328,6 +5343,16 @@
     example_en: He’s such a good friend.
   - definition_en: Refers to a certain kind.
     example_en: Such books are rare.
+  - definition_en: Of a particular kind
+    example_en: Such behavior is unacceptable here.
+  - definition_en: To a great extent
+    example_en: It was such a beautiful day.
+  - definition_en: Referring to something mentioned
+    example_en: Such issues need immediate attention.
+  - definition_en: Indicating a type or category
+    example_en: Plants such as roses need care.
+  - definition_en: Emphasizing quality or degree
+    example_en: I’ve never seen such a big dog.
   freq: 468655
   part_of_speech: adjective
   rank: 200
@@ -5337,6 +5362,11 @@
   - such_sentence_2+Matthew+18a4d0bb21fcc2850bafc110307e4b45.mp3
   - such_sentence_3+Matthew+3a30324bd70b86cababa1a1f6acb0bf5.mp3
   - such_sentence_4+Matthew+1cb99c516ec23e9d8f66b1cb3faa7394.mp3
+  - such_sentence_5+Matthew+7f3fa26406da245137b506f8506d6e86.mp3
+  - such_sentence_6+Matthew+52c84cbde91c8f3b224b0232a9b9e46c.mp3
+  - such_sentence_7+Matthew+e907f631ed6f1e822ab60dd8f2765898.mp3
+  - such_sentence_8+Matthew+51deff36975ed125ed70e2fe7a44a2b3.mp3
+  - such_sentence_9+Matthew+6d0eb91a15beb0728dbba6044c659a82.mp3
   voice_id: Matthew
   word: such
   word_audio_file:
@@ -6168,6 +6198,16 @@
     example_en: It’s just a little scratch on the car.
   - definition_en: Short in duration.
     example_en: They stayed for a little while.
+  - definition_en: Small in size or amount
+    example_en: She has a little puppy.
+  - definition_en: Young or younger
+    example_en: My little brother is five years old.
+  - definition_en: Not much or insufficient
+    example_en: There’s little time left to finish.
+  - definition_en: Minor in importance
+    example_en: It’s just a little mistake, don’t worry.
+  - definition_en: A small degree or extent
+    example_en: I’m a little tired after the hike.
   freq: 404660
   part_of_speech: adjective
   rank: 238
@@ -6177,6 +6217,11 @@
   - little_sentence_2+Matthew+b88d7e2fd0c046cc769e0b1b8f509d6b.mp3
   - little_sentence_3+Matthew+f9e0c8b9b7ba74509183cbc1c97947fe.mp3
   - little_sentence_4+Matthew+6c3b3fb539bf5548e7b3501618987c3c.mp3
+  - little_sentence_5+Matthew+5b528914492bcdb8611d7dbb546061d0.mp3
+  - little_sentence_6+Matthew+96cbea6317c7b127e2acde2b3bf60674.mp3
+  - little_sentence_7+Matthew+009e8ffe30d96f406c089788ebdb465c.mp3
+  - little_sentence_8+Matthew+06b8610f983a6f500e410e8626577c72.mp3
+  - little_sentence_9+Matthew+2a132a4f964acccdc2eb6dea28e2898b.mp3
   voice_id: Matthew
   word: little
   word_audio_file:
@@ -6540,6 +6585,12 @@
     example_en: They bought a new home last year.
   - definition_en: A base in games.
     example_en: He ran to home plate in baseball.
+  - definition_en: A place of origin
+    example_en: He considers Italy his home.
+  - definition_en: A base or safe place
+    example_en: The runner slid into home plate.
+  - definition_en: A comfortable environment
+    example_en: This café feels like home.
   freq: 370758
   part_of_speech: noun
   rank: 255
@@ -6549,6 +6600,9 @@
   - home_sentence_2+Matthew+99e23e1df51f9f4bad6776a402826a46.mp3
   - home_sentence_3+Matthew+92ca2fbb0b885e8cca6a71d76da755be.mp3
   - home_sentence_4+Matthew+b12e3ae60338e60c235ba488110b6d81.mp3
+  - home_sentence_5+Matthew+eea2aaa17741637daed3f7a4804f2d80.mp3
+  - home_sentence_6+Matthew+142f966575cc995575ca9d7631d66643.mp3
+  - home_sentence_7+Matthew+54ead6132d15e78e0adde302b34ea8f8.mp3
   voice_id: Matthew
   word: home
   word_audio_file:
@@ -7407,6 +7461,14 @@
     example_en: Both sides agreed to the terms.
   - definition_en: Involving two parties.
     example_en: Both kids shared the toy.
+  - definition_en: Involving two parties equally
+    example_en: Both teams played well in the match.
+  - definition_en: Used to emphasize two items
+    example_en: She likes both coffee and tea.
+  - definition_en: Applying to two entities
+    example_en: Both parents attended the meeting.
+  - definition_en: Indicating dual agreement
+    example_en: They both decided to stay home.
   freq: 338454
   part_of_speech: pronoun
   rank: 291
@@ -7416,6 +7478,10 @@
   - both_sentence_2+Matthew+a9f9eb6719301db6c9272badb5567fea.mp3
   - both_sentence_3+Matthew+ccaeafcbd4bb0381d6211c1d2b6652d4.mp3
   - both_sentence_4+Matthew+6325de488842e7688a72eab133e01a2e.mp3
+  - both_sentence_5+Matthew+ecd3e38adac0eeeaf12e2b9af4e19e64.mp3
+  - both_sentence_6+Matthew+0abca5f8490e4bcdc328631b142cd3e9.mp3
+  - both_sentence_7+Matthew+bdd14d53a5b9ecf4ef0da26034c78341.mp3
+  - both_sentence_8+Matthew+69100cad70dabb19e8367e557c3c538f.mp3
   voice_id: Matthew
   word: both
   word_audio_file:
@@ -7671,6 +7737,16 @@
     example_en: Can you change a twenty-dollar bill for me?
   - definition_en: To alter plans or direction
     example_en: They had to change their travel plans due to the storm.
+  - definition_en: To make something different
+    example_en: She changed her hairstyle for the event.
+  - definition_en: To replace one thing with another
+    example_en: He changed his shirt after spilling coffee.
+  - definition_en: To shift or transition
+    example_en: The weather changed suddenly this morning.
+  - definition_en: To exchange money
+    example_en: Can you change a twenty for me?
+  - definition_en: To alter plans or direction
+    example_en: They changed their vacation destination.
   freq: 327637
   part_of_speech: verb
   rank: 304
@@ -7680,6 +7756,11 @@
   - change_sentence_2+Matthew+85d183e709d8941d8456e52eb65ad32f.mp3
   - change_sentence_3+Matthew+d7926c5450c81fd524345b205cd03eda.mp3
   - change_sentence_4+Matthew+ab394e0d7a65130c35d15d88f50c860e.mp3
+  - change_sentence_5+Matthew+bf376d1855704f0f96b2f7bf3bfe836f.mp3
+  - change_sentence_6+Matthew+adaec17bf315a40183fe98aba768e107.mp3
+  - change_sentence_7+Matthew+6d5a026923e1acc06339233b3b048bea.mp3
+  - change_sentence_8+Matthew+82f36d9783fbe299226bcca3ea294c25.mp3
+  - change_sentence_9+Matthew+949fb1ab21afcd15834b16cdd56ad8d2.mp3
   voice_id: Matthew
   word: change
   word_audio_file:
@@ -8962,3 +9043,819 @@
   word: university
   word_audio_file:
   - university_word_0+Matthew+10238d6114894bb5edc39981835bbec9.mp3
+- back_cards:
+  - definition_en: To remain in a place
+    example_en: We decided to stay at the hotel overnight.
+  - definition_en: To continue in a certain state
+    example_en: She stayed calm during the crisis.
+  - definition_en: To live temporarily
+    example_en: He’s staying with friends while in town.
+  - definition_en: To pause or delay
+    example_en: Let’s stay here until the rain stops.
+  - definition_en: To endure or persist
+    example_en: Their friendship stayed strong over the years.
+  freq: 275504
+  part_of_speech: verb
+  rank: 361
+  sentence_audio_file:
+  - stay_sentence_0+Matthew+113fe737961b241a1bc8badc9ce9a07f.mp3
+  - stay_sentence_1+Matthew+4974cbaef57c57b145cc9d5fdc760c7b.mp3
+  - stay_sentence_2+Matthew+a556b60aa085f6c9d690d240edb03ce0.mp3
+  - stay_sentence_3+Matthew+a6c0bb5d6c6ffeac1d15ced716ff2efb.mp3
+  - stay_sentence_4+Matthew+4a19490be2e95512b866114a97558bf4.mp3
+  voice_id: Matthew
+  word: stay
+  word_audio_file:
+  - stay_word_0+Matthew+99be1ee67a0137092d3d112c0620c552.mp3
+- back_cards:
+  - definition_en: To combine or include
+    example_en: Add sugar to the recipe for sweetness.
+  - definition_en: To increase in amount
+    example_en: She added hours to her work schedule.
+  - definition_en: To contribute something
+    example_en: He added a comment to the discussion.
+  - definition_en: To perform mathematical addition
+    example_en: The teacher asked us to add the numbers.
+  - definition_en: To incorporate into a group
+    example_en: They added a new member to the team.
+  freq: 275233
+  part_of_speech: verb
+  rank: 362
+  sentence_audio_file:
+  - add_sentence_0+Matthew+4a5f26e4b0c2e0f7e302ba13f7ff79f5.mp3
+  - add_sentence_1+Matthew+9d9fff7c9bd9ea7c9aec88e07397d573.mp3
+  - add_sentence_2+Matthew+ff0736e4b21f9168a89fe6538d51e1e4.mp3
+  - add_sentence_3+Matthew+acc9935d8114106c497528d899ca8126.mp3
+  - add_sentence_4+Matthew+c43798c1a5c0d0babd6f6498180b983a.mp3
+  voice_id: Matthew
+  word: add
+  word_audio_file:
+  - add_word_0+Matthew+34ec78fcc91ffb1e54cd85e4a0924332.mp3
+- back_cards:
+  - definition_en: At a time after now
+    example_en: Let’s meet later this afternoon.
+  - definition_en: After a specific event
+    example_en: She called me later that evening.
+  - definition_en: In the future
+    example_en: We’ll deal with that issue later.
+  - definition_en: At a more advanced stage
+    example_en: Later models of the car were more efficient.
+  - definition_en: In comparison to an earlier time
+    example_en: Things got better later in the day.
+  freq: 274178
+  part_of_speech: adverb
+  rank: 363
+  sentence_audio_file:
+  - later_sentence_0+Matthew+812765ec2f2b10d47b633d3439b7bf72.mp3
+  - later_sentence_1+Matthew+06de224ba19f9b23d54c86f19c86b870.mp3
+  - later_sentence_2+Matthew+a9e3c897b33e8375533fb45aa3018efa.mp3
+  - later_sentence_3+Matthew+322feed8f762e4806ca9229895507c16.mp3
+  - later_sentence_4+Matthew+45aa7b72ecfe974880d5a78babdffa2f.mp3
+  voice_id: Matthew
+  word: later
+  word_audio_file:
+  - later_word_0+Matthew+c18788c2f274c779da72d9854ea4bfbf.mp3
+- back_cards:
+  - definition_en: The number 5 in counting
+    example_en: She bought five apples at the store.
+  - definition_en: A group of five items or people
+    example_en: The team consists of five players.
+  - definition_en: Referring to time, five o’clock
+    example_en: The meeting starts at five.
+  - definition_en: A quantity in measurements
+    example_en: The room is five meters wide.
+  - definition_en: A score or rating
+    example_en: I gave the movie five stars.
+  freq: 270274
+  part_of_speech: number
+  rank: 365
+  sentence_audio_file:
+  - five_sentence_0+Matthew+461abacd1085ef4ce3e2275e1c3ad713.mp3
+  - five_sentence_1+Matthew+eb84a19596c8299010a84a422a826d21.mp3
+  - five_sentence_2+Matthew+f4b05d53a2bba86783f20d035e2dea0b.mp3
+  - five_sentence_3+Matthew+73a50fbc21eac487bc3027ea95a89bf4.mp3
+  - five_sentence_4+Matthew+efa60f3681a14b699d3fc02292fd6272.mp3
+  voice_id: Matthew
+  word: five
+  word_audio_file:
+  - five_word_0+Matthew+30056e1cab7a61d256fc8edd970d14f5.mp3
+- back_cards:
+  - definition_en: Likely to happen or be true
+    example_en: It will probably rain this afternoon.
+  - definition_en: With a high degree of certainty
+    example_en: She’s probably the best candidate for the job.
+  - definition_en: In most cases
+    example_en: He’s probably at home by now.
+  - definition_en: Indicating assumption
+    example_en: They probably forgot about the meeting.
+  - definition_en: Expressing likelihood
+    example_en: This is probably the last bus of the day.
+  freq: 269732
+  part_of_speech: adverb
+  rank: 366
+  sentence_audio_file:
+  - probably_sentence_0+Matthew+521456c0acf36a844885166eb54ebd7f.mp3
+  - probably_sentence_1+Matthew+b72941eb9f4308780914457e77e28f7d.mp3
+  - probably_sentence_2+Matthew+83cc0921f0c6713d174d4b35161d9a03.mp3
+  - probably_sentence_3+Matthew+bdd8e4d1480fa70cdcd4d5594ace4e2f.mp3
+  - probably_sentence_4+Matthew+41d21a2f068767f1e231b04ac31fec7c.mp3
+  voice_id: Matthew
+  word: probably
+  word_audio_file:
+  - probably_word_0+Matthew+e33276c2e5c547d2952cc483825371f7.mp3
+- back_cards:
+  - definition_en: The middle point of something
+    example_en: The statue is in the center of the park.
+  - definition_en: A place for specific activities
+    example_en: The community center hosts yoga classes.
+  - definition_en: A hub or focal point
+    example_en: The city is the cultural center of the region.
+  - definition_en: A position in sports
+    example_en: He plays center on the basketball team.
+  - definition_en: A main area of focus
+    example_en: Education is at the center of her campaign.
+  freq: 268821
+  part_of_speech: noun
+  rank: 367
+  sentence_audio_file:
+  - center_sentence_0+Matthew+dc783b3404a7d481dc91f4414496bf43.mp3
+  - center_sentence_1+Matthew+9d2395bfdb4055de5336559de90c3d2c.mp3
+  - center_sentence_2+Matthew+49b15b27a5420ffe36d34fb15d0b11eb.mp3
+  - center_sentence_3+Matthew+cdf2d240603f2e66916a22738b7437f0.mp3
+  - center_sentence_4+Matthew+11ad6a0d764f01f33780bdab51fef352.mp3
+  voice_id: Matthew
+  word: center
+  word_audio_file:
+  - center_word_0+Matthew+adb115059e28d960fa8badfac5516667.mp3
+- back_cards:
+  - definition_en: Surrounded by or in the company of
+    example_en: She felt safe among her friends.
+  - definition_en: Included in a group
+    example_en: He was among the top performers.
+  - definition_en: Shared by members of a group
+    example_en: The prize was divided among the winners.
+  - definition_en: In the context of a category
+    example_en: This book is among the best in its genre.
+  - definition_en: Occurring within a setting
+    example_en: Tensions rose among the team members.
+  freq: 267798
+  part_of_speech: preposition
+  rank: 368
+  sentence_audio_file:
+  - among_sentence_0+Matthew+4766bb098402fe08fb16d50479bcd55a.mp3
+  - among_sentence_1+Matthew+e78ace3b0c5226b48f36d31c6d19b648.mp3
+  - among_sentence_2+Matthew+38abe111f6d3fdd0de0f25aa9b290f9a.mp3
+  - among_sentence_3+Matthew+9d1906b6db319221872dbc76a3949a5f.mp3
+  - among_sentence_4+Matthew+b101351901a73716d3bc9e68ed5a0e86.mp3
+  voice_id: Matthew
+  word: among
+  word_audio_file:
+  - among_word_0+Matthew+3172dbf2df5f1e31ff40efd8e4c62e65.mp3
+- back_cards:
+  - definition_en: The front part of a person’s head
+    example_en: She smiled, her face lighting up.
+  - definition_en: The surface of an object
+    example_en: The face of the clock was cracked.
+  - definition_en: An expression or look
+    example_en: He had a serious face during the meeting.
+  - definition_en: A public image or reputation
+    example_en: The company worked to save face after the scandal.
+  - definition_en: A side or aspect of something
+    example_en: The face of the mountain was steep.
+  freq: 266458
+  part_of_speech: noun
+  rank: 369
+  sentence_audio_file:
+  - face_sentence_0+Matthew+36e661ef6d90471efb022c823f6926c7.mp3
+  - face_sentence_1+Matthew+7a5144759cb25bbc9176a84c8a62428c.mp3
+  - face_sentence_2+Matthew+bbe5cfc6c5fd1f3c184bdb467653f7d8.mp3
+  - face_sentence_3+Matthew+7fcd5b1665861ac9cf8f3fb7729b2084.mp3
+  - face_sentence_4+Matthew+ba0f891336682f8ff097c8a61ead3051.mp3
+  voice_id: Matthew
+  word: face
+  word_audio_file:
+  - face_word_0+Matthew+d5ca322453f2986b752e58b11af83d96.mp3
+- back_cards:
+  - definition_en: Relating to the general population
+    example_en: The park is open to public use.
+  - definition_en: Accessible to everyone
+    example_en: Public transportation is affordable.
+  - definition_en: Involving government or community
+    example_en: She works in public service.
+  - definition_en: Known or visible to all
+    example_en: His speech was a public statement.
+  - definition_en: Shared by a group
+    example_en: The library is a public resource.
+  freq: 265061
+  part_of_speech: adjective
+  rank: 370
+  sentence_audio_file:
+  - public_sentence_0+Matthew+49a6cc97161a42c8114b915a511fa731.mp3
+  - public_sentence_1+Matthew+dd552aaaac5ca856140eb580e1a901c1.mp3
+  - public_sentence_2+Matthew+6584994dd67fa99a3fb7a06bd3c3b108.mp3
+  - public_sentence_3+Matthew+a3d91e5902c86215a89f269fc1c36367.mp3
+  - public_sentence_4+Matthew+e29ad515c5dd99ff3bee5f6828c72e80.mp3
+  voice_id: Matthew
+  word: public
+  word_audio_file:
+  - public_word_0+Matthew+4c9184f37cff01bcdc32dc486ec36961.mp3
+- back_cards:
+  - definition_en: To stop living
+    example_en: The plant died from lack of water.
+  - definition_en: To cease functioning
+    example_en: The old car finally died on the highway.
+  - definition_en: To fade away or end
+    example_en: The tradition died out over time.
+  - definition_en: To experience intense desire
+    example_en: I’m dying to see the new movie.
+  - definition_en: To suffer greatly
+    example_en: He was dying of embarrassment after the speech.
+  freq: 264537
+  part_of_speech: verb
+  rank: 371
+  sentence_audio_file:
+  - die_sentence_0+Matthew+943ebeb26fe26e7bcda9f0732e65688b.mp3
+  - die_sentence_1+Matthew+6a29b0ca51936ee090233534b2e8719f.mp3
+  - die_sentence_2+Matthew+8dab602e987f63fd86252c1d95b0d6af.mp3
+  - die_sentence_3+Matthew+46695403334984b74717a2339bea18e6.mp3
+  - die_sentence_4+Matthew+1b7a77004d3bfbfc770ecb11b449f58f.mp3
+  voice_id: Matthew
+  word: die
+  word_audio_file:
+  - die_word_0+Matthew+81b63b9d54b303edeaf9765a6915ee13.mp3
+- back_cards:
+  - definition_en: Substances consumed for nourishment
+    example_en: She cooked healthy food for dinner.
+  - definition_en: A specific type of cuisine
+    example_en: Italian food is my favorite.
+  - definition_en: Sustenance for survival
+    example_en: The charity provided food to the homeless.
+  - definition_en: Items prepared for an event
+    example_en: The party had plenty of food.
+  - definition_en: Nourishment in a general sense
+    example_en: Food for thought came from the lecture.
+  freq: 262697
+  part_of_speech: noun
+  rank: 372
+  sentence_audio_file:
+  - food_sentence_0+Matthew+c7edb62c9f358c433da1dd0e84c216ac.mp3
+  - food_sentence_1+Matthew+b9d32741966af78d63b9ee5d66c697c0.mp3
+  - food_sentence_2+Matthew+1699c4c4137f9e0336eb41c94d1ece9a.mp3
+  - food_sentence_3+Matthew+27077ef88c6ec6c7c29339db05376433.mp3
+  - food_sentence_4+Matthew+95adb4a0c16ed3b5f0ed21e1771f8b6d.mp3
+  voice_id: Matthew
+  word: food
+  word_audio_file:
+  - food_word_0+Matthew+62506be34d574da4a0d158a67253ea99.mp3
+- back_cards:
+  - definition_en: In addition to or besides
+    example_en: What else do you need from the store?
+  - definition_en: Different or other
+    example_en: Let’s try somewhere else for lunch.
+  - definition_en: Otherwise or if not
+    example_en: Hurry, or else we’ll miss the bus.
+  - definition_en: In another case
+    example_en: Who else was at the meeting?
+  - definition_en: Beyond what is mentioned
+    example_en: Nothing else matters right now.
+  freq: 261804
+  part_of_speech: adverb
+  rank: 373
+  sentence_audio_file:
+  - else_sentence_0+Matthew+93ecafa8489efeb74cce094dbe6f909f.mp3
+  - else_sentence_1+Matthew+365b70823c0bfad103d55a9e2d652c5c.mp3
+  - else_sentence_2+Matthew+c13a193e6d6b71088e49aaa83bd36376.mp3
+  - else_sentence_3+Matthew+9931f5f9d66b99837301a98509b9e69c.mp3
+  - else_sentence_4+Matthew+19734379aca0675e37190459d0908557.mp3
+  voice_id: Matthew
+  word: else
+  word_audio_file:
+  - else_word_0+Matthew+2954e92a9b4d0e998fe4893f8141649a.mp3
+- back_cards:
+  - definition_en: The study of past events
+    example_en: She loves reading about ancient history.
+  - definition_en: A record of past experiences
+    example_en: His medical history shows no allergies.
+  - definition_en: A narrative or story
+    example_en: The book tells the history of the town.
+  - definition_en: A sequence of events
+    example_en: Their history together spans decades.
+  - definition_en: A field of academic study
+    example_en: He majored in history at college.
+  freq: 261045
+  part_of_speech: noun
+  rank: 374
+  sentence_audio_file:
+  - history_sentence_0+Matthew+f1d62e89742bf76f6a12851978686640.mp3
+  - history_sentence_1+Matthew+ade2cf92f6b48e2e44c4306e649f6e86.mp3
+  - history_sentence_2+Matthew+47e1839c0de1c2589cd8a78447cf60e0.mp3
+  - history_sentence_3+Matthew+8ba85b7e3e99609e27ba3d8dca61653d.mp3
+  - history_sentence_4+Matthew+befcd51c91af2a7df62c29b63db3fd5c.mp3
+  voice_id: Matthew
+  word: history
+  word_audio_file:
+  - history_word_0+Matthew+3cd15f8f2940aff879df34df4e5c2cd1.mp3
+- back_cards:
+  - definition_en: To purchase with money
+    example_en: She bought a new phone yesterday.
+  - definition_en: To acquire through effort
+    example_en: His charm bought him many friends.
+  - definition_en: To accept or believe
+    example_en: I don’t buy his excuse for being late.
+  - definition_en: To obtain in exchange
+    example_en: They bought tickets for the concert.
+  - definition_en: To secure through a transaction
+    example_en: He bought the car at an auction.
+  freq: 260201
+  part_of_speech: verb
+  rank: 375
+  sentence_audio_file:
+  - buy_sentence_0+Matthew+42b05025d7966b2d0fdb2d5ce5f8831d.mp3
+  - buy_sentence_1+Matthew+6196e9490fa35872d438625dbb4099a8.mp3
+  - buy_sentence_2+Matthew+09e994633fa3cf74b112876050a75d7b.mp3
+  - buy_sentence_3+Matthew+bc5c19e4426fab820499650ba52a9f59.mp3
+  - buy_sentence_4+Matthew+8f067e4f1b174f2484fe75c2bb787b6f.mp3
+  voice_id: Matthew
+  word: buy
+  word_audio_file:
+  - buy_word_0+Matthew+0461ebd2b773878eac9f78a891912d65.mp3
+- back_cards:
+  - definition_en: The outcome of an action
+    example_en: The result of the experiment was surprising.
+  - definition_en: A consequence or effect
+    example_en: His decision had serious results.
+  - definition_en: A score or performance
+    example_en: The test results came in today.
+  - definition_en: A resolution or conclusion
+    example_en: The result of the meeting was a new plan.
+  - definition_en: Data from a process
+    example_en: The survey results showed clear trends.
+  freq: 259961
+  part_of_speech: noun
+  rank: 376
+  sentence_audio_file:
+  - result_sentence_0+Matthew+63c9f125a7efae563d603994fda3a717.mp3
+  - result_sentence_1+Matthew+0d88f7849c47196ec2f0cc6b4195bec1.mp3
+  - result_sentence_2+Matthew+ac761f92e5bd671b4d4cbca37ee86011.mp3
+  - result_sentence_3+Matthew+40be8d81867bbac56c11fb8bfe957ae9.mp3
+  - result_sentence_4+Matthew+54cffbd54bfc562e9472c1449642aa91.mp3
+  voice_id: Matthew
+  word: result
+  word_audio_file:
+  - result_word_0+Matthew+b4a88417b3d0170d754c647c30b7216a.mp3
+- back_cards:
+  - definition_en: The time period before noon
+    example_en: I drink coffee every morning.
+  - definition_en: The start of the day
+    example_en: She goes jogging in the morning.
+  - definition_en: A time for new beginnings
+    example_en: The morning brought fresh opportunities.
+  - definition_en: A greeting for the time of day
+    example_en: He said ‘good morning’ with a smile.
+  - definition_en: The early part of an event
+    example_en: The morning session was productive.
+  freq: 259129
+  part_of_speech: noun
+  rank: 377
+  sentence_audio_file:
+  - morning_sentence_0+Matthew+52171d7159b78f48e84418f0553ebcab.mp3
+  - morning_sentence_1+Matthew+4ea2cd62552772ef8018a3483e934508.mp3
+  - morning_sentence_2+Matthew+65752505674e06df6cc6f2cd2662cbac.mp3
+  - morning_sentence_3+Matthew+890f642134b302e3139b808dec146efd.mp3
+  - morning_sentence_4+Matthew+7af67d580a827a1649c51652bcf1a831.mp3
+  voice_id: Matthew
+  word: morning
+  word_audio_file:
+  - morning_word_0+Matthew+c7c3169c21f1d92e9577871831d067c8.mp3
+- back_cards:
+  - definition_en: A mother or father
+    example_en: Her parents attended the school play.
+  - definition_en: A guardian or caregiver
+    example_en: The foster parent cared for the child.
+  - definition_en: An originator or source
+    example_en: The company is a parent to several brands.
+  - definition_en: A person in a nurturing role
+    example_en: Parents cheered at the soccer game.
+  - definition_en: A biological ancestor
+    example_en: His parents passed down family traditions.
+  freq: 258181
+  part_of_speech: noun
+  rank: 379
+  sentence_audio_file:
+  - parent_sentence_0+Matthew+479762c9896778a7935099ee6f170a43.mp3
+  - parent_sentence_1+Matthew+c76d02e8fe26d0a04a5207dc55d6cdfe.mp3
+  - parent_sentence_2+Matthew+de943148c0a5f4b02c62aacf15d7f098.mp3
+  - parent_sentence_3+Matthew+7f7ab3b5d67e77ffc92a9a1332fe0250.mp3
+  - parent_sentence_4+Matthew+dd49f8575da72f1eac3265ce90bfb276.mp3
+  voice_id: Matthew
+  word: parent
+  word_audio_file:
+  - parent_word_0+Matthew+d0e45878043844ffc41aac437e86b602.mp3
+- back_cards:
+  - definition_en: A place for professional work
+    example_en: She works in a downtown office.
+  - definition_en: A position of authority
+    example_en: He ran for public office last year.
+  - definition_en: A room for administrative tasks
+    example_en: The office is closed on weekends.
+  - definition_en: A department or agency
+    example_en: The tax office sent a notice.
+  - definition_en: A workplace environment
+    example_en: The office has a friendly atmosphere.
+  freq: 258157
+  part_of_speech: noun
+  rank: 380
+  sentence_audio_file:
+  - office_sentence_0+Matthew+8c1f756eb1a0a18a1574cc05ba4347af.mp3
+  - office_sentence_1+Matthew+8812122e07d2c4a6426bf19d4e6bfe74.mp3
+  - office_sentence_2+Matthew+923ad01a71e50a38ec91acf2a5c57d34.mp3
+  - office_sentence_3+Matthew+498b83dee104ce37497fb7941a38b83c.mp3
+  - office_sentence_4+Matthew+319366b9e86d1a231b29788b2ec2b2af.mp3
+  voice_id: Matthew
+  word: office
+  word_audio_file:
+  - office_word_0+Matthew+e72f4545eb68c96c754f91fc01573517.mp3
+- back_cards:
+  - definition_en: A series of lessons or studies
+    example_en: She enrolled in a coding course.
+  - definition_en: A path or direction
+    example_en: The river follows a winding course.
+  - definition_en: A part of a meal
+    example_en: The main course was delicious.
+  - definition_en: A procedure or action
+    example_en: The best course of  action is to wait.
+  - definition_en: A playing field for sports
+    example_en: The golf course was well-maintained.
+  freq: 257245
+  part_of_speech: noun
+  rank: 381
+  sentence_audio_file:
+  - course_sentence_0+Matthew+ce31ff79ed868db6b5ab70ab9088b85c.mp3
+  - course_sentence_1+Matthew+dda465a8aa5197acf82aca667a99d71d.mp3
+  - course_sentence_2+Matthew+0890af1d9efdb15817ab7e767bb703ab.mp3
+  - course_sentence_3+Matthew+08e0f386df84c328973607af4456a7e5.mp3
+  - course_sentence_4+Matthew+fef7a6be5461fd8b21e071297ba1e22a.mp3
+  voice_id: Matthew
+  word: course
+  word_audio_file:
+  - course_word_0+Matthew+046d47672cf6212d201d6e8b0c191e73.mp3
+- back_cards:
+  - definition_en: To dispatch something to a destination
+    example_en: She sent a letter to her friend.
+  - definition_en: To transmit electronically
+    example_en: He sent an email to the team.
+  - definition_en: To cause to go somewhere
+    example_en: They sent their kids to summer camp.
+  - definition_en: To deliver a message
+    example_en: Send my regards to your family.
+  - definition_en: To propel or launch
+    example_en: The rocket sent the satellite into orbit.
+  freq: 256309
+  part_of_speech: verb
+  rank: 382
+  sentence_audio_file:
+  - send_sentence_0+Matthew+b2a911d37062d81457e9bf737b96e9b3.mp3
+  - send_sentence_1+Matthew+70650ebd80d21f5ac2327eda35a44129.mp3
+  - send_sentence_2+Matthew+533804564e7c78cddb624a3bcbea1fb4.mp3
+  - send_sentence_3+Matthew+6548371d48ee94b468ae5a615c39d9f4.mp3
+  - send_sentence_4+Matthew+5471f609f59ced701980e4a725ec816d.mp3
+  voice_id: Matthew
+  word: send
+  word_audio_file:
+  - send_word_0+Matthew+2541d938b0a58946090d7abdde0d3890.mp3
+- back_cards:
+  - definition_en: Systematic investigation for knowledge
+    example_en: Her research focuses on climate change.
+  - definition_en: Academic or scientific study
+    example_en: The university funds medical research.
+  - definition_en: Background information gathering
+    example_en: He did research before buying a car.
+  - definition_en: A field of inquiry
+    example_en: Research into AI is advancing rapidly.
+  - definition_en: Detailed analysis or exploration
+    example_en: The report is based on extensive research.
+  freq: 255123
+  part_of_speech: noun
+  rank: 383
+  sentence_audio_file:
+  - research_sentence_0+Matthew+8b44c0152fc0b48ae1ec72abb14f0e15.mp3
+  - research_sentence_1+Matthew+ab46bde787b96dbe8b1a2a018d9316ae.mp3
+  - research_sentence_2+Matthew+d18f1920974cccb6f5ec2937e7cae4fa.mp3
+  - research_sentence_3+Matthew+8887c37fa17367b67666e31e645b1a8d.mp3
+  - research_sentence_4+Matthew+d18f668981e829a362d421cb27bf76a3.mp3
+  voice_id: Matthew
+  word: research
+  word_audio_file:
+  - research_word_0+Matthew+7412df2b1db8cd2a5d4aafdb6c2090d3.mp3
+- back_cards:
+  - definition_en: To move on foot at a regular pace
+    example_en: She walks to school every day.
+  - definition_en: To travel a short distance
+    example_en: Let’s walk to the nearby café.
+  - definition_en: To take a leisurely stroll
+    example_en: They walked along the beach at sunset.
+  - definition_en: To guide or escort
+    example_en: He walked her home after the party.
+  - definition_en: To progress through an activity
+    example_en: She walked through the steps of the recipe.
+  freq: 253671
+  part_of_speech: verb
+  rank: 384
+  sentence_audio_file:
+  - walk_sentence_0+Matthew+94ceb79486c232d75e768762dfa7603c.mp3
+  - walk_sentence_1+Matthew+693607f596b8bf55b4cf70a19304fa86.mp3
+  - walk_sentence_2+Matthew+84d319a8d257bae93dd50e51df42dd36.mp3
+  - walk_sentence_3+Matthew+0872197b4b5faad49bd7acbfad583710.mp3
+  - walk_sentence_4+Matthew+a16ef3bfcac00994d3a33172b13f7d63.mp3
+  voice_id: Matthew
+  word: walk
+  word_audio_file:
+  - walk_word_0+Matthew+46f9631576015f35f527af2bc67351a6.mp3
+- back_cards:
+  - definition_en: A movable barrier for entry
+    example_en: Please close the door behind you.
+  - definition_en: An entrance to a building or room
+    example_en: She knocked on the front door.
+  - definition_en: A means of access
+    example_en: Education opened the door to new opportunities.
+  - definition_en: A part of furniture or a vehicle
+    example_en: The car door was stuck.
+  - definition_en: A figurative opportunity
+    example_en: His skills opened doors in his career.
+  freq: 252623
+  part_of_speech: noun
+  rank: 385
+  sentence_audio_file:
+  - door_sentence_0+Matthew+f2a8f1ea432d8cd11ed757ba1fd7508a.mp3
+  - door_sentence_1+Matthew+0aca4b725c367aa19cd9d6ee6c2cd944.mp3
+  - door_sentence_2+Matthew+53e8e42129b422b8f4156632e7fc913d.mp3
+  - door_sentence_3+Matthew+97ff84f5d0acc59be967684125a5b519.mp3
+  - door_sentence_4+Matthew+ab7f54489ef2364d638b86accdac86df.mp3
+  voice_id: Matthew
+  word: door
+  word_audio_file:
+  - door_word_0+Matthew+2feaaf89c21770ea5c21196bc33848dd.mp3
+- back_cards:
+  - definition_en: Having the color of snow
+    example_en: She wore a white dress to the party.
+  - definition_en: Pale or light in tone
+    example_en: His face turned white from fear.
+  - definition_en: Relating to a racial group
+    example_en: The survey included White participants.
+  - definition_en: Pure or clean
+    example_en: The white tablecloth looked spotless.
+  - definition_en: Referring to food or drink
+    example_en: I prefer white wine with dinner.
+  freq: 251664
+  part_of_speech: adjective
+  rank: 386
+  sentence_audio_file:
+  - white_sentence_0+Matthew+4172b5ac94e044a6dc07ce02f2511c61.mp3
+  - white_sentence_1+Matthew+1d8b4a5c39e7fa3acc460fa82dd5d766.mp3
+  - white_sentence_2+Matthew+6fa7128657438a283d3c1bf45b73d2f4.mp3
+  - white_sentence_3+Matthew+fc2a71d1afc1a97bf93eee1002e3a1ed.mp3
+  - white_sentence_4+Matthew+b5fddebeea4a5e295521f9574cad59d5.mp3
+  voice_id: Matthew
+  word: white
+  word_audio_file:
+  - white_word_0+Matthew+d508fe45cecaf653904a0e774084bb5c.mp3
+- back_cards:
+  - definition_en: More than two but not many
+    example_en: She visited several stores to find a dress.
+  - definition_en: A small number of items
+    example_en: Several books were left on the table.
+  - definition_en: Multiple but unspecified
+    example_en: He called several times this morning.
+  - definition_en: Distinct or separate
+    example_en: They discussed several different topics.
+  - definition_en: A few in quantity
+    example_en: Several students joined the club.
+  freq: 251543
+  part_of_speech: adjective
+  rank: 387
+  sentence_audio_file:
+  - several_sentence_0+Matthew+270959da193a1da4f76602b2b1ae4625.mp3
+  - several_sentence_1+Matthew+8147af1fbc02321decaec012d87aa59c.mp3
+  - several_sentence_2+Matthew+798808f4c0d199c1c2cd96ae998913e3.mp3
+  - several_sentence_3+Matthew+99edaa97837f8e03e20085db015f5a14.mp3
+  - several_sentence_4+Matthew+b45da4a244bfe56c141d570fff1ce548.mp3
+  voice_id: Matthew
+  word: several
+  word_audio_file:
+  - several_word_0+Matthew+c902a61794c63ac71c92866bc0556092.mp3
+- back_cards:
+  - definition_en: A place where legal cases are heard
+    example_en: The case was settled in court.
+  - definition_en: A playing area for sports
+    example_en: They played basketball on the court.
+  - definition_en: A royal or noble residence
+    example_en: The king held a banquet at court.
+  - definition_en: A group of advisors or officials
+    example_en: The queen consulted her court.
+  - definition_en: A place for legal proceedings
+    example_en: The lawyer presented evidence in court.
+  freq: 250891
+  part_of_speech: noun
+  rank: 388
+  sentence_audio_file:
+  - court_sentence_0+Matthew+b8a554969a5da07e3eb6afac9fb7ae30.mp3
+  - court_sentence_1+Matthew+132b3006b9d93fc30674a4557c2d611a.mp3
+  - court_sentence_2+Matthew+b5474e7fead8244cf0af0e798d4bbb3b.mp3
+  - court_sentence_3+Matthew+2fc74f7a39f9435b83a6d45988e96c5c.mp3
+  - court_sentence_4+Matthew+039727ea39c7b282436c82b79893e5dd.mp3
+  voice_id: Matthew
+  word: court
+  word_audio_file:
+  - court_word_0+Matthew+772d6209c825a13e8bd82758db7362e1.mp3
+- back_cards:
+  - definition_en: To increase in size or amount
+    example_en: The plant grew quickly in the sunlight.
+  - definition_en: To develop or mature
+    example_en: She’s growing into a confident leader.
+  - definition_en: To cultivate or produce
+    example_en: They grow vegetables in their garden.
+  - definition_en: To expand in scope
+    example_en: The business grew over the years.
+  - definition_en: To become gradually
+    example_en: He grew tired after the long day.
+  freq: 248803
+  part_of_speech: verb
+  rank: 390
+  sentence_audio_file:
+  - grow_sentence_0+Matthew+09e6544bfb06c125a2ca6363cb57b133.mp3
+  - grow_sentence_1+Matthew+fb6a725b8ee144469cca53be54ca74fc.mp3
+  - grow_sentence_2+Matthew+0a4828a1a7a3561fa164202f2ffc2580.mp3
+  - grow_sentence_3+Matthew+8023bccc04a2d6f519a22a32fbdfbaab.mp3
+  - grow_sentence_4+Matthew+215e4077bbfecbc7b2c1eaf53fb93b2b.mp3
+  voice_id: Matthew
+  word: grow
+  word_audio_file:
+  - grow_word_0+Matthew+4d200fce73a8e1cc965cfc2c43343824.mp3
+- back_cards:
+  - definition_en: Of higher quality or improvement
+    example_en: This is a better option than the last one.
+  - definition_en: More suitable or effective
+    example_en: She found a better way to solve the problem.
+  - definition_en: Improved in health
+    example_en: He’s feeling better after the flu.
+  - definition_en: Superior in performance
+    example_en: Our team did better than expected.
+  - definition_en: More favorable or desirable
+    example_en: The weather is better today.
+  freq: 247453
+  part_of_speech: adjective
+  rank: 391
+  sentence_audio_file:
+  - better_sentence_0+Matthew+c4d4412e2f9621d99d9426b63a1f80ed.mp3
+  - better_sentence_1+Matthew+8d542c81ce67d828e19d652c05592331.mp3
+  - better_sentence_2+Matthew+f204265c88bde1d2fb8cd6951401db9c.mp3
+  - better_sentence_3+Matthew+66f8c92f1385d5de06da3cb8cc55c10d.mp3
+  - better_sentence_4+Matthew+897139927ba69c99d371d0ebabc73eec.mp3
+  voice_id: Matthew
+  word: better
+  word_audio_file:
+  - better_word_0+Matthew+8518008e8835d42ddb7c83810b5cede0.mp3
+- back_cards:
+  - definition_en: To make accessible or unfastened
+    example_en: She opened the window for fresh air.
+  - definition_en: To start or begin
+    example_en: They opened the meeting with a speech.
+  - definition_en: To reveal or disclose
+    example_en: He opened up about his feelings.
+  - definition_en: To expand or unfold
+    example_en: The flower opened in the morning sun.
+  - definition_en: To launch a business or event
+    example_en: The store opened its doors last week.
+  freq: 247043
+  part_of_speech: verb
+  rank: 392
+  sentence_audio_file:
+  - open_sentence_0+Matthew+c9b5ad9a70cc96478fd6def38f806c73.mp3
+  - open_sentence_1+Matthew+27ee6a57bfcf6d3b01277498fa219fae.mp3
+  - open_sentence_2+Matthew+713f8cc78f5e7df1bc1c7ce4278f176e.mp3
+  - open_sentence_3+Matthew+3bc8bcd0f445fce5d96a9dbe17539936.mp3
+  - open_sentence_4+Matthew+06fbca3eed788181e7e93c3242a277e1.mp3
+  voice_id: Matthew
+  word: open
+  word_audio_file:
+  - open_word_0+Matthew+7cef8a734855777c2a9d0caf42666e69.mp3
+- back_cards:
+  - definition_en: A very brief period of time
+    example_en: Wait a moment while I grab my keys.
+  - definition_en: A significant point in time
+    example_en: That was a defining moment in her career.
+  - definition_en: A specific instance
+    example_en: At that moment, the phone rang.
+  - definition_en: A time of importance
+    example_en: This is not the moment to argue.
+  - definition_en: A fleeting opportunity
+    example_en: She seized the moment to speak up.
+  freq: 246362
+  part_of_speech: noun
+  rank: 393
+  sentence_audio_file:
+  - moment_sentence_0+Matthew+729266fb0b0443ba78db60df15441d02.mp3
+  - moment_sentence_1+Matthew+828c8c32b956a8228549bf3992453537.mp3
+  - moment_sentence_2+Matthew+96be9cedfe4d38a3b323d3af9a4f78b9.mp3
+  - moment_sentence_3+Matthew+2119ebf5e84fb7dcc4bd9bf5960349f4.mp3
+  - moment_sentence_4+Matthew+9f9231f71e72193932af3899d06e54e2.mp3
+  voice_id: Matthew
+  word: moment
+  word_audio_file:
+  - moment_word_0+Matthew+673d4f049f0db3d188488f447477968a.mp3
+- back_cards:
+  - definition_en: Containing as part of a whole
+    example_en: The team, including me, attended the event.
+  - definition_en: Adding to a list
+    example_en: The menu includes dishes, including dessert.
+  - definition_en: Incorporating as a component
+    example_en: The package, including taxes, costs $100.
+  - definition_en: Covering a range
+    example_en: Everyone, including the kids, helped clean.
+  - definition_en: As part of a group
+    example_en: The cast, including new actors, was stellar.
+  freq: 245445
+  part_of_speech: preposition
+  rank: 394
+  sentence_audio_file:
+  - including_sentence_0+Matthew+e97ffd88c6917ff765c8a8ea5c9411b2.mp3
+  - including_sentence_1+Matthew+c482679196d77005d71a98dfc663c4e5.mp3
+  - including_sentence_2+Matthew+70644eae19e0c881a91571b57a3dbb82.mp3
+  - including_sentence_3+Matthew+d68758245fc2769f7e8c13a005d6ce29.mp3
+  - including_sentence_4+Matthew+25bca3edf7a265df2950bf8a03ec79e7.mp3
+  voice_id: Matthew
+  word: including
+  word_audio_file:
+  - including_word_0+Matthew+7b7813f00f42b7e5366e7065aaa798c6.mp3
+- back_cards:
+  - definition_en: To think about carefully
+    example_en: She considered all options before deciding.
+  - definition_en: To regard as or deem
+    example_en: He’s considered an expert in his field.
+  - definition_en: To take into account
+    example_en: Please consider my feelings in this matter.
+  - definition_en: To evaluate or assess
+    example_en: They considered the risks of the project.
+  - definition_en: To contemplate or reflect
+    example_en: I need time to consider your offer.
+  freq: 244644
+  part_of_speech: verb
+  rank: 395
+  sentence_audio_file:
+  - consider_sentence_0+Matthew+8c74d33bc2be9e83efb84442f2f2bc8c.mp3
+  - consider_sentence_1+Matthew+234687d8695b2bffceec07b1b7b3b8a1.mp3
+  - consider_sentence_2+Matthew+0a89b835a84a245859d81d309cda7991.mp3
+  - consider_sentence_3+Matthew+41dc94cb6306ee0a16ab2a39d9a0abf8.mp3
+  - consider_sentence_4+Matthew+302d0f3cb5c58345d031974d90bca403.mp3
+  voice_id: Matthew
+  word: consider
+  word_audio_file:
+  - consider_word_0+Matthew+66ff95053b36e2dd8382ff7594c0c038.mp3
+- back_cards:
+  - definition_en: Inside or enclosed by
+    example_en: The keys are within the drawer.
+  - definition_en: During a period of time
+    example_en: Finish the task within an hour.
+  - definition_en: Not exceeding a limit
+    example_en: The cost is within our budget.
+  - definition_en: In the scope of
+    example_en: She works within the marketing team.
+  - definition_en: In the range of
+    example_en: The shop is within walking distance.
+  freq: 243714
+  part_of_speech: preposition
+  rank: 399
+  sentence_audio_file:
+  - within_sentence_0+Matthew+71b40e397cc5718cdace384630ffcfbd.mp3
+  - within_sentence_1+Matthew+b337702db541e698af6f3bc1fcb8dc92.mp3
+  - within_sentence_2+Matthew+751f0a53b07417761d2220656abb1ce3.mp3
+  - within_sentence_3+Matthew+e68e9f012dbfb206e6b9eedcae153e99.mp3
+  - within_sentence_4+Matthew+f681b470e215c3d3ae291ace82e5badd.mp3
+  voice_id: Matthew
+  word: within
+  word_audio_file:
+  - within_word_0+Matthew+60df9e64b0693131b626e465236c6874.mp3
+- back_cards:
+  - definition_en: A unit of time
+    example_en: The race was won by a second.
+  - definition_en: The next after the first
+    example_en: She came in second in the competition.
+  - definition_en: A moment or brief time
+    example_en: Wait a second, I’ll be right back.
+  - definition_en: A supporter or assistant
+    example_en: He acted as her second in the duel.
+  - definition_en: An additional serving
+    example_en: Would you like a second piece of cake?
+  freq: 243485
+  part_of_speech: noun
+  rank: 400
+  sentence_audio_file:
+  - second_sentence_0+Matthew+52b49a40b3c458924810fe2582af8491.mp3
+  - second_sentence_1+Matthew+d8ef054007d333596fdb65bc3af82043.mp3
+  - second_sentence_2+Matthew+4dbda9b9c09aa6287bef190aa21de998.mp3
+  - second_sentence_3+Matthew+5708e6c4d1e26219152422aa0e34cb2f.mp3
+  - second_sentence_4+Matthew+3ba98fe75a2b764c808efbd1e114b21a.mp3
+  voice_id: Matthew
+  word: second
+  word_audio_file:
+  - second_word_0+Matthew+a9f0e61a137d86aa9db53465e0801612.mp3
