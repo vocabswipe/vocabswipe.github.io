@@ -157,7 +157,7 @@ function preloadAudio() {
     const currentWord = words[currentWordIndex];
     const nextIndex = (currentWordIndex + 1) % words.length;
     const prevIndex = (currentWordIndex - 1 + words.length) % words.length;
-    const nextWord = words[currentIndex];
+    const nextWord = words[nextIndex];
     const prevWord = words[prevIndex];
 
     const audioFiles = [
@@ -253,12 +253,6 @@ function displayWord() {
     const green = Math.round(255 * (relFreq / 100));
     const color = `rgb(${red}, ${green}, 0)`;
 
-    // Update progress bar
-    const progressText = document.getElementById('progress-text');
-    const progressFill = document.querySelector('.progress-fill');
-    progressText.textContent = `${currentWordIndex + 1} / ${words.length}`;
-    progressFill.style.width = `${((currentWordIndex + 1) / words.length) * 100}%`;
-
     front.innerHTML = `
         <div class="word-container">
             <h2>${wordData.word}</h2>
@@ -272,7 +266,7 @@ function displayWord() {
         <div class="word-container">
             <h2>${wordData.word}</h2>
         </div>
-        <div class="back-content">
+        <div class="back-template">
             <div class="card-info">
                 <p class="definition"><strong>Definition:</strong> ${backCard.definition_en}</p>
                 <p class="example"><strong>Example:</strong> ${backCard.example_en}</p>
