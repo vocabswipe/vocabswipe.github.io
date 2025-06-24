@@ -268,8 +268,8 @@ function displayWord() {
         </div>
         <div class="back-template">
             <div class="card-info">
-                <p class="definition"><strong>Definition:</strong> ${backCard.definition_en}</p>
-                <p class="example"><strong>Example:</strong> ${backCard.example_en}</p>
+                <p class="definition">${backCard.definition_en}</p>
+                <p class="example">"${backCard.example_en}"</p>
             </div>
             <div class="meta-info">
                 <span class="rank">Rank: ${wordData.rank}</span>
