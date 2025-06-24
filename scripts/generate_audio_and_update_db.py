@@ -166,7 +166,17 @@ def verify_audio_files(vocab_db):
     return missing_audio
 
 def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, missing_audio, first_word, last_word):
-    """Generate a concise high-tech summary report with confirmation."""
+    """Generate a concise high-tech summary report with missing ranks and confirmation."""
+    # Extract ranks and find maximum rank
+    if vocab_db:
+        max_rank = max(entry['rank'] for entry in vocab_db)
+        present_ranks = {entry['rank'] for entry in vocab_db}
+        missing_ranks = [rank for rank in range(1, max_rank + 1) if rank not in present_ranks]
+    else:
+        max_rank = 0
+        missing_ranks = []
+
+    # Main summary table
     table = Table(title="📊 Vocabulary Sync Report", style="cyan", show_lines=True)
     table.add_column("Metric", style="bold")
     table.add_column("Value", justify="right")
@@ -175,28 +185,50 @@ def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, 
     table.add_row("Valid", f"[green]{len(valid_entries)}[/green]")
     table.add_row("Duplicates Removed", f"[yellow]{removed_count}[/yellow]" if removed_count else "0")
     table.add_row("Database Size", str(len(vocab_db)))
+    table.add_row("Max Rank", str(max_rank))
+    table.add_row("Missing Ranks", f"[yellow]{len(missing_ranks)}[/yellow]" if missing_ranks else "[green]0[/green]")
 
     console.print(table)
 
+    # Missing ranks panel
+    if missing_ranks:
+        console.print(Panel(
+            "\n".join([f"Rank {rank}" for rank in missing_ranks]),
+            title="Missing Ranks", border_style="yellow", expand=False
+        ))
+    else:
+        console.print(Panel("[green]✓ No Missing Ranks[/green]", title="Missing Ranks", border_style="green", expand=False))
+
+    # Missing audio panel
     if missing_audio:
         console.print(Panel(
             "\n".join([f"⚠ {word} ({audio_type}, index {index})" for word, audio_type, index, _ in missing_audio]),
             title="Missing Audio", border_style="red", expand=False
         ))
 
-    # Confirmation message
+    # Confirmation panel
     confirmation = []
     confirmation.append("[green]✓ All Entries Have Audio Files[/green]" if not missing_audio else "[red]✗ Some Audio Files Missing[/red]")
     confirmation.append("[green]✓ No Duplicates or Redundant Audio Files[/green]" if removed_count == 0 and not duplicates else "[red]✗ Duplicates Detected and Removed[/red]")
+    confirmation.append("[green]✓ All Ranks Present[/green]" if not missing_ranks else "[yellow]✗ Missing Ranks Detected[/yellow]")
     console.print(Panel("\n".join(confirmation), title="Confirmation", border_style="green", expand=False))
 
+    # Save report to file
     report_path = os.path.join(BASE_DIR, 'data', 'reports', f"vocab_report_{time.strftime('%Y%m%d_%H%M%S')}.txt")
     with open(report_path, 'w', encoding='utf-8') as f:
         f.write(str(table))
-        f.write("\n\nConfirmation:\n")
-        f.write("\n".join([line.strip("[green]").strip("[/green]").strip("[red]").strip("[/red]") for line in confirmation]))
+        f.write("\n\nMissing Ranks:\n")
+        if missing_ranks:
+            f.write("\n".join([f"Rank {rank}" for rank in missing_ranks]))
+        else:
+            f.write("None")
+        f.write("\n\nMissing Audio Files:\n")
         if missing_audio:
-            f.write("\n\nMissing Audio Files:\n" + "\n".join([f"{word} ({audio_type}, index {index})" for word, audio_type, index, _ in missing_audio]))
+            f.write("\n".join([f"{word} ({audio_type}, index {index})" for word, audio_type, index, _ in missing_audio]))
+        else:
+            f.write("None")
+        f.write("\n\nConfirmation:\n")
+        f.write("\n".join([line.strip("[green]").strip("[/green]").strip("[red]").strip("[/red]").strip("[yellow]").strip("[/yellow]") for line in confirmation]))
     logger.info(f"Report saved to: {report_path}")
     console.print(f"[green]✓ Report Saved: {report_path}[/green]")
 
