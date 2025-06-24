@@ -10246,3 +10246,26 @@ expected <block end>, but found '<block mapping start>'
 2025-06-24 13:24:50,681 - WARNING - Invalid entries: [{'word': 'hey', 'rank': 299, 'freq': 330236, 'part_of_speech': 'interjection', 'back_cards': [{'definition_en': 'Used to greet or address.', 'example_en': 'Hey, how’s it going?'}, {'definition_en': 'Hey! Watch where you’re walking!'}, {'definition_en': 'Used to call out.', 'example_en': 'Hey, come look at this view!'}, {'definition_en': 'To express surprise.', 'example_en': 'Hey, I didn’t know you could sing!'}, {'definition_en': 'To get attention.', 'example_en': 'Hey, don’t forget your bag!'}, {'definition_en': 'An informal greeting.', 'example_en': 'Hey, good to see you again!'}]}, {'word': 'thank', 'rank': 300, 'freq': 330125, 'part_of_speech': 'verb', 'back_cards': [{'definition_en': 'To express gratitude.', 'example_en': 'I thank you for the lovely gift.'}, {'definition_en': 'She thanked the team for their help.'}, {'definition_en': 'To show appreciation.', 'example_en': 'He thanked her for the ride home.'}, {'definition_en': 'To acknowledge kindness.', 'example_en': 'They thanked the volunteers.'}, {'definition_en': 'To give thanks formally.', 'example_en': 'We thank our sponsors for support.'}]}]
 2025-06-24 13:24:50,681 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
 2025-06-24 13:24:50,681 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
+2025-06-24 13:30:18,235 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-24 13:30:18,462 - INFO - AWS Polly client initialized successfully.
+2025-06-24 13:30:18,470 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 13:30:18,472 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 13:30:26,325 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 13:30:26,325 - INFO - Appended 4 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 13:30:26,337 - INFO - Loading: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 13:31:30,550 - INFO - Generated audio for '<speak>hey</speak>' at D:\vocabswipe.github.io\data\audio\hey_word_0+Matthew+6057f13c496ecf7fd777ceb9e79ae285.mp3
+2025-06-24 13:31:31,965 - INFO - Generated audio for '<speak>hey. Hey, how’s it going?</speak>' at D:\vocabswipe.github.io\data\audio\hey_sentence_0+Matthew+e3c7ff6a2291e3c8d1fae64da9914912.mp3
+2025-06-24 13:31:32,311 - INFO - Generated audio for '<speak>hey. Hey, watch where you’re walking!</speak>' at D:\vocabswipe.github.io\data\audio\hey_sentence_1+Matthew+ffa57b540e69c1f2ce3b91da87a5a956.mp3
+2025-06-24 13:31:32,655 - INFO - Generated audio for '<speak>hey. Hey, come look at this view!</speak>' at D:\vocabswipe.github.io\data\audio\hey_sentence_2+Matthew+6cd4ba1fb1d5c2e3e4fa2d4763a5e25e.mp3
+2025-06-24 13:31:33,459 - INFO - Generated audio for '<speak>hey. Hey, I didn’t know you could sing!</speak>' at D:\vocabswipe.github.io\data\audio\hey_sentence_3+Matthew+bb0662cb8756e5ec14991621e449d690.mp3
+2025-06-24 13:31:34,271 - INFO - Generated audio for '<speak>hey. Hey, good to see you again!</speak>' at D:\vocabswipe.github.io\data\audio\hey_sentence_4+Matthew+3af5546d206a1be680ea012d7fce13a9.mp3
+2025-06-24 13:31:35,050 - INFO - Generated audio for '<speak>thank</speak>' at D:\vocabswipe.github.io\data\audio\thank_word_0+Matthew+f5ab96926a6a561aab7ecb4ba7c915d4.mp3
+2025-06-24 13:31:36,315 - INFO - Generated audio for '<speak>thank. I thank you for the lovely gift.</speak>' at D:\vocabswipe.github.io\data\audio\thank_sentence_0+Matthew+318eb85f0a5136cef9499d46d349f029.mp3
+2025-06-24 13:31:36,676 - INFO - Generated audio for '<speak>thank. She thanked the team for their help.</speak>' at D:\vocabswipe.github.io\data\audio\thank_sentence_1+Matthew+d4119f570bb18dfb30fd8245f64188b9.mp3
+2025-06-24 13:31:37,482 - INFO - Generated audio for '<speak>thank. He thanked her for the ride home.</speak>' at D:\vocabswipe.github.io\data\audio\thank_sentence_2+Matthew+bf05bbd919b83ebc6ee6c610908392bb.mp3
+2025-06-24 13:31:37,866 - INFO - Generated audio for '<speak>thank. They thanked the volunteers.</speak>' at D:\vocabswipe.github.io\data\audio\thank_sentence_3+Matthew+6cd57e82facfd7556e4c0d40de40de92.mp3
+2025-06-24 13:31:39,812 - INFO - Generated audio for '<speak>thank. We thank our sponsors for support.</speak>' at D:\vocabswipe.github.io\data\audio\thank_sentence_4+Matthew+2a9ac7c864e256300772caeb25c826ea.mp3
+2025-06-24 13:31:40,741 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 13:31:40,750 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250624_133140.txt
+2025-06-24 13:31:40,754 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 13:31:40,756 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.

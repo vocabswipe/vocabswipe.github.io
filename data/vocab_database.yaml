@@ -7126,3 +7126,51 @@
   word: person
   word_audio_file:
   - person_word_0+Matthew+8b0a44048f58988b486bdd0d245b22a8.mp3
+- back_cards:
+  - definition_en: Used to greet or address.
+    example_en: Hey, how’s it going?
+  - definition_en: Used to get attention.
+    example_en: Hey, watch where you’re walking!
+  - definition_en: Used to call out.
+    example_en: Hey, come look at this view!
+  - definition_en: To express surprise.
+    example_en: Hey, I didn’t know you could sing!
+  - definition_en: An informal greeting.
+    example_en: Hey, good to see you again!
+  freq: 330236
+  part_of_speech: interjection
+  rank: 299
+  sentence_audio_file:
+  - hey_sentence_0+Matthew+e3c7ff6a2291e3c8d1fae64da9914912.mp3
+  - hey_sentence_1+Matthew+ffa57b540e69c1f2ce3b91da87a5a956.mp3
+  - hey_sentence_2+Matthew+6cd4ba1fb1d5c2e3e4fa2d4763a5e25e.mp3
+  - hey_sentence_3+Matthew+bb0662cb8756e5ec14991621e449d690.mp3
+  - hey_sentence_4+Matthew+3af5546d206a1be680ea012d7fce13a9.mp3
+  voice_id: Matthew
+  word: hey
+  word_audio_file:
+  - hey_word_0+Matthew+6057f13c496ecf7fd777ceb9e79ae285.mp3
+- back_cards:
+  - definition_en: To express gratitude.
+    example_en: I thank you for the lovely gift.
+  - definition_en: To show appreciation.
+    example_en: She thanked the team for their help.
+  - definition_en: To acknowledge kindness.
+    example_en: He thanked her for the ride home.
+  - definition_en: To give thanks formally.
+    example_en: They thanked the volunteers.
+  - definition_en: To express thanks.
+    example_en: We thank our sponsors for support.
+  freq: 330129
+  part_of_speech: verb
+  rank: 300
+  sentence_audio_file:
+  - thank_sentence_0+Matthew+318eb85f0a5136cef9499d46d349f029.mp3
+  - thank_sentence_1+Matthew+d4119f570bb18dfb30fd8245f64188b9.mp3
+  - thank_sentence_2+Matthew+bf05bbd919b83ebc6ee6c610908392bb.mp3
+  - thank_sentence_3+Matthew+6cd57e82facfd7556e4c0d40de40de92.mp3
+  - thank_sentence_4+Matthew+2a9ac7c864e256300772caeb25c826ea.mp3
+  voice_id: Matthew
+  word: thank
+  word_audio_file:
+  - thank_word_0+Matthew+f5ab96926a6a561aab7ecb4ba7c915d4.mp3
