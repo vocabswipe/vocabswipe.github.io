@@ -7011,6 +7011,16 @@
     example_en: She studies her lines for the play.
   - definition_en: To investigate or research.
     example_en: The team studied the effects of pollution.
+  - definition_en: The act of learning or examining something carefully.
+    example_en: Her study of biology took years.
+  - definition_en: A detailed investigation or research project.
+    example_en: The study revealed new facts about climate change.
+  - definition_en: A room used for reading or working.
+    example_en: He retreated to his study to write.
+  - definition_en: A piece of academic work or analysis.
+    example_en: Her study on history won an award.
+  - definition_en: Preparation for a test or exam.
+    example_en: Late-night study helped her pass the test.
   freq: 364915
   part_of_speech: verb
   rank: 259
@@ -7020,6 +7030,11 @@
   - study_sentence_2+Matthew+c925e55725067875bfaa2e1fc3bb32da.mp3
   - study_sentence_3+Matthew+874696914e0fe5d2d5833b464424ff3f.mp3
   - study_sentence_4+Matthew+910560c8805de17091aaf80af41aa436.mp3
+  - study_sentence_5+Matthew+8e38782821b2561d0a07c321b59ec97d.mp3
+  - study_sentence_6+Matthew+8710957d255003853006b14ab582e711.mp3
+  - study_sentence_7+Matthew+211820bd0f2db9f76c10cc88ae6824dd.mp3
+  - study_sentence_8+Matthew+0a09ee1af1ae09247b059a275ccc08af.mp3
+  - study_sentence_9+Matthew+d55f0da2f03f53c5e47cb575d75f1a26.mp3
   voice_id: Matthew
   word: study
   word_audio_file:
@@ -12594,6 +12609,12 @@
     example_en: She’s in top form for the race.
   - definition_en: A method or style
     example_en: Poetry is a form of expression.
+  - definition_en: A type or kind of something.
+    example_en: This is a rare form of the disease.
+  - definition_en: A way something exists or appears.
+    example_en: Water can take the form of ice or steam.
+  - definition_en: Condition or readiness, often in sports.
+    example_en: The athlete is in top form this season.
   freq: 173161
   part_of_speech: noun
   rank: 556
@@ -12603,6 +12624,9 @@
   - form_sentence_2+Matthew+fc6d2c2129fc198279ca0276506c61a2.mp3
   - form_sentence_3+Matthew+0ad9444a503c8cfc04da9d1b2ed0b73e.mp3
   - form_sentence_4+Matthew+755f4a699e5612155c16eacc21d3a8ae.mp3
+  - form_sentence_5+Matthew+b2ce4e45301728d6c4f2bb936bea7fbc.mp3
+  - form_sentence_6+Matthew+279aff3a313224722018addc37aed1cc.mp3
+  - form_sentence_7+Matthew+404d142fc4b9aab0636cb9a12ca7a626.mp3
   voice_id: Matthew
   word: form
   word_audio_file:
@@ -14517,6 +14541,14 @@
     example_en: He climbed the steps to the attic.
   - definition_en: A small distance or increment.
     example_en: The shop is just a step away from here.
+  - definition_en: A stage or part of a process.
+    example_en: The first step is to gather all materials.
+  - definition_en: A short distance.
+    example_en: The store is just a few steps away.
+  - definition_en: An action taken to achieve a goal.
+    example_en: Moving to the city was a big step for her.
+  - definition_en: A level or platform, like on stairs.
+    example_en: He tripped on the top step.
   freq: 151394
   part_of_speech: noun
   rank: 641
@@ -14526,6 +14558,10 @@
   - step_sentence_2+Matthew+3d094015ade3f049b5706faf024bf18d.mp3
   - step_sentence_3+Matthew+6e84fc79b5dca847abfeb08d12039308.mp3
   - step_sentence_4+Matthew+f135a01709a71aca45e65e5babdd9b64.mp3
+  - step_sentence_5+Matthew+a98693bf3f3c9b90d84ca8ef90e59311.mp3
+  - step_sentence_6+Matthew+a8c29e121f3d6d1472541276cf577361.mp3
+  - step_sentence_7+Matthew+3839aa78e7ecc58a3dad1bb7465f978f.mp3
+  - step_sentence_8+Matthew+654ed38baafc49809bca9bb47c326e0e.mp3
   voice_id: Matthew
   word: step
   word_audio_file:
@@ -23099,3 +23135,411 @@
   word: management
   word_audio_file:
   - management_word_0+Matthew+d10af457daa1deed54e2c36b5f295e7e.mp3
+- back_cards:
+  - definition_en: Being the first or earliest form of something.
+    example_en: The original plan was to meet at the park.
+  - definition_en: Creative and not copied from someone else.
+    example_en: Her original story won the writing contest.
+  - definition_en: Referring to the source or starting point.
+    example_en: The museum displays the original manuscript of the novel.
+  - definition_en: Unique or authentic in style or character.
+    example_en: This restaurant serves original recipes from the 19th century.
+  - definition_en: Not altered or modified from its first state.
+    example_en: The original design of the building is still intact.
+  freq: 93230
+  part_of_speech: adjective
+  rank: 1041
+  sentence_audio_file:
+  - original_sentence_0+Matthew+e172cefc4469ac621c21c969b6e51121.mp3
+  - original_sentence_1+Matthew+eb247c3c0090a98db340d6947bfaa7b3.mp3
+  - original_sentence_2+Matthew+baec16b4fc352ce1025ed82ef185a25c.mp3
+  - original_sentence_3+Matthew+1f60012eef61dd5f434e02fc0216da5b.mp3
+  - original_sentence_4+Matthew+33f03baa9d43b13d89b15371303fd881.mp3
+  voice_id: Matthew
+  word: original
+  word_audio_file:
+  - original_word_0+Matthew+919c8b643b7133116b02fc0d9bb7df3f.mp3
+- back_cards:
+  - definition_en: A person harmed or injured by a crime or accident.
+    example_en: The victim of the robbery reported the incident to the police.
+  - definition_en: Someone who suffers from a harmful event.
+    example_en: Flood victims received aid from the community.
+  - definition_en: A person negatively affected by a situation.
+    example_en: She was a victim of unfair treatment at work.
+  - definition_en: Someone who falls prey to a scam or deceit.
+    example_en: The elderly man was a victim of a phone scam.
+  - definition_en: A person sacrificed or affected in a broader context.
+    example_en: Many soldiers were victims of the war.
+  freq: 93207
+  part_of_speech: noun
+  rank: 1042
+  sentence_audio_file:
+  - victim_sentence_0+Matthew+fd94e8a43d2df293c1e34b7b489c69b7.mp3
+  - victim_sentence_1+Matthew+1796c68967ca7c0269a9026b8fa35b2c.mp3
+  - victim_sentence_2+Matthew+75783dbe2cde5dd78b7326fe5762b9cf.mp3
+  - victim_sentence_3+Matthew+38b874ab1878b9edaf74b00f3fc529e8.mp3
+  - victim_sentence_4+Matthew+4106c71c7094b48d95447650c0d99d3b.mp3
+  voice_id: Matthew
+  word: victim
+  word_audio_file:
+  - victim_word_0+Matthew+96d4976b516a16ac19d148f3b744eee1.mp3
+- back_cards:
+  - definition_en: A serious disease caused by uncontrolled cell growth.
+    example_en: She is undergoing treatment for breast cancer.
+  - definition_en: A harmful influence that spreads destructively.
+    example_en: Corruption is a cancer in the organization.
+  - definition_en: A medical condition requiring specialized care.
+    example_en: The hospital opened a new cancer research center.
+  - definition_en: A term for a group of related diseases.
+    example_en: Lung cancer is often linked to smoking.
+  - definition_en: Something that causes widespread harm metaphorically.
+    example_en: Fake news can be a cancer to public trust.
+  freq: 93157
+  part_of_speech: noun
+  rank: 1043
+  sentence_audio_file:
+  - cancer_sentence_0+Matthew+b15ce71c24bee57e24db59be8ea6a1df.mp3
+  - cancer_sentence_1+Matthew+8f353a30fa2ccfd4bce9922902ae1d51.mp3
+  - cancer_sentence_2+Matthew+5e18ec1337ddbd91cbb35f779676aab9.mp3
+  - cancer_sentence_3+Matthew+348a515d460fd8e39e3f15a947ccd5bb.mp3
+  - cancer_sentence_4+Matthew+d04ef65d735a161c3037750e5caf8829.mp3
+  voice_id: Matthew
+  word: cancer
+  word_audio_file:
+  - cancer_word_0+Matthew+a99dca5593185c498b63a5eed917bd4f.mp3
+- back_cards:
+  - definition_en: The act of speaking or expressing thoughts aloud.
+    example_en: His speech at the conference inspired everyone.
+  - definition_en: A formal address or presentation to an audience.
+    example_en: The president delivered a speech on national unity.
+  - definition_en: The ability to speak or communicate verbally.
+    example_en: After the accident, she regained her speech slowly.
+  - definition_en: A manner or style of speaking.
+    example_en: Her speech was clear and confident during the debate.
+  - definition_en: Language or dialect used by a group.
+    example_en: The speech of the region includes unique phrases.
+  freq: 92837
+  part_of_speech: noun
+  rank: 1044
+  sentence_audio_file:
+  - speech_sentence_0+Matthew+08a61f840ceb9099ab615d38cb16364b.mp3
+  - speech_sentence_1+Matthew+2653aa5f208441e40c17b333ad182d33.mp3
+  - speech_sentence_2+Matthew+0bb823f8c4eda7d2dce4a7d7f30cf045.mp3
+  - speech_sentence_3+Matthew+d6e368ab6d5dbe204e7c53d78e1df4fc.mp3
+  - speech_sentence_4+Matthew+167b4e9e623a3c0d5f24fc6b729e8672.mp3
+  voice_id: Matthew
+  word: speech
+  word_audio_file:
+  - speech_word_0+Matthew+9b4a8a31b4caf3cc5c6205f74950ac14.mp3
+- back_cards:
+  - definition_en: Specific or distinct from others.
+    example_en: She chose a particular dress for the party.
+  - definition_en: Fussy or careful about details.
+    example_en: He is very particular about how his coffee is made.
+  - definition_en: Referring to one specific thing or person.
+    example_en: This book is aimed at a particular audience.
+  - definition_en: Unusual or noteworthy in some way.
+    example_en: The painting has a particular charm.
+  - definition_en: Emphasizing a single item or case.
+    example_en: I have no particular plans for the weekend.
+  freq: 92775
+  part_of_speech: adjective
+  rank: 1045
+  sentence_audio_file:
+  - particular_sentence_0+Matthew+460dfe310a3c45326932a746d588d0f3.mp3
+  - particular_sentence_1+Matthew+7287fe7b94b08099417b42711fdf4c7c.mp3
+  - particular_sentence_2+Matthew+7dc768ea6114b6b2586e7718ed3864af.mp3
+  - particular_sentence_3+Matthew+6dcce424f547fc2aa7558db48c610aff.mp3
+  - particular_sentence_4+Matthew+18caf7d9676c18369fdd463b18eea29e.mp3
+  voice_id: Matthew
+  word: particular
+  word_audio_file:
+  - particular_word_0+Matthew+e5dee84f405b9366f44feef46df9704d.mp3
+- back_cards:
+  - definition_en: A legal process in a court to determine guilt or innocence.
+    example_en: The trial lasted for three weeks.
+  - definition_en: A test or experiment to evaluate something.
+    example_en: The new drug is undergoing a clinical trial.
+  - definition_en: A difficult experience or challenge.
+    example_en: Moving abroad was a trial for the family.
+  - definition_en: An attempt to try something new.
+    example_en: Her first trial at baking bread was a success.
+  - definition_en: A preliminary competition or test.
+    example_en: He qualified for the team after the trial match.
+  freq: 92762
+  part_of_speech: noun
+  rank: 1046
+  sentence_audio_file:
+  - trial_sentence_0+Matthew+cb85e31275814c4fc38a869a9f55faa9.mp3
+  - trial_sentence_1+Matthew+b054a875b05eaca7986c118f89cf0fb0.mp3
+  - trial_sentence_2+Matthew+0144b1af800efd3f09df5a650051a4f2.mp3
+  - trial_sentence_3+Matthew+56aa39bff844b7adea097391bfa5eff2.mp3
+  - trial_sentence_4+Matthew+0458f2640306803c039b990bfe921129.mp3
+  voice_id: Matthew
+  word: trial
+  word_audio_file:
+  - trial_word_0+Matthew+58723627fcebc230ab0d53ddf5f16e34.mp3
+- back_cards:
+  - definition_en: Not any of a group or amount.
+    example_en: None of the cookies were left after the party.
+  - definition_en: No one or nobody in a group.
+    example_en: None of the students knew the answer.
+  - definition_en: Nothing at all.
+    example_en: She had none of the skills required for the job.
+  - definition_en: Not even a small amount.
+    example_en: None of the rain reached the dry fields.
+  - definition_en: No part or share of something.
+    example_en: He wanted none of the credit for the project.
+  freq: 92729
+  part_of_speech: pronoun
+  rank: 1047
+  sentence_audio_file:
+  - none_sentence_0+Matthew+2b1e5aff9e145708e565c12848f708fc.mp3
+  - none_sentence_1+Matthew+7dbfcec8c2c7bd9c2d2853dbdad2e646.mp3
+  - none_sentence_2+Matthew+f13d1a04b9693c5a2a35505811a08f62.mp3
+  - none_sentence_3+Matthew+699bf99114bd8b7febc6aae2af7ac0d2.mp3
+  - none_sentence_4+Matthew+b0d3fd032baede17251c1d4364184e40.mp3
+  voice_id: Matthew
+  word: none
+  word_audio_file:
+  - none_word_0+Matthew+334c4a4c42fdb79d7ebc3e73b517e6f8.mp3
+- back_cards:
+  - definition_en: A single object or thing.
+    example_en: She picked up an item from the shelf.
+  - definition_en: A piece of news or information.
+    example_en: The newspaper published an item about the event.
+  - definition_en: An entry on a list or inventory.
+    example_en: Check the next item on your to-do list.
+  - definition_en: A product for sale in a store.
+    example_en: This item is on discount this week.
+  - definition_en: A topic or subject discussed.
+    example_en: The meeting’s first item was budget approval.
+  freq: 92545
+  part_of_speech: noun
+  rank: 1048
+  sentence_audio_file:
+  - item_sentence_0+Matthew+c8a42889a86b0e91ef14267b9dfe5661.mp3
+  - item_sentence_1+Matthew+a4bb074765ca776c4294b9a464751973.mp3
+  - item_sentence_2+Matthew+f7725109d475efb7a403c274488f31ec.mp3
+  - item_sentence_3+Matthew+b4963779de4750990790f1895676daa9.mp3
+  - item_sentence_4+Matthew+ed937a7aafba33f0675c104f5f7a01b9.mp3
+  voice_id: Matthew
+  word: item
+  word_audio_file:
+  - item_word_0+Matthew+447b7147e84be512208dcc0995d67ebc.mp3
+- back_cards:
+  - definition_en: The measure of how heavy something is.
+    example_en: The package’s weight was over ten pounds.
+  - definition_en: Importance or influence of something.
+    example_en: Her opinion carries a lot of weight in the team.
+  - definition_en: A heavy object used for exercise.
+    example_en: He lifted a weight at the gym.
+  - definition_en: A burden or responsibility.
+    example_en: The weight of the decision stressed her out.
+  - definition_en: A unit or system of measurement.
+    example_en: The recipe uses weight instead of volume.
+  freq: 92516
+  part_of_speech: noun
+  rank: 1049
+  sentence_audio_file:
+  - weight_sentence_0+Matthew+c41a9a5e9b1664c43629233385b49ab7.mp3
+  - weight_sentence_1+Matthew+d4e6a82cf7ab626a12464cda87a8c14c.mp3
+  - weight_sentence_2+Matthew+fc6329f5d26989e5a628f107249e01ae.mp3
+  - weight_sentence_3+Matthew+6dff02225b36d14e71dc51ea43f18acf.mp3
+  - weight_sentence_4+Matthew+f340a1e3b612625d201b41ad678a8fa1.mp3
+  voice_id: Matthew
+  word: weight
+  word_audio_file:
+  - weight_word_0+Matthew+7edabf994b76a00cbc60c95af337db8f.mp3
+- back_cards:
+  - definition_en: The day after today.
+    example_en: We have a meeting scheduled for tomorrow.
+  - definition_en: The near future.
+    example_en: Tomorrow holds new opportunities for growth.
+  - definition_en: A time for planning or action.
+    example_en: Let’s save that task for tomorrow.
+  - definition_en: A symbol of hope or change.
+    example_en: Tomorrow will be a better day.
+  - definition_en: A deadline or expectation.
+    example_en: The project is due tomorrow morning.
+  freq: 92490
+  part_of_speech: noun
+  rank: 1050
+  sentence_audio_file:
+  - tomorrow_sentence_0+Matthew+c7f6e70e6039ddc2fa13991e7825edf5.mp3
+  - tomorrow_sentence_1+Matthew+fd9513086334beb18b2460c8b4c8789b.mp3
+  - tomorrow_sentence_2+Matthew+4ce1c4d5f2967b94c5c4ed07418030a9.mp3
+  - tomorrow_sentence_3+Matthew+4932577572d840d2540a4167686dd5e6.mp3
+  - tomorrow_sentence_4+Matthew+9f16f47013367906ca2bb12a1361d793.mp3
+  voice_id: Matthew
+  word: tomorrow
+  word_audio_file:
+  - tomorrow_word_0+Matthew+c23946c050885b2de6860f47f2bf6787.mp3
+- back_cards:
+  - definition_en: Showing optimism or confidence.
+    example_en: She has a positive attitude about the future.
+  - definition_en: Indicating agreement or affirmation.
+    example_en: He gave a positive response to the proposal.
+  - definition_en: Having a good or beneficial effect.
+    example_en: The feedback had a positive impact on her work.
+  - definition_en: Certain or definite about something.
+    example_en: I’m positive I locked the door.
+  - definition_en: Related to a scientific or medical test result.
+    example_en: The test came back positive for allergies.
+  freq: 92223
+  part_of_speech: adjective
+  rank: 1052
+  sentence_audio_file:
+  - positive_sentence_0+Matthew+4c7ea68afc21d87faac33e29587a5234.mp3
+  - positive_sentence_1+Matthew+8dcc9451c1f1e1306a0c844de90750bb.mp3
+  - positive_sentence_2+Matthew+690ee9ba0795bd03bb3929dbf2ab6b9f.mp3
+  - positive_sentence_3+Matthew+2d874b8599a5d70b9b369eb2a9e46c27.mp3
+  - positive_sentence_4+Matthew+293a6fe15b28e3fdc9287604c0fe074b.mp3
+  voice_id: Matthew
+  word: positive
+  word_audio_file:
+  - positive_word_0+Matthew+82082716189f80fd070b89ac716570ba.mp3
+- back_cards:
+  - definition_en: A legally recognized member of a country.
+    example_en: She became a citizen after passing the test.
+  - definition_en: A resident of a city or town.
+    example_en: The citizens of the town voted for a new mayor.
+  - definition_en: A person with rights and duties in a society.
+    example_en: Every citizen has the right to free speech.
+  - definition_en: An active participant in a community.
+    example_en: He’s a model citizen who volunteers regularly.
+  - definition_en: A civilian, as opposed to a soldier or official.
+    example_en: The law protects citizens during wartime.
+  freq: 92182
+  part_of_speech: noun
+  rank: 1054
+  sentence_audio_file:
+  - citizen_sentence_0+Matthew+9157db048355939bd40a801a16d0b486.mp3
+  - citizen_sentence_1+Matthew+823502553da03311273d1c1ee60a22f6.mp3
+  - citizen_sentence_2+Matthew+5c57cec415c0dc6044f5fa66bb2918a6.mp3
+  - citizen_sentence_3+Matthew+590b70bcbaeceba3a2a1564c71435f53.mp3
+  - citizen_sentence_4+Matthew+8f864caa505193d87894a25b5381e831.mp3
+  voice_id: Matthew
+  word: citizen
+  word_audio_file:
+  - citizen_word_0+Matthew+801c07d82d0bce07de9c57fedd87a46f.mp3
+- back_cards:
+  - definition_en: A journey or travel to a place.
+    example_en: We planned a trip to the mountains.
+  - definition_en: A short outing or excursion.
+    example_en: The class went on a trip to the museum.
+  - definition_en: An act of stumbling or falling.
+    example_en: She had a trip on the uneven path.
+  - definition_en: A period of experiencing something unusual.
+    example_en: The concert was a real trip for the fans.
+  - definition_en: A vacation or adventure.
+    example_en: Their trip to Europe lasted two weeks.
+  freq: 91830
+  part_of_speech: noun
+  rank: 1056
+  sentence_audio_file:
+  - trip_sentence_0+Matthew+f4d2bf989892a59b7e08d6d7ff81163e.mp3
+  - trip_sentence_1+Matthew+438486accad8e3f95323c06074ef4140.mp3
+  - trip_sentence_2+Matthew+7df5814be53a141ac1f2954cf8a40077.mp3
+  - trip_sentence_3+Matthew+f77e60694ada17e914d5bb058cdf3a8b.mp3
+  - trip_sentence_4+Matthew+60e87e3092f401382e2047e72e3f814b.mp3
+  voice_id: Matthew
+  word: trip
+  word_audio_file:
+  - trip_word_0+Matthew+7da7993d1249cb28b4e0c3e8524d15d2.mp3
+- back_cards:
+  - definition_en: To set up or create something permanent.
+    example_en: They plan to establish a new business.
+  - definition_en: To prove or confirm something as true.
+    example_en: The evidence helped establish his innocence.
+  - definition_en: To start or initiate a relationship or system.
+    example_en: The company established ties with local suppliers.
+  - definition_en: To make something recognized or accepted.
+    example_en: She worked hard to establish her reputation.
+  - definition_en: To settle or install in a place or role.
+    example_en: He established himself as a leader in the field.
+  freq: 91776
+  part_of_speech: verb
+  rank: 1057
+  sentence_audio_file:
+  - establish_sentence_0+Matthew+b0fd8246f9bc7ce5dc8f52d3b34e2ec5.mp3
+  - establish_sentence_1+Matthew+d1fe0ecf15c3f6524b627a57f4f8b77f.mp3
+  - establish_sentence_2+Matthew+25168c278bf394b1ea1c2a89fef13a85.mp3
+  - establish_sentence_3+Matthew+44d733bc729ab42d7ea67c7e465412c2.mp3
+  - establish_sentence_4+Matthew+198fe63e2265ece477b72c74da36fabb.mp3
+  voice_id: Matthew
+  word: establish
+  word_audio_file:
+  - establish_word_0+Matthew+cfaa89ec89b7e4605665cdc0069a56e1.mp3
+- back_cards:
+  - definition_en: A senior manager or leader in an organization.
+    example_en: The executive made key decisions for the company.
+  - definition_en: A person with high-level administrative authority.
+    example_en: She’s an executive at a tech firm.
+  - definition_en: The branch of government responsible for enforcing laws.
+    example_en: The executive signed the new policy into law.
+  - definition_en: Someone directing a specific project or division.
+    example_en: The marketing executive launched the campaign.
+  - definition_en: A role with strategic decision-making power.
+    example_en: He aspired to become a corporate executive.
+  freq: 91696
+  part_of_speech: noun
+  rank: 1058
+  sentence_audio_file:
+  - executive_sentence_0+Matthew+dd46b7e1d6fee6ecb51d07d939bb54d6.mp3
+  - executive_sentence_1+Matthew+dfdbce6f467cad56a7905637d8483df1.mp3
+  - executive_sentence_2+Matthew+8f9356e49e1514046a647a38f2304359.mp3
+  - executive_sentence_3+Matthew+6f52917d5cb8c559d18741a282c528fc.mp3
+  - executive_sentence_4+Matthew+47e603baa3423fc5caac9714d07eb4fb.mp3
+  voice_id: Matthew
+  word: executive
+  word_audio_file:
+  - executive_word_0+Matthew+3250d1e21c4281d3cd9479f5685770b6.mp3
+- back_cards:
+  - definition_en: The activities involved in governing a country.
+    example_en: She’s deeply involved in local politics.
+  - definition_en: The study or practice of political systems.
+    example_en: He majored in politics at university.
+  - definition_en: Interactions involving power or influence in a group.
+    example_en: Office politics can be challenging to navigate.
+  - definition_en: Debates or conflicts over policies or beliefs.
+    example_en: The dinner turned into a discussion of politics.
+  - definition_en: Strategies to achieve goals in a competitive environment.
+    example_en: The politics of the deal required careful negotiation.
+  freq: 91621
+  part_of_speech: noun
+  rank: 1059
+  sentence_audio_file:
+  - politics_sentence_0+Matthew+3ba27832caf0c23cd8c263a15b0b2e51.mp3
+  - politics_sentence_1+Matthew+1947dfc3502d502fb69b041b542eae82.mp3
+  - politics_sentence_2+Matthew+665029fafe97e2d56987481f52dad885.mp3
+  - politics_sentence_3+Matthew+4b320127bd6d0e03d64bac940a35b1e5.mp3
+  - politics_sentence_4+Matthew+c48bd8894d87fe33ce637d8c2fa054ac.mp3
+  voice_id: Matthew
+  word: politics
+  word_audio_file:
+  - politics_word_0+Matthew+a0f15d09df04d9ad657ce26e371ddf9a.mp3
+- back_cards:
+  - definition_en: A thin piece of wood or similar material.
+    example_en: The dog fetched the stick from the yard.
+  - definition_en: A tool or object shaped like a stick.
+    example_en: She stirred the soup with a wooden stick.
+  - definition_en: A small, thin item, like for eating or applying.
+    example_en: He ate the ice cream with a stick.
+  - definition_en: A remote or rural area, often plural.
+    example_en: They live out in the sticks.
+  - definition_en: A piece of equipment in sports, like hockey.
+    example_en: The player broke his stick during the game.
+  freq: 91597
+  part_of_speech: noun
+  rank: 1060
+  sentence_audio_file:
+  - stick_sentence_0+Matthew+8e328ca008ded7c3736ea2fe14292353.mp3
+  - stick_sentence_1+Matthew+9e6c530d5e0fc437f8f265ebc5c189a0.mp3
+  - stick_sentence_2+Matthew+c5050559481803f44acc63b7adad45c9.mp3
+  - stick_sentence_3+Matthew+c5a2ef3076c8363f54d9bf0b46d48c8b.mp3
+  - stick_sentence_4+Matthew+c4364a4f70f7577250c7aa412eeeb420.mp3
+  voice_id: Matthew
+  word: stick
+  word_audio_file:
+  - stick_word_0+Matthew+37f8bf33853e0a8c55c5fd2a26f9ffc0.mp3
