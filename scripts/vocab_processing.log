@@ -15064,3 +15064,130 @@ expected <block end>, but found '<block mapping start>'
 2025-06-25 01:09:06,972 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250625_010906.txt
 2025-06-25 01:09:06,980 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
 2025-06-25 01:09:06,981 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
+2025-06-25 01:17:55,142 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-25 01:17:55,355 - INFO - AWS Polly client initialized successfully.
+2025-06-25 01:17:55,362 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 01:17:55,365 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 01:18:05,336 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 01:18:05,336 - INFO - Appended 20 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 01:18:05,351 - INFO - Loading: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-25 01:18:10,116 - INFO - Generated audio for '<speak>admit</speak>' at D:\vocabswipe.github.io\data\audio\admit_word_0+Matthew+8d8bfbd10b5f6d48eb9691bb4871de62.mp3
+2025-06-25 01:18:10,727 - INFO - Generated audio for '<speak>admit. She had to admit her mistake to the team.</speak>' at D:\vocabswipe.github.io\data\audio\admit_sentence_0+Matthew+f1286956afd24b64e5edf235abf5f611.mp3
+2025-06-25 01:18:11,092 - INFO - Generated audio for '<speak>admit. The guard will admit you after checking your ID.</speak>' at D:\vocabswipe.github.io\data\audio\admit_sentence_1+Matthew+8e8927248dbd1be5cabe0563bbd627f8.mp3
+2025-06-25 01:18:11,442 - INFO - Generated audio for '<speak>admit. The hospital admitted him for observation.</speak>' at D:\vocabswipe.github.io\data\audio\admit_sentence_2+Matthew+7c9f8ca8bf6cd4072603a2ac447c6859.mp3
+2025-06-25 01:18:11,843 - INFO - Generated audio for '<speak>admit. I admit you were right about the plan.</speak>' at D:\vocabswipe.github.io\data\audio\admit_sentence_3+Matthew+c567a4f4f6e864ab37335fd19ec4fb44.mp3
+2025-06-25 01:18:12,184 - INFO - Generated audio for '<speak>admit. He admitted he hadn’t finished the project.</speak>' at D:\vocabswipe.github.io\data\audio\admit_sentence_4+Matthew+f7ff3c4e0ea7d10f689083013d199a1b.mp3
+2025-06-25 01:18:12,491 - INFO - Generated audio for '<speak>hello</speak>' at D:\vocabswipe.github.io\data\audio\hello_word_0+Matthew+5d41402abc4b2a76b9719d911017c592.mp3
+2025-06-25 01:18:12,857 - INFO - Generated audio for '<speak>hello. She said hello to everyone at the party.</speak>' at D:\vocabswipe.github.io\data\audio\hello_sentence_0+Matthew+b9bea4fa8a466793d62054e18f054999.mp3
+2025-06-25 01:18:13,196 - INFO - Generated audio for '<speak>hello. Hello, who’s this speaking?</speak>' at D:\vocabswipe.github.io\data\audio\hello_sentence_1+Matthew+f261da45f830b158b7d612925690e418.mp3
+2025-06-25 01:18:13,539 - INFO - Generated audio for '<speak>hello. Hello, can you hear me over there?</speak>' at D:\vocabswipe.github.io\data\audio\hello_sentence_2+Matthew+48298612b0f30124ce792a7096d72993.mp3
+2025-06-25 01:18:13,890 - INFO - Generated audio for '<speak>hello. He waved and shouted hello to his neighbor.</speak>' at D:\vocabswipe.github.io\data\audio\hello_sentence_3+Matthew+319ef74b929d9bf4e81edba3593f7513.mp3
+2025-06-25 01:18:14,243 - INFO - Generated audio for '<speak>hello. Her email started with a simple hello.</speak>' at D:\vocabswipe.github.io\data\audio\hello_sentence_4+Matthew+785f59982b87df19de7238cb5c49567a.mp3
+2025-06-25 01:18:14,560 - INFO - Generated audio for '<speak>onto</speak>' at D:\vocabswipe.github.io\data\audio\onto_word_0+Matthew+b97682899b6f2636d408ed8d419ba8cb.mp3
+2025-06-25 01:18:14,910 - INFO - Generated audio for '<speak>onto. She climbed onto the roof to fix a leak.</speak>' at D:\vocabswipe.github.io\data\audio\onto_sentence_0+Matthew+c8225169f641897f1e6f4e89f2c14d3f.mp3
+2025-06-25 01:18:15,251 - INFO - Generated audio for '<speak>onto. I’m onto your plan to surprise me.</speak>' at D:\vocabswipe.github.io\data\audio\onto_sentence_1+Matthew+0b5c057de7d7fe975b7162ac54542c96.mp3
+2025-06-25 01:18:15,604 - INFO - Generated audio for '<speak>onto. Let’s move onto the next agenda item.</speak>' at D:\vocabswipe.github.io\data\audio\onto_sentence_2+Matthew+d97d5b66fcaa15222886292e11b7cf86.mp3
+2025-06-25 01:18:15,959 - INFO - Generated audio for '<speak>onto. The cat jumped onto the table.</speak>' at D:\vocabswipe.github.io\data\audio\onto_sentence_3+Matthew+4c19eb1bd726b71dcd2e44e1a92e9301.mp3
+2025-06-25 01:18:16,303 - INFO - Generated audio for '<speak>onto. We’re onto the final phase of the project.</speak>' at D:\vocabswipe.github.io\data\audio\onto_sentence_4+Matthew+3cca19371a3057bfe6462b3b3d6fa814.mp3
+2025-06-25 01:18:16,613 - INFO - Generated audio for '<speak>sea</speak>' at D:\vocabswipe.github.io\data\audio\sea_word_0+Matthew+804f743824c0451b2f60d81b63b6a900.mp3
+2025-06-25 01:18:16,962 - INFO - Generated audio for '<speak>sea. We sailed across the sea to reach the island.</speak>' at D:\vocabswipe.github.io\data\audio\sea_sentence_0+Matthew+d4cc516ab9ca91bee6327471bff1346d.mp3
+2025-06-25 01:18:17,303 - INFO - Generated audio for '<speak>sea. A sea of people filled the stadium.</speak>' at D:\vocabswipe.github.io\data\audio\sea_sentence_1+Matthew+2440e1c18776bf647a8df93f7e1efaeb.mp3
+2025-06-25 01:18:17,654 - INFO - Generated audio for '<speak>sea. The sea is calm today for fishing.</speak>' at D:\vocabswipe.github.io\data\audio\sea_sentence_2+Matthew+05aa9634e257c5ab8374af8fc9de03a1.mp3
+2025-06-25 01:18:18,043 - INFO - Generated audio for '<speak>sea. The Mediterranean Sea is popular for cruises.</speak>' at D:\vocabswipe.github.io\data\audio\sea_sentence_3+Matthew+cf3396470cfbec50a4c6f96ccf87a0ea.mp3
+2025-06-25 01:18:18,396 - INFO - Generated audio for '<speak>sea. She navigated a sea of difficulties at work.</speak>' at D:\vocabswipe.github.io\data\audio\sea_sentence_4+Matthew+446cf04fa1dbac402e10d404a8122202.mp3
+2025-06-25 01:18:18,746 - INFO - Generated audio for '<speak>okay. Okay, I’ll meet you at six.</speak>' at D:\vocabswipe.github.io\data\audio\okay_sentence_5+Matthew+a038da2678cb16f217ea46efcaf6e7ee.mp3
+2025-06-25 01:18:19,099 - INFO - Generated audio for '<speak>okay. Okay, I get how the app works now.</speak>' at D:\vocabswipe.github.io\data\audio\okay_sentence_6+Matthew+a2ea153edb162e88ed8edf2a02420168.mp3
+2025-06-25 01:18:19,447 - INFO - Generated audio for '<speak>okay. Okay, what’s the next step?</speak>' at D:\vocabswipe.github.io\data\audio\okay_sentence_7+Matthew+71a4cde00e6553fca8339945c7addded.mp3
+2025-06-25 01:18:19,793 - INFO - Generated audio for '<speak>okay. Don’t worry, everything’s okay.</speak>' at D:\vocabswipe.github.io\data\audio\okay_sentence_8+Matthew+26e2462d3eb58614ed2095826c9708ed.mp3
+2025-06-25 01:18:20,144 - INFO - Generated audio for '<speak>okay. Is everyone okay after the game?</speak>' at D:\vocabswipe.github.io\data\audio\okay_sentence_9+Matthew+29ecec5525116f3a1ec87c91595a1dab.mp3
+2025-06-25 01:18:20,455 - INFO - Generated audio for '<speak>mouth</speak>' at D:\vocabswipe.github.io\data\audio\mouth_word_0+Matthew+cb5786412becb979c90f606f25ad4b4f.mp3
+2025-06-25 01:18:20,802 - INFO - Generated audio for '<speak>mouth. She covered her mouth while coughing.</speak>' at D:\vocabswipe.github.io\data\audio\mouth_sentence_0+Matthew+f01ab22f6be4750d8a0e7b820beeee22.mp3
+2025-06-25 01:18:21,162 - INFO - Generated audio for '<speak>mouth. The river’s mouth feeds into the ocean.</speak>' at D:\vocabswipe.github.io\data\audio\mouth_sentence_1+Matthew+53165fdbc86afa22ed3f856eb527e940.mp3
+2025-06-25 01:18:21,514 - INFO - Generated audio for '<speak>mouth. Word of mouth spread the news quickly.</speak>' at D:\vocabswipe.github.io\data\audio\mouth_sentence_2+Matthew+ebb5d564f3663472a8e0a05fd67e126e.mp3
+2025-06-25 01:18:21,861 - INFO - Generated audio for '<speak>mouth. His wide mouth gave him a friendly look.</speak>' at D:\vocabswipe.github.io\data\audio\mouth_sentence_3+Matthew+5ecfd335e69e5fc8254b617d4dcaa96f.mp3
+2025-06-25 01:18:22,222 - INFO - Generated audio for '<speak>mouth. The dentist examined her mouth carefully.</speak>' at D:\vocabswipe.github.io\data\audio\mouth_sentence_4+Matthew+42920b4dc3173c0d912286e601cf8a75.mp3
+2025-06-25 01:18:22,532 - INFO - Generated audio for '<speak>throughout</speak>' at D:\vocabswipe.github.io\data\audio\throughout_word_0+Matthew+a8d4ea2fefc3390777d1490639ec8538.mp3
+2025-06-25 01:18:22,877 - INFO - Generated audio for '<speak>throughout. Flowers bloomed throughout the garden.</speak>' at D:\vocabswipe.github.io\data\audio\throughout_sentence_0+Matthew+f20dcc1905796094b50604a7447c1b57.mp3
+2025-06-25 01:18:23,219 - INFO - Generated audio for '<speak>throughout. She worked throughout the weekend.</speak>' at D:\vocabswipe.github.io\data\audio\throughout_sentence_1+Matthew+0e9776d75a4d809be0f2ef1c6be0d543.mp3
+2025-06-25 01:18:23,623 - INFO - Generated audio for '<speak>throughout. The festival was celebrated throughout the city.</speak>' at D:\vocabswipe.github.io\data\audio\throughout_sentence_2+Matthew+c78ebcbb75b7f720c3895a6979feba59.mp3
+2025-06-25 01:18:23,977 - INFO - Generated audio for '<speak>throughout. His influence is felt throughout the company.</speak>' at D:\vocabswipe.github.io\data\audio\throughout_sentence_3+Matthew+62f183d2486682f1afcf6ac01e271caa.mp3
+2025-06-25 01:18:24,332 - INFO - Generated audio for '<speak>throughout. The theme runs throughout the novel.</speak>' at D:\vocabswipe.github.io\data\audio\throughout_sentence_4+Matthew+efe0f9472d7307c9ec7fc68b186ff325.mp3
+2025-06-25 01:18:24,669 - INFO - Generated audio for '<speak>own. She built her own business from scratch.</speak>' at D:\vocabswipe.github.io\data\audio\own_sentence_5+Matthew+972fb38c338a290b3622ff5599554faa.mp3
+2025-06-25 01:18:25,013 - INFO - Generated audio for '<speak>own. I have my own room in the house.</speak>' at D:\vocabswipe.github.io\data\audio\own_sentence_6+Matthew+577e1368f424ff5e31f24a50ec9ef586.mp3
+2025-06-25 01:18:25,359 - INFO - Generated audio for '<speak>own. He prefers to work on his own.</speak>' at D:\vocabswipe.github.io\data\audio\own_sentence_7+Matthew+ab45a491db1baa85589e54381289ae4f.mp3
+2025-06-25 01:18:25,700 - INFO - Generated audio for '<speak>own. That’s my own decision to make.</speak>' at D:\vocabswipe.github.io\data\audio\own_sentence_8+Matthew+d3bbccaed6746d73274cef9034ffbf29.mp3
+2025-06-25 01:18:26,040 - INFO - Generated audio for '<speak>own. She has her own style of painting.</speak>' at D:\vocabswipe.github.io\data\audio\own_sentence_9+Matthew+db359328b7cd2b96938846412ee4b261.mp3
+2025-06-25 01:18:26,378 - INFO - Generated audio for '<speak>test. The math test was challenging.</speak>' at D:\vocabswipe.github.io\data\audio\test_sentence_5+Matthew+d458153b24b732b75e0b07137f5e530b.mp3
+2025-06-25 01:18:26,724 - INFO - Generated audio for '<speak>test. The new car passed the safety test.</speak>' at D:\vocabswipe.github.io\data\audio\test_sentence_6+Matthew+7eda81c9cbd5c0c53e36856ccaef0ad7.mp3
+2025-06-25 01:18:27,090 - INFO - Generated audio for '<speak>test. The doctor ordered a blood test.</speak>' at D:\vocabswipe.github.io\data\audio\test_sentence_7+Matthew+fff8dcdad191ed2c44a2b8891598e1fa.mp3
+2025-06-25 01:18:27,432 - INFO - Generated audio for '<speak>test. We ran a test on the software.</speak>' at D:\vocabswipe.github.io\data\audio\test_sentence_8+Matthew+2d54a6b1323604c5aada420472daf35c.mp3
+2025-06-25 01:18:27,814 - INFO - Generated audio for '<speak>test. The race was a test of endurance.</speak>' at D:\vocabswipe.github.io\data\audio\test_sentence_9+Matthew+b617b3b7efd5578cd3d03ae2d38b2860.mp3
+2025-06-25 01:18:28,122 - INFO - Generated audio for '<speak>web</speak>' at D:\vocabswipe.github.io\data\audio\web_word_0+Matthew+2567a5ec9705eb7ac2c984033e06189d.mp3
+2025-06-25 01:18:28,464 - INFO - Generated audio for '<speak>web. A spider’s web was in the corner.</speak>' at D:\vocabswipe.github.io\data\audio\web_sentence_0+Matthew+302ea2d19025ef5120ec7b473978ab3c.mp3
+2025-06-25 01:18:28,814 - INFO - Generated audio for '<speak>web. I found the article on the web.</speak>' at D:\vocabswipe.github.io\data\audio\web_sentence_1+Matthew+1c085c763e60dea6db7a2551ab8ee765.mp3
+2025-06-25 01:18:29,169 - INFO - Generated audio for '<speak>web. She’s caught in a web of lies.</speak>' at D:\vocabswipe.github.io\data\audio\web_sentence_2+Matthew+f7fc7a69b1a39a9cb935b5dd95a96d9f.mp3
+2025-06-25 01:18:29,515 - INFO - Generated audio for '<speak>web. The web of links made navigation easy.</speak>' at D:\vocabswipe.github.io\data\audio\web_sentence_3+Matthew+19b3767620eba8a5bbba754aea7dbae8.mp3
+2025-06-25 01:18:29,867 - INFO - Generated audio for '<speak>web. The web of relationships shaped the team.</speak>' at D:\vocabswipe.github.io\data\audio\web_sentence_4+Matthew+38cc715eecc27c317afa9feb178b1955.mp3
+2025-06-25 01:18:30,176 - INFO - Generated audio for '<speak>shake</speak>' at D:\vocabswipe.github.io\data\audio\shake_word_0+Matthew+5ffc7d46cf7f0b09b98441c03c269478.mp3
+2025-06-25 01:18:30,527 - INFO - Generated audio for '<speak>shake. Shake the bottle before opening it.</speak>' at D:\vocabswipe.github.io\data\audio\shake_sentence_0+Matthew+8ee401b33bf68350d8a5bd3ba3d468c7.mp3
+2025-06-25 01:18:30,869 - INFO - Generated audio for '<speak>shake. He was shaking with fear during the storm.</speak>' at D:\vocabswipe.github.io\data\audio\shake_sentence_1+Matthew+8af809b7015648e42baf34af67db4542.mp3
+2025-06-25 01:18:31,210 - INFO - Generated audio for '<speak>shake. The news shook her confidence.</speak>' at D:\vocabswipe.github.io\data\audio\shake_sentence_2+Matthew+50e8c5979a793233bf7a4b6318f88814.mp3
+2025-06-25 01:18:31,565 - INFO - Generated audio for '<speak>shake. Shake the ingredients to make a smoothie.</speak>' at D:\vocabswipe.github.io\data\audio\shake_sentence_3+Matthew+d0a0a2ce9d11135638303dd0e469441a.mp3
+2025-06-25 01:18:31,915 - INFO - Generated audio for '<speak>shake. I can’t shake this cold.</speak>' at D:\vocabswipe.github.io\data\audio\shake_sentence_4+Matthew+3e5851bb51669eacd9d5f62e02bf7a94.mp3
+2025-06-25 01:18:32,233 - INFO - Generated audio for '<speak>threat</speak>' at D:\vocabswipe.github.io\data\audio\threat_word_0+Matthew+58e95539b680d49a50ef898e56a5bbb0.mp3
+2025-06-25 01:18:32,577 - INFO - Generated audio for '<speak>threat. The letter contained a serious threat.</speak>' at D:\vocabswipe.github.io\data\audio\threat_sentence_0+Matthew+a6e5900b747f0d9882b8242cc9ff4b5a.mp3
+2025-06-25 01:18:32,921 - INFO - Generated audio for '<speak>threat. Climate change is a global threat.</speak>' at D:\vocabswipe.github.io\data\audio\threat_sentence_1+Matthew+b3de15e1878bd347d736e935a76230ca.mp3
+2025-06-25 01:18:33,282 - INFO - Generated audio for '<speak>threat. The company faced a threat of a strike.</speak>' at D:\vocabswipe.github.io\data\audio\threat_sentence_2+Matthew+64dbd1d73bf30d2e87d16d43d93f81c0.mp3
+2025-06-25 01:18:33,645 - INFO - Generated audio for '<speak>threat. He saw the dog as a threat.</speak>' at D:\vocabswipe.github.io\data\audio\threat_sentence_3+Matthew+9f223b3e7fedd21d117ed11e75e5cd71.mp3
+2025-06-25 01:18:33,989 - INFO - Generated audio for '<speak>threat. Cyber threats are increasing daily.</speak>' at D:\vocabswipe.github.io\data\audio\threat_sentence_4+Matthew+67adc4de7181951e732cdeedb03f0ebd.mp3
+2025-06-25 01:18:34,306 - INFO - Generated audio for '<speak>solution</speak>' at D:\vocabswipe.github.io\data\audio\solution_word_0+Matthew+550237b8fbcdf3741bb1127d0fc7f6bf.mp3
+2025-06-25 01:18:34,685 - INFO - Generated audio for '<speak>solution. We found a solution to the puzzle.</speak>' at D:\vocabswipe.github.io\data\audio\solution_sentence_0+Matthew+ee31cd09970285450fc84cb8bdcbe435.mp3
+2025-06-25 01:18:35,037 - INFO - Generated audio for '<speak>solution. The team proposed a solution for delays.</speak>' at D:\vocabswipe.github.io\data\audio\solution_sentence_1+Matthew+2da87e4e032b75dac68e57f3c34422e1.mp3
+2025-06-25 01:18:35,399 - INFO - Generated audio for '<speak>solution. The solution turned blue during the experiment.</speak>' at D:\vocabswipe.github.io\data\audio\solution_sentence_2+Matthew+f575f5baa4e30d2f06d842309c18167a.mp3
+2025-06-25 01:18:35,753 - INFO - Generated audio for '<speak>solution. Their solution boosted sales significantly.</speak>' at D:\vocabswipe.github.io\data\audio\solution_sentence_3+Matthew+af304df9dafb9221532624598f58d0f2.mp3
+2025-06-25 01:18:36,109 - INFO - Generated audio for '<speak>solution. The software update was the solution.</speak>' at D:\vocabswipe.github.io\data\audio\solution_sentence_4+Matthew+62176528c205693d283748dd13cd437f.mp3
+2025-06-25 01:18:36,432 - INFO - Generated audio for '<speak>shut</speak>' at D:\vocabswipe.github.io\data\audio\shut_word_0+Matthew+74985f5115ad149212a917dbef8ec801.mp3
+2025-06-25 01:18:36,790 - INFO - Generated audio for '<speak>shut. Please shut the door quietly.</speak>' at D:\vocabswipe.github.io\data\audio\shut_sentence_0+Matthew+931958408b66995c99e83acbeded3982.mp3
+2025-06-25 01:18:37,152 - INFO - Generated audio for '<speak>shut. The factory shut down for repairs.</speak>' at D:\vocabswipe.github.io\data\audio\shut_sentence_1+Matthew+f0cc7dfc0d92060dcb957d4a56bddf3c.mp3
+2025-06-25 01:18:37,550 - INFO - Generated audio for '<speak>shut. He shut her argument with facts.</speak>' at D:\vocabswipe.github.io\data\audio\shut_sentence_2+Matthew+cb4dccbf3d55fb77e0746c9951f799d2.mp3
+2025-06-25 01:18:37,892 - INFO - Generated audio for '<speak>shut. They shut the windows before the storm.</speak>' at D:\vocabswipe.github.io\data\audio\shut_sentence_3+Matthew+1cb6559876c59c4b33393851dba10429.mp3
+2025-06-25 01:18:38,273 - INFO - Generated audio for '<speak>shut. The shop shuts at 6 p.m.</speak>' at D:\vocabswipe.github.io\data\audio\shut_sentence_4+Matthew+8f5ee16fb92355225c083b7f62fb6f97.mp3
+2025-06-25 01:18:38,615 - INFO - Generated audio for '<speak>down. She walked down the stairs carefully.</speak>' at D:\vocabswipe.github.io\data\audio\down_sentence_5+Matthew+1b41246859e8d8a8b8569992f0125da4.mp3
+2025-06-25 01:18:38,963 - INFO - Generated audio for '<speak>down. Sales are down this quarter.</speak>' at D:\vocabswipe.github.io\data\audio\down_sentence_6+Matthew+bd083e87fa23d974b1d3bb90bf03c3f3.mp3
+2025-06-25 01:18:39,312 - INFO - Generated audio for '<speak>down. Drive down the road to find the store.</speak>' at D:\vocabswipe.github.io\data\audio\down_sentence_7+Matthew+4b22f52de5ec24fc1c4e5ad7ac20cf79.mp3
+2025-06-25 01:18:39,694 - INFO - Generated audio for '<speak>down. The website is down for maintenance.</speak>' at D:\vocabswipe.github.io\data\audio\down_sentence_8+Matthew+7bee4e8723b5995398d0f9aec67d3017.mp3
+2025-06-25 01:18:40,039 - INFO - Generated audio for '<speak>down. I wrote down all the instructions.</speak>' at D:\vocabswipe.github.io\data\audio\down_sentence_9+Matthew+0d9f0f20d60bd1093b4112e4cd8cc1b2.mp3
+2025-06-25 01:18:40,356 - INFO - Generated audio for '<speak>travel</speak>' at D:\vocabswipe.github.io\data\audio\travel_word_0+Matthew+69266c67e75c946ef9b4144b0554326d.mp3
+2025-06-25 01:18:40,746 - INFO - Generated audio for '<speak>travel. We plan to travel to Europe next summer.</speak>' at D:\vocabswipe.github.io\data\audio\travel_sentence_0+Matthew+3a11ebf15067a0224d140fd86f6c28d0.mp3
+2025-06-25 01:18:41,131 - INFO - Generated audio for '<speak>travel. News travels fast in a small town.</speak>' at D:\vocabswipe.github.io\data\audio\travel_sentence_1+Matthew+ecf09ad186e552362cc4ebf35724b185.mp3
+2025-06-25 01:18:41,485 - INFO - Generated audio for '<speak>travel. He travels daily to the city for his job.</speak>' at D:\vocabswipe.github.io\data\audio\travel_sentence_2+Matthew+08e40bb3238905f4beae27d03f389e5d.mp3
+2025-06-25 01:18:41,846 - INFO - Generated audio for '<speak>travel. She loves to travel and try new foods.</speak>' at D:\vocabswipe.github.io\data\audio\travel_sentence_3+Matthew+af895aacfdb23d0afe3542807fdb9463.mp3
+2025-06-25 01:18:42,191 - INFO - Generated audio for '<speak>travel. The bill is traveling through Congress.</speak>' at D:\vocabswipe.github.io\data\audio\travel_sentence_4+Matthew+35d7c18ad41b09b7bd4b38cbefa3c315.mp3
+2025-06-25 01:18:42,507 - INFO - Generated audio for '<speak>scientist</speak>' at D:\vocabswipe.github.io\data\audio\scientist_word_0+Matthew+eaf82fa7e2c09d748dcbae4b4b09abe8.mp3
+2025-06-25 01:18:42,869 - INFO - Generated audio for '<speak>scientist. The scientist discovered a new species.</speak>' at D:\vocabswipe.github.io\data\audio\scientist_sentence_0+Matthew+86e67feca7e27111d859e63f4382c383.mp3
+2025-06-25 01:18:43,222 - INFO - Generated audio for '<speak>scientist. She’s a scientist specializing in physics.</speak>' at D:\vocabswipe.github.io\data\audio\scientist_sentence_1+Matthew+9ccbd81d9e363450e060fdf6157d821d.mp3
+2025-06-25 01:18:43,569 - INFO - Generated audio for '<speak>scientist. Scientists developed the new vaccine.</speak>' at D:\vocabswipe.github.io\data\audio\scientist_sentence_2+Matthew+c5f29ec04278e2e2f6b6433ad213faac.mp3
+2025-06-25 01:18:43,947 - INFO - Generated audio for '<speak>scientist. The scientist published a groundbreaking paper.</speak>' at D:\vocabswipe.github.io\data\audio\scientist_sentence_3+Matthew+cf910b1f7c36311a5497d9e1b6905951.mp3
+2025-06-25 01:18:44,301 - INFO - Generated audio for '<speak>scientist. Our scientist tested the new theory.</speak>' at D:\vocabswipe.github.io\data\audio\scientist_sentence_4+Matthew+660ba99b6e59bbc5cf47af6cdbc403c7.mp3
+2025-06-25 01:18:44,611 - INFO - Generated audio for '<speak>hide</speak>' at D:\vocabswipe.github.io\data\audio\hide_word_0+Matthew+a88f05b6c963e145a45b58c47cd42a41.mp3
+2025-06-25 01:18:44,958 - INFO - Generated audio for '<speak>hide. The kids love to hide during games.</speak>' at D:\vocabswipe.github.io\data\audio\hide_sentence_0+Matthew+7f4552593b969836beeedd59c7c6bbb7.mp3
+2025-06-25 01:18:46,352 - INFO - Generated audio for '<speak>hide. She hid her diary under the bed.</speak>' at D:\vocabswipe.github.io\data\audio\hide_sentence_1+Matthew+f868317a7af8c9ee93e6450947f60d80.mp3
+2025-06-25 01:18:46,695 - INFO - Generated audio for '<speak>hide. The fog hid the mountain from sight.</speak>' at D:\vocabswipe.github.io\data\audio\hide_sentence_2+Matthew+a23442f780a07ebb4643c4e51c31f896.mp3
+2025-06-25 01:18:47,071 - INFO - Generated audio for '<speak>hide. He tried to hide his disappointment.</speak>' at D:\vocabswipe.github.io\data\audio\hide_sentence_3+Matthew+0bbf410811813029af70803450ecef43.mp3
+2025-06-25 01:18:47,415 - INFO - Generated audio for '<speak>hide. They hid the treasure in a cave.</speak>' at D:\vocabswipe.github.io\data\audio\hide_sentence_4+Matthew+09ae132b87a52f213cb079e1bcfb7279.mp3
+2025-06-25 01:18:47,793 - INFO - Generated audio for '<speak>obviously</speak>' at D:\vocabswipe.github.io\data\audio\obviously_word_0+Matthew+389f94b933ee353f55b0fc7998f223d3.mp3
+2025-06-25 01:18:48,142 - INFO - Generated audio for '<speak>obviously. She was obviously upset about the news.</speak>' at D:\vocabswipe.github.io\data\audio\obviously_sentence_0+Matthew+ede7782842169a76808b7c7150d91ea1.mp3
+2025-06-25 01:18:48,503 - INFO - Generated audio for '<speak>obviously. Obviously, we need more time to finish.</speak>' at D:\vocabswipe.github.io\data\audio\obviously_sentence_1+Matthew+4af33df7b410d516c9bea8b573d91638.mp3
+2025-06-25 01:18:48,852 - INFO - Generated audio for '<speak>obviously. He’s obviously the best candidate.</speak>' at D:\vocabswipe.github.io\data\audio\obviously_sentence_2+Matthew+ca3c2cf4914e0a847ba23b3612c426ce.mp3
+2025-06-25 01:18:49,201 - INFO - Generated audio for '<speak>obviously. It’s obviously going to rain soon.</speak>' at D:\vocabswipe.github.io\data\audio\obviously_sentence_3+Matthew+d928ca0c001d5a383448c1e1b3428e4e.mp3
+2025-06-25 01:18:49,554 - INFO - Generated audio for '<speak>obviously. The solution was obviously correct.</speak>' at D:\vocabswipe.github.io\data\audio\obviously_sentence_4+Matthew+8803948aac3a770b823f9b0c5e98aa8b.mp3
+2025-06-25 01:18:49,875 - INFO - Generated audio for '<speak>refer</speak>' at D:\vocabswipe.github.io\data\audio\refer_word_0+Matthew+29585c700c8d0be16c6b0a24d8c9d0bc.mp3
+2025-06-25 01:18:50,225 - INFO - Generated audio for '<speak>refer. She referred to the book during her speech.</speak>' at D:\vocabswipe.github.io\data\audio\refer_sentence_0+Matthew+987c80cdfe23b7604fd7f33c231f41b3.mp3
+2025-06-25 01:18:50,597 - INFO - Generated audio for '<speak>refer. The doctor referred me to a specialist.</speak>' at D:\vocabswipe.github.io\data\audio\refer_sentence_1+Matthew+bb0598478637cc45bede198c27adbf5a.mp3
+2025-06-25 01:18:50,949 - INFO - Generated audio for '<speak>refer. I’ll refer to the manual for instructions.</speak>' at D:\vocabswipe.github.io\data\audio\refer_sentence_2+Matthew+bd425023046cc004a38819d77b4c352d.mp3
+2025-06-25 01:18:51,300 - INFO - Generated audio for '<speak>refer. The rule doesn’t refer to this case.</speak>' at D:\vocabswipe.github.io\data\audio\refer_sentence_3+Matthew+6018d0e0a84b8f83d2c2a4d62cddb977.mp3
+2025-06-25 01:18:51,650 - INFO - Generated audio for '<speak>refer. He referred a friend for the job.</speak>' at D:\vocabswipe.github.io\data\audio\refer_sentence_4+Matthew+74c83fcd483113c15399931ed2bd71a3.mp3
+2025-06-25 01:18:54,490 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-25 01:18:54,507 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250625_011854.txt
+2025-06-25 01:18:54,514 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 01:18:54,516 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
