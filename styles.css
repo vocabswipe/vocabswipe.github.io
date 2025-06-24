@@ -29,7 +29,7 @@ body[data-theme="dark"] {
     max-width: 600px;
     padding: 16px;
     padding-top: 40px;
-    position: relative; /* For positioning theme toggle */
+    position: relative;
 }
 
 .theme-toggle {
@@ -72,7 +72,7 @@ body[data-theme="dark"] {
 
 body[data-theme="dark"] .website-name,
 body[data-theme="dark"] .slogan {
-    color: #60a5fa; /* Lighter blue for dark theme */
+    color: #60a5fa;
 }
 
 .slogan {
@@ -98,7 +98,7 @@ body[data-theme="dark"] .rank,
 body[data-theme="dark"] .freq-label,
 body[data-theme="dark"] .definition,
 body[data-theme="dark"] .example {
-    color: #9ca3af; /* Lighter gray for dark theme */
+    color: #9ca3af;
 }
 
 .flashcard-container {
@@ -247,17 +247,13 @@ body[data-theme="dark"] .meta-info {
     border-radius: 4px;
     overflow: hidden;
     position: relative;
-    border: 1px solid #6b7280;
-}
-
-body[data-theme="dark"] .freq-bar {
-    border: 1px solid #9ca3af; /* Lighter border for dark theme */
+    border: 1px solid #000000; /* Black outline */
 }
 
 .freq-fill {
     height: 100%;
     transition: width 0.3s ease-in-out;
-    background: #ffffff; /* Solid white to reveal gradient */
+    background: #ffffff; /* White to reveal gradient */
 }
 
 @media (max-width: 768px) {
