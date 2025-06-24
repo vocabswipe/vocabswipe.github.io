@@ -224,6 +224,14 @@
     example_en: He’s in a good mood.
   - definition_en: Refers to inclusion.
     example_en: Sugar is in the recipe.
+  - definition_en: Indicating location within
+    example_en: She lives in a small village.
+  - definition_en: Showing involvement or state
+    example_en: He’s in trouble for being late.
+  - definition_en: Indicating a manner or medium
+    example_en: The note was written in pencil.
+  - definition_en: Expressing inclusion
+    example_en: There’s sugar in the recipe.
   freq: 15670692
   part_of_speech: preposition
   rank: 7
@@ -243,6 +251,10 @@
   - in_sentence_12+Matthew+36a10ee6ad995b3fc43df30bc527a5f6.mp3
   - in_sentence_13+Matthew+2b3b384a75e4b42e27afa912a809823e.mp3
   - in_sentence_14+Matthew+919894404de173df4cb2c61d3c485c1a.mp3
+  - in_sentence_15+Matthew+ae0f9568ecde24f2a8aac70d5588442a.mp3
+  - in_sentence_16+Matthew+fc0d482df803a9db9c7fc73ce2a3a737.mp3
+  - in_sentence_17+Matthew+840243b30a899e7d125a7ec419a160f3.mp3
+  - in_sentence_18+Matthew+e95977cec4f97bdb305cc39c3c6488b4.mp3
   voice_id: Matthew
   word: in
   word_audio_file:
@@ -434,6 +446,16 @@
     example_en: It’s ten minutes to eight.
   - definition_en: Relates to a connection.
     example_en: This key is to the safe.
+  - definition_en: Indicating direction or destination
+    example_en: She walked to the park this morning.
+  - definition_en: Expressing purpose or intention
+    example_en: He studied hard to pass the exam.
+  - definition_en: Indicating a recipient
+    example_en: I gave the book to my friend.
+  - definition_en: Marking a limit or range
+    example_en: The event runs from Monday to Friday.
+  - definition_en: Showing a relationship
+    example_en: This key belongs to the front door.
   freq: 9232572
   part_of_speech: preposition
   rank: 12
@@ -453,6 +475,11 @@
   - to_sentence_12+Matthew+b47ab169b10302d11e2f3c2a9d5b5718.mp3
   - to_sentence_13+Matthew+8cdfac28ada6c0789a8ab73f898f32a7.mp3
   - to_sentence_14+Matthew+f6e769e62b83c1d94e8885bbdcf06e78.mp3
+  - to_sentence_15+Matthew+7955d79cf7ae434d10dd1278f4a4f52b.mp3
+  - to_sentence_16+Matthew+f09f0ad244a9a210a383d9a5e93a5cfc.mp3
+  - to_sentence_17+Matthew+a368c4c1052ddf0fe3c5225606406bca.mp3
+  - to_sentence_18+Matthew+e8284c3cf1219bd33f5040b7901e2f4b.mp3
+  - to_sentence_19+Matthew+3fe00b7a120e79e947b93a5f863a31ec.mp3
   voice_id: Matthew
   word: to
   word_audio_file:
@@ -486,6 +513,14 @@
     example_en: It wasn’t that difficult to solve.
   - definition_en: Connects a result or consequence.
     example_en: He studied so much that he passed.
+  - definition_en: Referring to a specific thing or person
+    example_en: That is the house where I grew up.
+  - definition_en: Introducing a clause
+    example_en: She said that she would be late.
+  - definition_en: Indicating a reason or cause
+    example_en: I’m tired, and that’s why I’m leaving early.
+  - definition_en: Pointing to something distant
+    example_en: Look at that bird in the tree!
   freq: 8319512
   part_of_speech: pronoun
   rank: 13
@@ -504,6 +539,10 @@
   - that_sentence_11+Matthew+7ab073f7ccb1c5429b2a5894c1db4a8e.mp3
   - that_sentence_12+Matthew+48b95960b9c9baf1b529c513a3037371.mp3
   - that_sentence_13+Matthew+5e1edbfd12c1b9550ec1b980c0aec32a.mp3
+  - that_sentence_14+Matthew+5d186f779cef3d8103f7248497489925.mp3
+  - that_sentence_15+Matthew+0e92d43a3eff48a78d5c0c54ddd4523d.mp3
+  - that_sentence_16+Matthew+68f4a2b12cf3c1041b4b7b8cd1d2bfc5.mp3
+  - that_sentence_17+Matthew+faa3bafca79637e1b072b96ec34f76a5.mp3
   voice_id: Matthew
   word: that
   word_audio_file:
@@ -693,6 +732,14 @@
     example_en: He spoke on climate change.
   - definition_en: Refers to continuation.
     example_en: Keep on working hard.
+  - definition_en: Indicating position above and in contact
+    example_en: The book is on the shelf.
+  - definition_en: Referring to a specific time
+    example_en: The meeting is on Monday.
+  - definition_en: Showing support or attachment
+    example_en: The sticker is on the laptop.
+  - definition_en: Indicating continuation
+    example_en: They kept on working despite the rain.
   freq: 6080156
   part_of_speech: preposition
   rank: 18
@@ -711,6 +758,10 @@
   - on_sentence_11+Matthew+fad49a95968ac4a1221fd4245beda2a6.mp3
   - on_sentence_12+Matthew+72456abd72beba8d9057b619bee51548.mp3
   - on_sentence_13+Matthew+09848fc07976fc2d73c31cd3d4ca622f.mp3
+  - on_sentence_14+Matthew+59c2ea985e8be26ed3e04b522319b0b0.mp3
+  - on_sentence_15+Matthew+b773f8bf60518b1a1ab3a36315b009f4.mp3
+  - on_sentence_16+Matthew+5d2f265e8a55137f2a1726c7ced27b1d.mp3
+  - on_sentence_17+Matthew+c60710a808f9e0acfc64700cca85ff86.mp3
   voice_id: Matthew
   word: 'on'
   word_audio_file:
@@ -1208,6 +1259,24 @@
     example_en: As it was late, we left.
   - definition_en: Refers to a role.
     example_en: He works as a chef.
+  - definition_en: In the role or function of
+    example_en: She works as a teacher at the school.
+  - definition_en: During the time when
+    example_en: He called as I was leaving the house.
+  - definition_en: To the same degree or extent
+    example_en: The hike wasn’t as hard as I expected.
+  - definition_en: Introducing an example
+    example_en: Some sports, such as soccer, require teamwork.
+  - definition_en: While or during the time
+    example_en: I saw her as I was leaving the store.
+  - definition_en: In the same way that
+    example_en: He runs as fast as his brother.
+  - definition_en: Because or since
+    example_en: As it was raining, we stayed inside.
+  - definition_en: Introducing a comparison
+    example_en: She sings as beautifully as a professional.
+  - definition_en: Serving as an example
+    example_en: Some fruits, as apples, are sweet.
   freq: 2946119
   part_of_speech: preposition
   rank: 38
@@ -1227,6 +1296,15 @@
   - as_sentence_12+Matthew+de658c9bd9f860ea9c46fb63e523d4ae.mp3
   - as_sentence_13+Matthew+6e0bcb06d6dad41c7b796ce8a181804c.mp3
   - as_sentence_14+Matthew+09a8cd396426d6d9d8fca6d8fcba2289.mp3
+  - as_sentence_15+Matthew+0f5e56786a53530973f31822eb16a249.mp3
+  - as_sentence_16+Matthew+1b46b3416efd9fd4944cbef5f83a3694.mp3
+  - as_sentence_17+Matthew+29e2c2aca2c38b76dbc862b9763adb69.mp3
+  - as_sentence_18+Matthew+c171dee31668685df75e8c844bbff5ef.mp3
+  - as_sentence_19+Matthew+fca2af229bd3f93917760c27c18494f0.mp3
+  - as_sentence_20+Matthew+935359f4c367db9df2c74adbec0095fb.mp3
+  - as_sentence_21+Matthew+1b03197a16e5ec61998d9275229d0e97.mp3
+  - as_sentence_22+Matthew+bf95bf1df37f7a30a31cc142ea79606e.mp3
+  - as_sentence_23+Matthew+2cf65530e790ce46144cdfaf747df3ff.mp3
   voice_id: Matthew
   word: as
   word_audio_file:
@@ -1348,6 +1426,16 @@
     example_en: All my friends came.
   - definition_en: Emphasizes entirety.
     example_en: All the lights are off.
+  - definition_en: The whole quantity or extent
+    example_en: All of the cake was eaten.
+  - definition_en: Every one of a group
+    example_en: All students must attend the meeting.
+  - definition_en: Everything or everyone
+    example_en: All is well after the storm.
+  - definition_en: The entire amount
+    example_en: She spent all her money on books.
+  - definition_en: Used for emphasis
+    example_en: He was all smiles at the party.
   freq: 2503556
   part_of_speech: pronoun
   rank: 43
@@ -1362,6 +1450,11 @@
   - all_sentence_7+Matthew+1695e68d7453bd078d86282c4d35ff20.mp3
   - all_sentence_8+Matthew+239f754d099343a2e775948904a6543e.mp3
   - all_sentence_9+Matthew+bca6d911d93ef929aa198f4a8d89849a.mp3
+  - all_sentence_10+Matthew+c6de767274ef0876049c639362793244.mp3
+  - all_sentence_11+Matthew+2eb8a3533412f809abe1278ebd702fad.mp3
+  - all_sentence_12+Matthew+4e2e04a6b5f37bf5e8b5eb7210758875.mp3
+  - all_sentence_13+Matthew+1c2aea46e80274ae485c54789ce3b533.mp3
+  - all_sentence_14+Matthew+4c2db68a5e51ecae4ffdb08668284f21.mp3
   voice_id: Matthew
   word: all
   word_audio_file:
@@ -1411,6 +1504,14 @@
     example_en: He wrote a book about climate change.
   - definition_en: In the vicinity or surroundings.
     example_en: There’s a lot of excitement about the new park.
+  - definition_en: Approximately in number or time
+    example_en: It’s about five miles to the city.
+  - definition_en: Around or surrounding
+    example_en: She looked about the room for her keys.
+  - definition_en: In the process of
+    example_en: He’s about to leave for work.
+  - definition_en: Indicating location
+    example_en: Books were scattered about the table.
   freq: 2427703
   part_of_speech: preposition
   rank: 45
@@ -1425,6 +1526,10 @@
   - about_sentence_7+Matthew+5dd1a99deda1e48bd0b8282095b33597.mp3
   - about_sentence_8+Matthew+fdd960586b138e9b2ae7c3d0eb8a58c5.mp3
   - about_sentence_9+Matthew+5d1043e8681eff1e472863319ce5eab8.mp3
+  - about_sentence_10+Matthew+9e9dc0d2514933ca95f043cb8e345ca9.mp3
+  - about_sentence_11+Matthew+84cacb13c3cad1d099011cb22b461986.mp3
+  - about_sentence_12+Matthew+d866d032b7d3477baf4ba4ae52476701.mp3
+  - about_sentence_13+Matthew+f67848c323c7075594ab09ae7d545fab.mp3
   voice_id: Matthew
   word: about
   word_audio_file:
@@ -1498,6 +1603,14 @@
     example_en: So, what’s your plan?
   - definition_en: Shows cause and effect.
     example_en: He was late, so he ran.
+  - definition_en: To a great extent
+    example_en: It was so cold we stayed inside.
+  - definition_en: As a result or consequence
+    example_en: I was tired, so I went to bed early.
+  - definition_en: To introduce a statement
+    example_en: So, what’s the plan for today?
+  - definition_en: In the manner described
+    example_en: Hold the brush so to avoid drips.
   freq: 2369749
   part_of_speech: conjunction
   rank: 48
@@ -1512,6 +1625,10 @@
   - so_sentence_7+Matthew+861b9b5d17ed0622c3d5d74a6916c683.mp3
   - so_sentence_8+Matthew+01dc3cef3e6755eb651ef0661beccafa.mp3
   - so_sentence_9+Matthew+787575a23a1d318e0ec0f4824a01d811.mp3
+  - so_sentence_10+Matthew+2388a543471e8970331c1cda0348111f.mp3
+  - so_sentence_11+Matthew+1d7fd729327d47098e6d25e0904b325d.mp3
+  - so_sentence_12+Matthew+7ba56bd402512c71953020cf0242439e.mp3
+  - so_sentence_13+Matthew+3e506faf32052b59e765bc8a03a7c687.mp3
   voice_id: Matthew
   word: so
   word_audio_file:
@@ -1681,6 +1798,16 @@
     example_en: There was a delay at work.
   - definition_en: Used in expressions.
     example_en: There you go, all done!
+  - definition_en: In or at that place
+    example_en: The keys are over there on the table.
+  - definition_en: Used to introduce a subject
+    example_en: There is a new café downtown.
+  - definition_en: Indicating existence
+    example_en: There are many reasons to stay.
+  - definition_en: For emphasis or attention
+    example_en: There, now the painting looks perfect!
+  - definition_en: At a point in time or process
+    example_en: We’ll stop there for today’s meeting.
   freq: 1980173
   part_of_speech: adverb
   rank: 55
@@ -1695,6 +1822,11 @@
   - there_sentence_7+Matthew+059d7f145d2a7c75a7031c35de4bea7f.mp3
   - there_sentence_8+Matthew+e88e8ccb9ea838497687e8db1ae71de1.mp3
   - there_sentence_9+Matthew+c92468c5f0ce2f804ba3b03ca39b438a.mp3
+  - there_sentence_10+Matthew+f98c5db464704008843af5e275d01920.mp3
+  - there_sentence_11+Matthew+d71164a2fc1f2230b23669dd5bc59860.mp3
+  - there_sentence_12+Matthew+92b6064c780ed91bc959c4366ccb00ca.mp3
+  - there_sentence_13+Matthew+7d1a6eac83e92b8edd64738302aa5966.mp3
+  - there_sentence_14+Matthew+eacd0bd9ff0d006377372c61dfc125ad.mp3
   voice_id: Matthew
   word: there
   word_audio_file:
@@ -1744,6 +1876,16 @@
     example_en: The cat followed her home.
   - definition_en: Shows ownership by a female.
     example_en: Her laptop needs charging.
+  - definition_en: Possessive form of she
+    example_en: Her backpack is on the chair.
+  - definition_en: Objective form of she
+    example_en: I saw her at the market yesterday.
+  - definition_en: Indicating ownership
+    example_en: That’s her car parked outside.
+  - definition_en: Referring to a female person
+    example_en: I gave the gift to her after the party.
+  - definition_en: Used in a general sense
+    example_en: Her smile brightened the room.
   freq: 1931189
   part_of_speech: pronoun
   rank: 57
@@ -1758,6 +1900,11 @@
   - her_sentence_7+Matthew+7e5f170f45e29a70ef775f3be6ee6dcf.mp3
   - her_sentence_8+Matthew+778ea698cb14c2e61a2440a239962b0e.mp3
   - her_sentence_9+Matthew+65399b8744a968c2d29e125fe2852849.mp3
+  - her_sentence_10+Matthew+10679b97f889355065d3479fd555884c.mp3
+  - her_sentence_11+Matthew+6872e2afb51d583b87f77bb69e80fc98.mp3
+  - her_sentence_12+Matthew+c1980f9e5006984c1ef2dbd70f4f0ea8.mp3
+  - her_sentence_13+Matthew+23910496df8ac12207597dfcb2aa7771.mp3
+  - her_sentence_14+Matthew+079d80ed6c2114609860ff70f86c797d.mp3
   voice_id: Matthew
   word: her
   word_audio_file:
@@ -1783,6 +1930,16 @@
     example_en: The secret came out.
   - definition_en: Refers to distribution.
     example_en: She handed out snacks.
+  - definition_en: Away from a place
+    example_en: He walked out of the room.
+  - definition_en: To a state of completion
+    example_en: The fire burned out by morning.
+  - definition_en: Into public knowledge
+    example_en: The news came out yesterday.
+  - definition_en: Indicating exclusion
+    example_en: She was left out of the invitation.
+  - definition_en: To a state of depletion
+    example_en: We ran out of milk this morning.
   freq: 1828593
   part_of_speech: preposition
   rank: 59
@@ -1797,6 +1954,11 @@
   - out_sentence_7+Matthew+fc4a6d9ed44ad4e24093e6f826e2bcc9.mp3
   - out_sentence_8+Matthew+8bd910986dd92e74bc073e7c9d042fc6.mp3
   - out_sentence_9+Matthew+8888128a75bb5d9746f20f82cb210a96.mp3
+  - out_sentence_10+Matthew+35928d8848cbd568befa2418c26f3dbf.mp3
+  - out_sentence_11+Matthew+5a6e0c2ae0d794045127958f993d43b1.mp3
+  - out_sentence_12+Matthew+9ec319a8ec32324f97f87db33cf68bab.mp3
+  - out_sentence_13+Matthew+bcba7021b2518e299617fa8a568bbaa3.mp3
+  - out_sentence_14+Matthew+af2d435934aa616542a135f1d4990e9e.mp3
   voice_id: Matthew
   word: out
   word_audio_file:
@@ -1822,6 +1984,16 @@
     example_en: She ate one slice of pizza.
   - definition_en: Used to emphasize a particular item.
     example_en: He’s the one who won the race.
+  - definition_en: A single person or thing
+    example_en: One of the cookies is missing.
+  - definition_en: An unspecified individual
+    example_en: One should always be kind to others.
+  - definition_en: The number 1
+    example_en: I need one ticket for the show.
+  - definition_en: A particular example
+    example_en: This is one book you must read.
+  - definition_en: Used for emphasis
+    example_en: That was one amazing performance!
   freq: 1816593
   part_of_speech: pronoun
   rank: 60
@@ -1836,6 +2008,11 @@
   - one_sentence_7+Matthew+3074e632bbe3d5ad3a57cf9538548d4f.mp3
   - one_sentence_8+Matthew+d905743d58bd3cda48bd5865b17b923b.mp3
   - one_sentence_9+Matthew+8f5e9bfc184eba1ff1eb406519c561aa.mp3
+  - one_sentence_10+Matthew+8f77bf3ecb1e6f171840827b5b970387.mp3
+  - one_sentence_11+Matthew+0028c6dd0c3501504cf471f1be1bbb6b.mp3
+  - one_sentence_12+Matthew+97fe85cad088ce6159e5aa54db0388bd.mp3
+  - one_sentence_13+Matthew+a2cd09dc34d0002ecb5228387329d22e.mp3
+  - one_sentence_14+Matthew+c9d5ca1dd34c5700e276bb0c2fd573b5.mp3
   voice_id: Matthew
   word: one
   word_audio_file:
@@ -2073,6 +2250,16 @@
     example_en: Call when you’re ready.
   - definition_en: Inquires about a time frame.
     example_en: When did you see him?
+  - definition_en: At what time
+    example_en: When does the train arrive?
+  - definition_en: During the time that
+    example_en: She called when I was sleeping.
+  - definition_en: At which time
+    example_en: I remember the day when we met.
+  - definition_en: Under what circumstances
+    example_en: When in doubt, ask for help.
+  - definition_en: Introducing a condition
+    example_en: I’ll leave when I’m ready.
   freq: 1650353
   part_of_speech: adverb
   rank: 70
@@ -2085,6 +2272,11 @@
   - when_sentence_5+Matthew+a6793cf2e6fcff2b73a41a178dbd671c.mp3
   - when_sentence_6+Matthew+0f03b37fa020dacb9a275c70d3089b4e.mp3
   - when_sentence_7+Matthew+02fb85387b0f2ea5f0e1303f069b8def.mp3
+  - when_sentence_8+Matthew+8f0b16fb93c1000628caab7e2b981d7f.mp3
+  - when_sentence_9+Matthew+c89537e81a4f427cd57250911480b7a1.mp3
+  - when_sentence_10+Matthew+92efe92900cc7f594fd83794f2213581.mp3
+  - when_sentence_11+Matthew+4663f8161031d5c68d0c7dc461b68a40.mp3
+  - when_sentence_12+Matthew+44ba4c31b83e15951f5e0e69f632bdf0.mp3
   voice_id: Matthew
   word: when
   word_audio_file:
@@ -2158,6 +2350,16 @@
     example_en: Foods like apples are healthy.
   - definition_en: Used to compare.
     example_en: It tastes like chocolate.
+  - definition_en: To enjoy or find pleasing
+    example_en: I like to read books in the evening.
+  - definition_en: To prefer or want
+    example_en: Would you like coffee or tea?
+  - definition_en: To approve or support
+    example_en: They like the new company policy.
+  - definition_en: To feel affection for
+    example_en: She likes her new neighbor a lot.
+  - definition_en: To indicate similarity
+    example_en: It feels like spring today.
   freq: 1583444
   part_of_speech: verb
   rank: 73
@@ -2172,6 +2374,11 @@
   - like_sentence_7+Matthew+dd35ef7835fcd4a5c923bf59f2bab249.mp3
   - like_sentence_8+Matthew+1a60a20d20383aa7c48167f854b6e781.mp3
   - like_sentence_9+Matthew+6154c7e26dab48e0138056826f6f6a4b.mp3
+  - like_sentence_10+Matthew+33be1fb040c4241ff6f522c71b3ea0d1.mp3
+  - like_sentence_11+Matthew+9a6c16050089034dd334ead1c7291782.mp3
+  - like_sentence_12+Matthew+293c5868ea95bff3ddab44de4332408f.mp3
+  - like_sentence_13+Matthew+e1de579e01561689a12027cdc16c1009.mp3
+  - like_sentence_14+Matthew+9400980bf4d829be65f89345c900187d.mp3
   voice_id: Matthew
   word: like
   word_audio_file:
@@ -2437,6 +2644,16 @@
     example_en: No, you’re wrong.
   - definition_en: Indicates prohibition.
     example_en: No smoking here.
+  - definition_en: Used to express refusal
+    example_en: No, I can’t come to the party tonight.
+  - definition_en: Indicating absence
+    example_en: There’s no milk left in the fridge.
+  - definition_en: For emphasis in negation
+    example_en: That’s no way to treat a friend.
+  - definition_en: To contradict or deny
+    example_en: No, that’s not what I meant.
+  - definition_en: Expressing disbelief
+    example_en: No, you didn’t climb that mountain!
   freq: 1206112
   part_of_speech: adverb
   rank: 85
@@ -2451,6 +2668,11 @@
   - no_sentence_7+Matthew+55698461622ca143baf69471092e229b.mp3
   - no_sentence_8+Matthew+620a23d3044dc7c946f31cf4beb46ab1.mp3
   - no_sentence_9+Matthew+17dd90dfcc122ff2fc8b0048291fa2e2.mp3
+  - no_sentence_10+Matthew+6c9cff2e646f6445209d59476e64b2e4.mp3
+  - no_sentence_11+Matthew+7d7a76e2b6fecb135af3b5a3ffaccf45.mp3
+  - no_sentence_12+Matthew+b8b67b226d15c37d666cacb3e1360869.mp3
+  - no_sentence_13+Matthew+459017a8fe75d94e1fd3e737a975a788.mp3
+  - no_sentence_14+Matthew+4f1d0d0a208c9fc6d33a2da6afd58f5a.mp3
   voice_id: Matthew
   word: 'no'
   word_audio_file:
@@ -2696,6 +2918,30 @@
   word_audio_file:
   - man_word_0+Matthew+39c63ddb96a31b9610cd976b896ad4f0.mp3
 - back_cards:
+  - definition_en: A 24-hour period
+    example_en: We spent the day at the beach.
+  - definition_en: The time of daylight
+    example_en: It’s warm during the day but cool at night.
+  - definition_en: A specific occasion or event
+    example_en: Graduation day was unforgettable.
+  - definition_en: A period of time
+    example_en: Back in my day, things were different.
+  - definition_en: A workday
+    example_en: She works an eight-hour day.
+  freq: 1068902
+  part_of_speech: noun
+  rank: 96
+  sentence_audio_file:
+  - day_sentence_0+Matthew+8275aa2ff6a95e6fe78d49c774e0183a.mp3
+  - day_sentence_1+Matthew+fcaf462f1fde9ed601feb3e300846110.mp3
+  - day_sentence_2+Matthew+437130bd4991c7760f4f23814a389ce3.mp3
+  - day_sentence_3+Matthew+993f6254a10493a82d7613f78b9d2f6e.mp3
+  - day_sentence_4+Matthew+ee5f407b61b86b1b6fb27104d7babde7.mp3
+  voice_id: Matthew
+  word: day
+  word_audio_file:
+  - day_word_0+Matthew+628b7db04235f228d40adc671413a8c8.mp3
+- back_cards:
   - definition_en: To discover or locate.
     example_en: I found my keys in the bag.
   - definition_en: To realize or learn.
@@ -2754,6 +3000,16 @@
     example_en: He laughed more at the joke.
   - definition_en: Indicates further extent.
     example_en: Study more to improve.
+  - definition_en: A greater amount or degree
+    example_en: I need more time to finish the project.
+  - definition_en: In addition to
+    example_en: She bought apples, oranges, and more.
+  - definition_en: To a greater extent
+    example_en: He was more excited than anyone else.
+  - definition_en: Further or again
+    example_en: Can you explain that one more time?
+  - definition_en: Compared to something else
+    example_en: This book is more interesting than the last one.
   freq: 1037966
   part_of_speech: adverb
   rank: 99
@@ -2763,6 +3019,11 @@
   - more_sentence_2+Matthew+0f503a7c21c22aad300e57adaaae5dd6.mp3
   - more_sentence_3+Matthew+66541a813a864bc0d89ef2a9577cfd17.mp3
   - more_sentence_4+Matthew+1a65e39990268b96951db1b32891c468.mp3
+  - more_sentence_5+Matthew+c603242a6ebbefc35f613aa61a3085f9.mp3
+  - more_sentence_6+Matthew+be3f2a4d26c475fb5bef27f14c4a01b4.mp3
+  - more_sentence_7+Matthew+b122c574e70e8a4ee072e12bdb8708aa.mp3
+  - more_sentence_8+Matthew+c4a046c37dda4f8b373b40376a884a37.mp3
+  - more_sentence_9+Matthew+468109fbdc09711c9d0f083f81044a96.mp3
   voice_id: Matthew
   word: more
   word_audio_file:
@@ -3004,6 +3265,16 @@
     example_en: We can only carry two bags on the flight.
   - definition_en: With the restriction that
     example_en: You can join, only if you finish your homework.
+  - definition_en: Exclusively or solely
+    example_en: Only she knew the secret code.
+  - definition_en: No more than
+    example_en: It’s only a short walk to the station.
+  - definition_en: As recently as
+    example_en: I saw him only last week.
+  - definition_en: With a restriction
+    example_en: You can go, only if you finish your chores.
+  - definition_en: For emphasis on limitation
+    example_en: We have only two tickets left.
   freq: 905093
   part_of_speech: adverb
   rank: 112
@@ -3018,6 +3289,11 @@
   - only_sentence_7+Matthew+4963dbd3e4c4a21e27796ed92b3fb175.mp3
   - only_sentence_8+Matthew+3cbf4c6301731237b17d6704f6111a51.mp3
   - only_sentence_9+Matthew+a268db84c48fadd8e8219383f54e4fec.mp3
+  - only_sentence_10+Matthew+c3688332a7b06ffc7ece3550feb5aea8.mp3
+  - only_sentence_11+Matthew+02909fb203b7282e8c93a945ac14cb4b.mp3
+  - only_sentence_12+Matthew+3db5bb2b2d62649bd76a10fc32c513f9.mp3
+  - only_sentence_13+Matthew+ad4b77eefb0a4f7df9ea04ee7741d011.mp3
+  - only_sentence_14+Matthew+3a957f795e2fddad53378e7df5737336.mp3
   voice_id: Matthew
   word: only
   word_audio_file:
@@ -3091,6 +3367,16 @@
     example_en: We finished the group work before the deadline.
   - definition_en: A place of employment.
     example_en: He leaves for work at seven every morning.
+  - definition_en: A job or employment
+    example_en: She found work at a local bakery.
+  - definition_en: Tasks or duties
+    example_en: There’s a lot of work to do before the deadline.
+  - definition_en: The result of effort
+    example_en: Her painting is a beautiful work of art.
+  - definition_en: A place of employment
+    example_en: He’s at work until 6 p.m.
+  - definition_en: Effort or activity
+    example_en: Teamwork made the project a success.
   freq: 854095
   part_of_speech: noun
   rank: 115
@@ -3105,6 +3391,11 @@
   - work_sentence_7+Matthew+6bc84e404b01eb046bb1c7038cad9a1d.mp3
   - work_sentence_8+Matthew+174c253e6a218810a3e79c7187b91f79.mp3
   - work_sentence_9+Matthew+655fabb1fb4c664ebe39387869b6f118.mp3
+  - work_sentence_10+Matthew+112ff2be3d94b4f28d2b0799db303687.mp3
+  - work_sentence_11+Matthew+57164ccf059e4bee32b8447ae7443356.mp3
+  - work_sentence_12+Matthew+f3c66edc8b482ee4f91f62b8438d7e9c.mp3
+  - work_sentence_13+Matthew+d1764f5dbfa437c10848536e2005a0a4.mp3
+  - work_sentence_14+Matthew+c084d363f7df0771ee52c7cdfd13a32a.mp3
   voice_id: Matthew
   word: work
   word_audio_file:
@@ -3186,6 +3477,22 @@
     example_en: Look right before crossing the road.
   - definition_en: Completely or fully.
     example_en: The car broke down right in traffic.
+  - definition_en: Correct or accurate
+    example_en: You got the right answer on the quiz.
+  - definition_en: Suitable or appropriate
+    example_en: This is the right tool for the job.
+  - definition_en: Morally or legally just
+    example_en: It’s not right to lie to your friends.
+  - definition_en: In good condition
+    example_en: Everything is right with the car now.
+  - definition_en: Indicating direction
+    example_en: Turn at the right corner.
+  - definition_en: Exactly or directly
+    example_en: The store is right across the street.
+  - definition_en: Correctly or properly
+    example_en: You did it right the first time.
+  - definition_en: Completely or fully
+    example_en: The plan went right as expected.
   freq: 830729
   part_of_speech: adjective
   rank: 118
@@ -3204,6 +3511,14 @@
   - right_sentence_11+Matthew+ffcdb17d8899e99a195a0c52ebe04b8d.mp3
   - right_sentence_12+Matthew+d5f6b5512790d7a293d498ffd30c3481.mp3
   - right_sentence_13+Matthew+bf33d4b1cdab3fe17fce50bc7eb8ef5a.mp3
+  - right_sentence_14+Matthew+16a966340268ac7a2655a997727a4e1e.mp3
+  - right_sentence_15+Matthew+25348586196d5bb73f713a4ea96c210c.mp3
+  - right_sentence_16+Matthew+c08441121f50bacbe088fb45f1774837.mp3
+  - right_sentence_17+Matthew+146b4fb82db4593afa029c242ad6468d.mp3
+  - right_sentence_18+Matthew+7d9762cdc8c0fca5ff534afb386b2b4d.mp3
+  - right_sentence_19+Matthew+2be6d55d987a568c72bbc2343e1fded9.mp3
+  - right_sentence_20+Matthew+d3ed8e00b476992ecb95ea46dc21432d.mp3
+  - right_sentence_21+Matthew+2502bb880ade327ded5e127da3275379.mp3
   voice_id: Matthew
   word: right
   word_audio_file:
@@ -3493,6 +3808,14 @@
     example_en: They asked after her health.
   - definition_en: In imitation of.
     example_en: The town was named after a hero.
+  - definition_en: Following in time
+    example_en: We’ll go to the park after lunch.
+  - definition_en: Following in order
+    example_en: Her name comes after his on the list.
+  - definition_en: In the style of
+    example_en: The room was decorated after a modern design.
+  - definition_en: As a result of
+    example_en: After the storm, the streets were flooded.
   freq: 745154
   part_of_speech: preposition
   rank: 131
@@ -3507,6 +3830,10 @@
   - after_sentence_7+Matthew+c5f0ee91abb2c582ab981511add52126.mp3
   - after_sentence_8+Matthew+3fd3b60f91d3406d3bb2ea2f5b5b6678.mp3
   - after_sentence_9+Matthew+e710b0b1c425839ba6a083c87596f221.mp3
+  - after_sentence_10+Matthew+75bcfa4710c78a6dc1d6970f7e62e9ec.mp3
+  - after_sentence_11+Matthew+b0afd8e4dc1e20c54e22cc615b2f41a6.mp3
+  - after_sentence_12+Matthew+bb3c886df134a5614eb22cc373ba753d.mp3
+  - after_sentence_13+Matthew+fb93c6e03d06c2a162368991b483ccd4.mp3
   voice_id: Matthew
   word: after
   word_audio_file:
@@ -3796,6 +4123,16 @@
     example_en: This hike is much harder than the last one we did.
   - definition_en: Approximately or nearly
     example_en: It costs much the same as the other brand.
+  - definition_en: To a great extent
+    example_en: She enjoyed the concert so much.
+  - definition_en: A large amount
+    example_en: There’s much work to be done today.
+  - definition_en: Often or frequently
+    example_en: He doesn’t call much anymore.
+  - definition_en: Used in comparison
+    example_en: This bag is much heavier than that one.
+  - definition_en: Approximately
+    example_en: It’s much the same price as before.
   freq: 636642
   part_of_speech: adverb
   rank: 148
@@ -3810,6 +4147,11 @@
   - much_sentence_7+Matthew+fe7dd9cc43c9686103c74f5200399696.mp3
   - much_sentence_8+Matthew+d2f1a9d37f50665c0a35af387f9cf9fa.mp3
   - much_sentence_9+Matthew+f08a83545bf330108c48cc9d938a7106.mp3
+  - much_sentence_10+Matthew+a3ed082c7c2419915c4b1e5d062f5385.mp3
+  - much_sentence_11+Matthew+3fb4e56687b9d0a16b82f3aa13b289b2.mp3
+  - much_sentence_12+Matthew+3a2aab274ceea2b43625d143be1b2bf3.mp3
+  - much_sentence_13+Matthew+d92908f0148d8a282414059ad95b60e4.mp3
+  - much_sentence_14+Matthew+6fce2357b5bc96b6d090b8ae7fd2d5bc.mp3
   voice_id: Matthew
   word: much
   word_audio_file:
@@ -4195,6 +4537,16 @@
     example_en: This is the most beautiful sunset I've seen.
   - definition_en: In the greatest number.
     example_en: Most trees in the park are oak.
+  - definition_en: To the greatest extent
+    example_en: This is the most beautiful sunset I’ve seen.
+  - definition_en: The majority of
+    example_en: Most people prefer summer to winter.
+  - definition_en: Very or highly
+    example_en: It’s a most interesting book.
+  - definition_en: Almost all
+    example_en: Most of the guests arrived on time.
+  - definition_en: Superlative degree
+    example_en: She’s the most talented singer in the group.
   freq: 561354
   part_of_speech: adverb
   rank: 168
@@ -4209,6 +4561,11 @@
   - most_sentence_7+Matthew+cd55e5d94062b4faacdd529a7f1c1943.mp3
   - most_sentence_8+Matthew+67cc22a588a9b964ae686501acbde06e.mp3
   - most_sentence_9+Matthew+61bdd4ec0d68c5342d61210a8e9d2402.mp3
+  - most_sentence_10+Matthew+d98cd0c7300d3806f09f82cd0acdce9b.mp3
+  - most_sentence_11+Matthew+086a5e7c64e9cef28d640299a50a6386.mp3
+  - most_sentence_12+Matthew+7b023089ee5e15f4b8dbf2659696926f.mp3
+  - most_sentence_13+Matthew+23b89387fb086fdbcb9be06279cc7221.mp3
+  - most_sentence_14+Matthew+e1f1b474181cae8710668580dfc4b9c5.mp3
   voice_id: Matthew
   word: most
   word_audio_file:
@@ -4656,6 +5013,14 @@
     example_en: Where did you park the car?
   - definition_en: Shows a point.
     example_en: That’s where we met.
+  - definition_en: To what place or destination
+    example_en: Where are you going this weekend?
+  - definition_en: In what situation or condition
+    example_en: Where do we stand on this issue?
+  - definition_en: At which place or point
+    example_en: That’s the spot where we met.
+  - definition_en: In whichever place
+    example_en: I’ll follow you where you go.
   freq: 500755
   part_of_speech: adverb
   rank: 188
@@ -4665,6 +5030,10 @@
   - where_sentence_2+Matthew+8ef070c8cc91219def056e75ed972e20.mp3
   - where_sentence_3+Matthew+851e79766b9bb857785c093a90c0519e.mp3
   - where_sentence_4+Matthew+da0261530732a141f11efd1f59f52772.mp3
+  - where_sentence_5+Matthew+d904287369b0cd1cf118e03f50d8f9cf.mp3
+  - where_sentence_6+Matthew+042927be724e7fc8fda744860bef96a9.mp3
+  - where_sentence_7+Matthew+6bed7bfcda77699661b255487e66d23f.mp3
+  - where_sentence_8+Matthew+41ee82e25cebb6e86d5fb21c24385180.mp3
   voice_id: Matthew
   word: where
   word_audio_file:
@@ -6850,6 +7219,14 @@
     example_en: She waited a long time for the bus.
   - definition_en: Elongated or stretched.
     example_en: The snake has a long body.
+  - definition_en: Having great length
+    example_en: The bridge is a mile long.
+  - definition_en: Involving many items
+    example_en: She wrote a long list of groceries.
+  - definition_en: Having a strong desire
+    example_en: He’s long wanted to visit Paris.
+  - definition_en: Extended in duration
+    example_en: The long wait at the airport was exhausting.
   freq: 345005
   part_of_speech: adverb
   rank: 285
@@ -6864,6 +7241,10 @@
   - long_sentence_8+Matthew+67bbabfd2ee0bf1762be8023246255b0.mp3
   - long_sentence_9+Matthew+5230743ec8812c84ce4a51148aa705b6.mp3
   - long_sentence_9+Matthew+5230743ec8812c84ce4a51148aa705b6.mp3
+  - long_sentence_10+Matthew+a0e19305c3d17d0d14296cc8cacd0be1.mp3
+  - long_sentence_11+Matthew+30ec0f9f968f84f9d7b537f7fd928b2f.mp3
+  - long_sentence_12+Matthew+22f8be4a2d7513b1e93ebe21a49a0df2.mp3
+  - long_sentence_13+Matthew+bbf721ab146c21fb8e9a13131e14be35.mp3
   voice_id: Matthew
   word: long
   word_audio_file:
@@ -7321,6 +7702,16 @@
     example_en: They traveled around the city all day.
   - definition_en: Enclosing or surrounding
     example_en: She wrapped a scarf around her neck.
+  - definition_en: In the vicinity of
+    example_en: There’s a park around the corner.
+  - definition_en: Approximately
+    example_en: The trip will take around two hours.
+  - definition_en: In a circular motion
+    example_en: We sat around the campfire.
+  - definition_en: In various places
+    example_en: She looked around the shop for gifts.
+  - definition_en: Surrounding something
+    example_en: They built a wall around the garden.
   freq: 324064
   part_of_speech: preposition
   rank: 307
@@ -7335,6 +7726,11 @@
   - around_sentence_7+Matthew+437680e9e9b842ffda0315f1ad145449.mp3
   - around_sentence_8+Matthew+772c5de6e1eedb61e82c0885a96ae9c7.mp3
   - around_sentence_9+Matthew+21da52040f21841f1a25d9a0a4e01db3.mp3
+  - around_sentence_10+Matthew+7ef700f61a056c0d2b5a04bd52286458.mp3
+  - around_sentence_11+Matthew+f428e189f810ce50ec48c62f0de5b2a9.mp3
+  - around_sentence_12+Matthew+cabc57c1088613cf20f06debc2430ac6.mp3
+  - around_sentence_13+Matthew+c79a0706bac358aa9223d4bc04e64b6d.mp3
+  - around_sentence_14+Matthew+b2738c5a31158cbc51aca996a4d2842e.mp3
   voice_id: Matthew
   word: around
   word_audio_file:
