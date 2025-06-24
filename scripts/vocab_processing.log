@@ -10269,3 +10269,72 @@ expected <block end>, but found '<block mapping start>'
 2025-06-24 13:31:40,750 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250624_133140.txt
 2025-06-24 13:31:40,754 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
 2025-06-24 13:31:40,756 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
+2025-06-24 13:45:26,927 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-24 13:45:27,125 - INFO - AWS Polly client initialized successfully.
+2025-06-24 13:45:27,131 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 13:45:27,133 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 13:45:33,895 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 13:45:33,895 - INFO - Appended 10 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-24 13:45:33,905 - INFO - Loading: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 13:46:05,279 - INFO - Generated audio for '<speak>much. She enjoyed the party so much that she stayed until midnight.</speak>' at D:\vocabswipe.github.io\data\audio\much_sentence_5+Matthew+e3094e2341ffaa90766392d7c3f27035.mp3
+2025-06-24 13:46:05,654 - INFO - Generated audio for '<speak>much. There was much excitement in the office about the new project.</speak>' at D:\vocabswipe.github.io\data\audio\much_sentence_6+Matthew+9438322a1a183f5f397e3c87be8ff150.mp3
+2025-06-24 13:46:06,172 - INFO - Generated audio for '<speak>much. He doesn't visit much, but when he does, it's always fun.</speak>' at D:\vocabswipe.github.io\data\audio\much_sentence_7+Matthew+fe7dd9cc43c9686103c74f5200399696.mp3
+2025-06-24 13:46:06,561 - INFO - Generated audio for '<speak>much. This hike is much harder than the last one we did.</speak>' at D:\vocabswipe.github.io\data\audio\much_sentence_8+Matthew+d2f1a9d37f50665c0a35af387f9cf9fa.mp3
+2025-06-24 13:46:07,687 - INFO - Generated audio for '<speak>much. It costs much the same as the other brand.</speak>' at D:\vocabswipe.github.io\data\audio\much_sentence_9+Matthew+f08a83545bf330108c48cc9d938a7106.mp3
+2025-06-24 13:46:08,613 - INFO - Generated audio for '<speak>someone</speak>' at D:\vocabswipe.github.io\data\audio\someone_word_0+Matthew+1f2bf2e032a11fec0ea5d7f9d6a5aa1d.mp3
+2025-06-24 13:46:08,975 - INFO - Generated audio for '<speak>someone. Someone left their jacket on the bus.</speak>' at D:\vocabswipe.github.io\data\audio\someone_sentence_0+Matthew+ed913d07fcc66d47c551216b4a720103.mp3
+2025-06-24 13:46:09,368 - INFO - Generated audio for '<speak>someone. She's someone you should meet at the conference.</speak>' at D:\vocabswipe.github.io\data\audio\someone_sentence_1+Matthew+be10c2003bc687e636306426af27ebce.mp3
+2025-06-24 13:46:09,734 - INFO - Generated audio for '<speak>someone. Someone was knocking on the door late at night.</speak>' at D:\vocabswipe.github.io\data\audio\someone_sentence_2+Matthew+e02af2d79a0a76635fcffeb3cccdb636.mp3
+2025-06-24 13:46:10,097 - INFO - Generated audio for '<speak>someone. You need someone to help with the heavy lifting.</speak>' at D:\vocabswipe.github.io\data\audio\someone_sentence_3+Matthew+e513ba349d48f8c2f0eb39002a657ea8.mp3
+2025-06-24 13:46:10,461 - INFO - Generated audio for '<speak>someone. Someone called the office but didn't leave a name.</speak>' at D:\vocabswipe.github.io\data\audio\someone_sentence_4+Matthew+ac582ef1202c14510a2f103ee9bf75c4.mp3
+2025-06-24 13:46:10,792 - INFO - Generated audio for '<speak>end</speak>' at D:\vocabswipe.github.io\data\audio\end_word_0+Matthew+7f021a1415b86f2d013b2618fb31ae53.mp3
+2025-06-24 13:46:11,175 - INFO - Generated audio for '<speak>end. The movie had a surprising twist at the end.</speak>' at D:\vocabswipe.github.io\data\audio\end_sentence_0+Matthew+568f46e87bcd83ed73936282eb1b3323.mp3
+2025-06-24 13:46:11,536 - INFO - Generated audio for '<speak>end. Summer camp comes to an end next week.</speak>' at D:\vocabswipe.github.io\data\audio\end_sentence_1+Matthew+4b0589818ff61abad24a40ec57ab56c0.mp3
+2025-06-24 13:46:11,979 - INFO - Generated audio for '<speak>end. The fence marks the end of our property.</speak>' at D:\vocabswipe.github.io\data\audio\end_sentence_2+Matthew+986698a9db704af332bbb2d218bbb385.mp3
+2025-06-24 13:46:12,339 - INFO - Generated audio for '<speak>end. Her end in studying was to become a doctor.</speak>' at D:\vocabswipe.github.io\data\audio\end_sentence_3+Matthew+95067d5444990cea092f4927c2e90c82.mp3
+2025-06-24 13:46:12,696 - INFO - Generated audio for '<speak>end. The project reached its end after months of work.</speak>' at D:\vocabswipe.github.io\data\audio\end_sentence_4+Matthew+f8402cadc5d9abe55801db31afb84967.mp3
+2025-06-24 13:46:13,040 - INFO - Generated audio for '<speak>change</speak>' at D:\vocabswipe.github.io\data\audio\change_word_0+Matthew+eb399bcaca686f8609137153307eecf1.mp3
+2025-06-24 13:46:13,426 - INFO - Generated audio for '<speak>change. She decided to change her hairstyle for the event.</speak>' at D:\vocabswipe.github.io\data\audio\change_sentence_0+Matthew+10516d4cf92152ea2850a27c133e89fb.mp3
+2025-06-24 13:46:13,834 - INFO - Generated audio for '<speak>change. I need to change the batteries in the remote.</speak>' at D:\vocabswipe.github.io\data\audio\change_sentence_1+Matthew+656aa200bbc257ef843552f2b8dfb4c0.mp3
+2025-06-24 13:46:14,479 - INFO - Generated audio for '<speak>change. The weather can change quickly in the mountains.</speak>' at D:\vocabswipe.github.io\data\audio\change_sentence_2+Matthew+85d183e709d8941d8456e52eb65ad32f.mp3
+2025-06-24 13:46:14,844 - INFO - Generated audio for '<speak>change. Can you change a twenty-dollar bill for me?</speak>' at D:\vocabswipe.github.io\data\audio\change_sentence_3+Matthew+d7926c5450c81fd524345b205cd03eda.mp3
+2025-06-24 13:46:15,212 - INFO - Generated audio for '<speak>change. They had to change their travel plans due to the storm.</speak>' at D:\vocabswipe.github.io\data\audio\change_sentence_4+Matthew+ab394e0d7a65130c35d15d88f50c860e.mp3
+2025-06-24 13:46:15,575 - INFO - Generated audio for '<speak>however</speak>' at D:\vocabswipe.github.io\data\audio\however_word_0+Matthew+3e63afd0565f7fa98d084139112a04d5.mp3
+2025-06-24 13:46:15,991 - INFO - Generated audio for '<speak>however. It was raining; however, we went hiking anyway.</speak>' at D:\vocabswipe.github.io\data\audio\however_sentence_0+Matthew+9d2bfe2370fb888823849c13a44775b0.mp3
+2025-06-24 13:46:16,361 - INFO - Generated audio for '<speak>however. However you cook it, the dish tastes amazing.</speak>' at D:\vocabswipe.github.io\data\audio\however_sentence_1+Matthew+cf869f7f501a5a1639f4acbd13b79170.mp3
+2025-06-24 13:46:16,736 - INFO - Generated audio for '<speak>however. However tired she was, she finished the report.</speak>' at D:\vocabswipe.github.io\data\audio\however_sentence_2+Matthew+2daeca2770c242f4057640ff52a953c8.mp3
+2025-06-24 13:46:17,112 - INFO - Generated audio for '<speak>however. However did you manage to fix the car so fast?</speak>' at D:\vocabswipe.github.io\data\audio\however_sentence_3+Matthew+480902278afbd6cc2336dd11e06445fc.mp3
+2025-06-24 13:46:17,502 - INFO - Generated audio for '<speak>however. The plan seemed good; however, it was too expensive.</speak>' at D:\vocabswipe.github.io\data\audio\however_sentence_4+Matthew+749b2a7e2f4e639d79dc82ae3ae1b655.mp3
+2025-06-24 13:46:17,871 - INFO - Generated audio for '<speak>only. She was the only person who arrived on time.</speak>' at D:\vocabswipe.github.io\data\audio\only_sentence_5+Matthew+cc9451399e28bc5f5789cc48dfdec752.mp3
+2025-06-24 13:46:18,233 - INFO - Generated audio for '<speak>only. It’s only a five-minute walk to the park.</speak>' at D:\vocabswipe.github.io\data\audio\only_sentence_6+Matthew+894cab966f0afe821b0ef0e375fbccd6.mp3
+2025-06-24 13:46:18,585 - INFO - Generated audio for '<speak>only. I saw her only yesterday at the store.</speak>' at D:\vocabswipe.github.io\data\audio\only_sentence_7+Matthew+4963dbd3e4c4a21e27796ed92b3fb175.mp3
+2025-06-24 13:46:18,967 - INFO - Generated audio for '<speak>only. We can only carry two bags on the flight.</speak>' at D:\vocabswipe.github.io\data\audio\only_sentence_8+Matthew+3cbf4c6301731237b17d6704f6111a51.mp3
+2025-06-24 13:46:19,325 - INFO - Generated audio for '<speak>only. You can join, only if you finish your homework.</speak>' at D:\vocabswipe.github.io\data\audio\only_sentence_9+Matthew+a268db84c48fadd8e8219383f54e4fec.mp3
+2025-06-24 13:46:19,649 - INFO - Generated audio for '<speak>around</speak>' at D:\vocabswipe.github.io\data\audio\around_word_0+Matthew+29a5417a3ebd1c4bd3108d86a3e5b995.mp3
+2025-06-24 13:46:20,018 - INFO - Generated audio for '<speak>around. There are many shops around the town square.</speak>' at D:\vocabswipe.github.io\data\audio\around_sentence_0+Matthew+dc012bb7578353bbdfa90ff5431a2296.mp3
+2025-06-24 13:46:20,384 - INFO - Generated audio for '<speak>around. The meeting starts around noon.</speak>' at D:\vocabswipe.github.io\data\audio\around_sentence_1+Matthew+ece9ee0c1f66f3870e2804315582d687.mp3
+2025-06-24 13:46:20,744 - INFO - Generated audio for '<speak>around. We walked around the lake to enjoy the view.</speak>' at D:\vocabswipe.github.io\data\audio\around_sentence_2+Matthew+1c869b62a4c0192b3b8b2577c01ddaf2.mp3
+2025-06-24 13:46:21,208 - INFO - Generated audio for '<speak>around. She looked around the room for her keys.</speak>' at D:\vocabswipe.github.io\data\audio\around_sentence_3+Matthew+ee25ade386032f650f5599ff7717f63b.mp3
+2025-06-24 13:46:21,618 - INFO - Generated audio for '<speak>around. They put a fence around the garden.</speak>' at D:\vocabswipe.github.io\data\audio\around_sentence_4+Matthew+a1d5e2bb09d8d4000b49dc6c04e73a94.mp3
+2025-06-24 13:46:21,945 - INFO - Generated audio for '<speak>hour</speak>' at D:\vocabswipe.github.io\data\audio\hour_word_0+Matthew+896c55cc5e46fab38ce9f51ebf7bfcd3.mp3
+2025-06-24 13:46:22,301 - INFO - Generated audio for '<speak>hour. The drive to the beach takes about an hour.</speak>' at D:\vocabswipe.github.io\data\audio\hour_sentence_0+Matthew+3c6b8896d6698ccc11f8323eb4716ff9.mp3
+2025-06-24 13:46:22,657 - INFO - Generated audio for '<speak>hour. The store closes at the hour of midnight.</speak>' at D:\vocabswipe.github.io\data\audio\hour_sentence_1+Matthew+312a2ccd3ac40eb3d507c3a0f035d1d3.mp3
+2025-06-24 13:46:23,013 - INFO - Generated audio for '<speak>hour. Office hours are from nine to five.</speak>' at D:\vocabswipe.github.io\data\audio\hour_sentence_2+Matthew+2145385a256a78f3bfac80a1f70ca71e.mp3
+2025-06-24 13:46:23,383 - INFO - Generated audio for '<speak>hour. She spent an hour practicing the piano.</speak>' at D:\vocabswipe.github.io\data\audio\hour_sentence_3+Matthew+9b08125b781f756de5e4a71d81616250.mp3
+2025-06-24 13:46:23,769 - INFO - Generated audio for '<speak>hour. We’ll arrive within the hour, so get ready.</speak>' at D:\vocabswipe.github.io\data\audio\hour_sentence_4+Matthew+7fc530481f14f99e9788d8786d7f497c.mp3
+2025-06-24 13:46:24,347 - INFO - Generated audio for '<speak>everything</speak>' at D:\vocabswipe.github.io\data\audio\everything_word_0+Matthew+312db69f5bf4447dfe3c58983083b54f.mp3
+2025-06-24 13:46:24,722 - INFO - Generated audio for '<speak>everything. Everything in the store was on sale.</speak>' at D:\vocabswipe.github.io\data\audio\everything_sentence_0+Matthew+04703d2d126f8ca29949f9119c11a5d9.mp3
+2025-06-24 13:46:25,093 - INFO - Generated audio for '<speak>everything. To her, family is everything.</speak>' at D:\vocabswipe.github.io\data\audio\everything_sentence_1+Matthew+5c789af3d46d4b1749f180a94ab68bed.mp3
+2025-06-24 13:46:25,459 - INFO - Generated audio for '<speak>everything. Everything went wrong during the trip.</speak>' at D:\vocabswipe.github.io\data\audio\everything_sentence_2+Matthew+9ff0ba66aca349d082f8cae184321b09.mp3
+2025-06-24 13:46:25,851 - INFO - Generated audio for '<speak>everything. Have you packed everything for the hike?</speak>' at D:\vocabswipe.github.io\data\audio\everything_sentence_3+Matthew+899c0668f207c59fe2abdd69165486df.mp3
+2025-06-24 13:46:26,217 - INFO - Generated audio for '<speak>everything. Everything about the festival was magical.</speak>' at D:\vocabswipe.github.io\data\audio\everything_sentence_4+Matthew+62b38bc6368258a3790c3247eda54c84.mp3
+2025-06-24 13:46:26,549 - INFO - Generated audio for '<speak>national</speak>' at D:\vocabswipe.github.io\data\audio\national_word_0+Matthew+f82d71a6491c31b384ab5b57d85b6593.mp3
+2025-06-24 13:46:26,942 - INFO - Generated audio for '<speak>national. The national anthem was played before the game.</speak>' at D:\vocabswipe.github.io\data\audio\national_sentence_0+Matthew+55fe0386fe8319cd80681ef745d47f6b.mp3
+2025-06-24 13:46:27,351 - INFO - Generated audio for '<speak>national. We visited a national park during our vacation.</speak>' at D:\vocabswipe.github.io\data\audio\national_sentence_1+Matthew+afb6e291267165e9a838c6386501e12a.mp3
+2025-06-24 13:46:27,712 - INFO - Generated audio for '<speak>national. She joined the national team for the Olympics.</speak>' at D:\vocabswipe.github.io\data\audio\national_sentence_2+Matthew+8ac0f7860d75bc61963f03d031eb89a6.mp3
+2025-06-24 13:46:28,075 - INFO - Generated audio for '<speak>national. The election was a national event.</speak>' at D:\vocabswipe.github.io\data\audio\national_sentence_3+Matthew+5839e86d721a25ce7f63d4ffad8ed333.mp3
+2025-06-24 13:46:28,462 - INFO - Generated audio for '<speak>national. The dish is a national treasure in their culture.</speak>' at D:\vocabswipe.github.io\data\audio\national_sentence_4+Matthew+71a06a554a0b680fba55a44c7785a192.mp3
+2025-06-24 13:46:29,302 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-24 13:46:29,308 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250624_134629.txt
+2025-06-24 13:46:29,311 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-24 13:46:29,312 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
