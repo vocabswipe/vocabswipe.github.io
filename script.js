@@ -249,6 +249,8 @@ function displayWord() {
     const maxFreq = words[0]?.freq || 1;
     const relFreq = (wordData.freq / maxFreq) * 100;
 
+    // Use logarithmic scale for frequency bar
+    const logFreq = Math.min(Math.max(Math.log10(relFreq + 1) / Math.log10(101) * 100, 0), 100);
     const red = Math.round(255 * (1 - relFreq / 100));
     const green = Math.round(255 * (relFreq / 100));
     const color = `rgb(${red}, ${green}, 0)`;
@@ -259,7 +261,10 @@ function displayWord() {
         </div>
         <div class="meta-info">
             <span class="rank">Rank: ${wordData.rank}</span>
-            <span class="freq" style="color: ${color}">${relFreq.toFixed(1)}%</span>
+            <div class="freq-bar">
+                <div class="freq-fill" style="width: ${logFreq}%; background-color: ${color};"></div>
+                <span class="freq-text">${relFreq.toFixed(1)}%</span>
+            </div>
         </div>
     `;
     back.innerHTML = `
@@ -273,7 +278,10 @@ function displayWord() {
             </div>
             <div class="meta-info">
                 <span class="rank">Rank: ${wordData.rank}</span>
-                <span class="freq" style="color: ${color}">${relFreq.toFixed(1)}%</span>
+                <div class="freq-bar">
+                    <div class="freq-fill" style="width: ${logFreq}%; background-color: ${color};"></div>
+                    <span class="freq-text">${relFreq.toFixed(1)}%</span>
+                </div>
             </div>
         </div>
     `;
