@@ -14924,3 +14924,143 @@ expected <block end>, but found '<block mapping start>'
 2025-06-25 00:43:51,863 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250625_004351.txt
 2025-06-25 00:43:51,871 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
 2025-06-25 00:43:51,873 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
+2025-06-25 00:51:49,753 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-25 00:51:49,989 - INFO - AWS Polly client initialized successfully.
+2025-06-25 00:51:49,996 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 00:51:49,997 - ERROR - Error parsing 'D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl': Extra data: line 1 column 102 (char 101)
+2025-06-25 00:51:49,999 - WARNING - No entries to process
+2025-06-25 01:02:50,494 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-25 01:02:50,727 - INFO - AWS Polly client initialized successfully.
+2025-06-25 01:02:50,734 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 01:02:50,735 - ERROR - Error parsing 'D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl': Expecting ':' delimiter: line 1 column 135 (char 134)
+2025-06-25 01:02:50,736 - WARNING - No entries to process
+2025-06-25 01:08:06,018 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-25 01:08:06,237 - INFO - AWS Polly client initialized successfully.
+2025-06-25 01:08:06,244 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 01:08:06,246 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 01:08:16,037 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 01:08:16,037 - INFO - Appended 20 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 01:08:16,054 - INFO - Loading: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-25 01:08:20,638 - INFO - Generated audio for '<speak>Friday</speak>' at D:\vocabswipe.github.io\data\audio\friday_word_0+Matthew+c33b138a163847cdb6caeeb7c9a126b4.mp3
+2025-06-25 01:08:20,990 - INFO - Generated audio for '<speak>Friday. I have a meeting every Friday morning.</speak>' at D:\vocabswipe.github.io\data\audio\friday_sentence_0+Matthew+27a4b1e578cf56f5b5c9453b561116f6.mp3
+2025-06-25 01:08:21,356 - INFO - Generated audio for '<speak>Friday. We usually go out for dinner on Friday nights.</speak>' at D:\vocabswipe.github.io\data\audio\friday_sentence_1+Matthew+a2b3ef0e4783d493ac828aa7a8972bb8.mp3
+2025-06-25 01:08:21,710 - INFO - Generated audio for '<speak>Friday. Our office has a casual Friday policy.</speak>' at D:\vocabswipe.github.io\data\audio\friday_sentence_2+Matthew+55d2aeb08ad3a95736c81f0f9c7ed432.mp3
+2025-06-25 01:08:22,069 - INFO - Generated audio for '<speak>Friday. The concert is happening next Friday at the park.</speak>' at D:\vocabswipe.github.io\data\audio\friday_sentence_3+Matthew+7c9379eb57e78520260e4291a2a637af.mp3
+2025-06-25 01:08:22,431 - INFO - Generated audio for '<speak>Friday. Good Friday is an important day during Easter.</speak>' at D:\vocabswipe.github.io\data\audio\friday_sentence_4+Matthew+1134552efb6e8d913fcdecb82bb7b194.mp3
+2025-06-25 01:08:22,826 - INFO - Generated audio for '<speak>attorney</speak>' at D:\vocabswipe.github.io\data\audio\attorney_word_0+Matthew+d91ddf1d5c2616a59491f5247f68e5b0.mp3
+2025-06-25 01:08:23,182 - INFO - Generated audio for '<speak>attorney. The attorney reviewed the contract before we signed it.</speak>' at D:\vocabswipe.github.io\data\audio\attorney_sentence_0+Matthew+fd1f4f47042e4b25cb08b6ad20a43fd2.mp3
+2025-06-25 01:08:23,547 - INFO - Generated audio for '<speak>attorney. She hired an attorney to handle her divorce.</speak>' at D:\vocabswipe.github.io\data\audio\attorney_sentence_1+Matthew+7835838421e9627bd93e62e4002fbe8a.mp3
+2025-06-25 01:08:23,938 - INFO - Generated audio for '<speak>attorney. The company's attorney advised against the merger.</speak>' at D:\vocabswipe.github.io\data\audio\attorney_sentence_2+Matthew+98bf9bde3fccf3c327fe381e4e51a9d1.mp3
+2025-06-25 01:08:24,305 - INFO - Generated audio for '<speak>attorney. The attorney argued the case before the judge.</speak>' at D:\vocabswipe.github.io\data\audio\attorney_sentence_3+Matthew+f7d4081bd6f531a5de68324aa4e05525.mp3
+2025-06-25 01:08:24,668 - INFO - Generated audio for '<speak>attorney. We need a tax attorney to sort out these issues.</speak>' at D:\vocabswipe.github.io\data\audio\attorney_sentence_4+Matthew+b372f986adb734cc53ff1a017ffa3f21.mp3
+2025-06-25 01:08:24,983 - INFO - Generated audio for '<speak>unless</speak>' at D:\vocabswipe.github.io\data\audio\unless_word_0+Matthew+5c3f182888d5bd68a75b0263dff5661d.mp3
+2025-06-25 01:08:25,340 - INFO - Generated audio for '<speak>unless. You can't go to the party unless you finish your homework.</speak>' at D:\vocabswipe.github.io\data\audio\unless_sentence_0+Matthew+5ce75e123a526a9189bc459ac8abac7e.mp3
+2025-06-25 01:08:25,696 - INFO - Generated audio for '<speak>unless. I’ll be there by noon unless something urgent comes up.</speak>' at D:\vocabswipe.github.io\data\audio\unless_sentence_1+Matthew+e1365e61455b39a34db8e62aa58109c1.mp3
+2025-06-25 01:08:26,058 - INFO - Generated audio for '<speak>unless. We won’t cancel the picnic unless it rains heavily.</speak>' at D:\vocabswipe.github.io\data\audio\unless_sentence_2+Matthew+5e43e3d04ca323ecacceea864a736811.mp3
+2025-06-25 01:08:26,421 - INFO - Generated audio for '<speak>unless. Unless you call ahead, they won’t reserve a table.</speak>' at D:\vocabswipe.github.io\data\audio\unless_sentence_3+Matthew+ebd6576a11fe6c0d6e3d424dadcddb1a.mp3
+2025-06-25 01:08:26,821 - INFO - Generated audio for '<speak>unless. No one enters the lab unless they wear safety gear.</speak>' at D:\vocabswipe.github.io\data\audio\unless_sentence_4+Matthew+546ea6fb66a24cf457e782cf3444bee8.mp3
+2025-06-25 01:08:27,136 - INFO - Generated audio for '<speak>nor</speak>' at D:\vocabswipe.github.io\data\audio\nor_word_0+Matthew+57c7d11cd49333e3f722204c63016da9.mp3
+2025-06-25 01:08:27,539 - INFO - Generated audio for '<speak>nor. She didn’t call, nor did she send a message.</speak>' at D:\vocabswipe.github.io\data\audio\nor_sentence_0+Matthew+3fa29521afadd34c4936a07b1346e028.mp3
+2025-06-25 01:08:27,885 - INFO - Generated audio for '<speak>nor. I have neither the time nor the energy to argue.</speak>' at D:\vocabswipe.github.io\data\audio\nor_sentence_1+Matthew+e9692fd32cc6fa0b222980b762390b19.mp3
+2025-06-25 01:08:28,242 - INFO - Generated audio for '<speak>nor. Nor rain nor snow will stop the delivery.</speak>' at D:\vocabswipe.github.io\data\audio\nor_sentence_2+Matthew+a346330724b03d5de0e273840f53ab1d.mp3
+2025-06-25 01:08:28,603 - INFO - Generated audio for '<speak>nor. He won’t apologize, nor should he have to.</speak>' at D:\vocabswipe.github.io\data\audio\nor_sentence_3+Matthew+22760e9366b7cd85d32bc94c6caf8587.mp3
+2025-06-25 01:08:28,958 - INFO - Generated audio for '<speak>nor. ‘I don’t like coffee.’ ‘Nor do I.’</speak>' at D:\vocabswipe.github.io\data\audio\nor_sentence_4+Matthew+cf9b9bde9c97daa0cbdb217cac92050a.mp3
+2025-06-25 01:08:29,278 - INFO - Generated audio for '<speak>expert</speak>' at D:\vocabswipe.github.io\data\audio\expert_word_0+Matthew+b9b83bad6bd2b4f7c40109304cf580e1.mp3
+2025-06-25 01:08:29,630 - INFO - Generated audio for '<speak>expert. The expert fixed our computer system in an hour.</speak>' at D:\vocabswipe.github.io\data\audio\expert_sentence_0+Matthew+28929a9a0ccab889e3650c399823ff43.mp3
+2025-06-25 01:08:29,989 - INFO - Generated audio for '<speak>expert. We called an expert to evaluate the antique.</speak>' at D:\vocabswipe.github.io\data\audio\expert_sentence_1+Matthew+c7e673acc344e7ac89ef51b2c0af08f3.mp3
+2025-06-25 01:08:30,334 - INFO - Generated audio for '<speak>expert. She’s an expert in marine biology.</speak>' at D:\vocabswipe.github.io\data\audio\expert_sentence_2+Matthew+68da5aacf18d39e4e771467a70de93eb.mp3
+2025-06-25 01:08:30,698 - INFO - Generated audio for '<speak>expert. The news channel invited an expert to discuss the economy.</speak>' at D:\vocabswipe.github.io\data\audio\expert_sentence_3+Matthew+ae2d1556d72dfcfc058495d87152d6fd.mp3
+2025-06-25 01:08:31,055 - INFO - Generated audio for '<speak>expert. Our expert guided us through the software tutorial.</speak>' at D:\vocabswipe.github.io\data\audio\expert_sentence_4+Matthew+9da5a758b1fa2a9dd5962b100462f2b9.mp3
+2025-06-25 01:08:31,371 - INFO - Generated audio for '<speak>structure</speak>' at D:\vocabswipe.github.io\data\audio\structure_word_0+Matthew+07414f4e15ca943e6cde032dec85d92f.mp3
+2025-06-25 01:08:31,733 - INFO - Generated audio for '<speak>structure. The structure of the building is very modern.</speak>' at D:\vocabswipe.github.io\data\audio\structure_sentence_0+Matthew+02283336c63973777239092602abda94.mp3
+2025-06-25 01:08:32,102 - INFO - Generated audio for '<speak>structure. The company’s structure includes several departments.</speak>' at D:\vocabswipe.github.io\data\audio\structure_sentence_1+Matthew+ccfcb1efc9849c522bd6b735592f4bcc.mp3
+2025-06-25 01:08:32,490 - INFO - Generated audio for '<speak>structure. The essay has a clear structure with an introduction and conclusion.</speak>' at D:\vocabswipe.github.io\data\audio\structure_sentence_2+Matthew+391c91090d89bf2693771eb662b929d0.mp3
+2025-06-25 01:08:32,855 - INFO - Generated audio for '<speak>structure. The bridge’s structure was designed to withstand earthquakes.</speak>' at D:\vocabswipe.github.io\data\audio\structure_sentence_3+Matthew+78992daba23458f42c955065635b3ff4.mp3
+2025-06-25 01:08:33,216 - INFO - Generated audio for '<speak>structure. Scientists studied the structure of the molecule.</speak>' at D:\vocabswipe.github.io\data\audio\structure_sentence_4+Matthew+57067ec16bae899afc74091128b1b1c0.mp3
+2025-06-25 01:08:33,579 - INFO - Generated audio for '<speak>budget</speak>' at D:\vocabswipe.github.io\data\audio\budget_word_0+Matthew+2f212049ce79d2b949fd242043004288.mp3
+2025-06-25 01:08:33,938 - INFO - Generated audio for '<speak>budget. We created a budget for our vacation.</speak>' at D:\vocabswipe.github.io\data\audio\budget_sentence_0+Matthew+421af28cf7f8cc2597c74437de8a0f7b.mp3
+2025-06-25 01:08:34,312 - INFO - Generated audio for '<speak>budget. The film had a small budget but was a huge success.</speak>' at D:\vocabswipe.github.io\data\audio\budget_sentence_1+Matthew+55090a66fc8ccab372445824ffb207b7.mp3
+2025-06-25 01:08:34,665 - INFO - Generated audio for '<speak>budget. I’m on a tight budget this month.</speak>' at D:\vocabswipe.github.io\data\audio\budget_sentence_2+Matthew+9b3883a8d7bc23de6f2f8c8acec54f20.mp3
+2025-06-25 01:08:35,012 - INFO - Generated audio for '<speak>budget. The city council approved the annual budget.</speak>' at D:\vocabswipe.github.io\data\audio\budget_sentence_3+Matthew+dc6c04563f46c113e57aab4ea9242539.mp3
+2025-06-25 01:08:35,371 - INFO - Generated audio for '<speak>budget. The marketing budget was increased this year.</speak>' at D:\vocabswipe.github.io\data\audio\budget_sentence_4+Matthew+d3d24dfd9784c859c3bd6fde45e80ebe.mp3
+2025-06-25 01:08:35,687 - INFO - Generated audio for '<speak>insurance</speak>' at D:\vocabswipe.github.io\data\audio\insurance_word_0+Matthew+b4628fe4f5f38e5b293be2024ce95239.mp3
+2025-06-25 01:08:36,042 - INFO - Generated audio for '<speak>insurance. Car insurance is mandatory in most states.</speak>' at D:\vocabswipe.github.io\data\audio\insurance_sentence_0+Matthew+0479e6862aa177f13cce61e4e3a8b187.mp3
+2025-06-25 01:08:36,401 - INFO - Generated audio for '<speak>insurance. Her insurance covered the hospital bills.</speak>' at D:\vocabswipe.github.io\data\audio\insurance_sentence_1+Matthew+4b78e029824026d52e98df82292c6fec.mp3
+2025-06-25 01:08:36,785 - INFO - Generated audio for '<speak>insurance. The company offers home insurance plans.</speak>' at D:\vocabswipe.github.io\data\audio\insurance_sentence_2+Matthew+e755b5cadb545427ff462f21b9454d76.mp3
+2025-06-25 01:08:37,166 - INFO - Generated audio for '<speak>insurance. Travel insurance saved us when our flight was canceled.</speak>' at D:\vocabswipe.github.io\data\audio\insurance_sentence_3+Matthew+8b24bc36023e8c01e3e8f1f497934944.mp3
+2025-06-25 01:08:37,525 - INFO - Generated audio for '<speak>insurance. The job includes health insurance for employees.</speak>' at D:\vocabswipe.github.io\data\audio\insurance_sentence_4+Matthew+dcf8fee50ae784f82c543ca9808c60dd.mp3
+2025-06-25 01:08:37,848 - INFO - Generated audio for '<speak>text</speak>' at D:\vocabswipe.github.io\data\audio\text_word_0+Matthew+1cb251ec0d568de6a929b520c4aed8d1.mp3
+2025-06-25 01:08:38,218 - INFO - Generated audio for '<speak>text. The book’s text was easy to read.</speak>' at D:\vocabswipe.github.io\data\audio\text_sentence_0+Matthew+9bd3e612b9e6e71a39a8d49289ab9b00.mp3
+2025-06-25 01:08:38,570 - INFO - Generated audio for '<speak>text. I sent her a text about the meeting time.</speak>' at D:\vocabswipe.github.io\data\audio\text_sentence_1+Matthew+17c1d67fa45b4c4f2149373ba835c6d5.mp3
+2025-06-25 01:08:38,918 - INFO - Generated audio for '<speak>text. The text of the speech was inspiring.</speak>' at D:\vocabswipe.github.io\data\audio\text_sentence_2+Matthew+868a5d0cbd599aa02075bb3e9ca351d4.mp3
+2025-06-25 01:08:39,267 - INFO - Generated audio for '<speak>text. The professor assigned a new text for the course.</speak>' at D:\vocabswipe.github.io\data\audio\text_sentence_3+Matthew+7927540a7e40011aeb1701e8f223648e.mp3
+2025-06-25 01:08:39,620 - INFO - Generated audio for '<speak>text. He prefers text over email for quick updates.</speak>' at D:\vocabswipe.github.io\data\audio\text_sentence_4+Matthew+fac2ae76f991459a4e339777a875c74d.mp3
+2025-06-25 01:08:39,941 - INFO - Generated audio for '<speak>freedom</speak>' at D:\vocabswipe.github.io\data\audio\freedom_word_0+Matthew+d5aa1729c8c253e5d917a5264855eab8.mp3
+2025-06-25 01:08:40,341 - INFO - Generated audio for '<speak>freedom. Freedom of speech is a core value here.</speak>' at D:\vocabswipe.github.io\data\audio\freedom_sentence_0+Matthew+ea5be699ba2ae9e67b047aab7690dda3.mp3
+2025-06-25 01:08:40,707 - INFO - Generated audio for '<speak>freedom. After college, she enjoyed her newfound freedom.</speak>' at D:\vocabswipe.github.io\data\audio\freedom_sentence_1+Matthew+cd038107a1461c6df1811d67dd619b74.mp3
+2025-06-25 01:08:41,064 - INFO - Generated audio for '<speak>freedom. The country fought for its freedom.</speak>' at D:\vocabswipe.github.io\data\audio\freedom_sentence_2+Matthew+696e0f35b1b465ebd3a57d7e6770df51.mp3
+2025-06-25 01:08:41,423 - INFO - Generated audio for '<speak>freedom. Financial freedom allows her to travel often.</speak>' at D:\vocabswipe.github.io\data\audio\freedom_sentence_3+Matthew+106a13f78fdc424c812edd47b3ee639d.mp3
+2025-06-25 01:08:41,808 - INFO - Generated audio for '<speak>freedom. Freedom to vote is essential in a democracy.</speak>' at D:\vocabswipe.github.io\data\audio\freedom_sentence_4+Matthew+eaa466aded9258978e25eec76f065351.mp3
+2025-06-25 01:08:42,134 - INFO - Generated audio for '<speak>crazy</speak>' at D:\vocabswipe.github.io\data\audio\crazy_word_0+Matthew+297aae72cc4d0d068f46a9158469e34d.mp3
+2025-06-25 01:08:42,490 - INFO - Generated audio for '<speak>crazy. The party got crazy after midnight.</speak>' at D:\vocabswipe.github.io\data\audio\crazy_sentence_0+Matthew+384cf1a37958217eab273cf1e2344710.mp3
+2025-06-25 01:08:42,844 - INFO - Generated audio for '<speak>crazy. She’s crazy about her new puppy.</speak>' at D:\vocabswipe.github.io\data\audio\crazy_sentence_1+Matthew+e24dae246be188043e3b07705e92db6e.mp3
+2025-06-25 01:08:43,196 - INFO - Generated audio for '<speak>crazy. It’s crazy how fast time flies.</speak>' at D:\vocabswipe.github.io\data\audio\crazy_sentence_2+Matthew+53b0787969f1840d6b61a99ee3f41074.mp3
+2025-06-25 01:08:43,551 - INFO - Generated audio for '<speak>crazy. Work has been crazy this week.</speak>' at D:\vocabswipe.github.io\data\audio\crazy_sentence_3+Matthew+d6e055de1e2294ebc643dd105158a58e.mp3
+2025-06-25 01:08:43,907 - INFO - Generated audio for '<speak>crazy. His crazy ideas actually worked out.</speak>' at D:\vocabswipe.github.io\data\audio\crazy_sentence_4+Matthew+fa5dbe4ed286aa08cf84f558db913b11.mp3
+2025-06-25 01:08:44,228 - INFO - Generated audio for '<speak>reader</speak>' at D:\vocabswipe.github.io\data\audio\reader_word_0+Matthew+1de9b0a30075ae8c303eb420c103c320.mp3
+2025-06-25 01:08:44,665 - INFO - Generated audio for '<speak>reader. She’s an avid reader of mystery novels.</speak>' at D:\vocabswipe.github.io\data\audio\reader_sentence_0+Matthew+25c0a417adae6c3af4526be17a6573d0.mp3
+2025-06-25 01:08:45,027 - INFO - Generated audio for '<speak>reader. The card reader scanned my payment quickly.</speak>' at D:\vocabswipe.github.io\data\audio\reader_sentence_1+Matthew+70ab6600b1d100d97194a67f118a31c6.mp3
+2025-06-25 01:08:45,375 - INFO - Generated audio for '<speak>reader. The young reader won a library award.</speak>' at D:\vocabswipe.github.io\data\audio\reader_sentence_2+Matthew+f7c8439b403e1701213261740ff8031d.mp3
+2025-06-25 01:08:45,737 - INFO - Generated audio for '<speak>reader. The blog has thousands of loyal readers.</speak>' at D:\vocabswipe.github.io\data\audio\reader_sentence_3+Matthew+dc9cbb4c91267d965610faf11b26a2ea.mp3
+2025-06-25 01:08:46,101 - INFO - Generated audio for '<speak>reader. I use an e-reader for all my books.</speak>' at D:\vocabswipe.github.io\data\audio\reader_sentence_4+Matthew+81a1287bc12728439cac4e4807fe0754.mp3
+2025-06-25 01:08:46,483 - INFO - Generated audio for '<speak>style</speak>' at D:\vocabswipe.github.io\data\audio\style_word_0+Matthew+a1b01e734b573fca08eb1a65e6df9a38.mp3
+2025-06-25 01:08:46,838 - INFO - Generated audio for '<speak>style. Her writing style is very poetic.</speak>' at D:\vocabswipe.github.io\data\audio\style_sentence_0+Matthew+c041e6914e4468e1e5ce80d0bd46ce93.mp3
+2025-06-25 01:08:47,198 - INFO - Generated audio for '<speak>style. Vintage style is popular this season.</speak>' at D:\vocabswipe.github.io\data\audio\style_sentence_1+Matthew+4b038e20fce5b8697be5e16a7766e6d8.mp3
+2025-06-25 01:08:47,552 - INFO - Generated audio for '<speak>style. His teaching style engages students.</speak>' at D:\vocabswipe.github.io\data\audio\style_sentence_2+Matthew+e6aeee3dcd890da01cf6921c7651409c.mp3
+2025-06-25 01:08:47,916 - INFO - Generated audio for '<speak>style. The building has a modern architectural style.</speak>' at D:\vocabswipe.github.io\data\audio\style_sentence_3+Matthew+84afcddbe9ba0e6b9951ce9c75eff57c.mp3
+2025-06-25 01:08:48,270 - INFO - Generated audio for '<speak>style. Jazz is my favorite music style.</speak>' at D:\vocabswipe.github.io\data\audio\style_sentence_4+Matthew+96ca21de177929a62da2d01f6859fa3f.mp3
+2025-06-25 01:08:48,633 - INFO - Generated audio for '<speak>through. We walked through the park.</speak>' at D:\vocabswipe.github.io\data\audio\through_sentence_5+Matthew+378817ad4a060998a42e2198b5ec401b.mp3
+2025-06-25 01:08:48,977 - INFO - Generated audio for '<speak>through. She read through the entire book.</speak>' at D:\vocabswipe.github.io\data\audio\through_sentence_6+Matthew+f491428ec5f19f75cdf21e81d4707e8c.mp3
+2025-06-25 01:08:49,326 - INFO - Generated audio for '<speak>through. I heard the news through a friend.</speak>' at D:\vocabswipe.github.io\data\audio\through_sentence_7+Matthew+83f6d743d2663566c77177e1d374ebe5.mp3
+2025-06-25 01:08:49,683 - INFO - Generated audio for '<speak>through. We worked through the night.</speak>' at D:\vocabswipe.github.io\data\audio\through_sentence_8+Matthew+61514cc65baae91d71bc5061654abb42.mp3
+2025-06-25 01:08:50,051 - INFO - Generated audio for '<speak>through. The bullet went through the wall.</speak>' at D:\vocabswipe.github.io\data\audio\through_sentence_9+Matthew+112e201eea1dc36d23e27e60a413ba5e.mp3
+2025-06-25 01:08:50,365 - INFO - Generated audio for '<speak>March</speak>' at D:\vocabswipe.github.io\data\audio\march_word_0+Matthew+fa3e5edac607a88d8fd7ecb9d6d67424.mp3
+2025-06-25 01:08:50,719 - INFO - Generated audio for '<speak>March. My birthday is in March.</speak>' at D:\vocabswipe.github.io\data\audio\march_sentence_0+Matthew+73b33b313221c3d25252c676f4f0471d.mp3
+2025-06-25 01:08:51,067 - INFO - Generated audio for '<speak>March. March brings warmer weather to our town.</speak>' at D:\vocabswipe.github.io\data\audio\march_sentence_1+Matthew+b436be1b2c56b15f9eee8f50e798b872.mp3
+2025-06-25 01:08:51,411 - INFO - Generated audio for '<speak>March. The festival happens every March.</speak>' at D:\vocabswipe.github.io\data\audio\march_sentence_2+Matthew+2700e588b4ab9d83c006ca8bfb353da0.mp3
+2025-06-25 01:08:51,808 - INFO - Generated audio for '<speak>March. The march of 1963 was a turning point.</speak>' at D:\vocabswipe.github.io\data\audio\march_sentence_3+Matthew+27a83a0fddad40812614d3eeb65c3a67.mp3
+2025-06-25 01:08:52,159 - INFO - Generated audio for '<speak>March. Classes start again in early March.</speak>' at D:\vocabswipe.github.io\data\audio\march_sentence_4+Matthew+70c37c08a40181771ae01e622da9e952.mp3
+2025-06-25 01:08:52,478 - INFO - Generated audio for '<speak>machine</speak>' at D:\vocabswipe.github.io\data\audio\machine_word_0+Matthew+14754f13e5280c5d49d2ae536c2d57e2.mp3
+2025-06-25 01:08:52,836 - INFO - Generated audio for '<speak>machine. The factory uses a new machine for packaging.</speak>' at D:\vocabswipe.github.io\data\audio\machine_sentence_0+Matthew+30a880c80cd1fb5660f0f31adfbe78dd.mp3
+2025-06-25 01:08:53,205 - INFO - Generated audio for '<speak>machine. This machine processes data quickly.</speak>' at D:\vocabswipe.github.io\data\audio\machine_sentence_1+Matthew+e3aa4c5a41ab2902795762b52de483d9.mp3
+2025-06-25 01:08:53,557 - INFO - Generated audio for '<speak>machine. I washed my clothes in the washing machine.</speak>' at D:\vocabswipe.github.io\data\audio\machine_sentence_2+Matthew+7e41c00a4ac62912d04979d2931d812d.mp3
+2025-06-25 01:08:53,937 - INFO - Generated audio for '<speak>machine. The political machine influenced the election.</speak>' at D:\vocabswipe.github.io\data\audio\machine_sentence_3+Matthew+cfe3ebb7e2f528861042aebdfd338c4b.mp3
+2025-06-25 01:08:54,296 - INFO - Generated audio for '<speak>machine. He trains on the rowing machine daily.</speak>' at D:\vocabswipe.github.io\data\audio\machine_sentence_4+Matthew+db196b28fe95d07bcee81d32385ffcc6.mp3
+2025-06-25 01:08:54,618 - INFO - Generated audio for '<speak>November</speak>' at D:\vocabswipe.github.io\data\audio\november_word_0+Matthew+7e823b37564da492ca1629b4732289a8.mp3
+2025-06-25 01:08:54,974 - INFO - Generated audio for '<speak>November. November is usually cold here.</speak>' at D:\vocabswipe.github.io\data\audio\november_sentence_0+Matthew+9f11d61459d53a19feae99fe0333be1c.mp3
+2025-06-25 01:08:55,328 - INFO - Generated audio for '<speak>November. Thanksgiving is in late November.</speak>' at D:\vocabswipe.github.io\data\audio\november_sentence_1+Matthew+b2cca8096e95c9343866fd29ae941262.mp3
+2025-06-25 01:08:55,690 - INFO - Generated audio for '<speak>November. The marathon is scheduled for November.</speak>' at D:\vocabswipe.github.io\data\audio\november_sentence_2+Matthew+0cfd7afedf7610cfb9272b8c7fffdd74.mp3
+2025-06-25 01:08:56,047 - INFO - Generated audio for '<speak>November. The treaty was signed in November 1918.</speak>' at D:\vocabswipe.github.io\data\audio\november_sentence_3+Matthew+37c22d943310c41fcc8c47577ea724ac.mp3
+2025-06-25 01:08:57,631 - INFO - Generated audio for '<speak>November. Sales pick up in November before the holidays.</speak>' at D:\vocabswipe.github.io\data\audio\november_sentence_4+Matthew+e6cf33dcc33577200d84ba8aa4ce52ad.mp3
+2025-06-25 01:08:57,956 - INFO - Generated audio for '<speak>generation</speak>' at D:\vocabswipe.github.io\data\audio\generation_word_0+Matthew+9cb9ce5bd9e807867d42a740c9633fc7.mp3
+2025-06-25 01:08:58,318 - INFO - Generated audio for '<speak>generation. My generation grew up with the internet.</speak>' at D:\vocabswipe.github.io\data\audio\generation_sentence_0+Matthew+099241629431bca6de40cfd298d89f6c.mp3
+2025-06-25 01:08:58,674 - INFO - Generated audio for '<speak>generation. The generation of electricity is costly.</speak>' at D:\vocabswipe.github.io\data\audio\generation_sentence_1+Matthew+dd9a8588652261bd65560fa8417a1c03.mp3
+2025-06-25 01:08:59,036 - INFO - Generated audio for '<speak>generation. This farm has been in our generation for decades.</speak>' at D:\vocabswipe.github.io\data\audio\generation_sentence_2+Matthew+c1a60fb3d98053b022ce07bfe6855372.mp3
+2025-06-25 01:08:59,393 - INFO - Generated audio for '<speak>generation. The new generation of phones is faster.</speak>' at D:\vocabswipe.github.io\data\audio\generation_sentence_3+Matthew+03ddae8e05e299f177463d653e7760ee.mp3
+2025-06-25 01:08:59,747 - INFO - Generated audio for '<speak>generation. The 60s generation shaped modern music.</speak>' at D:\vocabswipe.github.io\data\audio\generation_sentence_4+Matthew+3dcb71ea50496f7e3c03c70363e59d52.mp3
+2025-06-25 01:09:00,103 - INFO - Generated audio for '<speak>income</speak>' at D:\vocabswipe.github.io\data\audio\income_word_0+Matthew+34ae6773410925b4574e656be194f0ad.mp3
+2025-06-25 01:09:00,459 - INFO - Generated audio for '<speak>income. Her income comes from her teaching job.</speak>' at D:\vocabswipe.github.io\data\audio\income_sentence_0+Matthew+34327ca366edc9e8eb88c6821fa76cda.mp3
+2025-06-25 01:09:00,823 - INFO - Generated audio for '<speak>income. The rental property provides steady income.</speak>' at D:\vocabswipe.github.io\data\audio\income_sentence_1+Matthew+7fe1b40e878d37c9d4746ad937ee134a.mp3
+2025-06-25 01:09:01,228 - INFO - Generated audio for '<speak>income. Their household income is above average.</speak>' at D:\vocabswipe.github.io\data\audio\income_sentence_2+Matthew+a646022cb1235afc6eca641ca0ab5b62.mp3
+2025-06-25 01:09:01,641 - INFO - Generated audio for '<speak>income. The company’s income grew this quarter.</speak>' at D:\vocabswipe.github.io\data\audio\income_sentence_3+Matthew+d3b47a2b74737fe48d0e6a34bb637a2a.mp3
+2025-06-25 01:09:02,010 - INFO - Generated audio for '<speak>income. I save part of my income every month.</speak>' at D:\vocabswipe.github.io\data\audio\income_sentence_4+Matthew+54044a930a24154dc021d41423a87c53.mp3
+2025-06-25 01:09:02,324 - INFO - Generated audio for '<speak>born</speak>' at D:\vocabswipe.github.io\data\audio\born_word_0+Matthew+43c16d460b053cdc0fea85dd5f25edf8.mp3
+2025-06-25 01:09:02,682 - INFO - Generated audio for '<speak>born. She was born in a small village.</speak>' at D:\vocabswipe.github.io\data\audio\born_sentence_0+Matthew+f8c159750a49b9682ef235634347b930.mp3
+2025-06-25 01:09:03,074 - INFO - Generated audio for '<speak>born. He’s a born leader in our team.</speak>' at D:\vocabswipe.github.io\data\audio\born_sentence_1+Matthew+05d30e228d873f6539368d3f92daf44b.mp3
+2025-06-25 01:09:03,445 - INFO - Generated audio for '<speak>born. I’m a born New Yorker.</speak>' at D:\vocabswipe.github.io\data\audio\born_sentence_2+Matthew+a031367a47de8c83bc2824683ba413ac.mp3
+2025-06-25 01:09:03,795 - INFO - Generated audio for '<speak>born. The idea was born during the meeting.</speak>' at D:\vocabswipe.github.io\data\audio\born_sentence_3+Matthew+efbd35e598dbd609a42b79c464116d1d.mp3
+2025-06-25 01:09:04,151 - INFO - Generated audio for '<speak>born. She’s a born artist with incredible skills.</speak>' at D:\vocabswipe.github.io\data\audio\born_sentence_4+Matthew+19ddd0bd93c48454c3052f26ef074e21.mp3
+2025-06-25 01:09:06,956 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-25 01:09:06,972 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250625_010906.txt
+2025-06-25 01:09:06,980 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 01:09:06,981 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
