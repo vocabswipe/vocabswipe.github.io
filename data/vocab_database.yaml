@@ -3183,6 +3183,16 @@
     example_en: The team backed him up.
   - definition_en: Indicates a return to a state.
     example_en: He’s back to work now.
+  - definition_en: To a previous position or place
+    example_en: He went back to his hometown.
+  - definition_en: In reply or response
+    example_en: She called back after missing the call.
+  - definition_en: In time, referring to the past
+    example_en: I remember back when we were kids.
+  - definition_en: Away from the front
+    example_en: Step back to avoid the spill.
+  - definition_en: In return or repayment
+    example_en: I’ll pay you back tomorrow.
   freq: 938649
   part_of_speech: adverb
   rank: 108
@@ -3192,6 +3202,11 @@
   - back_sentence_2+Matthew+117ec3c550e8d0ed0fd8b0905814f192.mp3
   - back_sentence_3+Matthew+8775d016d3dacdd7a61093ebf4da8e59.mp3
   - back_sentence_4+Matthew+fc3b5bbe842b91c53b6dbf615fa35225.mp3
+  - back_sentence_5+Matthew+06d2f471a1be29abe806f49f359757cc.mp3
+  - back_sentence_6+Matthew+1e570bccee773665545f62c907babe71.mp3
+  - back_sentence_7+Matthew+65940cd503f5b73ef4056f90133500b8.mp3
+  - back_sentence_8+Matthew+fcf2c41f12a1a6b9fbdcc31997a23592.mp3
+  - back_sentence_9+Matthew+9484cd8b81da2e8188aaaf917dc8fccc.mp3
   voice_id: Matthew
   word: back
   word_audio_file:
@@ -8023,3 +8038,459 @@
   word: information
   word_audio_file:
   - information_word_0+Matthew+bb3ccd5881d651448ded1dac904054ac.mp3
+- back_cards:
+  - definition_en: A vehicle with four wheels used for personal transportation
+    example_en: She drove her car to the grocery store.
+  - definition_en: A mode of transport for long-distance travel
+    example_en: We rented a car to explore the countryside.
+  - definition_en: A vehicle used in professional racing
+    example_en: The race car sped around the track at incredible speeds.
+  - definition_en: A car as a shared resource in a household
+    example_en: Dad took the car, so I had to walk to school.
+  - definition_en: A car in the context of urban commuting
+    example_en: He avoids traffic by taking his car to work early.
+  freq: 313437
+  part_of_speech: noun
+  rank: 321
+  sentence_audio_file:
+  - car_sentence_0+Matthew+d4607de4f7fb2ceccd73810dcc2ab45f.mp3
+  - car_sentence_1+Matthew+fbd7c1aebc43e9dd4828ef0e64046f8c.mp3
+  - car_sentence_2+Matthew+fabb33bb669aa1256eb1975a4faa779d.mp3
+  - car_sentence_3+Matthew+82bb5c552cc0d6398b5daccfb601ec77.mp3
+  - car_sentence_4+Matthew+890eca30fb5866b8ca89db1002a16e3b.mp3
+  voice_id: Matthew
+  word: car
+  word_audio_file:
+  - car_word_0+Matthew+e6d96502596d7e7887b76646c5f615d9.mp3
+- back_cards:
+  - definition_en: To gain knowledge through study
+    example_en: She wants to learn algebra this semester.
+  - definition_en: To acquire a new skill through practice
+    example_en: He learned to play the guitar in just a few months.
+  - definition_en: To understand through experience
+    example_en: They learned the importance of teamwork during the project.
+  - definition_en: To memorize information
+    example_en: I need to learn these vocabulary words for the test.
+  - definition_en: To discover new information
+    example_en: We learned about the festival from a friend.
+  freq: 312649
+  part_of_speech: verb
+  rank: 322
+  sentence_audio_file:
+  - learn_sentence_0+Matthew+a8e8284216af677b7ecd978e7406b53c.mp3
+  - learn_sentence_1+Matthew+7dcbd43f32f8e1e3284270695cb034fa.mp3
+  - learn_sentence_2+Matthew+5dd1aa3a4da8e25f6cedf319afaf19c9.mp3
+  - learn_sentence_3+Matthew+c2333aef25d02ead31fee9a7b15e8fee.mp3
+  - learn_sentence_4+Matthew+d8ae3f7544729fea9e8c8690128aff7b.mp3
+  voice_id: Matthew
+  word: learn
+  word_audio_file:
+  - learn_word_0+Matthew+339d8d14024f2ae5c8dc2e07362eba1d.mp3
+- back_cards:
+  - definition_en: To the smallest extent or degree
+    example_en: She was the least worried about the exam.
+  - definition_en: Used to emphasize minimal effort
+    example_en: He didn’t even make the least attempt to help.
+  - definition_en: In comparison to others, the smallest amount
+    example_en: This is the least expensive option available.
+  - definition_en: Used to express minimal concern
+    example_en: The delay was the least of our problems.
+  - definition_en: Indicating the lowest priority
+    example_en: Studying was the least of his concerns during the holidays.
+  freq: 311569
+  part_of_speech: adverb
+  rank: 323
+  sentence_audio_file:
+  - least_sentence_0+Matthew+89df57f59ea24a7f8f1d086c5b12e0d0.mp3
+  - least_sentence_1+Matthew+30e2258f9cb13fa563e5c9d761ac137a.mp3
+  - least_sentence_2+Matthew+5c904b4d964b5af58bea160d12c9e4f2.mp3
+  - least_sentence_3+Matthew+116a01f1f17fc84a418c618f26421937.mp3
+  - least_sentence_4+Matthew+a7f0e2a7dd9af8b2d8b982752b602e7e.mp3
+  voice_id: Matthew
+  word: least
+  word_audio_file:
+  - least_word_0+Matthew+8451fc653eaa269664a6d9b46a238424.mp3
+- back_cards:
+  - definition_en: By this time or now
+    example_en: She’s already finished her homework.
+  - definition_en: Sooner than expected
+    example_en: The bus is already here!
+  - definition_en: Indicating completion before a deadline
+    example_en: He’s already submitted his project to the teacher.
+  - definition_en: Used to express surprise at speed
+    example_en: Have you already eaten dinner?
+  - definition_en: To emphasize an early occurrence
+    example_en: The flowers are already blooming in early spring.
+  freq: 311502
+  part_of_speech: adverb
+  rank: 324
+  sentence_audio_file:
+  - already_sentence_0+Matthew+c62f1f5db955a860337c4413d3748bc1.mp3
+  - already_sentence_1+Matthew+ef5e486f9469585a3b4945c5bc19edbe.mp3
+  - already_sentence_2+Matthew+8d41a7921e8084dc6a6983babe388136.mp3
+  - already_sentence_3+Matthew+e63fbbdd3782e6871e385e2c0b27dcbe.mp3
+  - already_sentence_4+Matthew+f2730df3e6fbb87af6601f1ffdb1a18d.mp3
+  voice_id: Matthew
+  word: already
+  word_audio_file:
+  - already_word_0+Matthew+1ebf4e55c604b92cce9b0f1fd7debcc0.mp3
+- back_cards:
+  - definition_en: To cause the death of a living thing
+    example_en: The hunter killed a deer in the forest.
+  - definition_en: To end or stop something completely
+    example_en: They killed the plan due to lack of funds.
+  - definition_en: To use up time or resources
+    example_en: We killed an hour waiting for the train.
+  - definition_en: To cause intense discomfort or pain
+    example_en: These tight shoes are killing my feet.
+  - definition_en: To impress or overwhelm in a performance
+    example_en: She killed it with her speech at the conference.
+  freq: 307305
+  part_of_speech: verb
+  rank: 325
+  sentence_audio_file:
+  - kill_sentence_0+Matthew+0604f3e7e1c924d4be5f10f1ece73d96.mp3
+  - kill_sentence_1+Matthew+3b8b8c75da3b377f6833988ed63372e6.mp3
+  - kill_sentence_2+Matthew+fa9f9d2358f065f9b94a5f3a9b4790ac.mp3
+  - kill_sentence_3+Matthew+73fa5697f404c55bd6b6ae888e693d15.mp3
+  - kill_sentence_4+Matthew+a9dcbc478d614afa52effbbc6ca90e12.mp3
+  voice_id: Matthew
+  word: kill
+  word_audio_file:
+  - kill_word_0+Matthew+534735884d341071762ede7af01c53e8.mp3
+- back_cards:
+  - definition_en: A unit of time equal to 60 seconds
+    example_en: The meeting starts in five minutes.
+  - definition_en: A short period of time
+    example_en: Can you wait a minute while I grab my coat?
+  - definition_en: A precise moment
+    example_en: The train arrived at the exact minute it was scheduled.
+  - definition_en: A small amount of time in a busy schedule
+    example_en: I don’t have a minute to spare today.
+  - definition_en: Used in note-taking or records
+    example_en: The secretary recorded the minutes of the meeting.
+  freq: 306541
+  part_of_speech: noun
+  rank: 326
+  sentence_audio_file:
+  - minute_sentence_0+Matthew+45dfbcab8c6011ce9c84b90c356a7e70.mp3
+  - minute_sentence_1+Matthew+dcfb890278fcf03997a03ceaee3f7725.mp3
+  - minute_sentence_2+Matthew+3bae67a94eef0be64af9644961cff9c4.mp3
+  - minute_sentence_3+Matthew+311c26456ae5179f1811550fa88fd3ba.mp3
+  - minute_sentence_4+Matthew+0df70c5e69d58f5c10a92d49def402bd.mp3
+  voice_id: Matthew
+  word: minute
+  word_audio_file:
+  - minute_word_0+Matthew+0a7d55be9d12a369a6a8da0fb517fba4.mp3
+- back_cards:
+  - definition_en: A social gathering for celebration
+    example_en: We threw a party for her birthday.
+  - definition_en: A political group with shared goals
+    example_en: The party announced its new policies.
+  - definition_en: A group of people working together
+    example_en: The search party looked for the lost hiker.
+  - definition_en: An event with music and dancing
+    example_en: The club hosted a huge party last night.
+  - definition_en: A participant in an activity
+    example_en: Both parties signed the contract.
+  freq: 304325
+  part_of_speech: noun
+  rank: 327
+  sentence_audio_file:
+  - party_sentence_0+Matthew+513226e7d04e098de1b6aa88456ef8b0.mp3
+  - party_sentence_1+Matthew+f36573736a372045560602d010dd9a0e.mp3
+  - party_sentence_2+Matthew+43806605d702ce430a6a93d6bfa77322.mp3
+  - party_sentence_3+Matthew+aac55cd9873b74998734b18dd571579a.mp3
+  - party_sentence_4+Matthew+dfca2f66e2846f4b73bee7f0e62ff338.mp3
+  voice_id: Matthew
+  word: party
+  word_audio_file:
+  - party_word_0+Matthew+1aab23051b24582c5dc8e23fc595d505.mp3
+- back_cards:
+  - definition_en: To contain as a part of something
+    example_en: The package includes a free trial.
+  - definition_en: To involve as a necessary part
+    example_en: The project includes input from all team members.
+  - definition_en: To add something to a group
+    example_en: Please include me in the group chat.
+  - definition_en: To cover in a list or plan
+    example_en: The menu includes vegetarian options.
+  - definition_en: To incorporate in a process
+    example_en: The study includes data from ten cities.
+  freq: 304197
+  part_of_speech: verb
+  rank: 328
+  sentence_audio_file:
+  - include_sentence_0+Matthew+334153ac41f050f289ca2150c1f84569.mp3
+  - include_sentence_1+Matthew+b489843483d6ccecb4285c6ca66f96ed.mp3
+  - include_sentence_2+Matthew+0cac2804ba1e9e127acbe2c9dca84693.mp3
+  - include_sentence_3+Matthew+ef21cb7245c934ee9cd4e39aa7260124.mp3
+  - include_sentence_4+Matthew+3eecabfb3aa430b16e10ce24ed9ecf35.mp3
+  voice_id: Matthew
+  word: include
+  word_audio_file:
+  - include_word_0+Matthew+d436eb0fd9de10b54a828ce6435f7e81.mp3
+- back_cards:
+  - definition_en: To be in an upright position
+    example_en: She stood at the front of the classroom.
+  - definition_en: To remain firm or unchanged
+    example_en: His decision to leave stands.
+  - definition_en: To tolerate or endure
+    example_en: I can’t stand the cold weather.
+  - definition_en: To represent or symbolize
+    example_en: The flag stands for freedom.
+  - definition_en: To be in a particular position
+    example_en: Our team stands first in the rankings.
+  freq: 303462
+  part_of_speech: verb
+  rank: 329
+  sentence_audio_file:
+  - stand_sentence_0+Matthew+ad66fc3a3bec6ff7057648f076d93669.mp3
+  - stand_sentence_1+Matthew+5805cb43bdf89dd27481e47ba97a71d5.mp3
+  - stand_sentence_2+Matthew+64cf298e43f907f1ce47f0baa275d7d5.mp3
+  - stand_sentence_3+Matthew+50a1aeec936275803c33d21ebacfecc1.mp3
+  - stand_sentence_4+Matthew+df1da6642fd11ba9b05b08aa6dba0fdc.mp3
+  voice_id: Matthew
+  word: stand
+  word_audio_file:
+  - stand_word_0+Matthew+945b93f37cd9aa702a7380756f44e36a.mp3
+- back_cards:
+  - definition_en: In a group or collectively
+    example_en: We worked together to finish the project.
+  - definition_en: At the same time
+    example_en: They shouted the answer together.
+  - definition_en: In a close relationship
+    example_en: They’ve been together for five years.
+  - definition_en: In combination
+    example_en: These ingredients taste great together.
+  - definition_en: In an organized or composed state
+    example_en: She pulled herself together after the bad news.
+  freq: 302942
+  part_of_speech: adverb
+  rank: 330
+  sentence_audio_file:
+  - together_sentence_0+Matthew+0870cdede3ebfda2c10f5f5d30cb4523.mp3
+  - together_sentence_1+Matthew+c9d2b9fb796477d4ee55d8bd4fc13c75.mp3
+  - together_sentence_2+Matthew+14f63b34e00dea574ead47e7d294aeec.mp3
+  - together_sentence_3+Matthew+4167931198e74217a8427a18d19b3860.mp3
+  - together_sentence_4+Matthew+c5076bfb9f187292171ae15480082ef5.mp3
+  voice_id: Matthew
+  word: together
+  word_audio_file:
+  - together_word_0+Matthew+db3f3946ba271882d8c74cdbf3d5179a.mp3
+- back_cards:
+  - definition_en: To go after someone or something
+    example_en: She followed the guide through the forest.
+  - definition_en: To obey or comply with
+    example_en: Please follow the instructions carefully.
+  - definition_en: To pursue or track
+    example_en: The detective followed the suspect’s trail.
+  - definition_en: To understand or keep up with
+    example_en: I couldn’t follow the plot of the movie.
+  - definition_en: To subscribe to updates, as on social media
+    example_en: He follows his favorite band online.
+  freq: 300266
+  part_of_speech: verb
+  rank: 332
+  sentence_audio_file:
+  - follow_sentence_0+Matthew+8753058f6c23aebd723bd6af7d4deecb.mp3
+  - follow_sentence_1+Matthew+bbaf5ca642e1b391fdce2e9fe1f8716c.mp3
+  - follow_sentence_2+Matthew+417b2997c6cde2f14691fe4e378c3cb4.mp3
+  - follow_sentence_3+Matthew+015a5d4d4c37056f27c2d9c2b2f9a058.mp3
+  - follow_sentence_4+Matthew+151c8680bd889ad8dcd82815031aa655.mp3
+  voice_id: Matthew
+  word: follow
+  word_audio_file:
+  - follow_word_0+Matthew+a4010945e4bd924bc2a890a2effea0e6.mp3
+- back_cards:
+  - definition_en: The state of being physically well
+    example_en: She exercises daily to improve her health.
+  - definition_en: Mental or emotional well-being
+    example_en: Talking to friends helps his mental health.
+  - definition_en: The condition of an organization or system
+    example_en: The company’s financial health is strong.
+  - definition_en: A field of study or care
+    example_en: She works in public health at the hospital.
+  - definition_en: A toast or wish for well-being
+    example_en: They raised their glasses to good health.
+  freq: 300262
+  part_of_speech: noun
+  rank: 333
+  sentence_audio_file:
+  - health_sentence_0+Matthew+f4fbb55e7b25bb00cce411f53596aaac.mp3
+  - health_sentence_1+Matthew+d1e9d97b4237af0907c3bd475c3dfbcd.mp3
+  - health_sentence_2+Matthew+52968a4adf65dadce5ad6302146f1ed1.mp3
+  - health_sentence_3+Matthew+93e3add4d447cead8effe8954bca3bba.mp3
+  - health_sentence_4+Matthew+907260c2c857fb86264457b6889df70e.mp3
+  voice_id: Matthew
+  word: health
+  word_audio_file:
+  - health_word_0+Matthew+555bf8344ca0caf09b42f55e185526d8.mp3
+- back_cards:
+  - definition_en: To recall a memory or fact
+    example_en: I remember my first day at school.
+  - definition_en: To keep something in mind
+    example_en: Remember to lock the door before leaving.
+  - definition_en: To honor or commemorate
+    example_en: We remember the heroes on Memorial Day.
+  - definition_en: To retain information for later use
+    example_en: She remembered the recipe perfectly.
+  - definition_en: To think of someone affectionately
+    example_en: He remembered his grandmother’s kind words.
+  freq: 298221
+  part_of_speech: verb
+  rank: 334
+  sentence_audio_file:
+  - remember_sentence_0+Matthew+892f020d45ea978213bb75464ae05cdb.mp3
+  - remember_sentence_1+Matthew+50810af560d1d9f751eeb75bd0283187.mp3
+  - remember_sentence_2+Matthew+682c67933bb1ca8b25c247220451272d.mp3
+  - remember_sentence_3+Matthew+89a3521dd3bb3f50ae1252f87070bb96.mp3
+  - remember_sentence_4+Matthew+92de540b84d1a0487704ff481afc4300.mp3
+  voice_id: Matthew
+  word: remember
+  word_audio_file:
+  - remember_word_0+Matthew+dc3c99bb4e249a95567a2bf7d5f327ed.mp3
+- back_cards:
+  - definition_en: Frequently or many times
+    example_en: She often visits her parents on weekends.
+  - definition_en: Regularly in a routine
+    example_en: He often jogs in the park every morning.
+  - definition_en: Commonly in general practice
+    example_en: People often forget to drink enough water.
+  - definition_en: In many instances
+    example_en: It often rains in the afternoons here.
+  - definition_en: Habitually over time
+    example_en: They often argue about small things.
+  freq: 295709
+  part_of_speech: adverb
+  rank: 335
+  sentence_audio_file:
+  - often_sentence_0+Matthew+01f1af3e9c06006cb05dd9843eda5b9b.mp3
+  - often_sentence_1+Matthew+dad8c6d67d2dd0a99fa833a087ebda0b.mp3
+  - often_sentence_2+Matthew+553d6d5d773124b027943297b765f161.mp3
+  - often_sentence_3+Matthew+3bda7214cc4846bc4def58d8c55c9fa4.mp3
+  - often_sentence_4+Matthew+7d84eabf79d3c40dddb04084ecf33dce.mp3
+  voice_id: Matthew
+  word: often
+  word_audio_file:
+  - often_word_0+Matthew+fd168b4a17c3ade763b5d169284de95c.mp3
+- back_cards:
+  - definition_en: A cause or explanation for something
+    example_en: The reason for the delay was bad weather.
+  - definition_en: Logical thinking or judgment
+    example_en: She used reason to solve the puzzle.
+  - definition_en: A motive for an action
+    example_en: His reason for quitting was stress.
+  - definition_en: A basis for an argument
+    example_en: They had no reason to disagree with the plan.
+  - definition_en: The ability to think rationally
+    example_en: Fear can cloud one’s reason.
+  freq: 295577
+  part_of_speech: noun
+  rank: 336
+  sentence_audio_file:
+  - reason_sentence_0+Matthew+7f1d240ddb562798c3f0be29790f1bc7.mp3
+  - reason_sentence_1+Matthew+e9321e120daa6ef0aca394affc8131a2.mp3
+  - reason_sentence_2+Matthew+0fb32b3121a39378460c5f45424f0f5f.mp3
+  - reason_sentence_3+Matthew+59d9d936ba22c4bcc889b4a6253bd92f.mp3
+  - reason_sentence_4+Matthew+3871e492da3bc13f339569430a0ed282.mp3
+  voice_id: Matthew
+  word: reason
+  word_audio_file:
+  - reason_word_0+Matthew+40bea8d637cdf2c1b07fcf0630482b73.mp3
+- back_cards:
+  - definition_en: To express thoughts aloud
+    example_en: She speaks confidently in meetings.
+  - definition_en: To use a specific language
+    example_en: He speaks Spanish fluently.
+  - definition_en: To address an audience
+    example_en: The professor will speak at the conference.
+  - definition_en: To convey a message or opinion
+    example_en: Her actions speak louder than words.
+  - definition_en: To communicate formally
+    example_en: They spoke with the manager about the issue.
+  freq: 295523
+  part_of_speech: verb
+  rank: 337
+  sentence_audio_file:
+  - speak_sentence_0+Matthew+13c450b37936be3e9e2e68ea156fa441.mp3
+  - speak_sentence_1+Matthew+6cdbfbcdd399d0ac92d80e053c5107b3.mp3
+  - speak_sentence_2+Matthew+6fffd2deed31a216a0c36cbb075ae623.mp3
+  - speak_sentence_3+Matthew+312b2d80997ff5e12afaa64714d42852.mp3
+  - speak_sentence_4+Matthew+1e639146b35804217ba38e5b449cd268.mp3
+  voice_id: Matthew
+  word: speak
+  word_audio_file:
+  - speak_word_0+Matthew+69378f8c051ff8c5686c002e8202208a.mp3
+- back_cards:
+  - definition_en: In the past, before now
+    example_en: She moved here two years ago.
+  - definition_en: Referring to a specific past event
+    example_en: The concert was a week ago.
+  - definition_en: Indicating a time difference
+    example_en: He called ten minutes ago.
+  - definition_en: In historical context
+    example_en: Dinosaurs lived millions of years ago.
+  - definition_en: In a personal memory
+    example_en: I saw her a long time ago.
+  freq: 294921
+  part_of_speech: adverb
+  rank: 338
+  sentence_audio_file:
+  - ago_sentence_0+Matthew+481b9e4e041fb68ab0134208592e73df.mp3
+  - ago_sentence_1+Matthew+b3db71d683ee5263f6e1c3e6f9f46e3f.mp3
+  - ago_sentence_2+Matthew+0812dcb06b3e7638e3c976f107a35e74.mp3
+  - ago_sentence_3+Matthew+f4fd52baea3bdeb7c19273abf4e75a2b.mp3
+  - ago_sentence_4+Matthew+7228f50e305e49ac5dba7cc289521693.mp3
+  voice_id: Matthew
+  word: ago
+  word_audio_file:
+  - ago_word_0+Matthew+6d0a578ca2f2c0e792fc923002fccbe3.mp3
+- back_cards:
+  - definition_en: To place or put something
+    example_en: She set the book on the table.
+  - definition_en: To establish or decide
+    example_en: They set a date for the wedding.
+  - definition_en: To prepare or arrange
+    example_en: He set the table for dinner.
+  - definition_en: To adjust or calibrate
+    example_en: I need to set the clock to the correct time.
+  - definition_en: To start or initiate
+    example_en: The news set off a heated debate.
+  freq: 293144
+  part_of_speech: verb
+  rank: 339
+  sentence_audio_file:
+  - set_sentence_0+Matthew+e54a050b9be6634ef33ffa629563e20f.mp3
+  - set_sentence_1+Matthew+ea6608949a7906948a4246c8755faae1.mp3
+  - set_sentence_2+Matthew+e6c9a8bc76dda3786af59d5f698911cb.mp3
+  - set_sentence_3+Matthew+07822c61c1d7a81f8b5bbefed4e8bf37.mp3
+  - set_sentence_4+Matthew+a7b6e50bf8da619fd323fcf3ee79e89c.mp3
+  voice_id: Matthew
+  word: set
+  word_audio_file:
+  - set_word_0+Matthew+cdaeeeba9b4a4c5ebf042c0215a7bb0e.mp3
+- back_cards:
+  - definition_en: Having the darkest color
+    example_en: She wore a black dress to the event.
+  - definition_en: Relating to a racial or ethnic group
+    example_en: The museum showcased Black history.
+  - definition_en: Describing a mood or atmosphere
+    example_en: His black humor surprised everyone.
+  - definition_en: Without light or illumination
+    example_en: The room was black during the power outage.
+  - definition_en: Referring to coffee without additives
+    example_en: I’ll have my coffee black, please.
+  freq: 293101
+  part_of_speech: adjective
+  rank: 340
+  sentence_audio_file:
+  - black_sentence_0+Matthew+647e115f3a98781267ec664089f14d5b.mp3
+  - black_sentence_1+Matthew+e8078e605a2291e1978a886debb27c73.mp3
+  - black_sentence_2+Matthew+7aff46df87383c36470e0bd1aa9ba31c.mp3
+  - black_sentence_3+Matthew+1e8a6ae89d0e1210adb6ca229dc41da1.mp3
+  - black_sentence_4+Matthew+0e81ca770c8f793166b6457b6b605947.mp3
+  voice_id: Matthew
+  word: black
+  word_audio_file:
+  - black_word_0+Matthew+1ffd9e753c8054cc61456ac7fac1ac89.mp3
