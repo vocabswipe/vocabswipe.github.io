@@ -41,9 +41,9 @@ function loadWords() {
             }
             words.sort((a, b) => a.rank - b.rank);
             // Precompute min and max transformed frequencies
+            const c1 = 1000; // Shift constant to boost low frequencies
             const maxFreq = words[0].freq || 1; // Highest frequency (rank 1)
-            const c1 = 1000; // Shift constant to avoid log(0) and smooth scaling
-            const transformedFreqs = words.map(word => Math.log10((maxFreq / (word.freq + c1)) + 1));
+            const transformedFreqs = words.map(word => Math.log10((word.freq + c1) / maxFreq));
             minTransformedFreq = Math.min(...transformedFreqs);
             maxTransformedFreq = Math.max(...transformedFreqs);
             displayWord();
@@ -205,7 +205,7 @@ function stopAudio() {
 
 function playAudio(audioFile) {
     if (!audioFile) {
-        console.warn('No audio file provided for playback foreseeable');
+        console.warn('No audio file provided for playback');
         return;
     }
     stopAudio();
@@ -234,7 +234,7 @@ function flipCard() {
     stopAudio();
     displayWord();
     const audioFile = isFlipped ? 
- bags        (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
+        (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
          words[currentWordIndex]?.word_audio_file?.[0]) : 
         words[currentWordIndex]?.word_audio_file?.[0];
     if (audioFile) {
@@ -256,10 +256,10 @@ function displayWord() {
     const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: '', example_en: '' };
     const maxFreq = words[0].freq || 1; // Highest frequency (rank 1)
     const c1 = 1000; // Shift constant
-    // Use inverse ratio for transformation
-    const transformedFreq = Math.log10((maxFreq / (wordData.freq + c1)) + 1);
-    // Normalize to 0-100, invert to ensure rank 1 is 100%
-    const finalFreq = ((maxTransformedFreq - transformedFreq) / (maxTransformedFreq - minTransformedFreq)) * 100;
+    // Logarithmic transformation based on frequency ratio
+    const transformedFreq = Math.log10((wordData.freq + c1) / maxFreq);
+    // Normalize to 0-100, ensuring rank 1 gets 100%
+    const finalFreq = ((transformedFreq - minTransformedFreq) / (maxTransformedFreq - minTransformedFreq)) * 100;
 
     front.innerHTML = `
         <div class="word-container">
