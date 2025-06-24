@@ -12,7 +12,7 @@ let maxTransformedFreq = 1;
 document.addEventListener('DOMContentLoaded', () => {
     loadWords();
     setupEventListeners();
-    applySavedTheme();
+    setupThemeToggle();
 });
 
 // Unlock audio on first user interaction
@@ -25,23 +25,21 @@ document.body.addEventListener('click', () => {
     console.log('Audio unlocked via click');
 }, { once: true });
 
-function applySavedTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
-}
+function setupThemeToggle() {
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeIcon = themeToggle.querySelector('.theme-icon');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    
+    // Apply saved theme
+    document.body.setAttribute('data-theme', currentTheme);
+    themeIcon.textContent = currentTheme === 'light' ? '☀️' : '🌙';
 
-function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
-}
-
-function updateThemeIcon(theme) {
-    const themeIcon = document.querySelector('.theme-icon');
-    themeIcon.textContent = theme === 'light' ? '☀️' : '🌙';
+    themeToggle.addEventListener('click', () => {
+        const newTheme = document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        document.body.setAttribute('data-theme', newTheme);
+        themeIcon.textContent = newTheme === 'light' ? '☀️' : '🌙';
+        localStorage.setItem('theme', newTheme);
+    });
 }
 
 function loadWords() {
@@ -79,10 +77,6 @@ function setupEventListeners() {
     let tapCount = 0;
     let lastTapTime = 0;
     const doubleTapThreshold = 300;
-
-    // Theme toggle
-    const themeToggle = document.querySelector('.theme-toggle');
-    themeToggle.addEventListener('click', toggleTheme);
 
     card.addEventListener('click', (e) => {
         const currentTime = new Date().getTime();
