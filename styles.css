@@ -29,15 +29,16 @@ body[data-theme="dark"] {
     max-width: 600px;
     padding: 16px;
     padding-top: 40px;
-    position: relative;
+    position: relative; /* For positioning theme toggle */
 }
 
 .theme-toggle {
     position: absolute;
     top: 16px;
     right: 16px;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
+    background: #1e40af;
+    color: #ffffff;
+    border: none;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -45,46 +46,19 @@ body[data-theme="dark"] {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background 0.3s ease, border-color 0.3s ease;
-}
-
-body[data-theme="dark"] .theme-toggle {
-    background: #374151;
-    border-color: #4b5563;
+    font-size: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .theme-toggle:hover {
-    background: #f3f4f6;
+    background: #1e3a8a;
+    transform: scale(1.1);
 }
 
-body[data-theme="dark"] .theme-toggle:hover {
-    background: #4b5563;
-}
-
-.theme-icon {
-    width: 24px;
-    height: 24px;
-    color: #1e40af;
-}
-
-body[data-theme="dark"] .theme-icon {
-    color: #60a5fa;
-}
-
-.theme-icon.sun {
-    display: none;
-}
-
-body[data-theme="dark"] .theme-icon.sun {
-    display: block;
-}
-
-.theme-icon.moon {
-    display: block;
-}
-
-body[data-theme="dark"] .theme-icon.moon {
-    display: none;
+.theme-toggle:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
 }
 
 .website-name {
@@ -96,8 +70,9 @@ body[data-theme="dark"] .theme-icon.moon {
     margin-bottom: 8px;
 }
 
-body[data-theme="dark"] .website-name {
-    color: #60a5fa;
+body[data-theme="dark"] .website-name,
+body[data-theme="dark"] .slogan {
+    color: #60a5fa; /* Lighter blue for dark theme */
 }
 
 .slogan {
@@ -109,10 +84,6 @@ body[data-theme="dark"] .website-name {
     margin-bottom: 8px;
 }
 
-body[data-theme="dark"] .slogan {
-    color: #60a5fa;
-}
-
 .deck-version {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
@@ -122,8 +93,12 @@ body[data-theme="dark"] .slogan {
     margin-bottom: 16px;
 }
 
-body[data-theme="dark"] .deck-version {
-    color: #9ca3af;
+body[data-theme="dark"] .deck-version,
+body[data-theme="dark"] .rank,
+body[data-theme="dark"] .freq-label,
+body[data-theme="dark"] .definition,
+body[data-theme="dark"] .example {
+    color: #9ca3af; /* Lighter gray for dark theme */
 }
 
 .flashcard-container {
@@ -144,7 +119,7 @@ body[data-theme="dark"] .deck-version {
 }
 
 body[data-theme="dark"] .flashcard {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 .front, .back {
@@ -163,7 +138,16 @@ body[data-theme="dark"] .flashcard {
 body[data-theme="dark"] .front,
 body[data-theme="dark"] .back {
     background: linear-gradient(145deg, #374151 0%, #4b5563 100%);
-    border-color: #6b7280;
+    border: 1px solid #4b5563;
+}
+
+.back {
+    transform: rotateY(180deg);
+    background: linear-gradient(145deg, #f9fafb 0%, #f3f4f6 100%);
+}
+
+body[data-theme="dark"] .back {
+    background: linear-gradient(145deg, #4b5563 0%, #374151 100%);
 }
 
 .word-container {
@@ -211,10 +195,6 @@ body[data-theme="dark"] .back h2 {
     text-align: center;
 }
 
-body[data-theme="dark"] .definition {
-    color: #d1d5db;
-}
-
 .example {
     font-size: 16px;
     color: #374151;
@@ -223,10 +203,6 @@ body[data-theme="dark"] .definition {
     text-align: center;
     font-style: italic;
     font-weight: 700;
-}
-
-body[data-theme="dark"] .example {
-    color: #d1d5db;
 }
 
 .meta-info {
@@ -238,17 +214,13 @@ body[data-theme="dark"] .example {
 }
 
 body[data-theme="dark"] .meta-info {
-    border-top-color: #6b7280;
+    border-top: 1px solid #4b5563;
 }
 
 .rank {
     font-size: 14px;
     font-weight: 500;
     color: #6b7280;
-}
-
-body[data-theme="dark"] .rank {
-    color: #9ca3af;
 }
 
 .freq-container {
@@ -261,10 +233,6 @@ body[data-theme="dark"] .rank {
     font-size: 14px;
     font-weight: 500;
     color: #6b7280;
-}
-
-body[data-theme="dark"] .freq-label {
-    color: #9ca3af;
 }
 
 .freq-bar {
@@ -282,10 +250,14 @@ body[data-theme="dark"] .freq-label {
     border: 1px solid #6b7280;
 }
 
+body[data-theme="dark"] .freq-bar {
+    border: 1px solid #9ca3af; /* Lighter border for dark theme */
+}
+
 .freq-fill {
     height: 100%;
     transition: width 0.3s ease-in-out;
-    background: #ffffff; /* Consistent white fill in both themes */
+    background: #ffffff; /* Solid white to reveal gradient */
 }
 
 @media (max-width: 768px) {
@@ -294,15 +266,9 @@ body[data-theme="dark"] .freq-label {
     }
 
     .theme-toggle {
-        top: 12px;
-        right: 12px;
         width: 36px;
         height: 36px;
-    }
-
-    .theme-icon {
-        width: 20px;
-        height: 20px;
+        font-size: 18px;
     }
 
     .website-name {
