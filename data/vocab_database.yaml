@@ -4626,6 +4626,16 @@
     example_en: He’s tall, while she’s short.
   - definition_en: Indicates duration.
     example_en: We talked for a while.
+  - definition_en: During the time that something else happens
+    example_en: She read a book while waiting for the bus.
+  - definition_en: At the same time as
+    example_en: He cooked dinner while talking on the phone.
+  - definition_en: In contrast to something else
+    example_en: She loves hiking, while he prefers staying home.
+  - definition_en: During a period of activity
+    example_en: They chatted while cleaning the house.
+  - definition_en: As long as something continues
+    example_en: Keep stirring while the sauce thickens.
   freq: 579023
   part_of_speech: conjunction
   rank: 161
@@ -4635,6 +4645,11 @@
   - while_sentence_2+Matthew+11461c2ba44a6b90fb1da4635f6aafb3.mp3
   - while_sentence_3+Matthew+034b6d96709763bd0473fae488559ed9.mp3
   - while_sentence_4+Matthew+e98d85a185a56932a8acfbecaef65580.mp3
+  - while_sentence_5+Matthew+28707ab8681bdb369f8cd5e5fdc0db23.mp3
+  - while_sentence_6+Matthew+eb282ff125709321e5bba1e950625d2c.mp3
+  - while_sentence_7+Matthew+ee0642e1ee0a38ae3676baec8d36acac.mp3
+  - while_sentence_8+Matthew+b4bdef4c5f94e2bdff86b4e2352038d2.mp3
+  - while_sentence_9+Matthew+086400063abc0543872035eb6184e02a.mp3
   voice_id: Matthew
   word: while
   word_audio_file:
@@ -10752,6 +10767,16 @@
     example_en: He hoped his team would win.
   - definition_en: To aspire for the future
     example_en: They hope to travel the world.
+  - definition_en: A feeling of expectation or desire for something to happen
+    example_en: She had hope for a better future.
+  - definition_en: A wish for a positive outcome
+    example_en: The team held onto hope for a comeback.
+  - definition_en: Optimism about a situation
+    example_en: His words gave her hope during the crisis.
+  - definition_en: A belief in possibility
+    example_en: They clung to hope despite the odds.
+  - definition_en: An aspiration or goal
+    example_en: Her hope was to become a doctor.
   freq: 235945
   part_of_speech: verb
   rank: 413
@@ -10761,6 +10786,11 @@
   - hope_sentence_2+Matthew+044d97ec940800aeaa2896ccfc7c4de3.mp3
   - hope_sentence_3+Matthew+146127bfa1b6862d3d32c47d23abc8bd.mp3
   - hope_sentence_4+Matthew+b2891bed76a3431b7a705d517dfbcbf4.mp3
+  - hope_sentence_5+Matthew+f95c0ace6efabe65e2c96a83c4b84972.mp3
+  - hope_sentence_6+Matthew+2c0b758df2a10253a5f637f7c4f38a00.mp3
+  - hope_sentence_7+Matthew+7089d961e5d8854cd71a4098fbad1067.mp3
+  - hope_sentence_8+Matthew+864284e96491bcc6b69477f5bd4e6832.mp3
+  - hope_sentence_9+Matthew+6b2222daa3db04111cff890b4b096dcb.mp3
   voice_id: Matthew
   word: hope
   word_audio_file:
@@ -10944,6 +10974,16 @@
     example_en: She shared her experience of moving abroad.
   - definition_en: The process of living through something
     example_en: Life experience shapes our views.
+  - definition_en: Knowledge or skill gained through doing something
+    example_en: She has years of experience in teaching.
+  - definition_en: An event or activity one lives through
+    example_en: The trip was an unforgettable experience.
+  - definition_en: Practical contact with a subject or situation
+    example_en: His experience with coding helped him get the job.
+  - definition_en: A personal encounter with something
+    example_en: Meeting the author was a thrilling experience.
+  - definition_en: Accumulated life events
+    example_en: Her travels shaped her life experience.
   freq: 232376
   part_of_speech: noun
   rank: 421
@@ -10953,6 +10993,11 @@
   - experience_sentence_2+Matthew+fcbf0b9ca7a9943bc8adb237d9c755f6.mp3
   - experience_sentence_3+Matthew+7730774b15293831f2b249dc019457af.mp3
   - experience_sentence_4+Matthew+7fe38a8a82983fbae0fb78d5447b5be6.mp3
+  - experience_sentence_5+Matthew+f8887eab34a0e8e0cfb3999347d9d184.mp3
+  - experience_sentence_6+Matthew+b3858f76f70b63ecc07f90d6086aba51.mp3
+  - experience_sentence_7+Matthew+48b4d0768b10a68d58343cb08ff1e9bc.mp3
+  - experience_sentence_8+Matthew+d841000bd0e10cbf9de2710b38d567fe.mp3
+  - experience_sentence_9+Matthew+f1584c4bbd87f91791285f7e648f93e7.mp3
   voice_id: Matthew
   word: experience
   word_audio_file:
@@ -11103,6 +11148,14 @@
     example_en: The holiday falls on a Monday.
   - definition_en: To fail or collapse
     example_en: The plan fell apart at the last minute.
+  - definition_en: To drop or descend suddenly
+    example_en: She tripped and fell on the path.
+  - definition_en: To occur in autumn
+    example_en: The leaves fall every October.
+  - definition_en: To decrease or decline
+    example_en: Temperatures fall at night.
+  - definition_en: To collapse or fail
+    example_en: The old bridge fell during the storm.
   freq: 229161
   part_of_speech: verb
   rank: 427
@@ -11112,6 +11165,10 @@
   - fall_sentence_2+Matthew+b568c70bebac1d4c79c2d7e6eb17bc99.mp3
   - fall_sentence_3+Matthew+9737e78663b57c847ddfc59665ee5c32.mp3
   - fall_sentence_4+Matthew+6249382f54509a25b8f9a290d7282d11.mp3
+  - fall_sentence_5+Matthew+4db57fa94137bd4574acac65c224e8fc.mp3
+  - fall_sentence_6+Matthew+7e4238750fad97c6ce45df151ff6944f.mp3
+  - fall_sentence_7+Matthew+d076d93504b2085f34f7a3381e23491f.mp3
+  - fall_sentence_8+Matthew+f2fbb6258b6fa04c1464ea3d87502303.mp3
   voice_id: Matthew
   word: fall
   word_audio_file:
@@ -25826,3 +25883,843 @@
   word: evening
   word_audio_file:
   - evening_word_0+Matthew+ee1150845fa3041ceb3a3fcdbe42d68a.mp3
+- back_cards:
+  - definition_en: Used as the object of a verb or preposition to refer to a person
+    example_en: To whom did you give the book?
+  - definition_en: Refers to a person in a formal question or statement
+    example_en: Whom should we contact for the event details?
+  - definition_en: Used in relative clauses to describe a person receiving an action
+    example_en: She’s the colleague whom the manager praised.
+  - definition_en: Refers to a person in a professional or official context
+    example_en: The lawyer asked whom the client had met.
+  - definition_en: Used to inquire about a person’s identity in a specific situation
+    example_en: Whom did you see at the park yesterday?
+  freq: 83267
+  part_of_speech: pronoun
+  rank: 1161
+  sentence_audio_file:
+  - whom_sentence_0+Matthew+0e6041565938a7266cc5c4104dd9bd5e.mp3
+  - whom_sentence_1+Matthew+c3530d0fbbfdf2ac47a3e0b0bc901865.mp3
+  - whom_sentence_2+Matthew+4921fdb410bf4afdd1722a7916534416.mp3
+  - whom_sentence_3+Matthew+1fe68dccb47bb8ab5003f7921fc73561.mp3
+  - whom_sentence_4+Matthew+81c3392d141793394ae6a8ca77eff57c.mp3
+  voice_id: Matthew
+  word: whom
+  word_audio_file:
+  - whom_word_0+Matthew+8ac24d7715f696804e0f880f54ee86e3.mp3
+- back_cards:
+  - definition_en: The side or part of something that faces forward
+    example_en: The front of the house needs painting.
+  - definition_en: The area or position directly ahead
+    example_en: She stood at the front of the line.
+  - definition_en: A public face or appearance of a situation
+    example_en: The company put up a strong front despite the losses.
+  - definition_en: The forward part of a weather system
+    example_en: A cold front is moving in tonight.
+  - definition_en: The main entrance or facade of a building
+    example_en: Meet me at the front of the museum.
+  freq: 83180
+  part_of_speech: noun
+  rank: 1162
+  sentence_audio_file:
+  - front_sentence_0+Matthew+44f45676cafc6d921aea205b387453b1.mp3
+  - front_sentence_1+Matthew+d1526026375646aaf1ad4d659e73b430.mp3
+  - front_sentence_2+Matthew+21fbdea4d1987a15603e8cb2987831a6.mp3
+  - front_sentence_3+Matthew+c1810eb1dbe3d6da3f8dcde91e99c242.mp3
+  - front_sentence_4+Matthew+8729b9023adcf4402b5a6d253de5909c.mp3
+  voice_id: Matthew
+  word: front
+  word_audio_file:
+  - front_word_0+Matthew+e6ec529ba185279aa0adcf93e645c7cd.mp3
+- back_cards:
+  - definition_en: A corridor or passageway in a building
+    example_en: The classroom is at the end of the hall.
+  - definition_en: A large room for gatherings or events
+    example_en: The wedding reception was held in the town hall.
+  - definition_en: A building or Ascending a staircase in a building
+    example_en: She tripped on the rug in the hall.
+  - definition_en: A space for public or academic functions
+    example_en: The lecture hall was packed with students.
+  - definition_en: The entrance area of a house
+    example_en: We left our shoes in the hall before entering.
+  freq: 82960
+  part_of_speech: noun
+  rank: 1163
+  sentence_audio_file:
+  - hall_sentence_0+Matthew+c9c459fa83f7891c22326bb49a1fa684.mp3
+  - hall_sentence_1+Matthew+de88dfe20a1172762e26a30b98a5bbb8.mp3
+  - hall_sentence_2+Matthew+7c74cf4a4e8ae3c6ab8fdd5efa4ca82b.mp3
+  - hall_sentence_3+Matthew+22309963b4f86b6dbf4da69a5573f23a.mp3
+  - hall_sentence_4+Matthew+a914fbd0f37fcbf017b6e625c7bb6e57.mp3
+  voice_id: Matthew
+  word: hall
+  word_audio_file:
+  - hall_word_0+Matthew+5ab06702d8b598415f7b095c130e1787.mp3
+- back_cards:
+  - definition_en: A specific piece of work to be done
+    example_en: My task today is to finish the report.
+  - definition_en: A job or duty assigned to someone
+    example_en: Her task was to organize the team meeting.
+  - definition_en: A small but necessary activity
+    example_en: Watering the plants is a daily task.
+  - definition_en: A challenging piece of work
+    example_en: Solving the puzzle was a difficult task.
+  - definition_en: A responsibility given in a project
+    example_en: Each team member was given a specific task.
+  freq: 82839
+  part_of_speech: noun
+  rank: 1164
+  sentence_audio_file:
+  - task_sentence_0+Matthew+c17757ef6dbd6400c89ba6d5a15df46f.mp3
+  - task_sentence_1+Matthew+33b5bd27f3223c1718025e7e80afbf7b.mp3
+  - task_sentence_2+Matthew+9f929aa1a9b6f5c843b42a9552954910.mp3
+  - task_sentence_3+Matthew+08f0016cabec9782bfc342d91683a235.mp3
+  - task_sentence_4+Matthew+a9c65b5c125afe6991d349c5135c7efb.mp3
+  voice_id: Matthew
+  word: task
+  word_audio_file:
+  - task_word_0+Matthew+478f3a4c51824ad23cb50c1c60670c0f.mp3
+- back_cards:
+  - definition_en: The number of points earned in a game
+    example_en: The final score was 3-2 in favor of the home team.
+  - definition_en: A tally or count of points
+    example_en: She kept score during the card game.
+  - definition_en: A mark or grade on a test
+    example_en: He got a perfect score on the math quiz.
+  - definition_en: The music written for a film or play
+    example_en: The movie’s score was composed by a famous musician.
+  - definition_en: A group of twenty items
+    example_en: The farmer sold a score of eggs at the market.
+  freq: 82738
+  part_of_speech: noun
+  rank: 1165
+  sentence_audio_file:
+  - score_sentence_0+Matthew+649849e8905e82f2296b817e66481315.mp3
+  - score_sentence_1+Matthew+96adfd22da0dae9db744a2286e863177.mp3
+  - score_sentence_2+Matthew+2e3f368008c0744e7406dc3b6818cf33.mp3
+  - score_sentence_3+Matthew+f51a0c1969be45fe1052fbb25cff504c.mp3
+  - score_sentence_4+Matthew+cd12773f5054a0ca7e2ab3f1c7e25298.mp3
+  voice_id: Matthew
+  word: score
+  word_audio_file:
+  - score_word_0+Matthew+ca1cd3c3055991bf20499ee86739f7e2.mp3
+- back_cards:
+  - definition_en: The outer covering of a human or animal body
+    example_en: Her skin felt dry after the long flight.
+  - definition_en: The outer layer of a fruit or vegetable
+    example_en: Peel the skin off the potato before cooking.
+  - definition_en: A material made from animal hide
+    example_en: The jacket was made of soft leather skin.
+  - definition_en: A protective layer on a surface
+    example_en: A thin skin of ice formed on the puddle.
+  - definition_en: The body’s surface in a medical context
+    example_en: The doctor examined the rash on her skin.
+  freq: 82598
+  part_of_speech: noun
+  rank: 1166
+  sentence_audio_file:
+  - skin_sentence_0+Matthew+1de7e98f447a358c0951ecd3061d2319.mp3
+  - skin_sentence_1+Matthew+1a6236d1a879761ed573f07c46e4cd13.mp3
+  - skin_sentence_2+Matthew+49335d37dedf7a5556c26990a1fed7f7.mp3
+  - skin_sentence_3+Matthew+70783ceb2e0719f51397ea154ffc1130.mp3
+  - skin_sentence_4+Matthew+7ea0d83c26531c48a46a5950c797f707.mp3
+  voice_id: Matthew
+  word: skin
+  word_audio_file:
+  - skin_word_0+Matthew+37c24a3158dc6f1aab7f6398e8cf5f70.mp3
+- back_cards:
+  - definition_en: To experience pain or distress
+    example_en: She suffered from a headache all day.
+  - definition_en: To endure a negative situation
+    example_en: The team suffered a major loss in the playoffs.
+  - definition_en: To experience a decline or harm
+    example_en: The crops suffered due to the drought.
+  - definition_en: To tolerate or bear something unpleasant
+    example_en: He suffered through the boring lecture.
+  - definition_en: To be affected by an illness or condition
+    example_en: They suffered greatly from the flu outbreak.
+  freq: 82579
+  part_of_speech: verb
+  rank: 1167
+  sentence_audio_file:
+  - suffer_sentence_0+Matthew+c206fdab32947120e8fbd47fe2d84d86.mp3
+  - suffer_sentence_1+Matthew+a0ba99d70d15d045e90c18c09fd05ff0.mp3
+  - suffer_sentence_2+Matthew+4491462ec7ad93124bbc1875718626df.mp3
+  - suffer_sentence_3+Matthew+4516d53a9544e5229299af40073ef956.mp3
+  - suffer_sentence_4+Matthew+606cdc9b338659cc811ad28b0ead9517.mp3
+  voice_id: Matthew
+  word: suffer
+  word_audio_file:
+  - suffer_word_0+Matthew+61e7591821af51b4d8338be540911608.mp3
+- back_cards:
+  - definition_en: Having a large extent from side to side
+    example_en: The river was too wide to cross on foot.
+  - definition_en: Covering a broad range or scope
+    example_en: She has a wide knowledge of history.
+  - definition_en: Fully open or extended
+    example_en: His eyes were wide with surprise.
+  - definition_en: Far apart or spread out
+    example_en: The hikers spread out in a wide formation.
+  - definition_en: Large in area or measurement
+    example_en: The park had a wide open field for picnics.
+  freq: 82565
+  part_of_speech: adjective
+  rank: 1168
+  sentence_audio_file:
+  - wide_sentence_0+Matthew+600f6659789f5ff009c5cc58a337016a.mp3
+  - wide_sentence_1+Matthew+c03a900d8b765e0261fb0917dc803c97.mp3
+  - wide_sentence_2+Matthew+0d416ccb9cff755ea29bc27d109ba8f9.mp3
+  - wide_sentence_3+Matthew+7f8ae2b43bac37e1aa1041e8ffaae2da.mp3
+  - wide_sentence_4+Matthew+434eca76828d572ffbace6793683d17d.mp3
+  voice_id: Matthew
+  word: wide
+  word_audio_file:
+  - wide_word_0+Matthew+b71e59a3962a4af02e9a7dc3b88ed3ea.mp3
+- back_cards:
+  - definition_en: The season between winter and summer
+    example_en: Flowers bloom in the spring.
+  - definition_en: A natural source of water from the ground
+    example_en: The village relied on a nearby spring.
+  - definition_en: A coiled metal object that bounces back
+    example_en: The mattress had a broken spring.
+  - definition_en: A sudden leap or movement
+    example_en: The cat made a quick spring to catch the toy.
+  - definition_en: A time of renewal or growth
+    example_en: The project began in the spring of last year.
+  freq: 82557
+  part_of_speech: noun
+  rank: 1169
+  sentence_audio_file:
+  - spring_sentence_0+Matthew+728711bb354346f277282ce220b7a97d.mp3
+  - spring_sentence_1+Matthew+7795cd294a537dbbeca90e1c57bf140b.mp3
+  - spring_sentence_2+Matthew+4a8671cd217a2e7e062f973295c831dc.mp3
+  - spring_sentence_3+Matthew+7c0ed26ab5aa91d3c6f56052d8fa9ed3.mp3
+  - spring_sentence_4+Matthew+b427f1ed35cdbd3f3669652dd0b7f39c.mp3
+  voice_id: Matthew
+  word: spring
+  word_audio_file:
+  - spring_word_0+Matthew+2a2d595e6ed9a0b24f027f2b63b134d6.mp3
+- back_cards:
+  - definition_en: Relating to ordinary citizens and their concerns
+    example_en: The lawyer specialized in civil disputes.
+  - definition_en: Polite and courteous in behavior
+    example_en: He remained civil despite the argument.
+  - definition_en: Relating to a community or society
+    example_en: Civil rights are protected by law.
+  - definition_en: Non-military in nature
+    example_en: The conflict was resolved through civil means.
+  - definition_en: Pertaining to legal proceedings between individuals
+    example_en: The case was filed in civil court.
+  freq: 82544
+  part_of_speech: adjective
+  rank: 1171
+  sentence_audio_file:
+  - civil_sentence_0+Matthew+4171aeca9c5253f36d17cb81e1ce8cb8.mp3
+  - civil_sentence_1+Matthew+5fcbf89237d96feb923a4b1024bd7bea.mp3
+  - civil_sentence_2+Matthew+48d2e6c82cbcb2cc9b407c9fd8eb82dc.mp3
+  - civil_sentence_3+Matthew+de347869d942e96118158dfbd11885f0.mp3
+  - civil_sentence_4+Matthew+040dbac767959db125b5c0550dbe5940.mp3
+  voice_id: Matthew
+  word: civil
+  word_audio_file:
+  - civil_word_0+Matthew+6af2462065474ec7892340e39339eb38.mp3
+- back_cards:
+  - definition_en: The condition of being protected from harm
+    example_en: The helmet ensures safety while biking.
+  - definition_en: Freedom from danger or risk
+    example_en: The workers demanded better safety measures.
+  - definition_en: A state of being secure
+    example_en: She locked the door for safety.
+  - definition_en: Protection in a specific context
+    example_en: Food safety standards were strictly enforced.
+  - definition_en: A device or feature preventing accidents
+    example_en: The car’s safety features saved lives.
+  freq: 82535
+  part_of_speech: noun
+  rank: 1172
+  sentence_audio_file:
+  - safety_sentence_0+Matthew+6307d140a0aaaa0d8af33a6d0425074f.mp3
+  - safety_sentence_1+Matthew+cf69e48c730d685c64fbfc013940a3a9.mp3
+  - safety_sentence_2+Matthew+b5f380e42357b2e995aee3864a83ec50.mp3
+  - safety_sentence_3+Matthew+9f2b2182a12567f058d13f6c7d6dee4d.mp3
+  - safety_sentence_4+Matthew+fdbe4d468f5fa251f0151edda6ee8e0d.mp3
+  voice_id: Matthew
+  word: safety
+  word_audio_file:
+  - safety_word_0+Matthew+381ff09422ad9d637f7c4677297b0303.mp3
+- back_cards:
+  - definition_en: The days at the end of the workweek, typically Saturday and Sunday
+    example_en: We planned a hike for the weekend.
+  - definition_en: A period of leisure time
+    example_en: She spent the weekend reading novels.
+  - definition_en: A short getaway or trip
+    example_en: They went to the beach for the weekend.
+  - definition_en: Time off from work or school
+    example_en: The kids were excited for the long weekend.
+  - definition_en: A time for social or family activities
+    example_en: The family barbecue was held over the weekend.
+  freq: 82429
+  part_of_speech: noun
+  rank: 1173
+  sentence_audio_file:
+  - weekend_sentence_0+Matthew+495d8b6612837f004e001a8cf5b7dd2d.mp3
+  - weekend_sentence_1+Matthew+506e23fc4581d1593a573c32fd960ffe.mp3
+  - weekend_sentence_2+Matthew+eac4ab8ac9095ef2ab83fd38df9a2c25.mp3
+  - weekend_sentence_3+Matthew+9eda62975dc747823db286208a9ae42e.mp3
+  - weekend_sentence_4+Matthew+25025e37ad5928b2c05938e23c49f156.mp3
+  voice_id: Matthew
+  word: weekend
+  word_audio_file:
+  - weekend_word_0+Matthew+4ca4f434da0ea97ebff27833d69728d3.mp3
+- back_cards:
+  - definition_en: The value or usefulness of something
+    example_en: The old watch had great sentimental worth.
+  - definition_en: The monetary value of an item
+    example_en: The house’s worth increased over time.
+  - definition_en: The benefit or merit of an action
+    example_en: The effort was worth the reward.
+  - definition_en: The quality that justifies something
+    example_en: Her advice was worth listening to.
+  - definition_en: The equivalent value in money or effort
+    example_en: The trip was worth every penny spent.
+  freq: 82178
+  part_of_speech: noun
+  rank: 1175
+  sentence_audio_file:
+  - worth_sentence_0+Matthew+ebe67afad23b8fcc25bb77d4f1b597d0.mp3
+  - worth_sentence_1+Matthew+f966843f931bb9c918c269e3f8d46763.mp3
+  - worth_sentence_2+Matthew+df440954743b41726147b47fcb89d9de.mp3
+  - worth_sentence_3+Matthew+8ac86bea8bfa87e497f8eb1f9e534c51.mp3
+  - worth_sentence_4+Matthew+ede93923f5f22cbedde742c4ff582bdc.mp3
+  voice_id: Matthew
+  word: worth
+  word_audio_file:
+  - worth_word_0+Matthew+abcf714c6f49bfc7a4c5468b4a0435e6.mp3
+- back_cards:
+  - definition_en: The name of a book, movie, or work
+    example_en: The book’s title caught her attention.
+  - definition_en: A position or rank
+    example_en: She earned the title of team captain.
+  - definition_en: A legal right to ownership
+    example_en: The car’s title was transferred to the buyer.
+  - definition_en: A name indicating a role or status
+    example_en: His official title is Chief Engineer.
+  - definition_en: A championship or award
+    example_en: The boxer won the world title.
+  freq: 82165
+  part_of_speech: noun
+  rank: 1176
+  sentence_audio_file:
+  - title_sentence_0+Matthew+410cef0300491c6ade1a655e2361fb62.mp3
+  - title_sentence_1+Matthew+7e466763003b4296e95deb6b3b911910.mp3
+  - title_sentence_2+Matthew+2a595b7fbffea5c5e1fdbcdbe5a59f6d.mp3
+  - title_sentence_3+Matthew+1fdb86298b76764cfe7ca97c4f445f2f.mp3
+  - title_sentence_4+Matthew+443d7892d185e55c0b2158e74f7fcad8.mp3
+  voice_id: Matthew
+  word: title
+  word_audio_file:
+  - title_word_0+Matthew+d5d3db1765287eef77d7927cc956f50a.mp3
+- back_cards:
+  - definition_en: Usual or typical
+    example_en: Her temperature was normal after the fever.
+  - definition_en: Conforming to a standard
+    example_en: The test results were within normal limits.
+  - definition_en: Ordinary or expected
+    example_en: It’s normal to feel nervous before a speech.
+  - definition_en: Regular or common
+    example_en: He returned to his normal routine after the trip.
+  - definition_en: Not unusual or abnormal
+    example_en: The weather was normal for spring.
+  freq: 82076
+  part_of_speech: adjective
+  rank: 1178
+  sentence_audio_file:
+  - normal_sentence_0+Matthew+741f42b49f20df066ba138ea5f809243.mp3
+  - normal_sentence_1+Matthew+fc01328188e6295ace3fda455332c8f6.mp3
+  - normal_sentence_2+Matthew+16cb8ad17ff5a0e33361711ec200f960.mp3
+  - normal_sentence_3+Matthew+faa65b5a4caa990df3bad7dca8447e10.mp3
+  - normal_sentence_4+Matthew+c68b0780b0db103b151040435fe5467f.mp3
+  voice_id: Matthew
+  word: normal
+  word_audio_file:
+  - normal_word_0+Matthew+fea087517c26fadd409bd4b9dc642555.mp3
+- back_cards:
+  - definition_en: An outdoor area next to a house
+    example_en: The kids played in the backyard.
+  - definition_en: A unit of length equal to three feet
+    example_en: The fence was a yard tall.
+  - definition_en: A work area for specific activities
+    example_en: The ship was built in the yard.
+  - definition_en: A garden or lawn area
+    example_en: She planted flowers in the front yard.
+  - definition_en: An enclosed area for storage or work
+    example_en: The lumber was stored in the yard.
+  freq: 81852
+  part_of_speech: noun
+  rank: 1180
+  sentence_audio_file:
+  - yard_sentence_0+Matthew+f84527a6df7af1b1c956d17f60b4c4d4.mp3
+  - yard_sentence_1+Matthew+53465ecc612922bd42ca4f1cc7107add.mp3
+  - yard_sentence_2+Matthew+77243f888304b9bce277d29c2cd44aeb.mp3
+  - yard_sentence_3+Matthew+d9adab4f5a0a6ab298d46128b84db508.mp3
+  - yard_sentence_4+Matthew+3810896a5f5f5fa20282f0d97b238b3a.mp3
+  voice_id: Matthew
+  word: yard
+  word_audio_file:
+  - yard_word_0+Matthew+9a09d699453ffd318a7c504482d5418e.mp3
+- back_cards:
+  - definition_en: One of the digits on a hand
+    example_en: She cut her finger while chopping vegetables.
+  - definition_en: A part of the hand used for pointing
+    example_en: He pointed his finger at the map.
+  - definition_en: A part of the hand in a medical context
+    example_en: The doctor bandaged her injured finger.
+  - definition_en: A part of the hand used in gestures
+    example_en: She snapped her fingers to the music.
+  - definition_en: A part of the hand in work or play
+    example_en: His fingers were sore from guitar practice.
+  freq: 81817
+  part_of_speech: noun
+  rank: 1181
+  sentence_audio_file:
+  - finger_sentence_0+Matthew+02c51e22659fc13704401735eb059076.mp3
+  - finger_sentence_1+Matthew+e397bb043632e5522ae8c29228cd37c8.mp3
+  - finger_sentence_2+Matthew+9a49de651fe565dba0fd5fb0be0e34b3.mp3
+  - finger_sentence_3+Matthew+a210971ee424badd8b23f3344c0da068.mp3
+  - finger_sentence_4+Matthew+515721ceafb3bd11aad9a9ec9a521aff.mp3
+  voice_id: Matthew
+  word: finger
+  word_audio_file:
+  - finger_word_0+Matthew+e7efda40b1c94805070cd9bf9638ae27.mp3
+- back_cards:
+  - definition_en: To care for or look after something
+    example_en: She tends the garden every weekend.
+  - definition_en: To have a natural inclination
+    example_en: He tends to overthink decisions.
+  - definition_en: To regularly manage or maintain
+    example_en: They tend the livestock on the farm.
+  - definition_en: To lean toward a certain behavior
+    example_en: She tends to stay quiet in meetings.
+  - definition_en: To nurture or cultivate
+    example_en: He tends his bonsai trees carefully.
+  freq: 81665
+  part_of_speech: verb
+  rank: 1182
+  sentence_audio_file:
+  - tend_sentence_0+Matthew+1a8e852b94d433cf7099a0162b5815da.mp3
+  - tend_sentence_1+Matthew+e1f5982c7a037bab824667f08da474b3.mp3
+  - tend_sentence_2+Matthew+20cc3c52e026fc7a49db238dad9ce912.mp3
+  - tend_sentence_3+Matthew+f3b46dfa2dd8dcff7e88001f2aee4d34.mp3
+  - tend_sentence_4+Matthew+1a6d70616efba01b68ccb6c33e429170.mp3
+  voice_id: Matthew
+  word: tend
+  word_audio_file:
+  - tend_word_0+Matthew+e5f5579b74a291d49034b067db5852e5.mp3
+- back_cards:
+  - definition_en: An important task or assignment
+    example_en: Her mission was to deliver the package.
+  - definition_en: A strongly felt purpose or goal
+    example_en: His mission was to help the homeless.
+  - definition_en: A military or exploration operation
+    example_en: The team prepared for the space mission.
+  - definition_en: A religious or charitable effort
+    example_en: The church organized a mission trip.
+  - definition_en: A group’s collective objective
+    example_en: The company’s mission was to innovate.
+  freq: 81524
+  part_of_speech: noun
+  rank: 1183
+  sentence_audio_file:
+  - mission_sentence_0+Matthew+ab8d4926e879de851730be219a5af0f6.mp3
+  - mission_sentence_1+Matthew+2a5876c180a5dbe0bb8d7627cbc88114.mp3
+  - mission_sentence_2+Matthew+1c52c9bca2def2ba5c277c456c03134e.mp3
+  - mission_sentence_3+Matthew+82019b2d4309df254ce3a1b9fd2322ea.mp3
+  - mission_sentence_4+Matthew+90659135fcd92b3e6131b7a898491054.mp3
+  voice_id: Matthew
+  word: mission
+  word_audio_file:
+  - mission_word_0+Matthew+6c654debfa4cef1de4995df5feb61889.mp3
+- back_cards:
+  - definition_en: At some later time or ultimately
+    example_en: She eventually finished the project.
+  - definition_en: After a long period or process
+    example_en: He eventually found his lost keys.
+  - definition_en: In the end, after delays
+    example_en: The rain eventually stopped by evening.
+  - definition_en: At a future point
+    example_en: They’ll eventually move to a bigger house.
+  - definition_en: After some time or effort
+    example_en: She eventually mastered the piano piece.
+  freq: 81481
+  part_of_speech: adverb
+  rank: 1184
+  sentence_audio_file:
+  - eventually_sentence_0+Matthew+ce817e03e67ac0dbeb393528c8310142.mp3
+  - eventually_sentence_1+Matthew+62920bd2319ba75bf5dab723878ec91a.mp3
+  - eventually_sentence_2+Matthew+17698d7e27d4772df9eb97ec4fd94ee4.mp3
+  - eventually_sentence_3+Matthew+f40be7413b523683fed531ebf4113c73.mp3
+  - eventually_sentence_4+Matthew+d982a69787336c021c8b9aed1f746c47.mp3
+  voice_id: Matthew
+  word: eventually
+  word_audio_file:
+  - eventually_word_0+Matthew+a4ef1a0032031a31a02102ff656d6e6f.mp3
+- back_cards:
+  - definition_en: A person who takes part in an event
+    example_en: She was a participant in the marathon.
+  - definition_en: Someone involved in a study or experiment
+    example_en: Each participant completed the survey.
+  - definition_en: A member of a group activity
+    example_en: He was an active participant in the club.
+  - definition_en: A person engaged in a competition
+    example_en: The youngest participant won the prize.
+  - definition_en: An individual in a formal process
+    example_en: Participants in the trial were sworn in.
+  freq: 81371
+  part_of_speech: noun
+  rank: 1185
+  sentence_audio_file:
+  - participant_sentence_0+Matthew+a56fd73ca1b742dc95c1ab305b95e998.mp3
+  - participant_sentence_1+Matthew+ddf1a370e5c91669086f22b9f53d33e8.mp3
+  - participant_sentence_2+Matthew+9acf90da16ee3ded90bd7f53bfb98586.mp3
+  - participant_sentence_3+Matthew+2b2f8a4537b51b2304b1d8536c80d854.mp3
+  - participant_sentence_4+Matthew+c6bbc5107b3a53e596c5b58e122b1b41.mp3
+  voice_id: Matthew
+  word: participant
+  word_audio_file:
+  - participant_word_0+Matthew+e42db0f9a183ac066bdec45b0c0cf2c7.mp3
+- back_cards:
+  - definition_en: A place providing lodging for travelers
+    example_en: We booked a room at the hotel.
+  - definition_en: A building for temporary accommodation
+    example_en: The hotel had a great view of the ocean.
+  - definition_en: A business offering rooms and services
+    example_en: The hotel offered free breakfast.
+  - definition_en: A place for short-term stays
+    example_en: They stayed at a hotel during the conference.
+  - definition_en: An establishment with guest amenities
+    example_en: The hotel had a pool and a gym.
+  freq: 81364
+  part_of_speech: noun
+  rank: 1186
+  sentence_audio_file:
+  - hotel_sentence_0+Matthew+9a94820927338e77bb22e09a3a247b8f.mp3
+  - hotel_sentence_1+Matthew+1f1cfb411ab19338805185db1a6ec78c.mp3
+  - hotel_sentence_2+Matthew+de57d78b961538818572df622066bd0b.mp3
+  - hotel_sentence_3+Matthew+bf1cf952fd71db5b20d32524c14bba9a.mp3
+  - hotel_sentence_4+Matthew+173d6580814be27ca4756fc573b35179.mp3
+  voice_id: Matthew
+  word: hotel
+  word_audio_file:
+  - hotel_word_0+Matthew+e919c49d5f0cd737285367810a3394d0.mp3
+- back_cards:
+  - definition_en: A person who presides over a court
+    example_en: The judge listened to both sides.
+  - definition_en: An official in a competition
+    example_en: She was a judge at the science fair.
+  - definition_en: A person who evaluates or decides
+    example_en: He acted as a judge for the debate.
+  - definition_en: An authority in a legal proceeding
+    example_en: The judge sentenced the defendant.
+  - definition_en: A person assessing performance
+    example_en: The judge scored the gymnast’s routine.
+  freq: 81312
+  part_of_speech: noun
+  rank: 1187
+  sentence_audio_file:
+  - judge_sentence_0+Matthew+0d208aa609d9461059de70fa2ad226ff.mp3
+  - judge_sentence_1+Matthew+b2d9a9df3435e9b8f55c40ce3f4063dc.mp3
+  - judge_sentence_2+Matthew+afcefee9572c26ac1db34b8121b1e63b.mp3
+  - judge_sentence_3+Matthew+e9679c79f26a447910feafcc2cb08a7c.mp3
+  - judge_sentence_4+Matthew+c9dba74d4c60afd03e691949366444e1.mp3
+  voice_id: Matthew
+  word: judge
+  word_audio_file:
+  - judge_word_0+Matthew+1562eb3f6d9c5ac7e159c04a96ff4dfe.mp3
+- back_cards:
+  - definition_en: A repeated design or arrangement
+    example_en: The fabric had a floral pattern.
+  - definition_en: A regular way things happen
+    example_en: Her lateness followed a pattern.
+  - definition_en: A model or template
+    example_en: She used a pattern to sew the dress.
+  - definition_en: A trend or sequence
+    example_en: The weather showed a pattern of sunny days.
+  - definition_en: A consistent behavior or habit
+    example_en: His spending followed a risky pattern.
+  freq: 81097
+  part_of_speech: noun
+  rank: 1188
+  sentence_audio_file:
+  - pattern_sentence_0+Matthew+8bb1a60775858500fea22ed248535ef0.mp3
+  - pattern_sentence_1+Matthew+55e8e3a3d78f9d49cf27a0529cae991d.mp3
+  - pattern_sentence_2+Matthew+a6f4c3d55d4bb26d84686eb9aea02a18.mp3
+  - pattern_sentence_3+Matthew+69c359ce0ecba3ec8a4330bb5ff8af19.mp3
+  - pattern_sentence_4+Matthew+d96c910ebbbd5e8b27d7f23b5349e438.mp3
+  voice_id: Matthew
+  word: pattern
+  word_audio_file:
+  - pattern_word_0+Matthew+240bf022e685b0ee30ad9fe9e1fb5d5b.mp3
+- back_cards:
+  - definition_en: To cause something to split or crack
+    example_en: She didn’t mean to break the vase.
+  - definition_en: To stop or interrupt something
+    example_en: He took a break from studying.
+  - definition_en: To violate a rule or promise
+    example_en: They broke the no-phones rule.
+  - definition_en: To end a relationship or habit
+    example_en: She decided to break the silence.
+  - definition_en: To suddenly start or change
+    example_en: The horse broke into a gallop.
+  freq: 81057
+  part_of_speech: verb
+  rank: 1189
+  sentence_audio_file:
+  - break_sentence_0+Matthew+c6914ad79c19d4299ddf328d854cf0e9.mp3
+  - break_sentence_1+Matthew+1124973ae0f72404b61bdafae76ad509.mp3
+  - break_sentence_2+Matthew+30e4e580813b6513bec3ea3f2d7846f5.mp3
+  - break_sentence_3+Matthew+2864901b3f83346599e0669d22143a96.mp3
+  - break_sentence_4+Matthew+3fec1c50470eaca7725db59ea9df0fb8.mp3
+  voice_id: Matthew
+  word: break
+  word_audio_file:
+  - break_word_0+Matthew+1cbfb724ceee46cd879df7c7cfbe7dca.mp3
+- back_cards:
+  - definition_en: An organization with a specific purpose
+    example_en: The university is a respected institution.
+  - definition_en: A place for care or treatment
+    example_en: He was admitted to a medical institution.
+  - definition_en: A long-established organization
+    example_en: The bank is a financial institution.
+  - definition_en: A system or tradition
+    example_en: Marriage is a social institution.
+  - definition_en: A facility for specific groups
+    example_en: The institution housed elderly residents.
+  freq: 80998
+  part_of_speech: noun
+  rank: 1190
+  sentence_audio_file:
+  - institution_sentence_0+Matthew+f3f56575eda43b35e64f3372a2149a56.mp3
+  - institution_sentence_1+Matthew+934b353376293959fe93c665020d282b.mp3
+  - institution_sentence_2+Matthew+cfbf61652f7e9b0db631a6329ea4b89a.mp3
+  - institution_sentence_3+Matthew+24b9019749bbdfa20d3b3b61022a00ba.mp3
+  - institution_sentence_4+Matthew+852057748f0ea6b94d0c70dd64dd2c42.mp3
+  voice_id: Matthew
+  word: institution
+  word_audio_file:
+  - institution_word_0+Matthew+955bfff7c5cc2088ad7ebca4e0202b00.mp3
+- back_cards:
+  - definition_en: Strong belief or trust in something
+    example_en: She had faith in her team’s ability.
+  - definition_en: A religious belief system
+    example_en: His faith guided his daily life.
+  - definition_en: Confidence in a person or thing
+    example_en: He put faith in her honesty.
+  - definition_en: Loyalty or allegiance
+    example_en: They kept faith with their values.
+  - definition_en: Belief without proof
+    example_en: Her faith in miracles never wavered.
+  freq: 80912
+  part_of_speech: noun
+  rank: 1191
+  sentence_audio_file:
+  - faith_sentence_0+Matthew+0df6c300d73d3c33bcf83377f988c9aa.mp3
+  - faith_sentence_1+Matthew+b477604945f21986cdda20f634ef3fef.mp3
+  - faith_sentence_2+Matthew+e99b9e54d2d2e52c288b6528fafb595a.mp3
+  - faith_sentence_3+Matthew+7ba7a9407256b3280032b13ad2b0926b.mp3
+  - faith_sentence_4+Matthew+dfcb6c6f3b2142ba59dfc16444981f67.mp3
+  voice_id: Matthew
+  word: faith
+  word_audio_file:
+  - faith_word_0+Matthew+ecee7df9bbac50b9b428483bfea1dd7c.mp3
+- back_cards:
+  - definition_en: Relating to a paid occupation
+    example_en: She pursued a professional career in law.
+  - definition_en: Exhibiting skilled or expert behavior
+    example_en: His work was always professional.
+  - definition_en: Done as a paid job
+    example_en: The team hired a professional photographer.
+  - definition_en: Following a code of conduct
+    example_en: Her professional demeanor impressed the client.
+  - definition_en: Engaged in a specialized field
+    example_en: He was a professional chef.
+  freq: 80903
+  part_of_speech: adjective
+  rank: 1192
+  sentence_audio_file:
+  - professional_sentence_0+Matthew+804c5f6d26dbcdd565e9262c30b764b2.mp3
+  - professional_sentence_1+Matthew+89f87c17c92cd04aec001db1d33ff695.mp3
+  - professional_sentence_2+Matthew+5f62fd977785d9a171c3db0452a59b48.mp3
+  - professional_sentence_3+Matthew+15b8dea264c848e2fbfd59628ff32924.mp3
+  - professional_sentence_4+Matthew+ba275bfe1f289ef02856fcbd35da71f0.mp3
+  voice_id: Matthew
+  word: professional
+  word_audio_file:
+  - professional_word_0+Matthew+27ade1b64f9515dbb776cc3cc5bc3377.mp3
+- back_cards:
+  - definition_en: To think deeply or carefully
+    example_en: She reflected on her past decisions.
+  - definition_en: To show or express something
+    example_en: His smile reflected his happiness.
+  - definition_en: To throw back light or an image
+    example_en: The mirror reflected her face clearly.
+  - definition_en: To indicate or demonstrate
+    example_en: Her grades reflect her hard work.
+  - definition_en: To consider or ponder
+    example_en: He reflected on the day’s events.
+  freq: 80851
+  part_of_speech: verb
+  rank: 1193
+  sentence_audio_file:
+  - reflect_sentence_0+Matthew+bc7e293cba9cb01292d97208020a994d.mp3
+  - reflect_sentence_1+Matthew+e084a6ad2f5f8c27b2045255cc742c4b.mp3
+  - reflect_sentence_2+Matthew+9694e64028cd6ee747afa50d00b22c71.mp3
+  - reflect_sentence_3+Matthew+dbc1f9366566e1ffd4fb50a812c06174.mp3
+  - reflect_sentence_4+Matthew+cfa744d537b53ad8882d82a1d2244fa7.mp3
+  voice_id: Matthew
+  word: reflect
+  word_audio_file:
+  - reflect_word_0+Matthew+c361ee72f1559105051ffb9bac309c5a.mp3
+- back_cards:
+  - definition_en: Ordinary people in general
+    example_en: The folk in the village were friendly.
+  - definition_en: A group with shared traditions
+    example_en: The folk gathered for the festival.
+  - definition_en: People of a specific community
+    example_en: Rural folk often know their neighbors.
+  - definition_en: Traditional or common people
+    example_en: The folk told stories around the fire.
+  - definition_en: A cultural or ethnic group
+    example_en: The folk preserved their old customs.
+  freq: 80843
+  part_of_speech: noun
+  rank: 1194
+  sentence_audio_file:
+  - folk_sentence_0+Matthew+56b6b086830deed597741e0724198b10.mp3
+  - folk_sentence_1+Matthew+f929914fb6dae4245fa8945ca0836c68.mp3
+  - folk_sentence_2+Matthew+761ebbba9e96cf690fe91856738999e4.mp3
+  - folk_sentence_3+Matthew+d984d2b551d2e68b8ef00a9e43aa46e1.mp3
+  - folk_sentence_4+Matthew+e22e8d867de9488d2449ca518878b79b.mp3
+  voice_id: Matthew
+  word: folk
+  word_audio_file:
+  - folk_word_0+Matthew+ea678a9205735898d39982a6854e4be0.mp3
+- back_cards:
+  - definition_en: The outer or top layer of something
+    example_en: The table’s surface was scratched.
+  - definition_en: The top of a body of water
+    example_en: Bubbles rose to the lake’s surface.
+  - definition_en: The exterior of an object
+    example_en: The rock’s surface was smooth.
+  - definition_en: The outer boundary of something
+    example_en: The moon’s surface was visible through the telescope.
+  - definition_en: The visible or apparent part
+    example_en: On the surface, everything seemed fine.
+  freq: 80819
+  part_of_speech: noun
+  rank: 1195
+  sentence_audio_file:
+  - surface_sentence_0+Matthew+7a6c42819d47d5ab7fabf1a523bf1c1c.mp3
+  - surface_sentence_1+Matthew+73de22e05beb952a9399eb92b2306bfe.mp3
+  - surface_sentence_2+Matthew+29adfa3b1ef3c92b2cd9dc5b00cf0ef2.mp3
+  - surface_sentence_3+Matthew+04d3424002eada2849736777b089fdb2.mp3
+  - surface_sentence_4+Matthew+923dd7a45433f6e2a41d03c325f2c5d7.mp3
+  voice_id: Matthew
+  word: surface
+  word_audio_file:
+  - surface_word_0+Matthew+d302e976c9dd527a9521a88c012437c5.mp3
+- back_cards:
+  - definition_en: A person receiving professional services
+    example_en: The lawyer met with her client.
+  - definition_en: A customer of a business
+    example_en: The client approved the new design.
+  - definition_en: A person using a service
+    example_en: The salon’s client wanted a haircut.
+  - definition_en: A buyer of professional advice
+    example_en: The client sought financial planning.
+  - definition_en: A patron of a firm or agency
+    example_en: The client signed the contract.
+  freq: 80584
+  part_of_speech: noun
+  rank: 1197
+  sentence_audio_file:
+  - client_sentence_0+Matthew+f93c35a8dc0ddd54f8cd02526112f221.mp3
+  - client_sentence_1+Matthew+26817b21e31147c8f2c502291ba4e22f.mp3
+  - client_sentence_2+Matthew+f843db1910572612def4263a78e6375d.mp3
+  - client_sentence_3+Matthew+0ac50f7d09afabc231654e8a04969068.mp3
+  - client_sentence_4+Matthew+30d7ebb6f9b2f57c21d8b639b661f06f.mp3
+  voice_id: Matthew
+  word: client
+  word_audio_file:
+  - client_word_0+Matthew+62608e08adc29a8d6dbc9754e659f125.mp3
+- back_cards:
+  - definition_en: The outer boundary of something
+    example_en: She stood at the edge of the cliff.
+  - definition_en: A sharp or cutting part
+    example_en: The knife’s edge was dull.
+  - definition_en: A slight advantage
+    example_en: Her speed gave her an edge in the race.
+  - definition_en: The border or rim
+    example_en: The cup sat on the table’s edge.
+  - definition_en: A tense or nervous state
+    example_en: His words put her on edge.
+  freq: 80577
+  part_of_speech: noun
+  rank: 1198
+  sentence_audio_file:
+  - edge_sentence_0+Matthew+45d55132e09f9db9685615ca754dedf1.mp3
+  - edge_sentence_1+Matthew+33169db1b24bf201fc70d838cb56a838.mp3
+  - edge_sentence_2+Matthew+e0eeae79273449aafaaf132f171ba124.mp3
+  - edge_sentence_3+Matthew+a4d185675b2c6f8a9b1d6f6f2084b60e.mp3
+  - edge_sentence_4+Matthew+902b0ce1e42a66c980268442c1ca81e1.mp3
+  voice_id: Matthew
+  word: edge
+  word_audio_file:
+  - edge_word_0+Matthew+09039bd1628a3c1b25fda3134a4fe050.mp3
+- back_cards:
+  - definition_en: Following long-established customs
+    example_en: They held a traditional wedding ceremony.
+  - definition_en: Based on cultural practices
+    example_en: She wore a traditional dress for the festival.
+  - definition_en: Handed down through generations
+    example_en: The recipe was a traditional family secret.
+  - definition_en: Conventional or standard
+    example_en: He preferred traditional teaching methods.
+  - definition_en: Rooted in past practices
+    example_en: The dance was a traditional folk performance.
+  freq: 80470
+  part_of_speech: adjective
+  rank: 1199
+  sentence_audio_file:
+  - traditional_sentence_0+Matthew+cd91b601bef8461b2164d9a178f23987.mp3
+  - traditional_sentence_1+Matthew+8410f4a4450885f7c1e8876e34459511.mp3
+  - traditional_sentence_2+Matthew+d9f07341b281b71ff50b812cd7e1c2f8.mp3
+  - traditional_sentence_3+Matthew+9d7ee9ed227509e93f9c7469fc09d757.mp3
+  - traditional_sentence_4+Matthew+b6887bd4a1e6fc4e2f0826e5672ae53d.mp3
+  voice_id: Matthew
+  word: traditional
+  word_audio_file:
+  - traditional_word_0+Matthew+9b732bf885312a3d2420d32d1ec2fa96.mp3
+- back_cards:
+  - definition_en: A group that advises or governs
+    example_en: The city council approved the budget.
+  - definition_en: An assembly for decision-making
+    example_en: The student council planned the event.
+  - definition_en: A body of representatives
+    example_en: She was elected to the town council.
+  - definition_en: A group for consultation
+    example_en: The council met to discuss zoning laws.
+  - definition_en: An official group for policy
+    example_en: The council voted on the new park.
+  freq: 80469
+  part_of_speech: noun
+  rank: 1200
+  sentence_audio_file:
+  - council_sentence_0+Matthew+6a6c7522be6eefa7004788d53d8a45be.mp3
+  - council_sentence_1+Matthew+18403c282c4051a54c3c0d8d2d7bce8c.mp3
+  - council_sentence_2+Matthew+da0147e165bb7de2cec041391a01cf82.mp3
+  - council_sentence_3+Matthew+a762a36e637ce78fc721f038c7cdc4ca.mp3
+  - council_sentence_4+Matthew+bd27524f8cd8407af3cc61ff90e173d4.mp3
+  voice_id: Matthew
+  word: council
+  word_audio_file:
+  - council_word_0+Matthew+52a1c95fd889c4a3b00f33472a845157.mp3
