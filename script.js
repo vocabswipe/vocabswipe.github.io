@@ -43,7 +43,7 @@ function loadWords() {
             // Precompute min and max transformed frequencies
             const c1 = 1000; // Shift constant to boost low frequencies
             const maxFreq = words[0].freq || 1; // Highest frequency (rank 1)
-            const transformedFreqs = words.map(word => Math.log10((word.freq + c1) / maxFreq));
+            const transformedFreqs = words.map(word => Math.log10(maxFreq / (word.freq + c1)));
             minTransformedFreq = Math.min(...transformedFreqs);
             maxTransformedFreq = Math.max(...transformedFreqs);
             displayWord();
@@ -234,15 +234,15 @@ function flipCard() {
     card.classList.toggle('flipped', isFlipped);
     stopAudio();
     displayWord();
-    // Play audio based on new state, prioritizing back card audio when flipping to back
+    // Play audio based on new state
     const audioFile = isFlipped ? 
         (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
          words[currentWordIndex]?.word_audio_file?.[0]) : 
         words[currentWordIndex]?.word_audio_file?.[0];
-    if (audioFile && (!wasFlipped || isFlipped)) { // Play on front-to-back or back-to-front
+    if (audioFile) {
         console.log(`Flip card: Playing audio for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
         playAudio(audioFile);
-    } else if (!audioFile) {
+    } else {
         console.warn(`No audio file for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
     }
 }
@@ -258,10 +258,10 @@ function displayWord() {
     const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: '', example_en: '' };
     const maxFreq = words[0].freq || 1; // Highest frequency (rank 1)
     const c1 = 1000; // Shift constant
-    // Logarithmic transformation based on frequency ratio
-    const transformedFreq = Math.log10((wordData.freq + c1) / maxFreq);
+    // Logarithmic transformation based on inverse frequency ratio
+    const transformedFreq = Math.log10(maxFreq / (wordData.freq + c1));
     // Normalize to 0-100, ensuring rank 1 gets 100%
-    const finalFreq = ((transformedFreq - minTransformedFreq) / (maxTransformedFreq - minTransformedFreq)) * 100;
+    const finalFreq = ((maxTransformedFreq - transformedFreq) / (maxTransformedFreq - minTransformedFreq)) * 100;
 
     front.innerHTML = `
         <div class="word-container">
