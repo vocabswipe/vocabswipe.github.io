@@ -13,12 +13,6 @@ body {
     justify-content: center;
     min-height: 100vh;
     color: #1f2937;
-    transition: all 0.3s ease;
-}
-
-body[data-theme="dark"] {
-    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
-    color: #e5e7eb;
 }
 
 .container {
@@ -29,42 +23,6 @@ body[data-theme="dark"] {
     max-width: 600px;
     padding: 16px;
     padding-top: 40px;
-    position: relative; /* For positioning theme toggle */
-}
-
-.theme-toggle {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.theme-toggle:hover {
-    background: #f9fafb;
-    transform: scale(1.05);
-}
-
-body[data-theme="dark"] .theme-toggle {
-    background: #374151;
-    border-color: #4b5563;
-}
-
-body[data-theme="dark"] .theme-toggle:hover {
-    background: #4b5563;
-}
-
-.theme-icon {
-    font-size: 20px;
 }
 
 .website-name {
@@ -76,10 +34,6 @@ body[data-theme="dark"] .theme-toggle:hover {
     margin-bottom: 8px;
 }
 
-body[data-theme="dark"] .website-name {
-    color: #60a5fa;
-}
-
 .slogan {
     font-family: 'Caveat', cursive;
     font-size: 28px;
@@ -89,10 +43,6 @@ body[data-theme="dark"] .website-name {
     margin-bottom: 8px;
 }
 
-body[data-theme="dark"] .slogan {
-    color: #60a5fa;
-}
-
 .deck-version {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
@@ -100,10 +50,6 @@ body[data-theme="dark"] .slogan {
     color: #6b7280;
     text-align: center;
     margin-bottom: 16px;
-}
-
-body[data-theme="dark"] .deck-version {
-    color: #9ca3af;
 }
 
 .flashcard-container {
@@ -123,8 +69,8 @@ body[data-theme="dark"] .deck-version {
     border-radius: 12px;
 }
 
-body[data-theme="dark"] .flashcard {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+.flashcard.flipped {
+    transform: rotateY(180deg);
 }
 
 .front, .back {
@@ -140,19 +86,9 @@ body[data-theme="dark"] .flashcard {
     border: 1px solid #e5e7eb;
 }
 
-body[data-theme="dark"] .front,
-body[data-theme="dark"] .back {
-    background: linear-gradient(145deg, #374151 0%, #1f2937 100%);
-    border-color: #4b5563;
-}
-
 .back {
     transform: rotateY(180deg);
     background: linear-gradient(145deg, #f9fafb 0%, #f3f4f6 100%);
-}
-
-body[data-theme="dark"] .back {
-    background: linear-gradient(145deg, #1f2937 0%, #374151 100%);
 }
 
 .word-container {
@@ -170,11 +106,6 @@ body[data-theme="dark"] .back {
     text-align: center;
     word-break: break-word;
     line-height: 1.2;
-}
-
-body[data-theme="dark"] .front h2,
-body[data-theme="dark"] .back h2 {
-    color: #60a5fa;
 }
 
 .back-template {
@@ -200,10 +131,6 @@ body[data-theme="dark"] .back h2 {
     text-align: center;
 }
 
-body[data-theme="dark"] .definition {
-    color: #d1d5db;
-}
-
 .example {
     font-size: 16px;
     color: #374151;
@@ -214,10 +141,6 @@ body[data-theme="dark"] .definition {
     font-weight: 700;
 }
 
-body[data-theme="dark"] .example {
-    color: #d1d5db;
-}
-
 .meta-info {
     display: flex;
     justify-content: space-between;
@@ -226,18 +149,10 @@ body[data-theme="dark"] .example {
     border-top: 1px solid #e5e7eb;
 }
 
-body[data-theme="dark"] .meta-info {
-    border-top-color: #4b5563;
-}
-
 .rank {
     font-size: 14px;
     font-weight: 500;
     color: #6b7280;
-}
-
-body[data-theme="dark"] .rank {
-    color: #9ca3af;
 }
 
 .freq-container {
@@ -250,10 +165,6 @@ body[data-theme="dark"] .rank {
     font-size: 14px;
     font-weight: 500;
     color: #6b7280;
-}
-
-body[data-theme="dark"] .freq-label {
-    color: #9ca3af;
 }
 
 .freq-bar {
@@ -269,10 +180,6 @@ body[data-theme="dark"] .freq-label {
     overflow: hidden;
     position: relative;
     border: 1px solid #6b7280;
-}
-
-body[data-theme="dark"] .freq-bar {
-    border-color: #4b5563;
 }
 
 .freq-fill {
@@ -316,14 +223,5 @@ body[data-theme="dark"] .freq-bar {
 
     .freq-bar {
         width: 120px;
-    }
-
-    .theme-toggle {
-        width: 36px;
-        height: 36px;
-    }
-
-    .theme-icon {
-        font-size: 18px;
     }
 }
