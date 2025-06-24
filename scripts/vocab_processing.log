@@ -14429,3 +14429,128 @@ expected <block end>, but found '<block mapping start>'
 2025-06-25 00:04:15,289 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250625_000415.txt
 2025-06-25 00:04:15,296 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
 2025-06-25 00:04:15,298 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
+2025-06-25 00:17:44,967 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-25 00:17:45,188 - INFO - AWS Polly client initialized successfully.
+2025-06-25 00:17:45,196 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 00:17:45,198 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 00:17:54,809 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 00:17:54,809 - INFO - Appended 20 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 00:17:54,826 - INFO - Loading: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-25 00:18:17,289 - INFO - Generated audio for '<speak>cold</speak>' at D:\vocabswipe.github.io\data\audio\cold_word_0+Matthew+75e52a0ecfafeda17a34fc60111c1f0b.mp3
+2025-06-25 00:18:17,656 - INFO - Generated audio for '<speak>cold. The cold wind made her shiver.</speak>' at D:\vocabswipe.github.io\data\audio\cold_sentence_0+Matthew+34c155da72826cbf19042256b429e824.mp3
+2025-06-25 00:18:18,028 - INFO - Generated audio for '<speak>cold. His cold response surprised everyone.</speak>' at D:\vocabswipe.github.io\data\audio\cold_sentence_1+Matthew+e4740d4b11979d4f5c3642b661b1b38f.mp3
+2025-06-25 00:18:19,014 - INFO - Generated audio for '<speak>cold. The room felt cold and unwelcoming.</speak>' at D:\vocabswipe.github.io\data\audio\cold_sentence_2+Matthew+3a111758753d4d8cd4fa9d3d480b4fa2.mp3
+2025-06-25 00:18:19,387 - INFO - Generated audio for '<speak>cold. She caught a cold after the trip.</speak>' at D:\vocabswipe.github.io\data\audio\cold_sentence_3+Matthew+5bbbcccd4080af03530b088134c28ad7.mp3
+2025-06-25 00:18:20,334 - INFO - Generated audio for '<speak>cold. He prefers his drinks cold.</speak>' at D:\vocabswipe.github.io\data\audio\cold_sentence_4+Matthew+777f5791a5846580084b35c2d80b5c51.mp3
+2025-06-25 00:18:21,240 - INFO - Generated audio for '<speak>glass</speak>' at D:\vocabswipe.github.io\data\audio\glass_word_0+Matthew+2570c919f5ef1d7091f0f66d54dac974.mp3
+2025-06-25 00:18:21,611 - INFO - Generated audio for '<speak>glass. The glass in the window was cracked.</speak>' at D:\vocabswipe.github.io\data\audio\glass_sentence_0+Matthew+43d952a7126511f37a4040c902245fcf.mp3
+2025-06-25 00:18:23,022 - INFO - Generated audio for '<speak>glass. She filled her glass with water.</speak>' at D:\vocabswipe.github.io\data\audio\glass_sentence_1+Matthew+f42e7a98d5aea826375c53b5545b0ee8.mp3
+2025-06-25 00:18:23,394 - INFO - Generated audio for '<speak>glass. The telescope’s glass was finely crafted.</speak>' at D:\vocabswipe.github.io\data\audio\glass_sentence_2+Matthew+09ab7ab7251b924ab539a997173b8615.mp3
+2025-06-25 00:18:23,778 - INFO - Generated audio for '<speak>glass. She checked her reflection in the glass.</speak>' at D:\vocabswipe.github.io\data\audio\glass_sentence_3+Matthew+7646c602f181f8253abd01c64bb5e53b.mp3
+2025-06-25 00:18:25,211 - INFO - Generated audio for '<speak>glass. He ordered a glass of juice.</speak>' at D:\vocabswipe.github.io\data\audio\glass_sentence_4+Matthew+11e89fd0f1c829bb8c5a6aa2e04dca04.mp3
+2025-06-25 00:18:26,092 - INFO - Generated audio for '<speak>improve</speak>' at D:\vocabswipe.github.io\data\audio\improve_word_0+Matthew+33c0478b996aa76815627291a57e5689.mp3
+2025-06-25 00:18:26,775 - INFO - Generated audio for '<speak>improve. She worked to improve her grades.</speak>' at D:\vocabswipe.github.io\data\audio\improve_sentence_0+Matthew+5356148badb8d18dafa04902bfe4a6ad.mp3
+2025-06-25 00:18:27,707 - INFO - Generated audio for '<speak>improve. He practiced daily to improve his piano playing.</speak>' at D:\vocabswipe.github.io\data\audio\improve_sentence_1+Matthew+66a86857e5893da4b8ba133b2d6a21b8.mp3
+2025-06-25 00:18:28,106 - INFO - Generated audio for '<speak>improve. The company improved its website design.</speak>' at D:\vocabswipe.github.io\data\audio\improve_sentence_2+Matthew+d76ac307843d2e65aeaaefbffad649c2.mp3
+2025-06-25 00:18:28,510 - INFO - Generated audio for '<speak>improve. Her health began to improve after rest.</speak>' at D:\vocabswipe.github.io\data\audio\improve_sentence_3+Matthew+f7cef0e086aac1007cb1aa2a49858dc1.mp3
+2025-06-25 00:18:29,495 - INFO - Generated audio for '<speak>improve. The updates will improve the product.</speak>' at D:\vocabswipe.github.io\data\audio\improve_sentence_4+Matthew+ecbcc829cd8622ee059a6628beb09f78.mp3
+2025-06-25 00:18:36,908 - INFO - Generated audio for '<speak>adult</speak>' at D:\vocabswipe.github.io\data\audio\adult_word_0+Matthew+2e85a22d0ffa063c211acd8f34952360.mp3
+2025-06-25 00:18:37,614 - INFO - Generated audio for '<speak>adult. The movie is for adults only.</speak>' at D:\vocabswipe.github.io\data\audio\adult_sentence_0+Matthew+29ade13753ed0f434b3fa07e43deee19.mp3
+2025-06-25 00:18:37,988 - INFO - Generated audio for '<speak>adult. She handles problems like an adult.</speak>' at D:\vocabswipe.github.io\data\audio\adult_sentence_1+Matthew+be8487667b45f043ac739b7cc724e327.mp3
+2025-06-25 00:18:38,370 - INFO - Generated audio for '<speak>adult. Adults can vote in the election.</speak>' at D:\vocabswipe.github.io\data\audio\adult_sentence_2+Matthew+1e9a80d3c77b63802687b773e09d24df.mp3
+2025-06-25 00:18:38,748 - INFO - Generated audio for '<speak>adult. The meeting is for adults in the company.</speak>' at D:\vocabswipe.github.io\data\audio\adult_sentence_3+Matthew+582f3d79d63e95d29f9c41da9f75d6f0.mp3
+2025-06-25 00:18:39,144 - INFO - Generated audio for '<speak>adult. An adult must sign the form.</speak>' at D:\vocabswipe.github.io\data\audio\adult_sentence_4+Matthew+ee7c0040542995252fb406cd5ab008e8.mp3
+2025-06-25 00:18:41,026 - INFO - Generated audio for '<speak>trade</speak>' at D:\vocabswipe.github.io\data\audio\trade_word_0+Matthew+21e119daf697467b14b076f2d5819aec.mp3
+2025-06-25 00:18:43,284 - INFO - Generated audio for '<speak>trade. International trade boosts the economy.</speak>' at D:\vocabswipe.github.io\data\audio\trade_sentence_0+Matthew+6f37f430ec014725f6610ee09cc371be.mp3
+2025-06-25 00:18:44,905 - INFO - Generated audio for '<speak>trade. He learned the trade of carpentry.</speak>' at D:\vocabswipe.github.io\data\audio\trade_sentence_1+Matthew+8ec724713d647828d5a92f9ad1c8cce5.mp3
+2025-06-25 00:18:47,090 - INFO - Generated audio for '<speak>trade. The trade of stocks was profitable.</speak>' at D:\vocabswipe.github.io\data\audio\trade_sentence_2+Matthew+4aa7afac472ad7dc9add1a9370512640.mp3
+2025-06-25 00:18:48,363 - INFO - Generated audio for '<speak>trade. They made a trade of their comic books.</speak>' at D:\vocabswipe.github.io\data\audio\trade_sentence_3+Matthew+fad5561d692c54f93db273dd19722a4b.mp3
+2025-06-25 00:18:49,501 - INFO - Generated audio for '<speak>trade. She works in the fashion trade.</speak>' at D:\vocabswipe.github.io\data\audio\trade_sentence_4+Matthew+0a32888a6a107af0cd02797252a848d0.mp3
+2025-06-25 00:18:52,578 - INFO - Generated audio for '<speak>religious</speak>' at D:\vocabswipe.github.io\data\audio\religious_word_0+Matthew+b9bba0357bc3fa8929d14b1f34a5e35e.mp3
+2025-06-25 00:18:53,208 - INFO - Generated audio for '<speak>religious. The religious ceremony was peaceful.</speak>' at D:\vocabswipe.github.io\data\audio\religious_sentence_0+Matthew+0a364dda0197ff9863ba6a441472bd98.mp3
+2025-06-25 00:18:58,311 - INFO - Generated audio for '<speak>religious. She is a deeply religious person.</speak>' at D:\vocabswipe.github.io\data\audio\religious_sentence_1+Matthew+bcf775477285451278d2c118d5eb9379.mp3
+2025-06-25 00:18:59,313 - INFO - Generated audio for '<speak>religious. The school has a religious affiliation.</speak>' at D:\vocabswipe.github.io\data\audio\religious_sentence_2+Matthew+4f651f0fadc18435f7117f0ba8d938f1.mp3
+2025-06-25 00:18:59,690 - INFO - Generated audio for '<speak>religious. He followed the rules with religious precision.</speak>' at D:\vocabswipe.github.io\data\audio\religious_sentence_3+Matthew+ea5c750022efa83b480a805601d8dd38.mp3
+2025-06-25 00:19:00,917 - INFO - Generated audio for '<speak>religious. The festival included religious rituals.</speak>' at D:\vocabswipe.github.io\data\audio\religious_sentence_4+Matthew+52e2ed0d20c98ad679b3cbc0bb24e0a8.mp3
+2025-06-25 00:19:03,011 - INFO - Generated audio for '<speak>head. The head of the table was reserved.</speak>' at D:\vocabswipe.github.io\data\audio\head_sentence_5+Matthew+94ec3611e4e03089751bec13eba43ff6.mp3
+2025-06-25 00:19:04,512 - INFO - Generated audio for '<speak>head. The farm has fifty head of cattle.</speak>' at D:\vocabswipe.github.io\data\audio\head_sentence_6+Matthew+2f11ba5b6cd58d4517468a4dcfc75759.mp3
+2025-06-25 00:19:05,543 - INFO - Generated audio for '<speak>head. Let’s discuss the head of the proposal.</speak>' at D:\vocabswipe.github.io\data\audio\head_sentence_7+Matthew+c66515c96902c53d69d88f25cf56dde3.mp3
+2025-06-25 00:19:05,887 - INFO - Generated audio for '<speak>review</speak>' at D:\vocabswipe.github.io\data\audio\review_word_0+Matthew+1c67665285fb6a7d761414e12578e574.mp3
+2025-06-25 00:19:07,423 - INFO - Generated audio for '<speak>review. The book received a positive review.</speak>' at D:\vocabswipe.github.io\data\audio\review_sentence_0+Matthew+f22f52279c937aeb2937217acf8c1904.mp3
+2025-06-25 00:19:10,363 - INFO - Generated audio for '<speak>review. The team held a review of the project.</speak>' at D:\vocabswipe.github.io\data\audio\review_sentence_1+Matthew+26de085ca62b0c3a130dcb00c3d682f8.mp3
+2025-06-25 00:19:12,167 - INFO - Generated audio for '<speak>review. She did a review before the exam.</speak>' at D:\vocabswipe.github.io\data\audio\review_sentence_2+Matthew+07436d2dd68794a20d2957ca402d948c.mp3
+2025-06-25 00:19:13,632 - INFO - Generated audio for '<speak>review. His annual review went well.</speak>' at D:\vocabswipe.github.io\data\audio\review_sentence_3+Matthew+668ecaf8098a0653541533677ca3d7b9.mp3
+2025-06-25 00:19:14,603 - INFO - Generated audio for '<speak>review. The movie’s review was in the paper.</speak>' at D:\vocabswipe.github.io\data\audio\review_sentence_4+Matthew+e9ceb18224a4f2b3988e180573995ff7.mp3
+2025-06-25 00:19:14,977 - INFO - Generated audio for '<speak>kind. This kind of flower blooms early.</speak>' at D:\vocabswipe.github.io\data\audio\kind_sentence_5+Matthew+ed1a718720bf151cdd292ce00e3e666c.mp3
+2025-06-25 00:19:15,335 - INFO - Generated audio for '<speak>kind. That kind of car is expensive.</speak>' at D:\vocabswipe.github.io\data\audio\kind_sentence_6+Matthew+214c665d0d49159f8447a0fb9cf2617d.mp3
+2025-06-25 00:19:15,693 - INFO - Generated audio for '<speak>kind. I prefer this kind of coffee.</speak>' at D:\vocabswipe.github.io\data\audio\kind_sentence_7+Matthew+78d553cde6d1f3b4ba3f6fb772a42290.mp3
+2025-06-25 00:19:16,023 - INFO - Generated audio for '<speak>address</speak>' at D:\vocabswipe.github.io\data\audio\address_word_0+Matthew+884d9804999fc47a3c2694e49ad2536a.mp3
+2025-06-25 00:19:16,385 - INFO - Generated audio for '<speak>address. She wrote her address on the form.</speak>' at D:\vocabswipe.github.io\data\audio\address_sentence_0+Matthew+b3447f10571d5f5d45cf3d228403dd78.mp3
+2025-06-25 00:19:16,738 - INFO - Generated audio for '<speak>address. The president gave an address on TV.</speak>' at D:\vocabswipe.github.io\data\audio\address_sentence_1+Matthew+84d645b9ee0f1250c067ceadd6b51f72.mp3
+2025-06-25 00:19:17,106 - INFO - Generated audio for '<speak>address. Please share your email address.</speak>' at D:\vocabswipe.github.io\data\audio\address_sentence_2+Matthew+3ffbee64440c28dabde79b80864fb771.mp3
+2025-06-25 00:19:17,468 - INFO - Generated audio for '<speak>address. The package was sent to the wrong address.</speak>' at D:\vocabswipe.github.io\data\audio\address_sentence_3+Matthew+1c0733cbb9bf9b88b315ff208549b4c3.mp3
+2025-06-25 00:19:17,849 - INFO - Generated audio for '<speak>address. The address of the problem took time.</speak>' at D:\vocabswipe.github.io\data\audio\address_sentence_4+Matthew+3463c2ac80f283e2ae1771195efd0aa3.mp3
+2025-06-25 00:19:18,184 - INFO - Generated audio for '<speak>association</speak>' at D:\vocabswipe.github.io\data\audio\association_word_0+Matthew+af14b067a4804cdc758bf5ba6908a3fb.mp3
+2025-06-25 00:19:18,552 - INFO - Generated audio for '<speak>association. She joined a writers’ association.</speak>' at D:\vocabswipe.github.io\data\audio\association_sentence_0+Matthew+ecf8d349a9caf6287abdcc0c7ba2637c.mp3
+2025-06-25 00:19:18,915 - INFO - Generated audio for '<speak>association. The smell had an association with childhood.</speak>' at D:\vocabswipe.github.io\data\audio\association_sentence_1+Matthew+7f5f0cfaaeb2f8ec516040ccdb915c76.mp3
+2025-06-25 00:19:19,298 - INFO - Generated audio for '<speak>association. The association sets industry standards.</speak>' at D:\vocabswipe.github.io\data\audio\association_sentence_2+Matthew+e5e9cb2dd069cc831f51511563d24b5b.mp3
+2025-06-25 00:19:19,674 - INFO - Generated audio for '<speak>association. Their association led to a new project.</speak>' at D:\vocabswipe.github.io\data\audio\association_sentence_3+Matthew+823e7683a2a2d2e150199540f0bb3d5f.mp3
+2025-06-25 00:19:20,037 - INFO - Generated audio for '<speak>association. The word has a strong association with joy.</speak>' at D:\vocabswipe.github.io\data\audio\association_sentence_4+Matthew+e5ba61c27da9ae750e469a07805d6628.mp3
+2025-06-25 00:19:20,359 - INFO - Generated audio for '<speak>measure</speak>' at D:\vocabswipe.github.io\data\audio\measure_word_0+Matthew+2925f77709f2db1f915deadc2940db88.mp3
+2025-06-25 00:19:20,734 - INFO - Generated audio for '<speak>measure. She measured the room for new curtains.</speak>' at D:\vocabswipe.github.io\data\audio\measure_sentence_0+Matthew+c4296e3288d6abd9c7fe19aeb2f3a775.mp3
+2025-06-25 00:19:21,088 - INFO - Generated audio for '<speak>measure. They measured the project’s success.</speak>' at D:\vocabswipe.github.io\data\audio\measure_sentence_1+Matthew+0857114ca7be2329c6ceacf8d629fc4e.mp3
+2025-06-25 00:19:21,455 - INFO - Generated audio for '<speak>measure. He measured his words carefully.</speak>' at D:\vocabswipe.github.io\data\audio\measure_sentence_2+Matthew+d1a2957d6418044a460485575c9bb5d7.mp3
+2025-06-25 00:19:21,823 - INFO - Generated audio for '<speak>measure. She measured two cups of flour.</speak>' at D:\vocabswipe.github.io\data\audio\measure_sentence_3+Matthew+f5fc6574f2f08c8b9bc5500b1462e526.mp3
+2025-06-25 00:19:22,184 - INFO - Generated audio for '<speak>measure. The coach measured the team’s progress.</speak>' at D:\vocabswipe.github.io\data\audio\measure_sentence_4+Matthew+2e1c478f9207dee4cd0ca174005e03b8.mp3
+2025-06-25 00:19:22,548 - INFO - Generated audio for '<speak>stock</speak>' at D:\vocabswipe.github.io\data\audio\stock_word_0+Matthew+908880209a64ea539ae8dc5fdb7e0a91.mp3
+2025-06-25 00:19:22,965 - INFO - Generated audio for '<speak>stock. The store has a large stock of books.</speak>' at D:\vocabswipe.github.io\data\audio\stock_sentence_0+Matthew+33f6c123742d3cc043356605970cdf6f.mp3
+2025-06-25 00:19:23,318 - INFO - Generated audio for '<speak>stock. She invested in tech stock.</speak>' at D:\vocabswipe.github.io\data\audio\stock_sentence_1+Matthew+5b7c8c27c846024e2cb78cbf9ea6e4f1.mp3
+2025-06-25 00:19:23,690 - INFO - Generated audio for '<speak>stock. The soup was made with chicken stock.</speak>' at D:\vocabswipe.github.io\data\audio\stock_sentence_2+Matthew+050df862d91e42a1aac9240dab009576.mp3
+2025-06-25 00:19:24,092 - INFO - Generated audio for '<speak>stock. He comes from farming stock.</speak>' at D:\vocabswipe.github.io\data\audio\stock_sentence_3+Matthew+542f583328cd56e3fd400961ef36c5cb.mp3
+2025-06-25 00:19:24,459 - INFO - Generated audio for '<speak>stock. Their stock of food lasted weeks.</speak>' at D:\vocabswipe.github.io\data\audio\stock_sentence_4+Matthew+ccd1a4ea8c253e8ef3277cdb2e1bbffd.mp3
+2025-06-25 00:19:24,782 - INFO - Generated audio for '<speak>gas</speak>' at D:\vocabswipe.github.io\data\audio\gas_word_0+Matthew+fee74eac0728a1bb5ff7d4666f8c4a88.mp3
+2025-06-25 00:19:25,128 - INFO - Generated audio for '<speak>gas. He filled the car with gas.</speak>' at D:\vocabswipe.github.io\data\audio\gas_sentence_0+Matthew+4a720fe2b3f9ac8053b78144e34d255c.mp3
+2025-06-25 00:19:25,496 - INFO - Generated audio for '<speak>gas. The balloon was filled with helium gas.</speak>' at D:\vocabswipe.github.io\data\audio\gas_sentence_1+Matthew+62d4d1250667f6fd4d022befce70cd2f.mp3
+2025-06-25 00:19:25,849 - INFO - Generated audio for '<speak>gas. The stove runs on natural gas.</speak>' at D:\vocabswipe.github.io\data\audio\gas_sentence_2+Matthew+47f18e38076dcd31535831ebd68a01eb.mp3
+2025-06-25 00:19:26,208 - INFO - Generated audio for '<speak>gas. The gas caused everyone to evacuate.</speak>' at D:\vocabswipe.github.io\data\audio\gas_sentence_3+Matthew+9d970fed5aeaf5070150a4924f3ccef7.mp3
+2025-06-25 00:19:26,575 - INFO - Generated audio for '<speak>gas. They spent hours trading gas about sports.</speak>' at D:\vocabswipe.github.io\data\audio\gas_sentence_4+Matthew+f3a51ec4f719165b025d4b0dba331278.mp3
+2025-06-25 00:19:26,900 - INFO - Generated audio for '<speak>deep</speak>' at D:\vocabswipe.github.io\data\audio\deep_word_0+Matthew+6627415e807ee33c7302917216e7da68.mp3
+2025-06-25 00:19:27,278 - INFO - Generated audio for '<speak>deep. The lake is very deep in the center.</speak>' at D:\vocabswipe.github.io\data\audio\deep_sentence_0+Matthew+53e437a748f69bf661aef0abd8a9eed2.mp3
+2025-06-25 00:19:27,646 - INFO - Generated audio for '<speak>deep. She felt a deep sadness.</speak>' at D:\vocabswipe.github.io\data\audio\deep_sentence_1+Matthew+e0026dcabea76cb253ddcf313c1ea825.mp3
+2025-06-25 00:19:28,008 - INFO - Generated audio for '<speak>deep. The book explores deep philosophical ideas.</speak>' at D:\vocabswipe.github.io\data\audio\deep_sentence_2+Matthew+43ccb9fa4554f87f7c068a22c44af7cb.mp3
+2025-06-25 00:19:28,369 - INFO - Generated audio for '<speak>deep. They were deep in the forest.</speak>' at D:\vocabswipe.github.io\data\audio\deep_sentence_3+Matthew+6d3381adc962aef2554a942c99bb76e4.mp3
+2025-06-25 00:19:28,738 - INFO - Generated audio for '<speak>deep. His voice was deep and soothing.</speak>' at D:\vocabswipe.github.io\data\audio\deep_sentence_4+Matthew+a65577e9000417826949332fe8c90311.mp3
+2025-06-25 00:19:29,084 - INFO - Generated audio for '<speak>lawyer</speak>' at D:\vocabswipe.github.io\data\audio\lawyer_word_0+Matthew+484b2e35acd06568893b4dac5d862f67.mp3
+2025-06-25 00:19:29,464 - INFO - Generated audio for '<speak>lawyer. The lawyer defended her client in court.</speak>' at D:\vocabswipe.github.io\data\audio\lawyer_sentence_0+Matthew+479f5177af73156f198301d2f33f2a9e.mp3
+2025-06-25 00:19:29,846 - INFO - Generated audio for '<speak>lawyer. She consulted a lawyer about the contract.</speak>' at D:\vocabswipe.github.io\data\audio\lawyer_sentence_1+Matthew+390516fdb016c3ecf45873466e63d7bf.mp3
+2025-06-25 00:19:30,205 - INFO - Generated audio for '<speak>lawyer. The lawyer prepared the will.</speak>' at D:\vocabswipe.github.io\data\audio\lawyer_sentence_2+Matthew+f68cc363872cbe972be9e46a7955d894.mp3
+2025-06-25 00:19:30,595 - INFO - Generated audio for '<speak>lawyer. The lawyer argued the case confidently.</speak>' at D:\vocabswipe.github.io\data\audio\lawyer_sentence_3+Matthew+28fccf2513dd584203b3b9d987383b0f.mp3
+2025-06-25 00:19:30,965 - INFO - Generated audio for '<speak>lawyer. He’s a lawyer who focuses on tax law.</speak>' at D:\vocabswipe.github.io\data\audio\lawyer_sentence_4+Matthew+75ed1b797088fb670f87c75c96976d65.mp3
+2025-06-25 00:19:31,298 - INFO - Generated audio for '<speak>production</speak>' at D:\vocabswipe.github.io\data\audio\production_word_0+Matthew+fd89784e59c72499525556f80289b2c7.mp3
+2025-06-25 00:19:31,659 - INFO - Generated audio for '<speak>production. The factory increased its production.</speak>' at D:\vocabswipe.github.io\data\audio\production_sentence_0+Matthew+e887f95936b2765afdbbf1062d8c62ac.mp3
+2025-06-25 00:19:32,044 - INFO - Generated audio for '<speak>production. The play’s production was a hit.</speak>' at D:\vocabswipe.github.io\data\audio\production_sentence_1+Matthew+deafe26b8289c9cf76ef3449cb828335.mp3
+2025-06-25 00:19:32,416 - INFO - Generated audio for '<speak>production. The production of the book took years.</speak>' at D:\vocabswipe.github.io\data\audio\production_sentence_2+Matthew+d10ccb85c46c55b55747c144e7f44b16.mp3
+2025-06-25 00:19:32,851 - INFO - Generated audio for '<speak>production. Oil production dropped this month.</speak>' at D:\vocabswipe.github.io\data\audio\production_sentence_3+Matthew+bf2cbdcd30e4751f933b241267a2e0c1.mp3
+2025-06-25 00:19:33,208 - INFO - Generated audio for '<speak>production. The TV production won several awards.</speak>' at D:\vocabswipe.github.io\data\audio\production_sentence_4+Matthew+db3aaff19a5ef808f049076112fff938.mp3
+2025-06-25 00:19:33,534 - INFO - Generated audio for '<speak>relate</speak>' at D:\vocabswipe.github.io\data\audio\relate_word_0+Matthew+e30aa60a1cc3acfdfbedc1e52cf210f5.mp3
+2025-06-25 00:19:33,905 - INFO - Generated audio for '<speak>relate. She can relate the story to her own life.</speak>' at D:\vocabswipe.github.io\data\audio\relate_sentence_0+Matthew+1a7668eba9681c18752cc368f639bb2b.mp3
+2025-06-25 00:19:34,268 - INFO - Generated audio for '<speak>relate. I relate to his struggle with stress.</speak>' at D:\vocabswipe.github.io\data\audio\relate_sentence_1+Matthew+e7aede7c42a2f71727adb1e9902108b3.mp3
+2025-06-25 00:19:34,659 - INFO - Generated audio for '<speak>relate. He related the events of the day.</speak>' at D:\vocabswipe.github.io\data\audio\relate_sentence_2+Matthew+bb8b01fcc6e87c840e92bd3ed8c8bae2.mp3
+2025-06-25 00:19:36,221 - INFO - Generated audio for '<speak>relate. The teacher related the lesson to history.</speak>' at D:\vocabswipe.github.io\data\audio\relate_sentence_3+Matthew+8da805c63429418ca87adfbf82cea449.mp3
+2025-06-25 00:19:36,574 - INFO - Generated audio for '<speak>relate. The two issues relate closely.</speak>' at D:\vocabswipe.github.io\data\audio\relate_sentence_4+Matthew+dcb6942f6ccf4a721a23c7a6b5718a28.mp3
+2025-06-25 00:19:36,896 - INFO - Generated audio for '<speak>middle</speak>' at D:\vocabswipe.github.io\data\audio\middle_word_0+Matthew+4a548addbfb239bbd12f5afe11a4b6dc.mp3
+2025-06-25 00:19:37,243 - INFO - Generated audio for '<speak>middle. The book was open to the middle.</speak>' at D:\vocabswipe.github.io\data\audio\middle_sentence_0+Matthew+3e99ddfa6d9b7a04ea504b90b13a81c3.mp3
+2025-06-25 00:19:37,594 - INFO - Generated audio for '<speak>middle. They met in the middle of the bridge.</speak>' at D:\vocabswipe.github.io\data\audio\middle_sentence_1+Matthew+ed9a031b2a108c1b035fa8e5c8d4db59.mp3
+2025-06-25 00:19:37,947 - INFO - Generated audio for '<speak>middle. The shirt was tight around her middle.</speak>' at D:\vocabswipe.github.io\data\audio\middle_sentence_2+Matthew+ab961c7aec98730af8c3591bc6d19be7.mp3
+2025-06-25 00:19:38,312 - INFO - Generated audio for '<speak>middle. We’re in the middle of the project.</speak>' at D:\vocabswipe.github.io\data\audio\middle_sentence_3+Matthew+7327ef918c72252ae87ef08aaacbd507.mp3
+2025-06-25 00:19:38,673 - INFO - Generated audio for '<speak>middle. The policy benefits the middle class.</speak>' at D:\vocabswipe.github.io\data\audio\middle_sentence_4+Matthew+2650be953b086ba111575bd12fefaa70.mp3
+2025-06-25 00:19:39,009 - INFO - Generated audio for '<speak>management</speak>' at D:\vocabswipe.github.io\data\audio\management_word_0+Matthew+d10af457daa1deed54e2c36b5f295e7e.mp3
+2025-06-25 00:19:39,377 - INFO - Generated audio for '<speak>management. Good management led to the team’s success.</speak>' at D:\vocabswipe.github.io\data\audio\management_sentence_0+Matthew+398262758f680c8c039cdbc5a87a3b49.mp3
+2025-06-25 00:19:39,731 - INFO - Generated audio for '<speak>management. Management approved the new budget.</speak>' at D:\vocabswipe.github.io\data\audio\management_sentence_1+Matthew+b08b030c3d16213caa615ebda33774b0.mp3
+2025-06-25 00:19:40,086 - INFO - Generated audio for '<speak>management. Time management is her strength.</speak>' at D:\vocabswipe.github.io\data\audio\management_sentence_2+Matthew+d4cd3e46e274fd18ba89f47b723a50e9.mp3
+2025-06-25 00:19:40,455 - INFO - Generated audio for '<speak>management. The event’s management was flawless.</speak>' at D:\vocabswipe.github.io\data\audio\management_sentence_3+Matthew+704192330b32ba701c11cc8387c9d864.mp3
+2025-06-25 00:19:40,828 - INFO - Generated audio for '<speak>management. His management of the crisis was praised.</speak>' at D:\vocabswipe.github.io\data\audio\management_sentence_4+Matthew+44aeb5684846ac257d5d967b4d97eae3.mp3
+2025-06-25 00:19:43,848 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-25 00:19:43,865 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250625_001943.txt
+2025-06-25 00:19:43,873 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 00:19:43,875 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.

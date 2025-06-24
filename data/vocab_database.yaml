@@ -6930,6 +6930,12 @@
     example_en: He’s not that kind of person.
   - definition_en: Used to refer to a general type.
     example_en: This kind of weather is unusual.
+  - definition_en: a group with similar traits
+    example_en: This kind of flower blooms early.
+  - definition_en: a class of objects
+    example_en: That kind of car is expensive.
+  - definition_en: a specific sort or brand
+    example_en: I prefer this kind of coffee.
   freq: 367584
   part_of_speech: noun
   rank: 256
@@ -6939,6 +6945,9 @@
   - kind_sentence_2+Matthew+0031d3eb2c200987facad5026e2992f5.mp3
   - kind_sentence_3+Matthew+bb7bcfe0d4ab1046fd88622bc6712f46.mp3
   - kind_sentence_4+Matthew+8f6e1f6cd0be0a050e80ee244d5d528f.mp3
+  - kind_sentence_5+Matthew+ed1a718720bf151cdd292ce00e3e666c.mp3
+  - kind_sentence_6+Matthew+214c665d0d49159f8447a0fb9cf2617d.mp3
+  - kind_sentence_7+Matthew+78d553cde6d1f3b4ba3f6fb772a42290.mp3
   voice_id: Matthew
   word: kind
   word_audio_file:
@@ -7503,6 +7512,12 @@
     example_en: Keep a clear head during the test.
   - definition_en: A unit of counting.
     example_en: The farm has 50 head of cattle.
+  - definition_en: the top or front part
+    example_en: The head of the table was reserved.
+  - definition_en: a unit of counting
+    example_en: The farm has fifty head of cattle.
+  - definition_en: the main idea or topic
+    example_en: Let’s discuss the head of the proposal.
   freq: 348664
   part_of_speech: noun
   rank: 278
@@ -7512,6 +7527,9 @@
   - head_sentence_2+Matthew+3fb207322273656bff6db167c67273e1.mp3
   - head_sentence_3+Matthew+22dc1c3017d622ea8ed7a836046bf344.mp3
   - head_sentence_4+Matthew+80dbeb2b59723779c54a7dca563aa47a.mp3
+  - head_sentence_5+Matthew+94ec3611e4e03089751bec13eba43ff6.mp3
+  - head_sentence_6+Matthew+2f11ba5b6cd58d4517468a4dcfc75759.mp3
+  - head_sentence_7+Matthew+c66515c96902c53d69d88f25cf56dde3.mp3
   voice_id: Matthew
   word: head
   word_audio_file:
@@ -22649,3 +22667,435 @@
   word: democratic
   word_audio_file:
   - democratic_word_0+Matthew+8df87703c4bfcdc629f66e2bb56c4e0c.mp3
+- back_cards:
+  - definition_en: having a low temperature
+    example_en: The cold wind made her shiver.
+  - definition_en: unfriendly or distant in manner
+    example_en: His cold response surprised everyone.
+  - definition_en: lacking warmth or emotion
+    example_en: The room felt cold and unwelcoming.
+  - definition_en: related to a minor illness
+    example_en: She caught a cold after the trip.
+  - definition_en: not heated or warmed
+    example_en: He prefers his drinks cold.
+  freq: 94856
+  part_of_speech: adjective
+  rank: 1021
+  sentence_audio_file:
+  - cold_sentence_0+Matthew+34c155da72826cbf19042256b429e824.mp3
+  - cold_sentence_1+Matthew+e4740d4b11979d4f5c3642b661b1b38f.mp3
+  - cold_sentence_2+Matthew+3a111758753d4d8cd4fa9d3d480b4fa2.mp3
+  - cold_sentence_3+Matthew+5bbbcccd4080af03530b088134c28ad7.mp3
+  - cold_sentence_4+Matthew+777f5791a5846580084b35c2d80b5c51.mp3
+  voice_id: Matthew
+  word: cold
+  word_audio_file:
+  - cold_word_0+Matthew+75e52a0ecfafeda17a34fc60111c1f0b.mp3
+- back_cards:
+  - definition_en: a transparent material for windows
+    example_en: The glass in the window was cracked.
+  - definition_en: a container for drinking
+    example_en: She filled her glass with water.
+  - definition_en: a lens or optical device
+    example_en: The telescope’s glass was finely crafted.
+  - definition_en: a mirror or reflective surface
+    example_en: She checked her reflection in the glass.
+  - definition_en: a quantity held by a glass
+    example_en: He ordered a glass of juice.
+  freq: 94803
+  part_of_speech: noun
+  rank: 1022
+  sentence_audio_file:
+  - glass_sentence_0+Matthew+43d952a7126511f37a4040c902245fcf.mp3
+  - glass_sentence_1+Matthew+f42e7a98d5aea826375c53b5545b0ee8.mp3
+  - glass_sentence_2+Matthew+09ab7ab7251b924ab539a997173b8615.mp3
+  - glass_sentence_3+Matthew+7646c602f181f8253abd01c64bb5e53b.mp3
+  - glass_sentence_4+Matthew+11e89fd0f1c829bb8c5a6aa2e04dca04.mp3
+  voice_id: Matthew
+  word: glass
+  word_audio_file:
+  - glass_word_0+Matthew+2570c919f5ef1d7091f0f66d54dac974.mp3
+- back_cards:
+  - definition_en: to make something better
+    example_en: She worked to improve her grades.
+  - definition_en: to enhance skills or abilities
+    example_en: He practiced daily to improve his piano playing.
+  - definition_en: to upgrade a system or process
+    example_en: The company improved its website design.
+  - definition_en: to recover from illness
+    example_en: Her health began to improve after rest.
+  - definition_en: to increase in quality or value
+    example_en: The updates will improve the product.
+  freq: 94764
+  part_of_speech: verb
+  rank: 1023
+  sentence_audio_file:
+  - improve_sentence_0+Matthew+5356148badb8d18dafa04902bfe4a6ad.mp3
+  - improve_sentence_1+Matthew+66a86857e5893da4b8ba133b2d6a21b8.mp3
+  - improve_sentence_2+Matthew+d76ac307843d2e65aeaaefbffad649c2.mp3
+  - improve_sentence_3+Matthew+f7cef0e086aac1007cb1aa2a49858dc1.mp3
+  - improve_sentence_4+Matthew+ecbcc829cd8622ee059a6628beb09f78.mp3
+  voice_id: Matthew
+  word: improve
+  word_audio_file:
+  - improve_word_0+Matthew+33c0478b996aa76815627291a57e5689.mp3
+- back_cards:
+  - definition_en: a fully grown person
+    example_en: The movie is for adults only.
+  - definition_en: a mature individual
+    example_en: She handles problems like an adult.
+  - definition_en: a person of legal age
+    example_en: Adults can vote in the election.
+  - definition_en: a grown-up in a professional setting
+    example_en: The meeting is for adults in the company.
+  - definition_en: a person responsible for decisions
+    example_en: An adult must sign the form.
+  freq: 94547
+  part_of_speech: noun
+  rank: 1024
+  sentence_audio_file:
+  - adult_sentence_0+Matthew+29ade13753ed0f434b3fa07e43deee19.mp3
+  - adult_sentence_1+Matthew+be8487667b45f043ac739b7cc724e327.mp3
+  - adult_sentence_2+Matthew+1e9a80d3c77b63802687b773e09d24df.mp3
+  - adult_sentence_3+Matthew+582f3d79d63e95d29f9c41da9f75d6f0.mp3
+  - adult_sentence_4+Matthew+ee7c0040542995252fb406cd5ab008e8.mp3
+  voice_id: Matthew
+  word: adult
+  word_audio_file:
+  - adult_word_0+Matthew+2e85a22d0ffa063c211acd8f34952360.mp3
+- back_cards:
+  - definition_en: the exchange of goods or services
+    example_en: International trade boosts the economy.
+  - definition_en: a skilled profession
+    example_en: He learned the trade of carpentry.
+  - definition_en: a business transaction
+    example_en: The trade of stocks was profitable.
+  - definition_en: a swap between individuals
+    example_en: They made a trade of their comic books.
+  - definition_en: a commercial industry
+    example_en: She works in the fashion trade.
+  freq: 94509
+  part_of_speech: noun
+  rank: 1025
+  sentence_audio_file:
+  - trade_sentence_0+Matthew+6f37f430ec014725f6610ee09cc371be.mp3
+  - trade_sentence_1+Matthew+8ec724713d647828d5a92f9ad1c8cce5.mp3
+  - trade_sentence_2+Matthew+4aa7afac472ad7dc9add1a9370512640.mp3
+  - trade_sentence_3+Matthew+fad5561d692c54f93db273dd19722a4b.mp3
+  - trade_sentence_4+Matthew+0a32888a6a107af0cd02797252a848d0.mp3
+  voice_id: Matthew
+  word: trade
+  word_audio_file:
+  - trade_word_0+Matthew+21e119daf697467b14b076f2d5819aec.mp3
+- back_cards:
+  - definition_en: related to spiritual beliefs
+    example_en: The religious ceremony was peaceful.
+  - definition_en: devoted to a faith
+    example_en: She is a deeply religious person.
+  - definition_en: concerning organized religion
+    example_en: The school has a religious affiliation.
+  - definition_en: performed with great care
+    example_en: He followed the rules with religious precision.
+  - definition_en: involving sacred practices
+    example_en: The festival included religious rituals.
+  freq: 94485
+  part_of_speech: adjective
+  rank: 1026
+  sentence_audio_file:
+  - religious_sentence_0+Matthew+0a364dda0197ff9863ba6a441472bd98.mp3
+  - religious_sentence_1+Matthew+bcf775477285451278d2c118d5eb9379.mp3
+  - religious_sentence_2+Matthew+4f651f0fadc18435f7117f0ba8d938f1.mp3
+  - religious_sentence_3+Matthew+ea5c750022efa83b480a805601d8dd38.mp3
+  - religious_sentence_4+Matthew+52e2ed0d20c98ad679b3cbc0bb24e0a8.mp3
+  voice_id: Matthew
+  word: religious
+  word_audio_file:
+  - religious_word_0+Matthew+b9bba0357bc3fa8929d14b1f34a5e35e.mp3
+- back_cards:
+  - definition_en: an evaluation or critique
+    example_en: The book received a positive review.
+  - definition_en: a formal examination
+    example_en: The team held a review of the project.
+  - definition_en: a summary of learned material
+    example_en: She did a review before the exam.
+  - definition_en: a performance appraisal
+    example_en: His annual review went well.
+  - definition_en: a published opinion on media
+    example_en: The movie’s review was in the paper.
+  freq: 94364
+  part_of_speech: noun
+  rank: 1028
+  sentence_audio_file:
+  - review_sentence_0+Matthew+f22f52279c937aeb2937217acf8c1904.mp3
+  - review_sentence_1+Matthew+26de085ca62b0c3a130dcb00c3d682f8.mp3
+  - review_sentence_2+Matthew+07436d2dd68794a20d2957ca402d948c.mp3
+  - review_sentence_3+Matthew+668ecaf8098a0653541533677ca3d7b9.mp3
+  - review_sentence_4+Matthew+e9ceb18224a4f2b3988e180573995ff7.mp3
+  voice_id: Matthew
+  word: review
+  word_audio_file:
+  - review_word_0+Matthew+1c67665285fb6a7d761414e12578e574.mp3
+- back_cards:
+  - definition_en: a place where someone lives
+    example_en: She wrote her address on the form.
+  - definition_en: a formal speech
+    example_en: The president gave an address on TV.
+  - definition_en: contact information
+    example_en: Please share your email address.
+  - definition_en: a location for delivery
+    example_en: The package was sent to the wrong address.
+  - definition_en: a way to approach an issue
+    example_en: The address of the problem took time.
+  freq: 94155
+  part_of_speech: noun
+  rank: 1030
+  sentence_audio_file:
+  - address_sentence_0+Matthew+b3447f10571d5f5d45cf3d228403dd78.mp3
+  - address_sentence_1+Matthew+84d645b9ee0f1250c067ceadd6b51f72.mp3
+  - address_sentence_2+Matthew+3ffbee64440c28dabde79b80864fb771.mp3
+  - address_sentence_3+Matthew+1c0733cbb9bf9b88b315ff208549b4c3.mp3
+  - address_sentence_4+Matthew+3463c2ac80f283e2ae1771195efd0aa3.mp3
+  voice_id: Matthew
+  word: address
+  word_audio_file:
+  - address_word_0+Matthew+884d9804999fc47a3c2694e49ad2536a.mp3
+- back_cards:
+  - definition_en: an organization of people
+    example_en: She joined a writers’ association.
+  - definition_en: a connection between things
+    example_en: The smell had an association with childhood.
+  - definition_en: a professional group
+    example_en: The association sets industry standards.
+  - definition_en: a partnership or collaboration
+    example_en: Their association led to a new project.
+  - definition_en: a mental link or relation
+    example_en: The word has a strong association with joy.
+  freq: 94100
+  part_of_speech: noun
+  rank: 1031
+  sentence_audio_file:
+  - association_sentence_0+Matthew+ecf8d349a9caf6287abdcc0c7ba2637c.mp3
+  - association_sentence_1+Matthew+7f5f0cfaaeb2f8ec516040ccdb915c76.mp3
+  - association_sentence_2+Matthew+e5e9cb2dd069cc831f51511563d24b5b.mp3
+  - association_sentence_3+Matthew+823e7683a2a2d2e150199540f0bb3d5f.mp3
+  - association_sentence_4+Matthew+e5ba61c27da9ae750e469a07805d6628.mp3
+  voice_id: Matthew
+  word: association
+  word_audio_file:
+  - association_word_0+Matthew+af14b067a4804cdc758bf5ba6908a3fb.mp3
+- back_cards:
+  - definition_en: to determine size or amount
+    example_en: She measured the room for new curtains.
+  - definition_en: to assess or evaluate
+    example_en: They measured the project’s success.
+  - definition_en: to control or moderate
+    example_en: He measured his words carefully.
+  - definition_en: to mark out a quantity
+    example_en: She measured two cups of flour.
+  - definition_en: to gauge performance
+    example_en: The coach measured the team’s progress.
+  freq: 93952
+  part_of_speech: verb
+  rank: 1032
+  sentence_audio_file:
+  - measure_sentence_0+Matthew+c4296e3288d6abd9c7fe19aeb2f3a775.mp3
+  - measure_sentence_1+Matthew+0857114ca7be2329c6ceacf8d629fc4e.mp3
+  - measure_sentence_2+Matthew+d1a2957d6418044a460485575c9bb5d7.mp3
+  - measure_sentence_3+Matthew+f5fc6574f2f08c8b9bc5500b1462e526.mp3
+  - measure_sentence_4+Matthew+2e1c478f9207dee4cd0ca174005e03b8.mp3
+  voice_id: Matthew
+  word: measure
+  word_audio_file:
+  - measure_word_0+Matthew+2925f77709f2db1f915deadc2940db88.mp3
+- back_cards:
+  - definition_en: a supply of goods
+    example_en: The store has a large stock of books.
+  - definition_en: shares in a company
+    example_en: She invested in tech stock.
+  - definition_en: a broth used in cooking
+    example_en: The soup was made with chicken stock.
+  - definition_en: a lineage or family line
+    example_en: He comes from farming stock.
+  - definition_en: a reserve of resources
+    example_en: Their stock of food lasted weeks.
+  freq: 93809
+  part_of_speech: noun
+  rank: 1033
+  sentence_audio_file:
+  - stock_sentence_0+Matthew+33f6c123742d3cc043356605970cdf6f.mp3
+  - stock_sentence_1+Matthew+5b7c8c27c846024e2cb78cbf9ea6e4f1.mp3
+  - stock_sentence_2+Matthew+050df862d91e42a1aac9240dab009576.mp3
+  - stock_sentence_3+Matthew+542f583328cd56e3fd400961ef36c5cb.mp3
+  - stock_sentence_4+Matthew+ccd1a4ea8c253e8ef3277cdb2e1bbffd.mp3
+  voice_id: Matthew
+  word: stock
+  word_audio_file:
+  - stock_word_0+Matthew+908880209a64ea539ae8dc5fdb7e0a91.mp3
+- back_cards:
+  - definition_en: a fuel for vehicles
+    example_en: He filled the car with gas.
+  - definition_en: a substance in a gaseous state
+    example_en: The balloon was filled with helium gas.
+  - definition_en: fuel for heating or cooking
+    example_en: The stove runs on natural gas.
+  - definition_en: a harmful chemical substance
+    example_en: The gas caused everyone to evacuate.
+  - definition_en: slang for talk or chatter
+    example_en: They spent hours trading gas about sports.
+  freq: 93763
+  part_of_speech: noun
+  rank: 1034
+  sentence_audio_file:
+  - gas_sentence_0+Matthew+4a720fe2b3f9ac8053b78144e34d255c.mp3
+  - gas_sentence_1+Matthew+62d4d1250667f6fd4d022befce70cd2f.mp3
+  - gas_sentence_2+Matthew+47f18e38076dcd31535831ebd68a01eb.mp3
+  - gas_sentence_3+Matthew+9d970fed5aeaf5070150a4924f3ccef7.mp3
+  - gas_sentence_4+Matthew+f3a51ec4f719165b025d4b0dba331278.mp3
+  voice_id: Matthew
+  word: gas
+  word_audio_file:
+  - gas_word_0+Matthew+fee74eac0728a1bb5ff7d4666f8c4a88.mp3
+- back_cards:
+  - definition_en: extending far down
+    example_en: The lake is very deep in the center.
+  - definition_en: profound or intense
+    example_en: She felt a deep sadness.
+  - definition_en: complex or hard to understand
+    example_en: The book explores deep philosophical ideas.
+  - definition_en: far into something
+    example_en: They were deep in the forest.
+  - definition_en: rich or strong in tone
+    example_en: His voice was deep and soothing.
+  freq: 93753
+  part_of_speech: adjective
+  rank: 1035
+  sentence_audio_file:
+  - deep_sentence_0+Matthew+53e437a748f69bf661aef0abd8a9eed2.mp3
+  - deep_sentence_1+Matthew+e0026dcabea76cb253ddcf313c1ea825.mp3
+  - deep_sentence_2+Matthew+43ccb9fa4554f87f7c068a22c44af7cb.mp3
+  - deep_sentence_3+Matthew+6d3381adc962aef2554a942c99bb76e4.mp3
+  - deep_sentence_4+Matthew+a65577e9000417826949332fe8c90311.mp3
+  voice_id: Matthew
+  word: deep
+  word_audio_file:
+  - deep_word_0+Matthew+6627415e807ee33c7302917216e7da68.mp3
+- back_cards:
+  - definition_en: a professional who practices law
+    example_en: The lawyer defended her client in court.
+  - definition_en: a legal advisor
+    example_en: She consulted a lawyer about the contract.
+  - definition_en: a person handling legal documents
+    example_en: The lawyer prepared the will.
+  - definition_en: an attorney in a trial
+    example_en: The lawyer argued the case confidently.
+  - definition_en: a specialist in a legal field
+    example_en: He’s a lawyer who focuses on tax law.
+  freq: 93526
+  part_of_speech: noun
+  rank: 1036
+  sentence_audio_file:
+  - lawyer_sentence_0+Matthew+479f5177af73156f198301d2f33f2a9e.mp3
+  - lawyer_sentence_1+Matthew+390516fdb016c3ecf45873466e63d7bf.mp3
+  - lawyer_sentence_2+Matthew+f68cc363872cbe972be9e46a7955d894.mp3
+  - lawyer_sentence_3+Matthew+28fccf2513dd584203b3b9d987383b0f.mp3
+  - lawyer_sentence_4+Matthew+75ed1b797088fb670f87c75c96976d65.mp3
+  voice_id: Matthew
+  word: lawyer
+  word_audio_file:
+  - lawyer_word_0+Matthew+484b2e35acd06568893b4dac5d862f67.mp3
+- back_cards:
+  - definition_en: the process of making goods
+    example_en: The factory increased its production.
+  - definition_en: a theatrical or film performance
+    example_en: The play’s production was a hit.
+  - definition_en: the act of creating something
+    example_en: The production of the book took years.
+  - definition_en: output in an industry
+    example_en: Oil production dropped this month.
+  - definition_en: a presentation of media
+    example_en: The TV production won several awards.
+  freq: 93507
+  part_of_speech: noun
+  rank: 1037
+  sentence_audio_file:
+  - production_sentence_0+Matthew+e887f95936b2765afdbbf1062d8c62ac.mp3
+  - production_sentence_1+Matthew+deafe26b8289c9cf76ef3449cb828335.mp3
+  - production_sentence_2+Matthew+d10ccb85c46c55b55747c144e7f44b16.mp3
+  - production_sentence_3+Matthew+bf2cbdcd30e4751f933b241267a2e0c1.mp3
+  - production_sentence_4+Matthew+db3aaff19a5ef808f049076112fff938.mp3
+  voice_id: Matthew
+  word: production
+  word_audio_file:
+  - production_word_0+Matthew+fd89784e59c72499525556f80289b2c7.mp3
+- back_cards:
+  - definition_en: to connect or associate
+    example_en: She can relate the story to her own life.
+  - definition_en: to understand someone’s feelings
+    example_en: I relate to his struggle with stress.
+  - definition_en: to tell or narrate
+    example_en: He related the events of the day.
+  - definition_en: to link ideas or concepts
+    example_en: The teacher related the lesson to history.
+  - definition_en: to have a relationship
+    example_en: The two issues relate closely.
+  freq: 93433
+  part_of_speech: verb
+  rank: 1038
+  sentence_audio_file:
+  - relate_sentence_0+Matthew+1a7668eba9681c18752cc368f639bb2b.mp3
+  - relate_sentence_1+Matthew+e7aede7c42a2f71727adb1e9902108b3.mp3
+  - relate_sentence_2+Matthew+bb8b01fcc6e87c840e92bd3ed8c8bae2.mp3
+  - relate_sentence_3+Matthew+8da805c63429418ca87adfbf82cea449.mp3
+  - relate_sentence_4+Matthew+dcb6942f6ccf4a721a23c7a6b5718a28.mp3
+  voice_id: Matthew
+  word: relate
+  word_audio_file:
+  - relate_word_0+Matthew+e30aa60a1cc3acfdfbedc1e52cf210f5.mp3
+- back_cards:
+  - definition_en: the central point or part
+    example_en: The book was open to the middle.
+  - definition_en: a position between two extremes
+    example_en: They met in the middle of the bridge.
+  - definition_en: the waist or torso area
+    example_en: The shirt was tight around her middle.
+  - definition_en: a stage in a process
+    example_en: We’re in the middle of the project.
+  - definition_en: a central group or class
+    example_en: The policy benefits the middle class.
+  freq: 93428
+  part_of_speech: noun
+  rank: 1039
+  sentence_audio_file:
+  - middle_sentence_0+Matthew+3e99ddfa6d9b7a04ea504b90b13a81c3.mp3
+  - middle_sentence_1+Matthew+ed9a031b2a108c1b035fa8e5c8d4db59.mp3
+  - middle_sentence_2+Matthew+ab961c7aec98730af8c3591bc6d19be7.mp3
+  - middle_sentence_3+Matthew+7327ef918c72252ae87ef08aaacbd507.mp3
+  - middle_sentence_4+Matthew+2650be953b086ba111575bd12fefaa70.mp3
+  voice_id: Matthew
+  word: middle
+  word_audio_file:
+  - middle_word_0+Matthew+4a548addbfb239bbd12f5afe11a4b6dc.mp3
+- back_cards:
+  - definition_en: the act of organizing or controlling
+    example_en: Good management led to the team’s success.
+  - definition_en: the people running a company
+    example_en: Management approved the new budget.
+  - definition_en: the process of handling resources
+    example_en: Time management is her strength.
+  - definition_en: supervision of a project
+    example_en: The event’s management was flawless.
+  - definition_en: the skill of leading others
+    example_en: His management of the crisis was praised.
+  freq: 93289
+  part_of_speech: noun
+  rank: 1040
+  sentence_audio_file:
+  - management_sentence_0+Matthew+398262758f680c8c039cdbc5a87a3b49.mp3
+  - management_sentence_1+Matthew+b08b030c3d16213caa615ebda33774b0.mp3
+  - management_sentence_2+Matthew+d4cd3e46e274fd18ba89f47b723a50e9.mp3
+  - management_sentence_3+Matthew+704192330b32ba701c11cc8387c9d864.mp3
+  - management_sentence_4+Matthew+44aeb5684846ac257d5d967b4d97eae3.mp3
+  voice_id: Matthew
+  word: management
+  word_audio_file:
+  - management_word_0+Matthew+d10af457daa1deed54e2c36b5f295e7e.mp3
