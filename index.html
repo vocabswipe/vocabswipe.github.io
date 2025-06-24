@@ -13,22 +13,23 @@
         <h1 class="slogan">Swipe to Master Your Vocabulary!</h1>
     </header>
     <div class="container">
+        <select id="letter-select" class="letter-select"></select>
         <div class="flashcard-container">
             <div class="flashcard">
                 <div class="front">
-                    <h2 id="word"></h2>
-                    <div id="front-rank" class="rank"></div>
-                    <div id="front-freq" class="freq"></div>
+                    <h2 id="word" class="word-title"></h2>
+                    <div id="front-rank" class="card-stat"></div>
+                    <div id="front-freq" class="card-stat"></div>
                 </div>
                 <div class="back">
-                    <h2 id="back-word"></h2>
+                    <h2 id="back-word" class="word-title"></h2>
                     <div class="back-template">
                         <div class="card-info">
-                            <p id="back-definition" class="definition"></p>
-                            <p id="back-example" class="example"></p>
+                            <p id="back-definition" class="card-text definition"></p>
+                            <p id="back-example" class="card-text example"></p>
                         </div>
-                        <div id="back-rank" class="rank"></div>
-                        <div id="back-freq" class="freq"></div>
+                        <div id="back-rank" class="card-stat"></div>
+                        <div id="back-freq" class="card-stat"></div>
                     </div>
                 </div>
             </div>
