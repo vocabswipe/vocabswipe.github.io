@@ -83,9 +83,7 @@ function setupEventListeners() {
     hammer.on('swipeleft', () => {
         if (words.length) {
             currentWordIndex = (currentWordIndex + 1) % words.length;
-            if (isFlipped) {
-                currentBackCardIndex = 0; // Reset to first back card
-            }
+            currentBackCardIndex = 0; // Reset to first back card for consistency
             stopAudio();
             displayWord();
             const audioFile = isFlipped ? 
@@ -93,7 +91,8 @@ function setupEventListeners() {
                  words[currentWordIndex]?.word_audio_file?.[0]) : 
                 words[currentWordIndex]?.word_audio_file?.[0];
             if (audioFile) {
-                playAudio(audioFile); // Swipes are user gestures, so play directly
+                console.log(`Swipe left: Playing audio for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
+                playAudio(audioFile);
             } else {
                 console.warn(`No audio file for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
             }
@@ -103,9 +102,7 @@ function setupEventListeners() {
     hammer.on('swiperight', () => {
         if (words.length) {
             currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
-            if (isFlipped) {
-                currentBackCardIndex = 0; // Reset to first back card
-            }
+            currentBackCardIndex = 0; // Reset to first back card for consistency
             stopAudio();
             displayWord();
             const audioFile = isFlipped ? 
@@ -113,7 +110,8 @@ function setupEventListeners() {
                  words[currentWordIndex]?.word_audio_file?.[0]) : 
                 words[currentWordIndex]?.word_audio_file?.[0];
             if (audioFile) {
-                playAudio(audioFile); // Swipes are user gestures, so play directly
+                console.log(`Swipe right: Playing audio for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
+                playAudio(audioFile);
             } else {
                 console.warn(`No audio file for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
             }
@@ -128,6 +126,7 @@ function setupEventListeners() {
             const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                              words[currentWordIndex]?.word_audio_file?.[0];
             if (audioFile) {
+                console.log(`Swipe up: Playing audio for back card at index ${currentBackCardIndex} for word ${currentWordIndex}`);
                 playAudio(audioFile);
             } else {
                 console.warn(`No audio file for back card at index ${currentBackCardIndex} for word at ${currentWordIndex}`);
@@ -143,6 +142,7 @@ function setupEventListeners() {
             const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                              words[currentWordIndex]?.word_audio_file?.[0];
             if (audioFile) {
+                console.log(`Swipe down: Playing audio for back card at index ${currentBackCardIndex} for word ${currentWordIndex}`);
                 playAudio(audioFile);
             } else {
                 console.warn(`No audio file for back card at index ${currentBackCardIndex} for word at ${currentWordIndex}`);
@@ -211,7 +211,9 @@ function playAudio(audioFile) {
     currentAudio = audio;
     const playPromise = currentAudio.play();
     if (playPromise !== undefined) {
-        playPromise.catch(error => console.error(`Playback error for data/audio/${audioFile}:`, error.message));
+        playPromise
+            .then(() => console.log(`Successfully playing: data/audio/${audioFile}`))
+            .catch(error => console.error(`Playback error for data/audio/${audioFile}:`, error.message));
     } else {
         console.log(`Playing audio: data/audio/${audioFile}`);
     }
@@ -228,6 +230,7 @@ function flipCard() {
          words[currentWordIndex]?.word_audio_file?.[0]) : 
         words[currentWordIndex]?.word_audio_file?.[0];
     if (audioFile) {
+        console.log(`Flip card: Playing audio for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
         playAudio(audioFile);
     } else {
         console.warn(`No audio file for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
