@@ -177,14 +177,14 @@ function preloadAudio() {
     audioFiles.forEach(audioFile => {
         const audio = new Audio(`data/audio/${audioFile}`);
         audio.preload = 'auto';
-        audio.load();
-        audioCache.set(audioFile, audio);
-        audio.addEventListener('canplaythrough', () => console.log(`Preloaded: data/audio/${audioFile}`), { once: true });
-        audio.addEventListener('error', () => {
-            console.error(`Failed to preload audio: data/audio/${audioFile}`);
-            audioCache.delete(audioFile);
-        }, { once: true });
-    });
+    audio.load();
+    audioCache.set(audioFile, audio);
+    audio.addEventListener('canplaythrough', () => console.log(`Preloaded: data/audio/${audioFile}`), { once: true });
+    audio.addEventListener('error', () => {
+        console.error(`Failed to preload audio: data/audio/${audioFile}`);
+        audioCache.delete(audioFile);
+    }, { once: true });
+});
 }
 
 function stopAudio() {
@@ -254,6 +254,8 @@ function displayWord() {
     const red = Math.round(255 * (1 - relFreq / 100));
     const green = Math.round(255 * (relFreq / 100));
     const color = `rgb(${red}, ${green}, 0)`;
+    // Determine text color based on frequency for visibility
+    const textColor = relFreq > 50 ? '#ffffff' : '#000000'; // White for greener backgrounds, black for redder
 
     front.innerHTML = `
         <div class="word-container">
@@ -265,7 +267,7 @@ function displayWord() {
                 <span class="freq-label">Frequency</span>
                 <div class="freq-bar">
                     <div class="freq-fill" style="width: ${logFreq}%; background-color: ${color};"></div>
-                    <span class="freq-text">${relFreq.toFixed(1)}%</span>
+                    <span class="freq-text" style="color: ${textColor}">${relFreq.toFixed(1)}%</span>
                 </div>
             </div>
         </div>
@@ -285,7 +287,7 @@ function displayWord() {
                     <span class="freq-label">Frequency</span>
                     <div class="freq-bar">
                         <div class="freq-fill" style="width: ${logFreq}%; background-color: ${color};"></div>
-                        <span class="freq-text">${relFreq.toFixed(1)}%</span>
+                        <span class="freq-text" style="color: ${textColor}">${relFreq.toFixed(1)}%</span>
                     </div>
                 </div>
             </div>
