@@ -10,6 +10,7 @@ let audioUnlocked = false;
 document.addEventListener('DOMContentLoaded', () => {
     loadWords();
     setupEventListeners();
+    populateLetterSelect(); // Optional: Populate letter dropdown
 });
 
 // Unlock audio on first user interaction
@@ -45,6 +46,23 @@ function loadWords() {
             console.error('Error loading words:', error.message);
             alert('Failed to load vocabulary data. Check the console for details.');
         });
+}
+
+function populateLetterSelect() {
+    const select = document.getElementById('letter-select');
+    if (!select) return;
+    const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
+                     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    letters.forEach(letter => {
+        const option = document.createElement('option');
+        option.value = letter;
+        option.textContent = letter.toUpperCase();
+        select.appendChild(option);
+    });
+    select.addEventListener('change', (e) => {
+        // Optional: Implement letter-based filtering if needed
+        console.log(`Selected letter: ${e.target.value}`);
+    });
 }
 
 function setupEventListeners() {
@@ -253,16 +271,16 @@ function displayWord() {
     const green = Math.round(255 * (relFreq / 100));
     const color = `rgb(${red}, ${green}, 0)`;
 
-    front.innerHTML = `<h2>${wordData.word}</h2><div id="front-rank" class="rank">Rank: ${wordData.rank}</div><div id="front-freq" class="freq" style="color: ${color}">${relFreq.toFixed(1)}%</div>`;
+    front.innerHTML = `<h2 class="word-title">${wordData.word}</h2><div id="front-rank" class="card-stat">Rank: ${wordData.rank}</div><div id="front-freq" class="card-stat">Freq: ${relFreq.toFixed(1)}%</div>`;
     back.innerHTML = `
-        <h2 class="english">${wordData.word}</h2>
+        <h2 class="word-title">${wordData.word}</h2>
         <div class="back-template">
             <div class="card-info">
-                <p id="back-definition" class="definition">${backCard.definition_en}</p>
-                <p id="back-example" class="example">${backCard.example_en}</p>
+                <p id="back-definition" class="card-text definition">Definition: ${backCard.definition_en}</p>
+                <p id="back-example" class="card-text example">Example: ${backCard.example_en}</p>
             </div>
-            <div id="back-rank" class="rank">Rank: ${wordData.rank}</div>
-            <div id="back-freq" class="freq" style="color: ${color}">${relFreq.toFixed(1)}%</div>
+            <div id="back-rank" class="card-stat">Rank: ${wordData.rank}</div>
+            <div id="back-freq" class="card-stat">Freq: ${relFreq.toFixed(1)}%</div>
         </div>
     `;
 }
