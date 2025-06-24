@@ -261,9 +261,12 @@ function displayWord() {
         </div>
         <div class="meta-info">
             <span class="rank">Rank: ${wordData.rank}</span>
-            <div class="freq-bar">
-                <div class="freq-fill" style="width: ${logFreq}%; background-color: ${color};"></div>
-                <span class="freq-text">${relFreq.toFixed(1)}%</span>
+            <div class="freq-container">
+                <span class="freq-label">Frequency</span>
+                <div class="freq-bar">
+                    <div class="freq-fill" style="width: ${logFreq}%; background-color: ${color};"></div>
+                    <span class="freq-text">${relFreq.toFixed(1)}%</span>
+                </div>
             </div>
         </div>
     `;
@@ -278,9 +281,12 @@ function displayWord() {
             </div>
             <div class="meta-info">
                 <span class="rank">Rank: ${wordData.rank}</span>
-                <div class="freq-bar">
-                    <div class="freq-fill" style="width: ${logFreq}%; background-color: ${color};"></div>
-                    <span class="freq-text">${relFreq.toFixed(1)}%</span>
+                <div class="freq-container">
+                    <span class="freq-label">Frequency</span>
+                    <div class="freq-bar">
+                        <div class="freq-fill" style="width: ${logFreq}%; background-color: ${color};"></div>
+                        <span class="freq-text">${relFreq.toFixed(1)}%</span>
+                    </div>
                 </div>
             </div>
         </div>

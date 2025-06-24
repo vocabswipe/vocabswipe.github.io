@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Inter', --load-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
     display: flex;
     flex-direction: column;
@@ -78,7 +78,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 20px; /* Move word down slightly on both front and back */
+    padding-top: 20px;
 }
 
 .front h2, .back h2 {
@@ -120,7 +120,7 @@ body {
     margin-bottom: 8px;
     text-align: center;
     font-style: italic;
-    font-weight: 700; /* Bold example sentence */
+    font-weight: 700;
 }
 
 .meta-info {
@@ -137,8 +137,20 @@ body {
     color: #6b7280;
 }
 
+.freq-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.freq-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+}
+
 .freq-bar {
-    width: 100px;
+    width: 80px;
     height: 8px;
     background: #e5e7eb;
     border-radius: 4px;
@@ -182,12 +194,12 @@ body {
         font-size: 14px;
     }
 
-    .rank {
+    .rank, .freq-label {
         font-size: 12px;
     }
 
     .freq-bar {
-        width: 80px;
+        width: 60px;
     }
 
     .freq-text {
