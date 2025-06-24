@@ -12,7 +12,7 @@ let maxTransformedFreq = 1;
 document.addEventListener('DOMContentLoaded', () => {
     loadWords();
     setupEventListeners();
-    applySavedTheme(); // Apply saved theme on load
+    applySavedTheme();
 });
 
 // Unlock audio on first user interaction
@@ -61,7 +61,7 @@ function loadWords() {
             }
             words.sort((a, b) => a.rank - b.rank);
             // Precompute min and max transformed frequencies
-            const c1 = 1000; // Shift constant to boost low frequencies
+            const c1 = 1000;
             const transformedFreqs = words.map(word => Math.log10(word.freq + c1));
             minTransformedFreq = Math.min(...transformedFreqs);
             maxTransformedFreq = Math.max(...transformedFreqs);
@@ -80,7 +80,7 @@ function setupEventListeners() {
     let lastTapTime = 0;
     const doubleTapThreshold = 300;
 
-    // Theme toggle event listener
+    // Theme toggle
     const themeToggle = document.querySelector('.theme-toggle');
     themeToggle.addEventListener('click', toggleTheme);
 
@@ -277,13 +277,10 @@ function displayWord() {
     const front = document.querySelector('.front');
     const back = document.querySelector('.back');
     const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: '', example_en: '' };
-    const c1 = 1000; // Shift constant for first log
-    const c2 = 1; // Shift constant for second log
-    // First log transformation
+    const c1 = 1000;
+    const c2 = 1;
     const transformedFreq = Math.log10(wordData.freq + c1);
-    // Normalize to 0-100
     const normalizedFreq = ((transformedFreq - minTransformedFreq) / (maxTransformedFreq - minTransformedFreq)) * 100;
-    // Second log transformation to spread low values
     const finalFreq = Math.min(Math.max(Math.log10(normalizedFreq + c2) / Math.log10(100 + c2) * 100, 0), 100);
 
     front.innerHTML = `
