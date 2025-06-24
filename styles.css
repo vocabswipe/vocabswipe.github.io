@@ -5,31 +5,31 @@
 }
 
 :root {
-    /* Light theme variables */
+    /* Light theme */
     --bg-gradient: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
     --text-primary: #1f2937;
     --text-secondary: #6b7280;
     --text-accent: #1e40af;
     --card-bg: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
-    --card-border: #e5e7eb;
     --card-back-bg: linear-gradient(145deg, #f9fafb 0%, #f3f4f6 100%);
-    --freq-bar-border: #6b7280;
+    --card-border: #e5e7eb;
     --meta-border: #e5e7eb;
+    --freq-bar-border: #6b7280;
     --toggle-bg: #ffffff;
     --toggle-shadow: rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="dark"] {
-    /* Dark theme variables */
+    /* Dark theme */
     --bg-gradient: linear-gradient(135deg, #1f2937 0%, #111827 100%);
     --text-primary: #f9fafb;
     --text-secondary: #9ca3af;
     --text-accent: #60a5fa;
     --card-bg: linear-gradient(145deg, #374151 0%, #1f2937 100%);
-    --card-border: #4b5563;
     --card-back-bg: linear-gradient(145deg, #1f2937 0%, #374151 100%);
-    --freq-bar-border: #9ca3af;
+    --card-border: #4b5563;
     --meta-border: #4b5563;
+    --freq-bar-border: #9ca3af;
     --toggle-bg: #374151;
     --toggle-shadow: rgba(0, 0, 0, 0.3);
 }
@@ -53,7 +53,7 @@ body {
     max-width: 600px;
     padding: 16px;
     padding-top: 40px;
-    position: relative; /* For positioning theme toggle */
+    position: relative;
 }
 
 .theme-toggle {
