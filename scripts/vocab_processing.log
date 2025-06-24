@@ -15191,3 +15191,133 @@ expected <block end>, but found '<block mapping start>'
 2025-06-25 01:18:54,507 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250625_011854.txt
 2025-06-25 01:18:54,514 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
 2025-06-25 01:18:54,516 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
+2025-06-25 01:32:13,831 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-25 01:32:14,071 - INFO - AWS Polly client initialized successfully.
+2025-06-25 01:32:14,079 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 01:32:14,082 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 01:32:24,089 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 01:32:24,089 - INFO - Appended 20 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 01:32:24,105 - INFO - Loading: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-25 01:32:32,637 - INFO - Generated audio for '<speak>alone</speak>' at D:\vocabswipe.github.io\data\audio\alone_word_0+Matthew+c42bbd90740264d115048a82c9a10214.mp3
+2025-06-25 01:32:33,063 - INFO - Generated audio for '<speak>alone. She lives alone in a small apartment.</speak>' at D:\vocabswipe.github.io\data\audio\alone_sentence_0+Matthew+329e3d5ebb293663ff8e17f3c3f0094d.mp3
+2025-06-25 01:32:34,165 - INFO - Generated audio for '<speak>alone. He felt alone despite being in a crowd.</speak>' at D:\vocabswipe.github.io\data\audio\alone_sentence_1+Matthew+92d0708afcd657ffeb6d800568030b6c.mp3
+2025-06-25 01:32:34,591 - INFO - Generated audio for '<speak>alone. Her talent stands alone in the industry.</speak>' at D:\vocabswipe.github.io\data\audio\alone_sentence_2+Matthew+a7f70ebecbfbbcba5c474590d354a252.mp3
+2025-06-25 01:32:35,006 - INFO - Generated audio for '<speak>alone. I completed the project alone.</speak>' at D:\vocabswipe.github.io\data\audio\alone_sentence_3+Matthew+51805410c185a95b761121af19468372.mp3
+2025-06-25 01:32:35,431 - INFO - Generated audio for '<speak>alone. This decision is mine alone.</speak>' at D:\vocabswipe.github.io\data\audio\alone_sentence_4+Matthew+43bc0bc50d361e739b8e51e38f73d359.mp3
+2025-06-25 01:32:36,423 - INFO - Generated audio for '<speak>drink</speak>' at D:\vocabswipe.github.io\data\audio\drink_word_0+Matthew+0b18a3d7b9c43ff1750d2baa4606b8d0.mp3
+2025-06-25 01:32:38,655 - INFO - Generated audio for '<speak>drink. She drinks coffee every morning.</speak>' at D:\vocabswipe.github.io\data\audio\drink_sentence_0+Matthew+717724d18ca5c5005a535b9940e6c5e1.mp3
+2025-06-25 01:32:39,104 - INFO - Generated audio for '<speak>drink. They drank wine at the party.</speak>' at D:\vocabswipe.github.io\data\audio\drink_sentence_1+Matthew+e51e9ccdcc7842f5116f862ffaa16123.mp3
+2025-06-25 01:32:40,254 - INFO - Generated audio for '<speak>drink. The plants drink water from the soil.</speak>' at D:\vocabswipe.github.io\data\audio\drink_sentence_2+Matthew+70db96808348c7063b4d64e240cfef56.mp3
+2025-06-25 01:32:41,433 - INFO - Generated audio for '<speak>drink. Let’s drink to good health!</speak>' at D:\vocabswipe.github.io\data\audio\drink_sentence_3+Matthew+c1c8f8a169df35da2f23e67b90fd7dca.mp3
+2025-06-25 01:32:42,566 - INFO - Generated audio for '<speak>drink. He doesn’t drink soda anymore.</speak>' at D:\vocabswipe.github.io\data\audio\drink_sentence_4+Matthew+e1511b49df0dcea457a8103e92015495.mp3
+2025-06-25 01:32:42,950 - INFO - Generated audio for '<speak>investigation</speak>' at D:\vocabswipe.github.io\data\audio\investigation_word_0+Matthew+9d4052e75fb56168db600f7f2aa3910b.mp3
+2025-06-25 01:32:43,677 - INFO - Generated audio for '<speak>investigation. The police launched an investigation into the crime.</speak>' at D:\vocabswipe.github.io\data\audio\investigation_sentence_0+Matthew+4a676078c807572b4bc1a73bfa1f48e3.mp3
+2025-06-25 01:32:44,093 - INFO - Generated audio for '<speak>investigation. Her investigation revealed new data.</speak>' at D:\vocabswipe.github.io\data\audio\investigation_sentence_1+Matthew+f4006e18e13afe20d60ec3333f54ed4d.mp3
+2025-06-25 01:32:44,898 - INFO - Generated audio for '<speak>investigation. The company conducted an investigation into the complaint.</speak>' at D:\vocabswipe.github.io\data\audio\investigation_sentence_2+Matthew+0cbe84029989400863320bbb9d498297.mp3
+2025-06-25 01:32:45,317 - INFO - Generated audio for '<speak>investigation. The investigation led to an arrest.</speak>' at D:\vocabswipe.github.io\data\audio\investigation_sentence_3+Matthew+bb284f7d2655a4788a55b338ce3e35e0.mp3
+2025-06-25 01:32:46,398 - INFO - Generated audio for '<speak>investigation. His investigation into the war was thorough.</speak>' at D:\vocabswipe.github.io\data\audio\investigation_sentence_4+Matthew+852c251bc196ab428500305ad56263ae.mp3
+2025-06-25 01:32:46,783 - INFO - Generated audio for '<speak>senator</speak>' at D:\vocabswipe.github.io\data\audio\senator_word_0+Matthew+6442e52151cf31789193fc9c958ab2ba.mp3
+2025-06-25 01:32:49,787 - INFO - Generated audio for '<speak>senator. The senator proposed a new bill.</speak>' at D:\vocabswipe.github.io\data\audio\senator_sentence_0+Matthew+0c5e9a8c3785c18eaeddaf894522b113.mp3
+2025-06-25 01:32:50,525 - INFO - Generated audio for '<speak>senator. She met the senator at a town hall.</speak>' at D:\vocabswipe.github.io\data\audio\senator_sentence_1+Matthew+fa1a3478362851e05d2ae1dd9a3924db.mp3
+2025-06-25 01:32:51,274 - INFO - Generated audio for '<speak>senator. The senator spoke on national security.</speak>' at D:\vocabswipe.github.io\data\audio\senator_sentence_2+Matthew+1ecd54bdafc840148340624cfb0d4203.mp3
+2025-06-25 01:32:54,386 - INFO - Generated audio for '<speak>senator. The Roman senator influenced policy.</speak>' at D:\vocabswipe.github.io\data\audio\senator_sentence_3+Matthew+bb1bf20bd4455d853c8dc96cf0b33f55.mp3
+2025-06-25 01:32:55,718 - INFO - Generated audio for '<speak>senator. Our senator focuses on education reform.</speak>' at D:\vocabswipe.github.io\data\audio\senator_sentence_4+Matthew+f79047607f9e32d6ce56caa53ef1504e.mp3
+2025-06-25 01:32:56,104 - INFO - Generated audio for '<speak>unit</speak>' at D:\vocabswipe.github.io\data\audio\unit_word_0+Matthew+3e34bdebd9bd5edda27e8728904a2552.mp3
+2025-06-25 01:32:57,404 - INFO - Generated audio for '<speak>unit. The apartment unit is fully furnished.</speak>' at D:\vocabswipe.github.io\data\audio\unit_sentence_0+Matthew+3b38b7a01592c916996eb077c883a51c.mp3
+2025-06-25 01:32:57,816 - INFO - Generated audio for '<speak>unit. The military unit trained for months.</speak>' at D:\vocabswipe.github.io\data\audio\unit_sentence_1+Matthew+f96f8f1fe4db2dd23d8007f3a8bcf4f4.mp3
+2025-06-25 01:32:58,800 - INFO - Generated audio for '<speak>unit. The recipe calls for one unit of sugar.</speak>' at D:\vocabswipe.github.io\data\audio\unit_sentence_2+Matthew+f7fc719df64659917128d4a4cb01fd02.mp3
+2025-06-25 01:32:59,212 - INFO - Generated audio for '<speak>unit. The air conditioning unit broke down.</speak>' at D:\vocabswipe.github.io\data\audio\unit_sentence_3+Matthew+ec3a5d7461b12783ea58d578858147c3.mp3
+2025-06-25 01:32:59,627 - INFO - Generated audio for '<speak>unit. We finished the unit on biology.</speak>' at D:\vocabswipe.github.io\data\audio\unit_sentence_4+Matthew+7a6a8b3e7ab8fb7c257ccb510585ff31.mp3
+2025-06-25 01:33:00,605 - INFO - Generated audio for '<speak>photograph</speak>' at D:\vocabswipe.github.io\data\audio\photograph_word_0+Matthew+0611f76084233d9a2a8da1d515846886.mp3
+2025-06-25 01:33:01,026 - INFO - Generated audio for '<speak>photograph. She framed the photograph of her family.</speak>' at D:\vocabswipe.github.io\data\audio\photograph_sentence_0+Matthew+ede0f7be1317c40d60ee7568fce894e5.mp3
+2025-06-25 01:33:03,960 - INFO - Generated audio for '<speak>photograph. The photograph captured the sunset perfectly.</speak>' at D:\vocabswipe.github.io\data\audio\photograph_sentence_1+Matthew+b73ce341e20df7014dc34b987bec1ae7.mp3
+2025-06-25 01:33:04,380 - INFO - Generated audio for '<speak>photograph. The photograph showed the accident scene.</speak>' at D:\vocabswipe.github.io\data\audio\photograph_sentence_2+Matthew+b3ea524f3bb88e280e8688cda501aaad.mp3
+2025-06-25 01:33:04,804 - INFO - Generated audio for '<speak>photograph. His photograph won a gallery award.</speak>' at D:\vocabswipe.github.io\data\audio\photograph_sentence_3+Matthew+a3815c03e9056822bc14cb02c12f8617.mp3
+2025-06-25 01:33:05,228 - INFO - Generated audio for '<speak>photograph. I keep a photograph of my dog in my wallet.</speak>' at D:\vocabswipe.github.io\data\audio\photograph_sentence_4+Matthew+5e3b694e138e1614cff4bb2c8213c0f0.mp3
+2025-06-25 01:33:05,639 - INFO - Generated audio for '<speak>July</speak>' at D:\vocabswipe.github.io\data\audio\july_word_0+Matthew+1b539f6f34e8503c97f6d3421346b63c.mp3
+2025-06-25 01:33:06,062 - INFO - Generated audio for '<speak>July. We’re planning a trip in July.</speak>' at D:\vocabswipe.github.io\data\audio\july_sentence_0+Matthew+b9d0ba49a2c62d5bb6b07d273d533571.mp3
+2025-06-25 01:33:06,943 - INFO - Generated audio for '<speak>July. July is perfect for beach vacations.</speak>' at D:\vocabswipe.github.io\data\audio\july_sentence_1+Matthew+c6583671da87bb759b33feca6ceffe83.mp3
+2025-06-25 01:33:07,747 - INFO - Generated audio for '<speak>July. Fireworks light up the sky every July.</speak>' at D:\vocabswipe.github.io\data\audio\july_sentence_2+Matthew+f7599418565f574cbe9ef0099307ba8a.mp3
+2025-06-25 01:33:08,581 - INFO - Generated audio for '<speak>July. The treaty was signed in July 1945.</speak>' at D:\vocabswipe.github.io\data\audio\july_sentence_3+Matthew+b9fd3bbee4095da5f3c093801304a3ce.mp3
+2025-06-25 01:33:10,413 - INFO - Generated audio for '<speak>July. July brings heat to our region.</speak>' at D:\vocabswipe.github.io\data\audio\july_sentence_4+Matthew+430be291b46b887251769e0eb4648889.mp3
+2025-06-25 01:33:11,317 - INFO - Generated audio for '<speak>television</speak>' at D:\vocabswipe.github.io\data\audio\television_word_0+Matthew+79464212afb7fd6c38699d0617eaedeb.mp3
+2025-06-25 01:33:13,625 - INFO - Generated audio for '<speak>television. We watched the game on television.</speak>' at D:\vocabswipe.github.io\data\audio\television_sentence_0+Matthew+6301420937ab900d9c345cb675fe5f07.mp3
+2025-06-25 01:33:14,391 - INFO - Generated audio for '<speak>television. She works in television as a producer.</speak>' at D:\vocabswipe.github.io\data\audio\television_sentence_1+Matthew+ba60a97a417a9bb4ab52b67c6c800516.mp3
+2025-06-25 01:33:16,186 - INFO - Generated audio for '<speak>television. Television keeps the kids busy.</speak>' at D:\vocabswipe.github.io\data\audio\television_sentence_2+Matthew+6758feb1472710068cc90e53ea635cc3.mp3
+2025-06-25 01:33:16,964 - INFO - Generated audio for '<speak>television. The debate was aired on national television.</speak>' at D:\vocabswipe.github.io\data\audio\television_sentence_3+Matthew+e2c6160e333ccdaa6f0d7ef60557c4ce.mp3
+2025-06-25 01:33:17,744 - INFO - Generated audio for '<speak>television. Reality television has changed viewing habits.</speak>' at D:\vocabswipe.github.io\data\audio\television_sentence_4+Matthew+ae30289ef0758a838b41148ede04a078.mp3
+2025-06-25 01:33:18,201 - INFO - Generated audio for '<speak>key</speak>' at D:\vocabswipe.github.io\data\audio\key_word_0+Matthew+3c6e0b8a9c15224a8228b9a98ca1531d.mp3
+2025-06-25 01:33:19,115 - INFO - Generated audio for '<speak>key. I lost the key to my car.</speak>' at D:\vocabswipe.github.io\data\audio\key_sentence_0+Matthew+59c3b8d7dcd700969f239b8fc68c8cf0.mp3
+2025-06-25 01:33:19,857 - INFO - Generated audio for '<speak>key. Hard work is the key to success.</speak>' at D:\vocabswipe.github.io\data\audio\key_sentence_1+Matthew+c0314607bcf333ec13def6ef8592c4fb.mp3
+2025-06-25 01:33:21,256 - INFO - Generated audio for '<speak>key. Press the enter key to submit.</speak>' at D:\vocabswipe.github.io\data\audio\key_sentence_2+Matthew+9c3fac5286050f54eca3880df01dcfd4.mp3
+2025-06-25 01:33:22,012 - INFO - Generated audio for '<speak>key. The song is in the key of C.</speak>' at D:\vocabswipe.github.io\data\audio\key_sentence_3+Matthew+ed6377bd723377320a1577adfe9bf197.mp3
+2025-06-25 01:33:22,709 - INFO - Generated audio for '<speak>key. Check the map’s key for symbols.</speak>' at D:\vocabswipe.github.io\data\audio\key_sentence_4+Matthew+23f4a925669ecadef1c4342cee1183a3.mp3
+2025-06-25 01:33:23,058 - INFO - Generated audio for '<speak>sexual</speak>' at D:\vocabswipe.github.io\data\audio\sexual_word_0+Matthew+c137d413187fccdc2a0e9954df5fbad0.mp3
+2025-06-25 01:33:24,115 - INFO - Generated audio for '<speak>sexual. The movie had a sexual theme.</speak>' at D:\vocabswipe.github.io\data\audio\sexual_sentence_0+Matthew+a1be6c6ec376eb22fd2d9fe7192fb1a4.mp3
+2025-06-25 01:33:24,741 - INFO - Generated audio for '<speak>sexual. Sexual reproduction occurs in many species.</speak>' at D:\vocabswipe.github.io\data\audio\sexual_sentence_1+Matthew+a2cf876ecb308bfe7bca68a5a83357d9.mp3
+2025-06-25 01:33:25,366 - INFO - Generated audio for '<speak>sexual. Their sexual chemistry was undeniable.</speak>' at D:\vocabswipe.github.io\data\audio\sexual_sentence_2+Matthew+108385bcb6f23f66256ddc2ce1bb19c7.mp3
+2025-06-25 01:33:25,997 - INFO - Generated audio for '<speak>sexual. The survey asked about sexual identity.</speak>' at D:\vocabswipe.github.io\data\audio\sexual_sentence_3+Matthew+6a122646cb6933962c0160f820729045.mp3
+2025-06-25 01:33:26,691 - INFO - Generated audio for '<speak>sexual. The book contained sexual scenes.</speak>' at D:\vocabswipe.github.io\data\audio\sexual_sentence_4+Matthew+e644f66c377290434180b676c83d1f21.mp3
+2025-06-25 01:33:27,205 - INFO - Generated audio for '<speak>radio</speak>' at D:\vocabswipe.github.io\data\audio\radio_word_0+Matthew+a398fb77df76e6153df57cd65fd0a7c5.mp3
+2025-06-25 01:33:27,805 - INFO - Generated audio for '<speak>radio. I listen to the radio every morning.</speak>' at D:\vocabswipe.github.io\data\audio\radio_sentence_0+Matthew+0dd4a59dd96e0594047f601bd6fb1eff.mp3
+2025-06-25 01:33:28,439 - INFO - Generated audio for '<speak>radio. She hosts a show on local radio.</speak>' at D:\vocabswipe.github.io\data\audio\radio_sentence_1+Matthew+414b2895d67421938e794cf79a741934.mp3
+2025-06-25 01:33:29,046 - INFO - Generated audio for '<speak>radio. The radio alerted us to the storm.</speak>' at D:\vocabswipe.github.io\data\audio\radio_sentence_2+Matthew+628c659e771fbe0846809635ce5dc699.mp3
+2025-06-25 01:33:29,663 - INFO - Generated audio for '<speak>radio. The radio played my favorite song.</speak>' at D:\vocabswipe.github.io\data\audio\radio_sentence_3+Matthew+b373f2babf0db153abd264b8b7b3eeb8.mp3
+2025-06-25 01:33:30,020 - INFO - Generated audio for '<speak>radio. Radio was vital during the war.</speak>' at D:\vocabswipe.github.io\data\audio\radio_sentence_4+Matthew+5146d20112831c687228f906fdcd4869.mp3
+2025-06-25 01:33:30,339 - INFO - Generated audio for '<speak>prevent</speak>' at D:\vocabswipe.github.io\data\audio\prevent_word_0+Matthew+9b0c41a084ce77bc23b6d8c06c77d953.mp3
+2025-06-25 01:33:30,689 - INFO - Generated audio for '<speak>prevent. Wearing a helmet can prevent injuries.</speak>' at D:\vocabswipe.github.io\data\audio\prevent_sentence_0+Matthew+dcbc2990aafa536e0acbcce4f9b710df.mp3
+2025-06-25 01:33:31,044 - INFO - Generated audio for '<speak>prevent. The lock prevented unauthorized entry.</speak>' at D:\vocabswipe.github.io\data\audio\prevent_sentence_1+Matthew+5411de7768c73f2a2baa1bbfc8614cad.mp3
+2025-06-25 01:33:31,392 - INFO - Generated audio for '<speak>prevent. Good hygiene prevents illness.</speak>' at D:\vocabswipe.github.io\data\audio\prevent_sentence_2+Matthew+b387312adb3abd461e931bb9248d8554.mp3
+2025-06-25 01:33:31,744 - INFO - Generated audio for '<speak>prevent. Rain prevented us from hiking.</speak>' at D:\vocabswipe.github.io\data\audio\prevent_sentence_3+Matthew+a60b681cbf699021e2d54bd95d22e149.mp3
+2025-06-25 01:33:32,096 - INFO - Generated audio for '<speak>prevent. The police prevented a conflict.</speak>' at D:\vocabswipe.github.io\data\audio\prevent_sentence_4+Matthew+c29bac06e51248c2178a5e9782f4622e.mp3
+2025-06-25 01:33:32,446 - INFO - Generated audio for '<speak>once. I met her once at a conference.</speak>' at D:\vocabswipe.github.io\data\audio\once_sentence_5+Matthew+faeb5b68ae09d05d5ef367c9e65a669c.mp3
+2025-06-25 01:33:32,792 - INFO - Generated audio for '<speak>once. Call me once you arrive.</speak>' at D:\vocabswipe.github.io\data\audio\once_sentence_6+Matthew+ccd61e1605ddc37ab8d6812010e3c354.mp3
+2025-06-25 01:33:33,147 - INFO - Generated audio for '<speak>once. Once, this town was thriving.</speak>' at D:\vocabswipe.github.io\data\audio\once_sentence_7+Matthew+cd2fb358503b2ef38ae931ba1589cf53.mp3
+2025-06-25 01:33:33,842 - INFO - Generated audio for '<speak>once. He was once a famous actor.</speak>' at D:\vocabswipe.github.io\data\audio\once_sentence_8+Matthew+c351be1dedc74e857524252d4a4e9def.mp3
+2025-06-25 01:33:34,187 - INFO - Generated audio for '<speak>once. I go hiking once a year.</speak>' at D:\vocabswipe.github.io\data\audio\once_sentence_9+Matthew+94a0f6ee85f5e8235e9e112cd97477a4.mp3
+2025-06-25 01:33:34,505 - INFO - Generated audio for '<speak>modern</speak>' at D:\vocabswipe.github.io\data\audio\modern_word_0+Matthew+ae74ea4e2e865ed3fd60c18a06e69c65.mp3
+2025-06-25 01:33:34,872 - INFO - Generated audio for '<speak>modern. Modern technology changes daily.</speak>' at D:\vocabswipe.github.io\data\audio\modern_sentence_0+Matthew+f798dff5c965eeec4566192b57243ba0.mp3
+2025-06-25 01:33:35,226 - INFO - Generated audio for '<speak>modern. The house has a modern kitchen.</speak>' at D:\vocabswipe.github.io\data\audio\modern_sentence_1+Matthew+4d8e8f4d3126acf70384ebf220ec78e4.mp3
+2025-06-25 01:33:35,781 - INFO - Generated audio for '<speak>modern. She wears modern fashion styles.</speak>' at D:\vocabswipe.github.io\data\audio\modern_sentence_2+Matthew+ac32574c7084c51456f3979a35ac9274.mp3
+2025-06-25 01:33:36,139 - INFO - Generated audio for '<speak>modern. Modern medicine saves lives.</speak>' at D:\vocabswipe.github.io\data\audio\modern_sentence_3+Matthew+e6d504775c64a9aa0de66154bf851c84.mp3
+2025-06-25 01:33:36,497 - INFO - Generated audio for '<speak>modern. Modern art challenges traditional forms.</speak>' at D:\vocabswipe.github.io\data\audio\modern_sentence_4+Matthew+aaed9def650247de0cfa3c40c3a20bd9.mp3
+2025-06-25 01:33:36,814 - INFO - Generated audio for '<speak>senate</speak>' at D:\vocabswipe.github.io\data\audio\senate_word_0+Matthew+05087274f45eed658baa27257d5eb478.mp3
+2025-06-25 01:33:37,168 - INFO - Generated audio for '<speak>senate. The senate passed a new law.</speak>' at D:\vocabswipe.github.io\data\audio\senate_sentence_0+Matthew+96d2019d14f8b567c4d8cd8272ad8dee.mp3
+2025-06-25 01:33:37,511 - INFO - Generated audio for '<speak>senate. The Roman senate advised the consuls.</speak>' at D:\vocabswipe.github.io\data\audio\senate_sentence_1+Matthew+a4d6bc4d18b5f10f77dbdedca5faa44d.mp3
+2025-06-25 01:33:37,858 - INFO - Generated audio for '<speak>senate. The issue was discussed in the senate.</speak>' at D:\vocabswipe.github.io\data\audio\senate_sentence_2+Matthew+a8cca309429e13022395f5d396796f82.mp3
+2025-06-25 01:33:38,206 - INFO - Generated audio for '<speak>senate. The senate includes two members per state.</speak>' at D:\vocabswipe.github.io\data\audio\senate_sentence_3+Matthew+8113c12c0368aa72bd852f215ca168b1.mp3
+2025-06-25 01:33:38,553 - INFO - Generated audio for '<speak>senate. The senate building is heavily guarded.</speak>' at D:\vocabswipe.github.io\data\audio\senate_sentence_4+Matthew+0a97046775352a95ec470930dfb46931.mp3
+2025-06-25 01:33:38,901 - INFO - Generated audio for '<speak>violence</speak>' at D:\vocabswipe.github.io\data\audio\violence_word_0+Matthew+e2c22f567246990eec33b68fc70b073a.mp3
+2025-06-25 01:33:39,596 - INFO - Generated audio for '<speak>violence. The protest turned to violence.</speak>' at D:\vocabswipe.github.io\data\audio\violence_sentence_0+Matthew+969fd625abf3a1d89dfd812745ef9ddf.mp3
+2025-06-25 01:33:40,210 - INFO - Generated audio for '<speak>violence. Domestic violence is a serious issue.</speak>' at D:\vocabswipe.github.io\data\audio\violence_sentence_1+Matthew+3110a51ab0e866a73e0d86da3d9f98cd.mp3
+2025-06-25 01:33:40,947 - INFO - Generated audio for '<speak>violence. The storm’s violence damaged homes.</speak>' at D:\vocabswipe.github.io\data\audio\violence_sentence_2+Matthew+3416573aa02abfc21f107dd6943787c8.mp3
+2025-06-25 01:33:41,536 - INFO - Generated audio for '<speak>violence. The movie contained graphic violence.</speak>' at D:\vocabswipe.github.io\data\audio\violence_sentence_3+Matthew+22a20370fee6555b673c29dae3e55496.mp3
+2025-06-25 01:33:41,893 - INFO - Generated audio for '<speak>violence. The city addressed rising violence.</speak>' at D:\vocabswipe.github.io\data\audio\violence_sentence_4+Matthew+a13781279c1ab1d4abcfa3210efb1d0c.mp3
+2025-06-25 01:33:42,207 - INFO - Generated audio for '<speak>touch</speak>' at D:\vocabswipe.github.io\data\audio\touch_word_0+Matthew+b96ba508e3690f5168e4b0e68b15b178.mp3
+2025-06-25 01:33:42,568 - INFO - Generated audio for '<speak>touch. Don’t touch the wet paint.</speak>' at D:\vocabswipe.github.io\data\audio\touch_sentence_0+Matthew+32205818d85ef5b007ac1d42b0498bc5.mp3
+2025-06-25 01:33:42,916 - INFO - Generated audio for '<speak>touch. Her story touched everyone’s hearts.</speak>' at D:\vocabswipe.github.io\data\audio\touch_sentence_1+Matthew+79eb2c72271f8b3c02125d52fef77cbd.mp3
+2025-06-25 01:33:43,264 - INFO - Generated audio for '<speak>touch. He hasn’t touched his homework yet.</speak>' at D:\vocabswipe.github.io\data\audio\touch_sentence_2+Matthew+b0fb65864e654df4e8adb486d067a920.mp3
+2025-06-25 01:33:43,617 - INFO - Generated audio for '<speak>touch. The temperature touched 90 degrees.</speak>' at D:\vocabswipe.github.io\data\audio\touch_sentence_3+Matthew+8438a7f0f65b425cdbade6435435417b.mp3
+2025-06-25 01:33:45,320 - INFO - Generated audio for '<speak>touch. The speech touched on climate change.</speak>' at D:\vocabswipe.github.io\data\audio\touch_sentence_4+Matthew+45f0443326413d9325abb171970b249a.mp3
+2025-06-25 01:33:45,634 - INFO - Generated audio for '<speak>feature</speak>' at D:\vocabswipe.github.io\data\audio\feature_word_0+Matthew+518a4861e5be74863a6b65010bde3986.mp3
+2025-06-25 01:33:45,984 - INFO - Generated audio for '<speak>feature. The car’s best feature is its mileage.</speak>' at D:\vocabswipe.github.io\data\audio\feature_sentence_0+Matthew+67d8a41225eb2e2e672984b10210ef24.mp3
+2025-06-25 01:33:46,356 - INFO - Generated audio for '<speak>feature. The phone’s camera is a key feature.</speak>' at D:\vocabswipe.github.io\data\audio\feature_sentence_1+Matthew+97dbb7929d39872b7636892ee7e2f23f.mp3
+2025-06-25 01:33:46,777 - INFO - Generated audio for '<speak>feature. The mountain is a feature of the region.</speak>' at D:\vocabswipe.github.io\data\audio\feature_sentence_2+Matthew+01a6deeb65cca366902b3d64c7c2427d.mp3
+2025-06-25 01:33:47,174 - INFO - Generated audio for '<speak>feature. The magazine ran a feature on local artists.</speak>' at D:\vocabswipe.github.io\data\audio\feature_sentence_3+Matthew+8e38250adf7e0092a7e1ad19953cbc8f.mp3
+2025-06-25 01:33:47,533 - INFO - Generated audio for '<speak>feature. The building’s feature is its glass facade.</speak>' at D:\vocabswipe.github.io\data\audio\feature_sentence_4+Matthew+577e47ac1fcc7738dc6ae755c5813aad.mp3
+2025-06-25 01:33:47,890 - INFO - Generated audio for '<speak>audience</speak>' at D:\vocabswipe.github.io\data\audio\audience_word_0+Matthew+e31f6f9827c187e8aebdb0839a0c963a.mp3
+2025-06-25 01:33:48,246 - INFO - Generated audio for '<speak>audience. The audience clapped after the play.</speak>' at D:\vocabswipe.github.io\data\audio\audience_sentence_0+Matthew+049a3e85e6206ced30de8512be7e5ada.mp3
+2025-06-25 01:33:49,732 - INFO - Generated audio for '<speak>audience. The show has a global audience.</speak>' at D:\vocabswipe.github.io\data\audio\audience_sentence_1+Matthew+9523867da1d1a982066ba235de8f1bc1.mp3
+2025-06-25 01:33:50,084 - INFO - Generated audio for '<speak>audience. The politician addressed the audience.</speak>' at D:\vocabswipe.github.io\data\audio\audience_sentence_2+Matthew+831b74c2724110fd52d65ddb8cdca405.mp3
+2025-06-25 01:33:50,465 - INFO - Generated audio for '<speak>audience. The ad targets a young audience.</speak>' at D:\vocabswipe.github.io\data\audio\audience_sentence_3+Matthew+5938bd8b779337c4a09a39009f868efc.mp3
+2025-06-25 01:33:50,871 - INFO - Generated audio for '<speak>audience. The presenter engaged the audience well.</speak>' at D:\vocabswipe.github.io\data\audio\audience_sentence_4+Matthew+3584c38df4e3a86e18f405f6dfb2a1e7.mp3
+2025-06-25 01:33:51,270 - INFO - Generated audio for '<speak>evening</speak>' at D:\vocabswipe.github.io\data\audio\evening_word_0+Matthew+ee1150845fa3041ceb3a3fcdbe42d68a.mp3
+2025-06-25 01:33:51,615 - INFO - Generated audio for '<speak>evening. We went for a walk this evening.</speak>' at D:\vocabswipe.github.io\data\audio\evening_sentence_0+Matthew+f27b72e2f3f2cd0f204a11028c00d081.mp3
+2025-06-25 01:33:51,958 - INFO - Generated audio for '<speak>evening. The gala is held every evening.</speak>' at D:\vocabswipe.github.io\data\audio\evening_sentence_1+Matthew+23378033d0dcdaf25228aea39600042e.mp3
+2025-06-25 01:33:52,319 - INFO - Generated audio for '<speak>evening. I relax in the evening with a book.</speak>' at D:\vocabswipe.github.io\data\audio\evening_sentence_2+Matthew+a7ef723435c3508142f1f8dcfe932e4f.mp3
+2025-06-25 01:33:52,893 - INFO - Generated audio for '<speak>evening. Evening classes start at 6 p.m.</speak>' at D:\vocabswipe.github.io\data\audio\evening_sentence_3+Matthew+c1fdca148699e44db411b0d2ca66d306.mp3
+2025-06-25 01:33:53,521 - INFO - Generated audio for '<speak>evening. The evening was filled with laughter.</speak>' at D:\vocabswipe.github.io\data\audio\evening_sentence_4+Matthew+feaca6f3dc348f20e06f048d7e3b8b8d.mp3
+2025-06-25 01:33:56,540 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-25 01:33:56,555 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250625_013356.txt
+2025-06-25 01:33:56,564 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 01:33:56,565 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
