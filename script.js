@@ -10,7 +10,6 @@ let audioUnlocked = false;
 document.addEventListener('DOMContentLoaded', () => {
     loadWords();
     setupEventListeners();
-    populateLetterSelect(); // Optional: Populate letter dropdown
 });
 
 // Unlock audio on first user interaction
@@ -46,23 +45,6 @@ function loadWords() {
             console.error('Error loading words:', error.message);
             alert('Failed to load vocabulary data. Check the console for details.');
         });
-}
-
-function populateLetterSelect() {
-    const select = document.getElementById('letter-select');
-    if (!select) return;
-    const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
-                     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-    letters.forEach(letter => {
-        const option = document.createElement('option');
-        option.value = letter;
-        option.textContent = letter.toUpperCase();
-        select.appendChild(option);
-    });
-    select.addEventListener('change', (e) => {
-        // Optional: Implement letter-based filtering if needed
-        console.log(`Selected letter: ${e.target.value}`);
-    });
 }
 
 function setupEventListeners() {
@@ -101,7 +83,7 @@ function setupEventListeners() {
     hammer.on('swipeleft', () => {
         if (words.length) {
             currentWordIndex = (currentWordIndex + 1) % words.length;
-            currentBackCardIndex = 0; // Reset to first back card for consistency
+            currentBackCardIndex = 0;
             stopAudio();
             displayWord();
             const audioFile = isFlipped ? 
@@ -120,7 +102,7 @@ function setupEventListeners() {
     hammer.on('swiperight', () => {
         if (words.length) {
             currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
-            currentBackCardIndex = 0; // Reset to first back card for consistency
+            currentBackCardIndex = 0;
             stopAudio();
             displayWord();
             const audioFile = isFlipped ? 
@@ -175,7 +157,7 @@ function preloadAudio() {
     const currentWord = words[currentWordIndex];
     const nextIndex = (currentWordIndex + 1) % words.length;
     const prevIndex = (currentWordIndex - 1 + words.length) % words.length;
-    const nextWord = words[nextIndex];
+    const nextWord = words[currentIndex];
     const prevWord = words[prevIndex];
 
     const audioFiles = [
@@ -271,16 +253,34 @@ function displayWord() {
     const green = Math.round(255 * (relFreq / 100));
     const color = `rgb(${red}, ${green}, 0)`;
 
-    front.innerHTML = `<h2 class="word-title">${wordData.word}</h2><div id="front-rank" class="card-stat">Rank: ${wordData.rank}</div><div id="front-freq" class="card-stat">Freq: ${relFreq.toFixed(1)}%</div>`;
+    // Update progress bar
+    const progressText = document.getElementById('progress-text');
+    const progressFill = document.querySelector('.progress-fill');
+    progressText.textContent = `${currentWordIndex + 1} / ${words.length}`;
+    progressFill.style.width = `${((currentWordIndex + 1) / words.length) * 100}%`;
+
+    front.innerHTML = `
+        <div class="word-container">
+            <h2>${wordData.word}</h2>
+        </div>
+        <div class="meta-info">
+            <span class="rank">Rank: ${wordData.rank}</span>
+            <span class="freq" style="color: ${color}">${relFreq.toFixed(1)}%</span>
+        </div>
+    `;
     back.innerHTML = `
-        <h2 class="word-title">${wordData.word}</h2>
-        <div class="back-template">
+        <div class="word-container">
+            <h2>${wordData.word}</h2>
+        </div>
+        <div class="back-content">
             <div class="card-info">
-                <p id="back-definition" class="card-text definition">Definition: ${backCard.definition_en}</p>
-                <p id="back-example" class="card-text example">Example: ${backCard.example_en}</p>
+                <p class="definition"><strong>Definition:</strong> ${backCard.definition_en}</p>
+                <p class="example"><strong>Example:</strong> ${backCard.example_en}</p>
             </div>
-            <div id="back-rank" class="card-stat">Rank: ${wordData.rank}</div>
-            <div id="back-freq" class="card-stat">Freq: ${relFreq.toFixed(1)}%</div>
+            <div class="meta-info">
+                <span class="rank">Rank: ${wordData.rank}</span>
+                <span class="freq" style="color: ${color}">${relFreq.toFixed(1)}%</span>
+            </div>
         </div>
     `;
 }
