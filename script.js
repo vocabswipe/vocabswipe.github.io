@@ -6,8 +6,7 @@ let currentAudio = null;
 let audioCache = new Map();
 const MAX_CACHE_SIZE = 10;
 let audioUnlocked = false;
-let minTransformedFreq = 0;
-let maxTransformedFreq = 1;
+let maxFreq = 1;
 
 document.addEventListener('DOMContentLoaded', () => {
     loadWords();
@@ -56,10 +55,7 @@ function loadWords() {
                 return;
             }
             words.sort((a, b) => a.rank - b.rank);
-            const c1 = 1000;
-            const transformedFreqs = words.map(word => Math.log10(word.freq + c1));
-            minTransformedFreq = Math.min(...transformedFreqs);
-            maxTransformedFreq = Math.max(...transformedFreqs);
+            maxFreq = words[0]?.freq || 1; // Store max frequency (rank 1)
             displayWord();
             preloadAudio();
         })
@@ -77,8 +73,14 @@ function setupEventListeners() {
 
     card.addEventListener('click', (e) => {
         const currentTime = new Date().getTime();
-        tapCount++;
-        if (tapCount === 1) {
+        if (currentTime - lastTapTime < doubleTapThreshold) {
+            tapCount++;
+            if (tapCount === 2) {
+                flipCard();
+                tapCount = 0;
+            }
+        } else {
+            tapCount = 1;
             setTimeout(() => {
                 if (tapCount === 1) {
                     const audioFile = isFlipped ? 
@@ -93,9 +95,6 @@ function setupEventListeners() {
                 }
                 tapCount = 0;
             }, doubleTapThreshold);
-        } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
-            flipCard();
-            tapCount = 0;
         }
         lastTapTime = currentTime;
     });
@@ -268,11 +267,9 @@ function displayWord() {
     const front = document.querySelector('.front');
     const back = document.querySelector('.back');
     const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: '', example_en: '' };
-    const c1 = 1000;
-    const c2 = 1;
-    const transformedFreq = Math.log10(wordData.freq + c1);
-    const normalizedFreq = ((transformedFreq - minTransformedFreq) / (maxTransformedFreq - minTransformedFreq)) * 100;
-    const finalFreq = Math.min(Math.max(Math.log10(normalizedFreq + c2) / Math.log10(100 + c2) * 100, 0), 100);
+    // Simplified frequency calculation
+    const relFreq = (wordData.freq / maxFreq) * 100;
+    const finalFreq = Math.min(Math.max(Math.log10(relFreq + 0.1) / Math.log10(100.1) * 100, 0), 100);
 
     front.innerHTML = `
         <div class="word-container">
