@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>VocabSwipe</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
 </head>
@@ -13,10 +14,6 @@
         <h1 class="slogan">Swipe to Master Your Vocabulary!</h1>
     </header>
     <div class="container">
-        <div class="progress-bar">
-            <span id="progress-text"></span>
-            <div class="progress-fill"></div>
-        </div>
         <div class="flashcard-container">
             <div class="flashcard">
                 <div class="front">
@@ -32,7 +29,7 @@
                     <div class="word-container">
                         <h2 id="back-word"></h2>
                     </div>
-                    <div class="back-content">
+                    <div class="back-template">
                         <div class="card-info">
                             <p id="back-definition" class="definition"></p>
                             <p id="back-example" class="example"></p>
