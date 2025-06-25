@@ -19339,6 +19339,16 @@
     example_en: They approached the project with enthusiasm.
   - definition_en: To suggest or offer an idea
     example_en: She approached him about joining the team.
+  - definition_en: A way of dealing with a problem or task.
+    example_en: Her approach to teaching was creative and engaging.
+  - definition_en: The act of coming closer to something.
+    example_en: The plane’s approach to the runway was smooth.
+  - definition_en: A strategy or method in a professional context.
+    example_en: The company adopted a new approach to marketing.
+  - definition_en: An initial attempt to connect with someone.
+    example_en: His approach to the client was friendly and confident.
+  - definition_en: A path or route leading to a place.
+    example_en: The approach to the mountain was steep and rocky.
   freq: 116173
   part_of_speech: verb
   rank: 831
@@ -19348,6 +19358,11 @@
   - approach_sentence_2+Matthew+a3927c1052773f80f6679bc36ce85f0d.mp3
   - approach_sentence_3+Matthew+3146def48d1aef6cb010bd98682f4a2f.mp3
   - approach_sentence_4+Matthew+60b37dde1d8a44ad8d4e0532bcd60bb5.mp3
+  - approach_sentence_5+Matthew+7b95c87ff4702d9bcffd461790d8c2c4.mp3
+  - approach_sentence_6+Matthew+0dc06381e8d4ac8afae1a58d35cbb514.mp3
+  - approach_sentence_7+Matthew+45e1f8f4a7818b238588254b9933c247.mp3
+  - approach_sentence_8+Matthew+90992a9e38a9e987a7b0b662f455403b.mp3
+  - approach_sentence_9+Matthew+e838d03d32084af53e673c63d0759d89.mp3
   voice_id: Matthew
   word: approach
   word_audio_file:
@@ -31915,6 +31930,14 @@
     example_en: The average commute takes 30 minutes.
   - definition_en: Balanced or moderate in nature.
     example_en: They live an average, quiet life.
+  - definition_en: Describing a mathematical mean.
+    example_en: Her average score in math was 85.
+  - definition_en: Not exceptional, but standard.
+    example_en: He’s an average student but works hard.
+  - definition_en: Common or usual in a group.
+    example_en: The average commute in the city takes 30 minutes.
+  - definition_en: Balanced or moderate in comparison.
+    example_en: Their team had average performance this season.
   freq: 67618
   part_of_speech: adjective
   rank: 1413
@@ -31924,6 +31947,10 @@
   - average_sentence_2+Matthew+875d27e75a2a0b2fdcc8cc267f9b00ce.mp3
   - average_sentence_3+Matthew+c41ee2c7c9ddd7719ea87f4723dd4009.mp3
   - average_sentence_4+Matthew+578867f076c3aceab96d0be81709803f.mp3
+  - average_sentence_5+Matthew+30447e2b6797b853b24be7710e09eff1.mp3
+  - average_sentence_6+Matthew+3bb73ff8960cd743254e0fc3d08e1316.mp3
+  - average_sentence_7+Matthew+9aa5b33c031eaae1a9f3fed373076290.mp3
+  - average_sentence_8+Matthew+d2e8769701901b189998aa6a632c397c.mp3
   voice_id: Matthew
   word: average
   word_audio_file:
@@ -36302,3 +36329,328 @@
   word: session
   word_audio_file:
   - session_word_0+Matthew+21d6f40cfb511982e4424e0e250a9557.mp3
+- back_cards:
+  - definition_en: A contest between individuals or groups to win a prize or achieve
+      a goal.
+    example_en: She trained hard for the swimming competition.
+  - definition_en: Rivalry between businesses to attract customers.
+    example_en: The two stores were in fierce competition for holiday shoppers.
+  - definition_en: A challenge to prove one's skills or abilities.
+    example_en: The coding competition drew programmers from across the country.
+  - definition_en: A natural struggle for resources in an ecosystem.
+    example_en: Plants face competition for sunlight in dense forests.
+  - definition_en: An event that tests teamwork and strategy.
+    example_en: The debate competition required quick thinking and collaboration.
+  freq: 58102
+  part_of_speech: noun
+  rank: 1621
+  sentence_audio_file:
+  - competition_sentence_0+Matthew+df8f5509dfe04afc9d69b45859aabe16.mp3
+  - competition_sentence_1+Matthew+7da6161b8d7bbc9403f0b1ff7cc93220.mp3
+  - competition_sentence_2+Matthew+ca65773a2bcfc62060e35ace07701905.mp3
+  - competition_sentence_3+Matthew+03e6c24352448ef981468da8ad38d027.mp3
+  - competition_sentence_4+Matthew+3e3f6219a8dc4bdc36ef42e8a06ff3d7.mp3
+  voice_id: Matthew
+  word: competition
+  word_audio_file:
+  - competition_word_0+Matthew+3190dbf13beaf51d8852bdd9bc4cdf89.mp3
+- back_cards:
+  - definition_en: In a way that might happen or be true.
+    example_en: We could possibly finish the project by tomorrow.
+  - definition_en: As a means of expressing uncertainty.
+    example_en: It’s possibly the best restaurant in town, but I’m not sure.
+  - definition_en: Indicating a potential option or solution.
+    example_en: You could possibly try calling customer service for help.
+  - definition_en: Used to soften a statement or suggestion.
+    example_en: Could you possibly move your car from the driveway?
+  - definition_en: Referring to a speculative outcome.
+    example_en: This storm could possibly cause delays at the airport.
+  freq: 58071
+  part_of_speech: adverb
+  rank: 1622
+  sentence_audio_file:
+  - possibly_sentence_0+Matthew+09fafe0fb2f8320f8f2dc484fc324704.mp3
+  - possibly_sentence_1+Matthew+457d9272615e7e224af9528ab030c14b.mp3
+  - possibly_sentence_2+Matthew+b0b59921f8521438110ae09899363ed6.mp3
+  - possibly_sentence_3+Matthew+7cfdc85988c9391522f4bcb7105fd9a3.mp3
+  - possibly_sentence_4+Matthew+56a4842d3b3d13bf700f1b3ffb0f501e.mp3
+  voice_id: Matthew
+  word: possibly
+  word_audio_file:
+  - possibly_word_0+Matthew+a3dca260af375a6d1e1eaf870f955ae4.mp3
+- back_cards:
+  - definition_en: A specific method or skill used to perform a task.
+    example_en: Her painting technique improved with practice.
+  - definition_en: A way of solving a technical or scientific problem.
+    example_en: The lab developed a new technique for analyzing DNA.
+  - definition_en: A strategy used in sports or physical activities.
+    example_en: The coach taught us a technique for better sprinting.
+  - definition_en: A creative approach in music or art.
+    example_en: The guitarist’s technique amazed the audience.
+  - definition_en: A practical skill applied in everyday tasks.
+    example_en: Using a knife-sharpening technique, he prepared dinner faster.
+  freq: 58028
+  part_of_speech: noun
+  rank: 1623
+  sentence_audio_file:
+  - technique_sentence_0+Matthew+93365ab2117e6f10a05db686500a2d4d.mp3
+  - technique_sentence_1+Matthew+b55a963ce9e48e4d1371a0242635f6bc.mp3
+  - technique_sentence_2+Matthew+c9176c1deac0751cf1cf42490fdc2f9c.mp3
+  - technique_sentence_3+Matthew+b33b1fc2fcc93133ab6c6d4fb01886c6.mp3
+  - technique_sentence_4+Matthew+5e9128faa4c5704d512daf79a186ebeb.mp3
+  voice_id: Matthew
+  word: technique
+  word_audio_file:
+  - technique_word_0+Matthew+0098876123c5a4d75b205c3b727b8af1.mp3
+- back_cards:
+  - definition_en: Something that belongs to the speaker.
+    example_en: That book on the table is mine.
+  - definition_en: Used to emphasize ownership in a personal context.
+    example_en: This recipe is mine, passed down from my grandmother.
+  - definition_en: Referring to a place or thing associated with the speaker.
+    example_en: The car parked over there is mine.
+  - definition_en: Indicating a creation or work by the speaker.
+    example_en: The painting in the gallery is mine.
+  - definition_en: Used to claim responsibility or connection.
+    example_en: The idea for the project was mine.
+  freq: 58009
+  part_of_speech: pronoun
+  rank: 1624
+  sentence_audio_file:
+  - mine_sentence_0+Matthew+c770955a7d3f2eb5008320b648386d50.mp3
+  - mine_sentence_1+Matthew+5c4233f520ed0ec8d57c2fe33ab110ff.mp3
+  - mine_sentence_2+Matthew+7e49a00887dae6bbdb78099d95955655.mp3
+  - mine_sentence_3+Matthew+998b1b634eac68f68b8a06ada6dc0521.mp3
+  - mine_sentence_4+Matthew+c3477b976fdbf00c368dfca9f3f57c47.mp3
+  voice_id: Matthew
+  word: mine
+  word_audio_file:
+  - mine_word_0+Matthew+918b81db5e91d031548b963c93845e5b.mp3
+- back_cards:
+  - definition_en: To plan or have a purpose to do something.
+    example_en: I intend to visit my parents this weekend.
+  - definition_en: To design something for a specific use.
+    example_en: This app is intended for language learners.
+  - definition_en: To aim for a particular goal or outcome.
+    example_en: She intends to start her own business next year.
+  - definition_en: To express a future action with determination.
+    example_en: We intend to finish the report by Friday.
+  - definition_en: To mean something for a particular audience.
+    example_en: The speech was intended for young entrepreneurs.
+  freq: 57970
+  part_of_speech: verb
+  rank: 1626
+  sentence_audio_file:
+  - intend_sentence_0+Matthew+bfc8ed750b5358efae375de53ede8188.mp3
+  - intend_sentence_1+Matthew+af1702a881b2756f84decab006b09e2f.mp3
+  - intend_sentence_2+Matthew+3afb1b4b324730e4ceb667bda07d57cc.mp3
+  - intend_sentence_3+Matthew+19f7e16d9f71cbc7c5c0b68bd9c7021b.mp3
+  - intend_sentence_4+Matthew+f9df74c2b6a9f8336881cca9d2f31c8f.mp3
+  voice_id: Matthew
+  word: intend
+  word_audio_file:
+  - intend_word_0+Matthew+6f482608df6ab0d21944dd2c171a5626.mp3
+- back_cards:
+  - definition_en: Not able to happen or be done.
+    example_en: Climbing that mountain in one day is impossible.
+  - definition_en: Extremely difficult or challenging.
+    example_en: The puzzle was nearly impossible to solve.
+  - definition_en: Unrealistic or impractical.
+    example_en: His demands were impossible to meet.
+  - definition_en: Beyond belief or comprehension.
+    example_en: The beauty of the sunset was almost impossible to describe.
+  - definition_en: Causing frustration due to unfeasibility.
+    example_en: It’s impossible to work with so many distractions.
+  freq: 57892
+  part_of_speech: adjective
+  rank: 1627
+  sentence_audio_file:
+  - impossible_sentence_0+Matthew+4b8931aaeaa6e59291c8050c4f7bb77d.mp3
+  - impossible_sentence_1+Matthew+adc2881e95fe85f87b24d9293d7d7ca0.mp3
+  - impossible_sentence_2+Matthew+b757c53580d839c2c326bdb0bb754d32.mp3
+  - impossible_sentence_3+Matthew+87c4ef75ca8a6a3d23598bcfa6c26511.mp3
+  - impossible_sentence_4+Matthew+67b2c9d4c2a9df7aa8ca5a7bf39f17b1.mp3
+  voice_id: Matthew
+  word: impossible
+  word_audio_file:
+  - impossible_word_0+Matthew+79a2520f22b9e1526ff93176029603b8.mp3
+- back_cards:
+  - definition_en: Related to principles of right and wrong.
+    example_en: She faced a moral dilemma about telling the truth.
+  - definition_en: Guided by ethical standards.
+    example_en: His moral behavior earned him respect.
+  - definition_en: Concerned with fairness or justice.
+    example_en: The judge made a moral decision to protect the innocent.
+  - definition_en: Reflecting values taught by society.
+    example_en: The story had a moral lesson about honesty.
+  - definition_en: Involving personal conscience.
+    example_en: He felt a moral obligation to help his neighbor.
+  freq: 57787
+  part_of_speech: adjective
+  rank: 1628
+  sentence_audio_file:
+  - moral_sentence_0+Matthew+fd9ddb98ded1e8bdf81c9b2990446803.mp3
+  - moral_sentence_1+Matthew+920e1c1086b2c58618ef2c82617b48b2.mp3
+  - moral_sentence_2+Matthew+869cbe1c200d5a8d47f53ddf2c5e74c5.mp3
+  - moral_sentence_3+Matthew+75f667f8d1527da2d2bd12cd408cf00a.mp3
+  - moral_sentence_4+Matthew+c3d34e540183f18bd5cec0bfcf67f739.mp3
+  voice_id: Matthew
+  word: moral
+  word_audio_file:
+  - moral_word_0+Matthew+796597dabee7ee2d78aa677c282aea0b.mp3
+- back_cards:
+  - definition_en: Related to education or scholarly activities.
+    example_en: She pursued an academic career in biology.
+  - definition_en: Theoretical rather than practical.
+    example_en: The discussion was purely academic with no real-world impact.
+  - definition_en: Pertaining to school or university performance.
+    example_en: His academic achievements earned him a scholarship.
+  - definition_en: Involving formal study or research.
+    example_en: The journal published academic articles on history.
+  - definition_en: Focused on intellectual pursuits.
+    example_en: The conference attracted academic minds from around the world.
+  freq: 57717
+  part_of_speech: adjective
+  rank: 1629
+  sentence_audio_file:
+  - academic_sentence_0+Matthew+f99e8777cb7fd75add82c5b7275c0863.mp3
+  - academic_sentence_1+Matthew+622310c48be3cad23816a19032a68bc4.mp3
+  - academic_sentence_2+Matthew+b14716f59f8af6b6474eb27ba71435b0.mp3
+  - academic_sentence_3+Matthew+75c376da2b1dee5c8d0894557cf20029.mp3
+  - academic_sentence_4+Matthew+be02d055d8602220fee62eb1f4893397.mp3
+  voice_id: Matthew
+  word: academic
+  word_audio_file:
+  - academic_word_0+Matthew+8da6f5e5e803dafe72cabfdd8adb476f.mp3
+- back_cards:
+  - definition_en: An alcoholic drink made from fermented grapes.
+    example_en: She ordered a glass of red wine with dinner.
+  - definition_en: A beverage associated with celebrations.
+    example_en: They toasted with wine at the wedding.
+  - definition_en: A product of a specific region or vineyard.
+    example_en: This wine comes from the Bordeaux region.
+  - definition_en: An ingredient used in cooking.
+    example_en: The recipe calls for white wine in the sauce.
+  - definition_en: A topic of interest for enthusiasts.
+    example_en: He attended a wine tasting event to learn more.
+  freq: 57614
+  part_of_speech: noun
+  rank: 1630
+  sentence_audio_file:
+  - wine_sentence_0+Matthew+82f70140fcb5da4fbdb54d6cc261bd98.mp3
+  - wine_sentence_1+Matthew+a6f2c7559ee68900c1727be4c6273726.mp3
+  - wine_sentence_2+Matthew+934579dde001ff222f61df0a5776eca5.mp3
+  - wine_sentence_3+Matthew+4ce17334fdc830a8de32023dbf7c99ed.mp3
+  - wine_sentence_4+Matthew+b133ce64e3a0f01ac1e4e1d85192d006.mp3
+  voice_id: Matthew
+  word: wine
+  word_audio_file:
+  - wine_word_0+Matthew+3f206bd2d4fb8b6fbef3e79e1f6c3964.mp3
+- back_cards:
+  - definition_en: In a way that is not clear or easily explained.
+    example_en: Somehow, she managed to finish before the deadline.
+  freq: 57596
+  part_of_speech: adverb
+  rank: 1632
+  sentence_audio_file:
+  - somehow_sentence_0+Matthew+6940415f81c942008d017f372b2aa1b8.mp3
+  voice_id: Matthew
+  word: somehow
+  word_audio_file:
+  - somehow_word_0+Matthew+8ef136c06c0a50643ac68701fbc43189.mp3
+- back_cards:
+  - definition_en: To collect things together in one place.
+    example_en: She gathered her notes before the meeting.
+  freq: 57562
+  part_of_speech: verb
+  rank: 1633
+  sentence_audio_file:
+  - gather_sentence_0+Matthew+7665d61cb56c80fcd86a0c9951f3ad53.mp3
+  voice_id: Matthew
+  word: gather
+  word_audio_file:
+  - gather_word_0+Matthew+76a79a1cdd981d7b73a1b7cf9cc6e0de.mp3
+- back_cards:
+  - definition_en: Based on or related to scientific methods.
+    example_en: The study used advanced techniques to gather scientific evidence.
+  freq: 57547
+  part_of_speech: adjective
+  rank: 1634
+  sentence_audio_file:
+  - scientific_sentence_0+Matthew+2a4fd0d10cb4eab84c27aef885149e39.mp3
+  voice_id: Matthew
+  word: scientific
+  word_audio_file:
+  - scientific_word_0+Matthew+55a95650a66b53ecbb960b53d985b964.mp3
+- back_cards:
+  - definition_en: Related to the continent of Africa or its cultures.
+    example_en: She studied African history at university.
+  freq: 57497
+  part_of_speech: adjective
+  rank: 1635
+  sentence_audio_file:
+  - african_sentence_0+Matthew+ae5c6583cc449c5fd1b82c3bdc02ef03.mp3
+  voice_id: Matthew
+  word: African
+  word_audio_file:
+  - african_word_0+Matthew+9be80ab072f44a996b57d251ee87b557.mp3
+- back_cards:
+  - definition_en: To prepare food by heating it.
+    example_en: He loves to cook pasta for his family.
+  freq: 57383
+  part_of_speech: verb
+  rank: 1636
+  sentence_audio_file:
+  - cook_sentence_0+Matthew+610f9ecd6e8f7aa72e323422f1cb67c0.mp3
+  voice_id: Matthew
+  word: cook
+  word_audio_file:
+  - cook_word_0+Matthew+e3e90fd6d2a7c4661a1a3acf2f60bc6d.mp3
+- back_cards:
+  - definition_en: To take part in an activity or event.
+    example_en: She decided to participate in the charity run.
+  freq: 57361
+  part_of_speech: verb
+  rank: 1637
+  sentence_audio_file:
+  - participate_sentence_0+Matthew+39fdde3cdb74d6fba5307d6d37467a67.mp3
+  voice_id: Matthew
+  word: participate
+  word_audio_file:
+  - participate_word_0+Matthew+372b694cb17f1241d4323296628c9ba0.mp3
+- back_cards:
+  - definition_en: Describing someone attracted to the same gender.
+    example_en: He came out as gay to his friends last year.
+  freq: 57195
+  part_of_speech: adjective
+  rank: 1638
+  sentence_audio_file:
+  - gay_sentence_0+Matthew+f8dd0fbcbb4e62d6ed4f0375e22bd199.mp3
+  voice_id: Matthew
+  word: gay
+  word_audio_file:
+  - gay_word_0+Matthew+6e11873b9d9d94a44058bef5747735ce.mp3
+- back_cards:
+  - definition_en: Suitable or proper for a situation.
+    example_en: Her outfit was appropriate for the job interview.
+  freq: 57163
+  part_of_speech: adjective
+  rank: 1639
+  sentence_audio_file:
+  - appropriate_sentence_0+Matthew+30055469631ac298927e613d4a9cd5c9.mp3
+  voice_id: Matthew
+  word: appropriate
+  word_audio_file:
+  - appropriate_word_0+Matthew+7c8c54bbcb0c6a411c5a87b50c3ac8b4.mp3
+- back_cards:
+  - definition_en: The period of being young, typically adolescence.
+    example_en: His youth was spent exploring the countryside.
+  freq: 57132
+  part_of_speech: noun
+  rank: 1640
+  sentence_audio_file:
+  - youth_sentence_0+Matthew+b96a718e8bc1101ee438b701cef9af9a.mp3
+  voice_id: Matthew
+  word: youth
+  word_audio_file:
+  - youth_word_0+Matthew+e1342b084a6585295c7ade62c211f850.mp3
