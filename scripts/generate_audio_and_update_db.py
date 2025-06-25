@@ -49,7 +49,7 @@ except Exception as e:
 
 FAVORITE_VOICES = ['Matthew']
 
-# Unchanged functions
+# Unchanged functions (omitted for brevity, assumed to be the same as provided)
 def load_file(filename, file_type='jsonl'):
     logger.info(f"Loading: {filename}")
     try:
@@ -243,6 +243,8 @@ def process_entries(entries):
     invalid_entries = []
     first_word = None
     last_word = None
+    first_word_data = None
+    last_word_data = None
 
     with Progress(
         SpinnerColumn(),
@@ -263,7 +265,23 @@ def process_entries(entries):
             word_lower = entry['word'].lower()
             if not first_word:
                 first_word = entry['word']
+                # Store full entry data for first word
+                first_word_data = {
+                    'word': entry['word'],
+                    'rank': entry['rank'],
+                    'freq': entry['freq'],
+                    'part_of_speech': entry['part_of_speech'],
+                    'back_cards': entry['back_cards']
+                }
             last_word = entry['word']
+            # Update last word data on each iteration
+            last_word_data = {
+                'word': entry['word'],
+                'rank': entry['rank'],
+                'freq': entry['freq'],
+                'part_of_speech': entry['part_of_speech'],
+                'back_cards': entry['back_cards']
+            }
 
             existing_entry = next((e for e in vocab_db if e['word'].lower() == word_lower and e.get('voice_id') == 'Matthew'), None)
 
@@ -346,7 +364,7 @@ def process_entries(entries):
     save_file(vocab_db, VOCAB_DB_PATH, file_type='yaml')
     generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, missing_audio, first_word, last_word)
     
-    return valid_entries, invalid_entries
+    return valid_entries, invalid_entries, first_word_data, last_word_data
 
 def main():
     """Main function with streamlined high-tech UX."""
@@ -364,19 +382,36 @@ def main():
 
     console.print(f"[cyan]Processing {len(entries)} Entries...[/cyan]")
     append_to_log(entries)
-    valid_entries, invalid_entries = process_entries(entries)
+    valid_entries, invalid_entries, first_word_data, last_word_data = process_entries(entries)
     
-    if invalid_entries:
-        console.print(f"[yellow]⚠ {len(invalid_entries)} Invalid Entries Detected. See vocab_processing.log.[/yellow]")
-        logger.warning(f"Invalid entries: {invalid_entries}")
-
     if valid_entries:
+        # Print first and last word data if they exist
+        if first_word_data and last_word_data:
+            table = Table(title="📋 Processed Batch Summary", style="cyan", show_lines=True)
+            table.add_column("Field", style="bold")
+            table.add_column("First Word", justify="left")
+            table.add_column("Last Word", justify="left")
+
+            table.add_row("Word", first_word_data['word'], last_word_data['word'])
+            table.add_row("Rank", str(first_word_data['rank']), str(last_word_data['rank']))
+            table.add_row("Frequency", str(first_word_data['freq']), str(last_word_data['freq']))
+            table.add_row("Part of Speech", first_word_data['part_of_speech'], last_word_data['part_of_speech'])
+            table.add_row("Back Cards", f"{len(first_word_data['back_cards'])} cards", f"{len(last_word_data['back_cards'])} cards")
+
+            console.print(table)
+        else:
+            console.print("[yellow]⚠ No valid words processed in this batch.[/yellow]")
+
         save_file([], TEMP_VOCAB_JSONL_PATH, file_type='json')
         console.print("[green]✓ Input File Processed and Cleared.[/green]")
         logger.info("Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.")
     else:
         console.print("[red]✗ Processing Failed. Input File Not Cleared.[/red]")
         logger.warning("Batch processing failed. temp_vocab_multi_cards.jsonl not cleared.")
+
+    if invalid_entries:
+        console.print(f"[yellow]⚠ {len(invalid_entries)} Invalid Entries Detected. See vocab_processing.log.[/yellow]")
+        logger.warning(f"Invalid entries: {invalid_entries}")
 
 if __name__ == "__main__":
     main()
