@@ -41,12 +41,7 @@ body[data-theme="dark"] {
     cursor: pointer;
     padding: 8px;
     border-radius: 50%;
-    color: #1f2937;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-body[data-theme="dark"] .theme-toggle {
-    color: #e5e7eb;
+    transition: background 0.3s ease;
 }
 
 .theme-toggle:hover {
@@ -258,8 +253,7 @@ body[data-theme="dark"] .rank {
 
 .frequency-label {
     font-size: 14px;
-    font-weight: 500;
-    color: #6b7280;
+    font-weight:bow: 0px;
 }
 
 body[data-theme="dark"] .frequency-label {
