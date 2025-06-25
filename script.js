@@ -6,7 +6,7 @@ let currentAudio = null;
 let audioCache = new Map();
 const MAX_CACHE_SIZE = 10;
 let audioUnlocked = false;
-let maxFrequency = 0; // Store the maximum frequency (from rank 1 word)
+let maxFreq = 0; // To store the maximum frequency (rank 1 word)
 
 document.addEventListener('DOMContentLoaded', () => {
     loadWords();
@@ -38,9 +38,9 @@ function loadWords() {
                 alert('No vocabulary data available. Please ensure vocab_database.yaml is populated.');
                 return;
             }
-            // Sort words by rank and find max frequency (frequency of rank 1 word)
             words.sort((a, b) => a.rank - b.rank);
-            maxFrequency = words[0]?.frequency || 1; // Avoid division by zero
+            // Find the maximum frequency (frequency of rank 1 word)
+            maxFreq = words.find(word => word.rank === 1)?.freq || 1;
             displayWord();
             preloadAudio();
         })
@@ -242,36 +242,11 @@ function flipCard() {
 }
 
 function getFrequencyColor(relativeFreq) {
-    // Define color stops: red (0%), orange (50%), yellow (75%), green (100%)
-    if (relativeFreq <= 25) {
-        // Red to orange
-        const ratio = relativeFreq / 25;
-        const r = 255;
-        const g = Math.round(165 * ratio);
-        const b = 0;
-        return `rgb(${r}, ${g}, ${b})`;
-    } else if (relativeFreq <= 50) {
-        // Orange to yellow
-        const ratio = (relativeFreq - 25) / 25;
-        const r = 255;
-        const g = 165 + Math.round(90 * ratio); // 165 to 255
-        const b = 0;
-        return `rgb(${r}, ${g}, ${b})`;
-    } else if (relativeFreq <= 75) {
-        // Yellow to light green
-        const ratio = (relativeFreq - 50) / 25;
-        const r = 255 - Math.round(255 * ratio); // 255 to 0
-        const g = 255;
-        const b = 0;
-        return `rgb(${r}, ${g}, ${b})`;
-    } else {
-        // Light green to green
-        const ratio = (relativeFreq - 75) / 25;
-        const r = 0;
-        const g = 255;
-        const b = Math.round(128 * ratio); // 0 to 128
-        return `rgb(${r}, ${g}, ${b})`;
-    }
+    // Color gradient: red (0%) -> orange (50%) -> green (100%)
+    // Use HSL for smooth color transitions
+    // Hue: 0 (red) to 120 (green)
+    const hue = Math.min(relativeFreq * 1.2, 120); // Scale 0-100% to 0-120 degrees
+    return `hsl(${hue}, 80%, 50%)`;
 }
 
 function displayWord() {
@@ -280,30 +255,32 @@ function displayWord() {
         return;
     }
     const wordData = words[currentWordIndex];
-    const front = document.querySelector('.front');
-    const back = document.querySelector('.back');
     const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: '', example_en: '' };
-
+    
     // Calculate relative frequency
-    const frequency = wordData.frequency || 0;
-    const relativeFreq = Math.round((frequency * 100) / maxFrequency);
+    const relativeFreq = (wordData.freq * 100) / maxFreq;
+    const freqPercentage = relativeFreq.toFixed(0); // Rounded to nearest integer
     const freqColor = getFrequencyColor(relativeFreq);
 
-    front.innerHTML = `
+    // Update front card
+    document.querySelector('.front').innerHTML = `
         <div class="word-container">
             <h2>${wordData.word}</h2>
         </div>
         <div class="meta-info">
             <span class="rank">Rank: ${wordData.rank}</span>
             <div class="frequency-container">
-                <span class="frequency-label">Frequency: ${relativeFreq}%</span>
+                <span class="frequency-label">Frequency:</span>
+                <span class="frequency-value">${freqPercentage}%</span>
                 <div class="frequency-bar">
-                    <div class="frequency-fill" style="width: ${relativeFreq}%; background-color: ${freqColor};"></div>
+                    <div class="frequency-fill" style="width: ${freqPercentage}%; background-color: ${freqColor};"></div>
                 </div>
             </div>
         </div>
     `;
-    back.innerHTML = `
+
+    // Update back card
+    document.querySelector('.back').innerHTML = `
         <div class="word-container">
             <h2>${wordData.word}</h2>
         </div>
@@ -315,9 +292,10 @@ function displayWord() {
             <div class="meta-info">
                 <span class="rank">Rank: ${wordData.rank}</span>
                 <div class="frequency-container">
-                    <span class="frequency-label">Frequency: ${relativeFreq}%</span>
+                    <span class="frequency-label">Frequency:</span>
+                    <span class="frequency-value">${freqPercentage}%</span>
                     <div class="frequency-bar">
-                        <div class="frequency-fill" style="width: ${relativeFreq}%; background-color: ${freqColor};"></div>
+                        <div class="frequency-fill" style="width: ${freqPercentage}%; background-color: ${freqColor};"></div>
                     </div>
                 </div>
             </div>
