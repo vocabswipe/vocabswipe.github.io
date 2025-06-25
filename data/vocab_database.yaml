@@ -3469,6 +3469,16 @@
     example_en: Step back to avoid the spill.
   - definition_en: In return or repayment
     example_en: I’ll pay you back tomorrow.
+  - definition_en: To a previous place
+    example_en: She went back to her office after lunch.
+  - definition_en: In the reverse direction
+    example_en: He stepped back from the edge.
+  - definition_en: To a former state
+    example_en: The store was back to normal after the sale.
+  - definition_en: In reply
+    example_en: I’ll text you back after the meeting.
+  - definition_en: In support
+    example_en: Her team backed her idea fully.
   freq: 938649
   part_of_speech: adverb
   rank: 108
@@ -3483,6 +3493,11 @@
   - back_sentence_7+Matthew+65940cd503f5b73ef4056f90133500b8.mp3
   - back_sentence_8+Matthew+fcf2c41f12a1a6b9fbdcc31997a23592.mp3
   - back_sentence_9+Matthew+9484cd8b81da2e8188aaaf917dc8fccc.mp3
+  - back_sentence_10+Matthew+9ded0b04868bf32aead1d7788dc033db.mp3
+  - back_sentence_11+Matthew+135ebd96665df568e702bf897dc8b58e.mp3
+  - back_sentence_12+Matthew+1d8e007ee97e6416635c02e38073b125.mp3
+  - back_sentence_13+Matthew+966e7fedeef07c15968b03cd86632b1e.mp3
+  - back_sentence_14+Matthew+bfe979cd42330f4e144e9ae7c0956718.mp3
   voice_id: Matthew
   word: back
   word_audio_file:
@@ -14763,6 +14778,16 @@
     example_en: They checked their coats at the door.
   - definition_en: To investigate or look into a situation.
     example_en: I’ll check if the store is still open.
+  - definition_en: To verify accuracy
+    example_en: He checked the answers before submitting.
+  - definition_en: To mark as done
+    example_en: She checked the list after shopping.
+  - definition_en: To confirm identity
+    example_en: They checked her passport at the gate.
+  - definition_en: To inspect for safety
+    example_en: The mechanic checked the engine.
+  - definition_en: To control or restrain
+    example_en: He checked his temper during the debate.
   freq: 155591
   part_of_speech: verb
   rank: 623
@@ -14772,6 +14797,11 @@
   - check_sentence_2+Matthew+4f4b3bd0b6a348c1c62524f445a4be00.mp3
   - check_sentence_3+Matthew+4bbb3f32e7766ebc2da8743b2b0e5067.mp3
   - check_sentence_4+Matthew+9de20ac7ad76a1dd9f495a6b135493aa.mp3
+  - check_sentence_5+Matthew+0d8666db07fb1a3a06c3029a6357446a.mp3
+  - check_sentence_6+Matthew+7ac26bef750b968d182c380da4e009f0.mp3
+  - check_sentence_7+Matthew+fd872cb9b9ca399325026fb69278d1af.mp3
+  - check_sentence_8+Matthew+8d3cadc9c432462b2d2e18cc4c531958.mp3
+  - check_sentence_9+Matthew+c37505768d1af387dc006e1f5f0114e2.mp3
   voice_id: Matthew
   word: check
   word_audio_file:
@@ -40206,3 +40236,435 @@
   word: pm
   word_audio_file:
   - pm_word_0+Matthew+5109d85d95fece7816d9704e6e5b1279.mp3
+- back_cards:
+  - definition_en: A flat piece used in construction
+    example_en: The carpenter fitted a wooden panel to the door.
+  - definition_en: A group of experts
+    example_en: The panel discussed environmental policies.
+  - definition_en: A control board with instruments
+    example_en: The pilot monitored the aircraft’s panel.
+  - definition_en: A decorative section
+    example_en: The museum showcased an ancient carved panel.
+  - definition_en: A judging committee
+    example_en: The panel selected the winner of the contest.
+  freq: 50544
+  part_of_speech: noun
+  rank: 1801
+  sentence_audio_file:
+  - panel_sentence_0+Matthew+bf4fc6a672afae531e9a5d7c8f8fdb53.mp3
+  - panel_sentence_1+Matthew+06e91ad2480e65ece3bd6c79d665d391.mp3
+  - panel_sentence_2+Matthew+e3e76e0e0872957badab5be87cf9b9d3.mp3
+  - panel_sentence_3+Matthew+5956a311c954289772f300077f3ea068.mp3
+  - panel_sentence_4+Matthew+bd50fab08a5744f9c7ab3082bea7f8c0.mp3
+  voice_id: Matthew
+  word: panel
+  word_audio_file:
+  - panel_word_0+Matthew+f1e5d7a5fe13498abbdeb0f1f19136a8.mp3
+- back_cards:
+  - definition_en: A person admired for bravery
+    example_en: The firefighter was hailed as a hero.
+  - definition_en: The protagonist in a story
+    example_en: The hero of the novel saved the village.
+  - definition_en: An inspiring figure
+    example_en: Her teacher was her hero growing up.
+  - definition_en: A mythological champion
+    example_en: Hercules is a famous Greek hero.
+  - definition_en: A celebrated individual
+    example_en: The athlete became a national hero.
+  freq: 50520
+  part_of_speech: noun
+  rank: 1802
+  sentence_audio_file:
+  - hero_sentence_0+Matthew+b50b7a62f9cfaeac38a0080981cb2f31.mp3
+  - hero_sentence_1+Matthew+c90e716091ca553be9ab392c1b60e1ec.mp3
+  - hero_sentence_2+Matthew+a53231a9dc185c833adabc4556640147.mp3
+  - hero_sentence_3+Matthew+a9f8db2128f75a5ee52b3f5c57c1e70a.mp3
+  - hero_sentence_4+Matthew+46cbad92531811dff5f2b9091ee1d61a.mp3
+  voice_id: Matthew
+  word: hero
+  word_audio_file:
+  - hero_word_0+Matthew+f04af61b3f332afa0ceec786a42cd365.mp3
+- back_cards:
+  - definition_en: A round geometric shape
+    example_en: She drew a circle on the board.
+  - definition_en: A group with shared interests
+    example_en: Their reading circle met weekly.
+  - definition_en: A seating arrangement
+    example_en: The children sat in a circle for the game.
+  - definition_en: A repetitive cycle
+    example_en: The seasons follow a circle each year.
+  - definition_en: A defined area
+    example_en: The park lies within the city circle.
+  freq: 50510
+  part_of_speech: noun
+  rank: 1803
+  sentence_audio_file:
+  - circle_sentence_0+Matthew+ece458a0dfeb84cebf33519f09be8078.mp3
+  - circle_sentence_1+Matthew+03aba2d6057aa4691f44bc353991ae98.mp3
+  - circle_sentence_2+Matthew+57b293e4735cb31467c4f303fcba7283.mp3
+  - circle_sentence_3+Matthew+db344c7e1f587a53f6236aaf48e9f9be.mp3
+  - circle_sentence_4+Matthew+a458376642a9bd09111da8cce5348166.mp3
+  voice_id: Matthew
+  word: circle
+  word_audio_file:
+  - circle_word_0+Matthew+9b6ddeba5b33e577c07c35d8505c6072.mp3
+- back_cards:
+  - definition_en: A reviewer of art or media
+    example_en: The film critic wrote a glowing review.
+  - definition_en: A person who finds faults
+    example_en: Her boss was a tough critic of her work.
+  - definition_en: An evaluator of performance
+    example_en: The music critic praised the singer.
+  - definition_en: A skeptic of ideas
+    example_en: He was a critic of the new law.
+  - definition_en: A literary analyst
+    example_en: The critic explored the poem’s themes.
+  freq: 50462
+  part_of_speech: noun
+  rank: 1804
+  sentence_audio_file:
+  - critic_sentence_0+Matthew+b8d3764555432e84190bfba25d4d9b0f.mp3
+  - critic_sentence_1+Matthew+e3cc57289bd1e7a6755d3548c53b8795.mp3
+  - critic_sentence_2+Matthew+fe03c7026141ea90590db393f3703d2f.mp3
+  - critic_sentence_3+Matthew+83d233117b36ce39d2520eef18bfb942.mp3
+  - critic_sentence_4+Matthew+1360a9fab3d010b0768f78a641567ec9.mp3
+  voice_id: Matthew
+  word: critic
+  word_audio_file:
+  - critic_word_0+Matthew+9e09e4f9629187f35bd6188c0fc16a06.mp3
+- back_cards:
+  - definition_en: To find a solution
+    example_en: She solved the puzzle in ten minutes.
+  - definition_en: To settle a dispute
+    example_en: They met to solve their conflict.
+  - definition_en: To fix a technical problem
+    example_en: He solved the issue with the printer.
+  - definition_en: To crack a mystery
+    example_en: The detective solved the crime quickly.
+  - definition_en: To address a challenge
+    example_en: They worked to solve the funding issue.
+  freq: 50437
+  part_of_speech: verb
+  rank: 1805
+  sentence_audio_file:
+  - solve_sentence_0+Matthew+8cb7b20750964378c69101da7817b1d7.mp3
+  - solve_sentence_1+Matthew+89fc3ea64158f20d84a37b8c5e80fd43.mp3
+  - solve_sentence_2+Matthew+3cfbe5f9f909ce786c2939b7c2676592.mp3
+  - solve_sentence_3+Matthew+5f375e84e4cf7684e7b42be7f657b376.mp3
+  - solve_sentence_4+Matthew+82c8448e4fc58b8185923b0ffe7aa13a.mp3
+  voice_id: Matthew
+  word: solve
+  word_audio_file:
+  - solve_word_0+Matthew+a6d7ccb276ae142a8814d71751908bce.mp3
+- back_cards:
+  - definition_en: Having many tasks
+    example_en: She was too busy to meet for lunch.
+  - definition_en: Full of activity
+    example_en: The streets were busy during the festival.
+  - definition_en: Occupied with work
+    example_en: He kept busy painting the house.
+  - definition_en: Crowded with details
+    example_en: The artwork was busy with vibrant patterns.
+  - definition_en: Engaged in communication
+    example_en: The phone was busy when I called.
+  freq: 50363
+  part_of_speech: adjective
+  rank: 1806
+  sentence_audio_file:
+  - busy_sentence_0+Matthew+f4fe5ca996cb3d3beb911c8c3b58a210.mp3
+  - busy_sentence_1+Matthew+4e89561e1078113d9dd76e04ae8108b3.mp3
+  - busy_sentence_2+Matthew+855c064a3d8e7b078d536b9d54b160f0.mp3
+  - busy_sentence_3+Matthew+456a2c9605871471493dcf395f606a97.mp3
+  - busy_sentence_4+Matthew+45dc9e7eb4585de4c607e19e0ab99f6d.mp3
+  voice_id: Matthew
+  word: busy
+  word_audio_file:
+  - busy_word_0+Matthew+8bc1b2f84252c3df4edd53e4aad097a7.mp3
+- back_cards:
+  - definition_en: A part of a series
+    example_en: The new episode aired last night.
+  - definition_en: A single incident
+    example_en: The argument was a brief episode.
+  - definition_en: A podcast segment
+    example_en: The episode covered space exploration.
+  - definition_en: A period of illness
+    example_en: He recovered from an episode of flu.
+  - definition_en: A story chapter
+    example_en: The book’s final episode was thrilling.
+  freq: 50354
+  part_of_speech: noun
+  rank: 1807
+  sentence_audio_file:
+  - episode_sentence_0+Matthew+af3a609495cf2384e23e0b4d926b13f0.mp3
+  - episode_sentence_1+Matthew+a8c3a839030a629bf88d68d216e283b0.mp3
+  - episode_sentence_2+Matthew+b16cc02131f4f97fc7b2d8f30b4de4f2.mp3
+  - episode_sentence_3+Matthew+198981e1be5f04d131de8d87a395375f.mp3
+  - episode_sentence_4+Matthew+9513ea7cd6236a09a7b7c100685f7793.mp3
+  voice_id: Matthew
+  word: episode
+  word_audio_file:
+  - episode_word_0+Matthew+ec3781968a859f5a11da097c5a602ac8.mp3
+- back_cards:
+  - definition_en: A necessary condition
+    example_en: A degree is a requirement for the job.
+  - definition_en: A rule to follow
+    example_en: The course has strict requirements.
+  - definition_en: A product specification
+    example_en: The software met all requirements.
+  - definition_en: A prerequisite
+    example_en: Passing the test is a requirement.
+  - definition_en: A legal obligation
+    example_en: Safety requirements must be followed.
+  freq: 50272
+  part_of_speech: noun
+  rank: 1810
+  sentence_audio_file:
+  - requirement_sentence_0+Matthew+aa120f4ac051e4cff64b205647d41fb4.mp3
+  - requirement_sentence_1+Matthew+3a71b704acf71fdc0f385e28bb8dcc43.mp3
+  - requirement_sentence_2+Matthew+0fc9e4e44c1df8849354b614c76ae4da.mp3
+  - requirement_sentence_3+Matthew+9ba644645dc55e8998dc1cd80e1979d8.mp3
+  - requirement_sentence_4+Matthew+13c5e0d8e46f4efe1803503f50ac0f51.mp3
+  voice_id: Matthew
+  word: requirement
+  word_audio_file:
+  - requirement_word_0+Matthew+ba12fb48e2d23bb2bd2819f64d02ec7e.mp3
+- back_cards:
+  - definition_en: A government official
+    example_en: The politician spoke about tax reform.
+  - definition_en: A candidate for office
+    example_en: She ran as a politician for mayor.
+  - definition_en: A policy advocate
+    example_en: The politician pushed for education funding.
+  - definition_en: A strategic leader
+    example_en: He was a skilled politician in debates.
+  - definition_en: A public servant
+    example_en: The politician listened to community concerns.
+  freq: 50171
+  part_of_speech: noun
+  rank: 1811
+  sentence_audio_file:
+  - politician_sentence_0+Matthew+59dd124bc7e84558b4dddcb38e5ce515.mp3
+  - politician_sentence_1+Matthew+e7a5d98e58d9ed37aedaec1acac92969.mp3
+  - politician_sentence_2+Matthew+4fa04609cb080136c39ce675dd480459.mp3
+  - politician_sentence_3+Matthew+41c91453b3941cb821c89614932df27f.mp3
+  - politician_sentence_4+Matthew+c0da4c64bfae7671e1590e9530a3c498.mp3
+  voice_id: Matthew
+  word: politician
+  word_audio_file:
+  - politician_word_0+Matthew+8832a7190f55e53078e8aa42aad1e5b2.mp3
+- back_cards:
+  - definition_en: Precipitation from clouds
+    example_en: The rain fell heavily all morning.
+  - definition_en: A spell of wet weather
+    example_en: The rain ruined our outdoor plans.
+  - definition_en: A sudden downpour
+    example_en: The rain flooded the streets.
+  - definition_en: A symbol of abundance
+    example_en: A rain of petals fell at the festival.
+  - definition_en: An obstacle to outdoor work
+    example_en: The rain delayed the construction work.
+  freq: 50093
+  part_of_speech: noun
+  rank: 1812
+  sentence_audio_file:
+  - rain_sentence_0+Matthew+a60a7a05fe77485fddad32991fcf17b0.mp3
+  - rain_sentence_1+Matthew+a7e2fb8d794ef3a5a88e3ec3ceae31d3.mp3
+  - rain_sentence_2+Matthew+4e55405425784dd4fb5d6dfa301b9fbc.mp3
+  - rain_sentence_3+Matthew+78e5eb034db6db756f43463f05f4f0f1.mp3
+  - rain_sentence_4+Matthew+a4052547ada82a0f56bf4bf0fbfada6a.mp3
+  voice_id: Matthew
+  word: rain
+  word_audio_file:
+  - rain_word_0+Matthew+23678db5efde9ab46bce8c23a6d91b50.mp3
+- back_cards:
+  - definition_en: A work partner
+    example_en: My colleague helped with the presentation.
+  - definition_en: A professional peer
+    example_en: She met colleagues at the conference.
+  - definition_en: A teammate
+    example_en: Her colleagues supported the new initiative.
+  - definition_en: A collaborator
+    example_en: He and his colleague designed the website.
+  - definition_en: A fellow worker
+    example_en: Her colleague shared the office space.
+  freq: 50084
+  part_of_speech: noun
+  rank: 1813
+  sentence_audio_file:
+  - colleague_sentence_0+Matthew+5f6dc75feb5596eae082fe448d749777.mp3
+  - colleague_sentence_1+Matthew+9ed8192fb2a4f0fdb3cef5ea54dd2dce.mp3
+  - colleague_sentence_2+Matthew+cdc6e194a663d8d6d6ba0402bd9f53c4.mp3
+  - colleague_sentence_3+Matthew+6909a5a9b2938e5b1cd40c2e3240ce49.mp3
+  - colleague_sentence_4+Matthew+383e645f7d6a64b19752777998992c39.mp3
+  voice_id: Matthew
+  word: colleague
+  word_audio_file:
+  - colleague_word_0+Matthew+2799d44695d2f1ac3b39b8a3a384309e.mp3
+- back_cards:
+  - definition_en: To vanish from view
+    example_en: The moon disappeared behind the clouds.
+  - definition_en: To go missing
+    example_en: Her keys disappeared from her bag.
+  - definition_en: To fade away
+    example_en: The pain disappeared after rest.
+  - definition_en: To leave unexpectedly
+    example_en: He disappeared after the party.
+  - definition_en: To become extinct
+    example_en: Some traditions disappear over time.
+  freq: 50053
+  part_of_speech: verb
+  rank: 1814
+  sentence_audio_file:
+  - disappear_sentence_0+Matthew+02ceb54108bddf9ad0bfe8f1a0b697a9.mp3
+  - disappear_sentence_1+Matthew+22f59dbd6c34b3c37d9acb789361e8fc.mp3
+  - disappear_sentence_2+Matthew+a1dc08e9dd116f5ac672a481fc6e960e.mp3
+  - disappear_sentence_3+Matthew+c3790506fded287b59fc5a9cb4d65065.mp3
+  - disappear_sentence_4+Matthew+7e023ff50fbe8fdd636fd95b5849b5b9.mp3
+  voice_id: Matthew
+  word: disappear
+  word_audio_file:
+  - disappear_word_0+Matthew+eb17b0496bd600be4f3a203a62e2654d.mp3
+- back_cards:
+  - definition_en: An alcoholic beverage
+    example_en: He enjoyed a cold beer after work.
+  - definition_en: A drink for social events
+    example_en: They served beer at the barbecue.
+  - definition_en: A crafted brew
+    example_en: This beer is made with local ingredients.
+  - definition_en: A meal companion
+    example_en: Beer pairs well with spicy food.
+  - definition_en: A cultural staple
+    example_en: Beer was central to the festival.
+  freq: 50024
+  part_of_speech: noun
+  rank: 1815
+  sentence_audio_file:
+  - beer_sentence_0+Matthew+8fc1a9d7d1655682b2c80bde3adfc541.mp3
+  - beer_sentence_1+Matthew+2632cbe4ad1dccf30d8767d6e493f50b.mp3
+  - beer_sentence_2+Matthew+2bce778f646e33006a9c10a52bb627e9.mp3
+  - beer_sentence_3+Matthew+45f954c4e8402cd3b9326cd9a0c81b8b.mp3
+  - beer_sentence_4+Matthew+4c0b94fcb563ac347409a2d75d75e7e8.mp3
+  voice_id: Matthew
+  word: beer
+  word_audio_file:
+  - beer_word_0+Matthew+3e1867f5aee83045775fbe355e6a3ce1.mp3
+- back_cards:
+  - definition_en: To forecast the future
+    example_en: The app predicted rain this evening.
+  - definition_en: To anticipate results
+    example_en: She predicted the team’s victory.
+  - definition_en: To estimate in research
+    example_en: Scientists predict rising temperatures.
+  - definition_en: To guess trends
+    example_en: Analysts predict market growth.
+  - definition_en: To foresee actions
+    example_en: He predicted she’d arrive late.
+  freq: 50013
+  part_of_speech: verb
+  rank: 1816
+  sentence_audio_file:
+  - predict_sentence_0+Matthew+27465706ae4edf850f30cea9e6fad860.mp3
+  - predict_sentence_1+Matthew+c8293fad1004aebf27d7b1e2527c855b.mp3
+  - predict_sentence_2+Matthew+2022b335b96cc437dab1000de496a0c0.mp3
+  - predict_sentence_3+Matthew+7d66fedfa4460fc773eae6cf0510bf5f.mp3
+  - predict_sentence_4+Matthew+7086f91c5388c7d24fe3b5625e4e0345.mp3
+  voice_id: Matthew
+  word: predict
+  word_audio_file:
+  - predict_word_0+Matthew+59a9f87755ec523b0db73207fc8362df.mp3
+- back_cards:
+  - definition_en: Physical activity for health
+    example_en: Daily exercise keeps her energized.
+  - definition_en: A practice task
+    example_en: The math exercise was challenging.
+  - definition_en: A training drill
+    example_en: The army conducted a night exercise.
+  - definition_en: A mental workout
+    example_en: Crosswords are a great brain exercise.
+  - definition_en: A routine for fitness
+    example_en: Her exercise included jogging and yoga.
+  freq: 49985
+  part_of_speech: noun
+  rank: 1817
+  sentence_audio_file:
+  - exercise_sentence_0+Matthew+cfc63991fc3b891ed0da45552cbc0524.mp3
+  - exercise_sentence_1+Matthew+235af4a5266d0e689e9bb40550732615.mp3
+  - exercise_sentence_2+Matthew+3da81db6a65fb08e812bd982bfcab08a.mp3
+  - exercise_sentence_3+Matthew+320b99b05e1110b62af07a24dea517ef.mp3
+  - exercise_sentence_4+Matthew+358a8e6f4e3fa773aa62747061003937.mp3
+  voice_id: Matthew
+  word: exercise
+  word_audio_file:
+  - exercise_word_0+Matthew+97e96b9b630acd157725fa00eff11a80.mp3
+- back_cards:
+  - definition_en: Needing rest
+    example_en: He was tired after a long day.
+  - definition_en: Exhausted from effort
+    example_en: The runners were tired after the race.
+  - definition_en: Bored of something
+    example_en: She was tired of the same routine.
+  - definition_en: Sleepy
+    example_en: The kids were tired by bedtime.
+  - definition_en: Emotionally drained
+    example_en: He felt tired from the stress.
+  freq: 49972
+  part_of_speech: adjective
+  rank: 1818
+  sentence_audio_file:
+  - tired_sentence_0+Matthew+6ec2ffdad82a1320b6465f53793e0e37.mp3
+  - tired_sentence_1+Matthew+e9deaad1ae0bc8293fa6fbdd705c83ba.mp3
+  - tired_sentence_2+Matthew+a5059e9c90c67236e57dc848f53595a0.mp3
+  - tired_sentence_3+Matthew+fab6a63c159dc3f582122eae131ba56b.mp3
+  - tired_sentence_4+Matthew+e9ffc43dfb15dc07765d454ac9f62aa2.mp3
+  voice_id: Matthew
+  word: tired
+  word_audio_file:
+  - tired_word_0+Matthew+287f44f35ecb230e8b997abaad077f46.mp3
+- back_cards:
+  - definition_en: Government by the people
+    example_en: Democracy ensures fair elections.
+  - definition_en: A system of equality
+    example_en: She advocated for democracy in her speech.
+  - definition_en: A free society
+    example_en: The nation embraced democracy recently.
+  - definition_en: A culture of debate
+    example_en: Democracy encourages open discussions.
+  - definition_en: A principle of fairness
+    example_en: They valued democracy above all.
+  freq: 49951
+  part_of_speech: noun
+  rank: 1819
+  sentence_audio_file:
+  - democracy_sentence_0+Matthew+12e800fe53fb916ed969d4206d8d874d.mp3
+  - democracy_sentence_1+Matthew+a651dd9950085b087383bdf29f18b9d0.mp3
+  - democracy_sentence_2+Matthew+2bfce89dfcc9efd25371c840a36c7784.mp3
+  - democracy_sentence_3+Matthew+67ae93d06d636f4a26273b0f667df0f9.mp3
+  - democracy_sentence_4+Matthew+ebd054d82a79996c07d2154ebd08bdb5.mp3
+  voice_id: Matthew
+  word: democracy
+  word_audio_file:
+  - democracy_word_0+Matthew+09775ee2f13677b36a85834d4798e375.mp3
+- back_cards:
+  - definition_en: In the final outcome
+    example_en: She studied hard and ultimately passed.
+  - definition_en: As the main result
+    example_en: Ultimately, family was her priority.
+  - definition_en: After all factors
+    example_en: They disagreed but ultimately compromised.
+  - definition_en: At the core
+    example_en: Her choice was ultimately personal.
+  - definition_en: As a final step
+    example_en: The deal was ultimately finalized.
+  freq: 49899
+  part_of_speech: adverb
+  rank: 1820
+  sentence_audio_file:
+  - ultimately_sentence_0+Matthew+ed0ab335489e48f3b201c50b5f705a6e.mp3
+  - ultimately_sentence_1+Matthew+f641e694381d17655b16aee4885ad88c.mp3
+  - ultimately_sentence_2+Matthew+93690a4c76e13d6a75bf611f5e5019b5.mp3
+  - ultimately_sentence_3+Matthew+64485da24beafc2090b3275ef5ee03e4.mp3
+  - ultimately_sentence_4+Matthew+e821873b18ae3332c7c41e5460adb34e.mp3
+  voice_id: Matthew
+  word: ultimately
+  word_audio_file:
+  - ultimately_word_0+Matthew+1dae6a6c4ed17ee5fa5474dea93ad48f.mp3

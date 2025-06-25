@@ -19317,3 +19317,137 @@ expected <block end>, but found '<block mapping start>'
 2025-06-25 18:30:36,278 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
 2025-06-25 18:30:36,278 - ERROR - Error parsing 'D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl': Expecting ',' delimiter: line 1 column 69 (char 68)
 2025-06-25 18:30:36,278 - WARNING - No entries to process
+2025-06-25 18:59:15,350 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-25 18:59:15,577 - INFO - AWS Polly client initialized successfully.
+2025-06-25 18:59:15,585 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 18:59:15,587 - ERROR - Error parsing 'D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl': Extra data: line 1 column 362 (char 361)
+2025-06-25 18:59:15,588 - WARNING - No entries to process
+2025-06-25 19:01:22,413 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-25 19:01:22,627 - INFO - AWS Polly client initialized successfully.
+2025-06-25 19:01:22,634 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 19:01:22,636 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 19:01:34,961 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 19:01:34,961 - INFO - Appended 20 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 19:01:34,981 - INFO - Loading: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-25 19:01:42,668 - INFO - Generated audio for '<speak>panel</speak>' at D:\vocabswipe.github.io\data\audio\panel_word_0+Matthew+f1e5d7a5fe13498abbdeb0f1f19136a8.mp3
+2025-06-25 19:01:43,548 - INFO - Generated audio for '<speak>panel. The carpenter fitted a wooden panel to the door.</speak>' at D:\vocabswipe.github.io\data\audio\panel_sentence_0+Matthew+bf4fc6a672afae531e9a5d7c8f8fdb53.mp3
+2025-06-25 19:01:43,924 - INFO - Generated audio for '<speak>panel. The panel discussed environmental policies.</speak>' at D:\vocabswipe.github.io\data\audio\panel_sentence_1+Matthew+06e91ad2480e65ece3bd6c79d665d391.mp3
+2025-06-25 19:01:44,330 - INFO - Generated audio for '<speak>panel. The pilot monitored the aircraft’s panel.</speak>' at D:\vocabswipe.github.io\data\audio\panel_sentence_2+Matthew+e3e76e0e0872957badab5be87cf9b9d3.mp3
+2025-06-25 19:01:44,709 - INFO - Generated audio for '<speak>panel. The museum showcased an ancient carved panel.</speak>' at D:\vocabswipe.github.io\data\audio\panel_sentence_3+Matthew+5956a311c954289772f300077f3ea068.mp3
+2025-06-25 19:01:45,083 - INFO - Generated audio for '<speak>panel. The panel selected the winner of the contest.</speak>' at D:\vocabswipe.github.io\data\audio\panel_sentence_4+Matthew+bd50fab08a5744f9c7ab3082bea7f8c0.mp3
+2025-06-25 19:01:45,415 - INFO - Generated audio for '<speak>hero</speak>' at D:\vocabswipe.github.io\data\audio\hero_word_0+Matthew+f04af61b3f332afa0ceec786a42cd365.mp3
+2025-06-25 19:01:45,798 - INFO - Generated audio for '<speak>hero. The firefighter was hailed as a hero.</speak>' at D:\vocabswipe.github.io\data\audio\hero_sentence_0+Matthew+b50b7a62f9cfaeac38a0080981cb2f31.mp3
+2025-06-25 19:01:46,182 - INFO - Generated audio for '<speak>hero. The hero of the novel saved the village.</speak>' at D:\vocabswipe.github.io\data\audio\hero_sentence_1+Matthew+c90e716091ca553be9ab392c1b60e1ec.mp3
+2025-06-25 19:01:46,552 - INFO - Generated audio for '<speak>hero. Her teacher was her hero growing up.</speak>' at D:\vocabswipe.github.io\data\audio\hero_sentence_2+Matthew+a53231a9dc185c833adabc4556640147.mp3
+2025-06-25 19:01:46,930 - INFO - Generated audio for '<speak>hero. Hercules is a famous Greek hero.</speak>' at D:\vocabswipe.github.io\data\audio\hero_sentence_3+Matthew+a9f8db2128f75a5ee52b3f5c57c1e70a.mp3
+2025-06-25 19:01:47,334 - INFO - Generated audio for '<speak>hero. The athlete became a national hero.</speak>' at D:\vocabswipe.github.io\data\audio\hero_sentence_4+Matthew+46cbad92531811dff5f2b9091ee1d61a.mp3
+2025-06-25 19:01:47,740 - INFO - Generated audio for '<speak>circle</speak>' at D:\vocabswipe.github.io\data\audio\circle_word_0+Matthew+9b6ddeba5b33e577c07c35d8505c6072.mp3
+2025-06-25 19:01:48,114 - INFO - Generated audio for '<speak>circle. She drew a circle on the board.</speak>' at D:\vocabswipe.github.io\data\audio\circle_sentence_0+Matthew+ece458a0dfeb84cebf33519f09be8078.mp3
+2025-06-25 19:01:48,490 - INFO - Generated audio for '<speak>circle. Their reading circle met weekly.</speak>' at D:\vocabswipe.github.io\data\audio\circle_sentence_1+Matthew+03aba2d6057aa4691f44bc353991ae98.mp3
+2025-06-25 19:01:48,880 - INFO - Generated audio for '<speak>circle. The children sat in a circle for the game.</speak>' at D:\vocabswipe.github.io\data\audio\circle_sentence_2+Matthew+57b293e4735cb31467c4f303fcba7283.mp3
+2025-06-25 19:01:49,273 - INFO - Generated audio for '<speak>circle. The seasons follow a circle each year.</speak>' at D:\vocabswipe.github.io\data\audio\circle_sentence_3+Matthew+db344c7e1f587a53f6236aaf48e9f9be.mp3
+2025-06-25 19:01:49,646 - INFO - Generated audio for '<speak>circle. The park lies within the city circle.</speak>' at D:\vocabswipe.github.io\data\audio\circle_sentence_4+Matthew+a458376642a9bd09111da8cce5348166.mp3
+2025-06-25 19:01:49,980 - INFO - Generated audio for '<speak>critic</speak>' at D:\vocabswipe.github.io\data\audio\critic_word_0+Matthew+9e09e4f9629187f35bd6188c0fc16a06.mp3
+2025-06-25 19:01:50,412 - INFO - Generated audio for '<speak>critic. The film critic wrote a glowing review.</speak>' at D:\vocabswipe.github.io\data\audio\critic_sentence_0+Matthew+b8d3764555432e84190bfba25d4d9b0f.mp3
+2025-06-25 19:01:50,794 - INFO - Generated audio for '<speak>critic. Her boss was a tough critic of her work.</speak>' at D:\vocabswipe.github.io\data\audio\critic_sentence_1+Matthew+e3cc57289bd1e7a6755d3548c53b8795.mp3
+2025-06-25 19:01:51,155 - INFO - Generated audio for '<speak>critic. The music critic praised the singer.</speak>' at D:\vocabswipe.github.io\data\audio\critic_sentence_2+Matthew+fe03c7026141ea90590db393f3703d2f.mp3
+2025-06-25 19:01:51,536 - INFO - Generated audio for '<speak>critic. He was a critic of the new law.</speak>' at D:\vocabswipe.github.io\data\audio\critic_sentence_3+Matthew+83d233117b36ce39d2520eef18bfb942.mp3
+2025-06-25 19:01:51,900 - INFO - Generated audio for '<speak>critic. The critic explored the poem’s themes.</speak>' at D:\vocabswipe.github.io\data\audio\critic_sentence_4+Matthew+1360a9fab3d010b0768f78a641567ec9.mp3
+2025-06-25 19:01:52,234 - INFO - Generated audio for '<speak>solve</speak>' at D:\vocabswipe.github.io\data\audio\solve_word_0+Matthew+a6d7ccb276ae142a8814d71751908bce.mp3
+2025-06-25 19:01:52,801 - INFO - Generated audio for '<speak>solve. She solved the puzzle in ten minutes.</speak>' at D:\vocabswipe.github.io\data\audio\solve_sentence_0+Matthew+8cb7b20750964378c69101da7817b1d7.mp3
+2025-06-25 19:01:53,179 - INFO - Generated audio for '<speak>solve. They met to solve their conflict.</speak>' at D:\vocabswipe.github.io\data\audio\solve_sentence_1+Matthew+89fc3ea64158f20d84a37b8c5e80fd43.mp3
+2025-06-25 19:01:53,563 - INFO - Generated audio for '<speak>solve. He solved the issue with the printer.</speak>' at D:\vocabswipe.github.io\data\audio\solve_sentence_2+Matthew+3cfbe5f9f909ce786c2939b7c2676592.mp3
+2025-06-25 19:01:53,946 - INFO - Generated audio for '<speak>solve. The detective solved the crime quickly.</speak>' at D:\vocabswipe.github.io\data\audio\solve_sentence_3+Matthew+5f375e84e4cf7684e7b42be7f657b376.mp3
+2025-06-25 19:01:54,864 - INFO - Generated audio for '<speak>solve. They worked to solve the funding issue.</speak>' at D:\vocabswipe.github.io\data\audio\solve_sentence_4+Matthew+82c8448e4fc58b8185923b0ffe7aa13a.mp3
+2025-06-25 19:01:55,199 - INFO - Generated audio for '<speak>busy</speak>' at D:\vocabswipe.github.io\data\audio\busy_word_0+Matthew+8bc1b2f84252c3df4edd53e4aad097a7.mp3
+2025-06-25 19:01:55,638 - INFO - Generated audio for '<speak>busy. She was too busy to meet for lunch.</speak>' at D:\vocabswipe.github.io\data\audio\busy_sentence_0+Matthew+f4fe5ca996cb3d3beb911c8c3b58a210.mp3
+2025-06-25 19:01:58,901 - INFO - Generated audio for '<speak>busy. The streets were busy during the festival.</speak>' at D:\vocabswipe.github.io\data\audio\busy_sentence_1+Matthew+4e89561e1078113d9dd76e04ae8108b3.mp3
+2025-06-25 19:01:59,275 - INFO - Generated audio for '<speak>busy. He kept busy painting the house.</speak>' at D:\vocabswipe.github.io\data\audio\busy_sentence_2+Matthew+855c064a3d8e7b078d536b9d54b160f0.mp3
+2025-06-25 19:01:59,933 - INFO - Generated audio for '<speak>busy. The artwork was busy with vibrant patterns.</speak>' at D:\vocabswipe.github.io\data\audio\busy_sentence_3+Matthew+456a2c9605871471493dcf395f606a97.mp3
+2025-06-25 19:02:00,345 - INFO - Generated audio for '<speak>busy. The phone was busy when I called.</speak>' at D:\vocabswipe.github.io\data\audio\busy_sentence_4+Matthew+45dc9e7eb4585de4c607e19e0ab99f6d.mp3
+2025-06-25 19:02:00,847 - INFO - Generated audio for '<speak>episode</speak>' at D:\vocabswipe.github.io\data\audio\episode_word_0+Matthew+ec3781968a859f5a11da097c5a602ac8.mp3
+2025-06-25 19:02:01,366 - INFO - Generated audio for '<speak>episode. The new episode aired last night.</speak>' at D:\vocabswipe.github.io\data\audio\episode_sentence_0+Matthew+af3a609495cf2384e23e0b4d926b13f0.mp3
+2025-06-25 19:02:01,739 - INFO - Generated audio for '<speak>episode. The argument was a brief episode.</speak>' at D:\vocabswipe.github.io\data\audio\episode_sentence_1+Matthew+a8c3a839030a629bf88d68d216e283b0.mp3
+2025-06-25 19:02:02,137 - INFO - Generated audio for '<speak>episode. The episode covered space exploration.</speak>' at D:\vocabswipe.github.io\data\audio\episode_sentence_2+Matthew+b16cc02131f4f97fc7b2d8f30b4de4f2.mp3
+2025-06-25 19:02:02,547 - INFO - Generated audio for '<speak>episode. He recovered from an episode of flu.</speak>' at D:\vocabswipe.github.io\data\audio\episode_sentence_3+Matthew+198981e1be5f04d131de8d87a395375f.mp3
+2025-06-25 19:02:02,959 - INFO - Generated audio for '<speak>episode. The book’s final episode was thrilling.</speak>' at D:\vocabswipe.github.io\data\audio\episode_sentence_4+Matthew+9513ea7cd6236a09a7b7c100685f7793.mp3
+2025-06-25 19:02:03,351 - INFO - Generated audio for '<speak>back. She went back to her office after lunch.</speak>' at D:\vocabswipe.github.io\data\audio\back_sentence_10+Matthew+9ded0b04868bf32aead1d7788dc033db.mp3
+2025-06-25 19:02:03,749 - INFO - Generated audio for '<speak>back. He stepped back from the edge.</speak>' at D:\vocabswipe.github.io\data\audio\back_sentence_11+Matthew+135ebd96665df568e702bf897dc8b58e.mp3
+2025-06-25 19:02:04,166 - INFO - Generated audio for '<speak>back. The store was back to normal after the sale.</speak>' at D:\vocabswipe.github.io\data\audio\back_sentence_12+Matthew+1d8e007ee97e6416635c02e38073b125.mp3
+2025-06-25 19:02:04,566 - INFO - Generated audio for '<speak>back. I’ll text you back after the meeting.</speak>' at D:\vocabswipe.github.io\data\audio\back_sentence_13+Matthew+966e7fedeef07c15968b03cd86632b1e.mp3
+2025-06-25 19:02:04,992 - INFO - Generated audio for '<speak>back. Her team backed her idea fully.</speak>' at D:\vocabswipe.github.io\data\audio\back_sentence_14+Matthew+bfe979cd42330f4e144e9ae7c0956718.mp3
+2025-06-25 19:02:05,398 - INFO - Generated audio for '<speak>check. He checked the answers before submitting.</speak>' at D:\vocabswipe.github.io\data\audio\check_sentence_5+Matthew+0d8666db07fb1a3a06c3029a6357446a.mp3
+2025-06-25 19:02:05,869 - INFO - Generated audio for '<speak>check. She checked the list after shopping.</speak>' at D:\vocabswipe.github.io\data\audio\check_sentence_6+Matthew+7ac26bef750b968d182c380da4e009f0.mp3
+2025-06-25 19:02:06,606 - INFO - Generated audio for '<speak>check. They checked her passport at the gate.</speak>' at D:\vocabswipe.github.io\data\audio\check_sentence_7+Matthew+fd872cb9b9ca399325026fb69278d1af.mp3
+2025-06-25 19:02:08,119 - INFO - Generated audio for '<speak>check. The mechanic checked the engine.</speak>' at D:\vocabswipe.github.io\data\audio\check_sentence_8+Matthew+8d3cadc9c432462b2d2e18cc4c531958.mp3
+2025-06-25 19:02:08,880 - INFO - Generated audio for '<speak>check. He checked his temper during the debate.</speak>' at D:\vocabswipe.github.io\data\audio\check_sentence_9+Matthew+c37505768d1af387dc006e1f5f0114e2.mp3
+2025-06-25 19:02:09,227 - INFO - Generated audio for '<speak>requirement</speak>' at D:\vocabswipe.github.io\data\audio\requirement_word_0+Matthew+ba12fb48e2d23bb2bd2819f64d02ec7e.mp3
+2025-06-25 19:02:09,895 - INFO - Generated audio for '<speak>requirement. A degree is a requirement for the job.</speak>' at D:\vocabswipe.github.io\data\audio\requirement_sentence_0+Matthew+aa120f4ac051e4cff64b205647d41fb4.mp3
+2025-06-25 19:02:10,574 - INFO - Generated audio for '<speak>requirement. The course has strict requirements.</speak>' at D:\vocabswipe.github.io\data\audio\requirement_sentence_1+Matthew+3a71b704acf71fdc0f385e28bb8dcc43.mp3
+2025-06-25 19:02:11,300 - INFO - Generated audio for '<speak>requirement. The software met all requirements.</speak>' at D:\vocabswipe.github.io\data\audio\requirement_sentence_2+Matthew+0fc9e4e44c1df8849354b614c76ae4da.mp3
+2025-06-25 19:02:12,058 - INFO - Generated audio for '<speak>requirement. Passing the test is a requirement.</speak>' at D:\vocabswipe.github.io\data\audio\requirement_sentence_3+Matthew+9ba644645dc55e8998dc1cd80e1979d8.mp3
+2025-06-25 19:02:12,730 - INFO - Generated audio for '<speak>requirement. Safety requirements must be followed.</speak>' at D:\vocabswipe.github.io\data\audio\requirement_sentence_4+Matthew+13c5e0d8e46f4efe1803503f50ac0f51.mp3
+2025-06-25 19:02:13,072 - INFO - Generated audio for '<speak>politician</speak>' at D:\vocabswipe.github.io\data\audio\politician_word_0+Matthew+8832a7190f55e53078e8aa42aad1e5b2.mp3
+2025-06-25 19:02:13,854 - INFO - Generated audio for '<speak>politician. The politician spoke about tax reform.</speak>' at D:\vocabswipe.github.io\data\audio\politician_sentence_0+Matthew+59dd124bc7e84558b4dddcb38e5ce515.mp3
+2025-06-25 19:02:14,569 - INFO - Generated audio for '<speak>politician. She ran as a politician for mayor.</speak>' at D:\vocabswipe.github.io\data\audio\politician_sentence_1+Matthew+e7a5d98e58d9ed37aedaec1acac92969.mp3
+2025-06-25 19:02:15,286 - INFO - Generated audio for '<speak>politician. The politician pushed for education funding.</speak>' at D:\vocabswipe.github.io\data\audio\politician_sentence_2+Matthew+4fa04609cb080136c39ce675dd480459.mp3
+2025-06-25 19:02:16,205 - INFO - Generated audio for '<speak>politician. He was a skilled politician in debates.</speak>' at D:\vocabswipe.github.io\data\audio\politician_sentence_3+Matthew+41c91453b3941cb821c89614932df27f.mp3
+2025-06-25 19:02:17,094 - INFO - Generated audio for '<speak>politician. The politician listened to community concerns.</speak>' at D:\vocabswipe.github.io\data\audio\politician_sentence_4+Matthew+c0da4c64bfae7671e1590e9530a3c498.mp3
+2025-06-25 19:02:17,453 - INFO - Generated audio for '<speak>rain</speak>' at D:\vocabswipe.github.io\data\audio\rain_word_0+Matthew+23678db5efde9ab46bce8c23a6d91b50.mp3
+2025-06-25 19:02:17,827 - INFO - Generated audio for '<speak>rain. The rain fell heavily all morning.</speak>' at D:\vocabswipe.github.io\data\audio\rain_sentence_0+Matthew+a60a7a05fe77485fddad32991fcf17b0.mp3
+2025-06-25 19:02:18,218 - INFO - Generated audio for '<speak>rain. The rain ruined our outdoor plans.</speak>' at D:\vocabswipe.github.io\data\audio\rain_sentence_1+Matthew+a7e2fb8d794ef3a5a88e3ec3ceae31d3.mp3
+2025-06-25 19:02:18,597 - INFO - Generated audio for '<speak>rain. The rain flooded the streets.</speak>' at D:\vocabswipe.github.io\data\audio\rain_sentence_2+Matthew+4e55405425784dd4fb5d6dfa301b9fbc.mp3
+2025-06-25 19:02:18,974 - INFO - Generated audio for '<speak>rain. A rain of petals fell at the festival.</speak>' at D:\vocabswipe.github.io\data\audio\rain_sentence_3+Matthew+78e5eb034db6db756f43463f05f4f0f1.mp3
+2025-06-25 19:02:19,349 - INFO - Generated audio for '<speak>rain. The rain delayed the construction work.</speak>' at D:\vocabswipe.github.io\data\audio\rain_sentence_4+Matthew+a4052547ada82a0f56bf4bf0fbfada6a.mp3
+2025-06-25 19:02:19,884 - INFO - Generated audio for '<speak>colleague</speak>' at D:\vocabswipe.github.io\data\audio\colleague_word_0+Matthew+2799d44695d2f1ac3b39b8a3a384309e.mp3
+2025-06-25 19:02:20,311 - INFO - Generated audio for '<speak>colleague. My colleague helped with the presentation.</speak>' at D:\vocabswipe.github.io\data\audio\colleague_sentence_0+Matthew+5f6dc75feb5596eae082fe448d749777.mp3
+2025-06-25 19:02:20,687 - INFO - Generated audio for '<speak>colleague. She met colleagues at the conference.</speak>' at D:\vocabswipe.github.io\data\audio\colleague_sentence_1+Matthew+9ed8192fb2a4f0fdb3cef5ea54dd2dce.mp3
+2025-06-25 19:02:21,065 - INFO - Generated audio for '<speak>colleague. Her colleagues supported the new initiative.</speak>' at D:\vocabswipe.github.io\data\audio\colleague_sentence_2+Matthew+cdc6e194a663d8d6d6ba0402bd9f53c4.mp3
+2025-06-25 19:02:21,445 - INFO - Generated audio for '<speak>colleague. He and his colleague designed the website.</speak>' at D:\vocabswipe.github.io\data\audio\colleague_sentence_3+Matthew+6909a5a9b2938e5b1cd40c2e3240ce49.mp3
+2025-06-25 19:02:21,841 - INFO - Generated audio for '<speak>colleague. Her colleague shared the office space.</speak>' at D:\vocabswipe.github.io\data\audio\colleague_sentence_4+Matthew+383e645f7d6a64b19752777998992c39.mp3
+2025-06-25 19:02:22,178 - INFO - Generated audio for '<speak>disappear</speak>' at D:\vocabswipe.github.io\data\audio\disappear_word_0+Matthew+eb17b0496bd600be4f3a203a62e2654d.mp3
+2025-06-25 19:02:22,556 - INFO - Generated audio for '<speak>disappear. The moon disappeared behind the clouds.</speak>' at D:\vocabswipe.github.io\data\audio\disappear_sentence_0+Matthew+02ceb54108bddf9ad0bfe8f1a0b697a9.mp3
+2025-06-25 19:02:22,936 - INFO - Generated audio for '<speak>disappear. Her keys disappeared from her bag.</speak>' at D:\vocabswipe.github.io\data\audio\disappear_sentence_1+Matthew+22f59dbd6c34b3c37d9acb789361e8fc.mp3
+2025-06-25 19:02:23,386 - INFO - Generated audio for '<speak>disappear. The pain disappeared after rest.</speak>' at D:\vocabswipe.github.io\data\audio\disappear_sentence_2+Matthew+a1dc08e9dd116f5ac672a481fc6e960e.mp3
+2025-06-25 19:02:23,789 - INFO - Generated audio for '<speak>disappear. He disappeared after the party.</speak>' at D:\vocabswipe.github.io\data\audio\disappear_sentence_3+Matthew+c3790506fded287b59fc5a9cb4d65065.mp3
+2025-06-25 19:02:24,162 - INFO - Generated audio for '<speak>disappear. Some traditions disappear over time.</speak>' at D:\vocabswipe.github.io\data\audio\disappear_sentence_4+Matthew+7e023ff50fbe8fdd636fd95b5849b5b9.mp3
+2025-06-25 19:02:24,504 - INFO - Generated audio for '<speak>beer</speak>' at D:\vocabswipe.github.io\data\audio\beer_word_0+Matthew+3e1867f5aee83045775fbe355e6a3ce1.mp3
+2025-06-25 19:02:24,879 - INFO - Generated audio for '<speak>beer. He enjoyed a cold beer after work.</speak>' at D:\vocabswipe.github.io\data\audio\beer_sentence_0+Matthew+8fc1a9d7d1655682b2c80bde3adfc541.mp3
+2025-06-25 19:02:25,249 - INFO - Generated audio for '<speak>beer. They served beer at the barbecue.</speak>' at D:\vocabswipe.github.io\data\audio\beer_sentence_1+Matthew+2632cbe4ad1dccf30d8767d6e493f50b.mp3
+2025-06-25 19:02:25,645 - INFO - Generated audio for '<speak>beer. This beer is made with local ingredients.</speak>' at D:\vocabswipe.github.io\data\audio\beer_sentence_2+Matthew+2bce778f646e33006a9c10a52bb627e9.mp3
+2025-06-25 19:02:26,023 - INFO - Generated audio for '<speak>beer. Beer pairs well with spicy food.</speak>' at D:\vocabswipe.github.io\data\audio\beer_sentence_3+Matthew+45f954c4e8402cd3b9326cd9a0c81b8b.mp3
+2025-06-25 19:02:26,406 - INFO - Generated audio for '<speak>beer. Beer was central to the festival.</speak>' at D:\vocabswipe.github.io\data\audio\beer_sentence_4+Matthew+4c0b94fcb563ac347409a2d75d75e7e8.mp3
+2025-06-25 19:02:26,855 - INFO - Generated audio for '<speak>predict</speak>' at D:\vocabswipe.github.io\data\audio\predict_word_0+Matthew+59a9f87755ec523b0db73207fc8362df.mp3
+2025-06-25 19:02:27,233 - INFO - Generated audio for '<speak>predict. The app predicted rain this evening.</speak>' at D:\vocabswipe.github.io\data\audio\predict_sentence_0+Matthew+27465706ae4edf850f30cea9e6fad860.mp3
+2025-06-25 19:02:27,615 - INFO - Generated audio for '<speak>predict. She predicted the team’s victory.</speak>' at D:\vocabswipe.github.io\data\audio\predict_sentence_1+Matthew+c8293fad1004aebf27d7b1e2527c855b.mp3
+2025-06-25 19:02:27,992 - INFO - Generated audio for '<speak>predict. Scientists predict rising temperatures.</speak>' at D:\vocabswipe.github.io\data\audio\predict_sentence_2+Matthew+2022b335b96cc437dab1000de496a0c0.mp3
+2025-06-25 19:02:28,372 - INFO - Generated audio for '<speak>predict. Analysts predict market growth.</speak>' at D:\vocabswipe.github.io\data\audio\predict_sentence_3+Matthew+7d66fedfa4460fc773eae6cf0510bf5f.mp3
+2025-06-25 19:02:28,736 - INFO - Generated audio for '<speak>predict. He predicted she’d arrive late.</speak>' at D:\vocabswipe.github.io\data\audio\predict_sentence_4+Matthew+7086f91c5388c7d24fe3b5625e4e0345.mp3
+2025-06-25 19:02:29,119 - INFO - Generated audio for '<speak>exercise</speak>' at D:\vocabswipe.github.io\data\audio\exercise_word_0+Matthew+97e96b9b630acd157725fa00eff11a80.mp3
+2025-06-25 19:02:29,499 - INFO - Generated audio for '<speak>exercise. Daily exercise keeps her energized.</speak>' at D:\vocabswipe.github.io\data\audio\exercise_sentence_0+Matthew+cfc63991fc3b891ed0da45552cbc0524.mp3
+2025-06-25 19:02:29,877 - INFO - Generated audio for '<speak>exercise. The math exercise was challenging.</speak>' at D:\vocabswipe.github.io\data\audio\exercise_sentence_1+Matthew+235af4a5266d0e689e9bb40550732615.mp3
+2025-06-25 19:02:30,258 - INFO - Generated audio for '<speak>exercise. The army conducted a night exercise.</speak>' at D:\vocabswipe.github.io\data\audio\exercise_sentence_2+Matthew+3da81db6a65fb08e812bd982bfcab08a.mp3
+2025-06-25 19:02:30,650 - INFO - Generated audio for '<speak>exercise. Crosswords are a great brain exercise.</speak>' at D:\vocabswipe.github.io\data\audio\exercise_sentence_3+Matthew+320b99b05e1110b62af07a24dea517ef.mp3
+2025-06-25 19:02:31,036 - INFO - Generated audio for '<speak>exercise. Her exercise included jogging and yoga.</speak>' at D:\vocabswipe.github.io\data\audio\exercise_sentence_4+Matthew+358a8e6f4e3fa773aa62747061003937.mp3
+2025-06-25 19:02:32,358 - INFO - Generated audio for '<speak>tired</speak>' at D:\vocabswipe.github.io\data\audio\tired_word_0+Matthew+287f44f35ecb230e8b997abaad077f46.mp3
+2025-06-25 19:02:32,718 - INFO - Generated audio for '<speak>tired. He was tired after a long day.</speak>' at D:\vocabswipe.github.io\data\audio\tired_sentence_0+Matthew+6ec2ffdad82a1320b6465f53793e0e37.mp3
+2025-06-25 19:02:33,077 - INFO - Generated audio for '<speak>tired. The runners were tired after the race.</speak>' at D:\vocabswipe.github.io\data\audio\tired_sentence_1+Matthew+e9deaad1ae0bc8293fa6fbdd705c83ba.mp3
+2025-06-25 19:02:33,434 - INFO - Generated audio for '<speak>tired. She was tired of the same routine.</speak>' at D:\vocabswipe.github.io\data\audio\tired_sentence_2+Matthew+a5059e9c90c67236e57dc848f53595a0.mp3
+2025-06-25 19:02:33,791 - INFO - Generated audio for '<speak>tired. The kids were tired by bedtime.</speak>' at D:\vocabswipe.github.io\data\audio\tired_sentence_3+Matthew+fab6a63c159dc3f582122eae131ba56b.mp3
+2025-06-25 19:02:34,150 - INFO - Generated audio for '<speak>tired. He felt tired from the stress.</speak>' at D:\vocabswipe.github.io\data\audio\tired_sentence_4+Matthew+e9ffc43dfb15dc07765d454ac9f62aa2.mp3
+2025-06-25 19:02:34,536 - INFO - Generated audio for '<speak>democracy</speak>' at D:\vocabswipe.github.io\data\audio\democracy_word_0+Matthew+09775ee2f13677b36a85834d4798e375.mp3
+2025-06-25 19:02:34,949 - INFO - Generated audio for '<speak>democracy. Democracy ensures fair elections.</speak>' at D:\vocabswipe.github.io\data\audio\democracy_sentence_0+Matthew+12e800fe53fb916ed969d4206d8d874d.mp3
+2025-06-25 19:02:35,325 - INFO - Generated audio for '<speak>democracy. She advocated for democracy in her speech.</speak>' at D:\vocabswipe.github.io\data\audio\democracy_sentence_1+Matthew+a651dd9950085b087383bdf29f18b9d0.mp3
+2025-06-25 19:02:35,702 - INFO - Generated audio for '<speak>democracy. The nation embraced democracy recently.</speak>' at D:\vocabswipe.github.io\data\audio\democracy_sentence_2+Matthew+2bfce89dfcc9efd25371c840a36c7784.mp3
+2025-06-25 19:02:36,080 - INFO - Generated audio for '<speak>democracy. Democracy encourages open discussions.</speak>' at D:\vocabswipe.github.io\data\audio\democracy_sentence_3+Matthew+67ae93d06d636f4a26273b0f667df0f9.mp3
+2025-06-25 19:02:36,446 - INFO - Generated audio for '<speak>democracy. They valued democracy above all.</speak>' at D:\vocabswipe.github.io\data\audio\democracy_sentence_4+Matthew+ebd054d82a79996c07d2154ebd08bdb5.mp3
+2025-06-25 19:02:36,770 - INFO - Generated audio for '<speak>ultimately</speak>' at D:\vocabswipe.github.io\data\audio\ultimately_word_0+Matthew+1dae6a6c4ed17ee5fa5474dea93ad48f.mp3
+2025-06-25 19:02:37,170 - INFO - Generated audio for '<speak>ultimately. She studied hard and ultimately passed.</speak>' at D:\vocabswipe.github.io\data\audio\ultimately_sentence_0+Matthew+ed0ab335489e48f3b201c50b5f705a6e.mp3
+2025-06-25 19:02:37,565 - INFO - Generated audio for '<speak>ultimately. Ultimately, family was her priority.</speak>' at D:\vocabswipe.github.io\data\audio\ultimately_sentence_1+Matthew+f641e694381d17655b16aee4885ad88c.mp3
+2025-06-25 19:02:37,931 - INFO - Generated audio for '<speak>ultimately. They disagreed but ultimately compromised.</speak>' at D:\vocabswipe.github.io\data\audio\ultimately_sentence_2+Matthew+93690a4c76e13d6a75bf611f5e5019b5.mp3
+2025-06-25 19:02:38,301 - INFO - Generated audio for '<speak>ultimately. Her choice was ultimately personal.</speak>' at D:\vocabswipe.github.io\data\audio\ultimately_sentence_3+Matthew+64485da24beafc2090b3275ef5ee03e4.mp3
+2025-06-25 19:02:38,738 - INFO - Generated audio for '<speak>ultimately. The deal was ultimately finalized.</speak>' at D:\vocabswipe.github.io\data\audio\ultimately_sentence_4+Matthew+e821873b18ae3332c7c41e5460adb34e.mp3
+2025-06-25 19:02:44,979 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-25 19:02:45,023 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250625_190245.txt
+2025-06-25 19:02:45,038 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 19:02:45,040 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
