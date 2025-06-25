@@ -6,6 +6,7 @@ let currentAudio = null;
 let audioCache = new Map();
 const MAX_CACHE_SIZE = 10;
 let audioUnlocked = false;
+let maxFrequency = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
     loadWords();
@@ -37,7 +38,13 @@ function loadWords() {
                 alert('No vocabulary data available. Please ensure vocab_database.yaml is populated.');
                 return;
             }
+            // Sort words by rank and find max frequency
             words.sort((a, b) => a.rank - b.rank);
+            maxFrequency = words[0].frequency || 1; // Assume rank 1 has max frequency
+            // Calculate relative frequency for each word
+            words.forEach(word => {
+                word.relativeFrequency = (word.frequency * 100) / maxFrequency;
+            });
             displayWord();
             preloadAudio();
         })
@@ -238,6 +245,29 @@ function flipCard() {
     }
 }
 
+function getFrequencyColor(relativeFreq) {
+    // Interpolate between red (0%), orange (25%), yellow (50%), and green (100%)
+    if (relativeFreq <= 25) {
+        // Red to orange
+        const r = 255;
+        const g = Math.round((relativeFreq / 25) * 165);
+        const b = 0;
+        return `rgb(${r}, ${g}, ${b})`;
+    } else if (relativeFreq <= 50) {
+        // Orange to yellow
+        const r = 255;
+        const g = 165 + Math.round(((relativeFreq - 25) / 25) * (255 - 165));
+        const b = 0;
+        return `rgb(${r}, ${g}, ${b})`;
+    } else {
+        // Yellow to green
+        const r = 255 - Math.round(((relativeFreq - 50) / 50) * 255);
+        const g = 255;
+        const b = 0;
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+}
+
 function displayWord() {
     if (!words[currentWordIndex]) {
         console.warn('No word available to display');
@@ -247,6 +277,8 @@ function displayWord() {
     const front = document.querySelector('.front');
     const back = document.querySelector('.back');
     const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: '', example_en: '' };
+    const relativeFreq = wordData.relativeFrequency || 0;
+    const freqColor = getFrequencyColor(relativeFreq);
 
     front.innerHTML = `
         <div class="word-container">
@@ -254,6 +286,12 @@ function displayWord() {
         </div>
         <div class="meta-info">
             <span class="rank">Rank: ${wordData.rank}</span>
+            <div class="frequency-container">
+                <span class="frequency-label">Frequency</span>
+                <div class="frequency-bar">
+                    <div class="frequency-fill" style="width: ${relativeFreq}%; background-color: ${freqColor};"></div>
+                </div>
+            </div>
         </div>
     `;
     back.innerHTML = `
@@ -267,6 +305,12 @@ function displayWord() {
             </div>
             <div class="meta-info">
                 <span class="rank">Rank: ${wordData.rank}</span>
+                <div class="frequency-container">
+                    <span class="frequency-label">Frequency</span>
+                    <div class="frequency-bar">
+                        <div class="frequency-fill" style="width: ${relativeFreq}%; background-color: ${freqColor};"></div>
+                    </div>
+                </div>
             </div>
         </div>
     `;
