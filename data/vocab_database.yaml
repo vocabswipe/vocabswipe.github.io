@@ -2449,6 +2449,16 @@
     example_en: The kids like their new teacher a lot.
   - definition_en: To indicate a habitual preference.
     example_en: They like to watch movies on Friday nights.
+  - definition_en: To enjoy or find something pleasant.
+    example_en: She likes to read novels in the evening.
+  - definition_en: To approve of or prefer something.
+    example_en: He likes his coffee with sugar.
+  - definition_en: To show support or interest online.
+    example_en: They liked her post on social media.
+  - definition_en: To feel affection or attraction.
+    example_en: The kids like their new teacher.
+  - definition_en: To want or wish for something.
+    example_en: I’d like to visit the museum tomorrow.
   freq: 1583444
   part_of_speech: verb
   rank: 73
@@ -2478,6 +2488,11 @@
   - like_sentence_22+Matthew+f3a7fd7d1cea7cc863b58e54da60fef2.mp3
   - like_sentence_23+Matthew+57ca43cfeff1e44d1adf817a899cb16b.mp3
   - like_sentence_24+Matthew+d5d9e303d29ca29dce75fc00deea3323.mp3
+  - like_sentence_25+Matthew+d4cb491105f263dfdf444b9409b2f781.mp3
+  - like_sentence_26+Matthew+9d3ef72a7e3ab4e48cf22581e60c019c.mp3
+  - like_sentence_27+Matthew+2f83960e77787804970ccac6bf3118ef.mp3
+  - like_sentence_28+Matthew+1de5118af4e0f86cb27a5eda31d5ae38.mp3
+  - like_sentence_29+Matthew+509590d1c695bdbb8f0bf01a88ef7d61.mp3
   voice_id: Matthew
   word: like
   word_audio_file:
@@ -8682,6 +8697,16 @@
     example_en: They stayed in the cabin until the storm passed.
   - definition_en: Marking a condition
     example_en: I won’t decide until I hear all the options.
+  - definition_en: Up to the time or point that.
+    example_en: She waited until the rain stopped.
+  - definition_en: Before a specified time or event.
+    example_en: The store is closed until Monday.
+  - definition_en: Indicating the duration of an action.
+    example_en: They worked until midnight to finish.
+  - definition_en: Marking the end of a period.
+    example_en: The offer is valid until December.
+  - definition_en: To the place or extent that.
+    example_en: He followed the path until the river.
   freq: 318392
   part_of_speech: preposition
   rank: 316
@@ -8691,6 +8716,11 @@
   - until_sentence_2+Matthew+3c51fefb64a248a894e612aecf45fa07.mp3
   - until_sentence_3+Matthew+28fcf56308eed7de1e292ef8a6a7ef9d.mp3
   - until_sentence_4+Matthew+8194b968dba93cfaf8a45082533654c3.mp3
+  - until_sentence_5+Matthew+6bbab16b53364a73a60eb371850ca322.mp3
+  - until_sentence_6+Matthew+172c7099179a70191701bc50af2eff6c.mp3
+  - until_sentence_7+Matthew+68d54b5bccd071234cc9cee0dc9a8aca.mp3
+  - until_sentence_8+Matthew+efb5bb5ff5da725bcab73f892e6a2072.mp3
+  - until_sentence_9+Matthew+1b8d5508540b0aeb3fa27ab1b17c134e.mp3
   voice_id: Matthew
   word: until
   word_audio_file:
@@ -33119,3 +33149,435 @@
   word: actual
   word_audio_file:
   - actual_word_0+Matthew+5157e3c765af93679ea07052f30f0a6e.mp3
+- back_cards:
+  - definition_en: To remember or bring back to mind.
+    example_en: She tried to recall the details of the meeting.
+  - definition_en: To officially request the return of a product.
+    example_en: The company recalled the faulty appliances.
+  - definition_en: To summon or call back someone or something.
+    example_en: The ambassador was recalled to the capital.
+  - definition_en: To retrieve or recover a memory.
+    example_en: He recalled a childhood trip to the beach.
+  - definition_en: To revoke or cancel something.
+    example_en: The judge recalled the decision after new evidence.
+  freq: 64789
+  part_of_speech: verb
+  rank: 1481
+  sentence_audio_file:
+  - recall_sentence_0+Matthew+01dd1f96b8b9d737e6ced4e94d389438.mp3
+  - recall_sentence_1+Matthew+f0dbae56cdd36ed2066e847b533b4013.mp3
+  - recall_sentence_2+Matthew+62fb5782651022ec1a8b652ac6a43b76.mp3
+  - recall_sentence_3+Matthew+8bc3130dd370090303500d8f0e65da2c.mp3
+  - recall_sentence_4+Matthew+640fec9826146986b361cbe2f0222cf3.mp3
+  voice_id: Matthew
+  word: recall
+  word_audio_file:
+  - recall_word_0+Matthew+a05550b785fe9281c54161b4de3a9889.mp3
+- back_cards:
+  - definition_en: To repair or mend something broken.
+    example_en: He fixed the leaky faucet in the kitchen.
+  - definition_en: To arrange or organize something.
+    example_en: She fixed a meeting with the client for tomorrow.
+  - definition_en: To prepare or make ready, like food.
+    example_en: They fixed a quick dinner for the guests.
+  - definition_en: To focus or direct attention.
+    example_en: He fixed his gaze on the distant horizon.
+  - definition_en: To set or establish firmly.
+    example_en: The team fixed a deadline for the project.
+  freq: 64728
+  part_of_speech: verb
+  rank: 1482
+  sentence_audio_file:
+  - fix_sentence_0+Matthew+daa33ccb61f3cda4ed359695a4a0ad6d.mp3
+  - fix_sentence_1+Matthew+c008e1f976dfad8202f0a582fbf69609.mp3
+  - fix_sentence_2+Matthew+d548340e32ce3be226e128b5c7afc608.mp3
+  - fix_sentence_3+Matthew+e17672e2d75fb305ad5ee218e5359df4.mp3
+  - fix_sentence_4+Matthew+83400fae0a68c4e23acfdcec03edd40e.mp3
+  voice_id: Matthew
+  word: fix
+  word_audio_file:
+  - fix_word_0+Matthew+8ab87d4fb3600cc53fc0c5c958a250b1.mp3
+- back_cards:
+  - definition_en: Expressing or implying denial or refusal.
+    example_en: She received a negative response to her request.
+  - definition_en: Lacking positive qualities or optimism.
+    example_en: His negative attitude affected the team’s morale.
+  - definition_en: Indicating the absence of something.
+    example_en: The test result was negative for the virus.
+  - definition_en: Related to a number less than zero.
+    example_en: The temperature dropped to negative ten degrees.
+  - definition_en: Critical or harmful in effect.
+    example_en: The decision had a negative impact on sales.
+  freq: 64601
+  part_of_speech: adjective
+  rank: 1483
+  sentence_audio_file:
+  - negative_sentence_0+Matthew+b23bdce1abe179674922e6d6cb18f0a8.mp3
+  - negative_sentence_1+Matthew+c1e77e326d297e4351234816782e6084.mp3
+  - negative_sentence_2+Matthew+18722231f4b2adcea9e6870fb01409e2.mp3
+  - negative_sentence_3+Matthew+153368d2a631cf930ec5d134735bd1ad.mp3
+  - negative_sentence_4+Matthew+e82a4fd61016122b32c25f0caf1bc5d9.mp3
+  voice_id: Matthew
+  word: negative
+  word_audio_file:
+  - negative_word_0+Matthew+228d6a97a9838dc800e58b3c74ba7b11.mp3
+- back_cards:
+  - definition_en: To join or link two or more things.
+    example_en: The bridge connects the two sides of the city.
+  - definition_en: To establish communication or contact.
+    example_en: She connected with her friend via video call.
+  - definition_en: To associate or relate ideas or concepts.
+    example_en: He connected the theory to real-world examples.
+  - definition_en: To form a personal or emotional bond.
+    example_en: They connected over their love for music.
+  - definition_en: To attach to a network or system.
+    example_en: The device failed to connect to the Wi-Fi.
+  freq: 64462
+  part_of_speech: verb
+  rank: 1484
+  sentence_audio_file:
+  - connect_sentence_0+Matthew+c544a56c42209e262778789a925941a3.mp3
+  - connect_sentence_1+Matthew+90387ed49bc903a3e5e5ca9256f5eda6.mp3
+  - connect_sentence_2+Matthew+cda0c71180118c9b78a988f3f9eb23a6.mp3
+  - connect_sentence_3+Matthew+8d6e6a66da01f1656a999d9798fac6c7.mp3
+  - connect_sentence_4+Matthew+68aa63e9c137c20c57a9d58e77e30126.mp3
+  voice_id: Matthew
+  word: connect
+  word_audio_file:
+  - connect_word_0+Matthew+b640a0ce465fa2a4150c36b305c1c11b.mp3
+- back_cards:
+  - definition_en: The space between two points or places.
+    example_en: The distance between the towns is ten miles.
+  - definition_en: A measure of separation in time or relationship.
+    example_en: Time created a distance between old friends.
+  - definition_en: A far-off place or remote area.
+    example_en: She gazed into the distance, lost in thought.
+  - definition_en: The extent of progress or difference.
+    example_en: The team covered a lot of distance this year.
+  - definition_en: A sense of emotional or social separation.
+    example_en: He kept his distance during the argument.
+  freq: 64404
+  part_of_speech: noun
+  rank: 1485
+  sentence_audio_file:
+  - distance_sentence_0+Matthew+6f0d168531407c696f1b99d8726c2951.mp3
+  - distance_sentence_1+Matthew+64de88577419a3e1fe2225af4797081d.mp3
+  - distance_sentence_2+Matthew+147ed62dfa2a2c4cc8c099530c2eb28c.mp3
+  - distance_sentence_3+Matthew+95856937213a3e213ecc8b6f6d4e1b81.mp3
+  - distance_sentence_4+Matthew+cf59aaa30794f8acbd38a5bfe388aaa3.mp3
+  voice_id: Matthew
+  word: distance
+  word_audio_file:
+  - distance_word_0+Matthew+a74ec9c5b6882f79e32a8fbd8da90c1b.mp3
+- back_cards:
+  - definition_en: Occurring at fixed or consistent intervals.
+    example_en: She attends regular meetings every Monday.
+  - definition_en: Conforming to a standard or usual pattern.
+    example_en: He ordered his regular coffee at the café.
+  - definition_en: Ordinary or typical, without special status.
+    example_en: The store serves regular customers all day.
+  - definition_en: Even or uniform in shape or structure.
+    example_en: The tiles were cut into regular squares.
+  - definition_en: Following established rules or norms.
+    example_en: The game was played under regular conditions.
+  freq: 64293
+  part_of_speech: adjective
+  rank: 1486
+  sentence_audio_file:
+  - regular_sentence_0+Matthew+930967a9f2d4eac3b4862a5421c6074b.mp3
+  - regular_sentence_1+Matthew+431fd980b0d29668813816f9e2933f19.mp3
+  - regular_sentence_2+Matthew+d9df464752c682bc0a932e2a1c7ea0b6.mp3
+  - regular_sentence_3+Matthew+06dadd13e12455dce13b9ae1eb1fe0f8.mp3
+  - regular_sentence_4+Matthew+8e51404d1de577f26272fc7cc5210a31.mp3
+  voice_id: Matthew
+  word: regular
+  word_audio_file:
+  - regular_word_0+Matthew+af37d08ae228a87dc6b265fd1019c97d.mp3
+- back_cards:
+  - definition_en: The typical weather conditions of an area.
+    example_en: The tropical climate brings heavy rain yearly.
+  - definition_en: The prevailing mood or atmosphere.
+    example_en: The climate in the office was tense today.
+  - definition_en: Environmental conditions affecting life.
+    example_en: The changing climate impacts local wildlife.
+  - definition_en: A region characterized by its weather.
+    example_en: They moved to a warmer climate for health.
+  - definition_en: The context or attitude of a group.
+    example_en: A climate of trust grew among the team.
+  freq: 64223
+  part_of_speech: noun
+  rank: 1487
+  sentence_audio_file:
+  - climate_sentence_0+Matthew+4bf03246633769920729bb1b99c9b916.mp3
+  - climate_sentence_1+Matthew+8a79523d9c8b5e6f24843ea570b6ef8e.mp3
+  - climate_sentence_2+Matthew+ab107c351b8bbb9729d989ae63ccd1ed.mp3
+  - climate_sentence_3+Matthew+73c5ee1de95a8c62c76d1c0b69fde46b.mp3
+  - climate_sentence_4+Matthew+fefb35d4e2c308cdc710a5dc06bd52d8.mp3
+  voice_id: Matthew
+  word: climate
+  word_audio_file:
+  - climate_word_0+Matthew+0b853544669912ced6b3a191927f38c8.mp3
+- back_cards:
+  - definition_en: A connection or association between things.
+    example_en: There’s a relation between diet and health.
+  - definition_en: A family member or relative.
+    example_en: She invited all her relations to the wedding.
+  - definition_en: The way people or groups interact.
+    example_en: Their relation improved after the discussion.
+  - definition_en: A reference or regard to something.
+    example_en: The decision was made in relation to costs.
+  - definition_en: A narrative or account of events.
+    example_en: His relation of the trip was fascinating.
+  freq: 64199
+  part_of_speech: noun
+  rank: 1488
+  sentence_audio_file:
+  - relation_sentence_0+Matthew+1b7329a0a8202afd59a9ddbe42ded7b3.mp3
+  - relation_sentence_1+Matthew+4ce6415b9ca6451d9b1502a376f8687a.mp3
+  - relation_sentence_2+Matthew+1322da5b5af307365ec832c13989e81a.mp3
+  - relation_sentence_3+Matthew+2a0469248e2b87177166505de90c8c24.mp3
+  - relation_sentence_4+Matthew+2ab9754796e88567a5d7052e8d56639f.mp3
+  voice_id: Matthew
+  word: relation
+  word_audio_file:
+  - relation_word_0+Matthew+2617c9384e4bb1af369e034ffd4490c9.mp3
+- back_cards:
+  - definition_en: A journey made by an aircraft.
+    example_en: Her flight to Paris leaves at noon.
+  - definition_en: The act of flying through the air.
+    example_en: The bird’s flight was graceful and swift.
+  - definition_en: A group of things moving together.
+    example_en: A flight of geese passed overhead.
+  - definition_en: An escape or quick departure.
+    example_en: His flight from danger saved his life.
+  - definition_en: A set of stairs between floors.
+    example_en: She climbed a flight of steps to the office.
+  freq: 64148
+  part_of_speech: noun
+  rank: 1489
+  sentence_audio_file:
+  - flight_sentence_0+Matthew+346b86aa27f0ed707b00d2c4649b3cdb.mp3
+  - flight_sentence_1+Matthew+d3c72ee1063faa905b5dce96d3d61516.mp3
+  - flight_sentence_2+Matthew+3c696dbccd833bf289638791d0eecd5b.mp3
+  - flight_sentence_3+Matthew+027929d1dd328cc78a7461f7650f8718.mp3
+  - flight_sentence_4+Matthew+3fc97648f16461ed15cbef43da242624.mp3
+  voice_id: Matthew
+  word: flight
+  word_audio_file:
+  - flight_word_0+Matthew+e325b16aa10bc2b065742595902073cb.mp3
+- back_cards:
+  - definition_en: Likely to cause harm or injury.
+    example_en: The steep cliff was dangerous to climb.
+  - definition_en: Involving risk or threat.
+    example_en: Driving in the storm was dangerous.
+  - definition_en: Capable of causing trouble or problems.
+    example_en: His dangerous ideas stirred controversy.
+  - definition_en: Threatening to safety or security.
+    example_en: The chemical was labeled as dangerous.
+  - definition_en: Exciting but risky in nature.
+    example_en: The dangerous mission thrilled the adventurers.
+  freq: 64067
+  part_of_speech: adjective
+  rank: 1490
+  sentence_audio_file:
+  - dangerous_sentence_0+Matthew+5419af685a791c2b2c0446ed9c5c42fd.mp3
+  - dangerous_sentence_1+Matthew+bfcd5429de34de1e57e5295810854318.mp3
+  - dangerous_sentence_2+Matthew+f86f829d0cbb3c4b3672490c7a8bb140.mp3
+  - dangerous_sentence_3+Matthew+43b08e928e2ba9b3f6d48a5027f8d131.mp3
+  - dangerous_sentence_4+Matthew+81f8e0a5542f481ced4826a901f1485d.mp3
+  voice_id: Matthew
+  word: dangerous
+  word_audio_file:
+  - dangerous_word_0+Matthew+0a8113941d35466c79218e83175665ef.mp3
+- back_cards:
+  - definition_en: A small vessel for traveling on water.
+    example_en: They rowed a boat across the lake.
+  - definition_en: A vehicle for leisure or fishing.
+    example_en: He bought a boat for weekend trips.
+  - definition_en: A craft used for transportation.
+    example_en: The boat carried supplies to the island.
+  - definition_en: A term for any waterborne vessel.
+    example_en: The harbor was full of boats.
+  - definition_en: A life-saving craft on a ship.
+    example_en: The crew escaped in the life boat.
+  freq: 64026
+  part_of_speech: noun
+  rank: 1491
+  sentence_audio_file:
+  - boat_sentence_0+Matthew+1a7a71d423f0f39159f6f89e913f421f.mp3
+  - boat_sentence_1+Matthew+65f0e6ecabb60cb83c8666794584b180.mp3
+  - boat_sentence_2+Matthew+5a2e32d6ec8560c01d0ee29b67033d8f.mp3
+  - boat_sentence_3+Matthew+6d036b2a9d883e9206158b451d688f38.mp3
+  - boat_sentence_4+Matthew+b72792a8239448468497fa471b54637f.mp3
+  voice_id: Matthew
+  word: boat
+  word_audio_file:
+  - boat_word_0+Matthew+dd8fc45d87f91c6f9a9f43a3f355a94a.mp3
+- back_cards:
+  - definition_en: A particular part or feature of something.
+    example_en: They discussed every aspect of the plan.
+  - definition_en: A perspective or point of view.
+    example_en: Her aspect on the issue was unique.
+  - definition_en: The appearance or look of something.
+    example_en: The house had a charming aspect.
+  - definition_en: A specific phase or element.
+    example_en: The financial aspect worried the team.
+  - definition_en: The orientation or direction something faces.
+    example_en: The room’s southern aspect brought sunlight.
+  freq: 63967
+  part_of_speech: noun
+  rank: 1492
+  sentence_audio_file:
+  - aspect_sentence_0+Matthew+08ffe175713deaba27dadaf970b3911d.mp3
+  - aspect_sentence_1+Matthew+65fdd6bd4eeed2d9d0990d0376777075.mp3
+  - aspect_sentence_2+Matthew+27b27bc8c8ad75f0bd2d01a6553c8264.mp3
+  - aspect_sentence_3+Matthew+b4646f1fb8ed6c862e406ce8b09b9849.mp3
+  - aspect_sentence_4+Matthew+7640ac09ee6052f52c36633df349f8f5.mp3
+  voice_id: Matthew
+  word: aspect
+  word_audio_file:
+  - aspect_word_0+Matthew+e67e20d1ede0aa95923794d188c65fe0.mp3
+- back_cards:
+  - definition_en: To quickly seize or take something.
+    example_en: She grabbed her coat before leaving.
+  - definition_en: To attract attention or interest.
+    example_en: The headline grabbed everyone’s attention.
+  - definition_en: To take an opportunity suddenly.
+    example_en: He grabbed the chance to travel abroad.
+  - definition_en: To snatch or take roughly.
+    example_en: The thief grabbed her purse and ran.
+  - definition_en: To quickly get or consume something.
+    example_en: Let’s grab a coffee before the meeting.
+  freq: 63946
+  part_of_speech: verb
+  rank: 1493
+  sentence_audio_file:
+  - grab_sentence_0+Matthew+8b5a47c3afe3340281475e957263245e.mp3
+  - grab_sentence_1+Matthew+013561e3c765778580cf7f92be1c5a45.mp3
+  - grab_sentence_2+Matthew+7b7aedbbd9fcb6a9a3fd64831e664b7e.mp3
+  - grab_sentence_3+Matthew+a598f177f23e345d21de6e7897349101.mp3
+  - grab_sentence_4+Matthew+5ece6681c41a274b502b9878fa45b957.mp3
+  voice_id: Matthew
+  word: grab
+  word_audio_file:
+  - grab_word_0+Matthew+28b91f80f70f1f89f917bceb72c1e8da.mp3
+- back_cards:
+  - definition_en: Preferred or liked above others.
+    example_en: Chocolate is her favorite ice cream flavor.
+  - definition_en: Most cherished or enjoyed.
+    example_en: This is my favorite book of all time.
+  - definition_en: Chosen as the best or most liked.
+    example_en: He’s the favorite candidate for the role.
+  - definition_en: Frequently selected or used.
+    example_en: That café is their favorite weekend spot.
+  - definition_en: Held in high regard or affection.
+    example_en: Her favorite memory was the family trip.
+  freq: 63804
+  part_of_speech: adjective
+  rank: 1495
+  sentence_audio_file:
+  - favorite_sentence_0+Matthew+99904c8e8a0c5aabc3dbc700f85632ae.mp3
+  - favorite_sentence_1+Matthew+e70acfe8914b8c4539c2c3c1d3e1cc27.mp3
+  - favorite_sentence_2+Matthew+5062d72b60ab98ab295354cdbdd10fe9.mp3
+  - favorite_sentence_3+Matthew+a9e294efa3248f64d3bca41a362b0190.mp3
+  - favorite_sentence_4+Matthew+d4d1556cccfc8d73f88ff02af0f72207.mp3
+  voice_id: Matthew
+  word: favorite
+  word_audio_file:
+  - favorite_word_0+Matthew+8a6b6ea3aa08285be1d4e00725aa9090.mp3
+- back_cards:
+  - definition_en: The first month of the year.
+    example_en: They planned a trip for January.
+  - definition_en: A time associated with new beginnings.
+    example_en: January is perfect for setting goals.
+  - definition_en: A period of cold weather in some regions.
+    example_en: January brought heavy snow to the city.
+  - definition_en: A reference to events in that month.
+    example_en: The sale starts in January.
+  - definition_en: A term for annual cycles or plans.
+    example_en: Their budget resets every January.
+  freq: 63714
+  part_of_speech: noun
+  rank: 1497
+  sentence_audio_file:
+  - january_sentence_0+Matthew+5cf73f6c92d0ff5c8a14babf2358db1d.mp3
+  - january_sentence_1+Matthew+7917ce9e8f8c5612f8667abf854d581c.mp3
+  - january_sentence_2+Matthew+652852e4b50d454f3f7509d0ce0473fa.mp3
+  - january_sentence_3+Matthew+ccd40d8cb7f0fad80756963109c33668.mp3
+  - january_sentence_4+Matthew+d4cc82e1eae79a1384cd3d3659644105.mp3
+  voice_id: Matthew
+  word: January
+  word_audio_file:
+  - january_word_0+Matthew+86f5978d9b80124f509bdb71786e929e.mp3
+- back_cards:
+  - definition_en: Free from control or influence of others.
+    example_en: She started an independent business last year.
+  - definition_en: Not relying on others for support.
+    example_en: He became independent after moving out.
+  - definition_en: Separate or distinct from something else.
+    example_en: The study was conducted by an independent team.
+  - definition_en: Capable of thinking or acting alone.
+    example_en: Her independent spirit inspired others.
+  - definition_en: Not connected to a larger system.
+    example_en: They live in an independent community.
+  freq: 63631
+  part_of_speech: adjective
+  rank: 1498
+  sentence_audio_file:
+  - independent_sentence_0+Matthew+6e04f54c01fd1ed75f5929be11564a11.mp3
+  - independent_sentence_1+Matthew+de9f78d916f8038f380d3d34d902e443.mp3
+  - independent_sentence_2+Matthew+549d9169fdae1ecab3a631fb90e14a5c.mp3
+  - independent_sentence_3+Matthew+1e57b4b7c6e6bad6a77fd883c9ba819a.mp3
+  - independent_sentence_4+Matthew+73d4bee8fcf714ba040eae2718a84c07.mp3
+  voice_id: Matthew
+  word: independent
+  word_audio_file:
+  - independent_word_0+Matthew+e2580777557122a236c803c1ccad7fa4.mp3
+- back_cards:
+  - definition_en: The amount of space something occupies.
+    example_en: The box has a volume of ten cubic feet.
+  - definition_en: The loudness or intensity of sound.
+    example_en: She turned up the volume on the radio.
+  - definition_en: A book forming part of a set or series.
+    example_en: He read the first volume of the trilogy.
+  - definition_en: The quantity or amount of something.
+    example_en: The volume of work increased this month.
+  - definition_en: A single book or published work.
+    example_en: The library added a new volume to its collection.
+  freq: 63626
+  part_of_speech: noun
+  rank: 1499
+  sentence_audio_file:
+  - volume_sentence_0+Matthew+fc360b99d5c751ce2973c9710f21ecfd.mp3
+  - volume_sentence_1+Matthew+d14c2aab5b890b164415596204aa27e0.mp3
+  - volume_sentence_2+Matthew+ad8f366d76880f5c3d332464f636df55.mp3
+  - volume_sentence_3+Matthew+79b7f86c8c5baf6148a103f4240ba865.mp3
+  - volume_sentence_4+Matthew+86c5b4607cea4859c14b229e95ca9fc3.mp3
+  voice_id: Matthew
+  word: volume
+  word_audio_file:
+  - volume_word_0+Matthew+210ab9e731c9c36c2c38db15c28a8d1c.mp3
+- back_cards:
+  - definition_en: First person singular of the verb 'to be'.
+    example_en: I am happy to join the team.
+  - definition_en: Indicating identity or profession.
+    example_en: I am a teacher at the local school.
+  - definition_en: Describing a current state or feeling.
+    example_en: I am tired after the long day.
+  - definition_en: Expressing location or presence.
+    example_en: I am at the park with friends.
+  - definition_en: Affirming existence or occurrence.
+    example_en: I am here to help with the project.
+  freq: 63615
+  part_of_speech: verb
+  rank: 1500
+  sentence_audio_file:
+  - am_sentence_0+Matthew+e201c9a0a80d255e43801a7df3853be1.mp3
+  - am_sentence_1+Matthew+ccbb8b51829cd146a272596b726ee528.mp3
+  - am_sentence_2+Matthew+0ba613d8e387f637d33e9e2a48a8cc55.mp3
+  - am_sentence_3+Matthew+042829c542099bf46d1377969c026b96.mp3
+  - am_sentence_4+Matthew+72cf61a589baa410eb8473cf4b96c401.mp3
+  voice_id: Matthew
+  word: am
+  word_audio_file:
+  - am_word_0+Matthew+c04cd38aeb30f3ad1f8ab4e64a0ded7b.mp3
