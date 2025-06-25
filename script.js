@@ -247,9 +247,6 @@ function displayWord() {
     const front = document.querySelector('.front');
     const back = document.querySelector('.back');
     const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: '', example_en: '' };
-    const maxFreq = words[0].freq || 1; // Highest frequency (rank 1)
-    // Normalize frequency to 0-100 based on wordData.freq / maxFreq
-    const finalFreq = (wordData.freq / maxFreq) * 100;
 
     front.innerHTML = `
         <div class="word-container">
@@ -257,12 +254,6 @@ function displayWord() {
         </div>
         <div class="meta-info">
             <span class="rank">Rank: ${wordData.rank}</span>
-            <div class="freq-container">
-                <span class="freq-label">Frequency</span>
-                <div class="freq-bar">
-                    <div class="freq-fill" style="width: ${finalFreq}%;"></div>
-                </div>
-            </div>
         </div>
     `;
     back.innerHTML = `
@@ -276,12 +267,6 @@ function displayWord() {
             </div>
             <div class="meta-info">
                 <span class="rank">Rank: ${wordData.rank}</span>
-                <div class="freq-container">
-                    <span class="freq-label">Frequency</span>
-                    <div class="freq-bar">
-                        <div class="freq-fill" style="width: ${finalFreq}%;"></div>
-                    </div>
-                </div>
             </div>
         </div>
     `;
