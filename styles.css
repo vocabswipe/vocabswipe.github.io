@@ -158,27 +158,27 @@ body {
 .frequency-container {
     display: flex;
     align-items: center;
-    gap: 8px;
 }
 
 .frequency-label {
     font-size: 14px;
     font-weight: 500;
     color: #6b7280;
+    margin-right: 8px;
 }
 
 .frequency-bar {
     width: 60px;
-    height: 8px;
+    height: 10px;
     border: 1px solid #000000;
-    border-radius: 4px;
+    border-radius: 5px;
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: #e5e7eb;
 }
 
 .frequency-fill {
     height: 100%;
-    transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -216,6 +216,6 @@ body {
 
     .frequency-bar {
         width: 50px;
-        height: 6px;
+        height: 8px;
     }
 }
