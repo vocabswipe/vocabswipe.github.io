@@ -16194,6 +16194,16 @@
     example_en: The forest fire caused officials to increase the evacuation zone.
   - definition_en: To boost in frequency or occurrence.
     example_en: They decided to increase the number of weekly team meetings.
+  - definition_en: To make larger
+    example_en: They increased the team’s budget.
+  - definition_en: To grow in amount
+    example_en: Her savings increased this year.
+  - definition_en: To raise or boost
+    example_en: He increased his study time.
+  - definition_en: To expand in scope
+    example_en: The store increased its hours.
+  - definition_en: To improve or enhance
+    example_en: She increased her running speed.
   freq: 137709
   part_of_speech: verb
   rank: 701
@@ -16203,6 +16213,11 @@
   - increase_sentence_2+Matthew+2d2d93b9b5c44e33ad813e762d64c49f.mp3
   - increase_sentence_3+Matthew+f81b85b69ef18bdd2dacd29a32d24c19.mp3
   - increase_sentence_4+Matthew+afe84094db7177f43b63c09659ab1e51.mp3
+  - increase_sentence_5+Matthew+e28b955c6a5ad6c1ffc9fe387748f48d.mp3
+  - increase_sentence_6+Matthew+0623ba0aa12fb24d63a8e68f8eb05a61.mp3
+  - increase_sentence_7+Matthew+f995df1c71729c72f2c055cb7f8836ae.mp3
+  - increase_sentence_8+Matthew+f57e6f5aeb73173d855f1987050fa344.mp3
+  - increase_sentence_9+Matthew+1579d627223880fa710fca79aaae1adf.mp3
   voice_id: Matthew
   word: increase
   word_audio_file:
@@ -24568,6 +24583,16 @@
     example_en: He has connections inside the company.
   - definition_en: In a confined or restricted area.
     example_en: The cat stayed inside the yard.
+  - definition_en: Within a space
+    example_en: The book is inside the bag.
+  - definition_en: In the interior of
+    example_en: It’s cool inside the building.
+  - definition_en: Part of a group
+    example_en: She’s inside the planning committee.
+  - definition_en: Within one’s mind
+    example_en: He felt calm inside his heart.
+  - definition_en: In a confined area
+    example_en: The puppy stayed inside the crate.
   freq: 89494
   part_of_speech: preposition
   rank: 1091
@@ -24577,6 +24602,11 @@
   - inside_sentence_2+Matthew+4bc93890e24ac0e46266ba78952e6bfd.mp3
   - inside_sentence_3+Matthew+b21806e43760b202cf24d598d659d193.mp3
   - inside_sentence_4+Matthew+903051ebb4aa71ce44bf746ceab7ade6.mp3
+  - inside_sentence_5+Matthew+c84ba13bcf6943d6e101709e96655867.mp3
+  - inside_sentence_6+Matthew+54b5eb60f8df16f89d599b65ce06a44f.mp3
+  - inside_sentence_7+Matthew+ff30d73b99f822aa34bb32fddaf19e89.mp3
+  - inside_sentence_8+Matthew+de133dd0ce8f3696c63150ac23295a67.mp3
+  - inside_sentence_9+Matthew+20728453cf124b182bf22770c6706a6a.mp3
   voice_id: Matthew
   word: inside
   word_audio_file:
@@ -29477,3 +29507,435 @@
   word: additional
   word_audio_file:
   - additional_word_0+Matthew+15610cc2660e28558e4b5db089797908.mp3
+- back_cards:
+  - definition_en: A small portion for testing
+    example_en: She tried a sample of the new tea.
+  - definition_en: A representative example
+    example_en: This painting is a sample of her art.
+  - definition_en: A specimen for study
+    example_en: The lab analyzed a water sample.
+  - definition_en: A trial product
+    example_en: The store handed out free samples.
+  - definition_en: A piece for evaluation
+    example_en: He submitted a sample of his code.
+  freq: 72489
+  part_of_speech: noun
+  rank: 1321
+  sentence_audio_file:
+  - sample_sentence_0+Matthew+eb64c9a8f4b031e2a0b9aa7e16336d89.mp3
+  - sample_sentence_1+Matthew+e0e7c3c1616c54f780217c7d8c41a96b.mp3
+  - sample_sentence_2+Matthew+9a64948262e589272ea17e4a79beefc0.mp3
+  - sample_sentence_3+Matthew+86bcdfb12ce84dd11679e23885e778bf.mp3
+  - sample_sentence_4+Matthew+8ff122080c8d8e4fe9a734cddf5cb5f0.mp3
+  voice_id: Matthew
+  word: sample
+  word_audio_file:
+  - sample_word_0+Matthew+5e8ff9bf55ba3508199d22e984129be6.mp3
+- back_cards:
+  - definition_en: Actively participating
+    example_en: She’s involved in the charity event.
+  - definition_en: Engaged in a relationship
+    example_en: He’s involved with a new partner.
+  - definition_en: Complex or intricate
+    example_en: The math problem was too involved.
+  - definition_en: Included in a process
+    example_en: They were involved in the decision.
+  - definition_en: Emotionally committed
+    example_en: She felt involved in the story.
+  freq: 72455
+  part_of_speech: adjective
+  rank: 1322
+  sentence_audio_file:
+  - involved_sentence_0+Matthew+78811ca5ad98953203e8c7ac65489271.mp3
+  - involved_sentence_1+Matthew+048aafe1ff93d1828f8a6af73add4034.mp3
+  - involved_sentence_2+Matthew+5bf29bd57c2f2c0aa4044fa666f36a61.mp3
+  - involved_sentence_3+Matthew+07f2bc8310a9a493a20e02e77ed71879.mp3
+  - involved_sentence_4+Matthew+c3ffb3a895eaf6dbc7545c103ce88228.mp3
+  voice_id: Matthew
+  word: involved
+  word_audio_file:
+  - involved_word_0+Matthew+860d7a9915c3d84e711f7dddfd9b4341.mp3
+- back_cards:
+  - definition_en: Primarily or mainly
+    example_en: The crowd was mostly locals.
+  - definition_en: For the most part
+    example_en: It’s mostly clear today.
+  - definition_en: Usually or generally
+    example_en: He mostly works from home.
+  - definition_en: Predominantly
+    example_en: The menu is mostly vegetarian.
+  - definition_en: In most instances
+    example_en: They mostly agreed with her.
+  freq: 72378
+  part_of_speech: adverb
+  rank: 1324
+  sentence_audio_file:
+  - mostly_sentence_0+Matthew+23c3d1a493f292bd35c2252f00656ccf.mp3
+  - mostly_sentence_1+Matthew+0e8923926e2bfed1e39e0857cfe501c5.mp3
+  - mostly_sentence_2+Matthew+ba74aa1e57597af1f83893621839f192.mp3
+  - mostly_sentence_3+Matthew+9b59e4988d076618a23f926087c38187.mp3
+  - mostly_sentence_4+Matthew+3645c5799586f3ae3d31a06bfea01ec4.mp3
+  voice_id: Matthew
+  word: mostly
+  word_audio_file:
+  - mostly_word_0+Matthew+39b4ce213e09c985cf7c97cf22516266.mp3
+- back_cards:
+  - definition_en: A trail for walking
+    example_en: The path led through the woods.
+  - definition_en: A course of action
+    example_en: She followed a path to success.
+  - definition_en: A route or way
+    example_en: The path to the lake was scenic.
+  - definition_en: A career direction
+    example_en: His path took him to teaching.
+  - definition_en: A journey metaphor
+    example_en: Life’s path is full of surprises.
+  freq: 72335
+  part_of_speech: noun
+  rank: 1325
+  sentence_audio_file:
+  - path_sentence_0+Matthew+c7f8aa4b389c2e3fb64802caa3be0777.mp3
+  - path_sentence_1+Matthew+e9fe9e5dfcfa7107067a101f9f74c068.mp3
+  - path_sentence_2+Matthew+a72364ab9c23dc57dbac0a7240196c8f.mp3
+  - path_sentence_3+Matthew+5f257081e0042074050e3e452ea3499d.mp3
+  - path_sentence_4+Matthew+207b83f59b5f07127e7035e29df98218.mp3
+  voice_id: Matthew
+  word: path
+  word_audio_file:
+  - path_word_0+Matthew+d6fe1d0be6347b8ef2427fa629c04485.mp3
+- back_cards:
+  - definition_en: Worried or anxious
+    example_en: He was concerned about the deadline.
+  - definition_en: Interested in a cause
+    example_en: She’s concerned with animal welfare.
+  - definition_en: Showing care
+    example_en: The teacher was concerned for the student.
+  - definition_en: Relevant to an issue
+    example_en: This law is concerned with safety.
+  - definition_en: Feeling responsible
+    example_en: They’re concerned about the park.
+  freq: 72309
+  part_of_speech: adjective
+  rank: 1326
+  sentence_audio_file:
+  - concerned_sentence_0+Matthew+52241d86de8f0bb3d48e1f8c203b0cc2.mp3
+  - concerned_sentence_1+Matthew+1507e31b9b486ba59c485dce9b019f25.mp3
+  - concerned_sentence_2+Matthew+3483821f3f4d397f953cd216738728bd.mp3
+  - concerned_sentence_3+Matthew+9c2b539d8cd687a2868cd6f34814090a.mp3
+  - concerned_sentence_4+Matthew+5e10fa9981e5f1c2f2783b12982d611f.mp3
+  voice_id: Matthew
+  word: concerned
+  word_audio_file:
+  - concerned_word_0+Matthew+5ef93a057b5e36a7f6f0880e87f5cf4b.mp3
+- back_cards:
+  - definition_en: A common fruit
+    example_en: He ate an apple for a snack.
+  - definition_en: A cooking ingredient
+    example_en: She baked an apple pie.
+  - definition_en: A symbol of health
+    example_en: An apple a day is good advice.
+  - definition_en: A brand name
+    example_en: He owns an Apple laptop.
+  - definition_en: A natural treat
+    example_en: The kids picked apples from the tree.
+  freq: 72273
+  part_of_speech: noun
+  rank: 1327
+  sentence_audio_file:
+  - apple_sentence_0+Matthew+539b1b4efabf7d6ff51740124f5bffb1.mp3
+  - apple_sentence_1+Matthew+7907859645c2d279884c9e8f90d0573e.mp3
+  - apple_sentence_2+Matthew+c2bed59df2a12552aff4840cd4a44057.mp3
+  - apple_sentence_3+Matthew+d09acad33e6b4f3cf6ad66da2ec2d7e8.mp3
+  - apple_sentence_4+Matthew+4d66f83da3e7f4a90ac05c5d18d6f496.mp3
+  voice_id: Matthew
+  word: apple
+  word_audio_file:
+  - apple_word_0+Matthew+1f3870be274f6c49b3e31a0c6728957f.mp3
+- back_cards:
+  - definition_en: To lead or direct
+    example_en: She conducted the choir with grace.
+  - definition_en: To perform or carry out
+    example_en: They conducted a safety check.
+  - definition_en: To behave in a way
+    example_en: He conducted himself with dignity.
+  - definition_en: To manage an event
+    example_en: She conducted the workshop smoothly.
+  - definition_en: To transmit energy
+    example_en: This metal conducts heat well.
+  freq: 72181
+  part_of_speech: verb
+  rank: 1328
+  sentence_audio_file:
+  - conduct_sentence_0+Matthew+b0fd4564aec5cc5a552e9a90e250f046.mp3
+  - conduct_sentence_1+Matthew+e2d51dc37669111f9fcdd42121f6db14.mp3
+  - conduct_sentence_2+Matthew+4e9d6a8edf6ed58184a964683a514071.mp3
+  - conduct_sentence_3+Matthew+09e0a4de8d2b0c21c3f0df77cbaf2ac8.mp3
+  - conduct_sentence_4+Matthew+0d683e3901a23c751f1af7328f3b9f14.mp3
+  voice_id: Matthew
+  word: conduct
+  word_audio_file:
+  - conduct_word_0+Matthew+45fb9b76950ea7ac85e5e489dab1c654.mp3
+- back_cards:
+  - definition_en: A deity or divine being
+    example_en: Many worship their god daily.
+  - definition_en: A figure of reverence
+    example_en: The statue honored a god.
+  - definition_en: A powerful entity
+    example_en: He was seen as a god in music.
+  - definition_en: A cultural symbol
+    example_en: Gods appear in ancient myths.
+  - definition_en: An expression of awe
+    example_en: God, that view is stunning.
+  freq: 72022
+  part_of_speech: noun
+  rank: 1329
+  sentence_audio_file:
+  - god_sentence_0+Matthew+0f1ae4366e4ebef92e1234b77fb4ebe3.mp3
+  - god_sentence_1+Matthew+2ec76c718eaa05c0c8f2c0789ed88e22.mp3
+  - god_sentence_2+Matthew+82f5e91f9f4f011c59e3c312e02bac4c.mp3
+  - god_sentence_3+Matthew+cb658d7e556b5d3a19b2826bbf874f50.mp3
+  - god_sentence_4+Matthew+4ad43b29d93b11be145c71625bec42dd.mp3
+  voice_id: Matthew
+  word: god
+  word_audio_file:
+  - god_word_0+Matthew+a4757d7419ff3b48e92e90596f0e7548.mp3
+- back_cards:
+  - definition_en: Extremely pleasing
+    example_en: The trip was a wonderful experience.
+  - definition_en: Highly impressive
+    example_en: She gave a wonderful presentation.
+  - definition_en: Delightful or joyful
+    example_en: The garden looks wonderful in spring.
+  - definition_en: Remarkably good
+    example_en: This is a wonderful recipe.
+  - definition_en: Inspiring awe
+    example_en: His talent is simply wonderful.
+  freq: 71940
+  part_of_speech: adjective
+  rank: 1330
+  sentence_audio_file:
+  - wonderful_sentence_0+Matthew+2f58b1cee22a17764ed7071ad34d64f0.mp3
+  - wonderful_sentence_1+Matthew+31b3860115e11fba2461b36d9fecae62.mp3
+  - wonderful_sentence_2+Matthew+5cedaa028308c1361a2c4b57237e3d3d.mp3
+  - wonderful_sentence_3+Matthew+95f668b2032b52370d9798fd0494095f.mp3
+  - wonderful_sentence_4+Matthew+26b96436124b789ef5a7ceb49013a25a.mp3
+  voice_id: Matthew
+  word: wonderful
+  word_audio_file:
+  - wonderful_word_0+Matthew+9f608aaed334be3b7c0cc481b86458ad.mp3
+- back_cards:
+  - definition_en: A place for books
+    example_en: She studied in the library all evening.
+  - definition_en: A collection of resources
+    example_en: His library has many classics.
+  - definition_en: A quiet workspace
+    example_en: The library is great for focus.
+  - definition_en: A community space
+    example_en: The library hosts story time.
+  - definition_en: A digital archive
+    example_en: The online library offers e-books.
+  freq: 71921
+  part_of_speech: noun
+  rank: 1331
+  sentence_audio_file:
+  - library_sentence_0+Matthew+19a2972a2373c3345818cc6895830bee.mp3
+  - library_sentence_1+Matthew+4b3fbf427a32bf21731d7c767bdf095a.mp3
+  - library_sentence_2+Matthew+44ffeb4b19c2923468c65045298e2052.mp3
+  - library_sentence_3+Matthew+7a863888b1309302e7ebe61041b8918a.mp3
+  - library_sentence_4+Matthew+683bf6b423716c0a56f465bdcef0d37c.mp3
+  voice_id: Matthew
+  word: library
+  word_audio_file:
+  - library_word_0+Matthew+d521f765a49c72507257a2620612ee96.mp3
+- back_cards:
+  - definition_en: A facility for criminals
+    example_en: He was sent to prison for robbery.
+  - definition_en: A place of confinement
+    example_en: The old fort was once a prison.
+  - definition_en: A restrictive state
+    example_en: She felt trapped in a mental prison.
+  - definition_en: A rehabilitation center
+    example_en: The prison offers job training.
+  - definition_en: A symbol of justice
+    example_en: The story explored life in prison.
+  freq: 71871
+  part_of_speech: noun
+  rank: 1332
+  sentence_audio_file:
+  - prison_sentence_0+Matthew+436f93667be579e4e31185d0a00205b6.mp3
+  - prison_sentence_1+Matthew+5eb5ea6910678a27b8f110de9d9fa8e0.mp3
+  - prison_sentence_2+Matthew+1b5c37e52e0c339a3e9feb47bc858997.mp3
+  - prison_sentence_3+Matthew+c14f0257110fb9b0dbe452ea8a319326.mp3
+  - prison_sentence_4+Matthew+0ab3d635cd18e87e967c6e637262ae33.mp3
+  voice_id: Matthew
+  word: prison
+  word_audio_file:
+  - prison_word_0+Matthew+3d36e867fac87242d740bb25ceb551d9.mp3
+- back_cards:
+  - definition_en: A gap or opening
+    example_en: There’s a hole in my jacket.
+  - definition_en: A hollow space
+    example_en: The mouse hid in a hole.
+  - definition_en: A flaw or issue
+    example_en: The plan had a big hole.
+  - definition_en: A small, grim place
+    example_en: He lived in a hole of a room.
+  - definition_en: A golf feature
+    example_en: The ball landed near the hole.
+  freq: 71837
+  part_of_speech: noun
+  rank: 1333
+  sentence_audio_file:
+  - hole_sentence_0+Matthew+21d853ff35c9cfaf84ad43ab103e67ca.mp3
+  - hole_sentence_1+Matthew+00c3b14fc794c058a58b31948393711b.mp3
+  - hole_sentence_2+Matthew+02bb33116d5f28ae82e13e9183e31595.mp3
+  - hole_sentence_3+Matthew+0deee6985d22e8c8908b89a3f55c68ae.mp3
+  - hole_sentence_4+Matthew+b5bf01cf6213602ecef5ed89bd7e4c1d.mp3
+  voice_id: Matthew
+  word: hole
+  word_audio_file:
+  - hole_word_0+Matthew+de97e75e5b4604526a2afaed5f5439d7.mp3
+- back_cards:
+  - definition_en: An effort to do something
+    example_en: Her attempt at painting was great.
+  - definition_en: A try at a goal
+    example_en: His attempt to climb failed.
+  - definition_en: A sports effort
+    example_en: The shot was a good attempt.
+  - definition_en: A problem-solving try
+    example_en: The attempt to fix it worked.
+  - definition_en: A tentative action
+    example_en: It was an attempt to start over.
+  freq: 71833
+  part_of_speech: noun
+  rank: 1334
+  sentence_audio_file:
+  - attempt_sentence_0+Matthew+41e590b6ce9eb26051e3a0d1510b0c1e.mp3
+  - attempt_sentence_1+Matthew+63e9114e82cf9d17625c80c5f0aeeede.mp3
+  - attempt_sentence_2+Matthew+5b94237027d748f14b9ae106715f6cb3.mp3
+  - attempt_sentence_3+Matthew+52a159960ccaff1cfe2c72d323f5fc73.mp3
+  - attempt_sentence_4+Matthew+74cfc9f305c9669c240d54d03ec27615.mp3
+  voice_id: Matthew
+  word: attempt
+  word_audio_file:
+  - attempt_word_0+Matthew+1db222fece0e7454c122788bf892adf8.mp3
+- back_cards:
+  - definition_en: To finish a task
+    example_en: He completed the report early.
+  - definition_en: To make whole
+    example_en: She completed her collection.
+  - definition_en: To fulfill a duty
+    example_en: They completed the course.
+  - definition_en: To finalize work
+    example_en: We completed the renovation.
+  - definition_en: To achieve fully
+    example_en: She completed her dream run.
+  freq: 71752
+  part_of_speech: verb
+  rank: 1335
+  sentence_audio_file:
+  - complete_sentence_0+Matthew+db9cfa611b60371bcbf55d3adfeb19d2.mp3
+  - complete_sentence_1+Matthew+d745e11c9e055784a2d4ea8c53724375.mp3
+  - complete_sentence_2+Matthew+6c83ac5aefbebfb9db7205461578ccbd.mp3
+  - complete_sentence_3+Matthew+0ef983d1076f617074132e8b15467009.mp3
+  - complete_sentence_4+Matthew+de016c9500431cc8f14d3ee3d05638f9.mp3
+  voice_id: Matthew
+  word: complete
+  word_audio_file:
+  - complete_word_0+Matthew+d9a22d7a8178d5b42a8750123cbfe5b1.mp3
+- back_cards:
+  - definition_en: A set of rules
+    example_en: The code protected the secret.
+  - definition_en: Programming instructions
+    example_en: She debugged the code for hours.
+  - definition_en: A system of ethics
+    example_en: The team follows a strict code.
+  - definition_en: A signal system
+    example_en: Morse code was used long ago.
+  - definition_en: A hidden message
+    example_en: The book contained a clever code.
+  freq: 71659
+  part_of_speech: noun
+  rank: 1336
+  sentence_audio_file:
+  - code_sentence_0+Matthew+a6c4bcd907306a28e9fa39a632ca85ac.mp3
+  - code_sentence_1+Matthew+23686d3293cb0bc46659574c29b72d0a.mp3
+  - code_sentence_2+Matthew+937c623e5949fc96ae2dfa6302abcefa.mp3
+  - code_sentence_3+Matthew+f71a5d4c64f3417f1dcda6b4dec8a1ea.mp3
+  - code_sentence_4+Matthew+989ee4515b07512a301082453bf2e79f.mp3
+  voice_id: Matthew
+  word: code
+  word_audio_file:
+  - code_word_0+Matthew+c13367945d5d4c91047b3b50234aa7ab.mp3
+- back_cards:
+  - definition_en: The act of selling
+    example_en: Sales rose during the holidays.
+  - definition_en: A business department
+    example_en: She joined the sales team.
+  - definition_en: Revenue from products
+    example_en: The company reported strong sales.
+  - definition_en: Discount events
+    example_en: The sales drew big crowds.
+  - definition_en: A measure of success
+    example_en: Sales reflect the store’s growth.
+  freq: 71601
+  part_of_speech: noun
+  rank: 1337
+  sentence_audio_file:
+  - sales_sentence_0+Matthew+6a6c74bf4c555bf43ed786ae6ca0f1dc.mp3
+  - sales_sentence_1+Matthew+0e534b0f43b06831d6a0dae53902e857.mp3
+  - sales_sentence_2+Matthew+b01405f5eaad4c939dc556f676122d5c.mp3
+  - sales_sentence_3+Matthew+f110d33b65d3cb764e4a8e790c98e879.mp3
+  - sales_sentence_4+Matthew+b2649d7646a357477d6380b5ebaf9478.mp3
+  voice_id: Matthew
+  word: sales
+  word_audio_file:
+  - sales_word_0+Matthew+9ed083b1436e5f40ef984b28255eef18.mp3
+- back_cards:
+  - definition_en: A present given freely
+    example_en: He gave her a gift for her birthday.
+  - definition_en: A natural talent
+    example_en: Her gift for music is incredible.
+  - definition_en: A kind gesture
+    example_en: The meal was a gift from a friend.
+  - definition_en: A special item
+    example_en: The gift was beautifully wrapped.
+  - definition_en: A token of love
+    example_en: The necklace was a thoughtful gift.
+  freq: 71372
+  part_of_speech: noun
+  rank: 1338
+  sentence_audio_file:
+  - gift_sentence_0+Matthew+19fb85e5ecf5fe6a7bb058f711db55d8.mp3
+  - gift_sentence_1+Matthew+82e71d57d83d0f76bc699fdc5f91b0d8.mp3
+  - gift_sentence_2+Matthew+29c5efc688ba2259041769034820beeb.mp3
+  - gift_sentence_3+Matthew+86d543caf4e22ed9e1b18a912d4324a4.mp3
+  - gift_sentence_4+Matthew+3f5f87d1960cbeea53698f792071d977.mp3
+  voice_id: Matthew
+  word: gift
+  word_audio_file:
+  - gift_word_0+Matthew+a0ec3b461abf4bc16ad615481260140e.mp3
+- back_cards:
+  - definition_en: To reject or decline
+    example_en: She refused to accept the offer.
+  - definition_en: To say no
+    example_en: He refused the extra work.
+  - definition_en: To deny access
+    example_en: They refused entry to the event.
+  - definition_en: To resist belief
+    example_en: I refuse to trust that rumor.
+  - definition_en: To turn down kindly
+    example_en: She refused the help politely.
+  freq: 71277
+  part_of_speech: verb
+  rank: 1339
+  sentence_audio_file:
+  - refuse_sentence_0+Matthew+b589fe1f04e17e03b696e6e07cd09206.mp3
+  - refuse_sentence_1+Matthew+a64b19fcb6407ea1f457cbb62a116910.mp3
+  - refuse_sentence_2+Matthew+a9c9064fb0d18236eec13a7a4ffd18e8.mp3
+  - refuse_sentence_3+Matthew+774ab8b3f8e9e2e563e4f5e1d1d8c51b.mp3
+  - refuse_sentence_4+Matthew+1f4fdbf59e33dc954fab445de86059dc.mp3
+  voice_id: Matthew
+  word: refuse
+  word_audio_file:
+  - refuse_word_0+Matthew+324a7590a91adf962f9b2a1d4ddaa6c9.mp3
