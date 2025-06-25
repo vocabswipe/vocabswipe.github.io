@@ -13,6 +13,12 @@ body {
     justify-content: center;
     min-height: 100vh;
     color: #1f2937;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+body[data-theme="dark"] {
+    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+    color: #e5e7eb;
 }
 
 .container {
@@ -23,6 +29,43 @@ body {
     max-width: 600px;
     padding: 16px;
     padding-top: 40px;
+    position: relative;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+body[data-theme="dark"] .theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle .sun-icon {
+    display: block;
+}
+
+.theme-toggle .moon-icon {
+    display: none;
+}
+
+body[data-theme="dark"] .theme-toggle .sun-icon {
+    display: none;
+}
+
+body[data-theme="dark"] .theme-toggle .moon-icon {
+    display: block;
 }
 
 .website-name {
@@ -34,6 +77,10 @@ body {
     margin-bottom: 8px;
 }
 
+body[data-theme="dark"] .website-name {
+    color: #60a5fa;
+}
+
 .slogan {
     font-family: 'Caveat', cursive;
     font-size: 28px;
@@ -43,6 +90,10 @@ body {
     margin-bottom: 8px;
 }
 
+body[data-theme="dark"] .slogan {
+    color: #60a5fa;
+}
+
 .deck-version {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
@@ -50,6 +101,10 @@ body {
     color: #6b7280;
     text-align: center;
     margin-bottom: 16px;
+}
+
+body[data-theme="dark"] .deck-version {
+    color: #9ca3af;
 }
 
 .flashcard-container {
@@ -69,6 +124,10 @@ body {
     border-radius: 12px;
 }
 
+body[data-theme="dark"] .flashcard {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
 .flashcard.flipped {
     transform: rotateY(180deg);
 }
@@ -86,9 +145,19 @@ body {
     border: 1px solid #e5e7eb;
 }
 
+body[data-theme="dark"] .front,
+body[data-theme="dark"] .back {
+    background: linear-gradient(145deg, #374151 0%, #4b5563 100%);
+    border: 1px solid #4b5563;
+}
+
 .back {
     transform: rotateY(180deg);
     background: linear-gradient(145deg, #f9fafb 0%, #f3f4f6 100%);
+}
+
+body[data-theme="dark"] .back {
+    background: linear-gradient(145deg, #4b5563 0%, #374151 100%);
 }
 
 .word-container {
@@ -106,6 +175,11 @@ body {
     text-align: center;
     word-break: break-word;
     line-height: 1.2;
+}
+
+body[data-theme="dark"] .front h2,
+body[data-theme="dark"] .back h2 {
+    color: #60a5fa;
 }
 
 .back-template {
@@ -131,6 +205,10 @@ body {
     text-align: center;
 }
 
+body[data-theme="dark"] .definition {
+    color: #d1d5db;
+}
+
 .example {
     font-size: 16px;
     color: #374151;
@@ -141,6 +219,10 @@ body {
     font-weight: 700;
 }
 
+body[data-theme="dark"] .example {
+    color: #d1d5db;
+}
+
 .meta-info {
     display: flex;
     justify-content: space-between;
@@ -149,10 +231,18 @@ body {
     border-top: 1px solid #e5e7eb;
 }
 
+body[data-theme="dark"] .meta-info {
+    border-top: 1px solid #4b5563;
+}
+
 .rank {
     font-size: 14px;
     font-weight: 500;
     color: #6b7280;
+}
+
+body[data-theme="dark"] .rank {
+    color: #9ca3af;
 }
 
 .frequency-container {
@@ -167,10 +257,8 @@ body {
     color: #6b7280;
 }
 
-.frequency-value {
-    font-size: 14px;
-    font-weight: 500;
-    color: #6b7280;
+body[data-theme="dark"] .frequency-label {
+    color: #9ca3af;
 }
 
 .frequency-bar {
@@ -182,6 +270,11 @@ body {
     background: #e5e7eb;
 }
 
+body[data-theme="dark"] .frequency-bar {
+    border: 2px solid #e5e7eb;
+    background: #4b5563;
+}
+
 .frequency-fill {
     height: 100%;
     transition: width 0.3s ease, background-color 0.3s ease;
@@ -190,6 +283,17 @@ body {
 @media (max-width: 768px) {
     .container {
         padding-top: 20px;
+    }
+
+    .theme-toggle {
+        top: 12px;
+        right: 12px;
+        padding: 6px;
+    }
+
+    .theme-toggle svg {
+        width: 20px;
+        height: 20px;
     }
 
     .website-name {
@@ -216,7 +320,7 @@ body {
         font-size: 14px;
     }
 
-    .rank, .frequency-label, .frequency-value {
+    .rank, .frequency-label {
         font-size: 12px;
     }
 
