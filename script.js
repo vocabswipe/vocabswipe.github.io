@@ -6,9 +6,23 @@ let currentAudio = null;
 let audioCache = new Map();
 const MAX_CACHE_SIZE = 10;
 let audioUnlocked = false;
-let maxFreq = 0; // To store the maximum frequency (rank 1 word)
+let maxFreq = 0; // Maximum frequency (rank 1 word)
+let minFreq = 1; // Minimum frequency, default to 1 to avoid log(0)
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Load theme from localStorage or default to bright
+    const savedTheme = localStorage.getItem('theme') || 'bright';
+    document.body.setAttribute('data-theme', savedTheme);
+    
+    // Setup theme toggle button
+    const themeToggle = document.querySelector('.theme-toggle');
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'bright' ? 'dark' : 'bright';
+        document.body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+
     loadWords();
     setupEventListeners();
 });
@@ -39,8 +53,9 @@ function loadWords() {
                 return;
             }
             words.sort((a, b) => a.rank - b.rank);
-            // Find the maximum frequency (frequency of rank 1 word)
+            // Find max and min frequencies
             maxFreq = words.find(word => word.rank === 1)?.freq || 1;
+            minFreq = Math.min(...words.map(word => word.freq).filter(freq => freq > 0)) || 1;
             displayWord();
             preloadAudio();
         })
@@ -223,7 +238,6 @@ function playAudio(audioFile) {
 }
 
 function flipCard() {
-    const wasFlipped = isFlipped;
     isFlipped = !isFlipped;
     const card = document.querySelector('.flashcard');
     card.classList.toggle('flipped', isFlipped);
@@ -243,7 +257,6 @@ function flipCard() {
 
 function getFrequencyColor(relativeFreq) {
     // Color gradient: red (0%) -> orange (50%) -> green (100%)
-    // Use HSL for smooth color transitions
     // Hue: 0 (red) to 120 (green)
     const hue = Math.min(relativeFreq * 1.2, 120); // Scale 0-100% to 0-120 degrees
     return `hsl(${hue}, 80%, 50%)`;
@@ -257,9 +270,12 @@ function displayWord() {
     const wordData = words[currentWordIndex];
     const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: '', example_en: '' };
     
-    // Calculate relative frequency
-    const relativeFreq = (wordData.freq * 100) / maxFreq;
-    const freqPercentage = relativeFreq.toFixed(0); // Rounded to nearest integer
+    // Calculate relative frequency using logarithmic scaling
+    const logFreq = Math.log(wordData.freq || 1);
+    const logMinFreq = Math.log(minFreq);
+    const logMaxFreq = Math.log(maxFreq);
+    const relativeFreq = ((logFreq - logMinFreq) / (logMaxFreq - logMinFreq)) * 100;
+    const freqPercentage = Math.min(Math.max(relativeFreq, 0), 100).toFixed(0); // Ensure within 0-100%
     const freqColor = getFrequencyColor(relativeFreq);
 
     // Update front card
@@ -271,7 +287,6 @@ function displayWord() {
             <span class="rank">Rank: ${wordData.rank}</span>
             <div class="frequency-container">
                 <span class="frequency-label">Frequency:</span>
-                <span class="frequency-value">${freqPercentage}%</span>
                 <div class="frequency-bar">
                     <div class="frequency-fill" style="width: ${freqPercentage}%; background-color: ${freqColor};"></div>
                 </div>
@@ -293,7 +308,6 @@ function displayWord() {
                 <span class="rank">Rank: ${wordData.rank}</span>
                 <div class="frequency-container">
                     <span class="frequency-label">Frequency:</span>
-                    <span class="frequency-value">${freqPercentage}%</span>
                     <div class="frequency-bar">
                         <div class="frequency-fill" style="width: ${freqPercentage}%; background-color: ${freqColor};"></div>
                     </div>
