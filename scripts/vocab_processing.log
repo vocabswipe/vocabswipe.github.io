@@ -17852,3 +17852,138 @@ expected <block end>, but found '<block mapping start>'
 2025-06-25 16:17:23,314 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250625_161723.txt
 2025-06-25 16:17:23,324 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
 2025-06-25 16:17:23,325 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
+2025-06-25 16:29:12,616 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-25 16:29:12,866 - INFO - AWS Polly client initialized successfully.
+2025-06-25 16:29:12,874 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 16:29:12,875 - ERROR - Error parsing 'D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl': Extra data: line 1 column 117 (char 116)
+2025-06-25 16:29:12,876 - WARNING - No entries to process
+2025-06-25 16:32:48,090 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-25 16:32:48,299 - INFO - AWS Polly client initialized successfully.
+2025-06-25 16:32:48,307 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 16:32:48,309 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 16:33:00,561 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 16:33:00,562 - INFO - Appended 20 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 16:33:00,582 - INFO - Loading: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-25 16:33:06,841 - INFO - Generated audio for '<speak>enemy</speak>' at D:\vocabswipe.github.io\data\audio\enemy_word_0+Matthew+cde2fde1fa1551a704d775ce2315915d.mp3
+2025-06-25 16:33:07,465 - INFO - Generated audio for '<speak>enemy. The two countries were enemies during the war.</speak>' at D:\vocabswipe.github.io\data\audio\enemy_sentence_0+Matthew+8b348aad533e13546e0cd1ef85edb0a1.mp3
+2025-06-25 16:33:10,045 - INFO - Generated audio for '<speak>enemy. Rust is the enemy of metal tools.</speak>' at D:\vocabswipe.github.io\data\audio\enemy_sentence_1+Matthew+0f661029e2ee8fc0b8be6933e096e9da.mp3
+2025-06-25 16:33:14,000 - INFO - Generated audio for '<speak>enemy. He faced his enemy in the final chess match.</speak>' at D:\vocabswipe.github.io\data\audio\enemy_sentence_2+Matthew+2c64c31a6853e07953aec2c3bcffee49.mp3
+2025-06-25 16:33:15,959 - INFO - Generated audio for '<speak>enemy. She saw her coworker as an enemy after the promotion.</speak>' at D:\vocabswipe.github.io\data\audio\enemy_sentence_3+Matthew+df0e0e9cdba8e60b4f36a6fff9e87bbf.mp3
+2025-06-25 16:33:16,762 - INFO - Generated audio for '<speak>enemy. Fear is often the enemy of success.</speak>' at D:\vocabswipe.github.io\data\audio\enemy_sentence_4+Matthew+afbb8f91d81885c4d275346fee7c52d3.mp3
+2025-06-25 16:33:17,092 - INFO - Generated audio for '<speak>damage</speak>' at D:\vocabswipe.github.io\data\audio\damage_word_0+Matthew+da14a7168b547f35ea0c6fa9f50de63e.mp3
+2025-06-25 16:33:17,701 - INFO - Generated audio for '<speak>damage. The flood caused severe damage to the house.</speak>' at D:\vocabswipe.github.io\data\audio\damage_sentence_0+Matthew+a8b1d0981bf56a380f5f74b1b0ebb33b.mp3
+2025-06-25 16:33:18,400 - INFO - Generated audio for '<speak>damage. The scandal brought damage to his reputation.</speak>' at D:\vocabswipe.github.io\data\audio\damage_sentence_1+Matthew+3609877174ff72c1241fd234e467dba0.mp3
+2025-06-25 16:33:18,758 - INFO - Generated audio for '<speak>damage. The company paid for the damage to her car.</speak>' at D:\vocabswipe.github.io\data\audio\damage_sentence_2+Matthew+42bf7c1dc5855c9c50af75d8d9ee3eaf.mp3
+2025-06-25 16:33:19,141 - INFO - Generated audio for '<speak>damage. The storm left visible damage on the trees.</speak>' at D:\vocabswipe.github.io\data\audio\damage_sentence_3+Matthew+001963a6f9fda4279ed7eeaa21b8cb01.mp3
+2025-06-25 16:33:19,783 - INFO - Generated audio for '<speak>damage. Delays caused damage to the construction schedule.</speak>' at D:\vocabswipe.github.io\data\audio\damage_sentence_4+Matthew+82fe13c7c05566e344ac4525fdc14156.mp3
+2025-06-25 16:33:20,109 - INFO - Generated audio for '<speak>being</speak>' at D:\vocabswipe.github.io\data\audio\being_word_0+Matthew+3f4cede61a59db6832b07ea4f3bd3de1.mp3
+2025-06-25 16:33:20,580 - INFO - Generated audio for '<speak>being. The forest is home to many strange beings.</speak>' at D:\vocabswipe.github.io\data\audio\being_sentence_0+Matthew+10f5964a8baa28e70b0fcb13a6a28c09.mp3
+2025-06-25 16:33:21,041 - INFO - Generated audio for '<speak>being. Her philosophy explored the nature of being.</speak>' at D:\vocabswipe.github.io\data\audio\being_sentence_1+Matthew+3b3487176cca4a589668c68a30775086.mp3
+2025-06-25 16:33:21,424 - INFO - Generated audio for '<speak>being. He was a kind being, always helping others.</speak>' at D:\vocabswipe.github.io\data\audio\being_sentence_2+Matthew+5942c6cc0689bfb40d33724fd00708e0.mp3
+2025-06-25 16:33:22,062 - INFO - Generated audio for '<speak>being. Love is at the heart of her being.</speak>' at D:\vocabswipe.github.io\data\audio\being_sentence_3+Matthew+ec92ff7974880913e023a83462ab9cbc.mp3
+2025-06-25 16:33:22,494 - INFO - Generated audio for '<speak>being. The story featured a magical being from another world.</speak>' at D:\vocabswipe.github.io\data\audio\being_sentence_4+Matthew+29e4ad7c6a2fa27d7d6238169a079cfb.mp3
+2025-06-25 16:33:22,846 - INFO - Generated audio for '<speak>storm</speak>' at D:\vocabswipe.github.io\data\audio\storm_word_0+Matthew+849c829d658baaeff512d766b0db3cce.mp3
+2025-06-25 16:33:23,294 - INFO - Generated audio for '<speak>storm. The storm knocked out power in the town.</speak>' at D:\vocabswipe.github.io\data\audio\storm_sentence_0+Matthew+1e71bf64e498b14103827c50e282df4c.mp3
+2025-06-25 16:33:23,684 - INFO - Generated audio for '<speak>storm. A storm of protests followed the decision.</speak>' at D:\vocabswipe.github.io\data\audio\storm_sentence_1+Matthew+4d6ed9d860becd6640a979f38b1364ca.mp3
+2025-06-25 16:33:24,047 - INFO - Generated audio for '<speak>storm. She left the room in a storm of anger.</speak>' at D:\vocabswipe.github.io\data\audio\storm_sentence_2+Matthew+159e93531905a38b4f47b186be53e9ca.mp3
+2025-06-25 16:33:24,412 - INFO - Generated audio for '<speak>storm. The troops launched a storm on the fortress.</speak>' at D:\vocabswipe.github.io\data\audio\storm_sentence_3+Matthew+c29ed94f0da8da72594a52791a531dc0.mp3
+2025-06-25 16:33:24,784 - INFO - Generated audio for '<speak>storm. The office was a storm of activity before the deadline.</speak>' at D:\vocabswipe.github.io\data\audio\storm_sentence_4+Matthew+abb9d52d105b8d029dbaa31246f5e05a.mp3
+2025-06-25 16:33:25,102 - INFO - Generated audio for '<speak>shape</speak>' at D:\vocabswipe.github.io\data\audio\shape_word_0+Matthew+8c73a98a300905900337f535531dfca6.mp3
+2025-06-25 16:33:25,465 - INFO - Generated audio for '<speak>shape. The cloud had the shape of a heart.</speak>' at D:\vocabswipe.github.io\data\audio\shape_sentence_0+Matthew+a5807732eb50fdc1cabeb074cf82d83a.mp3
+2025-06-25 16:33:25,825 - INFO - Generated audio for '<speak>shape. He’s in great shape after months of training.</speak>' at D:\vocabswipe.github.io\data\audio\shape_sentence_1+Matthew+516bfbca54311b74eaa984d61e575c88.mp3
+2025-06-25 16:33:26,195 - INFO - Generated audio for '<speak>shape. The project is taking shape as we speak.</speak>' at D:\vocabswipe.github.io\data\audio\shape_sentence_2+Matthew+8671692d7c66b29df0d5f63301db165e.mp3
+2025-06-25 16:33:26,563 - INFO - Generated audio for '<speak>shape. She used a cookie cutter to make star shapes.</speak>' at D:\vocabswipe.github.io\data\audio\shape_sentence_3+Matthew+8dbb29e5e8a1cb102e2171217e179e5e.mp3
+2025-06-25 16:33:26,919 - INFO - Generated audio for '<speak>shape. The painting featured bold geometric shapes.</speak>' at D:\vocabswipe.github.io\data\audio\shape_sentence_4+Matthew+14f1e5099520ff713353c89343a8083d.mp3
+2025-06-25 16:33:27,246 - INFO - Generated audio for '<speak>bowl</speak>' at D:\vocabswipe.github.io\data\audio\bowl_word_0+Matthew+9c44fc81ae1c3b4b362d5576bf6cda53.mp3
+2025-06-25 16:33:27,597 - INFO - Generated audio for '<speak>bowl. She served soup in a ceramic bowl.</speak>' at D:\vocabswipe.github.io\data\audio\bowl_sentence_0+Matthew+c192beefe7299bfe2a2ee3108f04d808.mp3
+2025-06-25 16:33:27,951 - INFO - Generated audio for '<speak>bowl. He ate a bowl of cereal for breakfast.</speak>' at D:\vocabswipe.github.io\data\audio\bowl_sentence_1+Matthew+c0c45c754c187423aa06d9c7e5b2a6ad.mp3
+2025-06-25 16:33:28,311 - INFO - Generated audio for '<speak>bowl. The football game was held at the Rose Bowl.</speak>' at D:\vocabswipe.github.io\data\audio\bowl_sentence_2+Matthew+01cea736d4cbf38251f33c663176f30e.mp3
+2025-06-25 16:33:28,670 - INFO - Generated audio for '<speak>bowl. The bowl of the pipe was carved from wood.</speak>' at D:\vocabswipe.github.io\data\audio\bowl_sentence_3+Matthew+0427c29f746a13ffad6b6f1034ed4eee.mp3
+2025-06-25 16:33:29,031 - INFO - Generated audio for '<speak>bowl. They played a friendly game of bowls in the park.</speak>' at D:\vocabswipe.github.io\data\audio\bowl_sentence_4+Matthew+216c35a15f72dfb58b3ecad8dac1049d.mp3
+2025-06-25 16:33:29,356 - INFO - Generated audio for '<speak>commission</speak>' at D:\vocabswipe.github.io\data\audio\commission_word_0+Matthew+2fbf858aea528e022a745cebee4978b1.mp3
+2025-06-25 16:33:29,916 - INFO - Generated audio for '<speak>commission. The commission investigated the accident.</speak>' at D:\vocabswipe.github.io\data\audio\commission_sentence_0+Matthew+a5458b5c2d7366f04b4aea716017abaf.mp3
+2025-06-25 16:33:30,509 - INFO - Generated audio for '<speak>commission. She earned a high commission from the deal.</speak>' at D:\vocabswipe.github.io\data\audio\commission_sentence_1+Matthew+99ea74cb2ede55d8194edfedf0b90f36.mp3
+2025-06-25 16:33:30,893 - INFO - Generated audio for '<speak>commission. He received a commission as an army officer.</speak>' at D:\vocabswipe.github.io\data\audio\commission_sentence_2+Matthew+87cdac490419a849214223690247395a.mp3
+2025-06-25 16:33:31,499 - INFO - Generated audio for '<speak>commission. The artist accepted a commission for a portrait.</speak>' at D:\vocabswipe.github.io\data\audio\commission_sentence_3+Matthew+2a68e74c5fe773e41f2c89fa2a95c75c.mp3
+2025-06-25 16:33:32,045 - INFO - Generated audio for '<speak>commission. The new law was put into commission last week.</speak>' at D:\vocabswipe.github.io\data\audio\commission_sentence_4+Matthew+bb4543a072ec9266753309e13ff21b81.mp3
+2025-06-25 16:33:32,371 - INFO - Generated audio for '<speak>captain</speak>' at D:\vocabswipe.github.io\data\audio\captain_word_0+Matthew+ab334feeb31c05124cb73fa12571c2f6.mp3
+2025-06-25 16:33:36,589 - INFO - Generated audio for '<speak>captain. The captain navigated the ship through the storm.</speak>' at D:\vocabswipe.github.io\data\audio\captain_sentence_0+Matthew+d83884412992f1d3908945de786e75f5.mp3
+2025-06-25 16:33:37,479 - INFO - Generated audio for '<speak>captain. She was elected captain of the soccer team.</speak>' at D:\vocabswipe.github.io\data\audio\captain_sentence_1+Matthew+fd9974b1f5caa6ae55cd69fb69eeedb6.mp3
+2025-06-25 16:33:38,093 - INFO - Generated audio for '<speak>captain. The captain led his unit into battle.</speak>' at D:\vocabswipe.github.io\data\audio\captain_sentence_2+Matthew+496cf4524f1df341aa10a86d4443447b.mp3
+2025-06-25 16:33:38,452 - INFO - Generated audio for '<speak>captain. He acted as captain of the debate club.</speak>' at D:\vocabswipe.github.io\data\audio\captain_sentence_3+Matthew+29e7efefbfae4d4a2d227d3233b1654c.mp3
+2025-06-25 16:33:39,056 - INFO - Generated audio for '<speak>captain. The industry captain influenced market trends.</speak>' at D:\vocabswipe.github.io\data\audio\captain_sentence_4+Matthew+cfcc916e259cc0993504d7fd1bd6843a.mp3
+2025-06-25 16:33:40,694 - INFO - Generated audio for '<speak>ear</speak>' at D:\vocabswipe.github.io\data\audio\ear_word_0+Matthew+d8ff99616fc9df8a54a32eec86ba8109.mp3
+2025-06-25 16:33:41,319 - INFO - Generated audio for '<speak>ear. She whispered softly into his ear.</speak>' at D:\vocabswipe.github.io\data\audio\ear_sentence_0+Matthew+0e00727772ca2f4cec6aaf611adbd159.mp3
+2025-06-25 16:33:41,917 - INFO - Generated audio for '<speak>ear. The farmer harvested ears of corn from the field.</speak>' at D:\vocabswipe.github.io\data\audio\ear_sentence_1+Matthew+fbfdb3b05151b4fd9f5e56dd8f8145c3.mp3
+2025-06-25 16:33:42,266 - INFO - Generated audio for '<speak>ear. She has a good ear for music.</speak>' at D:\vocabswipe.github.io\data\audio\ear_sentence_2+Matthew+4f379c1c5603bb6175243042eec49023.mp3
+2025-06-25 16:33:42,872 - INFO - Generated audio for '<speak>ear. The vase had handles shaped like ears.</speak>' at D:\vocabswipe.github.io\data\audio\ear_sentence_3+Matthew+d95eaa8812ea68a037c2291e0e36b61c.mp3
+2025-06-25 16:33:43,251 - INFO - Generated audio for '<speak>ear. Her complaints fell on deaf ears.</speak>' at D:\vocabswipe.github.io\data\audio\ear_sentence_4+Matthew+3bb2aeaf636dfbf068137c91e9e80ab6.mp3
+2025-06-25 16:33:43,617 - INFO - Generated audio for '<speak>troop</speak>' at D:\vocabswipe.github.io\data\audio\troop_word_0+Matthew+bfc2e0ac776bb1455d7f9a74374872e6.mp3
+2025-06-25 16:33:44,293 - INFO - Generated audio for '<speak>troop. The troop marched in formation during the parade.</speak>' at D:\vocabswipe.github.io\data\audio\troop_sentence_0+Matthew+212a0ebb29711c6575ecd63cadea37b0.mp3
+2025-06-25 16:33:44,723 - INFO - Generated audio for '<speak>troop. A troop of monkeys swung through the trees.</speak>' at D:\vocabswipe.github.io\data\audio\troop_sentence_1+Matthew+bcd69227f07051e669d3293a30514350.mp3
+2025-06-25 16:33:45,185 - INFO - Generated audio for '<speak>troop. The scout troop went camping in the forest.</speak>' at D:\vocabswipe.github.io\data\audio\troop_sentence_2+Matthew+f240b1e988ded2131ec3b241d1874e2c.mp3
+2025-06-25 16:33:45,556 - INFO - Generated audio for '<speak>troop. A troop of volunteers cleaned the park.</speak>' at D:\vocabswipe.github.io\data\audio\troop_sentence_3+Matthew+97d3aa61f9c3383d5405518e3736571d.mp3
+2025-06-25 16:33:45,971 - INFO - Generated audio for '<speak>troop. The theater troop performed a new play.</speak>' at D:\vocabswipe.github.io\data\audio\troop_sentence_4+Matthew+232b914bb4b0e59aa71ed732ee7a6d06.mp3
+2025-06-25 16:33:46,360 - INFO - Generated audio for '<speak>female</speak>' at D:\vocabswipe.github.io\data\audio\female_word_0+Matthew+273b9ae535de53399c86a9b83148a8ed.mp3
+2025-06-25 16:33:46,752 - INFO - Generated audio for '<speak>female. The female of the species guards the nest.</speak>' at D:\vocabswipe.github.io\data\audio\female_sentence_0+Matthew+55a6cd498e25a886c420baab3183c6cc.mp3
+2025-06-25 16:33:48,483 - INFO - Generated audio for '<speak>female. She was the only female in the engineering team.</speak>' at D:\vocabswipe.github.io\data\audio\female_sentence_1+Matthew+79d748e56a0287e2d53dc6cc04ce08a8.mp3
+2025-06-25 16:33:49,184 - INFO - Generated audio for '<speak>female. The survey asked if participants were male or female.</speak>' at D:\vocabswipe.github.io\data\audio\female_sentence_2+Matthew+fd4ad4c0784b28b47485f7d3ce54a742.mp3
+2025-06-25 16:33:49,964 - INFO - Generated audio for '<speak>female. The female led the discussion on workplace equality.</speak>' at D:\vocabswipe.github.io\data\audio\female_sentence_3+Matthew+1a1648b0ce84e471845528dca2f4c6b1.mp3
+2025-06-25 16:33:50,579 - INFO - Generated audio for '<speak>female. The cable has a female plug on one end.</speak>' at D:\vocabswipe.github.io\data\audio\female_sentence_4+Matthew+37097d5a39ff47013dd9d16139785706.mp3
+2025-06-25 16:33:50,933 - INFO - Generated audio for '<speak>wood</speak>' at D:\vocabswipe.github.io\data\audio\wood_word_0+Matthew+22811dd94d65037ef86535740b98dec8.mp3
+2025-06-25 16:33:51,337 - INFO - Generated audio for '<speak>wood. The table was made of polished wood.</speak>' at D:\vocabswipe.github.io\data\audio\wood_sentence_0+Matthew+0ce2489fa4ad14a63885886bf3a9b80e.mp3
+2025-06-25 16:33:51,696 - INFO - Generated audio for '<speak>wood. They went hiking in the wood near the lake.</speak>' at D:\vocabswipe.github.io\data\audio\wood_sentence_1+Matthew+b18b870af4a539a98634f0b7b349d4c2.mp3
+2025-06-25 16:33:52,057 - INFO - Generated audio for '<speak>wood. He chopped wood for the fireplace.</speak>' at D:\vocabswipe.github.io\data\audio\wood_sentence_2+Matthew+e67ecaf4b8da953097b620c660f6ac73.mp3
+2025-06-25 16:33:52,418 - INFO - Generated audio for '<speak>wood. She used a wood to hit the golf ball.</speak>' at D:\vocabswipe.github.io\data\audio\wood_sentence_3+Matthew+4a2157e57effe75732e96efcd30f231b.mp3
+2025-06-25 16:33:52,789 - INFO - Generated audio for '<speak>wood. The car’s interior had a wood grain design.</speak>' at D:\vocabswipe.github.io\data\audio\wood_sentence_4+Matthew+0716888cf056d8ff591d6f3a2562ddc2.mp3
+2025-06-25 16:33:53,110 - INFO - Generated audio for '<speak>warm</speak>' at D:\vocabswipe.github.io\data\audio\warm_word_0+Matthew+a957a3153eb7126b1c5f8b6aac35de53.mp3
+2025-06-25 16:33:53,718 - INFO - Generated audio for '<speak>warm. The warm water felt soothing after a long day.</speak>' at D:\vocabswipe.github.io\data\audio\warm_sentence_0+Matthew+e628634dd0230bafdd5a5ef352eef9bf.mp3
+2025-06-25 16:33:54,107 - INFO - Generated audio for '<speak>warm. Her warm smile made everyone feel welcome.</speak>' at D:\vocabswipe.github.io\data\audio\warm_sentence_1+Matthew+29e926281de83bcd60695445e8764c6d.mp3
+2025-06-25 16:33:54,467 - INFO - Generated audio for '<speak>warm. The blanket kept her warm during the cold night.</speak>' at D:\vocabswipe.github.io\data\audio\warm_sentence_2+Matthew+1c014b31c1d29dc34a31a0e09baa9d83.mp3
+2025-06-25 16:33:54,827 - INFO - Generated audio for '<speak>warm. You’re getting warm in this guessing game.</speak>' at D:\vocabswipe.github.io\data\audio\warm_sentence_3+Matthew+b9046a7659f10c1e211d3524ec51b007.mp3
+2025-06-25 16:33:55,428 - INFO - Generated audio for '<speak>warm. The painting used warm shades of orange and red.</speak>' at D:\vocabswipe.github.io\data\audio\warm_sentence_4+Matthew+dd6842c14ad839561b56213063eead5c.mp3
+2025-06-25 16:33:55,752 - INFO - Generated audio for '<speak>clean</speak>' at D:\vocabswipe.github.io\data\audio\clean_word_0+Matthew+123402c04dcfb6625f688f771a5fc05d.mp3
+2025-06-25 16:33:56,353 - INFO - Generated audio for '<speak>clean. The kitchen was spotless and clean after scrubbing.</speak>' at D:\vocabswipe.github.io\data\audio\clean_sentence_0+Matthew+88742b25f5c393fff620806f3f5273c1.mp3
+2025-06-25 16:33:56,721 - INFO - Generated audio for '<speak>clean. He has a clean record with no arrests.</speak>' at D:\vocabswipe.github.io\data\audio\clean_sentence_1+Matthew+99e6da388dd0ad626e8b7454e78ca476.mp3
+2025-06-25 16:33:57,091 - INFO - Generated audio for '<speak>clean. Her desk was always clean and tidy.</speak>' at D:\vocabswipe.github.io\data\audio\clean_sentence_2+Matthew+7b8453fc4d26b49cdb618fb6d0a95cb6.mp3
+2025-06-25 16:33:57,457 - INFO - Generated audio for '<speak>clean. The bone healed after a clean fracture.</speak>' at D:\vocabswipe.github.io\data\audio\clean_sentence_3+Matthew+87e86dbbf05273d0ae457e164366e56d.mp3
+2025-06-25 16:33:57,830 - INFO - Generated audio for '<speak>clean. The team played a clean game with no fouls.</speak>' at D:\vocabswipe.github.io\data\audio\clean_sentence_4+Matthew+1ae30e484e0f1835feb56d0878de769b.mp3
+2025-06-25 16:33:58,189 - INFO - Generated audio for '<speak>lead. She will lead the team to the conference room.</speak>' at D:\vocabswipe.github.io\data\audio\lead_sentence_5+Matthew+aa5638bac5da0ef57e007db31a773ea2.mp3
+2025-06-25 16:33:58,550 - INFO - Generated audio for '<speak>lead. He leads the race by a narrow margin.</speak>' at D:\vocabswipe.github.io\data\audio\lead_sentence_6+Matthew+c0b7e566fe39f504d9501bf2ab937fe4.mp3
+2025-06-25 16:33:58,908 - INFO - Generated audio for '<speak>lead. Hard work can lead to great success.</speak>' at D:\vocabswipe.github.io\data\audio\lead_sentence_7+Matthew+87e31f8e5fe7f4a791ccaa43ec5f0f1e.mp3
+2025-06-25 16:33:59,263 - INFO - Generated audio for '<speak>lead. This road leads to the beach.</speak>' at D:\vocabswipe.github.io\data\audio\lead_sentence_8+Matthew+dd0d3fe7517e305471ff8ad42eaf74c0.mp3
+2025-06-25 16:33:59,620 - INFO - Generated audio for '<speak>lead. She leads the charity’s fundraising efforts.</speak>' at D:\vocabswipe.github.io\data\audio\lead_sentence_9+Matthew+b3f0cca935c62b7abe55563742f21501.mp3
+2025-06-25 16:33:59,944 - INFO - Generated audio for '<speak>minister</speak>' at D:\vocabswipe.github.io\data\audio\minister_word_0+Matthew+32c7c22e7733cc0bbb939c0e1dbe0271.mp3
+2025-06-25 16:34:00,546 - INFO - Generated audio for '<speak>minister. The minister of education announced new policies.</speak>' at D:\vocabswipe.github.io\data\audio\minister_sentence_0+Matthew+e41af95284f4ffcd06b99df974586868.mp3
+2025-06-25 16:34:00,911 - INFO - Generated audio for '<speak>minister. The minister delivered a sermon at the church.</speak>' at D:\vocabswipe.github.io\data\audio\minister_sentence_1+Matthew+6f9b8a0b5252a28018db02484186fd62.mp3
+2025-06-25 16:34:01,515 - INFO - Generated audio for '<speak>minister. The foreign minister met with international leaders.</speak>' at D:\vocabswipe.github.io\data\audio\minister_sentence_2+Matthew+8c8306970699efd9a4a6777c6f1d1bfe.mp3
+2025-06-25 16:34:01,884 - INFO - Generated audio for '<speak>minister. She acted as a minister to the sick and elderly.</speak>' at D:\vocabswipe.github.io\data\audio\minister_sentence_3+Matthew+68f2a6fae9c752f04df55fefa4d4c600.mp3
+2025-06-25 16:34:02,252 - INFO - Generated audio for '<speak>minister. He was a minister of peace during the negotiations.</speak>' at D:\vocabswipe.github.io\data\audio\minister_sentence_4+Matthew+0fa281a8721ec7f2978f02ff11a141b9.mp3
+2025-06-25 16:34:02,571 - INFO - Generated audio for '<speak>neighbor</speak>' at D:\vocabswipe.github.io\data\audio\neighbor_word_0+Matthew+73415497e8b30e7a48e31465c7e103b3.mp3
+2025-06-25 16:34:02,928 - INFO - Generated audio for '<speak>neighbor. My neighbor helped me fix my fence.</speak>' at D:\vocabswipe.github.io\data\audio\neighbor_sentence_0+Matthew+db249fdb952dd4b7188ce8977fcd1aea.mp3
+2025-06-25 16:34:03,285 - INFO - Generated audio for '<speak>neighbor. The store is a neighbor to the post office.</speak>' at D:\vocabswipe.github.io\data\audio\neighbor_sentence_1+Matthew+0f3f8f23798ef8edc7bf3b0a6eda75a7.mp3
+2025-06-25 16:34:03,641 - INFO - Generated audio for '<speak>neighbor. We should treat every neighbor with kindness.</speak>' at D:\vocabswipe.github.io\data\audio\neighbor_sentence_2+Matthew+56dedcf11cb9d9453c68eda12507aa70.mp3
+2025-06-25 16:34:04,013 - INFO - Generated audio for '<speak>neighbor. Canada is a friendly neighbor to the United States.</speak>' at D:\vocabswipe.github.io\data\audio\neighbor_sentence_3+Matthew+6d78a1da793f09375145115748d9349a.mp3
+2025-06-25 16:34:06,626 - INFO - Generated audio for '<speak>neighbor. Her neighbor in the office shared the printer.</speak>' at D:\vocabswipe.github.io\data\audio\neighbor_sentence_4+Matthew+2a809eec1966d6aa054c6daa6af7ada1.mp3
+2025-06-25 16:34:06,955 - INFO - Generated audio for '<speak>tiny</speak>' at D:\vocabswipe.github.io\data\audio\tiny_word_0+Matthew+d60cadf1a41c651e1f0ade50136bad43.mp3
+2025-06-25 16:34:07,316 - INFO - Generated audio for '<speak>tiny. The tiny kitten fit in the palm of her hand.</speak>' at D:\vocabswipe.github.io\data\audio\tiny_sentence_0+Matthew+32f13796159d7268c5a86ea80571f24d.mp3
+2025-06-25 16:34:07,674 - INFO - Generated audio for '<speak>tiny. He made a tiny mistake in the report.</speak>' at D:\vocabswipe.github.io\data\audio\tiny_sentence_1+Matthew+64cf9a18ff6a9a740d57cbed4d9c3a39.mp3
+2025-06-25 16:34:08,042 - INFO - Generated audio for '<speak>tiny. The necklace had a tiny charm shaped like a star.</speak>' at D:\vocabswipe.github.io\data\audio\tiny_sentence_2+Matthew+eb28162affd6f94bf18652ebe5391200.mp3
+2025-06-25 16:34:08,398 - INFO - Generated audio for '<speak>tiny. They lived in a tiny apartment in the city.</speak>' at D:\vocabswipe.github.io\data\audio\tiny_sentence_3+Matthew+771fbf91194b29e1d44e23af6c6d7541.mp3
+2025-06-25 16:34:08,758 - INFO - Generated audio for '<speak>tiny. The tiny toddler took her first steps.</speak>' at D:\vocabswipe.github.io\data\audio\tiny_sentence_4+Matthew+50adfee63c3c801108d873e5853100e9.mp3
+2025-06-25 16:34:09,089 - INFO - Generated audio for '<speak>mental</speak>' at D:\vocabswipe.github.io\data\audio\mental_word_0+Matthew+d0df4800ed10a5578facd1d505522867.mp3
+2025-06-25 16:34:09,527 - INFO - Generated audio for '<speak>mental. She practices mental exercises to stay sharp.</speak>' at D:\vocabswipe.github.io\data\audio\mental_sentence_0+Matthew+d2adc1940e9462f77802b6e5155d8c92.mp3
+2025-06-25 16:34:09,903 - INFO - Generated audio for '<speak>mental. He sought help for mental stress after work.</speak>' at D:\vocabswipe.github.io\data\audio\mental_sentence_1+Matthew+90c27aa280482a69543b5e72ffe1e29e.mp3
+2025-06-25 16:34:10,259 - INFO - Generated audio for '<speak>mental. She made a mental note to call later.</speak>' at D:\vocabswipe.github.io\data\audio\mental_sentence_2+Matthew+d629d784f0a0b19a8ea28555676e1516.mp3
+2025-06-25 16:34:10,628 - INFO - Generated audio for '<speak>mental. The game requires mental strategy and focus.</speak>' at D:\vocabswipe.github.io\data\audio\mental_sentence_3+Matthew+34bb7a3557fdbdbd16e793a786e4c65b.mp3
+2025-06-25 16:34:11,100 - INFO - Generated audio for '<speak>mental. The clinic specializes in mental health care.</speak>' at D:\vocabswipe.github.io\data\audio\mental_sentence_4+Matthew+a5c7e37bce2e02fc15a4c0b240ec8efb.mp3
+2025-06-25 16:34:11,439 - INFO - Generated audio for '<speak>software</speak>' at D:\vocabswipe.github.io\data\audio\software_word_0+Matthew+f9fa10ba956cacf91d7878861139efb9.mp3
+2025-06-25 16:34:11,823 - INFO - Generated audio for '<speak>software. She installed new software for editing photos.</speak>' at D:\vocabswipe.github.io\data\audio\software_sentence_0+Matthew+49d102b950e3f07a594819efc97d312e.mp3
+2025-06-25 16:34:12,263 - INFO - Generated audio for '<speak>software. The software controls the robot’s movements.</speak>' at D:\vocabswipe.github.io\data\audio\software_sentence_1+Matthew+9d488bd52bde5aaff0298a65fab921d5.mp3
+2025-06-25 16:34:12,626 - INFO - Generated audio for '<speak>software. He uses accounting software for his business.</speak>' at D:\vocabswipe.github.io\data\audio\software_sentence_2+Matthew+001f4e5c4b8d2905e31b3d9984f99e03.mp3
+2025-06-25 16:34:12,987 - INFO - Generated audio for '<speak>software. The company develops software for schools.</speak>' at D:\vocabswipe.github.io\data\audio\software_sentence_3+Matthew+24909a039006090b90c14f47899645c6.mp3
+2025-06-25 16:34:13,350 - INFO - Generated audio for '<speak>software. The software update fixed the phone’s bugs.</speak>' at D:\vocabswipe.github.io\data\audio\software_sentence_4+Matthew+df3c811e4b0907d5ec8ff4b87d0d9941.mp3
+2025-06-25 16:34:17,526 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-25 16:34:17,546 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250625_163417.txt
+2025-06-25 16:34:17,557 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 16:34:17,558 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
