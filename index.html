@@ -9,8 +9,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
 </head>
-<body>
+<body data-theme="bright">
     <div class="container">
+        <button class="theme-toggle" aria-label="Toggle theme">
+            <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="currentColor"/>
+                <path d="M12 2V4M12 20V22M4 12H2M22 12H20M6.34 6.34L4.93 4.93M19.07 19.07L17.66 17.66M6.34 17.66L4.93 19.07M19.07 4.93L17.66 6.34" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 12.79C20.67 14.99 19.02 16.89 16.97 18C14.92 19.11 12.49 19.3 10.34 18.63C10.12 18.56 10.04 18.31 10.11 18.09C10.18 17.87 10.43 17.79 10.65 17.86C12.53 18.43 14.64 18.25 16.41 17.27C18.18 16.29 19.58 14.62 19.92 12.49C20 12.22 20.24 12.05 20.5 12.13C20.76 12.21 20.93 12.45 20.85 12.71C20.71 13.24 20.48 13.75 20.17 14.22C19.55 15.19 18.74 16.01 17.79 16.63C16.84 17.25 15.78 17.67 14.66 17.86C13.54 18.05 12.4 17.92 11.34 17.48C10.28 17.04 9.33 16.38 8.57 15.51C7.81 14.64 7.37 13.62 7.2 12.54C7.03 11.46 7.14 10.37 7.51 9.34C7.88 8.31 8.47 7.36 9.23 6.59C9.99 5.82 10.92 5.24 11.94 4.87C12.96 4.5 14.04 4.36 15.11 4.47C15.33 4.49 15.49 4.7 15.51 4.92C15.53 5.14 15.32 5.3 15.1 5.32C14.22 5.43 13.35 5.68 12.54 6.07C11.73 6.46 11 7.02 10.39 7.71C9.78 8.4 9.31 9.22 9.04 10.11C8.77 11 8.71 11.94 8.86 12.86C9.01 13.78 9.37 14.66 10 15.43C10.63 16.2 11.41 16.85 12.29 17.31C13.17 17.77 14.14 17.94 15.11 17.81C16.08 17.68 17 17.25 17.79 16.63C18.58 16.01 19.25 15.2 19.71 14.29C20.17 13.38 20.42 12.39 20.42 11.39C20.42 11.17 20.61 10.98 20.83 11C21.05 11.02 21.24 11.21 21.22 11.43C21.2 11.86 21.11 12.34 21 12.79Z" fill="currentColor"/>
+            </svg>
+        </button>
         <h1 class="website-name">VocabSwipe</h1>
         <h2 class="slogan">Swipe to Master Your Vocabulary!</h2>
         <p class="deck-version">Top 5000 Frequently Used Words</p>
@@ -24,7 +33,6 @@
                         <span id="front-rank" class="rank"></span>
                         <div class="frequency-container">
                             <span class="frequency-label">Frequency:</span>
-                            <span id="front-frequency" class="frequency-value"></span>
                             <div class="frequency-bar">
                                 <div id="front-frequency-fill" class="frequency-fill"></div>
                             </div>
@@ -44,7 +52,6 @@
                             <span id="back-rank" class="rank"></span>
                             <div class="frequency-container">
                                 <span class="frequency-label">Frequency:</span>
-                                <span id="back-frequency" class="frequency-value"></span>
                                 <div class="frequency-bar">
                                     <div id="back-frequency-fill" class="frequency-fill"></div>
                                 </div>
