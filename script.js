@@ -6,7 +6,7 @@ let currentAudio = null;
 let audioCache = new Map();
 const MAX_CACHE_SIZE = 10;
 let audioUnlocked = false;
-let maxFrequency = 0;
+let maxFrequency = 0; // Store the maximum frequency (from rank 1 word)
 
 document.addEventListener('DOMContentLoaded', () => {
     loadWords();
@@ -38,13 +38,9 @@ function loadWords() {
                 alert('No vocabulary data available. Please ensure vocab_database.yaml is populated.');
                 return;
             }
-            // Sort words by rank and find max frequency
+            // Sort words by rank and find max frequency (frequency of rank 1 word)
             words.sort((a, b) => a.rank - b.rank);
-            maxFrequency = words[0].frequency || 1; // Assume rank 1 has max frequency
-            // Calculate relative frequency for each word
-            words.forEach(word => {
-                word.relativeFrequency = (word.frequency * 100) / maxFrequency;
-            });
+            maxFrequency = words[0]?.frequency || 1; // Avoid division by zero
             displayWord();
             preloadAudio();
         })
@@ -246,24 +242,34 @@ function flipCard() {
 }
 
 function getFrequencyColor(relativeFreq) {
-    // Interpolate between red (0%), orange (25%), yellow (50%), and green (100%)
+    // Define color stops: red (0%), orange (50%), yellow (75%), green (100%)
     if (relativeFreq <= 25) {
         // Red to orange
+        const ratio = relativeFreq / 25;
         const r = 255;
-        const g = Math.round((relativeFreq / 25) * 165);
+        const g = Math.round(165 * ratio);
         const b = 0;
         return `rgb(${r}, ${g}, ${b})`;
     } else if (relativeFreq <= 50) {
         // Orange to yellow
+        const ratio = (relativeFreq - 25) / 25;
         const r = 255;
-        const g = 165 + Math.round(((relativeFreq - 25) / 25) * (255 - 165));
+        const g = 165 + Math.round(90 * ratio); // 165 to 255
+        const b = 0;
+        return `rgb(${r}, ${g}, ${b})`;
+    } else if (relativeFreq <= 75) {
+        // Yellow to light green
+        const ratio = (relativeFreq - 50) / 25;
+        const r = 255 - Math.round(255 * ratio); // 255 to 0
+        const g = 255;
         const b = 0;
         return `rgb(${r}, ${g}, ${b})`;
     } else {
-        // Yellow to green
-        const r = 255 - Math.round(((relativeFreq - 50) / 50) * 255);
+        // Light green to green
+        const ratio = (relativeFreq - 75) / 25;
+        const r = 0;
         const g = 255;
-        const b = 0;
+        const b = Math.round(128 * ratio); // 0 to 128
         return `rgb(${r}, ${g}, ${b})`;
     }
 }
@@ -277,7 +283,10 @@ function displayWord() {
     const front = document.querySelector('.front');
     const back = document.querySelector('.back');
     const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: '', example_en: '' };
-    const relativeFreq = wordData.relativeFrequency || 0;
+
+    // Calculate relative frequency
+    const frequency = wordData.frequency || 0;
+    const relativeFreq = Math.round((frequency * 100) / maxFrequency);
     const freqColor = getFrequencyColor(relativeFreq);
 
     front.innerHTML = `
@@ -287,7 +296,7 @@ function displayWord() {
         <div class="meta-info">
             <span class="rank">Rank: ${wordData.rank}</span>
             <div class="frequency-container">
-                <span class="frequency-label">Frequency</span>
+                <span class="frequency-label">Frequency: ${relativeFreq}%</span>
                 <div class="frequency-bar">
                     <div class="frequency-fill" style="width: ${relativeFreq}%; background-color: ${freqColor};"></div>
                 </div>
@@ -306,7 +315,7 @@ function displayWord() {
             <div class="meta-info">
                 <span class="rank">Rank: ${wordData.rank}</span>
                 <div class="frequency-container">
-                    <span class="frequency-label">Frequency</span>
+                    <span class="frequency-label">Frequency: ${relativeFreq}%</span>
                     <div class="frequency-bar">
                         <div class="frequency-fill" style="width: ${relativeFreq}%; background-color: ${freqColor};"></div>
                     </div>
