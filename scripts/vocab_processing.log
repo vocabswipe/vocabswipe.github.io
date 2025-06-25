@@ -19934,3 +19934,8 @@ expected <block end>, but found '<block mapping start>'
 2025-06-25 19:32:46,751 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250625_193246.txt
 2025-06-25 19:32:46,762 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
 2025-06-25 19:32:46,764 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
+2025-06-25 19:43:05,792 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-25 19:43:06,021 - INFO - AWS Polly client initialized successfully.
+2025-06-25 19:43:06,028 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 19:43:06,030 - ERROR - Error parsing 'D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl': Expecting ':' delimiter: line 1 column 532 (char 531)
+2025-06-25 19:43:06,031 - WARNING - No entries to process
