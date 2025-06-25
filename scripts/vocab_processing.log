@@ -16699,3 +16699,141 @@ expected <block end>, but found '<block mapping start>'
 2025-06-25 11:34:05,140 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250625_113405.txt
 2025-06-25 11:34:05,150 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
 2025-06-25 11:34:05,151 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
+2025-06-25 11:45:42,454 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-25 11:45:42,671 - INFO - AWS Polly client initialized successfully.
+2025-06-25 11:45:42,679 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 11:45:42,680 - ERROR - Error parsing 'D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl': Expecting ',' delimiter: line 1 column 619 (char 618)
+2025-06-25 11:45:42,681 - WARNING - No entries to process
+2025-06-25 11:52:26,401 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-25 11:52:26,621 - INFO - AWS Polly client initialized successfully.
+2025-06-25 11:52:26,629 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 11:52:26,629 - ERROR - Error parsing 'D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl': Expecting ',' delimiter: line 1 column 619 (char 618)
+2025-06-25 11:52:26,631 - WARNING - No entries to process
+2025-06-25 11:52:46,896 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-25 11:52:47,106 - INFO - AWS Polly client initialized successfully.
+2025-06-25 11:52:47,113 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 11:52:47,115 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 11:52:58,229 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 11:52:58,230 - INFO - Appended 20 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 11:52:58,249 - INFO - Loading: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-25 11:53:03,913 - INFO - Generated audio for '<speak>horse</speak>' at D:\vocabswipe.github.io\data\audio\horse_word_0+Matthew+f1bdf5ed1d7ad7ede4e3809bd35644b0.mp3
+2025-06-25 11:53:04,295 - INFO - Generated audio for '<speak>horse. She rode a horse along the trail.</speak>' at D:\vocabswipe.github.io\data\audio\horse_sentence_0+Matthew+378d488d45b1264b57703ef152cab149.mp3
+2025-06-25 11:53:04,754 - INFO - Generated audio for '<speak>horse. The car’s engine has the power of 300 horses.</speak>' at D:\vocabswipe.github.io\data\audio\horse_sentence_1+Matthew+7f95d932761599ec762eb86bda2eb1b4.mp3
+2025-06-25 11:53:05,276 - INFO - Generated audio for '<speak>horse. He bet on a horse at the racetrack.</speak>' at D:\vocabswipe.github.io\data\audio\horse_sentence_2+Matthew+92d982abf7535f17193a71d2b9718eb7.mp3
+2025-06-25 11:53:05,645 - INFO - Generated audio for '<speak>horse. The farmer used a horse to plow the field.</speak>' at D:\vocabswipe.github.io\data\audio\horse_sentence_3+Matthew+72b6b023c241e0a97a4054bbcc2a5227.mp3
+2025-06-25 11:53:06,032 - INFO - Generated audio for '<speak>horse. She moved the horse to capture the pawn.</speak>' at D:\vocabswipe.github.io\data\audio\horse_sentence_4+Matthew+e1101a215cbe0d3029fff2e7b94b854a.mp3
+2025-06-25 11:53:06,365 - INFO - Generated audio for '<speak>advantage</speak>' at D:\vocabswipe.github.io\data\audio\advantage_word_0+Matthew+2290dc931ca9f51d5e44b6d6dba081d7.mp3
+2025-06-25 11:53:06,748 - INFO - Generated audio for '<speak>advantage. Her experience gave her an advantage in the job interview.</speak>' at D:\vocabswipe.github.io\data\audio\advantage_sentence_0+Matthew+b0f5cdedcdcce166f9247da0ed3c1334.mp3
+2025-06-25 11:53:07,121 - INFO - Generated audio for '<speak>advantage. The team took advantage of their opponent’s mistake.</speak>' at D:\vocabswipe.github.io\data\audio\advantage_sentence_1+Matthew+54a93aea8829c1e4c58ee3284d3c8eb3.mp3
+2025-06-25 11:53:07,511 - INFO - Generated audio for '<speak>advantage. Living near the station is a big advantage.</speak>' at D:\vocabswipe.github.io\data\audio\advantage_sentence_2+Matthew+13816a6d2a09b58dd3abd3a7dae91c52.mp3
+2025-06-25 11:53:07,886 - INFO - Generated audio for '<speak>advantage. The new software gave the company a market advantage.</speak>' at D:\vocabswipe.github.io\data\audio\advantage_sentence_3+Matthew+6e93d8dca094a96de812a7b479f7e628.mp3
+2025-06-25 11:53:08,288 - INFO - Generated audio for '<speak>advantage. The phone’s battery life is its main advantage.</speak>' at D:\vocabswipe.github.io\data\audio\advantage_sentence_4+Matthew+c2f4f80b4520466cf3ad0a9954e37f4c.mp3
+2025-06-25 11:53:08,696 - INFO - Generated audio for '<speak>commercial</speak>' at D:\vocabswipe.github.io\data\audio\commercial_word_0+Matthew+df2375cd0f7593835392e2ecf79ab2b0.mp3
+2025-06-25 11:53:09,058 - INFO - Generated audio for '<speak>commercial. The commercial district is full of shops.</speak>' at D:\vocabswipe.github.io\data\audio\commercial_sentence_0+Matthew+ae00dccb64ca427d18dbd3b07a3e52b9.mp3
+2025-06-25 11:53:09,432 - INFO - Generated audio for '<speak>commercial. The TV showed a commercial for a new car.</speak>' at D:\vocabswipe.github.io\data\audio\commercial_sentence_1+Matthew+a1d7ba959a00275ea31fa3425fbdc9db.mp3
+2025-06-25 11:53:09,798 - INFO - Generated audio for '<speak>commercial. This is a commercial version of the software.</speak>' at D:\vocabswipe.github.io\data\audio\commercial_sentence_2+Matthew+8a0ac51aff723cb0154c7d9b86e3dac3.mp3
+2025-06-25 11:53:10,159 - INFO - Generated audio for '<speak>commercial. The commercial success of the product was unexpected.</speak>' at D:\vocabswipe.github.io\data\audio\commercial_sentence_3+Matthew+3f6bb55a4a0ebc5e0188a7baa0cf491d.mp3
+2025-06-25 11:53:11,667 - INFO - Generated audio for '<speak>commercial. The farm switched to commercial farming methods.</speak>' at D:\vocabswipe.github.io\data\audio\commercial_sentence_4+Matthew+b75a3679ab0d8f9153ca110148b0fed4.mp3
+2025-06-25 11:53:11,993 - INFO - Generated audio for '<speak>steal</speak>' at D:\vocabswipe.github.io\data\audio\steal_word_0+Matthew+2ca578aa88ec758e564db6fea28039f2.mp3
+2025-06-25 11:53:12,482 - INFO - Generated audio for '<speak>steal. Someone tried to steal her purse in the market.</speak>' at D:\vocabswipe.github.io\data\audio\steal_sentence_0+Matthew+717773eeec1075e771c09c994e9c8a81.mp3
+2025-06-25 11:53:12,894 - INFO - Generated audio for '<speak>steal. He stole a glance at the test answers.</speak>' at D:\vocabswipe.github.io\data\audio\steal_sentence_1+Matthew+6a9fe5d38c611c84e9da693405e85889.mp3
+2025-06-25 11:53:13,252 - INFO - Generated audio for '<speak>steal. She stole into the room without being noticed.</speak>' at D:\vocabswipe.github.io\data\audio\steal_sentence_2+Matthew+bf2cb66dad08fbeb40a558ff565dbdbe.mp3
+2025-06-25 11:53:13,618 - INFO - Generated audio for '<speak>steal. I stole this jacket for only ten dollars!</speak>' at D:\vocabswipe.github.io\data\audio\steal_sentence_3+Matthew+928b3453ed0e41f312c5de56a96db2f3.mp3
+2025-06-25 11:53:13,987 - INFO - Generated audio for '<speak>steal. The player stole the ball and scored.</speak>' at D:\vocabswipe.github.io\data\audio\steal_sentence_4+Matthew+61dffe8f4b739983cf7976da922ce9f1.mp3
+2025-06-25 11:53:14,326 - INFO - Generated audio for '<speak>basis</speak>' at D:\vocabswipe.github.io\data\audio\basis_word_0+Matthew+d7c95dd61cc3588432f3b3eef94101e9.mp3
+2025-06-25 11:53:14,690 - INFO - Generated audio for '<speak>basis. Trust is the basis of a good friendship.</speak>' at D:\vocabswipe.github.io\data\audio\basis_sentence_0+Matthew+c3deb45399879828f479b40a8b173bf5.mp3
+2025-06-25 11:53:15,054 - INFO - Generated audio for '<speak>basis. We chose the plan on the basis of cost.</speak>' at D:\vocabswipe.github.io\data\audio\basis_sentence_1+Matthew+155e8303765a4fd904f5ec025cf43ef2.mp3
+2025-06-25 11:53:15,452 - INFO - Generated audio for '<speak>basis. She works on a part-time basis now.</speak>' at D:\vocabswipe.github.io\data\audio\basis_sentence_2+Matthew+81f1dbb6730cf8df3f4470cba98a9e2b.mp3
+2025-06-25 11:53:15,814 - INFO - Generated audio for '<speak>basis. The theory has a scientific basis.</speak>' at D:\vocabswipe.github.io\data\audio\basis_sentence_3+Matthew+a548b12367704835f74e8fa95381d39c.mp3
+2025-06-25 11:53:16,193 - INFO - Generated audio for '<speak>basis. Grades are calculated on a weekly basis.</speak>' at D:\vocabswipe.github.io\data\audio\basis_sentence_4+Matthew+22099aca99b4639d3c18484d4988f598.mp3
+2025-06-25 11:53:16,663 - INFO - Generated audio for '<speak>context</speak>' at D:\vocabswipe.github.io\data\audio\context_word_0+Matthew+5c18ef72771564b7f43c497dc507aeab.mp3
+2025-06-25 11:53:17,059 - INFO - Generated audio for '<speak>context. His joke made sense in the context of the story.</speak>' at D:\vocabswipe.github.io\data\audio\context_sentence_0+Matthew+47a8125445e2b1d3c4b047cf9baf7f58.mp3
+2025-06-25 11:53:17,522 - INFO - Generated audio for '<speak>context. You need context to understand this poem.</speak>' at D:\vocabswipe.github.io\data\audio\context_sentence_1+Matthew+025e3c4da435dd532c119739b3810d3b.mp3
+2025-06-25 11:53:20,775 - INFO - Generated audio for '<speak>context. In the context of work, her idea was brilliant.</speak>' at D:\vocabswipe.github.io\data\audio\context_sentence_2+Matthew+d9b4d643b966e0cad9aa2f59e45c50d1.mp3
+2025-06-25 11:53:21,377 - INFO - Generated audio for '<speak>context. The article provides context for the new law.</speak>' at D:\vocabswipe.github.io\data\audio\context_sentence_3+Matthew+9a5adde62490453cd1eace7386ee9e33.mp3
+2025-06-25 11:53:22,006 - INFO - Generated audio for '<speak>context. The word’s meaning depends on its context.</speak>' at D:\vocabswipe.github.io\data\audio\context_sentence_4+Matthew+8b560aec8c1d8d116ed54d75c32520db.mp3
+2025-06-25 11:53:22,328 - INFO - Generated audio for '<speak>highly</speak>' at D:\vocabswipe.github.io\data\audio\highly_word_0+Matthew+2462ff5717c1677039c79e415fb8d9da.mp3
+2025-06-25 11:53:22,689 - INFO - Generated audio for '<speak>highly. Her work is highly regarded by her peers.</speak>' at D:\vocabswipe.github.io\data\audio\highly_sentence_0+Matthew+73af206ab28a80ccb7918bff93c35440.mp3
+2025-06-25 11:53:23,601 - INFO - Generated audio for '<speak>highly. He speaks highly of his new teacher.</speak>' at D:\vocabswipe.github.io\data\audio\highly_sentence_1+Matthew+e14ddbca7729ecf40ccba3bc6b46910b.mp3
+2025-06-25 11:53:24,211 - INFO - Generated audio for '<speak>highly. The team is highly motivated to win.</speak>' at D:\vocabswipe.github.io\data\audio\highly_sentence_2+Matthew+6ab02e5f3637b5c92bf8de820dd472ed.mp3
+2025-06-25 11:53:24,892 - INFO - Generated audio for '<speak>highly. The device is highly technical and complex.</speak>' at D:\vocabswipe.github.io\data\audio\highly_sentence_3+Matthew+6f226f0740ec0ed6e5580eaaca1236d8.mp3
+2025-06-25 11:53:25,699 - INFO - Generated audio for '<speak>highly. This restaurant comes highly recommended.</speak>' at D:\vocabswipe.github.io\data\audio\highly_sentence_4+Matthew+17996a3fdbc2977ad3e5db2209249c01.mp3
+2025-06-25 11:53:26,120 - INFO - Generated audio for '<speak>Christmas</speak>' at D:\vocabswipe.github.io\data\audio\christmas_word_0+Matthew+81b616fbff55b8698d44852f45c08630.mp3
+2025-06-25 11:53:26,849 - INFO - Generated audio for '<speak>Christmas. We decorate the tree for Christmas every year.</speak>' at D:\vocabswipe.github.io\data\audio\christmas_sentence_0+Matthew+c7f9d434dd5d88f67275380d152bf866.mp3
+2025-06-25 11:53:27,635 - INFO - Generated audio for '<speak>Christmas. They spent Christmas with their grandparents.</speak>' at D:\vocabswipe.github.io\data\audio\christmas_sentence_1+Matthew+d9b3a9f5cef011a9e7cc4d98656db6b2.mp3
+2025-06-25 11:53:28,250 - INFO - Generated audio for '<speak>Christmas. The shops are busy during the Christmas season.</speak>' at D:\vocabswipe.github.io\data\audio\christmas_sentence_2+Matthew+e6884d69d9b1a74ec0a17676716781b7.mp3
+2025-06-25 11:53:28,612 - INFO - Generated audio for '<speak>Christmas. The choir sang at the Christmas concert.</speak>' at D:\vocabswipe.github.io\data\audio\christmas_sentence_3+Matthew+797aae61c6bbe5c24e0e095b4da46ee0.mp3
+2025-06-25 11:53:28,973 - INFO - Generated audio for '<speak>Christmas. She wished everyone a merry Christmas.</speak>' at D:\vocabswipe.github.io\data\audio\christmas_sentence_4+Matthew+6ab16ae03e1770d998bfaf3ac42eac49.mp3
+2025-06-25 11:53:29,305 - INFO - Generated audio for '<speak>strength</speak>' at D:\vocabswipe.github.io\data\audio\strength_word_0+Matthew+5177790ad6df0ea98db41b37b602367c.mp3
+2025-06-25 11:53:29,790 - INFO - Generated audio for '<speak>strength. His strength helped him lift the heavy box.</speak>' at D:\vocabswipe.github.io\data\audio\strength_sentence_0+Matthew+d3167a54cb2c271fc4454aa67763e932.mp3
+2025-06-25 11:53:30,352 - INFO - Generated audio for '<speak>strength. She showed great strength during tough times.</speak>' at D:\vocabswipe.github.io\data\audio\strength_sentence_1+Matthew+df463d7e6a5006b914f73cf5567f1471.mp3
+2025-06-25 11:53:30,753 - INFO - Generated audio for '<speak>strength. The strength of this glue is impressive.</speak>' at D:\vocabswipe.github.io\data\audio\strength_sentence_2+Matthew+fd5721d5533d0d707c430311b7d84060.mp3
+2025-06-25 11:53:31,133 - INFO - Generated audio for '<speak>strength. Her strength is her ability to stay calm.</speak>' at D:\vocabswipe.github.io\data\audio\strength_sentence_3+Matthew+29ec765984bb07ab3b3cd6a5f137a89f.mp3
+2025-06-25 11:53:31,494 - INFO - Generated audio for '<speak>strength. The storm’s strength caused widespread damage.</speak>' at D:\vocabswipe.github.io\data\audio\strength_sentence_4+Matthew+7b85d28b9e9cf0a5c537a24f970b5897.mp3
+2025-06-25 11:53:31,853 - INFO - Generated audio for '<speak>move. Please move your chair closer to the table.</speak>' at D:\vocabswipe.github.io\data\audio\move_sentence_5+Matthew+66b48c2797cce0b33459c554b4c1413b.mp3
+2025-06-25 11:53:32,229 - INFO - Generated audio for '<speak>move. They moved to a bigger house last month.</speak>' at D:\vocabswipe.github.io\data\audio\move_sentence_6+Matthew+d7d46b1797839d942c766a314db277b5.mp3
+2025-06-25 11:53:32,592 - INFO - Generated audio for '<speak>move. The team moved quickly to finish the project.</speak>' at D:\vocabswipe.github.io\data\audio\move_sentence_7+Matthew+e7f3265d0b88183bceaa0505d6dcfa72.mp3
+2025-06-25 11:53:32,948 - INFO - Generated audio for '<speak>move. Her speech moved the audience to tears.</speak>' at D:\vocabswipe.github.io\data\audio\move_sentence_8+Matthew+222575bb3fb3793b602ee4509a42b640.mp3
+2025-06-25 11:53:33,314 - INFO - Generated audio for '<speak>move. He moved to adjourn the meeting.</speak>' at D:\vocabswipe.github.io\data\audio\move_sentence_9+Matthew+bd7772eb4dc265c0355eaa305faf0a38.mp3
+2025-06-25 11:53:33,679 - INFO - Generated audio for '<speak>Monday</speak>' at D:\vocabswipe.github.io\data\audio\monday_word_0+Matthew+6f8522e0610541f1ef215a22ffa66ff6.mp3
+2025-06-25 11:53:34,034 - INFO - Generated audio for '<speak>Monday. I have a meeting every Monday morning.</speak>' at D:\vocabswipe.github.io\data\audio\monday_sentence_0+Matthew+0331d6e90d1a1de8684474b230af2ff6.mp3
+2025-06-25 11:53:34,393 - INFO - Generated audio for '<speak>Monday. She begins her diet every Monday.</speak>' at D:\vocabswipe.github.io\data\audio\monday_sentence_1+Matthew+bb1f6477cbef04e9056e2cf05302a96d.mp3
+2025-06-25 11:53:34,751 - INFO - Generated audio for '<speak>Monday. The class is held on Monday evenings.</speak>' at D:\vocabswipe.github.io\data\audio\monday_sentence_2+Matthew+e1d6b000e767649b3db25680806a8c74.mp3
+2025-06-25 11:53:35,115 - INFO - Generated audio for '<speak>Monday. The sale starts this Monday at the mall.</speak>' at D:\vocabswipe.github.io\data\audio\monday_sentence_3+Matthew+a942be8d0588ce4a6844b8405adea21f.mp3
+2025-06-25 11:53:35,524 - INFO - Generated audio for '<speak>Monday. Monday feels slow after the weekend.</speak>' at D:\vocabswipe.github.io\data\audio\monday_sentence_4+Matthew+1704c9ec7cd3e69d4b27c083c43c59e7.mp3
+2025-06-25 11:53:36,443 - INFO - Generated audio for '<speak>mean. I didn’t mean to upset you with my comment.</speak>' at D:\vocabswipe.github.io\data\audio\mean_sentence_5+Matthew+e0e69ea5cc95e11ef24e58150a50968f.mp3
+2025-06-25 11:53:37,474 - INFO - Generated audio for '<speak>mean. The red light means you must stop.</speak>' at D:\vocabswipe.github.io\data\audio\mean_sentence_6+Matthew+52c369a2ec9f2d3244697edf6623dbfd.mp3
+2025-06-25 11:53:38,099 - INFO - Generated audio for '<speak>mean. Missing the bus means I’ll be late.</speak>' at D:\vocabswipe.github.io\data\audio\mean_sentence_7+Matthew+c236f9ffc5a973c89492f23c6004b1b3.mp3
+2025-06-25 11:53:38,743 - INFO - Generated audio for '<speak>mean. What do you mean by ‘freedom’ in this context?</speak>' at D:\vocabswipe.github.io\data\audio\mean_sentence_8+Matthew+fb039d640bfbbde741987a12e53a68ef.mp3
+2025-06-25 11:53:39,374 - INFO - Generated audio for '<speak>mean. She means to finish her homework tonight.</speak>' at D:\vocabswipe.github.io\data\audio\mean_sentence_9+Matthew+4a3ae5e7289ca9984895c4f73f03a0de.mp3
+2025-06-25 11:53:40,030 - INFO - Generated audio for '<speak>alone. She prefers to study alone in her room.</speak>' at D:\vocabswipe.github.io\data\audio\alone_sentence_5+Matthew+ceadccd4532fda7a488483b3fd1f0cfd.mp3
+2025-06-25 11:53:40,826 - INFO - Generated audio for '<speak>alone. He felt alone during his first day at school.</speak>' at D:\vocabswipe.github.io\data\audio\alone_sentence_6+Matthew+ba684b697504d1ab289981c54507c81f.mp3
+2025-06-25 11:53:41,450 - INFO - Generated audio for '<speak>alone. This shop is alone in selling rare books.</speak>' at D:\vocabswipe.github.io\data\audio\alone_sentence_7+Matthew+f2dafd508e398d01472b0ebf5c55261d.mp3
+2025-06-25 11:53:42,054 - INFO - Generated audio for '<speak>alone. The old house stood alone on the hill.</speak>' at D:\vocabswipe.github.io\data\audio\alone_sentence_8+Matthew+3c8af2098c673cba6f6790ae64e68b95.mp3
+2025-06-25 11:53:42,694 - INFO - Generated audio for '<speak>alone. The decision was hers alone to make.</speak>' at D:\vocabswipe.github.io\data\audio\alone_sentence_9+Matthew+202d298dec6608ff3f07ffd73abeee53.mp3
+2025-06-25 11:53:43,117 - INFO - Generated audio for '<speak>beach</speak>' at D:\vocabswipe.github.io\data\audio\beach_word_0+Matthew+7193529abbf96dcc058f06d45121d8b1.mp3
+2025-06-25 11:53:44,101 - INFO - Generated audio for '<speak>beach. We spent the day relaxing on the beach.</speak>' at D:\vocabswipe.github.io\data\audio\beach_sentence_0+Matthew+c215981c8623a2a73d6c780b9716693e.mp3
+2025-06-25 11:53:44,739 - INFO - Generated audio for '<speak>beach. The beach was crowded with tourists.</speak>' at D:\vocabswipe.github.io\data\audio\beach_sentence_1+Matthew+a40970578afb3b08e15919d472484ef1.mp3
+2025-06-25 11:53:45,363 - INFO - Generated audio for '<speak>beach. The beach stretched for miles along the coast.</speak>' at D:\vocabswipe.github.io\data\audio\beach_sentence_2+Matthew+65ac3cfe73a421ac3c435abc5aa8f3f4.mp3
+2025-06-25 11:53:46,045 - INFO - Generated audio for '<speak>beach. They played volleyball on the beach.</speak>' at D:\vocabswipe.github.io\data\audio\beach_sentence_3+Matthew+5039977edf3f83f078c141e351b019d0.mp3
+2025-06-25 11:53:46,681 - INFO - Generated audio for '<speak>beach. The beach hosted a bonfire party at night.</speak>' at D:\vocabswipe.github.io\data\audio\beach_sentence_4+Matthew+1062c771236e027819d91e223e857e85.mp3
+2025-06-25 11:53:47,049 - INFO - Generated audio for '<speak>survey</speak>' at D:\vocabswipe.github.io\data\audio\survey_word_0+Matthew+2fa7b041eea9ee875e012bac495a639c.mp3
+2025-06-25 11:53:47,912 - INFO - Generated audio for '<speak>survey. The survey showed most people prefer coffee.</speak>' at D:\vocabswipe.github.io\data\audio\survey_sentence_0+Matthew+b407069b7968f37c42a0280c6edb9612.mp3
+2025-06-25 11:53:48,638 - INFO - Generated audio for '<speak>survey. The survey of the property took two days.</speak>' at D:\vocabswipe.github.io\data\audio\survey_sentence_1+Matthew+640ed901174a6df1b3173f206cdc7a45.mp3
+2025-06-25 11:53:50,813 - INFO - Generated audio for '<speak>survey. The company sent out a customer survey.</speak>' at D:\vocabswipe.github.io\data\audio\survey_sentence_2+Matthew+4de310eb748ab4a8820ab9aed442bbaf.mp3
+2025-06-25 11:53:51,479 - INFO - Generated audio for '<speak>survey. The book provides a survey of modern art.</speak>' at D:\vocabswipe.github.io\data\audio\survey_sentence_3+Matthew+4ac69800a83629d1b8247da3bdf4efd3.mp3
+2025-06-25 11:53:53,083 - INFO - Generated audio for '<speak>survey. The survey revealed cracks in the bridge.</speak>' at D:\vocabswipe.github.io\data\audio\survey_sentence_4+Matthew+0ffff09e6b9a588f2c5f00143cc57992.mp3
+2025-06-25 11:53:54,327 - INFO - Generated audio for '<speak>writing</speak>' at D:\vocabswipe.github.io\data\audio\writing_word_0+Matthew+1cea5345d284f36245a94301b114b27c.mp3
+2025-06-25 11:53:55,196 - INFO - Generated audio for '<speak>writing. Her writing improved after the workshop.</speak>' at D:\vocabswipe.github.io\data\audio\writing_sentence_0+Matthew+70c721ce191cf43a9b18310e490cbb74.mp3
+2025-06-25 11:54:37,065 - INFO - Generated audio for '<speak>writing. His writing was published in a magazine.</speak>' at D:\vocabswipe.github.io\data\audio\writing_sentence_1+Matthew+2560199c7393159a34a79428d3bc3d82.mp3
+2025-06-25 11:54:38,292 - INFO - Generated audio for '<speak>writing. Creative writing is her favorite subject.</speak>' at D:\vocabswipe.github.io\data\audio\writing_sentence_2+Matthew+d0f8832997dd315e4c3c15194f72e56c.mp3
+2025-06-25 11:54:39,179 - INFO - Generated audio for '<speak>writing. The writing on the sign was hard to read.</speak>' at D:\vocabswipe.github.io\data\audio\writing_sentence_3+Matthew+8bab37f0c3d845ca233f0529e75175bb.mp3
+2025-06-25 11:54:39,814 - INFO - Generated audio for '<speak>writing. She earns a living through writing novels.</speak>' at D:\vocabswipe.github.io\data\audio\writing_sentence_4+Matthew+ab5c3605658fe6f5ea667ade8a247dfe.mp3
+2025-06-25 11:54:40,143 - INFO - Generated audio for '<speak>master</speak>' at D:\vocabswipe.github.io\data\audio\master_word_0+Matthew+eb0a191797624dd3a48fa681d3061212.mp3
+2025-06-25 11:54:40,770 - INFO - Generated audio for '<speak>master. He is a master of chess strategy.</speak>' at D:\vocabswipe.github.io\data\audio\master_sentence_0+Matthew+f36f8428af20c8838848181b536c4a76.mp3
+2025-06-25 11:54:41,440 - INFO - Generated audio for '<speak>master. The master of the house welcomed the guests.</speak>' at D:\vocabswipe.github.io\data\audio\master_sentence_1+Matthew+89869551f3b7ae0f0182fe561d0e9a8b.mp3
+2025-06-25 11:54:41,799 - INFO - Generated audio for '<speak>master. The master taught painting to beginners.</speak>' at D:\vocabswipe.github.io\data\audio\master_sentence_2+Matthew+46ce274c2cb1d1cd12e863d3e7c2eb11.mp3
+2025-06-25 11:54:42,205 - INFO - Generated audio for '<speak>master. The master copy of the film was preserved.</speak>' at D:\vocabswipe.github.io\data\audio\master_sentence_3+Matthew+0b3460e77fe774c927cda7b05844d6b2.mp3
+2025-06-25 11:54:42,565 - INFO - Generated audio for '<speak>master. She earned a master’s degree in biology.</speak>' at D:\vocabswipe.github.io\data\audio\master_sentence_4+Matthew+aecd34d9f2ec636bbf26f688b6815ca7.mp3
+2025-06-25 11:54:42,907 - INFO - Generated audio for '<speak>cry</speak>' at D:\vocabswipe.github.io\data\audio\cry_word_0+Matthew+5054d049935d6f95316f68d1bef528af.mp3
+2025-06-25 11:54:44,633 - INFO - Generated audio for '<speak>cry. She cried when she heard the sad news.</speak>' at D:\vocabswipe.github.io\data\audio\cry_sentence_0+Matthew+01d326924df8d3329042157e35dc888d.mp3
+2025-06-25 11:54:44,997 - INFO - Generated audio for '<speak>cry. He cried for help during the emergency.</speak>' at D:\vocabswipe.github.io\data\audio\cry_sentence_1+Matthew+1a1c0932f15c66c54890f246f43257e6.mp3
+2025-06-25 11:54:45,361 - INFO - Generated audio for '<speak>cry. The crowd cried in joy at the victory.</speak>' at D:\vocabswipe.github.io\data\audio\cry_sentence_2+Matthew+d8cd82e94137ccd806af7a42cdad5166.mp3
+2025-06-25 11:54:45,716 - INFO - Generated audio for '<speak>cry. The eagle cried as it soared above.</speak>' at D:\vocabswipe.github.io\data\audio\cry_sentence_3+Matthew+246eb8a17cfbd49f57bdf5335c6d8b76.mp3
+2025-06-25 11:54:46,077 - INFO - Generated audio for '<speak>cry. This issue cries for immediate action.</speak>' at D:\vocabswipe.github.io\data\audio\cry_sentence_4+Matthew+427dfc1e8079d8ab3eaf06c1d6197358.mp3
+2025-06-25 11:54:46,486 - INFO - Generated audio for '<speak>scale</speak>' at D:\vocabswipe.github.io\data\audio\scale_word_0+Matthew+0cb47aeb6e5f9323f0969e628c4e59f5.mp3
+2025-06-25 11:54:46,848 - INFO - Generated audio for '<speak>scale. She stepped on the scale to check her weight.</speak>' at D:\vocabswipe.github.io\data\audio\scale_sentence_0+Matthew+46d5505a268bb430c7a7493bca045091.mp3
+2025-06-25 11:54:47,210 - INFO - Generated audio for '<speak>scale. The scale of the project was massive.</speak>' at D:\vocabswipe.github.io\data\audio\scale_sentence_1+Matthew+43c4209dff78993a17f4ac1c517016f5.mp3
+2025-06-25 11:54:47,574 - INFO - Generated audio for '<speak>scale. The map has a scale of one inch to a mile.</speak>' at D:\vocabswipe.github.io\data\audio\scale_sentence_2+Matthew+f1b3231d9b79f3fd3fc519f7eb9c581a.mp3
+2025-06-25 11:54:47,937 - INFO - Generated audio for '<speak>scale. The job pays well on the salary scale.</speak>' at D:\vocabswipe.github.io\data\audio\scale_sentence_3+Matthew+e3e4fba836ef464da18fb328a5e6aeae.mp3
+2025-06-25 11:54:48,300 - INFO - Generated audio for '<speak>scale. The fish’s scales sparkled in the sun.</speak>' at D:\vocabswipe.github.io\data\audio\scale_sentence_4+Matthew+ac508a9a31655aaabafe4bd958516b58.mp3
+2025-06-25 11:54:48,637 - INFO - Generated audio for '<speak>resident</speak>' at D:\vocabswipe.github.io\data\audio\resident_word_0+Matthew+eed344100105d60695468855cb0f60cb.mp3
+2025-06-25 11:54:49,052 - INFO - Generated audio for '<speak>resident. She’s a resident of the small coastal town.</speak>' at D:\vocabswipe.github.io\data\audio\resident_sentence_0+Matthew+f13cc1099efada0c83dfe3de3f2fe648.mp3
+2025-06-25 11:54:49,458 - INFO - Generated audio for '<speak>resident. The residents met to discuss park improvements.</speak>' at D:\vocabswipe.github.io\data\audio\resident_sentence_1+Matthew+328609353156b39d0e653fa749a2b0aa.mp3
+2025-06-25 11:54:49,820 - INFO - Generated audio for '<speak>resident. The resident assisted in the surgery.</speak>' at D:\vocabswipe.github.io\data\audio\resident_sentence_2+Matthew+067008c9fe75a00d767bb3ff7821af16.mp3
+2025-06-25 11:54:50,182 - INFO - Generated audio for '<speak>resident. He applied to become a permanent resident.</speak>' at D:\vocabswipe.github.io\data\audio\resident_sentence_3+Matthew+8806be75ac0b7500205a5b19a46977bf.mp3
+2025-06-25 11:54:50,584 - INFO - Generated audio for '<speak>resident. The building’s residents share a gym.</speak>' at D:\vocabswipe.github.io\data\audio\resident_sentence_4+Matthew+eeef49b09dd2789819ebdf5e770b9d95.mp3
+2025-06-25 11:54:54,246 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-25 11:54:54,262 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250625_115454.txt
+2025-06-25 11:54:54,272 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 11:54:54,274 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
