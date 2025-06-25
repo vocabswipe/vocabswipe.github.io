@@ -2,9 +2,9 @@
 
 import pandas as pd
 
-# Read the Excel file
-# Note: You'll need to upload COCA_WordFrequency.xlsx to Colab first
-df = pd.read_excel('COCA_WordFrequency.xlsx')
+# Read the CSV file
+# Note: You'll need to upload COCA_WordFrequency.csv to Colab first
+df = pd.read_csv('COCA_WordFrequency.csv')
 
 # Print original dataframe info
 print("Original dataframe shape:", df.shape)
@@ -35,6 +35,6 @@ df_no_duplicates = df_no_duplicates[['rank', 'word', 'freq']]
 print("\nFinal dataframe preview:")
 print(df_no_duplicates.head())
 
-# Save to new Excel file
-df_no_duplicates.to_excel('COCA_WordFrequency_no_duplicates.xlsx', index=False)
-print("\nFile saved as: COCA_WordFrequency_no_duplicates.xlsx")
+# Save to new CSV file
+df_no_duplicates.to_csv('COCA_WordFrequency_no_duplicates.csv', index=False)
+print("\nFile saved as: COCA_WordFrequency_no_duplicates.csv")
