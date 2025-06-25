@@ -143,7 +143,7 @@ body {
 
 .meta-info {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding-top: 8px;
     border-top: 1px solid #e5e7eb;
@@ -153,6 +153,32 @@ body {
     font-size: 14px;
     font-weight: 500;
     color: #6b7280;
+}
+
+.frequency-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.frequency-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+.frequency-bar {
+    width: 60px;
+    height: 8px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.frequency-fill {
+    height: 100%;
+    transition: width 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
@@ -184,7 +210,12 @@ body {
         font-size: 14px;
     }
 
-    .rank {
+    .rank, .frequency-label {
         font-size: 12px;
+    }
+
+    .frequency-bar {
+        width: 50px;
+        height: 6px;
     }
 }
