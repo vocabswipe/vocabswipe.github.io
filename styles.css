@@ -158,27 +158,33 @@ body {
 .frequency-container {
     display: flex;
     align-items: center;
+    gap: 8px;
 }
 
 .frequency-label {
     font-size: 14px;
     font-weight: 500;
     color: #6b7280;
-    margin-right: 8px;
+}
+
+.frequency-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
 }
 
 .frequency-bar {
-    width: 60px;
+    width: 100px;
     height: 10px;
-    border: 1px solid #000000;
+    border: 2px solid #1f2937;
     border-radius: 5px;
     overflow: hidden;
-    background-color: #e5e7eb;
+    background: #e5e7eb;
 }
 
 .frequency-fill {
     height: 100%;
-    transition: width 0.3s ease;
+    transition: width 0.3s ease, background-color 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -210,12 +216,12 @@ body {
         font-size: 14px;
     }
 
-    .rank, .frequency-label {
+    .rank, .frequency-label, .frequency-value {
         font-size: 12px;
     }
 
     .frequency-bar {
-        width: 50px;
+        width: 80px;
         height: 8px;
     }
 }
