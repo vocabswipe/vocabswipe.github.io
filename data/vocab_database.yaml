@@ -358,6 +358,16 @@
     example_en: The cat jumped, and it landed.
   - definition_en: Points to a situation.
     example_en: It was a great concert.
+  - definition_en: A pronoun referring to a thing or situation.
+    example_en: I dropped the book, and it fell open.
+  - definition_en: Used to identify an object or idea.
+    example_en: It was a sunny day yesterday.
+  - definition_en: A placeholder for a subject or object.
+    example_en: It seems like rain is coming.
+  - definition_en: Referring to an animal or inanimate thing.
+    example_en: The dog wagged its tail happily.
+  - definition_en: Used in expressions of time or weather.
+    example_en: It’s getting late, we should go.
   freq: 11042044
   part_of_speech: pronoun
   rank: 10
@@ -372,6 +382,11 @@
   - it_sentence_7+Matthew+afef7039f23dde0057b7d79c4eeddcf8.mp3
   - it_sentence_8+Matthew+697ac332f98a1ae7a83d8b43b5f42cd2.mp3
   - it_sentence_9+Matthew+fba33dfbccf7cba57fd4612cabf4ec56.mp3
+  - it_sentence_10+Matthew+9433f95c703019357863067109c71845.mp3
+  - it_sentence_11+Matthew+4d4d3457d1045b788cb17f3f685edb91.mp3
+  - it_sentence_12+Matthew+528a9c841bd9b41983acdeec6c4f2868.mp3
+  - it_sentence_13+Matthew+faadb09d61bd4acedb9467f8ff45bff9.mp3
+  - it_sentence_14+Matthew+05ebb1c4475ec23e2169841fdef790cf.mp3
   voice_id: Matthew
   word: it
   word_audio_file:
@@ -12381,6 +12396,16 @@
     example_en: In my view, this is the best option.
   - definition_en: A visual display
     example_en: The camera offers a clear view.
+  - definition_en: A sight or scene from a particular position.
+    example_en: The hotel room had a beautiful ocean view.
+  - definition_en: An opinion or perspective on something.
+    example_en: Her view on the policy was clear.
+  - definition_en: The act of looking or observing.
+    example_en: The view of the painting was stunning.
+  - definition_en: A way of considering a subject.
+    example_en: He took a long-term view of the project.
+  - definition_en: A visual display or presentation.
+    example_en: The slideshow gave a clear view of the data.
   freq: 182417
   part_of_speech: noun
   rank: 528
@@ -12390,6 +12415,11 @@
   - view_sentence_2+Matthew+e87f1ba848410555a3f554eee25efa70.mp3
   - view_sentence_3+Matthew+545e0ebdeeafb1ffb3586a2d4ed8aacb.mp3
   - view_sentence_4+Matthew+e08b932b069ccd9c1e98249d8c67cc19.mp3
+  - view_sentence_5+Matthew+3fb471a2bea862dbf5a9d520770052e2.mp3
+  - view_sentence_6+Matthew+87eddab2608253a97658f22ff56c3608.mp3
+  - view_sentence_7+Matthew+d221803d7a838cc3d936977efb02106d.mp3
+  - view_sentence_8+Matthew+6cc2d4b0417a872bb96edf1ef4937c0b.mp3
+  - view_sentence_9+Matthew+0061c53fb517c1fb5b16a77267e0f1e1.mp3
   voice_id: Matthew
   word: view
   word_audio_file:
@@ -15630,6 +15660,14 @@
     example_en: The camera’s focus was sharp and clear.
   - definition_en: A goal or priority in a plan.
     example_en: Their focus was improving customer service.
+  - definition_en: A state of clear mental concentration.
+    example_en: She lost her focus during the long lecture.
+  - definition_en: The main point or emphasis.
+    example_en: The article’s focus was environmental issues.
+  - definition_en: A point of convergence, as in optics.
+    example_en: The camera’s focus was adjusted for clarity.
+  - definition_en: A goal or priority in a context.
+    example_en: Her focus this year is improving skills.
   freq: 144896
   part_of_speech: noun
   rank: 668
@@ -15639,6 +15677,10 @@
   - focus_sentence_2+Matthew+45d9891a17f69ddc47f414c87736524d.mp3
   - focus_sentence_3+Matthew+d679eb6634fc33d42a4784c40745ede3.mp3
   - focus_sentence_4+Matthew+73891bb62b4d082b420226576070f03b.mp3
+  - focus_sentence_5+Matthew+2a56c63f9f4d28220969a759afc86f02.mp3
+  - focus_sentence_6+Matthew+39739b047cfefeb25ab6dc33e6365da1.mp3
+  - focus_sentence_7+Matthew+be0215c17220630ae85d12723682ad31.mp3
+  - focus_sentence_8+Matthew+07a9e019b14f7e4becdb8be6e656dc91.mp3
   voice_id: Matthew
   word: focus
   word_audio_file:
@@ -24691,6 +24733,14 @@
     example_en: He values honesty above wealth.
   - definition_en: Upstream or earlier in a text.
     example_en: See the section above for more details.
+  - definition_en: At a higher level or position than.
+    example_en: The plane flew above the clouds.
+  - definition_en: In a higher rank or authority.
+    example_en: She reports to the manager above her.
+  - definition_en: Beyond or not subject to.
+    example_en: He considered himself above petty arguments.
+  - definition_en: Earlier in a document or text.
+    example_en: See the section above for details.
   freq: 90318
   part_of_speech: preposition
   rank: 1082
@@ -24700,6 +24750,10 @@
   - above_sentence_2+Matthew+f9bef05ec215aee9b9dfc0e0ad3f375d.mp3
   - above_sentence_3+Matthew+f1844caa384a6e837b4ee67b9df94ec0.mp3
   - above_sentence_4+Matthew+f90f3d2eacd155644cf9f50b7433d4f5.mp3
+  - above_sentence_5+Matthew+cb7592f950016fd9e2786e7ce1efa18b.mp3
+  - above_sentence_6+Matthew+8d496dce6e5d33f105f47b1ac0e2f6c0.mp3
+  - above_sentence_7+Matthew+5c3799dcef4c948af0c9add914078510.mp3
+  - above_sentence_8+Matthew+b042dca656c346dadfa8ec959c74a7c7.mp3
   voice_id: Matthew
   word: above
   word_audio_file:
@@ -34466,3 +34520,387 @@
   word: winter
   word_audio_file:
   - winter_word_0+Matthew+f6432274349b5cb93433f8ed886a3f37.mp3
+- back_cards:
+  - definition_en: Relating to the office of a president.
+    example_en: The presidential election happens every four years.
+  - definition_en: Having the qualities of a president.
+    example_en: She gave a presidential speech to the crowd.
+  - definition_en: Pertaining to a president’s actions or duties.
+    example_en: The presidential decision impacted the nation.
+  - definition_en: Associated with a president’s authority.
+    example_en: The presidential suite was luxurious.
+  - definition_en: Involving the leadership of a president.
+    example_en: His presidential campaign gained momentum.
+  freq: 61351
+  part_of_speech: adjective
+  rank: 1542
+  sentence_audio_file:
+  - presidential_sentence_0+Matthew+7e3efbab5ccc97ef4e9930b2b7eb9c54.mp3
+  - presidential_sentence_1+Matthew+b87425dd078f107f42cb29a7eda9767f.mp3
+  - presidential_sentence_2+Matthew+782868e8232197bed727c2bb61a34b2d.mp3
+  - presidential_sentence_3+Matthew+5bee1c060c7098ff32a7aaef90fb8ea7.mp3
+  - presidential_sentence_4+Matthew+64797d421a99e679bf22f287a0e50fbc.mp3
+  voice_id: Matthew
+  word: presidential
+  word_audio_file:
+  - presidential_word_0+Matthew+93d1caa527f48afdb7c3f684a2f1e17c.mp3
+- back_cards:
+  - definition_en: To control or manage a machine or system.
+    example_en: He learned to operate the new software.
+  - definition_en: To perform a function or work.
+    example_en: The factory operates 24 hours a day.
+  - definition_en: To conduct a surgical procedure.
+    example_en: The surgeon will operate on her knee.
+  - definition_en: To carry out a business or activity.
+    example_en: They operate a small café downtown.
+  - definition_en: To function effectively in a role.
+    example_en: She operates well under pressure.
+  freq: 61296
+  part_of_speech: verb
+  rank: 1543
+  sentence_audio_file:
+  - operate_sentence_0+Matthew+d49a63d2fb4d6af1037766bd914e89c7.mp3
+  - operate_sentence_1+Matthew+e2f0e0f42133664345f1d3307fd529e1.mp3
+  - operate_sentence_2+Matthew+aa8ed1a65c74a614622e69ddf6e44fbe.mp3
+  - operate_sentence_3+Matthew+91c55543ae825acfcae4bc7a8724b9db.mp3
+  - operate_sentence_4+Matthew+0cc53a31f53403cecee11fabd20623c0.mp3
+  voice_id: Matthew
+  word: operate
+  word_audio_file:
+  - operate_word_0+Matthew+03672bee7f58cd26136f083acaa24855.mp3
+- back_cards:
+  - definition_en: An exclamation of frustration or anger.
+    example_en: Fuck, I forgot my keys again!
+  - definition_en: A term to express strong disbelief.
+    example_en: Fuck, did that really just happen?
+  - definition_en: A vulgar emphasis in casual speech.
+    example_en: It’s cold as fuck outside today.
+  - definition_en: A word to convey intense emotion.
+    example_en: Fuck, that was a close call!
+  - definition_en: An expression of irritation or surprise.
+    example_en: Fuck, the train is late again.
+  freq: 61292
+  part_of_speech: interjection
+  rank: 1544
+  sentence_audio_file:
+  - fuck_sentence_0+Matthew+32c9d5edd35ccd85e1170643491e233b.mp3
+  - fuck_sentence_1+Matthew+f192d6dfc3af676666d3e57d792cc3c9.mp3
+  - fuck_sentence_2+Matthew+44fd79ef9eebb07866794107e9aaf646.mp3
+  - fuck_sentence_3+Matthew+d78430cf5d65cd10e6d83cf1b1eb33db.mp3
+  - fuck_sentence_4+Matthew+f77249ccc9c75160637291ec10453a7e.mp3
+  voice_id: Matthew
+  word: fuck
+  word_audio_file:
+  - fuck_word_0+Matthew+99754106633f94d350db34d548d6091a.mp3
+- back_cards:
+  - definition_en: Happening or done every day.
+    example_en: She reads the daily news each morning.
+  - definition_en: Related to a single day’s activities.
+    example_en: His daily routine includes a morning jog.
+  - definition_en: Regular or routine in occurrence.
+    example_en: The store receives daily deliveries.
+  - definition_en: Pertaining to everyday life.
+    example_en: Daily tasks kept her busy at home.
+  - definition_en: Published or produced each day.
+    example_en: The daily newspaper covers local events.
+  freq: 61083
+  part_of_speech: adjective
+  rank: 1546
+  sentence_audio_file:
+  - daily_sentence_0+Matthew+0cd23281de916fb49d197b0114cbc751.mp3
+  - daily_sentence_1+Matthew+b5fc087ada31725dbb659b483f7c237b.mp3
+  - daily_sentence_2+Matthew+7d67415a72e3471b9a22620659435766.mp3
+  - daily_sentence_3+Matthew+1fc38c70c69f224a98814bc5facf48eb.mp3
+  - daily_sentence_4+Matthew+8fd519540d50cdd2a10804e3e030c004.mp3
+  voice_id: Matthew
+  word: daily
+  word_audio_file:
+  - daily_word_0+Matthew+bea79186fd7af2da67e59b4b15df5a26.mp3
+- back_cards:
+  - definition_en: A place where goods are sold.
+    example_en: She visited the shop to buy groceries.
+  - definition_en: A small retail or specialty store.
+    example_en: The coffee shop was cozy and inviting.
+  - definition_en: A place for making or repairing things.
+    example_en: The mechanic worked in an auto shop.
+  - definition_en: A setting for buying specific items.
+    example_en: The gift shop had unique souvenirs.
+  - definition_en: A workshop or workplace for crafts.
+    example_en: He built furniture in his wood shop.
+  freq: 61038
+  part_of_speech: noun
+  rank: 1547
+  sentence_audio_file:
+  - shop_sentence_0+Matthew+b26cc9a021fcff7c3a41e7fc815b1df1.mp3
+  - shop_sentence_1+Matthew+9dc90b2d287dd9a34b1819d481c7fba3.mp3
+  - shop_sentence_2+Matthew+6db598a023b944e7b3745f766d0b9b53.mp3
+  - shop_sentence_3+Matthew+d84584137c80caad3c50e4c20d5f53d1.mp3
+  - shop_sentence_4+Matthew+e7f12ce60ec402e69ec379707b0bc5e4.mp3
+  voice_id: Matthew
+  word: shop
+  word_audio_file:
+  - shop_word_0+Matthew+fb54f3c5992b96d001bb16e8e92d968d.mp3
+- back_cards:
+  - definition_en: The act of separating into parts.
+    example_en: The division of tasks made work easier.
+  - definition_en: A section or department of an organization.
+    example_en: She works in the marketing division.
+  - definition_en: A disagreement or difference of opinion.
+    example_en: The issue caused a division among friends.
+  - definition_en: A mathematical operation of dividing.
+    example_en: The division of 12 by 3 is 4.
+  - definition_en: A group or category in sports or competition.
+    example_en: Their team won the first division.
+  freq: 60892
+  part_of_speech: noun
+  rank: 1549
+  sentence_audio_file:
+  - division_sentence_0+Matthew+f739906dd4e4a15922b5f1e5b679ae2d.mp3
+  - division_sentence_1+Matthew+182f0ea84f283dd7dd155adb8c1ecd70.mp3
+  - division_sentence_2+Matthew+a8bad1a64eed3e18e23623c0459782ea.mp3
+  - division_sentence_3+Matthew+6dfe9c7dcef30548371465f8f37a18c3.mp3
+  - division_sentence_4+Matthew+7178eb264fc7ac6cd9d874fec10ee049.mp3
+  voice_id: Matthew
+  word: division
+  word_audio_file:
+  - division_word_0+Matthew+50c9b5e7cf3a731ea31c43f9a14c781b.mp3
+- back_cards:
+  - definition_en: At a slow pace or speed.
+    example_en: She walked slowly through the park.
+  - definition_en: In a gradual or unhurried manner.
+    example_en: The sun set slowly behind the mountain.
+  - definition_en: With deliberate or cautious movement.
+    example_en: He spoke slowly to ensure clarity.
+  - definition_en: In a way that takes time to progress.
+    example_en: The project is moving slowly but steadily.
+  - definition_en: With reduced speed or intensity.
+    example_en: The car slowed down slowly at the turn.
+  freq: 60889
+  part_of_speech: adverb
+  rank: 1550
+  sentence_audio_file:
+  - slowly_sentence_0+Matthew+51ad4e2444664b9e3b44d0d9396c96fb.mp3
+  - slowly_sentence_1+Matthew+c9c5d32dd7a0110fe80ca5676c6b674a.mp3
+  - slowly_sentence_2+Matthew+3c053fb189965819ba9f2c3d2cbb7151.mp3
+  - slowly_sentence_3+Matthew+4d6fa235f883575c661da6969d645ae6.mp3
+  - slowly_sentence_4+Matthew+c68d15f4c5386de8b994032ff2b881dd.mp3
+  voice_id: Matthew
+  word: slowly
+  word_audio_file:
+  - slowly_word_0+Matthew+f72fbd040595084bf96962d49ca40334.mp3
+- back_cards:
+  - definition_en: Guidance or recommendations offered.
+    example_en: She gave me advice about choosing a career.
+  - definition_en: A suggestion to solve a problem.
+    example_en: His advice helped fix the issue.
+  - definition_en: Expert or professional counsel.
+    example_en: The lawyer provided legal advice.
+  - definition_en: Information or tips for improvement.
+    example_en: Her advice on cooking was invaluable.
+  - definition_en: An opinion on what to do.
+    example_en: I followed her advice and felt better.
+  freq: 60861
+  part_of_speech: noun
+  rank: 1551
+  sentence_audio_file:
+  - advice_sentence_0+Matthew+4c1e26160bad9453f944153e79e6791d.mp3
+  - advice_sentence_1+Matthew+6b800c079a274d31db9a439608628d58.mp3
+  - advice_sentence_2+Matthew+5ec4f489725f79e0fa58e5b46b1241a0.mp3
+  - advice_sentence_3+Matthew+86a9b6925ce3489521178938eecf1840.mp3
+  - advice_sentence_4+Matthew+b46efebe5c742fabfe775c5836f4cbb1.mp3
+  voice_id: Matthew
+  word: advice
+  word_audio_file:
+  - advice_word_0+Matthew+fd99cadea9d8ef6a1ffcc52a2e3e8017.mp3
+- back_cards:
+  - definition_en: A response to a stimulus or situation.
+    example_en: Her reaction to the news was surprise.
+  - definition_en: A chemical change or process.
+    example_en: The reaction produced a bright light.
+  - definition_en: An emotional or instinctive response.
+    example_en: His reaction to the joke was laughter.
+  - definition_en: A consequence or effect of an action.
+    example_en: The policy sparked a strong public reaction.
+  - definition_en: An opposition or counteraction.
+    example_en: The decision faced a negative reaction.
+  freq: 60811
+  part_of_speech: noun
+  rank: 1552
+  sentence_audio_file:
+  - reaction_sentence_0+Matthew+40269c6299188af22e3518f23267c685.mp3
+  - reaction_sentence_1+Matthew+a2671c9b92775870f03b5a1a9add8ee8.mp3
+  - reaction_sentence_2+Matthew+419bdda67767d709b3bfd899456dfb2d.mp3
+  - reaction_sentence_3+Matthew+7f4cd6f5dd705a55ba5c252f2a678440.mp3
+  - reaction_sentence_4+Matthew+c8bb99260239f4908344ea1b82e6b567.mp3
+  voice_id: Matthew
+  word: reaction
+  word_audio_file:
+  - reaction_word_0+Matthew+e0ab074e8104870583f417cbd8afa027.mp3
+- back_cards:
+  - definition_en: Physical harm or damage to the body.
+    example_en: He recovered from a knee injury.
+  - definition_en: A specific wound or trauma.
+    example_en: The injury required stitches and rest.
+  - definition_en: Harm caused by an event or accident.
+    example_en: The crash caused multiple injuries.
+  - definition_en: A figurative harm to reputation or feelings.
+    example_en: Her words caused an injury to his pride.
+  - definition_en: A medical condition from overuse.
+    example_en: The athlete suffered a stress injury.
+  freq: 60769
+  part_of_speech: noun
+  rank: 1553
+  sentence_audio_file:
+  - injury_sentence_0+Matthew+e1be3a9fd28c35af2d9a188975512716.mp3
+  - injury_sentence_1+Matthew+62ee5443be068c9f1c4a7040252fa53f.mp3
+  - injury_sentence_2+Matthew+dfe4d8153f0ec484da6b93bc3545a97f.mp3
+  - injury_sentence_3+Matthew+c90141469114d4c2fed39a3e950182fd.mp3
+  - injury_sentence_4+Matthew+89253371bdb33a7bc8d8f25dd12d8689.mp3
+  voice_id: Matthew
+  word: injury
+  word_audio_file:
+  - injury_word_0+Matthew+7ff983fb58f776769fdfdc8faa69662b.mp3
+- back_cards:
+  - definition_en: A piece of paper granting entry or travel.
+    example_en: She bought a ticket for the concert.
+  - definition_en: A document for transportation.
+    example_en: His train ticket was for the 5 PM ride.
+  - definition_en: A citation for a legal violation.
+    example_en: He got a ticket for speeding.
+  - definition_en: A chance or opportunity for something.
+    example_en: This job is his ticket to success.
+  - definition_en: A label or tag with information.
+    example_en: The ticket on the shirt showed the price.
+  freq: 60721
+  part_of_speech: noun
+  rank: 1555
+  sentence_audio_file:
+  - ticket_sentence_0+Matthew+49bf9064749097299726cfa58bd1ec09.mp3
+  - ticket_sentence_1+Matthew+a68f8699202cd547c3e7e441f90a8a88.mp3
+  - ticket_sentence_2+Matthew+861bba82e7ce3f47fa1d9725a54cc841.mp3
+  - ticket_sentence_3+Matthew+07c77e81764ea56b3a7bfc29830f3a83.mp3
+  - ticket_sentence_4+Matthew+e7fe9f353473aa396626f8abe318dd14.mp3
+  voice_id: Matthew
+  word: ticket
+  word_audio_file:
+  - ticket_word_0+Matthew+cdfee2bc43d63caeaa3b169ad31e966c.mp3
+- back_cards:
+  - definition_en: A mark indicating quality or performance.
+    example_en: She received an A grade on her test.
+  - definition_en: A level or year in school.
+    example_en: He’s in the fifth grade this year.
+  - definition_en: A category or level of quality.
+    example_en: They used high-grade materials for construction.
+  - definition_en: The slope or incline of a surface.
+    example_en: The road has a steep grade uphill.
+  - definition_en: A classification or ranking.
+    example_en: This beef is of prime grade.
+  freq: 60710
+  part_of_speech: noun
+  rank: 1556
+  sentence_audio_file:
+  - grade_sentence_0+Matthew+a4b06acade94fce2c7f3076aa0b13852.mp3
+  - grade_sentence_1+Matthew+0c7c5f928c5ab29f3a523857528e7036.mp3
+  - grade_sentence_2+Matthew+59848aa7b7aa82e50f8a50f9fbd43cf6.mp3
+  - grade_sentence_3+Matthew+83583faea08d4d1ac84b0cf48d326253.mp3
+  - grade_sentence_4+Matthew+459d321672dd809a765561ae4081ea3e.mp3
+  voice_id: Matthew
+  word: grade
+  word_audio_file:
+  - grade_word_0+Matthew+de6a20aa7f2e36fb6abe61de5fb464b1.mp3
+- back_cards:
+  - definition_en: An expression of surprise or admiration.
+    example_en: Wow, that sunset is breathtaking!
+  - definition_en: A reaction to something impressive.
+    example_en: Wow, you finished the project so fast!
+  - definition_en: Used to show excitement or enthusiasm.
+    example_en: Wow, this concert is amazing!
+  - definition_en: A response to something unexpected.
+    example_en: Wow, I didn’t see that coming!
+  - definition_en: An exclamation of delight or awe.
+    example_en: Wow, look at that huge cake!
+  freq: 60702
+  part_of_speech: interjection
+  rank: 1557
+  sentence_audio_file:
+  - wow_sentence_0+Matthew+dabac22013edf913ebfa0d1f32415288.mp3
+  - wow_sentence_1+Matthew+e6cbf208028d3afaa6f2679fa3920746.mp3
+  - wow_sentence_2+Matthew+bf99ab345e3cc3a936bddf496c6015e7.mp3
+  - wow_sentence_3+Matthew+4edb0d730ccae133f0988111117e30ce.mp3
+  - wow_sentence_4+Matthew+77da59899f63f0130e1d18ab5f431bfc.mp3
+  voice_id: Matthew
+  word: wow
+  word_audio_file:
+  - wow_word_0+Matthew+bcedc450f8481e89b1445069acdc3dd9.mp3
+- back_cards:
+  - definition_en: The act or process of being born.
+    example_en: The birth of her child was a joyful moment.
+  - definition_en: The beginning or origin of something.
+    example_en: The birth of the internet changed communication.
+  - definition_en: A person’s ancestry or lineage.
+    example_en: She is of Italian birth.
+  - definition_en: The event of bringing forth life.
+    example_en: The hospital recorded 50 births this month.
+  - definition_en: A starting point for an idea or movement.
+    example_en: The protest marked the birth of a movement.
+  freq: 60673
+  part_of_speech: noun
+  rank: 1558
+  sentence_audio_file:
+  - birth_sentence_0+Matthew+ccf07c57976ad80b3705c87a7268e627.mp3
+  - birth_sentence_1+Matthew+4d2568cedec153df973487ed93096f9c.mp3
+  - birth_sentence_2+Matthew+1952fef2c8ea6b1b2a6a91c0ec81fdb9.mp3
+  - birth_sentence_3+Matthew+064f3282bc28e167ea656595facdbb5a.mp3
+  - birth_sentence_4+Matthew+14c52f496d3e97a7a26fcc1b4884c5d1.mp3
+  voice_id: Matthew
+  word: birth
+  word_audio_file:
+  - birth_word_0+Matthew+a3e2a6cbf4437e50816a60a64375490e.mp3
+- back_cards:
+  - definition_en: A work of art created with paint.
+    example_en: Her painting hung in the gallery.
+  - definition_en: The act or process of applying paint.
+    example_en: Painting the house took all weekend.
+  - definition_en: A visual representation on a surface.
+    example_en: The painting captured the beauty of nature.
+  - definition_en: A creative expression through colors.
+    example_en: His painting reflected his emotions.
+  - definition_en: A decorative coating for walls or objects.
+    example_en: The room needed a fresh painting.
+  freq: 60548
+  part_of_speech: noun
+  rank: 1559
+  sentence_audio_file:
+  - painting_sentence_0+Matthew+bbc234c55854e14cb8d12b2b55d8f5b5.mp3
+  - painting_sentence_1+Matthew+e7b8a9f1f8b691fb6b26dfa8a090aac4.mp3
+  - painting_sentence_2+Matthew+097f2f6d2eb84a0731a5b2add2cdfcb3.mp3
+  - painting_sentence_3+Matthew+dfbcb1818aecc40d5db683d3fd338510.mp3
+  - painting_sentence_4+Matthew+2d3ceb6dc0f839f8a277b3a706d26b40.mp3
+  voice_id: Matthew
+  word: painting
+  word_audio_file:
+  - painting_word_0+Matthew+6a7c1b1d588cd51d12ad44324d614fed.mp3
+- back_cards:
+  - definition_en: The result or consequence of an action.
+    example_en: The outcome of the meeting was positive.
+  - definition_en: The final effect of a process.
+    example_en: The experiment’s outcome surprised the team.
+  - definition_en: A resolution or conclusion.
+    example_en: The trial’s outcome was a fair verdict.
+  - definition_en: The product of a decision or event.
+    example_en: The policy’s outcome impacted the economy.
+  - definition_en: A future state based on current actions.
+    example_en: They hoped for a successful outcome.
+  freq: 60498
+  part_of_speech: noun
+  rank: 1560
+  sentence_audio_file:
+  - outcome_sentence_0+Matthew+21f7d66bcf2804aa813ab40e6e485039.mp3
+  - outcome_sentence_1+Matthew+da3d89ac27d66d1307918f421d137bba.mp3
+  - outcome_sentence_2+Matthew+51e625327d51b1f2a01ff59ba25f34a0.mp3
+  - outcome_sentence_3+Matthew+a7e60f025db29f8b286066a4b1c27842.mp3
+  - outcome_sentence_4+Matthew+950dca7112e810f08dd77724009c1872.mp3
+  voice_id: Matthew
+  word: outcome
+  word_audio_file:
+  - outcome_word_0+Matthew+3032ad6aed6c5c3cda992d241f4d28bf.mp3

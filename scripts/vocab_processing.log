@@ -17727,3 +17727,128 @@ expected <block end>, but found '<block mapping start>'
 2025-06-25 16:05:05,194 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250625_160505.txt
 2025-06-25 16:05:05,203 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
 2025-06-25 16:05:05,205 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
+2025-06-25 16:16:16,261 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-06-25 16:16:16,478 - INFO - AWS Polly client initialized successfully.
+2025-06-25 16:16:16,486 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 16:16:16,488 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 16:16:28,198 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 16:16:28,198 - INFO - Appended 20 entries to D:\vocabswipe.github.io\data\temp\temp_vocab_log.yaml
+2025-06-25 16:16:28,218 - INFO - Loading: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-25 16:16:34,540 - INFO - Generated audio for '<speak>focus. She lost her focus during the long lecture.</speak>' at D:\vocabswipe.github.io\data\audio\focus_sentence_5+Matthew+2a56c63f9f4d28220969a759afc86f02.mp3
+2025-06-25 16:16:34,901 - INFO - Generated audio for '<speak>focus. The article’s focus was environmental issues.</speak>' at D:\vocabswipe.github.io\data\audio\focus_sentence_6+Matthew+39739b047cfefeb25ab6dc33e6365da1.mp3
+2025-06-25 16:16:35,275 - INFO - Generated audio for '<speak>focus. The camera’s focus was adjusted for clarity.</speak>' at D:\vocabswipe.github.io\data\audio\focus_sentence_7+Matthew+be0215c17220630ae85d12723682ad31.mp3
+2025-06-25 16:16:35,688 - INFO - Generated audio for '<speak>focus. Her focus this year is improving skills.</speak>' at D:\vocabswipe.github.io\data\audio\focus_sentence_8+Matthew+07a9e019b14f7e4becdb8be6e656dc91.mp3
+2025-06-25 16:16:36,039 - INFO - Generated audio for '<speak>presidential</speak>' at D:\vocabswipe.github.io\data\audio\presidential_word_0+Matthew+93d1caa527f48afdb7c3f684a2f1e17c.mp3
+2025-06-25 16:16:36,405 - INFO - Generated audio for '<speak>presidential. The presidential election happens every four years.</speak>' at D:\vocabswipe.github.io\data\audio\presidential_sentence_0+Matthew+7e3efbab5ccc97ef4e9930b2b7eb9c54.mp3
+2025-06-25 16:16:36,809 - INFO - Generated audio for '<speak>presidential. She gave a presidential speech to the crowd.</speak>' at D:\vocabswipe.github.io\data\audio\presidential_sentence_1+Matthew+b87425dd078f107f42cb29a7eda9767f.mp3
+2025-06-25 16:16:37,219 - INFO - Generated audio for '<speak>presidential. The presidential decision impacted the nation.</speak>' at D:\vocabswipe.github.io\data\audio\presidential_sentence_2+Matthew+782868e8232197bed727c2bb61a34b2d.mp3
+2025-06-25 16:16:37,574 - INFO - Generated audio for '<speak>presidential. The presidential suite was luxurious.</speak>' at D:\vocabswipe.github.io\data\audio\presidential_sentence_3+Matthew+5bee1c060c7098ff32a7aaef90fb8ea7.mp3
+2025-06-25 16:16:37,933 - INFO - Generated audio for '<speak>presidential. His presidential campaign gained momentum.</speak>' at D:\vocabswipe.github.io\data\audio\presidential_sentence_4+Matthew+64797d421a99e679bf22f287a0e50fbc.mp3
+2025-06-25 16:16:38,344 - INFO - Generated audio for '<speak>operate</speak>' at D:\vocabswipe.github.io\data\audio\operate_word_0+Matthew+03672bee7f58cd26136f083acaa24855.mp3
+2025-06-25 16:16:38,705 - INFO - Generated audio for '<speak>operate. He learned to operate the new software.</speak>' at D:\vocabswipe.github.io\data\audio\operate_sentence_0+Matthew+d49a63d2fb4d6af1037766bd914e89c7.mp3
+2025-06-25 16:16:39,071 - INFO - Generated audio for '<speak>operate. The factory operates 24 hours a day.</speak>' at D:\vocabswipe.github.io\data\audio\operate_sentence_1+Matthew+e2f0e0f42133664345f1d3307fd529e1.mp3
+2025-06-25 16:16:39,504 - INFO - Generated audio for '<speak>operate. The surgeon will operate on her knee.</speak>' at D:\vocabswipe.github.io\data\audio\operate_sentence_2+Matthew+aa8ed1a65c74a614622e69ddf6e44fbe.mp3
+2025-06-25 16:16:39,875 - INFO - Generated audio for '<speak>operate. They operate a small café downtown.</speak>' at D:\vocabswipe.github.io\data\audio\operate_sentence_3+Matthew+91c55543ae825acfcae4bc7a8724b9db.mp3
+2025-06-25 16:16:40,293 - INFO - Generated audio for '<speak>operate. She operates well under pressure.</speak>' at D:\vocabswipe.github.io\data\audio\operate_sentence_4+Matthew+0cc53a31f53403cecee11fabd20623c0.mp3
+2025-06-25 16:16:40,611 - INFO - Generated audio for '<speak>fuck</speak>' at D:\vocabswipe.github.io\data\audio\fuck_word_0+Matthew+99754106633f94d350db34d548d6091a.mp3
+2025-06-25 16:16:41,008 - INFO - Generated audio for '<speak>fuck. Fuck, I forgot my keys again!</speak>' at D:\vocabswipe.github.io\data\audio\fuck_sentence_0+Matthew+32c9d5edd35ccd85e1170643491e233b.mp3
+2025-06-25 16:16:41,420 - INFO - Generated audio for '<speak>fuck. Fuck, did that really just happen?</speak>' at D:\vocabswipe.github.io\data\audio\fuck_sentence_1+Matthew+f192d6dfc3af676666d3e57d792cc3c9.mp3
+2025-06-25 16:16:41,780 - INFO - Generated audio for '<speak>fuck. It’s cold as fuck outside today.</speak>' at D:\vocabswipe.github.io\data\audio\fuck_sentence_2+Matthew+44fd79ef9eebb07866794107e9aaf646.mp3
+2025-06-25 16:16:42,167 - INFO - Generated audio for '<speak>fuck. Fuck, that was a close call!</speak>' at D:\vocabswipe.github.io\data\audio\fuck_sentence_3+Matthew+d78430cf5d65cd10e6d83cf1b1eb33db.mp3
+2025-06-25 16:16:42,544 - INFO - Generated audio for '<speak>fuck. Fuck, the train is late again.</speak>' at D:\vocabswipe.github.io\data\audio\fuck_sentence_4+Matthew+f77249ccc9c75160637291ec10453a7e.mp3
+2025-06-25 16:16:42,894 - INFO - Generated audio for '<speak>view. The hotel room had a beautiful ocean view.</speak>' at D:\vocabswipe.github.io\data\audio\view_sentence_5+Matthew+3fb471a2bea862dbf5a9d520770052e2.mp3
+2025-06-25 16:16:43,246 - INFO - Generated audio for '<speak>view. Her view on the policy was clear.</speak>' at D:\vocabswipe.github.io\data\audio\view_sentence_6+Matthew+87eddab2608253a97658f22ff56c3608.mp3
+2025-06-25 16:16:43,649 - INFO - Generated audio for '<speak>view. The view of the painting was stunning.</speak>' at D:\vocabswipe.github.io\data\audio\view_sentence_7+Matthew+d221803d7a838cc3d936977efb02106d.mp3
+2025-06-25 16:16:44,027 - INFO - Generated audio for '<speak>view. He took a long-term view of the project.</speak>' at D:\vocabswipe.github.io\data\audio\view_sentence_8+Matthew+6cc2d4b0417a872bb96edf1ef4937c0b.mp3
+2025-06-25 16:16:44,379 - INFO - Generated audio for '<speak>view. The slideshow gave a clear view of the data.</speak>' at D:\vocabswipe.github.io\data\audio\view_sentence_9+Matthew+0061c53fb517c1fb5b16a77267e0f1e1.mp3
+2025-06-25 16:16:44,698 - INFO - Generated audio for '<speak>daily</speak>' at D:\vocabswipe.github.io\data\audio\daily_word_0+Matthew+bea79186fd7af2da67e59b4b15df5a26.mp3
+2025-06-25 16:16:45,053 - INFO - Generated audio for '<speak>daily. She reads the daily news each morning.</speak>' at D:\vocabswipe.github.io\data\audio\daily_sentence_0+Matthew+0cd23281de916fb49d197b0114cbc751.mp3
+2025-06-25 16:16:45,407 - INFO - Generated audio for '<speak>daily. His daily routine includes a morning jog.</speak>' at D:\vocabswipe.github.io\data\audio\daily_sentence_1+Matthew+b5fc087ada31725dbb659b483f7c237b.mp3
+2025-06-25 16:16:45,756 - INFO - Generated audio for '<speak>daily. The store receives daily deliveries.</speak>' at D:\vocabswipe.github.io\data\audio\daily_sentence_2+Matthew+7d67415a72e3471b9a22620659435766.mp3
+2025-06-25 16:16:46,108 - INFO - Generated audio for '<speak>daily. Daily tasks kept her busy at home.</speak>' at D:\vocabswipe.github.io\data\audio\daily_sentence_3+Matthew+1fc38c70c69f224a98814bc5facf48eb.mp3
+2025-06-25 16:16:46,466 - INFO - Generated audio for '<speak>daily. The daily newspaper covers local events.</speak>' at D:\vocabswipe.github.io\data\audio\daily_sentence_4+Matthew+8fd519540d50cdd2a10804e3e030c004.mp3
+2025-06-25 16:16:46,801 - INFO - Generated audio for '<speak>shop</speak>' at D:\vocabswipe.github.io\data\audio\shop_word_0+Matthew+fb54f3c5992b96d001bb16e8e92d968d.mp3
+2025-06-25 16:16:47,157 - INFO - Generated audio for '<speak>shop. She visited the shop to buy groceries.</speak>' at D:\vocabswipe.github.io\data\audio\shop_sentence_0+Matthew+b26cc9a021fcff7c3a41e7fc815b1df1.mp3
+2025-06-25 16:16:47,560 - INFO - Generated audio for '<speak>shop. The coffee shop was cozy and inviting.</speak>' at D:\vocabswipe.github.io\data\audio\shop_sentence_1+Matthew+9dc90b2d287dd9a34b1819d481c7fba3.mp3
+2025-06-25 16:16:47,948 - INFO - Generated audio for '<speak>shop. The mechanic worked in an auto shop.</speak>' at D:\vocabswipe.github.io\data\audio\shop_sentence_2+Matthew+6db598a023b944e7b3745f766d0b9b53.mp3
+2025-06-25 16:16:48,308 - INFO - Generated audio for '<speak>shop. The gift shop had unique souvenirs.</speak>' at D:\vocabswipe.github.io\data\audio\shop_sentence_3+Matthew+d84584137c80caad3c50e4c20d5f53d1.mp3
+2025-06-25 16:16:48,688 - INFO - Generated audio for '<speak>shop. He built furniture in his wood shop.</speak>' at D:\vocabswipe.github.io\data\audio\shop_sentence_4+Matthew+e7f12ce60ec402e69ec379707b0bc5e4.mp3
+2025-06-25 16:16:49,096 - INFO - Generated audio for '<speak>above. The plane flew above the clouds.</speak>' at D:\vocabswipe.github.io\data\audio\above_sentence_5+Matthew+cb7592f950016fd9e2786e7ce1efa18b.mp3
+2025-06-25 16:16:49,452 - INFO - Generated audio for '<speak>above. She reports to the manager above her.</speak>' at D:\vocabswipe.github.io\data\audio\above_sentence_6+Matthew+8d496dce6e5d33f105f47b1ac0e2f6c0.mp3
+2025-06-25 16:16:49,809 - INFO - Generated audio for '<speak>above. He considered himself above petty arguments.</speak>' at D:\vocabswipe.github.io\data\audio\above_sentence_7+Matthew+5c3799dcef4c948af0c9add914078510.mp3
+2025-06-25 16:16:50,195 - INFO - Generated audio for '<speak>above. See the section above for details.</speak>' at D:\vocabswipe.github.io\data\audio\above_sentence_8+Matthew+b042dca656c346dadfa8ec959c74a7c7.mp3
+2025-06-25 16:16:50,632 - INFO - Generated audio for '<speak>division</speak>' at D:\vocabswipe.github.io\data\audio\division_word_0+Matthew+50c9b5e7cf3a731ea31c43f9a14c781b.mp3
+2025-06-25 16:16:50,987 - INFO - Generated audio for '<speak>division. The division of tasks made work easier.</speak>' at D:\vocabswipe.github.io\data\audio\division_sentence_0+Matthew+f739906dd4e4a15922b5f1e5b679ae2d.mp3
+2025-06-25 16:16:51,364 - INFO - Generated audio for '<speak>division. She works in the marketing division.</speak>' at D:\vocabswipe.github.io\data\audio\division_sentence_1+Matthew+182f0ea84f283dd7dd155adb8c1ecd70.mp3
+2025-06-25 16:16:51,768 - INFO - Generated audio for '<speak>division. The issue caused a division among friends.</speak>' at D:\vocabswipe.github.io\data\audio\division_sentence_2+Matthew+a8bad1a64eed3e18e23623c0459782ea.mp3
+2025-06-25 16:16:52,178 - INFO - Generated audio for '<speak>division. The division of 12 by 3 is 4.</speak>' at D:\vocabswipe.github.io\data\audio\division_sentence_3+Matthew+6dfe9c7dcef30548371465f8f37a18c3.mp3
+2025-06-25 16:16:52,532 - INFO - Generated audio for '<speak>division. Their team won the first division.</speak>' at D:\vocabswipe.github.io\data\audio\division_sentence_4+Matthew+7178eb264fc7ac6cd9d874fec10ee049.mp3
+2025-06-25 16:16:52,885 - INFO - Generated audio for '<speak>slowly</speak>' at D:\vocabswipe.github.io\data\audio\slowly_word_0+Matthew+f72fbd040595084bf96962d49ca40334.mp3
+2025-06-25 16:16:53,334 - INFO - Generated audio for '<speak>slowly. She walked slowly through the park.</speak>' at D:\vocabswipe.github.io\data\audio\slowly_sentence_0+Matthew+51ad4e2444664b9e3b44d0d9396c96fb.mp3
+2025-06-25 16:16:53,701 - INFO - Generated audio for '<speak>slowly. The sun set slowly behind the mountain.</speak>' at D:\vocabswipe.github.io\data\audio\slowly_sentence_1+Matthew+c9c5d32dd7a0110fe80ca5676c6b674a.mp3
+2025-06-25 16:16:54,055 - INFO - Generated audio for '<speak>slowly. He spoke slowly to ensure clarity.</speak>' at D:\vocabswipe.github.io\data\audio\slowly_sentence_2+Matthew+3c053fb189965819ba9f2c3d2cbb7151.mp3
+2025-06-25 16:16:54,447 - INFO - Generated audio for '<speak>slowly. The project is moving slowly but steadily.</speak>' at D:\vocabswipe.github.io\data\audio\slowly_sentence_3+Matthew+4d6fa235f883575c661da6969d645ae6.mp3
+2025-06-25 16:16:54,842 - INFO - Generated audio for '<speak>slowly. The car slowed down slowly at the turn.</speak>' at D:\vocabswipe.github.io\data\audio\slowly_sentence_4+Matthew+c68d15f4c5386de8b994032ff2b881dd.mp3
+2025-06-25 16:16:55,185 - INFO - Generated audio for '<speak>advice</speak>' at D:\vocabswipe.github.io\data\audio\advice_word_0+Matthew+fd99cadea9d8ef6a1ffcc52a2e3e8017.mp3
+2025-06-25 16:16:55,546 - INFO - Generated audio for '<speak>advice. She gave me advice about choosing a career.</speak>' at D:\vocabswipe.github.io\data\audio\advice_sentence_0+Matthew+4c1e26160bad9453f944153e79e6791d.mp3
+2025-06-25 16:16:55,908 - INFO - Generated audio for '<speak>advice. His advice helped fix the issue.</speak>' at D:\vocabswipe.github.io\data\audio\advice_sentence_1+Matthew+6b800c079a274d31db9a439608628d58.mp3
+2025-06-25 16:16:56,263 - INFO - Generated audio for '<speak>advice. The lawyer provided legal advice.</speak>' at D:\vocabswipe.github.io\data\audio\advice_sentence_2+Matthew+5ec4f489725f79e0fa58e5b46b1241a0.mp3
+2025-06-25 16:16:56,657 - INFO - Generated audio for '<speak>advice. Her advice on cooking was invaluable.</speak>' at D:\vocabswipe.github.io\data\audio\advice_sentence_3+Matthew+86a9b6925ce3489521178938eecf1840.mp3
+2025-06-25 16:16:57,016 - INFO - Generated audio for '<speak>advice. I followed her advice and felt better.</speak>' at D:\vocabswipe.github.io\data\audio\advice_sentence_4+Matthew+b46efebe5c742fabfe775c5836f4cbb1.mp3
+2025-06-25 16:16:57,400 - INFO - Generated audio for '<speak>reaction</speak>' at D:\vocabswipe.github.io\data\audio\reaction_word_0+Matthew+e0ab074e8104870583f417cbd8afa027.mp3
+2025-06-25 16:16:57,775 - INFO - Generated audio for '<speak>reaction. Her reaction to the news was surprise.</speak>' at D:\vocabswipe.github.io\data\audio\reaction_sentence_0+Matthew+40269c6299188af22e3518f23267c685.mp3
+2025-06-25 16:16:58,137 - INFO - Generated audio for '<speak>reaction. The reaction produced a bright light.</speak>' at D:\vocabswipe.github.io\data\audio\reaction_sentence_1+Matthew+a2671c9b92775870f03b5a1a9add8ee8.mp3
+2025-06-25 16:16:58,621 - INFO - Generated audio for '<speak>reaction. His reaction to the joke was laughter.</speak>' at D:\vocabswipe.github.io\data\audio\reaction_sentence_2+Matthew+419bdda67767d709b3bfd899456dfb2d.mp3
+2025-06-25 16:16:58,981 - INFO - Generated audio for '<speak>reaction. The policy sparked a strong public reaction.</speak>' at D:\vocabswipe.github.io\data\audio\reaction_sentence_3+Matthew+7f4cd6f5dd705a55ba5c252f2a678440.mp3
+2025-06-25 16:16:59,410 - INFO - Generated audio for '<speak>reaction. The decision faced a negative reaction.</speak>' at D:\vocabswipe.github.io\data\audio\reaction_sentence_4+Matthew+c8bb99260239f4908344ea1b82e6b567.mp3
+2025-06-25 16:16:59,777 - INFO - Generated audio for '<speak>injury</speak>' at D:\vocabswipe.github.io\data\audio\injury_word_0+Matthew+7ff983fb58f776769fdfdc8faa69662b.mp3
+2025-06-25 16:17:00,156 - INFO - Generated audio for '<speak>injury. He recovered from a knee injury.</speak>' at D:\vocabswipe.github.io\data\audio\injury_sentence_0+Matthew+e1be3a9fd28c35af2d9a188975512716.mp3
+2025-06-25 16:17:00,703 - INFO - Generated audio for '<speak>injury. The injury required stitches and rest.</speak>' at D:\vocabswipe.github.io\data\audio\injury_sentence_1+Matthew+62ee5443be068c9f1c4a7040252fa53f.mp3
+2025-06-25 16:17:01,181 - INFO - Generated audio for '<speak>injury. The crash caused multiple injuries.</speak>' at D:\vocabswipe.github.io\data\audio\injury_sentence_2+Matthew+dfe4d8153f0ec484da6b93bc3545a97f.mp3
+2025-06-25 16:17:01,644 - INFO - Generated audio for '<speak>injury. Her words caused an injury to his pride.</speak>' at D:\vocabswipe.github.io\data\audio\injury_sentence_3+Matthew+c90141469114d4c2fed39a3e950182fd.mp3
+2025-06-25 16:17:02,013 - INFO - Generated audio for '<speak>injury. The athlete suffered a stress injury.</speak>' at D:\vocabswipe.github.io\data\audio\injury_sentence_4+Matthew+89253371bdb33a7bc8d8f25dd12d8689.mp3
+2025-06-25 16:17:02,402 - INFO - Generated audio for '<speak>it. I dropped the book, and it fell open.</speak>' at D:\vocabswipe.github.io\data\audio\it_sentence_10+Matthew+9433f95c703019357863067109c71845.mp3
+2025-06-25 16:17:02,760 - INFO - Generated audio for '<speak>it. It was a sunny day yesterday.</speak>' at D:\vocabswipe.github.io\data\audio\it_sentence_11+Matthew+4d4d3457d1045b788cb17f3f685edb91.mp3
+2025-06-25 16:17:03,145 - INFO - Generated audio for '<speak>it. It seems like rain is coming.</speak>' at D:\vocabswipe.github.io\data\audio\it_sentence_12+Matthew+528a9c841bd9b41983acdeec6c4f2868.mp3
+2025-06-25 16:17:03,540 - INFO - Generated audio for '<speak>it. The dog wagged its tail happily.</speak>' at D:\vocabswipe.github.io\data\audio\it_sentence_13+Matthew+faadb09d61bd4acedb9467f8ff45bff9.mp3
+2025-06-25 16:17:03,883 - INFO - Generated audio for '<speak>it. It’s getting late, we should go.</speak>' at D:\vocabswipe.github.io\data\audio\it_sentence_14+Matthew+05ebb1c4475ec23e2169841fdef790cf.mp3
+2025-06-25 16:17:04,292 - INFO - Generated audio for '<speak>ticket</speak>' at D:\vocabswipe.github.io\data\audio\ticket_word_0+Matthew+cdfee2bc43d63caeaa3b169ad31e966c.mp3
+2025-06-25 16:17:04,657 - INFO - Generated audio for '<speak>ticket. She bought a ticket for the concert.</speak>' at D:\vocabswipe.github.io\data\audio\ticket_sentence_0+Matthew+49bf9064749097299726cfa58bd1ec09.mp3
+2025-06-25 16:17:05,013 - INFO - Generated audio for '<speak>ticket. His train ticket was for the 5 PM ride.</speak>' at D:\vocabswipe.github.io\data\audio\ticket_sentence_1+Matthew+a68f8699202cd547c3e7e441f90a8a88.mp3
+2025-06-25 16:17:05,375 - INFO - Generated audio for '<speak>ticket. He got a ticket for speeding.</speak>' at D:\vocabswipe.github.io\data\audio\ticket_sentence_2+Matthew+861bba82e7ce3f47fa1d9725a54cc841.mp3
+2025-06-25 16:17:05,727 - INFO - Generated audio for '<speak>ticket. This job is his ticket to success.</speak>' at D:\vocabswipe.github.io\data\audio\ticket_sentence_3+Matthew+07c77e81764ea56b3a7bfc29830f3a83.mp3
+2025-06-25 16:17:06,180 - INFO - Generated audio for '<speak>ticket. The ticket on the shirt showed the price.</speak>' at D:\vocabswipe.github.io\data\audio\ticket_sentence_4+Matthew+e7fe9f353473aa396626f8abe318dd14.mp3
+2025-06-25 16:17:06,607 - INFO - Generated audio for '<speak>grade</speak>' at D:\vocabswipe.github.io\data\audio\grade_word_0+Matthew+de6a20aa7f2e36fb6abe61de5fb464b1.mp3
+2025-06-25 16:17:06,956 - INFO - Generated audio for '<speak>grade. She received an A grade on her test.</speak>' at D:\vocabswipe.github.io\data\audio\grade_sentence_0+Matthew+a4b06acade94fce2c7f3076aa0b13852.mp3
+2025-06-25 16:17:07,325 - INFO - Generated audio for '<speak>grade. He’s in the fifth grade this year.</speak>' at D:\vocabswipe.github.io\data\audio\grade_sentence_1+Matthew+0c7c5f928c5ab29f3a523857528e7036.mp3
+2025-06-25 16:17:07,683 - INFO - Generated audio for '<speak>grade. They used high-grade materials for construction.</speak>' at D:\vocabswipe.github.io\data\audio\grade_sentence_2+Matthew+59848aa7b7aa82e50f8a50f9fbd43cf6.mp3
+2025-06-25 16:17:08,101 - INFO - Generated audio for '<speak>grade. The road has a steep grade uphill.</speak>' at D:\vocabswipe.github.io\data\audio\grade_sentence_3+Matthew+83583faea08d4d1ac84b0cf48d326253.mp3
+2025-06-25 16:17:08,546 - INFO - Generated audio for '<speak>grade. This beef is of prime grade.</speak>' at D:\vocabswipe.github.io\data\audio\grade_sentence_4+Matthew+459d321672dd809a765561ae4081ea3e.mp3
+2025-06-25 16:17:08,872 - INFO - Generated audio for '<speak>wow</speak>' at D:\vocabswipe.github.io\data\audio\wow_word_0+Matthew+bcedc450f8481e89b1445069acdc3dd9.mp3
+2025-06-25 16:17:09,270 - INFO - Generated audio for '<speak>wow. Wow, that sunset is breathtaking!</speak>' at D:\vocabswipe.github.io\data\audio\wow_sentence_0+Matthew+dabac22013edf913ebfa0d1f32415288.mp3
+2025-06-25 16:17:09,690 - INFO - Generated audio for '<speak>wow. Wow, you finished the project so fast!</speak>' at D:\vocabswipe.github.io\data\audio\wow_sentence_1+Matthew+e6cbf208028d3afaa6f2679fa3920746.mp3
+2025-06-25 16:17:10,191 - INFO - Generated audio for '<speak>wow. Wow, this concert is amazing!</speak>' at D:\vocabswipe.github.io\data\audio\wow_sentence_2+Matthew+bf99ab345e3cc3a936bddf496c6015e7.mp3
+2025-06-25 16:17:10,539 - INFO - Generated audio for '<speak>wow. Wow, I didn’t see that coming!</speak>' at D:\vocabswipe.github.io\data\audio\wow_sentence_3+Matthew+4edb0d730ccae133f0988111117e30ce.mp3
+2025-06-25 16:17:10,887 - INFO - Generated audio for '<speak>wow. Wow, look at that huge cake!</speak>' at D:\vocabswipe.github.io\data\audio\wow_sentence_4+Matthew+77da59899f63f0130e1d18ab5f431bfc.mp3
+2025-06-25 16:17:11,317 - INFO - Generated audio for '<speak>birth</speak>' at D:\vocabswipe.github.io\data\audio\birth_word_0+Matthew+a3e2a6cbf4437e50816a60a64375490e.mp3
+2025-06-25 16:17:11,831 - INFO - Generated audio for '<speak>birth. The birth of her child was a joyful moment.</speak>' at D:\vocabswipe.github.io\data\audio\birth_sentence_0+Matthew+ccf07c57976ad80b3705c87a7268e627.mp3
+2025-06-25 16:17:12,187 - INFO - Generated audio for '<speak>birth. The birth of the internet changed communication.</speak>' at D:\vocabswipe.github.io\data\audio\birth_sentence_1+Matthew+4d2568cedec153df973487ed93096f9c.mp3
+2025-06-25 16:17:12,547 - INFO - Generated audio for '<speak>birth. She is of Italian birth.</speak>' at D:\vocabswipe.github.io\data\audio\birth_sentence_2+Matthew+1952fef2c8ea6b1b2a6a91c0ec81fdb9.mp3
+2025-06-25 16:17:14,185 - INFO - Generated audio for '<speak>birth. The hospital recorded 50 births this month.</speak>' at D:\vocabswipe.github.io\data\audio\birth_sentence_3+Matthew+064f3282bc28e167ea656595facdbb5a.mp3
+2025-06-25 16:17:14,540 - INFO - Generated audio for '<speak>birth. The protest marked the birth of a movement.</speak>' at D:\vocabswipe.github.io\data\audio\birth_sentence_4+Matthew+14c52f496d3e97a7a26fcc1b4884c5d1.mp3
+2025-06-25 16:17:14,903 - INFO - Generated audio for '<speak>painting</speak>' at D:\vocabswipe.github.io\data\audio\painting_word_0+Matthew+6a7c1b1d588cd51d12ad44324d614fed.mp3
+2025-06-25 16:17:15,413 - INFO - Generated audio for '<speak>painting. Her painting hung in the gallery.</speak>' at D:\vocabswipe.github.io\data\audio\painting_sentence_0+Matthew+bbc234c55854e14cb8d12b2b55d8f5b5.mp3
+2025-06-25 16:17:15,775 - INFO - Generated audio for '<speak>painting. Painting the house took all weekend.</speak>' at D:\vocabswipe.github.io\data\audio\painting_sentence_1+Matthew+e7b8a9f1f8b691fb6b26dfa8a090aac4.mp3
+2025-06-25 16:17:16,128 - INFO - Generated audio for '<speak>painting. The painting captured the beauty of nature.</speak>' at D:\vocabswipe.github.io\data\audio\painting_sentence_2+Matthew+097f2f6d2eb84a0731a5b2add2cdfcb3.mp3
+2025-06-25 16:17:16,494 - INFO - Generated audio for '<speak>painting. His painting reflected his emotions.</speak>' at D:\vocabswipe.github.io\data\audio\painting_sentence_3+Matthew+dfbcb1818aecc40d5db683d3fd338510.mp3
+2025-06-25 16:17:16,854 - INFO - Generated audio for '<speak>painting. The room needed a fresh painting.</speak>' at D:\vocabswipe.github.io\data\audio\painting_sentence_4+Matthew+2d3ceb6dc0f839f8a277b3a706d26b40.mp3
+2025-06-25 16:17:17,278 - INFO - Generated audio for '<speak>outcome</speak>' at D:\vocabswipe.github.io\data\audio\outcome_word_0+Matthew+3032ad6aed6c5c3cda992d241f4d28bf.mp3
+2025-06-25 16:17:17,664 - INFO - Generated audio for '<speak>outcome. The outcome of the meeting was positive.</speak>' at D:\vocabswipe.github.io\data\audio\outcome_sentence_0+Matthew+21f7d66bcf2804aa813ab40e6e485039.mp3
+2025-06-25 16:17:18,062 - INFO - Generated audio for '<speak>outcome. The experiment’s outcome surprised the team.</speak>' at D:\vocabswipe.github.io\data\audio\outcome_sentence_1+Matthew+da3d89ac27d66d1307918f421d137bba.mp3
+2025-06-25 16:17:18,420 - INFO - Generated audio for '<speak>outcome. The trial’s outcome was a fair verdict.</speak>' at D:\vocabswipe.github.io\data\audio\outcome_sentence_2+Matthew+51e625327d51b1f2a01ff59ba25f34a0.mp3
+2025-06-25 16:17:18,778 - INFO - Generated audio for '<speak>outcome. The policy’s outcome impacted the economy.</speak>' at D:\vocabswipe.github.io\data\audio\outcome_sentence_3+Matthew+a7e60f025db29f8b286066a4b1c27842.mp3
+2025-06-25 16:17:19,136 - INFO - Generated audio for '<speak>outcome. They hoped for a successful outcome.</speak>' at D:\vocabswipe.github.io\data\audio\outcome_sentence_4+Matthew+950dca7112e810f08dd77724009c1872.mp3
+2025-06-25 16:17:23,295 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab_database.yaml
+2025-06-25 16:17:23,314 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab_report_20250625_161723.txt
+2025-06-25 16:17:23,324 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab_multi_cards.jsonl
+2025-06-25 16:17:23,325 - INFO - Batch processed successfully. temp_vocab_multi_cards.jsonl cleared.
