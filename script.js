@@ -10,7 +10,7 @@ let maxFreq = 0; // Maximum frequency (rank 1 word)
 let minFreq = 1; // Minimum frequency, default to 1 to avoid log(0)
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Load theme from localStorage or default to bright
+    // Load theme from localStorage, default to bright
     const savedTheme = localStorage.getItem('theme') || 'bright';
     document.body.setAttribute('data-theme', savedTheme);
     
@@ -270,12 +270,12 @@ function displayWord() {
     const wordData = words[currentWordIndex];
     const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: '', example_en: '' };
     
-    // Calculate relative frequency using logarithmic scaling
+    // Calculate relative frequency using logarithmic scaling with minimum 5% width
     const logFreq = Math.log(wordData.freq || 1);
     const logMinFreq = Math.log(minFreq);
     const logMaxFreq = Math.log(maxFreq);
-    const relativeFreq = ((logFreq - logMinFreq) / (logMaxFreq - logMinFreq)) * 100;
-    const freqPercentage = Math.min(Math.max(relativeFreq, 0), 100).toFixed(0); // Ensure within 0-100%
+    const relativeFreq = 5 + 95 * ((logFreq - logMinFreq) / (logMaxFreq - logMinFreq));
+    const freqPercentage = Math.min(Math.max(relativeFreq, 5), 100).toFixed(0); // Ensure within 5-100%
     const freqColor = getFrequencyColor(relativeFreq);
 
     // Update front card
