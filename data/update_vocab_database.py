@@ -8,8 +8,9 @@ import os
 csv_file = 'COCA_WordFrequency_no_duplicates.csv'
 df = pd.read_csv(csv_file)
 
-# Convert CSV data to a dictionary for easy lookup
-freq_dict = dict(zip(df['word'], zip(df['rank'], df['freq'])))
+# Convert CSV data to a dictionary for case-insensitive lookup
+# Store word (lowercase) as key, (rank, freq) as value
+freq_dict = {word.lower(): (rank, freq) for word, rank, freq in zip(df['word'], df['rank'], df['freq'])}
 
 # Read the YAML file
 yaml_file = 'vocab_database.yaml'
@@ -20,18 +21,19 @@ with open(yaml_file, 'r') as file:
 updated_count = 0
 for entry in vocab_data:
     word = entry['word']
-    if word in freq_dict:
+    word_lower = word.lower()  # Convert to lowercase for comparison
+    if word_lower in freq_dict:
         # Update rank and freq from CSV
-        entry['rank'], entry['freq'] = freq_dict[word]
+        entry['rank'], entry['freq'] = freq_dict[word_lower]
         updated_count += 1
     else:
-        print(f"Warning: Word '{word}' not found in CSV file")
+        print(f"Warning: Word '{word}' (lowercase: '{word_lower}') not found in CSV file")
 
 # Confirm updates
 total_entries = len(vocab_data)
 print(f"\nUpdated {updated_count} out of {total_entries} entries")
 print(f"Words in YAML: {[entry['word'] for entry in vocab_data]}")
-print(f"Words in CSV: {list(freq_dict.keys())}")
+print(f"Words in CSV (lowercase): {list(freq_dict.keys())}")
 
 # Overwrite the original YAML file with updated data
 with open(yaml_file, 'w') as file:
