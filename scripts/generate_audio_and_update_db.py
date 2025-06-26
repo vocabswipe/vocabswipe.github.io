@@ -228,52 +228,48 @@ def get_audio_filename(word, text, prefix, voice_id, index=0):
     return f"{safe_word}_{prefix}_{index}+{voice_id}+{hashlib.md5(text.encode('utf-8')).hexdigest()}.mp3"
 
 def check_duplicates(vocab_db):
-    """Check and remove duplicate entries in the database, reporting details."""
-    seen_words = {}
-    duplicates = []
+    """Check and remove duplicate entries in the database, keeping the entry with the most back_cards."""
+    word_to_entries = {}
     for i, entry in enumerate(vocab_db):
         word_lower = entry['word'].lower()
-        voice_id = entry.get('voice_id', '')
-        word_voice_key = (word_lower, voice_id)
-        if word_voice_key in seen_words:
-            duplicates.append((i, entry['word'], voice_id, entry['rank']))
-            seen_words[word_voice_key].append(i)
-        else:
-            seen_words[word_voice_key] = [i]
-    
-    # Report duplicates
-    if duplicates:
-        table = Table(title="⚠ Duplicate Entries Detected", style="red", show_lines=True)
-        table.add_column("Index", style="bold")
-        table.add_column("Word", justify="left")
-        table.add_column("Voice ID", justify="left")
-        table.add_column("Rank", justify="left")
-        for idx, word, voice_id, rank in duplicates:
-            table.add_row(str(idx), word, voice_id, str(rank))
-        console.print(table)
-        console.print(Panel(
-            f"[red]✗ {len(duplicates)} duplicate entries detected. Removing duplicates, keeping first occurrence.[/red]",
-            title="Duplicate Warning", border_style="red", expand=False
-        ))
+        if word_lower not in word_to_entries:
+            word_to_entries[word_lower] = []
+        word_to_entries[word_lower].append((i, entry))
 
-    # Remove duplicates, keeping the first occurrence
+    duplicates = []
     removed_count = 0
     redundant_audio_files = []
-    indices_to_remove = []
-    for word_voice_key, indices in seen_words.items():
-        if len(indices) > 1:
-            # Keep the first occurrence, mark others for removal
-            for idx in indices[1:]:
-                indices_to_remove.append(idx)
-                entry = vocab_db[idx]
+
+    # Process duplicates
+    for word_lower, entries in word_to_entries.items():
+        if len(entries) > 1:
+            # Found duplicates for this word
+            for index, entry in entries:
+                duplicates.append({
+                    'index': index,
+                    'word': entry['word'],
+                    'rank': entry['rank'],
+                    'back_cards_count': len(entry['back_cards']),
+                    'word_audio_file': entry.get('word_audio_file', []),
+                    'sentence_audio_file': entry.get('sentence_audio_file', []),
+                    'voice_id': entry.get10
+                })
+
+            # Select the entry to keep (one with most back_cards)
+            entries.sort(key=lambda x: len(x[1]['back_cards']), reverse=True)
+            keep_index, keep_entry = entries[0]
+            entries_to_remove = entries[1:]
+
+            # Collect audio files from entries to remove
+            for index, entry in entries_to_remove:
+                removed_count += 1
                 redundant_audio_files.extend(
                     [os.path.join(AUDIO_DIR, f) for f in entry.get('word_audio_file', []) + entry.get('sentence_audio_file', []) if f]
                 )
-                removed_count += 1
 
-    # Remove duplicates in reverse order to avoid index shifting
-    for idx in sorted(indices_to_remove, reverse=True):
-        vocab_db.pop(idx)
+            # Remove duplicate entries from vocab_db
+            for index, _ in reversed(entries_to_remove):
+                vocab_db.pop(index)
 
     # Delete redundant audio files
     for audio_file in redundant_audio_files:
@@ -283,7 +279,37 @@ def check_duplicates(vocab_db):
                 logger.info(f"Deleted redundant audio file: {audio_file}")
             except OSError as e:
                 logger.error(f"Error deleting audio file {audio_file}: {e}")
-    
+
+    # Report duplicates to console
+    if duplicates:
+        table = Table(title="⚠ Duplicate Entries Detected in vocab_database.yaml", style="red", show_lines=True)
+        table.add_column("Index", style="bold")
+        table.add_column("Word", justify="left")
+        table.add_column("Rank", justify="right")
+        table.add_column("Back Cards", justify="right")
+        table.add_column("Word Audio Files", justify="left")
+        table.add_column("Sentence Audio Files", justify="left")
+        table.add_column("Voice ID", justify="left")
+        table.add_column("Status", justify="left")
+
+        for dup in duplicates:
+            status = "[green]Kept[/green]" if dup['index'] == min(d['index'] for d in duplicates if d['word'].lower() == dup['word'].lower()) else "[red]Removed[/red]"
+            table.add_row(
+                str(dup['index']),
+                dup['word'],
+                str(dup['rank']),
+                str(dup['back_cards_count']),
+                ", ".join(dup['word_audio_file'])[:50] + ('...' if len(", ".join(dup['word_audio_file'])) > 50 else ''),
+                ", ".join(dup['sentence_audio_file'])[:50] + ('...' if len(", ".join(dup['sentence_audio_file'])) > 50 else ''),
+                dup['voice_id'],
+                status
+            )
+        console.print(table)
+        console.print(Panel(
+            f"[yellow]⚠ {len(duplicates)} duplicate entries detected. Kept entries with most back_cards. Removed {removed_count} entries.[/yellow]",
+            title="Duplicate Report", border_style="yellow", expand=False
+        ))
+
     return duplicates, removed_count
 
 def verify_audio_files(vocab_db):
@@ -298,18 +324,8 @@ def verify_audio_files(vocab_db):
                 missing_audio.append((entry['word'], 'sentence_audio_file', i, audio_file))
     return missing_audio
 
-def database_statistics(vocab_db):
-    """Calculate and return total words, sentences, and audio files in the database."""
-    total_words = len(vocab_db)
-    total_sentences = sum(len(entry['back_cards']) for entry in vocab_db)
-    total_audio_files = sum(
-        len(entry.get('word_audio_file', [])) + len(entry.get('sentence_audio_file', []))
-        for entry in vocab_db
-    )
-    return total_words, total_sentences, total_audio_files
-
 def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, missing_audio, first_word, last_word):
-    """Generate a concise high-tech summary report with missing ranks, statistics, and confirmation."""
+    """Generate a concise high-tech summary report with missing ranks and confirmation."""
     if vocab_db:
         max_rank = max(entry['rank'] for entry in vocab_db)
         present_ranks = {entry['rank'] for entry in vocab_db}
@@ -318,9 +334,6 @@ def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, 
         max_rank = 0
         missing_ranks = []
 
-    # Calculate database statistics
-    total_words, total_sentences, total_audio_files = database_statistics(vocab_db)
-
     table = Table(title="📊 Vocabulary Sync Report", style="cyan", show_lines=True)
     table.add_column("Metric", style="bold")
     table.add_column("Value", justify="right")
@@ -328,9 +341,7 @@ def generate_summary_report(vocab_db, valid_entries, duplicates, removed_count, 
     table.add_row("Processed", str(len(valid_entries)))
     table.add_row("Valid", f"[green]{len(valid_entries)}[/green]")
     table.add_row("Duplicates Removed", f"[yellow]{removed_count}[/yellow]" if removed_count else "0")
-    table.add_row("Total Words", str(total_words))
-    table.add_row("Total Sentences", str(total_sentences))
-    table.add_row("Total Audio Files", str(total_audio_files))
+    table.add_row("Database Size", str(len(vocab_db)))
     table.add_row("Max Rank", str(max_rank))
     table.add_row("Missing Ranks", f"[yellow]{len(missing_ranks)}[/yellow]" if missing_ranks else "[green]0[/green]")
 
@@ -386,7 +397,7 @@ def process_entries(entries):
     first_word = None
     last_word = None
     first_word_data = None
-    last_word_data = hypers
+    last_word_data = None
 
     with Progress(
         SpinnerColumn(),
@@ -509,7 +520,7 @@ def process_entries(entries):
 def main():
     """Main function with streamlined high-tech UX."""
     console.print(Panel(
-        Text("VocabSync v2.2\nNeural-Powered Vocabulary Processor with JSONL Auto-Correction", style="bold cyan"),
+        Text("VocabSync v2.3\nNeural-Powered Vocabulary Processor with JSONL Auto-Correction and Duplicate Handling", style="bold cyan"),
         title="System Boot", border_style="blue", expand=False
     ))
 
@@ -517,24 +528,10 @@ def main():
     # Check for duplicates in vocab_database.yaml before processing new entries
     vocab_db = load_file(VOCAB_DB_PATH, file_type='yaml')
     if vocab_db:
-        console.print("[cyan]Checking for duplicates in existing database...[/cyan]")
         duplicates, removed_count = check_duplicates(vocab_db)
-        if duplicates:
-            console.print(Panel(
-                f"[yellow]Removed {removed_count} duplicate entries from existing database.[/yellow]",
-                title="Database Cleanup", border_style="yellow", expand=False
-            ))
+        if removed_count > 0:
             save_file(vocab_db, VOCAB_DB_PATH, file_type='yaml')
-        
-        # Display database statistics
-        total_words, total_sentences, total_audio_files = database_statistics(vocab_db)
-        table = Table(title="📈 Database Statistics", style="cyan", show_lines=True)
-        table.add_column("Metric", style="bold")
-        table.add_column("Value", justify="right")
-        table.add_row("Total Words", str(total_words))
-        table.add_row("Total Sentences", str(total_sentences))
-        table.add_row("Total Audio Files", str(total_audio_files))
-        console.print(table)
+            logger.info(f"Initial duplicate check: Removed {removed_count} duplicates from {VOCAB_DB_PATH}")
 
     entries = load_file(TEMP_VOCAB_JSONL_PATH, file_type='jsonl')
     if not entries:
