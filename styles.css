@@ -107,6 +107,107 @@ body[data-theme="dark"] .deck-version {
     color: #9ca3af;
 }
 
+.loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #1e40af;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+body[data-theme="dark"] .spinner {
+    border: 4px solid #4b5563;
+    border-top: 4px solid #60a5fa;
+}
+
+.loading-overlay p {
+    color: #fff;
+    font-size: 16px;
+    margin-top: 16px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.onboarding-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.onboarding-content {
+    background: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+body[data-theme="dark"] .onboarding-content {
+    background: #374151;
+    color: #e5e7eb;
+}
+
+.onboarding-content h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.onboarding-content p {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+#dismiss-onboarding {
+    background: #1e40af;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 16px;
+    transition: background 0.3s ease;
+}
+
+body[data-theme="dark"] #dismiss-onboarding {
+    background: #60a5fa;
+}
+
+#dismiss-onboarding:hover {
+    background: #1d4ed8;
+}
+
+body[data-theme="dark"] #dismiss-onboarding:hover {
+    background: #3b82f6;
+}
+
 .flashcard-container {
     width: 100%;
     perspective: 1000px;
@@ -127,50 +228,56 @@ body[data-theme="dark"] .deck-version {
     border-radius: 12px;
 }
 
+.flashcard:focus {
+    outline: 2px solid #1e40af;
+}
+
 body[data-theme="dark"] .flashcard {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+body[data-theme="dark"] .flashcard:focus {
+    outline: 2px solid #60a5fa;
 }
 
 .flashcard.flipped {
     transform: rotateY(180deg);
 }
 
-/* Visual effects for tap actions */
 .flashcard.single-tap {
-    transform: scale(0.98);
-    filter: brightness(1.05);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    transform: scale(0.95);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.1);
+    transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
 }
 
 .flashcard.double-tap {
-    transform: scale(0.95);
-    filter: brightness(1.1);
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
-    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    transform: scale(0.92);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+    filter: brightness(1.15);
+    transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
 }
 
-/* Visual effects for swipe actions */
 .flashcard.swipe-left {
-    transform: translateX(-30px) rotate(-5deg);
+    transform: translateX(-20px);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .flashcard.swipe-right {
-    transform: translateX(30px) rotate(5deg);
+    transform: translateX(20px);
     box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .flashcard.swipe-up {
-    transform: translateY(-30px) rotate(-3deg);
+    transform: translateY(-20px);
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .flashcard.swipe-down {
-    transform: translateY(30px) rotate(3deg);
+    transform: translateY(20px);
     box-shadow: 0 -15px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -372,34 +479,15 @@ body[data-theme="dark"] .frequency-bar {
         height: 8px;
     }
 
-    /* Adjust visual effects for smaller screens */
-    .flashcard.single-tap {
-        transform: scale(0.97);
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    .onboarding-content {
+        padding: 16px;
     }
 
-    .flashcard.double-tap {
-        transform: scale(0.94);
-        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+    .onboarding-content h2 {
+        font-size: 20px;
     }
 
-    .flashcard.swipe-left {
-        transform: translateX(-20px) rotate(-4deg);
-        box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .flashcard.swipe-right {
-        transform: translateX(20px) rotate(4deg);
-        box-shadow: -8px 8px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .flashcard.swipe-up {
-        transform: translateY(-20px) rotate(-2deg);
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .flashcard.swipe-down {
-        transform: translateY(20px) rotate(2deg);
-        box-shadow: 0 -10px 15px rgba(0, 0, 0, 0.2);
+    .onboarding-content p {
+        font-size: 14px;
     }
 }
