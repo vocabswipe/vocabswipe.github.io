@@ -110,130 +110,7 @@ body[data-theme="dark"] .deck-version {
 .flashcard-container {
     width: 100%;
     perspective: 1000px;
-}
-
-.flashcard-wrapper {
     position: relative;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-/* Swipe and tap visual effects */
-.flashcard-wrapper.swipe-left::before,
-.flashcard-wrapper.swipe-right::before,
-.flashcard-wrapper.swipe-up::before,
-.flashcard-wrapper.swipe-down::before {
-    content: '';
-    position: absolute;
-    z-index: 10;
-    opacity: 0;
-    animation: showArrow 0.3s ease-in-out;
-}
-
-.flashcard-wrapper.swipe-left::before {
-    border-left: 10px solid #1e40af;
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-}
-
-body[data-theme="dark"] .flashcard-wrapper.swipe-left::before {
-    border-left-color: #60a5fa;
-}
-
-.flashcard-wrapper.swipe-right::before {
-    border-right: 10px solid #1e40af;
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-}
-
-body[data-theme="dark"] .flashcard-wrapper.swipe-right::before {
-    border-right-color: #60a5fa;
-}
-
-.flashcard-wrapper.swipe-up::before {
-    border-top: 10px solid #1e40af;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-body[data-theme="dark"] .flashcard-wrapper.swipe-up::before {
-    border-top-color: #60a5fa;
-}
-
-.flashcard-wrapper.swipe-down::before {
-    border-bottom: 10px solid #1e40af;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-body[data-theme="dark"] .flashcard-wrapper.swipe-down::before {
-    border-bottom-color: #60a5fa;
-}
-
-@keyframes showArrow {
-    0% { opacity: 0; transform: scale(0.8); }
-    50% { opacity: 0.7; transform: scale(1); }
-    100% { opacity: 0; transform: scale(0.8); }
-}
-
-.flashcard-wrapper.single-tap::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(30, 64, 175, 0.2);
-    opacity: 0;
-    animation: pulse 0.3s ease-in-out;
-    z-index: 5;
-}
-
-body[data-theme="dark"] .flashcard-wrapper.single-tap::after {
-    background: rgba(96, 165, 250, 0.2);
-}
-
-.flashcard-wrapper.double-tap::after {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    border: 2px solid #1e40af;
-    border-radius: 12px;
-    opacity: 0;
-    animation: glow 0.3s ease-in-out;
-    z-index: 5;
-}
-
-body[data-theme="dark"] .flashcard-wrapper.double-tap::after {
-    border-color: #60a5fa;
-}
-
-@keyframes pulse {
-    0% { opacity: 0; }
-    50% { opacity: 0.5; }
-    100% { opacity: 0; }
-}
-
-@keyframes glow {
-    0% { opacity: 0; transform: scale(0.98); }
-    50% { opacity: 0.8; transform: scale(1); }
-    100% { opacity: 0; transform: scale(0.98); }
 }
 
 .flashcard {
@@ -404,6 +281,79 @@ body[data-theme="dark"] .frequency-bar {
     transition: width 0.3s ease, background-color 0.3s ease;
 }
 
+/* Swipe Indicator Styles */
+.swipe-indicator {
+    position: absolute;
+    font-size: 16px;
+    color: #1e40af;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+body[data-theme="dark"] .swipe-indicator {
+    color: #60a5fa;
+}
+
+.swipe-indicator.active {
+    opacity: 0.5;
+}
+
+.swipe-left {
+    left: -24px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.swipe-right {
+    right: -24px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.swipe-up {
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.swipe-down {
+    bottom: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Ripple Effect Styles */
+.ripple-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(30, 64, 175, 0.3);
+    transform: scale(0);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+}
+
+body[data-theme="dark"] .ripple {
+    background: rgba(96, 165, 250, 0.3);
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding-top: 20px;
@@ -451,5 +401,25 @@ body[data-theme="dark"] .frequency-bar {
     .frequency-bar {
         width: 80px;
         height: 8px;
+    }
+
+    .swipe-indicator {
+        font-size: 14px;
+    }
+
+    .swipe-left {
+        left: -20px;
+    }
+
+    .swipe-right {
+        right: -20px;
+    }
+
+    .swipe-up {
+        top: -20px;
+    }
+
+    .swipe-down {
+        bottom: -20px;
     }
 }
