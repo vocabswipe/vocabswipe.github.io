@@ -110,6 +110,7 @@ body[data-theme="dark"] .deck-version {
 .flashcard-container {
     width: 100%;
     perspective: 1000px;
+    position: relative;
 }
 
 .flashcard {
@@ -122,6 +123,7 @@ body[data-theme="dark"] .deck-version {
     transform-style: preserve-3d;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
+    overflow: hidden; /* Ensure effects don't spill outside */
 }
 
 body[data-theme="dark"] .flashcard {
@@ -132,82 +134,10 @@ body[data-theme="dark"] .flashcard {
     transform: rotateY(180deg);
 }
 
-/* Swipe animation classes */
-.flashcard.swipe-left {
-    animation: swipeLeft 0.3s ease;
-}
-
-.flashcard.swipe-right {
-    animation: swipeRight 0.3s ease;
-}
-
-.flashcard.swipe-up {
-    animation: swipeUp 0.3s ease;
-}
-
-.flashcard.swipe-down {
-    animation: swipeDown 0.3s ease;
-}
-
-@keyframes swipeLeft {
-    0% { transform: translateX(0); opacity: 1; }
-    50% { transform: translateX(-30px); opacity: 0.7; }
-    100% { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes swipeRight {
-    0% { transform: translateX(0); opacity: 1; }
-    50% { transform: translateX(30px); opacity: 0.7; }
-    100% { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes swipeUp {
-    0% { transform: translateY(0); opacity: 1; }
-    50% { transform: translateY(-30px); opacity: 0.7; }
-    100% { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes swipeDown {
-    0% { transform: translateY(0); opacity: 1; }
-    50% { transform: translateY(30px); opacity: 0.7; }
-    100% { transform: translateY(0); opacity: 1; }
-}
-
-/* Ripple effect for taps */
-.ripple-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(29, 78, 216, 0.3); /* Blue ripple for bright theme */
-    transform: scale(0);
-    animation: ripple 0.6s ease-out;
-    pointer-events: none;
-}
-
-body[data-theme="dark"] .ripple {
-    background: rgba(96, 165, 250, 0.3); /* Lighter blue for dark theme */
-}
-
-@keyframes ripple {
-    to {
-        transform: scale(4);
-        opacity: 0;
-    }
-}
-
 .front, .back {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: Expensive 100%;
     backface-visibility: hidden;
     display: flex;
     flex-direction: column;
@@ -326,6 +256,7 @@ body[data-theme="dark"] .rank {
 .frequency-label {
     font-size: 14px;
     font-weight: 500;
+    color: #6b7280;
 }
 
 body[data-theme="dark"] .frequency-label {
@@ -349,6 +280,61 @@ body[data-theme="dark"] .frequency-bar {
 .frequency-fill {
     height: 100%;
     transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Ripple Effect for Taps */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(30, 64, 175, 0.3);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+    z-index: 10;
+}
+
+body[data-theme="dark"] .ripple {
+    background: rgba(96, 165, 250, 0.3);
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Swipe Feedback Overlays */
+.swipe-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 5;
+    transition: opacity 0.3s ease;
+}
+
+.swipe-overlay.show {
+    opacity: 0.3;
+}
+
+.swipe-left {
+    background: linear-gradient(to right, rgba(239, 68, 68, 0.5), transparent);
+}
+
+.swipe-right {
+    background: linear-gradient(to left, rgba(34, 197, 94, 0.5), transparent);
+}
+
+.swipe-up {
+    background: linear-gradient(to bottom, rgba(59, 130, 246, 0.5), transparent);
+}
+
+.swipe-down {
+    background: linear-gradient(to top, rgba(234, 179, 8, 0.5), transparent);
 }
 
 @media (max-width: 768px) {
@@ -398,5 +384,9 @@ body[data-theme="dark"] .frequency-bar {
     .frequency-bar {
         width: 80px;
         height: 8px;
+    }
+
+    .ripple {
+        animation-duration: 0.5s;
     }
 }
