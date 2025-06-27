@@ -1,8 +1,9 @@
 import yaml
 import os
-import shutil
 from datetime import datetime
+import shutil
 from termcolor import colored
+import difflib
 
 def load_yaml_file(file_path):
     """Load a YAML file and return its contents."""
@@ -13,155 +14,145 @@ def load_yaml_file(file_path):
         print(colored(f"Error loading {file_path}: {e}", "red"))
         return None
 
-def save_yaml_file(file_path, data):
+def save_yaml_file(data, file_path):
     """Save data to a YAML file."""
     try:
         with open(file_path, 'w', encoding='utf-8') as file:
-            yaml.safe_dump(data, file, allow_unicode=True, sort_keys=False)
-        print(colored(f"Successfully saved {file_path}", "green"))
+            yaml.safe_dump(data, file, allow_unicode=True)
+        print(colored(f"Successfully saved to {file_path}", "green"))
     except Exception as e:
         print(colored(f"Error saving {file_path}: {e}", "red"))
 
 def create_backup(file_path):
-    """Create a backup of the specified file with a timestamp."""
+    """Create a backup of the original file with a timestamp."""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     backup_path = f"{file_path}.backup_{timestamp}"
-    shutil.copy(file_path, backup_path)
+    shutil.copyfile(file_path, backup_path)
     print(colored(f"Backup created: {backup_path}", "cyan"))
     return backup_path
 
-def find_problematic_entries(data, field, bad_symbol="â€™"):
-    """Find entries in the data that contain the bad symbol in the specified field."""
-    problematic = []
-    for entry in data:
-        if 'back_cards' in entry:
-            for card in entry['back_cards']:
-                if bad_symbol in card.get(field, ""):
-                    problematic.append({
-                        'word': entry.get('word', 'unknown'),
-                        'field': field,
-                        'value': card[field]
-                    })
-    return problematic
+def find_replacements(vocab1_data, vocab2_data):
+    """Find and report entries with 'â€™' in vocab1 and potential replacements from vocab2."""
+    issues = []
+    vocab2_dict = {entry['word']: entry for entry in vocab2_data if 'word' in entry}
 
-def find_correct_entry(word, field, value, vocab2_data):
-    """Find the correct entry in vocab_database2.yaml based on word and field content."""
-    for entry in vocab2_data:
-        if entry.get('word') == word:
-            for card in entry.get('back_cards', []):
-                # Match based on similarity of content (ignoring bad symbols)
-                cleaned_value = value.replace("â€™", "'")
-                if card.get(field) == cleaned_value:
-                    return card[field]
-    return None
+    for entry in vocab1_data:
+        word = entry.get('word', '')
+        back_cards = entry.get('back_cards', [])
+        for card in back_cards:
+            example_en = card.get('example_en', '')
+            definition_en = card.get('definition_en', '')
+            if 'â€™' in example_en or 'â€™' in definition_en:
+                issue = {'word': word, 'card': card, 'example_en': example_en, 'definition_en': definition_en}
+                # Look for a matching word in vocab2
+                if word in vocab2_dict:
+                    vocab2_cards = vocab2_dict[word].get('back_cards', [])
+                    # Try to find a matching definition or example
+                    for v2_card in vocab2_cards:
+                        if v2_card['definition_en'] == definition_en.replace('â€™', "'"):
+                            issue['replacement_example'] = v2_card.get('example_en', '')
+                            issue['replacement_definition'] = v2_card['definition_en']
+                            break
+                    else:
+                        issue['replacement_example'] = example_en.replace('â€™', "'")
+                        issue['replacement_definition'] = definition_en.replace('â€™', "'")
+                else:
+                    issue['replacement_example'] = example_en.replace('â€™', "'")
+                    issue['replacement_definition'] = definition_en.replace('â€™', "'")
+                issues.append(issue)
+    return issues
+
+def display_issues(issues):
+    """Display issues and their proposed replacements in a formatted manner."""
+    if not issues:
+        print(colored("\nNo entries with 'â€™' found in vocab_database.yaml.", "green"))
+        return False
+
+    print(colored("\nFound entries with 'â€™' in vocab_database.yaml:", "yellow"))
+    print("=" * 50)
+    for i, issue in enumerate(issues, 1):
+        print(colored(f"\nIssue {i}: Word = '{issue['word']}'", "cyan"))
+        print(f"  Original Example: {issue['example_en']}")
+        print(f"  Original Definition: {issue['definition_en']}")
+        print(colored(f"  Proposed Example: {issue['replacement_example']}", "green"))
+        print(colored(f"  Proposed Definition: {issue['replacement_definition']}", "green"))
+        print("-" * 50)
+    return True
+
+def confirm_action():
+    """Prompt user to confirm or cancel the update."""
+    while True:
+        response = input(colored("\nDo you want to proceed with these changes? (y/n): ", "yellow")).lower()
+        if response in ['y', 'n']:
+            return response == 'y'
+        print(colored("Please enter 'y' or 'n'.", "red"))
+
+def apply_replacements(vocab1_data, issues):
+    """Apply the replacements to vocab1_data."""
+    for issue in issues:
+        word = issue['word']
+        for entry in vocab1_data:
+            if entry.get('word') == word:
+                for card in entry.get('back_cards', []):
+                    if card['example_en'] == issue['example_en'] and card['definition_en'] == issue['definition_en']:
+                        card['example_en'] = issue['replacement_example']
+                        card['definition_en'] = issue['replacement_definition']
+    return vocab1_data
+
+def verify_no_special_chars(vocab1_data):
+    """Verify that no 'â€™' remains in the updated data."""
+    for entry in vocab1_data:
+        for card in entry.get('back_cards', []):
+            if 'â€™' in card.get('example_en', '') or 'â€™' in card.get('definition_en', ''):
+                return False
+    return True
 
 def main():
-    # Print script purpose
-    print(colored("=" * 50, "cyan"))
-    print(colored("YAML Correction Script", "cyan", attrs=["bold"]))
-    print(colored("=" * 50, "cyan"))
+    print(colored("\n=== YAML Vocabulary Database Correction Script ===", "blue"))
     print("This script will:")
-    print("- Load vocab_database.yaml and vocab_database2.yaml")
-    print("- Identify sentences and definitions with 'â€™' in vocab_database.yaml")
-    print("- Find correct replacements in vocab_database2.yaml using word keys")
-    print("- Report unmatched entries with problematic symbols")
-    print("- Create a backup of vocab_database.yaml")
-    print("- Display corrections for manual review")
-    print("- Update vocab_database.yaml upon user confirmation")
-    print(colored("=" * 50, "cyan"))
-    print()
+    print("1. Create a backup of vocab_database.yaml")
+    print("2. Scan for 'â€™' in example_en and definition_en fields")
+    print("3. Attempt to replace with matching entries from vocab_database2.yaml")
+    print("4. If no match, replace 'â€™' with a standard apostrophe (')")
+    print("5. Display changes for review before updating")
+    print("6. Verify no 'â€™' remains after updates")
+    print("=" * 50)
 
     # Load YAML files
-    vocab1 = load_yaml_file('vocab_database.yaml')
-    vocab2 = load_yaml_file('vocab_database2.yaml')
-    
-    if not vocab1 or not vocab2:
+    vocab1_data = load_yaml_file('vocab_database.yaml')
+    vocab2_data = load_yaml_file('vocab_database2.yaml')
+    if not vocab1_data or not vocab2_data:
         print(colored("Exiting due to file loading errors.", "red"))
-        return
-
-    # Find problematic entries in example_en and definition_en
-    problematic_examples = find_problematic_entries(vocab1, 'example_en')
-    problematic_definitions = find_problematic_entries(vocab1, 'definition_en')
-    problematic = problematic_examples + problematic_definitions
-
-    if not problematic:
-        print(colored("No problematic entries with 'â€™' found in vocab_database.yaml.", "green"))
-        return
-
-    # Find corrections and track unmatched entries
-    corrections = []
-    unmatched = []
-    for issue in problematic:
-        word = issue['word']
-        field = issue['field']
-        bad_value = issue['value']
-        correct_value = find_correct_entry(word, field, bad_value, vocab2)
-        if correct_value:
-            corrections.append({
-                'word': word,
-                'field': field,
-                'bad_value': bad_value,
-                'correct_value': correct_value
-            })
-        else:
-            unmatched.append({
-                'word': word,
-                'field': field,
-                'bad_value': bad_value
-            })
-
-    # Display corrections
-    if corrections:
-        print(colored("Proposed Corrections:", "yellow", attrs=["bold"]))
-        print("-" * 50)
-        for i, correction in enumerate(corrections, 1):
-            print(f"{i}. Word: {correction['word']}")
-            print(f"   Field: {correction['field']}")
-            print(f"   Incorrect: {colored(correction['bad_value'], 'red')}")
-            print(f"   Correct: {colored(correction['correct_value'], 'green')}")
-            print("-" * 50)
-    else:
-        print(colored("No corrections found in vocab_database2.yaml.", "yellow"))
-
-    # Display unmatched entries
-    if unmatched:
-        print(colored("Unmatched Problematic Entries (No Correction Available):", "magenta", attrs=["bold"]))
-        print("-" * 50)
-        for i, issue in enumerate(unmatched, 1):
-            print(f"{i}. Word: {issue['word']}")
-            print(f"   Field: {issue['field']}")
-            print(f"   Problematic Value: {colored(issue['bad_value'], 'red')}")
-            print("-" * 50)
-
-    if not corrections:
-        print(colored("No corrections to apply. Exiting.", "yellow"))
-        return
-
-    # Ask for user confirmation
-    print()
-    confirm = input(colored("Do you want to apply these corrections to vocab_database.yaml? (yes/no): ", "cyan")).strip().lower()
-    if confirm != 'yes':
-        print(colored("Corrections not applied. Exiting.", "yellow"))
         return
 
     # Create backup
     create_backup('vocab_database.yaml')
 
-    # Apply corrections
-    for correction in corrections:
-        word = correction['word']
-        field = correction['field']
-        bad_value = correction['bad_value']
-        correct_value = correction['correct_value']
-        for entry in vocab1:
-            if entry.get('word') == word:
-                for card in entry.get('back_cards', []):
-                    if card[field] == bad_value:
-                        card[field] = correct_value
+    # Find issues and replacements
+    issues = find_replacements(vocab1_data, vocab2_data)
 
-    # Save updated YAML
-    save_yaml_file('vocab_database.yaml', vocab1)
-    print(colored("Corrections applied successfully!", "green"))
+    # Display issues and get user confirmation
+    if not display_issues(issues):
+        print(colored("No changes needed. Exiting.", "green"))
+        return
+
+    if not confirm_action():
+        print(colored("Changes aborted by user.", "red"))
+        return
+
+    # Apply replacements
+    vocab1_data = apply_replacements(vocab1_data, issues)
+
+    # Save updated file
+    save_yaml_file(vocab1_data, 'vocab_database.yaml')
+
+    # Verify no special characters remain
+    if verify_no_special_chars(vocab1_data):
+        print(colored("Verification: No 'â€™' characters remain in vocab_database.yaml.", "green"))
+    else:
+        print(colored("Warning: Some 'â€™' characters may still remain in vocab_database.yaml.", "red"))
+
+    print(colored("\nScript completed.", "blue"))
 
 if __name__ == "__main__":
     main()
