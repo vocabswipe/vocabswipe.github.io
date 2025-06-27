@@ -110,6 +110,7 @@ body[data-theme="dark"] .deck-version {
 .flashcard-container {
     width: 100%;
     perspective: 1000px;
+    position: relative;
 }
 
 .flashcard {
@@ -122,7 +123,6 @@ body[data-theme="dark"] .deck-version {
     transform-style: preserve-3d;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
-    overflow: hidden; /* Ensure effects stay within card boundaries */
 }
 
 body[data-theme="dark"] .flashcard {
@@ -154,6 +154,7 @@ body[data-theme="dark"] .back {
 
 .back {
     transform: rotateY(180deg);
+    background: linear-gradient(145deg, #f9fafb 0%, #f3f4f6 100%);
 }
 
 body[data-theme="dark"] .back {
@@ -254,6 +255,7 @@ body[data-theme="dark"] .rank {
 .frequency-label {
     font-size: 14px;
     font-weight: 500;
+    color: #6b7280;
 }
 
 body[data-theme="dark"] .frequency-label {
@@ -279,110 +281,117 @@ body[data-theme="dark"] .frequency-bar {
     transition: width 0.3s ease, background-color 0.3s ease;
 }
 
-/* Visual Effect Styles */
-.visual-effect {
+/* Visual Effect Overlays */
+.effect-overlay {
     position: absolute;
-    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevent interference with interactions */
     z-index: 10;
 }
 
-.visual-effect.tap, .visual-effect.double-tap {
-    width: 100px;
-    height: 100px;
-    background: rgba(30, 64, 175, 0.3); /* Blue ripple for bright theme */
+.swipe-effect {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    animation: ripple 0.6s ease-out forwards;
-}
-
-body[data-theme="dark"] .visual-effect.tap,
-body[data-theme="dark"] .visual-effect.double-tap {
-    background: rgba(96, 165, 250, 0.3); /* Lighter blue for dark theme */
-}
-
-.visual-effect.double-tap {
-    background: rgba(30, 64, 175, 0.5); /* Slightly stronger ripple for double-tap */
-}
-
-body[data-theme="dark"] .visual-effect.double-tap {
-    background: rgba(96, 165, 250, 0.5);
-}
-
-@keyframes ripple {
-    to {
-        transform: translate(-50%, -50%) scale(2);
-        opacity: 0;
-    }
-}
-
-.visual-effect.swipe-left, 
-.visual-effect.swipe-right,
-.visual-effect.swipe-up,
-.visual-effect.swipe-down {
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.2); /* Semi-transparent overlay */
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: swipeFade 0.3s ease-out forwards;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-body[data-theme="dark"] .visual-effect.swipe-left,
-body[data-theme="dark"] .visual-effect.swipe-right,
-body[data-theme="dark"] .visual-effect.swipe-up,
-body[data-theme="dark"] .visual-effect.swipe-down {
-    background: rgba(255, 255, 255, 0.2);
+.swipe-effect.show {
+    opacity: 1;
 }
 
-.visual-effect.swipe-left::before,
-.visual-effect.swipe-right::before,
-.visual-effect.swipe-up::before,
-.visual-effect.swipe-down::before {
-    content: '';
-    width: 40px;
-    height: 40px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0.7;
+.swipe-left {
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
 }
 
-.visual-effect.swipe-left::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231e40af" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>');
+.swipe-left.show {
+    transform: translateY(-50%) scale(1);
 }
 
-body[data-theme="dark"] .visual-effect.swipe-left::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2360a5fa" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>');
+.swipe-right {
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
 }
 
-.visual-effect.swipe-right::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231e40af" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>');
+.swipe-right.show {
+    transform: translateY(-50%) scale(1);
 }
 
-body[data-theme="dark"] .visual-effect.swipe-right::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2360a5fa" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>');
+.swipe-up {
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
 }
 
-.visual-effect.swipe-up::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231e40af" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>');
+.swipe-up.show {
+    transform: translateX(-50%) scale(1);
 }
 
-body[data-theme="dark"] .visual-effect.swipe-up::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2360a5fa" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>');
+.swipe-down {
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
 }
 
-.visual-effect.swipe-down::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231e40af" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>');
+.swipe-down.show {
+    transform: translateX(-50%) scale(1);
 }
 
-body[data-theme="dark"] .visual-effect.swipe-down::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2360a5fa" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>');
+.tap-effect {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-@keyframes swipeFade {
-    to {
-        opacity: 0;
-    }
+.tap-effect.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.single-tap {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+}
+
+.double-tap {
+    width: 48px;
+    height: 48px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.double-tap svg {
+    width: 24px;
+    height: 24px;
+}
+
+body[data-theme="dark"] .swipe-effect,
+body[data-theme="dark"] .tap-effect {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+body[data-theme="dark"] .double-tap {
+    background: rgba(255, 255, 255, 0.5);
 }
 
 @media (max-width: 768px) {
@@ -434,16 +443,13 @@ body[data-theme="dark"] .visual-effect.swipe-down::before {
         height: 8px;
     }
 
-    .visual-effect.tap, .visual-effect.double-tap {
-        width: 80px;
-        height: 80px;
+    .swipe-effect, .tap-effect {
+        width: 40px;
+        height: 40px;
     }
 
-    .visual-effect.swipe-left::before,
-    .visual-effect.swipe-right::before,
-    .visual-effect.swipe-up::before,
-    .visual-effect.swipe-down::before {
-        width: 30px;
-        height: 30px;
+    .double-tap svg {
+        width: 20px;
+        height: 20px;
     }
 }
