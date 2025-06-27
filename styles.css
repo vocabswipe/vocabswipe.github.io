@@ -110,7 +110,13 @@ body[data-theme="dark"] .deck-version {
 .flashcard-container {
     width: 100%;
     perspective: 1000px;
+}
+
+.flashcard-wrapper {
     position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .flashcard {
@@ -119,11 +125,10 @@ body[data-theme="dark"] .deck-version {
     aspect-ratio: 3 / 4;
     max-width: 400px;
     margin: 0 auto;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, scale 0.3s ease;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
-    z-index: 5;
 }
 
 body[data-theme="dark"] .flashcard {
@@ -132,14 +137,6 @@ body[data-theme="dark"] .flashcard {
 
 .flashcard.flipped {
     transform: rotateY(180deg);
-}
-
-.flashcard.tap-effect-single {
-    animation: tapPulseSingle 0.6s ease forwards;
-}
-
-.flashcard.tap-effect-double {
-    animation: tapPulseDouble 0.6s ease forwards;
 }
 
 .front, .back {
@@ -153,7 +150,6 @@ body[data-theme="dark"] .flashcard {
     background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
     border-radius: 12px;
     border: 1px solid #e5e7eb;
-    z-index: 6;
 }
 
 body[data-theme="dark"] .front,
@@ -177,7 +173,6 @@ body[data-theme="dark"] .back {
     align-items: center;
     justify-content: center;
     padding-top: 20px;
-    z-index: 7;
 }
 
 .front h2, .back h2 {
@@ -187,7 +182,6 @@ body[data-theme="dark"] .back {
     text-align: center;
     word-break: break-word;
     line-height: 1.2;
-    z-index: 7;
 }
 
 body[data-theme="dark"] .front h2,
@@ -200,7 +194,6 @@ body[data-theme="dark"] .back h2 {
     flex-direction: column;
     flex-grow: 1;
     width: 100%;
-    z-index: 7;
 }
 
 .card-info {
@@ -209,7 +202,6 @@ body[data-theme="dark"] .back h2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    z-index: 7;
 }
 
 .definition {
@@ -218,7 +210,6 @@ body[data-theme="dark"] .back h2 {
     line-height: 1.5;
     margin-bottom: 8px;
     text-align: center;
-    z-index: 7;
 }
 
 body[data-theme="dark"] .definition {
@@ -233,7 +224,6 @@ body[data-theme="dark"] .definition {
     text-align: center;
     font-style: italic;
     font-weight: 700;
-    z-index: 7;
 }
 
 body[data-theme="dark"] .example {
@@ -246,7 +236,6 @@ body[data-theme="dark"] .example {
     align-items: center;
     padding-top: 8px;
     border-top: 1px solid #e5e7eb;
-    z-index: 7;
 }
 
 body[data-theme="dark"] .meta-info {
@@ -257,7 +246,6 @@ body[data-theme="dark"] .meta-info {
     font-size: 14px;
     font-weight: 500;
     color: #6b7280;
-    z-index: 7;
 }
 
 body[data-theme="dark"] .rank {
@@ -268,14 +256,12 @@ body[data-theme="dark"] .rank {
     display: flex;
     align-items: center;
     gap: 8px;
-    z-index: 7;
 }
 
 .frequency-label {
     font-size: 14px;
     font-weight: 500;
     color: #6b7280;
-    z-index: 7;
 }
 
 body[data-theme="dark"] .frequency-label {
@@ -289,7 +275,6 @@ body[data-theme="dark"] .frequency-label {
     border-radius: 5px;
     overflow: hidden;
     background: #e5e7eb;
-    z-index: 7;
 }
 
 body[data-theme="dark"] .frequency-bar {
@@ -300,124 +285,103 @@ body[data-theme="dark"] .frequency-bar {
 .frequency-fill {
     height: 100%;
     transition: width 0.3s ease, background-color 0.3s ease;
-    z-index: 7;
 }
 
-/* Swipe Effect Styles */
-.swipe-effect {
+/* Arrow effects */
+.arrow {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: rgba(30, 64, 175, 0.3);
     pointer-events: none;
-    z-index: 4; /* Below card content */
 }
 
-.swipe-left::before,
-.swipe-right::before,
-.swipe-up::before,
-.swipe-down::before {
-    content: '';
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231e40af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>');
-    background-size: contain;
-    opacity: 0.7;
-    animation: swipeArrow 0.6s ease forwards;
+body[data-theme="dark"] .arrow {
+    background: rgba(96, 165, 250, 0.3);
 }
 
-body[data-theme="dark"] .swipe-left::before,
-body[data-theme="dark"] .swipe-right::before,
-body[data-theme="dark"] .swipe-up::before,
-body[data-theme="dark"] .swipe-down::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2360a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>');
-}
-
-.swipe-left::before {
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%) rotate(0deg); /* Point left */
-    animation: swipeArrowLeft 0.6s ease forwards;
-}
-
-.swipe-right::before {
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%) rotate(180deg); /* Point right */
-    animation: swipeArrowRight 0.6s ease forwards;
-}
-
-.swipe-up::before {
+.left-arrow, .right-arrow {
+    width: 30px;
+    height: 100%;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%) rotate(-90deg); /* Point up */
-    animation: swipeArrowUp 0.6s ease forwards;
 }
 
-.swipe-down::before {
+.left-arrow {
+    left: 0;
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
+}
+
+.right-arrow {
+    right: 0;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.up-arrow, .down-arrow {
+    width: 100%;
+    height: 30px;
+    left: 0;
+}
+
+.up-arrow {
+    top: 0;
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+
+.down-arrow {
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) rotate(90deg); /* Point down */
-    animation: swipeArrowDown 0.6s ease forwards;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
 }
 
-@keyframes swipeArrowLeft {
-    0% { opacity: 0.7; transform: translateY(-50%) rotate(0deg) scale(1); }
-    50% { opacity: 1; transform: translateY(-50%) rotate(0deg) scale(1.2); }
-    100% { opacity: 0; transform: translateY(-50%) translateX(-50px) rotate(0deg) scale(1.5); }
+.swipe-left .left-arrow,
+.swipe-right .right-arrow,
+.swipe-up .up-arrow,
+.swipe-down .down-arrow {
+    opacity: 1;
 }
 
-@keyframes swipeArrowRight {
-    0% { opacity: 0.7; transform: translateY(-50%) rotate(180deg) scale(1); }
-    50% { opacity: 1; transform: translateY(-50%) rotate(180deg) scale(1.2); }
-    100% { opacity: 0; transform: translateY(-50%) translateX(50px) rotate(180deg) scale(1.5); }
+/* Pulse effects */
+.pulse-single {
+    animation: pulse-single 0.5s ease;
 }
 
-@keyframes swipeArrowUp {
-    0% { opacity: 0.7; transform: translateX(-50%) rotate(-90deg) scale(1); }
-    50% { opacity: 1; transform: translateX(-50%) rotate(-90deg) scale(1.2); }
-    100% { opacity: 0; transform: translateX(-50%) translateY(-50px) rotate(-90deg) scale(1.5); }
+.pulse-double {
+    animation: pulse-double 0.7s ease;
 }
 
-@keyframes swipeArrowDown {
-    0% { opacity: 0.7; transform: translateX(-50%) rotate(90deg) scale(1); }
-    50% { opacity: 1; transform: translateX(-50%) rotate(90deg) scale(1.2); }
-    100% { opacity: 0; transform: translateX(-50%) translateY(50px) rotate(90deg) scale(1.5); }
+@keyframes pulse-single {
+    0% { transform: scale(1); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); }
+    50% { transform: scale(1.05); box-shadow: 0 8px 24px rgba(30, 64, 175, 0.3); }
+    100% { transform: scale(1); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); }
 }
 
-/* Tap Effect Styles */
-@keyframes tapPulseSingle {
-    0% { transform: scale(1); box-shadow: 0 0 0 rgba(30, 64, 175, 0.4); }
-    50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(30, 64, 175, 0.6); }
-    100% { transform: scale(1); box-shadow: 0 0 0 rgba(30, 64, 175, 0); }
+body[data-theme="dark"] .pulse-single {
+    animation: pulse-single-dark 0.5s ease;
 }
 
-body[data-theme="dark"] .tap-effect-single {
-    animation: tapPulseSingleDark 0.6s ease forwards;
+@keyframes pulse-single-dark {
+    0% { transform: scale(1); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); }
+    50% { transform: scale(1.05); box-shadow: 0 8px 24px rgba(96, 165, 250, 0.3); }
+    100% { transform: scale(1); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); }
 }
 
-@keyframes tapPulseSingleDark {
-    0% { transform: scale(1); box-shadow: 0 0 0 rgba(96, 165, 250, 0.4); }
-    50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(96, 165, 250, 0.6); }
-    100% { transform: scale(1); box-shadow: 0 0 0 rgba(96, 165, 250, 0); }
+.pulse-double {
+    animation: pulse-double 0.7s ease;
 }
 
-@keyframes tapPulseDouble {
-    0% { transform: scale(1); box-shadow: 0 0 0 rgba(30, 64, 175, 0.4); }
-    50% { transform: scale(1.07); box-shadow: 0 0 25px 15px rgba(30, 64, 175, 0.7); }
-    100% { transform: scale(1); box-shadow: 0 0 0 rgba(30, 64, 175, 0); }
+@keyframes pulse-double {
+    0% { transform: scale(1); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); }
+    50% { transform: scale(1.08); box-shadow: 0 10px 28px rgba(30, 64, 175, 0.4); }
+    100% { transform: scale(1); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); }
 }
 
-body[data-theme="dark"] .tap-effect-double {
-    animation: tapPulseDoubleDark 0.6s ease forwards;
+body[data-theme="dark"] .pulse-double {
+    animation: pulse-double-dark 0.7s ease;
 }
 
-@keyframes tapPulseDoubleDark {
-    0% { transform: scale(1); box-shadow: 0 0 0 rgba(96, 165, 250, 0.4); }
-    50% { transform: scale(1.07); box-shadow: 0 0 25px 15px rgba(96, 165, 250, 0.7); }
-    100% { transform: scale(1); box-shadow: 0 0 0 rgba(96, 165, 250, 0); }
+@keyframes pulse-double-dark {
+    0% { transform: scale(1); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); }
+    50% { transform: scale(1.08); box-shadow: 0 10px 28px rgba(96, 165, 250, 0.4); }
+    100% { transform: scale(1); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); }
 }
 
 @media (max-width: 768px) {
@@ -469,11 +433,11 @@ body[data-theme="dark"] .tap-effect-double {
         height: 8px;
     }
 
-    .swipe-left::before,
-    .swipe-right::before,
-    .swipe-up::before,
-    .swipe-down::before {
-        width: 30px;
-        height: 30px;
+    .left-arrow, .right-arrow {
+        width: 20px;
+    }
+
+    .up-arrow, .down-arrow {
+        height: 20px;
     }
 }
