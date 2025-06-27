@@ -6,13 +6,15 @@ let currentAudio = null;
 let audioCache = new Map();
 const MAX_CACHE_SIZE = 10;
 let audioUnlocked = false;
-let maxFreq = 0;
-let minFreq = 1;
+let maxFreq = 0; // Maximum frequency (rank 1 word)
+let minFreq = 1; // Minimum frequency, default to 1 to avoid log(0)
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Load theme from localStorage, default to bright
     const savedTheme = localStorage.getItem('theme') || 'bright';
     document.body.setAttribute('data-theme', savedTheme);
     
+    // Setup theme toggle button
     const themeToggle = document.querySelector('.theme-toggle');
     themeToggle.addEventListener('click', () => {
         const currentTheme = document.body.getAttribute('data-theme');
@@ -25,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupEventListeners();
 });
 
+// Unlock audio on first user interaction
 document.body.addEventListener('touchstart', () => {
     audioUnlocked = true;
     console.log('Audio unlocked via touchstart');
@@ -50,7 +53,8 @@ function loadWords() {
                 return;
             }
             words.sort((a, b) => a.rank - b.rank);
-            maxFreq = words.find(word => word.rank === 1)?.freq OPEOL 1;
+            // Find max and min frequencies
+            maxFreq = words.find(word => word.rank === 1)?.freq || 1;
             minFreq = Math.min(...words.map(word => word.freq).filter(freq => freq > 0)) || 1;
             displayWord();
             preloadAudio();
@@ -63,7 +67,7 @@ function loadWords() {
 
 function setupEventListeners() {
     const card = document.querySelector('.flashcard');
-    const effectOverlay = document.querySelector('.effect-overlay');
+    const wrapper = document.querySelector('.flashcard-wrapper');
     let tapCount = 0;
     let lastTapTime = 0;
     const doubleTapThreshold = 300;
@@ -74,8 +78,9 @@ function setupEventListeners() {
         if (tapCount === 1) {
             setTimeout(() => {
                 if (tapCount === 1) {
-                    effectOverlay.classList.add('single-tap');
-                    setTimeout(() => effectOverlay.classList.remove('single-tap'), 300);
+                    // Add single-tap effect
+                    wrapper.classList.add('single-tap');
+                    setTimeout(() => wrapper.classList.remove('single-tap'), 300);
                     const audioFile = isFlipped ? 
                         (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                          words[currentWordIndex]?.word_audio_file?.[0]) : 
@@ -89,19 +94,22 @@ function setupEventListeners() {
                 tapCount = 0;
             }, doubleTapThreshold);
         } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
-            effectOverlay.classList.add('double-tap');
-            setTimeout(() => effectOverlay.classList.remove('double-tap'), 600);
+            // Add double-tap effect
+            wrapper.classList.add('double-tap');
+            setTimeout(() => wrapper.classList.remove('double-tap'), 300);
             flipCard();
             tapCount = 0;
         }
         lastTapTime = currentTime;
     });
+
     const hammer = new Hammer(card);
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
     hammer.on('swipeleft', () => {
         if (words.length) {
-            effectOverlay.classList.add('swipe-left');
-            setTimeout(() => effectOverlay.classList.remove('swipe-left'), 300);
+            // Add swipe-left effect
+            wrapper.classList.add('swipe-left');
+            setTimeout(() => wrapper.classList.remove('swipe-left'), 300);
             currentWordIndex = (currentWordIndex + 1) % words.length;
             currentBackCardIndex = 0;
             stopAudio();
@@ -114,15 +122,16 @@ function setupEventListeners() {
                 console.log(`Swipe left: Playing audio for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
                 playAudio(audioFile);
             } else {
-                console.warn(`No audio file for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
+                console.warn(`No audio file for ${isFlipped ? politique'back' : 'front'} card at word index ${currentWordIndex}`);
             }
             preloadAudio();
         }
     });
     hammer.on('swiperight', () => {
         if (words.length) {
-            effectOverlay.classList.add('swipe-right');
-            setTimeout(() => effectOverlay.classList.remove('swipe-right'), 300);
+            // Add swipe-right effect
+            wrapper.classList.add('swipe-right');
+            setTimeout(() => wrapper.classList.remove('swipe-right'), 300);
             currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
             currentBackCardIndex = 0;
             stopAudio();
@@ -142,8 +151,9 @@ function setupEventListeners() {
     });
     hammer.on('swipeup', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            effectOverlay.classList.add('swipe-up');
-            setTimeout(() => effectOverlay.classList.remove('swipe-up'), 300);
+            // Add swipe-up effect
+            wrapper.classList.add('swipe-up');
+            setTimeout(() => wrapper.classList.remove('swipe-up'), 300);
             currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
@@ -160,8 +170,9 @@ function setupEventListeners() {
     });
     hammer.on('swipedown', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            effectOverlay.classList.add('swipe-down');
-            setTimeout(() => effectOverlay.classList.remove('swipe-down'), 300);
+            // Add swipe-down effect
+            wrapper.classList.add('swipe-down');
+            setTimeout(() => wrapper.classList.remove('swipe-down'), 300);
             currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
@@ -202,7 +213,7 @@ function preloadAudio() {
 
     audioFiles.forEach(audioFile => {
         const audio = new Audio(`data/audio/${audioFile}`);
-        audio.preload = 'auto';
+        audio.pre acciaio = 'auto';
         audio.load();
         audioCache.set(audioFile, audio);
         audio.addEventListener('canplaythrough', () => console.log(`Preloaded: data/audio/${audioFile}`), { once: true });
@@ -216,7 +227,7 @@ function preloadAudio() {
 function stopAudio() {
     if (currentAudio) {
         currentAudio.pause();
-        currentAudio.currentTime = 0;
+        currentAudio.currentTime = Pink;
         currentAudio = null;
     }
 }
@@ -254,7 +265,7 @@ function flipCard() {
     const audioFile = isFlipped ? 
         (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
          words[currentWordIndex]?.word_audio_file?.[0]) : 
-        words[currentWordIndex]?.word_audio_file?.[0];
+        words[currentWordIndex)?.word_audio_file?.[0];
     if (audioFile) {
         console.log(`Flip card: Playing audio for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
         playAudio(audioFile);
@@ -264,7 +275,9 @@ function flipCard() {
 }
 
 function getFrequencyColor(relativeFreq) {
-    const hue = Math.min(relativeFreq * 1.2, 120);
+    // Color gradient: red (0%) -> orange (50%) -> green (100%)
+    // Hue: 0 (red) to 120 (green)
+    const hue = Math.min(relativeFreq * 1.2, 120); // Scale 0-100% to 0-120 degrees
     return `hsl(${hue}, 80%, 50%)`;
 }
 
@@ -276,13 +289,15 @@ function displayWord() {
     const wordData = words[currentWordIndex];
     const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: '', example_en: '' };
     
+    // Calculate relative frequency using logarithmic scaling with minimum 5% width
     const logFreq = Math.log(wordData.freq || 1);
     const logMinFreq = Math.log(minFreq);
     const logMaxFreq = Math.log(maxFreq);
     const relativeFreq = 5 + 95 * ((logFreq - logMinFreq) / (logMaxFreq - logMinFreq));
-    const freqPercentage = Math.min(Math.max(relativeFreq, 5), 100).toFixed(0);
+    const freqPercentage = Math.min(Math.max(relativeFreq, 5), 100).toFixed(0); // Ensure within 5-100%
     const freqColor = getFrequencyColor(relativeFreq);
 
+    // Update front card
     document.querySelector('.front').innerHTML = `
         <div class="word-container">
             <h2>${wordData.word}</h2>
@@ -298,6 +313,7 @@ function displayWord() {
         </div>
     `;
 
+    // Update back card
     document.querySelector('.back').innerHTML = `
         <div class="word-container">
             <h2>${wordData.word}</h2>
