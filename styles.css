@@ -112,6 +112,130 @@ body[data-theme="dark"] .deck-version {
     perspective: 1000px;
 }
 
+.flashcard-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Swipe and tap visual effects */
+.flashcard-wrapper.swipe-left::before,
+.flashcard-wrapper.swipe-right::before,
+.flashcard-wrapper.swipe-up::before,
+.flashcard-wrapper.swipe-down::before {
+    content: '';
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    animation: showArrow 0.3s ease-in-out;
+}
+
+.flashcard-wrapper.swipe-left::before {
+    border-left: 10px solid #1e40af;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+body[data-theme="dark"] .flashcard-wrapper.swipe-left::before {
+    border-left-color: #60a5fa;
+}
+
+.flashcard-wrapper.swipe-right::before {
+    border-right: 10px solid #1e40af;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+body[data-theme="dark"] .flashcard-wrapper.swipe-right::before {
+    border-right-color: #60a5fa;
+}
+
+.flashcard-wrapper.swipe-up::before {
+    border-top: 10px solid #1e40af;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+body[data-theme="dark"] .flashcard-wrapper.swipe-up::before {
+    border-top-color: #60a5fa;
+}
+
+.flashcard-wrapper.swipe-down::before {
+    border-bottom: 10px solid #1e40af;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+body[data-theme="dark"] .flashcard-wrapper.swipe-down::before {
+    border-bottom-color: #60a5fa;
+}
+
+@keyframes showArrow {
+    0% { opacity: 0; transform: scale(0.8); }
+    50% { opacity: 0.7; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.8); }
+}
+
+.flashcard-wrapper.single-tap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(30, 64, 175, 0.2);
+    opacity: 0;
+    animation: pulse 0.3s ease-in-out;
+    z-index: 5;
+}
+
+body[data-theme="dark"] .flashcard-wrapper.single-tap::after {
+    background: rgba(96, 165, 250, 0.2);
+}
+
+.flashcard-wrapper.double-tap::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid #1e40af;
+    border-radius: 12px;
+    opacity: 0;
+    animation: glow 0.3s ease-in-out;
+    z-index: 5;
+}
+
+body[data-theme="dark"] .flashcard-wrapper.double-tap::after {
+    border-color: #60a5fa;
+}
+
+@keyframes pulse {
+    0% { opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { opacity: 0; }
+}
+
+@keyframes glow {
+    0% { opacity: 0; transform: scale(0.98); }
+    50% { opacity: 0.8; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.98); }
+}
+
 .flashcard {
     position: relative;
     width: 100%;
@@ -130,12 +254,6 @@ body[data-theme="dark"] .flashcard {
 
 .flashcard.flipped {
     transform: rotateY(180deg);
-}
-
-.effect-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
 }
 
 .front, .back {
@@ -286,128 +404,6 @@ body[data-theme="dark"] .frequency-bar {
     transition: width 0.3s ease, background-color 0.3s ease;
 }
 
-.effect-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 10;
-}
-
-.arrow {
-    position: absolute;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    width: 24px;
-    height: 24px;
-    background: none;
-}
-
-.left-arrow {
-    left: 8px;
-    top: 50%;
-    transform: translateY(-50%) rotate(180deg);
-    border: solid #1e40af;
-    border-width: 0 3px 3px 0;
-    padding: 3px;
-}
-
-body[data-theme="dark"] .left-arrow {
-    border-color: #60a5fa;
-}
-
-.right-arrow {
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    border: solid #1e40af;
-    border-width: 0 3px 3px 0;
-    padding: 3px;
-}
-
-body[data-theme="dark"] .right-arrow {
-    border-color: #60a5fa;
-}
-
-.up-arrow {
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-90deg);
-    border: solid #1e40af;
-    border-width: 0 3px 3px 0;
-    padding: 3px;
-}
-
-body[data-theme="dark"] .up-arrow {
-    border-color: #60a5fa;
-}
-
-.down-arrow {
-    bottom: 8px;
-    left: 50%;
-    transform: translateX(-50%) rotate(90deg);
-    border: solid #1e40af;
-    border-width: 0 3px 3px 0;
-    padding: 3px;
-}
-
-body[data-theme="dark"] .down-arrow {
-    border-color: #60a5fa;
-}
-
-.effect-overlay.swipe-left .left-arrow,
-.effect-overlay.swipe-right .right-arrow,
-.effect-overlay.swipe-up .up-arrow,
-.effect-overlay.swipe-down .down-arrow {
-    opacity: 0.6;
-}
-
-.tap-effect {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-    box-shadow: 0 0 0 rgba(30, 64, 175, 0);
-    transition: box-shadow 0.3s ease;
-}
-
-body[data-theme="dark"] .tap-effect {
-    box-shadow: 0 0 0 rgba(96, 165, 250, 0);
-}
-
-.effect-overlay.single-tap .tap-effect {
-    animation: pulse 0.3s ease;
-}
-
-.effect-overlay.double-tap .tap-effect {
-    animation: pulse 0.6s ease 2;
-}
-
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 rgba(30, 64, 175, 0.4); }
-    50% { box-shadow: 0 0 20px rgba(30, 64, 175, 0.6); }
-    100% { box-shadow: 0 0 0 rgba(30, 64, 175, 0.4); }
-}
-
-body[data-theme="dark"] .effect-overlay.single-tap .tap-effect,
-body[data-theme="dark"] .effect-overlay.double-tap .tap-effect {
-    animation: pulse-dark 0.3s ease;
-}
-
-body[data-theme="dark"] .effect-overlay.double-tap .tap-effect {
-    animation: pulse-dark 0.6s ease 2;
-}
-
-@keyframes pulse-dark {
-    0% { box-shadow: 0 0 0 rgba(96, 165, 250, 0.4); }
-    50% { box-shadow: 0 0 20px rgba(96, 165, 250, 0.6); }
-    100% { box-shadow: 0 0 0 rgba(96, 165, 250, 0.4); }
-}
-
 @media (max-width: 768px) {
     .container {
         padding-top: 20px;
@@ -455,11 +451,5 @@ body[data-theme="dark"] .effect-overlay.double-tap .tap-effect {
     .frequency-bar {
         width: 80px;
         height: 8px;
-    }
-
-    .arrow {
-        width: 20px;
-        height: 20px;
-        padding: 2px;
     }
 }
