@@ -42,7 +42,7 @@ function loadWords() {
             }
             return response.text();
         })
-        .then(yamlText => {
+        .mthen(yamlText => {
             words = jsyaml.load(yamlText) || [];
             if (!words.length) {
                 console.warn('No words found in vocab_database.yaml');
@@ -73,7 +73,7 @@ function setupEventListeners() {
         if (tapCount === 1) {
             setTimeout(() => {
                 if (tapCount === 1) {
-                    showTapEffect(e, 'single');
+                    showTapEffect('single');
                     const audioFile = isFlipped ? 
                         (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                          words[currentWordIndex]?.word_audio_file?.[0]) : 
@@ -87,7 +87,7 @@ function setupEventListeners() {
                 tapCount = 0;
             }, doubleTapThreshold);
         } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
-            showTapEffect(e, 'double');
+            showTapEffect('double');
             flipCard();
             tapCount = 0;
         }
@@ -148,7 +148,7 @@ function setupEventListeners() {
                 console.log(`Swipe up: Playing audio for back card at index ${currentBackCardIndex} for word ${currentWordIndex}`);
                 playAudio(audioFile);
             } else {
-                console.warn(`No audio file for back card:${currentBackCardIndex} for word at ${currentWordIndex}`);
+                console.warn(`No audio file for back card at index ${currentBackCardIndex} for word at ${currentWordIndex}`);
             }
             preloadAudio();
         }
@@ -180,17 +180,10 @@ function showSwipeEffect(direction) {
     setTimeout(() => effect.remove(), 600);
 }
 
-function showTapEffect(event, type) {
-    const container = document.querySelector('.flashcard-container');
-    const effect = document.createElement('div');
-    effect.classList.add('tap-effect', `tap-${type}`);
-    const rect = container.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    effect.style.left = `${x}px`;
-    effect.style.top = `${y}px`;
-    container.appendChild(effect);
-    setTimeout(() => effect.remove(), 600);
+function showTapEffect(type) {
+    const card = document.querySelector('.flashcard');
+    card.classList.add(`pulse-${type}`);
+    setTimeout(() => card.classList.remove(`pulse-${type}`), 600);
 }
 
 function preloadAudio() {
