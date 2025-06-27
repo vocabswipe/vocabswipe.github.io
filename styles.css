@@ -154,7 +154,6 @@ body[data-theme="dark"] .back {
 
 .back {
     transform: rotateY(180deg);
-    background: linear-gradient(145deg, #f9fafb 0%, #f3f4f6 100%);
 }
 
 body[data-theme="dark"] .back {
