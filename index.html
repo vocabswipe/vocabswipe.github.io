@@ -1,179 +1,55 @@
-let currentWordIndex = 0;
-let currentBackCardIndex = 0;
-let words = [];
-let isFlipped = false;
-let currentAudio = null;
-let audioCache = new Map();
-const MAX_CACHE_SIZE = 10;
-let audioUnlocked = false;
-let maxFreq = 0;
-let minFreq = 1;
-
-document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme') || 'bright';
-    document.body.setAttribute('data-theme', savedTheme);
-    
-    const themeToggle = document.querySelector('.theme-toggle');
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = document.body.getAttribute('data-theme');
-        const newTheme = currentTheme === 'bright' ? 'dark' : 'bright';
-        document.body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-    });
-
-    loadWords();
-    setupEventListeners();
-});
-
-document.body.addEventListener('touchstart', () => {
-    audioUnlocked = true;
-    console.log('Audio unlocked via touchstart');
-}, { once: true });
-document.body.addEventListener('click', () => {
-    audioUnlocked = true;
-    console.log('Audio unlocked via click');
-}, { once: true });
-
-function loadWords() {
-    fetch('data/vocab_database.yaml')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status} - Check if vocab_database.yaml exists in data/`);
-            }
-            return response.text();
-        })
-        .then(yamlText => {
-            words = jsyaml.load(yamlText) || [];
-            if (!words.length) {
-                console.warn('No words found in vocab_database.yaml');
-                alert('No vocabulary data available. Please ensure vocab_database.yaml is populated.');
-                return;
-            }
-            words.sort((a, b) => a.rank - b.rank);
-            maxFreq = words.find(word => word.rank === 1)?.freq || 1;
-            minFreq = Math.min(...words.map(word => word.freq).filter(freq => freq > 0)) || 1;
-            displayWord();
-            preloadAudio();
-        })
-        .catch(error => {
-            console.error('Error loading words:', error.message);
-            alert('Failed to load vocabulary data. Check the console for details.');
-        });
-}
-
-// Function to show arrow effect for swipes
-function showSwipeEffect(direction) {
-    const card = document.querySelector('.flashcard');
-    card.classList.remove('swipe-left', 'swipe-right', 'swipe-up', 'swipe-down');
-    card.classList.add(`swipe-${direction}`);
-    setTimeout(() => {
-        card.classList.remove(`swipe-${direction}`);
-    }, 300); // Match animation duration
-}
-
-// Function to show tap effect
-function showTapEffect(isDoubleTap) {
-    const card = document.querySelector('.flashcard');
-    card.classList.add(isDoubleTap ? 'tap-double' : 'tap-single');
-    setTimeout(() => {
-        card.classList.remove(isDoubleTap ? 'tap-double' : 'tap-single');
-    }, 200); // Match animation duration
-}
-
-function setupEventListeners() {
-    const card = document.querySelector('.flashcard');
-    let tapCount = 0;
-    let lastTapTime = 0;
-    const doubleTapThreshold = 300;
-
-    card.addEventListener('click', (e) => {
-        const currentTime = new Date().getTime();
-        tapCount++;
-        if (tapCount === 1) {
-            setTimeout(() => {
-                if (tapCount === 1) {
-                    showTapEffect(false); // Single tap effect
-                    const audioFile = isFlipped ? 
-                        (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                         words[currentWordIndex]?.word_audio_file?.[0]) : 
-                        words[currentWordIndex]?.word_audio_file?.[0];
-                    if (audioFile) {
-                        playAudio(audioFile);
-                    } else {
-                        console.warn(`No audio file for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
-                    }
-                }
-                tapCount = 0;
-            }, doubleTapThreshold);
-        } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
-            showTapEffect(true); // Double tap effect
-            flipCard();
-            tapCount = 0;
-        }
-        lastTapTime = currentTime;
-    });
-
-    const hammer = new Hammer(card);
-    hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-    hammer.on('swipeleft', () => {
-        if (words.length) {
-            showSwipeEffect('left');
-            currentWordIndex = (currentWordIndex + 1) % words.length;
-            currentBackCardIndex = 0;
-            stopAudio();
-            displayWord();
-            const audioFile = isFlipped ? 
-                (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                 words[currentWordIndex]?.word_audio_file?.[0]) : 
-                words[currentWordIndex]?.word_audio_file?.[0];
-            if (audioFile) {
-                console.log(`Swipe left: Playing audio for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
-                playAudio(audioFile);
-            } else {
-                console.warn(`No audio file for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
-            }
-            preloadAudio();
-        }
-    });
-    hammer.on('swiperight', () => {
-        if (words.length) {
-            showSwipeEffect('right');
-            currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
-            currentBackCardIndex = 0;
-            stopAudio();
-            displayWord();
-            const audioFile = isFlipped ? 
-                (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                 words[currentWordIndex]?.word_audio_file?.[0]) : 
-                words[currentWordIndex]?.word_audio_file?.[0];
-            if (audioFile) {
-                console.log(`Swipe right: Playing audio for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
-                playAudio(audioFile);
-            } else {
-                console.warn(`No audio file for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
-            }
-            preloadAudio();
-        }
-    });
-    hammer.on('swipeup', () => {
-        if (isFlipped && words[currentWordIndex]?.back_cards) {
-            showSwipeEffect('up');
-            currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
-            stopAudio();
-            displayWord();
-            const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                             words[currentWordIndex]?.word_audio_file?.[0];
-            if (audioFile) {
-                console.log(`Swipe up: Playing audio for back card at index ${currentBackCardIndex} for word ${currentWordIndex}`);
-                playAudio(audioFile);
-            } else {
-                console.warn(`No audio file for back card at index ${currentBackCardIndex} for word at ${currentWordIndex}`);
-            }
-            preloadAudio();
-        }
-    });
-    hammer.on('swipedown', () => {
-        if (isFlipped && words[currentWordIndex Facet id="back-rank">Index</span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VocabSwipe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+</head>
+<body data-theme="bright">
+    <div class="container">
+        <button class="theme-toggle" aria-label="Toggle theme">
+            <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="#FFC107"/>
+                <path d="M12 2V4M12 20V22M4 12H2M22 12H20M6.34 6.34L4.93 4.93M19.07 19.07L17.66 17.66M6.34 17.66L4.93 19.07M19.07 4.93L17.66 6.34" stroke="#FFC107" stroke-width="2"/>
+            </svg>
+            <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3ZM12 19.5C7.85786 19.5 4.5 16.1421 4.5 12C4.5 7.85786 7.85786 4.5 12 4.5V19.5Z" fill="#FFC107"/>
+            </svg>
+        </button>
+        <h1 class="website-name">VocabSwipe</h1>
+        <h2 class="slogan">Swipe to Master Your Vocabulary!</h2>
+        <p class="deck-version">Top 5000 Frequently Used Words</p>
+        <div class="flashcard-container">
+            <div class="flashcard">
+                <div class="front">
+                    <div class="word-container">
+                        <h2 id="word"></h2>
+                    </div>
+                    <div class="meta-info">
+                        <span id="front-rank" class="rank"></span>
+                        <div class="frequency-container">
+                            <span class="frequency-label">Frequency:</span>
+                            <div class="frequency-bar">
+                                <div id="front-frequency-fill" class="frequency-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="word-container">
+                        <h2 id="back-word"></h2>
+                    </div>
+                    <div class="back-template">
+                        <div class="card-info">
+                            <p id="back-definition" class="definition"></p>
+                            <p id="back-example" class="example"></p>
+                        </div>
+                        <div class="meta-info">
+                            <span id="back-rank" class="rank"></span>
                             <div class="frequency-container">
                                 <span class="frequency-label">Frequency:</span>
                                 <div class="frequency-bar">
