@@ -46,77 +46,41 @@ function loadWords() {
             return response.text();
         })
         .then(yamlText => {
-            words = jsyaml.load(yamlTextવ) {
-                console.log('Words loaded successfully');
-                if (!words.length) {
-                    console.warn('No words found in vocab_database.yaml');
-                    alert('No vocabulary data available. Please ensure vocab_database.yaml is populated.');
-                    return;
-                }
-                words.sort((a, b) => a.rank - b.rank);
-                // Find max and min frequencies
-                maxFreq = words.find(word => word.rank === 1)?.freq || 1;
-                minFreq = Math.min(...words.map(word => word.freq).filter(freq => freq > 0)) || 1;
-                displayWord();
-                preloadAudio();
-            })
-            .catch(error => {
-                console.error('Error loading words:', error.message);
-                alert('Failed to load vocabulary data. Check the console for details.');
-            });
-}
-
-function createRippleEffect(x, y, container) {
-    const ripple = document.createElement('div');
-    ripple.className = 'ripple';
-    const diameter = 60; // Size of the ripple
-    ripple.style.width = ripple.style.height = `${diameter}px`;
-    ripple.style.left = `${x - diameter / 2}px`;
-    ripple.style.top = `${y - diameter / 2}px`;
-    container.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 600); // Remove after animation (0.6s)
-}
-
-function createSwipeIndicator(direction, container) {
-    const indicator = document.createElement('div');
-    indicator.className = 'swipe-indicator';
-    let svgContent = '';
-    switch (direction) {
-        case 'left':
-            svgContent = '<svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>';
-            break;
-        case 'right':
-            svgContent = '<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>';
-            break;
-        case 'up':
-            svgContent = '<svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg>';
-            break;
-        case 'down':
-            svgContent = '<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>';
-            break;
-    }
-    indicator.innerHTML = svgContent;
-    container.appendChild(indicator);
-    setTimeout(() => indicator.remove(), 400); // Remove after animation (0.4s)
+            words = jsyaml.load(yamlText) || [];
+            if (!words.length) {
+                console.warn('No words found in vocab_database.yaml');
+                alert('No vocabulary data available. Please ensure vocab_database.yaml is populated.');
+                return;
+            }
+            words.sort((a, b) => a.rank - b.rank);
+            // Find max and min frequencies
+            maxFreq = words.find(word => word.rank === 1)?.freq || 1;
+            minFreq = Math.min(...words.map(word => word.freq).filter(freq => freq > 0)) || 1;
+            displayWord();
+            preloadAudio();
+        })
+        .catch(error => {
+            console.error('Error loading words:', error.message);
+            alert('Failed to load vocabulary data. Check the console for details.');
+        });
 }
 
 function setupEventListeners() {
     const card = document.querySelector('.flashcard');
-    const effectContainer = document.querySelector('.effect-container');
     let tapCount = 0;
     let lastTapTime = 0;
     const doubleTapThreshold = 300;
 
     card.addEventListener('click', (e) => {
+        const currentTime = new Date().getTime();
+        tapCount++;
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        const currentTime = new Date().getTime();
-        tapCount++;
-        createRippleEffect(x, y, effectContainer); // Ripple for single tap
         if (tapCount === 1) {
             setTimeout(() => {
                 if (tapCount === 1) {
+                    showVisualEffect('tap', x, y);
                     const audioFile = isFlipped ? 
                         (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                          words[currentWordIndex]?.word_audio_file?.[0]) : 
@@ -130,7 +94,7 @@ function setupEventListeners() {
                 tapCount = 0;
             }, doubleTapThreshold);
         } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
-            createRippleEffect(x, y, effectContainer); // Additional ripple for double tap
+            showVisualEffect('double-tap', x, y);
             flipCard();
             tapCount = 0;
         }
@@ -141,7 +105,7 @@ function setupEventListeners() {
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
     hammer.on('swipeleft', (e) => {
         if (words.length) {
-            createSwipeIndicator('left', effectContainer);
+            showVisualEffect('swipe-left');
             currentWordIndex = (currentWordIndex + 1) % words.length;
             currentBackCardIndex = 0;
             stopAudio();
@@ -159,9 +123,9 @@ function setupEventListeners() {
             preloadAudio();
         }
     });
-    hammer.on('swiperight', (e) => {
+    hammer.on('swiperight', () => {
         if (words.length) {
-            createSwipeIndicator('right', effectContainer);
+            showVisualEffect('swipe-right');
             currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
             currentBackCardIndex = 0;
             stopAudio();
@@ -179,9 +143,9 @@ function setupEventListeners() {
             preloadAudio();
         }
     });
-    hammer.on('swipeup', (e) => {
+    hammer.on('swipeup', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            createSwipeIndicator('up', effectContainer);
+            showVisualEffect('swipe-up');
             currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
@@ -196,9 +160,9 @@ function setupEventListeners() {
             preloadAudio();
         }
     });
-    hammer.on('swipedown', (e) => {
+    hammer.on('swipedown', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            createSwipeIndicator('down', effectContainer);
+            showVisualEffect('swipe-down');
             currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
@@ -213,6 +177,24 @@ function setupEventListeners() {
             preloadAudio();
         }
     });
+}
+
+function showVisualEffect(type, x, y) {
+    const card = document.querySelector('.flashcard');
+    const effect = document.createElement('div');
+    effect.className = `visual-effect ${type}`;
+    
+    if (type === 'tap' || type === 'double-tap') {
+        // Ripple effect at touch point
+        effect.style.left = `${x}px`;
+        effect.style.top = `${y}px`;
+        card.appendChild(effect);
+        setTimeout(() => effect.remove(), 600); // Match animation duration
+    } else {
+        // Swipe effect (directional arrows)
+        card.appendChild(effect);
+        setTimeout(() => effect.remove(), 300); // Match animation duration
+    }
 }
 
 function preloadAudio() {
