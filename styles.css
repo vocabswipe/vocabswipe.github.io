@@ -133,6 +133,50 @@ body[data-theme="dark"] .flashcard {
     transform: rotateY(180deg);
 }
 
+.flashcard.pulse-single {
+    animation: pulseSingle 0.6s ease forwards;
+}
+
+.flashcard.pulse-double {
+    animation: pulseDouble 0.6s ease forwards;
+}
+
+@keyframes pulseSingle {
+    0% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(30, 64, 175, 0.5); }
+    50% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 0 20px 10px rgba(30, 64, 175, 0.7); }
+    100% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(30, 64, 175, 0); }
+}
+
+body[data-theme="dark"] .flashcard.pulse-single {
+    animation: pulseSingleDark 0.6s ease forwards;
+}
+
+@keyframes pulseSingleDark {
+    0% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(96, 165, 250, 0.5); }
+    50% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 20px 10px rgba(96, 165, 250, 0.7); }
+    100% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(96, 165, 250, 0); }
+}
+
+@keyframes pulseDouble {
+    0% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(30, 64, 175, 0.5); }
+    25% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 0 15px 7px rgba(30, 64, 175, 0.7); }
+    50% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(30, 64, 175, 0); }
+    75% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 0 20px 10px rgba(30, 64, 175, 0.7); }
+    100% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(30, 64, 175, 0); }
+}
+
+body[data-theme="dark"] .flashcard.pulse-double {
+    animation: pulseDoubleDark 0.6s ease forwards;
+}
+
+@keyframes pulseDoubleDark {
+    0% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(96, 165, 250, 0.5); }
+    25% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 15px 7px rgba(96, 165, 250, 0.7); }
+    50% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(96, 165, 250, 0); }
+    75% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 20px 10px rgba(96, 165, 250, 0.7); }
+    100% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(96, 165, 250, 0); }
+}
+
 .front, .back {
     position: absolute;
     width: 100%;
@@ -289,7 +333,7 @@ body[data-theme="dark"] .frequency-bar {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 10;
+    z-index: 20; /* Higher than flashcard content */
 }
 
 .swipe-left::before,
@@ -315,105 +359,46 @@ body[data-theme="dark"] .swipe-down::before {
 
 .swipe-left::before {
     top: 50%;
-    left: 20%;
-    transform: translateY(-50%) rotate(180deg);
+    left: -40px; /* Outside left edge */
+    transform: translateY(-50%) rotate(0deg); /* Point left */
 }
 
 .swipe-right::before {
     top: 50%;
-    right: 20%;
-    transform: translateY(-50%);
+    right: -40px; /* Outside right edge */
+    transform: translateY(-50%) rotate(180deg); /* Point right */
 }
 
 .swipe-up::before {
-    top: 20%;
+    top: -40px; /* Outside top edge */
     left: 50%;
-    transform: translateX(-50%) rotate(-90deg);
+    transform: translateX(-50%) rotate(-90deg); /* Point up */
+    animation: swipeArrowUp 0.6s ease forwards;
 }
 
 .swipe-down::before {
-    bottom: 20%;
+    bottom: -40px; /* Outside bottom edge */
     left: 50%;
-    transform: translateX(-50%) rotate(90deg);
+    transform: translateX(-50%) rotate(90deg); /* Point down */
+    animation: swipeArrowDown 0.6s ease forwards;
 }
 
 @keyframes swipeArrow {
     0% { opacity: 0.7; transform: translateY(-50%) scale(1); }
     50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
-    100% { opacity: 0; transform: translateY(-50%) scale(1.5); }
-}
-
-.swipe-up::before {
-    animation: swipeArrowUp 0.6s ease forwards;
-}
-
-.swipe-down::before {
-    animation: swipeArrowDown 0.6s ease forwards;
+    100% { opacity: 0; transform: translateY(-50%) translateX(-20px) scale(1.5); } /* Move left/right */
 }
 
 @keyframes swipeArrowUp {
     0% { opacity: 0.7; transform: translateX(-50%) rotate(-90deg) scale(1); }
     50% { opacity: 1; transform: translateX(-50%) rotate(-90deg) scale(1.2); }
-    100% { opacity: 0; transform: translateX(-50%) rotate(-90deg) scale(1.5); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-20px) rotate(-90deg) scale(1.5); } /* Move up */
 }
 
 @keyframes swipeArrowDown {
     0% { opacity: 0.7; transform: translateX(-50%) rotate(90deg) scale(1); }
     50% { opacity: 1; transform: translateX(-50%) rotate(90deg) scale(1.2); }
-    100% { opacity: 0; transform: translateX(-50%) rotate(90deg) scale(1.5); }
-}
-
-/* Tap Effect Styles */
-.tap-effect {
-    position: absolute;
-    pointer-events: none;
-    z-index: 10;
-}
-
-.tap-single::before,
-.tap-double::before,
-.tap-double::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(30, 64, 175, 0.3);
-    transform: translate(-50%, -50%);
-}
-
-body[data-theme="dark"] .tap-single::before,
-body[data-theme="dark"] .tap-double::before,
-body[data-theme="dark"] .tap-double::after {
-    background: rgba(96, 165, 250, 0.3);
-}
-
-.tap-single::before {
-    width: 60px;
-    height: 60px;
-    animation: tapRipple 0.6s ease forwards;
-}
-
-.tap-double::before {
-    width: 80px;
-    height: 80px;
-    animation: tapRippleDouble 0.6s ease forwards;
-}
-
-.tap-double::after {
-    width: 100px;
-    height: 100px;
-    animation: tapRippleDouble 0.6s ease 0.1s forwards;
-}
-
-@keyframes tapRipple {
-    0% { opacity: 0.7; transform: translate(-50%, -50%) scale(0); }
-    50% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
-}
-
-@keyframes tapRippleDouble {
-    0% { opacity: 0.7; transform: translate(-50%, -50%) scale(0); }
-    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
-    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.8); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(20px) rotate(90deg) scale(1.5); } /* Move down */
 }
 
 @media (max-width: 768px) {
@@ -471,20 +456,5 @@ body[data-theme="dark"] .tap-double::after {
     .swipe-down::before {
         width: 30px;
         height: 30px;
-    }
-
-    .tap-single::before {
-        width: 50px;
-        height: 50px;
-    }
-
-    .tap-double::before {
-        width: 70px;
-        height: 70px;
-    }
-
-    .tap-double::after {
-        width: 90px;
-        height: 90px;
     }
 }
