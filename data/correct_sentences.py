@@ -1,139 +1,167 @@
 import yaml
 import os
-from datetime import datetime
 import shutil
+from datetime import datetime
+from termcolor import colored
 
 def load_yaml_file(file_path):
+    """Load a YAML file and return its contents."""
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             return yaml.safe_load(file)
     except Exception as e:
-        print(f"\033[91mError loading {file_path}: {e}\033[0m")
+        print(colored(f"Error loading {file_path}: {e}", "red"))
         return None
 
-def save_yaml_file(data, file_path):
+def save_yaml_file(file_path, data):
+    """Save data to a YAML file."""
     try:
         with open(file_path, 'w', encoding='utf-8') as file:
-            yaml.safe_dump(data, file, allow_unicode=True)
-        print(f"\033[92mSuccessfully saved to {file_path}\033[0m")
+            yaml.safe_dump(data, file, allow_unicode=True, sort_keys=False)
+        print(colored(f"Successfully saved {file_path}", "green"))
     except Exception as e:
-        print(f"\033[91mError saving {file_path}: {e}\033[0m")
+        print(colored(f"Error saving {file_path}: {e}", "red"))
 
 def create_backup(file_path):
+    """Create a backup of the specified file with a timestamp."""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     backup_path = f"{file_path}.backup_{timestamp}"
-    try:
-        shutil.copy(file_path, backup_path)
-        print(f"\033[94mCreated backup: {backup_path}\033[0m")
-        return backup_path
-    except Exception as e:
-        print(f"\033[91mError creating backup: {e}\033[0m")
-        return None
+    shutil.copy(file_path, backup_path)
+    print(colored(f"Backup created: {backup_path}", "cyan"))
+    return backup_path
 
-def find_and_replace_sentences(vocab_data, vocab2_data):
-    changes = []
-    words_not_found = []
+def find_problematic_entries(data, field, bad_symbol="â€™"):
+    """Find entries in the data that contain the bad symbol in the specified field."""
+    problematic = []
+    for entry in data:
+        if 'back_cards' in entry:
+            for card in entry['back_cards']:
+                if bad_symbol in card.get(field, ""):
+                    problematic.append({
+                        'word': entry.get('word', 'unknown'),
+                        'field': field,
+                        'value': card[field]
+                    })
+    return problematic
 
-    # Create a dictionary of correct sentences from vocab_database2.yaml
-    vocab2_dict = {entry['word']: entry['back_cards'] for entry in vocab2_data if 'word' in entry}
-
-    for entry in vocab_data:
-        word = entry.get('word')
-        if not word:
-            continue
-
-        back_cards = entry.get('back_cards', [])
-        vocab2_back_cards = vocab2_dict.get(word, [])
-
-        if not vocab2_back_cards:
-            words_not_found.append(word)
-            continue
-
-        for i, card in enumerate(back_cards):
-            example = card.get('example_en', '')
-            if 'â€™' in example:
-                # Find matching sentence in vocab2 by definition
-                for vocab2_card in vocab2_back_cards:
-                    if vocab2_card.get('definition_en') == card.get('definition_en'):
-                        correct_example = vocab2_card.get('example_en')
-                        changes.append({
-                            'word': word,
-                            'incorrect': example,
-                            'correct': correct_example,
-                            'index': i
-                        })
-                        break
-
-    return changes, words_not_found
+def find_correct_entry(word, field, value, vocab2_data):
+    """Find the correct entry in vocab_database2.yaml based on word and field content."""
+    for entry in vocab2_data:
+        if entry.get('word') == word:
+            for card in entry.get('back_cards', []):
+                # Match based on similarity of content (ignoring bad symbols)
+                cleaned_value = value.replace("â€™", "'")
+                if card.get(field) == cleaned_value:
+                    return card[field]
+    return None
 
 def main():
-    print("\033[1;94m=== Sentence Correction Tool ===\033[0m")
-    print("This script will:\n"
-          "- Load vocab_database.yaml and vocab_database2.yaml\n"
-          "- Identify sentences with 'â€™' in vocab_database.yaml\n"
-          "- Find matching correct sentences from vocab_database2.yaml using word keys\n"
-          "- Display proposed changes for review\n"
-          "- Create a backup of vocab_database.yaml\n"
-          "- Update vocab_database.yaml after user confirmation\n")
+    # Print script purpose
+    print(colored("=" * 50, "cyan"))
+    print(colored("YAML Correction Script", "cyan", attrs=["bold"]))
+    print(colored("=" * 50, "cyan"))
+    print("This script will:")
+    print("- Load vocab_database.yaml and vocab_database2.yaml")
+    print("- Identify sentences and definitions with 'â€™' in vocab_database.yaml")
+    print("- Find correct replacements in vocab_database2.yaml using word keys")
+    print("- Report unmatched entries with problematic symbols")
+    print("- Create a backup of vocab_database.yaml")
+    print("- Display corrections for manual review")
+    print("- Update vocab_database.yaml upon user confirmation")
+    print(colored("=" * 50, "cyan"))
+    print()
 
     # Load YAML files
-    vocab_data = load_yaml_file('vocab_database.yaml')
-    vocab2_data = load_yaml_file('vocab_database2.yaml')
-
-    if not vocab_data or not vocab2_data:
-        print("\033[91mAborting due to file loading errors.\033[0m")
+    vocab1 = load_yaml_file('vocab_database.yaml')
+    vocab2 = load_yaml_file('vocab_database2.yaml')
+    
+    if not vocab1 or not vocab2:
+        print(colored("Exiting due to file loading errors.", "red"))
         return
 
-    # Find sentences to replace
-    changes, words_not_found = find_and_replace_sentences(vocab_data, vocab2_data)
+    # Find problematic entries in example_en and definition_en
+    problematic_examples = find_problematic_entries(vocab1, 'example_en')
+    problematic_definitions = find_problematic_entries(vocab1, 'definition_en')
+    problematic = problematic_examples + problematic_definitions
 
-    # Display proposed changes
-    if changes:
-        print("\033[1;93mProposed Changes:\033[0m")
+    if not problematic:
+        print(colored("No problematic entries with 'â€™' found in vocab_database.yaml.", "green"))
+        return
+
+    # Find corrections and track unmatched entries
+    corrections = []
+    unmatched = []
+    for issue in problematic:
+        word = issue['word']
+        field = issue['field']
+        bad_value = issue['value']
+        correct_value = find_correct_entry(word, field, bad_value, vocab2)
+        if correct_value:
+            corrections.append({
+                'word': word,
+                'field': field,
+                'bad_value': bad_value,
+                'correct_value': correct_value
+            })
+        else:
+            unmatched.append({
+                'word': word,
+                'field': field,
+                'bad_value': bad_value
+            })
+
+    # Display corrections
+    if corrections:
+        print(colored("Proposed Corrections:", "yellow", attrs=["bold"]))
         print("-" * 50)
-        for change in changes:
-            print(f"\033[1mWord:\033[0m {change['word']}")
-            print(f"\033[91mIncorrect:\033[0m {change['incorrect']}")
-            print(f"\033[92mCorrect:\033[0m {change['correct']}")
+        for i, correction in enumerate(corrections, 1):
+            print(f"{i}. Word: {correction['word']}")
+            print(f"   Field: {correction['field']}")
+            print(f"   Incorrect: {colored(correction['bad_value'], 'red')}")
+            print(f"   Correct: {colored(correction['correct_value'], 'green')}")
             print("-" * 50)
     else:
-        print("\033[93mNo sentences with 'â€™' found or no matching corrections available.\033[0m")
+        print(colored("No corrections found in vocab_database2.yaml.", "yellow"))
 
-    # Display words not found in vocab_database2.yaml
-    if words_not_found:
-        print("\033[1;93mWords not found in vocab_database2.yaml:\033[0m")
-        print(" - " + "\n - ".join(words_not_found))
-        print("\033[93mThese words will remain unchanged due to missing entries.\033[0m")
+    # Display unmatched entries
+    if unmatched:
+        print(colored("Unmatched Problematic Entries (No Correction Available):", "magenta", attrs=["bold"]))
+        print("-" * 50)
+        for i, issue in enumerate(unmatched, 1):
+            print(f"{i}. Word: {issue['word']}")
+            print(f"   Field: {issue['field']}")
+            print(f"   Problematic Value: {colored(issue['bad_value'], 'red')}")
+            print("-" * 50)
 
-    if not changes:
-        print("\033[94mNo changes to apply. Exiting.\033[0m")
+    if not corrections:
+        print(colored("No corrections to apply. Exiting.", "yellow"))
         return
 
     # Ask for user confirmation
-    print("\n\033[1;94mDo you want to apply these changes? (y/n)\033[0m")
-    response = input().strip().lower()
-    if response != 'y':
-        print("\033[93mChanges aborted by user.\033[0m")
+    print()
+    confirm = input(colored("Do you want to apply these corrections to vocab_database.yaml? (yes/no): ", "cyan")).strip().lower()
+    if confirm != 'yes':
+        print(colored("Corrections not applied. Exiting.", "yellow"))
         return
 
     # Create backup
-    backup_path = create_backup('vocab_database.yaml')
-    if not backup_path:
-        print("\033[91mAborting due to backup failure.\033[0m")
-        return
+    create_backup('vocab_database.yaml')
 
-    # Apply changes
-    for change in changes:
-        word = change['word']
-        index = change['index']
-        correct = change['correct']
-        for entry in vocab_data:
+    # Apply corrections
+    for correction in corrections:
+        word = correction['word']
+        field = correction['field']
+        bad_value = correction['bad_value']
+        correct_value = correction['correct_value']
+        for entry in vocab1:
             if entry.get('word') == word:
-                entry['back_cards'][index]['example_en'] = correct
+                for card in entry.get('back_cards', []):
+                    if card[field] == bad_value:
+                        card[field] = correct_value
 
-    # Save updated file
-    save_yaml_file(vocab_data, 'vocab_database.yaml')
-    print("\033[1;92mUpdate complete! Original file backed up at:\033[0m", backup_path)
+    # Save updated YAML
+    save_yaml_file('vocab_database.yaml', vocab1)
+    print(colored("Corrections applied successfully!", "green"))
 
 if __name__ == "__main__":
     main()
