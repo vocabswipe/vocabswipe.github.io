@@ -24,43 +24,48 @@
         <h2 class="slogan">Swipe to Master Your Vocabulary!</h2>
         <p class="deck-version">Top 5000 Frequently Used Words</p>
         <div class="flashcard-container">
-            <div class="flashcard-wrapper">
-                <div class="flashcard">
-                    <div class="front">
-                        <div class="word-container">
-                            <h2 id="word"></h2>
-                        </div>
-                        <div class="meta-info">
-                            <span id="front-rank" class="rank"></span>
-                            <div class="frequency-container">
-                                <span class="frequency-label">Frequency:</span>
-                                <div class="frequency-bar">
-                                    <div id="front-frequency-fill" class="frequency-fill"></div>
-                                </div>
+            <div class="flashcard">
+                <div class="front">
+                    <div class="word-container">
+                        <h2 id="word"></h2>
+                    </div>
+                    <div class="meta-info">
+                        <span id="front-rank" class="rank"></span>
+                        <div class="frequency-container">
+                            <span class="frequency-label">Frequency:</span>
+                            <div class="frequency-bar">
+                                <div id="front-frequency-fill" class="frequency-fill"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="back">
-                        <div class="word-container">
-                            <h2 id="back-word"></h2>
+                </div>
+                <div class="back">
+                    <div class="word-container">
+                        <h2 id="back-word"></h2>
+                    </div>
+                    <div class="back-template">
+                        <div class="card-info">
+                            <p id="back-definition" class="definition"></p>
+                            <p id="back-example" class="example"></p>
                         </div>
-                        <div class="back-template">
-                            <div class="card-info">
-                                <p id="back-definition" class="definition"></p>
-                                <p id="back-example" class="example"></p>
-                            </div>
-                            <div class="meta-info">
-                                <span id="back-rank" class="rank"></span>
-                                <div class="frequency-container">
-                                    <span class="frequency-label">Frequency:</span>
-                                    <div class="frequency-bar">
-                                        <div id="back-frequency-fill" class="frequency-fill"></div>
-                                    </div>
+                        <div class="meta-info">
+                            <span id="back-rank" class="rank"></span>
+                            <div class="frequency-container">
+                                <span class="frequency-label">Frequency:</span>
+                                <div class="frequency-bar">
+                                    <div id="back-frequency-fill" class="frequency-fill"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Swipe Indicators -->
+                <div class="swipe-indicator swipe-left">←</div>
+                <div class="swipe-indicator swipe-right">→</div>
+                <div class="swipe-indicator swipe-up">↑</div>
+                <div class="swipe-indicator swipe-down">↓</div>
+                <!-- Ripple Effect Container -->
+                <div class="ripple-container"></div>
             </div>
         </div>
     </div>
