@@ -110,6 +110,7 @@ body[data-theme="dark"] .deck-version {
 .flashcard-container {
     width: 100%;
     perspective: 1000px;
+    position: relative;
 }
 
 .flashcard {
@@ -132,82 +133,88 @@ body[data-theme="dark"] .flashcard {
     transform: rotateY(180deg);
 }
 
+/* Swipe effect arrows */
 .flashcard.swipe-left::before,
 .flashcard.swipe-right::before,
 .flashcard.swipe-up::before,
 .flashcard.swipe-down::before {
     content: '';
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     z-index: 10;
     opacity: 0.7;
-    background-size: contain;
-    background-repeat: no-repeat;
     animation: fadeOut 0.3s ease forwards;
 }
 
 .flashcard.swipe-left::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%231e40af"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>');
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231e40af"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>') no-repeat center;
     left: 10px;
     top: 50%;
     transform: translateY(-50%);
 }
 
 body[data-theme="dark"] .flashcard.swipe-left::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2360a5fa"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>');
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2360a5fa"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>') no-repeat center;
 }
 
 .flashcard.swipe-right::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%231e40af"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>');
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231e40af"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>') no-repeat center;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
 }
 
 body[data-theme="dark"] .flashcard.swipe-right::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2360a5fa"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>');
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2360a5fa"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>') no-repeat center;
 }
 
 .flashcard.swipe-up::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%231e40af"><path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/></svg>');
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231e40af"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>') no-repeat center;
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 body[data-theme="dark"] .flashcard.swipe-up::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2360a5fa"><path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/></svg>');
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2360a5fa"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>') no-repeat center;
 }
 
 .flashcard.swipe-down::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%231e40af"><path d="M12 16l6-6-1.41-1.41L12 13.17l-4.59-4.58L6 10z"/></svg>');
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231e40af"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>') no-repeat center;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 body[data-theme="dark"] .flashcard.swipe-down::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2360a5fa"><path d="M12 16l6-6-1.41-1.41L12 13.17l-4.59-4.58L6 10z"/></svg>');
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2360a5fa"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>') no-repeat center;
+}
+
+/* Tap effect animations */
+.flashcard.tap-single {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body[data-theme="dark"] .flashcard.tap-single {
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+.flashcard.tap-double {
+    transform: scale(1.03);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body[data-theme="dark"] .flashcard.tap-double {
+    box-shadow: 0 10px 28px rgba(255, 255, 255, 0.25);
 }
 
 @keyframes fadeOut {
     0% { opacity: 0.7; }
     100% { opacity: 0; }
-}
-
-.flashcard.tap-single {
-    transform: scale(1.02);
-    transition: transform 0.3s ease;
-}
-
-.flashcard.tap-double {
-    box-shadow: 0 0 15px rgba(30, 64, 175, 0.5);
-    transition: box-shadow 0.3s ease;
-}
-
-body[data-theme="dark"] .flashcard.tap-double {
-    box-shadow: 0 0 15px rgba(96, 165, 250, 0.5);
 }
 
 .front, .back {
@@ -411,7 +418,7 @@ body[data-theme="dark"] .frequency-bar {
     .flashcard.swipe-right::before,
     .flashcard.swipe-up::before,
     .flashcard.swipe-down::before {
-        width: 16px;
-        height: 16px;
+        width: 20px;
+        height: 20px;
     }
 }
