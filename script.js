@@ -71,6 +71,7 @@ function setupEventListeners() {
         const currentTime = new Date().getTime();
         tapCount++;
         if (tapCount === 1) {
+            // Add single-tap visual effect
             card.classList.add('single-tap');
             setTimeout(() => card.classList.remove('single-tap'), 200);
             setTimeout(() => {
@@ -88,6 +89,7 @@ function setupEventListeners() {
                 tapCount = 0;
             }, doubleTapThreshold);
         } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
+            // Add double-tap visual effect
             card.classList.add('double-tap');
             setTimeout(() => card.classList.remove('double-tap'), 200);
             flipCard();
@@ -100,6 +102,7 @@ function setupEventListeners() {
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL, threshold: 10 });
     hammer.on('swipeleft', () => {
         if (words.length) {
+            // Add swipe-left visual effect
             card.classList.add('swipe-left');
             setTimeout(() => {
                 card.classList.remove('swipe-left');
@@ -123,6 +126,7 @@ function setupEventListeners() {
     });
     hammer.on('swiperight', () => {
         if (words.length) {
+            // Add swipe-right visual effect
             card.classList.add('swipe-right');
             setTimeout(() => {
                 card.classList.remove('swipe-right');
@@ -146,6 +150,7 @@ function setupEventListeners() {
     });
     hammer.on('swipeup', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
+            // Add swipe-up visual effect
             card.classList.add('swipe-up');
             setTimeout(() => {
                 card.classList.remove('swipe-up');
@@ -166,6 +171,7 @@ function setupEventListeners() {
     });
     hammer.on('swipedown', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
+            // Add swipe-down visual effect
             card.classList.add('swipe-down');
             setTimeout(() => {
                 card.classList.remove('swipe-down');
@@ -254,9 +260,7 @@ function playAudio(audioFile) {
 }
 
 function flipCard() {
-    isFlipped = !
-
-isFlipped;
+    isFlipped = !isFlipped;
     const card = document.querySelector('.flashcard');
     card.classList.toggle('flipped', isFlipped);
     stopAudio();
