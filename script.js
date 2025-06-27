@@ -6,15 +6,13 @@ let currentAudio = null;
 let audioCache = new Map();
 const MAX_CACHE_SIZE = 10;
 let audioUnlocked = false;
-let maxFreq = 0; // Maximum frequency (rank 1 word)
-let minFreq = 1; // Minimum frequency, default to 1 to avoid log(0)
+let maxFreq = 0;
+let minFreq = 1;
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Load theme from localStorage, default to bright
     const savedTheme = localStorage.getItem('theme') || 'bright';
     document.body.setAttribute('data-theme', savedTheme);
     
-    // Setup theme toggle button
     const themeToggle = document.querySelector('.theme-toggle');
     themeToggle.addEventListener('click', () => {
         const currentTheme = document.body.getAttribute('data-theme');
@@ -27,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupEventListeners();
 });
 
-// Unlock audio on first user interaction
 document.body.addEventListener('touchstart', () => {
     audioUnlocked = true;
     console.log('Audio unlocked via touchstart');
@@ -53,7 +50,6 @@ function loadWords() {
                 return;
             }
             words.sort((a, b) => a.rank - b.rank);
-            // Find max and min frequencies
             maxFreq = words.find(word => word.rank === 1)?.freq || 1;
             minFreq = Math.min(...words.map(word => word.freq).filter(freq => freq > 0)) || 1;
             displayWord();
@@ -65,25 +61,6 @@ function loadWords() {
         });
 }
 
-function showSwipeEffect(direction) {
-    const overlay = document.querySelector('.swipe-overlay');
-    overlay.className = 'swipe-overlay'; // Reset classes
-    overlay.classList.add(`swipe-${direction}`);
-    // Remove animation class after it completes to allow re-triggering
-    setTimeout(() => {
-        overlay.classList.remove(`swipe-${direction}`);
-    }, 300); // Match animation duration in CSS
-}
-
-function showTapEffect(isDoubleTap) {
-    const flashcard = document.querySelector('.flashcard');
-    flashcard.classList.add(isDoubleTap ? 'double-tap-effect' : 'single-tap-effect');
-    // Remove effect class after animation completes
-    setTimeout(() => {
-        flashcard.classList.remove(isDoubleTap ? 'double-tap-effect' : 'single-tap-effect');
-    }, 300); // Match animation duration in CSS
-}
-
 function setupEventListeners() {
     const card = document.querySelector('.flashcard');
     let tapCount = 0;
@@ -93,15 +70,18 @@ function setupEventListeners() {
     card.addEventListener('click', (e) => {
         const currentTime = new Date().getTime();
         tapCount++;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
         if (tapCount === 1) {
             setTimeout(() => {
                 if (tapCount === 1) {
+                    showTapRipple(x, y, false);
                     const audioFile = isFlipped ? 
                         (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                          words[currentWordIndex]?.word_audio_file?.[0]) : 
                         words[currentWordIndex]?.word_audio_file?.[0];
                     if (audioFile) {
-                        showTapEffect(false); // Single tap effect
                         playAudio(audioFile);
                     } else {
                         console.warn(`No audio file for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
@@ -110,7 +90,7 @@ function setupEventListeners() {
                 tapCount = 0;
             }, doubleTapThreshold);
         } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
-            showTapEffect(true); // Double tap effect
+            showTapRipple(x, y, true);
             flipCard();
             tapCount = 0;
         }
@@ -193,6 +173,26 @@ function setupEventListeners() {
             preloadAudio();
         }
     });
+}
+
+function showSwipeEffect(direction) {
+    const arrow = document.querySelector(`.swipe-arrow.${direction}`);
+    arrow.classList.add('active');
+    setTimeout(() => {
+        arrow.classList.remove('active');
+    }, 300);
+}
+
+function showTapRipple(x, y, isDouble) {
+    const ripple = document.querySelector('.tap-ripple');
+    ripple.style.width = isDouble ? '60px' : '40px';
+    ripple.style.height = isDouble ? '60px' : '40px';
+    ripple.style.left = `${x - (isDouble ? 30 : 20)}px`;
+    ripple.style.top = `${y - (isDouble ? 30 : 20)}px`;
+    ripple.classList.add('active', isDouble ? 'double' : '');
+    setTimeout(() => {
+        ripple.classList.remove('active', 'double');
+    }, 700);
 }
 
 function preloadAudio() {
@@ -281,9 +281,7 @@ function flipCard() {
 }
 
 function getFrequencyColor(relativeFreq) {
-    // Color gradient: red (0%) -> orange (50%) -> green (100%)
-    // Hue: 0 (red) to 120 (green)
-    const hue = Math.min(relativeFreq * 1.2, 120); // Scale 0-100% to 0-120 degrees
+    const hue = Math.min(relativeFreq * 1.2, 120);
     return `hsl(${hue}, 80%, 50%)`;
 }
 
@@ -295,15 +293,13 @@ function displayWord() {
     const wordData = words[currentWordIndex];
     const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: '', example_en: '' };
     
-    // Calculate relative frequency using logarithmic scaling with minimum 5% width
     const logFreq = Math.log(wordData.freq || 1);
     const logMinFreq = Math.log(minFreq);
     const logMaxFreq = Math.log(maxFreq);
     const relativeFreq = 5 + 95 * ((logFreq - logMinFreq) / (logMaxFreq - logMinFreq));
-    const freqPercentage = Math.min(Math.max(relativeFreq, 5), 100).toFixed(0); // Ensure within 5-100%
+    const freqPercentage = Math.min(Math.max(relativeFreq, 5), 100).toFixed(0);
     const freqColor = getFrequencyColor(relativeFreq);
 
-    // Update front card
     document.querySelector('.front').innerHTML = `
         <div class="word-container">
             <h2>${wordData.word}</h2>
@@ -319,7 +315,6 @@ function displayWord() {
         </div>
     `;
 
-    // Update back card
     document.querySelector('.back').innerHTML = `
         <div class="word-container">
             <h2>${wordData.word}</h2>
