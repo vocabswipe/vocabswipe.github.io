@@ -65,6 +65,14 @@ function loadWords() {
         });
 }
 
+function showEffect(effectClass) {
+    const effectElement = document.querySelector(`.${effectClass}`);
+    effectElement.classList.add('show');
+    setTimeout(() => {
+        effectElement.classList.remove('show');
+    }, 300); // Match animation duration
+}
+
 function setupEventListeners() {
     const card = document.querySelector('.flashcard');
     let tapCount = 0;
@@ -74,13 +82,10 @@ function setupEventListeners() {
     card.addEventListener('click', (e) => {
         const currentTime = new Date().getTime();
         tapCount++;
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
         if (tapCount === 1) {
             setTimeout(() => {
                 if (tapCount === 1) {
-                    showVisualEffect('tap', x, y);
+                    showEffect('single-tap');
                     const audioFile = isFlipped ? 
                         (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                          words[currentWordIndex]?.word_audio_file?.[0]) : 
@@ -94,7 +99,7 @@ function setupEventListeners() {
                 tapCount = 0;
             }, doubleTapThreshold);
         } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
-            showVisualEffect('double-tap', x, y);
+            showEffect('double-tap');
             flipCard();
             tapCount = 0;
         }
@@ -103,9 +108,9 @@ function setupEventListeners() {
 
     const hammer = new Hammer(card);
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-    hammer.on('swipeleft', (e) => {
+    hammer.on('swipeleft', () => {
         if (words.length) {
-            showVisualEffect('swipe-left');
+            showEffect('swipe-left');
             currentWordIndex = (currentWordIndex + 1) % words.length;
             currentBackCardIndex = 0;
             stopAudio();
@@ -125,7 +130,7 @@ function setupEventListeners() {
     });
     hammer.on('swiperight', () => {
         if (words.length) {
-            showVisualEffect('swipe-right');
+            showEffect('swipe-right');
             currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
             currentBackCardIndex = 0;
             stopAudio();
@@ -145,14 +150,14 @@ function setupEventListeners() {
     });
     hammer.on('swipeup', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            showVisualEffect('swipe-up');
+            showEffect('swipe-up');
             currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
             const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                              words[currentWordIndex]?.word_audio_file?.[0];
             if (audioFile) {
-                console.log(`Swipe up: Playing audio for back card at index ${currentBackIndex} for word ${currentWordIndex}`);
+                console.log(`Swipe up: Playing audio for back card at index ${currentBackCardIndex} for word ${currentWordIndex}`);
                 playAudio(audioFile);
             } else {
                 console.warn(`No audio file for back card at index ${currentBackCardIndex} for word at ${currentWordIndex}`);
@@ -162,7 +167,7 @@ function setupEventListeners() {
     });
     hammer.on('swipedown', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            showVisualEffect('swipe-down');
+            showEffect('swipe-down');
             currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
@@ -179,31 +184,13 @@ function setupEventListeners() {
     });
 }
 
-function showVisualEffect(type, x, y) {
-    const card = document.querySelector('.flashcard');
-    const effect = document.createElement('div');
-    effect.className = `visual-effect ${type}`;
-    
-    if (type === 'tap' || type === 'double-tap') {
-        // Ripple effect at touch point
-        effect.style.left = `${x}px`;
-        effect.style.top = `${y}px`;
-        card.appendChild(effect);
-        setTimeout(() => effect.remove(), 600); // Match animation duration
-    } else {
-        // Swipe effect (directional arrows)
-        card.appendChild(effect);
-        setTimeout(() => effect.remove(), 300); // Match animation duration
-    }
-}
-
 function preloadAudio() {
     if (!words[currentWordIndex]) return;
     const currentWord = words[currentWordIndex];
     const nextIndex = (currentWordIndex + 1) % words.length;
     const prevIndex = (currentWordIndex - 1 + words.length) % words.length;
     const nextWord = words[nextIndex];
-    const prevWord =  words[prevIndex];
+    const prevWord = words[prevIndex];
 
     const audioFiles = [
         currentWord.word_audio_file?.[0],
