@@ -11,7 +11,7 @@
 </head>
 <body data-theme="bright">
     <div class="container">
-        <button class="theme-toggle" aria-label="Toggle theme">
+        <button class="theme-toggle" aria-label="Toggle between light and dark theme">
             <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="#FFC107"/>
                 <path d="M12 2V4M12 20V22M4 12H2M22 12H20M6.34 6.34L4.93 4.93M19.07 19.07L17.66 17.66M6.34 17.66L4.93 19.07M19.07 4.93L17.66 6.34" stroke="#FFC107" stroke-width="2"/>
@@ -23,11 +23,25 @@
         <h1 class="website-name">VocabSwipe</h1>
         <h2 class="slogan">Swipe to Master Your Vocabulary!</h2>
         <p class="deck-version">Top 5000 Frequently Used Words</p>
-        <div class="flashcard-container">
-            <div class="flashcard">
+        <div class="loading-overlay" id="loading-overlay">
+            <div class="spinner"></div>
+            <p>Loading vocabulary...</p>
+        </div>
+        <div class="onboarding-overlay" id="onboarding-overlay">
+            <div class="onboarding-content">
+                <h2>Welcome to VocabSwipe!</h2>
+                <p>Swipe left/right to navigate words.</p>
+                <p>Swipe up/down to view different definitions (when flipped).</p>
+                <p>Tap once to hear pronunciation, twice to flip the card.</p>
+                <p>Keyboard: Arrow keys to navigate, Enter to play audio, Shift+Enter to flip.</p>
+                <button id="dismiss-onboarding" aria-label="Dismiss onboarding guide">Got it!</button>
+            </div>
+        </div>
+        <div class="flashcard-container" role="region" aria-label="Flashcard">
+            <div class="flashcard" tabindex="0">
                 <div class="front">
                     <div class="word-container">
-                        <h2 id="word"></h2>
+                        <h2 id="word" aria-live="polite"></h2>
                     </div>
                     <div class="meta-info">
                         <span id="front-rank" class="rank"></span>
@@ -41,7 +55,7 @@
                 </div>
                 <div class="back">
                     <div class="word-container">
-                        <h2 id="back-word"></h2>
+                        <h2 id="back-word" aria-live="polite"></h2>
                     </div>
                     <div class="back-template">
                         <div class="card-info">
