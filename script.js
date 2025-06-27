@@ -65,12 +65,23 @@ function loadWords() {
         });
 }
 
-function showEffect(effectClass) {
-    const effectElement = document.querySelector(`.${effectClass}`);
-    effectElement.classList.add('show');
+function showSwipeEffect(direction) {
+    const overlay = document.querySelector('.swipe-overlay');
+    overlay.className = 'swipe-overlay'; // Reset classes
+    overlay.classList.add(`swipe-${direction}`);
+    // Remove animation class after it completes to allow re-triggering
     setTimeout(() => {
-        effectElement.classList.remove('show');
-    }, 300); // Match animation duration
+        overlay.classList.remove(`swipe-${direction}`);
+    }, 300); // Match animation duration in CSS
+}
+
+function showTapEffect(isDoubleTap) {
+    const flashcard = document.querySelector('.flashcard');
+    flashcard.classList.add(isDoubleTap ? 'double-tap-effect' : 'single-tap-effect');
+    // Remove effect class after animation completes
+    setTimeout(() => {
+        flashcard.classList.remove(isDoubleTap ? 'double-tap-effect' : 'single-tap-effect');
+    }, 300); // Match animation duration in CSS
 }
 
 function setupEventListeners() {
@@ -85,12 +96,12 @@ function setupEventListeners() {
         if (tapCount === 1) {
             setTimeout(() => {
                 if (tapCount === 1) {
-                    showEffect('single-tap');
                     const audioFile = isFlipped ? 
                         (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                          words[currentWordIndex]?.word_audio_file?.[0]) : 
                         words[currentWordIndex]?.word_audio_file?.[0];
                     if (audioFile) {
+                        showTapEffect(false); // Single tap effect
                         playAudio(audioFile);
                     } else {
                         console.warn(`No audio file for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
@@ -99,7 +110,7 @@ function setupEventListeners() {
                 tapCount = 0;
             }, doubleTapThreshold);
         } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
-            showEffect('double-tap');
+            showTapEffect(true); // Double tap effect
             flipCard();
             tapCount = 0;
         }
@@ -110,7 +121,7 @@ function setupEventListeners() {
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
     hammer.on('swipeleft', () => {
         if (words.length) {
-            showEffect('swipe-left');
+            showSwipeEffect('left');
             currentWordIndex = (currentWordIndex + 1) % words.length;
             currentBackCardIndex = 0;
             stopAudio();
@@ -130,7 +141,7 @@ function setupEventListeners() {
     });
     hammer.on('swiperight', () => {
         if (words.length) {
-            showEffect('swipe-right');
+            showSwipeEffect('right');
             currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
             currentBackCardIndex = 0;
             stopAudio();
@@ -150,7 +161,7 @@ function setupEventListeners() {
     });
     hammer.on('swipeup', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            showEffect('swipe-up');
+            showSwipeEffect('up');
             currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
@@ -167,7 +178,7 @@ function setupEventListeners() {
     });
     hammer.on('swipedown', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            showEffect('swipe-down');
+            showSwipeEffect('down');
             currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
