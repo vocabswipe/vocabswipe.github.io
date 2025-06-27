@@ -42,7 +42,7 @@ function loadWords() {
             }
             return response.text();
         })
-        .mthen(yamlText => {
+        .then(yamlText => {
             words = jsyaml.load(yamlText) || [];
             if (!words.length) {
                 console.warn('No words found in vocab_database.yaml');
@@ -126,7 +126,7 @@ function setupEventListeners() {
             const audioFile = isFlipped ? 
                 (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                  words[currentWordIndex]?.word_audio_file?.[0]) : 
-                words[currentWordIndex]?.word_audio_file?.[0];
+                words[currentWordIndex]?.word_audioFile?.[0];
             if (audioFile) {
                 console.log(`Swipe right: Playing audio for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
                 playAudio(audioFile);
@@ -182,8 +182,8 @@ function showSwipeEffect(direction) {
 
 function showTapEffect(type) {
     const card = document.querySelector('.flashcard');
-    card.classList.add(`pulse-${type}`);
-    setTimeout(() => card.classList.remove(`pulse-${type}`), 600);
+    card.classList.add(`tap-effect-${type}`);
+    setTimeout(() => card.classList.remove(`tap-effect-${type}`), 600);
 }
 
 function preloadAudio() {
