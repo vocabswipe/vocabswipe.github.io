@@ -122,6 +122,7 @@ body[data-theme="dark"] .deck-version {
     transform-style: preserve-3d;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
+    overflow: hidden; /* Ensure effects stay within card boundaries */
 }
 
 body[data-theme="dark"] .flashcard {
@@ -129,78 +130,35 @@ body[data-theme="dark"] .flashcard {
 }
 
 .flashcard.flipped {
-    transform: rotateYDIRECTIVE: .back {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+body[data-theme="dark"] .front,
+body[data-theme="dark"] .back {
+    background: linear-gradient(145deg, #374151 0%, #4b5563 100%);
+    border: 1px solid #4b5563;
+}
+
+.back {
     transform: rotateY(180deg);
     background: linear-gradient(145deg, #f9fafb 0%, #f3f4f6 100%);
 }
 
 body[data-theme="dark"] .back {
     background: linear-gradient(145deg, #4b5563 0%, #374151 100%);
-}
-
-.effect-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none; /* Ensures effects don't interfere with interactions */
-}
-
-.ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.2);
-    transform: scale(0);
-    animation: ripple 0.6s ease-out;
-    pointer-events: none;
-    z-index: 10;
-}
-
-body[data-theme="dark"] .ripple {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-@keyframes ripple {
-    to {
-        transform: scale(4);
-        opacity: 0;
-    }
-}
-
-.swipe-indicator {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    animation: swipeFade 0.4s ease-out;
-    pointer-events: none;
-    z-index: 10;
-}
-
-.swipe-indicator svg {
-    width: 50px;
-    height: 50px;
-    fill: rgba(0, 0, 0, 0.3);
-}
-
-body[data-theme="dark"] .swipe-indicator svg {
-    fill: rgba(255, 255, 255, 0.3);
-}
-
-@keyframes swipeFade {
-    0% {
-        opacity: 0;
-    }
-    20% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
 }
 
 .word-container {
@@ -297,7 +255,6 @@ body[data-theme="dark"] .rank {
 .frequency-label {
     font-size: 14px;
     font-weight: 500;
-    color: #6b7280;
 }
 
 body[data-theme="dark"] .frequency-label {
@@ -321,6 +278,112 @@ body[data-theme="dark"] .frequency-bar {
 .frequency-fill {
     height: 100%;
     transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Visual Effect Styles */
+.visual-effect {
+    position: absolute;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.visual-effect.tap, .visual-effect.double-tap {
+    width: 100px;
+    height: 100px;
+    background: rgba(30, 64, 175, 0.3); /* Blue ripple for bright theme */
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 0.6s ease-out forwards;
+}
+
+body[data-theme="dark"] .visual-effect.tap,
+body[data-theme="dark"] .visual-effect.double-tap {
+    background: rgba(96, 165, 250, 0.3); /* Lighter blue for dark theme */
+}
+
+.visual-effect.double-tap {
+    background: rgba(30, 64, 175, 0.5); /* Slightly stronger ripple for double-tap */
+}
+
+body[data-theme="dark"] .visual-effect.double-tap {
+    background: rgba(96, 165, 250, 0.5);
+}
+
+@keyframes ripple {
+    to {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}
+
+.visual-effect.swipe-left, 
+.visual-effect.swipe-right,
+.visual-effect.swipe-up,
+.visual-effect.swipe-down {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Semi-transparent overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: swipeFade 0.3s ease-out forwards;
+}
+
+body[data-theme="dark"] .visual-effect.swipe-left,
+body[data-theme="dark"] .visual-effect.swipe-right,
+body[data-theme="dark"] .visual-effect.swipe-up,
+body[data-theme="dark"] .visual-effect.swipe-down {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.visual-effect.swipe-left::before,
+.visual-effect.swipe-right::before,
+.visual-effect.swipe-up::before,
+.visual-effect.swipe-down::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+}
+
+.visual-effect.swipe-left::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231e40af" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>');
+}
+
+body[data-theme="dark"] .visual-effect.swipe-left::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2360a5fa" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>');
+}
+
+.visual-effect.swipe-right::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231e40af" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>');
+}
+
+body[data-theme="dark"] .visual-effect.swipe-right::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2360a5fa" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>');
+}
+
+.visual-effect.swipe-up::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231e40af" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>');
+}
+
+body[data-theme="dark"] .visual-effect.swipe-up::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2360a5fa" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>');
+}
+
+.visual-effect.swipe-down::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231e40af" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>');
+}
+
+body[data-theme="dark"] .visual-effect.swipe-down::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2360a5fa" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>');
+}
+
+@keyframes swipeFade {
+    to {
+        opacity: 0;
+    }
 }
 
 @media (max-width: 768px) {
@@ -372,8 +435,16 @@ body[data-theme="dark"] .frequency-bar {
         height: 8px;
     }
 
-    .swipe-indicator svg {
-        width: 40px;
-        height: 40px;
+    .visual-effect.tap, .visual-effect.double-tap {
+        width: 80px;
+        height: 80px;
+    }
+
+    .visual-effect.swipe-left::before,
+    .visual-effect.swipe-right::before,
+    .visual-effect.swipe-up::before,
+    .visual-effect.swipe-down::before {
+        width: 30px;
+        height: 30px;
     }
 }
