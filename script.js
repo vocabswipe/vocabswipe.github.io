@@ -73,13 +73,13 @@ function setupEventListeners() {
         if (tapCount === 1) {
             setTimeout(() => {
                 if (tapCount === 1) {
+                    showTapEffect(e, 'single');
                     const audioFile = isFlipped ? 
                         (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                          words[currentWordIndex]?.word_audio_file?.[0]) : 
                         words[currentWordIndex]?.word_audio_file?.[0];
                     if (audioFile) {
                         playAudio(audioFile);
-                        triggerTapEffect(e, 'single-tap');
                     } else {
                         console.warn(`No audio file for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
                     }
@@ -87,8 +87,8 @@ function setupEventListeners() {
                 tapCount = 0;
             }, doubleTapThreshold);
         } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
+            showTapEffect(e, 'double');
             flipCard();
-            triggerTapEffect(e, 'double-tap');
             tapCount = 0;
         }
         lastTapTime = currentTime;
@@ -98,7 +98,7 @@ function setupEventListeners() {
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
     hammer.on('swipeleft', () => {
         if (words.length) {
-            triggerSwipeEffect('swipe-left');
+            showSwipeEffect('left');
             currentWordIndex = (currentWordIndex + 1) % words.length;
             currentBackCardIndex = 0;
             stopAudio();
@@ -118,7 +118,7 @@ function setupEventListeners() {
     });
     hammer.on('swiperight', () => {
         if (words.length) {
-            triggerSwipeEffect('swipe-right');
+            showSwipeEffect('right');
             currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
             currentBackCardIndex = 0;
             stopAudio();
@@ -138,7 +138,7 @@ function setupEventListeners() {
     });
     hammer.on('swipeup', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            triggerSwipeEffect('swipe-up');
+            showSwipeEffect('up');
             currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
@@ -148,14 +148,14 @@ function setupEventListeners() {
                 console.log(`Swipe up: Playing audio for back card at index ${currentBackCardIndex} for word ${currentWordIndex}`);
                 playAudio(audioFile);
             } else {
-                console.warn(`No audio file for back card at index ${currentBackCardIndex} for word at ${currentWordIndex}`);
+                console.warn(`No audio file for back card:${currentBackCardIndex} for word at ${currentWordIndex}`);
             }
             preloadAudio();
         }
     });
     hammer.on('swipedown', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            triggerSwipeEffect('swipe-down');
+            showSwipeEffect('down');
             currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
@@ -172,23 +172,25 @@ function setupEventListeners() {
     });
 }
 
-function triggerSwipeEffect(direction) {
-    const card = document.querySelector('.flashcard');
-    const overlay = card.querySelector(`.${direction}`);
-    overlay.classList.add('active');
-    setTimeout(() => overlay.classList.remove('active'), 300);
+function showSwipeEffect(direction) {
+    const container = document.querySelector('.flashcard-container');
+    const effect = document.createElement('div');
+    effect.classList.add('swipe-effect', `swipe-${direction}`);
+    container.appendChild(effect);
+    setTimeout(() => effect.remove(), 600);
 }
 
-function triggerTapEffect(event, type) {
-    const card = document.querySelector('.flashcard');
-    const overlay = card.querySelector(`.${type}`);
-    const rect = card.getBoundingClientRect();
+function showTapEffect(event, type) {
+    const container = document.querySelector('.flashcard-container');
+    const effect = document.createElement('div');
+    effect.classList.add('tap-effect', `tap-${type}`);
+    const rect = container.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
-    overlay.style.left = `${x}px`;
-    overlay.style.top = `${y}px`;
-    overlay.classList.add('active');
-    setTimeout(() => overlay.classList.remove('active'), 300);
+    effect.style.left = `${x}px`;
+    effect.style.top = `${y}px`;
+    container.appendChild(effect);
+    setTimeout(() => effect.remove(), 600);
 }
 
 function preloadAudio() {
@@ -309,12 +311,6 @@ function displayWord() {
                 </div>
             </div>
         </div>
-        <div class="swipe-overlay swipe-left"></div>
-        <div class="swipe-overlay swipe-right"></div>
-        <div class="swipe-overlay swipe-up"></div>
-        <div class="swipe-overlay swipe-down"></div>
-        <div class="tap-overlay single-tap"></div>
-        <div class="tap-overlay double-tap"></div>
     `;
 
     document.querySelector('.back').innerHTML = `
@@ -336,11 +332,5 @@ function displayWord() {
                 </div>
             </div>
         </div>
-        <div class="swipe-overlay swipe-left"></div>
-        <div class="swipe-overlay swipe-right"></div>
-        <div class="swipe-overlay swipe-up"></div>
-        <div class="swipe-overlay swipe-down"></div>
-        <div class="tap-overlay single-tap"></div>
-        <div class="tap-overlay double-tap"></div>
     `;
 }
