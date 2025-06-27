@@ -63,6 +63,7 @@ function loadWords() {
 
 function setupEventListeners() {
     const card = document.querySelector('.flashcard');
+    const wrapper = document.querySelector('.flashcard-wrapper');
     let tapCount = 0;
     let lastTapTime = 0;
     const doubleTapThreshold = 300;
@@ -73,7 +74,8 @@ function setupEventListeners() {
         if (tapCount === 1) {
             setTimeout(() => {
                 if (tapCount === 1) {
-                    showTapEffect('single');
+                    wrapper.classList.add('pulse-single');
+                    setTimeout(() => wrapper.classList.remove('pulse-single'), 500);
                     const audioFile = isFlipped ? 
                         (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                          words[currentWordIndex]?.word_audio_file?.[0]) : 
@@ -87,7 +89,8 @@ function setupEventListeners() {
                 tapCount = 0;
             }, doubleTapThreshold);
         } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
-            showTapEffect('double');
+            wrapper.classList.add('pulse-double');
+            setTimeout(() => wrapper.classList.remove('pulse-double'), 700);
             flipCard();
             tapCount = 0;
         }
@@ -98,7 +101,8 @@ function setupEventListeners() {
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
     hammer.on('swipeleft', () => {
         if (words.length) {
-            showSwipeEffect('left');
+            wrapper.classList.add('swipe-left');
+            setTimeout(() => wrapper.classList.remove('swipe-left'), 500);
             currentWordIndex = (currentWordIndex + 1) % words.length;
             currentBackCardIndex = 0;
             stopAudio();
@@ -118,7 +122,8 @@ function setupEventListeners() {
     });
     hammer.on('swiperight', () => {
         if (words.length) {
-            showSwipeEffect('right');
+            wrapper.classList.add('swipe-right');
+            setTimeout(() => wrapper.classList.remove('swipe-right'), 500);
             currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
             currentBackCardIndex = 0;
             stopAudio();
@@ -126,7 +131,7 @@ function setupEventListeners() {
             const audioFile = isFlipped ? 
                 (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                  words[currentWordIndex]?.word_audio_file?.[0]) : 
-                words[currentWordIndex]?.word_audioFile?.[0];
+                words[currentWordIndex]?.word_audio_file?.[0];
             if (audioFile) {
                 console.log(`Swipe right: Playing audio for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
                 playAudio(audioFile);
@@ -138,7 +143,8 @@ function setupEventListeners() {
     });
     hammer.on('swipeup', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            showSwipeEffect('up');
+            wrapper.classList.add('swipe-up');
+            setTimeout(() => wrapper.classList.remove('swipe-up'), 500);
             currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
@@ -155,7 +161,8 @@ function setupEventListeners() {
     });
     hammer.on('swipedown', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            showSwipeEffect('down');
+            wrapper.classList.add('swipe-down');
+            setTimeout(() => wrapper.classList.remove('swipe-down'), 500);
             currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
@@ -170,20 +177,6 @@ function setupEventListeners() {
             preloadAudio();
         }
     });
-}
-
-function showSwipeEffect(direction) {
-    const container = document.querySelector('.flashcard-container');
-    const effect = document.createElement('div');
-    effect.classList.add('swipe-effect', `swipe-${direction}`);
-    container.appendChild(effect);
-    setTimeout(() => effect.remove(), 600);
-}
-
-function showTapEffect(type) {
-    const card = document.querySelector('.flashcard');
-    card.classList.add(`tap-effect-${type}`);
-    setTimeout(() => card.classList.remove(`tap-effect-${type}`), 600);
 }
 
 function preloadAudio() {
