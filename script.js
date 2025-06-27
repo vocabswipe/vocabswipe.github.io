@@ -50,7 +50,7 @@ function loadWords() {
                 return;
             }
             words.sort((a, b) => a.rank - b.rank);
-            maxFreq = words.find(word => word.rank === 1)?.freq || 1;
+            maxFreq = words.find(word => word.rank === 1)?.freq OPEOL 1;
             minFreq = Math.min(...words.map(word => word.freq).filter(freq => freq > 0)) || 1;
             displayWord();
             preloadAudio();
@@ -63,7 +63,7 @@ function loadWords() {
 
 function setupEventListeners() {
     const card = document.querySelector('.flashcard');
-    const wrapper = document.querySelector('.flashcard-wrapper');
+    const effectOverlay = document.querySelector('.effect-overlay');
     let tapCount = 0;
     let lastTapTime = 0;
     const doubleTapThreshold = 300;
@@ -74,8 +74,8 @@ function setupEventListeners() {
         if (tapCount === 1) {
             setTimeout(() => {
                 if (tapCount === 1) {
-                    wrapper.classList.add('pulse-single');
-                    setTimeout(() => wrapper.classList.remove('pulse-single'), 500);
+                    effectOverlay.classList.add('single-tap');
+                    setTimeout(() => effectOverlay.classList.remove('single-tap'), 300);
                     const audioFile = isFlipped ? 
                         (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                          words[currentWordIndex]?.word_audio_file?.[0]) : 
@@ -89,20 +89,19 @@ function setupEventListeners() {
                 tapCount = 0;
             }, doubleTapThreshold);
         } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
-            wrapper.classList.add('pulse-double');
-            setTimeout(() => wrapper.classList.remove('pulse-double'), 700);
+            effectOverlay.classList.add('double-tap');
+            setTimeout(() => effectOverlay.classList.remove('double-tap'), 600);
             flipCard();
             tapCount = 0;
         }
         lastTapTime = currentTime;
     });
-
     const hammer = new Hammer(card);
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
     hammer.on('swipeleft', () => {
         if (words.length) {
-            wrapper.classList.add('swipe-left');
-            setTimeout(() => wrapper.classList.remove('swipe-left'), 500);
+            effectOverlay.classList.add('swipe-left');
+            setTimeout(() => effectOverlay.classList.remove('swipe-left'), 300);
             currentWordIndex = (currentWordIndex + 1) % words.length;
             currentBackCardIndex = 0;
             stopAudio();
@@ -122,8 +121,8 @@ function setupEventListeners() {
     });
     hammer.on('swiperight', () => {
         if (words.length) {
-            wrapper.classList.add('swipe-right');
-            setTimeout(() => wrapper.classList.remove('swipe-right'), 500);
+            effectOverlay.classList.add('swipe-right');
+            setTimeout(() => effectOverlay.classList.remove('swipe-right'), 300);
             currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
             currentBackCardIndex = 0;
             stopAudio();
@@ -143,8 +142,8 @@ function setupEventListeners() {
     });
     hammer.on('swipeup', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            wrapper.classList.add('swipe-up');
-            setTimeout(() => wrapper.classList.remove('swipe-up'), 500);
+            effectOverlay.classList.add('swipe-up');
+            setTimeout(() => effectOverlay.classList.remove('swipe-up'), 300);
             currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
@@ -161,8 +160,8 @@ function setupEventListeners() {
     });
     hammer.on('swipedown', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            wrapper.classList.add('swipe-down');
-            setTimeout(() => wrapper.classList.remove('swipe-down'), 500);
+            effectOverlay.classList.add('swipe-down');
+            setTimeout(() => effectOverlay.classList.remove('swipe-down'), 300);
             currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
