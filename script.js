@@ -152,7 +152,7 @@ function setupEventListeners() {
             const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                              words[currentWordIndex]?.word_audio_file?.[0];
             if (audioFile) {
-                console.log(`Swipe up: Playing audio for back card at index ${currentBackCardIndex} for word ${currentWordIndex}`);
+                console.log(`Swipe up: Playing audio for back card at index ${currentBackIndex} for word ${currentWordIndex}`);
                 playAudio(audioFile);
             } else {
                 console.warn(`No audio file for back card at index ${currentBackCardIndex} for word at ${currentWordIndex}`);
@@ -203,7 +203,7 @@ function preloadAudio() {
     const nextIndex = (currentWordIndex + 1) % words.length;
     const prevIndex = (currentWordIndex - 1 + words.length) % words.length;
     const nextWord = words[nextIndex];
-    const prevWord = words[prevIndex];
+    const prevWord =  words[prevIndex];
 
     const audioFiles = [
         currentWord.word_audio_file?.[0],
