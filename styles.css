@@ -110,7 +110,6 @@ body[data-theme="dark"] .deck-version {
 .flashcard-container {
     width: 100%;
     perspective: 1000px;
-    position: relative;
 }
 
 .flashcard {
@@ -123,7 +122,6 @@ body[data-theme="dark"] .deck-version {
     transform-style: preserve-3d;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
-    overflow: hidden;
 }
 
 body[data-theme="dark"] .flashcard {
@@ -131,35 +129,78 @@ body[data-theme="dark"] .flashcard {
 }
 
 .flashcard.flipped {
-    transform: rotateY(180deg);
-}
-
-.front, .back {
-    position: absolute;
-    width: 100%;
-    height: 100%; /* Fixed typo from "Expensive 100%" */
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    padding: 24px;
-    background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
-    border-radius: 12px;
-    border: 1px solid #e5e7eb;
-}
-
-body[data-theme="dark"] .front,
-body[data-theme="dark"] .back {
-    background: linear-gradient(145deg, #374151 0%, #4b5563 100%);
-    border: 1px solid #4b5563;
-}
-
-.back {
+    transform: rotateYDIRECTIVE: .back {
     transform: rotateY(180deg);
     background: linear-gradient(145deg, #f9fafb 0%, #f3f4f6 100%);
 }
 
 body[data-theme="dark"] .back {
     background: linear-gradient(145deg, #4b5563 0%, #374151 100%);
+}
+
+.effect-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Ensures effects don't interfere with interactions */
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    transform: scale(0);
+    animation: ripple 0.6s ease-out;
+    pointer-events: none;
+    z-index: 10;
+}
+
+body[data-theme="dark"] .ripple {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.swipe-indicator {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: swipeFade 0.4s ease-out;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.swipe-indicator svg {
+    width: 50px;
+    height: 50px;
+    fill: rgba(0, 0, 0, 0.3);
+}
+
+body[data-theme="dark"] .swipe-indicator svg {
+    fill: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes swipeFade {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 .word-container {
@@ -282,61 +323,6 @@ body[data-theme="dark"] .frequency-bar {
     transition: width 0.3s ease, background-color 0.3s ease;
 }
 
-/* Ripple Effect for Taps */
-.ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(30, 64, 175, 0.3);
-    transform: scale(0);
-    animation: ripple 0.6s linear;
-    pointer-events: none;
-    z-index: 10;
-}
-
-body[data-theme="dark"] .ripple {
-    background: rgba(96, 165, 250, 0.3);
-}
-
-@keyframes ripple {
-    to {
-        transform: scale(4);
-        opacity: 0;
-    }
-}
-
-/* Swipe Feedback Overlays */
-.swipe-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    opacity: 0;
-    z-index: 5;
-    transition: opacity 0.3s ease;
-}
-
-.swipe-overlay.show {
-    opacity: 0.3;
-}
-
-.swipe-left {
-    background: linear-gradient(to right, rgba(239, 68, 68, 0.5), transparent);
-}
-
-.swipe-right {
-    background: linear-gradient(to left, rgba(34, 197, 94, 0.5), transparent);
-}
-
-.swipe-up {
-    background: linear-gradient(to bottom, rgba(59, 130, 246, 0.5), transparent);
-}
-
-.swipe-down {
-    background: linear-gradient(to top, rgba(234, 179, 8, 0.5), transparent);
-}
-
 @media (max-width: 768px) {
     .container {
         padding-top: 20px;
@@ -386,7 +372,8 @@ body[data-theme="dark"] .ripple {
         height: 8px;
     }
 
-    .ripple {
-        animation-duration: 0.5s;
+    .swipe-indicator svg {
+        width: 40px;
+        height: 40px;
     }
 }
