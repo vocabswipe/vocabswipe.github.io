@@ -144,7 +144,6 @@ body[data-theme="dark"] .flashcard {
     background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
     border-radius: 12px;
     border: 1px solid #e5e7eb;
-    overflow: hidden;
 }
 
 body[data-theme="dark"] .front,
@@ -282,84 +281,139 @@ body[data-theme="dark"] .frequency-bar {
     transition: width 0.3s ease, background-color 0.3s ease;
 }
 
-.swipe-overlay {
+/* Swipe Effect Styles */
+.swipe-effect {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;
 }
 
-.swipe-overlay.swipe-left {
-    background: rgba(59, 130, 246, 0.3);
-    transform: translateX(-100%);
-}
-
-.swipe-overlay.swipe-left.active {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.swipe-overlay.swipe-right {
-    background: rgba(34, 197, 94, 0.3);
-    transform: translateX(100%);
-}
-
-.swipe-overlay.swipe-right.active {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.swipe-overlay.swipe-up {
-    background: rgba(234, 179, 8, 0.3);
-    transform: translateY(-100%);
-}
-
-.swipe-overlay.swipe-up.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.swipe-overlay.swipe-down {
-    background: rgba(147, 51, 234, 0.3);
-    transform: translateY(100%);
-}
-
-.swipe-overlay.swipe-down.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.tap-overlay {
+.swipe-left::before,
+.swipe-right::before,
+.swipe-up::before,
+.swipe-down::before {
+    content: '';
     position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    opacity: 0;
+    width: 40px;
+    height: 40px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%231e40af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>');
+    background-size: contain;
+    opacity: 0.7;
+    animation: swipeArrow 0.6s ease forwards;
+}
+
+body[data-theme="dark"] .swipe-left::before,
+body[data-theme="dark"] .swipe-right::before,
+body[data-theme="dark"] .swipe-up::before,
+body[data-theme="dark"] .swipe-down::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2360a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>');
+}
+
+.swipe-left::before {
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.swipe-right::before {
+    top: 50%;
+    right: 20%;
+    transform: translateY(-50%);
+}
+
+.swipe-up::before {
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%) rotate(-90deg);
+}
+
+.swipe-down::before {
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+}
+
+@keyframes swipeArrow {
+    0% { opacity: 0.7; transform: translateY(-50%) scale(1); }
+    50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
+    100% { opacity: 0; transform: translateY(-50%) scale(1.5); }
+}
+
+.swipe-up::before {
+    animation: swipeArrowUp 0.6s ease forwards;
+}
+
+.swipe-down::before {
+    animation: swipeArrowDown 0.6s ease forwards;
+}
+
+@keyframes swipeArrowUp {
+    0% { opacity: 0.7; transform: translateX(-50%) rotate(-90deg) scale(1); }
+    50% { opacity: 1; transform: translateX(-50%) rotate(-90deg) scale(1.2); }
+    100% { opacity: 0; transform: translateX(-50%) rotate(-90deg) scale(1.5); }
+}
+
+@keyframes swipeArrowDown {
+    0% { opacity: 0.7; transform: translateX(-50%) rotate(90deg) scale(1); }
+    50% { opacity: 1; transform: translateX(-50%) rotate(90deg) scale(1.2); }
+    100% { opacity: 0; transform: translateX(-50%) rotate(90deg) scale(1.5); }
+}
+
+/* Tap Effect Styles */
+.tap-effect {
+    position: absolute;
     pointer-events: none;
-    transform: scale(0);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;
 }
 
-.tap-overlay.single-tap {
-    background: rgba(255, 255, 255, 0.5);
+.tap-single::before,
+.tap-double::before,
+.tap-double::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(30, 64, 175, 0.3);
+    transform: translate(-50%, -50%);
 }
 
-.tap-overlay.single-tap.active {
-    opacity: 1;
-    transform: scale(1.5);
+body[data-theme="dark"] .tap-single::before,
+body[data-theme="dark"] .tap-double::before,
+body[data-theme="dark"] .tap-double::after {
+    background: rgba(96, 165, 250, 0.3);
 }
 
-.tap-overlay.double-tap {
-    background: rgba(255, 193, 7, 0.5);
+.tap-single::before {
+    width: 60px;
+    height: 60px;
+    animation: tapRipple 0.6s ease forwards;
 }
 
-.tap-overlay.double-tap.active {
-    opacity: 1;
-    transform: scale(2);
+.tap-double::before {
+    width: 80px;
+    height: 80px;
+    animation: tapRippleDouble 0.6s ease forwards;
+}
+
+.tap-double::after {
+    width: 100px;
+    height: 100px;
+    animation: tapRippleDouble 0.6s ease 0.1s forwards;
+}
+
+@keyframes tapRipple {
+    0% { opacity: 0.7; transform: translate(-50%, -50%) scale(0); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+}
+
+@keyframes tapRippleDouble {
+    0% { opacity: 0.7; transform: translate(-50%, -50%) scale(0); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.8); }
 }
 
 @media (max-width: 768px) {
@@ -411,16 +465,26 @@ body[data-theme="dark"] .frequency-bar {
         height: 8px;
     }
 
-    .tap-overlay {
-        width: 40px;
-        height: 40px;
+    .swipe-left::before,
+    .swipe-right::before,
+    .swipe-up::before,
+    .swipe-down::before {
+        width: 30px;
+        height: 30px;
     }
 
-    .tap-overlay.single-tap.active {
-        transform: scale(1.2);
+    .tap-single::before {
+        width: 50px;
+        height: 50px;
     }
 
-    .tap-overlay.double-tap.active {
-        transform: scale(1.8);
+    .tap-double::before {
+        width: 70px;
+        height: 70px;
+    }
+
+    .tap-double::after {
+        width: 90px;
+        height: 90px;
     }
 }
