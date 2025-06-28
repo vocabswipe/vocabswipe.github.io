@@ -59,8 +59,14 @@ body[data-theme="dark"] .reset-btn:hover {
 }
 
 body[data-theme="dark"] .shuffle-btn svg path,
-body[data-theme="dark"] .reset-btn svg path {
+body[data-theme="dark"] .reset-btn svg path,
+body[data-theme="dark"] .shuffle-btn svg line,
+body[data-theme="dark"] .reset-btn svg line {
     stroke: #60a5fa;
+}
+
+body[data-theme="dark"] .reset-btn svg path {
+    fill: #60a5fa;
 }
 
 .theme-toggle .sun-icon {
@@ -84,13 +90,17 @@ body[data-theme="dark"] .theme-toggle .moon-icon {
     gap: 8px;
 }
 
+.title-container {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
 .website-name {
     font-family: 'Caveat', cursive;
     font-size: 32px;
     font-weight: 700;
     color: #1e40af;
-    text-align: center;
-    margin-bottom: 4px;
+    line-height: 1.2;
 }
 
 body[data-theme="dark"] .website-name {
@@ -99,14 +109,27 @@ body[data-theme="dark"] .website-name {
 
 .slogan {
     font-family: 'Caveat', cursive;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
-    color: #4b5563;
-    text-align: center;
-    margin-bottom: 12px;
+    color: #1e40af;
+    line-height: 1.2;
+    margin-top: 4px;
 }
 
 body[data-theme="dark"] .slogan {
+    color: #60a5fa;
+}
+
+.deck-info {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    line-height: 1.2;
+    margin-top: 4px;
+}
+
+body[data-theme="dark"] .deck-info {
     color: #9ca3af;
 }
 
@@ -168,44 +191,71 @@ body[data-theme="dark"] #card-slider::-webkit-slider-thumb {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
-body[data-theme="dark"] .flashcard {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+.flashcard.glow-single {
+    animation: glow 0.3s ease-in-out 1;
 }
 
-.flashcard.glow-once {
-    animation: glow 0.5s ease-in-out;
+.flashcard.glow-double {
+    animation: glow 0.6s ease-in-out 2;
 }
 
-.flashcard.glow-twice {
-    animation: glow 0.3s ease-in-out 2;
+.flashcard.swipe-left {
+    animation: swipeLeft 0.2s ease-in-out;
 }
 
-.flashcard.swipe-left, .flashcard.swipe-right, .flashcard.swipe-up, .flashcard.swipe-down {
-    animation: fade 0.3s ease-in-out;
+.flashcard.swipe-right {
+    animation: swipeRight 0.2s ease-in-out;
+}
+
+.flashcard.swipe-up {
+    animation: swipeUp 0.2s ease-in-out;
+}
+
+.flashcard.swipe-down {
+    animation: swipeDown 0.2s ease-in-out;
 }
 
 @keyframes glow {
     0%, 100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); }
-    50% { box-shadow: 0 0 30px rgba(30, 64, 175, 0.7); }
+    50% { box-shadow: 0 8px 32px rgba(30, 64, 175, 0.5); }
 }
 
-body[data-theme="dark"] .flashcard.glow-once,
-body[data-theme="dark"] .flashcard.glow-twice {
+body[data-theme="dark"] .flashcard {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+body[data-theme="dark"] .flashcard.glow-single,
+body[data-theme="dark"] .flashcard.glow-double {
     animation: glow-dark 0.3s ease-in-out;
 }
 
-body[data-theme="dark"] .flashcard.glow-twice {
-    animation: glow-dark 0.3s ease-in-out 2;
+body[data-theme="dark"] .flashcard.glow-double {
+    animation: glow-dark 0.6s ease-in-out 2;
 }
 
 @keyframes glow-dark {
     0%, 100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
-    50% { box-shadow: 0 0 30px rgba(96, 165, 250, 0.7); }
+    50% { box-shadow: 0 8px 32px rgba(96, 165, 250, 0.5); }
 }
 
-@keyframes fade {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
+@keyframes swipeLeft {
+    0% { transform: translateX(0); opacity: 1; }
+    100% { transform: translateX(-100px); opacity: 0; }
+}
+
+@keyframes swipeRight {
+    0% { transform: translateX(0); opacity: 1; }
+    100% { transform: translateX(100px); opacity: 0; }
+}
+
+@keyframes swipeUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100px); opacity: 0; }
+}
+
+@keyframes swipeDown {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(100px); opacity: 0; }
 }
 
 .front, .back {
@@ -293,7 +343,6 @@ body[data-theme="dark"] .example {
 
 .meta-info {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding-top: 12px;
     border-top: 1px solid #e5e7eb;
@@ -303,39 +352,26 @@ body[data-theme="dark"] .meta-info {
     border-top: 1px solid #4b5563;
 }
 
-.rank {
-    font-size: 13px;
-    font-weight: 500;
-    color: #6b7280;
-}
-
-body[data-theme="dark"] .rank {
-    color: #9ca3af;
-}
-
-.frequency-container {
-    flex: 0;
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-}
-
 .frequency-label {
     font-size: 13px;
     font-weight: 500;
     color: #6b7280;
-    margin-right: 8px;
 }
 
 body[data-theme="dark"] .frequency-label {
     color: #9ca3af;
 }
 
+.frequency-container {
+    width: 100px;
+    margin-left: 12px;
+}
+
 .frequency-bar {
-    width: 80px;
-    height: 10px;
+    width: 100%;
+    height: 8px;
     border: 2px solid #1f2937;
-    border-radius: 6px;
+    border-radius: 4px;
     background: #e5e7eb;
 }
 
@@ -368,7 +404,11 @@ body[data-theme="dark"] .frequency-bar {
     }
 
     .slogan {
-        font-size: 16px;
+        font-size: 18px;
+    }
+
+    .deck-info {
+        font-size: 12px;
     }
 
     .flashcard {
@@ -383,13 +423,16 @@ body[data-theme="dark"] .frequency-bar {
         font-size: 14px;
     }
 
-    .rank, .frequency-label {
+    .frequency-label {
         font-size: 12px;
     }
 
     .frequency-bar {
-        width: 70px;
-        height: 8px;
+        height: 6px;
+    }
+
+    .frequency-container {
+        width: 80px;
     }
 
     #card-slider {
