@@ -32,6 +32,7 @@ body[data-theme="dark"] {
 
 .header {
     width: 100%;
+    max-width: 350px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -59,27 +60,20 @@ body[data-theme="dark"] .reset-btn:hover {
 }
 
 .theme-icon {
-    fill: #FFC107;
+    filter: invert(62%) sepia(98%) saturate(639%) hue-rotate(0deg) brightness(103%) contrast(101%);
 }
 
 body[data-theme="dark"] .theme-icon {
-    fill: #60a5fa;
+    filter: invert(62%) sepia(98%) saturate(639%) hue-rotate(180deg) brightness(103%) contrast(101%);
 }
 
-.shuffle-icon {
-    stroke: #1e40af;
+.shuffle-icon, .reset-icon {
+    filter: invert(20%) sepia(98%) saturate(639%) hue-rotate(200deg) brightness(90%) contrast(101%);
 }
 
-body[data-theme="dark"] .shuffle-icon {
-    stroke: #60a5fa;
-}
-
-.reset-icon {
-    stroke: #1e40af;
-}
-
+body[data-theme="dark"] .shuffle-icon,
 body[data-theme="dark"] .reset-icon {
-    stroke: #60a5fa;
+    filter: invert(62%) sepia(98%) saturate(639%) hue-rotate(180deg) brightness(103%) contrast(101%);
 }
 
 .controls {
@@ -90,6 +84,8 @@ body[data-theme="dark"] .reset-icon {
 .title-container {
     text-align: center;
     margin-bottom: 12px;
+    width: 100%;
+    max-width: 350px;
 }
 
 .website-name {
@@ -128,7 +124,7 @@ body[data-theme="dark"] .slogan-sub {
 }
 
 .slider-container {
-    width: 90%;
+    width: 100%;
     max-width: 320px;
     display: flex;
     align-items: center;
@@ -165,6 +161,7 @@ body[data-theme="dark"] #card-slider::-webkit-slider-thumb {
 
 .flashcard-container {
     width: 100%;
+    max-width: 350px;
     perspective: 1200px;
 }
 
@@ -173,7 +170,7 @@ body[data-theme="dark"] #card-slider::-webkit-slider-thumb {
     width: 100%;
     aspect-ratio: 3 / 4;
     max-width: 350px;
-    margin: 0, auto;
+    margin: 0 auto;
     transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.3s ease;
     transform-style: preserve-3d;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
