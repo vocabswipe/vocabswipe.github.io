@@ -58,20 +58,27 @@ body[data-theme="dark"] .reset-btn:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
-.theme-icon path {
+.theme-icon {
     fill: #FFC107;
 }
 
-body[data-theme="dark"] .theme-icon path {
+body[data-theme="dark"] .theme-icon {
     fill: #60a5fa;
 }
 
-.shuffle-icon path, .reset-icon path {
+.shuffle-icon {
     stroke: #1e40af;
 }
 
-body[data-theme="dark"] .shuffle-icon path,
-body[data-theme="dark"] .reset-icon path {
+body[data-theme="dark"] .shuffle-icon {
+    stroke: #60a5fa;
+}
+
+.reset-icon {
+    stroke: #1e40af;
+}
+
+body[data-theme="dark"] .reset-icon {
     stroke: #60a5fa;
 }
 
@@ -90,14 +97,13 @@ body[data-theme="dark"] .reset-icon path {
     font-size: 32px;
     font-weight: 700;
     color: #1e40af;
-    line-height: 1.2;
 }
 
 body[data-theme="dark"] .website-name {
     color: #60a5fa;
 }
 
-.slogan {
+.slogan-main {
     font-family: 'Caveat', cursive;
     font-size: 20px;
     font-weight: 400;
@@ -105,11 +111,11 @@ body[data-theme="dark"] .website-name {
     line-height: 1.2;
 }
 
-body[data-theme="dark"] .slogan {
+body[data-theme="dark"] .slogan-main {
     color: #60a5fa;
 }
 
-.subtitle {
+.slogan-sub {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -117,7 +123,7 @@ body[data-theme="dark"] .slogan {
     line-height: 1.2;
 }
 
-body[data-theme="dark"] .subtitle {
+body[data-theme="dark"] .slogan-sub {
     color: #9ca3af;
 }
 
@@ -125,7 +131,6 @@ body[data-theme="dark"] .subtitle {
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 12px;
     margin-bottom: 16px;
 }
 
@@ -183,11 +188,11 @@ body[data-theme="dark"] .flashcard {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-.glow-once {
+.flashcard.glow-once {
     animation: glow 0.3s ease-in-out;
 }
 
-.glow-twice {
+.flashcard.glow-twice {
     animation: glow 0.3s ease-in-out 2;
 }
 
@@ -196,12 +201,12 @@ body[data-theme="dark"] .flashcard {
     50% { box-shadow: 0 8px 32px rgba(30, 64, 175, 0.5); }
 }
 
-body[data-theme="dark"] .glow-once,
-body[data-theme="dark"] .glow-twice {
+body[data-theme="dark"] .flashcard.glow-once,
+body[data-theme="dark"] .flashcard.glow-twice {
     animation: glow-dark 0.3s ease-in-out;
 }
 
-body[data-theme="dark"] .glow-twice {
+body[data-theme="dark"] .flashcard.glow-twice {
     animation: glow-dark 0.3s ease-in-out 2;
 }
 
@@ -211,7 +216,48 @@ body[data-theme="dark"] .glow-twice {
 }
 
 .swipe-clone {
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.swipe-left {
+    animation: swipeLeft 0.3s ease-out forwards;
+}
+
+.swipe-right {
+    animation: swipeRight 0.3s ease-out forwards;
+}
+
+.swipe-up {
+    animation: swipeUp 0.3s ease-out forwards;
+}
+
+.swipe-down {
+    animation: swipeDown 0.3s ease-out forwards;
+}
+
+@keyframes swipeLeft {
+    from { transform: translateX(0); opacity: 0.5; }
+    to { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes swipeRight {
+    from { transform: translateX(0); opacity: 0.5; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes swipeUp {
+    from { transform: translateY(0); opacity: 0.5; }
+    to { transform: translateY(-100%); opacity: 0; }
+}
+
+@keyframes swipeDown {
+    from { transform: translateY(0); opacity: 0.5; }
+    to { transform: translateY(100%); opacity: 0; }
 }
 
 .front, .back {
@@ -322,13 +368,14 @@ body[data-theme="dark"] .rank {
 .frequency-container {
     display: flex;
     align-items: center;
-    gap: 8px;
+    margin-left: 12px;
 }
 
 .frequency-label {
     font-size: 13px;
     font-weight: 500;
     color: #6b7280;
+    margin-right: 8px;
 }
 
 body[data-theme="dark"] .frequency-label {
@@ -337,7 +384,7 @@ body[data-theme="dark"] .frequency-label {
 
 .frequency-bar {
     width: 100px;
-    height: 12px;
+    height: 10px;
     border: 2px solid #1f2937;
     border-radius: 6px;
     background: #e5e7eb;
@@ -371,11 +418,11 @@ body[data-theme="dark"] .frequency-bar {
         font-size: 28px;
     }
 
-    .slogan {
+    .slogan-main {
         font-size: 18px;
     }
 
-    .subtitle {
+    .slogan-sub {
         font-size: 12px;
     }
 
@@ -397,7 +444,7 @@ body[data-theme="dark"] .frequency-bar {
 
     .frequency-bar {
         width: 80px;
-        height: 10px;
+        height: 8px;
     }
 
     #card-slider {
