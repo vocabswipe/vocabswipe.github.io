@@ -109,10 +109,8 @@ function toggleTooltip() {
                 <strong>Benefits:</strong> Enhance your English vocabulary, comprehension, and pronunciation with an interactive flashcard system.
             `;
         overlay.style.display = 'flex';
-        document.body.classList.add('dimmed');
     } else {
         overlay.style.display = 'none';
-        document.body.classList.remove('dimmed');
     }
 }
 
