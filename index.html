@@ -16,6 +16,9 @@
                 <img src="night-light.svg" class="theme-icon" width="28" height="28" alt="Toggle theme">
             </button>
             <div class="controls">
+                <button class="info-btn" aria-label="Show information">
+                    <img src="information.svg" class="info-icon" width="24" height="24" alt="Information">
+                </button>
                 <button class="shuffle-btn" aria-label="Shuffle cards">
                     <img src="shuffle.svg" class="shuffle-icon" width="24" height="24" alt="Shuffle cards">
                 </button>
@@ -68,6 +71,12 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="tooltip-overlay" style="display: none;">
+            <div class="tooltip-message">
+                <p id="tooltip-text"></p>
+                <button class="tooltip-close" aria-label="Close tooltip">Close</button>
             </div>
         </div>
     </div>
