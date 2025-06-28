@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>VocabSwipe</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&family=Roboto:wght@400&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
 </head>
@@ -24,12 +24,12 @@
             <div class="controls">
                 <button class="shuffle-btn" aria-label="Shuffle cards">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 3L22 7M22 7L18 11M22 7H15C11.134 7 8 10.134 8 14M6 13L2 17M2 17L6 21M2 17H9C12.866 17 16 13.866 16 10" stroke="#1e40af" stroke-width="2"/>
+                        <path d="M19 5L15 9M15 9L19 13M15 9H5M5 19L9 15M9 15L5 11M9 15H19" stroke="#1e40af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
                 <button class="reset-btn" aria-label="Reset order">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3 12C3 16.9706 7.02944 21 12 21C14.2356 21 16.2695 20.195 17.8248 18.8716L19 20C17.0456 21.6451 14.6216 22.5 12 22.5C6.20101 22.5 1.5 17.799 1.5 12C1.5 6.20101 6.20101 1.5 12 1.5C17.799 1.5 22.5 6.20101 22.5 12C22.5 14.6216 21.6451 17.0456 20 19L18.8716 17.8248C20.195 16.2695 21 14.2356 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12Z" stroke="#1e40af" stroke-width="2"/>
+                        <path d="M4 4V8H8M20 20V16H16M12 19C8.13401 19 5 15.866 5 12C5 8.13401 8.13401 5 12 5C15.866 5 19 8.13401 19 12C19 15.866 15.866 19 12 19Z" stroke="#1e40af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
             </div>
@@ -49,6 +49,7 @@
                         <h2 id="word"></h2>
                     </div>
                     <div class="meta-info">
+                        <span class="rank"></span>
                         <div class="frequency-container">
                             <span class="frequency-label">Frequency</span>
                             <div class="frequency-bar">
@@ -67,6 +68,7 @@
                             <p id="back-example" class="example"></p>
                         </div>
                         <div class="meta-info">
+                            <span class="rank"></span>
                             <div class="frequency-container">
                                 <span class="frequency-label">Frequency</span>
                                 <div class="frequency-bar">
