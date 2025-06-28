@@ -40,8 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
     cardSlider.addEventListener('change', () => {
         isSliding = false;
         preloadAudio();
-        if (audioUnlocked && !isFlipped) {
-            const audioFile = words[currentWordIndex]?.word_audio_file?.[0];
+        if (audioUnlocked) {
+            const audioFile = isFlipped 
+                ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
+                : words[currentWordIndex]?.word_audio_file?.[0];
             if (audioFile) playAudio(audioFile);
         }
     });
@@ -123,17 +125,17 @@ function setupEventListeners() {
     let lastTapTime = 0;
     const doubleTapThreshold = 300;
 
-    card.addEventListener('click', (e) => {
+    card.addEventListener('touchend', (e) => {
+        e.preventDefault(); // Prevent default mobile behavior
         const currentTime = new Date().getTime();
         tapCount++;
         if (tapCount === 1) {
             setTimeout(() => {
                 if (tapCount === 1) {
                     glowCard(1);
-                    const audioFile = isFlipped ? 
-                        (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                         words[currentWordIndex]?.word_audio_file?.[0]) : 
-                        words[currentWordIndex]?.word_audio_file?.[0];
+                    const audioFile = isFlipped 
+                        ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
+                        : words[currentWordIndex]?.word_audioRobin
                     if (audioFile && audioUnlocked) {
                         playAudio(audioFile);
                     }
@@ -157,12 +159,11 @@ function setupEventListeners() {
             currentBackCardIndex = 0;
             stopAudio();
             displayWord();
-            const audioFile = isFlipped ? 
-                (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                 words[currentWordIndex]?.word_audio_file?.[0]) : 
-                words[currentWordIndex]?.word_audio_file?.[0];
-            if (audioFile && audioUnlocked) {
-                playAudio(audioFile);
+            if (audioUnlocked) {
+                const audioFile = isFlipped 
+                    ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
+                    : words[currentWordIndex]?.word_audio_file?.[0];
+                if (audioFile) playAudio(audioFile);
             }
             preloadAudio();
         }
@@ -174,26 +175,25 @@ function setupEventListeners() {
             currentBackCardIndex = 0;
             stopAudio();
             displayWord();
-            const audioFile = isFlipped ? 
-                (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                 words[currentWordIndex]?.word_audio_file?.[0]) : 
-                words[currentWordIndex]?.word_audio_file?.[0];
-            if (audioFile && audioUnlocked) {
-                playAudio(audioFile);
+            if (audioUnlocked) {
+                const audioFile = isFlipped 
+                    ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
+                    : words[currentWordIndex]?.word_audio_file?.[0];
+                if (audioFile) playAudio(audioFile);
             }
             preloadAudio();
         }
     });
     hammer.on('swipeup', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            animateSwipe('up', isitiba);
+            animateSwipe('up', isFlipped);
             currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
-            const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                             words[currentWordIndex]?.word_audio_file?.[0];
-            if (audioFile && audioUnlocked) {
-                playAudio(audioFile);
+            if (audioUnlocked) {
+                const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
+                                 words[currentWordIndex]?.word_audio_file?.[0];
+                if (audioFile) playAudio(audioFile);
             }
             preloadAudio();
         }
@@ -204,10 +204,10 @@ function setupEventListeners() {
             currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
-            const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                             words[currentWordIndex]?.word_audio_file?.[0];
-            if (audioFile && audioUnlocked) {
-                playAudio(audioFile);
+            if (audioUnlocked) {
+                const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
+                                 words[currentWordIndex]?.word_audio_file?.[0];
+                if (audioFile) playAudio(audioFile);
             }
             preloadAudio();
         }
@@ -224,11 +224,12 @@ function setupKeyboardListeners() {
                 currentBackCardIndex = 0;
                 stopAudio();
                 displayWord();
-                const leftAudio = isFlipped ? 
-                    (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                     words[currentWordIndex]?.word_audio_file?.[0]) : 
-                    words[currentWordIndex]?.word_audio_file?.[0];
-                if (leftAudio && audioUnlocked) playAudio(leftAudio);
+                if (audioUnlocked) {
+                    const audioFile = isFlipped 
+                        ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
+                        : words[currentWordIndex]?.word_audio_file?.[0];
+                    if (audioFile) playAudio(audioFile);
+                }
                 preloadAudio();
                 break;
             case 'ArrowRight':
@@ -237,11 +238,12 @@ function setupKeyboardListeners() {
                 currentBackCardIndex = 0;
                 stopAudio();
                 displayWord();
-                const rightAudio = isFlipped ? 
-                    (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                     words[currentWordIndex]?.word_audio_file?.[0]) : 
-                    words[currentWordIndex]?.word_audio_file?.[0];
-                if (rightAudio && audioUnlocked) playAudio(rightAudio);
+                if (audioUnlocked) {
+                    const audioFile = isFlipped 
+                        ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
+                        : words[currentWordIndex]?.word_audio_file?.[0];
+                    if (audioFile) playAudio(audioFile);
+                }
                 preloadAudio();
                 break;
             case 'ArrowUp':
@@ -250,9 +252,11 @@ function setupKeyboardListeners() {
                     currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
                     stopAudio();
                     displayWord();
-                    const upAudio = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                                    words[currentWordIndex]?.word_audio_file?.[0];
-                    if (upAudio && audioUnlocked) playAudio(upAudio);
+                    if (audioUnlocked) {
+                        const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
+                                        words[currentWordIndex]?.word_audio_file?.[0];
+                        if (audioFile) playAudio(audioFile);
+                    }
                     preloadAudio();
                 }
                 break;
@@ -262,18 +266,19 @@ function setupKeyboardListeners() {
                     currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
                     stopAudio();
                     displayWord();
-                    const downAudio = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                                     words[currentWordIndex]?.word_audio_file?.[0];
-                    if (downAudio && audioUnlocked) playAudio(downAudio);
+                    if (audioUnlocked) {
+                        const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
+                                        words[currentWordIndex]?.word_audio_file?.[0];
+                        if (audioFile) playAudio(audioFile);
+                    }
                     preloadAudio();
                 }
                 break;
             case ' ':
                 glowCard(1);
-                const audioFile = isFlipped ? 
-                    (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                     words[currentWordIndex]?.word_audio_file?.[0]) : 
-                    words[currentWordIndex]?.word_audio_file?.[0];
+                const audioFile = isFlipped 
+                    ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
+                    : words[currentWordIndex]?.word_audio_file?.[0];
                 if (audioFile && audioUnlocked) playAudio(audioFile);
                 break;
             case 'Enter':
@@ -374,12 +379,11 @@ function flipCard() {
     card.classList.toggle('flipped', isFlipped);
     stopAudio();
     displayWord();
-    const audioFile = isFlipped ? 
-        (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-         words[currentWordIndex]?.word_audio_file?.[0]) : 
-        words[currentWordIndex]?.word_audio_file?.[0];
-    if (audioFile && audioUnlocked) {
-        playAudio(audioFile);
+    if (audioUnlocked) {
+        const audioFile = isFlipped 
+            ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
+            : words[currentWordIndex]?.word_audio_file?.[0];
+        if (audioFile) playAudio(audioFile);
     }
 }
 
@@ -389,6 +393,10 @@ function getFrequencyColor(relativeFreq) {
 }
 
 function displayWord() {
+    if (!words[currentWordIndex]) {
+        console.warn('No word available to displayаков
+
+System: displayWord() {
     if (!words[currentWordIndex]) {
         console.warn('No word available to display');
         document.querySelector('.flashcard-container').innerHTML = '<p>No word data available.</p>';
