@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>VocabSwipe</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
 </head>
@@ -24,20 +24,20 @@
             <div class="controls">
                 <button class="shuffle-btn" aria-label="Shuffle cards">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 3L15 7L19 11M15 7H3M5 13L9 17L5 21M9 17H21" stroke="#1e40af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16.5 3.5L20 7L16.5 10.5M20 7H3M16.5 13.5L20 17L16.5 20.5M20 17H3" stroke="#1e40af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
                 <button class="reset-btn" aria-label="Reset order">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 5C15.866 5 19 8.13401 19 12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12H7C7 14.7614 9.23858 17 12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7V9L8 5L12 1V3C16.4183 3 20 6.58172 20 11C20 15.4183 16.4183 19 12 19C7.58172 19 4 15.4183 4 11C4 6.58172 7.58172 3 12 3Z" fill="#1e40af"/>
+                        <path d="M4 4V8H8M20 20V16H16M12 19C8.13401 19 5 15.866 5 12C5 8.13401 8.13401 5 12 5C15.866 5 19 8.13401 19 12C19 15.866 15.866 19 12 19Z" stroke="#1e40af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
             </div>
         </div>
         <div class="title-container">
             <h1 class="website-name">VocabSwipe</h1>
-            <p class="slogan">Swipe to master your vocabulary</p>
-            <p class="deck-info">Top 5000 most frequently used words</p>
+            <p class="slogan-main">Swipe to master your vocabulary</p>
+            <p class="slogan-sub">Top 5000 most frequently used words</p>
         </div>
         <div class="slider-container">
             <input type="range" id="card-slider" min="1" max="5000" value="1" aria-label="Select card rank">
@@ -49,8 +49,9 @@
                         <h2 id="word"></h2>
                     </div>
                     <div class="meta-info">
-                        <span class="frequency-label">Frequency</span>
+                        <span id="front-rank" class="rank"></span>
                         <div class="frequency-container">
+                            <span class="frequency-label">Frequency</span>
                             <div class="frequency-bar">
                                 <div id="front-frequency-fill" class="frequency-fill"></div>
                             </div>
@@ -67,8 +68,9 @@
                             <p id="back-example" class="example"></p>
                         </div>
                         <div class="meta-info">
-                            <span class="frequency-label">Frequency</span>
+                            <span id="back-rank" class="rank"></span>
                             <div class="frequency-container">
+                                <span class="frequency-label">Frequency</span>
                                 <div class="frequency-bar">
                                     <div id="back-frequency-fill" class="frequency-fill"></div>
                                 </div>

@@ -58,17 +58,6 @@ body[data-theme="dark"] .reset-btn:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
-body[data-theme="dark"] .shuffle-btn svg path,
-body[data-theme="dark"] .reset-btn svg path,
-body[data-theme="dark"] .shuffle-btn svg line,
-body[data-theme="dark"] .reset-btn svg line {
-    stroke: #60a5fa;
-}
-
-body[data-theme="dark"] .reset-btn svg path {
-    fill: #60a5fa;
-}
-
 .theme-toggle .sun-icon {
     display: none;
 }
@@ -107,29 +96,28 @@ body[data-theme="dark"] .website-name {
     color: #60a5fa;
 }
 
-.slogan {
-    font-family: 'Caveat', cursive;
-    font-size: 20px;
-    font-weight: 400;
-    color: #1e40af;
-    line-height: 1.2;
-    margin-top: 4px;
-}
-
-body[data-theme="dark"] .slogan {
-    color: #60a5fa;
-}
-
-.deck-info {
+.slogan-main {
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 300;
     color: #6b7280;
-    line-height: 1.2;
-    margin-top: 4px;
+    line-height: 1.3;
 }
 
-body[data-theme="dark"] .deck-info {
+body[data-theme="dark"] .slogan-main {
+    color: #9ca3af;
+}
+
+.slogan-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: italic;
+    color: #6b7280;
+    line-height: 1.3;
+}
+
+body[data-theme="dark"] .slogan-sub {
     color: #9ca3af;
 }
 
@@ -191,72 +179,50 @@ body[data-theme="dark"] #card-slider::-webkit-slider-thumb {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
-.flashcard.glow-single {
-    animation: glow 0.3s ease-in-out 1;
-}
-
-.flashcard.glow-double {
-    animation: glow 0.6s ease-in-out 2;
-}
-
-.flashcard.swipe-left {
-    animation: swipeLeft 0.2s ease-in-out;
-}
-
-.flashcard.swipe-right {
-    animation: swipeRight 0.2s ease-in-out;
-}
-
-.flashcard.swipe-up {
-    animation: swipeUp 0.2s ease-in-out;
-}
-
-.flashcard.swipe-down {
-    animation: swipeDown 0.2s ease-in-out;
-}
-
-@keyframes glow {
-    0%, 100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); }
-    50% { box-shadow: 0 8px 32px rgba(30, 64, 175, 0.5); }
-}
-
 body[data-theme="dark"] .flashcard {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-body[data-theme="dark"] .flashcard.glow-single,
-body[data-theme="dark"] .flashcard.glow-double {
+.flashcard.glow-once {
+    animation: glow 0.3s ease-in-out 1;
+}
+
+.flashcard.glow-twice {
+    animation: glow 0.3s ease-in-out 2;
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); }
+    50% { box-shadow: 0 8px 24px rgba(255, 193, 7, 0.5); }
+}
+
+body[data-theme="dark"] .flashcard.glow-once,
+body[data-theme="dark"] .flashcard.glow-twice {
     animation: glow-dark 0.3s ease-in-out;
 }
 
-body[data-theme="dark"] .flashcard.glow-double {
-    animation: glow-dark 0.6s ease-in-out 2;
+body[data-theme="dark"] .flashcard.glow-twice {
+    animation-iteration-count: 2;
 }
 
 @keyframes glow-dark {
     0%, 100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
-    50% { box-shadow: 0 8px 32px rgba(96, 165, 250, 0.5); }
+    50% { box-shadow: 0 8px 24px rgba(96, 165, 250, 0.5); }
 }
 
-@keyframes swipeLeft {
-    0% { transform: translateX(0); opacity: 1; }
-    100% { transform: translateX(-100px); opacity: 0; }
+.swipe-clone {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-@keyframes swipeRight {
-    0% { transform: translateX(0); opacity: 1; }
-    100% { transform: translateX(100px); opacity: 0; }
-}
-
-@keyframes swipeUp {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-100px); opacity: 0; }
-}
-
-@keyframes swipeDown {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(100px); opacity: 0; }
-}
+.swipe-left { transform: translateX(-100%); opacity: 0; }
+.swipe-right { transform: translateX(100%); opacity: 0; }
+.swipe-up { transform: translateY(-100%); opacity: 0; }
+.swipe-down { transform: translateY(100%); opacity: 0; }
 
 .front, .back {
     position: absolute;
@@ -343,6 +309,7 @@ body[data-theme="dark"] .example {
 
 .meta-info {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding-top: 12px;
     border-top: 1px solid #e5e7eb;
@@ -352,26 +319,38 @@ body[data-theme="dark"] .meta-info {
     border-top: 1px solid #4b5563;
 }
 
+.rank {
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+body[data-theme="dark"] .rank {
+    color: #9ca3af;
+}
+
+.frequency-container {
+    display: flex;
+    align-items: center;
+    width: 150px;
+}
+
 .frequency-label {
     font-size: 13px;
     font-weight: 500;
     color: #6b7280;
+    margin-right: 8px;
 }
 
 body[data-theme="dark"] .frequency-label {
     color: #9ca3af;
 }
 
-.frequency-container {
-    width: 100px;
-    margin-left: 12px;
-}
-
 .frequency-bar {
-    width: 100%;
-    height: 8px;
+    width: 100px;
+    height: 12px;
     border: 2px solid #1f2937;
-    border-radius: 4px;
+    border-radius: 6px;
     background: #e5e7eb;
 }
 
@@ -403,12 +382,12 @@ body[data-theme="dark"] .frequency-bar {
         font-size: 28px;
     }
 
-    .slogan {
-        font-size: 18px;
+    .slogan-main {
+        font-size: 14px;
     }
 
-    .deck-info {
-        font-size: 12px;
+    .slogan-sub {
+        font-size: 11px;
     }
 
     .flashcard {
@@ -423,16 +402,17 @@ body[data-theme="dark"] .frequency-bar {
         font-size: 14px;
     }
 
-    .frequency-label {
+    .rank, .frequency-label {
         font-size: 12px;
     }
 
-    .frequency-bar {
-        height: 6px;
+    .frequency-container {
+        width: 120px;
     }
 
-    .frequency-container {
+    .frequency-bar {
         width: 80px;
+        height: 10px;
     }
 
     #card-slider {
