@@ -74,6 +74,11 @@ body[data-theme="dark"] .theme-toggle .moon-icon {
     display: none;
 }
 
+.shuffle-btn svg path,
+.reset-btn svg path {
+    stroke: #1e40af;
+}
+
 body[data-theme="dark"] .shuffle-btn svg path,
 body[data-theme="dark"] .reset-btn svg path {
     stroke: #60a5fa;
@@ -104,18 +109,20 @@ body[data-theme="dark"] .website-name {
     font-family: 'Caveat', cursive;
     font-size: 18px;
     font-weight: 400;
-    color: #1e40af;
+    color: #4b5563;
+    margin-top: 4px;
 }
 
 body[data-theme="dark"] .slogan {
-    color: #60a5fa;
+    color: #9ca3af;
 }
 
 .deck-info {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 500;
     color: #6b7280;
+    margin-top: 4px;
 }
 
 body[data-theme="dark"] .deck-info {
@@ -180,39 +187,12 @@ body[data-theme="dark"] #card-slider::-webkit-slider-thumb {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
-body[data-theme="dark"] .flashcard {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-}
-
 .flashcard.glow {
     animation: glow 0.3s ease-in-out;
 }
 
-@keyframes glow {
-    0%, 100% {
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    }
-    50% {
-        box-shadow: 0 8px 24px rgba(30, 64, 175, 0.5);
-    }
-}
-
-body[data-theme="dark"] .flashcard.glow {
-    animation: glow-dark 0.3s ease-in-out;
-}
-
-@keyframes glow-dark {
-    0%, 100% {
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-    }
-    50% {
-        box-shadow: 0 8px 24px rgba(96, 165, 250, 0.5);
-    }
-}
-
-.swipe-clone {
-    pointer-events: none;
-    z-index: 1;
+body[data-theme="dark"] .flashcard {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .front, .back {
@@ -323,7 +303,7 @@ body[data-theme="dark"] .rank {
 .frequency-container {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    margin-left: 12px;
 }
 
 .frequency-label {
@@ -338,7 +318,7 @@ body[data-theme="dark"] .frequency-label {
 }
 
 .frequency-bar {
-    width: 50%;
+    width: 50px;
     height: 10px;
     border: 2px solid #1f2937;
     border-radius: 6px;
@@ -353,6 +333,66 @@ body[data-theme="dark"] .frequency-bar {
 .frequency-fill {
     height: 100%;
     transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+.swipe-clone {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.swipe-left {
+    animation: swipeLeft 0.2s ease-out;
+}
+
+.swipe-right {
+    animation: swipeRight 0.2s ease-out;
+}
+
+.swipe-up {
+    animation: swipeUp 0.2s ease-out;
+}
+
+.swipe-down {
+    animation: swipeDown 0.2s ease-out;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); }
+    50% { box-shadow: 0 12px 32px rgba(0, 0, 255, 0.5); }
+    100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); }
+}
+
+body[data-theme="dark"] .flashcard.glow {
+    animation: glowDark 0.3s ease-in-out;
+}
+
+@keyframes glowDark {
+    0% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
+    50% { box-shadow: 0 12px 32px rgba(96, 165, 250, 0.5); }
+    100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
+}
+
+@keyframes swipeLeft {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+@keyframes swipeRight {
+    from { transform: translateX(0); }
+    to { transform: translateX(100%); }
+}
+
+@keyframes swipeUp {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); }
+}
+
+@keyframes swipeDown {
+    from { transform: translateY(0); }
+    to { transform: translateY(100%); }
 }
 
 @media (max-width: 414px) {
@@ -398,6 +438,7 @@ body[data-theme="dark"] .frequency-bar {
     }
 
     .frequency-bar {
+        width: 40px;
         height: 8px;
     }
 
