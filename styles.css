@@ -58,6 +58,11 @@ body[data-theme="dark"] .reset-btn:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
+body[data-theme="dark"] .shuffle-btn svg path,
+body[data-theme="dark"] .reset-btn svg path {
+    stroke: #60a5fa;
+}
+
 .theme-toggle .sun-icon {
     display: none;
 }
@@ -96,27 +101,29 @@ body[data-theme="dark"] .website-name {
     color: #60a5fa;
 }
 
-.slogan-main {
+.slogan {
     font-family: 'Caveat', cursive;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     color: #1e40af;
     line-height: 1.2;
+    margin-top: 4px;
 }
 
-body[data-theme="dark"] .slogan-main {
+body[data-theme="dark"] .slogan {
     color: #60a5fa;
 }
 
-.slogan-sub {
+.deck-info {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #6b7280;
     line-height: 1.2;
+    margin-top: 4px;
 }
 
-body[data-theme="dark"] .slogan-sub {
+body[data-theme="dark"] .deck-info {
     color: #9ca3af;
 }
 
@@ -178,26 +185,35 @@ body[data-theme="dark"] #card-slider::-webkit-slider-thumb {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
-.flashcard.glow {
-    animation: glow 0.3s ease;
+.flashcard.glow-single {
+    animation: glow 0.5s ease-in-out;
+}
+
+.flashcard.glow-double {
+    animation: glow 0.25s ease-in-out 2;
 }
 
 @keyframes glow {
     0%, 100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); }
-    50% { box-shadow: 0 0 20px rgba(30, 64, 175, 0.7); }
+    50% { box-shadow: 0 0 30px rgba(30, 64, 175, 0.7); }
 }
 
 body[data-theme="dark"] .flashcard {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-body[data-theme="dark"] .flashcard.glow {
-    animation: glow-dark 0.3s ease;
+body[data-theme="dark"] .flashcard.glow-single,
+body[data-theme="dark"] .flashcard.glow-double {
+    animation: glow-dark 0.5s ease-in-out;
+}
+
+body[data-theme="dark"] .flashcard.glow-double {
+    animation: glow-dark 0.25s ease-in-out 2;
 }
 
 @keyframes glow-dark {
     0%, 100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
-    50% { box-shadow: 0 0 20px rgba(96, 165, 250, 0.7); }
+    50% { box-shadow: 0 0 30px rgba(96, 165, 250, 0.7); }
 }
 
 .front, .back {
@@ -211,6 +227,7 @@ body[data-theme="dark"] .flashcard.glow {
     background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
     border-radius: 16px;
     border: 1px solid #e5e7eb;
+    overflow: hidden;
 }
 
 body[data-theme="dark"] .front,
@@ -219,44 +236,44 @@ body[data-theme="dark"] .back {
     border: 1px solid #4b5563;
 }
 
-.back {
-    transform: rotateY(180deg);
-}
-
 .front.swipe-left, .back.swipe-left {
-    animation: swipe-left 0.2s ease forwards;
+    animation: swipe-left 0.3s ease-in-out;
 }
 
 .front.swipe-right, .back.swipe-right {
-    animation: swipe-right 0.2s ease forwards;
+    animation: swipe-right 0.3s ease-in-out;
 }
 
-.front.swipe-up, .back.swipe-up {
-    animation: swipe-up 0.2s ease forwards;
+.back.swipe-up {
+    animation: swipe-up 0.3s ease-in-out;
 }
 
-.front.swipe-down, .back.swipe-down {
-    animation: swipe-down 0.2s ease forwards;
+.back.swipe-down {
+    animation: swipe-down 0.3s ease-in-out;
 }
 
 @keyframes swipe-left {
-    0% { transform: translateX(0); opacity: 1; }
-    100% { transform: translateX(-100%); opacity: 0; }
+    0% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(-50px); }
 }
 
 @keyframes swipe-right {
-    0% { transform: translateX(0); opacity: 1; }
-    100% { transform: translateX(100%); opacity: 0; }
+    0% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(50px); }
 }
 
 @keyframes swipe-up {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-100%); opacity: 0; }
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-50px); }
 }
 
 @keyframes swipe-down {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(100%); opacity: 0; }
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(50px); }
+}
+
+.back {
+    transform: rotateY(180deg);
 }
 
 .word-container {
@@ -382,11 +399,11 @@ body[data-theme="dark"] .frequency-bar {
         font-size: 28px;
     }
 
-    .slogan-main {
-        font-size: 16px;
+    .slogan {
+        font-size: 18px;
     }
 
-    .slogan-sub {
+    .deck-info {
         font-size: 12px;
     }
 
