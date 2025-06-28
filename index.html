@@ -24,21 +24,20 @@
             <div class="controls">
                 <button class="shuffle-btn" aria-label="Shuffle cards">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.5 3L21 7.5L16.5 12M21 7.5H3M7.5 12L3 16.5L7.5 21M3 16.5H21" stroke="#1e40af" stroke-width="2"/>
+                        <path d="M18 5L22 9L18 13M22 9H2M6 11L2 15L6 19M2 15H22" stroke="#1e40af" stroke-width="2" class="shuffle-icon"/>
                     </svg>
                 </button>
                 <button class="reset-btn" aria-label="Reset order">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 5V3M12 21V19M5 12H3M21 12H19M6.34 6.34L4.93 4.93M19.07 19.07L17.66 17.66" stroke="#1e40af" stroke-width="2"/>
+                        <path d="M12 5C15.866 5 19 8.13401 19 12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12H3C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3V5Z" fill="#1e40af" class="reset-icon"/>
                     </svg>
                 </button>
             </div>
         </div>
         <h1 class="website-name">VocabSwipe</h1>
-        <div class="progress">Card <span id="card-number">1</span> of 5000</div>
+        <p class="slogan">Expand Your Words, Swipe by Swipe</p>
         <div class="slider-container">
             <input type="range" id="card-slider" min="1" max="5000" value="1" aria-label="Select card rank">
-            <span id="slider-value">Rank: 1</span>
         </div>
         <div class="flashcard-container">
             <div class="flashcard">
@@ -48,6 +47,7 @@
                     </div>
                     <div class="meta-info">
                         <span id="front-rank" class="rank"></span>
+                        <div class="frequency-label">Frequency</div>
                         <div class="frequency-container">
                             <div class="frequency-bar">
                                 <div id="front-frequency-fill" class="frequency-fill"></div>
@@ -66,6 +66,7 @@
                         </div>
                         <div class="meta-info">
                             <span id="back-rank" class="rank"></span>
+                            <div class="frequency-label">Frequency</div>
                             <div class="frequency-container">
                                 <div class="frequency-bar">
                                     <div id="back-frequency-fill" class="frequency-fill"></div>
