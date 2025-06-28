@@ -127,9 +127,9 @@ function setupEventListeners() {
         const currentTime = new Date().getTime();
         tapCount++;
         if (tapCount === 1) {
-            glowCard(1);
             setTimeout(() => {
                 if (tapCount === 1) {
+                    glowCard(1);
                     const audioFile = isFlipped ? 
                         (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                          words[currentWordIndex]?.word_audio_file?.[0]) : 
@@ -152,7 +152,7 @@ function setupEventListeners() {
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
     hammer.on('swipeleft', () => {
         if (words.length) {
-            animateSwipe('left');
+            animateSwipe('left', isFlipped);
             currentWordIndex = (currentWordIndex + 1) % words.length;
             currentBackCardIndex = 0;
             stopAudio();
@@ -169,7 +169,7 @@ function setupEventListeners() {
     });
     hammer.on('swiperight', () => {
         if (words.length) {
-            animateSwipe('right');
+            animateSwipe('right', isFlipped);
             currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
             currentBackCardIndex = 0;
             stopAudio();
@@ -178,7 +178,7 @@ function setupEventListeners() {
                 (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                  words[currentWordIndex]?.word_audio_file?.[0]) : 
                 words[currentWordIndex]?.word_audio_file?.[0];
-            if( audioFile && audioUnlocked) {
+            if (audioFile && audioUnlocked) {
                 playAudio(audioFile);
             }
             preloadAudio();
@@ -186,7 +186,7 @@ function setupEventListeners() {
     });
     hammer.on('swipeup', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            animateSwipe('up');
+            animateSwipe('up', isFlipped);
             currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
@@ -200,7 +200,7 @@ function setupEventListeners() {
     });
     hammer.on('swipedown', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            animateSwipe('down');
+            animateSwipe('down', isFlipped);
             currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
@@ -219,7 +219,7 @@ function setupKeyboardListeners() {
         if (!words.length) return;
         switch (e.key) {
             case 'ArrowLeft':
-                animateSwipe('right');
+                animateSwipe('right', isFlipped);
                 currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
                 currentBackCardIndex = 0;
                 stopAudio();
@@ -232,7 +232,7 @@ function setupKeyboardListeners() {
                 preloadAudio();
                 break;
             case 'ArrowRight':
-                animateSwipe('left');
+                animateSwipe('left', isFlipped);
                 currentWordIndex = (currentWordIndex + 1) % words.length;
                 currentBackCardIndex = 0;
                 stopAudio();
@@ -246,7 +246,7 @@ function setupKeyboardListeners() {
                 break;
             case 'ArrowUp':
                 if (isFlipped && words[currentWordIndex]?.back_cards) {
-                    animateSwipe('up');
+                    animateSwipe('up', isFlipped);
                     currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
                     stopAudio();
                     displayWord();
@@ -258,7 +258,7 @@ function setupKeyboardListeners() {
                 break;
             case 'ArrowDown':
                 if (isFlipped && words[currentWordIndex]?.back_cards) {
-                    animateSwipe('down');
+                    animateSwipe('down', isFlipped);
                     currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
                     stopAudio();
                     displayWord();
@@ -289,13 +289,14 @@ function glowCard(times) {
     if (!card) return;
     card.classList.remove('glow-once', 'glow-twice');
     void card.offsetWidth; // Trigger reflow
-    card.classList.add(times === 1 ? 'grow-once' : 'glow-twice');
+    card.classList.add(times === 1 ? 'glow-once' : 'glow-twice');
 }
 
-function animateSwipe(direction) {
+function animateSwipe(direction, isBackCard) {
     const card = document.querySelector('.flashcard');
     if (!card) return;
-    const clone = card.cloneNode(true);
+    const sideToClone = isBackCard ? '.back' : '.front';
+    const clone = card.querySelector(sideToClone).cloneNode(true);
     clone.classList.add('swipe-clone', `swipe-${direction}`);
     card.parentElement.appendChild(clone);
     setTimeout(() => clone.remove(), 300);
