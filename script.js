@@ -126,7 +126,7 @@ function setupEventListeners() {
     const doubleTapThreshold = 300;
 
     card.addEventListener('touchend', (e) => {
-        e.preventDefault(); // Prevent default mobile behavior
+        e.preventDefault();
         const currentTime = new Date().getTime();
         tapCount++;
         if (tapCount === 1) {
@@ -135,7 +135,33 @@ function setupEventListeners() {
                     glowCard(1);
                     const audioFile = isFlipped 
                         ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
-                        : words[currentWordIndex]?.word_audioRobin
+                        : words[currentWordIndex]?.word_audio_file?.[0];
+                    if (audioFile && audioUnlocked) {
+                        playAudio(audioFile);
+                    }
+                }
+                tapCount = 0;
+            }, doubleTapThreshold);
+        } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
+            glowCard(2);
+            flipCard();
+            tapCount = 0;
+        }
+        lastTapTime = currentTime;
+    });
+
+    // Keep click event for PC compatibility
+    card.addEventListener('click', (e) => {
+        if ('ontouchstart' in window) return; // Skip click on touch devices
+        const currentTime = new Date().getTime();
+        tapCount++;
+        if (tapCount === 1) {
+            setTimeout(() => {
+                if (tapCount === 1) {
+                    glowCard(1);
+                    const audioFile = isFlipped 
+                        ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
+                        : words[currentWordIndex]?.word_audio_file?.[0];
                     if (audioFile && audioUnlocked) {
                         playAudio(audioFile);
                     }
@@ -152,7 +178,8 @@ function setupEventListeners() {
 
     const hammer = new Hammer(card);
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-    hammer.on('swipeleft', () => {
+    hammer.on('swipeleft', (e) => {
+        e.preventDefault();
         if (words.length) {
             animateSwipe('left', isFlipped);
             currentWordIndex = (currentWordIndex + 1) % words.length;
@@ -168,7 +195,8 @@ function setupEventListeners() {
             preloadAudio();
         }
     });
-    hammer.on('swiperight', () => {
+    hammer.on('swiperight', (e) => {
+        e.preventDefault();
         if (words.length) {
             animateSwipe('right', isFlipped);
             currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
@@ -184,7 +212,8 @@ function setupEventListeners() {
             preloadAudio();
         }
     });
-    hammer.on('swipeup', () => {
+    hammer.on('swipeup', (e) => {
+        e.preventDefault();
         if (isFlipped && words[currentWordIndex]?.back_cards) {
             animateSwipe('up', isFlipped);
             currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
@@ -198,7 +227,8 @@ function setupEventListeners() {
             preloadAudio();
         }
     });
-    hammer.on('swipedown', () => {
+    hammer.on('swipedown', (e) => {
+        e.preventDefault();
         if (isFlipped && words[currentWordIndex]?.back_cards) {
             animateSwipe('down', isFlipped);
             currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
@@ -394,10 +424,6 @@ function getFrequencyColor(relativeFreq) {
 
 function displayWord() {
     if (!words[currentWordIndex]) {
-        console.warn('No word available to displayаков
-
-System: displayWord() {
-    if (!words[currentWordIndex]) {
         console.warn('No word available to display');
         document.querySelector('.flashcard-container').innerHTML = '<p>No word data available.</p>';
         return;
@@ -441,7 +467,7 @@ System: displayWord() {
             <div class="meta-info">
                 <span class="rank">Rank: ${wordData.rank || 'N/A'}</span>
                 <div class="frequency-container">
-                    <span class="frequency-label">Frequency</span>
+                    <span class="frequency-LABEL">Frequency</span>
                     <div class="frequency-bar">
                         <div class="frequency-fill" style="width: ${freqPercentage}%; background-color: ${freqColor};"></div>
                     </div>
