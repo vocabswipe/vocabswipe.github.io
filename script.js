@@ -10,7 +10,6 @@ let audioUnlocked = false;
 let maxFreq = 0;
 let minFreq = 1;
 let lastSliderValue = 1;
-let audioToPlay = null;
 
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'bright';
@@ -22,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const newTheme = currentTheme === 'bright' ? 'dark' : 'bright';
         document.body.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        updateIconColors();
     });
 
     const shuffleBtn = document.querySelector('.shuffle-btn');
@@ -33,19 +31,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const cardSlider = document.querySelector('#card-slider');
     cardSlider.addEventListener('input', () => {
-        lastSliderValue = parseInt(cardSlider.value);
-    });
-    cardSlider.addEventListener('change', () => {
         currentWordIndex = parseInt(cardSlider.value) - 1;
+        lastSliderValue = currentWordIndex + 1;
         currentBackCardIndex = 0;
         stopAudio();
         displayWord();
-        audioToPlay = words[currentWordIndex]?.word_audio_file?.[0];
+    });
+    cardSlider.addEventListener('change', () => {
+        preloadAudio();
+        const audioFile = words[currentWordIndex]?.word_audio_file?.[0];
+        if (audioFile && audioUnlocked) {
+            playAudio(audioFile);
+        }
     });
 
     loadWords();
     setupEventListeners();
-    updateIconColors();
 });
 
 document.body.addEventListener('touchstart', () => {
@@ -56,23 +57,6 @@ document.body.addEventListener('click', () => {
     audioUnlocked = true;
     console.log('Audio unlocked via click');
 }, { once: true });
-
-function updateIconColors() {
-    const theme = document.body.getAttribute('data-theme');
-    const strokeColor = theme === 'bright' ? '#1e40af' : '#60a5fa';
-    const fillColor = theme === 'bright' ? '#FFC107' : '#93c5fd';
-    document.querySelectorAll('.theme-icon').forEach(icon => {
-        icon.querySelectorAll('path').forEach(path => {
-            if (path.getAttribute('fill')) path.setAttribute('fill', fillColor);
-            if (path.getAttribute('stroke')) path.setAttribute('stroke',/fieldColor);
-        });
-    });
-    document.querySelectorAll('.shuffle-icon, .reset-icon').forEach(icon => {
-        icon.querySelectorAll('path').forEach(path => {
-            path.setAttribute('stroke', strokeColor);
-        });
-    });
-}
 
 function loadWords() {
     fetch('data/vocab_database.yaml')
@@ -96,6 +80,10 @@ function loadWords() {
             document.querySelector('#card-slider').max = words.length;
             displayWord();
             preloadAudio();
+            const audioFile = words[currentWordIndex]?.word_audio_file?.[0];
+            if (audioFile && audioUnlocked) {
+                playAudio(audioFile);
+            }
         })
         .catch(error => {
             console.error('Error loading words:', error.message);
@@ -112,8 +100,12 @@ function shuffleCards() {
     currentBackCardIndex = 0;
     stopAudio();
     displayWord();
-    audioToPlay = words[currentWordIndex]?.word_audio_file?.[0];
+    addSwipeAnimation('left');
     preloadAudio();
+    const audioFile = words[currentWordIndex]?.word_audio_file?.[0];
+    if (audioFile && audioUnlocked) {
+        playAudio(audioFile);
+    }
 }
 
 function resetCards() {
@@ -122,8 +114,12 @@ function resetCards() {
     currentBackCardIndex = 0;
     stopAudio();
     displayWord();
-    audioToPlay = words[currentWordIndex]?.word_audio_file?.[0];
+    addSwipeAnimation('left');
     preloadAudio();
+    const audioFile = words[currentWordIndex]?.word_audio_file?.[0];
+    if (audioFile && audioUnlocked) {
+        playAudio(audioFile);
+    }
 }
 
 function setupEventListeners() {
@@ -136,13 +132,13 @@ function setupEventListeners() {
         const currentTime = new Date().getTime();
         tapCount++;
         if (tapCount === 1) {
+            addGlowEffect(1);
             setTimeout(() => {
                 if (tapCount === 1) {
-                    glowCard(1);
                     const audioFile = isFlipped ? 
                         (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                          words[currentWordIndex]?.word_audio_file?.[0]) : 
-                        audioToPlay || words[currentWordIndex]?.word_audio_file?.[0];
+                        words[currentWordIndex]?.word_audio_file?.[0];
                     if (audioFile && audioUnlocked) {
                         playAudio(audioFile);
                     }
@@ -150,7 +146,7 @@ function setupEventListeners() {
                 tapCount = 0;
             }, doubleTapThreshold);
         } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
-            glowCard(2);
+            addGlowEffect(2);
             flipCard();
             tapCount = 0;
         }
@@ -161,141 +157,148 @@ function setupEventListeners() {
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
     hammer.on('swipeleft', () => {
         if (words.length) {
-            swipeAnimation('left');
-            setTimeout(() => {
-                currentWordIndex = (currentWordIndex + 1) % words.length;
-                currentBackCardIndex = 0;
-                stopAudio();
-                displayWord();
-                audioToPlay = isFlipped ? 
-                    (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                     words[currentWordIndex]?.word_audio_file?.[0]) : 
-                    words[currentWordIndex]?.word_audio_file?.[0];
-                if (audioToPlay && audioUnlocked) {
-                    playAudio(audioToPlay);
-                }
-                preloadAudio();
-            }, 200);
+            addSwipeAnimation('left');
+            currentWordIndex = (currentWordIndex + 1) % words.length;
+            currentBackCardIndex = 0;
+            stopAudio();
+            displayWord();
+            const audioFile = isFlipped ? 
+                (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
+                 words[currentWordIndex]?.word_audio_file?.[0]) : 
+                words[currentWordIndex]?.word_audio_file?.[0];
+            if (audioFile && audioUnlocked) {
+                playAudio(audioFile);
+            }
+            preloadAudio();
         }
     });
     hammer.on('swiperight', () => {
         if (words.length) {
-            swipeAnimation('right');
-            setTimeout(() => {
-                currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
-                currentBackCardIndex = 0;
-                stopAudio();
-                displayWord();
-                audioToPlay = isFlipped ? 
-                    (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                     words[currentWordIndex]?.word_audio_file?.[0]) : 
-                    words[currentWordIndex]?.word_audio_file?.[0];
-                if (audioToPlay && audioUnlocked) {
-                    playAudio(audioToPlay);
-                }
-                preloadAudio();
-            }, 200);
+            addSwipeAnimation('right');
+            currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
+            currentBackCardIndex = 0;
+            stopAudio();
+            displayWord();
+            const audioFile = isFlipped ? 
+                (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
+                 words[currentWordIndex]?.word_audio_file?.[0]) : 
+                words[currentWordIndex]?.word_audio_file?.[0];
+            if (audioFile && audioUnlocked) {
+                playAudio(audioFile);
+            }
+            preloadAudio();
         }
     });
     hammer.on('swipeup', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            swipeAnimation('up');
-            setTimeout(() => {
-                currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
-                stopAudio();
-                displayWord();
-                audioToPlay = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
+            addSwipeAnimation('up');
+            currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
+            stopAudio();
+            displayWord();
+            const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                              words[currentWordIndex]?.word_audio_file?.[0];
-                if (audioToPlay && audioUnlocked) {
-                    playAudio(audioToPlay);
-                }
-                preloadAudio();
-            }, 200);
+            if (audioFile && audioUnlocked) {
+                playAudio(audioFile);
+            }
+            preloadAudio();
         }
     });
     hammer.on('swipedown', () => {
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            swipeAnimation('down');
-            setTimeout(() => {
-                currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
-                stopAudio();
-                displayWord();
-                audioToPlay = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
+            addSwipeAnimation('down');
+            currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
+            stopAudio();
+            displayWord();
+            const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                              words[currentWordIndex]?.word_audio_file?.[0];
-                if (audioToPlay && audioUnlocked) {
-                    playAudio(audioToPlay);
-                }
-                preloadAudio();
-            }, 200);
+            if (audioFile && audioUnlocked) {
+                playAudio(audioFile);
+            }
+            preloadAudio();
         }
     });
 
     // Keyboard support for PC users
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') {
-            hammer.emit('swiperight', { target: card });
-        } else if (e.key === 'ArrowRight') {
-            hammer.emit('swipeleft', { target: card });
-        } else if (e.key === 'ArrowUp' && isFlipped) {
-            hammer.emit('swipeup', { target: card });
-        } else if (e.key === 'ArrowDown' && isFlipped) {
-            hammer.emit('swipedown', { target: card });
-        } else if (e.key === 'Enter' || e.key === ' ') {
-            card.click();
-            if (tapCount === 0) {
-                card.click();
+            if (words.length) {
+                addSwipeAnimation('right');
+                currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
+                currentBackCardIndex = 0;
+                stopAudio();
+                displayWord();
+                const audioFile = isFlipped ? 
+                    (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
+                     words[currentWordIndex]?.word_audio_file?.[0]) : 
+                    words[currentWordIndex]?.word_audio_file?.[0];
+                if (audioFile && audioUnlocked) {
+                    playAudio(audioFile);
+                }
+                preloadAudio();
             }
+        } else if (e.key === 'ArrowRight') {
+            if (words.length) {
+                addSwipeAnimation('left');
+                currentWordIndex = (currentWordIndex + 1) % words.length;
+                currentBackCardIndex = 0;
+                stopAudio();
+                displayWord();
+                const audioFile = isFlipped ? 
+                    (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
+                     words[currentWordIndex]?.word_audio_file?.[0]) : 
+                    words[currentWordIndex]?.word_audio_file?.[0];
+                if (audioFile && audioUnlocked) {
+                    playAudio(audioFile);
+                }
+                preloadAudio();
+            }
+        } else if (e.key === 'ArrowUp' && isFlipped && words[currentWordIndex]?.back_cards) {
+            addSwipeAnimation('up');
+            currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
+            stopAudio();
+            displayWord();
+            const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
+                             words[currentWordIndex]?.word_audio_file?.[0];
+            if (audioFile && audioUnlocked) {
+                playAudio(audioFile);
+            }
+            preloadAudio();
+        } else if (e.key === 'ArrowDown' && isFlipped && words[currentWordIndex]?.back_cards) {
+            addSwipeAnimation('down');
+            currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
+            stopAudio();
+            displayWord();
+            const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
+                             words[currentWordIndex]?.word_audio_file?.[0];
+            if (audioFile && audioUnlocked) {
+                playAudio(audioFile);
+            }
+            preloadAudio();
+        } else if (e.key === ' ' || e.key === 'Enter') {
+            const currentTime = new Date().getTime();
+            tapCount++;
+            if (tapCount === 1) {
+                addGlowEffect(1);
+                setTimeout(() => {
+                    if (tapCount === 1) {
+                        const audioFile = isFlipped ? 
+                            (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
+                             words[currentWordIndex]?.word_audio_file?.[0]) : 
+                            words[currentWordIndex]?.word_audio_file?.[0];
+                        if (audioFile && audioUnlocked) {
+                            playAudio(audioFile);
+                        }
+                    }
+                    tapCount = 0;
+                }, doubleTapThreshold);
+            } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
+                addGlowEffect(2);
+                flipCard();
+                tapCount = 0;
+            }
+            lastTapTime = currentTime;
         }
     });
-}
-
-function glowCard(times) {
-    const card = document.querySelector('.flashcard');
-    card.classList.remove('glow');
-    void card.offsetWidth; // Trigger reflow
-    card.classList.add('glow');
-    if (times === 2) {
-        setTimeout(() => {
-            card.classList.remove('glow');
-            void card.offsetWidth;
-            card.classList.add('glow');
-        }, 200);
-    }
-    setTimeout(() => {
-        card.classList.remove('glow');
-    }, times * 200);
-}
-
-function swipeAnimation(direction) {
-    const card = document.querySelector('.flashcard');
-    const clone = card.cloneNode(true);
-    clone.classList.add('swipe-clone');
-    clone.style.position = 'absolute';
-    clone.style.opacity = '0.5';
-    clone.style.transition = 'transform 0.2s ease, opacity 0.2s ease';
-    card.parentElement.appendChild(clone);
-
-    let transform;
-    switch (direction) {
-        case 'left':
-            transform = 'translateX(-100%)';
-            break;
-        case 'right':
-            transform = 'translateX(100%)';
-            break;
-        case 'up':
-            transform = 'translateY(-100%)';
-            break;
-        case 'down':
-            transform = 'translateY(100%)';
-            break;
-    }
-
-    clone.style.transform = transform;
-    clone.style.opacity = '0';
-    setTimeout(() => {
-        clone.remove();
-    }, 200);
 }
 
 function preloadAudio() {
@@ -360,13 +363,57 @@ function flipCard() {
     card.classList.toggle('flipped', isFlipped);
     stopAudio();
     displayWord();
-    audioToPlay = isFlipped ? 
+    const audioFile = isFlipped ? 
         (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
          words[currentWordIndex]?.word_audio_file?.[0]) : 
         words[currentWordIndex]?.word_audio_file?.[0];
-    if (audioToPlay && audioUnlocked) {
-        playAudio(audioToPlay);
+    if (audioFile && audioUnlocked) {
+        playAudio(audioFile);
     }
+}
+
+function addGlowEffect(taps) {
+    const card = document.querySelector('.flashcard');
+    card.classList.remove('glow-once', 'glow-twice');
+    if (taps === 1) {
+        card.classList.add('glow-once');
+        setTimeout(() => card.classList.remove('glow-once'), 300);
+    } else if (taps === 2) {
+        card.classList.add('glow-twice');
+        setTimeout(() => card.classList.remove('glow-twice'), 600);
+    }
+}
+
+function addSwipeAnimation(direction) {
+    const card = document.querySelector('.flashcard');
+    const clone = card.cloneNode(true);
+    clone.classList.add('swipe-clone');
+    clone.style.position = 'absolute';
+    clone.style.opacity = '0.3';
+    clone.style.pointerEvents = 'none';
+    card.parentNode.appendChild(clone);
+
+    let translate;
+    switch (direction) {
+        case 'left':
+            translate = '-100%';
+            clone.style.transform = `translateX(${translate})`;
+            break;
+        case 'right':
+            translate = '100%';
+            clone.style.transform = `translateX(${translate})`;
+            break;
+        case 'up':
+            translate = '-100%';
+            clone.style.transform = `translateY(${translate})`;
+            break;
+        case 'down':
+            translate = '100%';
+            clone.style.transform = `translateY(${translate})`;
+            break;
+    }
+
+    setTimeout(() => clone.remove(), 300);
 }
 
 function getFrequencyColor(relativeFreq) {
@@ -384,7 +431,7 @@ function displayWord() {
     
     const logFreq = Math.log(wordData.freq || 1);
     const logMinFreq = Math.log(minFreq);
-    const logMaxFreq = Math.log(maxFreq);
+    const logMaxFreq = Math.log{maxFreq);
     const relativeFreq = 5 + 95 * ((logFreq - logMinFreq) / (logMaxFreq - logMinFreq));
     const freqPercentage = Math.min(Math.max(relativeFreq, 5), 100).toFixed(0);
     const freqColor = getFrequencyColor(relativeFreq);
