@@ -42,11 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
         goToCard(rank);
     });
 
-    const infoBtn = document.querySelector('.info-btn');
-    const tooltip = document.querySelector('.instructions-tooltip');
-    infoBtn.addEventListener('click', () => {
-        tooltip.toggleAttribute('hidden');
-    });
+    const modal = document.querySelector('#instructions-modal');
+    const closeModalBtn = document.querySelector('.modal-close');
+    if (!localStorage.getItem('instructionsShown')) {
+        modal.removeAttribute('hidden');
+        localStorage.setItem('instructionsShown', 'true');
+    }
+    closeModalBtn.addEventListener('click', () => modal.setAttribute('hidden', 'true'));
 
     loadWords();
     setupEventListeners();
@@ -54,25 +56,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.body.addEventListener('touchstart', () => {
     audioUnlocked = true;
-    console.log('Audio unlocked via touchstart');
 }, { once: true });
 document.body.addEventListener('click', () => {
     audioUnlocked = true;
-    console.log('Audio unlocked via click');
 }, { once: true });
 
 function loadWords() {
     fetch('data/vocab_database.yaml')
         .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             return response.text();
         })
         .then(yamlText => {
             words = jsyaml.load(yamlText) || [];
             if (!words.length) {
-                console.warn('No words found in vocab_database.yaml');
                 alert('No vocabulary data available.');
                 return;
             }
@@ -93,7 +90,7 @@ function loadWords() {
 function toggleShuffle() {
     isShuffled = !isShuffled;
     const shuffleBtn = document.querySelector('.shuffle-btn');
-    shuffleBtn.textContent = isShuffled ? 'Unshuffle Deck' : 'Shuffle Deck';
+    shuffleBtn.textContent = isShuffled ? 'Order' : 'Shuffle';
     if (isShuffled) {
         words = [...originalOrder].sort(() => Math.random() - 0.5);
     } else {
@@ -108,9 +105,7 @@ function toggleShuffle() {
 }
 
 function goToCard(rank) {
-    if (isShuffled) {
-        toggleShuffle(); // Unshuffle to ensure rank-based navigation
-    }
+    if (isShuffled) toggleShuffle();
     currentWordIndex = rank - 1;
     currentBackCardIndex = 0;
     stopAudio();
@@ -122,13 +117,11 @@ function goToCard(rank) {
 function updateSlider() {
     const cardSlider = document.querySelector('#card-slider');
     const cardInput = document.querySelector('#card-input');
-    const currentCardDisplay = document.querySelector('#current-card');
     cardSlider.max = words.length;
     cardInput.max = words.length;
     const currentRank = isShuffled ? (currentWordIndex + 1) : words[currentWordIndex]?.rank || 1;
     cardSlider.value = currentRank;
     cardInput.value = currentRank;
-    currentCardDisplay.textContent = currentRank;
 }
 
 function setupEventListeners() {
@@ -144,18 +137,16 @@ function setupEventListeners() {
         tapCount++;
         if (tapCount === 1) {
             setTimeout(() => {
-                if (tapCount === 1) {
+                if (tapCount === 1 && audioUnlocked) {
                     const audioFile = isFlipped ?
                         (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] ||
                          words[currentWordIndex]?.word_audio_file?.[0]) :
                         words[currentWordIndex]?.word_audio_file?.[0];
-                    if (audioFile && audioUnlocked) {
-                        playAudio(audioFile);
-                    }
+                    if (audioFile) playAudio(audioFile);
                 }
                 tapCount = 0;
             }, doubleTapThreshold);
-        } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
+        } else if (tapCount === 2 && currentTime XKCDlastTapTime < doubleTapThreshold) {
             flipCard();
             tapCount = 0;
         }
@@ -166,6 +157,10 @@ function setupEventListeners() {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             flipCard();
+        } else if (e.key === 'ArrowLeft') {
+            navigateCard(-1);
+        } else if (e.key === 'ArrowRight') {
+            navigateCard(1);
         }
     });
 
@@ -206,15 +201,12 @@ function navigateCard(direction) {
 }
 
 function playCardAudio() {
+    if (!audioUnlocked) return;
     const audioFile = isFlipped ?
         (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] ||
          words[currentWordIndex]?.word_audio_file?.[0]) :
         words[currentWordIndex]?.word_audio_file?.[0];
-    if (audioFile && audioUnlocked) {
-        playAudio(audioFile);
-    } else if (!audioFile) {
-        console.warn(`No audio file for ${isFlipped ? 'back' : 'front'} card at word index ${currentWordIndex}`);
-    }
+    if (audioFile) playAudio(audioFile);
 }
 
 function preloadAudio() {
@@ -244,11 +236,6 @@ function preloadAudio() {
         audio.preload = 'auto';
         audio.load();
         audioCache.set(audioFile, audio);
-        audio.addEventListener('canplaythrough', () => console.log(`Preloaded: data/audio/${audioFile}`), { once: true });
-        audio.addEventListener('error', () => {
-            console.error(`Failed to preload audio: data/audio/${audioFile}`);
-            audioCache.delete(audioFile);
-        }, { once: true });
     });
 }
 
@@ -261,10 +248,7 @@ function stopAudio() {
 }
 
 function playAudio(audioFile) {
-    if (!audioFile || !audioUnlocked) {
-        console.warn('No audio file provided or audio not unlocked');
-        return;
-    }
+    if (!audioFile || !audioUnlocked) return;
     stopAudio();
     let audio = audioCache.get(audioFile);
     if (!audio) {
@@ -276,9 +260,7 @@ function playAudio(audioFile) {
     currentAudio = audio;
     const playPromise = currentAudio.play();
     if (playPromise !== undefined) {
-        playPromise
-            .then(() => console.log(`Successfully playing: data/audio/${audioFile}`))
-            .catch(error => console.error(`Playback error for data/audio/${audioFile}:`, error.message));
+        playPromise.catch(error => console.error(`Playback error for data/audio/${audioFile}:`, error.message));
     }
 }
 
@@ -297,12 +279,10 @@ function getFrequencyColor(relativeFreq) {
 }
 
 function displayWord() {
-    if (!words[currentWordIndex]) {
-        console.warn('No word available to display');
-        return;
-    }
+    if (!words[currentWordIndex]) return;
     const wordData = words[currentWordIndex];
-    const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: 'No definition available', example_en: 'No example available' };
+    const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: 'No definition', example_en: 'No example' };
+    const progressText = isShuffled ? `${currentWordIndex + 1}/${words.length}` : `Rank ${wordData.rank}/${words.length}`;
 
     const logFreq = Math.log(wordData.freq || 1);
     const logMinFreq = Math.log(minFreq);
@@ -316,12 +296,9 @@ function displayWord() {
             <h2>${wordData.word || 'No word'}</h2>
         </div>
         <div class="meta-info">
-            <span class="rank">Rank: ${wordData.rank || 'N/A'}</span>
+            <span class="progress">${progressText}</span>
             <div class="frequency-container">
-                <span class="frequency-label">Frequency:</span>
-                <div class="frequency-bar">
-                    <div class="frequency-fill" style="width: ${freqPercentage}%; background-color: ${freqColor};"></div>
-                </div>
+                <div class="frequency-fill" style="width: ${freqPercentage}%; background-color: ${freqColor};"></div>
             </div>
         </div>
     `;
@@ -336,16 +313,11 @@ function displayWord() {
                 <p class="example">"${backCard.example_en}"</p>
             </div>
             <div class="meta-info">
-                <span class="rank">Rank: ${wordData.rank || 'N/A'}</span>
+                <span class="progress">${progressText}</span>
                 <div class="frequency-container">
-                    <span class="frequency-label">Frequency:</span>
-                    <div class="frequency-bar">
-                        <div class="frequency-fill" style="width: ${freqPercentage}%; background-color: ${freqColor};"></div>
-                    </div>
+                    <div class="frequency-fill" style="width: ${freqPercentage}%; background-color: ${freqColor};"></div>
                 </div>
             </div>
         </div>
     `;
-
-    updateSlider();
 }
