@@ -58,20 +58,16 @@ body[data-theme="dark"] .reset-btn:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
-.theme-toggle .sun-icon {
-    display: none;
+.theme-icon path, .shuffle-icon path, .reset-icon path {
+    stroke: #1e40af;
+    fill: #1e40af;
 }
 
-body[data-theme="dark"] .theme-toggle .sun-icon {
-    display: block;
-}
-
-.theme-toggle .moon-icon {
-    display: block;
-}
-
-body[data-theme="dark"] .theme-toggle .moon-icon {
-    display: none;
+body[data-theme="dark"] .theme-icon path,
+body[data-theme="dark"] .shuffle-icon path,
+body[data-theme="dark"] .reset-icon path {
+    stroke: #60a5fa;
+    fill: #60a5fa;
 }
 
 .controls {
@@ -89,35 +85,33 @@ body[data-theme="dark"] .theme-toggle .moon-icon {
     font-size: 32px;
     font-weight: 700;
     color: #1e40af;
-    line-height: 1.2;
 }
 
 body[data-theme="dark"] .website-name {
     color: #60a5fa;
 }
 
-.slogan-main {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    color: #6b7280;
-    line-height: 1.3;
-}
-
-body[data-theme="dark"] .slogan-main {
-    color: #9ca3af;
-}
-
-.slogan-sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
+.slogan {
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
     font-weight: 400;
-    font-style: italic;
-    color: #6b7280;
-    line-height: 1.3;
+    color: #1e40af;
+    margin-top: 4px;
 }
 
-body[data-theme="dark"] .slogan-sub {
+body[data-theme="dark"] .slogan {
+    color: #60a5fa;
+}
+
+.deck-info {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+body[data-theme="dark"] .deck-info {
     color: #9ca3af;
 }
 
@@ -179,50 +173,17 @@ body[data-theme="dark"] #card-slider::-webkit-slider-thumb {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
+.flashcard.glow {
+    box-shadow: 0 0 20px rgba(30, 64, 175, 0.8);
+}
+
 body[data-theme="dark"] .flashcard {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-.flashcard.glow-once {
-    animation: glow 0.3s ease-in-out 1;
+body[data-theme="dark"] .flashcard.glow {
+    box-shadow: 0 0 20px rgba(96, 165, 250, 0.8);
 }
-
-.flashcard.glow-twice {
-    animation: glow 0.3s ease-in-out 2;
-}
-
-@keyframes glow {
-    0%, 100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); }
-    50% { box-shadow: 0 8px 24px rgba(255, 193, 7, 0.5); }
-}
-
-body[data-theme="dark"] .flashcard.glow-once,
-body[data-theme="dark"] .flashcard.glow-twice {
-    animation: glow-dark 0.3s ease-in-out;
-}
-
-body[data-theme="dark"] .flashcard.glow-twice {
-    animation-iteration-count: 2;
-}
-
-@keyframes glow-dark {
-    0%, 100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
-    50% { box-shadow: 0 8px 24px rgba(96, 165, 250, 0.5); }
-}
-
-.swipe-clone {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0.3;
-    pointer-events: none;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.swipe-left { transform: translateX(-100%); opacity: 0; }
-.swipe-right { transform: translateX(100%); opacity: 0; }
-.swipe-up { transform: translateY(-100%); opacity: 0; }
-.swipe-down { transform: translateY(100%); opacity: 0; }
 
 .front, .back {
     position: absolute;
@@ -332,7 +293,7 @@ body[data-theme="dark"] .rank {
 .frequency-container {
     display: flex;
     align-items: center;
-    width: 150px;
+    margin-left: 12px;
 }
 
 .frequency-label {
@@ -348,7 +309,7 @@ body[data-theme="dark"] .frequency-label {
 
 .frequency-bar {
     width: 100px;
-    height: 12px;
+    height: 8px;
     border: 2px solid #1f2937;
     border-radius: 6px;
     background: #e5e7eb;
@@ -362,6 +323,10 @@ body[data-theme="dark"] .frequency-bar {
 .frequency-fill {
     height: 100%;
     transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+.swipe-clone {
+    pointer-events: none;
 }
 
 @media (max-width: 414px) {
@@ -382,12 +347,12 @@ body[data-theme="dark"] .frequency-bar {
         font-size: 28px;
     }
 
-    .slogan-main {
-        font-size: 14px;
+    .slogan {
+        font-size: 16px;
     }
 
-    .slogan-sub {
-        font-size: 11px;
+    .deck-info {
+        font-size: 12px;
     }
 
     .flashcard {
@@ -406,13 +371,9 @@ body[data-theme="dark"] .frequency-bar {
         font-size: 12px;
     }
 
-    .frequency-container {
-        width: 120px;
-    }
-
     .frequency-bar {
         width: 80px;
-        height: 10px;
+        height: 6px;
     }
 
     #card-slider {
