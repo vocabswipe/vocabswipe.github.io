@@ -10,6 +10,7 @@ let audioUnlocked = false;
 let maxFreq = 0;
 let minFreq = 1;
 let isSliding = false;
+let isTooltipVisible = false;
 
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'bright';
@@ -28,6 +29,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const resetBtn = document.querySelector('.reset-btn');
     resetBtn.addEventListener('click', resetCards);
+
+    const infoBtn = document.querySelector('.info-btn');
+    infoBtn.addEventListener('click', toggleTooltip);
+    infoBtn.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        toggleTooltip();
+    });
+
+    const tooltipClose = document.querySelector('.tooltip-close');
+    tooltipClose.addEventListener('click', toggleTooltip);
+    tooltipClose.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        toggleTooltip();
+    });
 
     const cardSlider = document.querySelector('#card-slider');
     cardSlider.addEventListener('input', () => {
@@ -61,6 +76,45 @@ document.body.addEventListener('click', () => {
     audioUnlocked = true;
     console.log('Audio unlocked via click');
 }, { once: true });
+
+function toggleTooltip() {
+    const overlay = document.querySelector('.tooltip-overlay');
+    const tooltipText = document.querySelector('#tooltip-text');
+    isTooltipVisible = !isTooltipVisible;
+    if (isTooltipVisible) {
+        const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        tooltipText.innerHTML = isMobile 
+            ? `
+                <strong>Welcome to VocabSwipe!</strong><br><br>
+                <strong>Purpose:</strong> VocabSwipe helps you master the top 5000 most frequently used English words to boost your vocabulary skills.<br><br>
+                <strong>How to Use (Mobile):</strong><br>
+                - <strong>Swipe Left/Right:</strong> Navigate to the next or previous word card.<br>
+                - <strong>Swipe Up/Down:</strong> On the back of a card, cycle through different definitions and examples.<br>
+                - <strong>Tap Once:</strong> Hear the word or sentence audio.<br>
+                - <strong>Double-Tap:</strong> Flip between the front (word) and back (definition/example).<br>
+                - <strong>Slider:</strong> Jump to a specific word rank.<br>
+                - <strong>Shuffle/Reset:</strong> Randomize or restore the original word order.<br><br>
+                <strong>Benefits:</strong> Improve your English fluency, comprehension, and pronunciation through interactive learning with audio support.
+            `
+            : `
+                <strong>Welcome to VocabSwipe!</strong><br><br>
+                <strong>Purpose:</strong> VocabSwipe helps you master the top 5000 most frequently used English words to enhance your vocabulary.<br><br>
+                <strong>How to Use (PC):</strong><br>
+                - <strong>Left/Right Arrow Keys:</strong> Navigate to the previous or next word card.<br>
+                - <strong>Up/Down Arrow Keys:</strong> On the back of a card, cycle through different definitions and examples.<br>
+                - <strong>Spacebar:</strong> Play the word or sentence audio.<br>
+                - <strong>Enter:</strong> Flip between the front (word) and back (definition/example).<br>
+                - <strong>Slider:</strong> Jump to a specific word rank.<br>
+                - <strong>Shuffle/Reset:</strong> Randomize or restore the original word order.<br><br>
+                <strong>Benefits:</strong> Enhance your English vocabulary, comprehension, and pronunciation with an interactive flashcard system.
+            `;
+        overlay.style.display = 'flex';
+        document.body.classList.add('dimmed');
+    } else {
+        overlay.style.display = 'none';
+        document.body.classList.remove('dimmed');
+    }
+}
 
 function loadWords() {
     fetch('data/vocab_database.yaml')
@@ -150,9 +204,8 @@ function setupEventListeners() {
         lastTapTime = currentTime;
     });
 
-    // Keep click event for PC compatibility
     card.addEventListener('click', (e) => {
-        if ('ontouchstart' in window) return; // Skip click on touch devices
+        if ('ontouchstart' in window) return;
         const currentTime = new Date().getTime();
         tapCount++;
         if (tapCount === 1) {
@@ -467,7 +520,7 @@ function displayWord() {
             <div class="meta-info">
                 <span class="rank">Rank: ${wordData.rank || 'N/A'}</span>
                 <div class="frequency-container">
-                    <span class="frequency-LABEL">Frequency</span>
+                    <span class="frequency-label">Frequency</span>
                     <div class="frequency-bar">
                         <div class="frequency-fill" style="width: ${freqPercentage}%; background-color: ${freqColor};"></div>
                     </div>
