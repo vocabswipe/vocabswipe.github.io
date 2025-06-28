@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>VocabSwipe</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
 </head>
@@ -24,20 +24,20 @@
             <div class="controls">
                 <button class="shuffle-btn" aria-label="Shuffle cards">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 3H5C3.895 3 3 3.895 3 5V9H21V5C21 3.895 20.105 3 19 3ZM21 15H3V19C3 20.105 3.895 21 5 21H19C20.105 21 21 20.105 21 19V15ZM15 9H9V15H15V9Z" stroke="#1e40af" stroke-width="2"/>
+                        <path d="M16.5 3.5L20 7L16.5 10.5M20 7H3M16.5 13.5L20 17L16.5 20.5M20 17H3" stroke="#1e40af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
                 <button class="reset-btn" aria-label="Reset order">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d=" odcz: "M12 4C7.581 4 4 7.581 4 12C4 16.419 7.581 20 12 20C16.419 20 20 16.419 20 12C20 7.581 16.419 4 12 4ZM12 6C15.314 6 18 8.686 18 12C18 15.314 15.314 18 12 18C8.686 18 6 15.314 6 12C6 8.686 8.686 6 12 6ZM12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM12 10C9.791 10 8 11.791 8 14C8 16.209 9.791 18 12 18C14.209 18 16 16.209 16 14C16 11.791 14.209 10 12 10ZM12 10" stroke="#1e40af" stroke-width="2"/>
+                        <path d="M4 4V8H8M20 20V16H16M12 19C8.13401 19 5 15.866 5 12C5 8.13401 8.13401 5 12 5C15.866 5 19 8.13401 19 12C19 15.866 15.866 19 12 19Z" stroke="#1e40af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
             </div>
         </div>
         <div class="title-container">
             <h1 class="website-name">VocabSwipe</h1>
-            <p class="slogan">Swipe to master your vocabulary</p>
-            <p class="deck-info">Top 5000 most frequently used words</p>
+            <p class="slogan-main">Swipe to master your vocabulary</p>
+            <p class="slogan-sub">Top 5000 most frequently used words</p>
         </div>
         <div class="slider-container">
             <input type="range" id="card-slider" min="1" max="5000" value="1" aria-label="Select card rank">
