@@ -21,6 +21,14 @@ body[data-theme="dark"] {
     color: #e5e7eb;
 }
 
+body[data-theme="dark"] .shuffle-icon {
+    stroke: #60a5fa;
+}
+
+body[data-theme="dark"] .reset-icon {
+    fill: #60a5fa;
+}
+
 .container {
     width: 100%;
     max-width: 414px;
@@ -85,22 +93,24 @@ body[data-theme="dark"] .theme-toggle .moon-icon {
     font-weight: 700;
     color: #1e40af;
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 4px;
 }
 
 body[data-theme="dark"] .website-name {
     color: #60a5fa;
 }
 
-.progress {
-    font-size: 14px;
-    font-weight: 500;
-    color: #6b7280;
+.slogan {
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    font-weight: 400;
+    color: #1e40af;
+    text-align: center;
     margin-bottom: 12px;
 }
 
-body[data-theme="dark"] .progress {
-    color: #9ca3af;
+body[data-theme="dark"] .slogan {
+    color: #60a5fa;
 }
 
 .slider-container {
@@ -139,16 +149,6 @@ body[data-theme="dark"] #card-slider::-webkit-slider-thumb {
     background: #60a5fa;
 }
 
-#slider-value {
-    font-size: 14px;
-    font-weight: 500;
-    color: #6b7280;
-}
-
-body[data-theme="dark"] #slider-value {
-    color: #9ca3af;
-}
-
 .flashcard-container {
     width: 100%;
     perspective: 1200px;
@@ -173,6 +173,76 @@ body[data-theme="dark"] #slider-value {
 
 body[data-theme="dark"] .flashcard {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.flashcard.glow-once {
+    animation: glow 0.3s ease-in-out;
+}
+
+.flashcard.glow-twice {
+    animation: glow 0.6s ease-in-out;
+    animation-iteration-count: 2;
+}
+
+.flashcard.swipe-left .front,
+.flashcard.swipe-left .back {
+    animation: swipeLeft 0.3s ease-out forwards;
+}
+
+.flashcard.swipe-right .front,
+.flashcard.swipe-right .back {
+    animation: swipeRight 0.3s ease-out forwards;
+}
+
+.flashcard.swipe-up .front,
+.flashcard.swipe-up .back {
+    animation: swipeUp 0.3s ease-out forwards;
+}
+
+.flashcard.swipe-down .front,
+.flashcard.swipe-down .back {
+    animation: swipeDown 0.3s ease-out forwards;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); }
+    50% { box-shadow: 0 0 30px rgba(30, 64, 175, 0.5); }
+    100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); }
+}
+
+body[data-theme="dark"] .flashcard.glow-once,
+body[data-theme="dark"] .flashcard.glow-twice {
+    animation: glow-dark 0.3s ease-in-out;
+}
+
+body[data-theme="dark"] .flashcard.glow-twice {
+    animation-iteration-count: 2;
+}
+
+@keyframes glow-dark {
+    0% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
+    50% { box-shadow: 0 0 30px rgba(96, 165, 250, 0.5); }
+    100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
+}
+
+@keyframes swipeLeft {
+    0% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(-20px); }
+}
+
+@keyframes swipeRight {
+    0% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(20px); }
+}
+
+@keyframes swipeUp {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
+
+@keyframes swipeDown {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(20px); }
 }
 
 .front, .back {
@@ -260,7 +330,6 @@ body[data-theme="dark"] .example {
 
 .meta-info {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding-top: 12px;
     border-top: 1px solid #e5e7eb;
@@ -280,16 +349,26 @@ body[data-theme="dark"] .rank {
     color: #9ca3af;
 }
 
+.frequency-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+    margin-right: 8px;
+}
+
+body[data-theme="dark"] .frequency-label {
+    color: #9ca3af;
+}
+
 .frequency-container {
-    flex: 1;
-    margin-left: 12px;
+    width: 100px; /* Halved from original */
 }
 
 .frequency-bar {
     width: 100%;
-    height: 12px;
+    height: 8px; /* Slightly smaller */
     border: 2px solid #1f2937;
-    border-radius Muhammed: border-radius: 6px;
+    border-radius: 4px;
     background: #e5e7eb;
 }
 
@@ -321,6 +400,10 @@ body[data-theme="dark"] .frequency-bar {
         font-size: 28px;
     }
 
+    .slogan {
+        font-size: 18px;
+    }
+
     .flashcard {
         max-width: 90%;
     }
@@ -333,12 +416,16 @@ body[data-theme="dark"] .frequency-bar {
         font-size: 14px;
     }
 
-    .rank, #slider-value {
+    .rank, .frequency-label {
         font-size: 12px;
     }
 
+    .frequency-container {
+        width: 80px;
+    }
+
     .frequency-bar {
-        height: 10px;
+        height: 6px;
     }
 
     #card-slider {
