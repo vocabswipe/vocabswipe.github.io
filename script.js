@@ -40,11 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
     cardSlider.addEventListener('change', () => {
         isSliding = false;
         preloadAudio();
-        if (audioUnlocked) {
-            const audioFile = isFlipped ? 
-                (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                 words[currentWordIndex]?.word_audio_file?.[0]) : 
-                words[currentWordIndex]?.word_audio_file?.[0];
+        if (audioUnlocked && !isFlipped) {
+            const audioFile = words[currentWordIndex]?.word_audio_file?.[0];
             if (audioFile) playAudio(audioFile);
         }
     });
@@ -72,23 +69,26 @@ function loadWords() {
             return response.text();
         })
         .then(yamlText => {
-            words = jsyaml.load(yamlText) || [];
-            if (!words.length) {
-                console.warn('No words found in vocab_database.yaml');
-                alert('No vocabulary data available.');
-                return;
+            try {
+                words = jsyaml.load(yamlText) || [];
+                if (!Array.isArray(words) || words.length === 0) {
+                    throw new Error('No valid words found in vocab_database.yaml');
+                }
+                originalWords = [...words];
+                words.sort((a, b) => (a.rank || 0) - (b.rank || 0));
+                maxFreq = words.find(word => word.rank === 1)?.freq || 1;
+                minFreq = Math.min(...words.map(word => word.freq || 1).filter(freq => freq > 0)) || 1;
+                document.querySelector('#card-slider').max = words.length;
+                displayWord();
+                preloadAudio();
+            } catch (e) {
+                throw new Error(`Failed to parse YAML: ${e.message}`);
             }
-            originalWords = [...words];
-            words.sort((a, b) => a.rank - b.rank);
-            maxFreq = words.find(word => word.rank === 1)?.freq || 1;
-            minFreq = Math.min(...words.map(word => word.freq).filter(freq => freq > 0)) || 1;
-            document.querySelector('#card-slider').max = words.length;
-            displayWord();
-            preloadAudio();
         })
         .catch(error => {
             console.error('Error loading words:', error.message);
-            alert('Failed to load vocabulary data.');
+            alert(`Failed to load vocabulary data: ${error.message}. Please check if 'data/vocab_database.yaml' exists and is valid.`);
+            document.querySelector('.flashcard-container').innerHTML = '<p>Error loading flashcards. Please try again later.</p>';
         });
 }
 
@@ -105,7 +105,7 @@ function shuffleCards() {
 }
 
 function resetCards() {
-    words = [...originalWords].sort((a, b) => a.rank - b.rank);
+    words = [...originalWords].sort((a, b) => (a.rank || 0) - (b.rank || 0));
     currentWordIndex = 0;
     currentBackCardIndex = 0;
     stopAudio();
@@ -115,6 +115,10 @@ function resetCards() {
 
 function setupEventListeners() {
     const card = document.querySelector('.flashcard');
+    if (!card) {
+        console.error('Flashcard element not found');
+        return;
+    }
     let tapCount = 0;
     let lastTapTime = 0;
     const doubleTapThreshold = 300;
@@ -174,7 +178,7 @@ function setupEventListeners() {
                 (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                  words[currentWordIndex]?.word_audio_file?.[0]) : 
                 words[currentWordIndex]?.word_audio_file?.[0];
-            if (audioFile && audioUnlocked) {
+            if( audioFile && audioUnlocked) {
                 playAudio(audioFile);
             }
             preloadAudio();
@@ -255,7 +259,7 @@ function setupKeyboardListeners() {
             case 'ArrowDown':
                 if (isFlipped && words[currentWordIndex]?.back_cards) {
                     animateSwipe('down');
-                    currentBackCardIndex = (currentBackCard溫: backCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
+                    currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
                     stopAudio();
                     displayWord();
                     const downAudio = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
@@ -282,13 +286,15 @@ function setupKeyboardListeners() {
 
 function glowCard(times) {
     const card = document.querySelector('.flashcard');
+    if (!card) return;
     card.classList.remove('glow-once', 'glow-twice');
     void card.offsetWidth; // Trigger reflow
-    card.classList.add(times === 1 ? 'glow-once' : 'glow-twice');
+    card.classList.add(times === 1 ? 'grow-once' : 'glow-twice');
 }
 
 function animateSwipe(direction) {
     const card = document.querySelector('.flashcard');
+    if (!card) return;
     const clone = card.cloneNode(true);
     clone.classList.add('swipe-clone', `swipe-${direction}`);
     card.parentElement.appendChild(clone);
@@ -304,8 +310,8 @@ function preloadAudio() {
     const prevWord = words[prevIndex];
 
     const audioFiles = [
-        currentWord.word_audio_file?.[0],
-        ...(currentWord.sentence_audio_file || []),
+        currentWord?.word_audio_file?.[0],
+        ...(currentWord?.sentence_audio_file || []),
         nextWord?.word_audio_file?.[0],
         ...(nextWord?.sentence_audio_file || []),
         prevWord?.word_audio_file?.[0],
@@ -363,6 +369,7 @@ function playAudio(audioFile) {
 function flipCard() {
     isFlipped = !isFlipped;
     const card = document.querySelector('.flashcard');
+    if (!card) return;
     card.classList.toggle('flipped', isFlipped);
     stopAudio();
     displayWord();
@@ -383,6 +390,7 @@ function getFrequencyColor(relativeFreq) {
 function displayWord() {
     if (!words[currentWordIndex]) {
         console.warn('No word available to display');
+        document.querySelector('.flashcard-container').innerHTML = '<p>No word data available.</p>';
         return;
     }
     const wordData = words[currentWordIndex];
@@ -399,10 +407,10 @@ function displayWord() {
 
     document.querySelector('.front').innerHTML = `
         <div class="word-container">
-            <h2>${wordData.word}</h2>
+            <h2>${wordData.word || 'N/A'}</h2>
         </div>
         <div class="meta-info">
-            <span class="rank">Rank: ${wordData.rank}</span>
+            <span class="rank">Rank: ${wordData.rank || 'N/A'}</span>
             <div class="frequency-container">
                 <span class="frequency-label">Frequency</span>
                 <div class="frequency-bar">
@@ -414,15 +422,15 @@ function displayWord() {
 
     document.querySelector('.back').innerHTML = `
         <div class="word-container">
-            <h2>${wordData.word}</h2>
+            <h2>${wordData.word || 'N/A'}</h2>
         </div>
         <div class="back-template">
             <div class="card-info">
-                <p class="definition">${backCard.definition_en}</p>
-                <p class="example">"${backCard.example_en}"</p>
+                <p class="definition">${backCard.definition_en || 'No definition available'}</p>
+                <p class="example">"${backCard.example_en || 'No example available'}"</p>
             </div>
             <div class="meta-info">
-                <span class="rank">Rank: ${wordData.rank}</span>
+                <span class="rank">Rank: ${wordData.rank || 'N/A'}</span>
                 <div class="frequency-container">
                     <span class="frequency-label">Frequency</span>
                     <div class="frequency-bar">
