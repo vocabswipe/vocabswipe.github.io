@@ -58,17 +58,6 @@ body[data-theme="dark"] .reset-btn:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
-body[data-theme="dark"] .shuffle-btn svg path,
-body[data-theme="dark"] .reset-btn svg path,
-body[data-theme="dark"] .shuffle-btn svg line,
-body[data-theme="dark"] .reset-btn svg line {
-    stroke: #60a5fa;
-}
-
-body[data-theme="dark"] .reset-btn svg path {
-    fill: #60a5fa;
-}
-
 .theme-toggle .sun-icon {
     display: none;
 }
@@ -107,29 +96,27 @@ body[data-theme="dark"] .website-name {
     color: #60a5fa;
 }
 
-.slogan {
+.slogan-main {
     font-family: 'Caveat', cursive;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 400;
     color: #1e40af;
     line-height: 1.2;
-    margin-top: 4px;
 }
 
-body[data-theme="dark"] .slogan {
+body[data-theme="dark"] .slogan-main {
     color: #60a5fa;
 }
 
-.deck-info {
+.slogan-sub {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #6b7280;
     line-height: 1.2;
-    margin-top: 4px;
 }
 
-body[data-theme="dark"] .deck-info {
+body[data-theme="dark"] .slogan-sub {
     color: #9ca3af;
 }
 
@@ -191,71 +178,26 @@ body[data-theme="dark"] #card-slider::-webkit-slider-thumb {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
-.flashcard.glow-single {
-    animation: glow 0.3s ease-in-out 1;
-}
-
-.flashcard.glow-double {
-    animation: glow 0.6s ease-in-out 2;
-}
-
-.flashcard.swipe-left {
-    animation: swipeLeft 0.2s ease-in-out;
-}
-
-.flashcard.swipe-right {
-    animation: swipeRight 0.2s ease-in-out;
-}
-
-.flashcard.swipe-up {
-    animation: swipeUp 0.2s ease-in-out;
-}
-
-.flashcard.swipe-down {
-    animation: swipeDown 0.2s ease-in-out;
+.flashcard.glow {
+    animation: glow 0.3s ease;
 }
 
 @keyframes glow {
     0%, 100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); }
-    50% { box-shadow: 0 8px 32px rgba(30, 64, 175, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(30, 64, 175, 0.7); }
 }
 
 body[data-theme="dark"] .flashcard {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-body[data-theme="dark"] .flashcard.glow-single,
-body[data-theme="dark"] .flashcard.glow-double {
-    animation: glow-dark 0.3s ease-in-out;
-}
-
-body[data-theme="dark"] .flashcard.glow-double {
-    animation: glow-dark 0.6s ease-in-out 2;
+body[data-theme="dark"] .flashcard.glow {
+    animation: glow-dark 0.3s ease;
 }
 
 @keyframes glow-dark {
     0%, 100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
-    50% { box-shadow: 0 8px 32px rgba(96, 165, 250, 0.5); }
-}
-
-@keyframes swipeLeft {
-    0% { transform: translateX(0); opacity: 1; }
-    100% { transform: translateX(-100px); opacity: 0; }
-}
-
-@keyframes swipeRight {
-    0% { transform: translateX(0); opacity: 1; }
-    100% { transform: translateX(100px); opacity: 0; }
-}
-
-@keyframes swipeUp {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-100px); opacity: 0; }
-}
-
-@keyframes swipeDown {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(100px); opacity: 0; }
+    50% { box-shadow: 0 0 20px rgba(96, 165, 250, 0.7); }
 }
 
 .front, .back {
@@ -279,6 +221,42 @@ body[data-theme="dark"] .back {
 
 .back {
     transform: rotateY(180deg);
+}
+
+.front.swipe-left, .back.swipe-left {
+    animation: swipe-left 0.2s ease forwards;
+}
+
+.front.swipe-right, .back.swipe-right {
+    animation: swipe-right 0.2s ease forwards;
+}
+
+.front.swipe-up, .back.swipe-up {
+    animation: swipe-up 0.2s ease forwards;
+}
+
+.front.swipe-down, .back.swipe-down {
+    animation: swipe-down 0.2s ease forwards;
+}
+
+@keyframes swipe-left {
+    0% { transform: translateX(0); opacity: 1; }
+    100% { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes swipe-right {
+    0% { transform: translateX(0); opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes swipe-up {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100%); opacity: 0; }
+}
+
+@keyframes swipe-down {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(100%); opacity: 0; }
 }
 
 .word-container {
@@ -346,6 +324,7 @@ body[data-theme="dark"] .example {
     align-items: center;
     padding-top: 12px;
     border-top: 1px solid #e5e7eb;
+    justify-content: flex-end;
 }
 
 body[data-theme="dark"] .meta-info {
@@ -356,6 +335,7 @@ body[data-theme="dark"] .meta-info {
     font-size: 13px;
     font-weight: 500;
     color: #6b7280;
+    margin-right: 8px;
 }
 
 body[data-theme="dark"] .frequency-label {
@@ -364,14 +344,13 @@ body[data-theme="dark"] .frequency-label {
 
 .frequency-container {
     width: 100px;
-    margin-left: 12px;
 }
 
 .frequency-bar {
     width: 100%;
-    height: 8px;
+    height: 10px;
     border: 2px solid #1f2937;
-    border-radius: 4px;
+    border-radius: 6px;
     background: #e5e7eb;
 }
 
@@ -403,11 +382,11 @@ body[data-theme="dark"] .frequency-bar {
         font-size: 28px;
     }
 
-    .slogan {
-        font-size: 18px;
+    .slogan-main {
+        font-size: 16px;
     }
 
-    .deck-info {
+    .slogan-sub {
         font-size: 12px;
     }
 
@@ -428,7 +407,7 @@ body[data-theme="dark"] .frequency-bar {
     }
 
     .frequency-bar {
-        height: 6px;
+        height: 8px;
     }
 
     .frequency-container {
