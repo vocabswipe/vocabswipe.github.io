@@ -12,11 +12,12 @@ let maxFreq = 0;
 let minFreq = 1;
 let isSliding = false;
 let isTooltipVisible = false;
+let totalSentences = 0; // New variable to store total sentences
 
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'bright';
     document.body.setAttribute('data-theme', savedTheme);
-    updateIcons(savedTheme); // Set initial icons based on theme
+    updateIcons(savedTheme);
 
     const themeToggle = document.querySelector('.theme-toggle');
     themeToggle.addEventListener('click', () => {
@@ -24,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const newTheme = currentTheme === 'bright' ? 'dark' : 'bright';
         document.body.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        updateIcons(newTheme); // Update icons when theme changes
+        updateIcons(newTheme);
     });
 
     const audioBtn = document.querySelector('.audio-btn');
@@ -171,7 +172,11 @@ function loadWords() {
                 words.sort((a, b) => (a.rank || 0) - (b.rank || 0));
                 maxFreq = words.find(word => word.rank === 1)?.freq || 1;
                 minFreq = Math.min(...words.map(word => word.freq || 1).filter(freq => freq > 0)) || 1;
+                // Calculate total sentences
+                totalSentences = words.reduce((sum, word) => sum + (word.back_cards?.length || 0), 0);
                 document.querySelector('#card-slider').max = words.length;
+                document.querySelector('#total-words').textContent = '5000';
+                document.querySelector('#total-sentences').textContent = totalSentences.toLocaleString();
                 displayWord();
                 preloadAudio();
             } catch (e) {
@@ -182,6 +187,7 @@ function loadWords() {
             console.error('Error loading words:', error.message);
             alert(`Failed to load vocabulary data: ${error.message}. Please check if 'data/vocab_database.yaml' exists and is valid.`);
             document.querySelector('.flashcard-container').innerHTML = '<p>Error loading flashcards. Please try again later.</p>';
+            document.querySelector('#total-sentences').textContent = 'N/A';
         });
 }
 
