@@ -1,85 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
- <title>VocabSwipe</title>
- <link rel="stylesheet" href="styles.css">
- <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
- <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
- <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VocabSwipe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
 </head>
 <body data-theme="bright">
- <div class="container">
- <div class="header">
- <button class="theme-toggle" aria-label="Toggle theme">
- <img src="night-light.svg" class="theme-icon" width="28" height="28" alt="Toggle theme">
- </button>
- <div class="controls">
- <button class="info-btn" aria-label="Show information">
- <img src="information.svg" class="info-icon" width="28" height="28" alt="Information">
- </button>
- <button class="shuffle-btn" aria-label="Shuffle cards">
- <img src="shuffle.svg" class="shuffle-icon" width="28" height="28" alt="Shuffle cards">
- </button>
- <button class="reset-btn" aria-label="Reset order">
- <img src="reset.svg" class="reset-icon" width="28" height="28" alt="Reset order">
- </button>
- </div>
- </div>
- <div class="title-container">
- <h1 class="website-name">VocabSwipe</h1>
- <p class="slogan-main">Swipe to master your vocabulary</p>
- <p class="slogan-sub">Top 5000 most frequently used words</p>
- </div>
- <div class="slider-container">
- <input type="range" id="card-slider" min="1" max="5000" value="1" aria-label="Select card rank">
- </div>
- <div class="flashcard-container">
- <div class="flashcard">
- <div class="front">
- <div class="word-container">
- <h2 id="word"></h2>
- </div>
- <div class="meta-info">
- <span id="front-rank" class="rank"></span>
- <div class="frequency-container">
- <span class="frequency-label">Frequency</span>
- <div class="frequency-bar">
- <div id="front-frequency-fill" class="frequency-fill"></div>
- </div>
- </div>
- </div>
- </div>
- <div class="back">
- <div class="word-container">
- <h2 id="back-word"></h2>
- </div>
- <div class="back-template">
- <div class="card-info">
- <p id="back-definition" class="definition"></p>
- <p id="back-example" class="example"></p>
- </div>
- <div class="meta-info">
- <span id="back-rank" class="rank"></span>
- <div class="frequency-container">
- <span class="frequency-label">Frequency</span>
- <div class="frequency-bar">
- <div id="back-frequency-fill" class="frequency-fill"></div>
- </div>
- </div>
- </div>
- </div>
- </div>
- </div>
- </div>
- <div class="tooltip-overlay" style="display: none;">
- <div class="tooltip-message">
- <p id="tooltip-text"></p>
- <button class="tooltip-close" aria-label="Close tooltip">Close</button>
- </div>
- </div>
- </div>
- <script src="script.js"></script>
+    <div class="container">
+        <div class="header">
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <img src="night-light.svg" class="theme-icon" width="28" height="28" alt="Toggle theme">
+            </button>
+            <div class="controls">
+                <button class="info-btn" aria-label="Show information">
+                    <img src="information.svg" class="info-icon" width="28" height="28" alt="Information">
+                </button>
+                <button class="shuffle-btn" aria-label="Shuffle cards">
+                    <img src="shuffle.svg" class="shuffle-icon" width="28" height="28" alt="Shuffle cards">
+                </button>
+                <button class="reset-btn" aria-label="Reset order">
+                    <img src="reset.svg" class="reset-icon" width="28" height="28" alt="Reset order">
+                </button>
+            </div>
+        </div>
+        <div class="title-container">
+            <h1 class="website-name">VocabSwipe</h1>
+            <p class="slogan-main">Swipe to master your vocabulary</p>
+            <p class="slogan-sub">Top 5000 most frequently used words</p>
+        </div>
+        <div class="slider-container">
+            <input type="range" id="card-slider" min="1" max="5000" value="1" aria-label="Select card rank">
+        </div>
+        <div class="flashcard-container">
+            <div class="flashcard">
+                <div class="front">
+                    <div class="word-container">
+                        <h2 id="word"></h2>
+                    </div>
+                    <div class="meta-info">
+                        <span id="front-rank" class="rank"></span>
+                        <div class="frequency-container">
+                            <span class="frequency-label">Frequency</span>
+                            <div class="frequency-bar">
+                                <div id="front-frequency-fill" class="frequency-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="word-container">
+                        <h2 id="back-word"></h2>
+                    </div>
+                    <div class="back-template">
+                        <div class="card-info">
+                            <p id="back-definition" class="definition"></p>
+                            <p id="back-example" class="example"></p>
+                        </div>
+                        <div class="meta-info">
+                            <span id="back-rank" class="rank"></span>
+                            <div class="frequency-container">
+                                <span class="frequency-label">Frequency</span>
+                                <div class="frequency-bar">
+                                    <div id="back-frequency-fill" class="frequency-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tooltip-overlay" style="display: none;">
+            <div class="tooltip-message">
+                <p id="tooltip-text"></p>
+                <button class="tooltip-close" aria-label="Close tooltip">Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
