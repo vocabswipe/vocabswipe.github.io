@@ -60,17 +60,22 @@ body[data-theme="dark"] .reset-btn:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
-.theme-icon, .info-icon, .shuffle-icon, .reset-icon {
-    width: 24px;
-    height: 24px;
-    filter: invert(26%) sepia(98%) saturate(639%) hue-rotate(199deg) brightness(89%) contrast(101%); /* Matches #1e40af */
+.theme-icon {
+    filter: invert(62%) sepia(98%) saturate(639%) hue-rotate(0deg) brightness(103%) contrast(101%);
 }
 
-body[data-theme="dark"] .theme-icon,
+body[data-theme="dark"] .theme-icon {
+    filter: invert(62%) sepia(98%) saturate(639%) hue-rotate(180deg) brightness(103%) contrast(101%);
+}
+
+.info-icon, .shuffle-icon, .reset-icon {
+    filter: invert(20%) sepia(98%) saturate(639%) hue-rotate(200deg) brightness(90%) contrast(101%);
+}
+
 body[data-theme="dark"] .info-icon,
 body[data-theme="dark"] .shuffle-icon,
 body[data-theme="dark"] .reset-icon {
-    filter: invert(62%) sepia(98%) saturate(639%) hue-rotate(180deg) brightness(103%) contrast(101%); /* Matches #60a5fa */
+    filter: invert(62%) sepia(98%) saturate(639%) hue-rotate(180deg) brightness(103%) contrast(101%);
 }
 
 .controls {
@@ -87,7 +92,7 @@ body[data-theme="dark"] .reset-icon {
 
 .website-name {
     font-family: 'Caveat', cursive;
-    font-size: 38.4px; /* Increased by 20% from 32px */
+    font-size: 35.2px; /* Increased by 10% from 32px */
     font-weight: 700;
     color: #1e40af;
 }
@@ -98,7 +103,7 @@ body[data-theme="dark"] .website-name {
 
 .slogan-main {
     font-family: 'Caveat', cursive;
-    font-size: 24px; /* Increased by 20% from 20px */
+    font-size: 22px; /* Increased by 10% from 20px */
     font-weight: 400;
     color: #1e40af;
     line-height: 1.2;
@@ -110,7 +115,7 @@ body[data-theme="dark"] .slogan-main {
 
 .slogan-sub {
     font-family: 'Inter', sans-serif;
-    font-size: 16.8px; /* Increased by 20% from 14px */
+    font-size: 15.4px; /* Increased by 10% from 14px */
     font-weight: 500;
     color: #6b7280;
     line-height: 1.2;
@@ -480,15 +485,15 @@ body[data-theme="dark"] .tooltip-close:hover {
     }
 
     .website-name {
-        font-size: 33.6px; /* Increased by 20% from 28px */
+        font-size: 30.8px; /* Increased by 10% from 28px */
     }
 
     .slogan-main {
-        font-size: 21.6px; /* Increased by 20% from 18px */
+        font-size: 19.8px; /* Increased by 10% from 18px */
     }
 
     .slogan-sub {
-        font-size: 14.4px; /* Increased by 20% from 12px */
+        font-size: 13.2px; /* Increased by 10% from 12px */
     }
 
     .flashcard {
