@@ -11,6 +11,7 @@ let maxFreq = 0;
 let minFreq = 1;
 let isSliding = false;
 let isTooltipVisible = false;
+let isMuted = false;
 
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'bright';
@@ -29,6 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const resetBtn = document.querySelector('.reset-btn');
     resetBtn.addEventListener('click', resetCards);
+
+    const muteBtn = document.querySelector('.mute-btn');
+    muteBtn.addEventListener('click', toggleMute);
+    muteBtn.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        toggleMute();
+    });
 
     const infoBtn = document.querySelector('.info-btn');
     infoBtn.addEventListener('click', toggleTooltip);
@@ -55,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cardSlider.addEventListener('change', () => {
         isSliding = false;
         preloadAudio();
-        if (audioUnlocked) {
+        if (audioUnlocked && !isMuted) {
             const audioFile = isFlipped 
                 ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
                 : words[currentWordIndex]?.word_audio_file?.[0];
@@ -77,6 +85,20 @@ document.body.addEventListener('click', () => {
     console.log('Audio unlocked via click');
 }, { once: true });
 
+function toggleMute() {
+    isMuted = !isMuted;
+    const muteIcon = document.querySelector('.mute-icon');
+    muteIcon.src = isMuted ? 'unmute.svg' : 'mute.svg'; // Switch icon based on mute state
+    if (isMuted) {
+        stopAudio();
+    } else if (audioUnlocked) {
+        const audioFile = isFlipped 
+            ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
+            : words[currentWordIndex]?.word_audio_file?.[0];
+        if (audioFile) playAudio(audioFile);
+    }
+}
+
 function toggleTooltip() {
     const overlay = document.querySelector('.tooltip-overlay');
     const tooltipText = document.querySelector('#tooltip-text');
@@ -84,7 +106,8 @@ function toggleTooltip() {
     if (isTooltipVisible) {
         const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         const iconStyle = document.body.getAttribute('data-theme') === 'dark' ? 
-            'style="filter: none; fill: #60a5fa;"' : 'style="filter: none; fill: #1e40af;"';
+            'style="filter: none; fill: #facc15;"' : 'style="filter: none; fill: #1e40af;"';
+        const muteIconSrc = isMuted ? 'unmute.svg' : 'mute.svg';
         tooltipText.innerHTML = isMobile 
             ? `
                 <strong>How to Use VocabSwipe:</strong><br><br>
@@ -92,9 +115,10 @@ function toggleTooltip() {
                 - <strong>Info (<img src="information.svg" width="28" height="28" ${iconStyle} alt="Info">):</strong> Tap to show or hide this help message.<br>
                 - <strong>Shuffle (<img src="shuffle.svg" width="28" height="28" ${iconStyle} alt="Shuffle">):</strong> Tap to randomize the word order.<br>
                 - <strong>Reset (<img src="reset.svg" width="28" height="28" ${iconStyle} alt="Reset">):</strong> Tap to restore the original word order.<br>
+                - <strong>Mute (<img src="${muteIconSrc}" width="28" height="28" ${iconStyle} alt="Mute">):</strong> Tap to mute or unmute audio.<br>
                 - <strong>Swipe Left/Right:</strong> Navigate to the next or previous word card.<br>
                 - <strong>Swipe Up/Down:</strong> On the back of a card, cycle through different definitions and examples.<br>
-                - <strong>Tap Once:</strong> Hear the word or sentence audio.<br>
+                - <strong>Tap Once:</strong> Hear the word or sentence audio (if not muted).<br>
                 - <strong>Double-Tap:</strong> Flip between the front (word) and back (definition/example).<br>
                 - <strong>Slider:</strong> Jump to a specific word rank.
             `
@@ -104,9 +128,10 @@ function toggleTooltip() {
                 - <strong>Info (<img src="information.svg" width="28" height="28" ${iconStyle} alt="Info">):</strong> Click to show or hide this help message.<br>
                 - <strong>Shuffle (<img src="shuffle.svg" width="28" height="28" ${iconStyle} alt="Shuffle">):</strong> Click to randomize the word order.<br>
                 - <strong>Reset (<img src="reset.svg" width="28" height="28" ${iconStyle} alt="Reset">):</strong> Click to restore the original word order.<br>
-                - <strong>Left/Right Arrow Keys:</strong> Navigate to the previous or Heather word card.<br>
+                - <strong>Mute (<img src="${muteIconSrc}" width="28" height="28" ${iconStyle} alt="Mute">):</strong> Click to mute or unmute audio.<br>
+                - <strong>Left/Right Arrow Keys:</strong> Navigate to the previous or next word card.<br>
                 - <strong>Up/Down Arrow Keys:</strong> On the back of a card, cycle through different definitions and examples.<br>
-                - <strong>Spacebar:</strong> Play the word or sentence audio.<br>
+                - <strong>Spacebar:</strong> Play the word or sentence audio (if not muted).<br>
                 - <strong>Enter:</strong> Flip between the front (word) and back (definition/example).<br>
                 - <strong>Slider:</strong> Jump to a specific word rank.
             `;
@@ -190,7 +215,7 @@ function setupEventListeners() {
                     const audioFile = isFlipped 
                         ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
                         : words[currentWordIndex]?.word_audio_file?.[0];
-                    if (audioFile && audioUnlocked) {
+                    if (audioFile && audioUnlocked && !isMuted) {
                         playAudio(audioFile);
                     }
                 }
@@ -215,7 +240,7 @@ function setupEventListeners() {
                     const audioFile = isFlipped 
                         ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
                         : words[currentWordIndex]?.word_audio_file?.[0];
-                    if (audioFile && audioUnlocked) {
+                    if (audioFile && audioUnlocked && !isMuted) {
                         playAudio(audioFile);
                     }
                 }
@@ -239,7 +264,7 @@ function setupEventListeners() {
             currentBackCardIndex = 0;
             stopAudio();
             displayWord();
-            if (audioUnlocked) {
+            if (audioUnlocked && !isMuted) {
                 const audioFile = isFlipped 
                     ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
                     : words[currentWordIndex]?.word_audio_file?.[0];
@@ -256,7 +281,7 @@ function setupEventListeners() {
             currentBackCardIndex = 0;
             stopAudio();
             displayWord();
-            if (audioUnlocked) {
+            if (audioUnlocked && !isMuted) {
                 const audioFile = isFlipped 
                     ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
                     : words[currentWordIndex]?.word_audio_file?.[0];
@@ -272,7 +297,7 @@ function setupEventListeners() {
             currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
-            if (audioUnlocked) {
+            if (audioUnlocked && !isMuted) {
                 const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                                  words[currentWordIndex]?.word_audio_file?.[0];
                 if (audioFile) playAudio(audioFile);
@@ -287,7 +312,7 @@ function setupEventListeners() {
             currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
             stopAudio();
             displayWord();
-            if (audioUnlocked) {
+            if (audioUnlocked && !isMuted) {
                 const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                                  words[currentWordIndex]?.word_audio_file?.[0];
                 if (audioFile) playAudio(audioFile);
@@ -307,7 +332,7 @@ function setupKeyboardListeners() {
                 currentBackCardIndex = 0;
                 stopAudio();
                 displayWord();
-                if (audioUnlocked) {
+                if (audioUnlocked && !isMuted) {
                     const audioFile = isFlipped 
                         ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
                         : words[currentWordIndex]?.word_audio_file?.[0];
@@ -321,7 +346,7 @@ function setupKeyboardListeners() {
                 currentBackCardIndex = 0;
                 stopAudio();
                 displayWord();
-                if (audioUnlocked) {
+                if (audioUnlocked && !isMuted) {
                     const audioFile = isFlipped 
                         ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
                         : words[currentWordIndex]?.word_audio_file?.[0];
@@ -332,10 +357,10 @@ function setupKeyboardListeners() {
             case 'ArrowUp':
                 if (isFlipped && words[currentWordIndex]?.back_cards) {
                     animateSwipe('up', isFlipped);
-                    currentBackCardIndex = ( actuelBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
+                    currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
                     stopAudio();
                     displayWord();
-                    if (audioUnlocked) {
+                    if (audioUnlocked && !isMuted) {
                         const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                                         words[currentWordIndex]?.word_audio_file?.[0];
                         if (audioFile) playAudio(audioFile);
@@ -349,7 +374,7 @@ function setupKeyboardListeners() {
                     currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
                     stopAudio();
                     displayWord();
-                    if (audioUnlocked) {
+                    if (audioUnlocked && !isMuted) {
                         const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
                                         words[currentWordIndex]?.word_audio_file?.[0];
                         if (audioFile) playAudio(audioFile);
@@ -362,7 +387,7 @@ function setupKeyboardListeners() {
                 const audioFile = isFlipped 
                     ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
                     : words[currentWordIndex]?.word_audio_file?.[0];
-                if (audioFile && audioUnlocked) playAudio(audioFile);
+                if (audioFile && audioUnlocked && !isMuted) playAudio(audioFile);
                 break;
             case 'Enter':
                 glowCard(2);
@@ -434,8 +459,8 @@ function stopAudio() {
 }
 
 function playAudio(audioFile) {
-    if (!audioFile || !audioUnlocked) {
-        console.warn('No audio file provided or audio not unlocked');
+    if (!audioFile || !audioUnlocked || isMuted) {
+        console.warn('No audio file provided, audio not unlocked, or muted');
         return;
     }
     stopAudio();
@@ -462,7 +487,7 @@ function flipCard() {
     card.classList.toggle('flipped', isFlipped);
     stopAudio();
     displayWord();
-    if (audioUnlocked) {
+    if (audioUnlocked && !isMuted) {
         const audioFile = isFlipped 
             ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
             : words[currentWordIndex]?.word_audio_file?.[0];
