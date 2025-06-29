@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.querySelector('.theme-toggle');
     themeToggle.addEventListener('click', () => {
         const currentTheme = document.body.getAttribute('data-theme');
-        const newTheme = currentTheme === 'bright' ? 'dark' : 'bright';
+        const newTheme = currentTheme === 'brightప�
         document.body.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
     });
@@ -86,10 +86,10 @@ function toggleTooltip() {
         tooltipText.innerHTML = isMobile 
             ? `
                 <strong>How to Use VocabSwipe (Mobile):</strong><br><br>
-                - <strong>Theme Toggle (<img src="night-light.svg" class="inline-icon" alt="Theme icon">):</strong> Tap to switch between bright and dark themes.<br>
-                - <strong>Info (<img src="information.svg" class="inline-icon" alt="Info icon">):</strong> Tap to show/hide these instructions.<br>
-                - <strong>Shuffle (<img src="shuffle.svg" class="inline-icon" alt="Shuffle icon">):</strong> Tap to randomize the word order.<br>
-                - <strong>Reset (<img src="reset.svg" class="inline-icon" alt="Reset icon">):</strong> Tap to restore the original word order.<br>
+                - <strong>Theme Toggle (<img src="night-light.svg" class="theme-icon" width="16" height="16" style="vertical-align:middle;filter:invert(26%) sepia(98%) saturate(639%) hue-rotate(199deg) brightness(89%) contrast(101%);">):</strong> Tap to switch between bright and dark themes for comfortable viewing.<br>
+                - <strong>Info (<img src="information.svg" class="info-icon" width="16" height="16" style="vertical-align:middle;filter:invert(26%) sepia(98%) saturate(639%) hue-rotate(199deg) brightness(89%) contrast(101%);">):</strong> Tap to show or hide this help message.<br>
+                - <strong>Shuffle (<img src="shuffle.svg" class="shuffle-icon" width="16" height="16" style="vertical-align:middle;filter:invert(26%) sepia(98%) saturate(639%) hue-rotate(199deg) brightness(89%) contrast(101%);">):</strong> Tap to randomize the order of the word cards.<br>
+                - <strong>Reset (<img src="reset.svg" class="reset-icon" width="16" height="16" style="vertical-align:middle;filter:invert(26%) sepia(98%) saturate(639%) hue-rotate(199deg) brightness(89%) contrast(101%);">):</strong> Tap to restore the original word order.<br>
                 - <strong>Swipe Left/Right:</strong> Navigate to the next or previous word card.<br>
                 - <strong>Swipe Up/Down:</strong> On the back of a card, cycle through different definitions and examples.<br>
                 - <strong>Tap Once:</strong> Hear the word or sentence audio.<br>
@@ -98,15 +98,15 @@ function toggleTooltip() {
             `
             : `
                 <strong>How to Use VocabSwipe (Desktop):</strong><br><br>
-                - <strong>Theme Toggle (<img src="night-light.svg" class="inline-icon" alt="Theme icon">):</strong> Click to switch between bright and dark themes.<br>
-                - <strong>Info (<img src="information.svg" class="inline-icon" alt="Info icon">):</strong> Click to show/hide these instructions.<br>
-                - <strong>Shuffle (<img src="shuffle.svg" class="inline-icon" alt="Shuffle icon">):</strong> Click to randomize the word order.<br>
-                - <strong>Reset (<img src="reset.svg" class="inline-icon" alt="Reset icon">):</strong> Click to restore the original word order.<br>
+                - <strong>Theme Toggle (<img src="night-light.svg" class="theme-icon" width="16" height="16" style="vertical-align:middle;filter:invert(26%) sepia(98%) saturate(639%) hue-rotate(199deg) brightness(89%) contrast(101%);">):</strong> Click to switch between bright and dark themes for comfortable viewing.<br>
+                - <strong>Info (<img src="information.svg" class="info-icon" width="16" height="16" style="vertical-align:middle;filter:invert(26%) sepia(98%) saturate(639%) hue-rotate(199deg) brightness(89%) contrast(101%);">):</strong> Click to show or hide this help message.<br>
+                - <strong>Shuffle (<img src="shuffle.svg" class="shuffle-icon" width="16" height="16" style="vertical-align:middle;filter:invert(26%) sepia(98%) saturate(639%) hue-rotate(199deg) brightness(89%) contrast(101%);">):</strong> Click to randomize the order of the word cards.<br>
+                - <strong>Reset (<img src="reset.svg" class="reset-icon" width="16" height="16" style="vertical-align:middle;filter:invert(26%) sepia(98%) saturate(639%) hue-rotate(199deg) brightness(89%) contrast(101%);">):</strong> Click to restore the original word order.<br>
                 - <strong>Left/Right Arrow Keys:</strong> Navigate to the previous or next word card.<br>
                 - <strong>Up/Down Arrow Keys:</strong> On the back of a card, cycle through different definitions and examples.<br>
                 - <strong>Spacebar:</strong> Play the word or sentence audio.<br>
                 - <strong>Enter:</strong> Flip between the front (word) and back (definition/example).<br>
-                - <strong>Slider:</strong> Drag to jump to a specific word rank.
+                - <strong>Slider:</strong> Slide to jump to a specific word rank.
             `;
         overlay.style.display = 'flex';
     } else {
@@ -263,7 +263,7 @@ function setupEventListeners() {
             preloadAudio();
         }
     });
-    hammer.on('sw pot', (e) => {
+    hammer.on('swipeup', (e) => {
         e.preventDefault();
         if (isFlipped && words[currentWordIndex]?.back_cards) {
             animateSwipe('up', isFlipped);
@@ -379,13 +379,11 @@ function glowCard(times) {
 }
 
 function animateSwipe(direction, isBackCard) {
-    const card =
-
- document.querySelector('.flashcard');
+    const card = document.querySelector('.flashcard');
     if (!card) return;
     const sideToClone = isBackCard ? '.back' : '.front';
     const clone = card.querySelector(sideToClone).cloneNode(true);
-    clone classList.add('swipe-clone', `swipe-${direction}`);
+    clone.classList.add('swipe-clone', `swipe-${direction}`);
     card.parentElement.appendChild(clone);
     setTimeout(() => clone.remove(), 300);
 }
