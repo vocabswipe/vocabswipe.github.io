@@ -395,31 +395,21 @@ body[data-theme="dark"] .frequency-bar {
 .stats-container {
     width: 100%;
     max-width: 350px;
-    margin-top: 16px;
-    padding: 12px;
-    background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
-    border-radius: 12px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 12px;
     text-align: center;
-}
-
-body[data-theme="dark"] .stats-container {
-    background: linear-gradient(145deg, #374151 0%, #4b5563 100%);
-    border: 1px solid #4b5563;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .stats-text {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 500;
-    color: #374151;
-    margin-bottom: 8px;
+    color: #6b7280;
+    line-height: 1.4;
+    margin-bottom: 6px;
 }
 
 body[data-theme="dark"] .stats-text {
-    color: #d1d5db;
+    color: #9ca3af;
 }
 
 .stats-text span {
@@ -547,12 +537,11 @@ body[data-theme="dark"] .tooltip-close:hover {
 
     .stats-container {
         max-width: 90%;
-        padding: 10px;
     }
 
     .stats-text {
         font-size: 13px;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
     }
 
     .tooltip-message {
@@ -572,11 +561,11 @@ body[data-theme="dark"] .tooltip-close:hover {
         vertical-align: middle;
     }
 
-    .card-slider {
+    #card-slider {
         height: 6px;
     }
 
-    .card-slider::-webkit-slider-thumb {
+    #card-slider::-webkit-slider-thumb {
         width: 16px;
         height: 16px;
     }
