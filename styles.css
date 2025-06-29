@@ -60,22 +60,18 @@ body[data-theme="dark"] .reset-btn:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
-.theme-icon {
-    filter: invert(62%) sepia(98%) saturate(639%) hue-rotate(0deg) brightness(103%) contrast(101%);
+.theme-icon, .info-icon, .shuffle-icon, .reset-icon {
+    width: 28px;
+    height: 28px;
+    filter: none;
+    fill: #1e40af;
 }
 
-body[data-theme="dark"] .theme-icon {
-    filter: invert(62%) sepia(98%) saturate(639%) hue-rotate(180deg) brightness(103%) contrast(101%);
-}
-
-.info-icon, .shuffle-icon, .reset-icon {
-    filter: invert(20%) sepia(98%) saturate(639%) hue-rotate(200deg) brightness(90%) contrast(101%);
-}
-
+body[data-theme="dark"] .theme-icon,
 body[data-theme="dark"] .info-icon,
 body[data-theme="dark"] .shuffle-icon,
 body[data-theme="dark"] .reset-icon {
-    filter: invert(62%) sepia(98%) saturate(639%) hue-rotate(180deg) brightness(103%) contrast(101%);
+    fill: #60a5fa;
 }
 
 .controls {
@@ -92,7 +88,7 @@ body[data-theme="dark"] .reset-icon {
 
 .website-name {
     font-family: 'Caveat', cursive;
-    font-size: 35.2px; /* Increased by 10% from 32px */
+    font-size: 38.4px; /* Original 32px * 1.2 = 38.4px */
     font-weight: 700;
     color: #1e40af;
 }
@@ -103,7 +99,7 @@ body[data-theme="dark"] .website-name {
 
 .slogan-main {
     font-family: 'Caveat', cursive;
-    font-size: 22px; /* Increased by 10% from 20px */
+    font-size: 24px; /* Original 20px * 1.2 = 24px */
     font-weight: 400;
     color: #1e40af;
     line-height: 1.2;
@@ -115,7 +111,7 @@ body[data-theme="dark"] .slogan-main {
 
 .slogan-sub {
     font-family: 'Inter', sans-serif;
-    font-size: 15.4px; /* Increased by 10% from 14px */
+    font-size: 16.8px; /* Original 14px * 1.2 = 16.8px */
     font-weight: 500;
     color: #6b7280;
     line-height: 1.2;
@@ -480,20 +476,20 @@ body[data-theme="dark"] .tooltip-close:hover {
     }
 
     .theme-icon, .info-icon, .shuffle-icon, .reset-icon {
-        width: 24px;
-        height: 24px;
+        width: 28px;
+        height: 28px;
     }
 
     .website-name {
-        font-size: 30.8px; /* Increased by 10% from 28px */
+        font-size: 33.6px; /* Original 28px * 1.2 = 33.6px */
     }
 
     .slogan-main {
-        font-size: 19.8px; /* Increased by 10% from 18px */
+        font-size: 21.6px; /* Original 18px * 1.2 = 21.6px */
     }
 
     .slogan-sub {
-        font-size: 13.2px; /* Increased by 10% from 12px */
+        font-size: 14.4px; /* Original 12px * 1.2 = 14.4px */
     }
 
     .flashcard {
@@ -526,6 +522,12 @@ body[data-theme="dark"] .tooltip-close:hover {
     .tooltip-close {
         font-size: 14px;
         padding: 8px 16px;
+    }
+
+    .tooltip-message img {
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
     }
 
     #card-slider {
