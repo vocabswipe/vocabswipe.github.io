@@ -60,23 +60,17 @@ body[data-theme="dark"] .reset-btn:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
-.theme-icon, .info-icon, .shuffle-icon, .reset-icon, .inline-icon {
-    fill: #1e40af; /* Matches website-name color in bright theme */
+.theme-icon, .info-icon, .shuffle-icon, .reset-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(26%) sepia(98%) saturate(639%) hue-rotate(199deg) brightness(89%) contrast(101%); /* Matches #1e40af */
 }
 
 body[data-theme="dark"] .theme-icon,
 body[data-theme="dark"] .info-icon,
 body[data-theme="dark"] .shuffle-icon,
-body[data-theme="dark"] .reset-icon,
-body[data-theme="dark"] .inline-icon {
-    fill: #60a5fa; /* Matches website-name color in dark theme */
-}
-
-.inline-icon {
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-    margin: 0 4px;
+body[data-theme="dark"] .reset-icon {
+    filter: invert(62%) sepia(98%) saturate(639%) hue-rotate(180deg) brightness(103%) contrast(101%); /* Matches #60a5fa */
 }
 
 .controls {
@@ -107,6 +101,7 @@ body[data-theme="dark"] .website-name {
     font-size: 24px; /* Increased by 20% from 20px */
     font-weight: 400;
     color: #1e40af;
+    line-height: 1.2;
 }
 
 body[data-theme="dark"] .slogan-main {
@@ -489,7 +484,7 @@ body[data-theme="dark"] .tooltip-close:hover {
     }
 
     .slogan-main {
-        font-size: 21.6px; /* Increased by 20% 18px */
+        font-size: 21.6px; /* Increased by 20% from 18px */
     }
 
     .slogan-sub {
@@ -535,10 +530,5 @@ body[data-theme="dark"] .tooltip-close:hover {
     #card-slider::-webkit-slider-thumb {
         width: 16px;
         height: 16px;
-    }
-
-    .inline-icon {
-        width: 14px;
-        height: 14px;
     }
 }
