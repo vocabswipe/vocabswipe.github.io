@@ -39,7 +39,7 @@ body[data-theme="dark"] {
     margin-bottom: 16px;
 }
 
-.theme-toggle, .info-btn, .shuffle-btn, .reset-btn {
+.theme-toggle, .info-btn, .shuffle-btn, .reset-btn, .mute-btn {
     background: none;
     border: none;
     cursor: pointer;
@@ -48,7 +48,7 @@ body[data-theme="dark"] {
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.theme-toggle:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover {
+.theme-toggle:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover, .mute-btn:hover {
     background: rgba(0, 0, 0, 0.15);
     transform: scale(1.1);
 }
@@ -56,11 +56,12 @@ body[data-theme="dark"] {
 body[data-theme="dark"] .theme-toggle:hover,
 body[data-theme="dark"] .info-btn:hover,
 body[data-theme="dark"] .shuffle-btn:hover,
-body[data-theme="dark"] .reset-btn:hover {
+body[data-theme="dark"] .reset-btn:hover,
+body[data-theme="dark"] .mute-btn:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
-.theme-icon, .info-icon, .shuffle-icon, .reset-icon {
+.theme-icon, .info-icon, .shuffle-icon, .reset-icon, .mute-icon {
     width: 28px;
     height: 28px;
     filter: none;
@@ -70,8 +71,9 @@ body[data-theme="dark"] .reset-btn:hover {
 body[data-theme="dark"] .theme-icon,
 body[data-theme="dark"] .info-icon,
 body[data-theme="dark"] .shuffle-icon,
-body[data-theme="dark"] .reset-icon {
-    fill: #60a5fa;
+body[data-theme="dark"] .reset-icon,
+body[data-theme="dark"] .mute-icon {
+    fill: #facc15;
 }
 
 .controls {
@@ -438,6 +440,10 @@ body[data-theme="dark"] .tooltip-message {
     line-height: 1.6;
 }
 
+.tooltip-message img {
+    vertical-align: middle;
+}
+
 .tooltip-close {
     display: block;
     margin: 12px auto 0;
@@ -471,11 +477,11 @@ body[data-theme="dark"] .tooltip-close:hover {
         padding: 12px;
     }
 
-    .theme-toggle, .info-btn, .shuffle-btn, .reset-btn {
+    .theme-toggle, .info-btn, .shuffle-btn, .reset-btn, .mute-btn {
         padding: 8px;
     }
 
-    .theme-icon, .info-icon, .shuffle-icon, .reset-icon {
+    .theme-icon, .info-icon, .shuffle-icon, .reset-icon, .mute-icon {
         width: 28px;
         height: 28px;
     }
@@ -519,15 +525,14 @@ body[data-theme="dark"] .tooltip-close:hover {
         max-width: 90%;
     }
 
-    .tooltip-close {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
-
     .tooltip-message img {
         width: 24px;
         height: 24px;
-        vertical-align: middle;
+    }
+
+    .tooltip-close {
+        font-size: 14px;
+        padding: 8px 16px;
     }
 
     #card-slider {
