@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.querySelector('.theme-toggle');
     themeToggle.addEventListener('click', () => {
         const currentTheme = document.body.getAttribute('data-theme');
-        const newTheme = currentTheme === 'brightప�
+        const newTheme = currentTheme === 'bright' ? 'dark' : 'bright';
         document.body.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
     });
@@ -85,28 +85,28 @@ function toggleTooltip() {
         const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         tooltipText.innerHTML = isMobile 
             ? `
-                <strong>How to Use VocabSwipe (Mobile):</strong><br><br>
-                - <strong>Theme Toggle (<img src="night-light.svg" class="theme-icon" width="16" height="16" style="vertical-align:middle;filter:invert(26%) sepia(98%) saturate(639%) hue-rotate(199deg) brightness(89%) contrast(101%);">):</strong> Tap to switch between bright and dark themes for comfortable viewing.<br>
-                - <strong>Info (<img src="information.svg" class="info-icon" width="16" height="16" style="vertical-align:middle;filter:invert(26%) sepia(98%) saturate(639%) hue-rotate(199deg) brightness(89%) contrast(101%);">):</strong> Tap to show or hide this help message.<br>
-                - <strong>Shuffle (<img src="shuffle.svg" class="shuffle-icon" width="16" height="16" style="vertical-align:middle;filter:invert(26%) sepia(98%) saturate(639%) hue-rotate(199deg) brightness(89%) contrast(101%);">):</strong> Tap to randomize the order of the word cards.<br>
-                - <strong>Reset (<img src="reset.svg" class="reset-icon" width="16" height="16" style="vertical-align:middle;filter:invert(26%) sepia(98%) saturate(639%) hue-rotate(199deg) brightness(89%) contrast(101%);">):</strong> Tap to restore the original word order.<br>
+                <strong>Welcome to VocabSwipe!</strong><br><br>
+                <strong>Purpose:</strong> VocabSwipe helps you master the top 5000 most frequently used English words to boost your vocabulary skills.<br><br>
+                <strong>How to Use (Mobile):</strong><br>
                 - <strong>Swipe Left/Right:</strong> Navigate to the next or previous word card.<br>
                 - <strong>Swipe Up/Down:</strong> On the back of a card, cycle through different definitions and examples.<br>
                 - <strong>Tap Once:</strong> Hear the word or sentence audio.<br>
                 - <strong>Double-Tap:</strong> Flip between the front (word) and back (definition/example).<br>
-                - <strong>Slider:</strong> Slide to jump to a specific word rank.
+                - <strong>Slider:</strong> Jump to a specific word rank.<br>
+                - <strong>Shuffle/Reset:</strong> Randomize or restore the original word order.<br><br>
+                <strong>Benefits:</strong> Improve your English fluency, comprehension, and pronunciation through interactive learning with audio support.
             `
             : `
-                <strong>How to Use VocabSwipe (Desktop):</strong><br><br>
-                - <strong>Theme Toggle (<img src="night-light.svg" class="theme-icon" width="16" height="16" style="vertical-align:middle;filter:invert(26%) sepia(98%) saturate(639%) hue-rotate(199deg) brightness(89%) contrast(101%);">):</strong> Click to switch between bright and dark themes for comfortable viewing.<br>
-                - <strong>Info (<img src="information.svg" class="info-icon" width="16" height="16" style="vertical-align:middle;filter:invert(26%) sepia(98%) saturate(639%) hue-rotate(199deg) brightness(89%) contrast(101%);">):</strong> Click to show or hide this help message.<br>
-                - <strong>Shuffle (<img src="shuffle.svg" class="shuffle-icon" width="16" height="16" style="vertical-align:middle;filter:invert(26%) sepia(98%) saturate(639%) hue-rotate(199deg) brightness(89%) contrast(101%);">):</strong> Click to randomize the order of the word cards.<br>
-                - <strong>Reset (<img src="reset.svg" class="reset-icon" width="16" height="16" style="vertical-align:middle;filter:invert(26%) sepia(98%) saturate(639%) hue-rotate(199deg) brightness(89%) contrast(101%);">):</strong> Click to restore the original word order.<br>
+                <strong>Welcome to VocabSwipe!</strong><br><br>
+                <strong>Purpose:</strong> VocabSwipe helps you master the top 5000 most frequently used English words to enhance your vocabulary.<br><br>
+                <strong>How to Use (PC):</strong><br>
                 - <strong>Left/Right Arrow Keys:</strong> Navigate to the previous or next word card.<br>
                 - <strong>Up/Down Arrow Keys:</strong> On the back of a card, cycle through different definitions and examples.<br>
                 - <strong>Spacebar:</strong> Play the word or sentence audio.<br>
                 - <strong>Enter:</strong> Flip between the front (word) and back (definition/example).<br>
-                - <strong>Slider:</strong> Slide to jump to a specific word rank.
+                - <strong>Slider:</strong> Jump to a specific word rank.<br>
+                - <strong>Shuffle/Reset:</strong> Randomize or restore the original word order.<br><br>
+                <strong>Benefits:</strong> Enhance your English vocabulary, comprehension, and pronunciation with an interactive flashcard system.
             `;
         overlay.style.display = 'flex';
     } else {
