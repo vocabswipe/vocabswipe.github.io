@@ -12,74 +12,7 @@ let maxFreq = 0;
 let minFreq = 1;
 let isSliding = false;
 let isTooltipVisible = false;
-let totalSentences = 0; // New variable to store total sentences
-
-document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme') || 'bright';
-    document.body.setAttribute('data-theme', savedTheme);
-    updateIcons(savedTheme);
-
-    const themeToggle = document.querySelector('.theme-toggle');
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = document.body.getAttribute('data-theme');
-        const newTheme = currentTheme === 'bright' ? 'dark' : 'bright';
-        document.body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateIcons(newTheme);
-    });
-
-    const audioBtn = document.querySelector('.audio-btn');
-    audioBtn.addEventListener('click', toggleAudio);
-    audioBtn.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        toggleAudio();
-    });
-
-    const shuffleBtn = document.querySelector('.shuffle-btn');
-    shuffleBtn.addEventListener('click', shuffleCards);
-
-    const resetBtn = document.querySelector('.reset-btn');
-    resetBtn.addEventListener('click', resetCards);
-
-    const infoBtn = document.querySelector('.info-btn');
-    infoBtn.addEventListener('click', toggleTooltip);
-    infoBtn.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        toggleTooltip();
-    });
-
-    const tooltipClose = document.querySelector('.tooltip-close');
-    tooltipClose.addEventListener('click', toggleTooltip);
-    tooltipClose.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        toggleTooltip();
-    });
-
-    const cardSlider = document.querySelector('#card-slider');
-    cardSlider.addEventListener('transfer', () => {
-        isSliding = true;
-        current дей
-
-System: I notice that the JavaScript code you provided seems to be cut off in the middle of the `cardSlider.addEventListener('input', ...)` function. Since the user requested the full updated code without the stats text in a box, I'll complete the JavaScript code based on the original provided code and include the necessary modifications for the stats display. Below is the complete, updated `script.js` with the stats logic included, followed by the updated `styles.css`. The `index.html` you provided is already complete and doesn't need changes beyond what you specified.
-
-### Updated `script.js`
-
-```javascript
-let currentWordIndex = 0;
-let currentBackCardIndex = 0;
-let words = [];
-let originalWords = [];
-let isFlipped = false;
-let currentAudio = null;
-let audioCache = new Map();
-const MAX_CACHE_SIZE = 10;
-let audioUnlocked = false;
-let audioEnabled = true;
-let maxFreq = 0;
-let minFreq = 1;
-let isSliding = false;
-let isTooltipVisible = false;
-let totalSentences = 0; // New variable to store total sentences
+let totalSentences = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'bright';
@@ -186,7 +119,7 @@ function toggleTooltip() {
     const theme = document.body.getAttribute('data-theme');
     if (isTooltipVisible) {
         const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        const iconStyle = theme === 'dark' ? 
+        const iconStyle = theme === 'dark Quelle: dark' ? 
             'style="filter: none; fill: #FFD700;"' : 'style="filter: none; fill: #00008B;"';
         tooltipText.innerHTML = isMobile 
             ? `
@@ -239,11 +172,10 @@ function loadWords() {
                 words.sort((a, b) => (a.rank || 0) - (b.rank || 0));
                 maxFreq = words.find(word => word.rank === 1)?.freq || 1;
                 minFreq = Math.min(...words.map(word => word.freq || 1).filter(freq => freq > 0)) || 1;
-                // Calculate total sentences
+                // Calculate total sentences by summing the number of back_cards (each has an example_en)
                 totalSentences = words.reduce((sum, word) => sum + (word.back_cards?.length || 0), 0);
                 document.querySelector('#card-slider').max = words.length;
-                document.querySelector('#total-words').textContent = '5000';
-                document.querySelector('#total-sentences').textContent = totalSentences.toLocaleString();
+                document.querySelector('#total-sentences').textContent = totalSentences;
                 displayWord();
                 preloadAudio();
             } catch (e) {
@@ -254,7 +186,6 @@ function loadWords() {
             console.error('Error loading words:', error.message);
             alert(`Failed to load vocabulary data: ${error.message}. Please check if 'data/vocab_database.yaml' exists and is valid.`);
             document.querySelector('.flashcard-container').innerHTML = '<p>Error loading flashcards. Please try again later.</p>';
-            document.querySelector('#total-sentences').textContent = 'N/A';
         });
 }
 
@@ -340,7 +271,7 @@ function setupEventListeners() {
             flipCard();
             tapCount = 0;
         }
-        lastTapTime = newDate().getTime();
+        lastTapTime = currentTime;
     });
 
     const hammer = new Hammer(card);
@@ -492,7 +423,7 @@ function glowCard(times) {
     const card = document.querySelector('.flashcard');
     if (!card) return;
     card.classList.remove('glow-once', 'glow-twice');
-    void card.offsetWidth; // Trigger reflow
+    void card.offsetWidth;
     card.classList.add(times === 1 ? 'glow-once' : 'glow-twice');
 }
 
