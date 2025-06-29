@@ -7,7 +7,7 @@ let currentAudio = null;
 let audioCache = new Map();
 const MAX_CACHE_SIZE = 10;
 let audioUnlocked = false;
-let audioEnabled = true; // New variable to track audio mute state
+let audioEnabled = true;
 let maxFreq = 0;
 let minFreq = 1;
 let isSliding = false;
@@ -16,6 +16,7 @@ let isTooltipVisible = false;
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'bright';
     document.body.setAttribute('data-theme', savedTheme);
+    updateIcons(savedTheme); // Set initial icons based on theme
 
     const themeToggle = document.querySelector('.theme-toggle');
     themeToggle.addEventListener('click', () => {
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const newTheme = currentTheme === 'bright' ? 'dark' : 'bright';
         document.body.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
+        updateIcons(newTheme); // Update icons when theme changes
     });
 
     const audioBtn = document.querySelector('.audio-btn');
@@ -85,10 +87,27 @@ document.body.addEventListener('click', () => {
     console.log('Audio unlocked via click');
 }, { once: true });
 
+function updateIcons(theme) {
+    const themeIcon = document.querySelector('.theme-icon');
+    const audioIcon = document.querySelector('.audio-icon');
+    const infoIcon = document.querySelector('.info-icon');
+    const shuffleIcon = document.querySelector('.shuffle-icon');
+    const resetIcon = document.querySelector('.reset-icon');
+
+    themeIcon.src = theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
+    audioIcon.src = theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg');
+    infoIcon.src = theme === 'bright' ? 'information-bright.svg' : 'information-night.svg';
+    shuffleIcon.src = theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg';
+    resetIcon.src = theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg';
+}
+
 function toggleAudio() {
     audioEnabled = !audioEnabled;
     const audioIcon = document.querySelector('.audio-icon');
-    audioIcon.src = audioEnabled ? 'unmute.svg' : 'mute.svg';
+    const theme = document.body.getAttribute('data-theme');
+    audioIcon.src = audioEnabled 
+        ? (theme === 'bright' ? 'unmute-bright.svg' : 'unmute-night.svg')
+        : (theme === 'bright' ? 'mute-bright.svg' : 'mute-night.svg');
     if (!audioEnabled) stopAudio();
 }
 
@@ -96,18 +115,19 @@ function toggleTooltip() {
     const overlay = document.querySelector('.tooltip-overlay');
     const tooltipText = document.querySelector('#tooltip-text');
     isTooltipVisible = !isTooltipVisible;
+    const theme = document.body.getAttribute('data-theme');
     if (isTooltipVisible) {
         const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        const iconStyle = document.body.getAttribute('data-theme') === 'dark' ? 
+        const iconStyle = theme === 'dark' ? 
             'style="filter: none; fill: #FFD700;"' : 'style="filter: none; fill: #00008B;"';
         tooltipText.innerHTML = isMobile 
             ? `
                 <strong>How to Use VocabSwipe:</strong><br><br>
-                - <strong>Theme Toggle (<img src="night-light.svg" width="28" height="28" ${iconStyle} alt="Theme Toggle">):</strong> Tap to switch between bright and dark themes.<br>
-                - <strong>Audio Toggle (<img src="${audioEnabled ? 'unmute.svg' : 'mute.svg'}" width="28" height="28" ${iconStyle} alt="Audio Toggle">):</strong> Tap to enable or disable audio.<br>
-                - <strong>Info (<img src="information.svg" width="28" height="28" ${iconStyle} alt="Info">):</strong> Tap to show or hide this help message.<br>
-                - <strong>Shuffle (<img src="shuffle.svg" width="28" height="28" ${iconStyle} alt="Shuffle">):</strong> Tap to randomize the word order.<br>
-                - <strong>Reset (<img src="reset.svg" width="28" height="28" ${iconStyle} alt="Reset">):</strong> Tap to restore the original word order.<br>
+                - <strong>Theme Toggle (<img src="${theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg'}" width="28" height="28" ${iconStyle} alt="Theme Toggle">):</strong> Tap to switch between bright and dark themes.<br>
+                - <strong>Audio Toggle (<img src="${theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg')}" width="28" height="28" ${iconStyle} alt="Audio Toggle">):</strong> Tap to enable or disable audio.<br>
+                - <strong>Info (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="28" height="28" ${iconStyle} alt="Info">):</strong> Tap to show or hide this help message.<br>
+                - <strong>Shuffle (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="28" height="28" ${iconStyle} alt="Shuffle">):</strong> Tap to randomize the word order.<br>
+                - <strong>Reset (<img src="${theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg'}" width="28" height="28" ${iconStyle} alt="Reset">):</strong> Tap to restore the original word order.<br>
                 - <strong>Swipe Left/Right:</strong> Navigate to the next or previous word card.<br>
                 - <strong>Swipe Up/Down:</strong> On the back of a card, cycle through different definitions and examples.<br>
                 - <strong>Tap Once:</strong> Hear the word or sentence audio (if audio is enabled).<br>
@@ -116,11 +136,11 @@ function toggleTooltip() {
             `
             : `
                 <strong>How to Use VocabSwipe:</strong><br><br>
-                - <strong>Theme Toggle (<img src="night-light.svg" width="28" height="28" ${iconStyle} alt="Theme Toggle">):</strong> Click to switch between bright and dark themes.<br>
-                - <strong>Audio Toggle (<img src="${audioEnabled ? 'unmute.svg' : 'mute.svg'}" width="28" height="28" ${iconStyle} alt="Audio Toggle">):</strong> Click to enable or disable audio.<br>
-                - <strong>Info (<img src="information.svg" width="28" height="28" ${iconStyle} alt="Info">):</strong> Click to show or hide this help message.<br>
-                - <strong>Shuffle (<img src="shuffle.svg" width="28" height="28" ${iconStyle} alt="Shuffle">):</strong> Click to randomize the word order.<br>
-                - <strong>Reset (<img src="reset.svg" width="28" height="28" ${iconStyle} alt="Reset">):</strong> Click to restore the original word order.<br>
+                - <strong>Theme Toggle (<img src="${theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg'}" width="28" height="28" ${iconStyle} alt="Theme Toggle">):</strong> Click to switch between bright and dark themes.<br>
+                - <strong>Audio Toggle (<img src="${theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg')}" width="28" height="28" ${iconStyle} alt="Audio Toggle">):</strong> Click to enable or disable audio.<br>
+                - <strong>Info (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="28" height="28" ${iconStyle} alt="Info">):</strong> Click to show or hide this help message.<br>
+                - <strong>Shuffle (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="28" height="28" ${iconStyle} alt="Shuffle">):</strong> Click to randomize the word order.<br>
+                - <strong>Reset (<img src="${theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg'}" width="28" height="28" ${iconStyle} alt="Reset">):</strong> Click to restore the original word order.<br>
                 - <strong>Left/Right Arrow Keys:</strong> Navigate to the previous or next word card.<br>
                 - <strong>Up/Down Arrow Keys:</strong> On the back of a card, cycle through different definitions and examples.<br>
                 - <strong>Spacebar:</strong> Play the word or sentence audio (if audio is enabled).<br>
