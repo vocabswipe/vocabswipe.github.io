@@ -395,7 +395,7 @@ body[data-theme="dark"] .frequency-bar {
 .stats-container {
     width: 100%;
     max-width: 350px;
-    margin-top: 12px;
+    margin-top: 16px;
     text-align: center;
 }
 
@@ -405,7 +405,6 @@ body[data-theme="dark"] .frequency-bar {
     font-weight: 500;
     color: #6b7280;
     line-height: 1.4;
-    margin-bottom: 6px;
 }
 
 body[data-theme="dark"] .stats-text {
@@ -413,7 +412,7 @@ body[data-theme="dark"] .stats-text {
 }
 
 .stats-text span {
-    font-weight: 700;
+    font-weight: 600;
     color: #00008B;
 }
 
@@ -535,13 +534,8 @@ body[data-theme="dark"] .tooltip-close:hover {
         height: 8px;
     }
 
-    .stats-container {
-        max-width: 90%;
-    }
-
     .stats-text {
         font-size: 13px;
-        margin-bottom: 4px;
     }
 
     .tooltip-message {
@@ -561,11 +555,11 @@ body[data-theme="dark"] .tooltip-close:hover {
         vertical-align: middle;
     }
 
-    #card-slider {
+    .card-slider {
         height: 6px;
     }
 
-    #card-slider::-webkit-slider-thumb {
+    .card-slider::-webkit-slider-thumb {
         width: 16px;
         height: 16px;
     }
