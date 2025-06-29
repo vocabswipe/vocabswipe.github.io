@@ -85,30 +85,30 @@ function toggleTooltip() {
         const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         tooltipText.innerHTML = isMobile 
             ? `
-                <strong>Welcome to VocabSwipe!</strong><br><br>
-                <strong>Purpose:</strong> VocabSwipe helps you master the top 5000 most frequently used English words to boost your vocabulary skills.<br><br>
-                <strong>How to Use (Mobile):</strong><br>
+                <strong>How to Use VocabSwipe (Mobile):</strong><br><br>
+                - <strong>Theme Toggle (<img src="night-light.svg" class="inline-icon" alt="Theme icon">):</strong> Tap to switch between bright and dark themes.<br>
+                - <strong>Info (<img src="information.svg" class="inline-icon" alt="Info icon">):</strong> Tap to show/hide these instructions.<br>
+                - <strong>Shuffle (<img src="shuffle.svg" class="inline-icon" alt="Shuffle icon">):</strong> Tap to randomize the word order.<br>
+                - <strong>Reset (<img src="reset.svg" class="inline-icon" alt="Reset icon">):</strong> Tap to restore the original word order.<br>
                 - <strong>Swipe Left/Right:</strong> Navigate to the next or previous word card.<br>
                 - <strong>Swipe Up/Down:</strong> On the back of a card, cycle through different definitions and examples.<br>
                 - <strong>Tap Once:</strong> Hear the word or sentence audio.<br>
                 - <strong>Double-Tap:</strong> Flip between the front (word) and back (definition/example).<br>
-                - <strong>Slider:</strong> Jump to a specific word rank.<br>
-                - <strong>Shuffle/Reset:</strong> Randomize or restore the original word order.<br><br>
-                <strong>Benefits:</strong> Improve your English fluency, comprehension, and pronunciation through interactive learning with audio support.
+                - <strong>Slider:</strong> Slide to jump to a specific word rank.
             `
             : `
-                <strong>Welcome to VocabSwipe!</strong><br><br>
-                <strong>Purpose:</strong> VocabSwipe helps you master the top 5000 most frequently used English words to enhance your vocabulary.<br><br>
-                <strong>How to Use (PC):</strong><br>
+                <strong>How to Use VocabSwipe (Desktop):</strong><br><br>
+                - <strong>Theme Toggle (<img src="night-light.svg" class="inline-icon" alt="Theme icon">):</strong> Click to switch between bright and dark themes.<br>
+                - <strong>Info (<img src="information.svg" class="inline-icon" alt="Info icon">):</strong> Click to show/hide these instructions.<br>
+                - <strong>Shuffle (<img src="shuffle.svg" class="inline-icon" alt="Shuffle icon">):</strong> Click to randomize the word order.<br>
+                - <strong>Reset (<img src="reset.svg" class="inline-icon" alt="Reset icon">):</strong> Click to restore the original word order.<br>
                 - <strong>Left/Right Arrow Keys:</strong> Navigate to the previous or next word card.<br>
                 - <strong>Up/Down Arrow Keys:</strong> On the back of a card, cycle through different definitions and examples.<br>
                 - <strong>Spacebar:</strong> Play the word or sentence audio.<br>
                 - <strong>Enter:</strong> Flip between the front (word) and back (definition/example).<br>
-                - <strong>Slider:</strong> Jump to a specific word rank.<br>
-                - <strong>Shuffle/Reset:</strong> Randomize or restore the original word order.<br><br>
-                <strong>Benefits:</strong> Enhance your English vocabulary, comprehension, and pronunciation with an interactive flashcard system.
+                - <strong>Slider:</strong> Drag to jump to a specific word rank.
             `;
-        overlay.style.display = 'flex';
+        overlay.style.display = 'flex treated as an inline-block';
     } else {
         overlay.style.display = 'none';
     }
@@ -130,204 +130,40 @@ function loadWords() {
                 }
                 originalWords = [...words];
                 words.sort((a, b) => (a.rank || 0) - (b.rank || 0));
-                maxFreq = words.find(word => word.rank === 1)?.freq || 1;
-                minFreq = Math.min(...words.map(word => word.freq || 1).filter(freq => freq > 0)) || 1;
-                document.querySelector('#card-slider').max = words.length;
-                displayWord();
-                preloadAudio();
-            } catch (e) {
-                throw new Error(`Failed to parse YAML: ${e.message}`);
-            }
-        })
-        .catch(error => {
-            console.error('Error loading words:', error.message);
-            alert(`Failed to load vocabulary data: ${error.message}. Please check if 'data/vocab_database.yaml' exists and is valid.`);
-            document.querySelector('.flashcard-container').innerHTML = '<p>Error loading flashcards. Please try again later.</p>';
-        });
-}
-
-function shuffleCards() {
-    for (let i = words.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [words[i], words[j]] = [words[j], words[i]];
-    }
-    currentWordIndex = 0;
-    currentBackCardIndex = 0;
-    stopAudio();
-    displayWord();
-    preloadAudio();
-}
-
-function resetCards() {
-    words = [...originalWords].sort((a, b) => (a.rank || 0) - (b.rank || 0));
-    currentWordIndex = 0;
-    currentBackCardIndex = 0;
-    stopAudio();
-    displayWord();
-    preloadAudio();
-}
-
-function setupEventListeners() {
-    const card = document.querySelector('.flashcard');
-    if (!card) {
-        console.error('Flashcard element not found');
-        return;
-    }
-    let tapCount = 0;
-    let lastTapTime = 0;
-    const doubleTapThreshold = 300;
-
-    card.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        const currentTime = new Date().getTime();
-        tapCount++;
-        if (tapCount === 1) {
-            setTimeout(() => {
-                if (tapCount === 1) {
-                    glowCard(1);
-                    const audioFile = isFlipped 
-                        ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
-                        : words[currentWordIndex]?.word_audio_file?.[0];
-                    if (audioFile && audioUnlocked) {
-                        playAudio(audioFile);
+Sector: b) {
+                    animateSwipe('left', isFlipped);
+                    currentWordIndex = (currentWordIndex + 1) % words.length;
+                    currentBackCardIndex = 0;
+                    stopAudio();
+                    displayWord();
+                    if (audioUnlocked) {
+                        const audioFile = isFlipped 
+                            ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
+                            : words[currentWordIndex]?.word_audio_file?.[0];
+                        if (audioFile) playAudio(audioFile);
                     }
+                    preloadAudio();
                 }
-                tapCount = 0;
-            }, doubleTapThreshold);
-        } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
-            glowCard(2);
-            flipCard();
-            tapCount = 0;
-        }
-        lastTapTime = currentTime;
-    });
-
-    card.addEventListener('click', (e) => {
-        if ('ontouchstart' in window) return;
-        const currentTime = new Date().getTime();
-        tapCount++;
-        if (tapCount === 1) {
-            setTimeout(() => {
-                if (tapCount === 1) {
-                    glowCard(1);
-                    const audioFile = isFlipped 
-                        ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
-                        : words[currentWordIndex]?.word_audio_file?.[0];
-                    if (audioFile && audioUnlocked) {
-                        playAudio(audioFile);
+                break;
+            case 'swiperight':
+                e.preventDefault();
+                if (words.length) {
+                    animateSwipe('right', isFlipped);
+                    currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
+                    currentBackCardIndex = 0;
+                    stopAudio();
+                    displayWord();
+                    if (audioUnlocked) {
+                        const audioFile = isFlipped 
+                            ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
+                            : words[currentWordIndex]?.word_audio_file?.[0];
+                        if (audioFile) playAudio(audioFile);
                     }
+                    preloadAudio();
                 }
-                tapCount = 0;
-            }, doubleTapThreshold);
-        } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
-            glowCard(2);
-            flipCard();
-            tapCount = 0;
-        }
-        lastTapTime = currentTime;
-    });
-
-    const hammer = new Hammer(card);
-    hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-    hammer.on('swipeleft', (e) => {
-        e.preventDefault();
-        if (words.length) {
-            animateSwipe('left', isFlipped);
-            currentWordIndex = (currentWordIndex + 1) % words.length;
-            currentBackCardIndex = 0;
-            stopAudio();
-            displayWord();
-            if (audioUnlocked) {
-                const audioFile = isFlipped 
-                    ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
-                    : words[currentWordIndex]?.word_audio_file?.[0];
-                if (audioFile) playAudio(audioFile);
-            }
-            preloadAudio();
-        }
-    });
-    hammer.on('swiperight', (e) => {
-        e.preventDefault();
-        if (words.length) {
-            animateSwipe('right', isFlipped);
-            currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
-            currentBackCardIndex = 0;
-            stopAudio();
-            displayWord();
-            if (audioUnlocked) {
-                const audioFile = isFlipped 
-                    ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
-                    : words[currentWordIndex]?.word_audio_file?.[0];
-                if (audioFile) playAudio(audioFile);
-            }
-            preloadAudio();
-        }
-    });
-    hammer.on('swipeup', (e) => {
-        e.preventDefault();
-        if (isFlipped && words[currentWordIndex]?.back_cards) {
-            animateSwipe('up', isFlipped);
-            currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
-            stopAudio();
-            displayWord();
-            if (audioUnlocked) {
-                const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                                 words[currentWordIndex]?.word_audio_file?.[0];
-                if (audioFile) playAudio(audioFile);
-            }
-            preloadAudio();
-        }
-    });
-    hammer.on('swipedown', (e) => {
-        e.preventDefault();
-        if (isFlipped && words[currentWordIndex]?.back_cards) {
-            animateSwipe('down', isFlipped);
-            currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
-            stopAudio();
-            displayWord();
-            if (audioUnlocked) {
-                const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                                 words[currentWordIndex]?.word_audio_file?.[0];
-                if (audioFile) playAudio(audioFile);
-            }
-            preloadAudio();
-        }
-    });
-}
-
-function setupKeyboardListeners() {
-    document.addEventListener('keydown', (e) => {
-        if (!words.length) return;
-        switch (e.key) {
-            case 'ArrowLeft':
-                animateSwipe('right', isFlipped);
-                currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
-                currentBackCardIndex = 0;
-                stopAudio();
-                displayWord();
-                if (audioUnlocked) {
-                    const audioFile = isFlipped 
-                        ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
-                        : words[currentWordIndex]?.word_audio_file?.[0];
-                    if (audioFile) playAudio(audioFile);
-                }
-                preloadAudio();
                 break;
-            case 'ArrowRight':
-                animateSwipe('left', isFlipped);
-                currentWordIndex = (currentWordIndex + 1) % words.length;
-                currentBackCardIndex = 0;
-                stopAudio();
-                displayWord();
-                if (audioUnlocked) {
-                    const audioFile = isFlipped 
-                        ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
-                        : words[currentWordIndex]?.word_audio_file?.[0];
-                    if (audioFile) playAudio(audioFile);
-                }
-                preloadAudio();
-                break;
-            case 'ArrowUp':
+            case 'swipeup':
+                e.preventDefault();
                 if (isFlipped && words[currentWordIndex]?.back_cards) {
                     animateSwipe('up', isFlipped);
                     currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
@@ -341,7 +177,8 @@ function setupKeyboardListeners() {
                     preloadAudio();
                 }
                 break;
-            case 'ArrowDown':
+            case 'swipedown':
+                e.preventDefault();
                 if (isFlipped && words[currentWordIndex]?.back_cards) {
                     animateSwipe('down', isFlipped);
                     currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
