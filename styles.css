@@ -39,7 +39,7 @@ body[data-theme="dark"] {
     margin-bottom: 16px;
 }
 
-.theme-toggle, .info-btn, .shuffle-btn, .reset-btn {
+.theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn {
     background: none;
     border: none;
     cursor: pointer;
@@ -48,30 +48,32 @@ body[data-theme="dark"] {
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.theme-toggle:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover {
+.theme-toggle:hover, .audio-btn:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover {
     background: rgba(0, 0, 0, 0.15);
     transform: scale(1.1);
 }
 
 body[data-theme="dark"] .theme-toggle:hover,
+body[data-theme="dark"] .audio-btn:hover,
 body[data-theme="dark"] .info-btn:hover,
 body[data-theme="dark"] .shuffle-btn:hover,
 body[data-theme="dark"] .reset-btn:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
-.theme-icon, .info-icon, .shuffle-icon, .reset-icon {
+.theme-icon, .audio-icon, .info-icon, .shuffle-icon, .reset-icon {
     width: 28px;
     height: 28px;
     filter: none;
-    fill: #1e40af;
+    fill: #00008B; /* Dark blue for bright theme */
 }
 
 body[data-theme="dark"] .theme-icon,
+body[data-theme="dark"] .audio-icon,
 body[data-theme="dark"] .info-icon,
 body[data-theme="dark"] .shuffle-icon,
 body[data-theme="dark"] .reset-icon {
-    fill: #60a5fa;
+    fill: #FFD700; /* Bright yellow for dark theme */
 }
 
 .controls {
@@ -88,30 +90,30 @@ body[data-theme="dark"] .reset-icon {
 
 .website-name {
     font-family: 'Caveat', cursive;
-    font-size: 38.4px; /* Original 32px * 1.2 = 38.4px */
+    font-size: 38.4px;
     font-weight: 700;
-    color: #1e40af;
+    color: #00008B; /* Dark blue for bright theme */
 }
 
 body[data-theme="dark"] .website-name {
-    color: #60a5fa;
+    color: #FFD700; /* Bright yellow for dark theme */
 }
 
 .slogan-main {
     font-family: 'Caveat', cursive;
-    font-size: 24px; /* Original 20px * 1.2 = 24px */
+    font-size: 24px;
     font-weight: 400;
-    color: #1e40af;
+    color: #00008B; /* Dark blue for bright theme */
     line-height: 1.2;
 }
 
 body[data-theme="dark"] .slogan-main {
-    color: #60a5fa;
+    color: #FFD700; /* Bright yellow for dark theme */
 }
 
 .slogan-sub {
     font-family: 'Inter', sans-serif;
-    font-size: 16.8px; /* Original 14px * 1.2 = 16.8px */
+    font-size: 16.8px;
     font-weight: 500;
     color: #6b7280;
     line-height: 1.2;
@@ -143,7 +145,7 @@ body[data-theme="dark"] .slogan-sub {
     appearance: none;
     width: 20px;
     height: 20px;
-    background: #1e40af;
+    background: #00008B; /* Dark blue for bright theme */
     border-radius: 50%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: background 0.2s ease;
@@ -154,7 +156,7 @@ body[data-theme="dark"] #card-slider {
 }
 
 body[data-theme="dark"] #card-slider::-webkit-slider-thumb {
-    background: #60a5fa;
+    background: #FFD700; /* Bright yellow for dark theme */
 }
 
 .flashcard-container {
@@ -194,7 +196,7 @@ body[data-theme="dark"] .flashcard {
 
 @keyframes glow {
     0%, 100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); }
-    50% { box-shadow: 0 8px 32px rgba(30, 64, 175, 0.5); }
+    50% { box-shadow: 0 8px 32px rgba(0, 0, 139, 0.5); } /* Dark blue glow */
 }
 
 body[data-theme="dark"] .flashcard.glow-once,
@@ -208,7 +210,7 @@ body[data-theme="dark"] .flashcard.glow-twice {
 
 @keyframes glow-dark {
     0%, 100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
-    50% { box-shadow: 0 8px 32px rgba(96, 165, 250, 0.5); }
+    50% { box-shadow: 0 8px 32px rgba(255, 215, 0, 0.5); } /* Bright yellow glow */
 }
 
 .swipe-clone {
@@ -291,7 +293,7 @@ body[data-theme="dark"] .back {
 .front h2, .back h2 {
     font-size: 30px;
     font-weight: 700;
-    color: #1e40af;
+    color: #00008B; /* Dark blue for bright theme */
     text-align: center;
     word-break: break-word;
     line-height: 1.3;
@@ -299,7 +301,7 @@ body[data-theme="dark"] .back {
 
 body[data-theme="dark"] .front h2,
 body[data-theme="dark"] .back h2 {
-    color: #60a5fa;
+    color: #FFD700; /* Bright yellow for dark theme */
 }
 
 .back-template {
@@ -442,7 +444,7 @@ body[data-theme="dark"] .tooltip-message {
     display: block;
     margin: 12px auto 0;
     padding: 10px 20px;
-    background: #1e40af;
+    background: #00008B; /* Dark blue for bright theme */
     color: #ffffff;
     border: none;
     border-radius: 6px;
@@ -454,16 +456,16 @@ body[data-theme="dark"] .tooltip-message {
 }
 
 .tooltip-close:hover {
-    background: #2563eb;
+    background: #0000CD; /* Slightly lighter dark blue */
     transform: scale(1.05);
 }
 
 body[data-theme="dark"] .tooltip-close {
-    background: #60a5fa;
+    background: #FFD700; /* Bright yellow for dark theme */
 }
 
 body[data-theme="dark"] .tooltip-close:hover {
-    background: #93c5fd;
+    background: #FFC107; /* Slightly darker yellow */
 }
 
 @media (max-width: 414px) {
@@ -471,25 +473,25 @@ body[data-theme="dark"] .tooltip-close:hover {
         padding: 12px;
     }
 
-    .theme-toggle, .info-btn, .shuffle-btn, .reset-btn {
+    .theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn {
         padding: 8px;
     }
 
-    .theme-icon, .info-icon, .shuffle-icon, .reset-icon {
+    .theme-icon, .audio-icon, .info-icon, .shuffle-icon, .reset-icon {
         width: 28px;
         height: 28px;
     }
 
     .website-name {
-        font-size: 33.6px; /* Original 28px * 1.2 = 33.6px */
+        font-size: 33.6px;
     }
 
     .slogan-main {
-        font-size: 21.6px; /* Original 18px * 1.2 = 21.6px */
+        font-size: 21.6px;
     }
 
     .slogan-sub {
-        font-size: 14.4px; /* Original 12px * 1.2 = 14.4px */
+        font-size: 14.4px;
     }
 
     .flashcard {
