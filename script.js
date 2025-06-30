@@ -13,6 +13,7 @@ let minFreq = 1;
 let isSliding = false;
 let isTooltipVisible = false;
 let totalSentences = 0;
+let isLoading = true;
 
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'bright';
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateIcons(newTheme);
+        updateLoadingIcon(newTheme);
     });
 
     const audioBtn = document.querySelector('.audio-btn');
@@ -98,8 +100,16 @@ function updateIcons(theme) {
     themeIcon.src = theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
     audioIcon.src = theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg');
     infoIcon.src = theme === 'bright' ? 'information-bright.svg' : 'information-night.svg';
-    shuffleIcon.src = theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg';
+    shuffleIcon.src = theme === 'bright' ? 'shuffle-bright.wav' : 'shuffle-night.svg';
     resetIcon.src = theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg';
+    updateLoadingIcon(theme);
+}
+
+function updateLoadingIcon(theme) {
+    const loadingIcon = document.querySelector('.loading-icon');
+    if (loadingIcon) {
+        loadingIcon.src = theme === 'bright' ? 'loading-bright.gif' : 'loading-night.gif';
+    }
 }
 
 function toggleAudio() {
@@ -119,8 +129,8 @@ function toggleTooltip() {
     const theme = document.body.getAttribute('data-theme');
     if (isTooltipVisible) {
         const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        const iconStyle = theme === 'dark Quelle: dark' ? 
-            'style="filter: none; fill: #FFD700;"' : 'style="filter: none; fill: #00008B;"';
+        const iconStyle = theme === 'bright' ? 
+            'style="filter: none; fill: #00008B;"' : 'style="filter: none; fill: #FFD700;"';
         tooltipText.innerHTML = isMobile 
             ? `
                 <strong>How to Use VocabSwipe:</strong><br><br>
@@ -172,11 +182,13 @@ function loadWords() {
                 words.sort((a, b) => (a.rank || 0) - (b.rank || 0));
                 maxFreq = words.find(word => word.rank === 1)?.freq || 1;
                 minFreq = Math.min(...words.map(word => word.freq || 1).filter(freq => freq > 0)) || 1;
-                // Calculate total sentences by summing the number of back_cards (each has an example_en)
                 totalSentences = words.reduce((sum, word) => sum + (word.back_cards?.length || 0), 0);
                 document.querySelector('#card-slider').max = words.length;
                 document.querySelector('#total-sentences').textContent = totalSentences;
+                isLoading = false;
+                document.querySelector('.loading-overlay').style.display = 'none';
                 displayWord();
+                animateStats();
                 preloadAudio();
             } catch (e) {
                 throw new Error(`Failed to parse YAML: ${e.message}`);
@@ -186,7 +198,15 @@ function loadWords() {
             console.error('Error loading words:', error.message);
             alert(`Failed to load vocabulary data: ${error.message}. Please check if 'data/vocab_database.yaml' exists and is valid.`);
             document.querySelector('.flashcard-container').innerHTML = '<p>Error loading flashcards. Please try again later.</p>';
+            isLoading = false;
+            document.querySelector('.loading-overlay').style.display = 'none';
         });
+}
+
+function animateStats() {
+    const statsContainer = document.querySelector('.stats-container');
+    statsContainer.style.transition = 'opacity 1s ease-in-out';
+    statsContainer.style.opacity = '1';
 }
 
 function shuffleCards() {
@@ -221,6 +241,7 @@ function setupEventListeners() {
     const doubleTapThreshold = 300;
 
     card.addEventListener('touchend', (e) => {
+        if (isLoading) return;
         e.preventDefault();
         const currentTime = new Date().getTime();
         tapCount++;
@@ -248,7 +269,7 @@ function setupEventListeners() {
     });
 
     card.addEventListener('click', (e) => {
-        if ('ontouchstart' in window) return;
+        if (isLoading || 'ontouchstart' in window) return;
         const currentTime = new Date().getTime();
         tapCount++;
         if (tapCount === 1) {
@@ -277,6 +298,7 @@ function setupEventListeners() {
     const hammer = new Hammer(card);
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
     hammer.on('swipeleft', (e) => {
+        if (isLoading) return;
         e.preventDefault();
         if (words.length) {
             animateSwipe('left', isFlipped);
@@ -294,6 +316,7 @@ function setupEventListeners() {
         }
     });
     hammer.on('swiperight', (e) => {
+        if (isLoading) return;
         e.preventDefault();
         if (words.length) {
             animateSwipe('right', isFlipped);
@@ -311,6 +334,7 @@ function setupEventListeners() {
         }
     });
     hammer.on('swipeup', (e) => {
+        if (isLoading) return;
         e.preventDefault();
         if (isFlipped && words[currentWordIndex]?.back_cards) {
             animateSwipe('up', isFlipped);
@@ -326,6 +350,7 @@ function setupEventListeners() {
         }
     });
     hammer.on('swipedown', (e) => {
+        if (isLoading) return;
         e.preventDefault();
         if (isFlipped && words[currentWordIndex]?.back_cards) {
             animateSwipe('down', isFlipped);
@@ -344,7 +369,7 @@ function setupEventListeners() {
 
 function setupKeyboardListeners() {
     document.addEventListener('keydown', (e) => {
-        if (!words.length) return;
+        if (isLoading || !words.length) return;
         switch (e.key) {
             case 'ArrowLeft':
                 animateSwipe('right', isFlipped);
