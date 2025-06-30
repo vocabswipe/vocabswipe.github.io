@@ -129,7 +129,7 @@ function toggleTooltip() {
         tooltipText.innerHTML = isMobile 
             ? `
                 <strong>How to Use VocabSwipe:</strong><br><br>
-                - <<strong>Theme Toggle (<img src="${theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg'}" width="28" height="28" ${iconStyle} alt="Theme Toggle">):</strong> Tap to switch between bright and dark themes.<br>
+                - <strong>Theme Toggle (<img src="${theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg'}" width="28" height="28" ${iconStyle} alt="Theme Toggle">):</strong> Tap to switch between bright and dark themes.<br>
                 - <strong>Audio Toggle (<img src="${theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg')}" width="28" height="28" ${iconStyle} alt="Audio Toggle">):</strong> Tap to enable or disable audio.<br>
                 - <strong>Info (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="28" height="28" ${iconStyle} alt="Info">):</strong> Tap to show or hide this help message.<br>
                 - <strong>Shuffle (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="28" height="28" ${iconStyle} alt="Shuffle">):</strong> Tap to randomize the word order.<br>
