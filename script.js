@@ -13,7 +13,7 @@ let minFreq = 1;
 let isSliding = false;
 let isTooltipVisible = false;
 let totalSentences = 0;
-let isLoading = true;
+let isContentLoaded = false;
 
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'bright';
@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateIcons(newTheme);
-        updateLoadingIcon(newTheme);
     });
 
     const audioBtn = document.querySelector('.audio-btn');
@@ -96,17 +95,13 @@ function updateIcons(theme) {
     const infoIcon = document.querySelector('.info-icon');
     const shuffleIcon = document.querySelector('.shuffle-icon');
     const resetIcon = document.querySelector('.reset-icon');
+    const loadingIcon = document.querySelector('.loading-icon');
 
     themeIcon.src = theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
     audioIcon.src = theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg');
     infoIcon.src = theme === 'bright' ? 'information-bright.svg' : 'information-night.svg';
-    shuffleIcon.src = theme === 'bright' ? 'shuffle-bright.wav' : 'shuffle-night.svg';
+    shuffleIcon.src = theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg';
     resetIcon.src = theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg';
-    updateLoadingIcon(theme);
-}
-
-function updateLoadingIcon(theme) {
-    const loadingIcon = document.querySelector('.loading-icon');
     if (loadingIcon) {
         loadingIcon.src = theme === 'bright' ? 'loading-bright.gif' : 'loading-night.gif';
     }
@@ -134,7 +129,7 @@ function toggleTooltip() {
         tooltipText.innerHTML = isMobile 
             ? `
                 <strong>How to Use VocabSwipe:</strong><br><br>
-                - <strong>Theme Toggle (<img src="${theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg'}" width="28" height="28" ${iconStyle} alt="Theme Toggle">):</strong> Tap to switch between bright and dark themes.<br>
+                - <<strong>Theme Toggle (<img src="${theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg'}" width="28" height="28" ${iconStyle} alt="Theme Toggle">):</strong> Tap to switch between bright and dark themes.<br>
                 - <strong>Audio Toggle (<img src="${theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg')}" width="28" height="28" ${iconStyle} alt="Audio Toggle">):</strong> Tap to enable or disable audio.<br>
                 - <strong>Info (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="28" height="28" ${iconStyle} alt="Info">):</strong> Tap to show or hide this help message.<br>
                 - <strong>Shuffle (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="28" height="28" ${iconStyle} alt="Shuffle">):</strong> Tap to randomize the word order.<br>
@@ -164,6 +159,14 @@ function toggleTooltip() {
     }
 }
 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
 function loadWords() {
     fetch('data/vocab_database.yaml')
         .then(response => {
@@ -178,17 +181,37 @@ function loadWords() {
                 if (!Array.isArray(words) || words.length === 0) {
                     throw new Error('No valid words found in vocab_database.yaml');
                 }
-                originalWords = [...words];
+                // Shuffle back_cards for each word
+                words.forEach(word => {
+                    if (word.back_cards && word.sentence_audio_file) {
+                        // Create paired array of back_cards and sentence_audio_file
+                        const paired = word.back_cards.map((card, index) => ({
+                            card,
+                            audio: word.sentence_audio_file[index]
+                        }));
+                        // Shuffle paired array
+                        shuffleArray(paired);
+                        // Reassign shuffled back_cards and sentence_audio_file
+                        word.back_cards = paired.map(item => item.card);
+                        word.sentence_audio_file = paired.map(item => item.audio);
+                    }
+                });
+                originalWords = JSON.parse(JSON.stringify(words)); // Deep copy
                 words.sort((a, b) => (a.rank || 0) - (b.rank || 0));
                 maxFreq = words.find(word => word.rank === 1)?.freq || 1;
                 minFreq = Math.min(...words.map(word => word.freq || 1).filter(freq => freq > 0)) || 1;
                 totalSentences = words.reduce((sum, word) => sum + (word.back_cards?.length || 0), 0);
                 document.querySelector('#card-slider').max = words.length;
                 document.querySelector('#total-sentences').textContent = totalSentences;
-                isLoading = false;
-                document.querySelector('.loading-overlay').style.display = 'none';
+                isContentLoaded = true;
                 displayWord();
-                animateStats();
+                // Animate stats container
+                const statsContainer = document.querySelector('.stats-container');
+                statsContainer.style.transition = 'opacity 1s ease-in';
+                statsContainer.style.opacity = '1';
+                // Hide loading overlay
+                const loadingOverlay = document.querySelector('.loading-overlay');
+                loadingOverlay.style.display = 'none';
                 preloadAudio();
             } catch (e) {
                 throw new Error(`Failed to parse YAML: ${e.message}`);
@@ -198,15 +221,8 @@ function loadWords() {
             console.error('Error loading words:', error.message);
             alert(`Failed to load vocabulary data: ${error.message}. Please check if 'data/vocab_database.yaml' exists and is valid.`);
             document.querySelector('.flashcard-container').innerHTML = '<p>Error loading flashcards. Please try again later.</p>';
-            isLoading = false;
             document.querySelector('.loading-overlay').style.display = 'none';
         });
-}
-
-function animateStats() {
-    const statsContainer = document.querySelector('.stats-container');
-    statsContainer.style.transition = 'opacity 1s ease-in-out';
-    statsContainer.style.opacity = '1';
 }
 
 function shuffleCards() {
@@ -222,7 +238,7 @@ function shuffleCards() {
 }
 
 function resetCards() {
-    words = [...originalWords].sort((a, b) => (a.rank || 0) - (b.rank || 0));
+    words = JSON.parse(JSON.stringify(originalWords)).sort((a, b) => (a.rank || 0) - (b.rank || 0));
     currentWordIndex = 0;
     currentBackCardIndex = 0;
     stopAudio();
@@ -241,8 +257,8 @@ function setupEventListeners() {
     const doubleTapThreshold = 300;
 
     card.addEventListener('touchend', (e) => {
-        if (isLoading) return;
         e.preventDefault();
+        if (!isContentLoaded) return;
         const currentTime = new Date().getTime();
         tapCount++;
         if (tapCount === 1) {
@@ -269,7 +285,8 @@ function setupEventListeners() {
     });
 
     card.addEventListener('click', (e) => {
-        if (isLoading || 'ontouchstart' in window) return;
+        if (!isContentLoaded) return;
+        if ('ontouchstart' in window) return;
         const currentTime = new Date().getTime();
         tapCount++;
         if (tapCount === 1) {
@@ -298,7 +315,7 @@ function setupEventListeners() {
     const hammer = new Hammer(card);
     hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
     hammer.on('swipeleft', (e) => {
-        if (isLoading) return;
+        if (!isContentLoaded) return;
         e.preventDefault();
         if (words.length) {
             animateSwipe('left', isFlipped);
@@ -316,7 +333,7 @@ function setupEventListeners() {
         }
     });
     hammer.on('swiperight', (e) => {
-        if (isLoading) return;
+        if (!isContentLoaded) return;
         e.preventDefault();
         if (words.length) {
             animateSwipe('right', isFlipped);
@@ -334,7 +351,7 @@ function setupEventListeners() {
         }
     });
     hammer.on('swipeup', (e) => {
-        if (isLoading) return;
+        if (!isContentLoaded) return;
         e.preventDefault();
         if (isFlipped && words[currentWordIndex]?.back_cards) {
             animateSwipe('up', isFlipped);
@@ -350,7 +367,7 @@ function setupEventListeners() {
         }
     });
     hammer.on('swipedown', (e) => {
-        if (isLoading) return;
+        if (!isContentLoaded) return;
         e.preventDefault();
         if (isFlipped && words[currentWordIndex]?.back_cards) {
             animateSwipe('down', isFlipped);
@@ -369,7 +386,7 @@ function setupEventListeners() {
 
 function setupKeyboardListeners() {
     document.addEventListener('keydown', (e) => {
-        if (isLoading || !words.length) return;
+        if (!words.length || !isContentLoaded) return;
         switch (e.key) {
             case 'ArrowLeft':
                 animateSwipe('right', isFlipped);
