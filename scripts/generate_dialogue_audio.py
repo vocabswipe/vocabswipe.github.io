@@ -5,6 +5,7 @@ import logging
 import random
 from rich.console import Console
 from rich.panel import Panel
+from rich.text import Text  # Added import to fix NameError
 from rich.progress import Progress, BarColumn, TextColumn, SpinnerColumn
 import boto3
 
