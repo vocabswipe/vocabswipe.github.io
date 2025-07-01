@@ -5,8 +5,9 @@ import logging
 import random
 from rich.console import Console
 from rich.panel import Panel
-from rich.text import Text  # Added import to fix NameError
+from rich.text import Text
 from rich.progress import Progress, BarColumn, TextColumn, SpinnerColumn
+from rich.table import Table
 import boto3
 
 # Initialize rich console
@@ -24,12 +25,13 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Define paths
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))  # Move up to D:\vocabswipe.github.io
 INPUT_FILE = os.path.join(BASE_DIR, 'dialogues.jsonl')
 OUTPUT_DB = os.path.join(BASE_DIR, 'dialogues_database.jsonl')
 AUDIO_DIR = os.path.join(BASE_DIR, 'sample_dialogue_audio')
+CORRECTED_JSONL_PATH = os.path.join(BASE_DIR, 'corrected_dialogues.jsonl')
 
-# Ensure audio directory exists
+# Ensure directories exist
 os.makedirs(AUDIO_DIR, exist_ok=True)
 
 # Initialize AWS Polly client
@@ -49,22 +51,90 @@ VOICE_MAP = {
 }
 
 def load_jsonl(filename):
-    """Load JSONL file with error handling."""
+    """Load JSONL file with error handling and correction."""
     entries = []
+    corrections = []
+    errors = []
     try:
         with open(filename, 'r', encoding='utf-8') as f:
-            for line in f:
-                line = line.strip()
-                if line:
-                    try:
-                        entry = json.loads(line)
-                        # Validate required fields
-                        if not all(key in entry for key in ['situation', 'dialogue', 'explanations', 'audio_file', 'audio_voice']):
-                            logger.warning(f"Missing required fields in entry: {line}")
-                            continue
+            lines = f.readlines()
+
+        current_entry = ""
+        line_count = 0
+        for i, line in enumerate(lines, 1):
+            line = line.strip()
+            if not line:
+                continue
+            line_count += 1
+            current_entry += line
+            try:
+                entry = json.loads(current_entry)
+                # Validate required fields
+                if not all(key in entry for key in ['situation', 'dialogue', 'explanations', 'audio_file', 'audio_voice']):
+                    logger.warning(f"Line {i}: Missing required fields in entry: {current_entry}")
+                    errors.append((i, current_entry, "Missing required fields"))
+                    current_entry = ""
+                    continue
+                entries.append(entry)
+                current_entry = ""
+            except json.JSONDecodeError as e:
+                # Try to fix common JSON issues
+                original_entry = current_entry
+                fixed_entry = current_entry.replace('}{', '},{').replace(',]', ']').replace(',}', '}')
+                if fixed_entry.count('{') > fixed_entry.count('}'):
+                    fixed_entry += '}'
+                if fixed_entry.count('}') > fixed_entry.count('{'):
+                    fixed_entry = '{' + fixed_entry
+                try:
+                    entry = json.loads(fixed_entry)
+                    if all(key in entry for key in ['situation', 'dialogue', 'explanations', 'audio_file', 'audio_voice']):
                         entries.append(entry)
-                    except json.JSONDecodeError as e:
-                        logger.warning(f"Invalid JSON line: {line} - Error: {e}")
+                        corrections.append((i, original_entry, fixed_entry, str(e)))
+                        logger.info(f"Line {i}: Fixed JSON: {original_entry} -> {fixed_entry}")
+                        current_entry = ""
+                    else:
+                        errors.append((i, original_entry, "Missing required fields after fix attempt"))
+                        current_entry = ""
+                except json.JSONDecodeError:
+                    if i == len(lines):
+                        logger.warning(f"Line {i}: Invalid JSON: {current_entry} - Error: {e}")
+                        errors.append((i, current_entry, str(e)))
+                        current_entry = ""
+                    continue
+
+        # Save corrected JSONL if fixes were applied
+        if corrections and entries:
+            with open(CORRECTED_JSONL_PATH, 'w', encoding='utf-8') as f:
+                for entry in entries:
+                    json.dump(entry, f, ensure_ascii=False)
+                    f.write('\n')
+            logger.info(f"Corrected JSONL saved to: {CORRECTED_JSONL_PATH}")
+            console.print(f"[green]✓ Corrected JSONL saved: {CORRECTED_JSONL_PATH}[/green]")
+
+        # Report corrections and errors
+        if corrections:
+            table = Table(title="📝 JSONL Corrections Report", style="cyan", show_lines=True)
+            table.add_column("Line", style="bold")
+            table.add_column("Original", justify="left")
+            table.add_column("Corrected", justify="left")
+            table.add_column("Error", justify="left")
+            for line_num, orig, fixed, err in corrections:
+                table.add_row(str(line_num), orig[:50] + ('...' if len(orig) > 50 else ''), fixed[:50] + ('...' if len(fixed) > 50 else ''), err[:50] + ('...' if len(err) > 50 else ''))
+            console.print(table)
+
+        if errors:
+            table = Table(title="⚠ JSONL Unfixable Errors", style="red", show_lines=True)
+            table.add_column("Line", style="bold")
+            table.add_column("Content", justify="left")
+            table.add_column("Error", justify="left")
+            for line_num, content, err in errors:
+                table.add_row(str(line_num), content[:50] + ('...' if len(content) > 50 else ''), err[:50] + ('...' if len(err) > 50 else ''))
+            console.print(table)
+            console.print(Panel(
+                f"[yellow]⚠ {len(errors)} lines could not be fixed. Corrected file saved at: {CORRECTED_JSONL_PATH}\nPlease review and replace dialogues.jsonl if valid.[/yellow]",
+                title="Warning", border_style="yellow", expand=False
+            ))
+
         logger.info(f"Loaded {len(entries)} entries from {filename}")
         console.print(f"[cyan]✓ Loaded {len(entries)} dialogue(s) from {filename}[/cyan]")
         return entries
@@ -102,7 +172,7 @@ def generate_audio(dialogue, situation, output_path, voice_map):
             gender = line['gender'].lower()
             voice = random.choice(voice_map.get(gender, voice_map['male']))  # Default to male if gender unknown
             # Escape special characters for SSML
-            text = text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;').replace("'", '&apos;')
+            text = text.replace('&', '&').replace('<', '<').replace('>', '>').replace('"', '"').replace("'", ''')
             ssml_parts.append(f'<p><prosody rate="medium"><voice name="{voice}">{text}</voice></prosody></p>')
         # Join with break tags outside f-string
         break_tag = '<break time="500ms"/>'
@@ -178,7 +248,7 @@ def process_dialogue_entry():
 
 if __name__ == "__main__":
     console.print(Panel(
-        Text("DialogueSync v1.1\nNeural-Powered Dialogue Audio Generator", style="bold cyan"),
+        Text("DialogueSync v1.2\nNeural-Powered Dialogue Audio Generator", style="bold cyan"),
         title="System Boot", border_style="blue", expand=False
     ))
     process_dialogue_entry()
