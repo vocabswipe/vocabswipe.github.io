@@ -2,6 +2,7 @@ import os
 import json
 import hashlib
 import logging
+import random
 from rich.console import Console
 from rich.panel import Panel
 from rich.progress import Progress, BarColumn, TextColumn, SpinnerColumn
@@ -23,8 +24,8 @@ logger = logging.getLogger(__name__)
 
 # Define paths
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-INPUT_FILE = os.path.join(BASE_DIR, 'data', 'dialogues.jsonl')
-OUTPUT_DB = os.path.join(BASE_DIR, 'data', 'dialogues_database.jsonl')
+INPUT_FILE = os.path.join(BASE_DIR, 'dialogues.jsonl')
+OUTPUT_DB = os.path.join(BASE_DIR, 'dialogues_database.jsonl')
 AUDIO_DIR = os.path.join(BASE_DIR, 'sample_dialogue_audio')
 
 # Ensure audio directory exists
@@ -56,16 +57,23 @@ def load_jsonl(filename):
                 if line:
                     try:
                         entry = json.loads(line)
+                        # Validate required fields
+                        if not all(key in entry for key in ['situation', 'dialogue', 'explanations', 'audio_file', 'audio_voice']):
+                            logger.warning(f"Missing required fields in entry: {line}")
+                            continue
                         entries.append(entry)
                     except json.JSONDecodeError as e:
                         logger.warning(f"Invalid JSON line: {line} - Error: {e}")
         logger.info(f"Loaded {len(entries)} entries from {filename}")
+        console.print(f"[cyan]✓ Loaded {len(entries)} dialogue(s) from {filename}[/cyan]")
         return entries
     except FileNotFoundError:
         logger.error(f"{filename} not found.")
+        console.print(f"[red]✗ {filename} not found.[/red]")
         return []
     except Exception as e:
         logger.error(f"Error loading {filename}: {e}")
+        console.print(f"[red]✗ Error loading {filename}: {e}[/red]")
         return []
 
 def save_jsonl(data, filename):
@@ -76,8 +84,10 @@ def save_jsonl(data, filename):
                 json.dump(entry, f, ensure_ascii=False)
                 f.write('\n')
         logger.info(f"Saved {len(data)} entries to {filename}")
+        console.print(f"[green]✓ Saved {len(data)} dialogue(s) to {filename}[/green]")
     except Exception as e:
         logger.error(f"Error saving {filename}: {e}")
+        console.print(f"[red]✗ Error saving {filename}: {e}[/red]")
         raise
 
 def generate_audio(dialogue, situation, output_path, voice_map):
@@ -90,8 +100,12 @@ def generate_audio(dialogue, situation, output_path, voice_map):
             text = line['text']
             gender = line['gender'].lower()
             voice = random.choice(voice_map.get(gender, voice_map['male']))  # Default to male if gender unknown
+            # Escape special characters for SSML
+            text = text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;').replace("'", '&apos;')
             ssml_parts.append(f'<p><prosody rate="medium"><voice name="{voice}">{text}</voice></prosody></p>')
-        ssml_text = f'<speak>{"<break time=\"500ms\"/>".join(ssml_parts)}</speak>'
+        # Join with break tags outside f-string
+        break_tag = '<break time="500ms"/>'
+        ssml_text = '<speak>' + break_tag.join(ssml_parts) + '</speak>'
 
         response = polly_client.synthesize_speech(
             Text=ssml_text,
@@ -104,28 +118,30 @@ def generate_audio(dialogue, situation, output_path, voice_map):
         with open(output_path, 'wb') as f:
             f.write(response['AudioStream'].read())
         logger.info(f"Generated audio for '{situation}' at {output_path}")
+        console.print(f"[green]✓ Generated audio for '{situation}' at {output_path}[/green]")
         return True
     except Exception as e:
         logger.error(f"Error generating audio for '{situation}': {e}")
-        console.print(f"[red]⚠ Audio Generation Failed for '{situation}'[/red]")
+        console.print(f"[red]⚠ Audio Generation Failed for '{situation}': {e}[/red]")
         return False
 
 def get_audio_filename(situation, dialogue):
     """Generate unique filename using situation and MD5 hash of dialogue content."""
     dialogue_text = ''.join(line['text'] for line in dialogue)
     hash_value = hashlib.md5((situation + dialogue_text).encode('utf-8')).hexdigest()
-    return os.path.join(AUDIO_DIR, f"{situation.replace(' ', '_').lower()}_{hash_value}.mp3")
+    safe_situation = situation.replace(' ', '_').replace("'", "").lower()
+    return os.path.join(AUDIO_DIR, f"{safe_situation}_{hash_value}.mp3")
 
 def process_dialogue_entry():
-    """Process the dialogue entry and generate audio."""
+    """Process the dialogue entries and generate audio."""
     entries = load_jsonl(INPUT_FILE)
     if not entries:
-        console.print("[red]✗ No entries found in dialogues.jsonl[/red]")
+        console.print("[red]✗ No valid entries found in dialogues.jsonl[/red]")
         return
 
     with Progress(
         SpinnerColumn(),
-        TextColumn("[cyan]Processing Dialogue..."),
+        TextColumn("[cyan]Processing Dialogues..."),
         BarColumn(bar_width=20),
         TextColumn("{task.percentage:>3.0f}%"),
         console=console,
@@ -151,6 +167,8 @@ def process_dialogue_entry():
                 entry['audio_file'] = audio_filename
                 entry['audio_voice'] = voices_used
                 updated_entries.append(entry)
+            else:
+                console.print(f"[yellow]⚠ Skipped saving entry for '{situation}' due to audio generation failure[/yellow]")
             progress.advance(task)
 
         # Save updated database
@@ -159,7 +177,7 @@ def process_dialogue_entry():
 
 if __name__ == "__main__":
     console.print(Panel(
-        Text("DialogueSync v1.0\nNeural-Powered Dialogue Audio Generator", style="bold cyan"),
+        Text("DialogueSync v1.1\nNeural-Powered Dialogue Audio Generator", style="bold cyan"),
         title="System Boot", border_style="blue", expand=False
     ))
     process_dialogue_entry()
