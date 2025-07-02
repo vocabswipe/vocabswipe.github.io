@@ -415,3 +415,423 @@
   voice_id: Matthew
   word: we
   word_audio_file: we.mp3
+- back_cards:
+  - audio_file: not_Im_not_going_to_the_party.mp3
+    definition_en: Used to form a negative statement.
+    example_en: I’m not going to the party.
+  - audio_file: not_Thats_not_what_I_meant.mp3
+    definition_en: Denies the truth of something.
+    example_en: That’s not what I meant.
+  - audio_file: not_Do_not_touch_the_hot_stove.mp3
+    definition_en: Expresses refusal or prohibition.
+    example_en: Do not touch the hot stove.
+  - audio_file: not_Theres_not_enough_time_today.mp3
+    definition_en: Indicates absence or lack.
+    example_en: There’s not enough time today.
+  - audio_file: not_Its_not_blue_its_green.mp3
+    definition_en: Used for contradiction or correction.
+    example_en: It’s not blue, it’s green.
+  freq: 4655980
+  rank: 21
+  voice_id: Matthew
+  word: not
+  word_audio_file: not.mp3
+- back_cards:
+  - audio_file: but_I_wanted_to_go_but_I_was_tired.mp3
+    definition_en: Introduces a statement that contrasts.
+    example_en: I wanted to go, but I was tired.
+  - audio_file: but_Everyone_but_Tom_was_there.mp3
+    definition_en: Shows an exception to something.
+    example_en: Everyone but Tom was there.
+  - audio_file: but_Its_not_perfect_but_it_works.mp3
+    definition_en: Used to emphasize a point.
+    example_en: It’s not perfect, but it works.
+  - audio_file: but_Shes_young_but_very_talented.mp3
+    definition_en: Connects two opposing ideas.
+    example_en: She’s young, but very talented.
+  - audio_file: but_Id_help_but_Im_too_busy.mp3
+    definition_en: Indicates an objection.
+    example_en: I’d help, but I’m too busy.
+  freq: 4523086
+  rank: 22
+  voice_id: Matthew
+  word: but
+  word_audio_file: but.mp3
+- back_cards:
+  - audio_file: they_They_went_to_the_park_together.mp3
+    definition_en: Refers to multiple people or things.
+    example_en: They went to the park together.
+  - audio_file: they_The_kids_Theyre_playing_outside.mp3
+    definition_en: Used for a group previously mentioned.
+    example_en: The kids? They’re playing outside.
+  - audio_file: they_They_say_its_going_to_rain.mp3
+    definition_en: Refers to people in general.
+    example_en: They say it’s going to rain.
+  - audio_file: they_If_they_call_take_a_message.mp3
+    definition_en: Used for unspecified individuals.
+    example_en: If they call, take a message.
+  - audio_file: they_They_built_a_new_school_nearby.mp3
+    definition_en: Describes collective action.
+    example_en: They built a new school nearby.
+  freq: 4503650
+  rank: 23
+  voice_id: Matthew
+  word: they
+  word_audio_file: they.mp3
+- back_cards:
+  - audio_file: say_She_says_shell_be_here_soon.mp3
+    definition_en: To express something in words.
+    example_en: She says she’ll be here soon.
+  - audio_file: say_They_say_the_movie_is_great.mp3
+    definition_en: To state an opinion or fact.
+    example_en: They say the movie is great.
+  - audio_file: say_He_said_to_meet_at_noon.mp3
+    definition_en: To give instructions or advice.
+    example_en: He said to meet at noon.
+  - audio_file: say_The_news_says_its_snowing.mp3
+    definition_en: To convey information or news.
+    example_en: The news says it’s snowing.
+  - audio_file: say_Her_smile_says_shes_happy.mp3
+    definition_en: To indicate or suggest.
+    example_en: Her smile says she’s happy.
+  freq: 4096416
+  rank: 24
+  voice_id: Matthew
+  word: say
+  word_audio_file: say.mp3
+- back_cards:
+  - audio_file: at_Meet_me_at_the_coffee_shop.mp3
+    definition_en: Indicates a specific location or point.
+    example_en: Meet me at the coffee shop.
+  - audio_file: at_The_show_starts_at_7_pm.mp3
+    definition_en: Refers to a specific time.
+    example_en: The show starts at 7 p.m.
+  - audio_file: at_She_waved_at_her_friend.mp3
+    definition_en: Shows direction or target.
+    example_en: She waved at her friend.
+  - audio_file: at_Gas_is_sold_at_3_a_gallon.mp3
+    definition_en: Describes a rate or level.
+    example_en: Gas is sold at $3 a gallon.
+  - audio_file: at_Hes_good_at_solving_puzzles.mp3
+    definition_en: Indicates a situation or activity.
+    example_en: He’s good at solving puzzles.
+  freq: 4024079
+  rank: 25
+  voice_id: Matthew
+  word: at
+  word_audio_file: at.mp3
+- back_cards:
+  - audio_file: what_What_time_is_the_meeting.mp3
+    definition_en: Used to ask for information.
+    example_en: What time is the meeting?
+  - audio_file: what_I_dont_know_what_happened.mp3
+    definition_en: Refers to something unspecified.
+    example_en: I don’t know what happened.
+  - audio_file: what_What_You_got_a_new_car.mp3
+    definition_en: Expresses surprise or disbelief.
+    example_en: What! You got a new car?
+  - audio_file: what_What_did_you_say_just_now.mp3
+    definition_en: Used to clarify or repeat.
+    example_en: What did you say just now?
+  - audio_file: what_Tell_me_what_you_want_to_do.mp3
+    definition_en: Introduces a statement or choice.
+    example_en: Tell me what you want to do.
+  freq: 3807502
+  rank: 26
+  voice_id: Matthew
+  word: what
+  word_audio_file: what.mp3
+- back_cards:
+  - audio_file: his_Thats_his_jacket_on_the_chair.mp3
+    definition_en: Indicates possession by a male.
+    example_en: That’s his jacket on the chair.
+  - audio_file: his_His_dog_is_really_friendly.mp3
+    definition_en: Refers to something belonging to him.
+    example_en: His dog is really friendly.
+  - audio_file: his_His_smile_lights_up_the_room.mp3
+    definition_en: Describes a male’s characteristic.
+    example_en: His smile lights up the room.
+  - audio_file: his_I_borrowed_his_pen_yesterday.mp3
+    definition_en: Used in relation to a male.
+    example_en: I borrowed his pen yesterday.
+  - audio_file: his_That_was_his_idea_not_mine.mp3
+    definition_en: Shows ownership of an idea or action.
+    example_en: That was his idea, not mine.
+  freq: 3718978
+  rank: 27
+  voice_id: Matthew
+  word: his
+  word_audio_file: his.mp3
+- back_cards:
+  - audio_file: from_Im_from_Chicago_originally.mp3
+    definition_en: Indicates a starting point or origin.
+    example_en: I’m from Chicago originally.
+  - audio_file: from_Take_the_book_from_the_shelf.mp3
+    definition_en: Shows separation or removal.
+    example_en: Take the book from the shelf.
+  - audio_file: from_She_learned_it_from_her_teacher.mp3
+    definition_en: Denotes source or cause.
+    example_en: She learned it from her teacher.
+  - audio_file: from_Were_open_from_9_to_5.mp3
+    definition_en: Indicates a range or time.
+    example_en: We’re open from 9 to 5.
+  - audio_file: from_This_is_different_from_that_one.mp3
+    definition_en: Distinguishes one thing from another.
+    example_en: This is different from that one.
+  freq: 3711425
+  rank: 28
+  voice_id: Matthew
+  word: from
+  word_audio_file: from.mp3
+- back_cards:
+  - audio_file: go_Lets_go_to_the_park.mp3
+    definition_en: To move or travel somewhere.
+    example_en: Let’s go to the park.
+  - audio_file: go_The_train_goes_in_ten_minutes.mp3
+    definition_en: To leave or depart.
+    example_en: The train goes in ten minutes.
+  - audio_file: go_Does_your_watch_still_go.mp3
+    definition_en: To function or operate.
+    example_en: Does your watch still go?
+  - audio_file: go_The_party_went_on_all_night.mp3
+    definition_en: To indicate progress or continuation.
+    example_en: The party went on all night.
+  - audio_file: go_This_shirt_goes_with_those_pants.mp3
+    definition_en: To be suitable or match.
+    example_en: This shirt goes with those pants.
+  freq: 3546732
+  rank: 29
+  voice_id: Matthew
+  word: go
+  word_audio_file: go.mp3
+- back_cards:
+  - audio_file: or_Do_you_want_tea_or_coffee.mp3
+    definition_en: Presents an alternative or choice.
+    example_en: Do you want tea or coffee?
+  - audio_file: or_Hurry_or_well_be_late.mp3
+    definition_en: Introduces another possibility.
+    example_en: Hurry, or we’ll be late.
+  - audio_file: or_Its_a_fox_or_maybe_a_coyote.mp3
+    definition_en: Clarifies or restates something.
+    example_en: It’s a fox, or maybe a coyote.
+  - audio_file: or_Study_or_youll_fail_the_test.mp3
+    definition_en: Shows a consequence of not acting.
+    example_en: Study, or you’ll fail the test.
+  - audio_file: or_You_can_call_or_text_me.mp3
+    definition_en: Connects similar ideas or options.
+    example_en: You can call or text me.
+  freq: 3420339
+  rank: 30
+  voice_id: Matthew
+  word: or
+  word_audio_file: or.mp3
+- back_cards:
+  - audio_file: by_I_sent_it_by_email.mp3
+    definition_en: Indicates the means or method.
+    example_en: I sent it by email.
+  - audio_file: by_The_park_is_by_the_river.mp3
+    definition_en: Shows proximity or location.
+    example_en: The park is by the river.
+  - audio_file: by_The_book_was_written_by_her.mp3
+    definition_en: Denotes the agent performing an action.
+    example_en: The book was written by her.
+  - audio_file: by_Finish_this_by_tomorrow.mp3
+    definition_en: Refers to a deadline or time.
+    example_en: Finish this by tomorrow.
+  - audio_file: by_Were_ahead_by_two_points.mp3
+    definition_en: Indicates a measurement or extent.
+    example_en: We’re ahead by two points.
+  freq: 3372222
+  rank: 31
+  voice_id: Matthew
+  word: by
+  word_audio_file: by.mp3
+- back_cards:
+  - audio_file: get_I_need_to_get_some_groceries.mp3
+    definition_en: To obtain or acquire something.
+    example_en: I need to get some groceries.
+  - audio_file: get_I_dont_get_what_you_mean.mp3
+    definition_en: To understand or comprehend.
+    example_en: I don’t get what you mean.
+  - audio_file: get_We_got_to_the_airport_early.mp3
+    definition_en: To arrive or reach a place.
+    example_en: We got to the airport early.
+  - audio_file: get_Its_getting_cold_outside.mp3
+    definition_en: To become or start to be.
+    example_en: It’s getting cold outside.
+  - audio_file: get_She_got_a_gift_for_her_birthday.mp3
+    definition_en: To receive or be given.
+    example_en: She got a gift for her birthday.
+  freq: 3347615
+  rank: 32
+  voice_id: Matthew
+  word: get
+  word_audio_file: get.mp3
+- back_cards:
+  - audio_file: she_She_went_to_the_store.mp3
+    definition_en: Refers to a female person previously mentioned.
+    example_en: She went to the store.
+  - audio_file: she_She_always_helps_her_friends.mp3
+    definition_en: Describes a female’s actions.
+    example_en: She always helps her friends.
+  - audio_file: she_I_saw_her_at_the_party.mp3
+    definition_en: Indicates a specific female individual.
+    example_en: I saw her at the party.
+  - audio_file: she_She_was_the_star_of_the_show.mp3
+    definition_en: Used in storytelling or description.
+    example_en: She was the star of the show.
+  - audio_file: she_If_she_calls_let_me_know.mp3
+    definition_en: Refers to a female in a hypothetical situation.
+    example_en: If she calls, let me know.
+  freq: 3188078
+  rank: 33
+  voice_id: Matthew
+  word: she
+  word_audio_file: she.mp3
+- back_cards:
+  - audio_file: my_This_is_my_favorite_book.mp3
+    definition_en: Indicates possession by the speaker.
+    example_en: This is my favorite book.
+  - audio_file: my_My_phone_is_on_the_table.mp3
+    definition_en: Shows ownership of an object.
+    example_en: My phone is on the table.
+  - audio_file: my_My_mom_makes_great_cookies.mp3
+    definition_en: Expresses a personal connection.
+    example_en: My mom makes great cookies.
+  - audio_file: my_My_job_keeps_me_busy.mp3
+    definition_en: Refers to something associated with the speaker.
+    example_en: My job keeps me busy.
+  - audio_file: my_My_day_was_really_hectic.mp3
+    definition_en: Used to emphasize personal experience.
+    example_en: My day was really hectic.
+  freq: 3106939
+  rank: 34
+  voice_id: Matthew
+  word: my
+  word_audio_file: my.mp3
+- back_cards:
+  - audio_file: can_I_can_swim_really_well.mp3
+    definition_en: Indicates ability or capability.
+    example_en: I can swim really well.
+  - audio_file: can_You_can_borrow_my_book.mp3
+    definition_en: Expresses permission.
+    example_en: You can borrow my book.
+  - audio_file: can_It_can_rain_this_afternoon.mp3
+    definition_en: Shows possibility or likelihood.
+    example_en: It can rain this afternoon.
+  - audio_file: can_Can_you_help_me_with_this.mp3
+    definition_en: Used to make a request.
+    example_en: Can you help me with this?
+  - audio_file: can_Anyone_can_learn_to_cook.mp3
+    definition_en: Refers to general knowledge or fact.
+    example_en: Anyone can learn to cook.
+  freq: 3091046
+  rank: 35
+  voice_id: Matthew
+  word: can
+  word_audio_file: can.mp3
+- back_cards:
+  - audio_file: as_Shes_as_tall_as_her_brother.mp3
+    definition_en: Used to compare or liken.
+    example_en: She’s as tall as her brother.
+  - audio_file: as_He_works_as_a_teacher.mp3
+    definition_en: Indicates a role or function.
+    example_en: He works as a teacher.
+  - audio_file: as_I_stayed_home_as_I_was_sick.mp3
+    definition_en: Shows a reason or cause.
+    example_en: I stayed home as I was sick.
+  - audio_file: as_I_waved_as_she_drove_by.mp3
+    definition_en: Refers to time or simultaneity.
+    example_en: I waved as she drove by.
+  - audio_file: as_Do_it_as_I_showed_you.mp3
+    definition_en: Introduces an example or manner.
+    example_en: Do it as I showed you.
+  freq: 2946119
+  rank: 36
+  voice_id: Matthew
+  word: as
+  word_audio_file: as.mp3
+- back_cards:
+  - audio_file: know_I_know_the_answer_to_that.mp3
+    definition_en: To have information or awareness.
+    example_en: I know the answer to that.
+  - audio_file: know_She_knows_the_city_well.mp3
+    definition_en: To be familiar with someone or something.
+    example_en: She knows the city well.
+  - audio_file: know_I_know_how_you_feel.mp3
+    definition_en: To understand or realize.
+    example_en: I know how you feel.
+  - audio_file: know_Youll_know_him_by_his_red_hat.mp3
+    definition_en: To recognize or identify.
+    example_en: You’ll know him by his red hat.
+  - audio_file: know_I_know_this_song_by_heart.mp3
+    definition_en: To have learned or experienced.
+    example_en: I know this song by heart.
+  freq: 2761628
+  rank: 37
+  voice_id: Matthew
+  word: know
+  word_audio_file: know.mp3
+- back_cards:
+  - audio_file: if_Ill_go_if_youre_going_too.mp3
+    definition_en: Introduces a conditional situation.
+    example_en: I’ll go if you’re going too.
+  - audio_file: if_I_wonder_if_shell_call.mp3
+    definition_en: Expresses possibility or uncertainty.
+    example_en: I wonder if she’ll call.
+  - audio_file: if_What_if_we_miss_the_bus.mp3
+    definition_en: Used to introduce a hypothetical.
+    example_en: What if we miss the bus?
+  - audio_file: if_If_you_dont_mind_Ill_leave.mp3
+    definition_en: Indicates a polite request or suggestion.
+    example_en: If you don’t mind, I’ll leave.
+  - audio_file: if_You_can_join_if_youre_ready.mp3
+    definition_en: Shows a condition for something.
+    example_en: You can join if you’re ready.
+  freq: 2709809
+  rank: 38
+  voice_id: Matthew
+  word: if
+  word_audio_file: if.mp3
+- back_cards:
+  - audio_file: me_She_gave_me_a_book.mp3
+    definition_en: Refers to the speaker as the object.
+    example_en: She gave me a book.
+  - audio_file: me_Tell_me_what_happened.mp3
+    definition_en: Used to indicate the recipient.
+    example_en: Tell me what happened.
+  - audio_file: me_That_song_means_a_lot_to_me.mp3
+    definition_en: Expresses personal involvement.
+    example_en: That song means a lot to me.
+  - audio_file: me_Wait_for_me_at_the_station.mp3
+    definition_en: Refers to the speaker in a situation.
+    example_en: Wait for me at the station.
+  - audio_file: me_I_bought_myself_a_new_phone.mp3
+    definition_en: Used in reflexive or emphatic cases.
+    example_en: I bought myself a new phone.
+  freq: 2638743
+  rank: 39
+  voice_id: Matthew
+  word: me
+  word_audio_file: me.mp3
+- back_cards:
+  - audio_file: your_Is_this_your_jacket.mp3
+    definition_en: Indicates possession by the listener.
+    example_en: Is this your jacket?
+  - audio_file: your_Your_car_is_parked_outside.mp3
+    definition_en: Shows ownership of an object.
+    example_en: Your car is parked outside.
+  - audio_file: your_I_like_your_new_hairstyle.mp3
+    definition_en: Refers to something associated with the listener.
+    example_en: I like your new hairstyle.
+  - audio_file: your_Your_health_is_important.mp3
+    definition_en: Used in general or impersonal statements.
+    example_en: Your health is important.
+  - audio_file: your_Your_idea_sounds_really_good.mp3
+    definition_en: Emphasizes connection to the listener.
+    example_en: Your idea sounds really good.
+  freq: 2577505
+  rank: 40
+  voice_id: Matthew
+  word: your
+  word_audio_file: your.mp3
