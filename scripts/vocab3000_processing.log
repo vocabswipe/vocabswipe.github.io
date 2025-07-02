@@ -3113,3 +3113,9 @@
 2025-07-02 20:02:17,650 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250702_200217.txt
 2025-07-02 20:02:17,656 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
 2025-07-02 20:02:17,657 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.
+2025-07-02 20:04:58,822 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-07-02 20:04:59,062 - INFO - AWS Polly client initialized successfully.
+2025-07-02 20:04:59,070 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-02 20:05:00,837 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-02 20:05:00,843 - INFO - Backup created at: D:\vocabswipe.github.io\data\temp\backup_vocab3000_20250702_200458.jsonl
+2025-07-02 20:05:00,847 - WARNING - No valid entries to process
