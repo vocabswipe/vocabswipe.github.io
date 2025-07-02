@@ -205,3 +205,213 @@
   voice_id: Matthew
   word: it
   word_audio_file: it.mp3
+- back_cards:
+  - audio_file: have_I_have_a_dog_named_Max.mp3
+    definition_en: To possess or own something.
+    example_en: I have a dog named Max.
+  - audio_file: have_She_had_a_great_time_at_the_party.mp3
+    definition_en: To experience or undergo something.
+    example_en: She had a great time at the party.
+  - audio_file: have_You_have_to_finish_your_homework.mp3
+    definition_en: To be obliged to do something.
+    example_en: You have to finish your homework.
+  - audio_file: have_Lets_have_lunch_together.mp3
+    definition_en: To consume or take something.
+    example_en: Let’s have lunch together.
+  - audio_file: have_They_have_a_big_family.mp3
+    definition_en: To indicate a relationship or association.
+    example_en: They have a big family.
+  freq: 10514314
+  rank: 11
+  voice_id: Matthew
+  word: have
+  word_audio_file: have.mp3
+- back_cards:
+  - audio_file: that_I_like_that_shirt_youre_wearing.mp3
+    definition_en: Refers to a specific thing or person previously mentioned.
+    example_en: I like that shirt you’re wearing.
+  - audio_file: that_She_said_that_shed_be_late.mp3
+    definition_en: Introduces a clause or idea.
+    example_en: She said that she’d be late.
+  - audio_file: that_It_was_that_moment_that_changed_everything.mp3
+    definition_en: Used to emphasize something.
+    example_en: It was that moment that changed everything.
+  - audio_file: that_Look_at_that_bird_in_the_tree.mp3
+    definition_en: Refers to a distant object or idea.
+    example_en: Look at that bird in the tree.
+  - audio_file: that_I_studied_hard_so_that_I_could_pass.mp3
+    definition_en: Connects ideas to show cause or purpose.
+    example_en: I studied hard so that I could pass.
+  freq: 8319512
+  rank: 12
+  voice_id: Matthew
+  word: that
+  word_audio_file: that.mp3
+- back_cards:
+  - audio_file: for_Im_saving_money_for_a_new_car.mp3
+    definition_en: Indicates purpose or reason.
+    example_en: I’m saving money for a new car.
+  - audio_file: for_Shes_been_waiting_for_an_hour.mp3
+    definition_en: Shows duration of time.
+    example_en: She’s been waiting for an hour.
+  - audio_file: for_This_gift_is_for_you.mp3
+    definition_en: Denotes a recipient or beneficiary.
+    example_en: This gift is for you.
+  - audio_file: for_Im_rooting_for_our_team_to_win.mp3
+    definition_en: Expresses support or favor.
+    example_en: I’m rooting for our team to win.
+  - audio_file: for_Were_heading_for_the_beach.mp3
+    definition_en: Indicates a destination or goal.
+    example_en: We’re heading for the beach.
+  freq: 8194970
+  rank: 13
+  voice_id: Matthew
+  word: for
+  word_audio_file: for.mp3
+- back_cards:
+  - audio_file: do_I_need_to_do_my_laundry_today.mp3
+    definition_en: To perform or carry out an action.
+    example_en: I need to do my laundry today.
+  - audio_file: do_Do_you_like_to_swim.mp3
+    definition_en: Used to ask questions or form negatives.
+    example_en: Do you like to swim?
+  - audio_file: do_She_did_her_project_last_night.mp3
+    definition_en: To complete or finish something.
+    example_en: She did her project last night.
+  - audio_file: do_This_box_will_do_for_storage.mp3
+    definition_en: To serve a purpose or function.
+    example_en: This box will do for storage.
+  - audio_file: do_Just_do_it_and_stop_complaining.mp3
+    definition_en: To emphasize an action.
+    example_en: Just do it and stop complaining!
+  freq: 8186412
+  rank: 14
+  voice_id: Matthew
+  word: do
+  word_audio_file: do.mp3
+- back_cards:
+  - audio_file: he_He_went_to_the_store_for_milk.mp3
+    definition_en: Refers to a male person previously mentioned.
+    example_en: He went to the store for milk.
+  - audio_file: he_He_always_helps_his_neighbors.mp3
+    definition_en: Used to describe someone’s actions.
+    example_en: He always helps his neighbors.
+  - audio_file: he_I_saw_him_at_the_game_yesterday.mp3
+    definition_en: Indicates a specific male individual.
+    example_en: I saw him at the game yesterday.
+  - audio_file: he_He_was_the_hero_of_the_story.mp3
+    definition_en: Used in storytelling or description.
+    example_en: He was the hero of the story.
+  - audio_file: he_If_he_calls_let_me_know.mp3
+    definition_en: Refers to a male in a hypothetical situation.
+    example_en: If he calls, let me know.
+  freq: 6467470
+  rank: 15
+  voice_id: Matthew
+  word: he
+  word_audio_file: he.mp3
+- back_cards:
+  - audio_file: with_I_went_to_the_park_with_my_friends.mp3
+    definition_en: Indicates accompaniment or association.
+    example_en: I went to the park with my friends.
+  - audio_file: with_She_cut_the_paper_with_scissors.mp3
+    definition_en: Shows the means or tool used.
+    example_en: She cut the paper with scissors.
+  - audio_file: with_He_spoke_with_confidence.mp3
+    definition_en: Describes a manner or attitude.
+    example_en: He spoke with confidence.
+  - audio_file: with_Shes_close_with_her_sister.mp3
+    definition_en: Indicates a relationship or connection.
+    example_en: She’s close with her sister.
+  - audio_file: with_The_man_with_the_hat_is_my_dad.mp3
+    definition_en: Shows possession of something.
+    example_en: The man with the hat is my dad.
+  freq: 6442861
+  rank: 16
+  voice_id: Matthew
+  word: with
+  word_audio_file: with.mp3
+- back_cards:
+  - audio_file: on_The_book_is_on_the_table.mp3
+    definition_en: Indicates position or location above something.
+    example_en: The book is on the table.
+  - audio_file: on_Well_meet_on_Friday.mp3
+    definition_en: Refers to a specific time or day.
+    example_en: We’ll meet on Friday.
+  - audio_file: on_Shes_working_on_a_new_project.mp3
+    definition_en: Shows attachment or focus.
+    example_en: She’s working on a new project.
+  - audio_file: on_He_gave_a_talk_on_climate_change.mp3
+    definition_en: Indicates a topic or subject.
+    example_en: He gave a talk on climate change.
+  - audio_file: on_The_light_is_on_in_the_kitchen.mp3
+    definition_en: Describes a state or condition.
+    example_en: The light is on in the kitchen.
+  freq: 6080156
+  rank: 17
+  voice_id: Matthew
+  word: 'on'
+  word_audio_file: on.mp3
+- back_cards:
+  - audio_file: this_This_coffee_tastes_amazing.mp3
+    definition_en: Refers to something near or present.
+    example_en: This coffee tastes amazing.
+  - audio_file: this_This_is_why_I_love_hiking.mp3
+    definition_en: Introduces something being discussed.
+    example_en: This is why I love hiking.
+  - audio_file: this_Take_this_pen_to_write_it_down.mp3
+    definition_en: Points to a specific item or idea.
+    example_en: Take this pen to write it down.
+  - audio_file: this_This_week_has_been_so_busy.mp3
+    definition_en: Refers to the current time or situation.
+    example_en: This week has been so busy.
+  - audio_file: this_This_moment_feels_so_special.mp3
+    definition_en: Used to emphasize a particular thing.
+    example_en: This moment feels so special.
+  freq: 5541440
+  rank: 18
+  voice_id: Matthew
+  word: this
+  word_audio_file: this.mp3
+- back_cards:
+  - audio_file: n't_I_cant_go_to_the_party_tonight.mp3
+    definition_en: Short for 'not,' used in negations.
+    example_en: I can’t go to the party tonight.
+  - audio_file: n't_She_doesnt_like_spicy_food.mp3
+    definition_en: Denies an action or state.
+    example_en: She doesn’t like spicy food.
+  - audio_file: n't_Dont_you_want_to_come_along.mp3
+    definition_en: Used to form negative questions.
+    example_en: Don’t you want to come along?
+  - audio_file: n't_You_shouldnt_touch_that_wire.mp3
+    definition_en: Indicates refusal or prohibition.
+    example_en: You shouldn’t touch that wire.
+  - audio_file: n't_There_isnt_any_milk_left.mp3
+    definition_en: Expresses absence of something.
+    example_en: There isn’t any milk left.
+  freq: 5285354
+  rank: 19
+  voice_id: Matthew
+  word: n't
+  word_audio_file: n't.mp3
+- back_cards:
+  - audio_file: we_We_are_going_to_the_movies.mp3
+    definition_en: Refers to the speaker and others.
+    example_en: We are going to the movies.
+  - audio_file: we_We_finished_the_project_together.mp3
+    definition_en: Expresses collective action.
+    example_en: We finished the project together.
+  - audio_file: we_We_need_to_talk_about_this.mp3
+    definition_en: Used to include the listener.
+    example_en: We need to talk about this.
+  - audio_file: we_We_think_this_plan_will_work.mp3
+    definition_en: Indicates a group’s opinion.
+    example_en: We think this plan will work.
+  - audio_file: we_We_had_so_much_fun_yesterday.mp3
+    definition_en: Refers to a shared experience.
+    example_en: We had so much fun yesterday.
+  freq: 5180711
+  rank: 20
+  voice_id: Matthew
+  word: we
+  word_audio_file: we.mp3
