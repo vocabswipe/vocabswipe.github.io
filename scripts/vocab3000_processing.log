@@ -12940,3 +12940,608 @@
 2025-07-03 02:46:21,714 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250703_024621.txt
 2025-07-03 02:46:21,726 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
 2025-07-03 02:46:21,727 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.
+2025-07-03 02:48:33,414 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-07-03 02:48:33,638 - INFO - AWS Polly client initialized successfully.
+2025-07-03 02:48:33,645 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 02:48:40,350 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-03 02:48:40,352 - INFO - Backup created at: D:\vocabswipe.github.io\data\temp\backup_vocab3000_20250703_024833.jsonl
+2025-07-03 02:48:40,355 - WARNING - Line 4 invalid JSON: {"word":"tale","rank":2104,"freq":34400,"back_cards":[{"definition_en":"A story, often fictional or imaginative.","example_en":"She told a tale about a magical forest."},{"definition_en":"A narrative or account of events.","example_en":"His tale of adventure captivated the kids."},{"definition_en":"A folktale or traditional story.","example_en":"The old tale of the dragon is famous."},{"definition_en":"A personal or anecdotal story.","example_en":"Grandpa shared tales from his youth."},{"definition_en":"A fictional or exaggerated account.","example_en":"That’s quite a tale about your fishing trip!"}}]} - Error: Expecting ',' delimiter: line 1 column 607 (char 606)
+2025-07-03 02:48:40,356 - ERROR - Line 4 unfixable: {"word":"tale","rank":2104,"freq":34400,"back_cards":[{"definition_en":"A story, often fictional or imaginative.","example_en":"She told a tale about a magical forest."},{"definition_en":"A narrative or account of events.","example_en":"His tale of adventure captivated the kids."},{"definition_en":"A folktale or traditional story.","example_en":"The old tale of the dragon is famous."},{"definition_en":"A personal or anecdotal story.","example_en":"Grandpa shared tales from his youth."},{"definition_en":"A fictional or exaggerated account.","example_en":"That’s quite a tale about your fishing trip!"}}]} - Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2025-07-03 02:48:40,357 - WARNING - Line 100 invalid JSON: {"word":"awesome","rank":2200,"freq":32423,"back_cards":[{"definition_en":"Amazing or impressive; inspiring awe.","example_en":"That concert was absolutely awesome!"},{"definition_en":"Very good or exciting.","example_en":"The new game is totally awesome."},{"definition_en":"Remarkable or outstanding.","example_en":"Her performance was awesome to watch."},{"definition_en":"Causing wonder or admiration.","example_en":"The view from the mountain was awesome."},{"definition_en":"Really cool or fantastic.","example_en":"You did an awesome job on this!"}}]} - Error: Expecting ',' delimiter: line 1 column 556 (char 555)
+2025-07-03 02:48:40,357 - ERROR - Line 100 unfixable: {"word":"awesome","rank":2200,"freq":32423,"back_cards":[{"definition_en":"Amazing or impressive; inspiring awe.","example_en":"That concert was absolutely awesome!"},{"definition_en":"Very good or exciting.","example_en":"The new game is totally awesome."},{"definition_en":"Remarkable or outstanding.","example_en":"Her performance was awesome to watch."},{"definition_en":"Causing wonder or admiration.","example_en":"The view from the mountain was awesome."},{"definition_en":"Really cool or fantastic.","example_en":"You did an awesome job on this!"}}]} - Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2025-07-03 02:48:40,366 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 02:48:47,689 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 02:48:47,690 - INFO - Appended 98 entries to D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 02:48:47,694 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 02:48:55,817 - INFO - Generated audio for '<speak>mystery</speak>' at D:\vocabswipe.github.io\data\audio\front\mystery.mp3
+2025-07-03 02:48:56,175 - INFO - Generated audio for '<speak>The old house holds a mystery we can’t solve.</speak>' at D:\vocabswipe.github.io\data\audio\back\mystery\mystery_The_old_house_holds_a_mystery_we_cant_solve.mp3
+2025-07-03 02:48:56,529 - INFO - Generated audio for '<speak>I love reading a good mystery novel.</speak>' at D:\vocabswipe.github.io\data\audio\back\mystery\mystery_I_love_reading_a_good_mystery_novel.mp3
+2025-07-03 02:48:56,882 - INFO - Generated audio for '<speak>Her sudden absence is a complete mystery.</speak>' at D:\vocabswipe.github.io\data\audio\back\mystery\mystery_Her_sudden_absence_is_a_complete_mystery.mp3
+2025-07-03 02:48:57,237 - INFO - Generated audio for '<speak>The painting’s meaning remains a mystery.</speak>' at D:\vocabswipe.github.io\data\audio\back\mystery\mystery_The_paintings_meaning_remains_a_mystery.mp3
+2025-07-03 02:48:57,598 - INFO - Generated audio for '<speak>The scientist unraveled the mystery of the disease.</speak>' at D:\vocabswipe.github.io\data\audio\back\mystery\mystery_The_scientist_unraveled_the_mystery_of_the_disease.mp3
+2025-07-03 02:48:57,940 - INFO - Generated audio for '<speak>championship</speak>' at D:\vocabswipe.github.io\data\audio\front\championship.mp3
+2025-07-03 02:48:58,293 - INFO - Generated audio for '<speak>The team won the basketball championship.</speak>' at D:\vocabswipe.github.io\data\audio\back\championship\championship_The_team_won_the_basketball_championship.mp3
+2025-07-03 02:48:58,648 - INFO - Generated audio for '<speak>She’s aiming for the national championship.</speak>' at D:\vocabswipe.github.io\data\audio\back\championship\championship_Shes_aiming_for_the_national_championship.mp3
+2025-07-03 02:48:59,005 - INFO - Generated audio for '<speak>The championship game is on TV tonight.</speak>' at D:\vocabswipe.github.io\data\audio\back\championship\championship_The_championship_game_is_on_TV_tonight.mp3
+2025-07-03 02:48:59,361 - INFO - Generated audio for '<speak>Their championship was a huge upset.</speak>' at D:\vocabswipe.github.io\data\audio\back\championship\championship_Their_championship_was_a_huge_upset.mp3
+2025-07-03 02:48:59,715 - INFO - Generated audio for '<speak>The chess championship lasted three days.</speak>' at D:\vocabswipe.github.io\data\audio\back\championship\championship_The_chess_championship_lasted_three_days.mp3
+2025-07-03 02:49:00,056 - INFO - Generated audio for '<speak>install</speak>' at D:\vocabswipe.github.io\data\audio\front\install.mp3
+2025-07-03 02:49:00,411 - INFO - Generated audio for '<speak>They’ll install new lights in the kitchen.</speak>' at D:\vocabswipe.github.io\data\audio\back\install\install_Theyll_install_new_lights_in_the_kitchen.mp3
+2025-07-03 02:49:00,764 - INFO - Generated audio for '<speak>I need to install the latest update.</speak>' at D:\vocabswipe.github.io\data\audio\back\install\install_I_need_to_install_the_latest_update.mp3
+2025-07-03 02:49:01,114 - INFO - Generated audio for '<speak>The new mayor was installed last week.</speak>' at D:\vocabswipe.github.io\data\audio\back\install\install_The_new_mayor_was_installed_last_week.mp3
+2025-07-03 02:49:01,469 - INFO - Generated audio for '<speak>He installed a security system at home.</speak>' at D:\vocabswipe.github.io\data\audio\back\install\install_He_installed_a_security_system_at_home.mp3
+2025-07-03 02:49:01,823 - INFO - Generated audio for '<speak>They installed solar panels on the roof.</speak>' at D:\vocabswipe.github.io\data\audio\back\install\install_They_installed_solar_panels_on_the_roof.mp3
+2025-07-03 02:49:02,162 - INFO - Generated audio for '<speak>liberty</speak>' at D:\vocabswipe.github.io\data\audio\front\liberty.mp3
+2025-07-03 02:49:02,521 - INFO - Generated audio for '<speak>She values her liberty to make choices.</speak>' at D:\vocabswipe.github.io\data\audio\back\liberty\liberty_She_values_her_liberty_to_make_choices.mp3
+2025-07-03 02:49:02,874 - INFO - Generated audio for '<speak>The statue symbolizes liberty for all.</speak>' at D:\vocabswipe.github.io\data\audio\back\liberty\liberty_The_statue_symbolizes_liberty_for_all.mp3
+2025-07-03 02:49:03,223 - INFO - Generated audio for '<speak>He took the liberty of borrowing my book.</speak>' at D:\vocabswipe.github.io\data\audio\back\liberty\liberty_He_took_the_liberty_of_borrowing_my_book.mp3
+2025-07-03 02:49:03,579 - INFO - Generated audio for '<speak>Voting is a liberty we should cherish.</speak>' at D:\vocabswipe.github.io\data\audio\back\liberty\liberty_Voting_is_a_liberty_we_should_cherish.mp3
+2025-07-03 02:49:03,926 - INFO - Generated audio for '<speak>The revolution fought for liberty.</speak>' at D:\vocabswipe.github.io\data\audio\back\liberty\liberty_The_revolution_fought_for_liberty.mp3
+2025-07-03 02:49:04,268 - INFO - Generated audio for '<speak>beneath</speak>' at D:\vocabswipe.github.io\data\audio\front\beneath.mp3
+2025-07-03 02:49:04,623 - INFO - Generated audio for '<speak>The cat hid beneath the couch.</speak>' at D:\vocabswipe.github.io\data\audio\back\beneath\beneath_The_cat_hid_beneath_the_couch.mp3
+2025-07-03 02:49:04,974 - INFO - Generated audio for '<speak>She felt beneath her boss in the meeting.</speak>' at D:\vocabswipe.github.io\data\audio\back\beneath\beneath_She_felt_beneath_her_boss_in_the_meeting.mp3
+2025-07-03 02:49:05,329 - INFO - Generated audio for '<speak>Treasure was buried beneath the sand.</speak>' at D:\vocabswipe.github.io\data\audio\back\beneath\beneath_Treasure_was_buried_beneath_the_sand.mp3
+2025-07-03 02:49:05,682 - INFO - Generated audio for '<speak>Such behavior is beneath her character.</speak>' at D:\vocabswipe.github.io\data\audio\back\beneath\beneath_Such_behavior_is_beneath_her_character.mp3
+2025-07-03 02:49:06,032 - INFO - Generated audio for '<speak>The keys were found beneath the rug.</speak>' at D:\vocabswipe.github.io\data\audio\back\beneath\beneath_The_keys_were_found_beneath_the_rug.mp3
+2025-07-03 02:49:06,414 - INFO - Generated audio for '<speak>passenger</speak>' at D:\vocabswipe.github.io\data\audio\front\passenger.mp3
+2025-07-03 02:49:06,767 - INFO - Generated audio for '<speak>The bus was full of passengers.</speak>' at D:\vocabswipe.github.io\data\audio\back\passenger\passenger_The_bus_was_full_of_passengers.mp3
+2025-07-03 02:49:07,117 - INFO - Generated audio for '<speak>She’s just a passenger in the carpool.</speak>' at D:\vocabswipe.github.io\data\audio\back\passenger\passenger_Shes_just_a_passenger_in_the_carpool.mp3
+2025-07-03 02:49:07,471 - INFO - Generated audio for '<speak>All passengers must board by 6 PM.</speak>' at D:\vocabswipe.github.io\data\audio\back\passenger\passenger_All_passengers_must_board_by_6_PM.mp3
+2025-07-03 02:49:07,825 - INFO - Generated audio for '<speak>He’s a frequent passenger on this train.</speak>' at D:\vocabswipe.github.io\data\audio\back\passenger\passenger_Hes_a_frequent_passenger_on_this_train.mp3
+2025-07-03 02:49:08,184 - INFO - Generated audio for '<speak>The ferry carried 200 passengers today.</speak>' at D:\vocabswipe.github.io\data\audio\back\passenger\passenger_The_ferry_carried_200_passengers_today.mp3
+2025-07-03 02:49:08,524 - INFO - Generated audio for '<speak>physician</speak>' at D:\vocabswipe.github.io\data\audio\front\physician.mp3
+2025-07-03 02:49:08,882 - INFO - Generated audio for '<speak>The physician prescribed medicine for her cough.</speak>' at D:\vocabswipe.github.io\data\audio\back\physician\physician_The_physician_prescribed_medicine_for_her_cough.mp3
+2025-07-03 02:49:09,241 - INFO - Generated audio for '<speak>She’s a physician specializing in cardiology.</speak>' at D:\vocabswipe.github.io\data\audio\back\physician\physician_Shes_a_physician_specializing_in_cardiology.mp3
+2025-07-03 02:49:09,596 - INFO - Generated audio for '<speak>The physician examined the patient thoroughly.</speak>' at D:\vocabswipe.github.io\data\audio\back\physician\physician_The_physician_examined_the_patient_thoroughly.mp3
+2025-07-03 02:49:09,948 - INFO - Generated audio for '<speak>He’s been a physician for 20 years.</speak>' at D:\vocabswipe.github.io\data\audio\back\physician\physician_Hes_been_a_physician_for_20_years.mp3
+2025-07-03 02:49:10,313 - INFO - Generated audio for '<speak>The physician advised rest and hydration.</speak>' at D:\vocabswipe.github.io\data\audio\back\physician\physician_The_physician_advised_rest_and_hydration.mp3
+2025-07-03 02:49:10,910 - INFO - Generated audio for '<speak>graduate</speak>' at D:\vocabswipe.github.io\data\audio\front\graduate.mp3
+2025-07-03 02:49:11,266 - INFO - Generated audio for '<speak>She’ll graduate from college next spring.</speak>' at D:\vocabswipe.github.io\data\audio\back\graduate\graduate_Shell_graduate_from_college_next_spring.mp3
+2025-07-03 02:49:11,618 - INFO - Generated audio for '<speak>He’s a recent graduate looking for work.</speak>' at D:\vocabswipe.github.io\data\audio\back\graduate\graduate_Hes_a_recent_graduate_looking_for_work.mp3
+2025-07-03 02:49:11,968 - INFO - Generated audio for '<speak>They graduate to advanced classes soon.</speak>' at D:\vocabswipe.github.io\data\audio\back\graduate\graduate_They_graduate_to_advanced_classes_soon.mp3
+2025-07-03 02:49:12,324 - INFO - Generated audio for '<speak>The graduates celebrated with a big party.</speak>' at D:\vocabswipe.github.io\data\audio\back\graduate\graduate_The_graduates_celebrated_with_a_big_party.mp3
+2025-07-03 02:49:12,847 - INFO - Generated audio for '<speak>He graduated from the training program.</speak>' at D:\vocabswipe.github.io\data\audio\back\graduate\graduate_He_graduated_from_the_training_program.mp3
+2025-07-03 02:49:13,190 - INFO - Generated audio for '<speak>sharp</speak>' at D:\vocabswipe.github.io\data\audio\front\sharp.mp3
+2025-07-03 02:49:13,548 - INFO - Generated audio for '<speak>This knife is sharp enough to cut meat.</speak>' at D:\vocabswipe.github.io\data\audio\back\sharp\sharp_This_knife_is_sharp_enough_to_cut_meat.mp3
+2025-07-03 02:49:13,902 - INFO - Generated audio for '<speak>Her sharp mind solves problems fast.</speak>' at D:\vocabswipe.github.io\data\audio\back\sharp\sharp_Her_sharp_mind_solves_problems_fast.mp3
+2025-07-03 02:49:14,250 - INFO - Generated audio for '<speak>The car made a sharp turn.</speak>' at D:\vocabswipe.github.io\data\audio\back\sharp\sharp_The_car_made_a_sharp_turn.mp3
+2025-07-03 02:49:14,608 - INFO - Generated audio for '<speak>The photo has a sharp, crisp look.</speak>' at D:\vocabswipe.github.io\data\audio\back\sharp\sharp_The_photo_has_a_sharp_crisp_look.mp3
+2025-07-03 02:49:14,956 - INFO - Generated audio for '<speak>He looked sharp in his new suit.</speak>' at D:\vocabswipe.github.io\data\audio\back\sharp\sharp_He_looked_sharp_in_his_new_suit.mp3
+2025-07-03 02:49:15,345 - INFO - Generated audio for '<speak>substance</speak>' at D:\vocabswipe.github.io\data\audio\front\substance.mp3
+2025-07-03 02:49:15,695 - INFO - Generated audio for '<speak>The substance in the vial was tested.</speak>' at D:\vocabswipe.github.io\data\audio\back\substance\substance_The_substance_in_the_vial_was_tested.mp3
+2025-07-03 02:49:16,045 - INFO - Generated audio for '<speak>His argument lacks substance and evidence.</speak>' at D:\vocabswipe.github.io\data\audio\back\substance\substance_His_argument_lacks_substance_and_evidence.mp3
+2025-07-03 02:49:16,403 - INFO - Generated audio for '<speak>The athlete tested positive for a banned substance.</speak>' at D:\vocabswipe.github.io\data\audio\back\substance\substance_The_athlete_tested_positive_for_a_banned_substance.mp3
+2025-07-03 02:49:16,757 - INFO - Generated audio for '<speak>The substance was sticky and hard to clean.</speak>' at D:\vocabswipe.github.io\data\audio\back\substance\substance_The_substance_was_sticky_and_hard_to_clean.mp3
+2025-07-03 02:49:17,140 - INFO - Generated audio for '<speak>Her speech had real substance and impact.</speak>' at D:\vocabswipe.github.io\data\audio\back\substance\substance_Her_speech_had_real_substance_and_impact.mp3
+2025-07-03 02:49:17,480 - INFO - Generated audio for '<speak>atmosphere</speak>' at D:\vocabswipe.github.io\data\audio\front\atmosphere.mp3
+2025-07-03 02:49:17,836 - INFO - Generated audio for '<speak>The Earth’s atmosphere protects us from radiation.</speak>' at D:\vocabswipe.github.io\data\audio\back\atmosphere\atmosphere_The_Earths_atmosphere_protects_us_from_radiation.mp3
+2025-07-03 02:49:18,187 - INFO - Generated audio for '<speak>The restaurant has a cozy atmosphere.</speak>' at D:\vocabswipe.github.io\data\audio\back\atmosphere\atmosphere_The_restaurant_has_a_cozy_atmosphere.mp3
+2025-07-03 02:49:18,536 - INFO - Generated audio for '<speak>The atmosphere in the room felt tense.</speak>' at D:\vocabswipe.github.io\data\audio\back\atmosphere\atmosphere_The_atmosphere_in_the_room_felt_tense.mp3
+2025-07-03 02:49:18,890 - INFO - Generated audio for '<speak>The festival’s atmosphere was lively and fun.</speak>' at D:\vocabswipe.github.io\data\audio\back\atmosphere\atmosphere_The_festivals_atmosphere_was_lively_and_fun.mp3
+2025-07-03 02:49:19,243 - INFO - Generated audio for '<speak>Her speech created an atmosphere of hope.</speak>' at D:\vocabswipe.github.io\data\audio\back\atmosphere\atmosphere_Her_speech_created_an_atmosphere_of_hope.mp3
+2025-07-03 02:49:19,575 - INFO - Generated audio for '<speak>stir</speak>' at D:\vocabswipe.github.io\data\audio\front\stir.mp3
+2025-07-03 02:49:20,163 - INFO - Generated audio for '<speak>Stir the soup so it doesn’t burn.</speak>' at D:\vocabswipe.github.io\data\audio\back\stir\stir_Stir_the_soup_so_it_doesnt_burn.mp3
+2025-07-03 02:49:20,516 - INFO - Generated audio for '<speak>His speech stirred the crowd’s emotions.</speak>' at D:\vocabswipe.github.io\data\audio\back\stir\stir_His_speech_stirred_the_crowds_emotions.mp3
+2025-07-03 02:49:20,862 - INFO - Generated audio for '<speak>The leaves stirred in the breeze.</speak>' at D:\vocabswipe.github.io\data\audio\back\stir\stir_The_leaves_stirred_in_the_breeze.mp3
+2025-07-03 02:49:21,215 - INFO - Generated audio for '<speak>She stirred the batter until it was smooth.</speak>' at D:\vocabswipe.github.io\data\audio\back\stir\stir_She_stirred_the_batter_until_it_was_smooth.mp3
+2025-07-03 02:49:21,568 - INFO - Generated audio for '<speak>The news stirred debate among the group.</speak>' at D:\vocabswipe.github.io\data\audio\back\stir\stir_The_news_stirred_debate_among_the_group.mp3
+2025-07-03 02:49:21,908 - INFO - Generated audio for '<speak>Muslim</speak>' at D:\vocabswipe.github.io\data\audio\front\muslim.mp3
+2025-07-03 02:49:22,257 - INFO - Generated audio for '<speak>The Muslim community gathered for prayer.</speak>' at D:\vocabswipe.github.io\data\audio\back\muslim\muslim_The_Muslim_community_gathered_for_prayer.mp3
+2025-07-03 02:49:22,629 - INFO - Generated audio for '<speak>Muslim traditions include fasting during Ramadan.</speak>' at D:\vocabswipe.github.io\data\audio\back\muslim\muslim_Muslim_traditions_include_fasting_during_Ramadan.mp3
+2025-07-03 02:49:22,987 - INFO - Generated audio for '<speak>He’s a Muslim who prays five times daily.</speak>' at D:\vocabswipe.github.io\data\audio\back\muslim\muslim_Hes_a_Muslim_who_prays_five_times_daily.mp3
+2025-07-03 02:49:23,340 - INFO - Generated audio for '<speak>The museum displayed Muslim art.</speak>' at D:\vocabswipe.github.io\data\audio\back\muslim\muslim_The_museum_displayed_Muslim_art.mp3
+2025-07-03 02:49:23,691 - INFO - Generated audio for '<speak>She’s a Muslim and studies the Quran.</speak>' at D:\vocabswipe.github.io\data\audio\back\muslim\muslim_Shes_a_Muslim_and_studies_the_Quran.mp3
+2025-07-03 02:49:24,035 - INFO - Generated audio for '<speak>passage</speak>' at D:\vocabswipe.github.io\data\audio\front\passage.mp3
+2025-07-03 02:49:24,434 - INFO - Generated audio for '<speak>I read a passage from the novel.</speak>' at D:\vocabswipe.github.io\data\audio\back\passage\passage_I_read_a_passage_from_the_novel.mp3
+2025-07-03 02:49:24,811 - INFO - Generated audio for '<speak>The passage through the cave was narrow.</speak>' at D:\vocabswipe.github.io\data\audio\back\passage\passage_The_passage_through_the_cave_was_narrow.mp3
+2025-07-03 02:49:25,166 - INFO - Generated audio for '<speak>The passage of time healed her grief.</speak>' at D:\vocabswipe.github.io\data\audio\back\passage\passage_The_passage_of_time_healed_her_grief.mp3
+2025-07-03 02:49:25,519 - INFO - Generated audio for '<speak>The passage across the ocean was rough.</speak>' at D:\vocabswipe.github.io\data\audio\back\passage\passage_The_passage_across_the_ocean_was_rough.mp3
+2025-07-03 02:49:25,872 - INFO - Generated audio for '<speak>The passage led to the main room.</speak>' at D:\vocabswipe.github.io\data\audio\back\passage\passage_The_passage_led_to_the_main_room.mp3
+2025-07-03 02:49:26,219 - INFO - Generated audio for '<speak>pepper</speak>' at D:\vocabswipe.github.io\data\audio\front\pepper.mp3
+2025-07-03 02:49:26,599 - INFO - Generated audio for '<speak>Add some pepper to the soup for flavor.</speak>' at D:\vocabswipe.github.io\data\audio\back\pepper\pepper_Add_some_pepper_to_the_soup_for_flavor.mp3
+2025-07-03 02:49:27,057 - INFO - Generated audio for '<speak>She stuffed the peppers with rice.</speak>' at D:\vocabswipe.github.io\data\audio\back\pepper\pepper_She_stuffed_the_peppers_with_rice.mp3
+2025-07-03 02:49:27,431 - INFO - Generated audio for '<speak>He peppered his speech with jokes.</speak>' at D:\vocabswipe.github.io\data\audio\back\pepper\pepper_He_peppered_his_speech_with_jokes.mp3
+2025-07-03 02:49:27,796 - INFO - Generated audio for '<speak>Black pepper is my favorite spice.</speak>' at D:\vocabswipe.github.io\data\audio\back\pepper\pepper_Black_pepper_is_my_favorite_spice.mp3
+2025-07-03 02:49:28,159 - INFO - Generated audio for '<speak>The team was peppered with questions.</speak>' at D:\vocabswipe.github.io\data\audio\back\pepper\pepper_The_team_was_peppered_with_questions.mp3
+2025-07-03 02:49:28,512 - INFO - Generated audio for '<speak>emphasize</speak>' at D:\vocabswipe.github.io\data\audio\front\emphasize.mp3
+2025-07-03 02:49:28,868 - INFO - Generated audio for '<speak>She emphasized the need for teamwork.</speak>' at D:\vocabswipe.github.io\data\audio\back\emphasize\emphasize_She_emphasized_the_need_for_teamwork.mp3
+2025-07-03 02:49:29,258 - INFO - Generated audio for '<speak>He emphasized safety during the training.</speak>' at D:\vocabswipe.github.io\data\audio\back\emphasize\emphasize_He_emphasized_safety_during_the_training.mp3
+2025-07-03 02:49:29,610 - INFO - Generated audio for '<speak>The teacher emphasized the key vocabulary.</speak>' at D:\vocabswipe.github.io\data\audio\back\emphasize\emphasize_The_teacher_emphasized_the_key_vocabulary.mp3
+2025-07-03 02:49:29,962 - INFO - Generated audio for '<speak>The report emphasizes reducing waste.</speak>' at D:\vocabswipe.github.io\data\audio\back\emphasize\emphasize_The_report_emphasizes_reducing_waste.mp3
+2025-07-03 02:49:30,327 - INFO - Generated audio for '<speak>They emphasized honesty in their values.</speak>' at D:\vocabswipe.github.io\data\audio\back\emphasize\emphasize_They_emphasized_honesty_in_their_values.mp3
+2025-07-03 02:49:30,701 - INFO - Generated audio for '<speak>cable</speak>' at D:\vocabswipe.github.io\data\audio\front\cable.mp3
+2025-07-03 02:49:31,071 - INFO - Generated audio for '<speak>The bridge is held up by strong cables.</speak>' at D:\vocabswipe.github.io\data\audio\back\cable\cable_The_bridge_is_held_up_by_strong_cables.mp3
+2025-07-03 02:49:31,507 - INFO - Generated audio for '<speak>The cable for my charger is frayed.</speak>' at D:\vocabswipe.github.io\data\audio\back\cable\cable_The_cable_for_my_charger_is_frayed.mp3
+2025-07-03 02:49:31,889 - INFO - Generated audio for '<speak>We just switched to a new cable provider.</speak>' at D:\vocabswipe.github.io\data\audio\back\cable\cable_We_just_switched_to_a_new_cable_provider.mp3
+2025-07-03 02:49:33,088 - INFO - Generated audio for '<speak>The cable connects the modem to the router.</speak>' at D:\vocabswipe.github.io\data\audio\back\cable\cable_The_cable_connects_the_modem_to_the_router.mp3
+2025-07-03 02:49:33,393 - INFO - Generated audio for '<speak>The ship’s anchor cable was heavy.</speak>' at D:\vocabswipe.github.io\data\audio\back\cable\cable_The_ships_anchor_cable_was_heavy.mp3
+2025-07-03 02:49:33,690 - INFO - Generated audio for '<speak>square</speak>' at D:\vocabswipe.github.io\data\audio\front\square.mp3
+2025-07-03 02:49:33,996 - INFO - Generated audio for '<speak>The table is a perfect square.</speak>' at D:\vocabswipe.github.io\data\audio\back\square\square_The_table_is_a_perfect_square.mp3
+2025-07-03 02:49:34,303 - INFO - Generated audio for '<speak>Let’s meet in the town square.</speak>' at D:\vocabswipe.github.io\data\audio\back\square\square_Lets_meet_in_the_town_square.mp3
+2025-07-03 02:49:34,609 - INFO - Generated audio for '<speak>Five squared is twenty-five.</speak>' at D:\vocabswipe.github.io\data\audio\back\square\square_Five_squared_is_twentyfive.mp3
+2025-07-03 02:49:34,926 - INFO - Generated audio for '<speak>He’s always square in his business deals.</speak>' at D:\vocabswipe.github.io\data\audio\back\square\square_Hes_always_square_in_his_business_deals.mp3
+2025-07-03 02:49:35,233 - INFO - Generated audio for '<speak>Use a square to check the corners.</speak>' at D:\vocabswipe.github.io\data\audio\back\square\square_Use_a_square_to_check_the_corners.mp3
+2025-07-03 02:49:35,531 - INFO - Generated audio for '<speak>recipe</speak>' at D:\vocabswipe.github.io\data\audio\front\recipe.mp3
+2025-07-03 02:49:35,839 - INFO - Generated audio for '<speak>This recipe for cookies is so easy.</speak>' at D:\vocabswipe.github.io\data\audio\back\recipe\recipe_This_recipe_for_cookies_is_so_easy.mp3
+2025-07-03 02:49:36,148 - INFO - Generated audio for '<speak>She shared her grandma’s pie recipe.</speak>' at D:\vocabswipe.github.io\data\audio\back\recipe\recipe_She_shared_her_grandmas_pie_recipe.mp3
+2025-07-03 02:49:36,458 - INFO - Generated audio for '<speak>Hard work is her recipe for success.</speak>' at D:\vocabswipe.github.io\data\audio\back\recipe\recipe_Hard_work_is_her_recipe_for_success.mp3
+2025-07-03 02:49:36,767 - INFO - Generated audio for '<speak>The recipe calls for fresh herbs.</speak>' at D:\vocabswipe.github.io\data\audio\back\recipe\recipe_The_recipe_calls_for_fresh_herbs.mp3
+2025-07-03 02:49:37,076 - INFO - Generated audio for '<speak>His recipe for happiness is simple living.</speak>' at D:\vocabswipe.github.io\data\audio\back\recipe\recipe_His_recipe_for_happiness_is_simple_living.mp3
+2025-07-03 02:49:37,367 - INFO - Generated audio for '<speak>load</speak>' at D:\vocabswipe.github.io\data\audio\front\load.mp3
+2025-07-03 02:49:37,672 - INFO - Generated audio for '<speak>The truck carried a load of bricks.</speak>' at D:\vocabswipe.github.io\data\audio\back\load\load_The_truck_carried_a_load_of_bricks.mp3
+2025-07-03 02:49:37,979 - INFO - Generated audio for '<speak>Load the dishes into the dishwasher.</speak>' at D:\vocabswipe.github.io\data\audio\back\load\load_Load_the_dishes_into_the_dishwasher.mp3
+2025-07-03 02:49:38,287 - INFO - Generated audio for '<speak>I have a load of laundry to do.</speak>' at D:\vocabswipe.github.io\data\audio\back\load\load_I_have_a_load_of_laundry_to_do.mp3
+2025-07-03 02:49:38,595 - INFO - Generated audio for '<speak>They loaded the schedule with meetings.</speak>' at D:\vocabswipe.github.io\data\audio\back\load\load_They_loaded_the_schedule_with_meetings.mp3
+2025-07-03 02:49:38,902 - INFO - Generated audio for '<speak>Her new job is a heavy load.</speak>' at D:\vocabswipe.github.io\data\audio\back\load\load_Her_new_job_is_a_heavy_load.mp3
+2025-07-03 02:49:40,186 - INFO - Generated audio for '<speak>roof</speak>' at D:\vocabswipe.github.io\data\audio\front\roof.mp3
+2025-07-03 02:49:40,748 - INFO - Generated audio for '<speak>The roof leaked during the storm.</speak>' at D:\vocabswipe.github.io\data\audio\back\roof\roof_The_roof_leaked_during_the_storm.mp3
+2025-07-03 02:49:41,112 - INFO - Generated audio for '<speak>We climbed onto the roof to watch fireworks.</speak>' at D:\vocabswipe.github.io\data\audio\back\roof\roof_We_climbed_onto_the_roof_to_watch_fireworks.mp3
+2025-07-03 02:49:41,426 - INFO - Generated audio for '<speak>They roofed the house with new tiles.</speak>' at D:\vocabswipe.github.io\data\audio\back\roof\roof_They_roofed_the_house_with_new_tiles.mp3
+2025-07-03 02:49:41,736 - INFO - Generated audio for '<speak>The car’s roof was covered in snow.</speak>' at D:\vocabswipe.github.io\data\audio\back\roof\roof_The_cars_roof_was_covered_in_snow.mp3
+2025-07-03 02:49:42,048 - INFO - Generated audio for '<speak>They kept a roof over their kids’ heads.</speak>' at D:\vocabswipe.github.io\data\audio\back\roof\roof_They_kept_a_roof_over_their_kids_heads.mp3
+2025-07-03 02:49:42,342 - INFO - Generated audio for '<speak>beside</speak>' at D:\vocabswipe.github.io\data\audio\front\beside.mp3
+2025-07-03 02:49:42,654 - INFO - Generated audio for '<speak>She sat beside me on the bench.</speak>' at D:\vocabswipe.github.io\data\audio\back\beside\beside_She_sat_beside_me_on_the_bench.mp3
+2025-07-03 02:49:42,960 - INFO - Generated audio for '<speak>My skills are nothing beside hers.</speak>' at D:\vocabswipe.github.io\data\audio\back\beside\beside_My_skills_are_nothing_beside_hers.mp3
+2025-07-03 02:49:43,267 - INFO - Generated audio for '<speak>The house sits beside a quiet stream.</speak>' at D:\vocabswipe.github.io\data\audio\back\beside\beside_The_house_sits_beside_a_quiet_stream.mp3
+2025-07-03 02:49:43,578 - INFO - Generated audio for '<speak>Beside the cost, time is a factor.</speak>' at D:\vocabswipe.github.io\data\audio\back\beside\beside_Beside_the_cost_time_is_a_factor.mp3
+2025-07-03 02:49:43,882 - INFO - Generated audio for '<speak>The dog lay beside the fireplace.</speak>' at D:\vocabswipe.github.io\data\audio\back\beside\beside_The_dog_lay_beside_the_fireplace.mp3
+2025-07-03 02:49:44,176 - INFO - Generated audio for '<speak>vegetable</speak>' at D:\vocabswipe.github.io\data\audio\front\vegetable.mp3
+2025-07-03 02:49:44,480 - INFO - Generated audio for '<speak>Carrots are my favorite vegetable.</speak>' at D:\vocabswipe.github.io\data\audio\back\vegetable\vegetable_Carrots_are_my_favorite_vegetable.mp3
+2025-07-03 02:49:44,787 - INFO - Generated audio for '<speak>The soup is packed with vegetables.</speak>' at D:\vocabswipe.github.io\data\audio\back\vegetable\vegetable_The_soup_is_packed_with_vegetables.mp3
+2025-07-03 02:49:45,104 - INFO - Generated audio for '<speak>She grows vegetables in her backyard.</speak>' at D:\vocabswipe.github.io\data\audio\back\vegetable\vegetable_She_grows_vegetables_in_her_backyard.mp3
+2025-07-03 02:49:45,411 - INFO - Generated audio for '<speak>Kids should eat more vegetables daily.</speak>' at D:\vocabswipe.github.io\data\audio\back\vegetable\vegetable_Kids_should_eat_more_vegetables_daily.mp3
+2025-07-03 02:49:45,715 - INFO - Generated audio for '<speak>The market has fresh vegetables today.</speak>' at D:\vocabswipe.github.io\data\audio\back\vegetable\vegetable_The_market_has_fresh_vegetables_today.mp3
+2025-07-03 02:49:46,013 - INFO - Generated audio for '<speak>accomplish</speak>' at D:\vocabswipe.github.io\data\audio\front\accomplish.mp3
+2025-07-03 02:49:46,327 - INFO - Generated audio for '<speak>She accomplished her goal of running a marathon.</speak>' at D:\vocabswipe.github.io\data\audio\back\accomplish\accomplish_She_accomplished_her_goal_of_running_a_marathon.mp3
+2025-07-03 02:49:46,638 - INFO - Generated audio for '<speak>We accomplished the project ahead of schedule.</speak>' at D:\vocabswipe.github.io\data\audio\back\accomplish\accomplish_We_accomplished_the_project_ahead_of_schedule.mp3
+2025-07-03 02:49:46,943 - INFO - Generated audio for '<speak>He accomplished a lot in his career.</speak>' at D:\vocabswipe.github.io\data\audio\back\accomplish\accomplish_He_accomplished_a_lot_in_his_career.mp3
+2025-07-03 02:49:47,249 - INFO - Generated audio for '<speak>They accomplished the mission with teamwork.</speak>' at D:\vocabswipe.github.io\data\audio\back\accomplish\accomplish_They_accomplished_the_mission_with_teamwork.mp3
+2025-07-03 02:49:47,645 - INFO - Generated audio for '<speak>She accomplished her dream of writing a book.</speak>' at D:\vocabswipe.github.io\data\audio\back\accomplish\accomplish_She_accomplished_her_dream_of_writing_a_book.mp3
+2025-07-03 02:49:47,967 - INFO - Generated audio for '<speak>silent</speak>' at D:\vocabswipe.github.io\data\audio\front\silent.mp3
+2025-07-03 02:49:48,274 - INFO - Generated audio for '<speak>The room was silent after the speech.</speak>' at D:\vocabswipe.github.io\data\audio\back\silent\silent_The_room_was_silent_after_the_speech.mp3
+2025-07-03 02:49:48,584 - INFO - Generated audio for '<speak>He stayed silent during the argument.</speak>' at D:\vocabswipe.github.io\data\audio\back\silent\silent_He_stayed_silent_during_the_argument.mp3
+2025-07-03 02:49:48,895 - INFO - Generated audio for '<speak>The forest was silent at dawn.</speak>' at D:\vocabswipe.github.io\data\audio\back\silent\silent_The_forest_was_silent_at_dawn.mp3
+2025-07-03 02:49:49,205 - INFO - Generated audio for '<speak>Her silent disapproval was obvious.</speak>' at D:\vocabswipe.github.io\data\audio\back\silent\silent_Her_silent_disapproval_was_obvious.mp3
+2025-07-03 02:49:49,520 - INFO - Generated audio for '<speak>The movie’s silent scene was powerful.</speak>' at D:\vocabswipe.github.io\data\audio\back\silent\silent_The_movies_silent_scene_was_powerful.mp3
+2025-07-03 02:49:49,812 - INFO - Generated audio for '<speak>habit</speak>' at D:\vocabswipe.github.io\data\audio\front\habit.mp3
+2025-07-03 02:49:50,119 - INFO - Generated audio for '<speak>Brushing my teeth is a daily habit.</speak>' at D:\vocabswipe.github.io\data\audio\back\habit\habit_Brushing_my_teeth_is_a_daily_habit.mp3
+2025-07-03 02:49:50,428 - INFO - Generated audio for '<speak>She has a habit of biting her nails.</speak>' at D:\vocabswipe.github.io\data\audio\back\habit\habit_She_has_a_habit_of_biting_her_nails.mp3
+2025-07-03 02:49:50,734 - INFO - Generated audio for '<speak>Exercise is a habit I’m building.</speak>' at D:\vocabswipe.github.io\data\audio\back\habit\habit_Exercise_is_a_habit_Im_building.mp3
+2025-07-03 02:49:51,040 - INFO - Generated audio for '<speak>His habit of arriving late annoys everyone.</speak>' at D:\vocabswipe.github.io\data\audio\back\habit\habit_His_habit_of_arriving_late_annoys_everyone.mp3
+2025-07-03 02:49:51,351 - INFO - Generated audio for '<speak>Quitting smoking was a tough habit to break.</speak>' at D:\vocabswipe.github.io\data\audio\back\habit\habit_Quitting_smoking_was_a_tough_habit_to_break.mp3
+2025-07-03 02:49:51,647 - INFO - Generated audio for '<speak>discovery</speak>' at D:\vocabswipe.github.io\data\audio\front\discovery.mp3
+2025-07-03 02:49:51,963 - INFO - Generated audio for '<speak>The discovery of penicillin changed medicine.</speak>' at D:\vocabswipe.github.io\data\audio\back\discovery\discovery_The_discovery_of_penicillin_changed_medicine.mp3
+2025-07-03 02:49:52,275 - INFO - Generated audio for '<speak>Her discovery of the cave was exciting.</speak>' at D:\vocabswipe.github.io\data\audio\back\discovery\discovery_Her_discovery_of_the_cave_was_exciting.mp3
+2025-07-03 02:49:52,590 - INFO - Generated audio for '<speak>Space exploration led to many discoveries.</speak>' at D:\vocabswipe.github.io\data\audio\back\discovery\discovery_Space_exploration_led_to_many_discoveries.mp3
+2025-07-03 02:49:52,901 - INFO - Generated audio for '<speak>The scientist’s discovery shocked the world.</speak>' at D:\vocabswipe.github.io\data\audio\back\discovery\discovery_The_scientists_discovery_shocked_the_world.mp3
+2025-07-03 02:49:53,208 - INFO - Generated audio for '<speak>His discovery about himself came late.</speak>' at D:\vocabswipe.github.io\data\audio\back\discovery\discovery_His_discovery_about_himself_came_late.mp3
+2025-07-03 02:49:53,516 - INFO - Generated audio for '<speak>recovery</speak>' at D:\vocabswipe.github.io\data\audio\front\recovery.mp3
+2025-07-03 02:49:53,822 - INFO - Generated audio for '<speak>Her recovery from surgery was quick.</speak>' at D:\vocabswipe.github.io\data\audio\back\recovery\recovery_Her_recovery_from_surgery_was_quick.mp3
+2025-07-03 02:49:54,132 - INFO - Generated audio for '<speak>The recovery of the stolen car was a relief.</speak>' at D:\vocabswipe.github.io\data\audio\back\recovery\recovery_The_recovery_of_the_stolen_car_was_a_relief.mp3
+2025-07-03 02:49:54,442 - INFO - Generated audio for '<speak>The economy is in recovery after the downturn.</speak>' at D:\vocabswipe.github.io\data\audio\back\recovery\recovery_The_economy_is_in_recovery_after_the_downturn.mp3
+2025-07-03 02:49:54,755 - INFO - Generated audio for '<speak>His recovery took months of therapy.</speak>' at D:\vocabswipe.github.io\data\audio\back\recovery\recovery_His_recovery_took_months_of_therapy.mp3
+2025-07-03 02:49:55,068 - INFO - Generated audio for '<speak>Data recovery saved the lost files.</speak>' at D:\vocabswipe.github.io\data\audio\back\recovery\recovery_Data_recovery_saved_the_lost_files.mp3
+2025-07-03 02:49:55,378 - INFO - Generated audio for '<speak>DNA</speak>' at D:\vocabswipe.github.io\data\audio\front\dna.mp3
+2025-07-03 02:49:55,694 - INFO - Generated audio for '<speak>DNA testing confirmed his identity.</speak>' at D:\vocabswipe.github.io\data\audio\back\dna\dna_DNA_testing_confirmed_his_identity.mp3
+2025-07-03 02:49:56,004 - INFO - Generated audio for '<speak>Her DNA was analyzed for the study.</speak>' at D:\vocabswipe.github.io\data\audio\back\dna\dna_Her_DNA_was_analyzed_for_the_study.mp3
+2025-07-03 02:49:56,316 - INFO - Generated audio for '<speak>The lab sequenced the DNA sample.</speak>' at D:\vocabswipe.github.io\data\audio\back\dna\dna_The_lab_sequenced_the_DNA_sample.mp3
+2025-07-03 02:49:56,629 - INFO - Generated audio for '<speak>Hard work is in her DNA.</speak>' at D:\vocabswipe.github.io\data\audio\back\dna\dna_Hard_work_is_in_her_DNA.mp3
+2025-07-03 02:49:56,943 - INFO - Generated audio for '<speak>DNA evidence solved the cold case.</speak>' at D:\vocabswipe.github.io\data\audio\back\dna\dna_DNA_evidence_solved_the_cold_case.mp3
+2025-07-03 02:49:57,243 - INFO - Generated audio for '<speak>territory</speak>' at D:\vocabswipe.github.io\data\audio\front\territory.mp3
+2025-07-03 02:49:57,701 - INFO - Generated audio for '<speak>The wolf pack roamed its territory.</speak>' at D:\vocabswipe.github.io\data\audio\back\territory\territory_The_wolf_pack_roamed_its_territory.mp3
+2025-07-03 02:49:58,010 - INFO - Generated audio for '<speak>This territory is known for its mountains.</speak>' at D:\vocabswipe.github.io\data\audio\back\territory\territory_This_territory_is_known_for_its_mountains.mp3
+2025-07-03 02:49:58,319 - INFO - Generated audio for '<speak>Sales is her territory at work.</speak>' at D:\vocabswipe.github.io\data\audio\back\territory\territory_Sales_is_her_territory_at_work.mp3
+2025-07-03 02:49:58,632 - INFO - Generated audio for '<speak>The explorers mapped the new territory.</speak>' at D:\vocabswipe.github.io\data\audio\back\territory\territory_The_explorers_mapped_the_new_territory.mp3
+2025-07-03 02:49:58,940 - INFO - Generated audio for '<speak>The territory voted for independence.</speak>' at D:\vocabswipe.github.io\data\audio\back\territory\territory_The_territory_voted_for_independence.mp3
+2025-07-03 02:49:59,239 - INFO - Generated audio for '<speak>girlfriend</speak>' at D:\vocabswipe.github.io\data\audio\front\girlfriend.mp3
+2025-07-03 02:49:59,562 - INFO - Generated audio for '<speak>He’s taking his girlfriend to the movies.</speak>' at D:\vocabswipe.github.io\data\audio\back\girlfriend\girlfriend_Hes_taking_his_girlfriend_to_the_movies.mp3
+2025-07-03 02:49:59,867 - INFO - Generated audio for '<speak>My girlfriend loves hiking with me.</speak>' at D:\vocabswipe.github.io\data\audio\back\girlfriend\girlfriend_My_girlfriend_loves_hiking_with_me.mp3
+2025-07-03 02:50:00,181 - INFO - Generated audio for '<speak>She’s my girlfriend; we’ve known each other forever.</speak>' at D:\vocabswipe.github.io\data\audio\back\girlfriend\girlfriend_Shes_my_girlfriend_weve_known_each_other_forever.mp3
+2025-07-03 02:50:00,487 - INFO - Generated audio for '<speak>His girlfriend moved in last month.</speak>' at D:\vocabswipe.github.io\data\audio\back\girlfriend\girlfriend_His_girlfriend_moved_in_last_month.mp3
+2025-07-03 02:50:00,801 - INFO - Generated audio for '<speak>I got a gift for my girlfriend’s birthday.</speak>' at D:\vocabswipe.github.io\data\audio\back\girlfriend\girlfriend_I_got_a_gift_for_my_girlfriends_birthday.mp3
+2025-07-03 02:50:01,094 - INFO - Generated audio for '<speak>consist</speak>' at D:\vocabswipe.github.io\data\audio\front\consist.mp3
+2025-07-03 02:50:01,399 - INFO - Generated audio for '<speak>The team consists of five players.</speak>' at D:\vocabswipe.github.io\data\audio\back\consist\consist_The_team_consists_of_five_players.mp3
+2025-07-03 02:50:01,964 - INFO - Generated audio for '<speak>The meal consists of soup and salad.</speak>' at D:\vocabswipe.github.io\data\audio\back\consist\consist_The_meal_consists_of_soup_and_salad.mp3
+2025-07-03 02:50:02,270 - INFO - Generated audio for '<speak>Her diet consists mainly of vegetables.</speak>' at D:\vocabswipe.github.io\data\audio\back\consist\consist_Her_diet_consists_mainly_of_vegetables.mp3
+2025-07-03 02:50:02,867 - INFO - Generated audio for '<speak>The book consists of three chapters.</speak>' at D:\vocabswipe.github.io\data\audio\back\consist\consist_The_book_consists_of_three_chapters.mp3
+2025-07-03 02:50:03,189 - INFO - Generated audio for '<speak>Success consists of hard work and luck.</speak>' at D:\vocabswipe.github.io\data\audio\back\consist\consist_Success_consists_of_hard_work_and_luck.mp3
+2025-07-03 02:50:03,489 - INFO - Generated audio for '<speak>surely</speak>' at D:\vocabswipe.github.io\data\audio\front\surely.mp3
+2025-07-03 02:50:03,803 - INFO - Generated audio for '<speak>Surely you’re not leaving already?</speak>' at D:\vocabswipe.github.io\data\audio\back\surely\surely_Surely_youre_not_leaving_already.mp3
+2025-07-03 02:50:04,142 - INFO - Generated audio for '<speak>He’ll surely finish the project on time.</speak>' at D:\vocabswipe.github.io\data\audio\back\surely\surely_Hell_surely_finish_the_project_on_time.mp3
+2025-07-03 02:50:04,451 - INFO - Generated audio for '<speak>This is surely the best pizza ever.</speak>' at D:\vocabswipe.github.io\data\audio\back\surely\surely_This_is_surely_the_best_pizza_ever.mp3
+2025-07-03 02:50:04,759 - INFO - Generated audio for '<speak>She’ll surely call you back soon.</speak>' at D:\vocabswipe.github.io\data\audio\back\surely\surely_Shell_surely_call_you_back_soon.mp3
+2025-07-03 02:50:05,065 - INFO - Generated audio for '<speak>Surely we can find a solution.</speak>' at D:\vocabswipe.github.io\data\audio\back\surely\surely_Surely_we_can_find_a_solution.mp3
+2025-07-03 02:50:05,358 - INFO - Generated audio for '<speak>proof</speak>' at D:\vocabswipe.github.io\data\audio\front\proof.mp3
+2025-07-03 02:50:05,689 - INFO - Generated audio for '<speak>The receipt is proof of your purchase.</speak>' at D:\vocabswipe.github.io\data\audio\back\proof\proof_The_receipt_is_proof_of_your_purchase.mp3
+2025-07-03 02:50:06,856 - INFO - Generated audio for '<speak>Her success is proof of her talent.</speak>' at D:\vocabswipe.github.io\data\audio\back\proof\proof_Her_success_is_proof_of_her_talent.mp3
+2025-07-03 02:50:07,171 - INFO - Generated audio for '<speak>This whiskey is 80 proof.</speak>' at D:\vocabswipe.github.io\data\audio\back\proof\proof_This_whiskey_is_80_proof.mp3
+2025-07-03 02:50:07,491 - INFO - Generated audio for '<speak>The experiment provided proof of the theory.</speak>' at D:\vocabswipe.github.io\data\audio\back\proof\proof_The_experiment_provided_proof_of_the_theory.mp3
+2025-07-03 02:50:07,811 - INFO - Generated audio for '<speak>We need proof of identity to enter.</speak>' at D:\vocabswipe.github.io\data\audio\back\proof\proof_We_need_proof_of_identity_to_enter.mp3
+2025-07-03 02:50:08,113 - INFO - Generated audio for '<speak>nervous</speak>' at D:\vocabswipe.github.io\data\audio\front\nervous.mp3
+2025-07-03 02:50:08,427 - INFO - Generated audio for '<speak>She was nervous before her speech.</speak>' at D:\vocabswipe.github.io\data\audio\back\nervous\nervous_She_was_nervous_before_her_speech.mp3
+2025-07-03 02:50:08,748 - INFO - Generated audio for '<speak>He’s nervous about meeting his new boss.</speak>' at D:\vocabswipe.github.io\data\audio\back\nervous\nervous_Hes_nervous_about_meeting_his_new_boss.mp3
+2025-07-03 02:50:09,065 - INFO - Generated audio for '<speak>Her nervous smile gave her away.</speak>' at D:\vocabswipe.github.io\data\audio\back\nervous\nervous_Her_nervous_smile_gave_her_away.mp3
+2025-07-03 02:50:09,388 - INFO - Generated audio for '<speak>The injury affected his nervous system.</speak>' at D:\vocabswipe.github.io\data\audio\back\nervous\nervous_The_injury_affected_his_nervous_system.mp3
+2025-07-03 02:50:09,717 - INFO - Generated audio for '<speak>I get nervous during thunderstorms.</speak>' at D:\vocabswipe.github.io\data\audio\back\nervous\nervous_I_get_nervous_during_thunderstorms.mp3
+2025-07-03 02:50:10,023 - INFO - Generated audio for '<speak>immediate</speak>' at D:\vocabswipe.github.io\data\audio\front\immediate.mp3
+2025-07-03 02:50:10,344 - INFO - Generated audio for '<speak>We need immediate action to fix this.</speak>' at D:\vocabswipe.github.io\data\audio\back\immediate\immediate_We_need_immediate_action_to_fix_this.mp3
+2025-07-03 02:50:10,660 - INFO - Generated audio for '<speak>The immediate area was evacuated.</speak>' at D:\vocabswipe.github.io\data\audio\back\immediate\immediate_The_immediate_area_was_evacuated.mp3
+2025-07-03 02:50:10,981 - INFO - Generated audio for '<speak>She gave an immediate response to the question.</speak>' at D:\vocabswipe.github.io\data\audio\back\immediate\immediate_She_gave_an_immediate_response_to_the_question.mp3
+2025-07-03 02:50:11,300 - INFO - Generated audio for '<speak>My immediate family lives nearby.</speak>' at D:\vocabswipe.github.io\data\audio\back\immediate\immediate_My_immediate_family_lives_nearby.mp3
+2025-07-03 02:50:11,614 - INFO - Generated audio for '<speak>The injury needed immediate care.</speak>' at D:\vocabswipe.github.io\data\audio\back\immediate\immediate_The_injury_needed_immediate_care.mp3
+2025-07-03 02:50:11,920 - INFO - Generated audio for '<speak>parking</speak>' at D:\vocabswipe.github.io\data\audio\front\parking.mp3
+2025-07-03 02:50:12,244 - INFO - Generated audio for '<speak>Finding parking downtown is always tough.</speak>' at D:\vocabswipe.github.io\data\audio\back\parking\parking_Finding_parking_downtown_is_always_tough.mp3
+2025-07-03 02:50:12,560 - INFO - Generated audio for '<speak>The mall has a huge parking lot.</speak>' at D:\vocabswipe.github.io\data\audio\back\parking\parking_The_mall_has_a_huge_parking_lot.mp3
+2025-07-03 02:50:12,873 - INFO - Generated audio for '<speak>Parallel parking makes me nervous.</speak>' at D:\vocabswipe.github.io\data\audio\back\parking\parking_Parallel_parking_makes_me_nervous.mp3
+2025-07-03 02:50:13,189 - INFO - Generated audio for '<speak>There’s no parking near the beach today.</speak>' at D:\vocabswipe.github.io\data\audio\back\parking\parking_Theres_no_parking_near_the_beach_today.mp3
+2025-07-03 02:50:13,509 - INFO - Generated audio for '<speak>Parking regulations are strict here.</speak>' at D:\vocabswipe.github.io\data\audio\back\parking\parking_Parking_regulations_are_strict_here.mp3
+2025-07-03 02:50:13,819 - INFO - Generated audio for '<speak>sin</speak>' at D:\vocabswipe.github.io\data\audio\front\sin.mp3
+2025-07-03 02:50:14,142 - INFO - Generated audio for '<speak>Lying is considered a sin in many faiths.</speak>' at D:\vocabswipe.github.io\data\audio\back\sin\sin_Lying_is_considered_a_sin_in_many_faiths.mp3
+2025-07-03 02:50:14,460 - INFO - Generated audio for '<speak>He confessed his sins to the priest.</speak>' at D:\vocabswipe.github.io\data\audio\back\sin\sin_He_confessed_his_sins_to_the_priest.mp3
+2025-07-03 02:50:14,777 - INFO - Generated audio for '<speak>She felt she sinned by missing church.</speak>' at D:\vocabswipe.github.io\data\audio\back\sin\sin_She_felt_she_sinned_by_missing_church.mp3
+2025-07-03 02:50:15,094 - INFO - Generated audio for '<speak>Pride is often called the greatest sin.</speak>' at D:\vocabswipe.github.io\data\audio\back\sin\sin_Pride_is_often_called_the_greatest_sin.mp3
+2025-07-03 02:50:15,409 - INFO - Generated audio for '<speak>His greed was his greatest sin.</speak>' at D:\vocabswipe.github.io\data\audio\back\sin\sin_His_greed_was_his_greatest_sin.mp3
+2025-07-03 02:50:15,715 - INFO - Generated audio for '<speak>unusual</speak>' at D:\vocabswipe.github.io\data\audio\front\unusual.mp3
+2025-07-03 02:50:16,042 - INFO - Generated audio for '<speak>The weather today is unusual for summer.</speak>' at D:\vocabswipe.github.io\data\audio\back\unusual\unusual_The_weather_today_is_unusual_for_summer.mp3
+2025-07-03 02:50:16,367 - INFO - Generated audio for '<speak>She wore an unusual hat to the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\unusual\unusual_She_wore_an_unusual_hat_to_the_party.mp3
+2025-07-03 02:50:16,702 - INFO - Generated audio for '<speak>His behavior was unusual for him.</speak>' at D:\vocabswipe.github.io\data\audio\back\unusual\unusual_His_behavior_was_unusual_for_him.mp3
+2025-07-03 02:50:17,029 - INFO - Generated audio for '<speak>An unusual bird landed in our yard.</speak>' at D:\vocabswipe.github.io\data\audio\back\unusual\unusual_An_unusual_bird_landed_in_our_yard.mp3
+2025-07-03 02:50:17,357 - INFO - Generated audio for '<speak>The dish had an unusual but tasty flavor.</speak>' at D:\vocabswipe.github.io\data\audio\back\unusual\unusual_The_dish_had_an_unusual_but_tasty_flavor.mp3
+2025-07-03 02:50:17,657 - INFO - Generated audio for '<speak>rice</speak>' at D:\vocabswipe.github.io\data\audio\front\rice.mp3
+2025-07-03 02:50:17,971 - INFO - Generated audio for '<speak>She cooked rice for dinner tonight.</speak>' at D:\vocabswipe.github.io\data\audio\back\rice\rice_She_cooked_rice_for_dinner_tonight.mp3
+2025-07-03 02:50:18,288 - INFO - Generated audio for '<speak>The curry tastes great with rice.</speak>' at D:\vocabswipe.github.io\data\audio\back\rice\rice_The_curry_tastes_great_with_rice.mp3
+2025-07-03 02:50:18,603 - INFO - Generated audio for '<speak>Rice is harvested in the fall.</speak>' at D:\vocabswipe.github.io\data\audio\back\rice\rice_Rice_is_harvested_in_the_fall.mp3
+2025-07-03 02:50:18,914 - INFO - Generated audio for '<speak>I’ll have rice with my chicken.</speak>' at D:\vocabswipe.github.io\data\audio\back\rice\rice_Ill_have_rice_with_my_chicken.mp3
+2025-07-03 02:50:19,242 - INFO - Generated audio for '<speak>Rice is popular in Asian cuisine.</speak>' at D:\vocabswipe.github.io\data\audio\back\rice\rice_Rice_is_popular_in_Asian_cuisine.mp3
+2025-07-03 02:50:19,554 - INFO - Generated audio for '<speak>engineering</speak>' at D:\vocabswipe.github.io\data\audio\front\engineering.mp3
+2025-07-03 02:50:19,873 - INFO - Generated audio for '<speak>She studied engineering to design bridges.</speak>' at D:\vocabswipe.github.io\data\audio\back\engineering\engineering_She_studied_engineering_to_design_bridges.mp3
+2025-07-03 02:50:20,190 - INFO - Generated audio for '<speak>Engineering drives innovation in tech.</speak>' at D:\vocabswipe.github.io\data\audio\back\engineering\engineering_Engineering_drives_innovation_in_tech.mp3
+2025-07-03 02:50:21,054 - INFO - Generated audio for '<speak>He works in engineering for a car company.</speak>' at D:\vocabswipe.github.io\data\audio\back\engineering\engineering_He_works_in_engineering_for_a_car_company.mp3
+2025-07-03 02:50:21,374 - INFO - Generated audio for '<speak>Engineering fixed the city’s water system.</speak>' at D:\vocabswipe.github.io\data\audio\back\engineering\engineering_Engineering_fixed_the_citys_water_system.mp3
+2025-07-03 02:50:22,920 - INFO - Generated audio for '<speak>Engineering requires strong problem-solving skills.</speak>' at D:\vocabswipe.github.io\data\audio\back\engineering\engineering_Engineering_requires_strong_problemsolving_skills.mp3
+2025-07-03 02:50:23,227 - INFO - Generated audio for '<speak>advance</speak>' at D:\vocabswipe.github.io\data\audio\front\advance.mp3
+2025-07-03 02:50:23,543 - INFO - Generated audio for '<speak>The team advanced to the finals.</speak>' at D:\vocabswipe.github.io\data\audio\back\advance\advance_The_team_advanced_to_the_finals.mp3
+2025-07-03 02:50:24,124 - INFO - Generated audio for '<speak>This technology will advance our research.</speak>' at D:\vocabswipe.github.io\data\audio\back\advance\advance_This_technology_will_advance_our_research.mp3
+2025-07-03 02:50:24,445 - INFO - Generated audio for '<speak>The new law is a major advance.</speak>' at D:\vocabswipe.github.io\data\audio\back\advance\advance_The_new_law_is_a_major_advance.mp3
+2025-07-03 02:50:24,777 - INFO - Generated audio for '<speak>They advanced her salary for the trip.</speak>' at D:\vocabswipe.github.io\data\audio\back\advance\advance_They_advanced_her_salary_for_the_trip.mp3
+2025-07-03 02:50:25,157 - INFO - Generated audio for '<speak>She advanced a bold new idea.</speak>' at D:\vocabswipe.github.io\data\audio\back\advance\advance_She_advanced_a_bold_new_idea.mp3
+2025-07-03 02:50:25,468 - INFO - Generated audio for '<speak>bury</speak>' at D:\vocabswipe.github.io\data\audio\front\bury.mp3
+2025-07-03 02:50:25,817 - INFO - Generated audio for '<speak>They buried the treasure on the island.</speak>' at D:\vocabswipe.github.io\data\audio\back\bury\bury_They_buried_the_treasure_on_the_island.mp3
+2025-07-03 02:50:26,512 - INFO - Generated audio for '<speak>She buried her face in her hands.</speak>' at D:\vocabswipe.github.io\data\audio\back\bury\bury_She_buried_her_face_in_her_hands.mp3
+2025-07-03 02:50:27,490 - INFO - Generated audio for '<speak>They buried their grandfather last week.</speak>' at D:\vocabswipe.github.io\data\audio\back\bury\bury_They_buried_their_grandfather_last_week.mp3
+2025-07-03 02:50:27,818 - INFO - Generated audio for '<speak>He buried himself in his studies.</speak>' at D:\vocabswipe.github.io\data\audio\back\bury\bury_He_buried_himself_in_his_studies.mp3
+2025-07-03 02:50:28,381 - INFO - Generated audio for '<speak>She buried her feelings to stay strong.</speak>' at D:\vocabswipe.github.io\data\audio\back\bury\bury_She_buried_her_feelings_to_stay_strong.mp3
+2025-07-03 02:50:28,682 - INFO - Generated audio for '<speak>cake</speak>' at D:\vocabswipe.github.io\data\audio\front\cake.mp3
+2025-07-03 02:50:29,034 - INFO - Generated audio for '<speak>I made a chocolate cake for the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\cake\cake_I_made_a_chocolate_cake_for_the_party.mp3
+2025-07-03 02:50:29,597 - INFO - Generated audio for '<speak>She served a crab cake appetizer.</speak>' at D:\vocabswipe.github.io\data\audio\back\cake\cake_She_served_a_crab_cake_appetizer.mp3
+2025-07-03 02:50:29,913 - INFO - Generated audio for '<speak>This job is a piece of cake.</speak>' at D:\vocabswipe.github.io\data\audio\back\cake\cake_This_job_is_a_piece_of_cake.mp3
+2025-07-03 02:50:30,486 - INFO - Generated audio for '<speak>The wedding cake was three tiers tall.</speak>' at D:\vocabswipe.github.io\data\audio\back\cake\cake_The_wedding_cake_was_three_tiers_tall.mp3
+2025-07-03 02:50:30,809 - INFO - Generated audio for '<speak>The kids loved the birthday cake.</speak>' at D:\vocabswipe.github.io\data\audio\back\cake\cake_The_kids_loved_the_birthday_cake.mp3
+2025-07-03 02:50:31,127 - INFO - Generated audio for '<speak>anonymous</speak>' at D:\vocabswipe.github.io\data\audio\front\anonymous.mp3
+2025-07-03 02:50:31,690 - INFO - Generated audio for '<speak>The donation was made by an anonymous donor.</speak>' at D:\vocabswipe.github.io\data\audio\back\anonymous\anonymous_The_donation_was_made_by_an_anonymous_donor.mp3
+2025-07-03 02:50:32,253 - INFO - Generated audio for '<speak>She posted an anonymous review online.</speak>' at D:\vocabswipe.github.io\data\audio\back\anonymous\anonymous_She_posted_an_anonymous_review_online.mp3
+2025-07-03 02:50:32,818 - INFO - Generated audio for '<speak>The poem was written by an anonymous poet.</speak>' at D:\vocabswipe.github.io\data\audio\back\anonymous\anonymous_The_poem_was_written_by_an_anonymous_poet.mp3
+2025-07-03 02:50:33,156 - INFO - Generated audio for '<speak>He sent an anonymous tip to the police.</speak>' at D:\vocabswipe.github.io\data\audio\back\anonymous\anonymous_He_sent_an_anonymous_tip_to_the_police.mp3
+2025-07-03 02:50:33,475 - INFO - Generated audio for '<speak>The call came from an anonymous source.</speak>' at D:\vocabswipe.github.io\data\audio\back\anonymous\anonymous_The_call_came_from_an_anonymous_source.mp3
+2025-07-03 02:50:33,783 - INFO - Generated audio for '<speak>flag</speak>' at D:\vocabswipe.github.io\data\audio\front\flag.mp3
+2025-07-03 02:50:34,109 - INFO - Generated audio for '<speak>The flag waved proudly above the school.</speak>' at D:\vocabswipe.github.io\data\audio\back\flag\flag_The_flag_waved_proudly_above_the_school.mp3
+2025-07-03 02:50:34,431 - INFO - Generated audio for '<speak>She saluted the flag during the ceremony.</speak>' at D:\vocabswipe.github.io\data\audio\back\flag\flag_She_saluted_the_flag_during_the_ceremony.mp3
+2025-07-03 02:50:34,753 - INFO - Generated audio for '<speak>I flagged the email for follow-up.</speak>' at D:\vocabswipe.github.io\data\audio\back\flag\flag_I_flagged_the_email_for_followup.mp3
+2025-07-03 02:50:35,079 - INFO - Generated audio for '<speak>His absence is a red flag for us.</speak>' at D:\vocabswipe.github.io\data\audio\back\flag\flag_His_absence_is_a_red_flag_for_us.mp3
+2025-07-03 02:50:35,398 - INFO - Generated audio for '<speak>She flagged down a taxi on the street.</speak>' at D:\vocabswipe.github.io\data\audio\back\flag\flag_She_flagged_down_a_taxi_on_the_street.mp3
+2025-07-03 02:50:35,712 - INFO - Generated audio for '<speak>contemporary</speak>' at D:\vocabswipe.github.io\data\audio\front\contemporary.mp3
+2025-07-03 02:50:36,036 - INFO - Generated audio for '<speak>Contemporary art is displayed in the gallery.</speak>' at D:\vocabswipe.github.io\data\audio\back\contemporary\contemporary_Contemporary_art_is_displayed_in_the_gallery.mp3
+2025-07-03 02:50:36,363 - INFO - Generated audio for '<speak>Her work is contemporary with his research.</speak>' at D:\vocabswipe.github.io\data\audio\back\contemporary\contemporary_Her_work_is_contemporary_with_his_research.mp3
+2025-07-03 02:50:36,682 - INFO - Generated audio for '<speak>He’s a contemporary of famous writers.</speak>' at D:\vocabswipe.github.io\data\audio\back\contemporary\contemporary_Hes_a_contemporary_of_famous_writers.mp3
+2025-07-03 02:50:37,005 - INFO - Generated audio for '<speak>The house has a contemporary design.</speak>' at D:\vocabswipe.github.io\data\audio\back\contemporary\contemporary_The_house_has_a_contemporary_design.mp3
+2025-07-03 02:50:37,335 - INFO - Generated audio for '<speak>Contemporary issues dominate the news.</speak>' at D:\vocabswipe.github.io\data\audio\back\contemporary\contemporary_Contemporary_issues_dominate_the_news.mp3
+2025-07-03 02:50:37,647 - INFO - Generated audio for '<speak>jail</speak>' at D:\vocabswipe.github.io\data\audio\front\jail.mp3
+2025-07-03 02:50:37,968 - INFO - Generated audio for '<speak>He was sent to jail for theft.</speak>' at D:\vocabswipe.github.io\data\audio\back\jail\jail_He_was_sent_to_jail_for_theft.mp3
+2025-07-03 02:50:38,288 - INFO - Generated audio for '<speak>They jailed the suspect after the trial.</speak>' at D:\vocabswipe.github.io\data\audio\back\jail\jail_They_jailed_the_suspect_after_the_trial.mp3
+2025-07-03 02:50:38,604 - INFO - Generated audio for '<speak>The county jail is overcrowded.</speak>' at D:\vocabswipe.github.io\data\audio\back\jail\jail_The_county_jail_is_overcrowded.mp3
+2025-07-03 02:50:39,460 - INFO - Generated audio for '<speak>She visited her brother in jail.</speak>' at D:\vocabswipe.github.io\data\audio\back\jail\jail_She_visited_her_brother_in_jail.mp3
+2025-07-03 02:50:40,025 - INFO - Generated audio for '<speak>He spent a week in jail last year.</speak>' at D:\vocabswipe.github.io\data\audio\back\jail\jail_He_spent_a_week_in_jail_last_year.mp3
+2025-07-03 02:50:40,332 - INFO - Generated audio for '<speak>rural</speak>' at D:\vocabswipe.github.io\data\audio\front\rural.mp3
+2025-07-03 02:50:40,899 - INFO - Generated audio for '<speak>They live in a rural area with farms.</speak>' at D:\vocabswipe.github.io\data\audio\back\rural\rural_They_live_in_a_rural_area_with_farms.mp3
+2025-07-03 02:50:41,218 - INFO - Generated audio for '<speak>Rural life is quiet and peaceful.</speak>' at D:\vocabswipe.github.io\data\audio\back\rural\rural_Rural_life_is_quiet_and_peaceful.mp3
+2025-07-03 02:50:41,538 - INFO - Generated audio for '<speak>The rural community grows its own food.</speak>' at D:\vocabswipe.github.io\data\audio\back\rural\rural_The_rural_community_grows_its_own_food.mp3
+2025-07-03 02:50:41,867 - INFO - Generated audio for '<speak>Rural roads can be hard to navigate.</speak>' at D:\vocabswipe.github.io\data\audio\back\rural\rural_Rural_roads_can_be_hard_to_navigate.mp3
+2025-07-03 02:50:42,190 - INFO - Generated audio for '<speak>Her rural upbringing shaped her values.</speak>' at D:\vocabswipe.github.io\data\audio\back\rural\rural_Her_rural_upbringing_shaped_her_values.mp3
+2025-07-03 02:50:42,500 - INFO - Generated audio for '<speak>interpretation</speak>' at D:\vocabswipe.github.io\data\audio\front\interpretation.mp3
+2025-07-03 02:50:42,823 - INFO - Generated audio for '<speak>Her interpretation of the poem was unique.</speak>' at D:\vocabswipe.github.io\data\audio\back\interpretation\interpretation_Her_interpretation_of_the_poem_was_unique.mp3
+2025-07-03 02:50:43,167 - INFO - Generated audio for '<speak>The lawyer’s interpretation of the law was clear.</speak>' at D:\vocabswipe.github.io\data\audio\back\interpretation\interpretation_The_lawyers_interpretation_of_the_law_was_clear.mp3
+2025-07-03 02:50:43,492 - INFO - Generated audio for '<speak>His interpretation of the song was emotional.</speak>' at D:\vocabswipe.github.io\data\audio\back\interpretation\interpretation_His_interpretation_of_the_song_was_emotional.mp3
+2025-07-03 02:50:43,814 - INFO - Generated audio for '<speak>The data’s interpretation led to new insights.</speak>' at D:\vocabswipe.github.io\data\audio\back\interpretation\interpretation_The_datas_interpretation_led_to_new_insights.mp3
+2025-07-03 02:50:44,130 - INFO - Generated audio for '<speak>Her interpretation of the event differed.</speak>' at D:\vocabswipe.github.io\data\audio\back\interpretation\interpretation_Her_interpretation_of_the_event_differed.mp3
+2025-07-03 02:50:45,385 - INFO - Generated audio for '<speak>wage</speak>' at D:\vocabswipe.github.io\data\audio\front\wage.mp3
+2025-07-03 02:50:45,731 - INFO - Generated audio for '<speak>Her wage barely covers her expenses.</speak>' at D:\vocabswipe.github.io\data\audio\back\wage\wage_Her_wage_barely_covers_her_expenses.mp3
+2025-07-03 02:50:46,061 - INFO - Generated audio for '<speak>The company raised the minimum wage.</speak>' at D:\vocabswipe.github.io\data\audio\back\wage\wage_The_company_raised_the_minimum_wage.mp3
+2025-07-03 02:50:46,398 - INFO - Generated audio for '<speak>They waged a campaign against pollution.</speak>' at D:\vocabswipe.github.io\data\audio\back\wage\wage_They_waged_a_campaign_against_pollution.mp3
+2025-07-03 02:50:46,736 - INFO - Generated audio for '<speak>His wage increased after the promotion.</speak>' at D:\vocabswipe.github.io\data\audio\back\wage\wage_His_wage_increased_after_the_promotion.mp3
+2025-07-03 02:50:47,064 - INFO - Generated audio for '<speak>Workers demanded a fair wage.</speak>' at D:\vocabswipe.github.io\data\audio\back\wage\wage_Workers_demanded_a_fair_wage.mp3
+2025-07-03 02:50:47,384 - INFO - Generated audio for '<speak>breakfast</speak>' at D:\vocabswipe.github.io\data\audio\front\breakfast.mp3
+2025-07-03 02:50:47,714 - INFO - Generated audio for '<speak>I had cereal for breakfast today.</speak>' at D:\vocabswipe.github.io\data\audio\back\breakfast\breakfast_I_had_cereal_for_breakfast_today.mp3
+2025-07-03 02:50:48,047 - INFO - Generated audio for '<speak>She makes breakfast for her kids daily.</speak>' at D:\vocabswipe.github.io\data\audio\back\breakfast\breakfast_She_makes_breakfast_for_her_kids_daily.mp3
+2025-07-03 02:50:48,375 - INFO - Generated audio for '<speak>Pancakes are my favorite breakfast.</speak>' at D:\vocabswipe.github.io\data\audio\back\breakfast\breakfast_Pancakes_are_my_favorite_breakfast.mp3
+2025-07-03 02:50:48,729 - INFO - Generated audio for '<speak>We enjoyed a big breakfast at the diner.</speak>' at D:\vocabswipe.github.io\data\audio\back\breakfast\breakfast_We_enjoyed_a_big_breakfast_at_the_diner.mp3
+2025-07-03 02:50:49,060 - INFO - Generated audio for '<speak>Breakfast is served until 10 AM.</speak>' at D:\vocabswipe.github.io\data\audio\back\breakfast\breakfast_Breakfast_is_served_until_10_AM.mp3
+2025-07-03 02:50:49,375 - INFO - Generated audio for '<speak>severe</speak>' at D:\vocabswipe.github.io\data\audio\front\severe.mp3
+2025-07-03 02:50:49,715 - INFO - Generated audio for '<speak>The storm caused severe damage to the town.</speak>' at D:\vocabswipe.github.io\data\audio\back\severe\severe_The_storm_caused_severe_damage_to_the_town.mp3
+2025-07-03 02:50:50,050 - INFO - Generated audio for '<speak>The teacher gave a severe warning.</speak>' at D:\vocabswipe.github.io\data\audio\back\severe\severe_The_teacher_gave_a_severe_warning.mp3
+2025-07-03 02:50:50,384 - INFO - Generated audio for '<speak>He suffered from severe back pain.</speak>' at D:\vocabswipe.github.io\data\audio\back\severe\severe_He_suffered_from_severe_back_pain.mp3
+2025-07-03 02:50:50,712 - INFO - Generated audio for '<speak>The hike was severe but rewarding.</speak>' at D:\vocabswipe.github.io\data\audio\back\severe\severe_The_hike_was_severe_but_rewarding.mp3
+2025-07-03 02:50:51,044 - INFO - Generated audio for '<speak>Severe weather delayed the flight.</speak>' at D:\vocabswipe.github.io\data\audio\back\severe\severe_Severe_weather_delayed_the_flight.mp3
+2025-07-03 02:50:51,364 - INFO - Generated audio for '<speak>profile</speak>' at D:\vocabswipe.github.io\data\audio\front\profile.mp3
+2025-07-03 02:50:51,698 - INFO - Generated audio for '<speak>Her profile on the app was impressive.</speak>' at D:\vocabswipe.github.io\data\audio\back\profile\profile_Her_profile_on_the_app_was_impressive.mp3
+2025-07-03 02:50:52,034 - INFO - Generated audio for '<speak>The artist sketched her profile perfectly.</speak>' at D:\vocabswipe.github.io\data\audio\back\profile\profile_The_artist_sketched_her_profile_perfectly.mp3
+2025-07-03 02:50:52,369 - INFO - Generated audio for '<speak>He updated his social media profile.</speak>' at D:\vocabswipe.github.io\data\audio\back\profile\profile_He_updated_his_social_media_profile.mp3
+2025-07-03 02:50:52,705 - INFO - Generated audio for '<speak>The report gave a profile of the company.</speak>' at D:\vocabswipe.github.io\data\audio\back\profile\profile_The_report_gave_a_profile_of_the_company.mp3
+2025-07-03 02:50:53,039 - INFO - Generated audio for '<speak>The job fits her professional profile.</speak>' at D:\vocabswipe.github.io\data\audio\back\profile\profile_The_job_fits_her_professional_profile.mp3
+2025-07-03 02:50:53,362 - INFO - Generated audio for '<speak>saving</speak>' at D:\vocabswipe.github.io\data\audio\front\saving.mp3
+2025-07-03 02:50:53,693 - INFO - Generated audio for '<speak>Her savings are enough for a car.</speak>' at D:\vocabswipe.github.io\data\audio\back\saving\saving_Her_savings_are_enough_for_a_car.mp3
+2025-07-03 02:50:54,026 - INFO - Generated audio for '<speak>Saving energy helps the environment.</speak>' at D:\vocabswipe.github.io\data\audio\back\saving\saving_Saving_energy_helps_the_environment.mp3
+2025-07-03 02:50:54,360 - INFO - Generated audio for '<speak>The sale offered a big saving.</speak>' at D:\vocabswipe.github.io\data\audio\back\saving\saving_The_sale_offered_a_big_saving.mp3
+2025-07-03 02:50:54,692 - INFO - Generated audio for '<speak>He’s been saving for a vacation.</speak>' at D:\vocabswipe.github.io\data\audio\back\saving\saving_Hes_been_saving_for_a_vacation.mp3
+2025-07-03 02:50:55,023 - INFO - Generated audio for '<speak>Saving the old tree was a victory.</speak>' at D:\vocabswipe.github.io\data\audio\back\saving\saving_Saving_the_old_tree_was_a_victory.mp3
+2025-07-03 02:50:55,335 - INFO - Generated audio for '<speak>brief</speak>' at D:\vocabswipe.github.io\data\audio\front\brief.mp3
+2025-07-03 02:50:55,670 - INFO - Generated audio for '<speak>The meeting was brief but productive.</speak>' at D:\vocabswipe.github.io\data\audio\back\brief\brief_The_meeting_was_brief_but_productive.mp3
+2025-07-03 02:50:55,999 - INFO - Generated audio for '<speak>She gave a brief of the project.</speak>' at D:\vocabswipe.github.io\data\audio\back\brief\brief_She_gave_a_brief_of_the_project.mp3
+2025-07-03 02:50:56,328 - INFO - Generated audio for '<speak>The boss briefed us on the plan.</speak>' at D:\vocabswipe.github.io\data\audio\back\brief\brief_The_boss_briefed_us_on_the_plan.mp3
+2025-07-03 02:50:56,665 - INFO - Generated audio for '<speak>His brief answer cleared up the confusion.</speak>' at D:\vocabswipe.github.io\data\audio\back\brief\brief_His_brief_answer_cleared_up_the_confusion.mp3
+2025-07-03 02:50:57,000 - INFO - Generated audio for '<speak>The lawyer filed a brief for the case.</speak>' at D:\vocabswipe.github.io\data\audio\back\brief\brief_The_lawyer_filed_a_brief_for_the_case.mp3
+2025-07-03 02:50:57,321 - INFO - Generated audio for '<speak>adjust</speak>' at D:\vocabswipe.github.io\data\audio\front\adjust.mp3
+2025-07-03 02:50:57,657 - INFO - Generated audio for '<speak>I need to adjust the chair’s height.</speak>' at D:\vocabswipe.github.io\data\audio\back\adjust\adjust_I_need_to_adjust_the_chairs_height.mp3
+2025-07-03 02:50:57,990 - INFO - Generated audio for '<speak>She adjusted to city life quickly.</speak>' at D:\vocabswipe.github.io\data\audio\back\adjust\adjust_She_adjusted_to_city_life_quickly.mp3
+2025-07-03 02:50:58,320 - INFO - Generated audio for '<speak>He adjusted the settings on the TV.</speak>' at D:\vocabswipe.github.io\data\audio\back\adjust\adjust_He_adjusted_the_settings_on_the_TV.mp3
+2025-07-03 02:50:58,655 - INFO - Generated audio for '<speak>They adjusted the schedule for flexibility.</speak>' at D:\vocabswipe.github.io\data\audio\back\adjust\adjust_They_adjusted_the_schedule_for_flexibility.mp3
+2025-07-03 02:50:58,989 - INFO - Generated audio for '<speak>We’ll adjust our plans if it rains.</speak>' at D:\vocabswipe.github.io\data\audio\back\adjust\adjust_Well_adjust_our_plans_if_it_rains.mp3
+2025-07-03 02:50:59,313 - INFO - Generated audio for '<speak>reduction</speak>' at D:\vocabswipe.github.io\data\audio\front\reduction.mp3
+2025-07-03 02:50:59,646 - INFO - Generated audio for '<speak>The store announced a price reduction.</speak>' at D:\vocabswipe.github.io\data\audio\back\reduction\reduction_The_store_announced_a_price_reduction.mp3
+2025-07-03 02:50:59,978 - INFO - Generated audio for '<speak>There’s a reduction in traffic today.</speak>' at D:\vocabswipe.github.io\data\audio\back\reduction\reduction_Theres_a_reduction_in_traffic_today.mp3
+2025-07-03 02:51:00,313 - INFO - Generated audio for '<speak>The recipe calls for a sauce reduction.</speak>' at D:\vocabswipe.github.io\data\audio\back\reduction\reduction_The_recipe_calls_for_a_sauce_reduction.mp3
+2025-07-03 02:51:00,644 - INFO - Generated audio for '<speak>The budget reduction affected hiring.</speak>' at D:\vocabswipe.github.io\data\audio\back\reduction\reduction_The_budget_reduction_affected_hiring.mp3
+2025-07-03 02:51:00,977 - INFO - Generated audio for '<speak>A reduction in stress improved her health.</speak>' at D:\vocabswipe.github.io\data\audio\back\reduction\reduction_A_reduction_in_stress_improved_her_health.mp3
+2025-07-03 02:51:01,306 - INFO - Generated audio for '<speak>constantly</speak>' at D:\vocabswipe.github.io\data\audio\front\constantly.mp3
+2025-07-03 02:51:01,640 - INFO - Generated audio for '<speak>She’s constantly checking her phone.</speak>' at D:\vocabswipe.github.io\data\audio\back\constantly\constantly_Shes_constantly_checking_her_phone.mp3
+2025-07-03 02:51:01,978 - INFO - Generated audio for '<speak>The machine runs constantly during the day.</speak>' at D:\vocabswipe.github.io\data\audio\back\constantly\constantly_The_machine_runs_constantly_during_the_day.mp3
+2025-07-03 02:51:02,309 - INFO - Generated audio for '<speak>He’s constantly late for meetings.</speak>' at D:\vocabswipe.github.io\data\audio\back\constantly\constantly_Hes_constantly_late_for_meetings.mp3
+2025-07-03 02:51:02,641 - INFO - Generated audio for '<speak>The kids are constantly asking questions.</speak>' at D:\vocabswipe.github.io\data\audio\back\constantly\constantly_The_kids_are_constantly_asking_questions.mp3
+2025-07-03 02:51:02,978 - INFO - Generated audio for '<speak>The rain fell constantly all afternoon.</speak>' at D:\vocabswipe.github.io\data\audio\back\constantly\constantly_The_rain_fell_constantly_all_afternoon.mp3
+2025-07-03 02:51:03,295 - INFO - Generated audio for '<speak>assist</speak>' at D:\vocabswipe.github.io\data\audio\front\assist.mp3
+2025-07-03 02:51:03,622 - INFO - Generated audio for '<speak>I’ll assist you with your homework.</speak>' at D:\vocabswipe.github.io\data\audio\back\assist\assist_Ill_assist_you_with_your_homework.mp3
+2025-07-03 02:51:03,955 - INFO - Generated audio for '<speak>She assisted the team in finishing early.</speak>' at D:\vocabswipe.github.io\data\audio\back\assist\assist_She_assisted_the_team_in_finishing_early.mp3
+2025-07-03 02:51:04,293 - INFO - Generated audio for '<speak>The nurse assisted the doctor during surgery.</speak>' at D:\vocabswipe.github.io\data\audio\back\assist\assist_The_nurse_assisted_the_doctor_during_surgery.mp3
+2025-07-03 02:51:04,628 - INFO - Generated audio for '<speak>He assisted in organizing the event.</speak>' at D:\vocabswipe.github.io\data\audio\back\assist\assist_He_assisted_in_organizing_the_event.mp3
+2025-07-03 02:51:04,963 - INFO - Generated audio for '<speak>Volunteers assisted with the cleanup.</speak>' at D:\vocabswipe.github.io\data\audio\back\assist\assist_Volunteers_assisted_with_the_cleanup.mp3
+2025-07-03 02:51:05,279 - INFO - Generated audio for '<speak>bitch</speak>' at D:\vocabswipe.github.io\data\audio\front\bitch.mp3
+2025-07-03 02:51:05,619 - INFO - Generated audio for '<speak>She called her a bitch after the argument.</speak>' at D:\vocabswipe.github.io\data\audio\back\bitch\bitch_She_called_her_a_bitch_after_the_argument.mp3
+2025-07-03 02:51:05,950 - INFO - Generated audio for '<speak>Stop bitching about the cold weather.</speak>' at D:\vocabswipe.github.io\data\audio\back\bitch\bitch_Stop_bitching_about_the_cold_weather.mp3
+2025-07-03 02:51:06,282 - INFO - Generated audio for '<speak>He insulted her by calling her a bitch.</speak>' at D:\vocabswipe.github.io\data\audio\back\bitch\bitch_He_insulted_her_by_calling_her_a_bitch.mp3
+2025-07-03 02:51:06,615 - INFO - Generated audio for '<speak>That test was a real bitch to pass.</speak>' at D:\vocabswipe.github.io\data\audio\back\bitch\bitch_That_test_was_a_real_bitch_to_pass.mp3
+2025-07-03 02:51:06,945 - INFO - Generated audio for '<speak>This broken lock is such a bitch.</speak>' at D:\vocabswipe.github.io\data\audio\back\bitch\bitch_This_broken_lock_is_such_a_bitch.mp3
+2025-07-03 02:51:07,269 - INFO - Generated audio for '<speak>constant</speak>' at D:\vocabswipe.github.io\data\audio\front\constant.mp3
+2025-07-03 02:51:07,608 - INFO - Generated audio for '<speak>The constant noise kept me awake.</speak>' at D:\vocabswipe.github.io\data\audio\back\constant\constant_The_constant_noise_kept_me_awake.mp3
+2025-07-03 02:51:07,944 - INFO - Generated audio for '<speak>Her constant support was comforting.</speak>' at D:\vocabswipe.github.io\data\audio\back\constant\constant_Her_constant_support_was_comforting.mp3
+2025-07-03 02:51:08,276 - INFO - Generated audio for '<speak>He’s under constant pressure at work.</speak>' at D:\vocabswipe.github.io\data\audio\back\constant\constant_Hes_under_constant_pressure_at_work.mp3
+2025-07-03 02:51:08,608 - INFO - Generated audio for '<speak>The constant in the equation is 5.</speak>' at D:\vocabswipe.github.io\data\audio\back\constant\constant_The_constant_in_the_equation_is_5.mp3
+2025-07-03 02:51:08,937 - INFO - Generated audio for '<speak>The constant rain ruined our plans.</speak>' at D:\vocabswipe.github.io\data\audio\back\constant\constant_The_constant_rain_ruined_our_plans.mp3
+2025-07-03 02:51:09,257 - INFO - Generated audio for '<speak>permit</speak>' at D:\vocabswipe.github.io\data\audio\front\permit.mp3
+2025-07-03 02:51:09,589 - INFO - Generated audio for '<speak>The teacher permitted us to leave early.</speak>' at D:\vocabswipe.github.io\data\audio\back\permit\permit_The_teacher_permitted_us_to_leave_early.mp3
+2025-07-03 02:51:09,935 - INFO - Generated audio for '<speak>You need a permit to park here.</speak>' at D:\vocabswipe.github.io\data\audio\back\permit\permit_You_need_a_permit_to_park_here.mp3
+2025-07-03 02:51:10,266 - INFO - Generated audio for '<speak>The weather permits us to hike today.</speak>' at D:\vocabswipe.github.io\data\audio\back\permit\permit_The_weather_permits_us_to_hike_today.mp3
+2025-07-03 02:51:10,592 - INFO - Generated audio for '<speak>He got a fishing permit for the lake.</speak>' at D:\vocabswipe.github.io\data\audio\back\permit\permit_He_got_a_fishing_permit_for_the_lake.mp3
+2025-07-03 02:51:10,929 - INFO - Generated audio for '<speak>The law permits smoking in this area.</speak>' at D:\vocabswipe.github.io\data\audio\back\permit\permit_The_law_permits_smoking_in_this_area.mp3
+2025-07-03 02:51:11,251 - INFO - Generated audio for '<speak>primarily</speak>' at D:\vocabswipe.github.io\data\audio\front\primarily.mp3
+2025-07-03 02:51:11,591 - INFO - Generated audio for '<speak>She’s primarily responsible for the project.</speak>' at D:\vocabswipe.github.io\data\audio\back\primarily\primarily_Shes_primarily_responsible_for_the_project.mp3
+2025-07-03 02:51:11,927 - INFO - Generated audio for '<speak>The event is primarily for students.</speak>' at D:\vocabswipe.github.io\data\audio\back\primarily\primarily_The_event_is_primarily_for_students.mp3
+2025-07-03 02:51:12,277 - INFO - Generated audio for '<speak>The store sells primarily organic food.</speak>' at D:\vocabswipe.github.io\data\audio\back\primarily\primarily_The_store_sells_primarily_organic_food.mp3
+2025-07-03 02:51:13,149 - INFO - Generated audio for '<speak>His role is primarily to advise the team.</speak>' at D:\vocabswipe.github.io\data\audio\back\primarily\primarily_His_role_is_primarily_to_advise_the_team.mp3
+2025-07-03 02:51:13,506 - INFO - Generated audio for '<speak>The book is primarily about leadership.</speak>' at D:\vocabswipe.github.io\data\audio\back\primarily\primarily_The_book_is_primarily_about_leadership.mp3
+2025-07-03 02:51:13,826 - INFO - Generated audio for '<speak>entertainment</speak>' at D:\vocabswipe.github.io\data\audio\front\entertainment.mp3
+2025-07-03 02:51:14,154 - INFO - Generated audio for '<speak>The festival offered great entertainment.</speak>' at D:\vocabswipe.github.io\data\audio\back\entertainment\entertainment_The_festival_offered_great_entertainment.mp3
+2025-07-03 02:51:14,488 - INFO - Generated audio for '<speak>She works in entertainment as a producer.</speak>' at D:\vocabswipe.github.io\data\audio\back\entertainment\entertainment_She_works_in_entertainment_as_a_producer.mp3
+2025-07-03 02:51:14,823 - INFO - Generated audio for '<speak>Movies are my favorite form of entertainment.</speak>' at D:\vocabswipe.github.io\data\audio\back\entertainment\entertainment_Movies_are_my_favorite_form_of_entertainment.mp3
+2025-07-03 02:51:15,179 - INFO - Generated audio for '<speak>Live music is the evening’s entertainment.</speak>' at D:\vocabswipe.github.io\data\audio\back\entertainment\entertainment_Live_music_is_the_evenings_entertainment.mp3
+2025-07-03 02:51:15,552 - INFO - Generated audio for '<speak>The party had entertainment for all ages.</speak>' at D:\vocabswipe.github.io\data\audio\back\entertainment\entertainment_The_party_had_entertainment_for_all_ages.mp3
+2025-07-03 02:51:15,875 - INFO - Generated audio for '<speak>shout</speak>' at D:\vocabswipe.github.io\data\audio\front\shout.mp3
+2025-07-03 02:51:16,286 - INFO - Generated audio for '<speak>She shouted to get his attention.</speak>' at D:\vocabswipe.github.io\data\audio\back\shout\shout_She_shouted_to_get_his_attention.mp3
+2025-07-03 02:51:16,626 - INFO - Generated audio for '<speak>His shout echoed through the valley.</speak>' at D:\vocabswipe.github.io\data\audio\back\shout\shout_His_shout_echoed_through_the_valley.mp3
+2025-07-03 02:51:16,954 - INFO - Generated audio for '<speak>Don’t shout; I can hear you fine.</speak>' at D:\vocabswipe.github.io\data\audio\back\shout\shout_Dont_shout_I_can_hear_you_fine.mp3
+2025-07-03 02:51:17,288 - INFO - Generated audio for '<speak>The crowd’s shout cheered the team.</speak>' at D:\vocabswipe.github.io\data\audio\back\shout\shout_The_crowds_shout_cheered_the_team.mp3
+2025-07-03 02:51:17,622 - INFO - Generated audio for '<speak>He shouted his excitement about the win.</speak>' at D:\vocabswipe.github.io\data\audio\back\shout\shout_He_shouted_his_excitement_about_the_win.mp3
+2025-07-03 02:51:17,943 - INFO - Generated audio for '<speak>academy</speak>' at D:\vocabswipe.github.io\data\audio\front\academy.mp3
+2025-07-03 02:51:18,323 - INFO - Generated audio for '<speak>She attends a military academy.</speak>' at D:\vocabswipe.github.io\data\audio\back\academy\academy_She_attends_a_military_academy.mp3
+2025-07-03 02:51:18,661 - INFO - Generated audio for '<speak>The academy awarded her for her research.</speak>' at D:\vocabswipe.github.io\data\audio\back\academy\academy_The_academy_awarded_her_for_her_research.mp3
+2025-07-03 02:51:18,999 - INFO - Generated audio for '<speak>The film academy hosts annual events.</speak>' at D:\vocabswipe.github.io\data\audio\back\academy\academy_The_film_academy_hosts_annual_events.mp3
+2025-07-03 02:51:20,208 - INFO - Generated audio for '<speak>He graduated from the police academy.</speak>' at D:\vocabswipe.github.io\data\audio\back\academy\academy_He_graduated_from_the_police_academy.mp3
+2025-07-03 02:51:20,559 - INFO - Generated audio for '<speak>She’s a member of the science academy.</speak>' at D:\vocabswipe.github.io\data\audio\back\academy\academy_Shes_a_member_of_the_science_academy.mp3
+2025-07-03 02:51:20,888 - INFO - Generated audio for '<speak>teaspoon</speak>' at D:\vocabswipe.github.io\data\audio\front\teaspoon.mp3
+2025-07-03 02:51:21,235 - INFO - Generated audio for '<speak>Add a teaspoon of sugar to the mix.</speak>' at D:\vocabswipe.github.io\data\audio\back\teaspoon\teaspoon_Add_a_teaspoon_of_sugar_to_the_mix.mp3
+2025-07-03 02:51:23,511 - INFO - Generated audio for '<speak>The recipe calls for two teaspoons of salt.</speak>' at D:\vocabswipe.github.io\data\audio\back\teaspoon\teaspoon_The_recipe_calls_for_two_teaspoons_of_salt.mp3
+2025-07-03 02:51:23,841 - INFO - Generated audio for '<speak>She stirred her tea with a teaspoon.</speak>' at D:\vocabswipe.github.io\data\audio\back\teaspoon\teaspoon_She_stirred_her_tea_with_a_teaspoon.mp3
+2025-07-03 02:51:24,178 - INFO - Generated audio for '<speak>A teaspoon of vanilla makes it perfect.</speak>' at D:\vocabswipe.github.io\data\audio\back\teaspoon\teaspoon_A_teaspoon_of_vanilla_makes_it_perfect.mp3
+2025-07-03 02:51:24,525 - INFO - Generated audio for '<speak>Use a teaspoon to scoop the spices.</speak>' at D:\vocabswipe.github.io\data\audio\back\teaspoon\teaspoon_Use_a_teaspoon_to_scoop_the_spices.mp3
+2025-07-03 02:51:24,840 - INFO - Generated audio for '<speak>transfer</speak>' at D:\vocabswipe.github.io\data\audio\front\transfer.mp3
+2025-07-03 02:51:25,200 - INFO - Generated audio for '<speak>I’ll transfer the files to your computer.</speak>' at D:\vocabswipe.github.io\data\audio\back\transfer\transfer_Ill_transfer_the_files_to_your_computer.mp3
+2025-07-03 02:51:25,524 - INFO - Generated audio for '<speak>The transfer of power was peaceful.</speak>' at D:\vocabswipe.github.io\data\audio\back\transfer\transfer_The_transfer_of_power_was_peaceful.mp3
+2025-07-03 02:51:25,896 - INFO - Generated audio for '<speak>She transferred to a new school.</speak>' at D:\vocabswipe.github.io\data\audio\back\transfer\transfer_She_transferred_to_a_new_school.mp3
+2025-07-03 02:51:26,426 - INFO - Generated audio for '<speak>This transfer lets you ride another bus.</speak>' at D:\vocabswipe.github.io\data\audio\back\transfer\transfer_This_transfer_lets_you_ride_another_bus.mp3
+2025-07-03 02:51:27,192 - INFO - Generated audio for '<speak>He transferred to the night shift.</speak>' at D:\vocabswipe.github.io\data\audio\back\transfer\transfer_He_transferred_to_the_night_shift.mp3
+2025-07-03 02:51:27,520 - INFO - Generated audio for '<speak>usual</speak>' at D:\vocabswipe.github.io\data\audio\front\usual.mp3
+2025-07-03 02:51:29,968 - INFO - Generated audio for '<speak>She ordered her usual coffee this morning.</speak>' at D:\vocabswipe.github.io\data\audio\back\usual\usual_She_ordered_her_usual_coffee_this_morning.mp3
+2025-07-03 02:51:30,549 - INFO - Generated audio for '<speak>The usual crowd was at the bar.</speak>' at D:\vocabswipe.github.io\data\audio\back\usual\usual_The_usual_crowd_was_at_the_bar.mp3
+2025-07-03 02:51:31,141 - INFO - Generated audio for '<speak>He’s late, as usual, for the meeting.</speak>' at D:\vocabswipe.github.io\data\audio\back\usual\usual_Hes_late_as_usual_for_the_meeting.mp3
+2025-07-03 02:51:31,722 - INFO - Generated audio for '<speak>The usual rules apply to this game.</speak>' at D:\vocabswipe.github.io\data\audio\back\usual\usual_The_usual_rules_apply_to_this_game.mp3
+2025-07-03 02:51:32,304 - INFO - Generated audio for '<speak>It was the usual busy day at work.</speak>' at D:\vocabswipe.github.io\data\audio\back\usual\usual_It_was_the_usual_busy_day_at_work.mp3
+2025-07-03 02:51:32,616 - INFO - Generated audio for '<speak>ally</speak>' at D:\vocabswipe.github.io\data\audio\front\ally.mp3
+2025-07-03 02:51:33,195 - INFO - Generated audio for '<speak>She’s been a loyal ally in tough times.</speak>' at D:\vocabswipe.github.io\data\audio\back\ally\ally_Shes_been_a_loyal_ally_in_tough_times.mp3
+2025-07-03 02:51:33,817 - INFO - Generated audio for '<speak>The nations became allies during the war.</speak>' at D:\vocabswipe.github.io\data\audio\back\ally\ally_The_nations_became_allies_during_the_war.mp3
+2025-07-03 02:51:34,400 - INFO - Generated audio for '<speak>He’s an ally in our fight for justice.</speak>' at D:\vocabswipe.github.io\data\audio\back\ally\ally_Hes_an_ally_in_our_fight_for_justice.mp3
+2025-07-03 02:51:34,962 - INFO - Generated audio for '<speak>The organization found allies in the community.</speak>' at D:\vocabswipe.github.io\data\audio\back\ally\ally_The_organization_found_allies_in_the_community.mp3
+2025-07-03 02:51:35,297 - INFO - Generated audio for '<speak>They allied with the team to win.</speak>' at D:\vocabswipe.github.io\data\audio\back\ally\ally_They_allied_with_the_team_to_win.mp3
+2025-07-03 02:51:35,617 - INFO - Generated audio for '<speak>clinical</speak>' at D:\vocabswipe.github.io\data\audio\front\clinical.mp3
+2025-07-03 02:51:35,957 - INFO - Generated audio for '<speak>The clinical trial tested a new drug.</speak>' at D:\vocabswipe.github.io\data\audio\back\clinical\clinical_The_clinical_trial_tested_a_new_drug.mp3
+2025-07-03 02:51:36,322 - INFO - Generated audio for '<speak>Her clinical skills saved the patient.</speak>' at D:\vocabswipe.github.io\data\audio\back\clinical\clinical_Her_clinical_skills_saved_the_patient.mp3
+2025-07-03 02:51:36,673 - INFO - Generated audio for '<speak>His analysis was clinical and precise.</speak>' at D:\vocabswipe.github.io\data\audio\back\clinical\clinical_His_analysis_was_clinical_and_precise.mp3
+2025-07-03 02:51:37,302 - INFO - Generated audio for '<speak>She gained clinical experience in the hospital.</speak>' at D:\vocabswipe.github.io\data\audio\back\clinical\clinical_She_gained_clinical_experience_in_the_hospital.mp3
+2025-07-03 02:51:37,665 - INFO - Generated audio for '<speak>The study was conducted in a clinical setting.</speak>' at D:\vocabswipe.github.io\data\audio\back\clinical\clinical_The_study_was_conducted_in_a_clinical_setting.mp3
+2025-07-03 02:51:37,993 - INFO - Generated audio for '<speak>swear</speak>' at D:\vocabswipe.github.io\data\audio\front\swear.mp3
+2025-07-03 02:51:38,345 - INFO - Generated audio for '<speak>I swear I’ll finish the project on time.</speak>' at D:\vocabswipe.github.io\data\audio\back\swear\swear_I_swear_Ill_finish_the_project_on_time.mp3
+2025-07-03 02:51:38,703 - INFO - Generated audio for '<speak>He swore when he stubbed his toe.</speak>' at D:\vocabswipe.github.io\data\audio\back\swear\swear_He_swore_when_he_stubbed_his_toe.mp3
+2025-07-03 02:51:39,072 - INFO - Generated audio for '<speak>She swore to keep the secret safe.</speak>' at D:\vocabswipe.github.io\data\audio\back\swear\swear_She_swore_to_keep_the_secret_safe.mp3
+2025-07-03 02:51:39,405 - INFO - Generated audio for '<speak>The coach swore at the referee’s call.</speak>' at D:\vocabswipe.github.io\data\audio\back\swear\swear_The_coach_swore_at_the_referees_call.mp3
+2025-07-03 02:51:39,737 - INFO - Generated audio for '<speak>I swear I saw him at the store.</speak>' at D:\vocabswipe.github.io\data\audio\back\swear\swear_I_swear_I_saw_him_at_the_store.mp3
+2025-07-03 02:51:40,069 - INFO - Generated audio for '<speak>avenue</speak>' at D:\vocabswipe.github.io\data\audio\front\avenue.mp3
+2025-07-03 02:51:40,401 - INFO - Generated audio for '<speak>The parade marched down Main Avenue.</speak>' at D:\vocabswipe.github.io\data\audio\back\avenue\avenue_The_parade_marched_down_Main_Avenue.mp3
+2025-07-03 02:51:40,725 - INFO - Generated audio for '<speak>This job is an avenue to success.</speak>' at D:\vocabswipe.github.io\data\audio\back\avenue\avenue_This_job_is_an_avenue_to_success.mp3
+2025-07-03 02:51:41,055 - INFO - Generated audio for '<speak>The avenue was lined with old oaks.</speak>' at D:\vocabswipe.github.io\data\audio\back\avenue\avenue_The_avenue_was_lined_with_old_oaks.mp3
+2025-07-03 02:51:41,385 - INFO - Generated audio for '<speak>They explored every avenue to solve it.</speak>' at D:\vocabswipe.github.io\data\audio\back\avenue\avenue_They_explored_every_avenue_to_solve_it.mp3
+2025-07-03 02:51:41,713 - INFO - Generated audio for '<speak>Her office is on Fifth Avenue.</speak>' at D:\vocabswipe.github.io\data\audio\back\avenue\avenue_Her_office_is_on_Fifth_Avenue.mp3
+2025-07-03 02:51:42,024 - INFO - Generated audio for '<speak>priest</speak>' at D:\vocabswipe.github.io\data\audio\front\priest.mp3
+2025-07-03 02:51:42,347 - INFO - Generated audio for '<speak>The priest led the Sunday service.</speak>' at D:\vocabswipe.github.io\data\audio\back\priest\priest_The_priest_led_the_Sunday_service.mp3
+2025-07-03 02:51:42,667 - INFO - Generated audio for '<speak>The priest blessed the new church.</speak>' at D:\vocabswipe.github.io\data\audio\back\priest\priest_The_priest_blessed_the_new_church.mp3
+2025-07-03 02:51:42,999 - INFO - Generated audio for '<speak>She spoke to the priest about her worries.</speak>' at D:\vocabswipe.github.io\data\audio\back\priest\priest_She_spoke_to_the_priest_about_her_worries.mp3
+2025-07-03 02:51:43,326 - INFO - Generated audio for '<speak>The priest officiated the wedding ceremony.</speak>' at D:\vocabswipe.github.io\data\audio\back\priest\priest_The_priest_officiated_the_wedding_ceremony.mp3
+2025-07-03 02:51:43,649 - INFO - Generated audio for '<speak>The priest wore traditional robes.</speak>' at D:\vocabswipe.github.io\data\audio\back\priest\priest_The_priest_wore_traditional_robes.mp3
+2025-07-03 02:51:43,964 - INFO - Generated audio for '<speak>employment</speak>' at D:\vocabswipe.github.io\data\audio\front\employment.mp3
+2025-07-03 02:51:44,289 - INFO - Generated audio for '<speak>She found employment at a tech firm.</speak>' at D:\vocabswipe.github.io\data\audio\back\employment\employment_She_found_employment_at_a_tech_firm.mp3
+2025-07-03 02:51:44,618 - INFO - Generated audio for '<speak>Employment opportunities are growing here.</speak>' at D:\vocabswipe.github.io\data\audio\back\employment\employment_Employment_opportunities_are_growing_here.mp3
+2025-07-03 02:51:44,943 - INFO - Generated audio for '<speak>His employment keeps him busy.</speak>' at D:\vocabswipe.github.io\data\audio\back\employment\employment_His_employment_keeps_him_busy.mp3
+2025-07-03 02:51:45,303 - INFO - Generated audio for '<speak>The company offers part-time employment.</speak>' at D:\vocabswipe.github.io\data\audio\back\employment\employment_The_company_offers_parttime_employment.mp3
+2025-07-03 02:51:45,638 - INFO - Generated audio for '<speak>Employment rates improved this year.</speak>' at D:\vocabswipe.github.io\data\audio\back\employment\employment_Employment_rates_improved_this_year.mp3
+2025-07-03 02:51:45,957 - INFO - Generated audio for '<speak>relax</speak>' at D:\vocabswipe.github.io\data\audio\front\relax.mp3
+2025-07-03 02:51:46,281 - INFO - Generated audio for '<speak>I like to relax with a good book.</speak>' at D:\vocabswipe.github.io\data\audio\back\relax\relax_I_like_to_relax_with_a_good_book.mp3
+2025-07-03 02:51:46,609 - INFO - Generated audio for '<speak>She relaxed after the exam was over.</speak>' at D:\vocabswipe.github.io\data\audio\back\relax\relax_She_relaxed_after_the_exam_was_over.mp3
+2025-07-03 02:51:46,934 - INFO - Generated audio for '<speak>They relaxed the rules for the event.</speak>' at D:\vocabswipe.github.io\data\audio\back\relax\relax_They_relaxed_the_rules_for_the_event.mp3
+2025-07-03 02:51:47,259 - INFO - Generated audio for '<speak>He relaxed by the pool all day.</speak>' at D:\vocabswipe.github.io\data\audio\back\relax\relax_He_relaxed_by_the_pool_all_day.mp3
+2025-07-03 02:51:47,595 - INFO - Generated audio for '<speak>Just relax; everything will be fine.</speak>' at D:\vocabswipe.github.io\data\audio\back\relax\relax_Just_relax_everything_will_be_fine.mp3
+2025-07-03 02:51:47,901 - INFO - Generated audio for '<speak>owe</speak>' at D:\vocabswipe.github.io\data\audio\front\owe.mp3
+2025-07-03 02:51:48,226 - INFO - Generated audio for '<speak>I owe her twenty bucks for lunch.</speak>' at D:\vocabswipe.github.io\data\audio\back\owe\owe_I_owe_her_twenty_bucks_for_lunch.mp3
+2025-07-03 02:51:48,564 - INFO - Generated audio for '<speak>He owes taxes from last year.</speak>' at D:\vocabswipe.github.io\data\audio\back\owe\owe_He_owes_taxes_from_last_year.mp3
+2025-07-03 02:51:48,887 - INFO - Generated audio for '<speak>I owe my success to my parents.</speak>' at D:\vocabswipe.github.io\data\audio\back\owe\owe_I_owe_my_success_to_my_parents.mp3
+2025-07-03 02:51:49,221 - INFO - Generated audio for '<speak>She owes him an apology for being late.</speak>' at D:\vocabswipe.github.io\data\audio\back\owe\owe_She_owes_him_an_apology_for_being_late.mp3
+2025-07-03 02:51:49,544 - INFO - Generated audio for '<speak>You owe me a favor after this.</speak>' at D:\vocabswipe.github.io\data\audio\back\owe\owe_You_owe_me_a_favor_after_this.mp3
+2025-07-03 02:51:49,858 - INFO - Generated audio for '<speak>transform</speak>' at D:\vocabswipe.github.io\data\audio\front\transform.mp3
+2025-07-03 02:51:50,190 - INFO - Generated audio for '<speak>The renovation transformed the old house.</speak>' at D:\vocabswipe.github.io\data\audio\back\transform\transform_The_renovation_transformed_the_old_house.mp3
+2025-07-03 02:51:50,517 - INFO - Generated audio for '<speak>She transformed her diet to get healthier.</speak>' at D:\vocabswipe.github.io\data\audio\back\transform\transform_She_transformed_her_diet_to_get_healthier.mp3
+2025-07-03 02:51:50,852 - INFO - Generated audio for '<speak>The app transformed how we communicate.</speak>' at D:\vocabswipe.github.io\data\audio\back\transform\transform_The_app_transformed_how_we_communicate.mp3
+2025-07-03 02:51:51,182 - INFO - Generated audio for '<speak>The company transformed into a tech giant.</speak>' at D:\vocabswipe.github.io\data\audio\back\transform\transform_The_company_transformed_into_a_tech_giant.mp3
+2025-07-03 02:51:51,510 - INFO - Generated audio for '<speak>They transformed the park into a venue.</speak>' at D:\vocabswipe.github.io\data\audio\back\transform\transform_They_transformed_the_park_into_a_venue.mp3
+2025-07-03 02:51:51,823 - INFO - Generated audio for '<speak>grass</speak>' at D:\vocabswipe.github.io\data\audio\front\grass.mp3
+2025-07-03 02:51:52,148 - INFO - Generated audio for '<speak>The grass in the yard needs mowing.</speak>' at D:\vocabswipe.github.io\data\audio\back\grass\grass_The_grass_in_the_yard_needs_mowing.mp3
+2025-07-03 02:51:52,474 - INFO - Generated audio for '<speak>Kids played soccer on the grass.</speak>' at D:\vocabswipe.github.io\data\audio\back\grass\grass_Kids_played_soccer_on_the_grass.mp3
+2025-07-03 02:51:52,796 - INFO - Generated audio for '<speak>He got caught smoking grass.</speak>' at D:\vocabswipe.github.io\data\audio\back\grass\grass_He_got_caught_smoking_grass.mp3
+2025-07-03 02:51:53,123 - INFO - Generated audio for '<speak>The game was played on wet grass.</speak>' at D:\vocabswipe.github.io\data\audio\back\grass\grass_The_game_was_played_on_wet_grass.mp3
+2025-07-03 02:51:53,456 - INFO - Generated audio for '<speak>The farmer planted new grass for the cows.</speak>' at D:\vocabswipe.github.io\data\audio\back\grass\grass_The_farmer_planted_new_grass_for_the_cows.mp3
+2025-07-03 02:51:53,765 - INFO - Generated audio for '<speak>narrow</speak>' at D:\vocabswipe.github.io\data\audio\front\narrow.mp3
+2025-07-03 02:51:54,092 - INFO - Generated audio for '<speak>The narrow path led to the river.</speak>' at D:\vocabswipe.github.io\data\audio\back\narrow\narrow_The_narrow_path_led_to_the_river.mp3
+2025-07-03 02:51:54,414 - INFO - Generated audio for '<speak>Her interests are quite narrow.</speak>' at D:\vocabswipe.github.io\data\audio\back\narrow\narrow_Her_interests_are_quite_narrow.mp3
+2025-07-03 02:51:54,739 - INFO - Generated audio for '<speak>He won by a narrow margin.</speak>' at D:\vocabswipe.github.io\data\audio\back\narrow\narrow_He_won_by_a_narrow_margin.mp3
+2025-07-03 02:51:55,068 - INFO - Generated audio for '<speak>They narrowed the road for repairs.</speak>' at D:\vocabswipe.github.io\data\audio\back\narrow\narrow_They_narrowed_the_road_for_repairs.mp3
+2025-07-03 02:51:55,403 - INFO - Generated audio for '<speak>The narrow hallway felt cramped.</speak>' at D:\vocabswipe.github.io\data\audio\back\narrow\narrow_The_narrow_hallway_felt_cramped.mp3
+2025-07-03 02:51:55,715 - INFO - Generated audio for '<speak>ethnic</speak>' at D:\vocabswipe.github.io\data\audio\front\ethnic.mp3
+2025-07-03 02:51:56,043 - INFO - Generated audio for '<speak>The festival celebrated ethnic traditions.</speak>' at D:\vocabswipe.github.io\data\audio\back\ethnic\ethnic_The_festival_celebrated_ethnic_traditions.mp3
+2025-07-03 02:51:56,371 - INFO - Generated audio for '<speak>She wore an ethnic dress to the event.</speak>' at D:\vocabswipe.github.io\data\audio\back\ethnic\ethnic_She_wore_an_ethnic_dress_to_the_event.mp3
+2025-07-03 02:51:56,699 - INFO - Generated audio for '<speak>The market sells ethnic foods from Asia.</speak>' at D:\vocabswipe.github.io\data\audio\back\ethnic\ethnic_The_market_sells_ethnic_foods_from_Asia.mp3
+2025-07-03 02:51:57,026 - INFO - Generated audio for '<speak>The city has a rich ethnic diversity.</speak>' at D:\vocabswipe.github.io\data\audio\back\ethnic\ethnic_The_city_has_a_rich_ethnic_diversity.mp3
+2025-07-03 02:51:57,352 - INFO - Generated audio for '<speak>Ethnic music filled the concert hall.</speak>' at D:\vocabswipe.github.io\data\audio\back\ethnic\ethnic_Ethnic_music_filled_the_concert_hall.mp3
+2025-07-03 02:51:57,667 - INFO - Generated audio for '<speak>scholar</speak>' at D:\vocabswipe.github.io\data\audio\front\scholar.mp3
+2025-07-03 02:51:58,008 - INFO - Generated audio for '<speak>She’s a scholar of ancient history.</speak>' at D:\vocabswipe.github.io\data\audio\back\scholar\scholar_Shes_a_scholar_of_ancient_history.mp3
+2025-07-03 02:51:58,335 - INFO - Generated audio for '<speak>The scholar published a new book.</speak>' at D:\vocabswipe.github.io\data\audio\back\scholar\scholar_The_scholar_published_a_new_book.mp3
+2025-07-03 02:51:58,662 - INFO - Generated audio for '<speak>He’s a scholar at the university.</speak>' at D:\vocabswipe.github.io\data\audio\back\scholar\scholar_Hes_a_scholar_at_the_university.mp3
+2025-07-03 02:51:58,994 - INFO - Generated audio for '<speak>The scholar spent hours in the library.</speak>' at D:\vocabswipe.github.io\data\audio\back\scholar\scholar_The_scholar_spent_hours_in_the_library.mp3
+2025-07-03 02:51:59,323 - INFO - Generated audio for '<speak>She’s a respected scholar in biology.</speak>' at D:\vocabswipe.github.io\data\audio\back\scholar\scholar_Shes_a_respected_scholar_in_biology.mp3
+2025-07-03 02:51:59,641 - INFO - Generated audio for '<speak>edition</speak>' at D:\vocabswipe.github.io\data\audio\front\edition.mp3
+2025-07-03 02:51:59,971 - INFO - Generated audio for '<speak>I have the first edition of that book.</speak>' at D:\vocabswipe.github.io\data\audio\back\edition\edition_I_have_the_first_edition_of_that_book.mp3
+2025-07-03 02:52:01,345 - INFO - Generated audio for '<speak>The Sunday edition had great articles.</speak>' at D:\vocabswipe.github.io\data\audio\back\edition\edition_The_Sunday_edition_had_great_articles.mp3
+2025-07-03 02:52:01,696 - INFO - Generated audio for '<speak>This is the deluxe edition of the game.</speak>' at D:\vocabswipe.github.io\data\audio\back\edition\edition_This_is_the_deluxe_edition_of_the_game.mp3
+2025-07-03 02:52:02,051 - INFO - Generated audio for '<speak>The new edition includes updated data.</speak>' at D:\vocabswipe.github.io\data\audio\back\edition\edition_The_new_edition_includes_updated_data.mp3
+2025-07-03 02:52:02,432 - INFO - Generated audio for '<speak>The revised edition fixed the errors.</speak>' at D:\vocabswipe.github.io\data\audio\back\edition\edition_The_revised_edition_fixed_the_errors.mp3
+2025-07-03 02:52:02,765 - INFO - Generated audio for '<speak>abandon</speak>' at D:\vocabswipe.github.io\data\audio\front\abandon.mp3
+2025-07-03 02:52:03,131 - INFO - Generated audio for '<speak>They had to abandon the sinking ship.</speak>' at D:\vocabswipe.github.io\data\audio\back\abandon\abandon_They_had_to_abandon_the_sinking_ship.mp3
+2025-07-03 02:52:03,478 - INFO - Generated audio for '<speak>She abandoned her old car in the lot.</speak>' at D:\vocabswipe.github.io\data\audio\back\abandon\abandon_She_abandoned_her_old_car_in_the_lot.mp3
+2025-07-03 02:52:03,834 - INFO - Generated audio for '<speak>He abandoned his dream of acting.</speak>' at D:\vocabswipe.github.io\data\audio\back\abandon\abandon_He_abandoned_his_dream_of_acting.mp3
+2025-07-03 02:52:04,446 - INFO - Generated audio for '<speak>The town was abandoned after the flood.</speak>' at D:\vocabswipe.github.io\data\audio\back\abandon\abandon_The_town_was_abandoned_after_the_flood.mp3
+2025-07-03 02:52:04,793 - INFO - Generated audio for '<speak>She danced with wild abandon.</speak>' at D:\vocabswipe.github.io\data\audio\back\abandon\abandon_She_danced_with_wild_abandon.mp3
+2025-07-03 02:52:05,131 - INFO - Generated audio for '<speak>practical</speak>' at D:\vocabswipe.github.io\data\audio\front\practical.mp3
+2025-07-03 02:52:05,482 - INFO - Generated audio for '<speak>Her advice was practical and helpful.</speak>' at D:\vocabswipe.github.io\data\audio\back\practical\practical_Her_advice_was_practical_and_helpful.mp3
+2025-07-03 02:52:05,832 - INFO - Generated audio for '<speak>The course teaches practical skills for work.</speak>' at D:\vocabswipe.github.io\data\audio\back\practical\practical_The_course_teaches_practical_skills_for_work.mp3
+2025-07-03 02:52:06,179 - INFO - Generated audio for '<speak>He took a practical approach to the problem.</speak>' at D:\vocabswipe.github.io\data\audio\back\practical\practical_He_took_a_practical_approach_to_the_problem.mp3
+2025-07-03 02:52:06,528 - INFO - Generated audio for '<speak>The bag is practical for everyday use.</speak>' at D:\vocabswipe.github.io\data\audio\back\practical\practical_The_bag_is_practical_for_everyday_use.mp3
+2025-07-03 02:52:06,873 - INFO - Generated audio for '<speak>We need a practical solution now.</speak>' at D:\vocabswipe.github.io\data\audio\back\practical\practical_We_need_a_practical_solution_now.mp3
+2025-07-03 02:52:07,207 - INFO - Generated audio for '<speak>infection</speak>' at D:\vocabswipe.github.io\data\audio\front\infection.mp3
+2025-07-03 02:52:07,560 - INFO - Generated audio for '<speak>The cut led to a bad infection.</speak>' at D:\vocabswipe.github.io\data\audio\back\infection\infection_The_cut_led_to_a_bad_infection.mp3
+2025-07-03 02:52:07,918 - INFO - Generated audio for '<speak>Antibiotics treated her lung infection.</speak>' at D:\vocabswipe.github.io\data\audio\back\infection\infection_Antibiotics_treated_her_lung_infection.mp3
+2025-07-03 02:52:08,276 - INFO - Generated audio for '<speak>The infection spread quickly in the school.</speak>' at D:\vocabswipe.github.io\data\audio\back\infection\infection_The_infection_spread_quickly_in_the_school.mp3
+2025-07-03 02:52:08,633 - INFO - Generated audio for '<speak>His infection required immediate treatment.</speak>' at D:\vocabswipe.github.io\data\audio\back\infection\infection_His_infection_required_immediate_treatment.mp3
+2025-07-03 02:52:08,984 - INFO - Generated audio for '<speak>Proper hygiene prevents infection.</speak>' at D:\vocabswipe.github.io\data\audio\back\infection\infection_Proper_hygiene_prevents_infection.mp3
+2025-07-03 02:52:09,324 - INFO - Generated audio for '<speak>musical</speak>' at D:\vocabswipe.github.io\data\audio\front\musical.mp3
+2025-07-03 02:52:09,669 - INFO - Generated audio for '<speak>She starred in a popular musical.</speak>' at D:\vocabswipe.github.io\data\audio\back\musical\musical_She_starred_in_a_popular_musical.mp3
+2025-07-03 02:52:10,017 - INFO - Generated audio for '<speak>The musical had amazing dance numbers.</speak>' at D:\vocabswipe.github.io\data\audio\back\musical\musical_The_musical_had_amazing_dance_numbers.mp3
+2025-07-03 02:52:10,519 - INFO - Generated audio for '<speak>Her voice is so musical and soothing.</speak>' at D:\vocabswipe.github.io\data\audio\back\musical\musical_Her_voice_is_so_musical_and_soothing.mp3
+2025-07-03 02:52:10,871 - INFO - Generated audio for '<speak>He’s a musical genius on the piano.</speak>' at D:\vocabswipe.github.io\data\audio\back\musical\musical_Hes_a_musical_genius_on_the_piano.mp3
+2025-07-03 02:52:11,220 - INFO - Generated audio for '<speak>The festival showcased musical talent.</speak>' at D:\vocabswipe.github.io\data\audio\back\musical\musical_The_festival_showcased_musical_talent.mp3
+2025-07-03 02:52:11,555 - INFO - Generated audio for '<speak>suggestion</speak>' at D:\vocabswipe.github.io\data\audio\front\suggestion.mp3
+2025-07-03 02:52:11,906 - INFO - Generated audio for '<speak>Her suggestion for the party was great.</speak>' at D:\vocabswipe.github.io\data\audio\back\suggestion\suggestion_Her_suggestion_for_the_party_was_great.mp3
+2025-07-03 02:52:12,254 - INFO - Generated audio for '<speak>There was a suggestion of rain in the air.</speak>' at D:\vocabswipe.github.io\data\audio\back\suggestion\suggestion_There_was_a_suggestion_of_rain_in_the_air.mp3
+2025-07-03 02:52:12,612 - INFO - Generated audio for '<speak>I’m open to suggestions for dinner.</speak>' at D:\vocabswipe.github.io\data\audio\back\suggestion\suggestion_Im_open_to_suggestions_for_dinner.mp3
+2025-07-03 02:52:12,958 - INFO - Generated audio for '<speak>His suggestion saved us a lot of time.</speak>' at D:\vocabswipe.github.io\data\audio\back\suggestion\suggestion_His_suggestion_saved_us_a_lot_of_time.mp3
+2025-07-03 02:52:13,304 - INFO - Generated audio for '<speak>The teacher’s suggestion improved my essay.</speak>' at D:\vocabswipe.github.io\data\audio\back\suggestion\suggestion_The_teachers_suggestion_improved_my_essay.mp3
+2025-07-03 02:52:13,642 - INFO - Generated audio for '<speak>resistance</speak>' at D:\vocabswipe.github.io\data\audio\front\resistance.mp3
+2025-07-03 02:52:13,992 - INFO - Generated audio for '<speak>The resistance to the new law was strong.</speak>' at D:\vocabswipe.github.io\data\audio\back\resistance\resistance_The_resistance_to_the_new_law_was_strong.mp3
+2025-07-03 02:52:14,345 - INFO - Generated audio for '<speak>The bike’s tires met resistance on the hill.</speak>' at D:\vocabswipe.github.io\data\audio\back\resistance\resistance_The_bikes_tires_met_resistance_on_the_hill.mp3
+2025-07-03 02:52:14,700 - INFO - Generated audio for '<speak>Her resistance to colds is impressive.</speak>' at D:\vocabswipe.github.io\data\audio\back\resistance\resistance_Her_resistance_to_colds_is_impressive.mp3
+2025-07-03 02:52:15,048 - INFO - Generated audio for '<speak>The resistance hid in the mountains.</speak>' at D:\vocabswipe.github.io\data\audio\back\resistance\resistance_The_resistance_hid_in_the_mountains.mp3
+2025-07-03 02:52:15,398 - INFO - Generated audio for '<speak>There’s resistance to changing the policy.</speak>' at D:\vocabswipe.github.io\data\audio\back\resistance\resistance_Theres_resistance_to_changing_the_policy.mp3
+2025-07-03 02:52:15,736 - INFO - Generated audio for '<speak>smoke</speak>' at D:\vocabswipe.github.io\data\audio\front\smoke.mp3
+2025-07-03 02:52:16,100 - INFO - Generated audio for '<speak>Smoke filled the room after the fire.</speak>' at D:\vocabswipe.github.io\data\audio\back\smoke\smoke_Smoke_filled_the_room_after_the_fire.mp3
+2025-07-03 02:52:16,465 - INFO - Generated audio for '<speak>He smokes a cigarette every evening.</speak>' at D:\vocabswipe.github.io\data\audio\back\smoke\smoke_He_smokes_a_cigarette_every_evening.mp3
+2025-07-03 02:52:16,822 - INFO - Generated audio for '<speak>The campfire’s smoke stung my eyes.</speak>' at D:\vocabswipe.github.io\data\audio\back\smoke\smoke_The_campfires_smoke_stung_my_eyes.mp3
+2025-07-03 02:52:17,189 - INFO - Generated audio for '<speak>They smoked the fish for flavor.</speak>' at D:\vocabswipe.github.io\data\audio\back\smoke\smoke_They_smoked_the_fish_for_flavor.mp3
+2025-07-03 02:52:17,544 - INFO - Generated audio for '<speak>She smoked past us on her bike.</speak>' at D:\vocabswipe.github.io\data\audio\back\smoke\smoke_She_smoked_past_us_on_her_bike.mp3
+2025-07-03 02:52:17,880 - INFO - Generated audio for '<speak>prince</speak>' at D:\vocabswipe.github.io\data\audio\front\prince.mp3
+2025-07-03 02:52:18,457 - INFO - Generated audio for '<speak>The prince attended the royal ball.</speak>' at D:\vocabswipe.github.io\data\audio\back\prince\prince_The_prince_attended_the_royal_ball.mp3
+2025-07-03 02:52:18,817 - INFO - Generated audio for '<speak>The prince is next in line for the throne.</speak>' at D:\vocabswipe.github.io\data\audio\back\prince\prince_The_prince_is_next_in_line_for_the_throne.mp3
+2025-07-03 02:52:19,166 - INFO - Generated audio for '<speak>He’s a prince for helping me out.</speak>' at D:\vocabswipe.github.io\data\audio\back\prince\prince_Hes_a_prince_for_helping_me_out.mp3
+2025-07-03 02:52:19,520 - INFO - Generated audio for '<speak>He’s a prince of the music industry.</speak>' at D:\vocabswipe.github.io\data\audio\back\prince\prince_Hes_a_prince_of_the_music_industry.mp3
+2025-07-03 02:52:19,867 - INFO - Generated audio for '<speak>The prince rescued the lost traveler.</speak>' at D:\vocabswipe.github.io\data\audio\back\prince\prince_The_prince_rescued_the_lost_traveler.mp3
+2025-07-03 02:52:20,207 - INFO - Generated audio for '<speak>illness</speak>' at D:\vocabswipe.github.io\data\audio\front\illness.mp3
+2025-07-03 02:52:20,556 - INFO - Generated audio for '<speak>Her illness kept her home for weeks.</speak>' at D:\vocabswipe.github.io\data\audio\back\illness\illness_Her_illness_kept_her_home_for_weeks.mp3
+2025-07-03 02:52:20,905 - INFO - Generated audio for '<speak>He’s recovering from a serious illness.</speak>' at D:\vocabswipe.github.io\data\audio\back\illness\illness_Hes_recovering_from_a_serious_illness.mp3
+2025-07-03 02:52:21,252 - INFO - Generated audio for '<speak>The illness caused her to miss work.</speak>' at D:\vocabswipe.github.io\data\audio\back\illness\illness_The_illness_caused_her_to_miss_work.mp3
+2025-07-03 02:52:21,666 - INFO - Generated audio for '<speak>Doctors are studying her rare illness.</speak>' at D:\vocabswipe.github.io\data\audio\back\illness\illness_Doctors_are_studying_her_rare_illness.mp3
+2025-07-03 02:52:22,023 - INFO - Generated audio for '<speak>Mental illness affects many people silently.</speak>' at D:\vocabswipe.github.io\data\audio\back\illness\illness_Mental_illness_affects_many_people_silently.mp3
+2025-07-03 02:52:22,360 - INFO - Generated audio for '<speak>embrace</speak>' at D:\vocabswipe.github.io\data\audio\front\embrace.mp3
+2025-07-03 02:52:22,725 - INFO - Generated audio for '<speak>She embraced her friend after years apart.</speak>' at D:\vocabswipe.github.io\data\audio\back\embrace\embrace_She_embraced_her_friend_after_years_apart.mp3
+2025-07-03 02:52:23,097 - INFO - Generated audio for '<speak>He embraced the new company culture.</speak>' at D:\vocabswipe.github.io\data\audio\back\embrace\embrace_He_embraced_the_new_company_culture.mp3
+2025-07-03 02:52:23,834 - INFO - Generated audio for '<speak>Their warm embrace showed their bond.</speak>' at D:\vocabswipe.github.io\data\audio\back\embrace\embrace_Their_warm_embrace_showed_their_bond.mp3
+2025-07-03 02:52:24,195 - INFO - Generated audio for '<speak>They embraced the plan to save energy.</speak>' at D:\vocabswipe.github.io\data\audio\back\embrace\embrace_They_embraced_the_plan_to_save_energy.mp3
+2025-07-03 02:52:24,542 - INFO - Generated audio for '<speak>Her speech embraced all viewpoints.</speak>' at D:\vocabswipe.github.io\data\audio\back\embrace\embrace_Her_speech_embraced_all_viewpoints.mp3
+2025-07-03 02:52:25,125 - INFO - Generated audio for '<speak>republic</speak>' at D:\vocabswipe.github.io\data\audio\front\republic.mp3
+2025-07-03 02:52:25,499 - INFO - Generated audio for '<speak>The country became a republic after the vote.</speak>' at D:\vocabswipe.github.io\data\audio\back\republic\republic_The_country_became_a_republic_after_the_vote.mp3
+2025-07-03 02:52:25,888 - INFO - Generated audio for '<speak>The republic elected a new president.</speak>' at D:\vocabswipe.github.io\data\audio\back\republic\republic_The_republic_elected_a_new_president.mp3
+2025-07-03 02:52:26,485 - INFO - Generated audio for '<speak>The republic’s laws protect free speech.</speak>' at D:\vocabswipe.github.io\data\audio\back\republic\republic_The_republics_laws_protect_free_speech.mp3
+2025-07-03 02:52:26,835 - INFO - Generated audio for '<speak>She’s a citizen of the republic.</speak>' at D:\vocabswipe.github.io\data\audio\back\republic\republic_Shes_a_citizen_of_the_republic.mp3
+2025-07-03 02:52:27,210 - INFO - Generated audio for '<speak>The republic celebrates its independence day.</speak>' at D:\vocabswipe.github.io\data\audio\back\republic\republic_The_republic_celebrates_its_independence_day.mp3
+2025-07-03 02:52:27,557 - INFO - Generated audio for '<speak>volunteer</speak>' at D:\vocabswipe.github.io\data\audio\front\volunteer.mp3
+2025-07-03 02:52:27,920 - INFO - Generated audio for '<speak>She’s a volunteer at the animal shelter.</speak>' at D:\vocabswipe.github.io\data\audio\back\volunteer\volunteer_Shes_a_volunteer_at_the_animal_shelter.mp3
+2025-07-03 02:52:28,294 - INFO - Generated audio for '<speak>He volunteered to clean up the park.</speak>' at D:\vocabswipe.github.io\data\audio\back\volunteer\volunteer_He_volunteered_to_clean_up_the_park.mp3
+2025-07-03 02:52:28,648 - INFO - Generated audio for '<speak>The volunteers helped serve meals.</speak>' at D:\vocabswipe.github.io\data\audio\back\volunteer\volunteer_The_volunteers_helped_serve_meals.mp3
+2025-07-03 02:52:28,998 - INFO - Generated audio for '<speak>I volunteer at the library every weekend.</speak>' at D:\vocabswipe.github.io\data\audio\back\volunteer\volunteer_I_volunteer_at_the_library_every_weekend.mp3
+2025-07-03 02:52:29,354 - INFO - Generated audio for '<speak>Volunteers made the event a success.</speak>' at D:\vocabswipe.github.io\data\audio\back\volunteer\volunteer_Volunteers_made_the_event_a_success.mp3
+2025-07-03 02:52:29,699 - INFO - Generated audio for '<speak>evaluation</speak>' at D:\vocabswipe.github.io\data\audio\front\evaluation.mp3
+2025-07-03 02:52:30,056 - INFO - Generated audio for '<speak>The evaluation of the project was positive.</speak>' at D:\vocabswipe.github.io\data\audio\back\evaluation\evaluation_The_evaluation_of_the_project_was_positive.mp3
+2025-07-03 02:52:30,420 - INFO - Generated audio for '<speak>Her job evaluation went really well.</speak>' at D:\vocabswipe.github.io\data\audio\back\evaluation\evaluation_Her_job_evaluation_went_really_well.mp3
+2025-07-03 02:52:30,776 - INFO - Generated audio for '<speak>The evaluation of the car took hours.</speak>' at D:\vocabswipe.github.io\data\audio\back\evaluation\evaluation_The_evaluation_of_the_car_took_hours.mp3
+2025-07-03 02:52:31,132 - INFO - Generated audio for '<speak>The teacher’s evaluation helped us improve.</speak>' at D:\vocabswipe.github.io\data\audio\back\evaluation\evaluation_The_teachers_evaluation_helped_us_improve.mp3
+2025-07-03 02:52:31,487 - INFO - Generated audio for '<speak>The evaluation showed areas for growth.</speak>' at D:\vocabswipe.github.io\data\audio\back\evaluation\evaluation_The_evaluation_showed_areas_for_growth.mp3
+2025-07-03 02:52:31,829 - INFO - Generated audio for '<speak>opposite</speak>' at D:\vocabswipe.github.io\data\audio\front\opposite.mp3
+2025-07-03 02:52:32,182 - INFO - Generated audio for '<speak>Her opinion is the opposite of mine.</speak>' at D:\vocabswipe.github.io\data\audio\back\opposite\opposite_Her_opinion_is_the_opposite_of_mine.mp3
+2025-07-03 02:52:32,529 - INFO - Generated audio for '<speak>The store is opposite the park.</speak>' at D:\vocabswipe.github.io\data\audio\back\opposite\opposite_The_store_is_opposite_the_park.mp3
+2025-07-03 02:52:32,871 - INFO - Generated audio for '<speak>Big is the opposite of small.</speak>' at D:\vocabswipe.github.io\data\audio\back\opposite\opposite_Big_is_the_opposite_of_small.mp3
+2025-07-03 02:52:33,249 - INFO - Generated audio for '<speak>He sat opposite me at the table.</speak>' at D:\vocabswipe.github.io\data\audio\back\opposite\opposite_He_sat_opposite_me_at_the_table.mp3
+2025-07-03 02:52:33,598 - INFO - Generated audio for '<speak>They always do the opposite of what’s asked.</speak>' at D:\vocabswipe.github.io\data\audio\back\opposite\opposite_They_always_do_the_opposite_of_whats_asked.mp3
+2025-07-03 02:52:39,163 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 02:52:39,176 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250703_025239.txt
+2025-07-03 02:52:39,188 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-03 02:52:39,189 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.
