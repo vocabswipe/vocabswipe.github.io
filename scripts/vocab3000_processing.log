@@ -18464,3 +18464,22 @@
 2025-07-03 03:47:28,164 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250703_034728.txt
 2025-07-03 03:47:28,179 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
 2025-07-03 03:47:28,180 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.
+2025-07-03 03:50:04,299 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-07-03 03:50:04,519 - INFO - AWS Polly client initialized successfully.
+2025-07-03 03:50:04,526 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 03:50:13,844 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-03 03:50:13,848 - INFO - Backup created at: D:\vocabswipe.github.io\data\temp\backup_vocab3000_20250703_035004.jsonl
+2025-07-03 03:50:13,852 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 03:50:24,974 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 03:50:24,975 - INFO - Appended 1 entries to D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 03:50:24,980 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 03:50:35,628 - INFO - Generated audio for '<speak>awesome</speak>' at D:\vocabswipe.github.io\data\audio\front\awesome.mp3
+2025-07-03 03:50:35,944 - INFO - Generated audio for '<speak>That concert was totally awesome!</speak>' at D:\vocabswipe.github.io\data\audio\back\awesome\awesome_That_concert_was_totally_awesome.mp3
+2025-07-03 03:50:36,271 - INFO - Generated audio for '<speak>The view from the mountain was awesome.</speak>' at D:\vocabswipe.github.io\data\audio\back\awesome\awesome_The_view_from_the_mountain_was_awesome.mp3
+2025-07-03 03:50:36,584 - INFO - Generated audio for '<speak>You did an awesome job on this.</speak>' at D:\vocabswipe.github.io\data\audio\back\awesome\awesome_You_did_an_awesome_job_on_this.mp3
+2025-07-03 03:50:36,924 - INFO - Generated audio for '<speak>The new game has awesome graphics.</speak>' at D:\vocabswipe.github.io\data\audio\back\awesome\awesome_The_new_game_has_awesome_graphics.mp3
+2025-07-03 03:50:37,245 - INFO - Generated audio for '<speak>Awesome, let’s go to the beach!</speak>' at D:\vocabswipe.github.io\data\audio\back\awesome\awesome_Awesome_lets_go_to_the_beach.mp3
+2025-07-03 03:50:45,939 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 03:50:45,952 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250703_035045.txt
+2025-07-03 03:50:45,968 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-03 03:50:45,969 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.

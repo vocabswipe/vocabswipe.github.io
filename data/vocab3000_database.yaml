@@ -46176,6 +46176,27 @@
   word: opposite
   word_audio_file: opposite.mp3
 - back_cards:
+  - audio_file: awesome_That_concert_was_totally_awesome.mp3
+    definition_en: Extremely impressive or exciting.
+    example_en: That concert was totally awesome!
+  - audio_file: awesome_The_view_from_the_mountain_was_awesome.mp3
+    definition_en: Inspiring awe or admiration.
+    example_en: The view from the mountain was awesome.
+  - audio_file: awesome_You_did_an_awesome_job_on_this.mp3
+    definition_en: Great or fantastic in casual use.
+    example_en: You did an awesome job on this.
+  - audio_file: awesome_The_new_game_has_awesome_graphics.mp3
+    definition_en: Remarkable in a fun way.
+    example_en: The new game has awesome graphics.
+  - audio_file: awesome_Awesome_lets_go_to_the_beach.mp3
+    definition_en: Expressing enthusiasm or approval.
+    example_en: Awesome, let’s go to the beach!
+  freq: 32423
+  rank: 2200
+  voice_id: Matthew
+  word: awesome
+  word_audio_file: awesome.mp3
+- back_cards:
   - audio_file: switch_Lets_switch_seats_so_you_can_see_better.mp3
     definition_en: To change from one thing to another.
     example_en: Let’s switch seats so you can see better.
