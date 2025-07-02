@@ -44160,6 +44160,27 @@
   word: install
   word_audio_file: install.mp3
 - back_cards:
+  - audio_file: tale_Grandma_told_us_a_tale_about_pirates.mp3
+    definition_en: A story, often fictional or imaginative.
+    example_en: Grandma told us a tale about pirates.
+  - audio_file: tale_The_fable_is_a_tale_about_teamwork.mp3
+    definition_en: A narrative with a moral or lesson.
+    example_en: The fable is a tale about teamwork.
+  - audio_file: tale_The_village_shares_tales_of_its_history.mp3
+    definition_en: A traditional or folk story.
+    example_en: The village shares tales of its history.
+  - audio_file: tale_He_spun_a_tale_about_his_adventure.mp3
+    definition_en: An exciting or exaggerated account.
+    example_en: He spun a tale about his adventure.
+  - audio_file: tale_The_tale_of_the_haunted_house_scared_us.mp3
+    definition_en: A story passed down generations.
+    example_en: The tale of the haunted house scared us.
+  freq: 34400
+  rank: 2104
+  voice_id: Matthew
+  word: tale
+  word_audio_file: tale.mp3
+- back_cards:
   - audio_file: liberty_She_values_her_liberty_to_make_choices.mp3
     definition_en: Freedom from control or restrictions.
     example_en: She values her liberty to make choices.
@@ -47099,6 +47120,27 @@
   voice_id: Matthew
   word: electric
   word_audio_file: electric.mp3
+- back_cards:
+  - audio_file: giant_The_giant_in_the_story_scared_the_village.mp3
+    definition_en: A very large person or creature.
+    example_en: The giant in the story scared the village.
+  - audio_file: giant_The_giant_tree_shaded_the_whole_park.mp3
+    definition_en: Something extremely big in size.
+    example_en: The giant tree shaded the whole park.
+  - audio_file: giant_That_tech_giant_dominates_the_market.mp3
+    definition_en: A powerful or influential company.
+    example_en: That tech giant dominates the market.
+  - audio_file: giant_We_saw_a_giant_pumpkin_at_the_fair.mp3
+    definition_en: A term for an oversized object.
+    example_en: We saw a giant pumpkin at the fair.
+  - audio_file: giant_Shes_a_giant_in_the_music_industry.mp3
+    definition_en: A person exceptional in ability.
+    example_en: She’s a giant in the music industry.
+  freq: 31557
+  rank: 2246
+  voice_id: Matthew
+  word: giant
+  word_audio_file: giant.mp3
 - back_cards:
   - audio_file: slave_The_history_book_described_the_lives_of_slaves.mp3
     definition_en: A person owned or controlled by another.
@@ -52916,6 +52958,27 @@
   voice_id: Matthew
   word: ongoing
   word_audio_file: ongoing.mp3
+- back_cards:
+  - audio_file: react_She_didnt_react_when_I_told_her.mp3
+    definition_en: To respond to a situation or event.
+    example_en: She didn’t react when I told her.
+  - audio_file: react_He_reacted_with_joy_to_the_news.mp3
+    definition_en: To show emotion to something.
+    example_en: He reacted with joy to the news.
+  - audio_file: react_The_chemicals_react_when_mixed.mp3
+    definition_en: To respond in a chemical process.
+    example_en: The chemicals react when mixed.
+  - audio_file: react_I_react_badly_to_spicy_food.mp3
+    definition_en: To act in response to stimuli.
+    example_en: I react badly to spicy food.
+  - audio_file: react_The_crowd_reacted_to_the_speech.mp3
+    definition_en: To engage with others’ actions.
+    example_en: The crowd reacted to the speech.
+  freq: 27322
+  rank: 2525
+  voice_id: Matthew
+  word: react
+  word_audio_file: react.mp3
 - back_cards:
   - audio_file: routine_My_morning_routine_includes_coffee_and_yoga.mp3
     definition_en: A regular set of actions
@@ -58980,6 +59043,18 @@
   - audio_file: bench_Shes_on_the_bench_for_now.mp3
     definition_en: A reserve or substitute role.
     example_en: She’s on the bench for now.
+  - audio_file: bench_He_was_on_the_bench_during_the_game.mp3
+    definition_en: A seat for players in sports.
+    example_en: He was on the bench during the game.
+  - audio_file: bench_The_carpenter_built_it_on_his_bench.mp3
+    definition_en: A worktable for tools or crafts.
+    example_en: The carpenter built it on his bench.
+  - audio_file: bench_The_judge_presided_from_the_bench.mp3
+    definition_en: A judge’s seat in court.
+    example_en: The judge presided from the bench.
+  - audio_file: bench_The_bench_by_the_lake_is_my_favorite.mp3
+    definition_en: A place to rest outdoors.
+    example_en: The bench by the lake is my favorite.
   freq: 23481
   rank: 2813
   voice_id: Matthew

@@ -18427,3 +18427,40 @@
 2025-07-03 03:41:57,955 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250703_034157.txt
 2025-07-03 03:41:57,969 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
 2025-07-03 03:41:57,971 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.
+2025-07-03 03:46:42,124 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-07-03 03:46:42,353 - INFO - AWS Polly client initialized successfully.
+2025-07-03 03:46:42,363 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 03:46:51,548 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-03 03:46:51,551 - INFO - Backup created at: D:\vocabswipe.github.io\data\temp\backup_vocab3000_20250703_034642.jsonl
+2025-07-03 03:46:51,554 - WARNING - Line 2 invalid JSON: {"word":"awesome","rank":2200,"freq":32423,"back_cards":[{"definition_en":"Extremely impressive or exciting.","example_en":"That concert was totally awesome!"},{"definition_en":"Inspiring awe or admiration.","example_en":"The view from the mountain was awesome."},{"definition_en":"Great or fantastic in casual use.","example_en":"You did an awesome job on this."},{"definition_en":"Remarkable in a fun way.","example_en":"The new game has awesome graphics."},{"definition_en":"Expressing enthusiasm or approval.","example_en":"Awesome, let’s go to the beach!"}}]} - Error: Expecting ',' delimiter: line 1 column 562 (char 561)
+2025-07-03 03:46:51,554 - ERROR - Line 2 unfixable: {"word":"awesome","rank":2200,"freq":32423,"back_cards":[{"definition_en":"Extremely impressive or exciting.","example_en":"That concert was totally awesome!"},{"definition_en":"Inspiring awe or admiration.","example_en":"The view from the mountain was awesome."},{"definition_en":"Great or fantastic in casual use.","example_en":"You did an awesome job on this."},{"definition_en":"Remarkable in a fun way.","example_en":"The new game has awesome graphics."},{"definition_en":"Expressing enthusiasm or approval.","example_en":"Awesome, let’s go to the beach!"}}]} - Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2025-07-03 03:46:51,560 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 03:47:02,151 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 03:47:02,152 - INFO - Appended 4 entries to D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 03:47:02,158 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 03:47:12,630 - INFO - Generated audio for '<speak>tale</speak>' at D:\vocabswipe.github.io\data\audio\front\tale.mp3
+2025-07-03 03:47:13,008 - INFO - Generated audio for '<speak>Grandma told us a tale about pirates.</speak>' at D:\vocabswipe.github.io\data\audio\back\tale\tale_Grandma_told_us_a_tale_about_pirates.mp3
+2025-07-03 03:47:13,416 - INFO - Generated audio for '<speak>The fable is a tale about teamwork.</speak>' at D:\vocabswipe.github.io\data\audio\back\tale\tale_The_fable_is_a_tale_about_teamwork.mp3
+2025-07-03 03:47:13,834 - INFO - Generated audio for '<speak>The village shares tales of its history.</speak>' at D:\vocabswipe.github.io\data\audio\back\tale\tale_The_village_shares_tales_of_its_history.mp3
+2025-07-03 03:47:14,179 - INFO - Generated audio for '<speak>He spun a tale about his adventure.</speak>' at D:\vocabswipe.github.io\data\audio\back\tale\tale_He_spun_a_tale_about_his_adventure.mp3
+2025-07-03 03:47:14,526 - INFO - Generated audio for '<speak>The tale of the haunted house scared us.</speak>' at D:\vocabswipe.github.io\data\audio\back\tale\tale_The_tale_of_the_haunted_house_scared_us.mp3
+2025-07-03 03:47:14,927 - INFO - Generated audio for '<speak>giant</speak>' at D:\vocabswipe.github.io\data\audio\front\giant.mp3
+2025-07-03 03:47:15,272 - INFO - Generated audio for '<speak>The giant in the story scared the village.</speak>' at D:\vocabswipe.github.io\data\audio\back\giant\giant_The_giant_in_the_story_scared_the_village.mp3
+2025-07-03 03:47:15,621 - INFO - Generated audio for '<speak>The giant tree shaded the whole park.</speak>' at D:\vocabswipe.github.io\data\audio\back\giant\giant_The_giant_tree_shaded_the_whole_park.mp3
+2025-07-03 03:47:15,966 - INFO - Generated audio for '<speak>That tech giant dominates the market.</speak>' at D:\vocabswipe.github.io\data\audio\back\giant\giant_That_tech_giant_dominates_the_market.mp3
+2025-07-03 03:47:16,311 - INFO - Generated audio for '<speak>We saw a giant pumpkin at the fair.</speak>' at D:\vocabswipe.github.io\data\audio\back\giant\giant_We_saw_a_giant_pumpkin_at_the_fair.mp3
+2025-07-03 03:47:16,695 - INFO - Generated audio for '<speak>She’s a giant in the music industry.</speak>' at D:\vocabswipe.github.io\data\audio\back\giant\giant_Shes_a_giant_in_the_music_industry.mp3
+2025-07-03 03:47:17,104 - INFO - Generated audio for '<speak>He was on the bench during the game.</speak>' at D:\vocabswipe.github.io\data\audio\back\bench\bench_He_was_on_the_bench_during_the_game.mp3
+2025-07-03 03:47:17,449 - INFO - Generated audio for '<speak>The carpenter built it on his bench.</speak>' at D:\vocabswipe.github.io\data\audio\back\bench\bench_The_carpenter_built_it_on_his_bench.mp3
+2025-07-03 03:47:17,797 - INFO - Generated audio for '<speak>The judge presided from the bench.</speak>' at D:\vocabswipe.github.io\data\audio\back\bench\bench_The_judge_presided_from_the_bench.mp3
+2025-07-03 03:47:18,144 - INFO - Generated audio for '<speak>The bench by the lake is my favorite.</speak>' at D:\vocabswipe.github.io\data\audio\back\bench\bench_The_bench_by_the_lake_is_my_favorite.mp3
+2025-07-03 03:47:18,481 - INFO - Generated audio for '<speak>react</speak>' at D:\vocabswipe.github.io\data\audio\front\react.mp3
+2025-07-03 03:47:18,827 - INFO - Generated audio for '<speak>She didn’t react when I told her.</speak>' at D:\vocabswipe.github.io\data\audio\back\react\react_She_didnt_react_when_I_told_her.mp3
+2025-07-03 03:47:19,253 - INFO - Generated audio for '<speak>He reacted with joy to the news.</speak>' at D:\vocabswipe.github.io\data\audio\back\react\react_He_reacted_with_joy_to_the_news.mp3
+2025-07-03 03:47:19,666 - INFO - Generated audio for '<speak>The chemicals react when mixed.</speak>' at D:\vocabswipe.github.io\data\audio\back\react\react_The_chemicals_react_when_mixed.mp3
+2025-07-03 03:47:20,071 - INFO - Generated audio for '<speak>I react badly to spicy food.</speak>' at D:\vocabswipe.github.io\data\audio\back\react\react_I_react_badly_to_spicy_food.mp3
+2025-07-03 03:47:20,414 - INFO - Generated audio for '<speak>The crowd reacted to the speech.</speak>' at D:\vocabswipe.github.io\data\audio\back\react\react_The_crowd_reacted_to_the_speech.mp3
+2025-07-03 03:47:28,153 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 03:47:28,164 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250703_034728.txt
+2025-07-03 03:47:28,179 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-03 03:47:28,180 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.
