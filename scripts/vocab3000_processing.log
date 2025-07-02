@@ -18662,3 +18662,19 @@
 2025-07-03 04:47:49,599 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250703_044749.txt
 2025-07-03 04:47:49,613 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
 2025-07-03 04:47:49,615 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.
+2025-07-03 04:56:44,289 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-07-03 04:56:44,769 - INFO - AWS Polly client initialized successfully.
+2025-07-03 04:56:44,777 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 04:56:54,159 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-03 04:56:54,161 - INFO - Backup created at: D:\vocabswipe.github.io\data\temp\backup_vocab3000_20250703_045644.jsonl
+2025-07-03 04:56:54,165 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 04:57:04,978 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 04:57:04,979 - INFO - Appended 1 entries to D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 04:57:04,984 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 04:57:15,719 - INFO - Generated audio for '<speak>Smoking is a vice he’s trying to quit.</speak>' at D:\vocabswipe.github.io\data\audio\back\vice\vice_Smoking_is_a_vice_hes_trying_to_quit.mp3
+2025-07-03 04:57:16,124 - INFO - Generated audio for '<speak>Her vice is eating too many sweets.</speak>' at D:\vocabswipe.github.io\data\audio\back\vice\vice_Her_vice_is_eating_too_many_sweets.mp3
+2025-07-03 04:57:16,500 - INFO - Generated audio for '<speak>He secured the wood in the vice to cut it.</speak>' at D:\vocabswipe.github.io\data\audio\back\vice\vice_He_secured_the_wood_in_the_vice_to_cut_it.mp3
+2025-07-03 04:58:03,319 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 04:58:03,331 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250703_045803.txt
+2025-07-03 04:58:03,345 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-03 04:58:03,347 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.
