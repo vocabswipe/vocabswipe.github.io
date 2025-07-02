@@ -71,7 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const audioFile = isFlipped 
                 ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
                 : words[currentWordIndex]?.word_audio_file;
-            if (audioFile) playAudio(audioFile);
+            if (audioFile) {
+                playAudioWithRetry(audioFile, 3, 500); // Retry up to 3 times with 500ms delay
+            }
         }
     });
 
@@ -262,7 +264,7 @@ function setupEventListeners() {
                             ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
                             : words[currentWordIndex]?.word_audio_file;
                         if (audioFile && audioUnlocked) {
-                            playAudio(audioFile);
+                            playAudioWithRetry(audioFile, 3, 500);
                         }
                     }
                 }
@@ -290,7 +292,7 @@ function setupEventListeners() {
                             ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
                             : words[currentWordIndex]?.word_audio_file;
                         if (audioFile && audioUnlocked) {
-                            playAudio(audioFile);
+                            playAudioWithRetry(audioFile, 3, 500);
                         }
                     }
                 }
@@ -319,7 +321,7 @@ function setupEventListeners() {
                 const audioFile = isFlipped 
                     ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
                     : words[currentWordIndex]?.word_audio_file;
-                if (audioFile) playAudio(audioFile);
+                if (audioFile) playAudioWithRetry(audioFile, 3, 500);
             }
             preloadAudio();
         }
@@ -337,7 +339,7 @@ function setupEventListeners() {
                 const audioFile = isFlipped 
                     ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
                     : words[currentWordIndex]?.word_audio_file;
-                if (audioFile) playAudio(audioFile);
+                if (audioFile) playAudioWithRetry(audioFile, 3, 500);
             }
             preloadAudio();
         }
@@ -353,7 +355,7 @@ function setupEventListeners() {
             if (audioUnlocked && audioEnabled) {
                 const audioFile = words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || 
                                  words[currentWordIndex]?.word_audio_file;
-                if (audioFile) playAudio(audioFile);
+                if (audioFile) playAudioWithRetry(audioFile, 3, 500);
             }
             preloadAudio();
         }
@@ -369,7 +371,7 @@ function setupEventListeners() {
             if (audioUnlocked && audioEnabled) {
                 const audioFile = words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || 
                                  words[currentWordIndex]?.word_audio_file;
-                if (audioFile) playAudio(audioFile);
+                if (audioFile) playAudioWithRetry(audioFile, 3, 500);
             }
             preloadAudio();
         }
@@ -390,7 +392,7 @@ function setupKeyboardListeners() {
                     const audioFile = isFlipped 
                         ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
                         : words[currentWordIndex]?.word_audio_file;
-                    if (audioFile) playAudio(audioFile);
+                    if (audioFile) playAudioWithRetry(audioFile, 3, 500);
                 }
                 preloadAudio();
                 break;
@@ -404,7 +406,7 @@ function setupKeyboardListeners() {
                     const audioFile = isFlipped 
                         ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
                         : words[currentWordIndex]?.word_audio_file;
-                    if (audioFile) playAudio(audioFile);
+                    if (audioFile) playAudioWithRetry(audioFile, 3, 500);
                 }
                 preloadAudio();
                 break;
@@ -417,7 +419,7 @@ function setupKeyboardListeners() {
                     if (audioUnlocked && audioEnabled) {
                         const audioFile = words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || 
                                         words[currentWordIndex]?.word_audio_file;
-                        if (audioFile) playAudio(audioFile);
+                    if (audioFile) playAudioWithRetry(audioFile, 3, 500);
                     }
                     preloadAudio();
                 }
@@ -431,7 +433,7 @@ function setupKeyboardListeners() {
                     if (audioUnlocked && audioEnabled) {
                         const audioFile = words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || 
                                         words[currentWordIndex]?.word_audio_file;
-                        if (audioFile) playAudio(audioFile);
+                    if (audioFile) playAudioWithRetry(audioFile, 3, 500);
                     }
                     preloadAudio();
                 }
@@ -442,7 +444,7 @@ function setupKeyboardListeners() {
                     const audioFile = isFlipped 
                         ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
                         : words[currentWordIndex]?.word_audio_file;
-                    if (audioFile && audioUnlocked) playAudio(audioFile);
+                    if (audioFile && audioUnlocked) playAudioWithRetry(audioFile, 3, 500);
                 }
                 break;
             case 'Enter':
@@ -479,6 +481,7 @@ function preloadAudio() {
     const nextWord = words[nextIndex];
     const prevWord = words[prevIndex];
 
+    // Prioritize audio files for current, next, and previous cards
     const audioFiles = [
         currentWord?.word_audio_file,
         ...(currentWord?.back_cards?.map(card => card.audio_file) || []),
@@ -488,15 +491,22 @@ function preloadAudio() {
         ...(prevWord?.back_cards?.map(card => card.audio_file) || [])
     ].filter(file => file && !audioCache.has(file));
 
+    // Clear cache if it exceeds MAX_CACHE_SIZE, keeping only the most relevant
     while (audioCache.size + audioFiles.length > MAX_CACHE_SIZE && audioCache.size > 0) {
         const oldestKey = audioCache.keys().next().value;
+        const audio = audioCache.get(oldestKey);
+        if (audio) {
+            audio.pause();
+            audio.src = '';
+        }
         audioCache.delete(oldestKey);
+        console.log(`Cleared audio cache for: ${oldestKey}`);
     }
 
     audioFiles.forEach(audioFile => {
-        const isWordAudio = audioFile.endsWith(`${currentWord.word}.mp3`) || 
-                            audioFile.endsWith(`${nextWord?.word}.mp3`) || 
-                            audioFile.endsWith(`${prevWord?.word}.mp3`);
+        const isWordAudio = audioFile === currentWord.word_audio_file || 
+                            audioFile === nextWord?.word_audio_file || 
+                            audioFile === prevWord?.word_audio_file;
         const audioPath = isWordAudio 
             ? `data/audio/front/${audioFile}`
             : `data/audio/back/${currentWord.word.toLowerCase()}/${audioFile}`;
@@ -504,7 +514,9 @@ function preloadAudio() {
         audio.preload = 'auto';
         audio.load();
         audioCache.set(audioFile, audio);
-        audio.addEventListener('canplaythrough', () => console.log(`Preloaded: ${audioPath}`), { once: true });
+        audio.addEventListener('canplaythrough', () => {
+            console.log(`Preloaded: ${audioPath}`);
+        }, { once: true });
         audio.addEventListener('error', () => {
             console.error(`Failed to preload audio: ${audioPath}`);
             audioCache.delete(audioFile);
@@ -517,33 +529,60 @@ function stopAudio() {
         currentAudio.pause();
         currentAudio.currentTime = 0;
         currentAudio = null;
+        console.log('Audio stopped');
     }
 }
 
-function playAudio(audioFile) {
+function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
     if (!audioFile || !audioUnlocked || !audioEnabled) {
-        console.warn('No audio file provided, audio not unlocked, or audio disabled');
+        console.warn(`Cannot play audio: ${audioFile}. AudioUnlocked: ${audioUnlocked}, AudioEnabled: ${audioEnabled}`);
         return;
     }
+
+    const isWordAudio = audioFile === words[currentWordIndex].word_audio_file;
+    const audioPath = isWordAudio 
+        ? `data/audio/front/${audioFile}`
+        : `data/audio/back/${words[currentWordIndex].word.toLowerCase()}/${audioFile}`;
+
     stopAudio();
     let audio = audioCache.get(audioFile);
+
     if (!audio) {
-        const isWordAudio = audioFile.endsWith(`${words[currentWordIndex].word}.mp3`);
-        const audioPath = isWordAudio 
-            ? `data/audio/front/${audioFile}`
-            : `data/audio/back/${words[currentWordIndex].word.toLowerCase()}/${audioFile}`;
         audio = new Audio(audioPath);
         audio.preload = 'auto';
         audio.load();
         audioCache.set(audioFile, audio);
+        audio.addEventListener('canplaythrough', () => {
+            console.log(`Loaded and ready: ${audioPath}`);
+        }, { once: true });
+        audio.addEventListener('error', () => {
+            console.error(`Failed to load audio: ${audioPath}`);
+            audioCache.delete(audioFile);
+        }, { once: true });
     }
+
     currentAudio = audio;
-    const playPromise = currentAudio.play();
-    if (playPromise !== undefined) {
-        playPromise
-            .then(() => console.log(`Successfully playing: ${audioFile}`))
-            .catch(error => console.error(`Playback error for ${audioFile}:`, error.message));
+
+    function attemptPlay(attempt = 1) {
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise
+                .then(() => {
+                    console.log(`Successfully playing: ${audioPath} (Attempt ${attempt})`);
+                })
+                .catch(error => {
+                    console.error(`Playback error for ${audioPath} (Attempt ${attempt}): ${error.message}`);
+                    if (attempt < retries) {
+                        console.log(`Retrying playback for ${audioPath} in ${delay}ms...`);
+                        setTimeout(() => attemptPlay(attempt + 1), delay);
+                    } else {
+                        console.error(`Failed to play ${audioPath} after ${retries} attempts`);
+                    }
+                });
+        }
     }
+
+    attemptPlay();
 }
 
 function flipCard() {
@@ -557,7 +596,7 @@ function flipCard() {
         const audioFile = isFlipped 
             ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
             : words[currentWordIndex]?.word_audio_file;
-        if (audioFile) playAudio(audioFile);
+        if (audioFile) playAudioWithRetry(audioFile, 3, 500);
     }
 }
 
