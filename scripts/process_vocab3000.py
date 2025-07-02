@@ -56,7 +56,7 @@ except Exception as e:
 FAVORITE_VOICES = ['Matthew']
 
 def load_file(filename, file_type='jsonl'):
-    """Load a file (JSONL or YAML) with error handling and correction for JSONL."""
+    """Load a file (JSONL or YAML) with enhanced error handling and correction for JSONL."""
     logger.info(f"Loading: {filename}")
     try:
         if file_type == 'jsonl':
@@ -87,23 +87,28 @@ def load_file(filename, file_type='jsonl'):
                 except json.JSONDecodeError as e:
                     logger.warning(f"Line {i} invalid JSON: {line} - Error: {e}")
                     invalid_line_count += 1
-                    fixed_line = None
                     original_line = line
-                    line = line.replace('}{', '},{')
-                    if line.count('{') > line.count('}'):
-                        line += '}'
-                    if line.count('}') > line.count('{'):
-                        line = '{' + line
-                    line = line.replace(',]', ']').replace(',}', '}')
-                    line = line.replace("'", '"')
+
+                    # Attempt to fix common JSON issues
+                    # 1. Replace unescaped single quotes within string values with escaped double quotes
+                    fixed_line = re.sub(r"(?<!\\)'(?=.*')", r'"', line)
+                    # 2. Fix common JSON structural issues
+                    fixed_line = fixed_line.replace('}{', '},{')
+                    if fixed_line.count('{') > fixed_line.count('}'):
+                        fixed_line += '}'
+                    if fixed_line.count('}') > fixed_line.count('{'):
+                        fixed_line = '{' + fixed_line
+                    fixed_line = fixed_line.replace(',]', ']').replace(',}', '}')
+                    # 3. Ensure all string values use double quotes
+                    fixed_line = re.sub(r"(?<!\\)'([^']*?)(?<!\\)'", r'"\1"', fixed_line)
 
                     try:
-                        entry = json.loads(line)
+                        entry = json.loads(fixed_line)
                         entries.append(entry)
-                        corrections.append((i, original_line, line, str(e)))
-                        logger.info(f"Line {i} fixed: {original_line} -> {line}")
+                        corrections.append((i, original_line, fixed_line, str(e)))
+                        logger.info(f"Line {i} fixed: {original_line} -> {fixed_line}")
                     except json.JSONDecodeError as e2:
-                        errors.append((i, original_line, str(e)))
+                        errors.append((i, original_line, str(e2)))
                         logger.error(f"Line {i} unfixable: {original_line} - Error: {e2}")
 
             if corrections:
@@ -124,16 +129,6 @@ def load_file(filename, file_type='jsonl'):
                     table.add_row(str(line_num), orig[:50] + ('...' if len(orig) > 50 else ''), fixed[:50] + ('...' if len(fixed) > 50 else ''), err[:50] + ('...' if len(err) > 50 else ''))
                 console.print(table)
 
-            if line_count > 0 and (invalid_line_count / line_count) > 0.5:
-                console.print(Panel(
-                    f"[red]✗ Over 50% of lines ({invalid_line_count}/{line_count}) are invalid. Manual editing required.\n"
-                    f"Original file backed up at: {BACKUP_JSONL_PATH}\n"
-                    f"Please fix the JSONL file and retry.",
-                    title="Critical Error", border_style="red", expand=False
-                ))
-                logger.error("Too many invalid lines. Suggesting manual edit.")
-                return []
-
             if errors:
                 table = Table(title="⚠ JSONL Unfixable Errors", style="red", show_lines=True)
                 table.add_column("Line", style="bold")
@@ -147,6 +142,16 @@ def load_file(filename, file_type='jsonl'):
                     f"Original file backed up at: {BACKUP_JSONL_PATH}",
                     title="Warning", border_style="yellow", expand=False
                 ))
+
+            if line_count > 0 and (invalid_line_count / line_count) > 0.5:
+                console.print(Panel(
+                    f"[red]✗ Over 50% of lines ({invalid_line_count}/{line_count}) are invalid. Manual editing required.\n"
+                    f"Original file backed up at: {BACKUP_JSONL_PATH}\n"
+                    f"Please fix the JSONL file and retry.",
+                    title="Critical Error", border_style="red", expand=False
+                ))
+                logger.error("Too many invalid lines. Suggesting manual edit.")
+                return []
 
             return entries
 
