@@ -18678,3 +18678,22 @@
 2025-07-03 04:58:03,331 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250703_045803.txt
 2025-07-03 04:58:03,345 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
 2025-07-03 04:58:03,347 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.
+2025-07-03 05:02:54,090 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-07-03 05:02:54,425 - INFO - AWS Polly client initialized successfully.
+2025-07-03 05:02:54,434 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 05:03:04,220 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-03 05:03:04,222 - INFO - Backup created at: D:\vocabswipe.github.io\data\temp\backup_vocab3000_20250703_050254.jsonl
+2025-07-03 05:03:04,226 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 05:03:14,665 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 05:03:14,666 - INFO - Appended 1 entries to D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 05:03:14,671 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 05:03:25,030 - INFO - Generated audio for '<speak>strengthen</speak>' at D:\vocabswipe.github.io\data\audio\front\strengthen.mp3
+2025-07-03 05:03:25,529 - INFO - Generated audio for '<speak>I do push-ups to strengthen my arms.</speak>' at D:\vocabswipe.github.io\data\audio\back\strengthen\strengthen_I_do_pushups_to_strengthen_my_arms.mp3
+2025-07-03 05:03:25,893 - INFO - Generated audio for '<speak>She’s taking classes to strengthen her coding skills.</speak>' at D:\vocabswipe.github.io\data\audio\back\strengthen\strengthen_Shes_taking_classes_to_strengthen_her_coding_skills.mp3
+2025-07-03 05:03:26,242 - INFO - Generated audio for '<speak>They worked together to strengthen their friendship.</speak>' at D:\vocabswipe.github.io\data\audio\back\strengthen\strengthen_They_worked_together_to_strengthen_their_friendship.mp3
+2025-07-03 05:03:26,609 - INFO - Generated audio for '<speak>His support helped strengthen my determination.</speak>' at D:\vocabswipe.github.io\data\audio\back\strengthen\strengthen_His_support_helped_strengthen_my_determination.mp3
+2025-07-03 05:03:26,974 - INFO - Generated audio for '<speak>The city plans to strengthen the bridge.</speak>' at D:\vocabswipe.github.io\data\audio\back\strengthen\strengthen_The_city_plans_to_strengthen_the_bridge.mp3
+2025-07-03 05:03:45,926 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 05:03:45,939 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250703_050345.txt
+2025-07-03 05:03:45,952 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-03 05:03:45,954 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.
