@@ -12743,6 +12743,27 @@
   word: attention
   word_audio_file: attention.mp3
 - back_cards:
+  - audio_file: forget_I_forgot_her_name.mp3
+    definition_en: To fail to remember.
+    example_en: I forgot her name.
+  - audio_file: forget_Dont_forget_to_call.mp3
+    definition_en: To neglect or overlook.
+    example_en: Don’t forget to call.
+  - audio_file: forget_I_forgot_my_keys.mp3
+    definition_en: To leave behind.
+    example_en: I forgot my keys.
+  - audio_file: forget_Forget_about_the_mistake.mp3
+    definition_en: To dismiss from mind.
+    example_en: Forget about the mistake.
+  - audio_file: forget_Lets_forget_the_argument.mp3
+    definition_en: To intentionally ignore.
+    example_en: Let’s forget the argument.
+  freq: 145557
+  rank: 608
+  voice_id: Matthew
+  word: forget
+  word_audio_file: forget.mp3
+- back_cards:
   - audio_file: risk_Theres_a_risk_of_rain.mp3
     definition_en: A chance of harm.
     example_en: There’s a risk of rain.
@@ -15283,6 +15304,27 @@
   voice_id: Matthew
   word: identify
   word_audio_file: identify.mp3
+- back_cards:
+  - audio_file: beautiful_The_sunset_is_beautiful.mp3
+    definition_en: Pleasing to the senses.
+    example_en: The sunset is beautiful.
+  - audio_file: beautiful_She_wore_a_beautiful_dress.mp3
+    definition_en: Attractive or lovely.
+    example_en: She wore a beautiful dress.
+  - audio_file: beautiful_Its_a_beautiful_performance.mp3
+    definition_en: Admirable or excellent.
+    example_en: It’s a beautiful performance.
+  - audio_file: beautiful_The_painting_is_beautiful.mp3
+    definition_en: Aesthetically pleasing.
+    example_en: The painting is beautiful.
+  - audio_file: beautiful_What_a_beautiful_view.mp3
+    definition_en: Striking or gorgeous.
+    example_en: What a beautiful view!
+  freq: 120679
+  rank: 730
+  voice_id: Matthew
+  word: beautiful
+  word_audio_file: beautiful.mp3
 - back_cards:
   - audio_file: decade_The_last_decade_was_eventful.mp3
     definition_en: A period of ten years.
@@ -18853,3 +18895,2103 @@
   voice_id: Matthew
   word: writer
   word_audio_file: writer.mp3
+- back_cards:
+  - audio_file: perform_She_performed_the_task_well.mp3
+    definition_en: To carry out or do.
+    example_en: She performed the task well.
+  - audio_file: perform_He_performs_on_stage.mp3
+    definition_en: To act or entertain.
+    example_en: He performs on stage.
+  - audio_file: perform_The_car_performs_smoothly.mp3
+    definition_en: To function or operate.
+    example_en: The car performs smoothly.
+  - audio_file: perform_They_performed_a_play.mp3
+    definition_en: To execute or present.
+    example_en: They performed a play.
+  - audio_file: perform_The_team_performed_admirably.mp3
+    definition_en: To achieve or accomplish.
+    example_en: The team performed admirably.
+  freq: 96202
+  rank: 901
+  voice_id: Matthew
+  word: perform
+  word_audio_file: perform.mp3
+- back_cards:
+  - audio_file: credit_She_deserves_credit_for_her_work.mp3
+    definition_en: Recognition or praise.
+    example_en: She deserves credit for her work.
+  - audio_file: credit_I_used_my_credit_card.mp3
+    definition_en: A financial trust.
+    example_en: I used my credit card.
+  - audio_file: credit_Credit_him_with_the_idea.mp3
+    definition_en: To attribute or assign.
+    example_en: Credit him with the idea.
+  - audio_file: credit_Earn_college_credits.mp3
+    definition_en: A unit of study.
+    example_en: Earn college credits.
+  - audio_file: credit_Give_credit_to_her_story.mp3
+    definition_en: Belief or trust.
+    example_en: Give credit to her story.
+  freq: 95981
+  rank: 902
+  voice_id: Matthew
+  word: credit
+  word_audio_file: credit.mp3
+- back_cards:
+  - audio_file: green_She_wore_a_green_dress.mp3
+    definition_en: A color like lime.
+    example_en: She wore a green dress.
+  - audio_file: green_The_green_bananas_arent_ready.mp3
+    definition_en: Unripe or immature.
+    example_en: The green bananas aren’t ready.
+  - audio_file: green_Green_energy_is_sustainable.mp3
+    definition_en: Eco-friendly or natural.
+    example_en: Green energy is sustainable.
+  - audio_file: green_Hes_still_green_at_this_job.mp3
+    definition_en: Youthful or inexperienced.
+    example_en: He’s still green at this job.
+  - audio_file: green_Play_on_the_village_green.mp3
+    definition_en: A grassy area.
+    example_en: Play on the village green.
+  freq: 95937
+  rank: 903
+  voice_id: Matthew
+  word: green
+  word_audio_file: green.mp3
+- back_cards:
+  - audio_file: marriage_Their_marriage_was_joyful.mp3
+    definition_en: A legal union of people.
+    example_en: Their marriage was joyful.
+  - audio_file: marriage_The_marriage_of_art_and_tech.mp3
+    definition_en: A close partnership.
+    example_en: The marriage of art and tech.
+  - audio_file: marriage_The_marriage_took_place_today.mp3
+    definition_en: The act of marrying.
+    example_en: The marriage took place today.
+  - audio_file: marriage_Marriage_requires_trust.mp3
+    definition_en: A bond or commitment.
+    example_en: Marriage requires trust.
+  - audio_file: marriage_They_celebrated_their_marriage.mp3
+    definition_en: A ceremonial union.
+    example_en: They celebrated their marriage.
+  freq: 95885
+  rank: 904
+  voice_id: Matthew
+  word: marriage
+  word_audio_file: marriage.mp3
+- back_cards:
+  - audio_file: operation_The_operation_was_successful.mp3
+    definition_en: A surgical procedure.
+    example_en: The operation was successful.
+  - audio_file: operation_The_machine_is_in_operation.mp3
+    definition_en: The act of working.
+    example_en: The machine is in operation.
+  - audio_file: operation_The_operation_rescued_hostages.mp3
+    definition_en: A planned activity.
+    example_en: The operation rescued hostages.
+  - audio_file: operation_Operations_run_smoothly.mp3
+    definition_en: A business process.
+    example_en: Operations run smoothly.
+  - audio_file: operation_Addition_is_an_operation.mp3
+    definition_en: A mathematical process.
+    example_en: Addition is an operation.
+  freq: 95878
+  rank: 905
+  voice_id: Matthew
+  word: operation
+  word_audio_file: operation.mp3
+- back_cards:
+  - audio_file: indeed_Its_indeed_a_great_day.mp3
+    definition_en: Truly or certainly.
+    example_en: It’s indeed a great day.
+  - audio_file: indeed_She_is_indeed_talented.mp3
+    definition_en: Used for emphasis.
+    example_en: She is indeed talented.
+  - audio_file: indeed_Indeed_youre_correct.mp3
+    definition_en: In fact or reality.
+    example_en: Indeed, you’re correct.
+  - audio_file: indeed_Indeed_lets_proceed.mp3
+    definition_en: To confirm or agree.
+    example_en: Indeed, let’s proceed.
+  - audio_file: indeed_Hes_indeed_the_best.mp3
+    definition_en: Without doubt.
+    example_en: He’s indeed the best.
+  freq: 95860
+  rank: 906
+  voice_id: Matthew
+  word: indeed
+  word_audio_file: indeed.mp3
+- back_cards:
+  - audio_file: sleep_I_need_to_sleep_tonight.mp3
+    definition_en: To rest with eyes closed.
+    example_en: I need to sleep tonight.
+  - audio_file: sleep_Shes_in_a_deep_sleep.mp3
+    definition_en: A state of rest.
+    example_en: She’s in a deep sleep.
+  - audio_file: sleep_The_computer_went_to_sleep.mp3
+    definition_en: To be inactive.
+    example_en: The computer went to sleep.
+  - audio_file: sleep_I_got_eight_hours_of_sleep.mp3
+    definition_en: A period of rest.
+    example_en: I got eight hours of sleep.
+  - audio_file: sleep_The_baby_sleeps_quietly.mp3
+    definition_en: To slumber.
+    example_en: The baby sleeps quietly.
+  freq: 95600
+  rank: 907
+  voice_id: Matthew
+  word: sleep
+  word_audio_file: sleep.mp3
+- back_cards:
+  - audio_file: necessary_Its_necessary_to_study.mp3
+    definition_en: Required or essential.
+    example_en: It’s necessary to study.
+  - audio_file: necessary_Water_is_necessary_for_life.mp3
+    definition_en: Needed or vital.
+    example_en: Water is necessary for life.
+  - audio_file: necessary_Change_was_necessary.mp3
+    definition_en: Inevitable or unavoidable.
+    example_en: Change was necessary.
+  - audio_file: necessary_Its_a_necessary_step.mp3
+    definition_en: Compulsory or mandatory.
+    example_en: It’s a necessary step.
+  - audio_file: necessary_This_tool_is_necessary.mp3
+    definition_en: Absolutely required.
+    example_en: This tool is necessary.
+  freq: 95580
+  rank: 908
+  voice_id: Matthew
+  word: necessary
+  word_audio_file: necessary.mp3
+- back_cards:
+  - audio_file: reveal_She_revealed_the_secret.mp3
+    definition_en: To make known.
+    example_en: She revealed the secret.
+  - audio_file: reveal_The_curtain_revealed_the_stage.mp3
+    definition_en: To show or disclose.
+    example_en: The curtain revealed the stage.
+  - audio_file: reveal_The_test_revealed_the_truth.mp3
+    definition_en: To uncover or expose.
+    example_en: The test revealed the truth.
+  - audio_file: reveal_He_revealed_his_plans.mp3
+    definition_en: To bring to light.
+    example_en: He revealed his plans.
+  - audio_file: reveal_The_data_revealed_trends.mp3
+    definition_en: To display or unveil.
+    example_en: The data revealed trends.
+  freq: 95401
+  rank: 909
+  voice_id: Matthew
+  word: reveal
+  word_audio_file: reveal.mp3
+- back_cards:
+  - audio_file: agent_My_agent_negotiated_the_deal.mp3
+    definition_en: A person who acts for another.
+    example_en: My agent negotiated the deal.
+  - audio_file: agent_The_cleaning_agent_worked.mp3
+    definition_en: A cause or substance.
+    example_en: The cleaning agent worked.
+  - audio_file: agent_Shes_a_real_estate_agent.mp3
+    definition_en: A representative.
+    example_en: She’s a real estate agent.
+  - audio_file: agent_The_agent_went_undercover.mp3
+    definition_en: A spy or operative.
+    example_en: The agent went undercover.
+  - audio_file: agent_Change_is_an_agent_of_progress.mp3
+    definition_en: A force or factor.
+    example_en: Change is an agent of progress.
+  freq: 95371
+  rank: 910
+  voice_id: Matthew
+  word: agent
+  word_audio_file: agent.mp3
+- back_cards:
+  - audio_file: access_I_have_access_to_the_files.mp3
+    definition_en: The ability to enter.
+    example_en: I have access to the files.
+  - audio_file: access_Access_the_website_here.mp3
+    definition_en: To gain entry.
+    example_en: Access the website here.
+  - audio_file: access_The_access_road_is_closed.mp3
+    definition_en: A means of approach.
+    example_en: The access road is closed.
+  - audio_file: access_She_granted_me_access.mp3
+    definition_en: Permission or right.
+    example_en: She granted me access.
+  - audio_file: access_Access_to_healthcare_is_vital.mp3
+    definition_en: Entry or availability.
+    example_en: Access to healthcare is vital.
+  freq: 95371
+  rank: 911
+  voice_id: Matthew
+  word: access
+  word_audio_file: access.mp3
+- back_cards:
+  - audio_file: bar_We_met_at_the_bar.mp3
+    definition_en: A place serving drinks.
+    example_en: We met at the bar.
+  - audio_file: bar_A_bar_of_chocolate.mp3
+    definition_en: A long piece.
+    example_en: A bar of chocolate.
+  - audio_file: bar_They_barred_the_door.mp3
+    definition_en: To block or prevent.
+    example_en: They barred the door.
+  - audio_file: bar_She_passed_the_bar_exam.mp3
+    definition_en: A legal profession.
+    example_en: She passed the bar exam.
+  - audio_file: bar_Stand_behind_the_bar.mp3
+    definition_en: A counter or barrier.
+    example_en: Stand behind the bar.
+  freq: 95305
+  rank: 912
+  voice_id: Matthew
+  word: bar
+  word_audio_file: bar.mp3
+- back_cards:
+  - audio_file: debate_The_debate_was_heated.mp3
+    definition_en: A formal discussion.
+    example_en: The debate was heated.
+  - audio_file: debate_They_debated_the_issue.mp3
+    definition_en: To argue or discuss.
+    example_en: They debated the issue.
+  - audio_file: debate_Watch_the_presidential_debate.mp3
+    definition_en: A public argument.
+    example_en: Watch the presidential debate.
+  - audio_file: debate_Im_debating_my_options.mp3
+    definition_en: To consider or deliberate.
+    example_en: I’m debating my options.
+  - audio_file: debate_The_debate_team_won.mp3
+    definition_en: A structured argument.
+    example_en: The debate team won.
+  freq: 95244
+  rank: 913
+  voice_id: Matthew
+  word: debate
+  word_audio_file: debate.mp3
+- back_cards:
+  - audio_file: leg_I_broke_my_leg_skiing.mp3
+    definition_en: A limb for walking.
+    example_en: I broke my leg skiing.
+  - audio_file: leg_The_first_leg_of_the_trip.mp3
+    definition_en: A part of a journey.
+    example_en: The first leg of the trip.
+  - audio_file: leg_The_table_leg_is_wobbly.mp3
+    definition_en: A support or base.
+    example_en: The table leg is wobbly.
+  - audio_file: leg_The_races_final_leg.mp3
+    definition_en: A section or stage.
+    example_en: The race’s final leg.
+  - audio_file: leg_Her_legs_are_strong.mp3
+    definition_en: Used in anatomy.
+    example_en: Her legs are strong.
+  freq: 95185
+  rank: 914
+  voice_id: Matthew
+  word: leg
+  word_audio_file: leg.mp3
+- back_cards:
+  - audio_file: contain_The_box_contains_books.mp3
+    definition_en: To hold or include.
+    example_en: The box contains books.
+  - audio_file: contain_Contain_your_excitement.mp3
+    definition_en: To control or restrain.
+    example_en: Contain your excitement.
+  - audio_file: contain_The_drink_contains_sugar.mp3
+    definition_en: To have within.
+    example_en: The drink contains sugar.
+  - audio_file: contain_Contain_the_fire_quickly.mp3
+    definition_en: To limit or confine.
+    example_en: Contain the fire quickly.
+  - audio_file: contain_The_report_contains_data.mp3
+    definition_en: To encompass or cover.
+    example_en: The report contains data.
+  freq: 95143
+  rank: 915
+  voice_id: Matthew
+  word: contain
+  word_audio_file: contain.mp3
+- back_cards:
+  - audio_file: beat_He_beat_the_drum_loudly.mp3
+    definition_en: To strike or hit.
+    example_en: He beat the drum loudly.
+  - audio_file: beat_Our_team_beat_theirs.mp3
+    definition_en: To defeat or win.
+    example_en: Our team beat theirs.
+  - audio_file: beat_The_song_has_a_fast_beat.mp3
+    definition_en: A rhythm or pulse.
+    example_en: The song has a fast beat.
+  - audio_file: beat_Beat_the_eggs_well.mp3
+    definition_en: To mix or stir.
+    example_en: Beat the eggs well.
+  - audio_file: beat_The_cop_walked_his_beat.mp3
+    definition_en: A regular route.
+    example_en: The cop walked his beat.
+  freq: 94941
+  rank: 916
+  voice_id: Matthew
+  word: beat
+  word_audio_file: beat.mp3
+- back_cards:
+  - audio_file: cool_The_breeze_feels_cool.mp3
+    definition_en: Moderately cold.
+    example_en: The breeze feels cool.
+  - audio_file: cool_Thats_a_cool_jacket.mp3
+    definition_en: Stylish or awesome.
+    example_en: That’s a cool jacket.
+  - audio_file: cool_Cool_your_temper.mp3
+    definition_en: To calm or reduce.
+    example_en: Cool your temper.
+  - audio_file: cool_Im_cool_with_that_plan.mp3
+    definition_en: Agreeable or fine.
+    example_en: I’m cool with that plan.
+  - audio_file: cool_Stay_cool_under_pressure.mp3
+    definition_en: Unexcited or calm.
+    example_en: Stay cool under pressure.
+  freq: 94920
+  rank: 917
+  voice_id: Matthew
+  word: cool
+  word_audio_file: cool.mp3
+- back_cards:
+  - audio_file: democratic_A_democratic_government.mp3
+    definition_en: Relating to democracy.
+    example_en: A democratic government.
+  - audio_file: democratic_Her_views_are_democratic.mp3
+    definition_en: Favoring equal rights.
+    example_en: Her views are democratic.
+  - audio_file: democratic_The_democratic_candidate_spoke.mp3
+    definition_en: Of the Democratic Party.
+    example_en: The democratic candidate spoke.
+  - audio_file: democratic_A_democratic_process.mp3
+    definition_en: Involving public choice.
+    example_en: A democratic process.
+  - audio_file: democratic_Its_a_democratic_decision.mp3
+    definition_en: Fair or participatory.
+    example_en: It’s a democratic decision.
+  freq: 94862
+  rank: 918
+  voice_id: Matthew
+  word: democratic
+  word_audio_file: democratic.mp3
+- back_cards:
+  - audio_file: cold_Its_cold_outside.mp3
+    definition_en: Low in temperature.
+    example_en: It’s cold outside.
+  - audio_file: cold_Her_reply_was_cold.mp3
+    definition_en: Unfriendly or distant.
+    example_en: Her reply was cold.
+  - audio_file: cold_The_room_felt_cold.mp3
+    definition_en: Lacking warmth.
+    example_en: The room felt cold.
+  - audio_file: cold_I_caught_a_cold.mp3
+    definition_en: A common illness.
+    example_en: I caught a cold.
+  - audio_file: cold_He_gave_a_cold_stare.mp3
+    definition_en: Without emotion.
+    example_en: He gave a cold stare.
+  freq: 94856
+  rank: 919
+  voice_id: Matthew
+  word: cold
+  word_audio_file: cold.mp3
+- back_cards:
+  - audio_file: glass_The_glass_window_broke.mp3
+    definition_en: A hard, transparent material.
+    example_en: The glass window broke.
+  - audio_file: glass_I_filled_a_glass_with_water.mp3
+    definition_en: A drinking container.
+    example_en: I filled a glass with water.
+  - audio_file: glass_She_bought_glass_ornaments.mp3
+    definition_en: Made of glass.
+    example_en: She bought glass ornaments.
+  - audio_file: glass_Look_through_the_glass.mp3
+    definition_en: A lens or mirror.
+    example_en: Look through the glass.
+  - audio_file: glass_The_glass_predicts_rain.mp3
+    definition_en: A barometer.
+    example_en: The glass predicts rain.
+  freq: 94803
+  rank: 920
+  voice_id: Matthew
+  word: glass
+  word_audio_file: glass.mp3
+- back_cards:
+  - audio_file: improve_She_improved_her_skills.mp3
+    definition_en: To make better.
+    example_en: She improved her skills.
+  - audio_file: improve_Improve_the_design.mp3
+    definition_en: To enhance or upgrade.
+    example_en: Improve the design.
+  - audio_file: improve_His_health_is_improving.mp3
+    definition_en: To get better.
+    example_en: His health is improving.
+  - audio_file: improve_We_aim_to_improve_service.mp3
+    definition_en: To advance or refine.
+    example_en: We aim to improve service.
+  - audio_file: improve_The_situation_improved.mp3
+    definition_en: To increase in quality.
+    example_en: The situation improved.
+  freq: 94764
+  rank: 921
+  voice_id: Matthew
+  word: improve
+  word_audio_file: improve.mp3
+- back_cards:
+  - audio_file: adult_This_movie_is_for_adults.mp3
+    definition_en: A fully grown person.
+    example_en: This movie is for adults.
+  - audio_file: adult_Shes_an_adult_now.mp3
+    definition_en: Mature or grown-up.
+    example_en: She’s an adult now.
+  - audio_file: adult_Adults_can_vote.mp3
+    definition_en: Of legal age.
+    example_en: Adults can vote.
+  - audio_file: adult_The_adult_handled_the_issue.mp3
+    definition_en: A grown individual.
+    example_en: The adult handled the issue.
+  - audio_file: adult_Adult_content_is_restricted.mp3
+    definition_en: Not for children.
+    example_en: Adult content is restricted.
+  freq: 94547
+  rank: 922
+  voice_id: Matthew
+  word: adult
+  word_audio_file: adult.mp3
+- back_cards:
+  - audio_file: trade_We_made_a_fair_trade.mp3
+    definition_en: The act of exchanging.
+    example_en: We made a fair trade.
+  - audio_file: trade_They_trade_goods_globally.mp3
+    definition_en: To buy or sell.
+    example_en: They trade goods globally.
+  - audio_file: trade_Carpentry_is_his_trade.mp3
+    definition_en: A profession or craft.
+    example_en: Carpentry is his trade.
+  - audio_file: trade_Trade_increased_this_year.mp3
+    definition_en: Commerce or business.
+    example_en: Trade increased this year.
+  - audio_file: trade_Trade_your_card_for_mine.mp3
+    definition_en: To swap or barter.
+    example_en: Trade your card for mine.
+  freq: 94509
+  rank: 923
+  voice_id: Matthew
+  word: trade
+  word_audio_file: trade.mp3
+- back_cards:
+  - audio_file: religious_She_has_religious_beliefs.mp3
+    definition_en: Relating to religion.
+    example_en: She has religious beliefs.
+  - audio_file: religious_Hes_a_religious_person.mp3
+    definition_en: Devout or pious.
+    example_en: He’s a religious person.
+  - audio_file: religious_Religious_texts_were_studied.mp3
+    definition_en: Of spiritual matters.
+    example_en: Religious texts were studied.
+  - audio_file: religious_The_religious_ceremony_was_beautiful.mp3
+    definition_en: Faith-based or sacred.
+    example_en: The religious ceremony was beautiful.
+  - audio_file: religious_Shes_religious_about_her_routine.mp3
+    definition_en: Conscientiously faithful.
+    example_en: She’s religious about her routine.
+  freq: 94485
+  rank: 924
+  voice_id: Matthew
+  word: religious
+  word_audio_file: religious.mp3
+- back_cards:
+  - audio_file: review_Review_the_report_carefully.mp3
+    definition_en: To examine or assess.
+    example_en: Review the report carefully.
+  - audio_file: review_The_movie_got_good_reviews.mp3
+    definition_en: A formal evaluation.
+    example_en: The movie got good reviews.
+  - audio_file: review_I_reviewed_my_notes.mp3
+    definition_en: To look over again.
+    example_en: I reviewed my notes.
+  - audio_file: review_Write_a_book_review.mp3
+    definition_en: A critique or summary.
+    example_en: Write a book review.
+  - audio_file: review_The_team_reviewed_the_plan.mp3
+    definition_en: To inspect or check.
+    example_en: The team reviewed the plan.
+  freq: 94364
+  rank: 925
+  voice_id: Matthew
+  word: review
+  word_audio_file: review.mp3
+- back_cards:
+  - audio_file: address_Whats_your_home_address.mp3
+    definition_en: A place’s location.
+    example_en: What’s your home address?
+  - audio_file: address_She_addressed_the_crowd.mp3
+    definition_en: To speak to.
+    example_en: She addressed the crowd.
+  - audio_file: address_His_address_was_inspiring.mp3
+    definition_en: A formal speech.
+    example_en: His address was inspiring.
+  - audio_file: address_Address_the_issue_now.mp3
+    definition_en: To deal with.
+    example_en: Address the issue now.
+  - audio_file: address_Send_it_to_this_address.mp3
+    definition_en: Contact information.
+    example_en: Send it to this address.
+  freq: 94155
+  rank: 926
+  voice_id: Matthew
+  word: address
+  word_audio_file: address.mp3
+- back_cards:
+  - audio_file: association_Join_the_alumni_association.mp3
+    definition_en: A group or organization.
+    example_en: Join the alumni association.
+  - audio_file: association_Theres_an_association_between_them.mp3
+    definition_en: A connection or link.
+    example_en: There’s an association between them.
+  - audio_file: association_The_association_sets_standards.mp3
+    definition_en: A professional body.
+    example_en: The association sets standards.
+  - audio_file: association_Her_association_with_him_helped.mp3
+    definition_en: The act of associating.
+    example_en: Her association with him helped.
+  - audio_file: association_The_word_has_bad_associations.mp3
+    definition_en: A mental connection.
+    example_en: The word has bad associations.
+  freq: 94100
+  rank: 927
+  voice_id: Matthew
+  word: association
+  word_audio_file: association.mp3
+- back_cards:
+  - audio_file: measure_Measure_the_rooms_length.mp3
+    definition_en: To determine size or amount.
+    example_en: Measure the room’s length.
+  - audio_file: measure_A_measure_of_flour.mp3
+    definition_en: A unit or standard.
+    example_en: A measure of flour.
+  - audio_file: measure_Take_measures_to_improve.mp3
+    definition_en: An action or step.
+    example_en: Take measures to improve.
+  - audio_file: measure_The_measure_passed.mp3
+    definition_en: A law or proposal.
+    example_en: The measure passed.
+  - audio_file: measure_A_measure_of_success.mp3
+    definition_en: Extent or degree.
+    example_en: A measure of success.
+  freq: 93952
+  rank: 928
+  voice_id: Matthew
+  word: measure
+  word_audio_file: measure.mp3
+- back_cards:
+  - audio_file: stock_The_stores_stock_is_low.mp3
+    definition_en: A supply of goods.
+    example_en: The store’s stock is low.
+  - audio_file: stock_I_bought_some_stock.mp3
+    definition_en: Shares in a company.
+    example_en: I bought some stock.
+  - audio_file: stock_Stock_the_shelves_tonight.mp3
+    definition_en: To store or supply.
+    example_en: Stock the shelves tonight.
+  - audio_file: stock_The_farm_has_stock.mp3
+    definition_en: Livestock or animals.
+    example_en: The farm has stock.
+  - audio_file: stock_Chicken_stock_for_soup.mp3
+    definition_en: A basic ingredient.
+    example_en: Chicken stock for soup.
+  freq: 93809
+  rank: 929
+  voice_id: Matthew
+  word: stock
+  word_audio_file: stock.mp3
+- back_cards:
+  - audio_file: gas_Fill_the_car_with_gas.mp3
+    definition_en: A fuel like gasoline.
+    example_en: Fill the car with gas.
+  - audio_file: gas_The_gas_expanded_rapidly.mp3
+    definition_en: A state of matter.
+    example_en: The gas expanded rapidly.
+  - audio_file: gas_The_gas_smelled_strong.mp3
+    definition_en: A vapor or fume.
+    example_en: The gas smelled strong.
+  - audio_file: gas_That_party_was_a_gas.mp3
+    definition_en: Slang for talk or fun.
+    example_en: That party was a gas.
+  - audio_file: gas_Carbon_dioxide_is_a_gas.mp3
+    definition_en: Used in chemistry.
+    example_en: Carbon dioxide is a gas.
+  freq: 93763
+  rank: 930
+  voice_id: Matthew
+  word: gas
+  word_audio_file: gas.mp3
+- back_cards:
+  - audio_file: deep_The_water_is_deep_here.mp3
+    definition_en: Far down or inward.
+    example_en: The water is deep here.
+  - audio_file: deep_Shes_in_deep_thought.mp3
+    definition_en: Profound or intense.
+    example_en: She’s in deep thought.
+  - audio_file: deep_His_voice_is_deep.mp3
+    definition_en: Low in pitch.
+    example_en: His voice is deep.
+  - audio_file: deep_Its_a_deep_issue.mp3
+    definition_en: Complex or serious.
+    example_en: It’s a deep issue.
+  - audio_file: deep_The_treasure_is_buried_deep.mp3
+    definition_en: Far below surface.
+    example_en: The treasure is buried deep.
+  freq: 93753
+  rank: 931
+  voice_id: Matthew
+  word: deep
+  word_audio_file: deep.mp3
+- back_cards:
+  - audio_file: lawyer_The_lawyer_won_the_case.mp3
+    definition_en: A legal professional.
+    example_en: The lawyer won the case.
+  - audio_file: lawyer_Shes_a_skilled_lawyer.mp3
+    definition_en: One who practices law.
+    example_en: She’s a skilled lawyer.
+  - audio_file: lawyer_Hire_a_lawyer_for_advice.mp3
+    definition_en: An attorney or advocate.
+    example_en: Hire a lawyer for advice.
+  - audio_file: lawyer_The_lawyer_drafted_the_will.mp3
+    definition_en: Used in legal contexts.
+    example_en: The lawyer drafted the will.
+  - audio_file: lawyer_My_lawyer_handled_it.mp3
+    definition_en: A legal representative.
+    example_en: My lawyer handled it.
+  freq: 93526
+  rank: 932
+  voice_id: Matthew
+  word: lawyer
+  word_audio_file: lawyer.mp3
+- back_cards:
+  - audio_file: production_The_factorys_production_is_high.mp3
+    definition_en: The act of producing.
+    example_en: The factory’s production is high.
+  - audio_file: production_The_production_was_a_hit.mp3
+    definition_en: A movie or show.
+    example_en: The production was a hit.
+  - audio_file: production_Production_starts_tomorrow.mp3
+    definition_en: The process of making.
+    example_en: Production starts tomorrow.
+  - audio_file: production_Crop_production_increased.mp3
+    definition_en: Output or creation.
+    example_en: Crop production increased.
+  - audio_file: production_Its_a_theater_production.mp3
+    definition_en: A performance or work.
+    example_en: It’s a theater production.
+  freq: 93507
+  rank: 933
+  voice_id: Matthew
+  word: production
+  word_audio_file: production.mp3
+- back_cards:
+  - audio_file: relate_I_relate_to_her_story.mp3
+    definition_en: To connect or associate.
+    example_en: I relate to her story.
+  - audio_file: relate_He_related_his_experience.mp3
+    definition_en: To tell or describe.
+    example_en: He related his experience.
+  - audio_file: relate_The_issues_are_related.mp3
+    definition_en: To have a connection.
+    example_en: The issues are related.
+  - audio_file: relate_I_can_relate_to_that.mp3
+    definition_en: To understand or empathize.
+    example_en: I can relate to that.
+  - audio_file: relate_Relate_the_facts_clearly.mp3
+    definition_en: To link or tie.
+    example_en: Relate the facts clearly.
+  freq: 93433
+  rank: 934
+  voice_id: Matthew
+  word: relate
+  word_audio_file: relate.mp3
+- back_cards:
+  - audio_file: middle_Stand_in_the_middle.mp3
+    definition_en: The center or halfway point.
+    example_en: Stand in the middle.
+  - audio_file: middle_The_middle_child_smiled.mp3
+    definition_en: Intermediate or central.
+    example_en: The middle child smiled.
+  - audio_file: middle_Were_in_the_middle_of_it.mp3
+    definition_en: A position between.
+    example_en: We’re in the middle of it.
+  - audio_file: middle_Hes_wide_in_the_middle.mp3
+    definition_en: The waist or torso.
+    example_en: He’s wide in the middle.
+  - audio_file: middle_The_Middle_East_region.mp3
+    definition_en: A central area.
+    example_en: The Middle East region.
+  freq: 93428
+  rank: 935
+  voice_id: Matthew
+  word: middle
+  word_audio_file: middle.mp3
+- back_cards:
+  - audio_file: management_Good_management_is_key.mp3
+    definition_en: The act of managing.
+    example_en: Good management is key.
+  - audio_file: management_Management_approved_the_plan.mp3
+    definition_en: A group of managers.
+    example_en: Management approved the plan.
+  - audio_file: management_Time_management_helps.mp3
+    definition_en: Control or organization.
+    example_en: Time management helps.
+  - audio_file: management_Management_of_the_store.mp3
+    definition_en: The process of running.
+    example_en: Management of the store.
+  - audio_file: management_Project_management_is_tough.mp3
+    definition_en: Handling or direction.
+    example_en: Project management is tough.
+  freq: 93289
+  rank: 936
+  voice_id: Matthew
+  word: management
+  word_audio_file: management.mp3
+- back_cards:
+  - audio_file: original_The_original_plan_failed.mp3
+    definition_en: First or initial.
+    example_en: The original plan failed.
+  - audio_file: original_Her_idea_was_original.mp3
+    definition_en: New or creative.
+    example_en: Her idea was original.
+  - audio_file: original_This_is_the_original_painting.mp3
+    definition_en: Not a copy.
+    example_en: This is the original painting.
+  - audio_file: original_The_original_document_is_here.mp3
+    definition_en: Authentic or genuine.
+    example_en: The original document is here.
+  - audio_file: original_An_original_design_won.mp3
+    definition_en: Innovative or unique.
+    example_en: An original design won.
+  freq: 93230
+  rank: 937
+  voice_id: Matthew
+  word: original
+  word_audio_file: original.mp3
+- back_cards:
+  - audio_file: victim_The_victim_was_rescued.mp3
+    definition_en: A person harmed.
+    example_en: The victim was rescued.
+  - audio_file: victim_Victims_of_the_storm_fled.mp3
+    definition_en: One who suffers.
+    example_en: Victims of the storm fled.
+  - audio_file: victim_The_victim_reported_the_theft.mp3
+    definition_en: A target of crime.
+    example_en: The victim reported the theft.
+  - audio_file: victim_Hes_a_victim_of_lies.mp3
+    definition_en: Someone affected.
+    example_en: He’s a victim of lies.
+  - audio_file: victim_Support_for_crime_victims.mp3
+    definition_en: Used in legal contexts.
+    example_en: Support for crime victims.
+  freq: 93207
+  rank: 938
+  voice_id: Matthew
+  word: victim
+  word_audio_file: victim.mp3
+- back_cards:
+  - audio_file: cancer_Shes_fighting_breast_cancer.mp3
+    definition_en: A serious disease.
+    example_en: She’s fighting breast cancer.
+  - audio_file: cancer_Cancer_was_detected_early.mp3
+    definition_en: A malignant growth.
+    example_en: Cancer was detected early.
+  - audio_file: cancer_Cancer_research_is_vital.mp3
+    definition_en: Used in medical contexts.
+    example_en: Cancer research is vital.
+  - audio_file: cancer_Corruption_is_a_cancer.mp3
+    definition_en: A harmful influence.
+    example_en: Corruption is a cancer.
+  - audio_file: cancer_Her_sign_is_Cancer.mp3
+    definition_en: A zodiac sign.
+    example_en: Her sign is Cancer.
+  freq: 93157
+  rank: 939
+  voice_id: Matthew
+  word: cancer
+  word_audio_file: cancer.mp3
+- back_cards:
+  - audio_file: speech_His_speech_inspired_us.mp3
+    definition_en: A spoken address.
+    example_en: His speech inspired us.
+  - audio_file: speech_Her_speech_was_clear.mp3
+    definition_en: The act of speaking.
+    example_en: Her speech was clear.
+  - audio_file: speech_The_speech_of_the_region.mp3
+    definition_en: Language or dialect.
+    example_en: The speech of the region.
+  - audio_file: speech_Deliver_a_speech_tonight.mp3
+    definition_en: A formal talk.
+    example_en: Deliver a speech tonight.
+  - audio_file: speech_Free_speech_is_protected.mp3
+    definition_en: Oral expression.
+    example_en: Free speech is protected.
+  freq: 92837
+  rank: 940
+  voice_id: Matthew
+  word: speech
+  word_audio_file: speech.mp3
+- back_cards:
+  - audio_file: particular_This_particular_book_is_rare.mp3
+    definition_en: Specific or certain.
+    example_en: This particular book is rare.
+  - audio_file: particular_She_has_particular_tastes.mp3
+    definition_en: Special or unique.
+    example_en: She has particular tastes.
+  - audio_file: particular_Pay_particular_attention.mp3
+    definition_en: Detailed or focused.
+    example_en: Pay particular attention.
+  - audio_file: particular_No_particular_reason.mp3
+    definition_en: Individual or distinct.
+    example_en: No particular reason.
+  - audio_file: particular_A_particular_detail_stood_out.mp3
+    definition_en: Especially noteworthy.
+    example_en: A particular detail stood out.
+  freq: 92775
+  rank: 941
+  voice_id: Matthew
+  word: particular
+  word_audio_file: particular.mp3
+- back_cards:
+  - audio_file: trial_The_trial_begins_tomorrow.mp3
+    definition_en: A legal proceeding.
+    example_en: The trial begins tomorrow.
+  - audio_file: trial_The_drug_trial_succeeded.mp3
+    definition_en: A test or experiment.
+    example_en: The drug trial succeeded.
+  - audio_file: trial_It_was_a_trial_to_finish.mp3
+    definition_en: An attempt or effort.
+    example_en: It was a trial to finish.
+  - audio_file: trial_Life_is_full_of_trials.mp3
+    definition_en: A challenge or ordeal.
+    example_en: Life is full of trials.
+  - audio_file: trial_Trial_the_new_software.mp3
+    definition_en: To test or try.
+    example_en: Trial the new software.
+  freq: 92762
+  rank: 942
+  voice_id: Matthew
+  word: trial
+  word_audio_file: trial.mp3
+- back_cards:
+  - audio_file: none_None_of_them_arrived.mp3
+    definition_en: Not any or no one.
+    example_en: None of them arrived.
+  - audio_file: none_None_of_the_cake_is_left.mp3
+    definition_en: No part or amount.
+    example_en: None of the cake is left.
+  - audio_file: none_Shes_none_the_wiser.mp3
+    definition_en: Not at all.
+    example_en: She’s none the wiser.
+  - audio_file: none_I_have_none_to_give.mp3
+    definition_en: Used in negatives.
+    example_en: I have none to give.
+  - audio_file: none_None_answered_the_call.mp3
+    definition_en: No person or thing.
+    example_en: None answered the call.
+  freq: 92729
+  rank: 943
+  voice_id: Matthew
+  word: none
+  word_audio_file: none.mp3
+- back_cards:
+  - audio_file: item_Add_this_item_to_the_list.mp3
+    definition_en: A single thing.
+    example_en: Add this item to the list.
+  - audio_file: item_The_item_was_in_the_paper.mp3
+    definition_en: A piece of news.
+    example_en: The item was in the paper.
+  - audio_file: item_The_store_sells_many_items.mp3
+    definition_en: An article or object.
+    example_en: The store sells many items.
+  - audio_file: item_Discuss_each_item_separately.mp3
+    definition_en: A specific detail.
+    example_en: Discuss each item separately.
+  - audio_file: item_This_item_is_on_sale.mp3
+    definition_en: A unit or entry.
+    example_en: This item is on sale.
+  freq: 92545
+  rank: 944
+  voice_id: Matthew
+  word: item
+  word_audio_file: item.mp3
+- back_cards:
+  - audio_file: weight_The_weight_was_10_pounds.mp3
+    definition_en: The heaviness of something.
+    example_en: The weight was 10 pounds.
+  - audio_file: weight_Her_opinion_carries_weight.mp3
+    definition_en: Importance or influence.
+    example_en: Her opinion carries weight.
+  - audio_file: weight_Weight_the_bag_down.mp3
+    definition_en: To add heaviness.
+    example_en: Weight the bag down.
+  - audio_file: weight_Lift_the_weight_carefully.mp3
+    definition_en: A heavy object.
+    example_en: Lift the weight carefully.
+  - audio_file: weight_Check_your_body_weight.mp3
+    definition_en: A measure of mass.
+    example_en: Check your body weight.
+  freq: 92516
+  rank: 945
+  voice_id: Matthew
+  word: weight
+  word_audio_file: weight.mp3
+- back_cards:
+  - audio_file: tomorrow_Lets_meet_tomorrow.mp3
+    definition_en: The day after today.
+    example_en: Let’s meet tomorrow.
+  - audio_file: tomorrow_Tomorrow_brings_new_hope.mp3
+    definition_en: The near future.
+    example_en: Tomorrow brings new hope.
+  - audio_file: tomorrow_Tomorrow_is_a_holiday.mp3
+    definition_en: Used in planning.
+    example_en: Tomorrow is a holiday.
+  - audio_file: tomorrow_Call_me_tomorrow_morning.mp3
+    definition_en: The next day.
+    example_en: Call me tomorrow morning.
+  - audio_file: tomorrow_Tomorrow_well_try_again.mp3
+    definition_en: A coming time.
+    example_en: Tomorrow we’ll try again.
+  freq: 92490
+  rank: 946
+  voice_id: Matthew
+  word: tomorrow
+  word_audio_file: tomorrow.mp3
+- back_cards:
+  - audio_file: positive_Stay_positive_despite_challenges.mp3
+    definition_en: Optimistic or good.
+    example_en: Stay positive despite challenges.
+  - audio_file: positive_Im_positive_its_true.mp3
+    definition_en: Certain or sure.
+    example_en: I’m positive it’s true.
+  - audio_file: positive_She_gave_positive_feedback.mp3
+    definition_en: Affirming or constructive.
+    example_en: She gave positive feedback.
+  - audio_file: positive_The_test_result_was_positive.mp3
+    definition_en: A plus value.
+    example_en: The test result was positive.
+  - audio_file: positive_A_positive_change_occurred.mp3
+    definition_en: Helpful or beneficial.
+    example_en: A positive change occurred.
+  freq: 92223
+  rank: 947
+  voice_id: Matthew
+  word: positive
+  word_audio_file: positive.mp3
+- back_cards:
+  - audio_file: citizen_Shes_a_US_citizen.mp3
+    definition_en: A member of a state.
+    example_en: She’s a U.S. citizen.
+  - audio_file: citizen_Citizens_voted_today.mp3
+    definition_en: A resident of a city.
+    example_en: Citizens voted today.
+  - audio_file: citizen_Citizens_have_free_speech.mp3
+    definition_en: A person with rights.
+    example_en: Citizens have free speech.
+  - audio_file: citizen_Be_an_active_citizen.mp3
+    definition_en: A community member.
+    example_en: Be an active citizen.
+  - audio_file: citizen_Citizens_rallied_for_change.mp3
+    definition_en: A national or local.
+    example_en: Citizens rallied for change.
+  freq: 92182
+  rank: 948
+  voice_id: Matthew
+  word: citizen
+  word_audio_file: citizen.mp3
+- back_cards:
+  - audio_file: trip_We_took_a_road_trip.mp3
+    definition_en: A journey or travel.
+    example_en: We took a road trip.
+  - audio_file: trip_I_tripped_on_the_step.mp3
+    definition_en: To stumble or fall.
+    example_en: I tripped on the step.
+  - audio_file: trip_A_quick_trip_to_the_store.mp3
+    definition_en: A short outing.
+    example_en: A quick trip to the store.
+  - audio_file: trip_The_trip_was_memorable.mp3
+    definition_en: An experience or event.
+    example_en: The trip was memorable.
+  - audio_file: trip_Trip_the_alarm_carefully.mp3
+    definition_en: To trigger or activate.
+    example_en: Trip the alarm carefully.
+  freq: 91830
+  rank: 949
+  voice_id: Matthew
+  word: trip
+  word_audio_file: trip.mp3
+- back_cards:
+  - audio_file: establish_They_established_a_company.mp3
+    definition_en: To set up or found.
+    example_en: They established a company.
+  - audio_file: establish_Establish_the_facts_first.mp3
+    definition_en: To prove or confirm.
+    example_en: Establish the facts first.
+  - audio_file: establish_She_established_a_routine.mp3
+    definition_en: To create or start.
+    example_en: She established a routine.
+  - audio_file: establish_The_law_was_established.mp3
+    definition_en: To make official.
+    example_en: The law was established.
+  - audio_file: establish_Establish_trust_early.mp3
+    definition_en: To settle or institute.
+    example_en: Establish trust early.
+  freq: 91776
+  rank: 950
+  voice_id: Matthew
+  word: establish
+  word_audio_file: establish.mp3
+- back_cards:
+  - audio_file: executive_Shes_a_company_executive.mp3
+    definition_en: A senior manager.
+    example_en: She’s a company executive.
+  - audio_file: executive_Executive_decisions_were_made.mp3
+    definition_en: Relating to management.
+    example_en: Executive decisions were made.
+  - audio_file: executive_The_executive_led_the_meeting.mp3
+    definition_en: A high-level official.
+    example_en: The executive led the meeting.
+  - audio_file: executive_The_executive_branch_governs.mp3
+    definition_en: Of administrative power.
+    example_en: The executive branch governs.
+  - audio_file: executive_Executives_met_to_plan.mp3
+    definition_en: A business leader.
+    example_en: Executives met to plan.
+  freq: 91696
+  rank: 951
+  voice_id: Matthew
+  word: executive
+  word_audio_file: executive.mp3
+- back_cards:
+  - audio_file: politics_Shes_involved_in_politics.mp3
+    definition_en: The activities of government.
+    example_en: She’s involved in politics.
+  - audio_file: politics_Office_politics_can_be_tough.mp3
+    definition_en: Power dynamics.
+    example_en: Office politics can be tough.
+  - audio_file: politics_He_studies_politics.mp3
+    definition_en: Political science.
+    example_en: He studies politics.
+  - audio_file: politics_Politics_shape_policies.mp3
+    definition_en: Beliefs or activities.
+    example_en: Politics shape policies.
+  - audio_file: politics_Politics_affects_everyone.mp3
+    definition_en: Governance or influence.
+    example_en: Politics affects everyone.
+  freq: 91621
+  rank: 952
+  voice_id: Matthew
+  word: politics
+  word_audio_file: politics.mp3
+- back_cards:
+  - audio_file: stick_Pick_up_that_stick.mp3
+    definition_en: A thin piece of wood.
+    example_en: Pick up that stick.
+  - audio_file: stick_The_tape_wont_stick.mp3
+    definition_en: To adhere or attach.
+    example_en: The tape won’t stick.
+  - audio_file: stick_Stick_to_the_plan.mp3
+    definition_en: To remain or stay.
+    example_en: Stick to the plan.
+  - audio_file: stick_Use_a_stick_to_stir.mp3
+    definition_en: A rod or tool.
+    example_en: Use a stick to stir.
+  - audio_file: stick_Dont_stick_me_with_that.mp3
+    definition_en: To jab or poke.
+    example_en: Don’t stick me with that.
+  freq: 91597
+  rank: 953
+  voice_id: Matthew
+  word: stick
+  word_audio_file: stick.mp3
+- back_cards:
+  - audio_file: customer_The_customer_was_satisfied.mp3
+    definition_en: A person who buys.
+    example_en: The customer was satisfied.
+  - audio_file: customer_Customers_filled_the_store.mp3
+    definition_en: A client or patron.
+    example_en: Customers filled the store.
+  - audio_file: customer_Shes_a_regular_customer.mp3
+    definition_en: A buyer or user.
+    example_en: She’s a regular customer.
+  - audio_file: customer_Customer_service_is_key.mp3
+    definition_en: Used in business.
+    example_en: Customer service is key.
+  - audio_file: customer_Customers_demand_quality.mp3
+    definition_en: A consumer.
+    example_en: Customers demand quality.
+  freq: 91563
+  rank: 954
+  voice_id: Matthew
+  word: customer
+  word_audio_file: customer.mp3
+- back_cards:
+  - audio_file: manager_The_manager_runs_the_team.mp3
+    definition_en: A person who manages.
+    example_en: The manager runs the team.
+  - audio_file: manager_Shes_a_great_manager.mp3
+    definition_en: An overseer or director.
+    example_en: She’s a great manager.
+  - audio_file: manager_The_manager_made_a_decision.mp3
+    definition_en: A business leader.
+    example_en: The manager made a decision.
+  - audio_file: manager_Managers_oversee_projects.mp3
+    definition_en: One who controls.
+    example_en: Managers oversee projects.
+  - audio_file: manager_Talk_to_the_store_manager.mp3
+    definition_en: A supervisor.
+    example_en: Talk to the store manager.
+  freq: 91527
+  rank: 955
+  voice_id: Matthew
+  word: manager
+  word_audio_file: manager.mp3
+- back_cards:
+  - audio_file: publish_They_published_a_book.mp3
+    definition_en: To release to the public.
+    example_en: They published a book.
+  - audio_file: publish_The_article_was_published.mp3
+    definition_en: To print or produce.
+    example_en: The article was published.
+  - audio_file: publish_Publish_the_results_soon.mp3
+    definition_en: To make known.
+    example_en: Publish the results soon.
+  - audio_file: publish_The_paper_publishes_daily.mp3
+    definition_en: To issue or distribute.
+    example_en: The paper publishes daily.
+  - audio_file: publish_She_published_her_findings.mp3
+    definition_en: To share officially.
+    example_en: She published her findings.
+  freq: 91441
+  rank: 956
+  voice_id: Matthew
+  word: publish
+  word_audio_file: publish.mp3
+- back_cards:
+  - audio_file: popular_The_song_is_very_popular.mp3
+    definition_en: Widely liked.
+    example_en: The song is very popular.
+  - audio_file: popular_Hes_a_popular_actor.mp3
+    definition_en: Well-known or famous.
+    example_en: He’s a popular actor.
+  - audio_file: popular_This_is_a_popular_choice.mp3
+    definition_en: Appealing to many.
+    example_en: This is a popular choice.
+  - audio_file: popular_Popular_opinion_shifted.mp3
+    definition_en: Of the general public.
+    example_en: Popular opinion shifted.
+  - audio_file: popular_Its_a_popular_trend.mp3
+    definition_en: Trendy or current.
+    example_en: It’s a popular trend.
+  freq: 91435
+  rank: 957
+  voice_id: Matthew
+  word: popular
+  word_audio_file: popular.mp3
+- back_cards:
+  - audio_file: sing_She_sings_beautifully.mp3
+    definition_en: To produce musical sounds.
+    example_en: She sings beautifully.
+  - audio_file: sing_He_sang_at_the_concert.mp3
+    definition_en: To perform a song.
+    example_en: He sang at the concert.
+  - audio_file: sing_The_birds_sing_at_dawn.mp3
+    definition_en: To make a melody.
+    example_en: The birds sing at dawn.
+  - audio_file: sing_Sing_the_anthem_proudly.mp3
+    definition_en: To chant or recite.
+    example_en: Sing the anthem proudly.
+  - audio_file: sing_They_sang_all_night.mp3
+    definition_en: To celebrate in song.
+    example_en: They sang all night.
+  freq: 91395
+  rank: 958
+  voice_id: Matthew
+  word: sing
+  word_audio_file: sing.mp3
+- back_cards:
+  - audio_file: ahead_Go_ahead_and_start.mp3
+    definition_en: In front or forward.
+    example_en: Go ahead and start.
+  - audio_file: ahead_Shes_ahead_in_the_race.mp3
+    definition_en: In the lead.
+    example_en: She’s ahead in the race.
+  - audio_file: ahead_Plan_ahead_for_tomorrow.mp3
+    definition_en: In the future.
+    example_en: Plan ahead for tomorrow.
+  - audio_file: ahead_Call_ahead_to_reserve.mp3
+    definition_en: Before or earlier.
+    example_en: Call ahead to reserve.
+  - audio_file: ahead_Were_moving_ahead.mp3
+    definition_en: Advancing or progressing.
+    example_en: We’re moving ahead.
+  freq: 91325
+  rank: 959
+  voice_id: Matthew
+  word: ahead
+  word_audio_file: ahead.mp3
+- back_cards:
+  - audio_file: conference_The_conference_starts_tomorrow.mp3
+    definition_en: A formal meeting.
+    example_en: The conference starts tomorrow.
+  - audio_file: conference_She_spoke_at_the_conference.mp3
+    definition_en: A professional gathering.
+    example_en: She spoke at the conference.
+  - audio_file: conference_We_had_a_conference_call.mp3
+    definition_en: A discussion or talk.
+    example_en: We had a conference call.
+  - audio_file: conference_The_conference_was_huge.mp3
+    definition_en: An organized event.
+    example_en: The conference was huge.
+  - audio_file: conference_The_team_won_the_conference.mp3
+    definition_en: A league or group.
+    example_en: The team won the conference.
+  freq: 91185
+  rank: 960
+  voice_id: Matthew
+  word: conference
+  word_audio_file: conference.mp3
+- back_cards:
+  - audio_file: total_The_total_cost_was_50.mp3
+    definition_en: The whole amount.
+    example_en: The total cost was $50.
+  - audio_file: total_It_was_a_total_disaster.mp3
+    definition_en: Complete or absolute.
+    example_en: It was a total disaster.
+  - audio_file: total_Total_the_expenses_now.mp3
+    definition_en: To add up.
+    example_en: Total the expenses now.
+  - audio_file: total_The_total_number_of_votes.mp3
+    definition_en: Entire or full.
+    example_en: The total number of votes.
+  - audio_file: total_Total_your_hours_worked.mp3
+    definition_en: To sum or tally.
+    example_en: Total your hours worked.
+  freq: 91071
+  rank: 961
+  voice_id: Matthew
+  word: total
+  word_audio_file: total.mp3
+- back_cards:
+  - audio_file: discover_She_discovered_a_new_species.mp3
+    definition_en: To find or uncover.
+    example_en: She discovered a new species.
+  - audio_file: discover_I_discovered_the_truth.mp3
+    definition_en: To learn or realize.
+    example_en: I discovered the truth.
+  - audio_file: discover_They_discovered_a_cave.mp3
+    definition_en: To explore or reveal.
+    example_en: They discovered a cave.
+  - audio_file: discover_He_discovered_a_great_book.mp3
+    definition_en: To come across.
+    example_en: He discovered a great book.
+  - audio_file: discover_Scientists_discovered_a_cure.mp3
+    definition_en: To make known.
+    example_en: Scientists discovered a cure.
+  freq: 90959
+  rank: 962
+  voice_id: Matthew
+  word: discover
+  word_audio_file: discover.mp3
+- back_cards:
+  - audio_file: fast_She_runs_very_fast.mp3
+    definition_en: Quick or rapid.
+    example_en: She runs very fast.
+  - audio_file: fast_They_fast_during_the_holiday.mp3
+    definition_en: To abstain from food.
+    example_en: They fast during the holiday.
+  - audio_file: fast_Hold_fast_to_the_rope.mp3
+    definition_en: Firmly fixed.
+    example_en: Hold fast to the rope.
+  - audio_file: fast_The_fast_car_sped_by.mp3
+    definition_en: Speedy or swift.
+    example_en: The fast car sped by.
+  - audio_file: fast_The_fast_lasts_a_day.mp3
+    definition_en: A period of fasting.
+    example_en: The fast lasts a day.
+  freq: 90956
+  rank: 963
+  voice_id: Matthew
+  word: fast
+  word_audio_file: fast.mp3
+- back_cards:
+  - audio_file: direction_Head_in_that_direction.mp3
+    definition_en: A course or path.
+    example_en: Head in that direction.
+  - audio_file: direction_Follow_the_directions_carefully.mp3
+    definition_en: Guidance or instruction.
+    example_en: Follow the directions carefully.
+  - audio_file: direction_The_direction_was_north.mp3
+    definition_en: A way or route.
+    example_en: The direction was north.
+  - audio_file: direction_Under_her_direction_we_won.mp3
+    definition_en: Management or control.
+    example_en: Under her direction, we won.
+  - audio_file: direction_The_direction_of_the_market.mp3
+    definition_en: A trend or tendency.
+    example_en: The direction of the market.
+  freq: 90826
+  rank: 964
+  voice_id: Matthew
+  word: direction
+  word_audio_file: direction.mp3
+- back_cards:
+  - audio_file: sunday_We_meet_on_Sunday.mp3
+    definition_en: The first day of the week.
+    example_en: We meet on Sunday.
+  - audio_file: sunday_Sunday_is_for_relaxing.mp3
+    definition_en: A day of rest.
+    example_en: Sunday is for relaxing.
+  - audio_file: sunday_Sunday_is_a_holiday.mp3
+    definition_en: Used in calendars.
+    example_en: Sunday is a holiday.
+  - audio_file: sunday_Church_is_on_Sunday.mp3
+    definition_en: The Sabbath for some.
+    example_en: Church is on Sunday.
+  - audio_file: sunday_Sunday_brunch_is_fun.mp3
+    definition_en: A weekend day.
+    example_en: Sunday brunch is fun.
+  freq: 90771
+  rank: 965
+  voice_id: Matthew
+  word: sunday
+  word_audio_file: sunday.mp3
+- back_cards:
+  - audio_file: maintain_Maintain_your_car_regularly.mp3
+    definition_en: To keep in condition.
+    example_en: Maintain your car regularly.
+  - audio_file: maintain_She_maintains_her_innocence.mp3
+    definition_en: To preserve or uphold.
+    example_en: She maintains her innocence.
+  - audio_file: maintain_Maintain_a_steady_pace.mp3
+    definition_en: To continue or sustain.
+    example_en: Maintain a steady pace.
+  - audio_file: maintain_He_maintains_his_family.mp3
+    definition_en: To support or provide.
+    example_en: He maintains his family.
+  - audio_file: maintain_Maintain_the_website_daily.mp3
+    definition_en: To keep up.
+    example_en: Maintain the website daily.
+  freq: 90737
+  rank: 966
+  voice_id: Matthew
+  word: maintain
+  word_audio_file: maintain.mp3
+- back_cards:
+  - audio_file: majority_The_majority_voted_yes.mp3
+    definition_en: More than half.
+    example_en: The majority voted yes.
+  - audio_file: majority_The_majority_of_people_agree.mp3
+    definition_en: The greater part.
+    example_en: The majority of people agree.
+  - audio_file: majority_She_reached_majority_at_18.mp3
+    definition_en: A legal age.
+    example_en: She reached majority at 18.
+  - audio_file: majority_The_majority_rules_here.mp3
+    definition_en: The larger group.
+    example_en: The majority rules here.
+  - audio_file: majority_The_majority_opinion_prevailed.mp3
+    definition_en: A dominant portion.
+    example_en: The majority opinion prevailed.
+  freq: 90548
+  rank: 967
+  voice_id: Matthew
+  word: majority
+  word_audio_file: majority.mp3
+- back_cards:
+  - audio_file: peace_I_found_peace_in_the_forest.mp3
+    definition_en: A state of calm.
+    example_en: I found peace in the forest.
+  - audio_file: peace_The_treaty_brought_peace.mp3
+    definition_en: Freedom from conflict.
+    example_en: The treaty brought peace.
+  - audio_file: peace_Shes_at_peace_now.mp3
+    definition_en: Tranquility or serenity.
+    example_en: She’s at peace now.
+  - audio_file: peace_Lets_keep_the_peace.mp3
+    definition_en: Harmony or quiet.
+    example_en: Let’s keep the peace.
+  - audio_file: peace_Peace_talks_began.mp3
+    definition_en: Absence of war.
+    example_en: Peace talks began.
+  freq: 90518
+  rank: 968
+  voice_id: Matthew
+  word: peace
+  word_audio_file: peace.mp3
+- back_cards:
+  - audio_file: dinner_Dinner_is_at_seven.mp3
+    definition_en: The main evening meal.
+    example_en: Dinner is at seven.
+  - audio_file: dinner_We_attended_a_dinner_party.mp3
+    definition_en: A formal meal.
+    example_en: We attended a dinner party.
+  - audio_file: dinner_Whats_for_dinner.mp3
+    definition_en: Food served at night.
+    example_en: What’s for dinner?
+  - audio_file: dinner_The_dinner_was_elegant.mp3
+    definition_en: A social event.
+    example_en: The dinner was elegant.
+  - audio_file: dinner_Join_us_for_dinner.mp3
+    definition_en: An evening gathering.
+    example_en: Join us for dinner.
+  freq: 90516
+  rank: 969
+  voice_id: Matthew
+  word: dinner
+  word_audio_file: dinner.mp3
+- back_cards:
+  - audio_file: partner_My_business_partner_is_great.mp3
+    definition_en: A person who shares.
+    example_en: My business partner is great.
+  - audio_file: partner_Shes_my_life_partner.mp3
+    definition_en: A romantic companion.
+    example_en: She’s my life partner.
+  - audio_file: partner_Lets_partner_on_this_project.mp3
+    definition_en: To work together.
+    example_en: Let’s partner on this project.
+  - audio_file: partner_Hes_my_partner_in_tennis.mp3
+    definition_en: A teammate or ally.
+    example_en: He’s my partner in tennis.
+  - audio_file: partner_Partners_in_crime_they_joked.mp3
+    definition_en: A collaborator.
+    example_en: Partners in crime, they joked.
+  freq: 90455
+  rank: 970
+  voice_id: Matthew
+  word: partner
+  word_audio_file: partner.mp3
+- back_cards:
+  - audio_file: user_The_user_logged_in.mp3
+    definition_en: A person who uses.
+    example_en: The user logged in.
+  - audio_file: user_Users_love_this_app.mp3
+    definition_en: One who operates.
+    example_en: Users love this app.
+  - audio_file: user_The_user_guide_is_clear.mp3
+    definition_en: A consumer or client.
+    example_en: The user guide is clear.
+  - audio_file: user_Users_reported_a_bug.mp3
+    definition_en: In technology contexts.
+    example_en: Users reported a bug.
+  - audio_file: user_The_user_entered_the_data.mp3
+    definition_en: A person accessing.
+    example_en: The user entered the data.
+  freq: 90342
+  rank: 971
+  voice_id: Matthew
+  word: user
+  word_audio_file: user.mp3
+- back_cards:
+  - audio_file: above_The_plane_flew_above.mp3
+    definition_en: Higher than or over.
+    example_en: The plane flew above.
+  - audio_file: above_Above_average_performance.mp3
+    definition_en: More than or beyond.
+    example_en: Above average performance.
+  - audio_file: above_The_shelf_is_above.mp3
+    definition_en: In a higher position.
+    example_en: The shelf is above.
+  - audio_file: above_See_the_section_above.mp3
+    definition_en: Earlier or prior.
+    example_en: See the section above.
+  - audio_file: above_Shes_above_such_gossip.mp3
+    definition_en: Superior to.
+    example_en: She’s above such gossip.
+  freq: 90318
+  rank: 972
+  voice_id: Matthew
+  word: above
+  word_audio_file: above.mp3
+- back_cards:
+  - audio_file: fly_The_bird_flew_away.mp3
+    definition_en: To move through the air.
+    example_en: The bird flew away.
+  - audio_file: fly_Ill_fly_to_Paris.mp3
+    definition_en: To travel by plane.
+    example_en: I’ll fly to Paris.
+  - audio_file: fly_A_fly_landed_on_the_table.mp3
+    definition_en: A winged insect.
+    example_en: A fly landed on the table.
+  - audio_file: fly_Time_flies_when_youre_busy.mp3
+    definition_en: To move quickly.
+    example_en: Time flies when you’re busy.
+  - audio_file: fly_Fly_the_kite_high.mp3
+    definition_en: To operate or soar.
+    example_en: Fly the kite high.
+  freq: 90236
+  rank: 973
+  voice_id: Matthew
+  word: fly
+  word_audio_file: fly.mp3
+- back_cards:
+  - audio_file: bag_Put_it_in_the_bag.mp3
+    definition_en: A flexible container.
+    example_en: Put it in the bag.
+  - audio_file: bag_He_bagged_the_prize.mp3
+    definition_en: To capture or catch.
+    example_en: He bagged the prize.
+  - audio_file: bag_Her_bag_is_stylish.mp3
+    definition_en: A sack or purse.
+    example_en: Her bag is stylish.
+  - audio_file: bag_Bag_the_groceries_quickly.mp3
+    definition_en: To pack or store.
+    example_en: Bag the groceries quickly.
+  - audio_file: bag_Thats_not_my_bag.mp3
+    definition_en: Slang for interest.
+    example_en: That’s not my bag.
+  freq: 90234
+  rank: 974
+  voice_id: Matthew
+  word: bag
+  word_audio_file: bag.mp3
+- back_cards:
+  - audio_file: therefore_It_rained_therefore_we_stayed.mp3
+    definition_en: For that reason.
+    example_en: It rained, therefore we stayed.
+  - audio_file: therefore_She_studied_therefore_passed.mp3
+    definition_en: As a result.
+    example_en: She studied, therefore passed.
+  - audio_file: therefore_Hes_late_therefore_we_start.mp3
+    definition_en: Consequently or thus.
+    example_en: He’s late, therefore we start.
+  - audio_file: therefore_Therefore_the_answer_is_yes.mp3
+    definition_en: Used in logic.
+    example_en: Therefore, the answer is yes.
+  - audio_file: therefore_Therefore_we_must_act.mp3
+    definition_en: Indicating conclusion.
+    example_en: Therefore, we must act.
+  freq: 89981
+  rank: 975
+  voice_id: Matthew
+  word: therefore
+  word_audio_file: therefore.mp3
+- back_cards:
+  - audio_file: rich_Hes_a_rich_businessman.mp3
+    definition_en: Having much wealth.
+    example_en: He’s a rich businessman.
+  - audio_file: rich_The_land_is_rich_in_resources.mp3
+    definition_en: Abundant or plentiful.
+    example_en: The land is rich in resources.
+  - audio_file: rich_The_cake_is_rich_and_sweet.mp3
+    definition_en: Full of flavor.
+    example_en: The cake is rich and sweet.
+  - audio_file: rich_A_rich_red_color.mp3
+    definition_en: Deep or vivid.
+    example_en: A rich red color.
+  - audio_file: rich_Her_dress_was_rich.mp3
+    definition_en: Luxurious or ornate.
+    example_en: Her dress was rich.
+  freq: 89706
+  rank: 976
+  voice_id: Matthew
+  word: rich
+  word_audio_file: rich.mp3
+- back_cards:
+  - audio_file: owner_The_owner_of_the_shop.mp3
+    definition_en: A person who owns.
+    example_en: The owner of the shop.
+  - audio_file: owner_Shes_the_cars_owner.mp3
+    definition_en: One with possession.
+    example_en: She’s the car’s owner.
+  - audio_file: owner_The_owner_renovated_the_house.mp3
+    definition_en: A property holder.
+    example_en: The owner renovated the house.
+  - audio_file: owner_Hes_the_lands_owner.mp3
+    definition_en: A legal possessor.
+    example_en: He’s the land’s owner.
+  - audio_file: owner_The_owner_hired_new_staff.mp3
+    definition_en: A business proprietor.
+    example_en: The owner hired new staff.
+  freq: 89612
+  rank: 977
+  voice_id: Matthew
+  word: owner
+  word_audio_file: owner.mp3
+- back_cards:
+  - audio_file: tough_Its_a_tough_job.mp3
+    definition_en: Difficult or challenging.
+    example_en: It’s a tough job.
+  - audio_file: tough_This_fabric_is_tough.mp3
+    definition_en: Strong or durable.
+    example_en: This fabric is tough.
+  - audio_file: tough_Shes_a_tough_competitor.mp3
+    definition_en: Hard or resilient.
+    example_en: She’s a tough competitor.
+  - audio_file: tough_Hes_a_tough_teacher.mp3
+    definition_en: Strict or firm.
+    example_en: He’s a tough teacher.
+  - audio_file: tough_Thats_a_tough_break.mp3
+    definition_en: Unfortunate or rough.
+    example_en: That’s a tough break.
+  freq: 89612
+  rank: 978
+  voice_id: Matthew
+  word: tough
+  word_audio_file: tough.mp3
+- back_cards:
+  - audio_file: shall_We_shall_meet_tomorrow.mp3
+    definition_en: Used to express future.
+    example_en: We shall meet tomorrow.
+  - audio_file: shall_You_shall_obey_the_rules.mp3
+    definition_en: To indicate obligation.
+    example_en: You shall obey the rules.
+  - audio_file: shall_Shall_we_begin.mp3
+    definition_en: In formal contexts.
+    example_en: Shall we begin?
+  - audio_file: shall_I_shall_return_soon.mp3
+    definition_en: To promise or intend.
+    example_en: I shall return soon.
+  - audio_file: shall_The_contract_shall_expire.mp3
+    definition_en: Used in legal terms.
+    example_en: The contract shall expire.
+  freq: 89582
+  rank: 979
+  voice_id: Matthew
+  word: shall
+  word_audio_file: shall.mp3
+- back_cards:
+  - audio_file: inside_Come_inside_the_house.mp3
+    definition_en: Within or indoors.
+    example_en: Come inside the house.
+  - audio_file: inside_The_inside_of_the_box.mp3
+    definition_en: The inner part.
+    example_en: The inside of the box.
+  - audio_file: inside_I_have_inside_information.mp3
+    definition_en: Confidential or secret.
+    example_en: I have inside information.
+  - audio_file: inside_Its_warm_inside.mp3
+    definition_en: Within a place.
+    example_en: It’s warm inside.
+  - audio_file: inside_The_inside_track_is_faster.mp3
+    definition_en: Inward or internal.
+    example_en: The inside track is faster.
+  freq: 89494
+  rank: 980
+  voice_id: Matthew
+  word: inside
+  word_audio_file: inside.mp3
+- back_cards:
+  - audio_file: voter_Voters_went_to_the_polls.mp3
+    definition_en: A person who votes.
+    example_en: Voters went to the polls.
+  - audio_file: voter_Shes_a_registered_voter.mp3
+    definition_en: An elector.
+    example_en: She’s a registered voter.
+  - audio_file: voter_Voters_decided_the_outcome.mp3
+    definition_en: One who chooses.
+    example_en: Voters decided the outcome.
+  - audio_file: voter_Voters_turned_out_in_droves.mp3
+    definition_en: A participant in elections.
+    example_en: Voters turned out in droves.
+  - audio_file: voter_Voters_shaped_the_policy.mp3
+    definition_en: A citizen with rights.
+    example_en: Voters shaped the policy.
+  freq: 89245
+  rank: 981
+  voice_id: Matthew
+  word: voter
+  word_audio_file: voter.mp3
+- back_cards:
+  - audio_file: tool_Use_a_hammer_as_a_tool.mp3
+    definition_en: A device for work.
+    example_en: Use a hammer as a tool.
+  - audio_file: tool_Tools_are_in_the_shed.mp3
+    definition_en: An instrument or implement.
+    example_en: Tools are in the shed.
+  - audio_file: tool_Education_is_a_tool_for_success.mp3
+    definition_en: A means to achieve.
+    example_en: Education is a tool for success.
+  - audio_file: tool_Tool_the_leather_carefully.mp3
+    definition_en: To equip or shape.
+    example_en: Tool the leather carefully.
+  - audio_file: tool_This_app_is_a_great_tool.mp3
+    definition_en: A helpful item.
+    example_en: This app is a great tool.
+  freq: 89236
+  rank: 982
+  voice_id: Matthew
+  word: tool
+  word_audio_file: tool.mp3
+- back_cards:
+  - audio_file: june_June_is_warm_this_year.mp3
+    definition_en: The sixth month.
+    example_en: June is warm this year.
+  - audio_file: june_We_met_in_June.mp3
+    definition_en: A time period.
+    example_en: We met in June.
+  - audio_file: june_June_1st_is_a_holiday.mp3
+    definition_en: Used in calendars.
+    example_en: June 1st is a holiday.
+  - audio_file: june_June_brings_long_days.mp3
+    definition_en: A summer month.
+    example_en: June brings long days.
+  - audio_file: june_The_wedding_is_in_June.mp3
+    definition_en: A month for events.
+    example_en: The wedding is in June.
+  freq: 89233
+  rank: 983
+  voice_id: Matthew
+  word: june
+  word_audio_file: june.mp3
+- back_cards:
+  - audio_file: mountain_The_mountain_was_snowcapped.mp3
+    definition_en: A large landform.
+    example_en: The mountain was snow-capped.
+  - audio_file: mountain_We_climbed_the_mountain.mp3
+    definition_en: A high elevation.
+    example_en: We climbed the mountain.
+  - audio_file: mountain_A_mountain_of_work_awaits.mp3
+    definition_en: A great amount.
+    example_en: A mountain of work awaits.
+  - audio_file: mountain_The_Rocky_Mountains_are_vast.mp3
+    definition_en: Used in geography.
+    example_en: The Rocky Mountains are vast.
+  - audio_file: mountain_Its_a_mountain_to_overcome.mp3
+    definition_en: A steep challenge.
+    example_en: It’s a mountain to overcome.
+  freq: 88984
+  rank: 984
+  voice_id: Matthew
+  word: mountain
+  word_audio_file: mountain.mp3
+- back_cards:
+  - audio_file: range_A_wide_range_of_options.mp3
+    definition_en: A series or extent.
+    example_en: A wide range of options.
+  - audio_file: range_The_range_was_breathtaking.mp3
+    definition_en: A mountain chain.
+    example_en: The range was breathtaking.
+  - audio_file: range_Prices_range_from_10_to_50.mp3
+    definition_en: To vary or extend.
+    example_en: Prices range from $10 to $50.
+  - audio_file: range_Practice_at_the_gun_range.mp3
+    definition_en: A shooting area.
+    example_en: Practice at the gun range.
+  - audio_file: range_The_missiles_range_is_long.mp3
+    definition_en: Scope or distance.
+    example_en: The missile’s range is long.
+  freq: 88892
+  rank: 985
+  voice_id: Matthew
+  word: range
+  word_audio_file: range.mp3
+- back_cards:
+  - audio_file: coach_The_coach_trained_the_team.mp3
+    definition_en: A sports trainer.
+    example_en: The coach trained the team.
+  - audio_file: coach_We_took_a_coach_to_London.mp3
+    definition_en: A vehicle or bus.
+    example_en: We took a coach to London.
+  - audio_file: coach_She_coached_me_in_math.mp3
+    definition_en: To train or guide.
+    example_en: She coached me in math.
+  - audio_file: coach_My_coach_gave_great_advice.mp3
+    definition_en: A mentor or advisor.
+    example_en: My coach gave great advice.
+  - audio_file: coach_I_flew_coach_class.mp3
+    definition_en: A class of travel.
+    example_en: I flew coach class.
+  freq: 88826
+  rank: 986
+  voice_id: Matthew
+  word: coach
+  word_audio_file: coach.mp3
+- back_cards:
+  - audio_file: fear_Fear_gripped_her_heart.mp3
+    definition_en: A feeling of anxiety.
+    example_en: Fear gripped her heart.
+  - audio_file: fear_I_fear_the_dark.mp3
+    definition_en: To be afraid of.
+    example_en: I fear the dark.
+  - audio_file: fear_Her_greatest_fear_is_heights.mp3
+    definition_en: A cause of worry.
+    example_en: Her greatest fear is heights.
+  - audio_file: fear_Fear_stopped_him_from_trying.mp3
+    definition_en: Dread or apprehension.
+    example_en: Fear stopped him from trying.
+  - audio_file: fear_They_fear_a_storm.mp3
+    definition_en: To anticipate harm.
+    example_en: They fear a storm.
+  freq: 88724
+  rank: 987
+  voice_id: Matthew
+  word: fear
+  word_audio_file: fear.mp3
+- back_cards:
+  - audio_file: friday_We_meet_on_Friday.mp3
+    definition_en: The fifth weekday.
+    example_en: We meet on Friday.
+  - audio_file: friday_Friday_is_casual_day.mp3
+    definition_en: A day before the weekend.
+    example_en: Friday is casual day.
+  - audio_file: friday_Friday_night_is_busy.mp3
+    definition_en: Used in calendars.
+    example_en: Friday night is busy.
+  - audio_file: friday_Finish_by_Friday.mp3
+    definition_en: A workweek end.
+    example_en: Finish by Friday.
+  - audio_file: friday_Friday_plans_are_set.mp3
+    definition_en: A social day.
+    example_en: Friday plans are set.
+  freq: 88632
+  rank: 988
+  voice_id: Matthew
+  word: friday
+  word_audio_file: friday.mp3
+- back_cards:
+  - audio_file: attorney_The_attorney_filed_the_case.mp3
+    definition_en: A lawyer or legal agent.
+    example_en: The attorney filed the case.
+  - audio_file: attorney_My_attorney_advised_me.mp3
+    definition_en: A legal representative.
+    example_en: My attorney advised me.
+  - audio_file: attorney_The_attorney_negotiated.mp3
+    definition_en: One who acts for another.
+    example_en: The attorney negotiated.
+  - audio_file: attorney_Hire_an_attorney_now.mp3
+    definition_en: Used in legal contexts.
+    example_en: Hire an attorney now.
+  - audio_file: attorney_The_attorney_won_the_trial.mp3
+    definition_en: A professional advocate.
+    example_en: The attorney won the trial.
+  freq: 88616
+  rank: 989
+  voice_id: Matthew
+  word: attorney
+  word_audio_file: attorney.mp3
+- back_cards:
+  - audio_file: unless_I_wont_go_unless_you_do.mp3
+    definition_en: Except if or unless.
+    example_en: I won’t go unless you do.
+  - audio_file: unless_Unless_it_rains_well_play.mp3
+    definition_en: Used in conditions.
+    example_en: Unless it rains, we’ll play.
+  - audio_file: unless_Unless_stated_its_free.mp3
+    definition_en: If not or otherwise.
+    example_en: Unless stated, it’s free.
+  - audio_file: unless_Dont_call_unless_urgent.mp3
+    definition_en: As a condition.
+    example_en: Don’t call unless urgent.
+  - audio_file: unless_Unless_he_agrees_we_wait.mp3
+    definition_en: Except under circumstances.
+    example_en: Unless he agrees, we wait.
+  freq: 88605
+  rank: 990
+  voice_id: Matthew
+  word: unless
+  word_audio_file: unless.mp3
+- back_cards:
+  - audio_file: nor_Neither_tea_nor_coffee.mp3
+    definition_en: Used with neither.
+    example_en: Neither tea nor coffee.
+  - audio_file: nor_I_dont_like_it_nor_do_you.mp3
+    definition_en: And not either.
+    example_en: I don’t like it, nor do you.
+  - audio_file: nor_Nor_did_she_respond.mp3
+    definition_en: Used in negatives.
+    example_en: Nor did she respond.
+  - audio_file: nor_Nor_rain_nor_snow_stopped_us.mp3
+    definition_en: To deny both.
+    example_en: Nor rain nor snow stopped us.
+  - audio_file: nor_I_cant_nor_will_I_try.mp3
+    definition_en: A logical connector.
+    example_en: I can’t, nor will I try.
+  freq: 88431
+  rank: 991
+  voice_id: Matthew
+  word: nor
+  word_audio_file: nor.mp3
+- back_cards:
+  - audio_file: expert_Shes_an_expert_in_coding.mp3
+    definition_en: A highly skilled person.
+    example_en: She’s an expert in coding.
+  - audio_file: expert_Hes_an_expert_witness.mp3
+    definition_en: Having great knowledge.
+    example_en: He’s an expert witness.
+  - audio_file: expert_Expert_advice_was_given.mp3
+    definition_en: Skilled or proficient.
+    example_en: Expert advice was given.
+  - audio_file: expert_Consult_an_expert_first.mp3
+    definition_en: A specialist.
+    example_en: Consult an expert first.
+  - audio_file: expert_Experts_analyzed_the_data.mp3
+    definition_en: Mastery in a field.
+    example_en: Experts analyzed the data.
+  freq: 88134
+  rank: 992
+  voice_id: Matthew
+  word: expert
+  word_audio_file: expert.mp3
+- back_cards:
+  - audio_file: structure_The_structure_was_sturdy.mp3
+    definition_en: A building or framework.
+    example_en: The structure was sturdy.
+  - audio_file: structure_The_companys_structure_changed.mp3
+    definition_en: An arrangement or system.
+    example_en: The company’s structure changed.
+  - audio_file: structure_Structure_your_essay_well.mp3
+    definition_en: To organize or build.
+    example_en: Structure your essay well.
+  - audio_file: structure_The_structure_of_DNA.mp3
+    definition_en: A complex system.
+    example_en: The structure of DNA.
+  - audio_file: structure_The_bridges_structure_held.mp3
+    definition_en: A constructed object.
+    example_en: The bridge’s structure held.
+  freq: 88114
+  rank: 993
+  voice_id: Matthew
+  word: structure
+  word_audio_file: structure.mp3
+- back_cards:
+  - audio_file: budget_Were_on_a_tight_budget.mp3
+    definition_en: A financial plan.
+    example_en: We’re on a tight budget.
+  - audio_file: budget_Budget_for_the_trip.mp3
+    definition_en: To plan spending.
+    example_en: Budget for the trip.
+  - audio_file: budget_The_budget_was_approved.mp3
+    definition_en: An allocated amount.
+    example_en: The budget was approved.
+  - audio_file: budget_A_budget_airline_ticket.mp3
+    definition_en: Low-cost or cheap.
+    example_en: A budget airline ticket.
+  - audio_file: budget_Stay_within_the_budget.mp3
+    definition_en: A fiscal estimate.
+    example_en: Stay within the budget.
+  freq: 88084
+  rank: 994
+  voice_id: Matthew
+  word: budget
+  word_audio_file: budget.mp3
+- back_cards:
+  - audio_file: insurance_I_have_car_insurance.mp3
+    definition_en: Financial protection.
+    example_en: I have car insurance.
+  - audio_file: insurance_Insurance_paid_the_claim.mp3
+    definition_en: A policy for coverage.
+    example_en: Insurance paid the claim.
+  - audio_file: insurance_Insurance_for_peace_of_mind.mp3
+    definition_en: A safeguard or security.
+    example_en: Insurance for peace of mind.
+  - audio_file: insurance_Health_insurance_is_vital.mp3
+    definition_en: A risk management tool.
+    example_en: Health insurance is vital.
+  - audio_file: insurance_Buy_insurance_now.mp3
+    definition_en: A contractual agreement.
+    example_en: Buy insurance now.
+  freq: 88036
+  rank: 995
+  voice_id: Matthew
+  word: insurance
+  word_audio_file: insurance.mp3
+- back_cards:
+  - audio_file: text_Read_the_text_carefully.mp3
+    definition_en: Written words.
+    example_en: Read the text carefully.
+  - audio_file: text_I_sent_a_text_to_her.mp3
+    definition_en: A message sent electronically.
+    example_en: I sent a text to her.
+  - audio_file: text_Text_me_when_you_arrive.mp3
+    definition_en: To send a message.
+    example_en: Text me when you arrive.
+  - audio_file: text_The_books_text_is_dense.mp3
+    definition_en: The main content.
+    example_en: The book’s text is dense.
+  - audio_file: text_Study_the_assigned_text.mp3
+    definition_en: A written work.
+    example_en: Study the assigned text.
+  freq: 87811
+  rank: 996
+  voice_id: Matthew
+  word: text
+  word_audio_file: text.mp3
+- back_cards:
+  - audio_file: freedom_Freedom_is_a_right.mp3
+    definition_en: The state of being free.
+    example_en: Freedom is a right.
+  - audio_file: freedom_They_fought_for_freedom.mp3
+    definition_en: Liberty or independence.
+    example_en: They fought for freedom.
+  - audio_file: freedom_Freedom_to_choose_is_key.mp3
+    definition_en: Lack of restraint.
+    example_en: Freedom to choose is key.
+  - audio_file: freedom_Freedom_came_at_last.mp3
+    definition_en: Release from captivity.
+    example_en: Freedom came at last.
+  - audio_file: freedom_She_values_her_freedom.mp3
+    definition_en: Personal autonomy.
+    example_en: She values her freedom.
+  freq: 87806
+  rank: 997
+  voice_id: Matthew
+  word: freedom
+  word_audio_file: freedom.mp3
+- back_cards:
+  - audio_file: crazy_Thats_a_crazy_idea.mp3
+    definition_en: Insane or wild.
+    example_en: That’s a crazy idea!
+  - audio_file: crazy_Im_crazy_about_music.mp3
+    definition_en: Very enthusiastic.
+    example_en: I’m crazy about music.
+  - audio_file: crazy_The_party_was_crazy.mp3
+    definition_en: Unusual or bizarre.
+    example_en: The party was crazy.
+  - audio_file: crazy_He_went_crazy_with_stress.mp3
+    definition_en: Mentally unstable.
+    example_en: He went crazy with stress.
+  - audio_file: crazy_Its_crazy_busy_today.mp3
+    definition_en: Extremely intense.
+    example_en: It’s crazy busy today.
+  freq: 87804
+  rank: 998
+  voice_id: Matthew
+  word: crazy
+  word_audio_file: crazy.mp3
+- back_cards:
+  - audio_file: reader_Shes_an_avid_reader.mp3
+    definition_en: A person who reads.
+    example_en: She’s an avid reader.
+  - audio_file: reader_The_card_reader_scanned_it.mp3
+    definition_en: A device for reading.
+    example_en: The card reader scanned it.
+  - audio_file: reader_The_reader_was_for_kids.mp3
+    definition_en: A book for reading.
+    example_en: The reader was for kids.
+  - audio_file: reader_A_reader_of_signs.mp3
+    definition_en: One who interprets.
+    example_en: A reader of signs.
+  - audio_file: reader_Readers_loved_the_novel.mp3
+    definition_en: A literary enthusiast.
+    example_en: Readers loved the novel.
+  freq: 87422
+  rank: 999
+  voice_id: Matthew
+  word: reader
+  word_audio_file: reader.mp3
+- back_cards:
+  - audio_file: style_Her_style_is_unique.mp3
+    definition_en: A manner or way.
+    example_en: Her style is unique.
+  - audio_file: style_I_love_her_clothing_style.mp3
+    definition_en: Fashion or design.
+    example_en: I love her clothing style.
+  - audio_file: style_Style_your_hair_nicely.mp3
+    definition_en: To design or shape.
+    example_en: Style your hair nicely.
+  - audio_file: style_The_books_style_is_poetic.mp3
+    definition_en: A distinctive feature.
+    example_en: The book’s style is poetic.
+  - audio_file: style_He_lives_with_style.mp3
+    definition_en: Elegance or flair.
+    example_en: He lives with style.
+  freq: 87244
+  rank: 1000
+  voice_id: Matthew
+  word: style
+  word_audio_file: style.mp3
