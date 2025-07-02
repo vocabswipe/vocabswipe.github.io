@@ -2491,3 +2491,12 @@
 2025-07-02 18:43:46,505 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250702_184346.txt
 2025-07-02 18:43:46,511 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
 2025-07-02 18:43:46,513 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.
+2025-07-02 19:52:38,280 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-07-02 19:52:38,703 - INFO - AWS Polly client initialized successfully.
+2025-07-02 19:52:38,711 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-02 19:52:39,992 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-02 19:52:39,993 - INFO - Backup created at: D:\vocabswipe.github.io\data\temp\backup_vocab3000_20250702_195238.jsonl
+2025-07-02 19:52:39,995 - WARNING - Line 1 invalid JSON: {"word":"read","rank":222,"freq":386137,"back_cards":[{"definition_en":"To look at and understand text.","example_en":"I read a book last night."},{"definition_en":"To interpret or understand.","example_en":"I can read his expression."},{"definition_en":"To study or learn.","example_en":"She’s reading history at college."},{"definition_en":"To say aloud written words.","example_en":"He read the story to us."},{"definition_en":"To indicate or show.","example_en":"The sign reads ‘Exit.’”}]} - Error: Unterminated string starting at: line 1 column 467 (char 466)
+2025-07-02 19:52:39,996 - ERROR - Line 1 unfixable: {"word":"read","rank":222,"freq":386137,"back_cards":[{"definition_en":"To look at and understand text.","example_en":"I read a book last night."},{"definition_en":"To interpret or understand.","example_en":"I can read his expression."},{"definition_en":"To study or learn.","example_en":"She’s reading history at college."},{"definition_en":"To say aloud written words.","example_en":"He read the story to us."},{"definition_en":"To indicate or show.","example_en":"The sign reads ‘Exit.’”}]} - Error: Unterminated string starting at: line 1 column 467 (char 466)
+2025-07-02 19:52:39,998 - ERROR - Too many invalid lines. Suggesting manual edit.
+2025-07-02 19:52:40,000 - WARNING - No valid entries to process
