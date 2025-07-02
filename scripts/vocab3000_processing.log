@@ -18507,3 +18507,21 @@
 2025-07-03 04:02:46,629 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab3000_database.yaml
 2025-07-03 04:02:46,642 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250703_040246.txt
 2025-07-03 04:02:46,654 - WARNING - Batch processing failed. temp_vocab3000.jsonl not cleared.
+2025-07-03 04:09:11,972 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-07-03 04:09:12,203 - INFO - AWS Polly client initialized successfully.
+2025-07-03 04:09:12,210 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 04:09:21,151 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-03 04:09:21,153 - INFO - Backup created at: D:\vocabswipe.github.io\data\temp\backup_vocab3000_20250703_040911.jsonl
+2025-07-03 04:09:21,156 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 04:09:31,116 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 04:09:31,116 - INFO - Appended 1 entries to D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 04:09:31,121 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 04:09:41,871 - INFO - Generated audio for '<speak>We sat on a bench in the park to watch the sunset.</speak>' at D:\vocabswipe.github.io\data\audio\back\bench\bench_We_sat_on_a_bench_in_the_park_to_watch_the_sunset.mp3
+2025-07-03 04:09:42,244 - INFO - Generated audio for '<speak>The judge took her place at the bench.</speak>' at D:\vocabswipe.github.io\data\audio\back\bench\bench_The_judge_took_her_place_at_the_bench.mp3
+2025-07-03 04:09:42,567 - INFO - Generated audio for '<speak>He was on the bench for the first quarter.</speak>' at D:\vocabswipe.github.io\data\audio\back\bench\bench_He_was_on_the_bench_for_the_first_quarter.mp3
+2025-07-03 04:09:42,896 - INFO - Generated audio for '<speak>She built a birdhouse at her workbench.</speak>' at D:\vocabswipe.github.io\data\audio\back\bench\bench_She_built_a_birdhouse_at_her_workbench.mp3
+2025-07-03 04:09:43,268 - INFO - Generated audio for '<speak>The trail ended at a bench with a great view.</speak>' at D:\vocabswipe.github.io\data\audio\back\bench\bench_The_trail_ended_at_a_bench_with_a_great_view.mp3
+2025-07-03 04:09:51,894 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 04:09:51,908 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250703_040951.txt
+2025-07-03 04:09:51,922 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-03 04:09:51,924 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.
