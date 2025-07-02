@@ -3119,3 +3119,22 @@
 2025-07-02 20:05:00,837 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
 2025-07-02 20:05:00,843 - INFO - Backup created at: D:\vocabswipe.github.io\data\temp\backup_vocab3000_20250702_200458.jsonl
 2025-07-02 20:05:00,847 - WARNING - No valid entries to process
+2025-07-02 20:05:45,742 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-07-02 20:05:45,968 - INFO - AWS Polly client initialized successfully.
+2025-07-02 20:05:45,975 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-02 20:05:47,569 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-02 20:05:47,571 - INFO - Backup created at: D:\vocabswipe.github.io\data\temp\backup_vocab3000_20250702_200545.jsonl
+2025-07-02 20:05:47,574 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-02 20:05:49,379 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-02 20:05:49,379 - INFO - Appended 1 entries to D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-02 20:05:49,381 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-02 20:05:52,565 - INFO - Generated audio for '<speak>read</speak>' at D:\vocabswipe.github.io\data\audio\front\read.mp3
+2025-07-02 20:05:52,915 - INFO - Generated audio for '<speak>I read a book every night.</speak>' at D:\vocabswipe.github.io\data\audio\back\read\read_I_read_a_book_every_night.mp3
+2025-07-02 20:05:53,261 - INFO - Generated audio for '<speak>She read the poem to the class.</speak>' at D:\vocabswipe.github.io\data\audio\back\read\read_She_read_the_poem_to_the_class.mp3
+2025-07-02 20:05:53,607 - INFO - Generated audio for '<speak>I can read his mood by his face.</speak>' at D:\vocabswipe.github.io\data\audio\back\read\read_I_can_read_his_mood_by_his_face.mp3
+2025-07-02 20:05:53,948 - INFO - Generated audio for '<speak>He’s reading history at college.</speak>' at D:\vocabswipe.github.io\data\audio\back\read\read_Hes_reading_history_at_college.mp3
+2025-07-02 20:05:54,373 - INFO - Generated audio for '<speak>The sign reads 'No Parking'.</speak>' at D:\vocabswipe.github.io\data\audio\back\read\read_The_sign_reads_No_Parking.mp3
+2025-07-02 20:05:55,633 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-02 20:05:55,643 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250702_200555.txt
+2025-07-02 20:05:55,649 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-02 20:05:55,650 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.

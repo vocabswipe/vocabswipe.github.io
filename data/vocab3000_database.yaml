@@ -4637,6 +4637,27 @@
   word: fact
   word_audio_file: fact.mp3
 - back_cards:
+  - audio_file: read_I_read_a_book_every_night.mp3
+    definition_en: To look at and understand written text.
+    example_en: I read a book every night.
+  - audio_file: read_She_read_the_poem_to_the_class.mp3
+    definition_en: To speak written words aloud.
+    example_en: She read the poem to the class.
+  - audio_file: read_I_can_read_his_mood_by_his_face.mp3
+    definition_en: To interpret or understand something.
+    example_en: I can read his mood by his face.
+  - audio_file: read_Hes_reading_history_at_college.mp3
+    definition_en: To study or learn by reading.
+    example_en: He’s reading history at college.
+  - audio_file: read_The_sign_reads_No_Parking.mp3
+    definition_en: To display or indicate information.
+    example_en: The sign reads 'No Parking'.
+  freq: 386137
+  rank: 222
+  voice_id: Matthew
+  word: read
+  word_audio_file: read.mp3
+- back_cards:
   - audio_file: anything_Is_there_anything_to_eat.mp3
     definition_en: Any thing or object.
     example_en: Is there anything to eat?
