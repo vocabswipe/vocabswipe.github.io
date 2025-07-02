@@ -582,11 +582,11 @@ body[data-theme="dark"] .tooltip-close:hover {
         vertical-align: middle;
     }
 
-    .card-slider {
+    #card-slider {
         height: 6px;
     }
 
-    .card-slider::-webkit-slider-thumb {
+    #card-slider::-webkit-slider-thumb {
         width: 16px;
         height: 16px;
     }
