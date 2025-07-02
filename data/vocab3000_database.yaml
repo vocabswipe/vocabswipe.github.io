@@ -1,0 +1,210 @@
+- back_cards:
+  - audio_file: the_I_saw_the_dog_running_in_the_park.mp3
+    definition_en: Used to specify a particular thing or person.
+    example_en: I saw the dog running in the park.
+  - audio_file: the_She_bought_the_book_we_talked_about.mp3
+    definition_en: Refers to something already mentioned or known.
+    example_en: She bought the book we talked about.
+  - audio_file: the_The_sun_sets_slowly_behind_the_mountain.mp3
+    definition_en: Indicates a unique or specific entity.
+    example_en: The sun sets slowly behind the mountain.
+  - audio_file: the_The_kids_are_playing_outside.mp3
+    definition_en: Used before a singular or plural noun to make it definite.
+    example_en: The kids are playing outside.
+  - audio_file: the_The_smartphone_has_changed_how_we_communicate.mp3
+    definition_en: Used to refer to a whole group or class.
+    example_en: The smartphone has changed how we communicate.
+  freq: 50033612
+  rank: 1
+  voice_id: Matthew
+  word: the
+  word_audio_file: the.mp3
+- back_cards:
+  - audio_file: be_There_will_be_a_party_tonight.mp3
+    definition_en: To exist or occur.
+    example_en: There will be a party tonight.
+  - audio_file: be_She_wants_to_be_happy_at_her_new_job.mp3
+    definition_en: To have a certain quality or state.
+    example_en: She wants to be happy at her new job.
+  - audio_file: be_He_can_be_the_team_leader_tomorrow.mp3
+    definition_en: To act as or serve as.
+    example_en: He can be the team leader tomorrow.
+  - audio_file: be_They_will_be_at_the_concert_later.mp3
+    definition_en: To indicate location or position.
+    example_en: They will be at the concert later.
+  - audio_file: be_That_building_is_the_new_library.mp3
+    definition_en: To show identity or equivalence.
+    example_en: That building is the new library.
+  freq: 32394756
+  rank: 2
+  voice_id: Matthew
+  word: be
+  word_audio_file: be.mp3
+- back_cards:
+  - audio_file: and_I_like_coffee_and_tea.mp3
+    definition_en: Used to connect words, phrases, or clauses.
+    example_en: I like coffee and tea.
+  - audio_file: and_Shes_smart_and_works_hard.mp3
+    definition_en: To show additional information.
+    example_en: She’s smart and works hard.
+  - audio_file: and_We_ate_dinner_and_watched_a_movie.mp3
+    definition_en: To indicate a sequence of events.
+    example_en: We ate dinner and watched a movie.
+  - audio_file: and_The_park_is_quiet_and_peaceful_in_the_morning.mp3
+    definition_en: To join related ideas.
+    example_en: The park is quiet and peaceful in the morning.
+  - audio_file: and_It_was_a_long_and_tiring_day.mp3
+    definition_en: To emphasize or add more detail.
+    example_en: It was a long and tiring day.
+  freq: 24778098
+  rank: 3
+  voice_id: Matthew
+  word: and
+  word_audio_file: and.mp3
+- back_cards:
+  - audio_file: a_I_need_a_pencil_for_the_test.mp3
+    definition_en: Used before a singular noun to indicate one item.
+    example_en: I need a pencil for the test.
+  - audio_file: a_A_cat_jumped_onto_the_fence.mp3
+    definition_en: Refers to any one of a type or group.
+    example_en: A cat jumped onto the fence.
+  - audio_file: a_I_met_a_friend_at_the_mall.mp3
+    definition_en: Introduces something new or unspecified.
+    example_en: I met a friend at the mall.
+  - audio_file: a_Shes_training_to_be_a_doctor.mp3
+    definition_en: Used to indicate membership in a class.
+    example_en: She’s training to be a doctor.
+  - audio_file: a_It_costs_a_dollar_per_apple.mp3
+    definition_en: Used in expressions of quantity or rate.
+    example_en: It costs a dollar per apple.
+  freq: 24225478
+  rank: 4
+  voice_id: Matthew
+  word: a
+  word_audio_file: a.mp3
+- back_cards:
+  - audio_file: of_The_keys_of_the_car_are_on_the_table.mp3
+    definition_en: Indicates possession or belonging.
+    example_en: The keys of the car are on the table.
+  - audio_file: of_Shes_a_friend_of_mine.mp3
+    definition_en: Shows a relationship or association.
+    example_en: She’s a friend of mine.
+  - audio_file: of_The_house_is_made_of_wood.mp3
+    definition_en: Denotes contents or material.
+    example_en: The house is made of wood.
+  - audio_file: of_A_cup_of_coffee_sounds_great.mp3
+    definition_en: Specifies an amount or part.
+    example_en: A cup of coffee sounds great.
+  - audio_file: of_He_died_of_a_heart_attack.mp3
+    definition_en: Indicates origin or cause.
+    example_en: He died of a heart attack.
+  freq: 23159162
+  rank: 5
+  voice_id: Matthew
+  word: of
+  word_audio_file: of.mp3
+- back_cards:
+  - audio_file: to_Im_going_to_the_store.mp3
+    definition_en: Indicates direction or destination.
+    example_en: I’m going to the store.
+  - audio_file: to_She_studies_to_become_a_teacher.mp3
+    definition_en: Shows purpose or intention.
+    example_en: She studies to become a teacher.
+  - audio_file: to_I_like_to_read_books.mp3
+    definition_en: Marks the infinitive form of a verb.
+    example_en: I like to read books.
+  - audio_file: to_Give_this_note_to_Sarah.mp3
+    definition_en: Indicates a recipient or target.
+    example_en: Give this note to Sarah.
+  - audio_file: to_The_meeting_is_from_nine_to_ten.mp3
+    definition_en: Shows a time or point.
+    example_en: The meeting is from nine to ten.
+  freq: 16770155
+  rank: 6
+  voice_id: Matthew
+  word: to
+  word_audio_file: to.mp3
+- back_cards:
+  - audio_file: in_The_keys_are_in_the_drawer.mp3
+    definition_en: Indicates location or position.
+    example_en: The keys are in the drawer.
+  - audio_file: in_Well_meet_in_the_morning.mp3
+    definition_en: Refers to a period of time.
+    example_en: We’ll meet in the morning.
+  - audio_file: in_Shes_in_the_choir_at_school.mp3
+    definition_en: Shows involvement or participation.
+    example_en: She’s in the choir at school.
+  - audio_file: in_Hes_in_a_bad_mood_today.mp3
+    definition_en: Describes a state or condition.
+    example_en: He’s in a bad mood today.
+  - audio_file: in_They_spoke_in_a_loud_voice.mp3
+    definition_en: Indicates manner or means.
+    example_en: They spoke in a loud voice.
+  freq: 15670692
+  rank: 7
+  voice_id: Matthew
+  word: in
+  word_audio_file: in.mp3
+- back_cards:
+  - audio_file: i_I_am_going_to_the_park.mp3
+    definition_en: Refers to the speaker or writer.
+    example_en: I am going to the park.
+  - audio_file: i_I_think_this_movie_is_great.mp3
+    definition_en: Expresses personal opinion or feeling.
+    example_en: I think this movie is great.
+  - audio_file: i_I_finished_my_homework_early.mp3
+    definition_en: Used to describe personal actions.
+    example_en: I finished my homework early.
+  - audio_file: i_I_saw_a_deer_in_the_forest.mp3
+    definition_en: Indicates personal experience.
+    example_en: I saw a deer in the forest.
+  - audio_file: i_I_want_to_learn_guitar.mp3
+    definition_en: Shows personal intention or plan.
+    example_en: I want to learn guitar.
+  freq: 14217601
+  rank: 8
+  voice_id: Matthew
+  word: I
+  word_audio_file: i.mp3
+- back_cards:
+  - audio_file: you_Can_you_help_me_with_this.mp3
+    definition_en: Refers to the person being addressed.
+    example_en: Can you help me with this?
+  - audio_file: you_You_should_try_this_new_restaurant.mp3
+    definition_en: Used to give instructions or advice.
+    example_en: You should try this new restaurant.
+  - audio_file: you_You_never_know_what_might_happen.mp3
+    definition_en: Addresses a general audience.
+    example_en: You never know what might happen.
+  - audio_file: you_I_told_you_about_the_meeting.mp3
+    definition_en: Indicates a specific person in conversation.
+    example_en: I told you about the meeting.
+  - audio_file: you_You_need_to_hurry_up.mp3
+    definition_en: Used in informal commands.
+    example_en: You need to hurry up!
+  freq: 12079413
+  rank: 9
+  voice_id: Matthew
+  word: you
+  word_audio_file: you.mp3
+- back_cards:
+  - audio_file: it_I_bought_a_phone_but_it_broke.mp3
+    definition_en: Refers to a thing previously mentioned.
+    example_en: I bought a phone, but it broke.
+  - audio_file: it_Its_raining_outside_right_now.mp3
+    definition_en: Used as a subject for impersonal verbs.
+    example_en: It’s raining outside right now.
+  - audio_file: it_It_feels_so_calm_by_the_lake.mp3
+    definition_en: Refers to an unspecified situation.
+    example_en: It feels so calm by the lake.
+  - audio_file: it_Its_the_red_car_over_there.mp3
+    definition_en: Used to identify something specific.
+    example_en: It’s the red car over there.
+  - audio_file: it_Its_hard_to_solve_this_puzzle.mp3
+    definition_en: Acts as a placeholder subject.
+    example_en: It’s hard to solve this puzzle.
+  freq: 11042044
+  rank: 10
+  voice_id: Matthew
+  word: it
+  word_audio_file: it.mp3

@@ -1,0 +1,77 @@
+2025-07-02 15:35:18,989 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-07-02 15:35:19,460 - INFO - AWS Polly client initialized successfully.
+2025-07-02 15:35:19,468 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-02 15:35:19,469 - WARNING - D:\vocabswipe.github.io\data\vocab3000_database.yaml not found. Using default structure.
+2025-07-02 15:35:19,469 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-02 15:35:19,471 - INFO - Backup created at: D:\vocabswipe.github.io\data\temp\backup_vocab3000_20250702_153518.jsonl
+2025-07-02 15:35:19,501 - INFO - Creating blank D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-02 15:35:19,505 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-02 15:35:19,506 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-02 15:35:19,541 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-02 15:35:19,542 - INFO - Appended 10 entries to D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-02 15:35:19,542 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-02 15:35:19,542 - WARNING - D:\vocabswipe.github.io\data\vocab3000_database.yaml not found. Using default structure.
+2025-07-02 15:35:21,025 - INFO - Generated audio for '<speak>the</speak>' at D:\vocabswipe.github.io\data\audio\front\the.mp3
+2025-07-02 15:35:21,338 - INFO - Generated audio for '<speak>I saw the dog running in the park.</speak>' at D:\vocabswipe.github.io\data\audio\back\the\the_I_saw_the_dog_running_in_the_park.mp3
+2025-07-02 15:35:21,644 - INFO - Generated audio for '<speak>She bought the book we talked about.</speak>' at D:\vocabswipe.github.io\data\audio\back\the\the_She_bought_the_book_we_talked_about.mp3
+2025-07-02 15:35:21,959 - INFO - Generated audio for '<speak>The sun sets slowly behind the mountain.</speak>' at D:\vocabswipe.github.io\data\audio\back\the\the_The_sun_sets_slowly_behind_the_mountain.mp3
+2025-07-02 15:35:22,266 - INFO - Generated audio for '<speak>The kids are playing outside.</speak>' at D:\vocabswipe.github.io\data\audio\back\the\the_The_kids_are_playing_outside.mp3
+2025-07-02 15:35:22,578 - INFO - Generated audio for '<speak>The smartphone has changed how we communicate.</speak>' at D:\vocabswipe.github.io\data\audio\back\the\the_The_smartphone_has_changed_how_we_communicate.mp3
+2025-07-02 15:35:22,871 - INFO - Generated audio for '<speak>be</speak>' at D:\vocabswipe.github.io\data\audio\front\be.mp3
+2025-07-02 15:35:23,174 - INFO - Generated audio for '<speak>There will be a party tonight.</speak>' at D:\vocabswipe.github.io\data\audio\back\be\be_There_will_be_a_party_tonight.mp3
+2025-07-02 15:35:23,486 - INFO - Generated audio for '<speak>She wants to be happy at her new job.</speak>' at D:\vocabswipe.github.io\data\audio\back\be\be_She_wants_to_be_happy_at_her_new_job.mp3
+2025-07-02 15:35:23,795 - INFO - Generated audio for '<speak>He can be the team leader tomorrow.</speak>' at D:\vocabswipe.github.io\data\audio\back\be\be_He_can_be_the_team_leader_tomorrow.mp3
+2025-07-02 15:35:24,103 - INFO - Generated audio for '<speak>They will be at the concert later.</speak>' at D:\vocabswipe.github.io\data\audio\back\be\be_They_will_be_at_the_concert_later.mp3
+2025-07-02 15:35:24,423 - INFO - Generated audio for '<speak>That building is the new library.</speak>' at D:\vocabswipe.github.io\data\audio\back\be\be_That_building_is_the_new_library.mp3
+2025-07-02 15:35:24,717 - INFO - Generated audio for '<speak>and</speak>' at D:\vocabswipe.github.io\data\audio\front\and.mp3
+2025-07-02 15:35:25,030 - INFO - Generated audio for '<speak>I like coffee and tea.</speak>' at D:\vocabswipe.github.io\data\audio\back\and\and_I_like_coffee_and_tea.mp3
+2025-07-02 15:35:25,331 - INFO - Generated audio for '<speak>She’s smart and works hard.</speak>' at D:\vocabswipe.github.io\data\audio\back\and\and_Shes_smart_and_works_hard.mp3
+2025-07-02 15:35:25,686 - INFO - Generated audio for '<speak>We ate dinner and watched a movie.</speak>' at D:\vocabswipe.github.io\data\audio\back\and\and_We_ate_dinner_and_watched_a_movie.mp3
+2025-07-02 15:35:26,038 - INFO - Generated audio for '<speak>The park is quiet and peaceful in the morning.</speak>' at D:\vocabswipe.github.io\data\audio\back\and\and_The_park_is_quiet_and_peaceful_in_the_morning.mp3
+2025-07-02 15:35:26,346 - INFO - Generated audio for '<speak>It was a long and tiring day.</speak>' at D:\vocabswipe.github.io\data\audio\back\and\and_It_was_a_long_and_tiring_day.mp3
+2025-07-02 15:35:26,651 - INFO - Generated audio for '<speak>a</speak>' at D:\vocabswipe.github.io\data\audio\front\a.mp3
+2025-07-02 15:35:26,962 - INFO - Generated audio for '<speak>I need a pencil for the test.</speak>' at D:\vocabswipe.github.io\data\audio\back\a\a_I_need_a_pencil_for_the_test.mp3
+2025-07-02 15:35:27,267 - INFO - Generated audio for '<speak>A cat jumped onto the fence.</speak>' at D:\vocabswipe.github.io\data\audio\back\a\a_A_cat_jumped_onto_the_fence.mp3
+2025-07-02 15:35:27,572 - INFO - Generated audio for '<speak>I met a friend at the mall.</speak>' at D:\vocabswipe.github.io\data\audio\back\a\a_I_met_a_friend_at_the_mall.mp3
+2025-07-02 15:35:27,878 - INFO - Generated audio for '<speak>She’s training to be a doctor.</speak>' at D:\vocabswipe.github.io\data\audio\back\a\a_Shes_training_to_be_a_doctor.mp3
+2025-07-02 15:35:28,186 - INFO - Generated audio for '<speak>It costs a dollar per apple.</speak>' at D:\vocabswipe.github.io\data\audio\back\a\a_It_costs_a_dollar_per_apple.mp3
+2025-07-02 15:35:28,491 - INFO - Generated audio for '<speak>of</speak>' at D:\vocabswipe.github.io\data\audio\front\of.mp3
+2025-07-02 15:35:29,210 - INFO - Generated audio for '<speak>The keys of the car are on the table.</speak>' at D:\vocabswipe.github.io\data\audio\back\of\of_The_keys_of_the_car_are_on_the_table.mp3
+2025-07-02 15:35:29,519 - INFO - Generated audio for '<speak>She’s a friend of mine.</speak>' at D:\vocabswipe.github.io\data\audio\back\of\of_Shes_a_friend_of_mine.mp3
+2025-07-02 15:35:29,826 - INFO - Generated audio for '<speak>The house is made of wood.</speak>' at D:\vocabswipe.github.io\data\audio\back\of\of_The_house_is_made_of_wood.mp3
+2025-07-02 15:35:30,131 - INFO - Generated audio for '<speak>A cup of coffee sounds great.</speak>' at D:\vocabswipe.github.io\data\audio\back\of\of_A_cup_of_coffee_sounds_great.mp3
+2025-07-02 15:35:30,434 - INFO - Generated audio for '<speak>He died of a heart attack.</speak>' at D:\vocabswipe.github.io\data\audio\back\of\of_He_died_of_a_heart_attack.mp3
+2025-07-02 15:35:30,729 - INFO - Generated audio for '<speak>to</speak>' at D:\vocabswipe.github.io\data\audio\front\to.mp3
+2025-07-02 15:35:31,032 - INFO - Generated audio for '<speak>I’m going to the store.</speak>' at D:\vocabswipe.github.io\data\audio\back\to\to_Im_going_to_the_store.mp3
+2025-07-02 15:35:31,360 - INFO - Generated audio for '<speak>She studies to become a teacher.</speak>' at D:\vocabswipe.github.io\data\audio\back\to\to_She_studies_to_become_a_teacher.mp3
+2025-07-02 15:35:31,701 - INFO - Generated audio for '<speak>I like to read books.</speak>' at D:\vocabswipe.github.io\data\audio\back\to\to_I_like_to_read_books.mp3
+2025-07-02 15:35:32,008 - INFO - Generated audio for '<speak>Give this note to Sarah.</speak>' at D:\vocabswipe.github.io\data\audio\back\to\to_Give_this_note_to_Sarah.mp3
+2025-07-02 15:35:32,502 - INFO - Generated audio for '<speak>The meeting is from nine to ten.</speak>' at D:\vocabswipe.github.io\data\audio\back\to\to_The_meeting_is_from_nine_to_ten.mp3
+2025-07-02 15:35:32,799 - INFO - Generated audio for '<speak>in</speak>' at D:\vocabswipe.github.io\data\audio\front\in.mp3
+2025-07-02 15:35:33,106 - INFO - Generated audio for '<speak>The keys are in the drawer.</speak>' at D:\vocabswipe.github.io\data\audio\back\in\in_The_keys_are_in_the_drawer.mp3
+2025-07-02 15:35:33,411 - INFO - Generated audio for '<speak>We’ll meet in the morning.</speak>' at D:\vocabswipe.github.io\data\audio\back\in\in_Well_meet_in_the_morning.mp3
+2025-07-02 15:35:33,718 - INFO - Generated audio for '<speak>She’s in the choir at school.</speak>' at D:\vocabswipe.github.io\data\audio\back\in\in_Shes_in_the_choir_at_school.mp3
+2025-07-02 15:35:34,030 - INFO - Generated audio for '<speak>He’s in a bad mood today.</speak>' at D:\vocabswipe.github.io\data\audio\back\in\in_Hes_in_a_bad_mood_today.mp3
+2025-07-02 15:35:34,342 - INFO - Generated audio for '<speak>They spoke in a loud voice.</speak>' at D:\vocabswipe.github.io\data\audio\back\in\in_They_spoke_in_a_loud_voice.mp3
+2025-07-02 15:35:34,641 - INFO - Generated audio for '<speak>I</speak>' at D:\vocabswipe.github.io\data\audio\front\i.mp3
+2025-07-02 15:35:34,947 - INFO - Generated audio for '<speak>I am going to the park.</speak>' at D:\vocabswipe.github.io\data\audio\back\i\i_I_am_going_to_the_park.mp3
+2025-07-02 15:35:35,249 - INFO - Generated audio for '<speak>I think this movie is great.</speak>' at D:\vocabswipe.github.io\data\audio\back\i\i_I_think_this_movie_is_great.mp3
+2025-07-02 15:35:35,554 - INFO - Generated audio for '<speak>I finished my homework early.</speak>' at D:\vocabswipe.github.io\data\audio\back\i\i_I_finished_my_homework_early.mp3
+2025-07-02 15:35:35,860 - INFO - Generated audio for '<speak>I saw a deer in the forest.</speak>' at D:\vocabswipe.github.io\data\audio\back\i\i_I_saw_a_deer_in_the_forest.mp3
+2025-07-02 15:35:36,160 - INFO - Generated audio for '<speak>I want to learn guitar.</speak>' at D:\vocabswipe.github.io\data\audio\back\i\i_I_want_to_learn_guitar.mp3
+2025-07-02 15:35:36,461 - INFO - Generated audio for '<speak>you</speak>' at D:\vocabswipe.github.io\data\audio\front\you.mp3
+2025-07-02 15:35:37,604 - INFO - Generated audio for '<speak>Can you help me with this?</speak>' at D:\vocabswipe.github.io\data\audio\back\you\you_Can_you_help_me_with_this.mp3
+2025-07-02 15:35:37,913 - INFO - Generated audio for '<speak>You should try this new restaurant.</speak>' at D:\vocabswipe.github.io\data\audio\back\you\you_You_should_try_this_new_restaurant.mp3
+2025-07-02 15:35:38,220 - INFO - Generated audio for '<speak>You never know what might happen.</speak>' at D:\vocabswipe.github.io\data\audio\back\you\you_You_never_know_what_might_happen.mp3
+2025-07-02 15:35:38,524 - INFO - Generated audio for '<speak>I told you about the meeting.</speak>' at D:\vocabswipe.github.io\data\audio\back\you\you_I_told_you_about_the_meeting.mp3
+2025-07-02 15:35:38,835 - INFO - Generated audio for '<speak>You need to hurry up!</speak>' at D:\vocabswipe.github.io\data\audio\back\you\you_You_need_to_hurry_up.mp3
+2025-07-02 15:35:39,158 - INFO - Generated audio for '<speak>it</speak>' at D:\vocabswipe.github.io\data\audio\front\it.mp3
+2025-07-02 15:35:39,470 - INFO - Generated audio for '<speak>I bought a phone, but it broke.</speak>' at D:\vocabswipe.github.io\data\audio\back\it\it_I_bought_a_phone_but_it_broke.mp3
+2025-07-02 15:35:39,779 - INFO - Generated audio for '<speak>It’s raining outside right now.</speak>' at D:\vocabswipe.github.io\data\audio\back\it\it_Its_raining_outside_right_now.mp3
+2025-07-02 15:35:40,086 - INFO - Generated audio for '<speak>It feels so calm by the lake.</speak>' at D:\vocabswipe.github.io\data\audio\back\it\it_It_feels_so_calm_by_the_lake.mp3
+2025-07-02 15:35:40,474 - INFO - Generated audio for '<speak>It’s the red car over there.</speak>' at D:\vocabswipe.github.io\data\audio\back\it\it_Its_the_red_car_over_there.mp3
+2025-07-02 15:35:40,783 - INFO - Generated audio for '<speak>It’s hard to solve this puzzle.</speak>' at D:\vocabswipe.github.io\data\audio\back\it\it_Its_hard_to_solve_this_puzzle.mp3
+2025-07-02 15:35:40,850 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-02 15:35:40,861 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250702_153540.txt
+2025-07-02 15:35:40,867 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-02 15:35:40,869 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.
