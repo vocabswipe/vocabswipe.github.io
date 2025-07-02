@@ -69,8 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
         preloadAudio();
         if (audioUnlocked && audioEnabled) {
             const audioFile = isFlipped 
-                ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
-                : words[currentWordIndex]?.word_audio_file?.[0];
+                ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
+                : words[currentWordIndex]?.word_audio_file;
             if (audioFile) playAudio(audioFile);
         }
     });
@@ -168,7 +168,7 @@ function shuffleArray(array) {
 }
 
 function loadWords() {
-    fetch('data/vocab_database.yaml')
+    fetch('data/vocab3000_database.yaml')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -179,21 +179,12 @@ function loadWords() {
             try {
                 words = jsyaml.load(yamlText) || [];
                 if (!Array.isArray(words) || words.length === 0) {
-                    throw new Error('No valid words found in vocab_database.yaml');
+                    throw new Error('No valid words found in vocab3000_database.yaml');
                 }
                 // Shuffle back_cards for each word
                 words.forEach(word => {
-                    if (word.back_cards && word.sentence_audio_file) {
-                        // Create paired array of back_cards and sentence_audio_file
-                        const paired = word.back_cards.map((card, index) => ({
-                            card,
-                            audio: word.sentence_audio_file[index]
-                        }));
-                        // Shuffle paired array
-                        shuffleArray(paired);
-                        // Reassign shuffled back_cards and sentence_audio_file
-                        word.back_cards = paired.map(item => item.card);
-                        word.sentence_audio_file = paired.map(item => item.audio);
+                    if (word.back_cards) {
+                        word.back_cards = shuffleArray(word.back_cards);
                     }
                 });
                 originalWords = JSON.parse(JSON.stringify(words)); // Deep copy
@@ -202,6 +193,7 @@ function loadWords() {
                 minFreq = Math.min(...words.map(word => word.freq || 1).filter(freq => freq > 0)) || 1;
                 totalSentences = words.reduce((sum, word) => sum + (word.back_cards?.length || 0), 0);
                 document.querySelector('#card-slider').max = words.length;
+                document.querySelector('#total-words').textContent = words.length;
                 document.querySelector('#total-sentences').textContent = totalSentences;
                 isContentLoaded = true;
                 displayWord();
@@ -219,7 +211,7 @@ function loadWords() {
         })
         .catch(error => {
             console.error('Error loading words:', error.message);
-            alert(`Failed to load vocabulary data: ${error.message}. Please check if 'data/vocab_database.yaml' exists and is valid.`);
+            alert(`Failed to load vocabulary data: ${error.message}. Please check if 'data/vocab3000_database.yaml' exists and is valid.`);
             document.querySelector('.flashcard-container').innerHTML = '<p>Error loading flashcards. Please try again later.</p>';
             document.querySelector('.loading-overlay').style.display = 'none';
         });
@@ -267,8 +259,8 @@ function setupEventListeners() {
                     glowCard(1);
                     if (audioEnabled) {
                         const audioFile = isFlipped 
-                            ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
-                            : words[currentWordIndex]?.word_audio_file?.[0];
+                            ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
+                            : words[currentWordIndex]?.word_audio_file;
                         if (audioFile && audioUnlocked) {
                             playAudio(audioFile);
                         }
@@ -295,8 +287,8 @@ function setupEventListeners() {
                     glowCard(1);
                     if (audioEnabled) {
                         const audioFile = isFlipped 
-                            ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
-                            : words[currentWordIndex]?.word_audio_file?.[0];
+                            ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
+                            : words[currentWordIndex]?.word_audio_file;
                         if (audioFile && audioUnlocked) {
                             playAudio(audioFile);
                         }
@@ -325,8 +317,8 @@ function setupEventListeners() {
             displayWord();
             if (audioUnlocked && audioEnabled) {
                 const audioFile = isFlipped 
-                    ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
-                    : words[currentWordIndex]?.word_audio_file?.[0];
+                    ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
+                    : words[currentWordIndex]?.word_audio_file;
                 if (audioFile) playAudio(audioFile);
             }
             preloadAudio();
@@ -343,8 +335,8 @@ function setupEventListeners() {
             displayWord();
             if (audioUnlocked && audioEnabled) {
                 const audioFile = isFlipped 
-                    ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
-                    : words[currentWordIndex]?.word_audio_file?.[0];
+                    ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
+                    : words[currentWordIndex]?.word_audio_file;
                 if (audioFile) playAudio(audioFile);
             }
             preloadAudio();
@@ -359,8 +351,8 @@ function setupEventListeners() {
             stopAudio();
             displayWord();
             if (audioUnlocked && audioEnabled) {
-                const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                                 words[currentWordIndex]?.word_audio_file?.[0];
+                const audioFile = words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || 
+                                 words[currentWordIndex]?.word_audio_file;
                 if (audioFile) playAudio(audioFile);
             }
             preloadAudio();
@@ -375,8 +367,8 @@ function setupEventListeners() {
             stopAudio();
             displayWord();
             if (audioUnlocked && audioEnabled) {
-                const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                                 words[currentWordIndex]?.word_audio_file?.[0];
+                const audioFile = words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || 
+                                 words[currentWordIndex]?.word_audio_file;
                 if (audioFile) playAudio(audioFile);
             }
             preloadAudio();
@@ -396,8 +388,8 @@ function setupKeyboardListeners() {
                 displayWord();
                 if (audioUnlocked && audioEnabled) {
                     const audioFile = isFlipped 
-                        ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
-                        : words[currentWordIndex]?.word_audio_file?.[0];
+                        ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
+                        : words[currentWordIndex]?.word_audio_file;
                     if (audioFile) playAudio(audioFile);
                 }
                 preloadAudio();
@@ -410,8 +402,8 @@ function setupKeyboardListeners() {
                 displayWord();
                 if (audioUnlocked && audioEnabled) {
                     const audioFile = isFlipped 
-                        ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
-                        : words[currentWordIndex]?.word_audio_file?.[0];
+                        ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
+                        : words[currentWordIndex]?.word_audio_file;
                     if (audioFile) playAudio(audioFile);
                 }
                 preloadAudio();
@@ -423,8 +415,8 @@ function setupKeyboardListeners() {
                     stopAudio();
                     displayWord();
                     if (audioUnlocked && audioEnabled) {
-                        const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                                        words[currentWordIndex]?.word_audio_file?.[0];
+                        const audioFile = words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || 
+                                        words[currentWordIndex]?.word_audio_file;
                         if (audioFile) playAudio(audioFile);
                     }
                     preloadAudio();
@@ -437,8 +429,8 @@ function setupKeyboardListeners() {
                     stopAudio();
                     displayWord();
                     if (audioUnlocked && audioEnabled) {
-                        const audioFile = words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || 
-                                        words[currentWordIndex]?.word_audio_file?.[0];
+                        const audioFile = words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || 
+                                        words[currentWordIndex]?.word_audio_file;
                         if (audioFile) playAudio(audioFile);
                     }
                     preloadAudio();
@@ -448,8 +440,8 @@ function setupKeyboardListeners() {
                 glowCard(1);
                 if (audioEnabled) {
                     const audioFile = isFlipped 
-                        ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
-                        : words[currentWordIndex]?.word_audio_file?.[0];
+                        ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
+                        : words[currentWordIndex]?.word_audio_file;
                     if (audioFile && audioUnlocked) playAudio(audioFile);
                 }
                 break;
@@ -488,12 +480,12 @@ function preloadAudio() {
     const prevWord = words[prevIndex];
 
     const audioFiles = [
-        currentWord?.word_audio_file?.[0],
-        ...(currentWord?.sentence_audio_file || []),
-        nextWord?.word_audio_file?.[0],
-        ...(nextWord?.sentence_audio_file || []),
-        prevWord?.word_audio_file?.[0],
-        ...(prevWord?.sentence_audio_file || [])
+        currentWord?.word_audio_file,
+        ...(currentWord?.back_cards?.map(card => card.audio_file) || []),
+        nextWord?.word_audio_file,
+        ...(nextWord?.back_cards?.map(card => card.audio_file) || []),
+        prevWord?.word_audio_file,
+        ...(prevWord?.back_cards?.map(card => card.audio_file) || [])
     ].filter(file => file && !audioCache.has(file));
 
     while (audioCache.size + audioFiles.length > MAX_CACHE_SIZE && audioCache.size > 0) {
@@ -502,13 +494,19 @@ function preloadAudio() {
     }
 
     audioFiles.forEach(audioFile => {
-        const audio = new Audio(`data/audio/${audioFile}`);
+        const isWordAudio = audioFile.endsWith(`${currentWord.word}.mp3`) || 
+                            audioFile.endsWith(`${nextWord?.word}.mp3`) || 
+                            audioFile.endsWith(`${prevWord?.word}.mp3`);
+        const audioPath = isWordAudio 
+            ? `data/audio/front/${audioFile}`
+            : `data/audio/back/${currentWord.word.toLowerCase()}/${audioFile}`;
+        const audio = new Audio(audioPath);
         audio.preload = 'auto';
         audio.load();
         audioCache.set(audioFile, audio);
-        audio.addEventListener('canplaythrough', () => console.log(`Preloaded: data/audio/${audioFile}`), { once: true });
+        audio.addEventListener('canplaythrough', () => console.log(`Preloaded: ${audioPath}`), { once: true });
         audio.addEventListener('error', () => {
-            console.error(`Failed to preload audio: data/audio/${audioFile}`);
+            console.error(`Failed to preload audio: ${audioPath}`);
             audioCache.delete(audioFile);
         }, { once: true });
     });
@@ -530,7 +528,11 @@ function playAudio(audioFile) {
     stopAudio();
     let audio = audioCache.get(audioFile);
     if (!audio) {
-        audio = new Audio(`data/audio/${audioFile}`);
+        const isWordAudio = audioFile.endsWith(`${words[currentWordIndex].word}.mp3`);
+        const audioPath = isWordAudio 
+            ? `data/audio/front/${audioFile}`
+            : `data/audio/back/${words[currentWordIndex].word.toLowerCase()}/${audioFile}`;
+        audio = new Audio(audioPath);
         audio.preload = 'auto';
         audio.load();
         audioCache.set(audioFile, audio);
@@ -539,8 +541,8 @@ function playAudio(audioFile) {
     const playPromise = currentAudio.play();
     if (playPromise !== undefined) {
         playPromise
-            .then(() => console.log(`Successfully playing: data/audio/${audioFile}`))
-            .catch(error => console.error(`Playback error for data/audio/${audioFile}:`, error.message));
+            .then(() => console.log(`Successfully playing: ${audioFile}`))
+            .catch(error => console.error(`Playback error for ${audioFile}:`, error.message));
     }
 }
 
@@ -553,8 +555,8 @@ function flipCard() {
     displayWord();
     if (audioUnlocked && audioEnabled) {
         const audioFile = isFlipped 
-            ? (words[currentWordIndex]?.sentence_audio_file?.[currentBackCardIndex] || words[currentWordIndex]?.word_audio_file?.[0])
-            : words[currentWordIndex]?.word_audio_file?.[0];
+            ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
+            : words[currentWordIndex]?.word_audio_file;
         if (audioFile) playAudio(audioFile);
     }
 }
