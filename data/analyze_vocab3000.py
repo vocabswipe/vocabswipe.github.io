@@ -136,7 +136,7 @@ def analyze_database():
     confirmation = []
     confirmation.append("[green]✓ All Ranks Present[/green]" if not missing_ranks else "[yellow]✗ Missing Ranks Detected[/yellow]")
     confirmation.append("[green]✓ No Duplicate Ranks[/green]" if not duplicate_ranks else "[red]✗ Duplicate Ranks Detected[/red]")
-    confirmation.append("[green]✓ No Invalid Ranks[/green]" if not invalid_ranks else red]✗ Invalid Ranks Detected[/red]")
+    confirmation.append("[green]✓ No Invalid Ranks[/green]" if not invalid_ranks else "[red]✗ Invalid Ranks Detected[/red]")
     confirmation.append("[green]✓ Database Size at 3000[/green]" if word_count == DATABASE_WORD_LIMIT else 
                        "[red]✗ Database Size Not at 3000[/red]")
     console.print(Panel("\n".join(confirmation), title="Confirmation Status", border_style="green", expand=False))
