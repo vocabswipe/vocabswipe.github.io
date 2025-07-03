@@ -157,7 +157,7 @@ function toggleTooltip() {
                 - <strong>Auto Swipe Up (<img src="${theme === 'bright' ? 'auto-swipe-up-bright.svg' : 'auto-swipe-up-night.svg'}" width="28" height="28" ${iconStyle} alt="Auto Swipe Up">):</strong> On back card, tap to automatically cycle through definitions and examples.<br>
                 - <strong>Swipe Left/Right:</strong> Navigate to the next or previous word card.<br>
                 - <strong>Swipe Up/Down:</strong> On the back of a card, cycle through different definitions and examples.<br>
-                - <strong>Tap Once:</strong> Hear the word or sentence audio (if audio is enabled) or stop auto-swipe.<br>
+                - <strong>Tap Once:</strong> Stop auto-swipe or hear the word/sentence audio (if enabled).<br>
                 - <strong>Double-Tap:</strong> Flip between the front (word) and back (definition/example).<br>
                 - <strong>Slider:</strong> Jump to a specific word rank.
             `
@@ -173,7 +173,7 @@ function toggleTooltip() {
                 - <strong>Auto Swipe Up (<img src="${theme === 'bright' ? 'auto-swipe-up-bright.svg' : 'auto-swipe-up-night.svg'}" width="28" height="28" ${iconStyle} alt="Auto Swipe Up">):</strong> On back card, click to automatically cycle through definitions and examples.<br>
                 - <strong>Left/Right Arrow Keys:</strong> Navigate to the previous or next word card.<br>
                 - <strong>Up/Down Arrow Keys:</strong> On the back of a card, cycle through different definitions and examples.<br>
-                - <strong>Spacebar:</strong> Play the word or sentence audio (if audio is enabled) or stop auto-swipe.<br>
+                - <strong>Spacebar:</strong> Stop auto-swipe or play the word/sentence audio (if enabled).<br>
                 - <strong>Enter:</strong> Flip between the front (word) and back (definition/example).<br>
                 - <strong>Slider:</strong> Jump to a specific word rank.
             `;
@@ -314,7 +314,21 @@ function startAutoSwipe(direction) {
     if (!isContentLoaded) return;
     stopAutoSwipe(); // Clear any existing auto-swipe
     autoSwipeDirection = direction;
-    performAutoSwipe();
+    // Play audio for the current card immediately
+    if (audioEnabled && audioUnlocked) {
+        const audioFile = isFlipped 
+            ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
+            : words[currentWordIndex]?.word_audio_file;
+        if (audioFile) {
+            playAudioWithRetry(audioFile, 3, 500, () => {
+                performAutoSwipe(); // Start auto-swipe after initial audio
+            });
+        } else {
+            performAutoSwipe(); // Proceed if no audio
+        }
+    } else {
+        performAutoSwipe(); // Proceed if audio is disabled
+    }
 }
 
 function performAutoSwipe() {
@@ -324,15 +338,16 @@ function performAutoSwipe() {
         ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
         : words[currentWordIndex]?.word_audio_file;
 
-    if (audioEnabled && audioUnlocked && audioFile && currentAudio && !currentAudio.paused) {
-        // Wait for audio to finish
-        currentAudio.onended = () => {
+    if (audioEnabled && audioUnlocked && audioFile) {
+        // Ensure audio is loaded and played before swiping
+        playAudioWithRetry(audioFile, 3, 500, () => {
             executeSwipe();
-            autoSwipeInterval = setTimeout(performAutoSwipe, 100); // Small delay after audio
-        };
+            autoSwipeInterval = setTimeout(performAutoSwipe, 200); // Small delay after audio
+        });
     } else {
+        // No audio or muted: swipe after a default delay
         executeSwipe();
-        autoSwipeInterval = setTimeout(performAutoSwipe, 1000); // Default delay if no audio
+        autoSwipeInterval = setTimeout(performAutoSwipe, 2000); // 2-second delay for visibility
     }
 }
 
@@ -356,12 +371,6 @@ function executeSwipe() {
     stopAudio();
     displayWord();
     preloadAudio();
-    if (audioUnlocked && audioEnabled) {
-        const audioFile = isFlipped 
-            ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-            : words[currentWordIndex]?.word_audio_file;
-        if (audioFile) playAudioWithRetry(audioFile, 3, 500);
-    }
 }
 
 function stopAutoSwipe() {
@@ -391,18 +400,14 @@ function setupEventListeners() {
         if (tapCount === 1) {
             setTimeout(() => {
                 if (tapCount === 1) {
+                    glowCard(1); // Apply glow effect on single tap
                     if (autoSwipeDirection) {
                         stopAutoSwipe();
-                    } else {
-                        glowCard(1);
-                        if (audioEnabled) {
-                            const audioFile = isFlipped 
-                                ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-                                : words[currentWordIndex]?.word_audio_file;
-                            if (audioFile && audioUnlocked) {
-                                playAudioWithRetry(audioFile, 3, 500);
-                            }
-                        }
+                    } else if (audioEnabled && audioUnlocked) {
+                        const audioFile = isFlipped 
+                            ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
+                            : words[currentWordIndex]?.word_audio_file;
+                        if (audioFile) playAudioWithRetry(audioFile, 3, 500);
                     }
                 }
                 tapCount = 0;
@@ -424,18 +429,14 @@ function setupEventListeners() {
         if (tapCount === 1) {
             setTimeout(() => {
                 if (tapCount === 1) {
+                    glowCard(1); // Apply glow effect on single tap
                     if (autoSwipeDirection) {
                         stopAutoSwipe();
-                    } else {
-                        glowCard(1);
-                        if (audioEnabled) {
-                            const audioFile = isFlipped 
-                                ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-                                : words[currentWordIndex]?.word_audio_file;
-                            if (audioFile && audioUnlocked) {
-                                playAudioWithRetry(audioFile, 3, 500);
-                            }
-                        }
+                    } else if (audioEnabled && audioUnlocked) {
+                        const audioFile = isFlipped 
+                            ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
+                            : words[currentWordIndex]?.word_audio_file;
+                        if (audioFile) playAudioWithRetry(audioFile, 3, 500);
                     }
                 }
                 tapCount = 0;
@@ -594,16 +595,14 @@ function setupKeyboardListeners() {
                 }
                 break;
             case ' ':
+                glowCard(1); // Apply glow effect on spacebar
                 if (autoSwipeDirection) {
                     stopAutoSwipe();
-                } else {
-                    glowCard(1);
-                    if (audioEnabled) {
-                        const audioFile = isFlipped 
-                            ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-                            : words[currentWordIndex]?.word_audio_file;
-                        if (audioFile && audioUnlocked) playAudioWithRetry(audioFile, 3, 500);
-                    }
+                } else if (audioEnabled && audioUnlocked) {
+                    const audioFile = isFlipped 
+                        ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
+                        : words[currentWordIndex]?.word_audio_file;
+                    if (audioFile) playAudioWithRetry(audioFile, 3, 500);
                 }
                 break;
             case 'Enter':
@@ -693,9 +692,10 @@ function stopAudio() {
     }
 }
 
-function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
+function playAudioWithRetry(audioFile, retries = 3, delay = 500, callback = null) {
     if (!audioFile || !audioUnlocked || !audioEnabled) {
         console.warn(`Cannot play audio: ${audioFile}. AudioUnlocked: ${audioUnlocked}, AudioEnabled: ${audioEnabled}`);
+        if (callback) callback();
         return;
     }
 
@@ -703,6 +703,7 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
     const now = Date.now();
     if (now - lastAudioPlayTime < AUDIO_DEBOUNCE_MS) {
         console.log(`Debouncing audio playback for ${audioFile}`);
+        if (callback) callback();
         return;
     }
     lastAudioPlayTime = now;
@@ -726,6 +727,7 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
         audio.addEventListener('error', () => {
             console.error(`Failed to load audio: ${audioPath}`);
             audioCache.delete(audioFile);
+            if (callback) callback();
         }, { once: true });
     }
 
@@ -734,6 +736,7 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
     function attemptPlay(attempt = 1) {
         if (!audioEnabled || !audioUnlocked) {
             console.warn(`Playback aborted for ${audioPath}: audio disabled or not unlocked`);
+            if (callback) callback();
             return;
         }
         const playPromise = audio.play();
@@ -741,6 +744,9 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
             playPromise
                 .then(() => {
                     console.log(`Successfully playing: ${audioPath} (Attempt ${attempt})`);
+                    if (callback) {
+                        audio.onended = callback; // Trigger callback when audio finishes
+                    }
                 })
                 .catch(error => {
                     console.error(`Playback error for ${audioPath} (Attempt ${attempt}): ${error.message}`);
@@ -749,6 +755,8 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
                         setTimeout(() => attemptPlay(attempt + 1), delay);
                     } else {
                         console.error(`Failed to play ${audioPath} after ${retries} attempts`);
+                        audioCache.delete(audioFile);
+                        if (callback) callback();
                     }
                 });
         }
@@ -762,6 +770,7 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
         audio.addEventListener('error', () => {
             console.error(`Cannot play ${audioPath}: audio failed to load`);
             audioCache.delete(audioFile);
+            if (callback) callback();
         }, { once: true });
     }
 }
