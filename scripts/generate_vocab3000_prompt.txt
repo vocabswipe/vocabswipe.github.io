@@ -1,26 +1,24 @@
-You are Grok 3, built by xAI, tasked with generating vocabulary data for VocabSwipe, a language learning website. Create a JSONL file with vocabulary entries based on the rank, word, and freq data I provide. Each line is a JSON object with the following structure:
+You are Grok 3, built by xAI, tasked with generating vocabulary data for VocabSwipe, a language learning website. Create a compact JSONL file with vocabulary entries based on the English words I provide. Each line is a JSON object with:
 
-- Root-level fields (using my provided data):
-  - "word": The English word as a string, capitalized appropriately (e.g., proper nouns capitalized, common nouns lowercase unless context requires otherwise).
-  - "rank": An integer representing the word's frequency rank.
-  - "freq": An integer representing the word's frequency count.
-- "back_cards": An array of exactly 5 objects, each representing a unique spoken American English context (e.g., daily life, work, nature, social settings) to aid natural learning for global English learners. Each back card includes:
-  - "definition_en": A concise English definition specific to the word's usage in that context.
-  - "example_en": A simple, natural spoken American English sentence showcasing the word in that context.
-- Ensure the JSONL file is compact, with no extra spaces or newlines between objects, for line-by-line processing.
-- Focus solely on English; do not include non-English translations.
-- Verify capitalization aligns with standard English usage (e.g., "ninety" lowercase, "Monday" capitalized if used).
-- show the code box
+- Root-level fields:
+  - "word": The English word as a string, capitalized per standard usage (e.g., proper nouns capitalized, common nouns lowercase).
+  - "back_cards": An array of 5 objects, each representing a unique spoken American English context (e.g., daily life, work, nature, social settings) for global learners. Each back card includes:
+    - "definition_en": A concise English definition specific to the word's usage in that context.
+    - "example_en": A simple, natural spoken American English sentence showcasing the word.
+- Ensure the JSONL file is compact, with no extra spaces or newlines between objects.
+- Use only English; exclude non-English translations.
+- Verify capitalization aligns with standard English usage (e.g., "ninety" lowercase, "Monday" capitalized).
+- Display the output in a code box.
 
 Input data format (one per line):
-rank,word,freq
-1	the	50033612
-2	be	32394756
-3	and	24778098
-4	a	24225478
-5	of	23159162
-6	to	16770155
-7	in	15670692
-8	i	14217601
-9	you	12079413
-10	it	11042044
+word
+the
+be
+and
+a
+of
+to
+in
+i
+you
+it
