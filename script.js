@@ -16,8 +16,6 @@ let totalSentences = 0;
 let isContentLoaded = false;
 let lastAudioPlayTime = 0;
 const AUDIO_DEBOUNCE_MS = 300; // Debounce audio playback to prevent rapid calls
-let autoSwipeInterval = null;
-let autoSwipeDirection = null; // 'left', 'right', or 'up'
 
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'bright';
@@ -66,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
         currentWordIndex = parseInt(cardSlider.value) - 1;
         currentBackCardIndex = 0;
         stopAudio();
-        stopAutoSwipe();
         displayWord();
     });
     cardSlider.addEventListener('change', () => {
@@ -80,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    setupAutoSwipeButtons();
     loadWords();
     setupEventListeners();
     setupKeyboardListeners();
@@ -102,9 +98,6 @@ function updateIcons(theme) {
     const shuffleIcon = document.querySelector('.shuffle-icon');
     const resetIcon = document.querySelector('.reset-icon');
     const loadingIcon = document.querySelector('.loading-icon');
-    const autoSwipeLeftIcons = document.querySelectorAll('.auto-swipe-left-icon');
-    const autoSwipeRightIcons = document.querySelectorAll('.auto-swipe-right-icon');
-    const autoSwipeUpIcon = document.querySelector('.auto-swipe-up-icon');
 
     themeIcon.src = theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
     audioIcon.src = theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg');
@@ -113,15 +106,6 @@ function updateIcons(theme) {
     resetIcon.src = theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg';
     if (loadingIcon) {
         loadingIcon.src = theme === 'bright' ? 'loading-bright.gif' : 'loading-night.gif';
-    }
-    autoSwipeLeftIcons.forEach(icon => {
-        icon.src = theme === 'bright' ? 'auto-swipe-left-bright.svg' : 'auto-swipe-left-night.svg';
-    });
-    autoSwipeRightIcons.forEach(icon => {
-        icon.src = theme === 'bright' ? 'auto-swipe-right-bright.svg' : 'auto-swipe-right-night.svg';
-    });
-    if (autoSwipeUpIcon) {
-        autoSwipeUpIcon.src = theme === 'bright' ? 'auto-swipe-up-bright.svg' : 'auto-swipe-up-night.svg';
     }
 }
 
@@ -152,12 +136,9 @@ function toggleTooltip() {
                 - <strong>Info (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="28" height="28" ${iconStyle} alt="Info">):</strong> Tap to show or hide this help message.<br>
                 - <strong>Shuffle (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="28" height="28" ${iconStyle} alt="Shuffle">):</strong> Tap to randomize the word order.<br>
                 - <strong>Reset (<img src="${theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg'}" width="28" height="28" ${iconStyle} alt="Reset">):</strong> Tap to restore the original word order.<br>
-                - <strong>Auto Swipe Left (<img src="${theme === 'bright' ? 'auto-swipe-left-bright.svg' : 'auto-swipe-left-night.svg'}" width="28" height="28" ${iconStyle} alt="Auto Swipe Left">):</strong> Tap to automatically swipe to the previous card.<br>
-                - <strong>Auto Swipe Right (<img src="${theme === 'bright' ? 'auto-swipe-right-bright.svg' : 'auto-swipe-right-night.svg'}" width="28" height="28" ${iconStyle} alt="Auto Swipe Right">):</strong> Tap to automatically swipe to the next card.<br>
-                - <strong>Auto Swipe Up (<img src="${theme === 'bright' ? 'auto-swipe-up-bright.svg' : 'auto-swipe-up-night.svg'}" width="28" height="28" ${iconStyle} alt="Auto Swipe Up">):</strong> On back card, tap to automatically cycle through definitions and examples.<br>
                 - <strong>Swipe Left/Right:</strong> Navigate to the next or previous word card.<br>
                 - <strong>Swipe Up/Down:</strong> On the back of a card, cycle through different definitions and examples.<br>
-                - <strong>Tap Once:</strong> Stop auto-swipe or hear the word/sentence audio (if enabled).<br>
+                - <strong>Tap Once:</strong> Hear the word or sentence audio (if audio is enabled).<br>
                 - <strong>Double-Tap:</strong> Flip between the front (word) and back (definition/example).<br>
                 - <strong>Slider:</strong> Jump to a specific word rank.
             `
@@ -168,12 +149,9 @@ function toggleTooltip() {
                 - <strong>Info (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="28" height="28" ${iconStyle} alt="Info">):</strong> Click to show or hide this help message.<br>
                 - <strong>Shuffle (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="28" height="28" ${iconStyle} alt="Shuffle">):</strong> Click to randomize the word order.<br>
                 - <strong>Reset (<img src="${theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg'}" width="28" height="28" ${iconStyle} alt="Reset">):</strong> Click to restore the original word order.<br>
-                - <strong>Auto Swipe Left (<img src="${theme === 'bright' ? 'auto-swipe-left-bright.svg' : 'auto-swipe-left-night.svg'}" width="28" height="28" ${iconStyle} alt="Auto Swipe Left">):</strong> Click to automatically swipe to the previous card.<br>
-                - <strong>Auto Swipe Right (<img src="${theme === 'bright' ? 'auto-swipe-right-bright.svg' : 'auto-swipe-right-night.svg'}" width="28" height="28" ${iconStyle} alt="Auto Swipe Right">):</strong> Click to automatically swipe to the next card.<br>
-                - <strong>Auto Swipe Up (<img src="${theme === 'bright' ? 'auto-swipe-up-bright.svg' : 'auto-swipe-up-night.svg'}" width="28" height="28" ${iconStyle} alt="Auto Swipe Up">):</strong> On back card, click to automatically cycle through definitions and examples.<br>
                 - <strong>Left/Right Arrow Keys:</strong> Navigate to the previous or next word card.<br>
                 - <strong>Up/Down Arrow Keys:</strong> On the back of a card, cycle through different definitions and examples.<br>
-                - <strong>Spacebar:</strong> Stop auto-swipe or play the word/sentence audio (if enabled).<br>
+                - <strong>Spacebar:</strong> Play the word or sentence audio (if audio is enabled).<br>
                 - <strong>Enter:</strong> Flip between the front (word) and back (definition/example).<br>
                 - <strong>Slider:</strong> Jump to a specific word rank.
             `;
@@ -246,7 +224,6 @@ function loadWords() {
 }
 
 function shuffleCards() {
-    stopAutoSwipe();
     for (let i = words.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [words[i], words[j]] = [words[j], words[i]];
@@ -265,7 +242,6 @@ function shuffleCards() {
 }
 
 function resetCards() {
-    stopAutoSwipe();
     words = JSON.parse(JSON.stringify(originalWords)).sort((a, b) => (a.rank || 0) - (b.rank || 0));
     currentWordIndex = 0;
     currentBackCardIndex = 0;
@@ -277,108 +253,6 @@ function resetCards() {
             ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
             : words[currentWordIndex]?.word_audio_file;
         if (audioFile) playAudioWithRetry(audioFile, 3, 500);
-    }
-}
-
-function setupAutoSwipeButtons() {
-    const autoSwipeLeftButtons = document.querySelectorAll('.auto-swipe-left-btn');
-    const autoSwipeRightButtons = document.querySelectorAll('.auto-swipe-right-btn');
-    const autoSwipeUpButton = document.querySelector('.auto-swipe-up-btn');
-
-    autoSwipeLeftButtons.forEach(button => {
-        button.addEventListener('click', () => startAutoSwipe('left'));
-        button.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            startAutoSwipe('left');
-        });
-    });
-
-    autoSwipeRightButtons.forEach(button => {
-        button.addEventListener('click', () => startAutoSwipe('right'));
-        button.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            startAutoSwipe('right');
-        });
-    });
-
-    if (autoSwipeUpButton) {
-        autoSwipeUpButton.addEventListener('click', () => startAutoSwipe('up'));
-        autoSwipeUpButton.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            startAutoSwipe('up');
-        });
-    }
-}
-
-function startAutoSwipe(direction) {
-    if (!isContentLoaded) return;
-    stopAutoSwipe(); // Clear any existing auto-swipe
-    autoSwipeDirection = direction;
-    // Play audio for the current card immediately
-    if (audioEnabled && audioUnlocked) {
-        const audioFile = isFlipped 
-            ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-            : words[currentWordIndex]?.word_audio_file;
-        if (audioFile) {
-            playAudioWithRetry(audioFile, 3, 500, () => {
-                performAutoSwipe(); // Start auto-swipe after initial audio
-            });
-        } else {
-            performAutoSwipe(); // Proceed if no audio
-        }
-    } else {
-        performAutoSwipe(); // Proceed if audio is disabled
-    }
-}
-
-function performAutoSwipe() {
-    if (!autoSwipeDirection || !isContentLoaded) return;
-
-    const audioFile = isFlipped 
-        ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-        : words[currentWordIndex]?.word_audio_file;
-
-    if (audioEnabled && audioUnlocked && audioFile) {
-        // Ensure audio is loaded and played before swiping
-        playAudioWithRetry(audioFile, 3, 500, () => {
-            executeSwipe();
-            autoSwipeInterval = setTimeout(performAutoSwipe, 200); // Small delay after audio
-        });
-    } else {
-        // No audio or muted: swipe after a default delay
-        executeSwipe();
-        autoSwipeInterval = setTimeout(performAutoSwipe, 2000); // 2-second delay for visibility
-    }
-}
-
-function executeSwipe() {
-    if (autoSwipeDirection === 'left') {
-        animateSwipe('left', isFlipped);
-        currentWordIndex = (currentWordIndex + 1) % words.length;
-        currentBackCardIndex = 0;
-    } else if (autoSwipeDirection === 'right') {
-        animateSwipe('right', isFlipped);
-        currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
-        currentBackCardIndex = 0;
-    } else if (autoSwipeDirection === 'up' && isFlipped && words[currentWordIndex]?.back_cards) {
-        animateSwipe('up', isFlipped);
-        currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
-    } else {
-        stopAutoSwipe(); // Stop if invalid direction or not flipped for up
-        return;
-    }
-
-    stopAudio();
-    displayWord();
-    preloadAudio();
-}
-
-function stopAutoSwipe() {
-    if (autoSwipeInterval) {
-        clearTimeout(autoSwipeInterval);
-        autoSwipeInterval = null;
-        autoSwipeDirection = null;
-        console.log('Auto-swipe stopped');
     }
 }
 
@@ -400,14 +274,14 @@ function setupEventListeners() {
         if (tapCount === 1) {
             setTimeout(() => {
                 if (tapCount === 1) {
-                    glowCard(1); // Apply glow effect on single tap
-                    if (autoSwipeDirection) {
-                        stopAutoSwipe();
-                    } else if (audioEnabled && audioUnlocked) {
+                    glowCard(1);
+                    if (audioEnabled) {
                         const audioFile = isFlipped 
                             ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
                             : words[currentWordIndex]?.word_audio_file;
-                        if (audioFile) playAudioWithRetry(audioFile, 3, 500);
+                        if (audioFile && audioUnlocked) {
+                            playAudioWithRetry(audioFile, 3, 500);
+                        }
                     }
                 }
                 tapCount = 0;
@@ -415,7 +289,6 @@ function setupEventListeners() {
         } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
             glowCard(2);
             flipCard();
-            stopAutoSwipe();
             tapCount = 0;
         }
         lastTapTime = currentTime;
@@ -429,14 +302,14 @@ function setupEventListeners() {
         if (tapCount === 1) {
             setTimeout(() => {
                 if (tapCount === 1) {
-                    glowCard(1); // Apply glow effect on single tap
-                    if (autoSwipeDirection) {
-                        stopAutoSwipe();
-                    } else if (audioEnabled && audioUnlocked) {
+                    glowCard(1);
+                    if (audioEnabled) {
                         const audioFile = isFlipped 
                             ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
                             : words[currentWordIndex]?.word_audio_file;
-                        if (audioFile) playAudioWithRetry(audioFile, 3, 500);
+                        if (audioFile && audioUnlocked) {
+                            playAudioWithRetry(audioFile, 3, 500);
+                        }
                     }
                 }
                 tapCount = 0;
@@ -444,7 +317,6 @@ function setupEventListeners() {
         } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
             glowCard(2);
             flipCard();
-            stopAutoSwipe();
             tapCount = 0;
         }
         lastTapTime = currentTime;
@@ -456,7 +328,6 @@ function setupEventListeners() {
         if (!isContentLoaded) return;
         e.preventDefault();
         if (words.length) {
-            stopAutoSwipe();
             animateSwipe('left', isFlipped);
             currentWordIndex = (currentWordIndex + 1) % words.length;
             currentBackCardIndex = 0;
@@ -475,7 +346,6 @@ function setupEventListeners() {
         if (!isContentLoaded) return;
         e.preventDefault();
         if (words.length) {
-            stopAutoSwipe();
             animateSwipe('right', isFlipped);
             currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
             currentBackCardIndex = 0;
@@ -494,7 +364,6 @@ function setupEventListeners() {
         if (!isContentLoaded) return;
         e.preventDefault();
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            stopAutoSwipe();
             animateSwipe('up', isFlipped);
             currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
             stopAudio();
@@ -513,7 +382,6 @@ function setupEventListeners() {
         if (!isContentLoaded) return;
         e.preventDefault();
         if (isFlipped && words[currentWordIndex]?.back_cards) {
-            stopAutoSwipe();
             animateSwipe('down', isFlipped);
             currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
             stopAudio();
@@ -535,7 +403,6 @@ function setupKeyboardListeners() {
         if (!words.length || !isContentLoaded) return;
         switch (e.key) {
             case 'ArrowLeft':
-                stopAutoSwipe();
                 animateSwipe('right', isFlipped);
                 currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
                 currentBackCardIndex = 0;
@@ -550,7 +417,6 @@ function setupKeyboardListeners() {
                 }
                 break;
             case 'ArrowRight':
-                stopAutoSwipe();
                 animateSwipe('left', isFlipped);
                 currentWordIndex = (currentWordIndex + 1) % words.length;
                 currentBackCardIndex = 0;
@@ -566,7 +432,6 @@ function setupKeyboardListeners() {
                 break;
             case 'ArrowUp':
                 if (isFlipped && words[currentWordIndex]?.back_cards) {
-                    stopAutoSwipe();
                     animateSwipe('up', isFlipped);
                     currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
                     stopAudio();
@@ -581,7 +446,6 @@ function setupKeyboardListeners() {
                 break;
             case 'ArrowDown':
                 if (isFlipped && words[currentWordIndex]?.back_cards) {
-                    stopAutoSwipe();
                     animateSwipe('down', isFlipped);
                     currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
                     stopAudio();
@@ -595,20 +459,17 @@ function setupKeyboardListeners() {
                 }
                 break;
             case ' ':
-                glowCard(1); // Apply glow effect on spacebar
-                if (autoSwipeDirection) {
-                    stopAutoSwipe();
-                } else if (audioEnabled && audioUnlocked) {
+                glowCard(1);
+                if (audioEnabled) {
                     const audioFile = isFlipped 
                         ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
                         : words[currentWordIndex]?.word_audio_file;
-                    if (audioFile) playAudioWithRetry(audioFile, 3, 500);
+                    if (audioFile && audioUnlocked) playAudioWithRetry(audioFile, 3, 500);
                 }
                 break;
             case 'Enter':
                 glowCard(2);
                 flipCard();
-                stopAutoSwipe();
                 break;
         }
     });
@@ -692,10 +553,9 @@ function stopAudio() {
     }
 }
 
-function playAudioWithRetry(audioFile, retries = 3, delay = 500, callback = null) {
+function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
     if (!audioFile || !audioUnlocked || !audioEnabled) {
         console.warn(`Cannot play audio: ${audioFile}. AudioUnlocked: ${audioUnlocked}, AudioEnabled: ${audioEnabled}`);
-        if (callback) callback();
         return;
     }
 
@@ -703,7 +563,6 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500, callback = null
     const now = Date.now();
     if (now - lastAudioPlayTime < AUDIO_DEBOUNCE_MS) {
         console.log(`Debouncing audio playback for ${audioFile}`);
-        if (callback) callback();
         return;
     }
     lastAudioPlayTime = now;
@@ -727,7 +586,6 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500, callback = null
         audio.addEventListener('error', () => {
             console.error(`Failed to load audio: ${audioPath}`);
             audioCache.delete(audioFile);
-            if (callback) callback();
         }, { once: true });
     }
 
@@ -736,7 +594,6 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500, callback = null
     function attemptPlay(attempt = 1) {
         if (!audioEnabled || !audioUnlocked) {
             console.warn(`Playback aborted for ${audioPath}: audio disabled or not unlocked`);
-            if (callback) callback();
             return;
         }
         const playPromise = audio.play();
@@ -744,9 +601,6 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500, callback = null
             playPromise
                 .then(() => {
                     console.log(`Successfully playing: ${audioPath} (Attempt ${attempt})`);
-                    if (callback) {
-                        audio.onended = callback; // Trigger callback when audio finishes
-                    }
                 })
                 .catch(error => {
                     console.error(`Playback error for ${audioPath} (Attempt ${attempt}): ${error.message}`);
@@ -755,8 +609,6 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500, callback = null
                         setTimeout(() => attemptPlay(attempt + 1), delay);
                     } else {
                         console.error(`Failed to play ${audioPath} after ${retries} attempts`);
-                        audioCache.delete(audioFile);
-                        if (callback) callback();
                     }
                 });
         }
@@ -770,7 +622,6 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500, callback = null
         audio.addEventListener('error', () => {
             console.error(`Cannot play ${audioPath}: audio failed to load`);
             audioCache.delete(audioFile);
-            if (callback) callback();
         }, { once: true });
     }
 }
@@ -814,12 +665,6 @@ function displayWord() {
     document.querySelector('#card-slider').value = currentWordIndex + 1;
 
     document.querySelector('.front').innerHTML = `
-        <button class="auto-swipe-left-btn" aria-label="Auto swipe left">
-            <img src="${document.body.getAttribute('data-theme') === 'bright' ? 'auto-swipe-left-bright.svg' : 'auto-swipe-left-night.svg'}" class="auto-swipe-left-icon" width="28" height="28" alt="Auto swipe left">
-        </button>
-        <button class="auto-swipe-right-btn" aria-label="Auto swipe right">
-            <img src="${document.body.getAttribute('data-theme') === 'bright' ? 'auto-swipe-right-bright.svg' : 'auto-swipe-right-night.svg'}" class="auto-swipe-right-icon" width="28" height="28" alt="Auto swipe right">
-        </button>
         <div class="word-container">
             <h2>${wordData.word || 'N/A'}</h2>
         </div>
@@ -835,15 +680,6 @@ function displayWord() {
     `;
 
     document.querySelector('.back').innerHTML = `
-        <button class="auto-swipe-left-btn" aria-label="Auto swipe left">
-            <img src="${document.body.getAttribute('data-theme') === 'bright' ? 'auto-swipe-left-bright.svg' : 'auto-swipe-left-night.svg'}" class="auto-swipe-left-icon" width="28" height="28" alt="Auto swipe left">
-        </button>
-        <button class="auto-swipe-right-btn" aria-label="Auto swipe right">
-            <img src="${document.body.getAttribute('data-theme') === 'bright' ? 'auto-swipe-right-bright.svg' : 'auto-swipe-right-night.svg'}" class="auto-swipe-right-icon" width="28" height="28" alt="Auto swipe right">
-        </button>
-        <button class="auto-swipe-up-btn" aria-label="Auto swipe up">
-            <img src="${document.body.getAttribute('data-theme') === 'bright' ? 'auto-swipe-up-bright.svg' : 'auto-swipe-up-night.svg'}" class="auto-swipe-up-icon" width="28" height="28" alt="Auto swipe up">
-        </button>
         <div class="word-container">
             <h2>${wordData.word || 'N/A'}</h2>
         </div>
@@ -863,7 +699,4 @@ function displayWord() {
             </div>
         </div>
     `;
-
-    // Re-attach event listeners for the new buttons
-    setupAutoSwipeButtons();
 }
