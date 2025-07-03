@@ -14531,3 +14531,57 @@
 2025-07-03 19:48:21,361 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
 2025-07-03 19:48:21,361 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.
 2025-07-03 19:48:21,362 - WARNING - Invalid entries: [{'word8': 'eight', 'rank': 835, 'freq': 104060, 'back_cards': [{'definition_en': 'The number 8.', 'example_en': 'I have eight dollars in my pocket.'}, {'definition_en': 'A group or set of eight.', 'example_en': 'She bought eight cupcakes for the party.'}, {'definition_en': 'Referring to the time of 8 o’clock.', 'example_en': 'Let’s meet at eight tonight.'}, {'definition_en': 'A quantity of eight items.', 'example_en': 'The team played eight games this season.'}, {'definition_en': 'A position or rank of eighth.', 'example_en': 'He finished eighth in the race.'}]}, {'word': 'wife', 'rank': 443, 'freq': 197306, 'back_cards': [{'definition_en': 'A married woman.', 'example_en': 'My wife and I went out for dinner.'}, {'definition_en': 'A female spouse.', 'example_en': 'He bought a gift for his wife.'}, {'definition_en': 'A partner in marriage.', 'example_en': 'She’s been his wife for ten years.'}, {'definition crus': 'A woman in a committed relationship.', 'example_en': 'He calls her his work wife because they’re so close.'}, {'definition_en': 'A term of affection for a spouse.', 'example_en': 'I’m so lucky to have her as my wife.'}]}]
+2025-07-03 20:22:52,726 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-07-03 20:22:52,940 - INFO - AWS Polly client initialized successfully.
+2025-07-03 20:22:52,947 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 20:23:08,542 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-03 20:23:08,542 - INFO - Backup created at: D:\vocabswipe.github.io\data\temp\backup_vocab3000_20250703_202252.jsonl
+2025-07-03 20:23:08,548 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 20:23:38,432 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 20:23:38,432 - INFO - Appended 10 entries to D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 20:23:38,464 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 20:24:30,786 - INFO - Generated audio for '<speak>She bought a car, and the car was blue.</speak>' at D:\vocabswipe.github.io\data\audio\back\the\the_She_bought_a_car_and_the_car_was_blue.mp3
+2025-07-03 20:24:31,145 - INFO - Generated audio for '<speak>The sun sets slowly behind the mountain.</speak>' at D:\vocabswipe.github.io\data\audio\back\the\the_The_sun_sets_slowly_behind_the_mountain.mp3
+2025-07-03 20:24:31,494 - INFO - Generated audio for '<speak>That’s the best pizza I’ve ever had.</speak>' at D:\vocabswipe.github.io\data\audio\back\the\the_Thats_the_best_pizza_Ive_ever_had.mp3
+2025-07-03 20:24:31,865 - INFO - Generated audio for '<speak>The kids in my class are really friendly.</speak>' at D:\vocabswipe.github.io\data\audio\back\the\the_The_kids_in_my_class_are_really_friendly.mp3
+2025-07-03 20:24:32,207 - INFO - Generated audio for '<speak>I’m happy to be here today.</speak>' at D:\vocabswipe.github.io\data\audio\back\be\be_Im_happy_to_be_here_today.mp3
+2025-07-03 20:24:32,572 - INFO - Generated audio for '<speak>She wants to be a doctor when she grows up.</speak>' at D:\vocabswipe.github.io\data\audio\back\be\be_She_wants_to_be_a_doctor_when_she_grows_up.mp3
+2025-07-03 20:24:32,910 - INFO - Generated audio for '<speak>The keys are on the table.</speak>' at D:\vocabswipe.github.io\data\audio\back\be\be_The_keys_are_on_the_table.mp3
+2025-07-03 20:24:33,248 - INFO - Generated audio for '<speak>The room was cleaned yesterday.</speak>' at D:\vocabswipe.github.io\data\audio\back\be\be_The_room_was_cleaned_yesterday.mp3
+2025-07-03 20:24:33,594 - INFO - Generated audio for '<speak>They’re being really quiet at the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\be\be_Theyre_being_really_quiet_at_the_party.mp3
+2025-07-03 20:24:33,944 - INFO - Generated audio for '<speak>I got coffee and a muffin for breakfast.</speak>' at D:\vocabswipe.github.io\data\audio\back\and\and_I_got_coffee_and_a_muffin_for_breakfast.mp3
+2025-07-03 20:24:34,300 - INFO - Generated audio for '<speak>She’s smart and works hard at her job.</speak>' at D:\vocabswipe.github.io\data\audio\back\and\and_Shes_smart_and_works_hard_at_her_job.mp3
+2025-07-03 20:24:34,651 - INFO - Generated audio for '<speak>We hiked up the hill and saw a great view.</speak>' at D:\vocabswipe.github.io\data\audio\back\and\and_We_hiked_up_the_hill_and_saw_a_great_view.mp3
+2025-07-03 20:24:34,993 - INFO - Generated audio for '<speak>I was tired, and I still finished my homework.</speak>' at D:\vocabswipe.github.io\data\audio\back\and\and_I_was_tired_and_I_still_finished_my_homework.mp3
+2025-07-03 20:24:35,341 - INFO - Generated audio for '<speak>I saw a cat in the yard.</speak>' at D:\vocabswipe.github.io\data\audio\back\a\a_I_saw_a_cat_in_the_yard.mp3
+2025-07-03 20:24:35,749 - INFO - Generated audio for '<speak>She’s a teacher at the local school.</speak>' at D:\vocabswipe.github.io\data\audio\back\a\a_Shes_a_teacher_at_the_local_school.mp3
+2025-07-03 20:24:36,257 - INFO - Generated audio for '<speak>Can you grab a pencil for me?</speak>' at D:\vocabswipe.github.io\data\audio\back\a\a_Can_you_grab_a_pencil_for_me.mp3
+2025-07-03 20:24:36,677 - INFO - Generated audio for '<speak>A friend of mine is coming over tonight.</speak>' at D:\vocabswipe.github.io\data\audio\back\a\a_A_friend_of_mine_is_coming_over_tonight.mp3
+2025-07-03 20:24:37,019 - INFO - Generated audio for '<speak>I go hiking once a week.</speak>' at D:\vocabswipe.github.io\data\audio\back\a\a_I_go_hiking_once_a_week.mp3
+2025-07-03 20:24:37,392 - INFO - Generated audio for '<speak>The color of her dress was bright red.</speak>' at D:\vocabswipe.github.io\data\audio\back\of\of_The_color_of_her_dress_was_bright_red.mp3
+2025-07-03 20:24:37,791 - INFO - Generated audio for '<speak>I ate a slice of pizza for lunch.</speak>' at D:\vocabswipe.github.io\data\audio\back\of\of_I_ate_a_slice_of_pizza_for_lunch.mp3
+2025-07-03 20:24:38,210 - INFO - Generated audio for '<speak>He’s the kind of guy who helps everyone.</speak>' at D:\vocabswipe.github.io\data\audio\back\of\of_Hes_the_kind_of_guy_who_helps_everyone.mp3
+2025-07-03 20:24:38,748 - INFO - Generated audio for '<speak>She’s from the city of Chicago.</speak>' at D:\vocabswipe.github.io\data\audio\back\of\of_Shes_from_the_city_of_Chicago.mp3
+2025-07-03 20:24:39,128 - INFO - Generated audio for '<speak>She studies hard to get good grades.</speak>' at D:\vocabswipe.github.io\data\audio\back\to\to_She_studies_hard_to_get_good_grades.mp3
+2025-07-03 20:24:39,467 - INFO - Generated audio for '<speak>I want to learn how to cook.</speak>' at D:\vocabswipe.github.io\data\audio\back\to\to_I_want_to_learn_how_to_cook.mp3
+2025-07-03 20:24:39,849 - INFO - Generated audio for '<speak>I gave a gift to my friend.</speak>' at D:\vocabswipe.github.io\data\audio\back\to\to_I_gave_a_gift_to_my_friend.mp3
+2025-07-03 20:24:40,248 - INFO - Generated audio for '<speak>I left my keys in the car.</speak>' at D:\vocabswipe.github.io\data\audio\back\in\in_I_left_my_keys_in_the_car.mp3
+2025-07-03 20:24:40,585 - INFO - Generated audio for '<speak>She’s in a great mood today.</speak>' at D:\vocabswipe.github.io\data\audio\back\in\in_Shes_in_a_great_mood_today.mp3
+2025-07-03 20:24:40,971 - INFO - Generated audio for '<speak>He’s in a book club with his friends.</speak>' at D:\vocabswipe.github.io\data\audio\back\in\in_Hes_in_a_book_club_with_his_friends.mp3
+2025-07-03 20:24:41,314 - INFO - Generated audio for '<speak>I’m going to the park this afternoon.</speak>' at D:\vocabswipe.github.io\data\audio\back\i\i_Im_going_to_the_park_this_afternoon.mp3
+2025-07-03 20:24:41,693 - INFO - Generated audio for '<speak>I think this movie is awesome.</speak>' at D:\vocabswipe.github.io\data\audio\back\i\i_I_think_this_movie_is_awesome.mp3
+2025-07-03 20:24:42,025 - INFO - Generated audio for '<speak>I just finished my homework.</speak>' at D:\vocabswipe.github.io\data\audio\back\i\i_I_just_finished_my_homework.mp3
+2025-07-03 20:24:42,413 - INFO - Generated audio for '<speak>I saw a deer while hiking yesterday.</speak>' at D:\vocabswipe.github.io\data\audio\back\i\i_I_saw_a_deer_while_hiking_yesterday.mp3
+2025-07-03 20:24:42,756 - INFO - Generated audio for '<speak>I love pizza more than burgers.</speak>' at D:\vocabswipe.github.io\data\audio\back\i\i_I_love_pizza_more_than_burgers.mp3
+2025-07-03 20:24:43,113 - INFO - Generated audio for '<speak>You look tired after that long day.</speak>' at D:\vocabswipe.github.io\data\audio\back\you\you_You_look_tired_after_that_long_day.mp3
+2025-07-03 20:24:43,535 - INFO - Generated audio for '<speak>You should try the new coffee shop.</speak>' at D:\vocabswipe.github.io\data\audio\back\you\you_You_should_try_the_new_coffee_shop.mp3
+2025-07-03 20:24:43,942 - INFO - Generated audio for '<speak>You never know what’s in those woods.</speak>' at D:\vocabswipe.github.io\data\audio\back\you\you_You_never_know_whats_in_those_woods.mp3
+2025-07-03 20:24:44,352 - INFO - Generated audio for '<speak>You are the best at telling jokes.</speak>' at D:\vocabswipe.github.io\data\audio\back\you\you_You_are_the_best_at_telling_jokes.mp3
+2025-07-03 20:24:44,756 - INFO - Generated audio for '<speak>I found a book, but it was torn.</speak>' at D:\vocabswipe.github.io\data\audio\back\it\it_I_found_a_book_but_it_was_torn.mp3
+2025-07-03 20:24:45,177 - INFO - Generated audio for '<speak>It’s hard to wake up early.</speak>' at D:\vocabswipe.github.io\data\audio\back\it\it_Its_hard_to_wake_up_early.mp3
+2025-07-03 20:24:45,564 - INFO - Generated audio for '<speak>The dog chased it tail.</speak>' at D:\vocabswipe.github.io\data\audio\back\it\it_The_dog_chased_it_tail.mp3
+2025-07-03 20:24:45,897 - INFO - Generated audio for '<speak>It was a great party last night.</speak>' at D:\vocabswipe.github.io\data\audio\back\it\it_It_was_a_great_party_last_night.mp3
+2025-07-03 20:24:59,252 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 20:24:59,270 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250703_202459.txt
+2025-07-03 20:24:59,276 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-03 20:24:59,276 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.
