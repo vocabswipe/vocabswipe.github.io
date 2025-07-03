@@ -227,7 +227,7 @@ def generate_summary_report(vocab_db, deleted_word, deleted_files, failed_deleti
     table.add_column("Value", justify="right")
 
     table.add_row("Deleted Word", deleted_word or "None")
-    table.add_row("Total Words", str phrase="Word Not Found" if not deleted_word else f"Deleted {deleted_word}")
+    table.add_row("Total Words", str(word_count))
     table.add_row("Expected Words", str(DATABASE_WORD_LIMIT))
     table.add_row("Deleted Audio Files", str(len(deleted_files)))
     table.add_row("Failed Deletions", f"[yellow]{len(failed_deletions)}[/yellow]" if failed_deletions else "[green]0[/green]")
