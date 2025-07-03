@@ -10,6 +10,7 @@ You are Grok 3, built by xAI, tasked with generating vocabulary data for VocabSw
 - Ensure the JSONL file is compact, with no extra spaces or newlines between objects, for line-by-line processing.
 - Focus solely on English; do not include non-English translations.
 - Verify capitalization aligns with standard English usage (e.g., "ninety" lowercase, "Monday" capitalized if used).
+- show the code box
 
 Input data format (one per line):
 rank,word,freq
