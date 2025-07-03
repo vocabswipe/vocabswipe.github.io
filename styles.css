@@ -39,7 +39,7 @@ body[data-theme="dark"] {
     margin-bottom: 16px;
 }
 
-.theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn {
+.theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .auto-swipe-left-btn, .auto-swipe-right-btn, .auto-swipe-up-btn {
     background: none;
     border: none;
     cursor: pointer;
@@ -48,7 +48,8 @@ body[data-theme="dark"] {
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.theme-toggle:hover, .audio-btn:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover {
+.theme-toggle:hover, .audio-btn:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover,
+.auto-swipe-left-btn:hover, .auto-swipe-right-btn:hover, .auto-swipe-up-btn:hover {
     background: rgba(0, 0, 0, 0.15);
     transform: scale(1.1);
 }
@@ -57,11 +58,15 @@ body[data-theme="dark"] .theme-toggle:hover,
 body[data-theme="dark"] .audio-btn:hover,
 body[data-theme="dark"] .info-btn:hover,
 body[data-theme="dark"] .shuffle-btn:hover,
-body[data-theme="dark"] .reset-btn:hover {
+body[data-theme="dark"] .reset-btn:hover,
+body[data-theme="dark"] .auto-swipe-left-btn:hover,
+body[data-theme="dark"] .auto-swipe-right-btn:hover,
+body[data-theme="dark"] .auto-swipe-up-btn:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
-.theme-icon, .audio-icon, .info-icon, .shuffle-icon, .reset-icon {
+.theme-icon, .audio-icon, .info-icon, .shuffle-icon, .reset-icon, 
+.auto-swipe-left-icon, .auto-swipe-right-icon, .auto-swipe-up-icon {
     width: 28px;
     height: 28px;
     filter: none;
@@ -300,6 +305,30 @@ body[data-theme="dark"] .back {
     transform: rotateY(180deg);
 }
 
+.auto-swipe-left-btn {
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+}
+
+.auto-swipe-right-btn {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+}
+
+.auto-swipe-up-btn {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
 .word-container {
     flex: 1;
     display: flex;
@@ -519,11 +548,13 @@ body[data-theme="dark"] .tooltip-close:hover {
         padding: 12px;
     }
 
-    .theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn {
+    .theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn,
+    .auto-swipe-left-btn, .auto-swipe-right-btn, .auto-swipe-up-btn {
         padding: 8px;
     }
 
-    .theme-icon, .audio-icon, .info-icon, .shuffle-icon, .reset-icon {
+    .theme-icon, .audio-icon, .info-icon, .shuffle-icon, .reset-icon,
+    .auto-swipe-left-icon, .auto-swipe-right-icon, .auto-swipe-up-icon {
         width: 28px;
         height: 28px;
     }
@@ -580,6 +611,18 @@ body[data-theme="dark"] .tooltip-close:hover {
         width: 24px;
         height: 24px;
         vertical-align: middle;
+    }
+
+    .auto-swipe-left-btn {
+        left: -16px;
+    }
+
+    .auto-swipe-right-btn {
+        right: -16px;
+    }
+
+    .auto-swipe-up-btn {
+        top: -16px;
     }
 
     #card-slider {
