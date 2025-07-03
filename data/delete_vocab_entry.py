@@ -5,7 +5,7 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
 from rich.text import Text
-from rich.prompt import Prompt
+from rich.prompt import Confirm, Prompt
 
 # Initialize rich console
 console = Console()
@@ -113,6 +113,39 @@ def delete_audio_files(word_entry, word_lower):
 
     return deleted_files, failed_deletions
 
+def delete_redundant_audio_files(redundant_audio):
+    """Delete redundant audio files after user confirmation."""
+    deleted_redundant_files = []
+    failed_redundant_deletions = []
+
+    for file_path, audio_type in redundant_audio:
+        reason = "No associated entry in the database"
+        console.print(Panel(
+            f"[yellow]Redundant file detected: {file_path}\nType: {audio_type}\nReason: {reason}[/yellow]",
+            title="Redundant File", border_style="yellow", expand=False
+        ))
+        if Confirm.ask(f"[cyan]Delete {file_path}?[/cyan]", default=False):
+            try:
+                os.remove(file_path)
+                deleted_redundant_files.append(file_path)
+                logger.info(f"Deleted redundant audio file: {file_path}")
+                console.print(f"[green]✓ Deleted: {file_path}[/green]")
+            except OSError as e:
+                failed_redundant_deletions.append((file_path, str(e)))
+                logger.error(f"Error deleting redundant audio file {file_path}: {e}")
+                console.print(f"[red]✗ Failed to delete {file_path}: {e}[/red]")
+
+        # Remove empty directory if applicable
+        file_dir = os.path.dirname(file_path)
+        if os.path.exists(file_dir) and not os.listdir(file_dir):
+            try:
+                os.rmdir(file_dir)
+                logger.info(f"Removed empty directory: {file_dir}")
+            except OSError as e:
+                logger.error(f"Error removing directory {file_dir}: {e}")
+
+    return deleted_redundant_files, failed_redundant_deletions
+
 def verify_audio_files(vocab_db):
     """Verify that all words and sentences in the database have audio files and check for redundant audio files."""
     missing_audio = []  # (word, type, file)
@@ -216,7 +249,7 @@ def delete_word_entry(word_to_delete):
 
     return True, deleted_files, failed_deletions
 
-def generate_summary_report(vocab_db, deleted_word, deleted_files, failed_deletions):
+def generate_summary_report(vocab_db, deleted_word, deleted_files, failed_deletions, deleted_redundant_files, failed_redundant_deletions):
     """Generate a summary report after deletion, including audio file verification."""
     word_count = len(vocab_db)
     missing_audio, redundant_audio = verify_audio_files(vocab_db)
@@ -229,8 +262,10 @@ def generate_summary_report(vocab_db, deleted_word, deleted_files, failed_deleti
     table.add_row("Deleted Word", deleted_word or "None")
     table.add_row("Total Words", str(word_count))
     table.add_row("Expected Words", str(DATABASE_WORD_LIMIT))
-    table.add_row("Deleted Audio Files", str(len(deleted_files)))
-    table.add_row("Failed Deletions", f"[yellow]{len(failed_deletions)}[/yellow]" if failed_deletions else "[green]0[/green]")
+    table.add_row("Deleted Entry Audio Files", str(len(deleted_files)))
+    table.add_row("Failed Entry Deletions", f"[yellow]{len(failed_deletions)}[/yellow]" if failed_deletions else "[green]0[/green]")
+    table.add_row("Deleted Redundant Audio Files", str(len(deleted_redundant_files)))
+    table.add_row("Failed Redundant Deletions", f"[yellow]{len(failed_redundant_deletions)}[/yellow]" if failed_redundant_deletions else "[green]0[/green]")
     table.add_row("Missing Audio Files", f"[yellow]{len(missing_audio)}[/yellow]" if missing_audio else "[green]0[/green]")
     table.add_row("Redundant Audio Files", f"[yellow]{len(redundant_audio)}[/yellow]" if redundant_audio else "[green]0[/green]")
     table.add_row("Database Status", 
@@ -255,8 +290,26 @@ def generate_summary_report(vocab_db, deleted_word, deleted_files, failed_deleti
         table = Table(title="⚠ Redundant Audio Files", style="red", show_lines=True)
         table.add_column("File Path", style="bold")
         table.add_column("Type", justify="left")
+        table.add_column("Reason", justify="left")
         for file_path, audio_type in redundant_audio:
-            table.add_row(file_path, audio_type)
+            table.add_row(file_path, audio_type, "No associated entry in the database")
+        console.print(table)
+
+    # Report deleted redundant files
+    if deleted_redundant_files:
+        table = Table(title="🗑️ Deleted Redundant Audio Files", style="cyan", show_lines=True)
+        table.add_column("File Path", style="bold")
+        for file_path in deleted_redundant_files:
+            table.add_row(file_path)
+        console.print(table)
+
+    # Report failed redundant deletions
+    if failed_redundant_deletions:
+        table = Table(title="⚠ Failed Redundant Audio File Deletions", style="red", show_lines=True)
+        table.add_column("File Path", style="bold")
+        table.add_column("Error", justify="left")
+        for file_path, error in failed_redundant_deletions:
+            table.add_row(file_path, error[:50] + ('...' if len(error) > 50 else ''))
         console.print(table)
 
     # Confirmation status
@@ -270,13 +323,14 @@ def generate_summary_report(vocab_db, deleted_word, deleted_files, failed_deleti
 
     # Log summary
     logger.info(f"Summary: {word_count} words, {len(missing_audio)} missing audio files, "
-                f"{len(redundant_audio)} redundant audio files, {len(deleted_files)} deleted files, "
-                f"{len(failed_deletions)} failed deletions")
+                f"{len(redundant_audio)} redundant audio files, {len(deleted_files)} deleted entry files, "
+                f"{len(failed_deletions)} failed entry deletions, {len(deleted_redundant_files)} deleted redundant files, "
+                f"{len(failed_redundant_deletions)} failed redundant deletions")
 
 def main():
-    """Main function to delete a word entry and verify the database."""
+    """Main function to delete a word entry, handle redundant audio files, and verify the database."""
     console.print(Panel(
-        Text("Vocab3000 Entry Deleter v1.0\nWord and Audio Removal Tool", style="bold cyan"),
+        Text("Vocab3000 Entry Deleter v1.1\nWord and Audio Removal Tool", style="bold cyan"),
         title="System Boot", border_style="blue", expand=False
     ))
 
@@ -296,8 +350,15 @@ def main():
         ))
         return
 
+    # Verify audio files and handle redundant files
+    missing_audio, redundant_audio = verify_audio_files(vocab_db)
+    deleted_redundant_files = []
+    failed_redundant_deletions = []
+    if redundant_audio:
+        deleted_redundant_files, failed_redundant_deletions = delete_redundant_audio_files(redundant_audio)
+
     # Generate summary report
-    generate_summary_report(vocab_db, word_to_delete if success else None, deleted_files, failed_deletions)
+    generate_summary_report(vocab_db, word_to_delete if success else None, deleted_files, failed_deletions, deleted_redundant_files, failed_redundant_deletions)
     console.print("[green]✓ Operation Complete[/green]")
 
 if __name__ == "__main__":
