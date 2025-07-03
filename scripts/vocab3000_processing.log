@@ -14585,3 +14585,488 @@
 2025-07-03 20:24:59,270 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250703_202459.txt
 2025-07-03 20:24:59,276 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
 2025-07-03 20:24:59,276 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.
+2025-07-03 20:57:20,428 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-07-03 20:57:20,635 - INFO - AWS Polly client initialized successfully.
+2025-07-03 20:57:20,641 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 20:57:36,816 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-03 20:57:36,818 - INFO - Backup created at: D:\vocabswipe.github.io\data\temp\backup_vocab3000_20250703_205720.jsonl
+2025-07-03 20:57:36,823 - INFO - Loading: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 20:58:07,576 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 20:58:07,576 - INFO - Appended 100 entries to D:\vocabswipe.github.io\data\temp\temp_vocab3000_log.yaml
+2025-07-03 20:58:07,604 - INFO - Loading: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 20:58:24,580 - INFO - Generated audio for '<speak>Please hand me the report on the desk.</speak>' at D:\vocabswipe.github.io\data\audio\back\the\the_Please_hand_me_the_report_on_the_desk.mp3
+2025-07-03 20:58:24,940 - INFO - Generated audio for '<speak>The mountain was covered in snow.</speak>' at D:\vocabswipe.github.io\data\audio\back\the\the_The_mountain_was_covered_in_snow.mp3
+2025-07-03 20:58:25,275 - INFO - Generated audio for '<speak>The guy at the party was really funny.</speak>' at D:\vocabswipe.github.io\data\audio\back\the\the_The_guy_at_the_party_was_really_funny.mp3
+2025-07-03 20:58:25,603 - INFO - Generated audio for '<speak>I forgot the keys in the car.</speak>' at D:\vocabswipe.github.io\data\audio\back\the\the_I_forgot_the_keys_in_the_car.mp3
+2025-07-03 20:58:25,963 - INFO - Generated audio for '<speak>I want to be at home by six.</speak>' at D:\vocabswipe.github.io\data\audio\back\be\be_I_want_to_be_at_home_by_six.mp3
+2025-07-03 20:58:26,306 - INFO - Generated audio for '<speak>She will be the new manager next month.</speak>' at D:\vocabswipe.github.io\data\audio\back\be\be_She_will_be_the_new_manager_next_month.mp3
+2025-07-03 20:58:26,636 - INFO - Generated audio for '<speak>The lake is calm today.</speak>' at D:\vocabswipe.github.io\data\audio\back\be\be_The_lake_is_calm_today.mp3
+2025-07-03 20:58:26,988 - INFO - Generated audio for '<speak>He is always so kind to everyone.</speak>' at D:\vocabswipe.github.io\data\audio\back\be\be_He_is_always_so_kind_to_everyone.mp3
+2025-07-03 20:58:27,325 - INFO - Generated audio for '<speak>They are at the coffee shop now.</speak>' at D:\vocabswipe.github.io\data\audio\back\be\be_They_are_at_the_coffee_shop_now.mp3
+2025-07-03 20:58:27,663 - INFO - Generated audio for '<speak>I bought apples and bananas.</speak>' at D:\vocabswipe.github.io\data\audio\back\and\and_I_bought_apples_and_bananas.mp3
+2025-07-03 20:58:28,012 - INFO - Generated audio for '<speak>She wrote the email and sent the report.</speak>' at D:\vocabswipe.github.io\data\audio\back\and\and_She_wrote_the_email_and_sent_the_report.mp3
+2025-07-03 20:58:28,342 - INFO - Generated audio for '<speak>The sky was clear and sunny.</speak>' at D:\vocabswipe.github.io\data\audio\back\and\and_The_sky_was_clear_and_sunny.mp3
+2025-07-03 20:58:28,676 - INFO - Generated audio for '<speak>We laughed and talked all night.</speak>' at D:\vocabswipe.github.io\data\audio\back\and\and_We_laughed_and_talked_all_night.mp3
+2025-07-03 20:58:29,039 - INFO - Generated audio for '<speak>I need a pen and some paper.</speak>' at D:\vocabswipe.github.io\data\audio\back\and\and_I_need_a_pen_and_some_paper.mp3
+2025-07-03 20:58:29,446 - INFO - Generated audio for '<speak>I need a pen to write this down.</speak>' at D:\vocabswipe.github.io\data\audio\back\a\a_I_need_a_pen_to_write_this_down.mp3
+2025-07-03 20:58:29,780 - INFO - Generated audio for '<speak>She’s looking for a new job.</speak>' at D:\vocabswipe.github.io\data\audio\back\a\a_Shes_looking_for_a_new_job.mp3
+2025-07-03 20:58:30,162 - INFO - Generated audio for '<speak>A bird flew over the lake.</speak>' at D:\vocabswipe.github.io\data\audio\back\a\a_A_bird_flew_over_the_lake.mp3
+2025-07-03 20:58:30,495 - INFO - Generated audio for '<speak>I met a guy at the event.</speak>' at D:\vocabswipe.github.io\data\audio\back\a\a_I_met_a_guy_at_the_event.mp3
+2025-07-03 20:58:30,826 - INFO - Generated audio for '<speak>Can you grab a chair for me?</speak>' at D:\vocabswipe.github.io\data\audio\back\a\a_Can_you_grab_a_chair_for_me.mp3
+2025-07-03 20:58:31,159 - INFO - Generated audio for '<speak>She’s the manager of the sales team.</speak>' at D:\vocabswipe.github.io\data\audio\back\of\of_Shes_the_manager_of_the_sales_team.mp3
+2025-07-03 20:58:31,496 - INFO - Generated audio for '<speak>The leaves of the tree turned red.</speak>' at D:\vocabswipe.github.io\data\audio\back\of\of_The_leaves_of_the_tree_turned_red.mp3
+2025-07-03 20:58:31,829 - INFO - Generated audio for '<speak>He’s a friend of my brother.</speak>' at D:\vocabswipe.github.io\data\audio\back\of\of_Hes_a_friend_of_my_brother.mp3
+2025-07-03 20:58:32,202 - INFO - Generated audio for '<speak>I drank a cup of coffee.</speak>' at D:\vocabswipe.github.io\data\audio\back\of\of_I_drank_a_cup_of_coffee.mp3
+2025-07-03 20:58:32,537 - INFO - Generated audio for '<speak>She sent an email to her boss.</speak>' at D:\vocabswipe.github.io\data\audio\back\to\to_She_sent_an_email_to_her_boss.mp3
+2025-07-03 20:58:32,873 - INFO - Generated audio for '<speak>We hiked to the waterfall.</speak>' at D:\vocabswipe.github.io\data\audio\back\to\to_We_hiked_to_the_waterfall.mp3
+2025-07-03 20:58:33,234 - INFO - Generated audio for '<speak>I want to talk to her tonight.</speak>' at D:\vocabswipe.github.io\data\audio\back\to\to_I_want_to_talk_to_her_tonight.mp3
+2025-07-03 20:58:33,564 - INFO - Generated audio for '<speak>Give this book to John.</speak>' at D:\vocabswipe.github.io\data\audio\back\to\to_Give_this_book_to_John.mp3
+2025-07-03 20:58:33,898 - INFO - Generated audio for '<speak>I left my phone in the kitchen.</speak>' at D:\vocabswipe.github.io\data\audio\back\in\in_I_left_my_phone_in_the_kitchen.mp3
+2025-07-03 20:58:34,258 - INFO - Generated audio for '<speak>She’s in a meeting right now.</speak>' at D:\vocabswipe.github.io\data\audio\back\in\in_Shes_in_a_meeting_right_now.mp3
+2025-07-03 20:58:34,590 - INFO - Generated audio for '<speak>The fish swim in the river.</speak>' at D:\vocabswipe.github.io\data\audio\back\in\in_The_fish_swim_in_the_river.mp3
+2025-07-03 20:58:34,920 - INFO - Generated audio for '<speak>He was in the group chat.</speak>' at D:\vocabswipe.github.io\data\audio\back\in\in_He_was_in_the_group_chat.mp3
+2025-07-03 20:58:35,284 - INFO - Generated audio for '<speak>I saw her in the mall.</speak>' at D:\vocabswipe.github.io\data\audio\back\in\in_I_saw_her_in_the_mall.mp3
+2025-07-03 20:58:35,773 - INFO - Generated audio for '<speak>I went to the gym this morning.</speak>' at D:\vocabswipe.github.io\data\audio\back\i\i_I_went_to_the_gym_this_morning.mp3
+2025-07-03 20:58:36,204 - INFO - Generated audio for '<speak>I finished the project yesterday.</speak>' at D:\vocabswipe.github.io\data\audio\back\i\i_I_finished_the_project_yesterday.mp3
+2025-07-03 20:58:36,536 - INFO - Generated audio for '<speak>I think the party was great.</speak>' at D:\vocabswipe.github.io\data\audio\back\i\i_I_think_the_party_was_great.mp3
+2025-07-03 20:58:36,924 - INFO - Generated audio for '<speak>I’m grabbing coffee later.</speak>' at D:\vocabswipe.github.io\data\audio\back\i\i_Im_grabbing_coffee_later.mp3
+2025-07-03 20:58:37,330 - INFO - Generated audio for '<speak>You did a great job on the presentation.</speak>' at D:\vocabswipe.github.io\data\audio\back\you\you_You_did_a_great_job_on_the_presentation.mp3
+2025-07-03 20:58:37,746 - INFO - Generated audio for '<speak>You should see the sunset tonight.</speak>' at D:\vocabswipe.github.io\data\audio\back\you\you_You_should_see_the_sunset_tonight.mp3
+2025-07-03 20:58:38,076 - INFO - Generated audio for '<speak>You were at the concert, right?</speak>' at D:\vocabswipe.github.io\data\audio\back\you\you_You_were_at_the_concert_right.mp3
+2025-07-03 20:58:38,504 - INFO - Generated audio for '<speak>You got a pen I can borrow?</speak>' at D:\vocabswipe.github.io\data\audio\back\you\you_You_got_a_pen_I_can_borrow.mp3
+2025-07-03 20:58:38,868 - INFO - Generated audio for '<speak>I dropped it on the floor.</speak>' at D:\vocabswipe.github.io\data\audio\back\it\it_I_dropped_it_on_the_floor.mp3
+2025-07-03 20:58:39,198 - INFO - Generated audio for '<speak>Can you finish it by tomorrow?</speak>' at D:\vocabswipe.github.io\data\audio\back\it\it_Can_you_finish_it_by_tomorrow.mp3
+2025-07-03 20:58:39,545 - INFO - Generated audio for '<speak>It’s raining outside now.</speak>' at D:\vocabswipe.github.io\data\audio\back\it\it_Its_raining_outside_now.mp3
+2025-07-03 20:58:39,876 - INFO - Generated audio for '<speak>It was a fun night.</speak>' at D:\vocabswipe.github.io\data\audio\back\it\it_It_was_a_fun_night.mp3
+2025-07-03 20:58:40,204 - INFO - Generated audio for '<speak>I saw it in the store.</speak>' at D:\vocabswipe.github.io\data\audio\back\it\it_I_saw_it_in_the_store.mp3
+2025-07-03 20:58:40,598 - INFO - Generated audio for '<speak>We have a deadline tomorrow.</speak>' at D:\vocabswipe.github.io\data\audio\back\have\have_We_have_a_deadline_tomorrow.mp3
+2025-07-03 20:58:40,933 - INFO - Generated audio for '<speak>The park has beautiful trees.</speak>' at D:\vocabswipe.github.io\data\audio\back\have\have_The_park_has_beautiful_trees.mp3
+2025-07-03 20:58:41,325 - INFO - Generated audio for '<speak>They have a great time together.</speak>' at D:\vocabswipe.github.io\data\audio\back\have\have_They_have_a_great_time_together.mp3
+2025-07-03 20:58:41,654 - INFO - Generated audio for '<speak>I have a new phone.</speak>' at D:\vocabswipe.github.io\data\audio\back\have\have_I_have_a_new_phone.mp3
+2025-07-03 20:58:42,049 - INFO - Generated audio for '<speak>I want that book on the shelf.</speak>' at D:\vocabswipe.github.io\data\audio\back\that\that_I_want_that_book_on_the_shelf.mp3
+2025-07-03 20:58:42,474 - INFO - Generated audio for '<speak>She wrote that report last week.</speak>' at D:\vocabswipe.github.io\data\audio\back\that\that_She_wrote_that_report_last_week.mp3
+2025-07-03 20:58:42,803 - INFO - Generated audio for '<speak>Look at that tall mountain.</speak>' at D:\vocabswipe.github.io\data\audio\back\that\that_Look_at_that_tall_mountain.mp3
+2025-07-03 20:58:43,173 - INFO - Generated audio for '<speak>That party was amazing.</speak>' at D:\vocabswipe.github.io\data\audio\back\that\that_That_party_was_amazing.mp3
+2025-07-03 20:58:43,690 - INFO - Generated audio for '<speak>I saw that movie yesterday.</speak>' at D:\vocabswipe.github.io\data\audio\back\that\that_I_saw_that_movie_yesterday.mp3
+2025-07-03 20:58:44,192 - INFO - Generated audio for '<speak>This gift is for my mom.</speak>' at D:\vocabswipe.github.io\data\audio\back\for\for_This_gift_is_for_my_mom.mp3
+2025-07-03 20:58:44,601 - INFO - Generated audio for '<speak>She’s training for a new role.</speak>' at D:\vocabswipe.github.io\data\audio\back\for\for_Shes_training_for_a_new_role.mp3
+2025-07-03 20:58:45,126 - INFO - Generated audio for '<speak>This path is for hiking only.</speak>' at D:\vocabswipe.github.io\data\audio\back\for\for_This_path_is_for_hiking_only.mp3
+2025-07-03 20:58:45,526 - INFO - Generated audio for '<speak>I’m here for the birthday party.</speak>' at D:\vocabswipe.github.io\data\audio\back\for\for_Im_here_for_the_birthday_party.mp3
+2025-07-03 20:58:45,862 - INFO - Generated audio for '<speak>I got coffee for you.</speak>' at D:\vocabswipe.github.io\data\audio\back\for\for_I_got_coffee_for_you.mp3
+2025-07-03 20:58:46,239 - INFO - Generated audio for '<speak>I need to do the dishes.</speak>' at D:\vocabswipe.github.io\data\audio\back\do\do_I_need_to_do_the_dishes.mp3
+2025-07-03 20:58:46,651 - INFO - Generated audio for '<speak>Did you do the budget report?</speak>' at D:\vocabswipe.github.io\data\audio\back\do\do_Did_you_do_the_budget_report.mp3
+2025-07-03 20:58:46,985 - INFO - Generated audio for '<speak>We do camping every summer.</speak>' at D:\vocabswipe.github.io\data\audio\back\do\do_We_do_camping_every_summer.mp3
+2025-07-03 20:58:47,319 - INFO - Generated audio for '<speak>Do you want to do dinner tonight?</speak>' at D:\vocabswipe.github.io\data\audio\back\do\do_Do_you_want_to_do_dinner_tonight.mp3
+2025-07-03 20:58:47,778 - INFO - Generated audio for '<speak>I’ll do it later.</speak>' at D:\vocabswipe.github.io\data\audio\back\do\do_Ill_do_it_later.mp3
+2025-07-03 20:58:48,184 - INFO - Generated audio for '<speak>He went to the store earlier.</speak>' at D:\vocabswipe.github.io\data\audio\back\he\he_He_went_to_the_store_earlier.mp3
+2025-07-03 20:58:48,512 - INFO - Generated audio for '<speak>He leads the design team.</speak>' at D:\vocabswipe.github.io\data\audio\back\he\he_He_leads_the_design_team.mp3
+2025-07-03 20:58:48,858 - INFO - Generated audio for '<speak>He was fishing by the lake.</speak>' at D:\vocabswipe.github.io\data\audio\back\he\he_He_was_fishing_by_the_lake.mp3
+2025-07-03 20:58:49,186 - INFO - Generated audio for '<speak>He told a funny joke.</speak>' at D:\vocabswipe.github.io\data\audio\back\he\he_He_told_a_funny_joke.mp3
+2025-07-03 20:58:49,518 - INFO - Generated audio for '<speak>He’s the guy with the hat.</speak>' at D:\vocabswipe.github.io\data\audio\back\he\he_Hes_the_guy_with_the_hat.mp3
+2025-07-03 20:58:49,904 - INFO - Generated audio for '<speak>I went to the mall with my sister.</speak>' at D:\vocabswipe.github.io\data\audio\back\with\with_I_went_to_the_mall_with_my_sister.mp3
+2025-07-03 20:58:50,237 - INFO - Generated audio for '<speak>She’s working with the marketing team.</speak>' at D:\vocabswipe.github.io\data\audio\back\with\with_Shes_working_with_the_marketing_team.mp3
+2025-07-03 20:58:50,642 - INFO - Generated audio for '<speak>The dog played with the ball.</speak>' at D:\vocabswipe.github.io\data\audio\back\with\with_The_dog_played_with_the_ball.mp3
+2025-07-03 20:58:50,975 - INFO - Generated audio for '<speak>I hung out with friends last night.</speak>' at D:\vocabswipe.github.io\data\audio\back\with\with_I_hung_out_with_friends_last_night.mp3
+2025-07-03 20:58:51,360 - INFO - Generated audio for '<speak>I cut the paper with scissors.</speak>' at D:\vocabswipe.github.io\data\audio\back\with\with_I_cut_the_paper_with_scissors.mp3
+2025-07-03 20:58:51,773 - INFO - Generated audio for '<speak>The cup is on the table.</speak>' at D:\vocabswipe.github.io\data\audio\back\on\on_The_cup_is_on_the_table.mp3
+2025-07-03 20:58:52,105 - INFO - Generated audio for '<speak>The bird landed on the branch.</speak>' at D:\vocabswipe.github.io\data\audio\back\on\on_The_bird_landed_on_the_branch.mp3
+2025-07-03 20:58:52,439 - INFO - Generated audio for '<speak>We met on Friday night.</speak>' at D:\vocabswipe.github.io\data\audio\back\on\on_We_met_on_Friday_night.mp3
+2025-07-03 20:58:52,770 - INFO - Generated audio for '<speak>I left my phone on the couch.</speak>' at D:\vocabswipe.github.io\data\audio\back\on\on_I_left_my_phone_on_the_couch.mp3
+2025-07-03 20:58:53,099 - INFO - Generated audio for '<speak>This book is really good.</speak>' at D:\vocabswipe.github.io\data\audio\back\this\this_This_book_is_really_good.mp3
+2025-07-03 20:58:53,495 - INFO - Generated audio for '<speak>This report needs to be finished.</speak>' at D:\vocabswipe.github.io\data\audio\back\this\this_This_report_needs_to_be_finished.mp3
+2025-07-03 20:58:53,824 - INFO - Generated audio for '<speak>This tree is so tall.</speak>' at D:\vocabswipe.github.io\data\audio\back\this\this_This_tree_is_so_tall.mp3
+2025-07-03 20:58:54,154 - INFO - Generated audio for '<speak>This party is awesome.</speak>' at D:\vocabswipe.github.io\data\audio\back\this\this_This_party_is_awesome.mp3
+2025-07-03 20:58:54,529 - INFO - Generated audio for '<speak>I bought this shirt yesterday.</speak>' at D:\vocabswipe.github.io\data\audio\back\this\this_I_bought_this_shirt_yesterday.mp3
+2025-07-03 20:58:54,851 - INFO - Generated audio for '<speak>I don’t want to go out.</speak>' at D:\vocabswipe.github.io\data\audio\back\n't\n't_I_dont_want_to_go_out.mp3
+2025-07-03 20:58:55,182 - INFO - Generated audio for '<speak>She didn’t finish the task.</speak>' at D:\vocabswipe.github.io\data\audio\back\n't\n't_She_didnt_finish_the_task.mp3
+2025-07-03 20:58:55,561 - INFO - Generated audio for '<speak>It isn’t raining anymore.</speak>' at D:\vocabswipe.github.io\data\audio\back\n't\n't_It_isnt_raining_anymore.mp3
+2025-07-03 20:58:55,968 - INFO - Generated audio for '<speak>They aren’t coming tonight.</speak>' at D:\vocabswipe.github.io\data\audio\back\n't\n't_They_arent_coming_tonight.mp3
+2025-07-03 20:58:56,296 - INFO - Generated audio for '<speak>I haven’t seen that movie.</speak>' at D:\vocabswipe.github.io\data\audio\back\n't\n't_I_havent_seen_that_movie.mp3
+2025-07-03 20:58:56,640 - INFO - Generated audio for '<speak>We went to the park today.</speak>' at D:\vocabswipe.github.io\data\audio\back\we\we_We_went_to_the_park_today.mp3
+2025-07-03 20:58:56,991 - INFO - Generated audio for '<speak>We finished the project early.</speak>' at D:\vocabswipe.github.io\data\audio\back\we\we_We_finished_the_project_early.mp3
+2025-07-03 20:58:57,334 - INFO - Generated audio for '<speak>We hiked in the mountains.</speak>' at D:\vocabswipe.github.io\data\audio\back\we\we_We_hiked_in_the_mountains.mp3
+2025-07-03 20:58:57,665 - INFO - Generated audio for '<speak>We had fun at the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\we\we_We_had_fun_at_the_party.mp3
+2025-07-03 20:58:58,000 - INFO - Generated audio for '<speak>We’re grabbing pizza later.</speak>' at D:\vocabswipe.github.io\data\audio\back\we\we_Were_grabbing_pizza_later.mp3
+2025-07-03 20:58:58,332 - INFO - Generated audio for '<speak>I’m not tired right now.</speak>' at D:\vocabswipe.github.io\data\audio\back\not\not_Im_not_tired_right_now.mp3
+2025-07-03 20:58:58,671 - INFO - Generated audio for '<speak>She’s not in the office today.</speak>' at D:\vocabswipe.github.io\data\audio\back\not\not_Shes_not_in_the_office_today.mp3
+2025-07-03 20:58:59,040 - INFO - Generated audio for '<speak>The sky is not cloudy.</speak>' at D:\vocabswipe.github.io\data\audio\back\not\not_The_sky_is_not_cloudy.mp3
+2025-07-03 20:58:59,372 - INFO - Generated audio for '<speak>He’s not the one who called.</speak>' at D:\vocabswipe.github.io\data\audio\back\not\not_Hes_not_the_one_who_called.mp3
+2025-07-03 20:58:59,710 - INFO - Generated audio for '<speak>I’m not going to the store.</speak>' at D:\vocabswipe.github.io\data\audio\back\not\not_Im_not_going_to_the_store.mp3
+2025-07-03 20:59:00,068 - INFO - Generated audio for '<speak>She tried, but the system crashed.</speak>' at D:\vocabswipe.github.io\data\audio\back\but\but_She_tried_but_the_system_crashed.mp3
+2025-07-03 20:59:00,402 - INFO - Generated audio for '<speak>It’s sunny, but cold outside.</speak>' at D:\vocabswipe.github.io\data\audio\back\but\but_Its_sunny_but_cold_outside.mp3
+2025-07-03 20:59:01,861 - INFO - Generated audio for '<speak>He’s nice, but a bit shy.</speak>' at D:\vocabswipe.github.io\data\audio\back\but\but_Hes_nice_but_a_bit_shy.mp3
+2025-07-03 20:59:02,215 - INFO - Generated audio for '<speak>I like coffee, but not tea.</speak>' at D:\vocabswipe.github.io\data\audio\back\but\but_I_like_coffee_but_not_tea.mp3
+2025-07-03 20:59:02,627 - INFO - Generated audio for '<speak>They finished the project on time.</speak>' at D:\vocabswipe.github.io\data\audio\back\they\they_They_finished_the_project_on_time.mp3
+2025-07-03 20:59:03,035 - INFO - Generated audio for '<speak>They saw birds in the forest.</speak>' at D:\vocabswipe.github.io\data\audio\back\they\they_They_saw_birds_in_the_forest.mp3
+2025-07-03 20:59:03,392 - INFO - Generated audio for '<speak>They hosted a great party.</speak>' at D:\vocabswipe.github.io\data\audio\back\they\they_They_hosted_a_great_party.mp3
+2025-07-03 20:59:03,753 - INFO - Generated audio for '<speak>They’re at the café now.</speak>' at D:\vocabswipe.github.io\data\audio\back\they\they_Theyre_at_the_café_now.mp3
+2025-07-03 20:59:04,160 - INFO - Generated audio for '<speak>I heard her say she’s tired.</speak>' at D:\vocabswipe.github.io\data\audio\back\say\say_I_heard_her_say_shes_tired.mp3
+2025-07-03 20:59:04,571 - INFO - Generated audio for '<speak>They say the meeting is at noon.</speak>' at D:\vocabswipe.github.io\data\audio\back\say\say_They_say_the_meeting_is_at_noon.mp3
+2025-07-03 20:59:04,919 - INFO - Generated audio for '<speak>People say the sunset is beautiful.</speak>' at D:\vocabswipe.github.io\data\audio\back\say\say_People_say_the_sunset_is_beautiful.mp3
+2025-07-03 20:59:05,377 - INFO - Generated audio for '<speak>She didn’t say much at the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\say\say_She_didnt_say_much_at_the_party.mp3
+2025-07-03 20:59:05,800 - INFO - Generated audio for '<speak>He’ll say yes to pizza.</speak>' at D:\vocabswipe.github.io\data\audio\back\say\say_Hell_say_yes_to_pizza.mp3
+2025-07-03 20:59:06,215 - INFO - Generated audio for '<speak>I’m at the grocery store.</speak>' at D:\vocabswipe.github.io\data\audio\back\at\at_Im_at_the_grocery_store.mp3
+2025-07-03 20:59:06,621 - INFO - Generated audio for '<speak>The meeting is at 2 PM.</speak>' at D:\vocabswipe.github.io\data\audio\back\at\at_The_meeting_is_at_2_PM.mp3
+2025-07-03 20:59:06,962 - INFO - Generated audio for '<speak>We camped at the lake.</speak>' at D:\vocabswipe.github.io\data\audio\back\at\at_We_camped_at_the_lake.mp3
+2025-07-03 20:59:07,336 - INFO - Generated audio for '<speak>I saw her at the concert.</speak>' at D:\vocabswipe.github.io\data\audio\back\at\at_I_saw_her_at_the_concert.mp3
+2025-07-03 20:59:07,850 - INFO - Generated audio for '<speak>Meet me at the park.</speak>' at D:\vocabswipe.github.io\data\audio\back\at\at_Meet_me_at_the_park.mp3
+2025-07-03 20:59:08,257 - INFO - Generated audio for '<speak>What time is it now?</speak>' at D:\vocabswipe.github.io\data\audio\back\what\what_What_time_is_it_now.mp3
+2025-07-03 20:59:08,600 - INFO - Generated audio for '<speak>What did the client say?</speak>' at D:\vocabswipe.github.io\data\audio\back\what\what_What_did_the_client_say.mp3
+2025-07-03 20:59:08,982 - INFO - Generated audio for '<speak>What kind of bird is that?</speak>' at D:\vocabswipe.github.io\data\audio\back\what\what_What_kind_of_bird_is_that.mp3
+2025-07-03 20:59:09,384 - INFO - Generated audio for '<speak>What happened at the party?</speak>' at D:\vocabswipe.github.io\data\audio\back\what\what_What_happened_at_the_party.mp3
+2025-07-03 20:59:09,893 - INFO - Generated audio for '<speak>What are you doing later?</speak>' at D:\vocabswipe.github.io\data\audio\back\what\what_What_are_you_doing_later.mp3
+2025-07-03 20:59:10,406 - INFO - Generated audio for '<speak>I borrowed his jacket yesterday.</speak>' at D:\vocabswipe.github.io\data\audio\back\his\his_I_borrowed_his_jacket_yesterday.mp3
+2025-07-03 20:59:10,918 - INFO - Generated audio for '<speak>His report was excellent.</speak>' at D:\vocabswipe.github.io\data\audio\back\his\his_His_report_was_excellent.mp3
+2025-07-03 20:59:11,280 - INFO - Generated audio for '<speak>His tent is by the river.</speak>' at D:\vocabswipe.github.io\data\audio\back\his\his_His_tent_is_by_the_river.mp3
+2025-07-03 20:59:11,625 - INFO - Generated audio for '<speak>His phone was ringing all night.</speak>' at D:\vocabswipe.github.io\data\audio\back\his\his_His_phone_was_ringing_all_night.mp3
+2025-07-03 20:59:12,050 - INFO - Generated audio for '<speak>I saw his car outside.</speak>' at D:\vocabswipe.github.io\data\audio\back\his\his_I_saw_his_car_outside.mp3
+2025-07-03 20:59:12,455 - INFO - Generated audio for '<speak>I got a letter from my friend.</speak>' at D:\vocabswipe.github.io\data\audio\back\from\from_I_got_a_letter_from_my_friend.mp3
+2025-07-03 20:59:12,865 - INFO - Generated audio for '<speak>The email came from the boss.</speak>' at D:\vocabswipe.github.io\data\audio\back\from\from_The_email_came_from_the_boss.mp3
+2025-07-03 20:59:13,212 - INFO - Generated audio for '<speak>The river flows from the mountain.</speak>' at D:\vocabswipe.github.io\data\audio\back\from\from_The_river_flows_from_the_mountain.mp3
+2025-07-03 20:59:13,554 - INFO - Generated audio for '<speak>She’s from my hometown.</speak>' at D:\vocabswipe.github.io\data\audio\back\from\from_Shes_from_my_hometown.mp3
+2025-07-03 20:59:13,901 - INFO - Generated audio for '<speak>I bought this from the mall.</speak>' at D:\vocabswipe.github.io\data\audio\back\from\from_I_bought_this_from_the_mall.mp3
+2025-07-03 20:59:14,249 - INFO - Generated audio for '<speak>I need to go to the store.</speak>' at D:\vocabswipe.github.io\data\audio\back\go\go_I_need_to_go_to_the_store.mp3
+2025-07-03 20:59:14,606 - INFO - Generated audio for '<speak>Let’s go over the plan.</speak>' at D:\vocabswipe.github.io\data\audio\back\go\go_Lets_go_over_the_plan.mp3
+2025-07-03 20:59:15,121 - INFO - Generated audio for '<speak>We go hiking every weekend.</speak>' at D:\vocabswipe.github.io\data\audio\back\go\go_We_go_hiking_every_weekend.mp3
+2025-07-03 20:59:15,529 - INFO - Generated audio for '<speak>Are you going to the party?</speak>' at D:\vocabswipe.github.io\data\audio\back\go\go_Are_you_going_to_the_party.mp3
+2025-07-03 20:59:15,871 - INFO - Generated audio for '<speak>I gotta go now.</speak>' at D:\vocabswipe.github.io\data\audio\back\go\go_I_gotta_go_now.mp3
+2025-07-03 20:59:16,245 - INFO - Generated audio for '<speak>We can meet today or tomorrow.</speak>' at D:\vocabswipe.github.io\data\audio\back\or\or_We_can_meet_today_or_tomorrow.mp3
+2025-07-03 20:59:16,653 - INFO - Generated audio for '<speak>Is it a hawk or an eagle?</speak>' at D:\vocabswipe.github.io\data\audio\back\or\or_Is_it_a_hawk_or_an_eagle.mp3
+2025-07-03 20:59:17,064 - INFO - Generated audio for '<speak>Come to the party or the movie.</speak>' at D:\vocabswipe.github.io\data\audio\back\or\or_Come_to_the_party_or_the_movie.mp3
+2025-07-03 20:59:17,406 - INFO - Generated audio for '<speak>Take the bus or walk.</speak>' at D:\vocabswipe.github.io\data\audio\back\or\or_Take_the_bus_or_walk.mp3
+2025-07-03 20:59:17,778 - INFO - Generated audio for '<speak>I live by the park.</speak>' at D:\vocabswipe.github.io\data\audio\back\by\by_I_live_by_the_park.mp3
+2025-07-03 20:59:18,190 - INFO - Generated audio for '<speak>The report was done by Sarah.</speak>' at D:\vocabswipe.github.io\data\audio\back\by\by_The_report_was_done_by_Sarah.mp3
+2025-07-03 20:59:18,602 - INFO - Generated audio for '<speak>We camped by the river.</speak>' at D:\vocabswipe.github.io\data\audio\back\by\by_We_camped_by_the_river.mp3
+2025-07-03 20:59:18,943 - INFO - Generated audio for '<speak>I heard it by word of mouth.</speak>' at D:\vocabswipe.github.io\data\audio\back\by\by_I_heard_it_by_word_of_mouth.mp3
+2025-07-03 20:59:19,317 - INFO - Generated audio for '<speak>Be here by noon.</speak>' at D:\vocabswipe.github.io\data\audio\back\by\by_Be_here_by_noon.mp3
+2025-07-03 20:59:19,728 - INFO - Generated audio for '<speak>I need to get some milk.</speak>' at D:\vocabswipe.github.io\data\audio\back\get\get_I_need_to_get_some_milk.mp3
+2025-07-03 20:59:20,133 - INFO - Generated audio for '<speak>Did you get the email?</speak>' at D:\vocabswipe.github.io\data\audio\back\get\get_Did_you_get_the_email.mp3
+2025-07-03 20:59:20,477 - INFO - Generated audio for '<speak>We got wet in the rain.</speak>' at D:\vocabswipe.github.io\data\audio\back\get\get_We_got_wet_in_the_rain.mp3
+2025-07-03 20:59:20,851 - INFO - Generated audio for '<speak>I get why she’s upset.</speak>' at D:\vocabswipe.github.io\data\audio\back\get\get_I_get_why_shes_upset.mp3
+2025-07-03 20:59:21,272 - INFO - Generated audio for '<speak>Can you get my phone?</speak>' at D:\vocabswipe.github.io\data\audio\back\get\get_Can_you_get_my_phone.mp3
+2025-07-03 20:59:21,779 - INFO - Generated audio for '<speak>She went to the gym.</speak>' at D:\vocabswipe.github.io\data\audio\back\she\she_She_went_to_the_gym.mp3
+2025-07-03 20:59:22,183 - INFO - Generated audio for '<speak>She leads the project.</speak>' at D:\vocabswipe.github.io\data\audio\back\she\she_She_leads_the_project.mp3
+2025-07-03 20:59:22,525 - INFO - Generated audio for '<speak>She was hiking in the forest.</speak>' at D:\vocabswipe.github.io\data\audio\back\she\she_She_was_hiking_in_the_forest.mp3
+2025-07-03 20:59:22,904 - INFO - Generated audio for '<speak>She told a great story.</speak>' at D:\vocabswipe.github.io\data\audio\back\she\she_She_told_a_great_story.mp3
+2025-07-03 20:59:23,309 - INFO - Generated audio for '<speak>She’s the one with the red bag.</speak>' at D:\vocabswipe.github.io\data\audio\back\she\she_Shes_the_one_with_the_red_bag.mp3
+2025-07-03 20:59:23,654 - INFO - Generated audio for '<speak>My keys are on the table.</speak>' at D:\vocabswipe.github.io\data\audio\back\my\my_My_keys_are_on_the_table.mp3
+2025-07-03 20:59:23,999 - INFO - Generated audio for '<speak>My desk is by the window.</speak>' at D:\vocabswipe.github.io\data\audio\back\my\my_My_desk_is_by_the_window.mp3
+2025-07-03 20:59:24,346 - INFO - Generated audio for '<speak>My tent is set up by the lake.</speak>' at D:\vocabswipe.github.io\data\audio\back\my\my_My_tent_is_set_up_by_the_lake.mp3
+2025-07-03 20:59:24,698 - INFO - Generated audio for '<speak>My friends came over last night.</speak>' at D:\vocabswipe.github.io\data\audio\back\my\my_My_friends_came_over_last_night.mp3
+2025-07-03 20:59:25,046 - INFO - Generated audio for '<speak>My phone’s almost dead.</speak>' at D:\vocabswipe.github.io\data\audio\back\my\my_My_phones_almost_dead.mp3
+2025-07-03 20:59:25,458 - INFO - Generated audio for '<speak>I can meet you at five.</speak>' at D:\vocabswipe.github.io\data\audio\back\can\can_I_can_meet_you_at_five.mp3
+2025-07-03 20:59:25,873 - INFO - Generated audio for '<speak>She can finish the task today.</speak>' at D:\vocabswipe.github.io\data\audio\back\can\can_She_can_finish_the_task_today.mp3
+2025-07-03 20:59:26,279 - INFO - Generated audio for '<speak>He can climb that hill.</speak>' at D:\vocabswipe.github.io\data\audio\back\can\can_He_can_climb_that_hill.mp3
+2025-07-03 20:59:26,622 - INFO - Generated audio for '<speak>We can hang out tomorrow.</speak>' at D:\vocabswipe.github.io\data\audio\back\can\can_We_can_hang_out_tomorrow.mp3
+2025-07-03 20:59:26,997 - INFO - Generated audio for '<speak>I can grab coffee later.</speak>' at D:\vocabswipe.github.io\data\audio\back\can\can_I_can_grab_coffee_later.mp3
+2025-07-03 20:59:27,406 - INFO - Generated audio for '<speak>He works as a designer.</speak>' at D:\vocabswipe.github.io\data\audio\back\as\as_He_works_as_a_designer.mp3
+2025-07-03 20:59:27,815 - INFO - Generated audio for '<speak>The lake is as calm as glass.</speak>' at D:\vocabswipe.github.io\data\audio\back\as\as_The_lake_is_as_calm_as_glass.mp3
+2025-07-03 20:59:28,160 - INFO - Generated audio for '<speak>I saw her as the host.</speak>' at D:\vocabswipe.github.io\data\audio\back\as\as_I_saw_her_as_the_host.mp3
+2025-07-03 20:59:28,537 - INFO - Generated audio for '<speak>I know where the keys are.</speak>' at D:\vocabswipe.github.io\data\audio\back\know\know_I_know_where_the_keys_are.mp3
+2025-07-03 20:59:28,941 - INFO - Generated audio for '<speak>She knows the project details.</speak>' at D:\vocabswipe.github.io\data\audio\back\know\know_She_knows_the_project_details.mp3
+2025-07-03 20:59:29,356 - INFO - Generated audio for '<speak>I know that type of bird.</speak>' at D:\vocabswipe.github.io\data\audio\back\know\know_I_know_that_type_of_bird.mp3
+2025-07-03 20:59:29,697 - INFO - Generated audio for '<speak>They know about the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\know\know_They_know_about_the_party.mp3
+2025-07-03 20:59:30,068 - INFO - Generated audio for '<speak>I know what you mean.</speak>' at D:\vocabswipe.github.io\data\audio\back\know\know_I_know_what_you_mean.mp3
+2025-07-03 20:59:30,410 - INFO - Generated audio for '<speak>I’ll go if you’re free.</speak>' at D:\vocabswipe.github.io\data\audio\back\if\if_Ill_go_if_youre_free.mp3
+2025-07-03 20:59:30,758 - INFO - Generated audio for '<speak>Finish it if you have time.</speak>' at D:\vocabswipe.github.io\data\audio\back\if\if_Finish_it_if_you_have_time.mp3
+2025-07-03 20:59:31,096 - INFO - Generated audio for '<speak>We’ll hike if it doesn’t rain.</speak>' at D:\vocabswipe.github.io\data\audio\back\if\if_Well_hike_if_it_doesnt_rain.mp3
+2025-07-03 20:59:31,501 - INFO - Generated audio for '<speak>I’ll come if she’s there.</speak>' at D:\vocabswipe.github.io\data\audio\back\if\if_Ill_come_if_shes_there.mp3
+2025-07-03 20:59:31,844 - INFO - Generated audio for '<speak>Call me if you’re nearby.</speak>' at D:\vocabswipe.github.io\data\audio\back\if\if_Call_me_if_youre_nearby.mp3
+2025-07-03 20:59:32,220 - INFO - Generated audio for '<speak>The boss emailed me today.</speak>' at D:\vocabswipe.github.io\data\audio\back\me\me_The_boss_emailed_me_today.mp3
+2025-07-03 20:59:32,572 - INFO - Generated audio for '<speak>The rain soaked me yesterday.</speak>' at D:\vocabswipe.github.io\data\audio\back\me\me_The_rain_soaked_me_yesterday.mp3
+2025-07-03 20:59:32,938 - INFO - Generated audio for '<speak>They invited me to the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\me\me_They_invited_me_to_the_party.mp3
+2025-07-03 20:59:33,287 - INFO - Generated audio for '<speak>I saw your car outside.</speak>' at D:\vocabswipe.github.io\data\audio\back\your\your_I_saw_your_car_outside.mp3
+2025-07-03 20:59:33,655 - INFO - Generated audio for '<speak>Your report was great.</speak>' at D:\vocabswipe.github.io\data\audio\back\your\your_Your_report_was_great.mp3
+2025-07-03 20:59:33,998 - INFO - Generated audio for '<speak>Your tent is by the tree.</speak>' at D:\vocabswipe.github.io\data\audio\back\your\your_Your_tent_is_by_the_tree.mp3
+2025-07-03 20:59:34,341 - INFO - Generated audio for '<speak>Your friends were so nice.</speak>' at D:\vocabswipe.github.io\data\audio\back\your\your_Your_friends_were_so_nice.mp3
+2025-07-03 20:59:34,686 - INFO - Generated audio for '<speak>Is that your phone ringing?</speak>' at D:\vocabswipe.github.io\data\audio\back\your\your_Is_that_your_phone_ringing.mp3
+2025-07-03 20:59:35,034 - INFO - Generated audio for '<speak>I ate all the cookies.</speak>' at D:\vocabswipe.github.io\data\audio\back\all\all_I_ate_all_the_cookies.mp3
+2025-07-03 20:59:35,379 - INFO - Generated audio for '<speak>She finished all her tasks.</speak>' at D:\vocabswipe.github.io\data\audio\back\all\all_She_finished_all_her_tasks.mp3
+2025-07-03 20:59:35,804 - INFO - Generated audio for '<speak>All the stars were visible.</speak>' at D:\vocabswipe.github.io\data\audio\back\all\all_All_the_stars_were_visible.mp3
+2025-07-03 20:59:36,313 - INFO - Generated audio for '<speak>All my friends were there.</speak>' at D:\vocabswipe.github.io\data\audio\back\all\all_All_my_friends_were_there.mp3
+2025-07-03 20:59:36,826 - INFO - Generated audio for '<speak>I’m all done with this.</speak>' at D:\vocabswipe.github.io\data\audio\back\all\all_Im_all_done_with_this.mp3
+2025-07-03 20:59:37,239 - INFO - Generated audio for '<speak>Who left the door open?</speak>' at D:\vocabswipe.github.io\data\audio\back\who\who_Who_left_the_door_open.mp3
+2025-07-03 20:59:37,645 - INFO - Generated audio for '<speak>Who is leading the meeting?</speak>' at D:\vocabswipe.github.io\data\audio\back\who\who_Who_is_leading_the_meeting.mp3
+2025-07-03 20:59:37,996 - INFO - Generated audio for '<speak>Who saw the bear first?</speak>' at D:\vocabswipe.github.io\data\audio\back\who\who_Who_saw_the_bear_first.mp3
+2025-07-03 20:59:38,361 - INFO - Generated audio for '<speak>Who was at the party?</speak>' at D:\vocabswipe.github.io\data\audio\back\who\who_Who_was_at_the_party.mp3
+2025-07-03 20:59:38,777 - INFO - Generated audio for '<speak>Who’s calling me now?</speak>' at D:\vocabswipe.github.io\data\audio\back\who\who_Whos_calling_me_now.mp3
+2025-07-03 20:59:39,181 - INFO - Generated audio for '<speak>We talked about movies.</speak>' at D:\vocabswipe.github.io\data\audio\back\about\about_We_talked_about_movies.mp3
+2025-07-03 20:59:39,529 - INFO - Generated audio for '<speak>The meeting was about budgets.</speak>' at D:\vocabswipe.github.io\data\audio\back\about\about_The_meeting_was_about_budgets.mp3
+2025-07-03 20:59:39,901 - INFO - Generated audio for '<speak>She knows a lot about birds.</speak>' at D:\vocabswipe.github.io\data\audio\back\about\about_She_knows_a_lot_about_birds.mp3
+2025-07-03 20:59:40,319 - INFO - Generated audio for '<speak>They gossiped about the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\about\about_They_gossiped_about_the_party.mp3
+2025-07-03 20:59:41,796 - INFO - Generated audio for '<speak>What’s this book about?</speak>' at D:\vocabswipe.github.io\data\audio\back\about\about_Whats_this_book_about.mp3
+2025-07-03 20:59:42,146 - INFO - Generated audio for '<speak>Their project was a success.</speak>' at D:\vocabswipe.github.io\data\audio\back\their\their_Their_project_was_a_success.mp3
+2025-07-03 20:59:42,544 - INFO - Generated audio for '<speak>Their campsite is by the lake.</speak>' at D:\vocabswipe.github.io\data\audio\back\their\their_Their_campsite_is_by_the_lake.mp3
+2025-07-03 20:59:42,890 - INFO - Generated audio for '<speak>Their party was so fun.</speak>' at D:\vocabswipe.github.io\data\audio\back\their\their_Their_party_was_so_fun.mp3
+2025-07-03 20:59:43,278 - INFO - Generated audio for '<speak>I saw their dog running.</speak>' at D:\vocabswipe.github.io\data\audio\back\their\their_I_saw_their_dog_running.mp3
+2025-07-03 20:59:43,625 - INFO - Generated audio for '<speak>She will finish the report.</speak>' at D:\vocabswipe.github.io\data\audio\back\will\will_She_will_finish_the_report.mp3
+2025-07-03 20:59:43,996 - INFO - Generated audio for '<speak>It will rain this afternoon.</speak>' at D:\vocabswipe.github.io\data\audio\back\will\will_It_will_rain_this_afternoon.mp3
+2025-07-03 20:59:44,403 - INFO - Generated audio for '<speak>We will meet at the café.</speak>' at D:\vocabswipe.github.io\data\audio\back\will\will_We_will_meet_at_the_café.mp3
+2025-07-03 20:59:44,749 - INFO - Generated audio for '<speak>I will grab coffee soon.</speak>' at D:\vocabswipe.github.io\data\audio\back\will\will_I_will_grab_coffee_soon.mp3
+2025-07-03 20:59:45,126 - INFO - Generated audio for '<speak>I was tired, so I slept.</speak>' at D:\vocabswipe.github.io\data\audio\back\so\so_I_was_tired_so_I_slept.mp3
+2025-07-03 20:59:45,532 - INFO - Generated audio for '<speak>She worked hard, so she won.</speak>' at D:\vocabswipe.github.io\data\audio\back\so\so_She_worked_hard_so_she_won.mp3
+2025-07-03 20:59:45,945 - INFO - Generated audio for '<speak>It rained, so the ground is wet.</speak>' at D:\vocabswipe.github.io\data\audio\back\so\so_It_rained_so_the_ground_is_wet.mp3
+2025-07-03 20:59:46,294 - INFO - Generated audio for '<speak>He was late, so we started.</speak>' at D:\vocabswipe.github.io\data\audio\back\so\so_He_was_late_so_we_started.mp3
+2025-07-03 20:59:46,642 - INFO - Generated audio for '<speak>I’m so hungry right now.</speak>' at D:\vocabswipe.github.io\data\audio\back\so\so_Im_so_hungry_right_now.mp3
+2025-07-03 20:59:46,989 - INFO - Generated audio for '<speak>She would lead if asked.</speak>' at D:\vocabswipe.github.io\data\audio\back\would\would_She_would_lead_if_asked.mp3
+2025-07-03 20:59:47,339 - INFO - Generated audio for '<speak>I would camp if it’s sunny.</speak>' at D:\vocabswipe.github.io\data\audio\back\would\would_I_would_camp_if_its_sunny.mp3
+2025-07-03 20:59:47,688 - INFO - Generated audio for '<speak>He would join if invited.</speak>' at D:\vocabswipe.github.io\data\audio\back\would\would_He_would_join_if_invited.mp3
+2025-07-03 20:59:48,092 - INFO - Generated audio for '<speak>I would try that pizza.</speak>' at D:\vocabswipe.github.io\data\audio\back\would\would_I_would_try_that_pizza.mp3
+2025-07-03 20:59:48,438 - INFO - Generated audio for '<speak>I’ll make dinner tonight.</speak>' at D:\vocabswipe.github.io\data\audio\back\make\make_Ill_make_dinner_tonight.mp3
+2025-07-03 20:59:48,789 - INFO - Generated audio for '<speak>She made a great presentation.</speak>' at D:\vocabswipe.github.io\data\audio\back\make\make_She_made_a_great_presentation.mp3
+2025-07-03 20:59:49,137 - INFO - Generated audio for '<speak>We made a fire by the lake.</speak>' at D:\vocabswipe.github.io\data\audio\back\make\make_We_made_a_fire_by_the_lake.mp3
+2025-07-03 20:59:49,523 - INFO - Generated audio for '<speak>He made everyone laugh.</speak>' at D:\vocabswipe.github.io\data\audio\back\make\make_He_made_everyone_laugh.mp3
+2025-07-03 20:59:49,877 - INFO - Generated audio for '<speak>Can you make some coffee?</speak>' at D:\vocabswipe.github.io\data\audio\back\make\make_Can_you_make_some_coffee.mp3
+2025-07-03 20:59:50,245 - INFO - Generated audio for '<speak>I just finished eating.</speak>' at D:\vocabswipe.github.io\data\audio\back\just\just_I_just_finished_eating.mp3
+2025-07-03 20:59:50,650 - INFO - Generated audio for '<speak>She just sent the email.</speak>' at D:\vocabswipe.github.io\data\audio\back\just\just_She_just_sent_the_email.mp3
+2025-07-03 20:59:51,062 - INFO - Generated audio for '<speak>It just started raining.</speak>' at D:\vocabswipe.github.io\data\audio\back\just\just_It_just_started_raining.mp3
+2025-07-03 20:59:51,408 - INFO - Generated audio for '<speak>I just met her yesterday.</speak>' at D:\vocabswipe.github.io\data\audio\back\just\just_I_just_met_her_yesterday.mp3
+2025-07-03 20:59:51,776 - INFO - Generated audio for '<speak>It’s just a small scratch.</speak>' at D:\vocabswipe.github.io\data\audio\back\just\just_Its_just_a_small_scratch.mp3
+2025-07-03 20:59:52,186 - INFO - Generated audio for '<speak>I’m going up the stairs.</speak>' at D:\vocabswipe.github.io\data\audio\back\up\up_Im_going_up_the_stairs.mp3
+2025-07-03 20:59:52,595 - INFO - Generated audio for '<speak>She’s moving up in the company.</speak>' at D:\vocabswipe.github.io\data\audio\back\up\up_Shes_moving_up_in_the_company.mp3
+2025-07-03 20:59:52,947 - INFO - Generated audio for '<speak>The sun came up slowly.</speak>' at D:\vocabswipe.github.io\data\audio\back\up\up_The_sun_came_up_slowly.mp3
+2025-07-03 20:59:53,316 - INFO - Generated audio for '<speak>We stayed up all night.</speak>' at D:\vocabswipe.github.io\data\audio\back\up\up_We_stayed_up_all_night.mp3
+2025-07-03 20:59:53,721 - INFO - Generated audio for '<speak>Turn up the music.</speak>' at D:\vocabswipe.github.io\data\audio\back\up\up_Turn_up_the_music.mp3
+2025-07-03 20:59:54,432 - INFO - Generated audio for '<speak>I think it’s going to rain.</speak>' at D:\vocabswipe.github.io\data\audio\back\think\think_I_think_its_going_to_rain.mp3
+2025-07-03 20:59:54,848 - INFO - Generated audio for '<speak>She thinks the plan will work.</speak>' at D:\vocabswipe.github.io\data\audio\back\think\think_She_thinks_the_plan_will_work.mp3
+2025-07-03 20:59:55,199 - INFO - Generated audio for '<speak>I think the view is amazing.</speak>' at D:\vocabswipe.github.io\data\audio\back\think\think_I_think_the_view_is_amazing.mp3
+2025-07-03 20:59:55,554 - INFO - Generated audio for '<speak>They think the party was fun.</speak>' at D:\vocabswipe.github.io\data\audio\back\think\think_They_think_the_party_was_fun.mp3
+2025-07-03 20:59:55,903 - INFO - Generated audio for '<speak>I think I’ll get coffee.</speak>' at D:\vocabswipe.github.io\data\audio\back\think\think_I_think_Ill_get_coffee.mp3
+2025-07-03 20:59:56,250 - INFO - Generated audio for '<speak>I don’t have time to cook.</speak>' at D:\vocabswipe.github.io\data\audio\back\time\time_I_dont_have_time_to_cook.mp3
+2025-07-03 20:59:56,599 - INFO - Generated audio for '<speak>The meeting is at lunch time.</speak>' at D:\vocabswipe.github.io\data\audio\back\time\time_The_meeting_is_at_lunch_time.mp3
+2025-07-03 20:59:57,006 - INFO - Generated audio for '<speak>The sunset is at the same time.</speak>' at D:\vocabswipe.github.io\data\audio\back\time\time_The_sunset_is_at_the_same_time.mp3
+2025-07-03 20:59:57,408 - INFO - Generated audio for '<speak>We had a great time last night.</speak>' at D:\vocabswipe.github.io\data\audio\back\time\time_We_had_a_great_time_last_night.mp3
+2025-07-03 20:59:57,818 - INFO - Generated audio for '<speak>It’s time to go now.</speak>' at D:\vocabswipe.github.io\data\audio\back\time\time_Its_time_to_go_now.mp3
+2025-07-03 20:59:58,163 - INFO - Generated audio for '<speak>My keys are over there.</speak>' at D:\vocabswipe.github.io\data\audio\back\there\there_My_keys_are_over_there.mp3
+2025-07-03 20:59:58,540 - INFO - Generated audio for '<speak>The files are there on the desk.</speak>' at D:\vocabswipe.github.io\data\audio\back\there\there_The_files_are_there_on_the_desk.mp3
+2025-07-03 20:59:58,883 - INFO - Generated audio for '<speak>The deer is standing there.</speak>' at D:\vocabswipe.github.io\data\audio\back\there\there_The_deer_is_standing_there.mp3
+2025-07-03 20:59:59,232 - INFO - Generated audio for '<speak>I saw her there at the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\there\there_I_saw_her_there_at_the_party.mp3
+2025-07-03 20:59:59,586 - INFO - Generated audio for '<speak>Look over there at the dog.</speak>' at D:\vocabswipe.github.io\data\audio\back\there\there_Look_over_there_at_the_dog.mp3
+2025-07-03 20:59:59,969 - INFO - Generated audio for '<speak>I see a car coming.</speak>' at D:\vocabswipe.github.io\data\audio\back\see\see_I_see_a_car_coming.mp3
+2025-07-03 21:00:00,354 - INFO - Generated audio for '<speak>Did you see the new email?</speak>' at D:\vocabswipe.github.io\data\audio\back\see\see_Did_you_see_the_new_email.mp3
+2025-07-03 21:00:00,698 - INFO - Generated audio for '<speak>I saw him at the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\see\see_I_saw_him_at_the_party.mp3
+2025-07-03 21:00:01,104 - INFO - Generated audio for '<speak>Can you see that sign?</speak>' at D:\vocabswipe.github.io\data\audio\back\see\see_Can_you_see_that_sign.mp3
+2025-07-03 21:00:01,507 - INFO - Generated audio for '<speak>I gave her my jacket.</speak>' at D:\vocabswipe.github.io\data\audio\back\her\her_I_gave_her_my_jacket.mp3
+2025-07-03 21:00:01,913 - INFO - Generated audio for '<speak>Her report was impressive.</speak>' at D:\vocabswipe.github.io\data\audio\back\her\her_Her_report_was_impressive.mp3
+2025-07-03 21:00:02,258 - INFO - Generated audio for '<speak>I saw her by the lake.</speak>' at D:\vocabswipe.github.io\data\audio\back\her\her_I_saw_her_by_the_lake.mp3
+2025-07-03 21:00:02,603 - INFO - Generated audio for '<speak>Her speech was amazing.</speak>' at D:\vocabswipe.github.io\data\audio\back\her\her_Her_speech_was_amazing.mp3
+2025-07-03 21:00:02,949 - INFO - Generated audio for '<speak>Her bag is on the chair.</speak>' at D:\vocabswipe.github.io\data\audio\back\her\her_Her_bag_is_on_the_chair.mp3
+2025-07-03 21:00:03,306 - INFO - Generated audio for '<speak>She sent out the invites.</speak>' at D:\vocabswipe.github.io\data\audio\back\out\out_She_sent_out_the_invites.mp3
+2025-07-03 21:00:03,659 - INFO - Generated audio for '<speak>The stars came out at night.</speak>' at D:\vocabswipe.github.io\data\audio\back\out\out_The_stars_came_out_at_night.mp3
+2025-07-03 21:00:04,006 - INFO - Generated audio for '<speak>We went out to the club.</speak>' at D:\vocabswipe.github.io\data\audio\back\out\out_We_went_out_to_the_club.mp3
+2025-07-03 21:00:04,356 - INFO - Generated audio for '<speak>Get out of the way!</speak>' at D:\vocabswipe.github.io\data\audio\back\out\out_Get_out_of_the_way.mp3
+2025-07-03 21:00:05,707 - INFO - Generated audio for '<speak>I need one more plate.</speak>' at D:\vocabswipe.github.io\data\audio\back\one\one_I_need_one_more_plate.mp3
+2025-07-03 21:00:06,117 - INFO - Generated audio for '<speak>She finished one report today.</speak>' at D:\vocabswipe.github.io\data\audio\back\one\one_She_finished_one_report_today.mp3
+2025-07-03 21:00:06,465 - INFO - Generated audio for '<speak>I saw one deer in the field.</speak>' at D:\vocabswipe.github.io\data\audio\back\one\one_I_saw_one_deer_in_the_field.mp3
+2025-07-03 21:00:06,837 - INFO - Generated audio for '<speak>One friend came to the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\one\one_One_friend_came_to_the_party.mp3
+2025-07-03 21:00:07,199 - INFO - Generated audio for '<speak>I’ll take one coffee, please.</speak>' at D:\vocabswipe.github.io\data\audio\back\one\one_Ill_take_one_coffee_please.mp3
+2025-07-03 21:00:07,551 - INFO - Generated audio for '<speak>Can you come to my house?</speak>' at D:\vocabswipe.github.io\data\audio\back\come\come_Can_you_come_to_my_house.mp3
+2025-07-03 21:00:07,894 - INFO - Generated audio for '<speak>She’ll come to the meeting.</speak>' at D:\vocabswipe.github.io\data\audio\back\come\come_Shell_come_to_the_meeting.mp3
+2025-07-03 21:00:08,263 - INFO - Generated audio for '<speak>The storm is coming fast.</speak>' at D:\vocabswipe.github.io\data\audio\back\come\come_The_storm_is_coming_fast.mp3
+2025-07-03 21:00:08,610 - INFO - Generated audio for '<speak>He didn’t come to the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\come\come_He_didnt_come_to_the_party.mp3
+2025-07-03 21:00:08,960 - INFO - Generated audio for '<speak>Come here and look at this.</speak>' at D:\vocabswipe.github.io\data\audio\back\come\come_Come_here_and_look_at_this.mp3
+2025-07-03 21:00:09,304 - INFO - Generated audio for '<speak>People were at the park.</speak>' at D:\vocabswipe.github.io\data\audio\back\people\people_People_were_at_the_park.mp3
+2025-07-03 21:00:09,701 - INFO - Generated audio for '<speak>People in the office are busy.</speak>' at D:\vocabswipe.github.io\data\audio\back\people\people_People_in_the_office_are_busy.mp3
+2025-07-03 21:00:10,050 - INFO - Generated audio for '<speak>People were hiking the trail.</speak>' at D:\vocabswipe.github.io\data\audio\back\people\people_People_were_hiking_the_trail.mp3
+2025-07-03 21:00:10,415 - INFO - Generated audio for '<speak>People loved the concert.</speak>' at D:\vocabswipe.github.io\data\audio\back\people\people_People_loved_the_concert.mp3
+2025-07-03 21:00:10,827 - INFO - Generated audio for '<speak>Look at all the people here.</speak>' at D:\vocabswipe.github.io\data\audio\back\people\people_Look_at_all_the_people_here.mp3
+2025-07-03 21:00:11,237 - INFO - Generated audio for '<speak>She’ll take the lead on this.</speak>' at D:\vocabswipe.github.io\data\audio\back\take\take_Shell_take_the_lead_on_this.mp3
+2025-07-03 21:00:11,596 - INFO - Generated audio for '<speak>Take your trash from the park.</speak>' at D:\vocabswipe.github.io\data\audio\back\take\take_Take_your_trash_from_the_park.mp3
+2025-07-03 21:00:11,954 - INFO - Generated audio for '<speak>I’ll take her to the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\take\take_Ill_take_her_to_the_party.mp3
+2025-07-03 21:00:12,359 - INFO - Generated audio for '<speak>Can you take this to the car?</speak>' at D:\vocabswipe.github.io\data\audio\back\take\take_Can_you_take_this_to_the_car.mp3
+2025-07-03 21:00:12,706 - INFO - Generated audio for '<speak>This year has been busy.</speak>' at D:\vocabswipe.github.io\data\audio\back\year\year_This_year_has_been_busy.mp3
+2025-07-03 21:00:13,060 - INFO - Generated audio for '<speak>The project lasts one year.</speak>' at D:\vocabswipe.github.io\data\audio\back\year\year_The_project_lasts_one_year.mp3
+2025-07-03 21:00:13,402 - INFO - Generated audio for '<speak>The trees bloom every year.</speak>' at D:\vocabswipe.github.io\data\audio\back\year\year_The_trees_bloom_every_year.mp3
+2025-07-03 21:00:13,794 - INFO - Generated audio for '<speak>We met last year.</speak>' at D:\vocabswipe.github.io\data\audio\back\year\year_We_met_last_year.mp3
+2025-07-03 21:00:14,146 - INFO - Generated audio for '<speak>I got this phone last year.</speak>' at D:\vocabswipe.github.io\data\audio\back\year\year_I_got_this_phone_last_year.mp3
+2025-07-03 21:00:14,509 - INFO - Generated audio for '<speak>I saw him at the store.</speak>' at D:\vocabswipe.github.io\data\audio\back\him\him_I_saw_him_at_the_store.mp3
+2025-07-03 21:00:14,922 - INFO - Generated audio for '<speak>Give this file to him.</speak>' at D:\vocabswipe.github.io\data\audio\back\him\him_Give_this_file_to_him.mp3
+2025-07-03 21:00:15,328 - INFO - Generated audio for '<speak>I saw him by the river.</speak>' at D:\vocabswipe.github.io\data\audio\back\him\him_I_saw_him_by_the_river.mp3
+2025-07-03 21:00:15,696 - INFO - Generated audio for '<speak>I talked to him at the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\him\him_I_talked_to_him_at_the_party.mp3
+2025-07-03 21:00:16,036 - INFO - Generated audio for '<speak>Tell him I’m here.</speak>' at D:\vocabswipe.github.io\data\audio\back\him\him_Tell_him_Im_here.mp3
+2025-07-03 21:00:16,384 - INFO - Generated audio for '<speak>I gave them my old books.</speak>' at D:\vocabswipe.github.io\data\audio\back\them\them_I_gave_them_my_old_books.mp3
+2025-07-03 21:00:16,733 - INFO - Generated audio for '<speak>I emailed them the report.</speak>' at D:\vocabswipe.github.io\data\audio\back\them\them_I_emailed_them_the_report.mp3
+2025-07-03 21:00:17,082 - INFO - Generated audio for '<speak>I saw them camping by the lake.</speak>' at D:\vocabswipe.github.io\data\audio\back\them\them_I_saw_them_camping_by_the_lake.mp3
+2025-07-03 21:00:17,479 - INFO - Generated audio for '<speak>I invited them to the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\them\them_I_invited_them_to_the_party.mp3
+2025-07-03 21:00:17,822 - INFO - Generated audio for '<speak>Tell them to hurry up.</speak>' at D:\vocabswipe.github.io\data\audio\back\them\them_Tell_them_to_hurry_up.mp3
+2025-07-03 21:00:18,195 - INFO - Generated audio for '<speak>I need some water.</speak>' at D:\vocabswipe.github.io\data\audio\back\some\some_I_need_some_water.mp3
+2025-07-03 21:00:18,543 - INFO - Generated audio for '<speak>She finished some tasks.</speak>' at D:\vocabswipe.github.io\data\audio\back\some\some_She_finished_some_tasks.mp3
+2025-07-03 21:00:18,918 - INFO - Generated audio for '<speak>I saw some birds in the tree.</speak>' at D:\vocabswipe.github.io\data\audio\back\some\some_I_saw_some_birds_in_the_tree.mp3
+2025-07-03 21:00:19,271 - INFO - Generated audio for '<speak>Some friends came over.</speak>' at D:\vocabswipe.github.io\data\audio\back\some\some_Some_friends_came_over.mp3
+2025-07-03 21:00:19,635 - INFO - Generated audio for '<speak>Grab some pizza for me.</speak>' at D:\vocabswipe.github.io\data\audio\back\some\some_Grab_some_pizza_for_me.mp3
+2025-07-03 21:00:21,004 - INFO - Generated audio for '<speak>She wants a promotion.</speak>' at D:\vocabswipe.github.io\data\audio\back\want\want_She_wants_a_promotion.mp3
+2025-07-03 21:00:21,334 - INFO - Generated audio for '<speak>I want to see the sunset.</speak>' at D:\vocabswipe.github.io\data\audio\back\want\want_I_want_to_see_the_sunset.mp3
+2025-07-03 21:00:21,683 - INFO - Generated audio for '<speak>They want to join the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\want\want_They_want_to_join_the_party.mp3
+2025-07-03 21:00:22,090 - INFO - Generated audio for '<speak>I want coffee now.</speak>' at D:\vocabswipe.github.io\data\audio\back\want\want_I_want_coffee_now.mp3
+2025-07-03 21:00:22,418 - INFO - Generated audio for '<speak>How do you make this?</speak>' at D:\vocabswipe.github.io\data\audio\back\how\how_How_do_you_make_this.mp3
+2025-07-03 21:00:22,804 - INFO - Generated audio for '<speak>How did you solve that?</speak>' at D:\vocabswipe.github.io\data\audio\back\how\how_How_did_you_solve_that.mp3
+2025-07-03 21:00:23,136 - INFO - Generated audio for '<speak>How did the fire start?</speak>' at D:\vocabswipe.github.io\data\audio\back\how\how_How_did_the_fire_start.mp3
+2025-07-03 21:00:23,468 - INFO - Generated audio for '<speak>How was the party last night?</speak>' at D:\vocabswipe.github.io\data\audio\back\how\how_How_was_the_party_last_night.mp3
+2025-07-03 21:00:23,828 - INFO - Generated audio for '<speak>How do I get there?</speak>' at D:\vocabswipe.github.io\data\audio\back\how\how_How_do_I_get_there.mp3
+2025-07-03 21:00:24,240 - INFO - Generated audio for '<speak>When are you coming home?</speak>' at D:\vocabswipe.github.io\data\audio\back\when\when_When_are_you_coming_home.mp3
+2025-07-03 21:00:24,647 - INFO - Generated audio for '<speak>When is the deadline?</speak>' at D:\vocabswipe.github.io\data\audio\back\when\when_When_is_the_deadline.mp3
+2025-07-03 21:00:24,980 - INFO - Generated audio for '<speak>When does the sun set?</speak>' at D:\vocabswipe.github.io\data\audio\back\when\when_When_does_the_sun_set.mp3
+2025-07-03 21:00:25,365 - INFO - Generated audio for '<speak>When did you meet her?</speak>' at D:\vocabswipe.github.io\data\audio\back\when\when_When_did_you_meet_her.mp3
+2025-07-03 21:00:25,772 - INFO - Generated audio for '<speak>When can we meet up?</speak>' at D:\vocabswipe.github.io\data\audio\back\when\when_When_can_we_meet_up.mp3
+2025-07-03 21:00:26,104 - INFO - Generated audio for '<speak>Which shirt should I wear?</speak>' at D:\vocabswipe.github.io\data\audio\back\which\which_Which_shirt_should_I_wear.mp3
+2025-07-03 21:00:26,479 - INFO - Generated audio for '<speak>Which plan do we follow?</speak>' at D:\vocabswipe.github.io\data\audio\back\which\which_Which_plan_do_we_follow.mp3
+2025-07-03 21:00:26,810 - INFO - Generated audio for '<speak>Which tree is that one?</speak>' at D:\vocabswipe.github.io\data\audio\back\which\which_Which_tree_is_that_one.mp3
+2025-07-03 21:00:27,185 - INFO - Generated audio for '<speak>Which friend was there?</speak>' at D:\vocabswipe.github.io\data\audio\back\which\which_Which_friend_was_there.mp3
+2025-07-03 21:00:27,520 - INFO - Generated audio for '<speak>Which coffee do you want?</speak>' at D:\vocabswipe.github.io\data\audio\back\which\which_Which_coffee_do_you_want.mp3
+2025-07-03 21:00:27,923 - INFO - Generated audio for '<speak>I’m busy now.</speak>' at D:\vocabswipe.github.io\data\audio\back\now\now_Im_busy_now.mp3
+2025-07-03 21:00:28,250 - INFO - Generated audio for '<speak>She’s working now.</speak>' at D:\vocabswipe.github.io\data\audio\back\now\now_Shes_working_now.mp3
+2025-07-03 21:00:28,579 - INFO - Generated audio for '<speak>It’s raining now.</speak>' at D:\vocabswipe.github.io\data\audio\back\now\now_Its_raining_now.mp3
+2025-07-03 21:00:28,948 - INFO - Generated audio for '<speak>They’re at the party now.</speak>' at D:\vocabswipe.github.io\data\audio\back\now\now_Theyre_at_the_party_now.mp3
+2025-07-03 21:00:29,277 - INFO - Generated audio for '<speak>Let’s go now.</speak>' at D:\vocabswipe.github.io\data\audio\back\now\now_Lets_go_now.mp3
+2025-07-03 21:00:29,615 - INFO - Generated audio for '<speak>I like this song.</speak>' at D:\vocabswipe.github.io\data\audio\back\like\like_I_like_this_song.mp3
+2025-07-03 21:00:29,972 - INFO - Generated audio for '<speak>It’s like last year’s project.</speak>' at D:\vocabswipe.github.io\data\audio\back\like\like_Its_like_last_years_project.mp3
+2025-07-03 21:00:30,306 - INFO - Generated audio for '<speak>The sky looks like a painting.</speak>' at D:\vocabswipe.github.io\data\audio\back\like\like_The_sky_looks_like_a_painting.mp3
+2025-07-03 21:00:30,638 - INFO - Generated audio for '<speak>She’s like my sister.</speak>' at D:\vocabswipe.github.io\data\audio\back\like\like_Shes_like_my_sister.mp3
+2025-07-03 21:00:30,969 - INFO - Generated audio for '<speak>I feel like pizza tonight.</speak>' at D:\vocabswipe.github.io\data\audio\back\like\like_I_feel_like_pizza_tonight.mp3
+2025-07-03 21:00:31,302 - INFO - Generated audio for '<speak>I have other plans today.</speak>' at D:\vocabswipe.github.io\data\audio\back\other\other_I_have_other_plans_today.mp3
+2025-07-03 21:00:31,638 - INFO - Generated audio for '<speak>Try the other software.</speak>' at D:\vocabswipe.github.io\data\audio\back\other\other_Try_the_other_software.mp3
+2025-07-03 21:00:32,021 - INFO - Generated audio for '<speak>Look at the other mountain.</speak>' at D:\vocabswipe.github.io\data\audio\back\other\other_Look_at_the_other_mountain.mp3
+2025-07-03 21:00:32,429 - INFO - Generated audio for '<speak>I met her other friend.</speak>' at D:\vocabswipe.github.io\data\audio\back\other\other_I_met_her_other_friend.mp3
+2025-07-03 21:00:32,762 - INFO - Generated audio for '<speak>Check the other room.</speak>' at D:\vocabswipe.github.io\data\audio\back\other\other_Check_the_other_room.mp3
+2025-07-03 21:00:33,146 - INFO - Generated audio for '<speak>I could go to the store.</speak>' at D:\vocabswipe.github.io\data\audio\back\could\could_I_could_go_to_the_store.mp3
+2025-07-03 21:00:33,476 - INFO - Generated audio for '<speak>She could lead the team.</speak>' at D:\vocabswipe.github.io\data\audio\back\could\could_She_could_lead_the_team.mp3
+2025-07-03 21:00:33,808 - INFO - Generated audio for '<speak>It could rain later.</speak>' at D:\vocabswipe.github.io\data\audio\back\could\could_It_could_rain_later.mp3
+2025-07-03 21:00:34,170 - INFO - Generated audio for '<speak>We could meet at the café.</speak>' at D:\vocabswipe.github.io\data\audio\back\could\could_We_could_meet_at_the_café.mp3
+2025-07-03 21:00:34,499 - INFO - Generated audio for '<speak>I could grab coffee.</speak>' at D:\vocabswipe.github.io\data\audio\back\could\could_I_could_grab_coffee.mp3
+2025-07-03 21:00:34,833 - INFO - Generated audio for '<speak>Our house is nearby.</speak>' at D:\vocabswipe.github.io\data\audio\back\our\our_Our_house_is_nearby.mp3
+2025-07-03 21:00:35,196 - INFO - Generated audio for '<speak>Our project is almost done.</speak>' at D:\vocabswipe.github.io\data\audio\back\our\our_Our_project_is_almost_done.mp3
+2025-07-03 21:00:35,604 - INFO - Generated audio for '<speak>Our campsite is by the lake.</speak>' at D:\vocabswipe.github.io\data\audio\back\our\our_Our_campsite_is_by_the_lake.mp3
+2025-07-03 21:00:35,934 - INFO - Generated audio for '<speak>Our friends are coming over.</speak>' at D:\vocabswipe.github.io\data\audio\back\our\our_Our_friends_are_coming_over.mp3
+2025-07-03 21:00:36,291 - INFO - Generated audio for '<speak>Our car is parked there.</speak>' at D:\vocabswipe.github.io\data\audio\back\our\our_Our_car_is_parked_there.mp3
+2025-07-03 21:00:36,629 - INFO - Generated audio for '<speak>I walked into the room.</speak>' at D:\vocabswipe.github.io\data\audio\back\into\into_I_walked_into_the_room.mp3
+2025-07-03 21:00:36,960 - INFO - Generated audio for '<speak>She’s really into the project.</speak>' at D:\vocabswipe.github.io\data\audio\back\into\into_Shes_really_into_the_project.mp3
+2025-07-03 21:00:37,302 - INFO - Generated audio for '<speak>The river flows into the lake.</speak>' at D:\vocabswipe.github.io\data\audio\back\into\into_The_river_flows_into_the_lake.mp3
+2025-07-03 21:00:38,722 - INFO - Generated audio for '<speak>He got into the party late.</speak>' at D:\vocabswipe.github.io\data\audio\back\into\into_He_got_into_the_party_late.mp3
+2025-07-03 21:00:39,087 - INFO - Generated audio for '<speak>Don’t go into that room.</speak>' at D:\vocabswipe.github.io\data\audio\back\into\into_Dont_go_into_that_room.mp3
+2025-07-03 21:00:39,466 - INFO - Generated audio for '<speak>My keys are here.</speak>' at D:\vocabswipe.github.io\data\audio\back\here\here_My_keys_are_here.mp3
+2025-07-03 21:00:39,804 - INFO - Generated audio for '<speak>The meeting is here today.</speak>' at D:\vocabswipe.github.io\data\audio\back\here\here_The_meeting_is_here_today.mp3
+2025-07-03 21:00:40,213 - INFO - Generated audio for '<speak>The birds are here in the trees.</speak>' at D:\vocabswipe.github.io\data\audio\back\here\here_The_birds_are_here_in_the_trees.mp3
+2025-07-03 21:00:40,550 - INFO - Generated audio for '<speak>I saw her here last night.</speak>' at D:\vocabswipe.github.io\data\audio\back\here\here_I_saw_her_here_last_night.mp3
+2025-07-03 21:00:40,930 - INFO - Generated audio for '<speak>Come here and look at this.</speak>' at D:\vocabswipe.github.io\data\audio\back\here\here_Come_here_and_look_at_this.mp3
+2025-07-03 21:00:41,339 - INFO - Generated audio for '<speak>I ate, then I slept.</speak>' at D:\vocabswipe.github.io\data\audio\back\then\then_I_ate_then_I_slept.mp3
+2025-07-03 21:00:41,750 - INFO - Generated audio for '<speak>Finish this, then start that.</speak>' at D:\vocabswipe.github.io\data\audio\back\then\then_Finish_this_then_start_that.mp3
+2025-07-03 21:00:42,083 - INFO - Generated audio for '<speak>It rained, then it cleared.</speak>' at D:\vocabswipe.github.io\data\audio\back\then\then_It_rained_then_it_cleared.mp3
+2025-07-03 21:00:42,416 - INFO - Generated audio for '<speak>We met, then we talked.</speak>' at D:\vocabswipe.github.io\data\audio\back\then\then_We_met_then_we_talked.mp3
+2025-07-03 21:00:42,755 - INFO - Generated audio for '<speak>Do this, then call me.</speak>' at D:\vocabswipe.github.io\data\audio\back\then\then_Do_this_then_call_me.mp3
+2025-07-03 21:00:43,091 - INFO - Generated audio for '<speak>This is better than that.</speak>' at D:\vocabswipe.github.io\data\audio\back\than\than_This_is_better_than_that.mp3
+2025-07-03 21:00:43,490 - INFO - Generated audio for '<speak>Her report is better than mine.</speak>' at D:\vocabswipe.github.io\data\audio\back\than\than_Her_report_is_better_than_mine.mp3
+2025-07-03 21:00:43,901 - INFO - Generated audio for '<speak>The hill is steeper than the path.</speak>' at D:\vocabswipe.github.io\data\audio\back\than\than_The_hill_is_steeper_than_the_path.mp3
+2025-07-03 21:00:44,235 - INFO - Generated audio for '<speak>He’s funnier than his brother.</speak>' at D:\vocabswipe.github.io\data\audio\back\than\than_Hes_funnier_than_his_brother.mp3
+2025-07-03 21:00:44,617 - INFO - Generated audio for '<speak>I like coffee more than tea.</speak>' at D:\vocabswipe.github.io\data\audio\back\than\than_I_like_coffee_more_than_tea.mp3
+2025-07-03 21:00:45,026 - INFO - Generated audio for '<speak>Look at that cool car.</speak>' at D:\vocabswipe.github.io\data\audio\back\look\look_Look_at_that_cool_car.mp3
+2025-07-03 21:00:45,434 - INFO - Generated audio for '<speak>Look over this document.</speak>' at D:\vocabswipe.github.io\data\audio\back\look\look_Look_over_this_document.mp3
+2025-07-03 21:00:45,766 - INFO - Generated audio for '<speak>Look at the stars tonight.</speak>' at D:\vocabswipe.github.io\data\audio\back\look\look_Look_at_the_stars_tonight.mp3
+2025-07-03 21:00:46,150 - INFO - Generated audio for '<speak>Look who’s at the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\look\look_Look_whos_at_the_party.mp3
+2025-07-03 21:00:46,479 - INFO - Generated audio for '<speak>Look at my new phone.</speak>' at D:\vocabswipe.github.io\data\audio\back\look\look_Look_at_my_new_phone.mp3
+2025-07-03 21:00:46,814 - INFO - Generated audio for '<speak>Her way of working is efficient.</speak>' at D:\vocabswipe.github.io\data\audio\back\way\way_Her_way_of_working_is_efficient.mp3
+2025-07-03 21:00:47,176 - INFO - Generated audio for '<speak>The way to the lake is clear.</speak>' at D:\vocabswipe.github.io\data\audio\back\way\way_The_way_to_the_lake_is_clear.mp3
+2025-07-03 21:00:47,587 - INFO - Generated audio for '<speak>His way of talking is funny.</speak>' at D:\vocabswipe.github.io\data\audio\back\way\way_His_way_of_talking_is_funny.mp3
+2025-07-03 21:00:47,922 - INFO - Generated audio for '<speak>Find a way to fix this.</speak>' at D:\vocabswipe.github.io\data\audio\back\way\way_Find_a_way_to_fix_this.mp3
+2025-07-03 21:00:48,522 - INFO - Generated audio for '<speak>We need more staff here.</speak>' at D:\vocabswipe.github.io\data\audio\back\more\more_We_need_more_staff_here.mp3
+2025-07-03 21:00:48,854 - INFO - Generated audio for '<speak>More rain is coming tonight.</speak>' at D:\vocabswipe.github.io\data\audio\back\more\more_More_rain_is_coming_tonight.mp3
+2025-07-03 21:00:49,224 - INFO - Generated audio for '<speak>I want to meet more people.</speak>' at D:\vocabswipe.github.io\data\audio\back\more\more_I_want_to_meet_more_people.mp3
+2025-07-03 21:00:49,553 - INFO - Generated audio for '<speak>Can you get more coffee?</speak>' at D:\vocabswipe.github.io\data\audio\back\more\more_Can_you_get_more_coffee.mp3
+2025-07-03 21:00:49,885 - INFO - Generated audio for '<speak>These shoes are new.</speak>' at D:\vocabswipe.github.io\data\audio\back\these\these_These_shoes_are_new.mp3
+2025-07-03 21:00:50,247 - INFO - Generated audio for '<speak>These reports are due today.</speak>' at D:\vocabswipe.github.io\data\audio\back\these\these_These_reports_are_due_today.mp3
+2025-07-03 21:00:50,575 - INFO - Generated audio for '<speak>These trees are so tall.</speak>' at D:\vocabswipe.github.io\data\audio\back\these\these_These_trees_are_so_tall.mp3
+2025-07-03 21:00:50,908 - INFO - Generated audio for '<speak>These friends are awesome.</speak>' at D:\vocabswipe.github.io\data\audio\back\these\these_These_friends_are_awesome.mp3
+2025-07-03 21:00:51,272 - INFO - Generated audio for '<speak>Look at these cool photos.</speak>' at D:\vocabswipe.github.io\data\audio\back\these\these_Look_at_these_cool_photos.mp3
+2025-07-03 21:00:51,687 - INFO - Generated audio for '<speak>No, I’m not going.</speak>' at D:\vocabswipe.github.io\data\audio\back\no\no_No_Im_not_going.mp3
+2025-07-03 21:00:52,021 - INFO - Generated audio for '<speak>No, that won’t work.</speak>' at D:\vocabswipe.github.io\data\audio\back\no\no_No_that_wont_work.mp3
+2025-07-03 21:00:52,398 - INFO - Generated audio for '<speak>No clouds in the sky today.</speak>' at D:\vocabswipe.github.io\data\audio\back\no\no_No_clouds_in_the_sky_today.mp3
+2025-07-03 21:00:52,728 - INFO - Generated audio for '<speak>No, I didn’t see her.</speak>' at D:\vocabswipe.github.io\data\audio\back\no\no_No_I_didnt_see_her.mp3
+2025-07-03 21:00:53,066 - INFO - Generated audio for '<speak>No way, I’m not doing that.</speak>' at D:\vocabswipe.github.io\data\audio\back\no\no_No_way_Im_not_doing_that.mp3
+2025-07-03 21:00:53,423 - INFO - Generated audio for '<speak>I forgot that thing at home.</speak>' at D:\vocabswipe.github.io\data\audio\back\thing\thing_I_forgot_that_thing_at_home.mp3
+2025-07-03 21:00:53,832 - INFO - Generated audio for '<speak>This thing needs to be fixed.</speak>' at D:\vocabswipe.github.io\data\audio\back\thing\thing_This_thing_needs_to_be_fixed.mp3
+2025-07-03 21:00:54,344 - INFO - Generated audio for '<speak>That thing in the tree is a nest.</speak>' at D:\vocabswipe.github.io\data\audio\back\thing\thing_That_thing_in_the_tree_is_a_nest.mp3
+2025-07-03 21:00:54,755 - INFO - Generated audio for '<speak>The best thing was the music.</speak>' at D:\vocabswipe.github.io\data\audio\back\thing\thing_The_best_thing_was_the_music.mp3
+2025-07-03 21:00:55,085 - INFO - Generated audio for '<speak>What’s that thing over there?</speak>' at D:\vocabswipe.github.io\data\audio\back\thing\thing_Whats_that_thing_over_there.mp3
+2025-07-03 21:00:55,470 - INFO - Generated audio for '<speak>He did well on the project.</speak>' at D:\vocabswipe.github.io\data\audio\back\well\well_He_did_well_on_the_project.mp3
+2025-07-03 21:00:55,806 - INFO - Generated audio for '<speak>The plants are growing well.</speak>' at D:\vocabswipe.github.io\data\audio\back\well\well_The_plants_are_growing_well.mp3
+2025-07-03 21:00:56,139 - INFO - Generated audio for '<speak>We got along really well.</speak>' at D:\vocabswipe.github.io\data\audio\back\well\well_We_got_along_really_well.mp3
+2025-07-03 21:00:56,496 - INFO - Generated audio for '<speak>I’m doing well, thanks.</speak>' at D:\vocabswipe.github.io\data\audio\back\well\well_Im_doing_well_thanks.mp3
+2025-07-03 21:00:56,903 - INFO - Generated audio for '<speak>I’m late because of traffic.</speak>' at D:\vocabswipe.github.io\data\audio\back\because\because_Im_late_because_of_traffic.mp3
+2025-07-03 21:00:57,236 - INFO - Generated audio for '<speak>She left because of a meeting.</speak>' at D:\vocabswipe.github.io\data\audio\back\because\because_She_left_because_of_a_meeting.mp3
+2025-07-03 21:00:57,579 - INFO - Generated audio for '<speak>It’s wet because it rained.</speak>' at D:\vocabswipe.github.io\data\audio\back\because\because_Its_wet_because_it_rained.mp3
+2025-07-03 21:00:57,912 - INFO - Generated audio for '<speak>I stayed because of her.</speak>' at D:\vocabswipe.github.io\data\audio\back\because\because_I_stayed_because_of_her.mp3
+2025-07-03 21:00:59,188 - INFO - Generated audio for '<speak>I’m tired because I stayed up.</speak>' at D:\vocabswipe.github.io\data\audio\back\because\because_Im_tired_because_I_stayed_up.mp3
+2025-07-03 21:00:59,513 - INFO - Generated audio for '<speak>I bought milk and also bread.</speak>' at D:\vocabswipe.github.io\data\audio\back\also\also_I_bought_milk_and_also_bread.mp3
+2025-07-03 21:00:59,835 - INFO - Generated audio for '<speak>She writes and also edits.</speak>' at D:\vocabswipe.github.io\data\audio\back\also\also_She_writes_and_also_edits.mp3
+2025-07-03 21:01:00,158 - INFO - Generated audio for '<speak>I saw deer and also birds.</speak>' at D:\vocabswipe.github.io\data\audio\back\also\also_I_saw_deer_and_also_birds.mp3
+2025-07-03 21:01:00,482 - INFO - Generated audio for '<speak>He’s funny and also kind.</speak>' at D:\vocabswipe.github.io\data\audio\back\also\also_Hes_funny_and_also_kind.mp3
+2025-07-03 21:01:00,809 - INFO - Generated audio for '<speak>I’m hungry and also tired.</speak>' at D:\vocabswipe.github.io\data\audio\back\also\also_Im_hungry_and_also_tired.mp3
+2025-07-03 21:01:01,189 - INFO - Generated audio for '<speak>I have two cats.</speak>' at D:\vocabswipe.github.io\data\audio\back\two\two_I_have_two_cats.mp3
+2025-07-03 21:01:01,518 - INFO - Generated audio for '<speak>We need two more copies.</speak>' at D:\vocabswipe.github.io\data\audio\back\two\two_We_need_two_more_copies.mp3
+2025-07-03 21:01:01,845 - INFO - Generated audio for '<speak>I saw two deer in the field.</speak>' at D:\vocabswipe.github.io\data\audio\back\two\two_I_saw_two_deer_in_the_field.mp3
+2025-07-03 21:01:02,230 - INFO - Generated audio for '<speak>Two friends came over.</speak>' at D:\vocabswipe.github.io\data\audio\back\two\two_Two_friends_came_over.mp3
+2025-07-03 21:01:02,555 - INFO - Generated audio for '<speak>Give me two coffees, please.</speak>' at D:\vocabswipe.github.io\data\audio\back\two\two_Give_me_two_coffees_please.mp3
+2025-07-03 21:01:02,885 - INFO - Generated audio for '<speak>We use this software for design.</speak>' at D:\vocabswipe.github.io\data\audio\back\use\use_We_use_this_software_for_design.mp3
+2025-07-03 21:01:03,247 - INFO - Generated audio for '<speak>Use a map to find the trail.</speak>' at D:\vocabswipe.github.io\data\audio\back\use\use_Use_a_map_to_find_the_trail.mp3
+2025-07-03 21:01:03,570 - INFO - Generated audio for '<speak>She uses humor to connect.</speak>' at D:\vocabswipe.github.io\data\audio\back\use\use_She_uses_humor_to_connect.mp3
+2025-07-03 21:01:03,889 - INFO - Generated audio for '<speak>Can I use your phone?</speak>' at D:\vocabswipe.github.io\data\audio\back\use\use_Can_I_use_your_phone.mp3
+2025-07-03 21:01:04,276 - INFO - Generated audio for '<speak>Tell me what happened.</speak>' at D:\vocabswipe.github.io\data\audio\back\tell\tell_Tell_me_what_happened.mp3
+2025-07-03 21:01:04,597 - INFO - Generated audio for '<speak>She told the team the plan.</speak>' at D:\vocabswipe.github.io\data\audio\back\tell\tell_She_told_the_team_the_plan.mp3
+2025-07-03 21:01:04,920 - INFO - Generated audio for '<speak>He told me about the sunset.</speak>' at D:\vocabswipe.github.io\data\audio\back\tell\tell_He_told_me_about_the_sunset.mp3
+2025-07-03 21:01:05,301 - INFO - Generated audio for '<speak>Tell her about the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\tell\tell_Tell_her_about_the_party.mp3
+2025-07-03 21:01:05,627 - INFO - Generated audio for '<speak>Tell him I’m here.</speak>' at D:\vocabswipe.github.io\data\audio\back\tell\tell_Tell_him_Im_here.mp3
+2025-07-03 21:01:05,955 - INFO - Generated audio for '<speak>She did a good job.</speak>' at D:\vocabswipe.github.io\data\audio\back\good\good_She_did_a_good_job.mp3
+2025-07-03 21:01:06,324 - INFO - Generated audio for '<speak>The weather is good today.</speak>' at D:\vocabswipe.github.io\data\audio\back\good\good_The_weather_is_good_today.mp3
+2025-07-03 21:01:06,645 - INFO - Generated audio for '<speak>He’s a good friend.</speak>' at D:\vocabswipe.github.io\data\audio\back\good\good_Hes_a_good_friend.mp3
+2025-07-03 21:01:06,974 - INFO - Generated audio for '<speak>That was a good movie.</speak>' at D:\vocabswipe.github.io\data\audio\back\good\good_That_was_a_good_movie.mp3
+2025-07-03 21:01:07,348 - INFO - Generated audio for '<speak>I’ll do this first.</speak>' at D:\vocabswipe.github.io\data\audio\back\first\first_Ill_do_this_first.mp3
+2025-07-03 21:01:07,670 - INFO - Generated audio for '<speak>The first star appeared.</speak>' at D:\vocabswipe.github.io\data\audio\back\first\first_The_first_star_appeared.mp3
+2025-07-03 21:01:07,992 - INFO - Generated audio for '<speak>He was my first friend here.</speak>' at D:\vocabswipe.github.io\data\audio\back\first\first_He_was_my_first_friend_here.mp3
+2025-07-03 21:01:08,377 - INFO - Generated audio for '<speak>Let’s eat first.</speak>' at D:\vocabswipe.github.io\data\audio\back\first\first_Lets_eat_first.mp3
+2025-07-03 21:01:08,783 - INFO - Generated audio for '<speak>That man is our new boss.</speak>' at D:\vocabswipe.github.io\data\audio\back\man\man_That_man_is_our_new_boss.mp3
+2025-07-03 21:01:09,113 - INFO - Generated audio for '<speak>A man was fishing by the lake.</speak>' at D:\vocabswipe.github.io\data\audio\back\man\man_A_man_was_fishing_by_the_lake.mp3
+2025-07-03 21:01:09,441 - INFO - Generated audio for '<speak>The man at the party was funny.</speak>' at D:\vocabswipe.github.io\data\audio\back\man\man_The_man_at_the_party_was_funny.mp3
+2025-07-03 21:01:09,806 - INFO - Generated audio for '<speak>That man has a cool hat.</speak>' at D:\vocabswipe.github.io\data\audio\back\man\man_That_man_has_a_cool_hat.mp3
+2025-07-03 21:01:10,125 - INFO - Generated audio for '<speak>It was a busy day.</speak>' at D:\vocabswipe.github.io\data\audio\back\day\day_It_was_a_busy_day.mp3
+2025-07-03 21:01:10,468 - INFO - Generated audio for '<speak>The meeting is later today.</speak>' at D:\vocabswipe.github.io\data\audio\back\day\day_The_meeting_is_later_today.mp3
+2025-07-03 21:01:10,830 - INFO - Generated audio for '<speak>The day was sunny and warm.</speak>' at D:\vocabswipe.github.io\data\audio\back\day\day_The_day_was_sunny_and_warm.mp3
+2025-07-03 21:01:11,147 - INFO - Generated audio for '<speak>We had fun that day.</speak>' at D:\vocabswipe.github.io\data\audio\back\day\day_We_had_fun_that_day.mp3
+2025-07-03 21:01:11,499 - INFO - Generated audio for '<speak>See you later today.</speak>' at D:\vocabswipe.github.io\data\audio\back\day\day_See_you_later_today.mp3
+2025-07-03 21:01:11,854 - INFO - Generated audio for '<speak>I can’t find my keys.</speak>' at D:\vocabswipe.github.io\data\audio\back\find\find_I_cant_find_my_keys.mp3
+2025-07-03 21:01:12,175 - INFO - Generated audio for '<speak>She found the error in the code.</speak>' at D:\vocabswipe.github.io\data\audio\back\find\find_She_found_the_error_in_the_code.mp3
+2025-07-03 21:01:12,536 - INFO - Generated audio for '<speak>We found a nest in the tree.</speak>' at D:\vocabswipe.github.io\data\audio\back\find\find_We_found_a_nest_in_the_tree.mp3
+2025-07-03 21:01:12,878 - INFO - Generated audio for '<speak>I found her at the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\find\find_I_found_her_at_the_party.mp3
+2025-07-03 21:01:13,206 - INFO - Generated audio for '<speak>Can you find my phone?</speak>' at D:\vocabswipe.github.io\data\audio\back\find\find_Can_you_find_my_phone.mp3
+2025-07-03 21:01:13,574 - INFO - Generated audio for '<speak>Give me that book, please.</speak>' at D:\vocabswipe.github.io\data\audio\back\give\give_Give_me_that_book_please.mp3
+2025-07-03 21:01:13,902 - INFO - Generated audio for '<speak>She gave feedback on the plan.</speak>' at D:\vocabswipe.github.io\data\audio\back\give\give_She_gave_feedback_on_the_plan.mp3
+2025-07-03 21:01:14,229 - INFO - Generated audio for '<speak>Give some food to the birds.</speak>' at D:\vocabswipe.github.io\data\audio\back\give\give_Give_some_food_to_the_birds.mp3
+2025-07-03 21:01:14,619 - INFO - Generated audio for '<speak>He gave her a gift.</speak>' at D:\vocabswipe.github.io\data\audio\back\give\give_He_gave_her_a_gift.mp3
+2025-07-03 21:01:14,945 - INFO - Generated audio for '<speak>Give me a sec to check.</speak>' at D:\vocabswipe.github.io\data\audio\back\give\give_Give_me_a_sec_to_check.mp3
+2025-07-03 21:01:15,262 - INFO - Generated audio for '<speak>I got a new phone.</speak>' at D:\vocabswipe.github.io\data\audio\back\new\new_I_got_a_new_phone.mp3
+2025-07-03 21:01:15,643 - INFO - Generated audio for '<speak>She’s the new manager.</speak>' at D:\vocabswipe.github.io\data\audio\back\new\new_Shes_the_new_manager.mp3
+2025-07-03 21:01:15,969 - INFO - Generated audio for '<speak>The new leaves are green.</speak>' at D:\vocabswipe.github.io\data\audio\back\new\new_The_new_leaves_are_green.mp3
+2025-07-03 21:01:16,292 - INFO - Generated audio for '<speak>I met a new friend.</speak>' at D:\vocabswipe.github.io\data\audio\back\new\new_I_met_a_new_friend.mp3
+2025-07-03 21:01:16,667 - INFO - Generated audio for '<speak>Check out my new shoes.</speak>' at D:\vocabswipe.github.io\data\audio\back\new\new_Check_out_my_new_shoes.mp3
+2025-07-03 21:01:16,993 - INFO - Generated audio for '<speak>They invited us to dinner.</speak>' at D:\vocabswipe.github.io\data\audio\back\us\us_They_invited_us_to_dinner.mp3
+2025-07-03 21:01:17,316 - INFO - Generated audio for '<speak>The boss emailed us today.</speak>' at D:\vocabswipe.github.io\data\audio\back\us\us_The_boss_emailed_us_today.mp3
+2025-07-03 21:01:17,691 - INFO - Generated audio for '<speak>The rain soaked us.</speak>' at D:\vocabswipe.github.io\data\audio\back\us\us_The_rain_soaked_us.mp3
+2025-07-03 21:01:18,017 - INFO - Generated audio for '<speak>They saw us at the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\us\us_They_saw_us_at_the_party.mp3
+2025-07-03 21:01:18,344 - INFO - Generated audio for '<speak>Tell us what’s going on.</speak>' at D:\vocabswipe.github.io\data\audio\back\us\us_Tell_us_whats_going_on.mp3
+2025-07-03 21:01:18,717 - INFO - Generated audio for '<speak>Do you have any plans?</speak>' at D:\vocabswipe.github.io\data\audio\back\any\any_Do_you_have_any_plans.mp3
+2025-07-03 21:01:19,046 - INFO - Generated audio for '<speak>Are there any updates?</speak>' at D:\vocabswipe.github.io\data\audio\back\any\any_Are_there_any_updates.mp3
+2025-07-03 21:01:19,370 - INFO - Generated audio for '<speak>Are there any birds here?</speak>' at D:\vocabswipe.github.io\data\audio\back\any\any_Are_there_any_birds_here.mp3
+2025-07-03 21:01:19,694 - INFO - Generated audio for '<speak>Any friends coming tonight?</speak>' at D:\vocabswipe.github.io\data\audio\back\any\any_Any_friends_coming_tonight.mp3
+2025-07-03 21:01:20,016 - INFO - Generated audio for '<speak>Got any spare change?</speak>' at D:\vocabswipe.github.io\data\audio\back\any\any_Got_any_spare_change.mp3
+2025-07-03 21:01:20,338 - INFO - Generated audio for '<speak>Those books are mine.</speak>' at D:\vocabswipe.github.io\data\audio\back\those\those_Those_books_are_mine.mp3
+2025-07-03 21:01:20,664 - INFO - Generated audio for '<speak>Those files need review.</speak>' at D:\vocabswipe.github.io\data\audio\back\those\those_Those_files_need_review.mp3
+2025-07-03 21:01:20,987 - INFO - Generated audio for '<speak>Those trees are so tall.</speak>' at D:\vocabswipe.github.io\data\audio\back\those\those_Those_trees_are_so_tall.mp3
+2025-07-03 21:01:21,322 - INFO - Generated audio for '<speak>Those people were at the party.</speak>' at D:\vocabswipe.github.io\data\audio\back\those\those_Those_people_were_at_the_party.mp3
+2025-07-03 21:01:21,687 - INFO - Generated audio for '<speak>Look at those cool cars.</speak>' at D:\vocabswipe.github.io\data\audio\back\those\those_Look_at_those_cool_cars.mp3
+2025-07-03 21:01:22,012 - INFO - Generated audio for '<speak>I’m very tired today.</speak>' at D:\vocabswipe.github.io\data\audio\back\very\very_Im_very_tired_today.mp3
+2025-07-03 21:01:22,369 - INFO - Generated audio for '<speak>She’s very good at her job.</speak>' at D:\vocabswipe.github.io\data\audio\back\very\very_Shes_very_good_at_her_job.mp3
+2025-07-03 21:01:22,694 - INFO - Generated audio for '<speak>The sunset is very beautiful.</speak>' at D:\vocabswipe.github.io\data\audio\back\very\very_The_sunset_is_very_beautiful.mp3
+2025-07-03 21:01:23,016 - INFO - Generated audio for '<speak>He’s very funny at parties.</speak>' at D:\vocabswipe.github.io\data\audio\back\very\very_Hes_very_funny_at_parties.mp3
+2025-07-03 21:01:23,400 - INFO - Generated audio for '<speak>This coffee is very good.</speak>' at D:\vocabswipe.github.io\data\audio\back\very\very_This_coffee_is_very_good.mp3
+2025-07-03 21:01:37,250 - INFO - Successfully saved: D:\vocabswipe.github.io\data\vocab3000_database.yaml
+2025-07-03 21:01:37,260 - INFO - Report saved to: D:\vocabswipe.github.io\data\reports\vocab3000_report_20250703_210137.txt
+2025-07-03 21:01:37,277 - INFO - Successfully saved: D:\vocabswipe.github.io\data\temp\temp_vocab3000.jsonl
+2025-07-03 21:01:37,277 - INFO - Batch processed successfully. temp_vocab3000.jsonl cleared.
