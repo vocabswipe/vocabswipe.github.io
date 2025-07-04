@@ -39,7 +39,7 @@ body[data-theme="dark"] {
     margin-bottom: 16px;
 }
 
-.theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn {
+.theme-toggle, .donate-btn, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .store-btn {
     background: none;
     border: none;
     cursor: pointer;
@@ -48,28 +48,37 @@ body[data-theme="dark"] {
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.theme-toggle:hover, .audio-btn:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover {
+.theme-toggle:hover, .donate-btn:hover, .audio-btn:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover, .store-btn:hover {
     background: rgba(0, 0, 0, 0.15);
     transform: scale(1.1);
 }
 
 body[data-theme="dark"] .theme-toggle:hover,
+body[data-theme="dark"] .donate-btn:hover,
 body[data-theme="dark"] .audio-btn:hover,
 body[data-theme="dark"] .info-btn:hover,
 body[data-theme="dark"] .shuffle-btn:hover,
-body[data-theme="dark"] .reset-btn:hover {
+body[data-theme="dark"] .reset-btn:hover,
+body[data-theme="dark"] .store-btn:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
-.theme-icon, .audio-icon, .info-icon, .shuffle-icon, .reset-icon {
+.theme-icon, .donate-icon, .audio-icon, .shuffle-icon, .reset-icon, .store-icon {
     width: 28px;
     height: 28px;
     filter: none;
 }
 
+.info-icon {
+    width: 22.4px;
+    height: 22.4px;
+    filter: none;
+}
+
 .controls {
     display: flex;
-    gap: 8px;
+    gap: 10px; /* Increased for equal spacing with 6 icons */
+    justify-content: flex-end;
 }
 
 .title-container {
@@ -519,13 +528,18 @@ body[data-theme="dark"] .tooltip-close:hover {
         padding: 12px;
     }
 
-    .theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn {
+    .theme-toggle, .donate-btn, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .store-btn {
         padding: 8px;
     }
 
-    .theme-icon, .audio-icon, .info-icon, .shuffle-icon, .reset-icon {
-        width: 28px;
-        height: 28px;
+    .theme-icon, .donate-icon, .audio-icon, .shuffle-icon, .reset-icon, .store-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .info-icon {
+        width: 19.2px; /* 24px * 0.8 */
+        height: 19.2px;
     }
 
     .website-name {
@@ -580,6 +594,11 @@ body[data-theme="dark"] .tooltip-close:hover {
         width: 24px;
         height: 24px;
         vertical-align: middle;
+    }
+
+    .tooltip-message img[src*="information"] {
+        width: 19.2px;
+        height: 19.2px;
     }
 
     #card-slider {
