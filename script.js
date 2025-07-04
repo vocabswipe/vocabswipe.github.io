@@ -38,17 +38,35 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleAudio();
     });
 
+    const infoBtn = document.querySelector('.info-btn');
+    infoBtn.addEventListener('click', toggleTooltip);
+    infoBtn.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        toggleTooltip();
+    });
+
     const shuffleBtn = document.querySelector('.shuffle-btn');
     shuffleBtn.addEventListener('click', shuffleCards);
 
     const resetBtn = document.querySelector('.reset-btn');
     resetBtn.addEventListener('click', resetCards);
 
-    const infoBtn = document.querySelector('.info-btn');
-    infoBtn.addEventListener('click', toggleTooltip);
-    infoBtn.addEventListener('touchend', (e) => {
+    const donateBtn = document.querySelector('.donate-btn');
+    donateBtn.addEventListener('click', () => {
+        window.location.href = '/donate';
+    });
+    donateBtn.addEventListener('touchend', (e) => {
         e.preventDefault();
-        toggleTooltip();
+        window.location.href = '/donate';
+    });
+
+    const storeBtn = document.querySelector('.store-btn');
+    storeBtn.addEventListener('click', () => {
+        window.location.href = '/store';
+    });
+    storeBtn.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        window.location.href = '/store';
     });
 
     const tooltipClose = document.querySelector('.tooltip-close');
@@ -97,6 +115,8 @@ function updateIcons(theme) {
     const infoIcon = document.querySelector('.info-icon');
     const shuffleIcon = document.querySelector('.shuffle-icon');
     const resetIcon = document.querySelector('.reset-icon');
+    const donateIcon = document.querySelector('.donate-icon');
+    const storeIcon = document.querySelector('.store-icon');
     const loadingIcon = document.querySelector('.loading-icon');
 
     themeIcon.src = theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
@@ -104,6 +124,8 @@ function updateIcons(theme) {
     infoIcon.src = theme === 'bright' ? 'information-bright.svg' : 'information-night.svg';
     shuffleIcon.src = theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg';
     resetIcon.src = theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg';
+    donateIcon.src = theme === 'bright' ? 'heart-bright.svg' : 'heart-night.svg';
+    storeIcon.src = theme === 'bright' ? 'bag-bright.svg' : 'bag-night.svg';
     if (loadingIcon) {
         loadingIcon.src = theme === 'bright' ? 'loading-bright.gif' : 'loading-night.gif';
     }
@@ -131,11 +153,12 @@ function toggleTooltip() {
         tooltipText.innerHTML = isMobile 
             ? `
                 <strong>How to Use VocabSwipe:</strong><br><br>
-                - <strong>Theme Toggle (<img src="${theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg'}" width="28" height="28" ${iconStyle} alt="Theme Toggle">):</strong> Tap to switch between bright and dark themes.<br>
-                - <strong>Audio Toggle (<img src="${theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg')}" width="28" height="28" ${iconStyle} alt="Audio Toggle">):</strong> Tap to enable or disable audio.<br>
-                - <strong>Info (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="28" height="28" ${iconStyle} alt="Info">):</strong> Tap to show or hide this help message.<br>
-                - <strong>Shuffle (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="28" height="28" ${iconStyle} alt="Shuffle">):</strong> Tap to randomize the word order.<br>
-                - <strong>Reset (<img src="${theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg'}" width="28" height="28" ${iconStyle} alt="Reset">):</strong> Tap to restore the original word order.<br>
+                - <strong>Donate (<img src="${theme === 'bright' ? 'heart-bright.svg' : 'heart-night.svg'}" width="24" height="24" ${iconStyle} alt="Donate">):</strong> Tap to support VocabSwipe and keep it free.<br>
+                - <strong>Audio Toggle (<img src="${theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg')}" width="24" height="24" ${iconStyle} alt="Audio Toggle">):</strong> Tap to enable or disable audio.<br>
+                - <strong>Info (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="19.2" height="19.2" ${iconStyle} alt="Info">):</strong> Tap to show or hide this help message.<br>
+                - <strong>Shuffle (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="24" height="24" ${iconStyle} alt="Shuffle">):</strong> Tap to randomize the word order.<br>
+                - <strong>Reset (<img src="${theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg'}" width="24" height="24" ${iconStyle} alt="Reset">):</strong> Tap to restore the original word order.<br>
+                - <strong>Store (<img src="${theme === 'bright' ? 'bag-bright.svg' : 'bag-night.svg'}" width="24" height="24" ${iconStyle} alt="Store">):</strong> Tap to explore digital products for English learning.<br>
                 - <strong>Swipe Left/Right:</strong> Navigate to the next or previous word card.<br>
                 - <strong>Swipe Up/Down:</strong> On the back of a card, cycle through different definitions and examples.<br>
                 - <strong>Tap Once:</strong> Hear the word or sentence audio (if audio is enabled).<br>
@@ -144,11 +167,12 @@ function toggleTooltip() {
             `
             : `
                 <strong>How to Use VocabSwipe:</strong><br><br>
-                - <strong>Theme Toggle (<img src="${theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg'}" width="28" height="28" ${iconStyle} alt="Theme Toggle">):</strong> Click to switch between bright and dark themes.<br>
-                - <strong>Audio Toggle (<img src="${theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg')}" width="28" height="28" ${iconStyle} alt="Audio Toggle">):</strong> Click to enable or disable audio.<br>
-                - <strong>Info (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="28" height="28" ${iconStyle} alt="Info">):</strong> Click to show or hide this help message.<br>
-                - <strong>Shuffle (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="28" height="28" ${iconStyle} alt="Shuffle">):</strong> Click to randomize the word order.<br>
-                - <strong>Reset (<img src="${theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg'}" width="28" height="28" ${iconStyle} alt="Reset">):</strong> Click to restore the original word order.<br>
+                - <strong>Donate (<img src="${theme === 'bright' ? 'heart-bright.svg' : 'heart-night.svg'}" width="24" height="24" ${iconStyle} alt="Donate">):</strong> Click to support VocabSwipe and keep it free.<br>
+                - <strong>Audio Toggle (<img src="${theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg')}" width="24" height="24" ${iconStyle} alt="Audio Toggle">):</strong> Click to enable or disable audio.<br>
+                - <strong>Info (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="19.2" height="19.2" ${iconStyle} alt="Info">):</strong> Click to show or hide this help message.<br>
+                - <strong>Shuffle (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="24" height="24" ${iconStyle} alt="Shuffle">):</strong> Click to randomize the word order.<br>
+                - <strong>Reset (<img src="${theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg'}" width="24" height="24" ${iconStyle} alt="Reset">):</strong> Click to restore the original word order.<br>
+                - <strong>Store (<img src="${theme === 'bright' ? 'bag-bright.svg' : 'bag-night.svg'}" width="24" height="24" ${iconStyle} alt="Store">):</strong> Click to explore digital products for English learning.<br>
                 - <strong>Left/Right Arrow Keys:</strong> Navigate to the previous or next word card.<br>
                 - <strong>Up/Down Arrow Keys:</strong> On the back of a card, cycle through different definitions and examples.<br>
                 - <strong>Spacebar:</strong> Play the word or sentence audio (if audio is enabled).<br>
