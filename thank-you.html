@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Thank You - VocabSwipe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body data-theme="bright">
+    <div class="container">
+        <div class="header">
+            <div class="controls">
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <img src="theme-bright.svg" class="theme-icon" width="28" height="28" alt="Toggle theme">
+                </button>
+                <a href="/index.html" class="back-btn" aria-label="Back to VocabSwipe">
+                    <img src="back-bright.svg" class="back-icon" width="28" height="28" alt="Back">
+                </a>
+            </div>
+        </div>
+        <div class="title-container">
+            <h1 class="website-name">Thank You!</h1>
+            <p class="slogan-main">Your support helps VocabSwipe thrive!</p>
+            <p class="slogan-sub">For manual donations or issues, contact us at support@vocabswipe.com.</p>
+        </div>
+        <div class="donation-container">
+            <p class="donation-text">Share your support:</p>
+            <div class="share-options">
+                <button class="share-btn" data-platform="twitter">Share on X</button>
+                <button class="share-btn" data-platform="whatsapp">Share on WhatsApp</button>
+                <button class="share-btn" data-platform="facebook">Share on Facebook</button>
+                <button class="share-btn" data-platform="linkedin">Share on LinkedIn</button>
+            </div>
+        </div>
+    </div>
+    <script src="utils.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'bright';
+            document.body.setAttribute('data-theme', savedTheme);
+            updateIcons(savedTheme);
+            document.querySelector('.theme-toggle').addEventListener('click', () => {
+                const currentTheme = document.body.getAttribute('data-theme');
+                const newTheme = currentTheme === 'bright' ? 'dark' : 'bright';
+                document.body.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcons(newTheme);
+            });
+            document.querySelectorAll('.share-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const platform = btn.getAttribute('data-platform');
+                    const shareText = encodeURIComponent('I supported VocabSwipe to help students learn English for free! Try it at vocabswipe.com');
+                    let url;
+                    switch (platform) {
+                        case 'twitter':
+                            url = `https://twitter.com/intent/tweet?text=${shareText}`;
+                            break;
+                        case 'whatsapp':
+                            url = `https://wa.me/?text=${shareText}`;
+                            break;
+                        case 'facebook':
+                            url = `https://www.facebook.com/sharer/sharer.php?u=https://vocabswipe.com&quote=${shareText}`;
+                            break;
+                        case 'linkedin':
+                            url = `https://www.linkedin.com/shareArticle?mini=true&url=https://vocabswipe.com&title=VocabSwipe%20Support&summary=${shareText}`;
+                            break;
+                    }
+                    window.open(url, '_blank');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
