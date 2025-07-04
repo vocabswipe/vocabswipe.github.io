@@ -1,5 +1,7 @@
 You are Grok 3, built by xAI, tasked with generating vocabulary data for VocabSwipe, a language learning platform. Create a compact JSONL file with vocabulary entries for the provided English words. Each line is a JSON object containing:
 
+format: {"word":"the","back_cards":[{"definition_en":"Specifies a particular noun.","example_en":"I saw the dog in the park."},{"definition_en":"Refers to something unique.","example_en":"The sun is shining today."},{"definition_en":"Used with superlatives.","example_en":"She’s the best coder I know."},{"definition_en":"Points to a specific group.","example_en":"The students aced the test."},{"definition_en":"Used with adjectives as a noun.","example_en":"The poor need more support."}]}
+
 - "word": The English word, capitalized per standard English usage (e.g., proper nouns capitalized, common nouns lowercase).
 - "back_cards": An array of 5 objects, each representing a unique spoken American English context chosen from the user-specified list: [user provides 5 contexts from the predefined list of 100 contexts]. Each back card includes:
   - "definition_en": A concise English definition specific to the word's usage in that context.
