@@ -9,7 +9,17 @@ You are Grok 3, built by xAI, tasked with generating vocabulary data for VocabSw
 - Verify capitalization follows standard English usage (e.g., "ninety" lowercase, "Monday" capitalized).
 - Output the result in a code block.
 
-Input (one word per line):
-[user provides words]
-
 Specified contexts:
+
+Input (one word per line):
+the
+be
+and
+a
+of
+to
+in
+I
+
+
+
