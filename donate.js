@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Apply saved theme
     const savedTheme = localStorage.getItem('theme') || 'bright';
     document.body.setAttribute('data-theme', savedTheme);
     updateIcons(savedTheme);
 
-    // Theme toggle
     const themeToggle = document.querySelector('.theme-toggle');
     themeToggle.addEventListener('click', () => {
         const currentTheme = document.body.getAttribute('data-theme');
@@ -14,48 +12,68 @@ document.addEventListener('DOMContentLoaded', () => {
         updateIcons(newTheme);
     });
 
-    // Stripe integration
-    const stripe = Stripe('your-stripe-public-key'); // Replace with your Stripe public key
     const donateButtons = document.querySelectorAll('.donate-amount');
     const customAmountInput = document.querySelector('#custom-amount');
-    const donateSubmit = document.querySelector('.donate-submit');
+    const qrImage = document.querySelector('#promptpay-qr');
+    const submitTransaction = document.querySelector('.submit-transaction');
+    const transactionIdInput = document.querySelector('#transaction-id');
+    const shareBtn = document.querySelector('.share-btn');
 
     donateButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            const amount = parseInt(btn.getAttribute('data-amount')) * 100; // Convert to cents
-            initiateCheckout(amount);
+            const amount = btn.getAttribute('data-amount');
+            customAmountInput.value = amount;
+            highlightAmount(btn);
         });
     });
 
-    donateSubmit.addEventListener('click', () => {
-        const customAmount = parseFloat(customAmountInput.value);
-        if (customAmount >= 1) {
-            initiateCheckout(Math.floor(customAmount * 100)); // Convert to cents
+    submitTransaction.addEventListener('click', () => {
+        const transactionId = transactionIdInput.value.trim();
+        const amount = parseFloat(customAmountInput.value) || 0;
+        if (transactionId && amount >= 30) {
+            // Replace with actual backend API call for verification
+            fetch('/verify-donation', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ transactionId, amount })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Thank you for your donation! We have received your transaction.');
+                    transactionIdInput.value = '';
+                    customAmountInput.value = '';
+                    window.location.href = '/thank-you';
+                } else {
+                    alert('Invalid transaction ID or amount. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Verification error:', error);
+                alert('An error occurred. Please try again.');
+            });
         } else {
-            alert('Please enter a valid donation amount ($1 or more).');
+            alert('Please enter a valid transaction ID and amount (minimum 30 THB).');
         }
     });
 
-    function initiateCheckout(amount) {
-        stripe.redirectToCheckout({
-            lineItems: [{ price_data: { currency: 'usd', product_data: { name: 'VocabSwipe Donation' }, unit_amount: amount }, quantity: 1 }],
-            mode: 'payment',
-            successUrl: 'https://vocabswipe.com/thank-you',
-            cancelUrl: 'https://vocabswipe.com/donate',
-        }).then(result => {
-            if (result.error) {
-                console.error('Checkout error:', result.error.message);
-                alert('An error occurred. Please try again.');
-            }
-        });
-    }
-
-    // Social sharing
-    const shareBtn = document.querySelector('.share-btn');
     shareBtn.addEventListener('click', () => {
-        const shareText = encodeURIComponent('I supported VocabSwipe to help students learn English for free! Try it at vocabswipe.com');
-        window.open(`https://twitter.com/intent/tweet?text=${shareText}`);
+        const shareText = encodeURIComponent('I supported VocabSwipe to help CMU students learn English for free! Join me at vocabswipe.com');
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (isMobile) {
+            // Instagram Stories sharing (simplified, Meta API recommended)
+            const instagramUrl = `https://www.instagram.com/stories?text=${shareText}&url=https://vocabswipe.com`;
+            window.open(instagramUrl, '_blank');
+        } else {
+            // Twitter/X sharing for desktop
+            window.open(`https://twitter.com/intent/tweet?text=${shareText}`, '_blank');
+        }
     });
+
+    function highlightAmount(selectedBtn) {
+        donateButtons.forEach(btn => btn.classList.remove('selected'));
+        selectedBtn.classList.add('selected');
+    }
 
     function updateIcons(theme) {
         const themeIcon = document.querySelector('.theme-icon');
