@@ -6,6 +6,7 @@
     <title>Support VocabSwipe</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body data-theme="bright">
     <div class="container">
@@ -25,29 +26,31 @@
             <p class="slogan-sub">Your donation powers 100,000+ sentences for learners worldwide.</p>
         </div>
         <div class="donation-container">
-            <p class="donation-text">Donate via PromptPay QR code:</p>
+            <p class="donation-text">Choose an amount or enter a custom donation:</p>
+            <select id="currency-selector" aria-label="Select currency">
+                <option value="USD">USD ($)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="INR">INR (₹)</option>
+                <option value="GBP">GBP (£)</option>
+            </select>
             <div class="donation-options">
-                <button class="donate-amount" data-amount="30">30 THB (~$1)</button>
-                <button class="donate-amount" data-amount="90">90 THB (~$3)</button>
-                <button class="donate-amount" data-amount="150">150 THB (~$5)</button>
-                <button class="donate-amount" data-amount="300">300 THB (~$10)</button>
-                <input type="number" id="custom-amount" placeholder="Custom Amount (THB)" min="30" step="1">
+                <button class="donate-amount" data-amount="1">$1</button>
+                <button class="donate-amount" data-amount="3">$3</button>
+                <button class="donate-amount" data-amount="5">$5</button>
+                <button class="donate-amount" data-amount="10">$10</button>
+                <input type="number" id="custom-amount" placeholder="Custom Amount" min="1" step="1">
             </div>
-            <div class="qr-container">
-                <img id="promptpay-qr" src="promptpay-qr.png" alt="PromptPay QR Code" width="200" height="200">
-                <p class="qr-instructions">1. Scan the QR code with your Thai banking app (e.g., Bangkok Bank, Kasikornbank, SCB).<br>2. Enter the selected amount above.<br>3. Submit the transaction ID from your e-slip below.</p>
+            <button class="donate-submit">Donate Now</button>
+            <p class="donation-impact" id="donation-impact">Example: $5 helps maintain servers for 100 users/month!</p>
+            <div class="share-options">
+                <button class="share-btn" data-platform="twitter">Share on X</button>
+                <button class="share-btn" data-platform="whatsapp">Share on WhatsApp</button>
+                <button class="share-btn" data-platform="facebook">Share on Facebook</button>
+                <button class="share-btn" data-platform="linkedin">Share on LinkedIn</button>
             </div>
-            <div class="tagthai-instructions">
-                <p><strong>For international users:</strong> Get a PAY&TOUR prepaid card at Kasikornbank booths (e.g., Maya Mall, Chiang Mai Airport) and use the TAGTHAi app to scan the QR code. <a href="https://www.tagthai.com" target="_blank">Learn more</a>.</p>
-            </div>
-            <div class="transaction-form">
-                <input type="text" id="transaction-id" placeholder="Enter PromptPay Transaction ID">
-                <button class="submit-transaction">Submit Donation</button>
-            </div>
-            <p class="donation-impact">Example: 150 THB (~$5) helps 100 students learn daily!</p>
-            <button class="share-btn">Share Your Support</button>
         </div>
     </div>
+    <script src="utils.js"></script>
     <script src="donate.js"></script>
 </body>
 </html>
