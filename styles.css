@@ -39,7 +39,7 @@ body[data-theme="dark"] {
     margin-bottom: 16px;
 }
 
-.theme-toggle, .donate-btn, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .store-btn {
+.theme-toggle, .donate-btn, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .store-btn, .back-btn {
     background: none;
     border: none;
     cursor: pointer;
@@ -48,7 +48,7 @@ body[data-theme="dark"] {
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.theme-toggle:hover, .donate-btn:hover, .audio-btn:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover, .store-btn:hover {
+.theme-toggle:hover, .donate-btn:hover, .audio-btn:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover, .store-btn:hover, .back-btn:hover {
     background: rgba(0, 0, 0, 0.15);
     transform: scale(1.1);
 }
@@ -59,11 +59,12 @@ body[data-theme="dark"] .audio-btn:hover,
 body[data-theme="dark"] .info-btn:hover,
 body[data-theme="dark"] .shuffle-btn:hover,
 body[data-theme="dark"] .reset-btn:hover,
-body[data-theme="dark"] .store-btn:hover {
+body[data-theme="dark"] .store-btn:hover,
+body[data-theme="dark"] .back-btn:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
-.theme-icon, .donate-icon, .audio-icon, .shuffle-icon, .reset-icon, .store-icon {
+.theme-icon, .donate-icon, .audio-icon, .shuffle-icon, .reset-icon, .store-icon, .back-icon {
     width: 28px;
     height: 28px;
     filter: none;
@@ -523,16 +524,176 @@ body[data-theme="dark"] .tooltip-close:hover {
     background: #FFC107;
 }
 
+/* Donation Container */
+.donation-container {
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.donation-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 12px;
+}
+
+body[data-theme="dark"] .donation-text {
+    color: #d1d5db;
+}
+
+.donation-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.donate-amount, .donate-submit, .share-btn {
+    padding: 10px 20px;
+    background: #00008B;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.donate-amount:hover, .donate-submit:hover, .share-btn:hover {
+    background: #0000CD;
+    transform: scale(1.05);
+}
+
+body[data-theme="dark"] .donate-amount,
+body[data-theme="dark"] .donate-submit,
+body[data-theme="dark"] .share-btn {
+    background: #FFD700;
+    color: #1f2937;
+}
+
+body[data-theme="dark"] .donate-amount:hover,
+body[data-theme="dark"] .donate-submit:hover,
+body[data-theme="dark"] .share-btn:hover {
+    background: #FFC107;
+}
+
+#custom-amount {
+    padding: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    width: 150px;
+    text-align: center;
+}
+
+body[data-theme="dark"] #custom-amount {
+    border: 1px solid #4b5563;
+    background: #374151;
+    color: #e5e7eb;
+}
+
+.donation-impact {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    margin-top: 12px;
+}
+
+body[data-theme="dark"] .donation-impact {
+    color: #9ca3af;
+}
+
+/* Store Container */
+.store-container {
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.product {
+    background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+}
+
+body[data-theme="dark"] .product {
+    background: linear-gradient(145deg, #374151 0%, #4b5563 100%);
+    border: 1px solid #4b5563;
+}
+
+.product h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #00008B;
+    margin-bottom: 8px;
+}
+
+body[data-theme="dark"] .product h3 {
+    color: #FFD700;
+}
+
+.product p {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #374151;
+    margin-bottom: 12px;
+}
+
+body[data-theme="dark"] .product p {
+    color: #d1d5db;
+}
+
+.buy-btn {
+    padding: 10px 20px;
+    background: #00008B;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.buy-btn:hover {
+    background: #0000CD;
+    transform: scale(1.05);
+}
+
+body[data-theme="dark"] .buy-btn {
+    background: #FFD700;
+    color: #1f2937;
+}
+
+body[data-theme="dark"] .buy-btn:hover {
+    background: #FFC107;
+}
+
 @media (max-width: 414px) {
     .container {
         padding: 12px;
     }
 
-    .theme-toggle, .donate-btn, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .store-btn {
+    .theme-toggle, .donate-btn, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .store-btn, .back-btn {
         padding: 8px;
     }
 
-    .theme-icon, .donate-icon, .audio-icon, .shuffle-icon, .reset-icon, .store-icon {
+    .theme-icon, .donate-icon, .audio-icon, .shuffle-icon, .reset-icon, .store-icon, .back-icon {
         width: 24px;
         height: 24px;
     }
@@ -608,5 +769,36 @@ body[data-theme="dark"] .tooltip-close:hover {
     #card-slider::-webkit-slider-thumb {
         width: 16px;
         height: 16px;
+    }
+
+    .donation-container, .store-container {
+        padding: 12px;
+    }
+
+    .donation-text, .donation-impact, .product p {
+        font-size: 14px;
+    }
+
+    .donate-amount, .donate-submit, .buy-btn, .share-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    #custom-amount {
+        width: 120px;
+        font-size: 14px;
+    }
+
+    .product h3 {
+        font-size: 16px;
+    }
+
+    .back-btn {
+        padding: 8px;
+    }
+
+    .back-icon {
+        width: 24px;
+        height: 24px;
     }
 }
