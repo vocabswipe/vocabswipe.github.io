@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VocabSwipe Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body data-theme="bright">
+    <div class="container">
+        <div class="header">
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <img src="theme-bright.svg" class="theme-icon" width="28" height="28" alt="Toggle theme">
+            </button>
+            <a href="/index.html" class="back-btn" aria-label="Back to VocabSwipe">
+                <img src="back-bright.svg" class="back-icon" width="28" height="28" alt="Back">
+            </a>
+        </div>
+        <div class="title-container">
+            <h1 class="website-name">VocabSwipe Store</h1>
+            <p class="slogan-main">Enhance Your Learning</p>
+            <p class="slogan-sub">Digital products to master English vocabulary.</p>
+        </div>
+        <div class="store-container">
+            <div class="product">
+                <h3>IELTS Prep Sentence Pack</h3>
+                <p>1,000 sentences for 200 academic words, with audio. $3.99</p>
+                <button class="buy-btn" data-product="ielts-pack" data-amount="399">Buy Now</button>
+            </div>
+            <div class="product">
+                <h3>SAT Vocabulary Guide (PDF)</h3>
+                <p>500 words with definitions and sentences. $4.99</p>
+                <button class="buy-btn" data-product="sat-guide" data-amount="499">Buy Now</button>
+            </div>
+            <div class="product">
+                <h3>Business English Audio Pack</h3>
+                <p>Audio for 300 business terms. $2.99</p>
+                <button class="buy-btn" data-product="business-audio" data-amount="299">Buy Now</button>
+            </div>
+            <div class="product">
+                <h3>7-Day Conversation Mini-Course</h3>
+                <p>100 words with lessons and audio. $14.99</p>
+                <button class="buy-btn" data-product="conversation-course" data-amount="1499">Buy Now</button>
+            </div>
+            <button class="share-btn">Share VocabSwipe Store</button>
+        </div>
+    </div>
+    <script src="store.js"></script>
+</body>
+</html>
