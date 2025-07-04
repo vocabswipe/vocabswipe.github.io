@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Apply saved theme
     const savedTheme = localStorage.getItem('theme') || 'bright';
     document.body.setAttribute('data-theme', savedTheme);
-    updateIcons(savedTheme);
+    updateIcons(savedTheme); // From utils.js
 
+    // Theme toggle
     const themeToggle = document.querySelector('.theme-toggle');
     themeToggle.addEventListener('click', () => {
         const currentTheme = document.body.getAttribute('data-theme');
@@ -12,73 +14,131 @@ document.addEventListener('DOMContentLoaded', () => {
         updateIcons(newTheme);
     });
 
+    // Stripe integration
+    const stripe = Stripe('your-stripe-public-key'); // Replace with your Stripe public key
     const donateButtons = document.querySelectorAll('.donate-amount');
     const customAmountInput = document.querySelector('#custom-amount');
-    const qrImage = document.querySelector('#promptpay-qr');
-    const submitTransaction = document.querySelector('.submit-transaction');
-    const transactionIdInput = document.querySelector('#transaction-id');
-    const shareBtn = document.querySelector('.share-btn');
+    const donateSubmit = document.querySelector('.donate-submit');
+    const currencySelector = document.querySelector('#currency-selector');
+    const donationImpact = document.querySelector('#donation-impact');
 
+    // Currency conversion rates (approximate, update periodically)
+    const conversionRates = {
+        USD: 1,
+        EUR: 0.85,
+        INR: 83,
+        GBP: 0.75
+    };
+
+    // Update donation amounts and impact text based on currency
+    function updateDonationUI(currency) {
+        donateButtons.forEach(btn => {
+            const usdAmount = parseInt(btn.getAttribute('data-amount'));
+            const convertedAmount = (usdAmount * conversionRates[currency]).toFixed(2);
+            btn.textContent = `${currency === 'INR' ? '₹' : currency === 'EUR' ? '€' : currency === 'GBP' ? '£' : '$'}${convertedAmount}`;
+            btn.setAttribute('data-converted-amount', convertedAmount);
+        });
+        customAmountInput.placeholder = `Custom Amount (${currency === 'INR' ? '₹' : currency === 'EUR' ? '€' : currency === 'GBP' ? '£' : '$'})`;
+        updateImpactText(0, currency);
+    }
+
+    // Update donation impact text
+    function updateImpactText(amount, currency) {
+        const usdAmount = amount / conversionRates[currency];
+        const impact = usdAmount >= 10 ? 'supports premium features for 50 users!' :
+                       usdAmount >= 5 ? 'maintains servers for 100 users/month!' :
+                       usdAmount >= 3 ? 'provides audio for 200 sentences!' :
+                       usdAmount >= 1 ? 'keeps VocabSwipe free for 10 users!' : '';
+        donationImpact.textContent = amount > 0 ? 
+            `Your ${currency === 'INR' ? '₹' : currency === 'EUR' ? '€' : currency === 'GBP' ? '£' : '$'}${amount.toFixed(2)} donation ${impact}` :
+            `Example: ${currency === 'INR' ? '₹' : currency === 'EUR' ? '€' : currency === 'GBP' ? '£' : '$'}5 ${impact}`;
+    }
+
+    // Currency change handler
+    currencySelector.addEventListener('change', () => {
+        const currency = currencySelector.value;
+        updateDonationUI(currency);
+    });
+
+    // Initialize UI with default currency
+    updateDonationUI(currencySelector.value);
+
+    // Handle preset donation buttons
     donateButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            const amount = btn.getAttribute('data-amount');
-            customAmountInput.value = amount;
+            const amount = parseFloat(btn.getAttribute('data-converted-amount'));
+            const currency = currencySelector.value;
+            updateImpactText(amount, currency);
             highlightAmount(btn);
+            initiateCheckout(amount, currency);
         });
     });
 
-    submitTransaction.addEventListener('click', () => {
-        const transactionId = transactionIdInput.value.trim();
-        const amount = parseFloat(customAmountInput.value) || 0;
-        if (transactionId && amount >= 30) {
-            // Replace with actual backend API call for verification
-            fetch('/verify-donation', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ transactionId, amount })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Thank you for your donation! We have received your transaction.');
-                    transactionIdInput.value = '';
-                    customAmountInput.value = '';
-                    window.location.href = '/thank-you';
-                } else {
-                    alert('Invalid transaction ID or amount. Please try again.');
-                }
-            })
-            .catch(error => {
-                console.error('Verification error:', error);
-                alert('An error occurred. Please try again.');
-            });
+    // Handle custom donation
+    donateSubmit.addEventListener('click', () => {
+        const customAmount = parseFloat(customAmountInput.value);
+        const currency = currencySelector.value;
+        if (customAmount >= 1 / conversionRates[currency]) {
+            updateImpactText(customAmount, currency);
+            donateButtons.forEach(btn => btn.classList.remove('selected'));
+            initiateCheckout(customAmount, currency);
         } else {
-            alert('Please enter a valid transaction ID and amount (minimum 30 THB).');
+            alert(`Please enter a valid donation amount (minimum ${currency === 'INR' ? '₹' : currency === 'EUR' ? '€' : currency === 'GBP' ? '£' : '$'}1 equivalent).`);
         }
     });
 
-    shareBtn.addEventListener('click', () => {
-        const shareText = encodeURIComponent('I supported VocabSwipe to help CMU students learn English for free! Join me at vocabswipe.com');
-        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-        if (isMobile) {
-            // Instagram Stories sharing (simplified, Meta API recommended)
-            const instagramUrl = `https://www.instagram.com/stories?text=${shareText}&url=https://vocabswipe.com`;
-            window.open(instagramUrl, '_blank');
-        } else {
-            // Twitter/X sharing for desktop
-            window.open(`https://twitter.com/intent/tweet?text=${shareText}`, '_blank');
-        }
-    });
-
+    // Highlight selected amount
     function highlightAmount(selectedBtn) {
         donateButtons.forEach(btn => btn.classList.remove('selected'));
         selectedBtn.classList.add('selected');
     }
 
-    function updateIcons(theme) {
-        const themeIcon = document.querySelector('.theme-icon');
-        const backIcon = document.querySelector('.back-icon');
-        themeIcon.src = theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
-        backIcon.src = theme === 'bright' ? 'back-bright.svg' : 'back-night.svg';
+    // Initiate Stripe checkout
+    function initiateCheckout(amount, currency) {
+        stripe.redirectToCheckout({
+            lineItems: [{
+                price_data: {
+                    currency: currency.toLowerCase(),
+                    product_data: { name: 'VocabSwipe Donation' },
+                    unit_amount: Math.floor(amount * 100) // Convert to cents
+                },
+                quantity: 1
+            }],
+            mode: 'payment',
+            successUrl: 'https://vocabswipe.com/thank-you',
+            cancelUrl: 'https://vocabswipe.com/donate'
+        }).then(result => {
+            if (result.error) {
+                console.error('Checkout error:', result.error.message);
+                alert('An error occurred. Please try again.');
+            }
+        });
     }
+
+    // Social sharing
+    const shareButtons = document.querySelectorAll('.share-btn');
+    shareButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const platform = btn.getAttribute('data-platform');
+            const currency = currencySelector.value;
+            const amount = customAmountInput.value ? parseFloat(customAmountInput.value) : 5;
+            const shareText = encodeURIComponent(`I donated ${currency === 'INR' ? '₹' : currency === 'EUR' ? '€' : currency === 'GBP' ? '£' : '$'}${amount.toFixed(2)} to VocabSwipe to help students learn English for free! Join me at vocabswipe.com`);
+            let url;
+            switch (platform) {
+                case 'twitter':
+                    url = `https://twitter.com/intent/tweet?text=${shareText}`;
+                    break;
+                case 'whatsapp':
+                    url = `https://wa.me/?text=${shareText}`;
+                    break;
+                case 'facebook':
+                    url = `https://www.facebook.com/sharer/sharer.php?u=https://vocabswipe.com&quote=${shareText}`;
+                    break;
+                case 'linkedin':
+                    url = `https://www.linkedin.com/shareArticle?mini=true&url=https://vocabswipe.com&title=VocabSwipe%20Donation&summary=${shareText}`;
+                    break;
+            }
+            window.open(url, '_blank');
+        });
+    });
 });
