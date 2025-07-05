@@ -19,71 +19,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const donateButtons = document.querySelectorAll('.donate-amount');
     const customAmountInput = document.querySelector('#custom-amount');
     const donateSubmit = document.querySelector('.donate-submit');
-    const currencySelector = document.querySelector('#currency-selector');
     const donationImpact = document.querySelector('#donation-impact');
 
-    // Currency conversion rates (approximate, update periodically)
-    const conversionRates = {
-        USD: 1,
-        EUR: 0.85,
-        INR: 83,
-        GBP: 0.75
-    };
-
-    // Update donation amounts and impact text based on currency
-    function updateDonationUI(currency) {
-        donateButtons.forEach(btn => {
-            const usdAmount = parseInt(btn.getAttribute('data-amount'));
-            const convertedAmount = (usdAmount * conversionRates[currency]).toFixed(2);
-            btn.textContent = `${currency === 'INR' ? '₹' : currency === 'EUR' ? '€' : currency === 'GBP' ? '£' : '$'}${convertedAmount}`;
-            btn.setAttribute('data-converted-amount', convertedAmount);
-        });
-        customAmountInput.placeholder = `Custom Amount (${currency === 'INR' ? '₹' : currency === 'EUR' ? '€' : currency === 'GBP' ? '£' : '$'})`;
-        updateImpactText(0, currency);
-    }
-
     // Update donation impact text
-    function updateImpactText(amount, currency) {
-        const usdAmount = amount / conversionRates[currency];
-        const impact = usdAmount >= 10 ? 'supports premium features for 50 users!' :
-                       usdAmount >= 5 ? 'maintains servers for 100 users/month!' :
-                       usdAmount >= 3 ? 'provides audio for 200 sentences!' :
-                       usdAmount >= 1 ? 'keeps VocabSwipe free for 10 users!' : '';
+    function updateImpactText(amount) {
+        const impact = amount >= 10 ? 'supports premium features for 50 users!' :
+                       amount >= 5 ? 'maintains servers for 100 users/month!' :
+                       amount >= 3 ? 'provides audio for 200 sentences!' :
+                       amount >= 1 ? 'keeps VocabSwipe free for 10 users!' : '';
         donationImpact.textContent = amount > 0 ? 
-            `Your ${currency === 'INR' ? '₹' : currency === 'EUR' ? '€' : currency === 'GBP' ? '£' : '$'}${amount.toFixed(2)} donation ${impact}` :
-            `Example: ${currency === 'INR' ? '₹' : currency === 'EUR' ? '€' : currency === 'GBP' ? '£' : '$'}5 ${impact}`;
+            `Your $${amount.toFixed(2)} donation ${impact}` :
+            `Example: $5 ${impact}`;
     }
 
-    // Currency change handler
-    currencySelector.addEventListener('change', () => {
-        const currency = currencySelector.value;
-        updateDonationUI(currency);
-    });
-
-    // Initialize UI with default currency
-    updateDonationUI(currencySelector.value);
+    // Initialize impact text
+    updateImpactText(0);
 
     // Handle preset donation buttons
     donateButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            const amount = parseFloat(btn.getAttribute('data-converted-amount'));
-            const currency = currencySelector.value;
-            updateImpactText(amount, currency);
+            const amount = parseFloat(btn.getAttribute('data-amount'));
+            updateImpactText(amount);
             highlightAmount(btn);
-            initiateCheckout(amount, currency);
+            initiateCheckout(amount);
         });
     });
 
     // Handle custom donation
     donateSubmit.addEventListener('click', () => {
         const customAmount = parseFloat(customAmountInput.value);
-        const currency = currencySelector.value;
-        if (customAmount >= 1 / conversionRates[currency]) {
-            updateImpactText(customAmount, currency);
+        if (customAmount >= 1) {
+            updateImpactText(customAmount);
             donateButtons.forEach(btn => btn.classList.remove('selected'));
-            initiateCheckout(customAmount, currency);
+            initiateCheckout(customAmount);
         } else {
-            alert(`Please enter a valid donation amount (minimum ${currency === 'INR' ? '₹' : currency === 'EUR' ? '€' : currency === 'GBP' ? '£' : '$'}1 equivalent).`);
+            alert('Please enter a valid donation amount (minimum $1).');
         }
     });
 
@@ -94,11 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Initiate Stripe checkout
-    function initiateCheckout(amount, currency) {
+    function initiateCheckout(amount) {
         stripe.redirectToCheckout({
             lineItems: [{
                 price_data: {
-                    currency: currency.toLowerCase(),
+                    currency: 'usd',
                     product_data: { name: 'VocabSwipe Donation' },
                     unit_amount: Math.floor(amount * 100) // Convert to cents
                 },
@@ -120,9 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
     shareButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             const platform = btn.getAttribute('data-platform');
-            const currency = currencySelector.value;
             const amount = customAmountInput.value ? parseFloat(customAmountInput.value) : 5;
-            const shareText = encodeURIComponent(`I donated ${currency === 'INR' ? '₹' : currency === 'EUR' ? '€' : currency === 'GBP' ? '£' : '$'}${amount.toFixed(2)} to VocabSwipe to help students learn English for free! Join me at vocabswipe.com`);
+            const shareText = encodeURIComponent(`I donated $${amount.toFixed(2)} to VocabSwipe to help students learn English for free! Join me at vocabswipe.com`);
             let url;
             switch (platform) {
                 case 'twitter':
