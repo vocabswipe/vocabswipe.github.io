@@ -8,31 +8,87 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+    <!-- Preload critical external assets -->
+    <link rel="preload" as="fetch" href="data/vocab3000_database.yaml" crossorigin="anonymous">
+    <link rel="preload" as="image" href="loading-bright.gif">
+    <link rel="preload" as="image" href="loading-night.gif">
 </head>
 <body data-theme="bright">
+    <!-- Inline SVG definitions -->
+    <svg style="display: none;">
+        <!-- Replace with actual SVG content from your files -->
+        <symbol id="theme-bright" viewBox="0 0 28 28">
+            <path d="M14 2a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm0 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"/>
+        </symbol>
+        <symbol id="theme-night" viewBox="0 0 28 28">
+            <path d="M14 2a12 12 0 0 0-9.6 19.2 12 12 0 0 0 19.2 0A12 12 0 0 0 14 2z"/>
+        </symbol>
+        <symbol id="heart-bright" viewBox="0 0 28 28">
+            <path d="M14 24l-1.5-1.4C6.4 17.2 3 13.7 3 9.5 3 6.4 5.4 4 8.5 4c1.8 0 3.5.9 4.5 2.4C14 4.9 15.7 4 17.5 4c3.1 0 5.5 2.4 5.5 5.5 0 4.2-3.4 7.7-9.5 13.1L14 24z"/>
+        </symbol>
+        <symbol id="heart-night" viewBox="0 0 28 28">
+            <path d="M14 24l-1.5-1.4C6.4 17.2 3 13.7 3 9.5 3 6.4 5.4 4 8.5 4c1.8 0 3.5.9 4.5 2.4C14 4.9 15.7 4 17.5 4c3.1 0 5.5 2.4 5.5 5.5 0 4.2-3.4 7.7-9.5 13.1L14 24z"/>
+        </symbol>
+        <symbol id="unmute-bright" viewBox="0 0 28 28">
+            <path d="M14 5v18l-6-4H4V9h4l6-4zm6 9h4m-4-4h2m-2 8h2"/>
+        </symbol>
+        <symbol id="mute-bright" viewBox="0 0 28 28">
+            <path d="M14 5v18l-6-4H4V9h4l6-4zm10 5l-4 4m0-4l4 4"/>
+        </symbol>
+        <symbol id="unmute-night" viewBox="0 0 28 28">
+            <path d="M14 5v18l-6-4H4V9h4l6-4zm6 9h4m-4-4h2m-2 8h2"/>
+        </symbol>
+        <symbol id="mute-night" viewBox="0 0 28 28">
+            <path d="M14 5v18l-6-4H4V9h4l6-4zm10 5l-4 4m0-4l4 4"/>
+        </symbol>
+        <symbol id="information-bright" viewBox="0 0 22.4 22.4">
+            <path d="M11.2 0a11.2 11.2 0 1 0 0 22.4 11.2 11.2 0 0 0 0-22.4zm0 4a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zm0 4v10"/>
+        </symbol>
+        <symbol id="information-night" viewBox="0 0 22.4 22.4">
+            <path d="M11.2 0a11.2 11.2 0 1 0 0 22.4 11.2 11.2 0 0 0 0-22.4zm0 4a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zm0 4v10"/>
+        </symbol>
+        <symbol id="shuffle-bright" viewBox="0 0 28 28">
+            <path d="M21 7h4v4M21 21h4v-4M3 7h4m14 0a10 10 0 0 1-14 14m14-14a10 10 0 0 0-14 14"/>
+        </symbol>
+        <symbol id="shuffle-night" viewBox="0 0 28 28">
+            <path d="M21 7h4v4M21 21h4v-4M3 7h4m14 0a10 10 0 0 1-14 14m14-14a10 10 0 0 0-14 14"/>
+        </symbol>
+        <symbol id="reset-bright" viewBox="0 0 28 28">
+            <path d="M14 4a10 10 0 0 0-10 10h4m10-10a10 10 0 0 1 10 10h-4"/>
+        </symbol>
+        <symbol id="reset-night" viewBox="0 0 28 28">
+            <path d="M14 4a10 10 0 0 0-10 10h4m10-10a10 10 0 0 1 10 10h-4"/>
+        </symbol>
+        <symbol id="bag-bright" viewBox="0 0 28 28">
+            <path d="M8 8V6a6 6 0 0 1 12 0v2H8zm-2 2h16v14H6V10z"/>
+        </symbol>
+        <symbol id="bag-night" viewBox="0 0 28 28">
+            <path d="M8 8V6a6 6 0 0 1 12 0v2H8zm-2 2h16v14H6V10z"/>
+        </symbol>
+    </svg>
     <div class="container">
         <div class="header">
             <div class="controls">
                 <button class="theme-toggle" aria-label="Toggle theme">
-                    <img src="theme-bright.svg" class="theme-icon" width="28" height="28" alt="Toggle theme">
+                    <svg class="theme-icon" width="28" height="28"><use href="#theme-bright"></use></svg>
                 </button>
                 <button class="donate-btn" aria-label="Support VocabSwipe">
-                    <img src="heart-bright.svg" class="donate-icon" width="28" height="28" alt="Donate">
+                    <svg class="donate-icon" width="28" height="28"><use href="#heart-bright"></use></svg>
                 </button>
                 <button class="audio-btn" aria-label="Toggle audio">
-                    <img src="unmute-bright.svg" class="audio-icon" width="28" height="28" alt="Toggle audio">
+                    <svg class="audio-icon" width="28" height="28"><use href="#unmute-bright"></use></svg>
                 </button>
                 <button class="info-btn" aria-label="Show information">
-                    <img src="information-bright.svg" class="info-icon" width="22.4" height="22.4" alt="Information">
+                    <svg class="info-icon" width="22.4" height="22.4"><use href="#information-bright"></use></svg>
                 </button>
                 <button class="shuffle-btn" aria-label="Shuffle cards">
-                    <img src="shuffle-bright.svg" class="shuffle-icon" width="28" height="28" alt="Shuffle cards">
+                    <svg class="shuffle-icon" width="28" height="28"><use href="#shuffle-bright"></use></svg>
                 </button>
                 <button class="reset-btn" aria-label="Reset order">
-                    <img src="reset-bright.svg" class="reset-icon" width="28" height="28" alt="Reset order">
+                    <svg class="reset-icon" width="28" height="28"><use href="#reset-bright"></use></svg>
                 </button>
                 <button class="store-btn" aria-label="Visit Store">
-                    <img src="bag-bright.svg" class="store-icon" width="28" height="28" alt="Store">
+                    <svg class="store-icon" width="28" height="28"><use href="#bag-bright"></use></svg>
                 </button>
             </div>
         </div>
