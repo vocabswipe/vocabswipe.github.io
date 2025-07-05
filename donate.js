@@ -84,30 +84,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    // Social sharing
-    const shareButtons = document.querySelectorAll('.share-btn');
-    shareButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const platform = btn.getAttribute('data-platform');
-            const amount = customAmountInput.value ? parseFloat(customAmountInput.value) : 5;
-            const shareText = encodeURIComponent(`I donated $${amount.toFixed(2)} to VocabSwipe to help students learn English for free! Join me at vocabswipe.com`);
-            let url;
-            switch (platform) {
-                case 'twitter':
-                    url = `https://twitter.com/intent/tweet?text=${shareText}`;
-                    break;
-                case 'whatsapp':
-                    url = `https://wa.me/?text=${shareText}`;
-                    break;
-                case 'facebook':
-                    url = `https://www.facebook.com/sharer/sharer.php?u=https://vocabswipe.com&quote=${shareText}`;
-                    break;
-                case 'linkedin':
-                    url = `https://www.linkedin.com/shareArticle?mini=true&url=https://vocabswipe.com&title=VocabSwipe%20Donation&summary=${shareText}`;
-                    break;
-            }
-            window.open(url, '_blank');
-        });
-    });
 });
