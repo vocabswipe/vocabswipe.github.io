@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Stripe integration
-    const stripe = Stripe('your-stripe-public-key'); // Replace with your Stripe public key
+    const stripe = Stripe('pk_test_51RhLFxPBjyeniPBubSFW3SAABNmSbZfkn0c23rexkAFFIZHJOIAUz0In9hHHTURd5SeB5pFNJkpIbPYsfW347EJB00KuDKza9e'); // Replace with your Stripe public key
     const buyButtons = document.querySelectorAll('.buy-btn');
 
     // Handle purchases
