@@ -553,7 +553,7 @@ body[data-theme="dark"] .donation-text {
     margin-bottom: 16px;
 }
 
-.donate-amount, .donate-submit, .share-btn {
+.donate-amount, .donate-submit {
     padding: 10px 20px;
     background: #00008B;
     color: #ffffff;
@@ -566,21 +566,19 @@ body[data-theme="dark"] .donation-text {
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.donate-amount:hover, .donate-submit:hover, .share-btn:hover {
+.donate-amount:hover, .donate-submit:hover {
     background: #0000CD;
     transform: scale(1.05);
 }
 
 body[data-theme="dark"] .donate-amount,
-body[data-theme="dark"] .donate-submit,
-body[data-theme="dark"] .share-btn {
+body[data-theme="dark"] .donate-submit {
     background: #FFD700;
     color: #1f2937;
 }
 
 body[data-theme="dark"] .donate-amount:hover,
-body[data-theme="dark"] .donate-submit:hover,
-body[data-theme="dark"] .share-btn:hover {
+body[data-theme="dark"] .donate-submit:hover {
     background: #FFC107;
 }
 
@@ -593,7 +591,7 @@ body[data-theme="dark"] .donate-amount.selected {
     background: #FFC107;
 }
 
-#custom-amount, #currency-selector {
+#custom-amount {
     padding: 10px;
     font-family: 'Inter', sans-serif;
     font-size: 15px;
@@ -604,8 +602,7 @@ body[data-theme="dark"] .donate-amount.selected {
     margin-bottom: 12px;
 }
 
-body[data-theme="dark"] #custom-amount,
-body[data-theme="dark"] #currency-selector {
+body[data-theme="dark"] #custom-amount {
     border: 1px solid #4b5563;
     background: #374151;
     color: #e5e7eb;
@@ -621,13 +618,6 @@ body[data-theme="dark"] #currency-selector {
 
 body[data-theme="dark"] .donation-impact {
     color: #9ca3af;
-}
-
-.share-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
 }
 
 /* Store Container */
@@ -802,21 +792,17 @@ body[data-theme="dark"] .buy-btn:hover {
         font-size: 14px;
     }
 
-    .donate-amount, .donate-submit, .buy-btn, .share-btn {
+    .donate-amount, .donate-submit, .buy-btn {
         padding: 8px 16px;
         font-size: 14px;
     }
 
-    #custom-amount, #currency-selector {
+    #custom-amount {
         width: 120px;
         font-size: 14px;
     }
 
     .product h3 {
         font-size: 16px;
-    }
-
-    .share-options {
-        gap: 8px;
     }
 }
