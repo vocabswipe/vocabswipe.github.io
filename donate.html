@@ -6,6 +6,7 @@
     <title>Support VocabSwipe</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Stripe.js for client-side checkout -->
     <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body data-theme="bright">
@@ -34,8 +35,16 @@
                 <button class="donate-amount" data-amount="10">$10</button>
                 <input type="number" id="custom-amount" placeholder="Custom Amount ($)" min="1" step="1">
             </div>
-            <button class="donate-submit">Donate Now</button>
+           
+
+<button class="donate-submit">Donate Now</button>
             <p class="donation-impact" id="donation-impact">Example: $5 helps maintain servers for 100 users/month!</p>
+        st="display: none;">
+        <div class="tooltip-overlay" style="display: none;">
+            <div class="tooltip-message">
+                <p id="tooltip-text"></p>
+                <button class="tooltip-close" aria-label="Close tooltip">Close</button>
+            </div>
         </div>
     </div>
     <script src="utils.js"></script>
