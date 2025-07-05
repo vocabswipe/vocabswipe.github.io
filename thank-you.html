@@ -22,16 +22,7 @@
         <div class="title-container">
             <h1 class="website-name">Thank You!</h1>
             <p class="slogan-main">Your support helps VocabSwipe thrive!</p>
-            <p class="slogan-sub">For manual donations or issues, contact us at support@vocabswipe.com.</p>
-        </div>
-        <div class="donation-container">
-            <p class="donation-text">Share your support:</p>
-            <div class="share-options">
-                <button class="share-btn" data-platform="twitter">Share on X</button>
-                <button class="share-btn" data-platform="whatsapp">Share on WhatsApp</button>
-                <button class="share-btn" data-platform="facebook">Share on Facebook</button>
-                <button class="share-btn" data-platform="linkedin">Share on LinkedIn</button>
-            </div>
+            <p class="slogan-sub">For issues, contact us at support@vocabswipe.com.</p>
         </div>
     </div>
     <script src="utils.js"></script>
@@ -46,28 +37,6 @@
                 document.body.setAttribute('data-theme', newTheme);
                 localStorage.setItem('theme', newTheme);
                 updateIcons(newTheme);
-            });
-            document.querySelectorAll('.share-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const platform = btn.getAttribute('data-platform');
-                    const shareText = encodeURIComponent('I supported VocabSwipe to help students learn English for free! Try it at vocabswipe.com');
-                    let url;
-                    switch (platform) {
-                        case 'twitter':
-                            url = `https://twitter.com/intent/tweet?text=${shareText}`;
-                            break;
-                        case 'whatsapp':
-                            url = `https://wa.me/?text=${shareText}`;
-                            break;
-                        case 'facebook':
-                            url = `https://www.facebook.com/sharer/sharer.php?u=https://vocabswipe.com&quote=${shareText}`;
-                            break;
-                        case 'linkedin':
-                            url = `https://www.linkedin.com/shareArticle?mini=true&url=https://vocabswipe.com&title=VocabSwipe%20Support&summary=${shareText}`;
-                            break;
-                    }
-                    window.open(url, '_blank');
-                });
             });
         });
     </script>
