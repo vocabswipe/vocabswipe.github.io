@@ -5,7 +5,7 @@ let originalWords = [];
 let isFlipped = false;
 let currentAudio = null;
 let audioCache = new Map();
-const MAX_CACHE_SIZE = 12;
+const MAX_CACHE_SIZE = 12; // Increased slightly to handle more back cards
 let audioUnlocked = false;
 let audioEnabled = true;
 let maxFreq = 0;
@@ -15,7 +15,7 @@ let isTooltipVisible = false;
 let totalSentences = 0;
 let isContentLoaded = false;
 let lastAudioPlayTime = 0;
-const AUDIO_DEBOUNCE_MS = 300;
+const AUDIO_DEBOUNCE_MS = 300; // Debounce audio playback to prevent rapid calls
 
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'bright';
@@ -110,22 +110,22 @@ document.body.addEventListener('click', () => {
 }, { once: true });
 
 function updateIcons(theme) {
-    const themeIcon = document.querySelector('.theme-icon use');
-    const audioIcon = document.querySelector('.audio-icon use');
-    const infoIcon = document.querySelector('.info-icon use');
-    const shuffleIcon = document.querySelector('.shuffle-icon use');
-    const resetIcon = document.querySelector('.reset-icon use');
-    const donateIcon = document.querySelector('.donate-icon use');
-    const storeIcon = document.querySelector('.store-icon use');
+    const themeIcon = document.querySelector('.theme-icon');
+    const audioIcon = document.querySelector('.audio-icon');
+    const infoIcon = document.querySelector('.info-icon');
+    const shuffleIcon = document.querySelector('.shuffle-icon');
+    const resetIcon = document.querySelector('.reset-icon');
+    const donateIcon = document.querySelector('.donate-icon');
+    const storeIcon = document.querySelector('.store-icon');
     const loadingIcon = document.querySelector('.loading-icon');
 
-    themeIcon.setAttribute('href', theme === 'bright' ? '#theme-bright' : '#theme-night');
-    audioIcon.setAttribute('href', theme === 'bright' ? (audioEnabled ? '#unmute-bright' : '#mute-bright') : (audioEnabled ? '#unmute-night' : '#mute-night'));
-    infoIcon.setAttribute('href', theme === 'bright' ? '#information-bright' : '#information-night');
-    shuffleIcon.setAttribute('href', theme === 'bright' ? '#shuffle-bright' : '#shuffle-night');
-    resetIcon.setAttribute('href', theme === 'bright' ? '#reset-bright' : '#reset-night');
-    donateIcon.setAttribute('href', theme === 'bright' ? '#heart-bright' : '#heart-night');
-    storeIcon.setAttribute('href', theme === 'bright' ? '#bag-bright' : '#bag-night');
+    themeIcon.src = theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
+    audioIcon.src = theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg');
+    infoIcon.src = theme === 'bright' ? 'information-bright.svg' : 'information-night.svg';
+    shuffleIcon.src = theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg';
+    resetIcon.src = theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg';
+    donateIcon.src = theme === 'bright' ? 'heart-bright.svg' : 'heart-night.svg';
+    storeIcon.src = theme === 'bright' ? 'bag-bright.svg' : 'bag-night.svg';
     if (loadingIcon) {
         loadingIcon.src = theme === 'bright' ? 'loading-bright.gif' : 'loading-night.gif';
     }
@@ -133,11 +133,11 @@ function updateIcons(theme) {
 
 function toggleAudio() {
     audioEnabled = !audioEnabled;
-    const audioIcon = document.querySelector('.audio-icon use');
+    const audioIcon = document.querySelector('.audio-icon');
     const theme = document.body.getAttribute('data-theme');
-    audioIcon.setAttribute('href', audioEnabled 
-        ? (theme === 'bright' ? '#unmute-bright' : '#unmute-night')
-        : (theme === 'bright' ? '#mute-bright' : '#mute-night'));
+    audioIcon.src = audioEnabled 
+        ? (theme === 'bright' ? 'unmute-bright.svg' : 'unmute-night.svg')
+        : (theme === 'bright' ? 'mute-bright.svg' : 'mute-night.svg');
     if (!audioEnabled) stopAudio();
 }
 
@@ -146,19 +146,20 @@ function toggleTooltip() {
     const tooltipText = document.querySelector('#tooltip-text');
     isTooltipVisible = !isTooltipVisible;
     const theme = document.body.getAttribute('data-theme');
-    const iconStyle = theme === 'bright' ? 'fill: #00008B;' : 'fill: #FFD700;';
     if (isTooltipVisible) {
         const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        const iconStyle = theme === 'bright' ? 
+            'style="filter: none; fill: #00008B;"' : 'style="filter: none; fill: #FFD700;"';
         tooltipText.innerHTML = isMobile 
             ? `
                 <strong>How to Use VocabSwipe:</strong><br><br>
-                - <strong>Theme Toggle (<svg width="24" height="24" style="${iconStyle}"><use href="#${theme === 'bright' ? 'theme-bright' : 'theme-night'}"></use></svg>):</strong> Tap to switch between bright and dark themes.<br>
-                - <strong>Donate (<svg width="24" height="24" style="${iconStyle}"><use href="#${theme === 'bright' ? 'heart-bright' : 'heart-night'}"></use></svg>):</strong> Tap to support VocabSwipe and keep it free.<br>
-                - <strong>Audio Toggle (<svg width="24" height="24" style="${iconStyle}"><use href="#${theme === 'bright' ? (audioEnabled ? 'unmute-bright' : 'mute-bright') : (audioEnabled ? 'unmute-night' : 'mute-night')}"></use></svg>):</strong> Tap to enable or disable audio.<br>
-                - <strong>Info (<svg width="19.2" height="19.2" style="${iconStyle}"><use href="#${theme === 'bright' ? 'information-bright' : 'information-night'}"></use></svg>):</strong> Tap to show or hide this help message.<br>
-                - <strong>Shuffle (<svg width="24" height="24" style="${iconStyle}"><use href="#${theme === 'bright' ? 'shuffle-bright' : 'shuffle-night'}"></use></svg>):</strong> Tap to randomize the word order.<br>
-                - <strong>Reset (<svg width="24" height="24" style="${iconStyle}"><use href="#${theme === 'bright' ? 'reset-bright' : 'reset-night'}"></use></svg>):</strong> Tap to restore the original word order.<br>
-                - <strong>Store (<svg width="24" height="24" style="${iconStyle}"><use href="#${theme === 'bright' ? 'bag-bright' : 'bag-night'}"></use></svg>):</strong> Tap to explore digital products for English learning.<br>
+                - <strong>Theme Toggle (<img src="${theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg'}" width="24" height="24" ${iconStyle} alt="Theme Toggle">):</strong> Tap to switch between bright and dark themes.<br>
+                - <strong>Donate (<img src="${theme === 'bright' ? 'heart-bright.svg' : 'heart-night.svg'}" width="24" height="24" ${iconStyle} alt="Donate">):</strong> Tap to support VocabSwipe and keep it free.<br>
+                - <strong>Audio Toggle (<img src="${theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg')}" width="24" height="24" ${iconStyle} alt="Audio Toggle">):</strong> Tap to enable or disable audio.<br>
+                - <strong>Info (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="19.2" height="19.2" ${iconStyle} alt="Info">):</strong> Tap to show or hide this help message.<br>
+                - <strong>Shuffle (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="24" height="24" ${iconStyle} alt="Shuffle">):</strong> Tap to randomize the word order.<br>
+                - <strong>Reset (<img src="${theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg'}" width="24" height="24" ${iconStyle} alt="Reset">):</strong> Tap to restore the original word order.<br>
+                - <strong>Store (<img src="${theme === 'bright' ? 'bag-bright.svg' : 'bag-night.svg'}" width="24" height="24" ${iconStyle} alt="Store">):</strong> Tap to explore digital products for English learning.<br>
                 - <strong>Swipe Left/Right:</strong> Navigate to the next or previous word card.<br>
                 - <strong>Swipe Up/Down:</strong> On the back of a card, cycle through different definitions and examples.<br>
                 - <strong>Tap Once:</strong> Hear the word or sentence audio (if audio is enabled).<br>
@@ -167,13 +168,13 @@ function toggleTooltip() {
             `
             : `
                 <strong>How to Use VocabSwipe:</strong><br><br>
-                - <strong>Theme Toggle (<svg width="24" height="24" style="${iconStyle}"><use href="#${theme === 'bright' ? 'theme-bright' : 'theme-night'}"></use></svg>):</strong> Click to switch between bright and dark themes.<br>
-                - <strong>Donate (<svg width="24" height="24" style="${iconStyle}"><use href="#${theme === 'bright' ? 'heart-bright' : 'heart-night'}"></use></svg>):</strong> Click to support VocabSwipe and keep it free.<br>
-                - <strong>Audio Toggle (<svg width="24" height="24" style="${iconStyle}"><use href="#${theme === 'bright' ? (audioEnabled ? 'unmute-bright' : 'mute-bright') : (audioEnabled ? 'unmute-night' : 'mute-night')}"></use></svg>):</strong> Click to enable or disable audio.<br>
-                - <strong>Info (<svg width="19.2" height="19.2" style="${iconStyle}"><use href="#${theme === 'bright' ? 'information-bright' : 'information-night'}"></use></svg>):</strong> Click to show or hide this help message.<br>
-                - <strong>Shuffle (<svg width="24" height="24" style="${iconStyle}"><use href="#${theme === 'bright' ? 'shuffle-bright' : 'shuffle-night'}"></use></svg>):</strong> Click to randomize the word order.<br>
-                - <strong>Reset (<svg width="24" height="24" style="${iconStyle}"><use href="#${theme === 'bright' ? 'reset-bright' : 'reset-night'}"></use></svg>):</strong> Click to restore the original word order.<br>
-                - <strong>Store (<svg width="24" height="24" style="${iconStyle}"><use href="#${theme === 'bright' ? 'bag-bright' : 'bag-night'}"></use></svg>):</strong> Click to explore digital products for English learning.<br>
+                - <strong>Theme Toggle (<img src="${theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg'}" width="24" height="24" ${iconStyle} alt="Theme Toggle">):</strong> Click to switch between bright and dark themes.<br>
+                - <strong>Donate (<img src="${theme === 'bright' ? 'heart-bright.svg' : 'heart-night.svg'}" width="24" height="24" ${iconStyle} alt="Donate">):</strong> Click to support VocabSwipe and keep it free.<br>
+                - <strong>Audio Toggle (<img src="${theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg')}" width="24" height="24" ${iconStyle} alt="Audio Toggle">):</strong> Click to enable or disable audio.<br>
+                - <strong>Info (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="19.2" height="19.2" ${iconStyle} alt="Info">):</strong> Click to show or hide this help message.<br>
+                - <strong>Shuffle (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="24" height="24" ${iconStyle} alt="Shuffle">):</strong> Click to randomize the word order.<br>
+                - <strong>Reset (<img src="${theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg'}" width="24" height="24" ${iconStyle} alt="Reset">):</strong> Click to restore the original word order.<br>
+                - <strong>Store (<img src="${theme === 'bright' ? 'bag-bright.svg' : 'bag-night.svg'}" width="24" height="24" ${iconStyle} alt="Store">):</strong> Click to explore digital products for English learning.<br>
                 - <strong>Left/Right Arrow Keys:</strong> Navigate to the previous or next word card.<br>
                 - <strong>Up/Down Arrow Keys:</strong> On the back of a card, cycle through different definitions and examples.<br>
                 - <strong>Spacebar:</strong> Play the word or sentence audio (if audio is enabled).<br>
@@ -208,12 +209,13 @@ function loadWords() {
                 if (!Array.isArray(words) || words.length === 0) {
                     throw new Error('No valid words found in vocab3000_database.yaml');
                 }
+                // Shuffle back_cards for each word
                 words.forEach(word => {
                     if (word.back_cards) {
                         word.back_cards = shuffleArray(word.back_cards);
                     }
                 });
-                originalWords = JSON.parse(JSON.stringify(words));
+                originalWords = JSON.parse(JSON.stringify(words)); // Deep copy
                 words.sort((a, b) => (a.rank || 0) - (b.rank || 0));
                 maxFreq = words.find(word => word.rank === 1)?.freq || 1;
                 minFreq = Math.min(...words.map(word => word.freq || 1).filter(freq => freq > 0)) || 1;
@@ -223,12 +225,15 @@ function loadWords() {
                 document.querySelector('#total-sentences').textContent = totalSentences;
                 isContentLoaded = true;
                 displayWord();
+                // Animate stats container
                 const statsContainer = document.querySelector('.stats-container');
                 statsContainer.style.transition = 'opacity 1s ease-in';
                 statsContainer.style.opacity = '1';
+                // Hide loading overlay
                 const loadingOverlay = document.querySelector('.loading-overlay');
                 loadingOverlay.style.display = 'none';
                 preloadAudio();
+                // Trigger initial audio playback
                 if (audioUnlocked && audioEnabled && words[currentWordIndex]?.word_audio_file) {
                     playAudioWithRetry(words[currentWordIndex].word_audio_file, 3, 500);
                 }
@@ -522,6 +527,7 @@ function preloadAudio() {
     const nextWord = words[nextIndex];
     const prevWord = words[prevIndex];
 
+    // Collect audio files to preload (current, next, previous cards)
     const audioFiles = [
         currentWord?.word_audio_file,
         ...(currentWord?.back_cards?.map(card => card.audio_file) || []),
@@ -531,6 +537,7 @@ function preloadAudio() {
         ...(prevWord?.back_cards?.map(card => card.audio_file) || [])
     ].filter(file => file && !audioCache.has(file));
 
+    // Clear cache if it exceeds MAX_CACHE_SIZE
     while (audioCache.size + audioFiles.length > MAX_CACHE_SIZE && audioCache.size > 0) {
         const oldestKey = audioCache.keys().next().value;
         const audio = audioCache.get(oldestKey);
@@ -578,6 +585,7 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
         return;
     }
 
+    // Debounce to prevent rapid calls
     const now = Date.now();
     if (now - lastAudioPlayTime < AUDIO_DEBOUNCE_MS) {
         console.log(`Debouncing audio playback for ${audioFile}`);
@@ -632,6 +640,7 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
         }
     }
 
+    // Wait for canplaythrough before attempting playback
     if (audio.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
         attemptPlay();
     } else {
