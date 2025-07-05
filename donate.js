@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Stripe integration
-    const stripe = Stripe('pk_test_51RhLFxPBjyeniPBubSFW3SAABNmSbZfkn0c23rexkAFFIZHJOIAUz0In9hHHTURd5SeB5pFNJkpIbPYsfW347EJB00KuDKza9e'); // Replace with your Stripe public key
+    const stripe = Stripe('pk_live_51RhLFoA8e2sIvZ3yITfyhk5jbD5vL4i58NmhWK9IZGOo5BkPFyS182JE5GZfG4rKttc04MOHsiLdVUHegVrXyW8I00Q5Qh75Me'); // Replace with your LIVE Stripe public key
     const donateButtons = document.querySelectorAll('.donate-amount');
     const customAmountInput = document.querySelector('#custom-amount');
     const donateSubmit = document.querySelector('.donate-submit');
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             donateButtons.forEach(btn => btn.classList.remove('selected'));
             initiateCheckout(customAmount);
         } else {
-            alert('Please enter a valid donation amount (minimum $1).');
+            showTooltip('Please enter a valid donation amount (minimum $1).');
         }
     });
 
@@ -63,25 +63,46 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedBtn.classList.add('selected');
     }
 
-    // Initiate Stripe checkout
-    function initiateCheckout(amount) {
-        stripe.redirectToCheckout({
-            lineItems: [{
-                price_data: {
-                    currency: 'usd',
-                    product_data: { name: 'VocabSwipe Donation' },
-                    unit_amount: Math.floor(amount * 100) // Convert to cents
-                },
-                quantity: 1
-            }],
-            mode: 'payment',
-            successUrl: 'https://vocabswipe.com/thank-you',
-            cancelUrl: 'https://vocabswipe.com/donate'
-        }).then(result => {
-            if (result.error) {
-                console.error('Checkout error:', result.error.message);
-                alert('An error occurred. Please try again.');
-            }
-        });
+    // Show tooltip for error messages
+    function showTooltip(message) {
+        const tooltipOverlay = document.querySelector('.tooltip-overlay');
+        const tooltipText = document.querySelector('#tooltip-text');
+        tooltipText.textContent = message;
+        tooltipOverlay.style.display = 'flex';
+        setTimeout(() => {
+            tooltipOverlay.style.display = 'none';
+        }, 3000); // Hide after 3 seconds
     }
+
+    // Initiate Stripe checkout
+    async function initiateCheckout(amount) {
+        try {
+            const response = await fetch('/create-checkout-session', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    amount: Math.floor(amount * 100), // Convert to cents
+                    description: 'VocabSwipe Donation',
+                    statement_descriptor: 'VOCABSWIPE.COM' // Matches Stripe public details
+                })
+            });
+            const session = await response.json();
+            if (session.error) {
+                throw new Error(session.error);
+            }
+            const result = await stripe.redirectToCheckout({ sessionId: session.id });
+            if (result.error) {
+                throw new Error(result.error.message);
+            }
+        } catch (error) {
+            console.error('Checkout error:', error.message);
+            showTooltip('An error occurred during payment. Please try again.');
+        }
+    }
+
+    // Close tooltip
+    const tooltipClose = document.querySelector('.tooltip-close');
+    tooltipClose.addEventListener('click', () => {
+        document.querySelector('.tooltip-overlay').style.display = 'none';
+    });
 });
