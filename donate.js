@@ -24,13 +24,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Stripe integration
     const stripe = Stripe('pk_live_51RhLFoA8e2sIvZ3yITfyhk5jbD5vL4i58NmhWK9IZGOo5BkPFyS182JE5GZfG4rKttc04MOHsiLdVUHegVrXyW8I00Q5Qh75Me');
-    const donateButton = document.querySelector('.donate-amount');
+    const donateButtons = document.querySelectorAll('.donate-amount');
+    const customAmountInput = document.querySelector('#custom-amount');
+    const donateSubmit = document.querySelector('.donate-submit');
 
-    // Handle donation button
-    donateButton.addEventListener('click', () => {
-        const priceId = donateButton.getAttribute('data-price-id');
-        initiateCheckout([{ price: priceId, quantity: 1 }]);
+    // Handle preset donation buttons
+    donateButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const priceId = btn.getAttribute('data-price-id');
+            highlightAmount(btn);
+            initiateCheckout([{ price: priceId, quantity: 1 }]);
+        });
     });
+
+    // Handle custom donation
+    donateSubmit.addEventListener('click', () => {
+        const customAmount = parseFloat(customAmountInput.value);
+        if (isNaN(customAmount) || customAmount < 1) {
+            showTooltip('Please enter a donation of at least $1.');
+            return;
+        }
+        donateButtons.forEach(btn => btn.classList.remove('selected'));
+        initiateCheckout([{
+            price_data: {
+                currency: 'usd',
+                product_data: {
+                    name: 'VocabSwipe Donation',
+                },
+                unit_amount: Math.floor(customAmount * 100), // Convert to cents
+            },
+            quantity: 1,
+        }]);
+    });
+
+    // Highlight selected amount
+    function highlightAmount(selectedBtn) {
+        donateButtons.forEach(btn => btn.classList.remove('selected'));
+        selectedBtn.classList.add('selected');
+    }
 
     // Show tooltip for error messages
     function showTooltip(message) {
@@ -40,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tooltipOverlay.style.display = 'flex';
         setTimeout(() => {
             tooltipOverlay.style.display = 'none';
-        }, 5000);
+        }, 3000);
     }
 
     // Initiate Stripe checkout
@@ -61,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error('Checkout error:', error.message);
             const message = error.message.includes('client-only integration is not enabled')
-                ? 'Payment setup error: Please contact support at support@vocabswipe.com.'
+                ? 'Payment setup error: Please contact support@vocabswipe.com.'
                 : error.message.includes('network') || error.message.includes('offline')
                 ? 'Network error: Please check your internet connection and try again.'
                 : 'An error occurred during payment: ' + error.message;
