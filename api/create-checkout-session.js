@@ -1,5 +1,5 @@
 const Stripe = require('stripe');
-const stripe = Stripe('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'); // Replace with your LIVE Stripe secret key
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
