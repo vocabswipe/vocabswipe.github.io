@@ -23,22 +23,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Stripe integration
+    // Note: Use a test key for testing (replace with pk_test_... if needed)
     const stripe = Stripe('pk_live_51RhLFoA8e2sIvZ3yITfyhk5jbD5vL4i58NmhWK9IZGOo5BkPFyS182JE5GZfG4rKttc04MOHsiLdVUHegVrXyW8I00Q5Qh75Me');
-    const donateButtons = document.querySelectorAll('.donate-amount');
+    const donateButton = document.querySelector('.donate-amount');
 
-    // Handle donation buttons
-    donateButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const priceId = btn.getAttribute('data-price-id');
-            highlightAmount(btn);
-            initiateCheckout([{ price: priceId, quantity: 1 }]);
-        });
+    // Handle donation button
+    donateButton.addEventListener('click', () => {
+        const priceId = donateButton.getAttribute('data-price-id');
+        highlightAmount(donateButton);
+        initiateCheckout([{ price: priceId, quantity: 1 }]);
     });
 
-    // Highlight selected amount
+    // Highlight selected amount (optional since there's only one button)
     function highlightAmount(selectedBtn) {
-        donateButtons.forEach(btn => btn.classList.remove('selected'));
         selectedBtn.classList.add('selected');
+        // Remove highlight after a short delay for visual feedback
+        setTimeout(() => selectedBtn.classList.remove('selected'), 1000);
     }
 
     // Show tooltip for error messages
@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 mode: 'payment',
                 successUrl: `${window.location.origin}/thank-you.html`,
                 cancelUrl: `${window.location.origin}/donate.html`,
+                paymentMethodTypes: ['card', 'promptpay'] // Explicitly include PromptPay
             });
             if (result.error) {
                 throw new Error(result.error.message);
