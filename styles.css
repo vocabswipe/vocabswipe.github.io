@@ -134,7 +134,7 @@ body[data-theme="dark"] .slogan {
     margin-bottom: 12px;
 }
 
-.donate-amount, .donate-submit {
+.donate-amount {
     padding: 10px 20px;
     background: #00008B;
     color: #ffffff;
@@ -147,19 +147,17 @@ body[data-theme="dark"] .slogan {
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.donate-amount:hover, .donate-submit:hover {
+.donate-amount:hover {
     background: #0000CD;
     transform: scale(1.05);
 }
 
-body[data-theme="dark"] .donate-amount,
-body[data-theme="dark"] .donate-submit {
+body[data-theme="dark"] .donate-amount {
     background: #FFD700;
     color: #1f2937;
 }
 
-body[data-theme="dark"] .donate-amount:hover,
-body[data-theme="dark"] .donate-submit:hover {
+body[data-theme="dark"] .donate-amount:hover {
     background: #FFC107;
 }
 
@@ -170,24 +168,6 @@ body[data-theme="dark"] .donate-submit:hover {
 
 body[data-theme="dark"] .donate-amount.selected {
     background: #FFC107;
-}
-
-#custom-amount {
-    padding: 10px;
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    border: 1px solid #e5e7eb;
-    border-radius: 6px;
-    width: 120px;
-    text-align: center;
-    background: #f9fafb;
-    color: #1f2937;
-}
-
-body[data-theme="dark"] #custom-amount {
-    border: 1px solid #4b5563;
-    background: #374151;
-    color: #e5e7eb;
 }
 
 /* Tooltip */
@@ -256,12 +236,12 @@ body[data-theme="dark"] .tooltip-close:hover {
 footer {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
-    color: #6b7280;
+    color: #374151;
     text-align: center;
 }
 
 body[data-theme="dark"] footer {
-    color: #9ca3af;
+    color: #d1d5db;
 }
 
 footer a {
@@ -692,13 +672,8 @@ body[data-theme="dark"] .stats-text span {
         padding: 12px;
     }
 
-    .donate-amount, .donate-submit {
+    .donate-amount {
         padding: 8px 16px;
-        font-size: 14px;
-    }
-
-    #custom-amount {
-        width: 120px;
         font-size: 14px;
     }
 }
