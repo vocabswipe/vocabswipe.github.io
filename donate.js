@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Apply saved theme
     const savedTheme = localStorage.getItem('theme') || 'bright';
     document.body.setAttribute('data-theme', savedTheme);
-    updateIcons(savedTheme);
+    updateIcons(savedTheme); // From utils.js
 
+    // Theme toggle
     const themeToggle = document.querySelector('.theme-toggle');
     themeToggle.addEventListener('click', () => {
         const currentTheme = document.body.getAttribute('data-theme');
@@ -12,73 +14,95 @@ document.addEventListener('DOMContentLoaded', () => {
         updateIcons(newTheme);
     });
 
+    // Stripe integration
+    const stripe = Stripe('pk_live_51RhLFoA8e2sIvZ3yITfyhk5jbD5vL4i58NmhWK9IZGOo5BkPFyS182JE5GZfG4rKttc04MOHsiLdVUHegVrXyW8I00Q5Qh75Me'); // Replace with your LIVE Stripe public key
     const donateButtons = document.querySelectorAll('.donate-amount');
     const customAmountInput = document.querySelector('#custom-amount');
-    const qrImage = document.querySelector('#promptpay-qr');
-    const submitTransaction = document.querySelector('.submit-transaction');
-    const transactionIdInput = document.querySelector('#transaction-id');
-    const shareBtn = document.querySelector('.share-btn');
+    const donateSubmit = document.querySelector('.donate-submit');
+    const donationImpact = document.querySelector('#donation-impact');
 
+    // Update donation impact text
+    function updateImpactText(amount) {
+        const impact = amount >= 10 ? 'supports premium features for 50 users!' :
+                       amount >= 5 ? 'maintains servers for 100 users/month!' :
+                       amount >= 3 ? 'provides audio for 200 sentences!' :
+                       amount >= 1 ? 'keeps VocabSwipe free for 10 users!' : '';
+        donationImpact.textContent = amount > 0 ? 
+            `Your $${amount.toFixed(2)} donation ${impact}` :
+            `Example: $5 ${impact}`;
+    }
+
+    // Initialize impact text
+    updateImpactText(0);
+
+    // Handle preset donation buttons
     donateButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            const amount = btn.getAttribute('data-amount');
-            customAmountInput.value = amount;
+            const amount = parseFloat(btn.getAttribute('data-amount'));
+            updateImpactText(amount);
             highlightAmount(btn);
+            initiateCheckout(amount);
         });
     });
 
-    submitTransaction.addEventListener('click', () => {
-        const transactionId = transactionIdInput.value.trim();
-        const amount = parseFloat(customAmountInput.value) || 0;
-        if (transactionId && amount >= 30) {
-            // Replace with actual backend API call for verification
-            fetch('/verify-donation', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ transactionId, amount })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Thank you for your donation! We have received your transaction.');
-                    transactionIdInput.value = '';
-                    customAmountInput.value = '';
-                    window.location.href = '/thank-you';
-                } else {
-                    alert('Invalid transaction ID or amount. Please try again.');
-                }
-            })
-            .catch(error => {
-                console.error('Verification error:', error);
-                alert('An error occurred. Please try again.');
-            });
+    // Handle custom donation
+    donateSubmit.addEventListener('click', () => {
+        const customAmount = parseFloat(customAmountInput.value);
+        if (customAmount >= 1) {
+            updateImpactText(customAmount);
+            donateButtons.forEach(btn => btn.classList.remove('selected'));
+            initiateCheckout(customAmount);
         } else {
-            alert('Please enter a valid transaction ID and amount (minimum 30 THB).');
+            showTooltip('Please enter a valid donation amount (minimum $1).');
         }
     });
 
-    shareBtn.addEventListener('click', () => {
-        const shareText = encodeURIComponent('I supported VocabSwipe to help CMU students learn English for free! Join me at vocabswipe.com');
-        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-        if (isMobile) {
-            // Instagram Stories sharing (simplified, Meta API recommended)
-            const instagramUrl = `https://www.instagram.com/stories?text=${shareText}&url=https://vocabswipe.com`;
-            window.open(instagramUrl, '_blank');
-        } else {
-            // Twitter/X sharing for desktop
-            window.open(`https://twitter.com/intent/tweet?text=${shareText}`, '_blank');
-        }
-    });
-
+    // Highlight selected amount
     function highlightAmount(selectedBtn) {
         donateButtons.forEach(btn => btn.classList.remove('selected'));
         selectedBtn.classList.add('selected');
     }
 
-    function updateIcons(theme) {
-        const themeIcon = document.querySelector('.theme-icon');
-        const backIcon = document.querySelector('.back-icon');
-        themeIcon.src = theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
-        backIcon.src = theme === 'bright' ? 'back-bright.svg' : 'back-night.svg';
+    // Show tooltip for error messages
+    function showTooltip(message) {
+        const tooltipOverlay = document.querySelector('.tooltip-overlay');
+        const tooltipText = document.querySelector('#tooltip-text');
+        tooltipText.textContent = message;
+        tooltipOverlay.style.display = 'flex';
+        setTimeout(() => {
+            tooltipOverlay.style.display = 'none';
+        }, 3000); // Hide after 3 seconds
     }
+
+    // Initiate Stripe checkout
+    async function initiateCheckout(amount) {
+        try {
+            const response = await fetch('https://your-backend-domain.com/create-checkout-session', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    amount: Math.floor(amount * 100), // Convert to cents
+                    description: 'VocabSwipe Donation',
+                    statement_descriptor: 'VOCABSWIPE.COM' // Matches Stripe public details
+                })
+            });
+            const session = await response.json();
+            if (session.error) {
+                throw new Error(session.error);
+            }
+            const result = await stripe.redirectToCheckout({ sessionId: session.id });
+            if (result.error) {
+                throw new Error(result.error.message);
+            }
+        } catch (error) {
+            console.error('Checkout error:', error.message);
+            showTooltip('An error occurred during payment. Please try again.');
+        }
+    }
+
+    // Close tooltip
+    const tooltipClose = document.querySelector('.tooltip-close');
+    tooltipClose.addEventListener('click', () => {
+        document.querySelector('.tooltip-overlay').style.display = 'none';
+    });
 });

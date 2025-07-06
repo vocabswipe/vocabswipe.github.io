@@ -34,7 +34,7 @@ body[data-theme="dark"] {
     width: 100%;
     max-width: 350px;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Center controls */
     align-items: center;
     margin-bottom: 16px;
 }
@@ -79,7 +79,7 @@ body[data-theme="dark"] .back-btn:hover {
 .controls {
     display: flex;
     gap: 10px;
-    justify-content: center;
+    justify-content: center; /* Center icons */
     align-items: center;
 }
 
@@ -553,7 +553,7 @@ body[data-theme="dark"] .donation-text {
     margin-bottom: 16px;
 }
 
-.donate-amount, .donate-submit, .share-btn {
+.donate-amount, .donate-submit {
     padding: 10px 20px;
     background: #00008B;
     color: #ffffff;
@@ -566,32 +566,29 @@ body[data-theme="dark"] .donation-text {
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.donate-amount:hover, .donate-submit:hover, .share-btn:hover {
+.donate-amount:hover, .donate-submit:hover {
     background: #0000CD;
     transform: scale(1.05);
 }
 
 body[data-theme="dark"] .donate-amount,
-body[data-theme="dark"] .donate-submit,
-body[data-theme="dark"] .share-btn {
+body[data-theme="dark"] .donate-submit {
     background: #FFD700;
     color: #1f2937;
 }
 
 body[data-theme="dark"] .donate-amount:hover,
-body[data-theme="dark"] .donate-submit:hover,
-body[data-theme="dark"] .share-btn:hover {
+body[data-theme="dark"] .donate-submit:hover {
     background: #FFC107;
 }
 
 .donate-amount.selected {
-    background: #00008B;
-    color: #ffffff;
+    background: #0000CD;
+    transform: scale(1.05);
 }
 
 body[data-theme="dark"] .donate-amount.selected {
-    background: #FFD700;
-    color: #1f2937;
+    background: #FFC107;
 }
 
 #custom-amount {
@@ -602,6 +599,7 @@ body[data-theme="dark"] .donate-amount.selected {
     border-radius: 6px;
     width: 150px;
     text-align: center;
+    margin-bottom: 12px;
 }
 
 body[data-theme="dark"] #custom-amount {
@@ -695,136 +693,6 @@ body[data-theme="dark"] .buy-btn:hover {
     background: #FFC107;
 }
 
-/* PromptPay QR Code and Transaction Form */
-.qr-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 16px 0;
-}
-
-.qr-container img {
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-}
-
-body[data-theme="dark"] .qr-container img {
-    border: 1px solid #4b5563;
-}
-
-.qr-instructions {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    color: #374151;
-    text-align: center;
-    margin-top: 8px;
-}
-
-body[data-theme="dark"] .qr-instructions {
-    color: #d1d5db;
-}
-
-.tagthai-instructions {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    color: #374151;
-    text-align: center;
-    margin: 12px 0;
-}
-
-body[data-theme="dark"] .tagthai-instructions {
-    color: #d1d5db;
-}
-
-.tagthai-instructions a {
-    color: #00008B;
-    text-decoration: underline;
-}
-
-body[data-theme="dark"] .tagthai-instructions a {
-    color: #FFD700;
-}
-
-.transaction-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin: 16px 0;
-}
-
-#transaction-id {
-    padding: 10px;
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    border: 1px solid #e5e7eb;
-    border-radius: 6px;
-    width: 100%;
-    max-width: 250px;
-}
-
-body[data-theme="dark"] #transaction-id {
-    border: 1px solid #4b5563;
-    background: #374151;
-    color: #e5e7eb;
-}
-
-.submit-transaction {
-    padding: 10px 20px;
-    background: #00008B;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.submit-transaction:hover {
-    background: #0000CD;
-    transform: scale(1.05);
-}
-
-body[data-theme="dark"] .submit-transaction {
-    background: #FFD700;
-    color: #1f2937;
-}
-
-body[data-theme="dark"] .submit-transaction:hover {
-    background: #FFC107;
-}
-
-.back-to-home {
-    display: inline-block;
-    margin-top: 16px;
-    padding: 10px 20px;
-    background: #00008B;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.back-to-home:hover {
-    background: #0000CD;
-    transform: scale(1.05);
-}
-
-body[data-theme="dark"] .back-to-home {
-    background: #FFD700;
-    color: #1f2937;
-}
-
-body[data-theme="dark"] .back-to-home:hover {
-    background: #FFC107;
-}
-
 @media (max-width: 414px) {
     .container {
         padding: 12px;
@@ -842,6 +710,10 @@ body[data-theme="dark"] .back-to-home:hover {
     .info-icon {
         width: 19.2px; /* 24px * 0.8 */
         height: 19.2px;
+    }
+
+    .controls {
+        gap: 8px; /* Reduced for mobile */
     }
 
     .website-name {
@@ -920,39 +792,17 @@ body[data-theme="dark"] .back-to-home:hover {
         font-size: 14px;
     }
 
-    .donate-amount, .donate-submit, .buy-btn, .share-btn, .submit-transaction, .back-to-home {
+    .donate-amount, .donate-submit, .buy-btn {
         padding: 8px 16px;
         font-size: 14px;
     }
 
-    .controls {
-        gap: 8px;
-    }
-
-    #custom-amount, #transaction-id {
+    #custom-amount {
         width: 120px;
         font-size: 14px;
     }
 
     .product h3 {
         font-size: 16px;
-    }
-
-    .back-btn {
-        padding: 8px;
-    }
-
-    .back-icon {
-        width: 24px;
-        height: 24px;
-    }
-
-    .qr-container img {
-        width: 150px;
-        height: 150px;
-    }
-
-    .qr-instructions, .tagthai-instructions {
-        font-size: 13px;
     }
 }
