@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initiate Stripe checkout
     async function initiateCheckout(amount) {
         try {
-            const response = await fetch('https://your-backend-domain.com/create-checkout-session', {
+            const response = await fetch('https://vocabswipe-github-kek03uwtd-vocabswipes-projects.vercel.app/api/create-checkout-session', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
