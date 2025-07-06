@@ -26,14 +26,11 @@
         </div>
         <div class="donation-container">
             <div class="donation-options">
-                <button class="donate-amount" data-amount="1" data-price-id="price_1Rhp42A8e2sIvZ3yU5FVHYJq">$1</button>
-                <button class="donate-amount" data-amount="3" data-price-id="price_1Rhp4XA8e2sIvZ3yOlYnOUtF">$3</button>
-                <button class="donate-amount" data-amount="5" data-price-id="price_1Rhp4vA8e2sIvZ3yzfwWzj9o">$5</button>
-                <button class="donate-amount" data-amount="10" data-price-id="price_1Rhp5JA8e2sIvZ3y41hPszWg">$10</button>
-                <label for="custom-amount" class="visually-hidden">Custom Donation Amount in USD (minimum $1)</label>
-                <input type="number" id="custom-amount" placeholder="Custom ($1 min)" min="1" step="0.01" oninput="this.value = Math.max(1, parseFloat(this.value) || 1)">
+                <button class="donate-amount" data-price-id="price_1Rhp42A8e2sIvZ3yU5FVHYJq">$1</button>
+                <button class="donate-amount" data-price-id="price_1Rhp4XA8e2sIvZ3yOlYnOUtF">$3</button>
+                <button class="donate-amount" data-price-id="price_1Rhp4vA8e2sIvZ3yzfwWzj9o">$5</button>
+                <button class="donate-amount" data-price-id="price_1Rhp5JA8e2sIvZ3y41hPszWg">$10</button>
             </div>
-            <button class="donate-submit">Donate</button>
             <div class="tooltip-overlay" style="display: none;">
                 <div class="tooltip-message">
                     <p id="tooltip-text" aria-live="assertive"></p>
