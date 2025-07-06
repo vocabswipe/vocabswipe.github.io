@@ -1,44 +1,39 @@
 const express = require('express');
-const Stripe = require('stripe');
-const cors = require('cors');
-
+const stripe = require('stripe')('sk_test_51RhLFoA8e2sIvZ3yP31f26C4S5ZjKZunYV80hlh9nTqU5ZZHrAdYHCQYIf3rfYzFfmjnDX7o16y80qgBOeTky9BV00hBmHTqCV');
 const app = express();
-const stripe = Stripe('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'); // Replace with your LIVE Stripe secret key
 
-app.use(cors());
+app.use(express.static('public'));
 app.use(express.json());
 
-app.post('/create-checkout-session', async (req, res) => {
-    const { amount, description, statement_descriptor } = req.body;
+const YOUR_DOMAIN = 'http://localhost:4242'; // Replace with your actual domain in production
 
+app.post('/create-checkout-session', async (req, res) => {
     try {
+        const { priceId } = req.body;
+
+        if (!priceId) {
+            return res.status(400).json({ error: 'Price ID is required' });
+        }
+
         const session = await stripe.checkout.sessions.create({
-            payment_method_types: ['card'],
-            line_items: [{
-                price_data: {
-                    currency: 'usd',
-                    product_data: {
-                        name: description || 'VocabSwipe Donation',
-                    },
-                    unit_amount: amount, // In cents
+            payment_method_types: ['promptpay'], // Enable PromptPay
+            line_items: [
+                {
+                    price: priceId, // e.g., price_1RhtKSA8e2sIvZ3yik7L7cWT
+                    quantity: 1,
                 },
-                quantity: 1,
-            }],
+            ],
+            currency: 'thb', // Set currency to Thai Baht
             mode: 'payment',
-            success_url: 'https://vocabswipe.com/thank-you',
-            cancel_url: 'https://vocabswipe.com/donate',
-            payment_intent_data: {
-                statement_descriptor: statement_descriptor || 'VOCABSWIPE.COM', // Matches Stripe public details
-            },
+            success_url: `${YOUR_DOMAIN}/thank-you.html`,
+            cancel_url: `${YOUR_DOMAIN}/donate.html`,
         });
+
         res.json({ id: session.id });
     } catch (error) {
         console.error('Error creating checkout session:', error.message);
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ error: 'Failed to create checkout session' });
     }
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+app.listen(4242, () => console.log('Server running on port 4242'));
