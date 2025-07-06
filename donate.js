@@ -23,21 +23,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Stripe integration
-    // Note: Use a test key for testing (replace with pk_test_... if needed)
-    const stripe = Stripe('pk_live_51RhLFoA8e2sIvZ3yITfyhk5jbD5vL4i58NmhWK9IZGOo5BkPFyS182JE5GZfG4rKttc04MOHsiLdVUHegVrXyW8I00Q5Qh75Me');
+    const stripe = Stripe('pk_test_51RhLFoA8e2sIvZ3yITfyhk5jbD5vL4i58NmhWK9IZGOo5BkPFyS182JE5GZfG4rKttc04MOHsiLdVUHegVrXyW8I00Q5Qh75Me'); // Use test key for testing
     const donateButton = document.querySelector('.donate-amount');
 
     // Handle donation button
-    donateButton.addEventListener('click', () => {
+    donateButton.addEventListener('click', async () => {
         const priceId = donateButton.getAttribute('data-price-id');
         highlightAmount(donateButton);
-        initiateCheckout([{ price: priceId, quantity: 1 }]);
+        await initiateCheckout(priceId);
     });
 
-    // Highlight selected amount (optional since there's only one button)
+    // Highlight selected amount
     function highlightAmount(selectedBtn) {
         selectedBtn.classList.add('selected');
-        // Remove highlight after a short delay for visual feedback
         setTimeout(() => selectedBtn.classList.remove('selected'), 1000);
     }
 
@@ -52,19 +50,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
     }
 
-    // Initiate Stripe checkout
-    async function initiateCheckout(lineItems) {
+    // Initiate checkout by calling server endpoint
+    async function initiateCheckout(priceId) {
         try {
             if (!navigator.onLine) {
                 throw new Error('You appear to be offline. Please check your internet connection.');
             }
-            const result = await stripe.redirectToCheckout({
-                lineItems: lineItems,
-                mode: 'payment',
-                successUrl: `${window.location.origin}/thank-you.html`,
-                cancelUrl: `${window.location.origin}/donate.html`,
-                paymentMethodTypes: ['card', 'promptpay'] // Explicitly include PromptPay
+
+            // Call server to create checkout session
+            const response = await fetch('/create-checkout-session', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ priceId }),
             });
+
+            if (!response.ok) {
+                throw new Error('Failed to create checkout session. Please try again.');
+            }
+
+            const { sessionId } = await response.json();
+            const result = await stripe.redirectToCheckout({ sessionId });
+
             if (result.error) {
                 throw new Error(result.error.message);
             }
