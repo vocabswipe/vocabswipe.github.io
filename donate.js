@@ -103,7 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 mode: 'payment',
                 successUrl: `${window.location.origin}/thank-you.html`,
                 cancelUrl: `${window.location.origin}/donate.html`,
-                paymentMethodTypes: ['promptpay'], // Explicitly restrict to PromptPay
             });
             if (result.error) {
                 throw new Error(result.error.message);
