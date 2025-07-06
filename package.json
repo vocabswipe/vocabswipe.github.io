@@ -1,6 +1,7 @@
 {
     "name": "vocabswipe-backend",
     "version": "1.0.0",
+    "type": "module",
     "dependencies": {
         "stripe": "^16.12.0"
     },
