@@ -693,6 +693,81 @@ body[data-theme="dark"] .buy-btn:hover {
     background: #FFC107;
 }
 
+/* Footer Styles */
+footer {
+    width: 100%;
+    max-width: 350px;
+    margin-top: 16px;
+    text-align: center;
+}
+
+footer p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #00008B;
+    line-height: 1.4;
+}
+
+body[data-theme="dark"] footer p {
+    color: #FFD700;
+}
+
+footer p a {
+    color: #00008B;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+body[data-theme="dark"] footer p a {
+    color: #FFD700;
+}
+
+footer p a:hover {
+    color: #0000CD;
+}
+
+body[data-theme="dark"] footer p a:hover {
+    color: #FFC107;
+}
+
+/* Policy List Styles */
+.policy-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+}
+
+.policy-list li {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #374151;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+body[data-theme="dark"] .policy-list li {
+    color: #d1d5db;
+}
+
+.policy-list li a {
+    color: #00008B;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+body[data-theme="dark"] .policy-list li a {
+    color: #FFD700;
+}
+
+.policy-list li a:hover {
+    color: #0000CD;
+}
+
+body[data-theme="dark"] .policy-list li a:hover {
+    color: #FFC107;
+}
+
 @media (max-width: 414px) {
     .container {
         padding: 12px;
@@ -804,5 +879,13 @@ body[data-theme="dark"] .buy-btn:hover {
 
     .product h3 {
         font-size: 16px;
+    }
+
+    footer p {
+        font-size: 13px;
+    }
+
+    .policy-list li {
+        font-size: 14px;
     }
 }
