@@ -23,20 +23,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Stripe integration
-    const stripe = Stripe('pk_test_51RhLFoA8e2sIvZ3yITfyhk5jbD5vL4i58NmhWK9IZGOo5BkPFyS182JE5GZfG4rKttc04MOHsiLdVUHegVrXyW8I00Q5Qh75Me'); // Use test key for testing
+    const stripe = Stripe('pk_live_51RhLFoA8e2sIvZ3yITfyhk5jbD5vL4i58NmhWK9IZGOo5BkPFyS182JE5GZfG4rKttc04MOHsiLdVUHegVrXyW8I00Q5Qh75Me');
     const donateButton = document.querySelector('.donate-amount');
 
     // Handle donation button
-    donateButton.addEventListener('click', async () => {
+    donateButton.addEventListener('click', () => {
         const priceId = donateButton.getAttribute('data-price-id');
         highlightAmount(donateButton);
-        await initiateCheckout(priceId);
+        initiateCheckout(priceId);
     });
 
     // Highlight selected amount
     function highlightAmount(selectedBtn) {
         selectedBtn.classList.add('selected');
-        setTimeout(() => selectedBtn.classList.remove('selected'), 1000);
+        setTimeout(() => selectedBtn.classList.remove('selected'), 1000); // Remove highlight after 1s
     }
 
     // Show tooltip for error messages
@@ -50,38 +50,42 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
     }
 
-    // Initiate checkout by calling server endpoint
+    // Initiate Stripe checkout
     async function initiateCheckout(priceId) {
         try {
             if (!navigator.onLine) {
                 throw new Error('You appear to be offline. Please check your internet connection.');
             }
 
-            // Call server to create checkout session
+            // Make a POST request to the server to create a Checkout session
             const response = await fetch('/create-checkout-session', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ priceId }),
+                body: JSON.stringify({
+                    priceId: priceId,
+                }),
             });
 
             if (!response.ok) {
                 throw new Error('Failed to create checkout session. Please try again.');
             }
 
-            const { sessionId } = await response.json();
-            const result = await stripe.redirectToCheckout({ sessionId });
+            const session = await response.json();
+            const result = await stripe.redirectToCheckout({
+                sessionId: session.id,
+            });
 
             if (result.error) {
                 throw new Error(result.error.message);
             }
         } catch (error) {
             console.error('Checkout error:', error.message);
-            const message = error.message.includes('client-only integration is not enabled')
-                ? 'Payment setup error: Please contact support@vocabswipe.com.'
-                : error.message.includes('network') || error.message.includes('offline')
+            const message = error.message.includes('network') || error.message.includes('offline')
                 ? 'Network error: Please check your internet connection and try again.'
+                : error.message.includes('client-only integration')
+                ? 'Payment setup error: Please contact support@vocabswipe.com.'
                 : 'An error occurred during payment: ' + error.message;
             showTooltip(message);
         }
