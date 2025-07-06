@@ -25,36 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Stripe integration
     const stripe = Stripe('pk_live_51RhLFoA8e2sIvZ3yITfyhk5jbD5vL4i58NmhWK9IZGOo5BkPFyS182JE5GZfG4rKttc04MOHsiLdVUHegVrXyW8I00Q5Qh75Me');
     const donateButtons = document.querySelectorAll('.donate-amount');
-    const customAmountInput = document.querySelector('#custom-amount');
-    const donateSubmit = document.querySelector('.donate-submit');
 
-    // Handle preset donation buttons
+    // Handle donation buttons
     donateButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             const priceId = btn.getAttribute('data-price-id');
             highlightAmount(btn);
             initiateCheckout([{ price: priceId, quantity: 1 }]);
         });
-    });
-
-    // Handle custom donation
-    donateSubmit.addEventListener('click', () => {
-        const customAmount = parseFloat(customAmountInput.value);
-        if (isNaN(customAmount) || customAmount < 1) {
-            showTooltip('Please enter a donation of at least $1.');
-            return;
-        }
-        donateButtons.forEach(btn => btn.classList.remove('selected'));
-        initiateCheckout([{
-            price_data: {
-                currency: 'usd',
-                product_data: {
-                    name: 'VocabSwipe Donation',
-                },
-                unit_amount: Math.floor(customAmount * 100), // Convert to cents
-            },
-            quantity: 1,
-        }]);
     });
 
     // Highlight selected amount
