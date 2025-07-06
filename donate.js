@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({
                     amount: Math.floor(amount * 100), // Convert to cents
                     description: 'VocabSwipe Donation',
-                    statement_descriptor: 'VOCABSWIPE.COM' // Matches Stripe public details
+                    statement_descriptor: 'VOCABSWIPE.COM'
                 })
             });
             const session = await response.json();
