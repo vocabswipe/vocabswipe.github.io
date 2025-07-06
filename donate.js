@@ -31,13 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update donation impact text
     function updateImpactText(amount) {
-        const impact = amount >= 10 ? 'supports premium features for 50 users!' :
-                       amount >= 5 ? 'maintains servers for 100 users/month!' :
-                       amount >= 3 ? 'provides audio for 200 sentences!' :
-                       amount >= 1 ? 'keeps VocabSwipe free for 10 users!' : '';
+        const impact = amount >= 350 ? 'supports premium features for 50 users!' :
+                       amount >= 175 ? 'maintains servers for 100 users/month!' :
+                       amount >= 100 ? 'provides audio for 200 sentences!' :
+                       amount >= 10 ? 'keeps VocabSwipe free for 10 users!' : '';
         donationImpact.textContent = amount > 0 ? 
-            `Your $${amount.toFixed(2)} donation ${impact}` :
-            `Example: $5 ${impact}`;
+            `Your ฿${amount.toFixed(2)} donation ${impact}` :
+            `Example: ฿175 ${impact}`;
     }
 
     // Initialize impact text
@@ -57,19 +57,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle custom donation
     donateSubmit.addEventListener('click', () => {
         const customAmount = parseFloat(customAmountInput.value);
-        if (isNaN(customAmount) || customAmount < 1) {
-            showTooltip('Please enter a valid donation amount (minimum $1).');
+        if (isNaN(customAmount) || customAmount < 10) {
+            showTooltip('Please enter a valid donation amount (minimum ฿10).');
             return;
         }
         updateImpactText(customAmount);
         donateButtons.forEach(btn => btn.classList.remove('selected'));
         initiateCheckout([{
             price_data: {
-                currency: 'usd',
+                currency: 'thb',
                 product_data: {
                     name: 'VocabSwipe Donation',
                 },
-                unit_amount: Math.floor(customAmount * 100), // Convert to cents
+                unit_amount: Math.floor(customAmount * 100), // Convert to satang
             },
             quantity: 1,
         }]);
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tooltipOverlay.style.display = 'flex';
         setTimeout(() => {
             tooltipOverlay.style.display = 'none';
-        }, 5000); // 5 seconds for better readability
+        }, 5000);
     }
 
     // Initiate Stripe checkout
@@ -103,13 +103,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 mode: 'payment',
                 successUrl: `${window.location.origin}/thank-you.html`,
                 cancelUrl: `${window.location.origin}/donate.html`,
+                paymentMethodTypes: ['promptpay'], // Explicitly restrict to PromptPay
             });
             if (result.error) {
                 throw new Error(result.error.message);
             }
         } catch (error) {
             console.error('Checkout error:', error.message);
-            const message = error.message.includes('network') || error.message.includes('offline')
+            const message = error.message.includes('client-only integration is not enabled')
+                ? 'Payment setup error: Please contact support at support@vocabswipe.com.'
+                : error.message.includes('network') || error.message.includes('offline')
                 ? 'Network error: Please check your internet connection and try again.'
                 : 'An error occurred during payment: ' + error.message;
             showTooltip(message);
