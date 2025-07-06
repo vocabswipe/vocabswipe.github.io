@@ -27,15 +27,15 @@
         </div>
         <div class="donation-container">
             <p class="donation-text">Scan the QR code with your Thai bank app (e.g., K PLUS, SCB) to complete your donation.</p>
-            <p class="donation-text">Choose an amount or enter a custom donation (THB):</p>
+            <p class="donation-text">Choose an amount or enter a custom donation (minimum ฿10):</p>
             <div class="donation-options">
-                <button class="donate-amount" data-amount="1" data-price-id="price_1Rht9WA8e2sIvZ3yT6qsz8NT">฿1</button>
+                <button class="donate-amount" data-amount="10" data-price-id="price_1RhtKSA8e2sIvZ3yik7L7cWT">฿10</button>
                 <button class="donate-amount" data-amount="35" data-price-id="price_1Rht4lA8e2sIvZ3y5YXscvHA">฿35</button>
                 <button class="donate-amount" data-amount="100" data-price-id="price_1Rht5WA8e2sIvZ3ycTFGBPus">฿100</button>
                 <button class="donate-amount" data-amount="175" data-price-id="price_1Rht62A8e2sIvZ3yPO490bNk">฿175</button>
                 <button class="donate-amount" data-amount="350" data-price-id="price_1Rht6MA8e2sIvZ3yCZvLPO0r">฿350</button>
-                <label for="custom-amount" class="visually-hidden">Custom Donation Amount in THB</label>
-                <input type="number" id="custom-amount" placeholder="Custom Amount (฿)" min="1" step="0.01" oninput="this.value = Math.max(1, parseFloat(this.value) || 1)">
+                <label for="custom-amount" class="visually-hidden">Custom Donation Amount in THB (minimum ฿10)</label>
+                <input type="number" id="custom-amount" placeholder="Custom Amount (฿, minimum 10)" min="10" step="0.01" oninput="this.value = Math.max(10, parseFloat(this.value) || 10)">
             </div>
             <button class="donate-submit">Donate with PromptPay</button>
             <p class="donation-impact" id="donation-impact" aria-live="polite">Example: ฿175 helps maintain servers for 100 users/month!</p>
