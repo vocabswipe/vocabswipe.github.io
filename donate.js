@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateIcons(newTheme);
     });
 
-    // Update icons based on theme
+    // Update icons
     function updateIcons(theme) {
         const themeIcon = document.querySelector('.theme-icon');
         const backIcon = document.querySelector('.back-icon');
@@ -24,18 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Stripe integration
     const stripe = Stripe('pk_live_51RhLFoA8e2sIvZ3yITfyhk5jbD5vL4i58NmhWK9IZGOo5BkPFyS182JE5GZfG4rKttc04MOHsiLdVUHegVrXyW8I00Q5Qh75Me');
-    const donateButton = document.querySelector('.donate-amount');
+    const donateButtons = document.querySelectorAll('.donate-amount');
 
-    // Handle donation button click
-    donateButton.addEventListener('click', () => {
-        const priceId = donateButton.getAttribute('data-price-id');
-        highlightAmount(donateButton);
-        initiateCheckout([{ price: priceId, quantity: 1 }]);
+    // Handle donation buttons
+    donateButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const priceId = btn.getAttribute('data-price-id');
+            highlightAmount(btn);
+            initiateCheckout([{ price: priceId, quantity: 1 }]);
+        });
     });
 
-    // Highlight selected amount (retained for potential future expansion)
+    // Highlight selected amount
     function highlightAmount(selectedBtn) {
-        const donateButtons = document.querySelectorAll('.donate-amount');
         donateButtons.forEach(btn => btn.classList.remove('selected'));
         selectedBtn.classList.add('selected');
     }
