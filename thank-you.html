@@ -30,7 +30,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'bright';
             document.body.setAttribute('data-theme', savedTheme);
-            updateIcons(savedTheme); // From utils.js
+            updateIcons(savedTheme);
             const themeToggle = document.querySelector('.theme-toggle');
             themeToggle.addEventListener('click', () => {
                 const currentTheme = document.body.getAttribute('data-theme');
