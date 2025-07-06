@@ -5,13 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You - VocabSwipe</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body data-theme="bright">
     <div class="container">
-        <h1 class="website-name">Thank You!</h1>
-        <p class="slogan-main">Your donation helps keep VocabSwipe free for all!</p>
-        <a href="/index.html">Back to VocabSwipe</a>
+        <div class="header">
+            <div class="controls">
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <img src="theme-bright.svg" class="theme-icon" width="28" height="28" alt="Toggle theme">
+                </button>
+                <a href="/index.html" class="back-btn" aria-label="Back to VocabSwipe">
+                    <img src="back-bright.svg" class="back-icon" width="28" height="28" alt="Back">
+                </a>
+            </div>
+        </div>
+        <div class="title-container">
+            <h1 class="website-name">Thank You!</h1>
+            <p class="slogan-main">Your donation helps keep VocabSwipe free for all!</p>
+            <p class="slogan-sub">Contact <a href="mailto:support@vocabswipe.com">support@vocabswipe.com</a> for any questions.</p>
+        </div>
     </div>
     <script src="utils.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'bright';
+            document.body.setAttribute('data-theme', savedTheme);
+            updateIcons(savedTheme); // From utils.js
+            const themeToggle = document.querySelector('.theme-toggle');
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.body.getAttribute('data-theme');
+                const newTheme = currentTheme === 'bright' ? 'dark' : 'bright';
+                document.body.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcons(newTheme);
+            });
+        });
+    </script>
 </body>
 </html>
