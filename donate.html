@@ -22,15 +22,18 @@
         </div>
         <div class="title-container">
             <h1 class="website-name">Support VocabSwipe</h1>
-            <p class="slogan-main">Help keep VocabSwipe free for all!</p>
-            <p class="slogan-sub">Your donation powers 100,000+ sentences for learners in Thailand.</p>
+            <p class="slogan">Donate to keep VocabSwipe free!</p>
         </div>
         <div class="donation-container">
-            <p class="donation-text">Scan the QR code with your Thai bank app (e.g., K PLUS, SCB) to donate ฿10.</p>
             <div class="donation-options">
-                <button class="donate-amount" data-amount="10" data-price-id="price_1RhtKSA8e2sIvZ3yik7L7cWT">Donate 10 THB with PromptPay</button>
+                <button class="donate-amount" data-amount="1" data-price-id="price_1Rhp42A8e2sIvZ3yU5FVHYJq">$1</button>
+                <button class="donate-amount" data-amount="3" data-price-id="price_1Rhp4XA8e2sIvZ3yOlYnOUtF">$3</button>
+                <button class="donate-amount" data-amount="5" data-price-id="price_1Rhp4vA8e2sIvZ3yzfwWzj9o">$5</button>
+                <button class="donate-amount" data-amount="10" data-price-id="price_1Rhp5JA8e2sIvZ3y41hPszWg">$10</button>
+                <label for="custom-amount" class="visually-hidden">Custom Donation Amount in USD (minimum $1)</label>
+                <input type="number" id="custom-amount" placeholder="Custom ($1 min)" min="1" step="0.01" oninput="this.value = Math.max(1, parseFloat(this.value) || 1)">
             </div>
-            <p class="donation-impact" id="donation-impact" aria-live="polite">Your ฿10 donation keeps VocabSwipe free for 10 users!</p>
+            <button class="donate-submit">Donate</button>
             <div class="tooltip-overlay" style="display: none;">
                 <div class="tooltip-message">
                     <p id="tooltip-text" aria-live="assertive"></p>
@@ -39,9 +42,9 @@
             </div>
         </div>
         <footer>
-            <p>Contact us at <a href="mailto:support@vocabswipe.com">support@vocabswipe.com</a> | 
-               <a href="/privacy.html">Privacy Policy</a> | 
-               <a href="/terms.html">Terms of Service</a></p>
+            <p><a href="mailto:support@vocabswipe.com">Contact</a> | 
+               <a href="/privacy.html">Privacy</a> | 
+               <a href="/terms.html">Terms</a></p>
         </footer>
     </div>
     <script src="donate.js"></script>
