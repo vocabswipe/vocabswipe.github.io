@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Stripe integration
-    const stripe = Stripe('pk_live_51RhLFoA8e2sIvZ3yITfyhk5jbD5vL4i58NmhWK9IZGOo5BkPFyS182JE5GZfG4rKttc04MOHsiLdVUHegVrXyW8I00Q5Qh75Me'); // Replace with your LIVE Stripe public key
+    const stripe = Stripe('pk_live_51RhLFoA8e2sIvZ3yITfyhk5jbD5vL4i58NmhWK9IZGOo5BkPFyS182JE5GZfG4rKttc04MOHsiLdVUHegVrXyW8I00Q5Qh75Me');
     const donateButtons = document.querySelectorAll('.donate-amount');
     const customAmountInput = document.querySelector('#custom-amount');
     const donateSubmit = document.querySelector('.donate-submit');
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initiate Stripe checkout
     async function initiateCheckout(amount) {
         try {
-            const response = await fetch('https://vocabswipe-github-6fx9wtk6z-vocabswipes-projects.vercel.app/api/create-checkout-session', {
+            const response = await fetch('https://vocabswipe-github-2ugdm7cdh-vocabswipes-projects.vercel.app/api/create-checkout-session', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
