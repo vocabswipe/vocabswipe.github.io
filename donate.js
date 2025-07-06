@@ -24,62 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Stripe integration
     const stripe = Stripe('pk_live_51RhLFoA8e2sIvZ3yITfyhk5jbD5vL4i58NmhWK9IZGOo5BkPFyS182JE5GZfG4rKttc04MOHsiLdVUHegVrXyW8I00Q5Qh75Me');
-    const donateButtons = document.querySelectorAll('.donate-amount');
-    const customAmountInput = document.querySelector('#custom-amount');
-    const donateSubmit = document.querySelector('.donate-submit');
-    const donationImpact = document.querySelector('#donation-impact');
+    const donateButton = document.querySelector('.donate-amount');
 
-    // Update donation impact text
-    function updateImpactText(amount) {
-        const impact = amount >= 350 ? 'supports premium features for 50 users!' :
-                       amount >= 175 ? 'maintains servers for 100 users/month!' :
-                       amount >= 100 ? 'provides audio for 200 sentences!' :
-                       amount >= 10 ? 'keeps VocabSwipe free for 10 users!' : '';
-        donationImpact.textContent = amount > 0 ? 
-            `Your ฿${amount.toFixed(2)} donation ${impact}` :
-            `Example: ฿175 ${impact}`;
-    }
-
-    // Initialize impact text
-    updateImpactText(0);
-
-    // Handle preset donation buttons
-    donateButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const amount = parseFloat(btn.getAttribute('data-amount'));
-            const priceId = btn.getAttribute('data-price-id');
-            updateImpactText(amount);
-            highlightAmount(btn);
-            initiateCheckout([{ price: priceId, quantity: 1 }]);
-        });
+    // Handle donation button
+    donateButton.addEventListener('click', () => {
+        const priceId = donateButton.getAttribute('data-price-id');
+        initiateCheckout([{ price: priceId, quantity: 1 }]);
     });
-
-    // Handle custom donation
-    donateSubmit.addEventListener('click', () => {
-        const customAmount = parseFloat(customAmountInput.value);
-        if (isNaN(customAmount) || customAmount < 10) {
-            showTooltip('Please enter a valid donation amount (minimum ฿10).');
-            return;
-        }
-        updateImpactText(customAmount);
-        donateButtons.forEach(btn => btn.classList.remove('selected'));
-        initiateCheckout([{
-            price_data: {
-                currency: 'thb',
-                product_data: {
-                    name: 'VocabSwipe Donation',
-                },
-                unit_amount: Math.floor(customAmount * 100), // Convert to satang
-            },
-            quantity: 1,
-        }]);
-    });
-
-    // Highlight selected amount
-    function highlightAmount(selectedBtn) {
-        donateButtons.forEach(btn => btn.classList.remove('selected'));
-        selectedBtn.classList.add('selected');
-    }
 
     // Show tooltip for error messages
     function showTooltip(message) {
