@@ -39,9 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
     donateButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             const amount = parseFloat(btn.getAttribute('data-amount'));
+            const priceId = btn.getAttribute('data-price-id');
             updateImpactText(amount);
             highlightAmount(btn);
-            initiateCheckout(amount);
+            initiateCheckout([{ price: priceId, quantity: 1 }]);
         });
     });
 
@@ -51,7 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (customAmount >= 1) {
             updateImpactText(customAmount);
             donateButtons.forEach(btn => btn.classList.remove('selected'));
-            initiateCheckout(customAmount);
+            initiateCheckout([{
+                price_data: {
+                    currency: 'usd',
+                    product_data: {
+                        name: 'VocabSwipe Donation',
+                    },
+                    unit_amount: Math.floor(customAmount * 100), // Convert to cents
+                },
+                quantity: 1,
+            }]);
         } else {
             showTooltip('Please enter a valid donation amount (minimum $1).');
         }
@@ -75,22 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Initiate Stripe checkout
-    async function initiateCheckout(amount) {
+    async function initiateCheckout(lineItems) {
         try {
-            const response = await fetch('https://vocabswipe-github-ewcgkjzju-vocabswipes-projects.vercel.app/api/create-checkout-session', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    amount: Math.floor(amount * 100), // Convert to cents
-                    description: 'VocabSwipe Donation',
-                    statement_descriptor: 'VOCABSWIPE.COM'
-                })
+            const result = await stripe.redirectToCheckout({
+                lineItems: lineItems,
+                mode: 'payment',
+                successUrl: 'https://vocabswipe.com/thank-you',
+                cancelUrl: 'https://vocabswipe.com/donate',
             });
-            const session = await response.json();
-            if (session.error) {
-                throw new Error(session.error);
-            }
-            const result = await stripe.redirectToCheckout({ sessionId: session.id });
             if (result.error) {
                 throw new Error(result.error.message);
             }
