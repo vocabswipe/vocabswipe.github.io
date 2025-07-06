@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Privacy Policy - VocabSwipe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body data-theme="bright">
+    <div class="container">
+        <div class="header">
+            <div class="controls">
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <img src="theme-bright.svg" class="theme-icon" width="28" height="28" alt="Toggle theme">
+                </button>
+                <a href="/index.html" class="back-btn" aria-label="Back to VocabSwipe">
+                    <img src="back-bright.svg" class="back-icon" width="28" height="28" alt="Back">
+                </a>
+            </div>
+        </div>
+        <div class="title-container">
+            <h1 class="website-name">Privacy Policy</h1>
+            <p class="slogan-main">Your privacy matters to us</p>
+        </div>
+        <div class="donation-container">
+            <p class="donation-text">
+                At VocabSwipe, we are committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and safeguard your information when you use our website.
+            </p>
+            <p class="donation-text">
+                <strong>Information We Collect:</strong> We may collect non-personal information such as browser type, device information, and usage data to improve our services. We do not collect personally identifiable information unless you provide it voluntarily (e.g., through donations or contact forms).
+            </p>
+            <p class="donation-text">
+                <strong>How We Use Your Information:</strong> Any information collected is used to enhance your experience, process donations, and communicate with you. We do not share your information with third parties except as required for payment processing (via Stripe) or as required by law.
+            </p>
+            <p class="donation-text">
+                <strong>Cookies:</strong> We may use cookies to store your theme preference and improve site functionality. You can disable cookies in your browser settings, but this may affect your experience.
+            </p>
+            <p class="donation-text">
+                <strong>Contact Us:</strong> If you have any questions about our Privacy Policy, please contact us at <a href="mailto:support@vocabswipe.com">support@vocabswipe.com</a>.
+            </p>
+            <a href="/index.html" class="donate-submit">Return to VocabSwipe</a>
+        </div>
+        <footer>
+            <p>Contact us at <a href="mailto:support@vocabswipe.com">support@vocabswipe.com</a> | 
+               <a href="/privacy.html">Privacy Policy</a> | 
+               <a href="/terms.html">Terms of Service</a></p>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply saved theme
+            const savedTheme = localStorage.getItem('theme') || 'bright';
+            document.body.setAttribute('data-theme', savedTheme);
+            updateIcons(savedTheme);
+
+            // Theme toggle
+            const themeToggle = document.querySelector('.theme-toggle');
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.body.getAttribute('data-theme');
+                const newTheme = currentTheme === 'bright' ? 'dark' : 'bright';
+                document.body.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcons(newTheme);
+            });
+
+            // Update icons
+            function updateIcons(theme) {
+                const themeIcon = document.querySelector('.theme-icon');
+                const backIcon = document.querySelector('.back-icon');
+                themeIcon.src = theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
+                backIcon.src = theme === 'bright' ? 'back-bright.svg' : 'back-night.svg';
+            }
+        });
+    </script>
+</body>
+</html>
