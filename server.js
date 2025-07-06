@@ -1,39 +1,86 @@
-const express = require('express');
-const stripe = require('stripe')('sk_test_51RhLFoA8e2sIvZ3yP31f26C4S5ZjKZunYV80hlh9nTqU5ZZHrAdYHCQYIf3rfYzFfmjnDX7o16y80qgBOeTky9BV00hBmHTqCV');
-const app = express();
+document.addEventListener('DOMContentLoaded', () => {
+    // Apply saved theme
+    const savedTheme = localStorage.getItem('theme') || 'bright';
+    document.body.setAttribute('data-theme', savedTheme);
+    updateIcons(savedTheme);
 
-app.use(express.static('public'));
-app.use(express.json());
+    // Theme toggle
+    const themeToggle = document.querySelector('.theme-toggle');
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'bright' ? 'dark' : 'bright';
+        document.body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateIcons(newTheme);
+    });
 
-const YOUR_DOMAIN = 'http://localhost:4242'; // Replace with your actual domain in production
-
-app.post('/create-checkout-session', async (req, res) => {
-    try {
-        const { priceId } = req.body;
-
-        if (!priceId) {
-            return res.status(400).json({ error: 'Price ID is required' });
-        }
-
-        const session = await stripe.checkout.sessions.create({
-            payment_method_types: ['promptpay'], // Enable PromptPay
-            line_items: [
-                {
-                    price: priceId, // e.g., price_1RhtKSA8e2sIvZ3yik7L7cWT
-                    quantity: 1,
-                },
-            ],
-            currency: 'thb', // Set currency to Thai Baht
-            mode: 'payment',
-            success_url: `${YOUR_DOMAIN}/thank-you.html`,
-            cancel_url: `${YOUR_DOMAIN}/donate.html`,
-        });
-
-        res.json({ id: session.id });
-    } catch (error) {
-        console.error('Error creating checkout session:', error.message);
-        res.status(500).json({ error: 'Failed to create checkout session' });
+    // Update icons
+    function updateIcons(theme) {
+        const themeIcon = document.querySelector('.theme-icon');
+        const backIcon = document.querySelector('.back-icon');
+        themeIcon.src = theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
+        backIcon.src = theme === 'bright' ? 'back-bright.svg' : 'back-night.svg';
     }
-});
 
-app.listen(4242, () => console.log('Server running on port 4242'));
+    // Stripe integration
+    const stripe = Stripe('pk_live_51RhLFoA8e2sIvZ3yITfyhk5jbD5vL4i58NmhWK9IZGOo5BkPFyS182JE5GZfG4rKttc04MOHsiLdVUHegVrXyW8I00Q5Qh75Me'); // Replace with pk_test_... for testing
+    const donateButton = document.querySelector('.donate-amount');
+
+    // Handle donation button
+    donateButton.addEventListener('click', () => {
+        const priceId = donateButton.getAttribute('data-price-id');
+        highlightAmount(donateButton);
+        initiateCheckout([{ price: priceId, quantity: 1 }]);
+    });
+
+    // Highlight selected amount
+    function highlightAmount(selectedBtn) {
+        selectedBtn.classList.add('selected');
+    }
+
+    // Show tooltip for error messages
+    function showTooltip(message) {
+        const tooltipOverlay = document.querySelector('.tooltip-overlay');
+        const tooltipText = document.querySelector('#tooltip-text');
+        tooltipText.textContent = message;
+        tooltipOverlay.style.display = 'flex';
+        setTimeout(() => {
+            tooltipOverlay.style.display = 'none';
+        }, 3000);
+    }
+
+    // Initiate Stripe checkout
+    async function initiateCheckout(lineItems) {
+        try {
+            if (!navigator.onLine) {
+                throw new Error('You appear to be offline. Please check your internet connection.');
+            }
+            const result = await stripe.redirectToCheckout({
+                lineItems: lineItems,
+                mode: 'payment',
+                paymentMethodTypes: ['promptpay'], // Restrict to PromptPay
+                successUrl: `${window.location.origin}/thank-you.html`,
+                cancelUrl: `${window.location.origin}/donate.html`,
+            });
+            if (result.error) {
+                throw new Error(result.error.message);
+            }
+        } catch (error) {
+            console.error('Checkout error:', error.message);
+            const message = error.message.includes('client-only integration is not enabled')
+                ? 'Payment setup error: Please contact support@vocabswipe.com.'
+                : error.message.includes('network') || error.message.includes('offline')
+                ? 'Network error: Please check your internet connection and try again.'
+                : error.message.includes('promptpay')
+                ? 'PromptPay is currently unavailable. Please contact support@vocabswipe.com.'
+                : 'An error occurred during payment: ' + error.message;
+            showTooltip(message);
+        }
+    }
+
+    // Close tooltip
+    const tooltipClose = document.querySelector('.tooltip-close');
+    tooltipClose.addEventListener('click', () => {
+        document.querySelector('.tooltip-overlay').style.display = 'none';
+    });
+});
