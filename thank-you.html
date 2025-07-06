@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Thank You - VocabSwipe</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,16 +21,27 @@
         </div>
         <div class="title-container">
             <h1 class="website-name">Thank You!</h1>
-            <p class="slogan-main">Your donation helps keep VocabSwipe free for all!</p>
-            <p class="slogan-sub">Contact <a href="mailto:support@vocabswipe.com">support@vocabswipe.com</a> for any questions.</p>
+            <p class="slogan-main">Your support keeps VocabSwipe free!</p>
+            <p class="slogan-sub">We appreciate your donation and contribution to helping learners worldwide.</p>
         </div>
+        <div class="donation-container">
+            <p class="donation-text">Your donation has been successfully processed. Thank you for supporting VocabSwipe!</p>
+            <a href="/index.html" class="donate-submit">Return to VocabSwipe</a>
+        </div>
+        <footer>
+            <p>Contact us at <a href="mailto:support@vocabswipe.com">support@vocabswipe.com</a> | 
+               <a href="/privacy.html">Privacy Policy</a> | 
+               <a href="/terms.html">Terms of Service</a></p>
+        </footer>
     </div>
-    <script src="utils.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Apply saved theme
             const savedTheme = localStorage.getItem('theme') || 'bright';
             document.body.setAttribute('data-theme', savedTheme);
             updateIcons(savedTheme);
+
+            // Theme toggle
             const themeToggle = document.querySelector('.theme-toggle');
             themeToggle.addEventListener('click', () => {
                 const currentTheme = document.body.getAttribute('data-theme');
@@ -39,6 +50,14 @@
                 localStorage.setItem('theme', newTheme);
                 updateIcons(newTheme);
             });
+
+            // Update icons
+            function updateIcons(theme) {
+                const themeIcon = document.querySelector('.theme-icon');
+                const backIcon = document.querySelector('.back-icon');
+                themeIcon.src = theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
+                backIcon.src = theme === 'bright' ? 'back-bright.svg' : 'back-night.svg';
+            }
         });
     </script>
 </body>
