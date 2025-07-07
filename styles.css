@@ -39,7 +39,7 @@ body[data-theme="dark"] {
     margin-bottom: 16px;
 }
 
-.theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .store-btn, .back-btn {
+.theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .back-btn {
     background: none;
     border: none;
     cursor: pointer;
@@ -48,7 +48,7 @@ body[data-theme="dark"] {
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.theme-toggle:hover, .audio-btn:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover, .store-btn:hover, .back-btn:hover {
+.theme-toggle:hover, .audio-btn:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover, .back-btn:hover {
     background: rgba(0, 0, 0, 0.15);
     transform: scale(1.1);
 }
@@ -58,12 +58,11 @@ body[data-theme="dark"] .audio-btn:hover,
 body[data-theme="dark"] .info-btn:hover,
 body[data-theme="dark"] .shuffle-btn:hover,
 body[data-theme="dark"] .reset-btn:hover,
-body[data-theme="dark"] .store-btn:hover,
 body[data-theme="dark"] .back-btn:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
-.theme-icon, .audio-icon, .shuffle-icon, .reset-icon, .store-icon, .back-icon {
+.theme-icon, .audio-icon, .shuffle-icon, .reset-icon, .back-icon {
     width: 28px;
     height: 28px;
     filter: none;
@@ -77,7 +76,7 @@ body[data-theme="dark"] .back-btn:hover {
 
 .controls {
     display: flex;
-    gap: 12px; /* Increased from 10px to 12px for better spacing with 6 icons */
+    gap: 16px; /* Adjusted from 12px to 16px for 5 icons */
     justify-content: center;
     align-items: center;
 }
@@ -524,79 +523,6 @@ body[data-theme="dark"] .tooltip-close:hover {
     background: #FFC107;
 }
 
-/* Store Container */
-.store-container {
-    width: 100%;
-    max-width: 350px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 16px;
-}
-
-.product {
-    background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 16px;
-    text-align: center;
-}
-
-body[data-theme="dark"] .product {
-    background: linear-gradient(145deg, #374151 0%, #4b5563 100%);
-    border: 1px solid #4b5563;
-}
-
-.product h3 {
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: #00008B;
-    margin-bottom: 8px;
-}
-
-body[data-theme="dark"] .product h3 {
-    color: #FFD700;
-}
-
-.product p {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    color: #374151;
-    margin-bottom: 12px;
-}
-
-body[data-theme="dark"] .product p {
-    color: #d1d5db;
-}
-
-.buy-btn {
-    padding: 10px 20px;
-    background: #00008B;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.buy-btn:hover {
-    background: #0000CD;
-    transform: scale(1.05);
-}
-
-body[data-theme="dark"] .buy-btn {
-    background: #FFD700;
-    color: #1f2937;
-}
-
-body[data-theme="dark"] .buy-btn:hover {
-    background: #FFC107;
-}
-
 /* Footer Styles */
 footer {
     width: 100%;
@@ -677,11 +603,11 @@ body[data-theme="dark"] .policy-list li a:hover {
         padding: 12px;
     }
 
-    .theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .store-btn, .back-btn {
+    .theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .back-btn {
         padding: 8px;
     }
 
-    .theme-icon, .audio-icon, .shuffle-icon, .reset-icon, .store-icon, .back-icon {
+    .theme-icon, .audio-icon, .shuffle-icon, .reset-icon, .back-icon {
         width: 24px;
         height: 24px;
     }
@@ -692,7 +618,7 @@ body[data-theme="dark"] .policy-list li a:hover {
     }
 
     .controls {
-        gap: 10px; /* Adjusted to 10px for mobile with 6 icons */
+        gap: 12px; /* Adjusted from 10px to 12px for 5 icons on mobile */
     }
 
     .website-name {
@@ -752,23 +678,6 @@ body[data-theme="dark"] .policy-list li a:hover {
     .tooltip-message img[src*="information"] {
         width: 19.2px;
         height: 19.2px;
-    }
-
-    .store-container {
-        padding: 12px;
-    }
-
-    .product p {
-        font-size: 14px;
-    }
-
-    .buy-btn {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-
-    .product h3 {
-        font-size: 16px;
     }
 
     footer p {
