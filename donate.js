@@ -45,13 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             const amount = btn.getAttribute('data-amount');
             highlightAmount(btn);
-            fetchQRCode(amount);
+            displayQRCode(amount);
         });
         btn.addEventListener('touchend', (e) => {
             e.preventDefault();
             const amount = btn.getAttribute('data-amount');
             highlightAmount(btn);
-            fetchQRCode(amount);
+            displayQRCode(amount);
         });
     });
 
@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedBtn.classList.add('selected');
     }
 
-    // Fetch PromptPay QR code (placeholder implementation)
-    async function fetchQRCode(amount) {
+    // Display QR code for selected amount
+    function displayQRCode(amount) {
         try {
             if (!navigator.onLine) {
                 throw new Error('You appear to be offline. Please check your internet connection.');
@@ -70,28 +70,27 @@ document.addEventListener('DOMContentLoaded', () => {
             loadingOverlay.style.display = 'flex';
             qrCodeContainer.style.display = 'none';
 
-            // Placeholder: Replace with actual PromptPay QR code generation API
-            // Example: Call a backend endpoint like '/api/generate-promptpay-qr' with the amount
-            // For demonstration, using a static QR code image or mock URL
-            const qrCodeUrl = `/data/qr-codes/promptpay-${amount}thb.png`; // Adjust path as needed
-            // Simulate API delay
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            // Set QR code image path
+            const qrCodeUrl = `qr_code/${amount}_THB_qr_code.jpg`;
 
-            // Verify QR code exists (optional, depends on your setup)
-            const response = await fetch(qrCodeUrl, { method: 'HEAD' });
-            if (!response.ok) {
-                throw new Error('Failed to load QR code for the selected amount.');
-            }
-
-            qrAmount.textContent = amount;
-            qrCodeImage.src = qrCodeUrl;
-            qrCodeContainer.style.display = 'block';
-            loadingOverlay.style.display = 'none';
+            // Preload image to check if it exists
+            const img = new Image();
+            img.src = qrCodeUrl;
+            img.onload = () => {
+                qrAmount.textContent = amount;
+                qrCodeImage.src = qrCodeUrl;
+                qrCodeContainer.style.display = 'block';
+                loadingOverlay.style.display = 'none';
+                console.log(`Displayed QR code for ${amount} THB: ${qrCodeUrl}`);
+            };
+            img.onerror = () => {
+                throw new Error(`QR code image not found for ${amount} THB.`);
+            };
         } catch (error) {
-            console.error('QR code fetch error:', error.message);
+            console.error('QR code display error:', error.message);
             const message = error.message.includes('offline')
                 ? 'Network error: Please check your internet connection and try again.'
-                : 'An error occurred while loading the QR code: ' + error.message;
+                : `Error loading QR code: ${error.message}`;
             showTooltip(message);
             loadingOverlay.style.display = 'none';
         }
