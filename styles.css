@@ -169,7 +169,7 @@ body[data-theme="dark"] .slogan-sub {
 }
 
 body[data-theme="dark"] #card-slider {
-    background: #4b5563;
+    background: #6b7280;
 }
 
 body[data-theme="dark"] #card-slider::-webkit-slider-thumb,
@@ -569,8 +569,8 @@ body[data-theme="dark"] .tooltip-message img.donation-qr {
     bottom: 16px;
     right: 16px;
     padding: 10px 20px;
-    background: #00008B;
-    color: #ffffff;
+    background: rgba(200, 200, 200, 0.3);
+    color: #00008B;
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -580,21 +580,22 @@ body[data-theme="dark"] .tooltip-message img.donation-qr {
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.tooltip-close:hover, .tooltip-retry:hover, .retry-button:hover {
-    background: #0000CD;
-    transform: scale(1.05);
-}
-
 body[data-theme="dark"] .tooltip-close,
 body[data-theme="dark"] .tooltip-retry,
 body[data-theme="dark"] .retry-button {
-    background: #FFD700;
+    background: rgba(200, 200, 200, 0.3);
+    color: #FFD700;
+}
+
+.tooltip-close:hover, .tooltip-retry:hover, .retry-button:hover {
+    background: rgba(150, 150, 150, 0.4);
+    transform: scale(1.05);
 }
 
 body[data-theme="dark"] .tooltip-close:hover,
 body[data-theme="dark"] .tooltip-retry:hover,
 body[data-theme="dark"] .retry-button:hover {
-    background: #FFC107;
+    background: rgba(150, 150, 150, 0.4);
 }
 
 .error-message {
