@@ -67,9 +67,13 @@ document.addEventListener('DOMContentLoaded', () => {
     resetBtn.addEventListener('click', resetCards);
 
     const donateBtn = document.querySelector('.donate-btn');
-    donateBtn.addEventListener('click', () => toggleTooltip('donate'));
+    donateBtn.addEventListener('click', () => {
+        console.log('Donation button clicked');
+        toggleTooltip('donate');
+    });
     donateBtn.addEventListener('touchend', (e) => {
         e.preventDefault();
+        console.log('Donation button tapped');
         toggleTooltip('donate');
     });
 
@@ -144,7 +148,8 @@ function toggleAudio() {
 }
 
 function toggleTooltip(type) {
-    const overlaythis is a test = document.querySelector('.tooltip-overlay');
+    console.log(`toggleTooltip called with type: ${type}`);
+    const overlay = document.querySelector('.tooltip-overlay');
     const tooltipText = document.querySelector('#tooltip-text');
     const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     const theme = document.body.getAttribute('data-theme');
@@ -154,6 +159,7 @@ function toggleTooltip(type) {
     if (isTooltipVisible && type === null) {
         isTooltipVisible = false;
         overlay.style.display = 'none';
+        console.log('Tooltip hidden');
         return;
     }
 
@@ -161,6 +167,7 @@ function toggleTooltip(type) {
     overlay.style.display = 'flex';
 
     if (type === 'info') {
+        console.log('Displaying info tooltip');
         tooltipText.innerHTML = isMobile 
             ? `
                 <strong>How to Use VocabSwipe:</strong><br><br>
@@ -193,11 +200,27 @@ function toggleTooltip(type) {
                 - <strong>Note:</strong> Press arrow keys slowly to avoid rate limits.
             `;
     } else if (type === 'donate') {
-        tooltipText.innerHTML = `
-            <strong>Donate to Supanut Suntikoon, VocabSwipe Developer</strong><br><br>
-            Your support helps maintain and improve this free vocabulary learning tool for everyone.<br><br>
-            <img src="qr_code/VocabSwipe_qr_code.png" class="donation-qr" alt="PromptPay QR Code" width="200" height="200">
-        `;
+        console.log('Displaying donation tooltip');
+        const qrCodeUrl = 'qr_code/VocabSwipe_qr_code.png';
+        // Preload QR code to check if it exists
+        const img = new Image();
+        img.src = qrCodeUrl;
+        img.onload = () => {
+            tooltipText.innerHTML = `
+                <strong>Donate to Supanut Suntikoon, VocabSwipe Developer</strong><br><br>
+                Your support helps maintain and improve this free vocabulary learning tool for everyone.<br><br>
+                <img src="${qrCodeUrl}" class="donation-qr" alt="PromptPay QR Code" width="200" height="200">
+            `;
+            console.log(`QR code loaded successfully: ${qrCodeUrl}`);
+        };
+        img.onerror = () => {
+            console.error(`Failed to load QR code: ${qrCodeUrl}`);
+            tooltipText.innerHTML = `
+                <strong>Donate to Supanut Suntikoon, VocabSwipe Developer</strong><br><br>
+                Your support helps maintain and improve this free vocabulary learning tool for everyone.<br><br>
+                <p style="color: #ff0000;">Error: Unable to load PromptPay QR code. Please try again later or contact support.</p>
+            `;
+        };
     }
 }
 
@@ -209,8 +232,8 @@ function shuffleArray(array) {
     return array;
 }
 
-function loadWords() {
-    console.log('Attempting to fetch vocab3000_database.yaml');
+function loadWords(retries = 3, delay = 500) {
+    console.log(`Attempting to fetch vocab3000_database.yaml (Attempt ${4 - retries})`);
     fetch('data/vocab3000_database.yaml')
         .then(response => {
             if (!response.ok) {
@@ -260,11 +283,18 @@ function loadWords() {
             }
         })
         .catch(error => {
-            console.error('Error loading words:', error.message);
-            alert(`Failed to load vocabulary data: ${error.message}. Please check if 'data/vocab3000_database.yaml' exists and is valid.`);
-            document.querySelector('.flashcard-container').innerHTML = '<p>Error loading flashcards. Please try again later.</p>';
-            document.querySelector('.loading-overlay').style.display = 'none';
-            isContentLoaded = false;
+            console.error(`Error loading words: ${error.message}`);
+            if (retries > 1) {
+                console.log(`Retrying fetch in ${delay}ms... (${retries - 1} retries left)`);
+                setTimeout(() => loadWords(retries - 1, delay), delay);
+            } else {
+                console.error('All retries failed. Displaying error to user.');
+                const errorMessage = `Failed to load vocabulary data: ${error.message}. Please check your internet connection or try again later.`;
+                toggleTooltip('error', errorMessage);
+                document.querySelector('.flashcard-container').innerHTML = '<p class="error-message">Error loading flashcards. Please try again later.</p>';
+                document.querySelector('.loading-overlay').style.display = 'none';
+                isContentLoaded = false;
+            }
         });
 }
 
@@ -680,7 +710,7 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
         audio.addEventListener('error', () => {
             console.error(`Failed to load audio: ${audioPath}`);
             audioCache.delete(audioFile);
-        }, { once: true });
+        }, { once: true);
     }
 
     currentAudio = audio;
@@ -746,7 +776,7 @@ function displayWord() {
     console.log(`Displaying word at index ${currentWordIndex}, back card index ${currentBackCardIndex}`);
     if (!words[currentWordIndex]) {
         console.warn('No word available to display at index:', currentWordIndex);
-        document.querySelector('.flashcard-container').innerHTML = '<p>No word data available.</p>';
+        document.querySelector('.flashcard-container').innerHTML = '<p class="error-message">No word data available.</p>';
         document.querySelector('.loading-overlay').style.display = 'none';
         return;
     }
@@ -771,7 +801,7 @@ function displayWord() {
     const back = document.querySelector('.back');
     if (!front || !back) {
         console.error('Front or back element not found');
-        document.querySelector('.flashcard-container').innerHTML = '<p>Error rendering card. Please try again.</p>';
+        document.querySelector('.flashcard-container').innerHTML = '<p class="error-message">Error rendering card. Please try again.</p>';
         return;
     }
 
