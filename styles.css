@@ -76,10 +76,10 @@ body[data-theme="dark"] .donate-btn:hover {
 
 .controls {
     display: flex;
-    gap: 12px; /* Adjusted for 6 icons, ensures balanced spacing */
+    gap: 12px;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Prevent overflow on smaller screens */
+    flex-wrap: wrap;
 }
 
 .title-container {
@@ -457,6 +457,25 @@ body[data-theme="dark"] .stats-text span {
     color: #FFD700;
 }
 
+.rate-limit-warning {
+    width: 100%;
+    max-width: 350px;
+    margin-top: 12px;
+    text-align: center;
+}
+
+.rate-limit-warning p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ff0000;
+    line-height: 1.4;
+}
+
+body[data-theme="dark"] .rate-limit-warning p {
+    color: #ff5555;
+}
+
 .tooltip-overlay {
     position: fixed;
     top: 0;
@@ -524,7 +543,6 @@ body[data-theme="dark"] .tooltip-close:hover {
     background: #FFC107;
 }
 
-/* Footer Styles */
 footer {
     width: 100%;
     max-width: 350px;
@@ -562,7 +580,6 @@ body[data-theme="dark"] footer p a:hover {
     color: #FFC107;
 }
 
-/* Policy List Styles */
 .policy-list {
     list-style: none;
     padding: 0;
@@ -619,7 +636,7 @@ body[data-theme="dark"] .policy-list li a:hover {
     }
 
     .controls {
-        gap: 10px; /* Adjusted for 6 icons on mobile */
+        gap: 10px;
         flex-wrap: wrap;
     }
 
@@ -657,6 +674,10 @@ body[data-theme="dark"] .policy-list li a:hover {
     }
 
     .stats-text {
+        font-size: 13px;
+    }
+
+    .rate-limit-warning p {
         font-size: 13px;
     }
 
