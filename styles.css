@@ -567,6 +567,19 @@ body[data-theme="dark"] .tooltip-close:hover {
     background: #FFC107;
 }
 
+.error-message {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ff0000;
+    text-align: center;
+    padding: 20px;
+}
+
+body[data-theme="dark"] .error-message {
+    color: #ff5555;
+}
+
 footer {
     width: 100%;
     max-width: 350px;
@@ -730,6 +743,11 @@ body[data-theme="dark"] .policy-list li a:hover {
     .tooltip-message img[src*="information"]:not(.donation-qr) {
         width: 19.2px;
         height: 19.2px;
+    }
+
+    .error-message {
+        font-size: 14px;
+        padding: 16px;
     }
 
     footer p {
