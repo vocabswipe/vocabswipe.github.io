@@ -51,15 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetBtn = document.querySelector('.reset-btn');
     resetBtn.addEventListener('click', resetCards);
 
-    const donateBtn = document.querySelector('.donate-btn');
-    donateBtn.addEventListener('click', () => {
-        window.location.href = '/donate';
-    });
-    donateBtn.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        window.location.href = '/donate';
-    });
-
     const storeBtn = document.querySelector('.store-btn');
     storeBtn.addEventListener('click', () => {
         window.location.href = '/store';
@@ -115,7 +106,6 @@ function updateIcons(theme) {
     const infoIcon = document.querySelector('.info-icon');
     const shuffleIcon = document.querySelector('.shuffle-icon');
     const resetIcon = document.querySelector('.reset-icon');
-    const donateIcon = document.querySelector('.donate-icon');
     const storeIcon = document.querySelector('.store-icon');
     const loadingIcon = document.querySelector('.loading-icon');
 
@@ -124,7 +114,6 @@ function updateIcons(theme) {
     infoIcon.src = theme === 'bright' ? 'information-bright.svg' : 'information-night.svg';
     shuffleIcon.src = theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg';
     resetIcon.src = theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg';
-    donateIcon.src = theme === 'bright' ? 'heart-bright.svg' : 'heart-night.svg';
     storeIcon.src = theme === 'bright' ? 'bag-bright.svg' : 'bag-night.svg';
     if (loadingIcon) {
         loadingIcon.src = theme === 'bright' ? 'loading-bright.gif' : 'loading-night.gif';
@@ -154,7 +143,6 @@ function toggleTooltip() {
             ? `
                 <strong>How to Use VocabSwipe:</strong><br><br>
                 - <strong>Theme Toggle (<img src="${theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg'}" width="24" height="24" ${iconStyle} alt="Theme Toggle">):</strong> Tap to switch between bright and dark themes.<br>
-                - <strong>Donate (<img src="${theme === 'bright' ? 'heart-bright.svg' : 'heart-night.svg'}" width="24" height="24" ${iconStyle} alt="Donate">):</strong> Tap to support VocabSwipe and keep it free.<br>
                 - <strong>Audio Toggle (<img src="${theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg')}" width="24" height="24" ${iconStyle} alt="Audio Toggle">):</strong> Tap to enable or disable audio.<br>
                 - <strong>Info (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="19.2" height="19.2" ${iconStyle} alt="Info">):</strong> Tap to show or hide this help message.<br>
                 - <strong>Shuffle (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="24" height="24" ${iconStyle} alt="Shuffle">):</strong> Tap to randomize the word order.<br>
@@ -169,7 +157,6 @@ function toggleTooltip() {
             : `
                 <strong>How to Use VocabSwipe:</strong><br><br>
                 - <strong>Theme Toggle (<img src="${theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg'}" width="24" height="24" ${iconStyle} alt="Theme Toggle">):</strong> Click to switch between bright and dark themes.<br>
-                - <strong>Donate (<img src="${theme === 'bright' ? 'heart-bright.svg' : 'heart-night.svg'}" width="24" height="24" ${iconStyle} alt="Donate">):</strong> Click to support VocabSwipe and keep it free.<br>
                 - <strong>Audio Toggle (<img src="${theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg')}" width="24" height="24" ${iconStyle} alt="Audio Toggle">):</strong> Click to enable or disable audio.<br>
                 - <strong>Info (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="19.2" height="19.2" ${iconStyle} alt="Info">):</strong> Click to show or hide this help message.<br>
                 - <strong>Shuffle (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="24" height="24" ${iconStyle} alt="Shuffle">):</strong> Click to randomize the word order.<br>
@@ -209,13 +196,12 @@ function loadWords() {
                 if (!Array.isArray(words) || words.length === 0) {
                     throw new Error('No valid words found in vocab3000_database.yaml');
                 }
-                // Shuffle back_cards for each word
                 words.forEach(word => {
                     if (word.back_cards) {
                         word.back_cards = shuffleArray(word.back_cards);
                     }
                 });
-                originalWords = JSON.parse(JSON.stringify(words)); // Deep copy
+                originalWords = JSON.parse(JSON.stringify(words));
                 words.sort((a, b) => (a.rank || 0) - (b.rank || 0));
                 maxFreq = words.find(word => word.rank === 1)?.freq || 1;
                 minFreq = Math.min(...words.map(word => word.freq || 1).filter(freq => freq > 0)) || 1;
@@ -225,15 +211,12 @@ function loadWords() {
                 document.querySelector('#total-sentences').textContent = totalSentences;
                 isContentLoaded = true;
                 displayWord();
-                // Animate stats container
                 const statsContainer = document.querySelector('.stats-container');
                 statsContainer.style.transition = 'opacity 1s ease-in';
                 statsContainer.style.opacity = '1';
-                // Hide loading overlay
                 const loadingOverlay = document.querySelector('.loading-overlay');
                 loadingOverlay.style.display = 'none';
                 preloadAudio();
-                // Trigger initial audio playback
                 if (audioUnlocked && audioEnabled && words[currentWordIndex]?.word_audio_file) {
                     playAudioWithRetry(words[currentWordIndex].word_audio_file, 3, 500);
                 }
@@ -527,7 +510,6 @@ function preloadAudio() {
     const nextWord = words[nextIndex];
     const prevWord = words[prevIndex];
 
-    // Collect audio files to preload (current, next, previous cards)
     const audioFiles = [
         currentWord?.word_audio_file,
         ...(currentWord?.back_cards?.map(card => card.audio_file) || []),
@@ -537,7 +519,6 @@ function preloadAudio() {
         ...(prevWord?.back_cards?.map(card => card.audio_file) || [])
     ].filter(file => file && !audioCache.has(file));
 
-    // Clear cache if it exceeds MAX_CACHE_SIZE
     while (audioCache.size + audioFiles.length > MAX_CACHE_SIZE && audioCache.size > 0) {
         const oldestKey = audioCache.keys().next().value;
         const audio = audioCache.get(oldestKey);
@@ -585,7 +566,6 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
         return;
     }
 
-    // Debounce to prevent rapid calls
     const now = Date.now();
     if (now - lastAudioPlayTime < AUDIO_DEBOUNCE_MS) {
         console.log(`Debouncing audio playback for ${audioFile}`);
@@ -640,7 +620,6 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
         }
     }
 
-    // Wait for canplaythrough before attempting playback
     if (audio.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
         attemptPlay();
     } else {
