@@ -23,6 +23,15 @@ let swipeWindowStart = 0;
 const MAX_SWIPES_PER_WINDOW = 10;
 const SWIPE_WINDOW_MS = 5000;
 
+// Fallback word if YAML loading fails
+const fallbackWord = {
+    word: "example",
+    rank: 1,
+    freq: 1000,
+    word_audio_file: null,
+    back_cards: [{ definition_en: "A representative form or pattern", example_en: "This is an example sentence.", audio_file: null }]
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM fully loaded, initializing VocabSwipe');
     const savedTheme = localStorage.getItem('theme') || 'bright';
@@ -54,9 +63,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const infoBtn = document.querySelector('.info-btn');
-    infoBtn.addEventListener('click', () => toggleTooltip('info'));
+    infoBtn.addEventListener('click', () => {
+        console.log('Info button clicked');
+        toggleTooltip('info');
+    });
     infoBtn.addEventListener('touchend', (e) => {
         e.preventDefault();
+        console.log('Info button tapped');
         toggleTooltip('info');
     });
 
@@ -67,7 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
     resetBtn.addEventListener('click', resetCards);
 
     const donateBtn = document.querySelector('.donate-btn');
-    donateBtn.addEventListener('click', () => {
+    donateBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         console.log('Donation button clicked');
         toggleTooltip('donate');
     });
@@ -84,8 +98,22 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleTooltip(null);
     });
 
+    const tooltipRetry = document.querySelector('.tooltip-retry');
+    tooltipRetry.addEventListener('click', () => {
+        console.log('Retry button clicked');
+        toggleTooltip(null);
+        loadWords();
+    });
+    tooltipRetry.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        console.log('Retry button tapped');
+        toggleTooltip(null);
+        loadWords();
+    });
+
     const cardSlider = document.querySelector('#card-slider');
     cardSlider.addEventListener('input', () => {
+        if (!isContentLoaded) return;
         isSliding = true;
         currentWordIndex = parseInt(cardSlider.value) - 1;
         currentBackCardIndex = 0;
@@ -93,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         displayWord();
     });
     cardSlider.addEventListener('change', () => {
+        if (!isContentLoaded) return;
         isSliding = false;
         preloadAudio();
         if (audioUnlocked && audioEnabled) {
@@ -118,6 +147,7 @@ document.body.addEventListener('click', () => {
 }, { once: true });
 
 function updateIcons(theme) {
+    console.log(`Updating icons for theme: ${theme}`);
     const themeIcon = document.querySelector('.theme-icon');
     const audioIcon = document.querySelector('.audio-icon');
     const infoIcon = document.querySelector('.info-icon');
@@ -126,45 +156,54 @@ function updateIcons(theme) {
     const donateIcon = document.querySelector('.donate-icon');
     const loadingIcon = document.querySelector('.loading-icon');
 
-    themeIcon.src = theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
-    audioIcon.src = theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg');
-    infoIcon.src = theme === 'bright' ? 'information-bright.svg' : 'information-night.svg';
-    shuffleIcon.src = theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg';
-    resetIcon.src = theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg';
-    donateIcon.src = theme === 'bright' ? 'heart-bright.svg' : 'heart-night.svg';
-    if (loadingIcon) {
-        loadingIcon.src = theme === 'bright' ? 'loading-bright.gif' : 'loading-night.gif';
-    }
+    if (themeIcon) themeIcon.src = theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
+    if (audioIcon) audioIcon.src = theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg');
+    if (infoIcon) infoIcon.src = theme === 'bright' ? 'information-bright.svg' : 'information-night.svg';
+    if (shuffleIcon) shuffleIcon.src = theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg';
+    if (resetIcon) resetIcon.src = theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg';
+    if (donateIcon) donateIcon.src = theme === 'bright' ? 'heart-bright.svg' : 'heart-night.svg';
+    if (loadingIcon) loadingIcon.src = theme === 'bright' ? 'loading-bright.gif' : 'loading-night.gif';
 }
 
 function toggleAudio() {
     audioEnabled = !audioEnabled;
+    console.log(`Audio ${audioEnabled ? 'enabled' : 'disabled'}`);
     const audioIcon = document.querySelector('.audio-icon');
     const theme = document.body.getAttribute('data-theme');
-    audioIcon.src = audioEnabled 
-        ? (theme === 'bright' ? 'unmute-bright.svg' : 'unmute-night.svg')
-        : (theme === 'bright' ? 'mute-bright.svg' : 'mute-night.svg');
+    if (audioIcon) {
+        audioIcon.src = audioEnabled 
+            ? (theme === 'bright' ? 'unmute-bright.svg' : 'unmute-night.svg')
+            : (theme === 'bright' ? 'mute-bright.svg' : 'mute-night.svg');
+    }
     if (!audioEnabled) stopAudio();
 }
 
-function toggleTooltip(type) {
-    console.log(`toggleTooltip called with type: ${type}`);
+function toggleTooltip(type, errorMessage = '') {
+    console.log(`toggleTooltip called with type: ${type}, errorMessage: ${errorMessage}`);
     const overlay = document.querySelector('.tooltip-overlay');
     const tooltipText = document.querySelector('#tooltip-text');
+    const retryButton = document.querySelector('.tooltip-retry');
     const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     const theme = document.body.getAttribute('data-theme');
     const iconStyle = theme === 'bright' ? 
         'style="filter: none; fill: #00008B;"' : 'style="filter: none; fill: #FFD700;"';
 
+    if (!overlay || !tooltipText) {
+        console.error('Tooltip elements not found');
+        return;
+    }
+
     if (isTooltipVisible && type === null) {
         isTooltipVisible = false;
         overlay.style.display = 'none';
+        retryButton.style.display = 'none';
         console.log('Tooltip hidden');
         return;
     }
 
     isTooltipVisible = true;
     overlay.style.display = 'flex';
+    retryButton.style.display = type === 'error' ? 'block' : 'none';
 
     if (type === 'info') {
         console.log('Displaying info tooltip');
@@ -202,7 +241,6 @@ function toggleTooltip(type) {
     } else if (type === 'donate') {
         console.log('Displaying donation tooltip');
         const qrCodeUrl = 'qr_code/VocabSwipe_qr_code.png';
-        // Preload QR code to check if it exists
         const img = new Image();
         img.src = qrCodeUrl;
         img.onload = () => {
@@ -221,6 +259,13 @@ function toggleTooltip(type) {
                 <p style="color: #ff0000;">Error: Unable to load PromptPay QR code. Please try again later or contact support.</p>
             `;
         };
+    } else if (type === 'error') {
+        console.log('Displaying error tooltip');
+        tooltipText.innerHTML = `
+            <strong>Error Loading Vocabulary Data</strong><br><br>
+            ${errorMessage}<br><br>
+            <p>Please check your internet connection or try again.</p>
+        `;
     }
 }
 
@@ -232,18 +277,22 @@ function shuffleArray(array) {
     return array;
 }
 
-function loadWords(retries = 3, delay = 500) {
-    console.log(`Attempting to fetch vocab3000_database.yaml (Attempt ${4 - retries})`);
+function loadWords(retries = 5, delay = 1000) {
+    console.log(`Attempting to fetch vocab3000_database.yaml (Attempt ${6 - retries})`);
+    const loadingOverlay = document.querySelector('.loading-overlay');
+    const cardSlider = document.querySelector('#card-slider');
+    if (loadingOverlay) loadingOverlay.style.display = 'flex';
     fetch('data/vocab3000_database.yaml')
         .then(response => {
+            console.log(`Fetch response status: ${response.status}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}, URL: ${response.url}`);
             }
-            console.log('Successfully fetched vocab3000_database.yaml');
             return response.text();
         })
         .then(yamlText => {
             console.log('Parsing YAML data');
+            if (!yamlText) throw new Error('Empty YAML response');
             try {
                 words = jsyaml.load(yamlText) || [];
                 if (!Array.isArray(words) || words.length === 0) {
@@ -262,7 +311,10 @@ function loadWords(retries = 3, delay = 500) {
                 minFreq = Math.min(...words.map(word => word.freq || 1).filter(freq => freq > 0)) || 1;
                 totalSentences = words.reduce((sum, word) => sum + (word.back_cards?.length || 0), 0);
                 console.log(`Max frequency: ${maxFreq}, Min frequency: ${minFreq}, Total sentences: ${totalSentences}`);
-                document.querySelector('#card-slider').max = words.length;
+                if (cardSlider) {
+                    cardSlider.max = words.length;
+                    cardSlider.disabled = false;
+                }
                 document.querySelector('#total-words').textContent = words.length;
                 document.querySelector('#total-sentences').textContent = totalSentences;
                 isContentLoaded = true;
@@ -271,8 +323,7 @@ function loadWords(retries = 3, delay = 500) {
                 const statsContainer = document.querySelector('.stats-container');
                 statsContainer.style.transition = 'opacity 1s ease-in';
                 statsContainer.style.opacity = '1';
-                const loadingOverlay = document.querySelector('.loading-overlay');
-                loadingOverlay.style.display = 'none';
+                if (loadingOverlay) loadingOverlay.style.display = 'none';
                 preloadAudio();
                 if (audioUnlocked && audioEnabled && words[currentWordIndex]?.word_audio_file) {
                     console.log(`Playing initial audio: ${words[currentWordIndex].word_audio_file}`);
@@ -288,17 +339,30 @@ function loadWords(retries = 3, delay = 500) {
                 console.log(`Retrying fetch in ${delay}ms... (${retries - 1} retries left)`);
                 setTimeout(() => loadWords(retries - 1, delay), delay);
             } else {
-                console.error('All retries failed. Displaying error to user.');
-                const errorMessage = `Failed to load vocabulary data: ${error.message}. Please check your internet connection or try again later.`;
-                toggleTooltip('error', errorMessage);
-                document.querySelector('.flashcard-container').innerHTML = '<p class="error-message">Error loading flashcards. Please try again later.</p>';
-                document.querySelector('.loading-overlay').style.display = 'none';
-                isContentLoaded = false;
+                console.error('All retries failed. Using fallback word.');
+                words = [fallbackWord];
+                originalWords = [fallbackWord];
+                maxFreq = 1000;
+                minFreq = 1000;
+                totalSentences = 1;
+                if (cardSlider) {
+                    cardSlider.max = 1;
+                    cardSlider.disabled = false;
+                }
+                document.querySelector('#total-words').textContent = 1;
+                document.querySelector('#total-sentences').textContent = 1;
+                isContentLoaded = true;
+                displayWord();
+                const statsContainer = document.querySelector('.stats-container');
+                statsContainer.style.opacity = '1';
+                if (loadingOverlay) loadingOverlay.style.display = 'none';
+                toggleTooltip('error', `Failed to load vocabulary data: ${error.message}. Using a sample word.`);
             }
         });
 }
 
 function shuffleCards() {
+    if (!isContentLoaded) return;
     console.log('Shuffling cards');
     for (let i = words.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -318,6 +382,7 @@ function shuffleCards() {
 }
 
 function resetCards() {
+    if (!isContentLoaded) return;
     console.log('Resetting cards to original order');
     words = JSON.parse(JSON.stringify(originalWords)).sort((a, b) => (a.rank || 0) - (b.rank || 0));
     currentWordIndex = 0;
@@ -710,7 +775,7 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
         audio.addEventListener('error', () => {
             console.error(`Failed to load audio: ${audioPath}`);
             audioCache.delete(audioFile);
-        }, { once: true);
+        }, { once: true });
     }
 
     currentAudio = audio;
@@ -750,6 +815,7 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
 }
 
 function flipCard() {
+    if (!isContentLoaded) return;
     isFlipped = !isFlipped;
     const card = document.querySelector('.flashcard');
     if (!card) {
@@ -776,8 +842,17 @@ function displayWord() {
     console.log(`Displaying word at index ${currentWordIndex}, back card index ${currentBackCardIndex}`);
     if (!words[currentWordIndex]) {
         console.warn('No word available to display at index:', currentWordIndex);
-        document.querySelector('.flashcard-container').innerHTML = '<p class="error-message">No word data available.</p>';
-        document.querySelector('.loading-overlay').style.display = 'none';
+        document.querySelector('.flashcard-container').innerHTML = `
+            <p class="error-message">No word data available. Please try again.</p>
+            <button class="retry-button" aria-label="Retry loading">Retry</button>
+        `;
+        const retryButton = document.querySelector('.retry-button');
+        if (retryButton) {
+            retryButton.addEventListener('click', () => {
+                console.log('Flashcard retry button clicked');
+                loadWords();
+            });
+        }
         return;
     }
     const wordData = words[currentWordIndex] || {};
@@ -801,7 +876,17 @@ function displayWord() {
     const back = document.querySelector('.back');
     if (!front || !back) {
         console.error('Front or back element not found');
-        document.querySelector('.flashcard-container').innerHTML = '<p class="error-message">Error rendering card. Please try again.</p>';
+        document.querySelector('.flashcard-container').innerHTML = `
+            <p class="error-message">Error rendering card. Please try again.</p>
+            <button class="retry-button" aria-label="Retry loading">Retry</button>
+        `;
+        const retryButton = document.querySelector('.retry-button');
+        if (retryButton) {
+            retryButton.addEventListener('click', () => {
+                console.log('Flashcard retry button clicked');
+                loadWords();
+            });
+        }
         return;
     }
 
