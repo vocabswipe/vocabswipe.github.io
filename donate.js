@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Set QR code image path
             const qrCodeUrl = `qr_code/${amount}_THB_qr_code.jpg`;
-            
+
             // Preload image to check if it exists
             const img = new Image();
             img.src = qrCodeUrl;
