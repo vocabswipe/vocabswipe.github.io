@@ -15,12 +15,12 @@ let isTooltipVisible = false;
 let totalSentences = 0;
 let isContentLoaded = false;
 let lastAudioPlayTime = 0;
-const AUDIO_DEBOUNCE_MS = 500; // Increased to 500ms
+const AUDIO_DEBOUNCE_MS = 500;
 let lastSwipeTime = 0;
-const SWIPE_DEBOUNCE_MS = 300; // Debounce swipes and key presses
+const SWIPE_DEBOUNCE_MS = 300;
 let swipeCount = 0;
 let swipeWindowStart = 0;
-const MAX_SWIPES_PER_WINDOW = 10; // Max 10 swipes in 5 seconds
+const MAX_SWIPES_PER_WINDOW = 10;
 const SWIPE_WINDOW_MS = 5000;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -37,6 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', newTheme);
         updateIcons(newTheme);
     });
+    themeToggle.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        const currentTheme = document.body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'bright' ? 'dark' : 'bright';
+        document.body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateIcons(newTheme);
+    });
 
     const audioBtn = document.querySelector('.audio-btn');
     audioBtn.addEventListener('click', toggleAudio);
@@ -46,10 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const infoBtn = document.querySelector('.info-btn');
-    infoBtn.addEventListener('click', toggleTooltip);
+    infoBtn.addEventListener('click', () => toggleTooltip('info'));
     infoBtn.addEventListener('touchend', (e) => {
         e.preventDefault();
-        toggleTooltip();
+        toggleTooltip('info');
     });
 
     const shuffleBtn = document.querySelector('.shuffle-btn');
@@ -59,17 +67,17 @@ document.addEventListener('DOMContentLoaded', () => {
     resetBtn.addEventListener('click', resetCards);
 
     const donateBtn = document.querySelector('.donate-btn');
-    donateBtn.addEventListener('click', () => window.location.href = 'donate.html');
+    donateBtn.addEventListener('click', () => toggleTooltip('donate'));
     donateBtn.addEventListener('touchend', (e) => {
         e.preventDefault();
-        window.location.href = 'donate.html';
+        toggleTooltip('donate');
     });
 
     const tooltipClose = document.querySelector('.tooltip-close');
-    tooltipClose.addEventListener('click', toggleTooltip);
+    tooltipClose.addEventListener('click', () => toggleTooltip(null));
     tooltipClose.addEventListener('touchend', (e) => {
         e.preventDefault();
-        toggleTooltip();
+        toggleTooltip(null);
     });
 
     const cardSlider = document.querySelector('#card-slider');
@@ -135,15 +143,24 @@ function toggleAudio() {
     if (!audioEnabled) stopAudio();
 }
 
-function toggleTooltip() {
-    const overlay = document.querySelector('.tooltip-overlay');
+function toggleTooltip(type) {
+    const overlaythis is a test = document.querySelector('.tooltip-overlay');
     const tooltipText = document.querySelector('#tooltip-text');
-    isTooltipVisible = !isTooltipVisible;
+    const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     const theme = document.body.getAttribute('data-theme');
-    if (isTooltipVisible) {
-        const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        const iconStyle = theme === 'bright' ? 
-            'style="filter: none; fill: #00008B;"' : 'style="filter: none; fill: #FFD700;"';
+    const iconStyle = theme === 'bright' ? 
+        'style="filter: none; fill: #00008B;"' : 'style="filter: none; fill: #FFD700;"';
+
+    if (isTooltipVisible && type === null) {
+        isTooltipVisible = false;
+        overlay.style.display = 'none';
+        return;
+    }
+
+    isTooltipVisible = true;
+    overlay.style.display = 'flex';
+
+    if (type === 'info') {
         tooltipText.innerHTML = isMobile 
             ? `
                 <strong>How to Use VocabSwipe:</strong><br><br>
@@ -175,9 +192,12 @@ function toggleTooltip() {
                 - <strong>Slider:</strong> Jump to a specific word rank.<br>
                 - <strong>Note:</strong> Press arrow keys slowly to avoid rate limits.
             `;
-        overlay.style.display = 'flex';
-    } else {
-        overlay.style.display = 'none';
+    } else if (type === 'donate') {
+        tooltipText.innerHTML = `
+            <strong>Donate to Supanut Suntikoon, VocabSwipe Developer</strong><br><br>
+            Your support helps maintain and improve this free vocabulary learning tool for everyone.<br><br>
+            <img src="qr_code/VocabSwipe_qr_code.png" class="donation-qr" alt="PromptPay QR Code" width="200" height="200">
+        `;
     }
 }
 
@@ -586,7 +606,7 @@ function preloadAudio() {
     const currentWord = words[currentWordIndex];
     const audioFiles = [
         currentWord?.word_audio_file,
-        ...(currentWord?.back_cards?.slice(0, 1).map(card => card.audio_file) || []) // Load only first back card
+        ...(currentWord?.back_cards?.slice(0, 1).map(card => card.audio_file) || [])
     ].filter(file => file && !audioCache.has(file));
 
     while (audioCache.size + audioFiles.length > MAX_CACHE_SIZE && audioCache.size > 0) {
