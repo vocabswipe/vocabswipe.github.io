@@ -3,27 +3,7 @@ import os
 
 # Dictionary of words and ranks to replace
 replacements = {
-    377: "true",
-    765: "TV",
-    813: "September",
-    1003: "November",
-    1083: "October",
-    1139: "April",
-    1206: "Christian",
-    1246: "Christmas",
-    1248: "Monday",
-    1289: "British",
-    1356: "August",
-    1363: "European",
-    1520: "French",
-    1524: "December",
-    1531: "Wednesday",
-    1705: "Indian",
-    1712: "February",
-    1861: "false",
-    2411: "junior",
-    2448: "rose",
-    2633: "GOP"
+    1029: "July"
 }
 
 def replace_words_in_yaml(input_file, output_file):
