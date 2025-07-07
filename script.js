@@ -473,25 +473,25 @@ function setupKeyboardListeners() {
                     if (audioUnlocked && audioEnabled) {
                         const audioFile = words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || 
                                          words[currentWordIndex]?.word_audio_file;
-                        if (audioFile) playAudioWithRetry(audioFile, 3, 500);
-                    }
+                    if (audioFile) playAudioWithRetry(audioFile, 3, 500);
                 }
-                break;
-            case ' ':
-                glowCard(1);
-                if (audioEnabled) {
-                    const audioFile = isFlipped 
-                        ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-                        : words[currentWordIndex]?.word_audio_file;
-                    if (audioFile && audioUnlocked) playAudioWithRetry(audioFile, 3, 500);
-                }
-                break;
-            case 'Enter':
-                glowCard(2);
-                flipCard();
-                break;
-        }
-    });
+            }
+            break;
+        case ' ':
+            glowCard(1);
+            if (audioEnabled) {
+                const audioFile = isFlipped 
+                    ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
+                    : words[currentWordIndex]?.word_audio_file;
+                if (audioFile && audioUnlocked) playAudioWithRetry(audioFile, 3, 500);
+            }
+            break;
+        case 'Enter':
+            glowCard(2);
+            flipCard();
+            break;
+    }
+});
 }
 
 function glowCard(times) {
