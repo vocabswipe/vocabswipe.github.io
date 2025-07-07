@@ -39,7 +39,7 @@ body[data-theme="dark"] {
     margin-bottom: 16px;
 }
 
-.theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .back-btn {
+.theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .donate-btn {
     background: none;
     border: none;
     cursor: pointer;
@@ -48,7 +48,7 @@ body[data-theme="dark"] {
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.theme-toggle:hover, .audio-btn:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover, .back-btn:hover {
+.theme-toggle:hover, .audio-btn:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover, .donate-btn:hover {
     background: rgba(0, 0, 0, 0.15);
     transform: scale(1.1);
 }
@@ -58,11 +58,11 @@ body[data-theme="dark"] .audio-btn:hover,
 body[data-theme="dark"] .info-btn:hover,
 body[data-theme="dark"] .shuffle-btn:hover,
 body[data-theme="dark"] .reset-btn:hover,
-body[data-theme="dark"] .back-btn:hover {
+body[data-theme="dark"] .donate-btn:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
-.theme-icon, .audio-icon, .shuffle-icon, .reset-icon, .back-icon {
+.theme-icon, .audio-icon, .shuffle-icon, .reset-icon, .donate-icon {
     width: 28px;
     height: 28px;
     filter: none;
@@ -76,9 +76,10 @@ body[data-theme="dark"] .back-btn:hover {
 
 .controls {
     display: flex;
-    gap: 16px; /* Adjusted from 12px to 16px for 5 icons */
+    gap: 12px; /* Adjusted for 6 icons, ensures balanced spacing */
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap; /* Added to prevent overflow on smaller screens */
 }
 
 .title-container {
@@ -603,11 +604,11 @@ body[data-theme="dark"] .policy-list li a:hover {
         padding: 12px;
     }
 
-    .theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .back-btn {
+    .theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .donate-btn {
         padding: 8px;
     }
 
-    .theme-icon, .audio-icon, .shuffle-icon, .reset-icon, .back-icon {
+    .theme-icon, .audio-icon, .shuffle-icon, .reset-icon, .donate-icon {
         width: 24px;
         height: 24px;
     }
@@ -618,7 +619,8 @@ body[data-theme="dark"] .policy-list li a:hover {
     }
 
     .controls {
-        gap: 12px; /* Adjusted from 10px to 12px for 5 icons on mobile */
+        gap: 10px; /* Adjusted for 6 icons on mobile */
+        flex-wrap: wrap;
     }
 
     .website-name {
