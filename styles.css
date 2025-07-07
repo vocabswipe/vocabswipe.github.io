@@ -79,7 +79,7 @@ body[data-theme="dark"] .donate-btn:hover {
     gap: 12px; /* Adjusted for 6 icons, ensures balanced spacing */
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Added to prevent overflow on smaller screens */
+    flex-wrap: wrap; /* Prevent overflow on smaller screens */
 }
 
 .title-container {
