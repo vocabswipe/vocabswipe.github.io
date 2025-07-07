@@ -34,12 +34,12 @@ body[data-theme="dark"] {
     width: 100%;
     max-width: 350px;
     display: flex;
-    justify-content: center; /* Center controls */
+    justify-content: center;
     align-items: center;
     margin-bottom: 16px;
 }
 
-.theme-toggle, .donate-btn, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .store-btn, .back-btn {
+.theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .store-btn, .back-btn {
     background: none;
     border: none;
     cursor: pointer;
@@ -48,13 +48,12 @@ body[data-theme="dark"] {
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.theme-toggle:hover, .donate-btn:hover, .audio-btn:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover, .store-btn:hover, .back-btn:hover {
+.theme-toggle:hover, .audio-btn:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover, .store-btn:hover, .back-btn:hover {
     background: rgba(0, 0, 0, 0.15);
     transform: scale(1.1);
 }
 
 body[data-theme="dark"] .theme-toggle:hover,
-body[data-theme="dark"] .donate-btn:hover,
 body[data-theme="dark"] .audio-btn:hover,
 body[data-theme="dark"] .info-btn:hover,
 body[data-theme="dark"] .shuffle-btn:hover,
@@ -64,7 +63,7 @@ body[data-theme="dark"] .back-btn:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
-.theme-icon, .donate-icon, .audio-icon, .shuffle-icon, .reset-icon, .store-icon, .back-icon {
+.theme-icon, .audio-icon, .shuffle-icon, .reset-icon, .store-icon, .back-icon {
     width: 28px;
     height: 28px;
     filter: none;
@@ -78,8 +77,8 @@ body[data-theme="dark"] .back-btn:hover {
 
 .controls {
     display: flex;
-    gap: 10px;
-    justify-content: center; /* Center icons */
+    gap: 12px; /* Increased from 10px to 12px for better spacing with 6 icons */
+    justify-content: center;
     align-items: center;
 }
 
@@ -92,7 +91,7 @@ body[data-theme="dark"] .back-btn:hover {
 
 .website-name {
     font-family: 'Caveat', cursive;
-    font-size: 46.08px; /* 38.4px * 1.2 */
+    font-size: 46.08px;
     font-weight: 700;
     color: #00008B;
 }
@@ -103,7 +102,7 @@ body[data-theme="dark"] .website-name {
 
 .slogan-main {
     font-family: 'Caveat', cursive;
-    font-size: 28.8px; /* 24px * 1.2 */
+    font-size: 28.8px;
     font-weight: 400;
     color: #00008B;
     line-height: 1.2;
@@ -525,101 +524,6 @@ body[data-theme="dark"] .tooltip-close:hover {
     background: #FFC107;
 }
 
-/* Donation Container */
-.donation-container {
-    width: 100%;
-    max-width: 350px;
-    text-align: center;
-    margin-bottom: 16px;
-}
-
-.donation-text {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    color: #374151;
-    margin-bottom: 12px;
-}
-
-body[data-theme="dark"] .donation-text {
-    color: #d1d5db;
-}
-
-.donation-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 16px;
-}
-
-.donate-amount, .donate-submit {
-    padding: 10px 20px;
-    background: #00008B;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.donate-amount:hover, .donate-submit:hover {
-    background: #0000CD;
-    transform: scale(1.05);
-}
-
-body[data-theme="dark"] .donate-amount,
-body[data-theme="dark"] .donate-submit {
-    background: #FFD700;
-    color: #1f2937;
-}
-
-body[data-theme="dark"] .donate-amount:hover,
-body[data-theme="dark"] .donate-submit:hover {
-    background: #FFC107;
-}
-
-.donate-amount.selected {
-    background: #0000CD;
-    transform: scale(1.05);
-}
-
-body[data-theme="dark"] .donate-amount.selected {
-    background: #FFC107;
-}
-
-#custom-amount {
-    padding: 10px;
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    border: 1px solid #e5e7eb;
-    border-radius: 6px;
-    width: 150px;
-    text-align: center;
-    margin-bottom: 12px;
-}
-
-body[data-theme="dark"] #custom-amount {
-    border: 1px solid #4b5563;
-    background: #374151;
-    color: #e5e7eb;
-}
-
-.donation-impact {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: #6b7280;
-    margin-top: 12px;
-}
-
-body[data-theme="dark"] .donation-impact {
-    color: #9ca3af;
-}
-
 /* Store Container */
 .store-container {
     width: 100%;
@@ -773,30 +677,30 @@ body[data-theme="dark"] .policy-list li a:hover {
         padding: 12px;
     }
 
-    .theme-toggle, .donate-btn, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .store-btn, .back-btn {
+    .theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .store-btn, .back-btn {
         padding: 8px;
     }
 
-    .theme-icon, .donate-icon, .audio-icon, .shuffle-icon, .reset-icon, .store-icon, .back-icon {
+    .theme-icon, .audio-icon, .shuffle-icon, .reset-icon, .store-icon, .back-icon {
         width: 24px;
         height: 24px;
     }
 
     .info-icon {
-        width: 19.2px; /* 24px * 0.8 */
+        width: 19.2px;
         height: 19.2px;
     }
 
     .controls {
-        gap: 8px; /* Reduced for mobile */
+        gap: 10px; /* Adjusted to 10px for mobile with 6 icons */
     }
 
     .website-name {
-        font-size: 40.32px; /* 33.6px * 1.2 */
+        font-size: 40.32px;
     }
 
     .slogan-main {
-        font-size: 25.92px; /* 21.6px * 1.2 */
+        font-size: 25.92px;
     }
 
     .slogan-sub {
@@ -850,30 +754,16 @@ body[data-theme="dark"] .policy-list li a:hover {
         height: 19.2px;
     }
 
-    #card-slider {
-        height: 6px;
-    }
-
-    #card-slider::-webkit-slider-thumb {
-        width: 16px;
-        height: 16px;
-    }
-
-    .donation-container, .store-container {
+    .store-container {
         padding: 12px;
     }
 
-    .donation-text, .donation-impact, .product p {
+    .product p {
         font-size: 14px;
     }
 
-    .donate-amount, .donate-submit, .buy-btn {
+    .buy-btn {
         padding: 8px 16px;
-        font-size: 14px;
-    }
-
-    #custom-amount {
-        width: 120px;
         font-size: 14px;
     }
 
