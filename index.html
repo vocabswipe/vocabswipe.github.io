@@ -85,6 +85,9 @@
         <div class="stats-container" style="opacity: 0;">
             <p class="stats-text">Total Words: <span id="total-words">0</span> | Total Sentences: <span id="total-sentences">0</span></p>
         </div>
+        <div class="rate-limit-warning" style="display: none;">
+            <p>Please slow down swiping to avoid rate limits. Try again in a few minutes.</p>
+        </div>
         <div class="tooltip-overlay" style="display: none;">
             <div class="tooltip-message">
                 <p id="tooltip-text"></p>
@@ -93,5 +96,12 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(() => console.log('Service Worker registered'))
+                .catch(error => console.error('Service Worker registration failed:', error));
+        }
+    </script>
 </body>
 </html>

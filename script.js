@@ -5,7 +5,7 @@ let originalWords = [];
 let isFlipped = false;
 let currentAudio = null;
 let audioCache = new Map();
-const MAX_CACHE_SIZE = 12; // Increased slightly to handle more back cards
+const MAX_CACHE_SIZE = 12;
 let audioUnlocked = false;
 let audioEnabled = true;
 let maxFreq = 0;
@@ -15,7 +15,13 @@ let isTooltipVisible = false;
 let totalSentences = 0;
 let isContentLoaded = false;
 let lastAudioPlayTime = 0;
-const AUDIO_DEBOUNCE_MS = 300; // Debounce audio playback to prevent rapid calls
+const AUDIO_DEBOUNCE_MS = 500; // Increased to 500ms
+let lastSwipeTime = 0;
+const SWIPE_DEBOUNCE_MS = 300; // Debounce swipes and key presses
+let swipeCount = 0;
+let swipeWindowStart = 0;
+const MAX_SWIPES_PER_WINDOW = 10; // Max 10 swipes in 5 seconds
+const SWIPE_WINDOW_MS = 5000;
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM fully loaded, initializing VocabSwipe');
@@ -151,7 +157,8 @@ function toggleTooltip() {
                 - <strong>Swipe Up/Down:</strong> On the back of a card, cycle through different definitions and examples.<br>
                 - <strong>Tap Once:</strong> Hear the word or sentence audio (if audio is enabled).<br>
                 - <strong>Double-Tap:</strong> Flip between the front (word) and back (definition/example).<br>
-                - <strong>Slider:</strong> Jump to a specific word rank.
+                - <strong>Slider:</strong> Jump to a specific word rank.<br>
+                - <strong>Note:</strong> Swipe slowly to avoid rate limits.
             `
             : `
                 <strong>How to Use VocabSwipe:</strong><br><br>
@@ -165,7 +172,8 @@ function toggleTooltip() {
                 - <strong>Up/Down Arrow Keys:</strong> On the back of a card, cycle through different definitions and examples.<br>
                 - <strong>Spacebar:</strong> Play the word or sentence audio (if audio is enabled).<br>
                 - <strong>Enter:</strong> Flip between the front (word) and back (definition/example).<br>
-                - <strong>Slider:</strong> Jump to a specific word rank.
+                - <strong>Slider:</strong> Jump to a specific word rank.<br>
+                - <strong>Note:</strong> Press arrow keys slowly to avoid rate limits.
             `;
         overlay.style.display = 'flex';
     } else {
@@ -275,6 +283,22 @@ function resetCards() {
     }
 }
 
+function checkRateLimit() {
+    const now = Date.now();
+    if (now - swipeWindowStart > SWIPE_WINDOW_MS) {
+        swipeCount = 0;
+        swipeWindowStart = now;
+        document.querySelector('.rate-limit-warning').style.display = 'none';
+    }
+    swipeCount++;
+    if (swipeCount > MAX_SWIPES_PER_WINDOW) {
+        console.warn('Rate limit warning: too many swipes');
+        document.querySelector('.rate-limit-warning').style.display = 'block';
+        return false;
+    }
+    return true;
+}
+
 function setupEventListeners() {
     const card = document.querySelector('.flashcard');
     if (!card) {
@@ -314,8 +338,7 @@ function setupEventListeners() {
     });
 
     card.addEventListener('click', (e) => {
-        if (!isContentLoaded) return;
-        if ('ontouchstart' in window) return;
+        if (!isContentLoaded || 'ontouchstart' in window) return;
         const currentTime = new Date().getTime();
         tapCount++;
         if (tapCount === 1) {
@@ -346,6 +369,13 @@ function setupEventListeners() {
     hammer.on('swipeleft', (e) => {
         if (!isContentLoaded) return;
         e.preventDefault();
+        const now = Date.now();
+        if (now - lastSwipeTime < SWIPE_DEBOUNCE_MS) {
+            console.log('Debouncing swipe left');
+            return;
+        }
+        if (!checkRateLimit()) return;
+        lastSwipeTime = now;
         if (words.length) {
             animateSwipe('left', isFlipped);
             currentWordIndex = (currentWordIndex + 1) % words.length;
@@ -364,6 +394,13 @@ function setupEventListeners() {
     hammer.on('swiperight', (e) => {
         if (!isContentLoaded) return;
         e.preventDefault();
+        const now = Date.now();
+        if (now - lastSwipeTime < SWIPE_DEBOUNCE_MS) {
+            console.log('Debouncing swipe right');
+            return;
+        }
+        if (!checkRateLimit()) return;
+        lastSwipeTime = now;
         if (words.length) {
             animateSwipe('right', isFlipped);
             currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
@@ -382,6 +419,13 @@ function setupEventListeners() {
     hammer.on('swipeup', (e) => {
         if (!isContentLoaded) return;
         e.preventDefault();
+        const now = Date.now();
+        if (now - lastSwipeTime < SWIPE_DEBOUNCE_MS) {
+            console.log('Debouncing swipe up');
+            return;
+        }
+        if (!checkRateLimit()) return;
+        lastSwipeTime = now;
         if (isFlipped && words[currentWordIndex]?.back_cards) {
             animateSwipe('up', isFlipped);
             currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
@@ -400,6 +444,13 @@ function setupEventListeners() {
     hammer.on('swipedown', (e) => {
         if (!isContentLoaded) return;
         e.preventDefault();
+        const now = Date.now();
+        if (now - lastSwipeTime < SWIPE_DEBOUNCE_MS) {
+            console.log('Debouncing swipe down');
+            return;
+        }
+        if (!checkRateLimit()) return;
+        lastSwipeTime = now;
         if (isFlipped && words[currentWordIndex]?.back_cards) {
             animateSwipe('down', isFlipped);
             currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
@@ -418,8 +469,17 @@ function setupEventListeners() {
 }
 
 function setupKeyboardListeners() {
+    let lastKeyPressTime = 0;
+    const KEY_DEBOUNCE_MS = 300;
     document.addEventListener('keydown', (e) => {
         if (!words.length || !isContentLoaded) return;
+        const now = Date.now();
+        if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key) && now - lastKeyPressTime < KEY_DEBOUNCE_MS) {
+            console.log(`Debouncing keypress: ${e.key}`);
+            return;
+        }
+        if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key) && !checkRateLimit()) return;
+        lastKeyPressTime = now;
         switch (e.key) {
             case 'ArrowLeft':
                 animateSwipe('right', isFlipped);
@@ -473,25 +533,25 @@ function setupKeyboardListeners() {
                     if (audioUnlocked && audioEnabled) {
                         const audioFile = words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || 
                                          words[currentWordIndex]?.word_audio_file;
-                    if (audioFile) playAudioWithRetry(audioFile, 3, 500);
+                        if (audioFile) playAudioWithRetry(audioFile, 3, 500);
+                    }
                 }
-            }
-            break;
-        case ' ':
-            glowCard(1);
-            if (audioEnabled) {
-                const audioFile = isFlipped 
-                    ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-                    : words[currentWordIndex]?.word_audio_file;
-                if (audioFile && audioUnlocked) playAudioWithRetry(audioFile, 3, 500);
-            }
-            break;
-        case 'Enter':
-            glowCard(2);
-            flipCard();
-            break;
-    }
-});
+                break;
+            case ' ':
+                glowCard(1);
+                if (audioEnabled) {
+                    const audioFile = isFlipped 
+                        ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
+                        : words[currentWordIndex]?.word_audio_file;
+                    if (audioFile && audioUnlocked) playAudioWithRetry(audioFile, 3, 500);
+                }
+                break;
+            case 'Enter':
+                glowCard(2);
+                flipCard();
+                break;
+        }
+    });
 }
 
 function glowCard(times) {
@@ -524,18 +584,9 @@ function preloadAudio() {
         return;
     }
     const currentWord = words[currentWordIndex];
-    const nextIndex = (currentWordIndex + 1) % words.length;
-    const prevIndex = (currentWordIndex - 1 + words.length) % words.length;
-    const nextWord = words[nextIndex];
-    const prevWord = words[prevIndex];
-
     const audioFiles = [
         currentWord?.word_audio_file,
-        ...(currentWord?.back_cards?.map(card => card.audio_file) || []),
-        nextWord?.word_audio_file,
-        ...(nextWord?.back_cards?.map(card => card.audio_file) || []),
-        prevWord?.word_audio_file,
-        ...(prevWord?.back_cards?.map(card => card.audio_file) || [])
+        ...(currentWord?.back_cards?.slice(0, 1).map(card => card.audio_file) || []) // Load only first back card
     ].filter(file => file && !audioCache.has(file));
 
     while (audioCache.size + audioFiles.length > MAX_CACHE_SIZE && audioCache.size > 0) {
@@ -550,9 +601,7 @@ function preloadAudio() {
     }
 
     audioFiles.forEach(audioFile => {
-        const isWordAudio = audioFile === currentWord.word_audio_file || 
-                            audioFile === nextWord?.word_audio_file || 
-                            audioFile === prevWord?.word_audio_file;
+        const isWordAudio = audioFile === currentWord.word_audio_file;
         const audioPath = isWordAudio 
             ? `data/audio/front/${audioFile}`
             : `data/audio/back/${currentWord.word.toLowerCase()}/${audioFile}`;

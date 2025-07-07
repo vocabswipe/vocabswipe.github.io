@@ -13,25 +13,45 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', newTheme);
         updateIcons(newTheme);
     });
+    themeToggle.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        const currentTheme = document.body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'bright' ? 'dark' : 'bright';
+        document.body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateIcons(newTheme);
+    });
 
-    // Update icons
+    // Update icons based on theme
     function updateIcons(theme) {
         const themeIcon = document.querySelector('.theme-icon');
         const backIcon = document.querySelector('.back-icon');
+        const loadingIcon = document.querySelector('.loading-icon');
         themeIcon.src = theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
         backIcon.src = theme === 'bright' ? 'back-bright.svg' : 'back-night.svg';
+        if (loadingIcon) {
+            loadingIcon.src = theme === 'bright' ? 'loading-bright.gif' : 'loading-night.gif';
+        }
     }
 
-    // Stripe integration
-    const stripe = Stripe('pk_live_51RhLFoA8e2sIvZ3yITfyhk5jbD5vL4i58NmhWK9IZGOo5BkPFyS182JE5GZfG4rKttc04MOHsiLdVUHegVrXyW8I00Q5Qh75Me');
+    // Donation buttons
     const donateButtons = document.querySelectorAll('.donate-amount');
+    const qrCodeContainer = document.querySelector('.qr-code-container');
+    const qrCodeImage = document.querySelector('#qr-code');
+    const qrAmount = document.querySelector('#qr-amount');
+    const loadingOverlay = document.querySelector('.loading-overlay');
 
-    // Handle donation buttons
     donateButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            const priceId = btn.getAttribute('data-price-id');
+            const amount = btn.getAttribute('data-amount');
             highlightAmount(btn);
-            initiateCheckout([{ price: priceId, quantity: 1 }]);
+            fetchQRCode(amount);
+        });
+        btn.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            const amount = btn.getAttribute('data-amount');
+            highlightAmount(btn);
+            fetchQRCode(amount);
         });
     });
 
@@ -39,6 +59,42 @@ document.addEventListener('DOMContentLoaded', () => {
     function highlightAmount(selectedBtn) {
         donateButtons.forEach(btn => btn.classList.remove('selected'));
         selectedBtn.classList.add('selected');
+    }
+
+    // Fetch PromptPay QR code (placeholder implementation)
+    async function fetchQRCode(amount) {
+        try {
+            if (!navigator.onLine) {
+                throw new Error('You appear to be offline. Please check your internet connection.');
+            }
+            loadingOverlay.style.display = 'flex';
+            qrCodeContainer.style.display = 'none';
+
+            // Placeholder: Replace with actual PromptPay QR code generation API
+            // Example: Call a backend endpoint like '/api/generate-promptpay-qr' with the amount
+            // For demonstration, using a static QR code image or mock URL
+            const qrCodeUrl = `/data/qr-codes/promptpay-${amount}thb.png`; // Adjust path as needed
+            // Simulate API delay
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+            // Verify QR code exists (optional, depends on your setup)
+            const response = await fetch(qrCodeUrl, { method: 'HEAD' });
+            if (!response.ok) {
+                throw new Error('Failed to load QR code for the selected amount.');
+            }
+
+            qrAmount.textContent = amount;
+            qrCodeImage.src = qrCodeUrl;
+            qrCodeContainer.style.display = 'block';
+            loadingOverlay.style.display = 'none';
+        } catch (error) {
+            console.error('QR code fetch error:', error.message);
+            const message = error.message.includes('offline')
+                ? 'Network error: Please check your internet connection and try again.'
+                : 'An error occurred while loading the QR code: ' + error.message;
+            showTooltip(message);
+            loadingOverlay.style.display = 'none';
+        }
     }
 
     // Show tooltip for error messages
@@ -52,35 +108,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
     }
 
-    // Initiate Stripe checkout
-    async function initiateCheckout(lineItems) {
-        try {
-            if (!navigator.onLine) {
-                throw new Error('You appear to be offline. Please check your internet connection.');
-            }
-            const result = await stripe.redirectToCheckout({
-                lineItems: lineItems,
-                mode: 'payment',
-                successUrl: `${window.location.origin}/thank-you.html`,
-                cancelUrl: `${window.location.origin}/donate.html`,
-            });
-            if (result.error) {
-                throw new Error(result.error.message);
-            }
-        } catch (error) {
-            console.error('Checkout error:', error.message);
-            const message = error.message.includes('client-only integration is not enabled')
-                ? 'Payment setup error: Please contact support@vocabswipe.com.'
-                : error.message.includes('network') || error.message.includes('offline')
-                ? 'Network error: Please check your internet connection and try again.'
-                : 'An error occurred during payment: ' + error.message;
-            showTooltip(message);
-        }
-    }
-
     // Close tooltip
     const tooltipClose = document.querySelector('.tooltip-close');
     tooltipClose.addEventListener('click', () => {
+        document.querySelector('.tooltip-overlay').style.display = 'none';
+    });
+    tooltipClose.addEventListener('touchend', (e) => {
+        e.preventDefault();
         document.querySelector('.tooltip-overlay').style.display = 'none';
     });
 });
