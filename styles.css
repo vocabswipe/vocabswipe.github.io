@@ -90,7 +90,7 @@ body[data-theme="dark"] .donate-btn:hover {
 }
 
 .website-name {
-    font-family: 'Caveat', cursive;
+    font-family: 'Lucida Handwriting', 'Comic Sans MS', cursive;
     font-size: 46.08px;
     font-weight: 700;
     color: #00008B;
@@ -101,7 +101,7 @@ body[data-theme="dark"] .website-name {
 }
 
 .slogan-main {
-    font-family: 'Caveat', cursive;
+    font-family: 'Lucida Handwriting', 'Comic Sans MS', cursive;
     font-size: 28.8px;
     font-weight: 400;
     color: #00008B;
@@ -137,6 +137,8 @@ body[data-theme="dark"] .slogan-sub {
     height: 8px;
     background: #e5e7eb;
     border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
     outline: none;
     cursor: pointer;
@@ -148,7 +150,16 @@ body[data-theme="dark"] .slogan-sub {
 }
 
 #card-slider::-webkit-slider-thumb {
-    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #00008B;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s ease;
+}
+
+#card-slider::-moz-range-thumb {
     width: 20px;
     height: 20px;
     background: #00008B;
@@ -161,7 +172,8 @@ body[data-theme="dark"] #card-slider {
     background: #4b5563;
 }
 
-body[data-theme="dark"] #card-slider::-webkit-slider-thumb {
+body[data-theme="dark"] #card-slider::-webkit-slider-thumb,
+body[data-theme="dark"] #card-slider::-moz-range-thumb {
     background: #FFD700;
 }
 
@@ -502,12 +514,13 @@ body[data-theme="dark"] .rate-limit-warning p {
     max-height: 70%;
     overflow-y: auto;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    text-align: left;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     font-weight: 500;
     color: #1f2937;
     border: 1px solid #e5e7eb;
+    position: relative;
 }
 
 body[data-theme="dark"] .tooltip-message {
@@ -544,9 +557,17 @@ body[data-theme="dark"] .tooltip-message img.donation-qr {
     border: 1px solid #4b5563;
 }
 
-.tooltip-close, .tooltip-retry, .retry-button {
+.tooltip-message img.promptpay-logo {
+    max-width: 100px;
+    max-height: 40px;
+    margin: 8px auto 16px;
     display: block;
-    margin: 16px auto 0;
+}
+
+.tooltip-close, .tooltip-retry, .retry-button {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
     padding: 10px 20px;
     background: #00008B;
     color: #ffffff;
@@ -587,79 +608,6 @@ body[data-theme="dark"] .retry-button:hover {
 
 body[data-theme="dark"] .error-message {
     color: #ff5555;
-}
-
-footer {
-    width: 100%;
-    max-width: 350px;
-    margin-top: 16px;
-    text-align: center;
-}
-
-footer p {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: #00008B;
-    line-height: 1.4;
-}
-
-body[data-theme="dark"] footer p {
-    color: #FFD700;
-}
-
-footer p a {
-    color: #00008B;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-body[data-theme="dark"] footer p a {
-    color: #FFD700;
-}
-
-footer p a:hover {
-    color: #0000CD;
-}
-
-body[data-theme="dark"] footer p a:hover {
-    color: #FFC107;
-}
-
-.policy-list {
-    list-style: none;
-    padding: 0;
-    margin: 12px 0;
-}
-
-.policy-list li {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    color: #374151;
-    line-height: 1.4;
-    margin-bottom: 12px;
-}
-
-body[data-theme="dark"] .policy-list li {
-    color: #d1d5db;
-}
-
-.policy-list li a {
-    color: #00008B;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-body[data-theme="dark"] .policy-list li a {
-    color: #FFD700;
-}
-
-.policy-list li a:hover {
-    color: #0000CD;
-}
-
-body[data-theme="dark"] .policy-list li a:hover {
-    color: #FFC107;
 }
 
 @media (max-width: 414px) {
@@ -738,18 +686,25 @@ body[data-theme="dark"] .policy-list li a:hover {
         max-height: 180px;
     }
 
+    .tooltip-message img.promptpay-logo {
+        max-width: 90px;
+        max-height: 36px;
+    }
+
     .tooltip-close, .tooltip-retry, .retry-button {
         font-size: 14px;
         padding: 8px 16px;
+        bottom: 12px;
+        right: 12px;
     }
 
-    .tooltip-message img:not(.donation-qr) {
+    .tooltip-message img:not(.donation-qr):not(.promptpay-logo) {
         width: 24px;
         height: 24px;
         vertical-align: middle;
     }
 
-    .tooltip-message img[src*="information"]:not(.donation-qr) {
+    .tooltip-message img[src*="information"]:not(.donation-qr):not(.promptpay-logo) {
         width: 19.2px;
         height: 19.2px;
     }
@@ -757,13 +712,5 @@ body[data-theme="dark"] .policy-list li a:hover {
     .error-message {
         font-size: 14px;
         padding: 16px;
-    }
-
-    footer p {
-        font-size: 13px;
-    }
-
-    .policy-list li {
-        font-size: 14px;
     }
 }
