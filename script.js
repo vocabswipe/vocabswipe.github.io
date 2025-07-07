@@ -32,7 +32,6 @@ const fallbackWord = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM fully loaded, initializing VocabSwipe');
     const savedTheme = localStorage.getItem('theme') || 'bright';
     document.body.setAttribute('data-theme', savedTheme);
     updateIcons(savedTheme);
@@ -193,32 +192,30 @@ function toggleTooltip(type, errorMessage = '') {
     if (type === 'info') {
         tooltipText.innerHTML = isMobile
             ? `
-                <strong>Features:</strong><br><br>
-                Theme Toggle (<img src="${theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg'}" width="24" height="24" ${iconStyle} alt="Theme Toggle">): Switch between bright and dark themes.<br>
-                Audio Toggle (<img src="${theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg')}" width="24" height="24" ${iconStyle} alt="Audio Toggle">): Enable or disable audio.<br>
-                Info (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="19.2" height="19.2" ${iconStyle} alt="Info">): Show or hide this help message.<br>
-                Shuffle (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="24" height="24" ${iconStyle} alt="Shuffle">): Randomize the word order.<br>
-                Reset (<img src="${theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg'}" width="24" height="24" ${iconStyle} alt="Reset">): Restore the original word order.<br>
-                Donate (<img src="${theme === 'bright' ? 'heart-bright.svg' : 'heart-night.svg'}" width="24" height="24" ${iconStyle} alt="Donate">): Support VocabSwipe with a donation.<br>
-                Swipe Left/Right: Navigate to the next or previous word card.<br>
-                Swipe Up/Down: On the back of a card, cycle through definitions and examples.<br>
-                Tap Once: Hear the word or sentence audio (if enabled).<br>
-                Double-Tap: Flip between the front (word) and back (definition/example).<br>
-                Slider: Jump to a specific word rank.
+                <strong>Theme Toggle</strong> (<img src="${theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg'}" width="24" height="24" ${iconStyle} alt="Theme Toggle">): Switch between bright and dark themes.<br>
+                <strong>Audio Toggle</strong> (<img src="${theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg')}" width="24" height="24" ${iconStyle} alt="Audio Toggle">): Enable or disable audio.<br>
+                <strong>Info</strong> (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="19.2" height="19.2" ${iconStyle} alt="Info">): Show or hide this help message.<br>
+                <strong>Shuffle</strong> (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="24" height="24" ${iconStyle} alt="Shuffle">): Randomize the word order.<br>
+                <strong>Reset</strong> (<img src="${theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg'}" width="24" height="24" ${iconStyle} alt="Reset">): Restore the original word order.<br>
+                <strong>Donate</strong> (<img src="${theme === 'bright' ? 'heart-bright.svg' : 'heart-night.svg'}" width="24" height="24" ${iconStyle} alt="Donate">): Support VocabSwipe with a donation.<br>
+                <strong>Swipe Left/Right</strong>: Navigate to the next or previous word card.<br>
+                <strong>Swipe Up/Down</strong>: On the back of a card, cycle through definitions and examples.<br>
+                <strong>Tap Once</strong>: Hear the word or sentence audio (if enabled).<br>
+                <strong>Double-Tap</strong>: Flip between the front (word) and back (definition/example).<br>
+                <strong>Slider</strong>: Jump to a specific word rank.
             `
             : `
-                <strong>Features:</strong><br><br>
-                Theme Toggle (<img src="${theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg'}" width="24" height="24" ${iconStyle} alt="Theme Toggle">): Switch between bright and dark themes.<br>
-                Audio Toggle (<img src="${theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg')}" width="24" height="24" ${iconStyle} alt="Audio Toggle">): Enable or disable audio.<br>
-                Info (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="19.2" height="19.2" ${iconStyle} alt="Info">): Show or hide this help message.<br>
-                Shuffle (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="24" height="24" ${iconStyle} alt="Shuffle">): Randomize the word order.<br>
-                Reset (<img src="${theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg'}" width="24" height="24" ${iconStyle} alt="Reset">): Restore the original word order.<br>
-                Donate (<img src="${theme === 'bright' ? 'heart-bright.svg' : 'heart-night.svg'}" width="24" height="24" ${iconStyle} alt="Donate">): Support VocabSwipe with a donation.<br>
-                Left/Right Arrow Keys: Navigate to the previous or next word card.<br>
-                Up/Down Arrow Keys: On the back of a card, cycle through definitions and examples.<br>
-                Spacebar: Play the word or sentence audio (if enabled).<br>
-                Enter: Flip between the front (word) and back (definition/example).<br>
-                Slider: Jump to a specific word speedup rank.
+                <strong>Theme Toggle</strong> (<img src="${theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg'}" width="24" height="24" ${iconStyle} alt="Theme Toggle">): Switch between bright and dark themes.<br>
+                <strong>Audio Toggle</strong> (<img src="${theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg')}" width="24" height="24" ${iconStyle} alt="Audio Toggle">): Enable or disable audio.<br>
+                <strong>Info</strong> (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="19.2" height="19.2" ${iconStyle} alt="Info">): Show or hide this help message.<br>
+                <strong>Shuffle</strong> (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="24" height="24" ${iconStyle} alt="Shuffle">): Randomize the word order.<br>
+                <strong>Reset</strong> (<img src="${theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg'}" width="24" height="24" ${iconStyle} alt="Reset">): Restore the original word order.<br>
+                <strong>Donate</strong> (<img src="${theme === 'bright' ? 'heart-bright.svg' : 'heart-night.svg'}" width="24" height="24" ${iconStyle} alt="Donate">): Support VocabSwipe with a donation.<br>
+                <strong>Left/Right Arrow Keys</strong>: Navigate to the previous or next word card.<br>
+                <strong>Up/Down Arrow Keys</strong>: On the back of a card, cycle through definitions and examples.<br>
+                <strong>Spacebar</strong>: Play the word or sentence audio (if enabled).<br>
+                <strong>Enter</strong>: Flip between the front (word) and back (definition/example).<br>
+                <strong>Slider</strong>: Jump to a specific word rank.
             `;
     } else if (type === 'donate') {
         const qrCodeUrl = 'qr_code/VocabSwipe_qr_code.png';
@@ -227,16 +224,26 @@ function toggleTooltip(type, errorMessage = '') {
         img.src = qrCodeUrl;
         img.onload = () => {
             tooltipText.innerHTML = `
-                <strong>Donate to Supanut Suntikoon, VocabSwipe Developer</strong><br><br>
-                Your support helps maintain and enhance this free vocabulary-learning tool for everyone.<br><br>
+                <div style="text-align: center; margin-bottom: 16px;">
+                    <strong>Donate to Supanut Suntikoon</strong><br>
+                    <span>VocabSwipe Developer</span>
+                </div>
+                <p style="text-align: center; margin-bottom: 16px;">
+                    Your support helps maintain and enhance this free vocabulary-learning tool for everyone.
+                </p>
                 <img src="${qrCodeUrl}" class="donation-qr" alt="PromptPay QR Code" width="200" height="200"><br>
                 <img src="${promptPayLogoUrl}" class="promptpay-logo" alt="PromptPay Logo" width="100" height="40">
             `;
         };
         img.onerror = () => {
             tooltipText.innerHTML = `
-                <strong>Donate to Supanut Suntikoon, VocabSwipe Developer</strong><br><br>
-                Your support helps maintain and enhance this free vocabulary-learning tool for everyone.<br><br>
+                <div style="text-align: center; margin-bottom: 16px;">
+                    <strong>Donate to Supanut Suntikoon</strong><br>
+                    <span>VocabSwipe Developer</span>
+                </div>
+                <p style="text-align: center; margin-bottom: 16px;">
+                    Your support helps maintain and enhance this free vocabulary-learning tool for everyone.
+                </p>
                 <p style="color: #ff0000;">Error: Unable to load PromptPay QR code. Please try again later or contact support.</p>
             `;
         };
@@ -577,7 +584,6 @@ function preloadAudio() {
         audio.preload = 'auto';
         audio.load();
         audioCache.set(audioFile, audio);
-        audio.addEventListener('canplaythrough', () => {}, { once: true });
         audio.addEventListener('error', () => audioCache.delete(audioFile), { once: true });
     });
 }
