@@ -142,6 +142,11 @@ body[data-theme="dark"] .slogan-sub {
     cursor: pointer;
 }
 
+#card-slider:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 #card-slider::-webkit-slider-thumb {
     appearance: none;
     width: 20px;
@@ -539,7 +544,7 @@ body[data-theme="dark"] .tooltip-message img.donation-qr {
     border: 1px solid #4b5563;
 }
 
-.tooltip-close {
+.tooltip-close, .tooltip-retry, .retry-button {
     display: block;
     margin: 16px auto 0;
     padding: 10px 20px;
@@ -554,16 +559,20 @@ body[data-theme="dark"] .tooltip-message img.donation-qr {
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.tooltip-close:hover {
+.tooltip-close:hover, .tooltip-retry:hover, .retry-button:hover {
     background: #0000CD;
     transform: scale(1.05);
 }
 
-body[data-theme="dark"] .tooltip-close {
+body[data-theme="dark"] .tooltip-close,
+body[data-theme="dark"] .tooltip-retry,
+body[data-theme="dark"] .retry-button {
     background: #FFD700;
 }
 
-body[data-theme="dark"] .tooltip-close:hover {
+body[data-theme="dark"] .tooltip-close:hover,
+body[data-theme="dark"] .tooltip-retry:hover,
+body[data-theme="dark"] .retry-button:hover {
     background: #FFC107;
 }
 
@@ -729,7 +738,7 @@ body[data-theme="dark"] .policy-list li a:hover {
         max-height: 180px;
     }
 
-    .tooltip-close {
+    .tooltip-close, .tooltip-retry, .retry-button {
         font-size: 14px;
         padding: 8px 16px;
     }
