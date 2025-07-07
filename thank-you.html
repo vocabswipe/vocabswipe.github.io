@@ -22,41 +22,40 @@
         <div class="title-container">
             <h1 class="website-name">Thank You!</h1>
             <p class="slogan-main">Your support keeps VocabSwipe free!</p>
-        </div>
-        <div class="donation-container">
-            <p class="donation-text">Thank you for your donation! Your generosity helps us provide free vocabulary learning to users worldwide.</p>
-            <a href="/index.html" class="donate-submit">Return to VocabSwipe</a>
+            <p class="slogan-sub">We appreciate your generous donation.</p>
         </div>
         <footer>
-            <p><a href="mailto:support@vocabswipe.com">Contact</a> | 
-               <a href="/privacy.html">Privacy</a> | 
-               <a href="/terms.html">Terms</a></p>
+            <p>
+                <a href="mailto:support@vocabswipe.com">Contact</a> | 
+                <a href="/privacy.html">Privacy</a> | 
+                <a href="/terms.html">Terms</a>
+            </p>
         </footer>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Apply saved theme
             const savedTheme = localStorage.getItem('theme') || 'bright';
             document.body.setAttribute('data-theme', savedTheme);
-            updateIcons(savedTheme);
-
-            // Theme toggle
+            const themeIcon = document.querySelector('.theme-icon');
+            const backIcon = document.querySelector('.back-icon');
+            themeIcon.src = savedTheme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
+            backIcon.src = savedTheme === 'bright' ? 'back-bright.svg' : 'back-night.svg';
             const themeToggle = document.querySelector('.theme-toggle');
             themeToggle.addEventListener('click', () => {
-                const currentTheme = document.body.getAttribute('data-theme');
-                const newTheme = currentTheme === 'bright' ? 'dark' : 'bright';
+                const newTheme = document.body.getAttribute('data-theme') === 'bright' ? 'dark' : 'bright';
                 document.body.setAttribute('data-theme', newTheme);
                 localStorage.setItem('theme', newTheme);
-                updateIcons(newTheme);
+                themeIcon.src = newTheme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
+                backIcon.src = newTheme === 'bright' ? 'back-bright.svg' : 'back-night.svg';
             });
-
-            // Update icons
-            function updateIcons(theme) {
-                const themeIcon = document.querySelector('.theme-icon');
-                const backIcon = document.querySelector('.back-icon');
-                themeIcon.src = theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
-                backIcon.src = theme === 'bright' ? 'back-bright.svg' : 'back-night.svg';
-            }
+            themeToggle.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                const newTheme = document.body.getAttribute('data-theme') === 'bright' ? 'dark' : 'bright';
+                document.body.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                themeIcon.src = newTheme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
+                backIcon.src = newTheme === 'bright' ? 'back-bright.svg' : 'back-night.svg';
+            });
         });
     </script>
 </body>
