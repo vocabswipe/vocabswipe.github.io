@@ -1,5 +1,5 @@
 let currentWordIndex = 0;
-let currentBackCardIndex = 0;
+let currentBackCard sheerIndex = 0;
 let words = [];
 let originalWords = [];
 let isFlipped = false;
@@ -51,15 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetBtn = document.querySelector('.reset-btn');
     resetBtn.addEventListener('click', resetCards);
 
-    const storeBtn = document.querySelector('.store-btn');
-    storeBtn.addEventListener('click', () => {
-        window.location.href = '/store';
-    });
-    storeBtn.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        window.location.href = '/store';
-    });
-
     const tooltipClose = document.querySelector('.tooltip-close');
     tooltipClose.addEventListener('click', toggleTooltip);
     tooltipClose.addEventListener('touchend', (e) => {
@@ -106,7 +97,6 @@ function updateIcons(theme) {
     const infoIcon = document.querySelector('.info-icon');
     const shuffleIcon = document.querySelector('.shuffle-icon');
     const resetIcon = document.querySelector('.reset-icon');
-    const storeIcon = document.querySelector('.store-icon');
     const loadingIcon = document.querySelector('.loading-icon');
 
     themeIcon.src = theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
@@ -114,7 +104,6 @@ function updateIcons(theme) {
     infoIcon.src = theme === 'bright' ? 'information-bright.svg' : 'information-night.svg';
     shuffleIcon.src = theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg';
     resetIcon.src = theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg';
-    storeIcon.src = theme === 'bright' ? 'bag-bright.svg' : 'bag-night.svg';
     if (loadingIcon) {
         loadingIcon.src = theme === 'bright' ? 'loading-bright.gif' : 'loading-night.gif';
     }
@@ -147,7 +136,6 @@ function toggleTooltip() {
                 - <strong>Info (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="19.2" height="19.2" ${iconStyle} alt="Info">):</strong> Tap to show or hide this help message.<br>
                 - <strong>Shuffle (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="24" height="24" ${iconStyle} alt="Shuffle">):</strong> Tap to randomize the word order.<br>
                 - <strong>Reset (<img src="${theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg'}" width="24" height="24" ${iconStyle} alt="Reset">):</strong> Tap to restore the original word order.<br>
-                - <strong>Store (<img src="${theme === 'bright' ? 'bag-bright.svg' : 'bag-night.svg'}" width="24" height="24" ${iconStyle} alt="Store">):</strong> Tap to explore digital products for English learning.<br>
                 - <strong>Swipe Left/Right:</strong> Navigate to the next or previous word card.<br>
                 - <strong>Swipe Up/Down:</strong> On the back of a card, cycle through different definitions and examples.<br>
                 - <strong>Tap Once:</strong> Hear the word or sentence audio (if audio is enabled).<br>
@@ -161,7 +149,6 @@ function toggleTooltip() {
                 - <strong>Info (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="19.2" height="19.2" ${iconStyle} alt="Info">):</strong> Click to show or hide this help message.<br>
                 - <strong>Shuffle (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="24" height="24" ${iconStyle} alt="Shuffle">):</strong> Click to randomize the word order.<br>
                 - <strong>Reset (<img src="${theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg'}" width="24" height="24" ${iconStyle} alt="Reset">):</strong> Click to restore the original word order.<br>
-                - <strong>Store (<img src="${theme === 'bright' ? 'bag-bright.svg' : 'bag-night.svg'}" width="24" height="24" ${iconStyle} alt="Store">):</strong> Click to explore digital products for English learning.<br>
                 - <strong>Left/Right Arrow Keys:</strong> Navigate to the previous or next word card.<br>
                 - <strong>Up/Down Arrow Keys:</strong> On the back of a card, cycle through different definitions and examples.<br>
                 - <strong>Spacebar:</strong> Play the word or sentence audio (if audio is enabled).<br>
