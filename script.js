@@ -1,5 +1,5 @@
 let currentWordIndex = 0;
-let currentBackCard sheerIndex = 0;
+let currentBackCardIndex = 0;
 let words = [];
 let originalWords = [];
 let isFlipped = false;
@@ -18,6 +18,7 @@ let lastAudioPlayTime = 0;
 const AUDIO_DEBOUNCE_MS = 300; // Debounce audio playback to prevent rapid calls
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM fully loaded, initializing VocabSwipe');
     const savedTheme = localStorage.getItem('theme') || 'bright';
     document.body.setAttribute('data-theme', savedTheme);
     updateIcons(savedTheme);
@@ -170,22 +171,27 @@ function shuffleArray(array) {
 }
 
 function loadWords() {
+    console.log('Attempting to fetch vocab3000_database.yaml');
     fetch('data/vocab3000_database.yaml')
         .then(response => {
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                throw new Error(`HTTP error! Status: ${response.status}, URL: ${response.url}`);
             }
+            console.log('Successfully fetched vocab3000_database.yaml');
             return response.text();
         })
         .then(yamlText => {
+            console.log('Parsing YAML data');
             try {
                 words = jsyaml.load(yamlText) || [];
                 if (!Array.isArray(words) || words.length === 0) {
                     throw new Error('No valid words found in vocab3000_database.yaml');
                 }
+                console.log(`Loaded ${words.length} words from YAML`);
                 words.forEach(word => {
                     if (word.back_cards) {
                         word.back_cards = shuffleArray(word.back_cards);
+                        console.log(`Shuffled back cards for word: ${word.word}`);
                     }
                 });
                 originalWords = JSON.parse(JSON.stringify(words));
@@ -193,10 +199,12 @@ function loadWords() {
                 maxFreq = words.find(word => word.rank === 1)?.freq || 1;
                 minFreq = Math.min(...words.map(word => word.freq || 1).filter(freq => freq > 0)) || 1;
                 totalSentences = words.reduce((sum, word) => sum + (word.back_cards?.length || 0), 0);
+                console.log(`Max frequency: ${maxFreq}, Min frequency: ${minFreq}, Total sentences: ${totalSentences}`);
                 document.querySelector('#card-slider').max = words.length;
                 document.querySelector('#total-words').textContent = words.length;
                 document.querySelector('#total-sentences').textContent = totalSentences;
                 isContentLoaded = true;
+                console.log('Calling displayWord to render first card');
                 displayWord();
                 const statsContainer = document.querySelector('.stats-container');
                 statsContainer.style.transition = 'opacity 1s ease-in';
@@ -205,6 +213,7 @@ function loadWords() {
                 loadingOverlay.style.display = 'none';
                 preloadAudio();
                 if (audioUnlocked && audioEnabled && words[currentWordIndex]?.word_audio_file) {
+                    console.log(`Playing initial audio: ${words[currentWordIndex].word_audio_file}`);
                     playAudioWithRetry(words[currentWordIndex].word_audio_file, 3, 500);
                 }
             } catch (e) {
@@ -216,10 +225,12 @@ function loadWords() {
             alert(`Failed to load vocabulary data: ${error.message}. Please check if 'data/vocab3000_database.yaml' exists and is valid.`);
             document.querySelector('.flashcard-container').innerHTML = '<p>Error loading flashcards. Please try again later.</p>';
             document.querySelector('.loading-overlay').style.display = 'none';
+            isContentLoaded = false;
         });
 }
 
 function shuffleCards() {
+    console.log('Shuffling cards');
     for (let i = words.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [words[i], words[j]] = [words[j], words[i]];
@@ -238,6 +249,7 @@ function shuffleCards() {
 }
 
 function resetCards() {
+    console.log('Resetting cards to original order');
     words = JSON.parse(JSON.stringify(originalWords)).sort((a, b) => (a.rank || 0) - (b.rank || 0));
     currentWordIndex = 0;
     currentBackCardIndex = 0;
@@ -473,7 +485,10 @@ function setupKeyboardListeners() {
 
 function glowCard(times) {
     const card = document.querySelector('.flashcard');
-    if (!card) return;
+    if (!card) {
+        console.error('Flashcard element not found in glowCard');
+        return;
+    }
     card.classList.remove('glow-once', 'glow-twice');
     void card.offsetWidth;
     card.classList.add(times === 1 ? 'glow-once' : 'glow-twice');
@@ -481,7 +496,10 @@ function glowCard(times) {
 
 function animateSwipe(direction, isBackCard) {
     const card = document.querySelector('.flashcard');
-    if (!card) return;
+    if (!card) {
+        console.error('Flashcard element not found in animateSwipe');
+        return;
+    }
     const sideToClone = isBackCard ? '.back' : '.front';
     const clone = card.querySelector(sideToClone).cloneNode(true);
     clone.classList.add('swipe-clone', `swipe-${direction}`);
@@ -490,7 +508,10 @@ function animateSwipe(direction, isBackCard) {
 }
 
 function preloadAudio() {
-    if (!words[currentWordIndex] || isSliding || !audioEnabled) return;
+    if (!words[currentWordIndex] || isSliding || !audioEnabled) {
+        console.log('Skipping preloadAudio: no word data, sliding, or audio disabled');
+        return;
+    }
     const currentWord = words[currentWordIndex];
     const nextIndex = (currentWordIndex + 1) % words.length;
     const prevIndex = (currentWordIndex - 1 + words.length) % words.length;
@@ -621,7 +642,10 @@ function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
 function flipCard() {
     isFlipped = !isFlipped;
     const card = document.querySelector('.flashcard');
-    if (!card) return;
+    if (!card) {
+        console.error('Flashcard element not found in flipCard');
+        return;
+    }
     card.classList.toggle('flipped', isFlipped);
     stopAudio();
     displayWord();
@@ -639,13 +663,15 @@ function getFrequencyColor(relativeFreq) {
 }
 
 function displayWord() {
+    console.log(`Displaying word at index ${currentWordIndex}, back card index ${currentBackCardIndex}`);
     if (!words[currentWordIndex]) {
-        console.warn('No word available to display');
+        console.warn('No word available to display at index:', currentWordIndex);
         document.querySelector('.flashcard-container').innerHTML = '<p>No word data available.</p>';
+        document.querySelector('.loading-overlay').style.display = 'none';
         return;
     }
-    const wordData = words[currentWordIndex];
-    const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: '', example_en: '' };
+    const wordData = words[currentWordIndex] || {};
+    const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: 'No definition available', example_en: 'No example available' };
     
     const logFreq = Math.log(wordData.freq || 1);
     const logMinFreq = Math.log(minFreq);
@@ -654,9 +680,22 @@ function displayWord() {
     const freqPercentage = Math.min(Math.max(relativeFreq, 5), 100).toFixed(0);
     const freqColor = getFrequencyColor(relativeFreq);
 
-    document.querySelector('#card-slider').value = currentWordIndex + 1;
+    const slider = document.querySelector('#card-slider');
+    if (slider) {
+        slider.value = currentWordIndex + 1;
+    } else {
+        console.error('Card slider not found');
+    }
 
-    document.querySelector('.front').innerHTML = `
+    const front = document.querySelector('.front');
+    const back = document.querySelector('.back');
+    if (!front || !back) {
+        console.error('Front or back element not found');
+        document.querySelector('.flashcard-container').innerHTML = '<p>Error rendering card. Please try again.</p>';
+        return;
+    }
+
+    front.innerHTML = `
         <div class="word-container">
             <h2>${wordData.word || 'N/A'}</h2>
         </div>
@@ -671,7 +710,7 @@ function displayWord() {
         </div>
     `;
 
-    document.querySelector('.back').innerHTML = `
+    back.innerHTML = `
         <div class="word-container">
             <h2>${wordData.word || 'N/A'}</h2>
         </div>
@@ -691,4 +730,5 @@ function displayWord() {
             </div>
         </div>
     `;
+    console.log(`Rendered card: word=${wordData.word}, rank=${wordData.rank}, freqPercentage=${freqPercentage}%`);
 }
