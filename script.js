@@ -1,3 +1,4 @@
+// State variables
 let currentWordIndex = 0;
 let currentBackCardIndex = 0;
 let words = [];
@@ -5,7 +6,6 @@ let originalWords = [];
 let isFlipped = false;
 let currentAudio = null;
 let audioCache = new Map();
-const MAX_CACHE_SIZE = 12;
 let audioUnlocked = false;
 let audioEnabled = true;
 let maxFreq = 0;
@@ -15,11 +15,13 @@ let isTooltipVisible = false;
 let totalSentences = 0;
 let isContentLoaded = false;
 let lastAudioPlayTime = 0;
-const AUDIO_DEBOUNCE_MS = 500;
 let lastSwipeTime = 0;
-const SWIPE_DEBOUNCE_MS = 300;
 let swipeCount = 0;
 let swipeWindowStart = 0;
+
+const MAX_CACHE_SIZE = 12;
+const AUDIO_DEBOUNCE_MS = 500;
+const SWIPE_DEBOUNCE_MS = 300;
 const MAX_SWIPES_PER_WINDOW = 10;
 const SWIPE_WINDOW_MS = 5000;
 
@@ -31,117 +33,39 @@ const fallbackWord = {
     back_cards: [{ definition_en: "A representative form or pattern", example_en: "This is an example sentence.", audio_file: null }]
 };
 
+// DOM elements
+const elements = {
+    themeToggle: document.querySelector('.theme-toggle'),
+    audioBtn: document.querySelector('.audio-btn'),
+    infoBtn: document.querySelector('.info-btn'),
+    shuffleBtn: document.querySelector('.shuffle-btn'),
+    resetBtn: document.querySelector('.reset-btn'),
+    donateBtn: document.querySelector('.donate-btn'),
+    tooltipClose: document.querySelector('.tooltip-close'),
+    tooltipRetry: document.querySelector('.tooltip-retry'),
+    cardSlider: document.querySelector('#card-slider'),
+    tooltipOverlay: document.querySelector('.tooltip-overlay'),
+    flashcard: document.querySelector('.flashcard'),
+    loadingOverlay: document.querySelector('.loading-overlay'),
+    totalWords: document.querySelector('#total-words'),
+    totalSentences: document.querySelector('#total-sentences'),
+    rateLimitWarning: document.querySelector('.rate-limit-warning')
+};
+
+// Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'bright';
-    document.body.setAttribute('data-theme', savedTheme);
+    document.body.dataset.theme = savedTheme;
     updateIcons(savedTheme);
-
-    const elements = {
-        themeToggle: document.querySelector('.theme-toggle'),
-        audioBtn: document.querySelector('.audio-btn'),
-        infoBtn: document.querySelector('.info-btn'),
-        shuffleBtn: document.querySelector('.shuffle-btn'),
-        resetBtn: document.querySelector('.reset-btn'),
-        donateBtn: document.querySelector('.donate-btn'),
-        tooltipClose: document.querySelector('.tooltip-close'),
-        tooltipRetry: document.querySelector('.tooltip-retry'),
-        cardSlider: document.querySelector('#card-slider'),
-        tooltipOverlay: document.querySelector('.tooltip-overlay')
-    };
-
-    const toggleTheme = () => {
-        const currentTheme = document.body.getAttribute('data-theme');
-        const newTheme = currentTheme === 'bright' ? 'dark' : 'bright';
-        document.body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateIcons(newTheme);
-    };
-
-    elements.themeToggle.addEventListener('click', toggleTheme);
-    elements.themeToggle.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        toggleTheme();
-    });
-
-    elements.audioBtn.addEventListener('click', toggleAudio);
-    elements.audioBtn.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        toggleAudio();
-    });
-
-    elements.infoBtn.addEventListener('click', () => toggleTooltip('info'));
-    elements.infoBtn.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        toggleTooltip('info');
-    });
-
-    elements.shuffleBtn.addEventListener('click', shuffleCards);
-    elements.resetBtn.addEventListener('click', resetCards);
-
-    elements.donateBtn.addEventListener('click', () => toggleTooltip('donate'));
-    elements.donateBtn.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        toggleTooltip('donate');
-    });
-
-    elements.tooltipClose.addEventListener('click', () => toggleTooltip(null));
-    elements.tooltipClose.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        toggleTooltip(null);
-    });
-
-    elements.tooltipRetry.addEventListener('click', () => {
-        toggleTooltip(null);
-        loadWords();
-    });
-    elements.tooltipRetry.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        toggleTooltip(null);
-        loadWords();
-    });
-
-    elements.tooltipOverlay.addEventListener('click', (e) => {
-        if (e.target === elements.tooltipOverlay) toggleTooltip(null);
-    });
-    elements.tooltipOverlay.addEventListener('touchend', (e) => {
-        if (e.target === elements.tooltipOverlay) {
-            e.preventDefault();
-            toggleTooltip(null);
-        }
-    });
-
-    elements.cardSlider.addEventListener('input', () => {
-        if (!isContentLoaded) return;
-        isSliding = true;
-        currentWordIndex = parseInt(elements.cardSlider.value) - 1;
-        currentBackCardIndex = 0;
-        stopAudio();
-        displayWord();
-    });
-    elements.cardSlider.addEventListener('change', () => {
-        if (!isContentLoaded) return;
-        isSliding = false;
-        preloadAudio();
-        if (audioUnlocked && audioEnabled) {
-            const audioFile = isFlipped
-                ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-                : words[currentWordIndex]?.word_audio_file;
-            if (audioFile) playAudioWithRetry(audioFile);
-        }
-    });
-
     loadWords();
     setupEventListeners();
-    setupKeyboardListeners();
 });
 
-document.body.addEventListener('touchstart', () => {
-    audioUnlocked = true;
-}, { once: true });
-document.body.addEventListener('click', () => {
-    audioUnlocked = true;
-}, { once: true });
+// Unlock audio on first interaction
+document.body.addEventListener('touchstart', () => { audioUnlocked = true; }, { once: true });
+document.body.addEventListener('click', () => { audioUnlocked = true; }, { once: true });
 
+// Update button icons based on theme
 function updateIcons(theme) {
     const icons = {
         theme: document.querySelector('.theme-icon'),
@@ -152,7 +76,6 @@ function updateIcons(theme) {
         donate: document.querySelector('.donate-icon'),
         loading: document.querySelector('.loading-icon')
     };
-
     if (icons.theme) icons.theme.src = theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
     if (icons.audio) icons.audio.src = theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg');
     if (icons.info) icons.info.src = theme === 'bright' ? 'information-bright.svg' : 'information-night.svg';
@@ -162,32 +85,42 @@ function updateIcons(theme) {
     if (icons.loading) icons.loading.src = theme === 'bright' ? 'loading-bright.gif' : 'loading-night.gif';
 }
 
-function toggleAudio() {
+// Toggle theme
+function toggleTheme(e) {
+    e.preventDefault();
+    const newTheme = document.body.dataset.theme === 'bright' ? 'dark' : 'bright';
+    document.body.dataset.theme = newTheme;
+    localStorage.setItem('theme', newTheme);
+    updateIcons(newTheme);
+}
+
+// Toggle audio
+function toggleAudio(e) {
+    e.preventDefault();
     audioEnabled = !audioEnabled;
-    updateIcons(document.body.getAttribute('data-theme'));
+    updateIcons(document.body.dataset.theme);
     if (!audioEnabled) stopAudio();
 }
 
+// Toggle tooltip
 function toggleTooltip(type, errorMessage = '') {
-    const overlay = document.querySelector('.tooltip-overlay');
     const tooltipText = document.querySelector('#tooltip-text');
-    const retryButton = document.querySelector('.tooltip-retry');
-    const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    const theme = document.body.getAttribute('data-theme');
-    const iconStyle = theme === 'bright' ? 'style="filter: none; fill: #00008B;"' : 'style="filter: none; fill: #FFD700;"';
-
-    if (!overlay || !tooltipText) return;
+    if (!elements.tooltipOverlay || !tooltipText) return;
 
     if (isTooltipVisible && type === null) {
         isTooltipVisible = false;
-        overlay.style.display = 'none';
-        retryButton.style.display = 'none';
+        elements.tooltipOverlay.hidden = true;
+        elements.tooltipRetry.hidden = true;
         return;
     }
 
     isTooltipVisible = true;
-    overlay.style.display = 'flex';
-    retryButton.style.display = type === 'error' ? 'block' : 'none';
+    elements.tooltipOverlay.hidden = false;
+    elements.tooltipRetry.hidden = type !== 'error';
+
+    const theme = document.body.dataset.theme;
+    const iconStyle = theme === 'bright' ? 'style="filter: none; fill: #00008B;"' : 'style="filter: none; fill: #FFD700;"';
+    const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
     if (type === 'info') {
         tooltipText.innerHTML = isMobile
@@ -231,8 +164,8 @@ function toggleTooltip(type, errorMessage = '') {
                 <p style="text-align: center; margin-bottom: 16px;">
                     Your support helps maintain and enhance this free vocabulary-learning tool for everyone.
                 </p>
-                <img src="${qrCodeUrl}" class="donation-qr" alt="PromptPay QR Code" width="200" height="200"><br>
-                <img src="${promptPayLogoUrl}" class="promptpay-logo" alt="PromptPay Logo" width="100" height="40">
+                <img src="${qrCodeUrl}" class="donation-qr" alt="PromptPay QR Code"><br>
+                <img src="${promptPayLogoUrl}" class="promptpay-logo" alt="PromptPay Logo">
             `;
         };
         img.onerror = () => {
@@ -256,6 +189,7 @@ function toggleTooltip(type, errorMessage = '') {
     }
 }
 
+// Shuffle array
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -264,207 +198,206 @@ function shuffleArray(array) {
     return array;
 }
 
-function loadWords(retries = 5, delay = 1000) {
-    const loadingOverlay = document.querySelector('.loading-overlay');
-    const cardSlider = document.querySelector('#card-slider');
-    if (loadingOverlay) loadingOverlay.style.display = 'flex';
-    fetch('data/vocab3000_database.yaml')
-        .then(response => {
-            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-            return response.text();
-        })
-        .then(yamlText => {
-            if (!yamlText) throw new Error('Empty YAML response');
-            words = jsyaml.load(yamlText) || [];
-            if (!Array.isArray(words) || words.length === 0) throw new Error('No valid words found');
-            words.forEach(word => {
-                if (word.back_cards) word.back_cards = shuffleArray(word.back_cards);
-            });
-            originalWords = JSON.parse(JSON.stringify(words));
-            words.sort((a, b) => (a.rank || 0) - (b.rank || 0));
-            maxFreq = words.find(word) => word.rank === 1)?.freq || 1;
-            minFreq = Math.min(...words.map(word => word.freq || 1).filter(freq => freq > 0)) || 1;
-            totalSentences = words.reduce((sum, word) => sum + (word.back_cards?.length || 0), 0);
-            if (cardSlider) {
-                cardSlider.max = words.length;
-                cardSlider.disabled = false;
-            }
-            document.querySelector('#total-words').textContent = words.length;
-            document.querySelector('#total-sentences').textContent = totalSentences;
-            isContentLoaded = true;
-            displayWord();
-            document.querySelector('.stats-container').style.opacity = '1';
-            if (loadingOverlay) loadingOverlay.style.display = 'none';
-            preloadAudio();
-            if (audioUnlocked && audioEnabled && words[currentWordIndex]?.word_audio_file) {
-                playAudioWithRetry(words[currentWordIndex].word_audio_file);
-            }
-        })
-        .catch(error => {
-            if (retries > 1) {
-                setTimeout(() => loadWords(retries - 1, delay), delay);
-            } else {
-                words = [fallbackWord];
-                originalWords = [fallbackWord];
-                maxFreq = 1000;
-                minFreq = 1000;
-                totalSentences = 1;
-                if (cardSlider) {
-                    cardSlider.max = 1;
-                    cardSlider.disabled = false;
-                }
-                document.querySelector('#total-words').textContent = 1;
-                document.querySelector('#total-sentences').textContent = 1;
-                isContentLoaded = true;
-                displayWord();
-                document.querySelector('.stats-container').style.opacity = '1';
-                if (loadingOverlay) loadingOverlay.style.display = 'none';
-                toggleTooltip('error', `Failed to load vocabulary data: ${error.message}. Using a sample word.`);
-            }
+// Load vocabulary data
+async function loadWords(retries = 3, delay = 1000) {
+    if (elements.loadingOverlay) elements.loadingOverlay.hidden = false;
+    try {
+        const response = await fetch('data/vocab3000_database.yaml');
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        const yamlText = await response.text();
+        if (!yamlText) throw new Error('Empty YAML response');
+        words = jsyaml.load(yamlText) || [];
+        if (!Array.isArray(words) || !words.length) throw new Error('No valid words found');
+
+        words.forEach(word => {
+            if (word.back_cards) word.back_cards = shuffleArray(word.back_cards);
         });
+        originalWords = structuredClone(words);
+        words.sort((a, b) => (a.rank || 0) - (b.rank || 0));
+        maxFreq = words.find(word => word.rank === 1)?.freq || 1;
+        minFreq = Math.min(...words.map(word => word.freq || 1).filter(freq => freq > 0)) || 1;
+        totalSentences = words.reduce((sum, word) => sum + (word.back_cards?.length || 0), 0);
+
+        if (elements.cardSlider) {
+            elements.cardSlider.max = words.length;
+            elements.cardSlider.disabled = false;
+        }
+        elements.totalWords.textContent = words.length;
+        elements.totalSentences.textContent = totalSentences;
+        isContentLoaded = true;
+        elements.statsContainer.style.opacity = '1';
+        elements.loadingOverlay.hidden = true;
+        displayWord();
+        preloadAudio();
+        if (audioUnlocked && audioEnabled && words[currentWordIndex]?.word_audio_file) {
+            playAudioWithRetry(words[currentWordIndex].word_audio_file);
+        }
+    } catch (error) {
+        if (retries > 0) {
+            setTimeout(() => loadWords(retries - 1, delay), delay);
+        } else {
+            words = [fallbackWord];
+            originalWords = [fallbackWord];
+            maxFreq = minFreq = 1000;
+            totalSentences = 1;
+            if (elements.cardSlider) {
+                elements.cardSlider.max = 1;
+                elements.cardSlider.disabled = false;
+            }
+            elements.totalWords.textContent = '1';
+            elements.totalSentences.textContent = '1';
+            isContentLoaded = true;
+            elements.statsContainer.style.opacity = '1';
+            elements.loadingOverlay.hidden = true;
+            displayWord();
+            toggleTooltip('error', `Failed to load vocabulary data: ${error.message}. Using a sample word.`);
+        }
+    }
 }
 
+// Shuffle cards
 function shuffleCards() {
     if (!isContentLoaded) return;
     words = shuffleArray(words);
-    currentWordIndex = 0;
-    currentBackCardIndex = 0;
+    currentWordIndex = currentBackCardIndex = 0;
     stopAudio();
     displayWord();
     preloadAudio();
-    if (audioUnlocked && audioEnabled) {
-        const audioFile = isFlipped
-            ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-            : words[currentWordIndex]?.word_audio_file;
-        if (audioFile) playAudioWithRetry(audioFile);
-    }
+    playCurrentAudio();
 }
 
+// Reset cards
 function resetCards() {
     if (!isContentLoaded) return;
-    words = JSON.parse(JSON.stringify(originalWords)).sort((a, b) => (a.rank || 0) - (b.rank || 0));
-    currentWordIndex = 0;
-    currentBackCardIndex = 0;
+    words = structuredClone(originalWords).sort((a, b) => (a.rank || 0) - (b.rank || 0));
+    currentWordIndex = currentBackCardIndex = 0;
     stopAudio();
     displayWord();
     preloadAudio();
-    if (audioUnlocked && audioEnabled) {
-        const audioFile = isFlipped
-            ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-            : words[currentWordIndex]?.word_audio_file;
-        if (audioFile) playAudioWithRetry(audioFile);
-    }
+    playCurrentAudio();
 }
 
+// Rate limiting for swipes
 function checkRateLimit() {
     const now = Date.now();
     if (now - swipeWindowStart > SWIPE_WINDOW_MS) {
         swipeCount = 0;
         swipeWindowStart = now;
-        document.querySelector('.rate-limit-warning').style.display = 'none';
+        elements.rateLimitWarning.hidden = true;
     }
     swipeCount++;
     if (swipeCount > MAX_SWIPES_PER_WINDOW) {
-        document.querySelector('.rate-limit-warning').style.display = 'block';
+        elements.rateLimitWarning.hidden = false;
         return false;
     }
     return true;
 }
 
+// Event listeners for interactions
 function setupEventListeners() {
-    const card = document.querySelector('.flashcard');
-    if (!card) return;
-    let tapCount = 0;
-    let lastTapTime = 0;
-    const doubleTapThreshold = 300;
-
-    const handleTap = (e) => {
-        e.preventDefault();
-        if (!isContentLoaded) return;
-        const currentTime = Date.now();
-        tapCount++;
-        if (tapCount === 1) {
-            setTimeout(() => {
-                if (tapCount === 1) {
-                    glowCard(1);
-                    if (audioEnabled && audioUnlocked) {
-                        const audioFile = isFlipped
-                            ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-                            : words[currentWordIndex]?.word_audio_file;
-                        if (audioFile) playAudioWithRetry(audioFile);
-                    }
-                }
-                tapCount = 0;
-            }, doubleTapThreshold);
-        } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
-            glowCard(2);
-            flipCard();
-            tapCount = 0;
-        }
-        lastTapTime = currentTime;
+    // Button events
+    const addButtonListeners = (btn, handler) => {
+        btn.addEventListener('click', handler);
+        btn.addEventListener('touchend', e => { e.preventDefault(); handler(e); });
     };
-
-    card.addEventListener('touchend', handleTap);
-    card.addEventListener('click', (e) => {
-        if ('ontouchstart' in window) return;
-        handleTap(e);
+    addButtonListeners(elements.themeToggle, toggleTheme);
+    addButtonListeners(elements.audioBtn, toggleAudio);
+    addButtonListeners(elements.infoBtn, () => toggleTooltip('info'));
+    addButtonListeners(elements.shuffleBtn, shuffleCards);
+    addButtonListeners(elements.resetBtn, resetCards);
+    addButtonListeners(elements.donateBtn, () => toggleTooltip('donate'));
+    addButtonListeners(elements.tooltipClose, () => toggleTooltip(null));
+    addButtonListeners(elements.tooltipRetry, () => { toggleTooltip(null); loadWords(); });
+    elements.tooltipOverlay.addEventListener('click', e => {
+        if (e.target === elements.tooltipOverlay) toggleTooltip(null);
+    });
+    elements.tooltipOverlay.addEventListener('touchend', e => {
+        if (e.target === elements.tooltipOverlay) {
+            e.preventDefault();
+            toggleTooltip(null);
+        }
     });
 
-    const hammer = new Hammer(card);
-    hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-    hammer.on('swipeleft', (e) => handleSwipe(e, 'left', () => {
-        currentWordIndex = (currentWordIndex + 1) % words.length;
+    // Slider events
+    elements.cardSlider.addEventListener('input', () => {
+        if (!isContentLoaded) return;
+        isSliding = true;
+        currentWordIndex = parseInt(elements.cardSlider.value) - 1;
         currentBackCardIndex = 0;
-    }));
-    hammer.on('swiperight', (e) => handleSwipe(e, 'right', () => {
-        currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
-        currentBackCardIndex = 0;
-    }));
-    hammer.on('swipeup', (e) => handleSwipe(e, 'up', () => {
-        if (isFlipped && words[currentWordIndex]?.back_cards) {
-            currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
-        }
-    }));
-    hammer.on('swipedown', (e) => handleSwipe(e, 'down', () => {
-        if (isFlipped && words[currentWordIndex]?.back_cards) {
-            currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
-        }
-    }));
-}
-
-function handleSwipe(e, direction, updateIndices) {
-    e.preventDefault();
-    if (!isContentLoaded) return;
-    const now = Date.now();
-    if (now - lastSwipeTime < SWIPE_DEBOUNCE_MS) return;
-    if (!checkRateLimit()) return;
-    lastSwipeTime = now;
-    if (words.length) {
-        animateSwipe(direction, isFlipped);
-        updateIndices();
         stopAudio();
         displayWord();
+    });
+    elements.cardSlider.addEventListener('change', () => {
+        if (!isContentLoaded) return;
+        isSliding = false;
         preloadAudio();
-        if (audioUnlocked && audioEnabled) {
-            const audioFile = isFlipped
-                ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-                : words[currentWordIndex]?.word_audio_file;
-            if (audioFile) playAudioWithRetry(audioFile);
-        }
-    }
-}
+        playCurrentAudio();
+    });
 
-function setupKeyboardListeners() {
+    // Touch and click events for flashcard
+    if (elements.flashcard) {
+        let tapCount = 0;
+        let lastTapTime = 0;
+        const doubleTapThreshold = 300;
+        const handleTap = e => {
+            e.preventDefault();
+            if (!isContentLoaded) return;
+            const currentTime = Date.now();
+            tapCount++;
+            if (tapCount === 1) {
+                setTimeout(() => {
+                    if (tapCount === 1) {
+                        glowCard(1);
+                        playCurrentAudio();
+                    }
+                    tapCount = 0;
+                }, doubleTapThreshold);
+            } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
+                glowCard(2);
+                flipCard();
+                tapCount = 0;
+            }
+            lastTapTime = currentTime;
+        };
+        elements.flashcard.addEventListener('touchend', handleTap);
+        elements.flashcard.addEventListener('click', e => {
+            if ('ontouchstart' in window) return;
+            handleTap(e);
+        });
+
+        // Swipe events
+        const hammer = new Hammer(elements.flashcard);
+        hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+        hammer.on('swipeleft', e => handleSwipe(e, 'left', () => {
+            currentWordIndex = (currentWordIndex + 1) % words.length;
+            currentBackCardIndex = 0;
+        }));
+        hammer.on('swiperight', e => handleSwipe(e, 'right', () => {
+            currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
+            currentBackCardIndex = 0;
+        }));
+        hammer.on('swipeup', e => handleSwipe(e, 'up', () => {
+            if (isFlipped && words[currentWordIndex]?.back_cards) {
+                currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
+            }
+        }));
+        hammer.on('swipedown', e => handleSwipe(e, 'down', () => {
+            if (isFlipped && words[currentWordIndex]?.back_cards) {
+                currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
+            }
+        }));
+    }
+
+    // Keyboard events
     let lastKeyPressTime = 0;
-    const KEY_DEBOUNCE_MS = 701;
-    document.addEventListener('keydown', (e) => {
-        if (!words.length || !isContentLoaded) return;
+    const KEY_DEBOUNCE_MS = 300;
+    document.addEventListener('keydown', e => {
+        if (!isContentLoaded || !words.length) return;
         const now = Date.now();
-        if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key) && now - lastKeyPressTime < KEY_DEBOUNCE_MS) {
-            return;
-        }
+        if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key) && now - lastKeyPressTime < KEY_DEBOUNCE_MS) return;
         if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key) && !checkRateLimit()) return;
         lastKeyPressTime = now;
+
         switch (e.key) {
             case 'ArrowLeft':
                 animateSwipe('right', isFlipped);
@@ -473,12 +406,7 @@ function setupKeyboardListeners() {
                 stopAudio();
                 displayWord();
                 preloadAudio();
-                if (audioUnlocked && audioEnabled) {
-                    const audioFile = isFlipped
-                        ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-                        : words[currentWordIndex]?.word_audio_file;
-                    if (audioFile) playAudioWithRetry(audioFile);
-                }
+                playCurrentAudio();
                 break;
             case 'ArrowRight':
                 animateSwipe('left', isFlipped);
@@ -487,12 +415,7 @@ function setupKeyboardListeners() {
                 stopAudio();
                 displayWord();
                 preloadAudio();
-                if (audioUnlocked && audioEnabled) {
-                    const audioFile = isFlipped
-                        ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-                        : words[currentWordIndex]?.word_audio_file;
-                    if (audioFile) playAudioWithRetry(audioFile);
-                }
+                playCurrentAudio();
                 break;
             case 'ArrowUp':
                 if (isFlipped && words[currentWordIndex]?.back_cards) {
@@ -501,11 +424,7 @@ function setupKeyboardListeners() {
                     stopAudio();
                     displayWord();
                     preloadAudio();
-                    if (audioUnlocked && audioEnabled) {
-                        const audioFile = words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file ||
-                                         words[currentWordIndex]?.word_audio_file;
-                        if (audioFile) playAudioWithRetry(audioFile);
-                    }
+                    playCurrentAudio();
                 }
                 break;
             case 'ArrowDown':
@@ -515,21 +434,12 @@ function setupKeyboardListeners() {
                     stopAudio();
                     displayWord();
                     preloadAudio();
-                    if (audioUnlocked && audioEnabled) {
-                        const audioFile = words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file ||
-                                         words[currentWordIndex]?.word_audio_file;
-                        if (audioFile) playAudioWithRetry(audioFile);
-                    }
+                    playCurrentAudio();
                 }
                 break;
             case ' ':
                 glowCard(1);
-                if (audioEnabled && audioUnlocked) {
-                    const audioFile = isFlipped
-                        ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-                        : words[currentWordIndex]?.word_audio_file;
-                    if (audioFile) playAudioWithRetry(audioFile);
-                }
+                playCurrentAudio();
                 break;
             case 'Enter':
                 glowCard(2);
@@ -539,24 +449,51 @@ function setupKeyboardListeners() {
     });
 }
 
-function glowCard(times) {
-    const card = document.querySelector('.flashcard');
-    if (!card) return;
-    card.classList.remove('glow-once', 'glow-twice');
-    void card.offsetWidth;
-    card.classList.add(times === 1 ? 'glow-once' : 'glow-twice');
+// Handle swipe actions
+function handleSwipe(e, direction, updateIndices) {
+    e.preventDefault();
+    if (!isContentLoaded || !checkRateLimit()) return;
+    const now = Date.now();
+    if (now - lastSwipeTime < SWIPE_DEBOUNCE_MS) return;
+    lastSwipeTime = now;
+    if (words.length) {
+        animateSwipe(direction, isFlipped);
+        updateIndices();
+        stopAudio();
+        displayWord();
+        preloadAudio();
+        playCurrentAudio();
+    }
 }
 
+// Play current audio based on card state
+function playCurrentAudio() {
+    if (!audioUnlocked || !audioEnabled) return;
+    const audioFile = isFlipped
+        ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
+        : words[currentWordIndex]?.word_audio_file;
+    if (audioFile) playAudioWithRetry(audioFile);
+}
+
+// Glow animation for card
+function glowCard(times) {
+    if (!elements.flashcard) return;
+    elements.flashcard.classList.remove('glow-once', 'glow-twice');
+    void elements.flashcard.offsetWidth;
+    elements.flashcard.classList.add(times === 1 ? 'glow-once' : 'glow-twice');
+}
+
+// Swipe animation
 function animateSwipe(direction, isBackCard) {
-    const card = document.querySelector('.flashcard');
-    if (!card) return;
+    if (!elements.flashcard) return;
     const sideToClone = isBackCard ? '.back' : '.front';
-    const clone = card.querySelector(sideToClone).cloneNode(true);
+    const clone = elements.flashcard.querySelector(sideToClone).cloneNode(true);
     clone.classList.add('swipe-clone', `swipe-${direction}`);
-    card.parentElement.appendChild(clone);
+    elements.flashcard.parentElement.appendChild(clone);
     setTimeout(() => clone.remove(), 300);
 }
 
+// Preload audio files
 function preloadAudio() {
     if (!words[currentWordIndex] || isSliding || !audioEnabled) return;
     const currentWord = words[currentWordIndex];
@@ -580,119 +517,142 @@ function preloadAudio() {
         const audioPath = isWordAudio
             ? `data/audio/front/${audioFile}`
             : `data/audio/back/${currentWord.word.toLowerCase()}/${audioFile}`;
-        constресс
+        const audio = new Audio(audioPath);
+        audio.preload = 'auto';
+        audio.load();
+        audioCache.set(audioFile, audio);
+        audio.addEventListener('error', () => audioCache.delete(audioFile), { once: true });
+    });
+}
 
-### Unchanged `sw.js`
-```javascript
-const CACHE_NAME = 'vocabswipe-cache-v1';
-const urlsToCache = [
-    '/',
-    '/index.html',
-    '/styles.css',
-    '/script.js',
-    '/data/vocab3000_database.yaml',
-    '/qr_code/VocabSwipe_qr_code.png',
-    '/theme-bright.svg',
-    '/theme-night.svg',
-    '/unmute-bright.svg',
-    '/unmute-night.svg',
-    '/mute-bright.svg',
-    '/mute-night.svg',
-    '/information-bright.svg',
-    '/information-night.svg',
-    '/shuffle-bright.svg',
-    '/shuffle-night.svg',
-    '/reset-bright.svg',
-    '/reset-night.svg',
-    '/heart-bright.svg',
-    '/heart-night.svg',
-    '/loading-bright.gif',
-    '/loading-night.gif',
-    'https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js',
-    'https://hammerjs.github.io/dist/hammer.min.js'
-];
+// Stop audio playback
+function stopAudio() {
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        currentAudio = null;
+    }
+}
 
-self.addEventListener('install', event => {
-    console.log('Service Worker: Installing');
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(cache => {
-                console.log('Service Worker: Caching files');
-                return cache.addAll(urlsToCache);
-            })
-            .catch(error => console.error('Service Worker: Cache addAll failed:', error))
-    );
-});
+// Play audio with retry
+function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
+    if (!audioFile || !audioUnlocked || !audioEnabled) return;
+    const now = Date.now();
+    if (now - lastAudioPlayTime < AUDIO_DEBOUNCE_MS) return;
+    lastAudioPlayTime = now;
 
-self.addEventListener('fetch', event => {
-    event.respondWith(
-        caches.match(event.request)
-            .then(cachedResponse => {
-                // For the YAML file, prioritize network to ensure fresh data
-                if (event.request.url.includesFirebase('vocab3000_database.yaml')) {
-                    console.log(`Service Worker: Fetching fresh ${event.request.url}`);
-                    return fetch(event.request)
-                        .then(networkResponse => {
-                            if (!networkResponse.ok) {
-                                throw new Error(`Network fetch failed for ${event.request.url}`);
-                            }
-                            // Update cache with fresh YAML
-                            return caches.open(CACHE_NAME)
-                                .then(cache => {
-                                    cache.put(event.request, networkResponse.clone());
-                                    console.log(`Service Worker: Cached fresh ${event.request.url}`);
-                                    return networkResponse;
-                                });
-                        })
-                        .catch(error => {
-                            console.error(`Service Worker: Network fetch failed for ${event.request.url}:`, error);
-                            if (cachedResponse) {
-                                console.log(`Service Worker: Serving cached ${event.request.url}`);
-                                return cachedResponse;
-                            }
-                            throw error; // Let the app handle the error
-                        });
-                }
-                // For other assets, serve from cache first
-                if (cachedResponse) {
-                    console.log(`Service Worker: Serving cached ${event.request.url}`);
-                    return cachedResponse;
-                }
-                // Fetch from network if not cached
-                console.log(`Service Worker: Fetching ${event.request.url}`);
-                return fetch(event.request)
-                    .then(networkResponse => {
-                        if (!networkResponse.ok) {
-                            throw new Error(`Network fetch failed for ${event.request.url}`);
-                        }
-                        // Cache the new response for future use
-                        return caches.open(CACHE_NAME)
-                            .then(cache => {
-                                cache.put(event.request, networkResponse.clone());
-                                console.log(`Service Worker: Cached ${event.request.url}`);
-                                return networkResponse;
-                            });
-                    })
-                    .catch(error => {
-                        console.error(`Service Worker: Fetch failed for ${event.request.url}:`, error);
-                        throw error;
-                    });
-            })
-    );
-});
+    const isWordAudio = audioFile === words[currentWordIndex]?.word_audio_file;
+    const audioPath = isWordAudio
+        ? `data/audio/front/${audioFile}`
+        : `data/audio/back/${words[currentWordIndex]?.word.toLowerCase()}/${audioFile}`;
+    stopAudio();
+    let audio = audioCache.get(audioFile) || new Audio(audioPath);
+    audio.preload = 'auto';
+    audio.load();
+    audioCache.set(audioFile, audio);
+    currentAudio = audio;
 
-self.addEventListener('activate', event => {
-    console.log('Service Worker: Activating');
-    event.waitUntil(
-        caches.keys().then(cacheNames => {
-            return Promise.all(
-                cacheNames
-                    .filter(cacheName => cacheName !== CACHE_NAME)
-                    .map(cacheName => {
-                        console.log(`Service Worker: Deleting old cache ${cacheName}`);
-                        return caches.delete(cacheName);
-                    })
-            );
-        })
-    );
-});
+    async function attemptPlay(attempt = 1) {
+        if (!audioEnabled || !audioUnlocked) return;
+        try {
+            await audio.play();
+        } catch (error) {
+            if (attempt < retries) {
+                setTimeout(() => attemptPlay(attempt + 1), delay);
+            }
+        }
+    }
+
+    if (audio.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+        attemptPlay();
+    } else {
+        audio.addEventListener('canplaythrough', () => attemptPlay(), { once: true });
+        audio.addEventListener('error', () => audioCache.delete(audioFile), { once: true });
+    }
+}
+
+// Flip card
+function flipCard() {
+    if (!isContentLoaded || !elements.flashcard) return;
+    isFlipped = !isFlipped;
+    elements.flashcard.classList.toggle('flipped', isFlipped);
+    stopAudio();
+    displayWord();
+    playCurrentAudio();
+}
+
+// Calculate frequency color
+function getFrequencyColor(relativeFreq) {
+    const hue = Math.min(relativeFreq * 1.2, 120);
+    return `hsl(${hue}, 80%, 50%)`;
+}
+
+// Display current word
+function displayWord() {
+    if (!words[currentWordIndex]) {
+        elements.flashcardContainer.innerHTML = `
+            <p class="error-message">No word data available. Please try again.</p>
+            <button class="retry-button" aria-label="Retry loading">Retry</button>
+        `;
+        document.querySelector('.retry-button')?.addEventListener('click', () => loadWords());
+        return;
+    }
+
+    const wordData = words[currentWordIndex] || {};
+    const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: 'No definition available', example_en: 'No example available' };
+    const logFreq = Math.log(wordData.freq || 1);
+    const logMinFreq = Math.log(minFreq);
+    const logMaxFreq = Math.log(maxFreq);
+    const relativeFreq = 5 + 95 * ((logFreq - logMinFreq) / (logMaxFreq - logMinFreq));
+    const freqPercentage = Math.min(Math.max(relativeFreq, 5), 100).toFixed(0);
+    const freqColor = getFrequencyColor(relativeFreq);
+
+    if (elements.cardSlider) elements.cardSlider.value = currentWordIndex + 1;
+
+    const front = document.querySelector('.front');
+    const back = document.querySelector('.back');
+    if (!front || !back) {
+        elements.flashcardContainer.innerHTML = `
+            <p class="error-message">Error rendering card. Please try again.</p>
+            <button class="retry-button" aria-label="Retry loading">Retry</button>
+        `;
+        document.querySelector('.retry-button')?.addEventListener('click', () => loadWords());
+        return;
+    }
+
+    front.innerHTML = `
+        <div class="word-container">
+            <h2>${wordData.word || 'N/A'}</h2>
+        </div>
+        <div class="meta-info">
+            <span class="rank">Rank: ${wordData.rank || 'N/A'}</span>
+            <div class="frequency-container">
+                <span class="frequency-label">Frequency</span>
+                <div class="frequency-bar">
+                    <div class="frequency-fill" style="width: ${freqPercentage}%; background-color: ${freqColor};"></div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    back.innerHTML = `
+        <div class="word-container">
+            <h2>${wordData.word || 'N/A'}</h2>
+        </div>
+        <div class="back-template">
+            <div class="card-info">
+                <p class="definition">${backCard.definition_en || 'No definition available'}</p>
+                <p class="example">"${backCard.example_en || 'No example available'}"</p>
+            </div>
+            <div class="meta-info">
+                <span class="rank">Rank: ${wordData.rank || 'N/A'}</span>
+                <div class="frequency-container">
+                    <span class="frequency-label">Frequency</span>
+                    <div class="frequency-bar">
+                        <div class="frequency-fill" style="width: ${freqPercentage}%; background-color: ${freqColor};"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
