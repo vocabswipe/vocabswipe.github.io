@@ -39,7 +39,7 @@ body[data-theme="dark"] {
     margin-bottom: 16px;
 }
 
-.theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn {
+.theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .auto-swipe-left-btn, .auto-swipe-right-btn, .auto-swipe-up-btn {
     background: none;
     border: none;
     cursor: pointer;
@@ -48,7 +48,8 @@ body[data-theme="dark"] {
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.theme-toggle:hover, .audio-btn:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover {
+.theme-toggle:hover, .audio-btn:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover,
+.auto-swipe-left-btn:hover, .auto-swipe-right-btn:hover, .auto-swipe-up-btn:hover {
     background: rgba(0, 0, 0, 0.15);
     transform: scale(1.1);
 }
@@ -57,15 +58,38 @@ body[data-theme="dark"] .theme-toggle:hover,
 body[data-theme="dark"] .audio-btn:hover,
 body[data-theme="dark"] .info-btn:hover,
 body[data-theme="dark"] .shuffle-btn:hover,
-body[data-theme="dark"] .reset-btn:hover {
+body[data-theme="dark"] .reset-btn:hover,
+body[data-theme="dark"] .auto-swipe-left-btn:hover,
+body[data-theme="dark"] .auto-swipe-right-btn:hover,
+body[data-theme="dark"] .auto-swipe-up-btn:hover {
     background: rgba(255, 255, 255, 0.15);
 }
 
-.theme-icon, .audio-icon, .info-icon, .shuffle-icon, .reset-icon {
+.theme-icon, .audio-icon, .info-icon, .shuffle-icon, .reset-icon, .auto-swipe-icon {
     width: 28px;
     height: 28px;
     filter: none;
 }
+
+.tooltip-icon {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+body[data-theme="bright"] .tooltip-icon.theme-icon { background-image: url('theme-bright.svg'); }
+body[data-theme="dark"] .tooltip-icon.theme-icon { background-image: url('theme-night.svg'); }
+body[data-theme="bright"] .tooltip-icon.audio-icon { background-image: url('unmute-bright.svg'); }
+body[data-theme="dark"] .tooltip-icon.audio-icon { background-image: url('unmute-night.svg'); }
+body[data-theme="bright"] .tooltip-icon.info-icon { background-image: url('information-bright.svg'); }
+body[data-theme="dark"] .tooltip-icon.info-icon { background-image: url('information-night.svg'); }
+body[data-theme="bright"] .tooltip-icon.shuffle-icon { background-image: url('shuffle-bright.svg'); }
+body[data-theme="dark"] .tooltip-icon.shuffle-icon { background-image: url('shuffle-night.svg'); }
+body[data-theme="bright"] .tooltip-icon.reset-icon { background-image: url('reset-bright.svg'); }
+body[data-theme="dark"] .tooltip-icon.reset-icon { background-image: url('reset-night.svg'); }
 
 .controls {
     display: flex;
@@ -81,7 +105,7 @@ body[data-theme="dark"] .reset-btn:hover {
 
 .website-name {
     font-family: 'Caveat', cursive;
-    font-size: 46.08px; /* 38.4px * 1.2 */
+    font-size: 46.08px;
     font-weight: 700;
     color: #00008B;
 }
@@ -92,7 +116,7 @@ body[data-theme="dark"] .website-name {
 
 .slogan-main {
     font-family: 'Caveat', cursive;
-    font-size: 28.8px; /* 24px * 1.2 */
+    font-size: 28.8px;
     font-weight: 400;
     color: #00008B;
     line-height: 1.2;
@@ -163,10 +187,11 @@ body[data-theme="dark"] #card-slider::-webkit-slider-thumb {
     aspect-ratio: 3 / 4;
     max-width: 350px;
     margin: 0 auto;
-    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.3s ease;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     transform-style: preserve-3d;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     border-radius: 16px;
+    will-change: transform, box-shadow;
 }
 
 .flashcard.flipped {
@@ -216,21 +241,10 @@ body[data-theme="dark"] .flashcard.glow-twice {
     z-index: 10;
 }
 
-.swipe-left {
-    animation: swipeLeft 0.3s ease-out forwards;
-}
-
-.swipe-right {
-    animation: swipeRight 0.3s ease-out forwards;
-}
-
-.swipe-up {
-    animation: swipeUp 0.3s ease-out forwards;
-}
-
-.swipe-down {
-    animation: swipeDown 0.3s ease-out forwards;
-}
+.swipe-left { animation: swipeLeft 0.3s ease-out forwards; }
+.swipe-right { animation: swipeRight 0.3s ease-out forwards; }
+.swipe-up { animation: swipeUp 0.3s ease-out forwards; }
+.swipe-down { animation: swipeDown 0.3s ease-out forwards; }
 
 @keyframes swipeLeft {
     from { transform: translateX(0); opacity: 0.5; }
@@ -514,80 +528,44 @@ body[data-theme="dark"] .tooltip-close:hover {
     background: #FFC107;
 }
 
+.error-message {
+    width: 100%;
+    max-width: 350px;
+    margin-top: 16px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
 @media (max-width: 414px) {
-    .container {
-        padding: 12px;
-    }
+    .container { padding: 12px; }
+    .theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .auto-swipe-left-btn, .auto-swipe-right-btn, .auto-swipe-up-btn { padding: 8px; }
+    .theme-icon, .audio-icon, .info-icon, .shuffle-icon, .reset-icon, .auto-swipe-icon { width: 24px; height: 24px; }
+    .website-name { font-size: 40.32px; }
+    .slogan-main { font-size: 25.92px; }
+    .slogan-sub { font-size: 14.4px; }
+    .flashcard { max-width: 90%; }
+    .front h2, .back h2 { font-size: 26px; }
+    .definition, .example { font-size: 14px; }
+    .rank, .frequency-label { font-size: 12px; }
+    .frequency-bar { width: 80px; height: 8px; }
+    .stats-text { font-size: 13px; }
+    .tooltip-message { font-size: 14px; padding: 18px; max-width: 90%; }
+    .tooltip-close { font-size: 14px; padding: 8px 16px; }
+    .tooltip-icon { width: 24px; height: 24px; }
+    #card-slider { height: 6px; }
+    #card-slider::-webkit-slider-thumb { width: 16px; height: 16px; }
+}
 
-    .theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn {
-        padding: 8px;
-    }
-
-    .theme-icon, .audio-icon, .info-icon, .shuffle-icon, .reset-icon {
-        width: 28px;
-        height: 28px;
-    }
-
-    .website-name {
-        font-size: 40.32px; /* 33.6px * 1.2 */
-    }
-
-    .slogan-main {
-        font-size: 25.92px; /* 21.6px * 1.2 */
-    }
-
-    .slogan-sub {
-        font-size: 14.4px;
-    }
-
-    .flashcard {
-        max-width: 90%;
-    }
-
-    .front h2, .back h2 {
-        font-size: 26px;
-    }
-
-    .definition, .example {
-        font-size: 14px;
-    }
-
-    .rank, .frequency-label {
-        font-size: 12px;
-    }
-
-    .frequency-bar {
-        width: 80px;
-        height: 8px;
-    }
-
-    .stats-text {
-        font-size: 13px;
-    }
-
-    .tooltip-message {
-        font-size: 14px;
-        padding: 18px;
-        max-width: 90%;
-    }
-
-    .tooltip-close {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
-
-    .tooltip-message img {
-        width: 24px;
-        height: 24px;
-        vertical-align: middle;
-    }
-
-    #card-slider {
-        height: 6px;
-    }
-
-    #card-slider::-webkit-slider-thumb {
-        width: 16px;
-        height: 16px;
-    }
+@media (min-width: 768px) {
+    .container { max-width: 600px; }
+    .header, .title-container, .slider-container, .flashcard-container, .stats-container { max-width: 500px; }
+    .website-name { font-size: 48px; }
+    .slogan-main { font-size: 30px; }
+    .slogan-sub { font-size: 18px; }
+    .flashcard { max-width: 500px; }
+    .front h2, .back h2 { font-size: 36px; }
+    .definition, .example { font-size: 16px; }
+    .frequency-bar { width: 120px; }
 }
