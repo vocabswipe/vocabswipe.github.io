@@ -1,726 +1,646 @@
-let currentWordIndex = 0;
-let currentBackCardIndex = 0;
-let words = [];
-let originalWords = [];
-let isFlipped = false;
-let currentAudio = null;
-let audioCache = new Map();
-const MAX_CACHE_SIZE = 12;
-let audioUnlocked = false;
-let audioEnabled = true;
-let maxFreq = 0;
-let minFreq = 1;
-let isSliding = false;
-let isTooltipVisible = false;
-let totalSentences = 0;
-let isContentLoaded = false;
-let lastAudioPlayTime = 0;
-const AUDIO_DEBOUNCE_MS = 500;
-let lastSwipeTime = 0;
-const SWIPE_DEBOUNCE_MS = 300;
-let swipeCount = 0;
-let swipeWindowStart = 0;
-const MAX_SWIPES_PER_WINDOW = 10;
-const SWIPE_WINDOW_MS = 5000;
-
-const fallbackWord = {
-    word: "example",
-    rank: 1,
-    freq: 1000,
-    word_audio_file: null,
-    back_cards: [{ definition_en: "A representative form or pattern", example_en: "This is an example sentence.", audio_file: null }]
-};
-
-document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme') || 'bright';
-    document.body.setAttribute('data-theme', savedTheme);
-    updateIcons(savedTheme);
-
-    const elements = {
-        themeToggle: document.querySelector('.theme-toggle'),
-        audioBtn: document.querySelector('.audio-btn'),
-        infoBtn: document.querySelector('.info-btn'),
-        shuffleBtn: document.querySelector('.shuffle-btn'),
-        resetBtn: document.querySelector('.reset-btn'),
-        donateBtn: document.querySelector('.donate-btn'),
-        tooltipClose: document.querySelector('.tooltip-close'),
-        tooltipRetry: document.querySelector('.tooltip-retry'),
-        cardSlider: document.querySelector('#card-slider'),
-        tooltipOverlay: document.querySelector('.tooltip-overlay')
-    };
-
-    const toggleTheme = () => {
-        const currentTheme = document.body.getAttribute('data-theme');
-        const newTheme = currentTheme === 'bright' ? 'dark' : 'bright';
-        document.body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateIcons(newTheme);
-    };
-
-    elements.themeToggle.addEventListener('click', toggleTheme);
-    elements.themeToggle.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        toggleTheme();
-    });
-
-    elements.audioBtn.addEventListener('click', toggleAudio);
-    elements.audioBtn.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        toggleAudio();
-    });
-
-    elements.infoBtn.addEventListener('click', () => toggleTooltip('info'));
-    elements.infoBtn.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        toggleTooltip('info');
-    });
-
-    elements.shuffleBtn.addEventListener('click', shuffleCards);
-    elements.resetBtn.addEventListener('click', resetCards);
-
-    elements.donateBtn.addEventListener('click', () => toggleTooltip('donate'));
-    elements.donateBtn.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        toggleTooltip('donate');
-    });
-
-    elements.tooltipClose.addEventListener('click', () => toggleTooltip(null));
-    elements.tooltipClose.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        toggleTooltip(null);
-    });
-
-    elements.tooltipRetry.addEventListener('click', () => {
-        toggleTooltip(null);
-        loadWords();
-    });
-    elements.tooltipRetry.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        toggleTooltip(null);
-        loadWords();
-    });
-
-    elements.tooltipOverlay.addEventListener('click', (e) => {
-        if (e.target === elements.tooltipOverlay) toggleTooltip(null);
-    });
-    elements.tooltipOverlay.addEventListener('touchend', (e) => {
-        if (e.target === elements.tooltipOverlay) {
-            e.preventDefault();
-            toggleTooltip(null);
-        }
-    });
-
-    elements.cardSlider.addEventListener('input', () => {
-        if (!isContentLoaded) return;
-        isSliding = true;
-        currentWordIndex = parseInt(elements.cardSlider.value) - 1;
-        currentBackCardIndex = 0;
-        stopAudio();
-        displayWord();
-    });
-    elements.cardSlider.addEventListener('change', () => {
-        if (!isContentLoaded) return;
-        isSliding = false;
-        preloadAudio();
-        if (audioUnlocked && audioEnabled) {
-            const audioFile = isFlipped
-                ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-                : words[currentWordIndex]?.word_audio_file;
-            if (audioFile) playAudioWithRetry(audioFile);
-        }
-    });
-
-    loadWords();
-    setupEventListeners();
-    setupKeyboardListeners();
-});
-
-document.body.addEventListener('touchstart', () => {
-    audioUnlocked = true;
-}, { once: true });
-document.body.addEventListener('click', () => {
-    audioUnlocked = true;
-}, { once: true });
-
-function updateIcons(theme) {
-    const icons = {
-        theme: document.querySelector('.theme-icon'),
-        audio: document.querySelector('.audio-icon'),
-        info: document.querySelector('.info-icon'),
-        shuffle: document.querySelector('.shuffle-icon'),
-        reset: document.querySelector('.reset-icon'),
-        donate: document.querySelector('.donate-icon'),
-        loading: document.querySelector('.loading-icon')
-    };
-
-    if (icons.theme) icons.theme.src = theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg';
-    if (icons.audio) icons.audio.src = theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg');
-    if (icons.info) icons.info.src = theme === 'bright' ? 'information-bright.svg' : 'information-night.svg';
-    if (icons.shuffle) icons.shuffle.src = theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg';
-    if (icons.reset) icons.reset.src = theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg';
-    if (icons.donate) icons.donate.src = theme === 'bright' ? 'heart-bright.svg' : 'heart-night.svg';
-    if (icons.loading) icons.loading.src = theme === 'bright' ? 'loading-bright.gif' : 'loading-night.gif';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-function toggleAudio() {
-    audioEnabled = !audioEnabled;
-    updateIcons(document.body.getAttribute('data-theme'));
-    if (!audioEnabled) stopAudio();
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    color: #1f2937;
+    transition: background 0.3s ease, color 0.3s ease;
+    overflow-y: auto;
 }
 
-function toggleTooltip(type, errorMessage = '') {
-    const overlay = document.querySelector('.tooltip-overlay');
-    const tooltipText = document.querySelector('#tooltip-text');
-    const retryButton = document.querySelector('.tooltip-retry');
-    const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    const theme = document.body.getAttribute('data-theme');
-    const iconStyle = theme === 'bright' ? 'style="filter: none; fill: #00008B;"' : 'style="filter: none; fill: #FFD700;"';
+body[data-theme="dark"] {
+    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+    color: #e5e7eb;
+}
 
-    if (!overlay || !tooltipText) return;
+.container {
+    width: 100%;
+    max-width: 414px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    if (isTooltipVisible && type === null) {
-        isTooltipVisible = false;
-        overlay.style.display = 'none';
-        retryButton.style.display = 'none';
-        return;
+.header {
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .donate-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover, .audio-btn:hover, .info-btn:hover, .shuffle-btn:hover, .reset-btn:hover, .donate-btn:hover {
+    background: rgba(0, 0, 0, 0.15);
+    transform: scale(1.1);
+}
+
+body[data-theme="dark"] .theme-toggle:hover,
+body[data-theme="dark"] .audio-btn:hover,
+body[data-theme="dark"] .info-btn:hover,
+body[data-theme="dark"] .shuffle-btn:hover,
+body[data-theme=".Align-items: center;
+    margin-bottom: 16px;
+}
+
+#card-slider {
+    width: 100%;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#card-slider:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#card-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #00008B;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s ease;
+}
+
+#card-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #00008B;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s ease;
+}
+
+body[data-theme="dark"] #card-slider {
+    background: #6b7280;
+}
+
+body[data-theme="dark"] #card-slider::-webkit-slider-thumb,
+body[data-theme="dark"] #card-slider::-moz-range-thumb {
+    background: #FFD700;
+}
+
+.flashcard-container {
+    width: 100%;
+    max-width: 350px;
+    perspective: 1200px;
+    position: relative;
+}
+
+.flashcard {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    max-width: 350px;
+    margin: 0 auto;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+}
+
+.flashcard.flipped {
+    transform: rotateY(180deg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+body[data-theme="dark"] .flashcard {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.flashcard.glow-once {
+    animation: glow 0.3s ease-in-out;
+}
+
+.flashcard.glow-twice {
+    animation: glow 0.3s ease-in-out 2;
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); }
+    50% { box-shadow: 0 8px 32px rgba(0, 0, 139, 0.5); }
+}
+
+body[data-theme="dark"] .flashcard.glow-once,
+body[data-theme="dark"] .flashcard.glow-twice {
+    animation: glow-dark 0.3s ease-in-out;
+}
+
+body[data-theme="dark"] .flashcard.glow-twice {
+    animation: glow-dark 0.3s ease-in-out 2;
+}
+
+@keyframes glow-dark {
+    0%, 100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
+    50% { box-shadow: 0 8px 32px rgba(255, 215, 0, 0.5); }
+}
+
+.swipe-clone {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.swipe-left {
+    animation: swipeLeft 0.3s ease-out forwards;
+}
+
+.swipe-right {
+    animation: swipeRight 0.3s ease-out forwards;
+}
+
+.swipe-up {
+    animation: swipeUp 0.3s ease-out forwards;
+}
+
+.swipe-down {
+    animation: swipeDown 0.3s ease-out forwards;
+}
+
+@keyframes swipeLeft {
+    from { transform: translateX(0); opacity: 0.5; }
+    to { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes swipeRight {
+    from { transform: translateX(0); opacity: 0.5; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes swipeUp {
+    from { transform: translateY(0); opacity: 0.5; }
+    to { transform: translateY(-100%); opacity: 0; }
+}
+
+@keyframes swipeDown {
+    from { transform: translateY(0); opacity: 0.5; }
+    to { transform: translateY(100%); opacity: 0; }
+}
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+body[data-theme="dark"] .loading-overlay {
+    background: linear-gradient(145deg, #374151 0%, #4b5563 100%);
+    border: 1px solid #4b5563;
+}
+
+.loading-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+}
+
+body[data-theme="dark"] .front,
+body[data-theme="dark"] .back {
+    background: linear-gradient(145deg, #374151 0%, #4b5563 100%);
+    border: 1px solid #4b5563;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.word-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.front h2, .back h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #00008B;
+    text-align: center;
+    word-break: break-word;
+    line-height: 1.3;
+}
+
+body[data-theme="dark"] .front h2,
+body[data-theme="dark"] .back h2 {
+    color: #FFD700;
+}
+
+.back-template {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-info {
+    flex-grow: 1;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.definition {
+    font-size: 15px;
+    color: #374151;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+body[data-theme="dark"] .definition {
+    color: #d1d5db;
+}
+
+.example {
+    font-size: 15px;
+    color: #374151;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    text-align: center;
+    font-style: italic;
+}
+
+body[data-theme="dark"] .example {
+    color: #d1d5db;
+}
+
+.meta-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid #e5e7eb;
+}
+
+body[data-theme="dark"] .meta-info {
+    border-top: 1px solid #4b5563;
+}
+
+.rank {
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+body[data-theme="dark"] .rank {
+    color: #9ca3af;
+}
+
+.frequency-container {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+}
+
+.frequency-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+    margin-right: 8px;
+}
+
+body[data-theme="dark"] .frequency-label {
+    color: #9ca3af;
+}
+
+.frequency-bar {
+    width: 100px;
+    height: 10px;
+    border: 2px solid #1f2937;
+    border-radius: 6px;
+    background: #e5e7eb;
+}
+
+body[data-theme="dark"] .frequency-bar {
+    border: 2px solid #e5e7eb;
+    background: #4b5563;
+}
+
+.frequency-fill {
+    height: 100%;
+    transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+.stats-container {
+    width: 100%;
+    max-width: 350px;
+    margin-top: 16px;
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.stats-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    line-height: 1.4;
+}
+
+body[data-theme="dark"] .stats-text {
+    color: #9ca3af;
+}
+
+.stats-text span {
+    font-weight: 600;
+    color: #00008B;
+}
+
+body[data-theme="dark"] .stats-text span {
+    color: #FFD700;
+}
+
+.rate-limit-warning {
+    width: 100%;
+    max-width: 350px;
+    margin-top: 12px;
+    text-align: center;
+}
+
+.rate-limit-warning p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ff0000;
+    line-height: 1.4;
+}
+
+body[data-theme="dark"] .rate-limit-warning p {
+    color: #ff5555;
+}
+
+.tooltip-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.tooltip-message {
+    background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 80%;
+    max-height: 70%;
+    overflow-y: auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1f2937;
+    border: 1px solid #e5e7eb;
+    position: relative;
+}
+
+body[data-theme="dark"] .tooltip-message {
+    background: linear-gradient(145deg, #374151 0%, #4b5563 100%);
+    color: #e5e7eb;
+    border: 1px solid #4b5563;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.tooltip-message p {
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+.tooltip-message strong {
+    font-weight: 700;
+    color: #00008B;
+}
+
+body[data-theme="dark"] .tooltip-message strong {
+    color: #FFD700;
+}
+
+.tooltip-message img.donation-qr {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    margin: 16px auto;
+    display: block;
+}
+
+body[data-theme="dark"] .tooltip-message img.donation-qr {
+    border: 1px solid #4b5563;
+}
+
+.tooltip-message img.promptpay-logo {
+    max-width: 100px;
+    max-height: 40px;
+    margin: 8px auto 16px;
+    display: block;
+}
+
+.tooltip-close, .tooltip-retry, .retry-button {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    padding: 10px 20px;
+    background: rgba(200, 200, 200, 0.3);
+    color: #00008B;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+body[data-theme="dark"] .tooltip-close,
+body[data-theme="dark"] .tooltip-retry,
+body[data-theme="dark"] .retry-button {
+    background: rgba(200, 200, 200, 0.3);
+    color: #FFD700;
+}
+
+.tooltip-close:hover, .tooltip-retry:hover, .retry-button:hover {
+    background: rgba(150, 150, 150, 0.4);
+    transform: scale(1.05);
+}
+
+body[data-theme="dark"] .tooltip-close:hover,
+body[data-theme="dark"] .tooltip-retry:hover,
+body[data-theme="dark"] .retry-button:hover {
+    background: rgba(150, 150, 150, 0.4);
+}
+
+.error-message {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ff0000;
+    text-align: center;
+    padding: 20px;
+}
+
+body[data-theme="dark"] .error-message {
+    color: #ff5555;
+}
+
+@media (max-width: 414px) {
+    .container {
+        padding: 12px;
     }
 
-    isTooltipVisible = true;
-    overlay.style.display = 'flex';
-    retryButton.style.display = type === 'error' ? 'block' : 'none';
-
-    if (type === 'info') {
-        tooltipText.innerHTML = isMobile
-            ? `
-                <strong>Theme Toggle</strong> (<img src="${theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg'}" width="24" height="24" ${iconStyle} alt="Theme Toggle">): Switch between bright and dark themes.<br>
-                <strong>Audio Toggle</strong> (<img src="${theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg')}" width="24" height="24" ${iconStyle} alt="Audio Toggle">): Enable or disable audio.<br>
-                <strong>Info</strong> (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="19.2" height="19.2" ${iconStyle} alt="Info">): Show or hide this help message.<br>
-                <strong>Shuffle</strong> (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="24" height="24" ${iconStyle} alt="Shuffle">): Randomize the word order.<br>
-                <strong>Reset</strong> (<img src="${theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg'}" width="24" height="24" ${iconStyle} alt="Reset">): Restore the original word order.<br>
-                <strong>Donate</strong> (<img src="${theme === 'bright' ? 'heart-bright.svg' : 'heart-night.svg'}" width="24" height="24" ${iconStyle} alt="Donate">): Support VocabSwipe with a donation.<br>
-                <strong>Swipe Left/Right</strong>: Navigate to the next or previous word card.<br>
-                <strong>Swipe Up/Down</strong>: On the back of a card, cycle through definitions and examples.<br>
-                <strong>Tap Once</strong>: Hear the word or sentence audio (if enabled).<br>
-                <strong>Double-Tap</strong>: Flip between the front (word) and back (definition/example).<br>
-                <strong>Slider</strong>: Jump to a specific word rank.
-            `
-            : `
-                <strong>Theme Toggle</strong> (<img src="${theme === 'bright' ? 'theme-bright.svg' : 'theme-night.svg'}" width="24" height="24" ${iconStyle} alt="Theme Toggle">): Switch between bright and dark themes.<br>
-                <strong>Audio Toggle</strong> (<img src="${theme === 'bright' ? (audioEnabled ? 'unmute-bright.svg' : 'mute-bright.svg') : (audioEnabled ? 'unmute-night.svg' : 'mute-night.svg')}" width="24" height="24" ${iconStyle} alt="Audio Toggle">): Enable or disable audio.<br>
-                <strong>Info</strong> (<img src="${theme === 'bright' ? 'information-bright.svg' : 'information-night.svg'}" width="19.2" height="19.2" ${iconStyle} alt="Info">): Show or hide this help message.<br>
-                <strong>Shuffle</strong> (<img src="${theme === 'bright' ? 'shuffle-bright.svg' : 'shuffle-night.svg'}" width="24" height="24" ${iconStyle} alt="Shuffle">): Randomize the word order.<br>
-                <strong>Reset</strong> (<img src="${theme === 'bright' ? 'reset-bright.svg' : 'reset-night.svg'}" width="24" height="24" ${iconStyle} alt="Reset">): Restore the original word order.<br>
-                <strong>Donate</strong> (<img src="${theme === 'bright' ? 'heart-bright.svg' : 'heart-night.svg'}" width="24" height="24" ${iconStyle} alt="Donate">): Support VocabSwipe with a donation.<br>
-                <strong>Left/Right Arrow Keys</strong>: Navigate to the previous or next word card.<br>
-                <strong>Up/Down Arrow Keys</strong>: On the back of a card, cycle through definitions and examples.<br>
-                <strong>Spacebar</strong>: Play the word or sentence audio (if enabled).<br>
-                <strong>Enter</strong>: Flip between the front (word) and back (definition/example).<br>
-                <strong>Slider</strong>: Jump to a specific word rank.
-            `;
-    } else if (type === 'donate') {
-        const qrCodeUrl = 'qr_code/VocabSwipe_qr_code.png';
-        const promptPayLogoUrl = 'qr_code/PromptPay_logo.jpg';
-        const img = new Image();
-        img.src = qrCodeUrl;
-        img.onload = () => {
-            tooltipText.innerHTML = `
-                <div style="text-align: center; margin-bottom: 16px;">
-                    <strong>Donate to Supanut Suntikoon</strong><br>
-                    <span>VocabSwipe Developer</span>
-                </div>
-                <p style="text-align: center; margin-bottom: 16px;">
-                    Your support helps maintain and enhance this free vocabulary-learning tool for everyone.
-                </p>
-                <img src="${qrCodeUrl}" class="donation-qr" alt="PromptPay QR Code" width="200" height="200"><br>
-                <img src="${promptPayLogoUrl}" class="promptpay-logo" alt="PromptPay Logo" width="100" height="40">
-            `;
-        };
-        img.onerror = () => {
-            tooltipText.innerHTML = `
-                <div style="text-align: center; margin-bottom: 16px;">
-                    <strong>Donate to Supanut Suntikoon</strong><br>
-                    <span>VocabSwipe Developer</span>
-                </div>
-                <p style="text-align: center; margin-bottom: 16px;">
-                    Your support helps maintain and enhance this free vocabulary-learning tool for everyone.
-                </p>
-                <p style="color: #ff0000;">Error: Unable to load PromptPay QR code. Please try again later or contact support.</p>
-            `;
-        };
-    } else if (type === 'error') {
-        tooltipText.innerHTML = `
-            <strong>Error Loading Vocabulary Data</strong><br><br>
-            ${errorMessage}<br><br>
-            <p>Please check your internet connection or try again.</p>
-        `;
-    }
-}
-
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-
-function loadWords(retries = 5, delay = 1000) {
-    const loadingOverlay = document.querySelector('.loading-overlay');
-    const cardSlider = document.querySelector('#card-slider');
-    if (loadingOverlay) loadingOverlay.style.display = 'flex';
-    fetch('data/vocab3000_database.yaml')
-        .then(response => {
-            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-            return response.text();
-        })
-        .then(yamlText => {
-            if (!yamlText) throw new Error('Empty YAML response');
-            words = jsyaml.load(yamlText) || [];
-            if (!Array.isArray(words) || words.length === 0) throw new Error('No valid words found');
-            words.forEach(word => {
-                if (word.back_cards) word.back_cards = shuffleArray(word.back_cards);
-            });
-            originalWords = JSON.parse(JSON.stringify(words));
-            words.sort((a, b) => (a.rank || 0) - (b.rank || 0));
-            maxFreq = words.find(word => word.rank === 1)?.freq || 1;
-            minFreq = Math.min(...words.map(word => word.freq || 1).filter(freq => freq > 0)) || 1;
-            totalSentences = words.reduce((sum, word) => sum + (word.back_cards?.length || 0), 0);
-            if (cardSlider) {
-                cardSlider.max = words.length;
-                cardSlider.disabled = false;
-            }
-            document.querySelector('#total-words').textContent = words.length;
-            document.querySelector('#total-sentences').textContent = totalSentences;
-            isContentLoaded = true;
-            displayWord();
-            document.querySelector('.stats-container').style.opacity = '1';
-            if (loadingOverlay) loadingOverlay.style.display = 'none';
-            preloadAudio();
-            if (audioUnlocked && audioEnabled && words[currentWordIndex]?.word_audio_file) {
-                playAudioWithRetry(words[currentWordIndex].word_audio_file);
-            }
-        })
-        .catch(error => {
-            if (retries > 1) {
-                setTimeout(() => loadWords(retries - 1, delay), delay);
-            } else {
-                words = [fallbackWord];
-                originalWords = [fallbackWord];
-                maxFreq = 1000;
-                minFreq = 1000;
-                totalSentences = 1;
-                if (cardSlider) {
-                    cardSlider.max = 1;
-                    cardSlider.disabled = false;
-                }
-                document.querySelector('#total-words').textContent = 1;
-                document.querySelector('#total-sentences').textContent = 1;
-                isContentLoaded = true;
-                displayWord();
-                document.querySelector('.stats-container').style.opacity = '1';
-                if (loadingOverlay) loadingOverlay.style.display = 'none';
-                toggleTooltip('error', `Failed to load vocabulary data: ${error.message}. Using a sample word.`);
-            }
-        });
-}
-
-function shuffleCards() {
-    if (!isContentLoaded) return;
-    words = shuffleArray(words);
-    currentWordIndex = 0;
-    currentBackCardIndex = 0;
-    stopAudio();
-    displayWord();
-    preloadAudio();
-    if (audioUnlocked && audioEnabled) {
-        const audioFile = isFlipped
-            ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-            : words[currentWordIndex]?.word_audio_file;
-        if (audioFile) playAudioWithRetry(audioFile);
-    }
-}
-
-function resetCards() {
-    if (!isContentLoaded) return;
-    words = JSON.parse(JSON.stringify(originalWords)).sort((a, b) => (a.rank || 0) - (b.rank || 0));
-    currentWordIndex = 0;
-    currentBackCardIndex = 0;
-    stopAudio();
-    displayWord();
-    preloadAudio();
-    if (audioUnlocked && audioEnabled) {
-        const audioFile = isFlipped
-            ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-            : words[currentWordIndex]?.word_audio_file;
-        if (audioFile) playAudioWithRetry(audioFile);
-    }
-}
-
-function checkRateLimit() {
-    const now = Date.now();
-    if (now - swipeWindowStart > SWIPE_WINDOW_MS) {
-        swipeCount = 0;
-        swipeWindowStart = now;
-        document.querySelector('.rate-limit-warning').style.display = 'none';
-    }
-    swipeCount++;
-    if (swipeCount > MAX_SWIPES_PER_WINDOW) {
-        document.querySelector('.rate-limit-warning').style.display = 'block';
-        return false;
-    }
-    return true;
-}
-
-function setupEventListeners() {
-    const card = document.querySelector('.flashcard');
-    if (!card) return;
-    let tapCount = 0;
-    let lastTapTime = 0;
-    const doubleTapThreshold = 300;
-
-    const handleTap = (e) => {
-        e.preventDefault();
-        if (!isContentLoaded) return;
-        const currentTime = Date.now();
-        tapCount++;
-        if (tapCount === 1) {
-            setTimeout(() => {
-                if (tapCount === 1) {
-                    glowCard(1);
-                    if (audioEnabled && audioUnlocked) {
-                        const audioFile = isFlipped
-                            ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-                            : words[currentWordIndex]?.word_audio_file;
-                        if (audioFile) playAudioWithRetry(audioFile);
-                    }
-                }
-                tapCount = 0;
-            }, doubleTapThreshold);
-        } else if (tapCount === 2 && currentTime - lastTapTime < doubleTapThreshold) {
-            glowCard(2);
-            flipCard();
-            tapCount = 0;
-        }
-        lastTapTime = currentTime;
-    };
-
-    card.addEventListener('touchend', handleTap);
-    card.addEventListener('click', (e) => {
-        if ('ontouchstart' in window) return;
-        handleTap(e);
-    });
-
-    const hammer = new Hammer(card);
-    hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-    hammer.on('swipeleft', (e) => handleSwipe(e, 'left', () => {
-        currentWordIndex = (currentWordIndex + 1) % words.length;
-        currentBackCardIndex = 0;
-    }));
-    hammer.on('swiperight', (e) => handleSwipe(e, 'right', () => {
-        currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
-        currentBackCardIndex = 0;
-    }));
-    hammer.on('swipeup', (e) => handleSwipe(e, 'up', () => {
-        if (isFlipped && words[currentWordIndex]?.back_cards) {
-            currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
-        }
-    }));
-    hammer.on('swipedown', (e) => handleSwipe(e, 'down', () => {
-        if (isFlipped && words[currentWordIndex]?.back_cards) {
-            currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
-        }
-    }));
-}
-
-function handleSwipe(e, direction, updateIndices) {
-    e.preventDefault();
-    if (!isContentLoaded) return;
-    const now = Date.now();
-    if (now - lastSwipeTime < SWIPE_DEBOUNCE_MS) return;
-    if (!checkRateLimit()) return;
-    lastSwipeTime = now;
-    if (words.length) {
-        animateSwipe(direction, isFlipped);
-        updateIndices();
-        stopAudio();
-        displayWord();
-        preloadAudio();
-        if (audioUnlocked && audioEnabled) {
-            const audioFile = isFlipped
-                ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-                : words[currentWordIndex]?.word_audio_file;
-            if (audioFile) playAudioWithRetry(audioFile);
-        }
-    }
-}
-
-function setupKeyboardListeners() {
-    let lastKeyPressTime = 0;
-    const KEY_DEBOUNCE_MS = 300;
-    document.addEventListener('keydown', (e) => {
-        if (!words.length || !isContentLoaded) return;
-        const now = Date.now();
-        if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key) && now - lastKeyPressTime < KEY_DEBOUNCE_MS) {
-            return;
-        }
-        if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key) && !checkRateLimit()) return;
-        lastKeyPressTime = now;
-        switch (e.key) {
-            case 'ArrowLeft':
-                animateSwipe('right', isFlipped);
-                currentWordIndex = (currentWordIndex - 1 + words.length) % words.length;
-                currentBackCardIndex = 0;
-                stopAudio();
-                displayWord();
-                preloadAudio();
-                if (audioUnlocked && audioEnabled) {
-                    const audioFile = isFlipped
-                        ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-                        : words[currentWordIndex]?.word_audio_file;
-                    if (audioFile) playAudioWithRetry(audioFile);
-                }
-                break;
-            case 'ArrowRight':
-                animateSwipe('left', isFlipped);
-                currentWordIndex = (currentWordIndex + 1) % words.length;
-                currentBackCardIndex = 0;
-                stopAudio();
-                displayWord();
-                preloadAudio();
-                if (audioUnlocked && audioEnabled) {
-                    const audioFile = isFlipped
-                        ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-                        : words[currentWordIndex]?.word_audio_file;
-                    if (audioFile) playAudioWithRetry(audioFile);
-                }
-                break;
-            case 'ArrowUp':
-                if (isFlipped && words[currentWordIndex]?.back_cards) {
-                    animateSwipe('up', isFlipped);
-                    currentBackCardIndex = (currentBackCardIndex + 1) % words[currentWordIndex].back_cards.length;
-                    stopAudio();
-                    displayWord();
-                    preloadAudio();
-                    if (audioUnlocked && audioEnabled) {
-                        const audioFile = words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file ||
-                                         words[currentWordIndex]?.word_audio_file;
-                        if (audioFile) playAudioWithRetry(audioFile);
-                    }
-                }
-                break;
-            case 'ArrowDown':
-                if (isFlipped && words[currentWordIndex]?.back_cards) {
-                    animateSwipe('down', isFlipped);
-                    currentBackCardIndex = (currentBackCardIndex - 1 + words[currentWordIndex].back_cards.length) % words[currentWordIndex].back_cards.length;
-                    stopAudio();
-                    displayWord();
-                    preloadAudio();
-                    if (audioUnlocked && audioEnabled) {
-                        const audioFile = words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file ||
-                                         words[currentWordIndex]?.word_audio_file;
-                        if (audioFile) playAudioWithRetry(audioFile);
-                    }
-                }
-                break;
-            case ' ':
-                glowCard(1);
-                if (audioEnabled && audioUnlocked) {
-                    const audioFile = isFlipped
-                        ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-                        : words[currentWordIndex]?.word_audio_file;
-                    if (audioFile) playAudioWithRetry(audioFile);
-                }
-                break;
-            case 'Enter':
-                glowCard(2);
-                flipCard();
-                break;
-        }
-    });
-}
-
-function glowCard(times) {
-    const card = document.querySelector('.flashcard');
-    if (!card) return;
-    card.classList.remove('glow-once', 'glow-twice');
-    void card.offsetWidth;
-    card.classList.add(times === 1 ? 'glow-once' : 'glow-twice');
-}
-
-function animateSwipe(direction, isBackCard) {
-    const card = document.querySelector('.flashcard');
-    if (!card) return;
-    const sideToClone = isBackCard ? '.back' : '.front';
-    const clone = card.querySelector(sideToClone).cloneNode(true);
-    clone.classList.add('swipe-clone', `swipe-${direction}`);
-    card.parentElement.appendChild(clone);
-    setTimeout(() => clone.remove(), 300);
-}
-
-function preloadAudio() {
-    if (!words[currentWordIndex] || isSliding || !audioEnabled) return;
-    const currentWord = words[currentWordIndex];
-    const audioFiles = [
-        currentWord?.word_audio_file,
-        ...(currentWord?.back_cards?.slice(0, 1).map(card => card.audio_file) || [])
-    ].filter(file => file && !audioCache.has(file));
-
-    while (audioCache.size + audioFiles.length > MAX_CACHE_SIZE && audioCache.size > 0) {
-        const oldestKey = audioCache.keys().next().value;
-        const audio = audioCache.get(oldestKey);
-        if (audio) {
-            audio.pause();
-            audio.src = '';
-        }
-        audioCache.delete(oldestKey);
+    .theme-toggle, .audio-btn, .info-btn, .shuffle-btn, .reset-btn, .donate-btn {
+        padding: 8px;
     }
 
-    audioFiles.forEach(audioFile => {
-        const isWordAudio = audioFile === currentWord.word_audio_file;
-        const audioPath = isWordAudio
-            ? `data/audio/front/${audioFile}`
-            : `data/audio/back/${currentWord.word.toLowerCase()}/${audioFile}`;
-        const audio = new Audio(audioPath);
-        audio.preload = 'auto';
-        audio.load();
-        audioCache.set(audioFile, audio);
-        audio.addEventListener('error', () => audioCache.delete(audioFile), { once: true });
-    });
-}
-
-function stopAudio() {
-    if (currentAudio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-        currentAudio = null;
-    }
-}
-
-function playAudioWithRetry(audioFile, retries = 3, delay = 500) {
-    if (!audioFile || !audioUnlocked || !audioEnabled) return;
-    const now = Date.now();
-    if (now - lastAudioPlayTime < AUDIO_DEBOUNCE_MS) return;
-    lastAudioPlayTime = now;
-
-    const isWordAudio = audioFile === words[currentWordIndex]?.word_audio_file;
-    const audioPath = isWordAudio
-        ? `data/audio/front/${audioFile}`
-        : `data/audio/back/${words[currentWordIndex]?.word.toLowerCase()}/${audioFile}`;
-
-    stopAudio();
-    let audio = audioCache.get(audioFile) || new Audio(audioPath);
-    audio.preload = 'auto';
-    audio.load();
-    audioCache.set(audioFile, audio);
-    currentAudio = audio;
-
-    function attemptPlay(attempt = 1) {
-        if (!audioEnabled || !audioUnlocked) return;
-        const playPromise = audio.play();
-        if (playPromise) {
-            playPromise.catch(error => {
-                if (attempt < retries) {
-                    setTimeout(() => attemptPlay(attempt + 1), delay);
-                }
-            });
-        }
+    .theme-icon, .audio-icon, .shuffle-icon, .reset-icon, .donate-icon {
+        width: 24px;
+        height: 24px;
     }
 
-    if (audio.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
-        attemptPlay();
-    } else {
-        audio.addEventListener('canplaythrough', () => attemptPlay(), { once: true });
-        audio.addEventListener('error', () => audioCache.delete(audioFile), { once: true });
-    }
-}
-
-function flipCard() {
-    if (!isContentLoaded) return;
-    isFlipped = !isFlipped;
-    const card = document.querySelector('.flashcard');
-    if (!card) return;
-    card.classList.toggle('flipped', isFlipped);
-    stopAudio();
-    displayWord();
-    if (audioUnlocked && audioEnabled) {
-        const audioFile = isFlipped
-            ? (words[currentWordIndex]?.back_cards?.[currentBackCardIndex]?.audio_file || words[currentWordIndex]?.word_audio_file)
-            : words[currentWordIndex]?.word_audio_file;
-        if (audioFile) playAudioWithRetry(audioFile);
-    }
-}
-
-function getFrequencyColor(relativeFreq) {
-    const hue = Math.min(relativeFreq * 1.2, 120);
-    return `hsl(${hue}, 80%, 50%)`;
-}
-
-function displayWord() {
-    if (!words[currentWordIndex]) {
-        document.querySelector('.flashcard-container').innerHTML = `
-            <p class="error-message">No word data available. Please try again.</p>
-            <button class="retry-button" aria-label="Retry loading">Retry</button>
-        `;
-        document.querySelector('.retry-button')?.addEventListener('click', () => loadWords());
-        return;
-    }
-    const wordData = words[currentWordIndex] || {};
-    const backCard = wordData.back_cards?.[currentBackCardIndex] || { definition_en: 'No definition available', example_en: 'No example available' };
-
-    const logFreq = Math.log(wordData.freq || 1);
-    const logMinFreq = Math.log(minFreq);
-    const logMaxFreq = Math.log(maxFreq);
-    const relativeFreq = 5 + 95 * ((logFreq - logMinFreq) / (logMaxFreq - logMinFreq));
-    const freqPercentage = Math.min(Math.max(relativeFreq, 5), 100).toFixed(0);
-    const freqColor = getFrequencyColor(relativeFreq);
-
-    const slider = document.querySelector('#card-slider');
-    if (slider) slider.value = currentWordIndex + 1;
-
-    const front = document.querySelector('.front');
-    const back = document.querySelector('.back');
-    if (!front || !back) {
-        document.querySelector('.flashcard-container').innerHTML = `
-            <p class="error-message">Error rendering card. Please try again.</p>
-            <button class="retry-button" aria-label="Retry loading">Retry</button>
-        `;
-        document.querySelector('.retry-button')?.addEventListener('click', () => loadWords());
-        return;
+    .info-icon {
+        width: 19.2px;
+        height: 19.2px;
     }
 
-    front.innerHTML = `
-        <div class="word-container">
-            <h2>${wordData.word || 'N/A'}</h2>
-        </div>
-        <div class="meta-info">
-            <span class="rank">Rank: ${wordData.rank || 'N/A'}</span>
-            <div class="frequency-container">
-                <span class="frequency-label">Frequency</span>
-                <div class="frequency-bar">
-                    <div class="frequency-fill" style="width: ${freqPercentage}%; background-color: ${freqColor};"></div>
-                </div>
-            </div>
-        </div>
-    `;
+    .controls {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
 
-    back.innerHTML = `
-        <div class="word-container">
-            <h2>${wordData.word || 'N/A'}</h2>
-        </div>
-        <div class="back-template">
-            <div class="card-info">
-                <p class="definition">${backCard.definition_en || 'No definition available'}</p>
-                <p class="example">"${backCard.example_en || 'No example available'}"</p>
-            </div>
-            <div class="meta-info">
-                <span class="rank">Rank: ${wordData.rank || 'N/A'}</span>
-                <div class="frequency-container">
-                    <span class="frequency-label">Frequency</span>
-                    <div class="frequency-bar">
-                        <div class="frequency-fill" style="width: ${freqPercentage}%; background-color: ${freqColor};"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
+    .website-name {
+        font-size: 40.32px;
+    }
+
+    .slogan-main {
+        font-size: 25.92px;
+    }
+
+    .slogan-sub {
+        font-size: 14.4px;
+    }
+
+    .flashcard {
+        max-width: 90%;
+    }
+
+    .front h2, .back h2 {
+        font-size: 26px;
+    }
+
+    .definition, .example {
+        font-size: 14px;
+    }
+
+    .rank, .frequency-label {
+        font-size: 12px;
+    }
+
+    .frequency-bar {
+        width: 80px;
+        height: 8px;
+    }
+
+    .stats-text {
+        font-size: 13px;
+    }
+
+    .rate-limit-warning p {
+        font-size: 13px;
+    }
+
+    .tooltip-message {
+        font-size: 14px;
+        padding: 18px;
+        max-width: 90%;
+    }
+
+    .tooltip-message img.donation-qr {
+        max-width: 180px;
+        max-height: 180px;
+    }
+
+    .tooltip-message img.promptpay-logo {
+        max-width: 90px;
+        max-height: 36px;
+    }
+
+    .tooltip-close, .tooltip-retry, .retry-button {
+        font-size: 14px;
+        padding: 8px 16px;
+        bottom: 12px;
+        right: 12px;
+    }
+
+    .tooltip-message img:not(.donation-qr):not(.promptpay-logo) {
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+    }
+
+    .tooltip-message img[src*="information"]:not(.donation-qr):not(.promptpay-logo) {
+        width: 19.2px;
+        height: 19.2px;
+    }
+
+    .error-message {
+        font-size: 14px;
+        padding: 16px;
+    }
 }
