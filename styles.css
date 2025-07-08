@@ -57,78 +57,7 @@ body[data-theme="dark"] .theme-toggle:hover,
 body[data-theme="dark"] .audio-btn:hover,
 body[data-theme="dark"] .info-btn:hover,
 body[data-theme="dark"] .shuffle-btn:hover,
-body[data-theme="dark"] .reset-btn:hover,
-body[data-theme="dark"] .donate-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.theme-icon, .audio-icon, .shuffle-icon, .reset-icon, .donate-icon {
-    width: 28px;
-    height: 28px;
-    filter: none;
-}
-
-.info-icon {
-    width: 22.4px;
-    height: 22.4px;
-    filter: none;
-}
-
-.controls {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.title-container {
-    text-align: center;
-    margin-bottom: 12px;
-    width: 100%;
-    max-width: 350px;
-}
-
-.website-name {
-    font-family: 'Lucida Handwriting', 'Comic Sans MS', cursive;
-    font-size: 46.08px;
-    font-weight: 700;
-    color: #00008B;
-}
-
-body[data-theme="dark"] .website-name {
-    color: #FFD700;
-}
-
-.slogan-main {
-    font-family: 'Lucida Handwriting', 'Comic Sans MS', cursive;
-    font-size: 28.8px;
-    font-weight: 400;
-    color: #00008B;
-    line-height: 1.2;
-}
-
-body[data-theme="dark"] .slogan-main {
-    color: #FFD700;
-}
-
-.slogan-sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 16.8px;
-    font-weight: 500;
-    color: #6b7280;
-    line-height: 1.2;
-}
-
-body[data-theme="dark"] .slogan-sub {
-    color: #9ca3af;
-}
-
-.slider-container {
-    width: 100%;
-    max-width: 320px;
-    display: flex;
-    align-items: center;
+body[data-theme=".Align-items: center;
     margin-bottom: 16px;
 }
 
