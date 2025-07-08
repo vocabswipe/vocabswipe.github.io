@@ -12,21 +12,24 @@
 <body data-theme="bright">
     <div class="container">
         <div class="header">
-            <button class="theme-toggle" aria-label="Toggle theme">
-                <img src="theme-bright.svg" class="theme-icon" width="28" height="28" alt="Toggle theme">
-            </button>
             <div class="controls">
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <img src="theme-bright.svg" class="theme-icon" width="28" height="28" alt="Toggle theme">
+                </button>
                 <button class="audio-btn" aria-label="Toggle audio">
                     <img src="unmute-bright.svg" class="audio-icon" width="28" height="28" alt="Toggle audio">
                 </button>
                 <button class="info-btn" aria-label="Show information">
-                    <img src="information-bright.svg" class="info-icon" width="28" height="28" alt="Information">
+                    <img src="information-bright.svg" class="info-icon" width="22.4" height="22.4" alt="Information">
                 </button>
                 <button class="shuffle-btn" aria-label="Shuffle cards">
                     <img src="shuffle-bright.svg" class="shuffle-icon" width="28" height="28" alt="Shuffle cards">
                 </button>
                 <button class="reset-btn" aria-label="Reset order">
                     <img src="reset-bright.svg" class="reset-icon" width="28" height="28" alt="Reset order">
+                </button>
+                <button class="store-btn" aria-label="Visit Store">
+                    <img src="bag-bright.svg" class="store-icon" width="28" height="28" alt="Store">
                 </button>
             </div>
         </div>
@@ -39,7 +42,7 @@
             <input type="range" id="card-slider" min="1" max="3000" value="1" aria-label="Select card rank">
         </div>
         <div class="flashcard-container">
-            <div class="flashcard" role="region" aria-live="polite">
+            <div class="flashcard">
                 <div class="loading-overlay" style="display: flex;">
                     <img src="loading-bright.gif" class="loading-icon" width="50" height="50" alt="Loading">
                 </div>
@@ -51,22 +54,13 @@
                         <span id="front-rank" class="rank"></span>
                         <div class="frequency-container">
                             <span class="frequency-label">Frequency</span>
-                            <div class="frequency-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                            <div class="frequency-bar">
                                 <div id="front-frequency-fill" class="frequency-fill"></div>
                             </div>
                         </div>
                     </div>
-                    <button class="auto-swipe-left-btn" aria-label="Auto swipe left">
-                        <img src="auto-swipe-left.svg" class="auto-swipe-icon" width="28" height="28" alt="Auto swipe left">
-                    </button>
-                    <button class="auto-swipe-right-btn" aria-label="Auto swipe right">
-                        <img src="auto-swipe-right.svg" class="auto-swipe-icon" width="28" height="28" alt="Auto swipe right">
-                    </button>
                 </div>
                 <div class="back">
-                    <button class="auto-swipe-up-btn" aria-label="Auto swipe up">
-                        <img src="auto-swipe-up.svg" class="auto-swipe-icon" width="28" height="28" alt="Auto swipe up">
-                    </button>
                     <div class="word-container">
                         <h2 id="back-word"></h2>
                     </div>
@@ -79,18 +73,12 @@
                             <span id="back-rank" class="rank"></span>
                             <div class="frequency-container">
                                 <span class="frequency-label">Frequency</span>
-                                <div class="frequency-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                                <div class="frequency-bar">
                                     <div id="back-frequency-fill" class="frequency-fill"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button class="auto-swipe-left-btn" aria-label="Auto swipe left">
-                        <img src="auto-swipe-left.svg" class="auto-swipe-icon" width="28" height="28" alt="Auto swipe left">
-                    </button>
-                    <button class="auto-swipe-right-btn" aria-label="Auto swipe right">
-                        <img src="auto-swipe-right.svg" class="auto-swipe-icon" width="28" height="28" alt="Auto swipe right">
-                    </button>
                 </div>
             </div>
         </div>
@@ -103,7 +91,6 @@
                 <button class="tooltip-close" aria-label="Close tooltip">Close</button>
             </div>
         </div>
-        <div class="error-message" style="display: none; color: red; text-align: center; margin-top: 10px;"></div>
     </div>
     <script src="script.js"></script>
 </body>
