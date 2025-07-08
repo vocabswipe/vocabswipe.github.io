@@ -3,36 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Learn the top 3000 most frequent English words with VocabSwipe's interactive flashcards.">
     <title>VocabSwipe</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Caveat:wght@400&family=Inter:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Caveat:wght@400&display=swap">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
 </head>
 <body data-theme="bright">
     <div class="container">
-        <div class="header">
+        <header class="header">
             <div class="controls">
                 <button class="theme-toggle" aria-label="Toggle theme">
-                    <img src="theme-bright.svg" class="theme-icon" width="28" height="28" alt="Toggle theme">
+                    <img src="theme-bright.svg" class="theme-icon" alt="Toggle theme">
                 </button>
                 <button class="audio-btn" aria-label="Toggle audio">
-                    <img src="unmute-bright.svg" class="audio-icon" width="28" height="28" alt="Toggle audio">
+                    <img src="unmute-bright.svg" class="audio-icon" alt="Toggle audio">
                 </button>
                 <button class="info-btn" aria-label="Show information">
-                    <img src="information-bright.svg" class="info-icon" width="22.4" height="22.4" alt="Information">
+                    <img src="information-bright.svg" class="info-icon" alt="Information">
                 </button>
                 <button class="shuffle-btn" aria-label="Shuffle cards">
-                    <img src="shuffle-bright.svg" class="shuffle-icon" width="28" height="28" alt="Shuffle cards">
+                    <img src="shuffle-bright.svg" class="shuffle-icon" alt="Shuffle cards">
                 </button>
                 <button class="reset-btn" aria-label="Reset order">
-                    <img src="reset-bright.svg" class="reset-icon" width="28" height="28" alt="Reset order">
+                    <img src="reset-bright.svg" class="reset-icon" alt="Reset order">
                 </button>
                 <button class="donate-btn" aria-label="Support VocabSwipe">
-                    <img src="heart-bright.svg" class="donate-icon" width="28" height="28" alt="Donate">
+                    <img src="heart-bright.svg" class="donate-icon" alt="Donate">
                 </button>
             </div>
-        </div>
+        </header>
         <div class="title-container">
             <h1 class="website-name">VocabSwipe</h1>
             <p class="slogan-main">Swipe to master your vocabulary</p>
@@ -43,8 +44,8 @@
         </div>
         <div class="flashcard-container">
             <div class="flashcard">
-                <div class="loading-overlay" style="display: flex;">
-                    <img src="loading-bright.gif" class="loading-icon" width="50" height="50" alt="Loading">
+                <div class="loading-overlay">
+                    <img src="loading-bright.gif" class="loading-icon" alt="Loading">
                 </div>
                 <div class="front">
                     <div class="word-container">
@@ -82,27 +83,20 @@
                 </div>
             </div>
         </div>
-        <div class="stats-container" style="opacity: 0;">
+        <div class="stats-container">
             <p class="stats-text">Total Words: <span id="total-words">0</span> | Total Sentences: <span id="total-sentences">0</span></p>
         </div>
-        <div class="rate-limit-warning" style="display: none;">
+        <div class="rate-limit-warning" hidden>
             <p>Please slow down swiping to avoid rate limits. Try again in a few minutes.</p>
         </div>
-        <div class="tooltip-overlay" style="display: none;">
+        <div class="tooltip-overlay" hidden>
             <div class="tooltip-message">
                 <p id="tooltip-text"></p>
                 <button class="tooltip-close" aria-label="Close tooltip">Close</button>
-                <button class="tooltip-retry" style="display: none;" aria-label="Retry loading">Retry</button>
+                <button class="tooltip-retry" hidden aria-label="Retry loading">Retry</button>
             </div>
         </div>
     </div>
     <script src="script.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js')
-                .then(() => console.log('Service Worker registered'))
-                .catch(error => console.error('Service Worker registration failed:', error));
-        }
-    </script>
 </body>
 </html>
