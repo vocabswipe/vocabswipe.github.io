@@ -6,6 +6,7 @@ def validate_and_append(temp_file, db_file):
     """
     Validates entries in temp_sentences.jsonl and appends to database.jsonl if all are valid.
     Reports errors, progress, summary, and the last database entry.
+    Creates database.jsonl if it doesn't exist.
     """
     # Initialize variables
     errors = []
@@ -67,7 +68,9 @@ def validate_and_append(temp_file, db_file):
         print("\n📝 Appending valid entries to database.jsonl...")
         with open(db_file, 'a', encoding='utf-8') as f_db:
             for entry in tqdm(entries, desc="Appending entries", unit="entry"):
-                f_db.write(json.dumps(entry) + '\n')
+                # Ensure proper UTF-8 encoding without escaping
+                json.dump(entry, f_db, ensure_ascii=False)
+                f_db.write('\n')
         print("✅ Successfully appended all entries to database.jsonl")
 
     # Read and print the last entry in the database
@@ -99,7 +102,8 @@ def main():
 
     # Ensure database file exists
     if not os.path.exists(db_file):
-        open(db_file, 'a', encoding='utf-8').close()  # Create empty file if it doesn't exist
+        print(f"ℹ️ Creating new database file: {db_file}")
+        open(db_file, 'a', encoding='utf-8').close()  # Create empty file with UTF-8 encoding
 
     # Validate and append
     success, last_entry = validate_and_append(temp_file, db_file)
@@ -108,7 +112,8 @@ def main():
     if success and last_entry:
         print("\n🔗 To generate the next 100 entries, use the following first entry:")
         print("```jsonl")
-        print(json.dumps(last_entry))
+        # Ensure UTF-8 output without escaping
+        print(json.dumps(last_entry, ensure_ascii=False))
         print("```")
         print("Update the prompt with this entry and regenerate the series.")
 
