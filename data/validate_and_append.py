@@ -6,7 +6,8 @@ from tqdm import tqdm
 def validate_and_append(temp_file, db_file):
     """
     Validates entries in temp_sentences.jsonl and database.jsonl, appends valid entries if both are valid,
-    empties temp file, reports total/unique words, checks for duplicates based on (word, english), and confirms validity.
+    empties temp file, reports total/unique words, checks for adjacent duplicates based on (word, english),
+    and confirms validity.
     """
     errors = []
     temp_entries = []
@@ -84,40 +85,42 @@ def validate_and_append(temp_file, db_file):
     print("\n🗑️ Clearing temp_sentences.jsonl")
     open(temp_file, 'w', encoding='utf-8').close()
 
-    # Check for duplicates in database (based on word and english)
-    print("\n🔍 Checking for duplicates in database.jsonl")
-    seen_hashes = {}
+    # Check for adjacent duplicates in database (based on word and english)
+    print("\n🔍 Checking for adjacent duplicates in database.jsonl")
     duplicates = []
     all_entries = db_entries + temp_entries
-    for i, entry in enumerate(tqdm(all_entries, desc="Scanning duplicates", unit="entry", leave=False)):
-        # Create hash of (word, english) tuple
-        entry_tuple = (entry['word'], entry['english'])
-        entry_hash = hashlib.md5(json.dumps(entry_tuple, ensure_ascii=False).encode('utf-8')).hexdigest()
-        if entry_hash in seen_hashes:
-            duplicates.append(f"Line {seen_hashes[entry_hash]+1} and {i+1}: Duplicate entry - Word: {entry['word']}, English: {entry['english']}")
-        else:
-            seen_hashes[entry_hash] = i
+    for i in range(len(all_entries) - 1):
+        current_entry = all_entries[i]
+        next_entry = all_entries[i + 1]
+        # Create hash of (word, english) for both entries
+        current_tuple = (current_entry['word'], current_entry['english'])
+        next_tuple = (next_entry['word'], next_entry['english'])
+        current_hash = hashlib.md5(json.dumps(current_tuple, ensure_ascii=False).encode('utf-8')).hexdigest()
+        next_hash = hashlib.md5(json.dumps(next_tuple, ensure_ascii=False).encode('utf-8')).hexdigest()
+        if current_hash == next_hash:
+            duplicates.append(f"Lines {i+1} and {i+2}: Duplicate entry - Word: {current_entry['word']}, English: {current_entry['english']}")
 
     # Report duplicates
     if duplicates:
-        print("\n⚠️ Duplicate Entries Found:")
+        print("\n⚠️ Adjacent Duplicate Entries Found:")
         for dup in duplicates:
             print(f"  {dup}")
     else:
-        print("\n✅ No duplicates found in database.jsonl")
+        print("\n✅ No adjacent duplicates found in database.jsonl")
 
     # Summarize database
     unique_words = len(set(entry['word'].lower() for entry in all_entries))
     print("\n📊 Database Summary")
     print(f"  Total entries: {len(all_entries)}")
     print(f"  Unique words: {unique_words}")
+    print(f"  Adjacent duplicates: {len(duplicates)}")
 
     # Confirmation message
     print("\n🟢 Status")
     if not errors and not duplicates:
-        print("  ✅ All green: Database entries are valid, in order, and no duplicates found.")
+        print("  ✅ All green: Database entries are valid, in order, and no adjacent duplicates found.")
     elif not errors:
-        print("  ✅ Database entries are valid and in order, but duplicates found.")
+        print("  ✅ Database entries are valid and in order, but adjacent duplicates found.")
     else:
         print("  ❌ Validation failed: Fix errors in temp or database files.")
 
@@ -146,11 +149,12 @@ def validate_and_append(temp_file, db_file):
 def main():
     # File paths
     temp_file = "temp_sentences.jsonl"
-    db_file = "database.jsonl"
+    db_file = "data/database.jsonl"  # Updated to match website directory structure
 
     # Create database file if it doesn't exist
     if not os.path.exists(db_file):
         print(f"ℹ️ Creating {db_file}")
+        os.makedirs(os.path.dirname(db_file), exist_ok=True)  # Ensure data directory exists
         open(db_file, 'a', encoding='utf-8').close()
 
     # Validate and append
