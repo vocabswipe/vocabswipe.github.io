@@ -6,7 +6,7 @@ from tqdm import tqdm
 def validate_and_append(temp_file, db_file):
     """
     Validates entries in temp_sentences.jsonl and database.jsonl, appends valid entries if both are valid,
-    empties temp file, reports total/unique words, checks for duplicates, and confirms validity.
+    empties temp file, reports total/unique words, checks for duplicates based on (word, english), and confirms validity.
     """
     errors = []
     temp_entries = []
@@ -84,18 +84,19 @@ def validate_and_append(temp_file, db_file):
     print("\n🗑️ Clearing temp_sentences.jsonl")
     open(temp_file, 'w', encoding='utf-8').close()
 
-    # Check for duplicates in database
+    # Check for duplicates in database (based on word and english)
     print("\n🔍 Checking for duplicates in database.jsonl")
-    seen_hashes = set()
+    seen_hashes = {}
     duplicates = []
     all_entries = db_entries + temp_entries
     for i, entry in enumerate(tqdm(all_entries, desc="Scanning duplicates", unit="entry", leave=False)):
-        # Create hash of (word, english, thai) tuple
-        entry_tuple = (entry['word'], entry['english'], entry['thai'])
+        # Create hash of (word, english) tuple
+        entry_tuple = (entry['word'], entry['english'])
         entry_hash = hashlib.md5(json.dumps(entry_tuple, ensure_ascii=False).encode('utf-8')).hexdigest()
         if entry_hash in seen_hashes:
-            duplicates.append(f"Line {i+1}: Duplicate entry - Word: {entry['word']}, English: {entry['english']}")
-        seen_hashes.add(entry_hash)
+            duplicates.append(f"Line {seen_hashes[entry_hash]+1} and {i+1}: Duplicate entry - Word: {entry['word']}, English: {entry['english']}")
+        else:
+            seen_hashes[entry_hash] = i
 
     # Report duplicates
     if duplicates:
