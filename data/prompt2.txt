@@ -1,0 +1,8 @@
+Use the last entry from the previously generated JSONL code block as the first entry for this series.
+
+Generate a series of 99 entries in JSONL format, starting with the second entry. For the second entry, select a random English word from the first entry's English sentence to include in the new sentence. For each subsequent entry, select a random English word from the previous entry's English sentence to include in the new sentence. Display each entry as a JSON object with the fields `word`, `english`, and `thai`.
+
+Each entry should follow this exact JSONL format:
+{"word":"pen","english":"This pen costs five dollars.","thai":"ปากกานี้ราคาห้าดอลลาร์"}
+
+Ensure all English sentences reflect everyday spoken American English and are natural and conversational. The Thai translations must be accurate and natural. Output all 99 entries in sequence as a single JSONL code block, with each entry on a new line. Do not include the first entry in the output.
