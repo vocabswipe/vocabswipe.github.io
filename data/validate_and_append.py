@@ -6,7 +6,7 @@ from tqdm import tqdm
 def validate_and_append(temp_file, db_file):
     """
     Validates entries in temp_sentences.jsonl and database.jsonl, appends valid entries if both are valid,
-    empties temp file, reports total/unique words, and checks for duplicate entries in database.
+    empties temp file, reports total/unique words, checks for duplicates, and confirms validity.
     """
     errors = []
     temp_entries = []
@@ -70,7 +70,7 @@ def validate_and_append(temp_file, db_file):
         print("\n🚨 Errors Found:")
         for error in errors:
             print(f"  {error}")
-        print("\n⚠️ No entries appended. Fix errors and rerun.")
+        print("\n❌ Validation failed: Fix errors in temp or database files.")
         return False, db_entries[-1] if db_entries else None
 
     # Append to database if no errors
@@ -110,6 +110,15 @@ def validate_and_append(temp_file, db_file):
     print("\n📊 Database Summary")
     print(f"  Total entries: {len(all_entries)}")
     print(f"  Unique words: {unique_words}")
+
+    # Confirmation message
+    print("\n🟢 Status")
+    if not errors and not duplicates:
+        print("  ✅ All green: Database entries are valid, in order, and no duplicates found.")
+    elif not errors:
+        print("  ✅ Database entries are valid and in order, but duplicates found.")
+    else:
+        print("  ❌ Validation failed: Fix errors in temp or database files.")
 
     # Get last database entry
     last_entry = temp_entries[-1] if temp_entries else None
