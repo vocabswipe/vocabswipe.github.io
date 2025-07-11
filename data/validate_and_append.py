@@ -1,12 +1,12 @@
 import json
 import os
+import hashlib
 from tqdm import tqdm
-from collections import defaultdict
 
 def validate_and_append(temp_file, db_file):
     """
     Validates entries in temp_sentences.jsonl and database.jsonl, appends valid entries if both are valid,
-    empties temp file, checks for duplicates in database, and reports total/unique words and last entry.
+    empties temp file, reports total/unique words, and checks for duplicate entries in database.
     """
     errors = []
     temp_entries = []
@@ -85,36 +85,30 @@ def validate_and_append(temp_file, db_file):
     open(temp_file, 'w', encoding='utf-8').close()
 
     # Check for duplicates in database
-    print("\n🔍 Checking duplicates in database.jsonl")
-    duplicates = defaultdict(list)
-    with open(db_file, 'r', encoding='utf-8') as f_db:
-        lines = f_db.readlines()
-        for i, line in enumerate(lines):
-            try:
-                entry = json.loads(line.strip())
-                # Create a tuple of (word, english, thai) for exact matching
-                key = (entry['word'], entry['english'], entry['thai'])
-                duplicates[key].append(i + 1)  # Store line number (1-based)
-            except json.JSONDecodeError:
-                continue  # Skip invalid JSON lines
+    print("\n🔍 Checking for duplicates in database.jsonl")
+    seen_hashes = set()
+    duplicates = []
+    all_entries = db_entries + temp_entries
+    for i, entry in enumerate(tqdm(all_entries, desc="Scanning duplicates", unit="entry", leave=False)):
+        # Create hash of (word, english, thai) tuple
+        entry_tuple = (entry['word'], entry['english'], entry['thai'])
+        entry_hash = hashlib.md5(json.dumps(entry_tuple, ensure_ascii=False).encode('utf-8')).hexdigest()
+        if entry_hash in seen_hashes:
+            duplicates.append(f"Line {i+1}: Duplicate entry - Word: {entry['word']}, English: {entry['english']}")
+        seen_hashes.add(entry_hash)
 
     # Report duplicates
-    duplicate_found = False
-    print("\n🔎 Duplicate Check")
-    for key, line_numbers in duplicates.items():
-        if len(line_numbers) > 1:
-            duplicate_found = True
-            print(f"  Duplicate entry at lines {', '.join(map(str, line_numbers))}:")
-            print(f"    Word: {key[0]}")
-            print(f"    English: {key[1]}")
-            print(f"    Thai: {key[2]}")
-    if not duplicate_found:
-        print("  No duplicates found")
+    if duplicates:
+        print("\n⚠️ Duplicate Entries Found:")
+        for dup in duplicates:
+            print(f"  {dup}")
+    else:
+        print("\n✅ No duplicates found in database.jsonl")
 
     # Summarize database
-    unique_words = len(set(entry['word'].lower() for entry in db_entries + temp_entries))
+    unique_words = len(set(entry['word'].lower() for entry in all_entries))
     print("\n📊 Database Summary")
-    print(f"  Total entries: {len(db_entries) + len(temp_entries)}")
+    print(f"  Total entries: {len(all_entries)}")
     print(f"  Unique words: {unique_words}")
 
     # Get last database entry
