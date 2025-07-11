@@ -4,8 +4,8 @@ from tqdm import tqdm
 
 def validate_and_append(temp_file, db_file):
     """
-    Validates entries in temp_sentences.jsonl and database.jsonl, appends valid entries if both are valid,
-    empties temp file, and reports total/unique words in database.
+    Validates entries in temp_sentences.jsonl and database.jsonl, checks for duplicates in database,
+    appends valid entries if no errors, empties temp file, and reports total/unique words.
     """
     errors = []
     temp_entries = []
@@ -40,9 +40,10 @@ def validate_and_append(temp_file, db_file):
                 errors.append(f"Temp line {i+1}: Invalid JSON")
                 continue
 
-    # Validate database file
+    # Validate database file and check for duplicates
     db_entries = []
     previous_english = None
+    seen_entries = set()  # Track (word, english, thai) for duplicates
     if os.path.exists(db_file):
         print("\n📂 Checking database.jsonl")
         with open(db_file, 'r', encoding='utf-8') as f_db:
@@ -58,36 +59,42 @@ def validate_and_append(temp_file, db_file):
                         continue
                     if i > 0 and previous_english and entry['word'].lower() not in previous_english.lower():
                         errors.append(f"Database line {i+1}: Word '{entry['word']}' not in prior sentence: '{previous_english}'")
+                    # Check for duplicates
+                    entry_tuple = (entry['word'].lower(), entry['english'].lower(), entry['thai'])
+                    if entry_tuple in seen_entries:
+                        errors.append(f"Database line {i+1}: Duplicate entry: {json.dumps(entry, ensure_ascii=False)}")
+                    else:
+                        seen_entries.add(entry_tuple)
                     previous_english = entry['english']
                     db_entries.append(entry)
                 except json.JSONDecodeError:
                     errors.append(f"Database line {i+1}: Invalid JSON")
                     continue
 
-    # Report errors
+    # Report errors or confirm no duplicates
     if errors:
         print("\n🚨 Errors Found:")
         for error in errors:
             print(f"  {error}")
         print("\n⚠️ No entries appended. Fix errors and rerun.")
-        return False, db_entries[-1] if db_entries else None
-
-    # Append to database if no errors
-    print("\n📝 Appending to database.jsonl")
-    with open(db_file, 'a', encoding='utf-8') as f_db:
-        for entry in tqdm(temp_entries, desc="Appending", unit="entry", leave=False):
-            json.dump(entry, f_db, ensure_ascii=False)
-            f_db.write('\n')
-
-    # Empty temp file
-    print("\n🗑️ Clearing temp_sentences.jsonl")
-    open(temp_file, 'w', encoding='utf-8').close()
+    else:
+        print("\n✅ All entries valid. No duplicates found in database.jsonl.")
 
     # Summarize database
     unique_words = len(set(entry['word'].lower() for entry in db_entries + temp_entries))
     print("\n📊 Database Summary")
     print(f"  Total entries: {len(db_entries) + len(temp_entries)}")
     print(f"  Unique words: {unique_words}")
+
+    # Append to database and empty temp file if no errors
+    if not errors:
+        print("\n📝 Appending to database.jsonl")
+        with open(db_file, 'a', encoding='utf-8') as f_db:
+            for entry in tqdm(temp_entries, desc="Appending", unit="entry", leave=False):
+                json.dump(entry, f_db, ensure_ascii=False)
+                f_db.write('\n')
+        print("\n🗑️ Clearing temp_sentences.jsonl")
+        open(temp_file, 'w', encoding='utf-8').close()
 
     # Get last database entry
     last_entry = temp_entries[-1] if temp_entries else None
@@ -109,7 +116,7 @@ def validate_and_append(temp_file, db_file):
     else:
         print("  No entries in database.jsonl")
 
-    return True, last_entry
+    return len(errors) == 0, last_entry
 
 def main():
     # File paths
