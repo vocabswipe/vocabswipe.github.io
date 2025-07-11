@@ -12,13 +12,16 @@ def validate_and_append(temp_file, db_file):
     entries = []
     previous_english = None
 
+    # Print current working directory for debugging
+    print(f"📍 Current working directory: {os.getcwd()}")
+
     # Check if temp file exists
     if not os.path.exists(temp_file):
-        print("❌ Error: Temporary file 'temp_sentences.jsonl' not found in /data directory.")
+        print(f"❌ Error: Temporary file '{temp_file}' not found in current directory.")
         return False, None
 
     # Read and validate temporary file
-    print("📄 Validating temp_sentences.jsonl...")
+    print("\n📄 Validating temp_sentences.jsonl...")
     with open(temp_file, 'r', encoding='utf-8') as f_temp:
         lines = f_temp.readlines()
         for i, line in enumerate(tqdm(lines, desc="Processing entries", unit="entry")):
@@ -90,14 +93,13 @@ def validate_and_append(temp_file, db_file):
     return len(errors) == 0, last_entry
 
 def main():
-    # File paths
-    data_dir = "data"
-    temp_file = os.path.join(data_dir, "temp_sentences.jsonl")
-    db_file = os.path.join(data_dir, "database.jsonl")
+    # File paths (files are in the current directory)
+    temp_file = "temp_sentences.jsonl"
+    db_file = "database.jsonl"
 
     # Ensure database file exists
     if not os.path.exists(db_file):
-        open(db_file, 'a').close()  # Create empty file if it doesn't exist
+        open(db_file, 'a', encoding='utf-8').close()  # Create empty file if it doesn't exist
 
     # Validate and append
     success, last_entry = validate_and_append(temp_file, db_file)
