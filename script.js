@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentIndex = 0;
   let touchStartY = 0;
   let touchEndY = 0;
+  let touchStartTime = 0;
   const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
   let currentColorIndex = 0;
   let wordColors = new Map();
@@ -20,14 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
   let translateX = 0;
   let translateY = 0;
   let isPinching = false;
+  let currentAudio = null; // Track currently playing audio
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, '');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -228,9 +230,10 @@ document.addEventListener('DOMContentLoaded', () => {
           }, 1000);
 
           setTimeout(() => {
-            slogan.style.transition = 'transform 0.5s ease';
+            slogan.style.transition = 'transform 1s ease, opacity 1s ease';
             slogan.style.transform = 'translateX(0)';
-          }, 2000);
+            slogan.style.opacity = '1';
+          }, 1000);
 
           currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
           currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
@@ -240,7 +243,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     let pinchStartDistance = 0;
-    let touchStartTime = 0;
     wordCloud.addEventListener('touchstart', e => {
       touchStartTime = Date.now();
       if (e.touches.length === 2) {
@@ -250,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
           e.touches[0].clientY - e.touches[1].clientY
         );
       } else if (e.touches.length === 1) {
-        touchStartY = e.touches[0].clientY;
+        touchStartY = e.touches[0].screenY;
       }
     }, { passive: true });
 
@@ -285,6 +287,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+  function stopAudio() {
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+      currentAudio = null;
+    }
+  }
+
+  function playAudio(audioUrl) {
+    stopAudio(); // Stop any currently playing audio
+    currentAudio = new Audio(audioUrl);
+    currentAudio.play().catch(e => console.error("Error playing audio:", e));
+    flashcard.classList.add('glow'); // Trigger glow effect
+    setTimeout(() => flashcard.classList.remove('glow'), 500); // Remove glow after 0.5s
+  }
+
   function displayEntry(index) {
     if (index < 0 || index >= entries.length) return;
     const entry = entries[index];
@@ -309,11 +327,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     englishEl.innerHTML = highlightWords(entry.english, wordsToHighlight);
     thaiEl.textContent = entry.thai;
+
+    // Set up audio playback
+    if (entry.audio) {
+      const audioUrl = `https://raw.githubusercontent.com/<username>/<repo>/main/data/${entry.audio}`;
+      flashcard.onclick = null; // Clear previous handler
+      flashcard.onclick = () => {
+        if (currentAudio && !currentAudio.paused) {
+          stopAudio(); // Stop if audio is playing
+        } else {
+          playAudio(audioUrl); // Play if no audio or paused
+        }
+      };
+    } else {
+      flashcard.onclick = null; // Clear handler if no audio
+    }
   }
 
   flashcard.addEventListener('touchstart', e => {
     e.preventDefault();
     touchStartY = e.changedTouches[0].screenY;
+    touchStartTime = Date.now();
   }, { passive: false });
 
   flashcard.addEventListener('touchend', e => {
@@ -321,12 +355,19 @@ document.addEventListener('DOMContentLoaded', () => {
     touchEndY = e.changedTouches[0].screenY;
     const swipeDistance = touchStartY - touchEndY;
     const minSwipeDistance = 50;
+    const touchDuration = Date.now() - touchStartTime;
+    const maxTapDuration = 300; // Max duration for a tap (ms)
 
-    if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
+    if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance) {
+      // Single tap detected, trigger onclick (handled by displayEntry)
+      flashcard.click();
+    } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
+      stopAudio(); // Stop audio on swipe
       currentIndex++;
       currentColorIndex = (currentColorIndex + 1) % colors.length;
       displayEntry(currentIndex);
     } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
+      stopAudio(); // Stop audio on swipe
       currentIndex--;
       currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
       displayEntry(currentIndex);
