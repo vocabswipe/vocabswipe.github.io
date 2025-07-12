@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function highlightWords(sentence, wordsToHighlight) {
     let escapedSentence = escapeHTML(sentence);
     for (const { word, color } of wordsToHighlight) {
-      const regex = new RegExp(`\\b${escapeHTML(word)}\\b`, 'g');
+      const regex = new RegExp(`\\b${escapeHTML(word)}\\b`, 'gi'); // Case-insensitive
       escapedSentence = escapedSentence.replace(regex, match =>
         `<span class="highlight" style="color: ${color}">${match}</span>`
       );
@@ -180,12 +180,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }, index * 50 + delay);
 
       wordEl.addEventListener('click', () => {
+        // Reset word cloud transform
         wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
         wordCloud.style.transformOrigin = 'center center';
         currentScale = 1;
         translateX = 0;
         translateY = 0;
 
+        // Fade out other words
         document.querySelectorAll('.cloud-word').forEach(otherWord => {
           if (otherWord !== wordEl) {
             otherWord.style.transition = 'opacity 0.3s ease';
@@ -193,29 +195,49 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
-        wordEl.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
-        wordEl.style.transform = 'scale(3)';
+        // Get target position (word element in flashcard)
+        flashcardContainer.style.display = 'flex';
+        flashcardContainer.style.opacity = '0';
+        const targetRect = wordEl.getBoundingClientRect();
+        const flashcardRect = flashcard.getBoundingClientRect();
+        const wordTargetRect = document.getElementById('word').getBoundingClientRect();
+        
+        // Calculate translation needed
+        const deltaX = wordTargetRect.left - targetRect.left + (wordTargetRect.width - targetRect.width) / 2;
+        const deltaY = wordTargetRect.top - targetRect.top + (wordTargetRect.height - targetRect.height) / 2;
+        
+        // Animate selected word to flashcard position
+        wordEl.style.transition = 'transform 1.5s ease, font-size 1.5s ease, opacity 1.5s ease';
+        wordEl.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+        wordEl.style.fontSize = '3.75rem'; // Match the flashcard word size (2.5rem * 1.5)
         wordEl.style.opacity = '0';
 
         setTimeout(() => {
           wordCloud.style.display = 'none';
-          flashcardContainer.style.display = 'flex';
-          flashcardContainer.style.opacity = '0';
+          wordEl.style.transform = 'none';
+          wordEl.style.fontSize = `${size}rem`;
+          wordEl.style.opacity = '1';
+
+          // Flashcard fade-in
           flashcardContainer.style.transition = 'opacity 0.3s ease';
-          logo.style.opacity = '0';
-          slogan.style.transform = 'translateX(100%)';
+          flashcardContainer.style.opacity = '1';
+
+          // Logo animation after 1 second
           setTimeout(() => {
-            flashcardContainer.style.opacity = '1';
             logo.style.transition = 'opacity 3s ease';
             logo.style.opacity = '1';
+          }, 1000);
+
+          // Slogan animation after 2 seconds
+          setTimeout(() => {
             slogan.style.transition = 'transform 0.5s ease';
             slogan.style.transform = 'translateX(0)';
-          }, 50);
+          }, 2000);
 
-          currentIndex = entries.findIndex(entry => entry.word === word);
+          currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
           currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
           displayEntry(currentIndex);
-        }, 300);
+        }, 1500);
       });
     });
 
