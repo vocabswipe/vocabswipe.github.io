@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function isOverlapping(x, y, width, height, placedWords) {
-    const padding = 10; // Increased padding for better spacing
+    const padding = 1; // Increased padding for better spacing
     for (const word of placedWords) {
       const left1 = x;
       const right1 = x + width;
