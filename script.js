@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function highlightWords(sentence, wordsToHighlight) {
     let escapedSentence = escapeHTML(sentence);
     for (const { word, color } of wordsToHighlight) {
-      const regex = new RegExp(`\\b${escapeHTML(word)}\\b`, 'gi');
+      const regex = new RegExp(`\\b${escapeHTML(word)}\\b`, 'g'); // Case-sensitive matching
       escapedSentence = escapedSentence.replace(regex, match =>
         `<span class="highlight" style="color: ${color}">${match}</span>`
       );
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(`Loaded ${entries.length} entries`);
 
       totalWordsEl.textContent = entries.length;
-      const uniqueWords = new Set(entries.map(entry => entry.word.toLowerCase()));
+      const uniqueWords = new Set(entries.map(entry => entry.word)); // Preserve case for uniqueness
       uniqueWordsEl.textContent = uniqueWords.size;
       totalSentencesEl.textContent = entries.length;
 
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function isOverlapping(x, y, width, height, placedWords) {
-    const padding = 2; // Adjusted padding for denser placement
+    const padding = 1; // Tighter padding for denser placement
     for (const word of placedWords) {
       const left1 = x;
       const right1 = x + width;
@@ -93,15 +93,15 @@ document.addEventListener('DOMContentLoaded', () => {
   function displayWordCloud(uniqueWords) {
     const wordFreq = {};
     entries.forEach(entry => {
-      const word = entry.word.toLowerCase();
+      const word = entry.word; // Preserve case
       wordFreq[word] = (wordFreq[word] || 0) + 1;
     });
 
     const maxFreq = Math.max(...Object.values(wordFreq));
     const minFreq = Math.min(...Object.values(wordFreq));
-    const containerWidth = window.innerWidth - 40;
-    // Reduce height to increase density (200% density means halving the area per word)
-    const containerHeight = Math.max(window.innerHeight, uniqueWords.size * 25); // Reduced from 100px to 25px per word
+    const containerWidth = window.innerWidth - 20; // Reduced padding
+    // Further reduce height for 200% density (from 25px to 12.5px per word)
+    const containerHeight = Math.max(window.innerHeight * 0.5, uniqueWords.size * 12.5);
     wordCloud.style.minHeight = `${containerHeight}px`;
 
     const placedWords = [];
@@ -109,30 +109,30 @@ document.addEventListener('DOMContentLoaded', () => {
       .map(word => ({ word, freq: wordFreq[word] }))
       .sort((a, b) => b.freq - a.freq);
 
-    // Spiral placement for denser packing
+    // Optimized spiral placement
     wordArray.forEach(({ word, freq }, index) => {
       const wordEl = document.createElement('div');
       wordEl.className = 'cloud-word';
-      wordEl.textContent = word;
-      const size = 0.8 + (freq / maxFreq) * 1.5; // Reduced font size range for density
+      wordEl.textContent = word; // Use original case
+      const size = 0.6 + (freq / maxFreq) * 1.2; // Further reduced font size for density
       wordEl.style.fontSize = `${size}rem`;
       const wordColor = colors[Math.floor(Math.random() * colors.length)];
       wordEl.style.color = wordColor;
-      wordColors.set(word.toLowerCase(), wordColor); // Store color for this word
+      wordColors.set(word, wordColor); // Store color with original case
       wordEl.style.opacity = '0';
       wordCloud.appendChild(wordEl);
 
       const { width, height } = wordEl.getBoundingClientRect();
       let x, y, attempts = 0;
-      const maxAttempts = 200; // Increased attempts for denser placement
+      const maxAttempts = 300; // Increased for denser placement
 
-      // Spiral placement algorithm
+      // Spiral placement
       let placed = false;
       let radius = 0;
       let angle = 0;
       const centerX = containerWidth / 2;
       const centerY = containerHeight / 2;
-      const spiralStep = 5; // Smaller step for tighter spiral
+      const spiralStep = 3; // Tighter spiral step
 
       while (!placed && attempts < maxAttempts) {
         x = centerX + radius * Math.cos(angle) - width / 2;
@@ -140,49 +140,57 @@ document.addEventListener('DOMContentLoaded', () => {
         if (x >= 0 && x + width <= containerWidth && y >= 0 && y + height <= containerHeight) {
           if (!isOverlapping(x, y, width, height, placedWords)) {
             placed = true;
-            wordEl.style.left = `${x + 20}px`;
-            wordEl.style.top = `${y + 20}px`;
+            wordEl.style.left = `${x + 10}px`; // Reduced offset
+            wordEl.style.top = `${y + 10}px`;
             placedWords.push({ x, y, width, height });
           }
         }
-        angle += 0.5; // Smaller angle increment for denser spiral
-        radius += spiralStep / (2 * Math.PI); // Tighter spiral
+        angle += 0.3; // Tighter angle increment
+        radius += spiralStep / (2 * Math.PI);
         attempts++;
       }
 
       if (!placed) {
-        // Fallback to random placement
-        do {
-          x = Math.random() * (containerWidth - width);
-          y = Math.random() * (containerHeight - height);
-          attempts++;
-        } while (isOverlapping(x, y, width, height, placedWords) && attempts < maxAttempts * 2);
-
-        if (attempts < maxAttempts * 2) {
-          wordEl.style.left = `${x + 20}px`;
-          wordEl.style.top = `${y + 20}px`;
-          placedWords.push({ x, y, width, height });
-        } else {
+        // Fallback grid placement for efficiency
+        const gridSize = 10; // Smaller grid for density
+        let gridPlaced = false;
+        for (let gy = 0; gy < containerHeight && !gridPlaced; gy += gridSize) {
+          for (let gx = 0; gx < containerWidth && !gridPlaced; gx += gridSize) {
+            x = gx;
+            y = gy;
+            if (
+              x + width <= containerWidth &&
+              y + height <= containerHeight &&
+              !isOverlapping(x, y, width, height, placedWords)
+            ) {
+              wordEl.style.left = `${x + 10}px`;
+              wordEl.style.top = `${y + 10}px`;
+              placedWords.push({ x, y, width, height });
+              gridPlaced = true;
+            }
+          }
+        }
+        if (!gridPlaced) {
           wordEl.remove(); // Remove if no placement found
         }
       }
 
       const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
-      const delay = normalizedFreq * 3000; // Reduced delay for faster display
+      const delay = normalizedFreq * 2000; // Reduced delay
       setTimeout(() => {
-        wordEl.style.transition = 'opacity 0.5s ease';
+        wordEl.style.transition = 'opacity 0.3s ease';
         wordEl.style.opacity = '1';
       }, delay);
 
       wordEl.addEventListener('click', () => {
         document.querySelectorAll('.cloud-word').forEach(otherWord => {
           if (otherWord !== wordEl) {
-            otherWord.style.transition = 'opacity 0.5s ease';
+            otherWord.style.transition = 'opacity 0.3s ease';
             otherWord.style.opacity = '0';
           }
         });
 
-        wordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+        wordEl.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
         wordEl.style.transform = 'scale(5)';
         wordEl.style.opacity = '0';
 
@@ -192,15 +200,15 @@ document.addEventListener('DOMContentLoaded', () => {
           statsBar.classList.add('loaded');
           flashcardContainer.style.display = 'flex';
           flashcardContainer.style.opacity = '0';
-          flashcardContainer.style.transition = 'opacity 0.5s ease';
+          flashcardContainer.style.transition = 'opacity 0.3s ease';
           setTimeout(() => {
             flashcardContainer.style.opacity = '1';
           }, 50);
 
-          currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
-          currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
+          currentIndex = entries.findIndex(entry => entry.word === word); // Case-sensitive match
+          currentColorIndex = colors.indexOf(wordColors.get(word));
           displayEntry(currentIndex);
-        }, 500);
+        }, 300);
       });
     });
     console.log(`Rendered ${wordArray.length} words in word cloud`);
