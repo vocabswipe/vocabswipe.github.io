@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -39,11 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadData() {
     try {
+      console.log('Attempting to fetch data/database.jsonl');
       const response = await fetch('data/database.jsonl');
-      if (!response.ok) throw new Error('Failed to load database.jsonl');
+      if (!response.ok) throw new Error(`Failed to load database.jsonl: ${response.status}`);
       const data = await response.text();
       entries = data.trim().split('\n').map(line => JSON.parse(line));
       if (!entries.length) throw new Error('No entries in database.jsonl');
+      console.log(`Loaded ${entries.length} entries`);
 
       totalWordsEl.textContent = entries.length;
       const uniqueWords = new Set(entries.map(entry => entry.word.toLowerCase()));
@@ -53,22 +55,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
       displayWordCloud(uniqueWords);
     } catch (error) {
-      console.error('Error:', error);
-      wordEl.textContent = 'Error';
-      englishEl.textContent = 'Failed to load data';
-      thaiEl.textContent = '';
+      console.error('Error:', error.message);
+      wordCloud.textContent = 'Failed to load vocabulary data. Please check if data/database.jsonl exists.';
+      wordCloud.style.color = '#ff4081';
+      wordCloud.style.fontSize = '1.2rem';
+      wordCloud.style.textAlign = 'center';
+      wordCloud.style.padding = '20px';
       statsBar.style.display = 'none';
-      wordCloud.style.display = 'none';
     }
   }
 
   function isOverlapping(x, y, width, height, placedWords) {
+    const padding = 20; // Increased padding for better readability
     for (const word of placedWords) {
-      const dx = x - word.x;
-      const dy = y - word.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-      const minDistance = (width + word.width) / 2 + 10; // 10px padding
-      if (distance < minDistance) return true;
+      const left1 = x;
+      const right1 = x + width;
+      const top1 = y;
+      const bottom1 = y + height;
+      const left2 = word.x;
+      const right2 = word.x + word.width;
+      const top2 = word.y;
+      const bottom2 = word.y + word.height;
+
+      if (
+        right1 + padding > left2 &&
+        left1 - padding < right2 &&
+        bottom1 + padding > top2 &&
+        top1 - padding < bottom2
+      ) {
+        return true;
+      }
     }
     return false;
   }
@@ -84,30 +100,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const minFreq = Math.min(...Object.values(wordFreq));
     const containerWidth = window.innerWidth;
     const containerHeight = window.innerHeight * 2;
+
+    const wordArray = Array.from(uniqueWords)
+      .map(word => ({ word, freq: wordFreq[word] }))
+      .sort((a, b) => b.freq - a.freq);
+
     const placedWords = [];
-
-    // Convert uniqueWords Set to array with frequency for sorting
-    const wordArray = Array.from(uniqueWords).map(word => ({
-      word,
-      freq: wordFreq[word]
-    })).sort((a, b) => b.freq - a.freq); // Sort by frequency (descending)
-
     wordArray.forEach(({ word, freq }, index) => {
       const wordEl = document.createElement('div');
       wordEl.className = 'cloud-word';
       wordEl.textContent = word;
-      const size = 1 + (freq / maxFreq) * 2; // Font size 1rem to 3rem
+      const size = 1 + (freq / maxFreq) * 2;
       wordEl.style.fontSize = `${size}rem`;
       wordEl.style.color = colors[Math.floor(Math.random() * colors.length)];
       wordEl.style.opacity = '0';
       wordCloud.appendChild(wordEl);
 
-      // Calculate dimensions after appending to get accurate size
       const { width, height } = wordEl.getBoundingClientRect();
       let x, y, attempts = 0;
-      const maxAttempts = 100;
+      const maxAttempts = 50; // Reduced for performance
 
-      // Find non-overlapping position
       do {
         x = Math.random() * (containerWidth - width);
         y = Math.random() * (containerHeight - height);
@@ -119,14 +131,12 @@ document.addEventListener('DOMContentLoaded', () => {
         wordEl.style.top = `${y}px`;
         placedWords.push({ x, y, width, height });
       } else {
-        // If no position found, place randomly (fallback)
         wordEl.style.left = `${Math.random() * (containerWidth - width)}px`;
         wordEl.style.top = `${Math.random() * (containerHeight - height)}px`;
       }
 
-      // Fade-in timing: more frequent words appear earlier
-      const normalizedFreq = (maxFreq - freq) / (maxFreq - minFreq || 1); // 0 (most frequent) to 1 (least frequent)
-      const delay = normalizedFreq * 5000; // 0 to 5 seconds
+      const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
+      const delay = normalizedFreq * 5000;
       setTimeout(() => {
         wordEl.style.transition = 'opacity 1s ease';
         wordEl.style.opacity = '1';
@@ -159,6 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
       });
     });
+    console.log(`Rendered ${wordArray.length} words in word cloud`);
   }
 
   function displayEntry(index) {
