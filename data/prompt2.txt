@@ -1,15 +1,13 @@
-Use the last entry from the previously generated JSONL code block as the first entry for this series. The last entry is provided as:
-{"word": "[last_word]", "english": "[last_english_sentence]", "thai": "[last_thai_translation]"}
+Use the last entry from the previously generated JSONL code block as the first entry for this series.
 
-Generate a series of 99 entries in JSONL format, starting with the second entry. For the second entry, select a random English word from the first entry’s English sentence (excluding common function words like "is", "the", "of", "with", etc.) to use as the `word` field and create a new sentence featuring that word. For each subsequent entry, select a random English word from the previous entry’s English sentence (excluding common function words) to use as the `word` field and create a new sentence featuring that word. Each entry must follow this exact JSONL format:
+Generate a series of 99 entries in JSONL format, starting with the second entry. For the second entry, select a random content word (noun, verb, adjective, or adverb, excluding function words like "is," "the," "of") from the first entry's English sentence to include in the new sentence. For each subsequent entry, select a random content word from the previous entry's English sentence to include in the new sentence. To maximize vocabulary diversity, prefer words that differ significantly in meaning or context from the previous entry’s word and avoid repeating words already used as the "word" field in earlier entries (including those from the previous 99 entries).
+
+Each entry must follow this exact JSONL format:
 {"word":"pen","english":"This pen costs five dollars.","thai":"ปากกานี้ราคาห้าดอลลาร์"}
 
-**Requirements:**
-- **Sentence Length and Complexity**: Each English sentence must be 8–15 words long to provide a larger pool of words for selection, ensuring complexity and variety.
-- **Vocabulary Diversity**: Avoid reusing words from previous entries as the `word` field unless absolutely necessary (e.g., after exhausting other options). Prioritize unique nouns, verbs, adjectives, or adverbs.
-- **Context and Theme Variety**: Sentences must span a wide range of themes and contexts, such as technology, travel, education, sports, business, entertainment, nature, relationships, health, culture, slang-heavy casual dialogue, formal discussions, idiomatic expressions, or everyday scenarios. Explicitly choose a unique theme or context for each sentence to avoid clustering around similar topics (e.g., home, food, cozy settings).
-- **Language Style**: English sentences must reflect varied spoken American English, including casual, formal, informal, slang, or idiomatic expressions, matching the chosen context (e.g., slang for casual dialogue, formal tone for business contexts).
-- **Thai Translations**: Thai translations must be accurate, natural, and reflect the same tone and context as the English sentence (e.g., formal Thai for formal contexts, colloquial Thai for casual sentences).
-- **Word Selection**: When selecting a word from the previous sentence, prioritize content words (nouns, verbs, adjectives, adverbs) that inspire a new, distinct theme or context for the next sentence.
+Ensure all English sentences:
+- Reflect everyday spoken American English, varying in tone (casual, formal, informal, slang, idiomatic) and context (e.g., daily life, work, emotions, technology, culture, hobbies, travel, relationships, food, sports, etc.).
+- Are natural, conversational, and concise (1-10 words).
+- Incorporate the selected word naturally in a new sentence.
 
-Output all 99 entries (2 to 99) in sequence as a single JSONL code block, with each entry on a new line. Do not include the first entry in the output.
+Ensure Thai translations are accurate, natural, and match the tone of the English sentence. Avoid repetitive sentence structures or themes by exploring diverse topics and expressions. Output all 99 entries in sequence as a single JSONL code block, with each entry on a new line. Do not include the first entry in the output. Verify that no "word" field repeats across entries to ensure vocabulary diversity.
