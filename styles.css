@@ -156,6 +156,14 @@ body {
   text-align: center;
 }
 
+.audio-error {
+  font-size: 0.9rem;
+  color: #ff4081;
+  text-align: center;
+  margin-top: 8px;
+  display: none;
+}
+
 @media (max-width: 600px) {
   .flashcard {
     height: calc(100vw * 1.777 * 0.5);
@@ -171,6 +179,10 @@ body {
 
   .thai {
     font-size: 0.9rem;
+  }
+
+  .audio-error {
+    font-size: 0.8rem;
   }
 
   .word-cloud {
