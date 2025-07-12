@@ -29,6 +29,7 @@ body {
   cursor: pointer;
   user-select: none;
   transition: opacity 1s ease, transform 1s ease;
+  white-space: nowrap; /* Prevent word wrapping */
 }
 
 .stats-bar {
