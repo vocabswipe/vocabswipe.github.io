@@ -19,9 +19,9 @@ body {
 .word-cloud {
   position: relative;
   width: 100%;
-  min-height: 200vh; /* Ensure visibility even if empty */
+  min-height: 200vh;
   overflow-y: auto;
-  padding: 20px; /* Add padding for better edge spacing */
+  padding: 20px;
 }
 
 .cloud-word {
