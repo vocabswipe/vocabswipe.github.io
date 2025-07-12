@@ -12,16 +12,18 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  touch-action: manipulation;
+  touch-action: none;
   overflow-x: hidden;
 }
 
 .word-cloud {
   position: relative;
   width: 100%;
-  min-height: 100vh; /* Adjusted dynamically in JS */
-  overflow-y: auto;
-  padding: 5px; /* Further reduced padding */
+  height: 100vh;
+  overflow: hidden;
+  padding: 10px;
+  transform-origin: center center;
+  will-change: transform;
 }
 
 .cloud-word {
@@ -29,9 +31,10 @@ body {
   font-weight: 700;
   cursor: pointer;
   user-select: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.5s ease, transform 0.3s ease;
   white-space: nowrap;
-  line-height: 1.1; /* Even tighter line height */
+  line-height: 1.2;
+  text-transform: capitalize;
 }
 
 .stats-bar {
@@ -70,7 +73,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding experto: 20px;
 }
 
 .flashcard {
@@ -158,10 +161,6 @@ body {
   }
 
   .word-cloud {
-    padding: 3px; /* Minimal padding for mobile */
-  }
-
-  .cloud-word {
-    line-height: 1; /* Tighter for mobile */
+    padding: 5px;
   }
 }
