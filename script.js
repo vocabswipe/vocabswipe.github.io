@@ -13,6 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let touchStartY = 0;
     let touchEndY = 0;
     
+    // Bright colors for dark theme
+    const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081']; // Green, Yellow, Cyan, Magenta
+    let currentColorIndex = 0;
+    
     // Fetch and parse JSONL file
     async function loadData() {
         try {
@@ -24,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Random first entry
             currentIndex = Math.floor(Math.random() * entries.length);
+            currentColorIndex = Math.floor(Math.random() * colors.length);
             displayEntry(currentIndex);
             
             // Update stats
@@ -47,30 +52,54 @@ document.addEventListener('DOMContentLoaded', () => {
         if (index < 0 || index >= entries.length) return;
         const entry = entries[index];
         wordEl.textContent = entry.word;
+        wordEl.style.color = colors[currentColorIndex];
         
-        // Highlight the word in the English sentence
+        // Find next and previous words
+        const nextWord = index < entries.length - 1 ? entries[index + 1].word : null;
+        const prevWord = index > 0 ? entries[index - 1].word : null;
+        const nextColor = colors[(currentColorIndex + 1) % colors.length];
+        const prevColor = colors[(currentColorIndex - 1 + colors.length) % colors.length];
+        
+        // Highlight current word, preserving original case
+        let sentence = entry.english;
         const wordRegex = new RegExp(`\\b${entry.word}\\b`, 'gi');
-        englishEl.innerHTML = entry.english.replace(wordRegex, `<span class="highlight">${entry.word}</span>`);
+        sentence = sentence.replace(wordRegex, match => `<span class="highlight" style="color: ${colors[currentColorIndex]}">${match}</span>`);
+        
+        // Highlight next word if exists
+        if (nextWord) {
+            const nextWordRegex = new RegExp(`\\b${nextWord}\\b`, 'gi');
+            sentence = sentence.replace(nextWordRegex, match => `<span class="highlight" style="color: ${nextColor}">${match}</span>`);
+        }
+        
+        // Highlight previous word if exists
+        if (prevWord) {
+            const prevWordRegex = new RegExp(`\\b${prevWord}\\b`, 'gi');
+            sentence = sentence.replace(prevWordRegex, match => `<span class="highlight" style="color: ${prevColor}">${match}</span>`);
+        }
+        
+        englishEl.innerHTML = sentence;
         thaiEl.textContent = entry.thai;
     }
     
     // Swipe handling
     flashcard.addEventListener('touchstart', e => {
-        e.preventDefault(); // Prevent default touch behavior
+        e.preventDefault();
         touchStartY = e.changedTouches[0].screenY;
     }, { passive: false });
     
     flashcard.addEventListener('touchend', e => {
-        e.preventDefault(); // Prevent default touch behavior
+        e.preventDefault();
         touchEndY = e.changedTouches[0].screenY;
         const swipeDistance = touchStartY - touchEndY;
         const minSwipeDistance = 50;
         
         if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
             currentIndex++;
+            currentColorIndex = (currentColorurrentIndex + 1) % colors.length;
             displayEntry(currentIndex);
         } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
             currentIndex--;
+            currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
             displayEntry(currentIndex);
         }
     }, { passive: false });
