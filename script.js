@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const wordEl = document.getElementById('word');
   const englishEl = document.getElementById('english');
   const thaiEl = document.getElementById('thai');
+  const audioErrorEl = document.getElementById('audio-error');
   const logo = document.querySelector('.logo');
   const slogan = document.querySelector('.slogan');
 
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let touchStartY = 0;
   let touchEndY = 0;
   let touchStartTime = 0;
+  let lastSwipeTime = 0;
   const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
   let currentColorIndex = 0;
   let wordColors = new Map();
@@ -25,11 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -120,6 +122,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function stopAudio() {
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+      currentAudio = null;
+    }
+    audioErrorEl.style.display = 'none'; // Hide error message
+  }
+
+  function playAudio(audioUrl) {
+    stopAudio(); // Stop any currently playing audio
+    currentAudio = new Audio(audioUrl);
+    currentAudio.play().then(() => {
+      flashcard.classList.add('glow'); // Trigger glow effect
+      setTimeout(() => flashcard.classList.remove('glow'), 500); // Remove glow after 0.5s
+      audioErrorEl.style.display = 'none'; // Hide error message
+    }).catch(e => {
+      console.error("Error playing audio:", e);
+      audioErrorEl.textContent = 'Failed to play audio';
+      audioErrorEl.style.display = 'block';
+      setTimeout(() => audioErrorEl.style.display = 'none', 2000); // Hide after 2s
+    });
+  }
+
   function displayWordCloud() {
     const wordFreq = {};
     const wordCaseMap = new Map();
@@ -196,6 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, index * 50 + delay);
 
       wordEl.addEventListener('click', () => {
+        stopAudio(); // Stop any playing audio when returning to word cloud
         wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
         wordCloud.style.transformOrigin = 'center center';
         currentScale = 1;
@@ -287,22 +314,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  function stopAudio() {
-    if (currentAudio) {
-      currentAudio.pause();
-      currentAudio.currentTime = 0;
-      currentAudio = null;
-    }
-  }
-
-  function playAudio(audioUrl) {
-    stopAudio(); // Stop any currently playing audio
-    currentAudio = new Audio(audioUrl);
-    currentAudio.play().catch(e => console.error("Error playing audio:", e));
-    flashcard.classList.add('glow'); // Trigger glow effect
-    setTimeout(() => flashcard.classList.remove('glow'), 500); // Remove glow after 0.5s
-  }
-
   function displayEntry(index) {
     if (index < 0 || index >= entries.length) return;
     const entry = entries[index];
@@ -327,6 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     englishEl.innerHTML = highlightWords(entry.english, wordsToHighlight);
     thaiEl.textContent = entry.thai;
+    audioErrorEl.style.display = 'none'; // Reset error message
 
     // Set up audio playback
     if (entry.audio) {
@@ -341,6 +353,9 @@ document.addEventListener('DOMContentLoaded', () => {
       };
     } else {
       flashcard.onclick = null; // Clear handler if no audio
+      audioErrorEl.textContent = 'No audio available';
+      audioErrorEl.style.display = 'block';
+      setTimeout(() => audioErrorEl.style.display = 'none', 2000); // Hide after 2s
     }
   }
 
@@ -357,8 +372,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const minSwipeDistance = 50;
     const touchDuration = Date.now() - touchStartTime;
     const maxTapDuration = 300; // Max duration for a tap (ms)
+    const tapCooldown = 500; // Cooldown after swipe (ms)
 
-    if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance) {
+    if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance && (Date.now() - lastSwipeTime) > tapCooldown) {
       // Single tap detected, trigger onclick (handled by displayEntry)
       flashcard.click();
     } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
@@ -366,11 +382,13 @@ document.addEventListener('DOMContentLoaded', () => {
       currentIndex++;
       currentColorIndex = (currentColorIndex + 1) % colors.length;
       displayEntry(currentIndex);
+      lastSwipeTime = Date.now();
     } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
       stopAudio(); // Stop audio on swipe
       currentIndex--;
       currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
       displayEntry(currentIndex);
+      lastSwipeTime = Date.now();
     }
   }, { passive: false });
 
