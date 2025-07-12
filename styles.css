@@ -121,7 +121,7 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically */
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -131,11 +131,8 @@ body {
   text-align: center;
   word-break: break-word;
   margin-bottom: 20px;
+  white-space: nowrap;
   max-width: 100%;
-  flex-grow: 1; /* Allow word to take available space */
-  display: flex;
-  align-items: center; /* Center vertically within its space */
-  justify-content: center;
 }
 
 .sentences {
