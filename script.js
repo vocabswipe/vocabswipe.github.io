@@ -32,8 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function highlightWords(sentence, wordsToHighlight) {
     let escapedSentence = escapeHTML(sentence);
+    wordsToHighlight.sort((a, b) => b.word.length - a.word.length); // Sort by word length to avoid partial matches
     for (const { word, color } of wordsToHighlight) {
-      const regex = new RegExp(`\\b${escapeHTML(word)}\\b`, 'gi'); // Case-insensitive
+      const escapedWord = escapeHTML(word);
+      // Use word boundaries and ensure special characters are handled
+      const regex = new RegExp(`\\b${escapedWord}\\b`, 'gi');
       escapedSentence = escapedSentence.replace(regex, match =>
         `<span class="highlight" style="color: ${color}">${match}</span>`
       );
@@ -195,36 +198,25 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
-        // Get target position (word element in flashcard)
-        flashcardContainer.style.display = 'flex';
-        flashcardContainer.style.opacity = '0';
-        const targetRect = wordEl.getBoundingClientRect();
-        const flashcardRect = flashcard.getBoundingClientRect();
-        const wordTargetRect = document.getElementById('word').getBoundingClientRect();
-        
-        // Calculate translation needed
-        const deltaX = wordTargetRect.left - targetRect.left + (wordTargetRect.width - targetRect.width) / 2;
-        const deltaY = wordTargetRect.top - targetRect.top + (wordTargetRect.height - targetRect.height) / 2;
-        
-        // Animate selected word to flashcard position
-        wordEl.style.transition = 'transform 1.5s ease, font-size 1.5s ease, opacity 1.5s ease';
-        wordEl.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-        wordEl.style.fontSize = '3.75rem'; // Match the flashcard word size (2.5rem * 1.5)
+        // Animate selected word to grow larger than screen and disappear
+        wordEl.style.transition = 'transform 1s ease, opacity 1s ease';
+        wordEl.style.transform = 'scale(10)';
         wordEl.style.opacity = '0';
 
         setTimeout(() => {
           wordCloud.style.display = 'none';
           wordEl.style.transform = 'none';
-          wordEl.style.fontSize = `${size}rem`;
           wordEl.style.opacity = '1';
 
           // Flashcard fade-in
-          flashcardContainer.style.transition = 'opacity 0.3s ease';
+          flashcardContainer.style.display = 'flex';
+          flashcardContainer.style.opacity = '0';
+          flashcardContainer.style.transition = 'opacity 1s ease';
           flashcardContainer.style.opacity = '1';
 
           // Logo animation after 1 second
           setTimeout(() => {
-            logo.style.transition = 'opacity 3s ease';
+            logo.style.transition = 'opacity 1s ease';
             logo.style.opacity = '1';
           }, 1000);
 
@@ -237,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
           currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
           currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
           displayEntry(currentIndex);
-        }, 1500);
+        }, 1000);
       });
     });
 
