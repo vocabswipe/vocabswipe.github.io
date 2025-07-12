@@ -16,7 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let touchEndY = 0;
   const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
   let currentColorIndex = 0;
-  let wordColors = new Map(); // Store word-to-color mappings
+  let wordColors = new Map();
+  let initialScale = 1;
+  let currentScale = 1;
+  let translateX = 0;
+  let translateY = 0;
 
   function escapeHTML(str) {
     return str
@@ -24,13 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/'/g, '&apos;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
     let escapedSentence = escapeHTML(sentence);
     for (const { word, color } of wordsToHighlight) {
-      const regex = new RegExp(`\\b${escapeHTML(word)}\\b`, 'g'); // Case-sensitive matching
+      const regex = new RegExp(`\\b${escapeHTML(word)}\\b`, 'gi');
       escapedSentence = escapedSentence.replace(regex, match =>
         `<span class="highlight" style="color: ${color}">${match}</span>`
       );
@@ -40,16 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadData() {
     try {
-      console.log('Attempting to fetch data/database.jsonl');
       const response = await fetch('data/database.jsonl');
       if (!response.ok) throw new Error(`Failed to load database.jsonl: ${response.status}`);
       const data = await response.text();
       entries = data.trim().split('\n').map(line => JSON.parse(line));
       if (!entries.length) throw new Error('No entries in database.jsonl');
-      console.log(`Loaded ${entries.length} entries`);
 
       totalWordsEl.textContent = entries.length;
-      const uniqueWords = new Set(entries.map(entry => entry.word)); // Preserve case for uniqueness
+      const uniqueWords = new Set(entries.map(entry => entry.word.toLowerCase()));
       uniqueWordsEl.textContent = uniqueWords.size;
       totalSentencesEl.textContent = entries.length;
 
@@ -57,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
       displayWordCloud(uniqueWords);
     } catch (error) {
       console.error('Error:', error.message);
-      wordCloud.textContent = 'Failed to load vocabulary data. Please check if data/database.jsonl exists and is accessible.';
+      wordCloud.textContent = 'Failed to load vocabulary data. Please check if data/database.jsonl exists.';
       wordCloud.style.color = '#ff4081';
       wordCloud.style.fontSize = '1.2rem';
       wordCloud.style.textAlign = 'center';
@@ -67,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function isOverlapping(x, y, width, height, placedWords) {
-    const padding = 1; // Tighter padding for denser placement
+    const padding = 2;
     for (const word of placedWords) {
       const left1 = x;
       const right1 = x + width;
@@ -93,96 +95,70 @@ document.addEventListener('DOMContentLoaded', () => {
   function displayWordCloud(uniqueWords) {
     const wordFreq = {};
     entries.forEach(entry => {
-      const word = entry.word; // Preserve case
+      const word = entry.word.toLowerCase();
       wordFreq[word] = (wordFreq[word] || 0) + 1;
     });
 
     const maxFreq = Math.max(...Object.values(wordFreq));
     const minFreq = Math.min(...Object.values(wordFreq));
-    const containerWidth = window.innerWidth - 20; // Reduced padding
-    // Further reduce height for 200% density (from 25px to 12.5px per word)
-    const containerHeight = Math.max(window.innerHeight * 0.5, uniqueWords.size * 12.5);
-    wordCloud.style.minHeight = `${containerHeight}px`;
+    const containerWidth = window.innerWidth;
+    const containerHeight = Math.max(window.innerHeight * 0.8, uniqueWords.size * 10);
+    wordCloud.style.width = `${containerWidth}px`;
+    wordCloud.style.height = `${containerHeight}px`;
 
     const placedWords = [];
     const wordArray = Array.from(uniqueWords)
       .map(word => ({ word, freq: wordFreq[word] }))
       .sort((a, b) => b.freq - a.freq);
 
-    // Optimized spiral placement
     wordArray.forEach(({ word, freq }, index) => {
       const wordEl = document.createElement('div');
       wordEl.className = 'cloud-word';
-      wordEl.textContent = word; // Use original case
-      const size = 0.6 + (freq / maxFreq) * 1.2; // Further reduced font size for density
+      wordEl.textContent = word;
+      const size = 0.8 + (freq / maxFreq) * 2.2;
       wordEl.style.fontSize = `${size}rem`;
       const wordColor = colors[Math.floor(Math.random() * colors.length)];
       wordEl.style.color = wordColor;
-      wordColors.set(word, wordColor); // Store color with original case
+      wordColors.set(word, wordColor);
       wordEl.style.opacity = '0';
       wordCloud.appendChild(wordEl);
 
       const { width, height } = wordEl.getBoundingClientRect();
-      let x, y, attempts = 0;
-      const maxAttempts = 300; // Increased for denser placement
+      let x, y, placed = false;
+      const maxAttempts = 500;
 
-      // Spiral placement
-      let placed = false;
-      let radius = 0;
-      let angle = 0;
-      const centerX = containerWidth / 2;
-      const centerY = containerHeight / 2;
-      const spiralStep = 3; // Tighter spiral step
-
-      while (!placed && attempts < maxAttempts) {
-        x = centerX + radius * Math.cos(angle) - width / 2;
-        y = centerY + radius * Math.sin(angle) - height / 2;
-        if (x >= 0 && x + width <= containerWidth && y >= 0 && y + height <= containerHeight) {
-          if (!isOverlapping(x, y, width, height, placedWords)) {
-            placed = true;
-            wordEl.style.left = `${x + 10}px`; // Reduced offset
-            wordEl.style.top = `${y + 10}px`;
-            placedWords.push({ x, y, width, height });
-          }
+      // Random placement with minimal spacing
+      for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
+        x = Math.random() * (containerWidth - width);
+        y = Math.random() * (containerHeight - height);
+        if (!isOverlapping(x, y, width, height, placedWords)) {
+          wordEl.style.left = `${x}px`;
+          wordEl.style.top = `${y}px`;
+          placedWords.push({ x, y, width, height });
+          placed = true;
         }
-        angle += 0.3; // Tighter angle increment
-        radius += spiralStep / (2 * Math.PI);
-        attempts++;
       }
 
       if (!placed) {
-        // Fallback grid placement for efficiency
-        const gridSize = 10; // Smaller grid for density
-        let gridPlaced = false;
-        for (let gy = 0; gy < containerHeight && !gridPlaced; gy += gridSize) {
-          for (let gx = 0; gx < containerWidth && !gridPlaced; gx += gridSize) {
-            x = gx;
-            y = gy;
-            if (
-              x + width <= containerWidth &&
-              y + height <= containerHeight &&
-              !isOverlapping(x, y, width, height, placedWords)
-            ) {
-              wordEl.style.left = `${x + 10}px`;
-              wordEl.style.top = `${y + 10}px`;
-              placedWords.push({ x, y, width, height });
-              gridPlaced = true;
-            }
-          }
-        }
-        if (!gridPlaced) {
-          wordEl.remove(); // Remove if no placement found
-        }
+        wordEl.remove();
+        return;
       }
 
       const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
-      const delay = normalizedFreq * 2000; // Reduced delay
+      const delay = normalizedFreq * 1000;
       setTimeout(() => {
-        wordEl.style.transition = 'opacity 0.3s ease';
+        wordEl.style.transition = 'opacity 0.5s ease';
         wordEl.style.opacity = '1';
-      }, delay);
+      }, index * 50 + delay);
 
       wordEl.addEventListener('click', () => {
+        // Reset zoom and transform
+        wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
+        wordCloud.style.transformOrigin = 'center center';
+        currentScale = 1;
+        translateX = 0;
+        translateY = 0;
+
         document.querySelectorAll('.cloud-word').forEach(otherWord => {
           if (otherWord !== wordEl) {
             otherWord.style.transition = 'opacity 0.3s ease';
@@ -191,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         wordEl.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
-        wordEl.style.transform = 'scale(5)';
+        wordEl.style.transform = 'scale(3)';
         wordEl.style.opacity = '0';
 
         setTimeout(() => {
@@ -205,13 +181,51 @@ document.addEventListener('DOMContentLoaded', () => {
             flashcardContainer.style.opacity = '1';
           }, 50);
 
-          currentIndex = entries.findIndex(entry => entry.word === word); // Case-sensitive match
+          currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word);
           currentColorIndex = colors.indexOf(wordColors.get(word));
           displayEntry(currentIndex);
         }, 300);
       });
     });
-    console.log(`Rendered ${wordArray.length} words in word cloud`);
+
+    // Enable pinch-to-zoom
+    let pinchStartDistance = 0;
+    wordCloud.addEventListener('touchstart', e => {
+      if (e.touches.length === 2) {
+        pinchStartDistance = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+      }
+    }, { passive: true });
+
+    wordCloud.addEventListener('touchmove', e => {
+      if (e.touches.length === 2) {
+        e.preventDefault();
+        const pinchDistance = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        const newScale = currentScale * (pinchDistance / pinchStartDistance);
+        currentScale = Math.max(1, Math.min(newScale, 3)); // Limit zoom between 1x and 3x
+        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
+        pinchStartDistance = pinchDistance;
+      } else if (e.touches.length === 1 && currentScale > 1) {
+        e.preventDefault();
+        const deltaX = e.touches[0].clientX - (wordCloud._lastX || e.touches[0].clientX);
+        const deltaY = e.touches[0].clientY - (wordCloud._lastY || e.touches[0].clientY);
+        translateX += deltaX / currentScale;
+        translateY += deltaY / currentScale;
+        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
+        wordCloud._lastX = e.touches[0].clientX;
+        wordCloud._lastY = e.touches[0].clientY;
+      }
+    }, { passive: false });
+
+    wordCloud.addEventListener('touchend', () => {
+      wordCloud._lastX = null;
+      wordCloud._lastY = null;
+    }, { passive: true });
   }
 
   function displayEntry(index) {
