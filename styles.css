@@ -12,7 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    touch-action: manipulation; /* Optimize for touch */
+    touch-action: manipulation;
 }
 
 .stats-bar {
@@ -56,14 +56,14 @@ body {
     border-radius: 15px;
     width: 100%;
     aspect-ratio: 9 / 16;
-    height: calc(400px * 1.777 * 0.7); /* 30% height reduction */
-    max-height: calc(711px * 0.7); /* Maintain ratio, reduced by 30% */
+    height: calc(400px * 1.777 * 0.5); /* 50% of original height */
+    max-height: calc(711px * 0.5); /* Maintain ratio, 50% of original */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
-    touch-action: pan-y; /* Restrict to vertical swipes */
-    user-select: none; /* Prevent text selection */
+    touch-action: pan-y;
+    user-select: none;
 }
 
 .content {
@@ -79,7 +79,6 @@ body {
 .word {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #00ff88;
     text-align: center;
     word-break: break-word;
     margin-bottom: 20px;
@@ -96,12 +95,11 @@ body {
     font-size: 1.2rem;
     line-height: 1.4;
     text-align: center;
-    margin-bottom: 8px; /* Close to Thai like subtitles */
+    margin-bottom: 8px;
 }
 
 .english .highlight {
     font-weight: 700;
-    color: #00ff88;
 }
 
 .thai {
@@ -115,7 +113,7 @@ body {
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .flashcard {
-        height: calc(100vw * 1.777 * 0.7); /* Maintain ratio, 30% reduced */
+        height: calc(100vw * 1.777 * 0.5); /* Maintain ratio, 50% of original */
     }
 
     .word {
