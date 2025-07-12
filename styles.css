@@ -19,8 +19,9 @@ body {
 .word-cloud {
   position: relative;
   width: 100%;
-  height: 200vh; /* Allow scrolling */
+  min-height: 200vh; /* Ensure visibility even if empty */
   overflow-y: auto;
+  padding: 20px; /* Add padding for better edge spacing */
 }
 
 .cloud-word {
@@ -29,7 +30,7 @@ body {
   cursor: pointer;
   user-select: none;
   transition: opacity 1s ease, transform 1s ease;
-  white-space: nowrap; /* Prevent word wrapping */
+  white-space: nowrap;
 }
 
 .stats-bar {
