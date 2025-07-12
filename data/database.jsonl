@@ -2554,3 +2554,874 @@
 {"word": "garden", "english": "The garden bloomed with colorful roses.", "thai": "สวนเต็มไปด้วยกุหลาบหลากสี"}
 {"word": "roses", "english": "Roses are her favorite flowers.", "thai": "กุหลาบเป็นดอกไม้ที่เธอชอบ"}
 {"word": "flowers", "english": "Flowers brighten up the dullest days.", "thai": "ดอกไม้ทำให้วันอันจืดชืดสว่างขึ้น"}
+{"word": "brighten", "english": "Brighten your room with colorful lights.", "thai": "ทำให้ห้องของคุณสว่างขึ้นด้วยแสงไฟหลากสี"}
+{"word": "room", "english": "This room feels cozy with a warm blanket.", "thai": "ห้องนี้รู้สึกอบอุ่นด้วยผ้าห่มอุ่นๆ"}
+{"word": "cozy", "english": "A cozy café is perfect for reading.", "thai": "ร้านกาแฟแสนอบอุ่นเหมาะสำหรับการอ่านหนังสือ"}
+{"word": "reading", "english": "Reading novels sparks my imagination.", "thai": "การอ่านนิยายจุดประกายจินตนาการของฉัน"}
+{"word": "imagination", "english": "Imagination fuels creative art projects.", "thai": "จินตนาการเป็นเชื้อเพลิงให้กับโปรเจกต์ศิลปะสร้างสรรค์"}
+{"word": "creative", "english": "Creative writing inspires unique stories.", "thai": "การเขียนเชิงสร้างสรรค์จุดประกายเรื่องราวที่ไม่เหมือนใคร"}
+{"word": "stories", "english": "Stories told by elders teach wisdom.", "thai": "เรื่องราวที่ผู้สูงวัยเล่าสอนให้รู้จักปัญญา"}
+{"word": "wisdom", "english": "Wisdom guides us through tough decisions.", "thai": "ปัญญานำทางเราผ่านการตัดสินใจที่ยากลำบาก"}
+{"word": "decisions", "english": "Decisions made hastily often lead to regret.", "thai": "การตัดสินใจอย่างเร่งรีบมักนำไปสู่ความเสียใจ"}
+{"word": "regret", "english": "I regret not trying spicy Thai food sooner.", "thai": "ฉันเสียใจที่ไม่ได้ลองอาหารไทยรสเผ็ดเร็วกว่านี้"}
+{"word": "food", "english": "Food shared with friends tastes better.", "thai": "อาหารที่แบ่งปันกับเพื่อนรสชาติดีกว่า"}
+{"word": "friends", "english": "Friends make road trips unforgettable.", "thai": "เพื่อนทำให้การเดินทางโดยรถยนต์น่าจับใจ"}
+{"word": "trips", "english": "Trips to the beach refresh my soul.", "thai": "การเดินทางไปชายหาดทำให้จิตใจฉันสดชื่น"}
+{"word": "beach", "english": "The beach sparkles under the summer sun.", "thai": "ชายหาดระยิบระยับใต้แสงแดดฤดูร้อน"}
+{"word": "sun", "english": "The sun sets slowly behind the mountain.", "thai": "ดวงอาทิตย์ค่อยๆ ลับขอบเขาหลังเขา"}
+{"word": "mountain", "english": "Climbing a mountain tests your endurance.", "thai": "การปีนเขาทดสอบความอดทนของคุณ"}
+{"word": "endurance", "english": "Endurance in sports builds mental strength.", "thai": "ความอดทนในกีฬาสร้างความแข็งแกร่งทางจิตใจ"}
+{"word": "strength", "english": "Strength in character shines during challenges.", "thai": "ความเข้มแข็งในบุคลิกภาพเปล่งประกายในช่วงท้าทาย"}
+{"word": "challenges", "english": "Challenges at work push us to grow.", "thai": "ความท้าทายในที่ทำงานผลักดันให้เราเติบโต"}
+{"word": "work", "english": "Work feels lighter with a good team.", "thai": "งานรู้สึกเบาลงเมื่อมีทีมที่ดี"}
+{"word": "team", "english": "Our team nailed the project presentation.", "thai": "ทีมของเราทำได้เยี่ยมในงานนำเสนอโปรเจกต์"}
+{"word": "presentation", "english": "A clear presentation wins the audience over.", "thai": "การนำเสนอที่ชัดเจนทำให้ผู้ฟังประทับใจ"}
+{"word": "audience", "english": "The audience cheered for the live band.", "thai": "ผู้ชมโห่ร้องให้กับวงดนตรีสด"}
+{"word": "band", "english": "The band played funky tunes all night.", "thai": "วงดนตรีเล่นเพลงแนวฟังก์ทั้งคืน"}
+{"word": "tunes", "english": "Catchy tunes get stuck in your head.", "thai": "ทำนองที่ติดหูทำให้คุณนึกถึงมันตลอด"}
+{"word": "head", "english": "Keep your head cool during an argument.", "thai": "รักษาความเย็นไว้ในระหว่างการโต้แย้ง"}
+{"word": "argument", "english": "An argument can spark new perspectives.", "thai": "การโต้แย้งสามารถจุดประกายมุมมองใหม่ๆ"}
+{"word": "perspectives", "english": "Different perspectives enrich a discussion.", "thai": "มุมมองที่หลากหลายทำให้การสนทนาน่าสนใจยิ่งขึ้น"}
+{"word": "discussion", "english": "A heated discussion led to a breakthrough.", "thai": "การสนทนาที่ดุเดือดนำไปสู่ความก้าวหน้า"}
+{"word": "breakthrough", "english": "A scientific breakthrough changed medicine forever.", "thai": "ความก้าวหน้าทางวิทยาศาสตร์เปลี่ยนวงการแพทย์ตลอดไป"}
+{"word": "medicine", "english": "Medicine advances save countless lives.", "thai": "ความก้าวหน้าในวงการแพทย์ช่วยชีวิตคนนับไม่ถ้วน"}
+{"word": "lives", "english": "Our lives are shaped by daily habits.", "thai": "ชีวิตของเราถูกหล่อหลอมด้วยนิสัยประจำวัน"}
+{"word": "habits", "english": "Good habits boost your productivity.", "thai": "นิสัยที่ดีเพิ่มประสิทธิภาพการทำงานของคุณ"}
+{"word": "productivity", "english": "High productivity earns you more free time.", "thai": "ประสิทธิภาพสูงทำให้คุณมีเวลาว่างมากขึ้น"}
+{"word": "time", "english": "Time flies when you're having fun.", "thai": "เวลาผ่านไปเร็วเมื่อคุณสนุกสนาน"}
+{"word": "fun", "english": "Playing board games is pure fun.", "thai": "การเล่นเกมกระดานคือความสนุกที่แท้จริง"}
+{"word": "games", "english": "Video games challenge your quick thinking.", "thai": "วิดีโอเกมท้าทายการคิดอย่างรวดเร็วของคุณ"}
+{"word": "thinking", "english": "Critical thinking solves complex problems.", "thai": "การคิดอย่างมีวิจารณญาณแก้ปัญหาที่ซับซ้อน"}
+{"word": "problems", "english": "Math problems sharpen your mind.", "thai": "โจทย์คณิตศาสตร์ทำให้สมองของคุณคมชัด"}
+{"word": "mind", "english": "Keep an open mind when traveling abroad.", "thai": "รักษาใจที่เปิดกว้างเมื่อเดินทางไปต่างประเทศ"}
+{"word": "traveling", "english": "Traveling by train offers scenic views.", "thai": "การเดินทางโดยรถไฟมอบทิวทัศน์ที่สวยงาม"}
+{"word": "views", "english": "Stunning views attract adventurous hikers.", "thai": "ทิวทัศน์ที่งดงามดึงดูดนักเดินป่าที่ชอบผจญภัย"}
+{"word": "hikers", "english": "Hikers often carry lightweight backpacks.", "thai": "นักเดินป่ามักพกเป้ที่มีน้ำหนักเบา"}
+{"word": "backpacks", "english": "Backpacks are essential for school kids.", "thai": "เป้สะพายหลังจำเป็นสำหรับเด็กนักเรียน"}
+{"word": "school", "english": "School teaches more than just academics.", "thai": "โรงเรียนสอนมากกว่าแค่เรื่องวิชาการ"}
+{"word": "academics", "english": "Strong academics open doors to careers.", "thai": "ผลการเรียนที่ดีเปิดประตูสู่อาชีพ"}
+{"word": "careers", "english": "Careers in tech demand constant learning.", "thai": "อาชีพในด้านเทคโนโลยีต้องการการเรียนรู้อย่างต่อเนื่อง"}
+{"word": "learning", "english": "Learning a new language is rewarding.", "thai": "การเรียนรู้ภาษาใหม่ให้รางวัลที่คุ้มค่า"}
+{"word": "language", "english": "Language connects people across cultures.", "thai": "ภาษาเชื่อมโยงผู้คนข้ามวัฒนธรรม"}
+{"word": "cultures", "english": "Exploring cultures broadens your horizons.", "thai": "การสำรวจวัฒนธรรมขยายขอบเขตมุมมองของคุณ"}
+{"word": "horizons", "english": "New horizons await bold entrepreneurs.", "thai": "ขอบฟ้าใหม่รอคอยผู้ประกอบการที่กล้าหาญ"}
+{"word": "entrepreneurs", "english": "Entrepreneurs innovate to solve real problems.", "thai": "ผู้ประกอบการสร้างนวัตกรรมเพื่อแก้ปัญหาจริง"}
+{"word": "innovate", "english": "Companies that innovate stay ahead.", "thai": "บริษัทที่สร้างนวัตกรรมจะก้าวนำหน้า"}
+{"word": "ahead", "english": "Planning ahead saves you stress.", "thai": "การวางแผนล่วงหน้าช่วยลดความเครียด"}
+{"word": "stress", "english": "Stress fades with a good workout.", "thai": "ความเครียดจางหายไปด้วยการออกกำลังกายที่ดี"}
+{"word": "workout", "english": "A morning workout boosts your energy.", "thai": "การออกกำลังกายตอนเช้าเพิ่มพลังให้คุณ"}
+{"word": "energy", "english": "Solar energy powers sustainable homes.", "thai": "พลังงานแสงอาทิตย์ขับเคลื่อนบ้านที่ยั่งยืน"}
+{"word": "homes", "english": "Homes filled with laughter feel warm.", "thai": "บ้านที่เต็มไปด้วยเสียงหัวเราะรู้สึกอบอุ่น"}
+{"word": "laughter", "english": "Laughter is the best medicine for sadness.", "thai": "เสียงหัวเราะคือยาที่ดีที่สุดสำหรับความเศร้า"}
+{"word": "sadness", "english": "Sadness can inspire heartfelt poetry.", "thai": "ความเศร้าสามารถสร้างแรงบันดาลใจให้กับบทกวีที่ลึกซึ้ง"}
+{"word": "poetry", "english": "Poetry captures emotions in few words.", "thai": "บทกวีจับอารมณ์ด้วยคำเพียงไม่กี่คำ"}
+{"word": "emotions", "english": "Emotions drive our deepest connections.", "thai": "อารมณ์ผลักดันความสัมพันธ์ที่ลึกซึ้งของเรา"}
+{"word": "connections", "english": "Strong connections make teams unstoppable.", "thai": "ความสัมพันธ์ที่แข็งแกร่งทำให้ทีมไม่มีอะไรหยุดได้"}
+{"word": "unstoppable", "english": "Her unstoppable spirit inspired everyone.", "thai": "จิตวิญญาณที่ไม่มีอะไรหยุดได้ของเธอสร้างแรงบันดาลใจให้ทุกคน"}
+{"word": "spirit", "english": "The holiday spirit fills hearts with joy.", "thai": "จิตวิญญาณแห่งวันหยุดเติมเต็มหัวใจด้วยความสุข"}
+{"word": "joy", "english": "Joy spreads when you share kindness.", "thai": "ความสุขแพร่กระจายเมื่อคุณแบ่งปันความเมตตา"}
+{"word": "kindness", "english": "Kindness costs nothing but means everything.", "thai": "ความเมตตาไม่ต้องเสียอะไรแต่มีความหมายทุกอย่าง"}
+{"word": "means", "english": "Hard work means better opportunities.", "thai": "การทำงานหนักหมายถึงโอกาสที่ดีกว่า"}
+{"word": "opportunities", "english": "Seizing opportunities leads to success.", "thai": "การคว้าโอกาสนำไปสู่ความสำเร็จ"}
+{"word": "success", "english": "Success feels sweeter after hard effort.", "thai": "ความสำเร็จรู้สึกหวานยิ่งขึ้นหลังจากความพยายามอย่างหนัก"}
+{"word": "effort", "english": "Effort in practice perfects your skills.", "thai": "ความพยายามในการฝึกฝนทำให้ทักษะของคุณสมบูรณ์แบบ"}
+{"word": "skills", "english": "Coding skills unlock tech career paths.", "thai": "ทักษะการเขียนโค้ดเปิดเส้นทางอาชีพด้านเทคโนโลยี"}
+{"word": "career", "english": "A fulfilling career balances passion and purpose.", "thai": "อาชีพที่เติมเต็มสมดุลระหว่างความหลงใหลและจุดมุ่งหมาย"}
+{"word": "passion", "english": "Passion for music drives her performances.", "thai": "ความหลงใหลในดนตรีผลักดันการแสดงของเธอ"}
+{"word": "performances", "english": "Live performances thrill the crowd.", "thai": "การแสดงสดทำให้ฝูงชนตื่นเต้น"}
+{"word": "crowd", "english": "The crowd roared at the game’s climax.", "thai": "ฝูงชนคำรามเมื่อถึงจุดไคลแม็กซ์ของเกม"}
+{"word": "game", "english": "A close game keeps fans on edge.", "thai": "เกมที่สูสีทำให้แฟนๆ ลุ้นระทึก"}
+{"word": "fans", "english": "Fans love cheering for their team.", "thai": "แฟนๆ รักการเชียร์ทีมของพวกเขา"}
+{"word": "cheering", "english": "Cheering at concerts creates electric vibes.", "thai": "การเชียร์ในคอนเสิร์ตสร้างบรรยากาศที่ตื่นเต้น"}
+{"word": "vibes", "english": "Good vibes make parties unforgettable.", "thai": "บรรยากาศดีๆ ทำให้งานปาร์ตี้น่าจดจำ"}
+{"word": "parties", "english": "Parties bring people closer together.", "thai": "งานปาร์ตี้ทำให้ผู้คนใกล้ชิดกันมากขึ้น"}
+{"word": "closer", "english": "Working closer with colleagues builds trust.", "thai": "การทำงานใกล้ชิดกับเพื่อนร่วมงานสร้างความไว้วางใจ"}
+{"word": "trust", "english": "Trust is the foundation of friendship.", "thai": "ความไว้วางใจคือรากฐานของมิตรภาพ"}
+{"word": "friendship", "english": "Friendship grows through shared adventures.", "thai": "มิตรภาพเติบโตผ่านการผจญภัยร่วมกัน"}
+{"word": "adventures", "english": "Adventures in nature recharge your soul.", "thai": "การผจญภัยในธรรมชาติเติมพลังให้จิตวิญญาณ"}
+{"word": "nature", "english": "Nature offers peace in chaotic times.", "thai": "ธรรมชาติมอบความสงบในช่วงเวลาที่วุ่นวาย"}
+{"word": "peace", "english": "Finding peace helps you sleep better.", "thai": "การพบความสงบช่วยให้คุณนอนหลับดีขึ้น"}
+{"word": "sleep", "english": "A good sleep boosts your mood.", "thai": "การนอนหลับที่ดีช่วยเพิ่มอารมณ์ของคุณ"}
+{"word": "mood", "english": "Her cheerful mood lights up the room.", "thai": "อารมณ์ร่าเริงของเธอทำให้ห้องสว่างขึ้น"}
+{"word": "lights", "english": "City lights create a magical nightlife.", "thai": "แสงไฟในเมืองสร้างชีวิตยามค่ำคืนที่มหัศจรรย์"}
+{"word": "nightlife", "english": "The nightlife in Bangkok is vibrant.", "thai": "ชีวิตยามค่ำคืนในกรุงเทพฯ เต็มไปด้วยสีสัน"}
+{"word": "vibrant", "english": "Vibrant markets sell unique treasures.", "thai": "ตลาดที่คึกคักขายสมบัติที่ไม่เหมือนใคร"}
+{"word": "treasures", "english": "Finding treasures at flea markets is thrilling.", "thai": "การค้นหาสมบัติในตลาดนัดช่างน่าตื่นเต้น"}
+{"word": "thrilling", "english": "A thrilling movie keeps you glued.", "thai": "ภาพยนตร์ที่น่าตื่นเต้นทำให้คุณติดหนึบ"}
+{"word": "movie", "english": "Watching a movie with popcorn is classic.", "thai": "การดูหนังพร้อมป๊อปคอร์นคือความคลาสสิก"}
+{"word": "popcorn", "english": "Popcorn and soda make movie nights perfect.", "thai": "ป๊อปคอร์นและโซดาทำให้ค่ำคืนดูหนังสมบูรณ์แบบ"}
+{"word": "soda", "english": "Soda fizzes with refreshing bubbles.", "thai": "โซดาซ่าเต็มไปด้วยฟองที่สดชื่น"}
+{"word": "refreshing", "english": "A refreshing breeze cools the summer heat.", "thai": "สายลมที่สดชื่นช่วยคลายร้อนในฤดูร้อน"}
+{"word": "breeze", "english": "The gentle breeze rustles the leaves.", "thai": "สายลมอ่อนโยนทำให้ใบไม้สั่นไหว"}
+{"word": "leaves", "english": "Colorful leaves fall in autumn’s charm.", "thai": "ใบไม้หลากสีร่วงหล่นในเสน่ห์ของฤดูใบไม้ร่วง"}
+{"word": "autumn", "english": "Autumn hikes reveal nature’s vibrant palette.", "thai": "การเดินป่าในฤดูใบไม้ร่วงเผยให้เห็นสีสันอันสดใสของธรรมชาติ"}
+{"word": "nature", "english": "Nature’s beauty inspires peaceful thoughts.", "thai": "ความงามของธรรมชาติสร้างแรงบันดาลใจให้ความคิดสงบ"}
+{"word": "peaceful", "english": "A peaceful evening soothes the soul.", "thai": "ยามเย็นที่เงียบสงบปลอบประโลมจิตใจ"}
+{"word": "evening", "english": "Evening strolls spark romantic moments.", "thai": "การเดินเล่นยามเย็นจุดประกายช่วงเวลโรแมนติก"}
+{"word": "romantic", "english": "Romantic dinners strengthen loving bonds.", "thai": "อาหารค่ำสุดโรแมนติกเสริมสร้างความผูกพันที่รัก"}
+{"word": "bonds", "english": "Family bonds grow through shared meals.", "thai": "ความผูกพันในครอบครัวเติบโตผ่านมื้ออาหารร่วมกัน"}
+{"word": "meals", "english": "Home-cooked meals warm the heart.", "thai": "อาหารที่ปรุงเองที่บ้านทำให้หัวใจอบอุ่น"}
+{"word": "heart", "english": "Her kind heart uplifts everyone around.", "thai": "หัวใจที่เมตตาของเธอยกระดับทุกคนรอบตัว"}
+{"word": "uplifts", "english": "Music uplifts my mood instantly.", "thai": "ดนตรีทำให้อารมณ์ของฉันดีขึ้นทันที"}
+{"word": "mood", "english": "A cheerful mood brightens any day.", "thai": "อารมณ์ร่าเริงทำให้วันไหนๆ ก็สว่างขึ้น"}
+{"word": "brightens", "english": "Sunlight brightens the cozy cabin.", "thai": "แสงแดดทำให้กระท่อมแสนอบอุ่นสว่างไสว"}
+{"word": "cabin", "english": "The cabin overlooks a serene lake.", "thai": "กระท่อมมองเห็นทะเลสาบที่เงียบสงบ"}
+{"word": "lake", "english": "Swimming in the lake feels invigorating.", "thai": "การว่ายน้ำในทะเลสาบรู้สึกกระปรี้กระเปร่า"}
+{"word": "invigorating", "english": "An invigorating jog starts the day right.", "thai": "การวิ่งจ๊อกกิ้งที่กระตุ้นพลังเริ่มต้นวันได้ดี"}
+{"word": "day", "english": "A busy day demands quick snacks.", "thai": "วันที่วุ่นวายต้องการของว่างที่รวดเร็ว"}
+{"word": "snacks", "english": "Snacks fuel late-night study sessions.", "thai": "ของว่างเติมพลังให้กับการอ่านหนังสือดึก"}
+{"word": "study", "english": "Study groups make learning fun.", "thai": "กลุ่มเรียนทำให้การเรียนรู้สนุกสนาน"}
+{"word": "fun", "english": "Board games are fun for all ages.", "thai": "เกมกระดานสนุกสำหรับทุกวัย"}
+{"word": "games", "english": "Outdoor games build strong friendships.", "thai": "เกมกลางแจ้งสร้างมิตรภาพที่แข็งแกร่ง"}
+{"word": "friendships", "english": "Friendships thrive on honest conversations.", "thai": "มิตรภาพเติบโตจากบทสนทนาที่ซื่อสัตย์"}
+{"word": "conversations", "english": "Conversations over coffee spark new ideas.", "thai": "บทสนทนาขณะจิบกาแฟจุดประกายไอเดียใหม่ๆ"}
+{"word": "ideas", "english": "Creative ideas transform boring projects.", "thai": "ไอเดียสร้างสรรค์เปลี่ยนโปรเจกต์ที่น่าเบื่อ"}
+{"word": "projects", "english": "School projects teach teamwork skills.", "thai": "โปรเจกต์โรงเรียนสอนทักษะการทำงานเป็นทีม"}
+{"word": "teamwork", "english": "Teamwork makes challenging tasks easier.", "thai": "การทำงานเป็นทีมทำให้งานที่ท้าทายง่ายขึ้น"}
+{"word": "tasks", "english": "Daily tasks keep life organized.", "thai": "งานประจำวันทำให้ชีวิตเป็นระเบียบ"}
+{"word": "organized", "english": "An organized desk boosts productivity.", "thai": "โต๊ะที่เป็นระเบียบเพิ่มประสิทธิภาพการทำงาน"}
+{"word": "productivity", "english": "High productivity leads to more relaxation.", "thai": "ประสิทธิภาพสูงนำไปสู่การพักผ่อนมากขึ้น"}
+{"word": "relaxation", "english": "Relaxation by the pool feels heavenly.", "thai": "การพักผ่อนข้างสระน้ำรู้สึกเหมือนสวรรค์"}
+{"word": "pool", "english": "The pool party was a blast.", "thai": "งานปาร์ตี้ที่สระน้ำสุดมันส์"}
+{"word": "party", "english": "A surprise party thrilled my friend.", "thai": "งานปาร์ตี้เซอร์ไพรส์ทำให้เพื่อนฉันตื่นเต้น"}
+{"word": "friend", "english": "A true friend always has your back.", "thai": "เพื่อนแท้คอยสนับสนุนคุณเสมอ"}
+{"word": "back", "english": "Lying on my back, I stargaze.", "thai": "นอนหงายมองดวงดาว"}
+{"word": "stargaze", "english": "We stargaze to feel the universe’s wonder.", "thai": "เรามองดวงดาวเพื่อสัมผัสความมหัศจรรย์ของจักรวาล"}
+{"word": "universe", "english": "The universe holds endless mysteries.", "thai": "จักรวาลเต็มไปด้วยความลึกลับไม่มีที่สิ้นสุด"}
+{"word": "mysteries", "english": "Mysteries in books keep me hooked.", "thai": "ความลึกลับในหนังสือทำให้ฉันติดหนึบ"}
+{"word": "books", "english": "Books transport you to new worlds.", "thai": "หนังสือพาคุณไปสู่โลกใหม่"}
+{"word": "worlds", "english": "Exploring new worlds fuels adventure.", "thai": "การสำรวจโลกใหม่เติมพลังให้การผจญภัย"}
+{"word": "adventure", "english": "An adventure in the jungle sounds thrilling.", "thai": "การผจญภัยในป่า звучит น่าตื่นเต้น"}
+{"word": "jungle", "english": "The jungle hides rare wildlife treasures.", "thai": "ป่าซ่อนสมบัติสัตว์ป่าหายาก"}
+{"word": "wildlife", "english": "Protecting wildlife preserves our planet.", "thai": "การปกป้องสัตว์ป่าช่วยรักษาโลกของเรา"}
+{"word": "planet", "english": "The planet thrives with collective care.", "thai": "โลกเจริญรุ่งเรืองด้วยการดูแลร่วมกัน"}
+{"word": "care", "english": "Care for plants brings lush gardens.", "thai": "การดูแลพืชทำให้สวนเขียวชอุ่ม"}
+{"word": "gardens", "english": "Gardens bloom with vibrant colors.", "thai": "สวนเบ่งบานด้วยสีสันสดใส"}
+{"word": "colors", "english": "Bright colors lift your spirits.", "thai": "สีสันสดใสยกระดับจิตใจของคุณ"}
+{"word": "spirits", "english": "High spirits make any event fun.", "thai": "จิตใจที่ร่าเริงทำให้ทุกงานสนุก"}
+{"word": "event", "english": "The charity event raised big funds.", "thai": "งานการกุศลระดมทุนได้มาก"}
+{"word": "funds", "english": "Funds support innovative startups.", "thai": "เงินทุนสนับสนุนสตาร์ทอัพที่สร้างสรรค์"}
+{"word": "startups", "english": "Startups drive technological breakthroughs.", "thai": "สตาร์ทอัพผลักดันความก้าวหน้าทางเทคโนโลยี"}
+{"word": "breakthroughs", "english": "Breakthroughs in science inspire hope.", "thai": "ความก้าวหน้าในวิทยาศาสตร์สร้างแรงบันดาลใจให้ความหวัง"}
+{"word": "hope", "english": "Hope keeps us moving forward.", "thai": "ความหวังทำให้เราก้าวต่อไป"}
+{"word": "forward", "english": "Looking forward to the weekend escape.", "thai": "ตั้งตารอการหลบหนีในวันหยุดสุดสัปดาห์"}
+{"word": "weekend", "english": "A26 weekends are for making memories.", "thai": "วันหยุดสุดสัปดาห์คือเวลาสร้างความทรงจำ"}
+{"word": "memories", "english": "Memories of childhood spark warm nostalgia.", "thai": "ความทรงจำในวัยเด็กจุดประกายความคิดถึงที่อบอุ่น"}
+{"word": "nostalgia", "english": "Nostalgia hits when hearing old songs.", "thai": "ความคิดถึงมาเยือนเมื่อได้ยินเพลงเก่าๆ"}
+{"word": "songs", "english": "Songs at campfires create lasting bonds.", "thai": "เพลงรอบกองไฟสร้างความผูกพันที่ยาวนาน"}
+{"word": "bonds", "english": "Strong bonds make teams unbeatable.", "thai": "ความผูกพันที่แข็งแกร่งทำให้ทีมไม่มีใครเทียบได้"}
+{"word": "teams", "english": "Teams collaborate to win tough challenges.", "thai": "ทีมทำงานร่วมกันเพื่อชนะความท้าทายที่ยากลำบาก"}
+{"word": "challenges", "english": "Challenges in coding sharpen problem-solving skills.", "thai": "ความท้าทายในการเขียนโค้ดฝึกฝนทักษะการแก้ปัญหา"}
+{"word": "skills", "english": "Skills learned early shape future success.", "thai": "ทักษะที่เรียนรู้ตั้งแต่เนิ่นๆ กำหนดความสำเร็จในอนาคต"}
+{"word": "success", "english": "Success comes from persistent effort.", "thai": "ความสำเร็จมาจากความพยายามอย่างต่อเนื่อง"}
+{"word": "effort", "english": "Extra effort makes your work shine.", "thai": "ความพยายามพิเศษทำให้งานของคุณโดดเด่น"}
+{"word": "work", "english": "Work with passion feels less heavy.", "thai": "การทำงานด้วยความหลงใหลรู้สึกหนักน้อยลง"}
+{"word": "passion", "english": "Passion for [/] for music fuels great performances.", "thai": "ความหลงใหลในดนตรีขับเคลื่อนการแสดงที่ยอดเยี่ยม"}
+{"word": "performances", "english": "Live performances energize the entire crowd.", "thai": "การแสดงสดทำให้ฝูงชนมีพลังทั้งหมด"}
+{"word": "crowd", "english": "A lively crowd makes concerts unforgettable.", "thai": "ฝูงชนที่คึกคักทำให้คอนเสิร์ตน่าจดจำ"}
+{"word": "concerts", "english": "Concerts bring music lovers together.", "thai": "คอนเสิร์ตรวมตัวคนรักดนตรี"}
+{"word": "music", "english": "Music soothes even the wildest hearts.", "thai": "ดนตรีปลอบประโลมแม้แต่หัวใจที่ดุร้าย"}
+{"word": "hearts", "english": "Hearts race during thrilling adventures.", "thai": "หัวใจเต้นแรงในระหว่างการผจญภัยที่น่าตื่นเต้น"}
+{"word": "adventures", "english": "Adventures abroad broaden your perspective.", "thai": "การผจญภัยในต่างแดนขยายมุมมองของคุณ"}
+{"word": "perspective", "english": "A fresh perspective solves old problems.", "thai": "มุมมองใหม่แก้ปัญหาเก่าได้"}
+{"word": "problems", "english": "Tackling problems head-on builds confidence.", "thai": "การเผชิญหน้ากับปัญหาตรงๆ สร้างความมั่นใจ"}
+{"word": "confidence", "english": "Confidence grows through small victories.", "thai": "ความมั่นใจเติบโตผ่านชัยผลเล็กๆ"}
+{"word": "victories", "english": "Victories in sports lift team spirit.", "thai": "ชัยชนะในกีฬายกระดับจิตวิญญาณของทีม"}
+{"word": "spirit", "english": "The festive spirit lights up the holidays.", "thai": "จิตวิญญาณแห่งเทศกาลทำให้วันหยุดสว่างไสว"}
+{"word": "holidays", "english": "Holidays bring families closer together.", "thai": "วันหยุดทำให้ครอบครัวใกล้ชิดกันมากขึ้น"}
+{"word": "families", "english": "Families share stories over warm dinners.", "thai": "ครอบครัวแบ่งปันเรื่องราวขณะรับประทานอาหารค่ำที่อบอุ่น"}
+{"word": "stories", "english": "Bedtime stories spark children’s imagination.", "thai": "นิทานก่อนนอนจุดประกายจินตนาการของเด็กๆ"}
+{"word": "imagination", "english": "Imagination turns dreams into reality.", "thai": "จินตนาการเปลี่ยนความฝันให้เป็นจริง"}
+{"word": "reality", "english": "Reality TV captivates millions of viewers.", "thai": "เรียลลิตี้ทีวีดึงดูดผู้ชมหลายล้านคน"}
+{"word": "viewers", "english": "Viewers love gripping drama series.", "thai": "ผู้ชมชื่นชอบซีรีส์ดราม่าที่น่าติดตาม"}
+{"word": "series", "english": "A new series keeps binge-watchers hooked.", "thai": "ซีรีส์ใหม่ทำให้ผู้ชมติดตามดูไม่หยุด"}
+{"word": "binge-watchers", "english": "Binge-watchers stay up late for thrillers.", "thai": "ผู้ชมที่ดูต่อเนื่องนอนดึกเพื่อดูหนังระทึกขวัญ"}
+{"word": "late", "english": "Staying up late sparks creative ideas.", "thai": "การนอนดึกจุดประกายไอเดียสร้างสรรค์"}
+{"word": "ideas", "english": "Fresh ideas fuel innovative designs.", "thai": "ไอเดียใหม่ๆ ขับเคลื่อนนวัตกรรมการออกแบบ"}
+{"word": "designs", "english": "Bold designs catch everyone’s attention.", "thai": "การออกแบบที่โดดเด่นดึงดูดความสนใจของทุกคน"}
+{"word": "attention", "english": "Paying attention in class boosts grades.", "thai": "การตั้งใจเรียนในชั้นเรียนช่วยเพิ่มเกรด"}
+{"word": "class", "english": "Class discussions spark critical thinking.", "thai": "การสนทนาในชั้นเรียนจุดประกายการคิดวิเคราะห์"}
+{"word": "thinking", "english": "Clear thinking solves tricky puzzles.", "thai": "การคิดอย่างชัดเจนแก้ปริศนาที่ยาก"}
+{"word": "puzzles", "english": "Puzzles challenge your mental agility.", "thai": "ปริศนาท้าทายความว่องไวทางจิตใจ"}
+{"word": "agility", "english": "Mental agility shines in fast debates.", "thai": "ความว่องไวทางจิตใจเปล่งประกายในการโต้วาทีที่รวดเร็ว"}
+{"word": "debates", "english": "Debates at school sharpen your arguments.", "thai": "การโต้วาทีที่โรงเรียนฝึกฝนการโต้แย้งของคุณ"}
+{"word": "arguments", "english": "Strong arguments win tough negotiations.", "thai": "การโต้แย้งที่แข็งแกร่งชนะการเจรจาที่ยาก"}
+{"word": "negotiations", "english": "Negotiations over dinner build business ties.", "thai": "การเจรจาระหว่างมื้อค่ำสร้างความสัมพันธ์ทางธุรกิจ"}
+{"word": "business", "english": "Business ventures thrive on bold risks.", "thai": "การลงทุนทางธุรกิจเจริญรุ่งเรืองด้วยความเสี่ยงที่กล้าหาญ"}
+{"word": "risks", "english": "Taking risks leads to epic adventures.", "thai": "การเสี่ยงนำไปสู่การผจญภัยที่น่าตื่นเต้น"}
+{"word": "adventures", "english": "Adventures in mountains test your courage.", "thai": "การผจญภัยในภูเขาทดสอบความกล้าของคุณ"}
+{"word": "courage", "english": "Courage drives you to chase dreams.", "thai": "ความกล้าผลักดันให้คุณไล่ตามความฝัน"}
+{"word": "dreams", "english": "Dreams inspire artists to create magic.", "thai": "ความฝันสร้างแรงบันดาลใจให้ศิลปินสร้างเวทมนตร์"}
+{"word": "artists", "english": "Artists paint the world with imagination.", "thai": "ศิลปินวาดโลกด้วยจินตนาการ"}
+{"word": "imagination", "english": "Imagination turns stories into vivid films.", "thai": "จินตนาการเปลี่ยนเรื่องราวให้เป็นภาพยนตร์ที่สมจริง"}
+{"word": "films", "english": "Films at festivals spark deep emotions.", "thai": "ภาพยนตร์ในงานเทศกาลจุดประกายอารมณ์ลึกซึ้ง"}
+{"word": "emotions", "english": "Emotions fuel heartfelt love letters.", "thai": "อารมณ์ขับเคลื่อนจดหมายรักที่จริงใจ"}
+{"word": "love", "english": "Love makes every moment feel special.", "thai": "ความรักทำให้ทุกช่วงเวลารู้สึกพิเศษ"}
+{"word": "moment", "english": "Cherish every moment with close friends.", "thai": "ทะนุถนอมทุกช่วงเวลากับเพื่อนสนิท"}
+{"word": "friends", "english": "Friends share laughs over silly jokes.", "thai": "เพื่อนแบ่งปันเสียงหัวเราะกับมุกตลกโง่ๆ"}
+{"word": "laughs", "english": "Loud laughs echo at family gatherings.", "thai": "เสียงหัวเราะดังก้องในงานรวมญาติ"}
+{"word": "gatherings", "english": "Gatherings by the fire warm hearts.", "thai": "การรวมตัวข้างกองไฟทำให้หัวใจอบอุ่น"}
+{"word": "fire", "english": "The fire crackles under starry skies.", "thai": "กองไฟดังเปาะแปะใต้ท้องฟ้าที่เต็มไปด้วยดวงดาว"}
+{"word": "skies", "english": "Clear skies promise perfect hiking days.", "thai": "ท้องฟ้าแจ่มใสสัญญาถึงวันเดินป่าที่สมบูรณ์แบบ"}
+{"word": "hiking", "english": "Hiking trails reveal nature’s hidden gems.", "thai": "เส้นทางเดินป่าเผยให้เห็นอัญมณีที่ซ่อนอยู่ในธรรมชาติ"}
+{"word": "nature", "english": "Nature soothes the busiest of minds.", "thai": "ธรรมชาติปลอบประโลมจิตใจที่วุ่นวายที่สุด"}
+{"word": "minds", "english": "Open minds embrace new perspectives.", "thai": "จิตใจที่เปิดกว้างยอมรับมุมมองใหม่ๆ"}
+{"word": "perspectives", "english": "Fresh perspectives spark innovative solutions.", "thai": "มุมมองใหม่จุดประกายวิธีแก้ปัญหาที่สร้างสรรค์"}
+{"word": "solutions", "english": "Solutions to problems require clear focus.", "thai": "วิธีแก้ปัญหาต้องการความโฟกัสที่ชัดเจน"}
+{"word": "focus", "english": "Focus during workouts boosts your strength.", "thai": "ความโฟกัสระหว่างออกกำลังกายเพิ่มความแข็งแกร่งของคุณ"}
+{"word": "strength", "english": "Inner strength shines in tough times.", "thai": "ความแข็งแกร่งภายในเปล่งประกายในช่วงเวลาที่ยากลำบาก"}
+{"word": "times", "english": "Good times fly by with great music.", "thai": "ช่วงเวลาดีๆ ผ่านไปไวเมื่อมีดนตรีดีๆ"}
+{"word": "music", "english": "Live music energizes festival crowds.", "thai": "ดนตรีสดกระตุ้นพลังฝูงชนในงานเทศกาล"}
+{"word": "crowds", "english": "Crowds cheer wildly at soccer matches.", "thai": "ฝูงชนโห่ร้องอย่างคึกคักในแมตช์ฟุตบอล"}
+{"word": "matches", "english": "Matches ignite cozy campfire nights.", "thai": "ไม้ขีดจุดกองไฟให้ค่ำคืนอบอุ่น"}
+{"word": "campfire", "english": "Campfire stories captivate young listeners.", "thai": "เรื่องเล่ารอบกองไฟดึงดูดผู้ฟังวัยเยาว์"}
+{"word": "stories", "english": "Stories from grandparents teach timeless lessons.", "thai": "เรื่องราวจากปู่ย่าตายายสอนบทเรียนที่ไม่เคยล้าสมัย"}
+{"word": "lessons", "english": "Life lessons shape our daily choices.", "thai": "บทเรียนชีวิตกำหนดการเลือกในแต่ละวันของเรา"}
+{"word": "choices", "english": "Smart choices lead to brighter futures.", "thai": "การเลือกที่ชาญฉลาดนำไปสู่อนาคตที่สดใส"}
+{"word": "futures", "english": "Bright futures await determined students.", "thai": "อนาคตที่สดใสรอคอยนักเรียนที่มุ่งมั่น"}
+{"word": "students", "english": "Students thrive in supportive classrooms.", "thai": "นักเรียนเจริญเติบโตในห้องเรียนที่สนับสนุน"}
+{"word": "classrooms", "english": "Classrooms buzz with curious questions.", "thai": "ห้องเรียนเต็มไปด้วยคำถามที่อยากรู้อยากเห็น"}
+{"word": "questions", "english": "Tough questions spark lively debates.", "thai": "คำถามที่ยากจุดประกายการโต้วาทีที่คึกคัก"}
+{"word": "debates", "english": "Political debates stir passionate opinions.", "thai": "การโต้วาทีทางการเมืองกระตุ้นความคิดเห็นที่ร้อนแรง"}
+{"word": "opinions", "english": "Opinions shared online shape public views.", "thai": "ความคิดเห็นที่แชร์ออนไลน์กำหนดมุมมองของสาธารณะ"}
+{"word": "views", "english": "Mountain views inspire adventurous souls.", "thai": "ทิวทัศน์ภูเขาสร้างแรงบันดาลใจให้จิตวิญญาณที่ชอบผจญภัย"}
+{"word": "souls", "english": "Kind souls spread joy every day.", "thai": "จิตใจที่เมตตาแพร่กระจายความสุขทุกวัน"}
+{"word": "joy", "english": "Pure joy fills kids at playgrounds.", "thai": "ความสุขล้วนเติมเต็มเด็กๆ ที่สนามเด็กเล่น"}
+{"word": "playgrounds", "english": "Playgrounds are where friendships bloom.", "thai": "สนามเด็กเล่นคือที่ที่มิตรภาพเบ่งบาน"}
+{"word": "friendships", "english": "Strong friendships weather life’s storms.", "thai": "มิตรภาพที่แข็งแกร่งฝ่าฟันพายุของชีวิต"}
+{"word": "storms", "english": "Storms clear the air for brighter days.", "thai": "พายุทำให้อากาศปลอดโปร่งเพื่อวันใหม่ที่สดใส"}
+{"word": "days", "english": "Lazy days call for cozy naps.", "thai": "วันสบายๆ เรียกร้องการงีบหลับที่อบอุ่น"}
+{"word": "naps", "english": "Quick naps recharge your busy schedule.", "thai": "การงีบสั้นๆ เติมพลังให้ตารางงานที่วุ่นวาย"}
+{"word": "schedule", "english": "A tight schedule demands careful planning.", "thai": "ตารางงานที่แน่นต้องการการวางแผนอย่างรอบคอบ"}
+{"word": "planning", "english": "Planning a trip ignites excitement.", "thai": "การวางแผนการเดินทางจุดประกายความตื่นเต้น"}
+{"word": "excitement", "english": "Excitement builds before a big game.", "thai": "ความตื่นเต้นเพิ่มขึ้นก่อนเกมใหญ่"}
+{"word": "game", "english": "A close game keeps fans on edge.", "thai": "เกมที่สูสีทำให้แฟนๆ ลุ้นระทึก"}
+{"word": "fans", "english": "Fans scream loud at rock concerts.", "thai": "แฟนๆ กรี๊ดดังในคอนเสิร์ตร็อค"}
+{"word": "concerts", "english": "Concerts unite people through shared vibes.", "thai": "คอนเสิร์ตเชื่อมโยงผู้คนผ่านบรรยากาศร่วมกัน"}
+{"word": "vibes", "english": "Good vibes flow at beach parties.", "thai": "บรรยากาศดีๆ ไหลลื่นในงานปาร์ตี้ชายหาด"}
+{"word": "parties", "english": "Parties with dancing lift everyone’s mood.", "thai": "งานปาร์ตี้ที่มีการเต้นรำยกระดับอารมณ์ของทุกคน"}
+{"word": "dancing", "english": "Dancing under stars feels like freedom.", "thai": "การเต้นรำใต้ดวงดาวรู้สึกเหมือนอิสรภาพ"}
+{"word": "freedom", "english": "Freedom to explore sparks bold ideas.", "thai": "อิสรภาพในการสำรวจจุดประกายไอเดียที่กล้าหาญ"}
+{"word": "ideas", "english": "New ideas reshape old traditions.", "thai": "ไอเดียใหม่เปลี่ยนแปลงประเพณีเก่า"}
+{"word": "traditions", "english": "Family traditions strengthen our roots.", "thai": "ประเพณีครอบครัวเสริมความแข็งแกร่งให้รากเหง้าของเรา"}
+{"word": "roots", "english": "Deep roots keep trees standing tall.", "thai": "รากที่ลึกลงไปทำให้ต้นไม้ยืนหยัดสูง"}
+{"word": "trees", "english": "Trees shade our sunny picnics.", "thai": "ต้นไม้ให้ร่มเงาในปิกนิกที่แดดจ้า"}
+{"word": "picnics", "english": "Picnics by the lake create memories.", "thai": "ปิกนิกข้างทะเลสาบสร้างความทรงจำ"}
+{"word": "memories", "english": "Memories of travel linger for years.", "thai": "ความทรงจำจากการเดินทางคงอยู่นานหลายปี"}
+{"word": "travel", "english": "Travel broadens your cultural horizons.", "thai": "การเดินทางขยายขอบเขตวัฒนธรรมของคุณ"}
+{"word": "horizons", "english": "New horizons inspire fearless explorers.", "thai": "ขอบฟ้าใหม่สร้างแรงบันดาลใจให้ผู้สำรวจที่กล้าหาญ"}
+{"word": "explorers", "english": "Explorers uncover secrets of ancient ruins.", "thai": "นักสำรวจค้นพบความลับของซากปรักหักพังโบราณ"}
+{"word": "secrets", "english": "Secrets shared in whispers build trust.", "thai": "ความลับที่แบ่งปันในกระซิบสร้างความไว้วางใจ"}
+{"word": "trust", "english": "Trust in teams drives big wins.", "thai": "ความไว้วางใจในทีมผลักดันชัยชนะครั้งใหญ่"}
+{"word": "wins", "english": "Small wins boost your daily confidence.", "thai": "ชัยชนะเล็กๆ เพิ่มความมั่นใจในทุกวัน"}
+{"word": "confidence", "english": "Confidence shines in public speaking.", "thai": "ความมั่นใจเปล่งประกายในการพูดต่อหน้าสาธารณะ"}
+{"word": "speaking", "english": "Speaking your truth inspires others.", "thai": "การพูดความจริงของคุณสร้างแรงบันดาลใจให้ผู้อื่น"}
+{"word": "truth", "english": "The truth strengthens honest relationships.", "thai": "ความจริงเสริมสร้างความสัมพันธ์ที่ซื่อสัตย์"}
+{"word": "relationships", "english": "Relationships grow through shared laughter.", "thai": "ความสัมพันธ์เติบโตผ่านเสียงหัวเราะที่แบ่งปัน"}
+{"word": "laughter", "english": "Laughter heals even the deepest wounds.", "thai": "เสียงหัวเราะเยียวยาแม้แต่บาดแผลที่ลึกที่สุด"}
+{"word": "wounds", "english": "Time heals wounds with gentle care.", "thai": "เวลารักษาบาดแผลด้วยความเอาใจใส่ที่อ่อนโยน"}
+{"word": "care", "english": "Care for pets brings daily joy.", "thai": "การดูแลสัตว์เลี้ยงนำความสุขมาให้ทุกวัน"}
+{"word": "pets", "english": "Pets cuddle close on chilly nights.", "thai": "สัตว์เลี้ยงกอดแน่นในคืนที่หนาวเย็น"}
+{"word": "nights", "english": "Nights under city lights feel magical.", "thai": "ค่ำคืนใต้แสงเมืองรู้สึกเหมือนมีเวทมนตร์"}
+{"word": "lights", "english": "Bright lights decorate festive markets.", "thai": "แสงไฟสว่างไสวประดับประดาตลาดเทศกาล"}
+{"word": "markets", "english": "Markets buzz with vibrant energy.", "thai": "ตลาดคึกคักด้วยพลังที่สดใส"}
+{"word": "energy", "english": "Energy from coffee fuels busy mornings.", "thai": "พลังจากกาแฟขับเคลื่อนเช้าที่วุ่นวาย"}
+{"word": "mornings", "english": "Mornings bloom with fresh opportunities.", "thai": "เช้าเบ่งบานด้วยโอกาสใหม่ๆ"}
+{"word": "opportunities", "english": "Seizing opportunities sparks career growth.", "thai": "การคว้าโอกาสจุดประกายการเติบโตในอาชีพ"}
+{"word": "growth", "english": "Personal growth transforms your outlook.", "thai": "การเติบโตส่วนบุคคลเปลี่ยนมุมมองของคุณ"}
+{"word": "outlook", "english": "A positive outlook brightens tough days.", "thai": "มุมมองเชิงบวกทำให้วันยากๆ สว่างขึ้น"}
+{"word": "days", "english": "Rainy days invite cozy reading sessions.", "thai": "วันที่ฝนตกเชิญชวนให้อ่านหนังสืออย่างอบอุ่น"}
+{"word": "reading", "english": "Reading novels opens new worlds.", "thai": "การอ่านนิยายเปิดโลกใหม่"}
+{"word": "worlds", "english": "Virtual worlds captivate gamers for hours.", "thai": "โลกเสมือนจริงดึงดูดนักเล่นเกมเป็นชั่วโมง"}
+{"word": "gamers", "english": "Gamers connect through epic online battles.", "thai": "นักเล่นเกมเชื่อมต่อผ่านการต่อสู้ในโลกออนไลน์สุดยิ่งใหญ่"}
+{"word": "battles", "english": "Battles in strategy games test your wits.", "thai": "การต่อสู้ในเกมวางกลยุทธ์ทดสอบไหวพริบของคุณ"}
+{"word": "wits", "english": "Sharp wits shine in trivia contests.", "thai": "ไหวพริบที่เฉียบแหลมเปล่งประกายในการแข่งขันทริเวีย"}
+{"word": "contests", "english": "Contests at fairs spark friendly rivalries.", "thai": "การแข่งขันในงานเทศกาลจุดประกายการแข่งขันที่เป็นมิตร"}
+{"word": "rivalries", "english": "Rivalries in sports push athletes harder.", "thai": "การแข่งขันในกีฬาผลักดันนักกีฬาให้หนักขึ้น"}
+{"word": "athletes", "english": "Athletes train daily to break records.", "thai": "นักกีฬาฝึกฝนทุกวันเพื่อทำลายสถิติ"}
+{"word": "records", "english": "Vinyl records bring retro music vibes.", "thai": "แผ่นเสียงนำความรู้สึกย้อนยุคของดนตรีมาให้"}
+{"word": "music", "english": "Live music energizes summer festivals.", "thai": "ดนตรีสดเติมพลังให้งานเทศกาลฤดูร้อน"}
+{"word": "festivals", "english": "Festivals celebrate culture with vibrant dances.", "thai": "งานเทศกาลเฉลิมฉลองวัฒนธรรมด้วยการเต้นรำที่สดใส"}
+{"word": "culture", "english": "Exploring culture enriches travel experiences.", "thai": "การสำรวจวัฒนธรรมเพิ่มคุณค่าให้ประสบการณ์การเดินทาง"}
+{"word": "travel", "english": "Travel by train offers scenic views.", "thai": "การเดินทางโดยรถไฟมอบทิวทัศน์ที่สวยงาม"}
+{"word": "views", "english": "Stunning views inspire adventurous hikes.", "thai": "ทิวทัศน์ที่งดงามสร้างแรงบันดาลใจให้การเดินป่าผจญภัย"}
+{"word": "hikes", "english": "Long hikes test your physical endurance.", "thai": "การเดินป่าที่ยาวนานทดสอบความอดทนทางกายของคุณ"}
+{"word": "endurance", "english": "Endurance builds through consistent practice.", "thai": "ความอดทนสร้างขึ้นผ่านการฝึกฝนอย่างต่อเนื่อง"}
+{"word": "practice", "english": "Practice makes cooking skills shine.", "thai": "การฝึกฝนทำให้ทักษะการทำอาหารโดดเด่น"}
+{"word": "cooking", "english": "Cooking family recipes warms the heart.", "thai": "การทำอาหารสูตรครอบครัวทำให้หัวใจอบอุ่น"}
+{"word": "heart", "english": "A kind heart wins lifelong friends.", "thai": "หัวใจที่เมตตาคว้าเพื่อนแท้ตลอดชีวิต"}
+{"word": "friends", "english": "Friends make game nights unforgettable.", "thai": "เพื่อนทำให้ค่ำคืนเล่นเกมไม่รู้ลืม"}
+{"word": "nights", "english": "Starry nights spark romantic moments.", "thai": "ค่ำคืนใต้ดวงดาวจุดประกายช่วงเวลาโรแมนติก"}
+{"word": "moments", "english": "Quiet moments fuel deep reflection.", "thai": "ช่วงเวลาที่เงียบสงบเติมพลังให้การไตร่ตรองอย่างลึกซึ้ง"}
+{"word": "reflection", "english": "Reflection on mistakes drives personal growth.", "thai": "การไตร่ตรองความผิดพลาดขับเคลื่อนการเติบโตส่วนบุคคล"}
+{"word": "growth", "english": "Growth in tech creates new opportunities.", "thai": "การเติบโตในเทคโนโลยีสร้างโอกาสใหม่ๆ"}
+{"word": "opportunities", "english": "Seizing opportunities shapes bold careers.", "thai": "การคว้าโอกาสกำหนดอาชีพที่กล้าหาญ"}
+{"word": "careers", "english": "Careers in art demand creative passion.", "thai": "อาชีพด้านศิลปะต้องการความหลงใหลในความสร้างสรรค์"}
+{"word": "passion", "english": "Passion for learning fuels bright minds.", "thai": "ความหลงใหลในการเรียนรู้เติมพลังให้จิตใจที่สดใส"}
+{"word": "minds", "english": "Curious minds ask the toughest questions.", "thai": "จิตใจที่อยากรู้อยากเห็นถามคำถามที่ยากที่สุด"}
+{"word": "questions", "english": "Questions in debates spark lively discussions.", "thai": "คำถามในการโต้วาทีจุดประกายการสนทนาที่คึกคัก"}
+{"word": "discussions", "english": "Discussions over coffee build strong bonds.", "thai": "การสนทนาขณะจิบกาแฟสร้างความผูกพันที่แข็งแกร่ง"}
+{"word": "bonds", "english": "Family bonds deepen during holiday feasts.", "thai": "ความผูกพันในครอบครัวแน่นแฟ้นยิ่งขึ้นในงานเลี้ยงวันหยุด"}
+{"word": "feasts", "english": "Feasts bring joy to festive gatherings.", "thai": "งานเลี้ยงนำความสุขมาสู่การรวมตัวในเทศกาล"}
+{"word": "joy", "english": "Pure joy erupts at surprise parties.", "thai": "ความสุขล้นหลามระเบิดออกมาในงานปาร์ตี้เซอร์ไพรส์"}
+{"word": "parties", "english": "Parties with music lift everyone’s spirits.", "thai": "งานปาร์ตี้ที่มีดนตรียกระดับจิตใจของทุกคน"}
+{"word": "spirits", "english": "High spirits make adventures more fun.", "thai": "จิตใจที่ร่าเริงทำให้การผจญภัยสนุกยิ่งขึ้น"}
+{"word": "adventures", "english": "Adventures in forests reveal hidden wonders.", "thai": "การผจญภัยในป่าเผยให้เห็นสิ่งมหัศจรรย์ที่ซ่อนอยู่"}
+{"word": "wonders", "english": "Natural wonders inspire awe in travelers.", "thai": "สิ่งมหัศจรรย์ทางธรรมชาติสร้างความตื่นตะลึงให้กับนักเดินทาง"}
+{"word": "travelers", "english": "Travelers share stories of distant lands.", "thai": "นักเดินทางแบ่งปันเรื่องราวของดินแดนห่างไกล"}
+{"word": "stories", "english": "Stories told by firelight captivate kids.", "thai": "เรื่องราวที่เล่าข้างกองไฟดึงดูดใจเด็กๆ"}
+{"word": "kids", "english": "Kids love splashing in summer puddles.", "thai": "เด็กๆ ชอบกระโดดเล่นในแอ่งน้ำฤดูร้อน"}
+{"word": "summer", "english": "Summer vibes call for beach picnics.", "thai": "บรรยากาศฤดูร้อนเรียกร้องให้มีปิกนิกชายหาด"}
+{"word": "picnics", "english": "Picnics under trees create lasting memories.", "thai": "ปิกนิกใต้ร่มเงาต้นไม้สร้างความทรงจำที่ยาวนาน"}
+{"word": "memories", "english": "Memories of childhood spark warm nostalgia.", "thai": "ความทรงจำในวัยเด็กจุดประกายความคิดถึงที่อบอุ่น"}
+{"word": "nostalgia", "english": "Nostalgia hits hard with old photos.", "thai": "ความคิดถึงมาแรงเมื่อเห็นภาพถ่ายเก่าๆ"}
+{"word": "photos", "english": "Photos capture life’s fleeting moments.", "thai": "ภาพถ่ายจับช่วงเวลาที่ผ่านไปอย่างรวดเร็วของชีวิต"}
+{"word": "moments", "english": "Special moments shine at family reunions.", "thai": "ช่วงเวลาพิเศษเปล่งประกายในงานรวมญาติ"}
+{"word": "reunions", "english": "Reunions bring old friends back together.", "thai": "งานรวมตัวทำให้เพื่อนเก่ากลับมาพบกัน"}
+{"word": "together", "english": "Working together builds unstoppable teams.", "thai": "การทำงานร่วมกันสร้างทีมที่ไม่มีอะไรหยุดได้"}
+{"word": "teams", "english": "Teams in startups drive bold innovations.", "thai": "ทีมในสตาร์ทอัพผลักดันนวัตกรรมที่กล้าหาญ"}
+{"word": "innovations", "english": "Innovations in tech shape modern lives.", "thai": "นวัตกรรมในเทคโนโลยีกำหนดชีวิตสมัยใหม่"}
+{"word": "lives", "english": "Our lives thrive on meaningful connections.", "thai": "ชีวิตของเราเจริญรุ่งเรืองด้วยความสัมพันธ์ที่มีความหมาย"}
+{"word": "connections", "english": "Connections made online spark real friendships.", "thai": "ความสัมพันธ์ที่เกิดขึ้นออนไลน์จุดประกายมิตรภาพที่แท้จริง"}
+{"word": "friendships", "english": "Friendships grow stronger through shared laughter.", "thai": "มิตรภาพแข็งแกร่งขึ้นผ่านเสียงหัวเราะที่แบ่งปัน"}
+{"word": "laughter", "english": "Laughter fills the air at comedy shows.", "thai": "เสียงหัวเราะดังก้องในงานแสดงตลก"}
+{"word": "shows", "english": "Shows on streaming platforms hook viewers.", "thai": "รายการบนแพลตฟอร์มสตรีมมิ่งดึงดูดผู้ชม"}
+{"word": "viewers", "english": "Viewers cheer for their favorite teams.", "thai": "ผู้ชมเชียร์ทีมโปรดของพวกเขา"}
+{"word": "teams", "english": "Teams in sports share epic victories.", "thai": "ทีมในกีฬาแบ่งปันชัยชนะครั้งยิ่งใหญ่"}
+{"word": "victories", "english": "Victories in debates boost your confidence.", "thai": "ชัยชนะในการโต้วาทีเพิ่มความมั่นใจของคุณ"}
+{"word": "confidence", "english": "Confidence shines in bold presentations.", "thai": "ความมั่นใจเปล่งประกายในการนำเสนอที่กล้าหาญ"}
+{"word": "presentations", "english": "Presentations at work showcase your skills.", "thai": "การนำเสนอในที่ทำงานแสดงทักษะของคุณ"}
+{"word": "skills", "english": "Honing skills opens new career paths.", "thai": "การฝึกฝนทักษะเปิดเส้นทางอาชีพใหม่"}
+{"word": "career", "english": "A rewarding career fuels personal growth.", "thai": "อาชีพที่คุ้มค่าขับเคลื่อนการเติบโตส่วนบุคคล"}
+{"word": "growth", "english": "Growth in confidence changes your outlook.", "thai": "การเติบโตในความมั่นใจเปลี่ยนมุมมองของคุณ"}
+{"word": "outlook", "english": "A positive outlook attracts great opportunities.", "thai": "มุมมองเชิงบวกดึงดูดโอกาสดีๆ"}
+{"word": "opportunities", "english": "Opportunities in tech spark bold ideas.", "thai": "โอกาสในเทคโนโลยีจุดประกายไอเดียที่กล้าหาญ"}
+{"word": "ideas", "english": "Creative ideas transform dull projects.", "thai": "ไอเดียสร้างสรรค์เปลี่ยนโปรเจกต์ที่น่าเบื่อ"}
+{"word": "projects", "english": "Group projects teach valuable teamwork lessons.", "thai": "โปรเจกต์กลุ่มสอนบทเรียนการทำงานเป็นทีมที่มีค่า"}
+{"word": "teamwork", "english": "Teamwork makes tough challenges easier.", "thai": "การทำงานเป็นทีมทำให้ความท้าทายที่ยากง่ายขึ้น"}
+{"word": "challenges", "english": "Challenges in life build inner strength.", "thai": "ความท้าทายในชีวิตสร้างความแข็งแกร่งภายใน"}
+{"word": "strength", "english": "Strength in character shines during crises.", "thai": "ความแข็งแกร่งในบุคลิกภาพเปล่งประกายในยามวิกฤต"}
+{"word": "crises", "english": "Crises test your ability to stay calm.", "thai": "วิกฤตทดสอบความสามารถในการรักษาความสงบ"}
+{"word": "calm", "english": "A calm mind solves problems faster.", "thai": "จิตใจที่สงบแก้ปัญหาได้เร็วขึ้น"}
+{"word": "problems", "english": "Tackling problems head-on builds resilience.", "thai": "การเผชิญหน้ากับปัญหาตรงๆ สร้างความยืดหยุ่น"}
+{"word": "resilience", "english": "Resilience helps you bounce back stronger.", "thai": "ความยืดหยุ่นช่วยให้คุณกลับมาแข็งแกร่งยิ่งขึ้น"}
+{"word": "stronger", "english": "Stronger bonds form through shared struggles.", "thai": "ความผูกพันที่แข็งแกร่งยิ่งขึ้นเกิดจากความยากลำบากที่แบ่งปัน"}
+{"word": "struggles", "english": "Struggles in learning lead to mastery.", "thai": "ความยากลำบากในการเรียนรู้นำไปสู่ความเชี่ยวชาญ"}
+{"word": "mastery", "english": "Mastery of a craft earns respect.", "thai": "ความเชี่ยวชาญในงานฝีมือได้รับความเคารพ"}
+{"word": "respect", "english": "Mutual respect strengthens workplace harmony.", "thai": "ความเคารพซึ่งกันและกันเสริมสร้างความกลมเกลียวในที่ทำงาน"}
+{"word": "harmony", "english": "Harmony in teams drives big wins.", "thai": "ความกลมเกลียวในทีมผลักดันชัยชนะครั้งใหญ่"}
+{"word": "wins", "english": "Small wins fuel your daily motivation.", "thai": "ชัยชนะเล็กๆ เติมพลังให้แรงจูงใจในแต่ละวัน"}
+{"word": "motivation", "english": "Motivation pushes you to chase goals.", "thai": "แรงจูงใจผลักดันให้คุณไล่ตามเป้าหมาย"}
+{"word": "goals", "english": "Setting goals keeps your focus sharp.", "thai": "การตั้งเป้าหมายทำให้คุณโฟกัสได้ชัดเจน"}
+{"word": "focus", "english": "Focus during study sessions boosts grades.", "thai": "ความโฟกัสในช่วงเรียนช่วยเพิ่มเกรด"}
+{"word": "grades", "english": "Good grades open doors to scholarships.", "thai": "เกรดดีเปิดประตูสู่ทุนการศึกษา"}
+{"word": "scholarships", "english": "Scholarships support ambitious students’ dreams.", "thai": "ทุนการศึกษาสนับสนุนความฝันของนักเรียนที่มุ่งมั่น"}
+{"word": "students", "english": "Students thrive in creative learning spaces.", "thai": "นักเรียนเจริญเติบโตในพื้นที่การเรียนรู้ที่สร้างสรรค์"}
+{"word": "spaces", "english": "Cozy spaces invite deep conversations.", "thai": "พื้นที่แสนอบอุ่นเชิญชวนให้สนทนาอย่างลึกซึ้ง"}
+{"word": "conversations", "english": "Conversations over tea spark new ideas.", "thai": "การสนทนาขณะจิบชาจุดประกายไอเดียใหม่ๆ"}
+{"word": "tea", "english": "A warm tea soothes chilly evenings.", "thai": "ชาอุ่นๆ ปลอบประโลมยามเย็นที่หนาวเย็น"}
+{"word": "evenings", "english": "Evenings by the lake feel magical.", "thai": "ยามเย็นข้างทะเลสาบรู้สึกเหมือนมีเวทมนตร์"}
+{"word": "lake", "english": "The lake reflects a serene sunset.", "thai": "ทะเลสาบสะท้อนพระอาทิตย์ตกที่เงียบสงบ"}
+{"word": "sunset", "english": "A stunning sunset paints the sky red.", "thai": "พระอาทิตย์ตกที่งดงามระบายท้องฟ้าเป็นสีแดง"}
+{"word": "sky", "english": "The clear sky sparkles with countless stars.", "thai": "ท้องฟ้าที่แจ่มใสระยิบระยับด้วยดวงดาวนับไม่ถ้วน"}
+{"word": "stars", "english": "Stars inspire dreams of distant galaxies.", "thai": "ดวงดาวสร้างแรงบันดาลใจให้ฝันถึงกาแล็กซี่ที่ห่างไกล"}
+{"word": "dreams", "english": "Dreams fuel the courage to take risks.", "thai": "ความฝันเติมพลังให้ความกล้าที่จะเสี่ยง"}
+{"word": "courage", "english": "Courage in tough times earns admiration.", "thai": "ความกล้าในยามยากได้รับความชื่นชม"}
+{"word": "admiration", "english": "Admiration for artists drives gallery visits.", "thai": "ความชื่นชมศิลปินผลักดันให้ไปเยี่ยมชมแกลเลอรี"}
+{"word": "gallery", "english": "A gallery showcases bold new artworks.", "thai": "แกลเลอรีแสดงผลงานศิลปะใหม่ที่กล้าหาญ"}
+{"word": "artworks", "english": "Artworks tell stories of human emotions.", "thai": "ผลงานศิลปะเล่าเรื่องราวของอารมณ์มนุษย์"}
+{"word": "emotions", "english": "Emotions run high during close games.", "thai": "อารมณ์พุ่งสูงในเกมที่สูสี"}
+{"word": "games", "english": "Board games bring families closer together.", "thai": "เกมกระดานทำให้ครอบครัวใกล้ชิดกันมากขึ้น"}
+{"word": "families", "english": "Families share stories over cozy dinners.", "thai": "ครอบครัวแบ่งปันเรื่องราวขณะรับประทานอาหารค่ำที่อบอุ่น"}
+{"word": "stories", "english": "Ghost stories around campfires spark chills.", "thai": "เรื่องผีรอบกองไฟจุดประกายความหนาวสั่น"}
+{"word": "campfires", "english": "Campfires glow warmly under starry skies.", "thai": "กองไฟส่องสว่างอบอุ่นใต้ท้องฟ้าที่เต็มไปด้วยดวงดาว"}
+{"word": "skies", "english": "Clear skies promise perfect beach days.", "thai": "ท้องฟ้าแจ่มใสสัญญาถึงวันชายหาดที่สมบูรณ์แบบ"}
+{"word": "beach", "english": "Beach walks soothe the restless soul.", "thai": "การเดินบนชายหาดปลอบประโลมจิตใจที่กระสับกระส่าย"}
+{"word": "soul", "english": "Music speaks directly to the soul.", "thai": "ดසงเพลงพูดโดยตรงถึงจิตวิญญาณ"}
+{"word": "music", "english": "Loud music pumps up the party vibe.", "thai": "ดนตรีดังๆ ทำให้บรรยากาศปาร์ตี้คึกคัก"}
+{"word": "party", "english": "A wild party keeps everyone dancing late.", "thai": "ปาร์ตี้สุดเหวี่ยงทำให้ทุกคนเต้นจนดึก"}
+{"word": "dancing", "english": "Dancing in the rain feels totally free.", "thai": "การเต้นรำท่ามกลางสายฝนรู้สึกอิสระสุดๆ"}
+{"word": "rain", "english": "Rain taps softly on the cozy cabin roof.", "thai": "ฝนเคาะเบาๆ บนหลังคากระท่อมแสนอบอุ่น"}
+{"word": "cabin", "english": "The cabin smells of fresh pine wood.", "thai": "กระท่อมมีกลิ่นหอมของไม้สนสด"}
+{"word": "wood", "english": "Carving wood crafts unique homemade gifts.", "thai": "การแกะสลักไม้สร้างของขวัญทำมือที่ไม่เหมือนใคร"}
+{"word": "gifts", "english": "Handmade gifts show heartfelt care.", "thai": "ของขวัญทำมือแสดงถึงความเอาใจใส่จากใจ"}
+{"word": "care", "english": "Care for plants brings lush green gardens.", "thai": "การดูแลพืชทำให้สวนเขียวขจี"}
+{"word": "gardens", "english": "Gardens bloom with vibrant summer colors.", "thai": "สวนเบ่งบานด้วยสีสันฤดูร้อนที่สดใส"}
+{"word": "colors", "english": "Bold colors pop in modern art galleries.", "thai": "สีสันสดใสเด่นสะดุดตาในหอศิลป์สมัยใหม่"}
+{"word": "art", "english": "Street art transforms dull city walls.", "thai": "ศิลปะบนท้องถนนเปลี่ยนกำแพงเมืองที่น่าเบื่อ"}
+{"word": "city", "english": "City lights sparkle like a dreamscape.", "thai": "แสงไฟเมืองระยิบระยับราวกับภาพฝัน"}
+{"word": "lights", "english": "Fairy lights make holiday nights magical.", "thai": "ไฟนางฟ้าทำให้คืนวันหยุดมีมนต์ขลัง"}
+{"word": "nights", "english": "Quiet nights inspire deep poetic thoughts.", "thai": "ค่ำคืนเงียบสงบจุดประกายความคิดกวีที่ลึกซึ้ง"}
+{"word": "thoughts", "english": "Kind thoughts lift spirits in tough times.", "thai": "ความคิดที่เมตตายกระดับจิตใจในยามยาก"}
+{"word": "spirits", "english": "High spirits fuel epic road trips.", "thai": "จิตใจที่ร่าเริงเติมพลังให้การเดินทางสุดยิ่งใหญ่"}
+{"word": "trips", "english": "Short trips recharge your daily grind.", "thai": "การเดินทางสั้นๆ เติมพลังให้ชีวิตประจำวัน"}
+{"word": "grind", "english": "The daily grind sharpens your work ethic.", "thai": "การทำงานหนักทุกวันฝึกฝนจรรยาบรรณในการทำงาน"}
+{"word": "work", "english": "Team work makes big projects fly.", "thai": "การทำงานเป็นทีมทำให้โปรเจกต์ใหญ่สำเร็จลุล่วง"}
+{"word": "projects", "english": "Creative projects spark joy in classrooms.", "thai": "โปรเจกต์สร้างสรรค์จุดประกายความสุขในห้องเรียน"}
+{"word": "joy", "english": "Pure joy erupts at surprise victories.", "thai": "ความสุขล้นหลามระเบิดออกมาเมื่อชัยชนะที่ไม่คาดคิด"}
+{"word": "victories", "english": "Small victories build confidence over time.", "thai": "ชัยชนะเล็กๆ สร้างความมั่นใจเมื่อเวลาผ่านไป"}
+{"word": "confidence", "english": "Confidence shines in bold public speeches.", "thai": "ความมั่นใจเปล่งประกายในการปราศรัยต่อสาธารณะที่กล้าหาญ"}
+{"word": "speeches", "english": "Speeches at rallies ignite crowd passion.", "thai": "สุนทรพจน์ในงานชุมนุมจุดประกายความหลงใหลของฝูงชน"}
+{"word": "passion", "english": "Passion for hobbies fuels creative outlets.", "thai": "ความหลงใหลในงานอดิเรกเติมพลังให้ช่องทางสร้างสรรค์"}
+{"word": "hobbies", "english": "Hobbies like knitting calm busy minds.", "thai": "งานอดิเรกอย่างการถักนิตติ้งทำให้จิตใจที่วุ่นวายสงบลง"}
+{"word": "minds", "english": "Open minds embrace bold new ideas.", "thai": "จิตใจที่เปิดกว้างยอมรับไอเดียใหม่ที่กล้าหาญ"}
+{"word": "ideas", "english": "Fresh ideas shake up stale routines.", "thai": "ไอเดียใหม่ๆ เขย่ากิจวัตรที่จืดชืด"}
+{"word": "routines", "english": "Morning routines set a productive tone.", "thai": "กิจวัตรตอนเช้ากำหนดโทนการทำงานที่มีประสิทธิผล"}
+{"word": "tone", "english": "A warm tone makes conversations inviting.", "thai": "น้ำเสียงที่อบอุ่นทำให้การสนทนาน่าดึงดูด"}
+{"word": "conversations", "english": "Deep conversations forge lasting friendships.", "thai": "การสนทนาที่ลึกซึ้งสร้างมิตรภาพที่ยั่งยืน"}
+{"word": "friendships", "english": "Friendships thrive on shared adventure tales.", "thai": "มิตรภาพเติบโตจากเรื่องราวการผจญภัยที่แบ่งปัน"}
+{"word": "adventure", "english": "Adventure calls to restless young hearts.", "thai": "การผจญภัยเรียกร้องหัวใจหนุ่มสาวที่กระสับกระส่าย"}
+{"word": "hearts", "english": "Kind hearts mend even deep wounds.", "thai": "หัวใจที่เมตตาเยียวยาแม้แต่บาดแผลลึก"}
+{"word": "wounds", "english": "Time heals wounds with gentle patience.", "thai": "เวลารักษาบาดแผลด้วยความอดทนอันอ่อนโยน"}
+{"word": "patience", "english": "Patience in teaching shapes young minds.", "thai": "ความอดทนในการสอนหล่อหลอมจิตใจเยาวชน"}
+{"word": "teaching", "english": "Teaching kids coding sparks tech curiosity.", "thai": "การสอนเด็กเขียนโค้ดจุดประกายความอยากรู้ด้านเทคโนโลยี"}
+{"word": "curiosity", "english": "Curiosity drives epic science experiments.", "thai": "ความอยากรู้อยากเห็นขับเคลื่อนการทดลองวิทยาศาสตร์สุดยิ่งใหญ่"}
+{"word": "experiments", "english": "Experiments in kitchens yield tasty surprises.", "thai": "การทดลองในครัวให้ผลลัพธ์ที่อร่อยน่าประหลาดใจ"}
+{"word": "surprises", "english": "Surprises at birthdays light up faces.", "thai": "เซอร์ไพรส์ในวันเกิดทำให้ใบหน้าสว่างไสว"}
+{"word": "faces", "english": "Smiling faces brighten any gloomy day.", "thai": "ใบหน้าที่ยิ้มแย้มทำให้วันที่หม่นหมองสว่างขึ้น"}
+{"word": "day", "english": "A sunny day invites outdoor fun.", "thai": "วันที่แดดจ้าชวนให้สนุกกลางแจ้ง"}
+{"word": "fun", "english": "Board games deliver pure family fun.", "thai": "เกมกระดานมอบความสนุกสนานในครอบครัวอย่างแท้จริง"}
+{"word": "family", "english": "Family movie nights spark cozy vibes.", "thai": "คืนดูหนังครอบครัวจุดประกายบรรยากลศที่อบอุ่น"}
+{"word": "vibes", "english": "Ch chill vibes flow at beach bonfires.", "thai": "บรรยากาศผ่อนคลายไหลลื่นในงานกองไฟชายหาด"}
+{"word": "bonfires", "english": "Bonfires warm up chilly autumn evenings.", "thai": "กองไฟทำให้ยามเย็นฤดูใบไม้ร่วงอบอุ่น"}
+{"word": "evenings", "english": "Quiet evenings inspire heartfelt journal entries.", "thai": "ยามเย็นที่เงียบสงบสร้างแรงบันดาลใจให้เขียนบันทึกจากใจ"}
+{"word": "journal", "english": "A journal captures life’s fleeting moments.", "thai": "สมุดบันทึกจับช่วงเวลาที่ผ่านไปอย่างรวดเร็วของชีวิต"}
+{"word": "moments", "english": "Precious moments shine at small gatherings.", "thai": "ช่วงเวลาอันมีค่าเปล่งประกายในงานรวมตัวเล็กๆ"}
+{"word": "gatherings", "english": "Gatherings with friends fuel warm memories.", "thai": "การรวมตัวกับเพื่อนเติมพลังให้ความทรงจำที่อบอุ่น"}
+{"word": "memories", "english": "Childhood memories linger in old photos.", "thai": "ความทรงจำวัยเด็กยังคงอยู่ในภาพถ่ายเก่าๆ"}
+{"word": "photos", "english": "Photos from trips tell epic stories.", "thai": "ภาพถ่ายจากการเดินทางเล่าเรื่องราวสุดยิ่งใหญ่"}
+{"word": "stories", "english": "Bedtime stories soothe kids to sleep.", "thai": "นิทานก่อนนอนปลอบเด็กๆ ให้หลับ"}
+{"word": "sleep", "english": "Deep sleep recharges your busy mind.", "thai": "การนอนหลับลึกเติมพลังให้จิตใจที่วุ่นวาย"}
+{"word": "mind", "english": "A calm mind tackles tough challenges.", "thai": "จิตใจที่สงบจัดการกับความท้าทายที่ยากลำบาก"}
+{"word": "challenges", "english": "Challenges in sports build team spirit.", "thai": "ความท้าทายในกีฬาสร้างจิตวิญญาณของทีม"}
+{"word": "spirit", "english": "Festive spirit fills holiday markets with joy.", "thai": "จิตวิญญาณแห่งเทศกาลเติมเต็มตลาดวันหยุดด้วยความสุข"}
+{"word": "markets", "english": "Flea markets hide treasures for collectors.", "thai": "ตลาดนัดซ่อนสมบัติสำหรับนักสะสม"}
+{"word": "treasures", "english": "Finding treasures in books sparks imagination.", "thai": "การค้นพบสมบัติในหนังสือจุดประกายจินตนาการ"}
+{"word": "imagination", "english": "Imagination fuels wild sci-fi adventures.", "thai": "จินตนาการเติมพลังให้การผจญภัยนิยายวิทยาศาสตร์สุดมันส์"}
+{"word": "adventures", "english": "Adventures abroad broaden your world view.", "thai": "การผจญภัยในต่างแดนขยายมุมมองโลกของคุณ"}
+{"word": "view", "english": "A clear view inspires bold new plans.", "thai": "มุมมองที่ชัดเจนสร้างแรงบันดาลใจให้แผนการใหม่ที่กล้าหาญ"}
+{"word": "plans", "english": "Solid plans pave the way to success.", "thai": "แผนการที่มั่นคงปูทางไปสู่ความสำเร็จ"}
+{"word": "success", "english": "Success tastes sweeter after hard work.", "thai": "ความสำเร็จมีรสหวานยิ่งขึ้นหลังจากการทำงานหนัก"}
+{"word": "work", "english": "Creative work sparks joy in teams.", "thai": "งานสร้างสรรค์จุดประกายความสุขในทีม"}
+{"word": "teams", "english": "Teams that gel crush tough projects.", "thai": "ทีมที่ลงตัวจัดการโปรเจกต์ยากๆ ได้อย่างยอดเยี่ยม"}
+{"word": "projects", "english": "Art projects unleash your inner genius.", "thai": "โปรเจกต์ศิลปะปลดปล่อยอัจฉริยภาพภายในของคุณ"}
+{"word": "genius", "english": "Genius ideas transform everyday life.", "thai": "ไอเดียอัจฉริยะเปลี่ยนชีวิตประจำวัน"}
+{"word": "life", "english": "Life’s surprises keep you on your toes.", "thai": "ความประหลาดใจในชีวิตทำให้คุณตื่นตัว"}
+{"word": "toes", "english": "Dancing on your toes feels electrifying.", "thai": "การเต้นรำบนปลายเท้ารู้สึกตื่นเต้น"}
+{"word": "electrifying", "english": "Electrifying concerts unite screaming fans.", "thai": "คอนเสิร์ตที่ตื่นเต้นรวมแฟนๆ ที่กรี๊ดร้อง"}
+{"word": "fans", "english": "Fans go wild at close basketball games.", "thai": "แฟนๆ คลั่งไคล้ในเกมบาสเกตบอลที่สูสี"}
+{"word": "games", "english": "Video games hook players for hours.", "thai": "วิดีโอเกมดึงดูดผู้เล่นเป็นชั่วโมง"}
+{"word": "players", "english": "Players in bands create epic tunes.", "thai": "นักดนตรีในวงสร้างเพลงสุดยิ่งใหญ่"}
+{"word": "tunes", "english": "Catchy tunes lift moods on long drives.", "thai": "เพลงติดหูยกระดับอารมณ์ในการขับรถทางไกล"}
+{"word": "drives", "english": "Scenic drives spark deep road-trip talks.", "thai": "การขับรถชมวิวจุดประกายการสนทนาในทริปถนน"}
+{"word": "talks", "english": "Late-night talks bond roommates for life.", "thai": "การพูดคุยดึกๆ ทำให้เพื่อนร่วมห้องผูกพันตลอดชีวิต"}
+{"word": "roommates", "english": "Roommates share chores to keep peace.", "thai": "เพื่อนร่วมห้องแบ่งปันงานบ้านเพื่อรักษาความสงบ"}
+{"word": "peace", "english": "Finding peace in nature heals stress.", "thai": "การพบความสงบในธรรมชาติเยียวยาความเครียด"}
+{"word": "stress", "english": "Stress melts away with good yoga sessions.", "thai": "ความเครียดละลายหายไปด้วยเซสชันโยคะที่ดี"}
+{"word": "yoga", "english": "Yoga by sunrise boosts your inner calm.", "thai": "โยคะตอนพระอาทิตย์ขึ้นเพิ่มความสงบภายใน"}
+{"word": "calm", "english": "A calm vibe sets perfect study sessions.", "thai": "บรรยากาศสงบสร้างเซสชันการเรียนที่สมบูรณ์แบบ"}
+{"word": "sessions", "english": "Jam sessions with friends spark pure fun.", "thai": "เซสชันแจมกับเพื่อนจุดประกายความสนุกสุดเหวี่ยง"}
+{"word": "fun", "english": "Outdoor fun builds unbreakable team bonds.", "thai": "ความสนุกกลางแจ้งสร้างความผูกพันในทีมที่ไม่มีวันแตกสลาย"}
+{"word": "bonds", "english": "Strong bonds make work feel like play.", "thai": "ความผูกพันที่แข็งแกร่งทำให้งานรู้สึกเหมือนการเล่น"}
+{"word": "play", "english": "Kids’ play ignites wild creative sparks.", "thai": "การเล่นของเด็กจุดประกายความสร้างสรรค์ที่ไร้ขีดจำกัด"}
+{"word": "sparks", "english": "Sparks from campfires light up stories.", "thai": "ประกายไฟจากกองไฟส่องสว่างเรื่องราว"}
+{"word": "stories", "english": "Love stories warm hearts on cold nights.", "thai": "เรื่องราวความรักทำให้หัวใจอบอุ่นในคืนที่หนาวเย็น"}
+{"word": "hearts", "english": "Kind hearts shine at charity events.", "thai": "หัวใจที่เมตตาเปล่งประกายในงานการกุศล"}
+{"word": "events", "english": "Community events spark local pride.", "thai": "งานชุมชนจุดประกายความภาคภูมิใจในท้องถิ่น"}
+{"word": "pride", "english": "Pride in your work fuels success.", "thai": "ความภาคภูมิใจในงานผลักดันความสำเร็จ"}
+{"word": "success", "english": "Success feels sweeter after tough challenges.", "thai": "ความสำเร็จรู้สึกหวานยิ่งขึ้นหลังความท้าทายที่ยากลำบาก"}
+{"word": "challenges", "english": "Challenges in coding sharpen your skills.", "thai": "ความท้าทายในการเขียนโค้ดฝึกฝนทักษะของคุณ"}
+{"word": "skills", "english": "New skills open doors to adventure.", "thai": "ทักษะใหม่เปิดประตูสู่การผจญภัย"}
+{"word": "adventure", "english": "Adventure awaits in uncharted hiking trails.", "thai": "การผจญภัยรออยู่ในเส้นทางเดินป่าที่ยังไม่ได้สำรวจ"}
+{"word": "trails", "english": "Trails through forests reveal hidden beauty.", "thai": "เส้นทางผ่านป่าเผยความงามที่ซ่อนอยู่"}
+{"word": "beauty", "english": "Natural beauty inspires poetic words.", "thai": "ความงามของธรรมชาติสร้างแรงบันดาลใจให้คำกวี"}
+{"word": "words", "english": "Kind words lift spirits in tough times.", "thai": "คำพูดที่เมตตายกระดับจิตใจในยามยาก"}
+{"word": "spirits", "english": "High spirits make parties unforgettable.", "thai": "จิตใจที่ร่าเริงทำให้งานปาร์ตี้น่าจดจำ"}
+{"word": "parties", "english": "Backyard parties buzz with lively chatter.", "thai": "งานปาร์ตี้ในสวนหลังบ้านคึกคักด้วยบทสนทนาที่มีชีวิตชีวา"}
+{"word": "chatter", "english": "Chatter over coffee sparks new friendships.", "thai": "การพูดคุยขณะจิบกาแฟจุดประกายมิตรภาพใหม่"}
+{"word": "friendships", "english": "Friendships grow stronger through shared laughter.", "thai": "มิตรภาพแข็งแกร่งขึ้นผ่านเสียงหัวเราะที่แบ่งปัน"}
+{"word": "laughter", "english": "Laughter echoes at family game nights.", "thai": "เสียงหัวเราะดังก้องในคืนเล่นเกมครอบครัว"}
+{"word": "nights", "english": "Starry nights invite deep soulful talks.", "thai": "ค่ำคืนใต้ดวงดาวชวนให้สนทนาจากใจ"}
+{"word": "talks", "english": "Late-night talks bond lifelong roommates.", "thai": "การพูดคุยดึกๆ เชื่อมโยงเพื่อนร่วมห้องตลอดชีวิต"}
+{"word": "roommates", "english": "Roommates share chores for a tidy space.", "thai": "เพื่อนร่วมห้องแบ่งปันงานบ้านเพื่อพื้นที่ที่เป็นระเบียบ"}
+{"word": "space", "english": "A cozy space inspires creative writing.", "thai": "พื้นที่แสนอบอุ่นสร้างแรงบันดาลใจให้การเขียนเชิงสร้างสรรค์"}
+{"word": "writing", "english": "Writing stories unleashes wild imagination.", "thai": "การเขียนเรื่องราวปลดปล่อยจินตนาการที่ไร้ขีดจำกัด"}
+{"word": "imagination", "english": "Imagination fuels epic sci-fi films.", "thai": "จินตนาการเติมพลังให้ภาพยนตร์นิยายวิทยาศาสตร์สุดยิ่งใหญ่"}
+{"word": "films", "english": "Films at festivals stir deep emotions.", "thai": "ภาพยนตร์ในงานเทศกาลกระตุ้นอารมณ์ลึกซึ้ง"}
+{"word": "emotions", "english": "Raw emotions shine in heartfelt speeches.", "thai": "อารมณ์ดิบเปล่งประกายในสุนทรพจน์จากใจ"}
+{"word": "speeches", "english": "Speeches at rallies ignite crowd energy.", "thai": "สุนทรพจน์ในงานชุมนุมจุดพลังให้ฝูงชน"}
+{"word": "energy", "english": "Morning energy drives productive workdays.", "thai": "พลังตอนเช้าผลักดันวันทำงานที่มีประสิทธิผล"}
+{"word": "workdays", "english": "Workdays fly by with great teamwork.", "thai": "วันทำงานผ่านไปเร็วเมื่อมีทีมเวิร์กที่ยอดเยี่ยม"}
+{"word": "teamwork", "english": "Teamwork in sports builds lasting bonds.", "thai": "การทำงานเป็นทีมในกีฬาสร้างความผูกพันที่ยั่งยืน"}
+{"word": "bonds", "english": "Strong bonds make tough times easier.", "thai": "ความผูกพันที่แข็งแกร่งทำให้ช่วงเวลาที่ยากลำบากง่ายขึ้น"}
+{"word": "times", "english": "Quiet times spark reflective journal entries.", "thai": "ช่วงเวลาที่เงียบสงบจุดประกายบันทึกส่วนตัวที่ลึกซึ้ง"}
+{"word": "journal", "english": "A journal captures fleeting life moments.", "thai": "สมุดบันทึกจับช่วงเวลาชีวิตที่ผ่านไปอย่างรวดเร็ว"}
+{"word": "moments", "english": "Special moments shine at small weddings.", "thai": "ช่วงเวลาพิเศษเปล่งประกายในงานแต่งงานเล็กๆ"}
+{"word": "weddings", "english": "Weddings unite families in joyful celebration.", "thai": "งานแต่งงานรวมครอบครัวในความสุข"}
+{"word": "celebration", "english": "A big celebration marks milestone victories.", "thai": "การเฉลิมฉลองครั้งใหญ่เป็นเครื่องหมายของชัยชนะครั้งสำคัญ"}
+{"word": "victories", "english": "Victories in debates boost your confidence.", "thai": "ชัยชนะในการโต้วาทีเพิ่มความมั่นใจของคุณ"}
+{"word": "confidence", "english": "Confidence fuels bold career moves.", "thai": "ความมั่นใจขับเคลื่อนการเปลี่ยนแปลงอาชีพที่กล้าหาญ"}
+{"word": "career", "english": "A fulfilling career sparks daily motivation.", "thai": "อาชีพที่เติมเต็มจุดประกายแรงจูงใจทุกวัน"}
+{"word": "motivation", "english": "Motivation drives you to crush goals.", "thai": "แรงจูงใจผลักดันให้คุณบรรลุเป้าหมาย"}
+{"word": "goals", "english": "Clear goals shape a focused life.", "thai": "เป้าหมายที่ชัดเจนกำหนดชีวิตที่โฟกัส"}
+{"word": "life", "english": "Life’s surprises keep adventures fresh.", "thai": "ความประหลาดใจในชีวิตทำให้การผจญภัยยังคงสดใหม่"}
+{"word": "adventures", "english": "Adventures in nature recharge your soul.", "thai": "การผจญภัยในธรรมชาติเติมพลังให้จิตวิญญาณ"}
+{"word": "soul", "english": "A calm soul finds peace in chaos.", "thai": "จิตวิญญาณที่สงบพบความสงบในความโกลาหล"}
+{"word": "peace", "english": "Peace by the lake soothes stress.", "thai": "ความสงบข้างทะเลสาบปลอบประโลมความเครียด"}
+{"word": "stress", "english": "Stress fades with deep yoga breaths.", "thai": "ความเครียดจางหายไปด้วยลมหายใจโยคะลึกๆ"}
+{"word": "yoga", "english": "Yoga at sunrise boosts inner calm.", "thai": "โยคะตอนพระอาทิตย์ขึ้นเพิ่มความสงบภายใน"}
+{"word": "calm", "english": "A calm vibe sets perfect study sessions.", "thai": "บรรยากาศสงบสร้างเซสชันการเรียนที่สมบูรณ์แบบ"}
+{"word": "sessions", "english": "Jam sessions spark pure musical joy.", "thai": "เซสชันแจมจุดประกายความสุขดนตรีแท้ๆ"}
+{"word": "joy", "english": "Pure joy erupts at kids’ birthdays.", "thai": "ความสุขล้นหลามระเบิดออกมาในวันเกิดเด็กๆ"}
+{"word": "birthdays", "english": "Birthdays call for sweet homemade cakes.", "thai": "วันเกิดเรียกร้องเค้กโฮมเมดหวานๆ"}
+{"word": "cakes", "english": "Cakes at parties steal the show.", "thai": "เค้กในงานปาร์ตี้ขโมยซีน"}
+{"word": "show", "english": "A talent show highlights hidden skills.", "thai": "การแสดงความสามารถเน้นทักษะที่ซ่อนอยู่"}
+{"word": "skills", "english": "Coding skills unlock tech career paths.", "thai": "ทักษะการเขียนโค้ดเปิดเส้นทางอาชีพด้านเทคโนโลยี"}
+{"word": "tech", "english": "Tech gadgets simplify daily routines.", "thai": "อุปกรณ์เทคโนโลยีทำให้กิจวัตรประจำวันง่ายขึ้น"}
+{"word": "routines", "english": "Morning routines kickstart productive days.", "thai": "กิจวัตรตอนเช้าเริ่มต้นวันที่มีประสิทธิผล"}
+{"word": "days", "english": "Sunny days invite epic outdoor games.", "thai": "วันที่แดดจ้าชวนให้เล่นเกมกลางแจ้งสุดยิ่งใหญ่"}
+{"word": "games", "english": "Card games bring laughter to gatherings.", "thai": "เกมไพ่นำเสียงหัวเราะมาสู่การรวมตัว"}
+{"word": "laughter", "english": "Laughter heals hearts at tough moments.", "thai": "เสียงหัวเราะเยียวยาหัวใจในช่วงเวลาที่ยากลำบาก"}
+{"word": "hearts", "english": "Open hearts embrace new cultural experiences.", "thai": "หัวใจที่เปิดกว้างยอมรับประสบการณ์วัฒนธรรมใหม่"}
+{"word": "experiences", "english": "Travel experiences broaden your world view.", "thai": "ประสบการณ์การเดินทางขยายมุมมองโลกของคุณ"}
+{"word": "view", "english": "A mountain view inspires bold dreams.", "thai": "ทิวทัศน์ภูเขาสร้างแรงบันดาลใจให้ความฝันที่กล้าหาญ"}
+{"word": "dreams", "english": "Dreams of adventure fuel wanderlust souls.", "thai": "ความฝันถึงการผจญภัยเติมพลังให้จิตวิญญาณที่โหยหาการเดินทาง"}
+{"word": "souls", "english": "Creative souls shine in art studios.", "thai": "จิตวิญญาณที่สร้างสรรค์เปล่งประกายในสตูดิโอศิลปะ"}
+{"word": "art", "english": "Street art transforms dull urban corners.", "thai": "ศิลปะบนท้องถนนเปลี่ยนมุมเมืองที่น่าเบื่อ"}
+{"word": "urban", "english": "Urban markets buzz with vibrant energy.", "thai": "ตลาดในเมืองคึกคักด้วยพลังที่สดใส"}
+{"word": "energy", "english": "Solar energy powers eco-friendly homes.", "thai": "พลังงานแสงอาทิตย์ขับเคลื่อนบ้านที่เป็นมิตรต่อสิ่งแวดล้อม"}
+{"word": "homes", "english": "Cozy homes invite warm family nights.", "thai": "บ้านแสนอบอุ่นชวนให้มีค่ำคืนครอบครัวที่อบอุ่น"}
+{"word": "nights", "english": "Quiet nights spark deep poetic thoughts.", "thai": "ค่ำคืนเงียบสงบจุดประกายความคิดกวีที่ลึกซึ้ง"}
+{"word": "thoughts", "english": "Bold thoughts drive innovative startup ideas.", "thai": "ความคิดที่กล้าหาญผลักดันไอเดียสตาร์ทอัพที่สร้างสรรค์"}
+{"word": "ideas", "english": "Fresh ideas shake up old traditions.", "thai": "ไอเดียใหม่ๆ เขย่าประเพณีเก่า"}
+{"word": "traditions", "english": "Holiday traditions strengthen family ties.", "thai": "ประเพณีวันหยุดเสริมสร้างความผูกพันในครอบครัว"}
+{"word": "ties", "english": "Strong ties build trust in teams.", "thai": "ความผูกพันที่แข็งแกร่งสร้างความไว้วางใจในทีม"}
+{"word": "trust", "english": "Trust in friends makes life sweeter.", "thai": "ความไว้วางใจในเพื่อนทำให้ชีวิตหวานขึ้น"}
+{"word": "life", "english": "Life’s adventures spark endless stories.", "thai": "การผจญภัยในชีวิตจุดประกายเรื่องราวไม่รู้จบ"}
+{"word": "stories", "english": "Bedtime stories soothe restless little minds.", "thai": "นิทานก่อนนอนปลอบจิตใจเด็กน้อยที่กระสับกระส่าย"}
+{"word": "minds", "english": "Curious minds fuel groundbreaking discoveries.", "thai": "จิตใจที่อยากรู้อยากเห็นเติมพลังให้การค้นพบที่เปลี่ยนโลก"}
+{"word": "discoveries", "english": "Discoveries in science reshape our world.", "thai": "การค้นพบในวิทยาศาสตร์เปลี่ยนแปลงโลกของเรา"}
+{"word": "world", "english": "The world opens up through bold travel.", "thai": "โลกเปิดกว้างผ่านการเดินทางที่กล้าหาญ"}
+{"word": "travel", "english": "Travel by sea sparks wild imagination.", "thai": "การเดินทางทางทะเลจุดประกายจินตนาการที่ไร้ขีดจำกัด"}
+{"word": "imagination", "english": "Imagination crafts epic fantasy novels.", "thai": "จินตนาการสร้างนิยายแฟนตาซีสุดยิ่งใหญ่"}
+{"word": "novels", "english": "Novels transport readers to new realms.", "thai": "นิยายพาผู้อ่านไปสู่ดินแดนใหม่"}
+{"word": "readers", "english": "Readers dive deep into gripping mysteries.", "thai": "ผู้อ่านดำดิ่งสู่ปริศนาที่น่าติดตาม"}
+{"word": "mysteries", "english": "Mysteries unravel slowly in detective shows.", "thai": "ปริศนาคลายตัวช้าๆ ในรายการนักสืบ"}
+{"word": "shows", "english": "Live shows thrill audiences with raw energy.", "thai": "การแสดงสดทำให้ผู้ชมตื่นเต้นด้วยพลังดิบ"}
+{"word": "energy", "english": "Bursts of energy fuel morning workouts.", "thai": "พลังที่พุ่งพล่านเติมพลังให้การออกกำลังกายตอนเช้า"}
+{"word": "workouts", "english": "Workouts in parks boost your mood.", "thai": "การออกกำลังกายในสวนสาธารณะยกระดับอารมณ์ของคุณ"}
+{"word": "mood", "english": "A cheerful mood lights up any room.", "thai": "อารมณ์ร่าเริงทำให้ทุกห้องสว่างไสว"}
+{"word": "room", "english": "A cozy room invites deep relaxation.", "thai": "ห้องที่อบอุ่นชวนให้ผ่อนคลายอย่างลึกซึ้ง"}
+{"word": "relaxation", "english": "Relaxation by the pool feels like paradise.", "thai": "การพักผ่อนข้างสระน้ำรู้สึกเหมือนสวรรค์"}
+{"word": "pool", "english": "Pool parties spark summer fun vibes.", "thai": "ปาร์ตี้สระน้ำจุดประกายความสนุกในฤดูร้อน"}
+{"word": "fun", "english": "Outdoor fun builds strong childhood memories.", "thai": "ความสนุกกลางแจ้งสร้างความทรงจำวัยเด็กที่แข็งแกร่ง"}
+{"word": "memories", "english": "Memories of old songs stir nostalgia.", "thai": "ความทรงจำของเพลงเก่ากระตุ้นความคิดถึง"}
+{"word": "nostalgia", "english": "Nostalgia hits hard at class reunions.", "thai": "ความคิดถึงมาแรงในงานรวมรุ่น"}
+{"word": "reunions", "english": "Reunions bring old friends back together.", "thai": "งานรวมตัวทำให้เพื่อนเก่ากลับมาพบกัน"}
+{"word": "friends", "english": "Friends share secrets over late-night chats.", "thai": "เพื่อนแบ่งปันความลับในบทสนทนาดึกๆ"}
+{"word": "chats", "english": "Online chats connect distant global communities.", "thai": "การแชทออนไลน์เชื่อมโยงชุมชนทั่วโลกที่ห่างไกล"}
+{"word": "communities", "english": "Communities thrive on shared local projects.", "thai": "ชุมชนเจริญรุ่งเรืองด้วยโปรเจกต์ท้องถิ่นที่ทำร่วมกัน"}
+{"word": "projects", "english": "Creative projects ignite passion in teams.", "thai": "โปรเจกต์สร้างสรรค์จุดประกายความหลงใหลในทีม"}
+{"word": "passion", "english": "Passion for art drives bold creations.", "thai": "ความหลงใหลในศิลปะผลักดันการสร้างสรรค์ที่กล้าหาญ"}
+{"word": "creations", "english": "Creations in the kitchen yield tasty dishes.", "thai": "การสร้างสรรค์ในครัวให้ผลลัพธ์เป็นอาหารอร่อย"}
+{"word": "dishes", "english": "Spicy dishes awaken your taste buds.", "thai": "อาหารรสเผ็ดปลุกประสาทรับรสของคุณ"}
+{"word": "taste", "english": "A sharp taste wakes up your senses.", "thai": "รสชาติที่เข้มข้นปลุกประสาทสัมผัสของคุณ"}
+{"word": "senses", "english": "Heightened senses enhance outdoor adventures.", "thai": "ประสาทสัมผัสที่ตื่นตัวยกระดับการผจญภัยกลางแจ้ง"}
+{"word": "adventures", "english": "Adventures in jungles spark wild excitement.", "thai": "การผจญภัยในป่าจุดประกายความตื่นเต้นสุดขีด"}
+{"word": "excitement", "english": "Excitement builds at lively music festivals.", "thai": "ความตื่นเต้นเพิ่มขึ้นในงานเทศกาลดนตรีที่คึกคัก"}
+{"word": "festivals", "english": "Festivals bring communities together in joy.", "thai": "งานเทศกาลรวมชุมชนเข้าด้วยกันด้วยความสุข"}
+{"word": "joy", "english": "Pure joy erupts during surprise reunions.", "thai": "ความสุขล้นหลามระเบิดออกมาในงานรวมตัวที่ไม่คาดคิด"}
+{"word": "reunions", "english": "Reunions with friends stir warm memories.", "thai": "การรวมตัวกับเพื่อนกระตุ้นความทรงจำอันอบอุ่น"}
+{"word": "memories", "english": "Memories of childhood shape our dreams.", "thai": "ความทรงจำในวัยเด็กกำหนดความฝันของเรา"}
+{"word": "dreams", "english": "Bold dreams fuel fearless career moves.", "thai": "ความฝันที่กล้าหาญขับเคลื่อนการเปลี่ยนแปลงอาชีพที่ไม่เกรงกลัว"}
+{"word": "career", "english": "A thriving career sparks daily motivation.", "thai": "อาชีพที่รุ่งเรืองจุดประกายแรงจูงใจทุกวัน"}
+{"word": "motivation", "english": "Motivation pushes you through tough workouts.", "thai": "แรงจูงใจผลักดันคุณผ่านการออกกำลังกายที่หนักหน่วง"}
+{"word": "workouts", "english": "Morning workouts boost your daily energy.", "thai": "การออกกำลังกายตอนเช้าเพิ่มพลังให้วันของคุณ"}
+{"word": "energy", "english": "Bursts of energy drive epic dance parties.", "thai": "พลังที่พุ่งพล่านขับเคลื่อนปาร์ตี้เต้นรำสุดยิ่งใหญ่"}
+{"word": "parties", "english": "Parties with snacks create fun vibes.", "thai": "ปาร์ตี้ที่มีของว่างสร้างบรรยากาศสนุกสนาน"}
+{"word": "vibes", "english": "Chill vibes flow at cozy bonfires.", "thai": "บรรยากาศผ่อนคลายไหลลื่นในงานกองไฟแสนอบอุ่น"}
+{"word": "bonfires", "english": "Bonfires light up stories under stars.", "thai": "กองไฟส่องสว่างเรื่องราวใต้ดวงดาว"}
+{"word": "stars", "english": "Stars twinkle above quiet mountain camps.", "thai": "ดวงดาวระยิบระยับเหนือแคมป์ภูเขาที่เงียบสงบ"}
+{"word": "camps", "english": "Summer camps spark lifelong friendships.", "thai": "แคมป์ฤดูร้อนจุดประกายมิตรภาพตลอดชีวิต"}
+{"word": "friendships", "english": "Friendships grow through shared road trips.", "thai": "มิตรภาพเติบโตผ่านการเดินทางบนถนนที่แบ่งปัน"}
+{"word": "trips", "english": "Long trips inspire deep life reflections.", "thai": "การเดินทางไกลสร้างแรงบันดาลใจให้การไตร่ตรองชีวิตที่ลึกซึ้ง"}
+{"word": "reflections", "english": "Reflections in journals capture raw emotions.", "thai": "การไตร่ตรองในสมุดบันทึกจับอารมณ์ดิบ"}
+{"word": "emotions", "english": "Strong emotions fuel heartfelt love songs.", "thai": "อารมณ์ที่เข้มข้นขับเคลื่อนเพลงรักจากใจ"}
+{"word": "songs", "english": "Songs at concerts unite screaming crowds.", "thai": "เพลงในคอนเสิร์ตรวมฝูงชนที่กรี๊ดร้อง"}
+{"word": "crowds", "english": "Crowds cheer loudly at thrilling games.", "thai": "ฝูงชนโห่ร้องดังในเกมที่น่าตื่นเต้น"}
+{"word": "games", "english": "Board games spark laughter at gatherings.", "thai": "เกมกระดานจุดประกายเสียงหัวเราะในงานรวมตัว"}
+{"word": "laughter", "english": "Laughter heals hearts during tough moments.", "thai": "เสียงหัวเราะเยียวยาหัวใจในช่วงเวลาที่ยากลำบาก"}
+{"word": "hearts", "english": "Kind hearts shine in small acts of care.", "thai": "หัวใจที่เมตตาเปล่งประกายในความเอาใจใส่เล็กๆ"}
+{"word": "care", "english": "Care for pets brings daily warmth.", "thai": "การดูแลสัตว์เลี้ยงนำความอบอุ่นทุกวัน"}
+{"word": "pets", "english": "Pets cuddle close on chilly nights.", "thai": "สัตว์เลี้ยงกอดแน่นในคืนที่หนาวเย็น"}
+{"word": "nights", "english": "Quiet nights invite deep poetic musings.", "thai": "ค่ำคืนเงียบสงบชวนให้ครุ่นคิดกวีอย่างลึกซึ้ง"}
+{"word": "musings", "english": "Musings by the lake spark creative ideas.", "thai": "การครุ่นคิดข้างทะเลสาบจุดประกายไอเดียสร้างสรรค์"}
+{"word": "ideas", "english": "Bold ideas reshape stale old projects.", "thai": "ไอเดียที่กล้าหาญเปลี่ยนแปลงโปรเจกต์เก่าที่จืดชืด"}
+{"word": "projects", "english": "Group projects teach teamwork and patience.", "thai": "โปรเจกต์กลุ่มสอนการทำงานเป็นทีมและความอดทน"}
+{"word": "teamwork", "english": "Teamwork makes tough challenges feel lighter.", "thai": "การทำงานเป็นทีมทำให้ความท้าทายที่หนักหน่วงรู้สึกเบาลง"}
+{"word": "challenges", "english": "Challenges in sports build inner strength.", "thai": "ความท้าทายในกีฬาสร้างความแข็งแกร่งภายใน"}
+{"word": "strength", "english": "Mental strength shines in heated debates.", "thai": "ความแข็งแกร่งทางจิตใจเปล่งประกายในการโต้วาทีที่ดุเดือด"}
+{"word": "debates", "english": "Debates in class spark critical thinking.", "thai": "การโต้วาทีในชั้นเรียนจุดประกายการคิดวิเคราะห์"}
+{"word": "thinking", "english": "Clear thinking solves tricky life puzzles.", "thai": "การคิดที่ชัดเจนแก้ปริศนาชีวิตที่ซับซ้อน"}
+{"word": "puzzles", "english": "Puzzles at game nights test your wits.", "thai": "ปริศนาในค่ำคืนเกมทดสอบไหวพริบของคุณ"}
+{"word": "wits", "english": "Quick wits shine in lively trivia contests.", "thai": "ไหวพริบที่รวดเร็วเปล่งประกายในการแข่งขันทริเวียที่คึกคัก"}
+{"word": "contests", "english": "Contests at fairs spark friendly rivalries.", "thai": "การแข่งขันในงานเทศกาลจุดประกายการแข่งขันที่เป็นมิตร"}
+{"word": "rivalries", "english": "Rivalries in teams push players harder.", "thai": "การแข่งขันในทีมผลักดันผู้เล่นให้หนักขึ้น"}
+{"word": "players", "english": "Players in bands create soulful melodies.", "thai": "นักดนตรีในวงสร้างทำนองที่เต็มไปด้วยจิตวิญญาณ"}
+{"word": "melodies", "english": "Melodies from old records stir nostalgia.", "thai": "ทำนองจากแผ่นเสียงเก่ากระตุ้นความคิดถึง"}
+{"word": "nostalgia", "english": "Nostalgia hits hard at high school reunions.", "thai": "ความคิดถึงมาแรงในงานรวมรุ่นมัธยม"}
+{"word": "reunions", "english": "Reunions bring old stories back to life.", "thai": "งานรวมตัวทำให้เรื่องราวเก่ากลับมามีชีวิต"}
+{"word": "stories", "english": "Bedtime stories soothe kids to sleep.", "thai": "นิทานก่อนนอนปลอบเด็กๆ ให้หลับ"}
+{"word": "sleep", "english": "Deep sleep recharges your busy mind.", "thai": "การนอนหลับลึกเติมพลังให้จิตใจที่วุ่นวาย"}
+{"word": "mind", "english": "A curious mind unlocks new discoveries.", "thai": "จิตใจที่อยากรู้อยากเห็นเปิดประตูสู่การค้นพบใหม่"}
+{"word": "discoveries", "english": "Discoveries in tech shape modern lifestyles.", "thai": "การค้นพบในเทคโนโลยีกำหนดวิถีชีวิตสมัยใหม่"}
+{"word": "lifestyles", "english": "Active lifestyles boost your daily mood.", "thai": "วิถีชีวิตที่กระฉับกระเฉงยกระดับอารมณ์ประจำวันของคุณ"}
+{"word": "mood", "english": "A bright mood lights up any room.", "thai": "อารมณ์ที่สดใสทำให้ทุกห้องสว่างไสว"}
+{"word": "room", "english": "A cozy room invites warm conversations.", "thai": "ห้องที่อบอุ่นชวนให้สนทนาอย่างอบอุ่น"}
+{"word": "conversations", "english": "Late-night conversations spark lifelong bonds.", "thai": "การสนทนาดึกๆ จุดประกายความผูกพันตลอดชีวิต"}
+{"word": "bonds", "english": "Strong bonds make teams unstoppable.", "thai": "ความผูกพันที่แข็งแกร่งทำให้ทีมไม่มีอะไรหยุดได้"}
+{"word": "teams", "english": "Teams in startups drive bold innovations.", "thai": "ทีมในสตาร์ทอัพผลักดันนวัตกรรมที่กล้าหาญ"}
+{"word": "innovations", "english": "Innovations in art inspire fresh perspectives.", "thai": "นวัตกรรมในศิลปะสร้างแรงบันดาลใจให้มุมมองใหม่"}
+{"word": "perspectives", "english": "New perspectives solve old stubborn problems.", "thai": "มุมมองใหม่แก้ปัญหาเก่าที่ฝังแน่น"}
+{"word": "problems", "english": "Tackling problems head-on builds resilience.", "thai": "การเผชิญหน้ากับปัญหาตรงๆ สร้างความยืดหยุ่น"}
+{"word": "resilience", "english": "Resilience shines through life’s tough storms.", "thai": "ความยืดหยุ่นเปล่งประกายผ่านพายุที่หนักหน่วงของชีวิต"}
+{"word": "storms", "english": "Storms clear the air for brighter days.", "thai": "พายุทำให้อากาศปลอดโปร่งเพื่อวันใหม่ที่สดใส"}
+{"word": "days", "english": "Lazy days call for cozy book sessions.", "thai": "วันที่ขี้เกียจชวนให้อ่านหนังสืออย่างอบอุ่น"}
+{"word": "book", "english": "A good book transports you to new worlds.", "thai": "หนังสือดีๆ พาคุณไปสู่โลกใหม่"}
+{"word": "worlds", "english": "Fantasy worlds ignite wild creative sparks.", "thai": "โลกแฟนตาซีจุดประกายความสร้างสรรค์ที่ไร้ขีดจำกัด"}
+{"word": "sparks", "english": "Sparks from campfires light up ghost tales.", "thai": "ประกายไฟจากกองไฟส่องสว่างนิทานผี"}
+{"word": "tales", "english": "Tales of adventure fuel young imaginations.", "thai": "เรื่องราวการผจญภัยเติมพลังให้จินตนาการของเยาวชน"}
+{"word": "imaginations", "english": "Imaginations run wild during art classes.", "thai": "จินตนาการโลดแล่นในชั้นเรียนศิลปะ"}
+{"word": "art", "english": "Street art transforms dull city corners.", "thai": "ศิลปะบนท้องถนนเปลี่ยนมุมเมืองที่น่าเบื่อ"}
+{"word": "city", "english": "City markets buzz with vibrant energy.", "thai": "ตลาดในเมืองคึกคักด้วยพลังที่สดใส"}
+{"word": "energy", "english": "Bursts of energy fuel morning jogs.", "thai": "พลังที่พุ่งพล่านเติมพลังให้การวิ่งตอนเช้า"}
+{"word": "jogs", "english": "Jogs through parks lift your spirits.", "thai": "การวิ่งในสวนสาธารณะยกระดับจิตใจของคุณ"}
+{"word": "spirits", "english": "High spirits make holiday gatherings shine.", "thai": "จิตใจที่ร่าเริงทำให้งานรวมตัววันหยุดเปล่งประกาย"}
+{"word": "gatherings", "english": "Gatherings with family create warm memories.", "thai": "การรวมตัวกับครอบครัวสร้างความทรงจำที่อบอุ่น"}
+{"word": "memories", "english": "Memories of old songs stir deep emotions.", "thai": "ความทรงจำของเพลงเก่ากระตุ้นอารมณ์ลึกซึ้ง"}
+{"word": "emotions", "english": "Raw emotions fuel gripping stage plays.", "thai": "อารมณ์ดิบขับเคลื่อนละครเวทีที่น่าติดตาม"}
+{"word": "plays", "english": "Plays in theaters captivate eager audiences.", "thai": "ละครในโรงละครดึงดูดผู้ชมที่กระตือรือร้น"}
+{"word": "audiences", "english": "Audiences cheer wildly at live concerts.", "thai": "ผู้ชมโห่ร้องอย่างคึกคักในคอนเสิร์ตสด"}
+{"word": "concerts", "english": "Concerts under stars spark electric vibes.", "thai": "คอนเสิร์ตใต้ดวงดาวจุดประกายบรรยากาศที่ตื่นเต้น"}
+{"word": "vibes", "english": "Good vibes flow at beach barbecues.", "thai": "บรรยากาศดีๆ ไหลลื่นในงานบาร์บีคิวชายหาด"}
+{"word": "barbecues", "english": "Barbecues bring neighbors closer together.", "thai": "งานบาร์บีคิวทำให้เพื่อนบ้านใกล้ชิดกันมากขึ้น"}
+{"word": "neighbors", "english": "Neighbors share tools for quick home fixes.", "thai": "เพื่อนบ้านแบ่งปันเครื่องมือสำหรับการซ่อมบ้านอย่างรวดเร็ว"}
+{"word": "home", "english": "A cozy home invites warm family nights.", "thai": "บ้านที่อบอุ่นชวนให้มีค่ำคืนครอบครัวที่อบอุ่น"}
+{"word": "nights", "english": "Nights by the fire spark deep talks.", "thai": "ค่ำคืนข้างกองไฟจุดประกายการสนทนาที่ลึกซึ้ง"}
+{"word": "talks", "english": "Heartfelt talks strengthen lifelong friendships.", "thai": "การสนทนาจากใจเสริมสร้างมิตรภาพตลอดชีวิต"}
+{"word": "friendships", "english": "Friendships bloom over shared coffee breaks.", "thai": "มิตรภาพเบ่งบานในช่วงพักดื่มกาแฟที่แบ่งปัน"}
+{"word": "coffee", "english": "Coffee fuels early morning study sessions.", "thai": "กาแฟเติมพลังให้เซสชันการเรียนตอนเช้า"}
+{"word": "sessions", "english": "Study sessions sharpen your academic edge.", "thai": "เซสชันการเรียนฝึกฝนความเฉียบคมทางวิชาการ"}
+{"word": "academic", "english": "Academic challenges push students to grow.", "thai": "ความท้าทายทางวิชาการผลักดันนักเรียนให้เติบโต"}
+{"word": "students", "english": "Students thrive in creative classroom spaces.", "thai": "นักเรียนเจริญเติบโตในพื้นที่ห้องเรียนที่สร้างสรรค์"}
+{"word": "spaces", "english": "Open spaces inspire bold new ideas.", "thai": "พื้นที่เปิดกว้างสร้างแรงบันดาลใจให้ไอเดียใหม่ที่กล้าหาญ"}
+{"word": "ideas", "english": "Fresh ideas spark innovative art projects.", "thai": "ไอเดียใหม่ๆ จุดประกายโปรเจกต์ศิลปะที่สร้างสรรค์"}
+{"word": "projects", "english": "Group projects build strong team bonds.", "thai": "โปรเจกต์กลุ่มสร้างความผูกพันในทีมที่แข็งแกร่ง"}
+{"word": "bonds", "english": "Strong bonds make work feel like play.", "thai": "ความผูกพันที่แข็งแกร่งทำให้งานรู้สึกเหมือนการเล่น"}
+{"word": "play", "english": "Kids’ play fuels wild creative imaginations.", "thai": "การเล่นของเด็กเติมพลังให้จินตนาการสร้างสรรค์ที่ไร้ขีดจำกัด"}
+{"word": "imaginations", "english": "Imaginations run free in fantasy books.", "thai": "จินตนาการโลดแล่นในหนังสือแฟนตาซี"}
+{"word": "books", "english": "Books open doors to new perspectives.", "thai": "หนังสือเปิดประตูสู่มุมมองใหม่"}
+{"word": "perspectives", "english": "New perspectives reshape old stubborn habits.", "thai": "มุมมองใหม่เปลี่ยนแปลงนิสัยเก่าที่ฝังแน่น"}
+{"word": "habits", "english": "Good habits drive daily life success.", "thai": "นิสัยดีขับเคลื่อนความสำเร็จในชีวิตประจำวัน"}
+{"word": "success", "english": "Success in sports lifts team spirits.", "thai": "ความสำเร็จในกีฬายกระดับจิตวิญญาณของทีม"}
+{"word": "spirits", "english": "High spirits make parties truly epic.", "thai": "จิตใจที่ร่าเริงทำให้งานปาร์ตี้ยิ่งใหญ่จริงๆ"}
+{"word": "parties", "english": "Parties with music spark wild dancing.", "thai": "ปาร์ตี้ที่มีดนตรีจุดประกายการเต้นรำสุดเหวี่ยง"}
+{"word": "dancing", "english": "Dancing under stars feels like magic.", "thai": "การเต้นรำใต้ดวงดาวรู้สึกเหมือนมีเวทมนตร์"}
+{"word": "stars", "english": "Stars above camps inspire deep dreams.", "thai": "ดวงดาวเหนือแคมป์สร้างแรงบันดาลใจให้ความฝันที่ลึกซึ้ง"}
+{"word": "dreams", "english": "Dreams of adventure fuel bold travels.", "thai": "ความฝันถึงการผจญภัยขับเคลื่อนการเดินทางที่กล้าหาญ"}
+{"word": "travels", "english": "Travels abroad broaden your cultural horizons.", "thai": "การเดินทางไปต่างประเทศขยายขอบเขตวัฒนธรรมของคุณ"}
+{"word": "horizons", "english": "New horizons spark fresh creative ideas.", "thai": "ขอบฟ้าใหม่จุดประกายไอเดียสร้างสรรค์ที่สดใหม่"}
+{"word": "ideas", "english": "Bold ideas transform dull work projects.", "thai": "ไอเดียที่กล้าหาญเปลี่ยนโปรเจกต์งานที่น่าเบื่อ"}
+{"word": "projects", "english": "Group projects teach teamwork and patience.", "thai": "โปรเจกต์กลุ่มสอนการทำงานเป็นทีมและความอดทน"}
+{"word": "teamwork", "english": "Teamwork makes tough challenges feel lighter.", "thai": "การทำงานเป็นทีมทำให้ความท้าทายที่หนักหน่วงรู้สึกเบาลง"}
+{"word": "challenges", "english": "Challenges in life build inner resilience.", "thai": "ความท้าทายในชีวิตสร้างความยืดหยุ่นภายใน"}
+{"word": "resilience", "english": "Resilience shines through life’s wild storms.", "thai": "ความยืดหยุ่นเปล่งประกายผ่านพายุชีวิตที่ดุเดือด"}
+{"word": "storms", "english": "Storms clear the way for sunny days.", "thai": "พายุเปิดทางให้วันที่มีแดดจ้า"}
+{"word": "days", "english": "Lazy days call for cozy book nooks.", "thai": "วันที่ขี้เกียจชวนให้อ่านหนังสือในมุมแสนอบอุ่น"}
+{"word": "book", "english": "A good book sparks wild imagination.", "thai": "หนังสือดีๆ จุดประกายจินตนาการที่ไร้ขีดจำกัด"}
+{"word": "imagination", "english": "Imagination fuels epic fantasy game worlds.", "thai": "จินตนาการขับเคลื่อนโลกเกมแฟนตาซีสุดยิ่งใหญ่"}
+{"word": "worlds", "english": "New worlds unfold in gripping novels.", "thai": "โลกใหม่ๆ คลี่คลายในนิยายที่น่าติดตาม"}
+{"word": "novels", "english": "Novels by the fire warm cold nights.", "thai": "นิยายข้างกองไฟทำให้คืนหนาวอบอุ่น"}
+{"word": "nights", "english": "Quiet nights inspire deep journal entries.", "thai": "ค่ำคืนเงียบสงบสร้างแรงบันดาลใจให้บันทึกส่วนตัวที่ลึกซึ้ง"}
+{"word": "journal", "english": "A journal captures fleeting life moments.", "thai": "สมุดบันทึกจับช่วงเวลาชีวิตที่ผ่านไปอย่างรวดเร็ว"}
+{"word": "moments", "english": "Precious moments shine at family gatherings.", "thai": "ช่วงเวลาอันมีค่าเปล่งประกายในงานรวมตัวครอบครัว"}
+{"word": "gatherings", "english": "Gatherings with friends spark warm laughter.", "thai": "การรวมตัวกับเพื่อนจุดประกายเสียงหัวเราะอันอบอุ่น"}
+{"word": "laughter", "english": "Laughter heals hearts in tough times.", "thai": "เสียงหัวเราะเยียวยาหัวใจในยามยาก"}
+{"word": "hearts", "english": "Kind hearts shine through small caring acts.", "thai": "หัวใจที่เมตตาเปล่งประกายผ่านการกระทำที่ใส่ใจเล็กๆ"}
+{"word": "acts", "english": "Acts of kindness build strong communities.", "thai": "การกระทำที่เมตตาสร้างชุมชนที่แข็งแกร่ง"}
+{"word": "communities", "english": "Communities thrive on shared local projects.", "thai": "ชุมชนเจริญรุ่งเรืองด้วยโปรเจกต์ท้องถิ่นที่ทำร่วมกัน"}
+{"word": "projects", "english": "Creative projects ignite passion in teams.", "thai": "โปรเจกต์สร้างสรรค์จุดประกายความหลงใหลในทีม"}
+{"word": "passion", "english": "Passion for music fuels epic concerts.", "thai": "ความหลงใหลในดนตรีขับเคลื่อนคอนเสิร์ตสุดยิ่งใหญ่"}
+{"word": "concerts", "english": "Concerts under moonlight create electric vibes.", "thai": "คอนเสิร์ตใต้แสงจันทร์สร้างบรรยากาศที่ตื่นเต้น"}
+{"word": "vibes", "english": "Chill vibes flow at beach bonfires.", "thai": "บรรยากาศผ่อนคลายไหลลื่นในงานกองไฟชายหาด"}
+{"word": "bonfires", "english": "Bonfires light up tales of adventure.", "thai": "กองไฟส่องสว่างเรื่องราวการผจญภัย"}
+{"word": "tales", "english": "Tales from grandparents teach timeless wisdom.", "thai": "เรื่องเล่าจากปู่ย่าสอนปัญญาที่ไม่เคยล้าสมัย"}
+{"word": "wisdom", "english": "Wisdom guides choices in tricky situations.", "thai": "ปัญญานำทางในการเลือกในสถานการณ์ที่ซับซ้อน"}
+{"word": "choices", "english": "Smart choices pave the way to success.", "thai": "การเลือกที่ชาญฉลาดปูทางไปสู่ความสำเร็จ"}
+{"word": "success", "english": "Success in art sparks creative confidence.", "thai": "ความสำเร็จในศิลปะจุดประกายความมั่นใจในการสร้างสรรค์"}
+{"word": "confidence", "english": "Confidence shines in bold public speeches.", "thai": "ความมั่นใจเปล่งประกายในการปราศรัยต่อสาธารณะที่กล้าหาญ"}
+{"word": "speeches", "english": "Speeches at rallies ignite crowd passion.", "thai": "สุนทรพจน์ในงานชุมนุมจุดพลังให้ฝูงชน"}
+{"word": "passion", "english": "Passion for hobbies fuels joyful weekends.", "thai": "ความหลงใหลในงานอดิเรกเติมความสุขให้วันหยุดสุดสัปดาห์"}
+{"word": "weekends", "english": "Weekends by the lake refresh your soul.", "thai": "วันหยุดสุดสัปดาห์ข้างทะเลสาบทำให้จิตใจสดชื่น"}
+{"word": "soul", "english": "A calm soul finds peace in chaos.", "thai": "จิตวิญญาณที่สงบพบความสงบในความโกลาหล"}
+{"word": "peace", "english": "Peace in nature soothes daily stress.", "thai": "ความสงบในธรรมชาติปลอบประโลมความเครียดประจำวัน"}
+{"word": "stress", "english": "Stress melts away with deep yoga breaths.", "thai": "ความเครียดละลายหายไปด้วยลมหายใจโยคะลึกๆ"}
+{"word": "yoga", "english": "Yoga at sunrise boosts your inner calm.", "thai": "โยคะตอนพระอาทิตย์ขึ้นเพิ่มความสงบภายใน"}
+{"word": "calm", "english": "A calm mind tackles tough work challenges.", "thai": "จิตใจที่สงบจัดการกับความท้าทายในงานที่หนักหน่วง"}
+{"word": "challenges", "english": "Challenges in coding spark clever solutions.", "thai": "ความท้าทายในการเขียนโค้ดจุดประกายวิธีแก้ปัญหาที่ชาญฉลาด"}
+{"word": "solutions", "english": "Creative solutions transform boring routines.", "thai": "วิธีแก้ปัญหาที่สร้างสรรค์เปลี่ยนกิจวัตรที่น่าเบื่อ"}
+{"word": "routines", "english": "Morning routines set a productive tone.", "thai": "กิจวัตรตอนเช้ากำหนดโทนการทำงานที่มีประสิทธิผล"}
+{"word": "tone", "english": "A warm tone makes conversations inviting.", "thai": "น้ำเสียงที่อบอุ่นทำให้การสนทนาน่าดึงดูด"}
+{"word": "conversations", "english": "Deep conversations forge lifelong friendships.", "thai": "การสนทนาที่ลึกซึ้งสร้างมิตรภาพตลอดชีวิต"}
+{"word": "friendships", "english": "Friendships bloom over shared coffee breaks.", "thai": "มิตรภาพเบ่งบานในช่วงพักดื่มกาแฟที่แบ่งปัน"}
+{"word": "coffee", "english": "Coffee fuels early morning study sessions.", "thai": "กาแฟเติมพลังให้เซสชันการเรียนตอนเช้า"}
+{"word": "sessions", "english": "Study sessions sharpen your academic edge.", "thai": "เซสชันการเรียนฝึกฝนความเฉียบคมทางวิชาการ"}
+{"word": "academic", "english": "Academic goals drive focused study habits.", "thai": "เป้าหมายทางวิชาการผลักดันนิสัยการเรียนที่มุ่งมั่น"}
+{"word": "habits", "english": "Good habits shape a balanced life.", "thai": "นิสัยดีกำหนดชีวิตที่สมดุล"}
+{"word": "life", "english": "Life’s surprises keep adventures fresh.", "thai": "ความประหลาดใจในชีวิตทำให้การผจญภัยยังคงสดใหม่"}
+{"word": "adventures", "english": "Adventures in mountains test your courage.", "thai": "การผจญภัยในภูเขาทดสอบความกล้าของคุณ"}
+{"word": "courage", "english": "Courage in tough times earns respect.", "thai": "ความกล้าในยามยากได้รับความเคารพ"}
+{"word": "respect", "english": "Mutual respect strengthens team dynamics.", "thai": "ความเคารพซึ่งกันและกันเสริมความแข็งแกร่งให้พลวัตของทีม"}
+{"word": "dynamics", "english": "Team dynamics spark creative breakthroughs.", "thai": "พลวัตของทีมจุดประกายความก้าวหน้าทางความคิดสร้างสรรค์"}
+{"word": "breakthroughs", "english": "Breakthroughs in tech shape modern lives.", "thai": "ความก้าวหน้าในเทคโนโลยีกำหนดชีวิตสมัยใหม่"}
+{"word": "lives", "english": "Busy lives thrive on small joyful moments.", "thai": "ชีวิตที่วุ่นวายเจริญรุ่งเรืองด้วยช่วงเวลาความสุขเล็กๆ"}
+{"word": "moments", "english": "Quiet moments by the sea inspire peace.", "thai": "ช่วงเวลาที่เงียบสงบข้างทะเลสร้างแรงบันดาลใจให้ความสงบ"}
+{"word": "peace", "english": "Peace in the heart heals old wounds.", "thai": "ความสงบในใจเยียวยาบาดแผลเก่า"}
+{"word": "wounds", "english": "Time heals wounds with gentle care.", "thai": "เวลารักษาบาดแผลด้วยความเอาใจใส่ที่อ่อนโยน"}
+{"word": "care", "english": "Care for plants brings lush green gardens.", "thai": "การดูแลพืชทำให้สวนเขียวขจี"}
+{"word": "gardens", "english": "Gardens bloom with vibrant summer colors.", "thai": "สวนเบ่งบานด้วยสีสันฤดูร้อนที่สดใส"}
+{"word": "colors", "english": "Bright colors pop in bold street art.", "thai": "สีสันสดใสเด่นสะดุดตาในศิลปะบนท้องถนน"}
+{"word": "art", "english": "Art classes unleash wild creative sparks.", "thai": "ชั้นเรียนศิลปะปลดปล่อยประกายความคิดสร้างสรรค์ที่ไร้ขีดจำกัด"}
+{"word": "sparks", "english": "Sparks from campfires light up ghost stories.", "thai": "ประกายไฟจากกองไฟส่องสว่างนิทานผี"}
+{"word": "stories", "english": "Stories at bedtime soothe restless kids.", "thai": "นิทานก่อนนอนปลอบเด็กๆ ที่กระสับกระส่าย"}
+{"word": "kids", "english": "Kids love splashing in summer puddles.", "thai": "เด็กๆ ชอบกระโดดเล่นในแอ่งน้ำฤดูร้อน"}
+{"word": "summer", "english": "Summer vibes call for beach barbecues.", "thai": "บรรยากาศฤดูร้อนเรียกร้องงานบาร์บีคิวชายหาด"}
+{"word": "barbecues", "english": "Barbecues with friends spark warm laughter.", "thai": "งานบาร์บีคิวกับเพื่อนจุดประกายเสียงหัวเราะอันอบอุ่น"}
+{"word": "laughter", "english": "Laughter fills the air at comedy shows.", "thai": "เสียงหัวเราะดังก้องในงานแสดงตลก"}
+{"word": "shows", "english": "Live shows captivate audiences with raw energy.", "thai": "การแสดงสดดึงดูดผู้ชมด้วยพลังดิบ"}
+{"word": "energy", "english": "Bursts of energy fuel morning jogs.", "thai": "พลังที่พุ่งพล่านเติมพลังให้การวิ่งตอนเช้า"}
+{"word": "jogs", "english": "Jogs through parks lift your mood.", "thai": "การวิ่งในสวนสาธารณะยกระดับอารมณ์ของคุณ"}
+{"word": "mood", "english": "A bright mood lights up any room.", "thai": "อารมณ์ที่สดใสทำให้ทุกห้องสว่างไสว"}
+{"word": "room", "english": "A cozy room invites deep conversations.", "thai": "ห้องที่อบอุ่นชวนให้สนทนาลึกซึ้ง"}
+{"word": "conversations", "english": "Late-night conversations forge lifelong bonds.", "thai": "การสนทนาดึกๆ สร้างความผูกพันตลอดชีวิต"}
+{"word": "bonds", "english": "Strong bonds make teams unstoppable.", "thai": "ความผูกพันที่แข็งแกร่งทำให้ทีมไม่มีอะไรหยุดได้"}
+{"word": "teams", "english": "Teams in sports share epic victories.", "thai": "ทีมในกีฬาแบ่งปันชัยชนะสุดยิ่งใหญ่"}
+{"word": "victories", "english": "Victories in debates boost your confidence.", "thai": "ชัยชนะในการโต้วาทีเพิ่มความมั่นใจของคุณ"}
+{"word": "confidence", "english": "Confidence shines in bold new ventures.", "thai": "ความมั่นใจเปล sparkling ในกิจการใหม่ที่กล้าหาญ"}
+{"word": "ventures", "english": "Ventures in tech spark global innovations.", "thai": "กิจการในเทคโนโลยีจุดประกายนวัตกรรมระดับโลก"}
+{"word": "innovations", "english": "Innovations in art inspire fresh perspectives.", "thai": "นวัตกรรมในศิลปะสร้างแรงบันดาลใจให้มุมมองใหม่"}
+{"word": "perspectives", "english": "New perspectives solve old tricky problems.", "thai": "มุมมองใหม่แก้ปัญหาเก่าที่ซับซ้อน"}
+{"word": "problems", "english": "Tackling problems head-on builds inner strength.", "thai": "การเผชิญหน้ากับปัญหาตรงๆ สร้างความแข็งแกร่งภายใน"}
+{"word": "strength", "english": "Mental strength shines in tough negotiations.", "thai": "ความแข็งแกร่งทางจิตใจเปล่งประกายในการเจรจาที่ยากลำบาก"}
+{"word": "negotiations", "english": "Negotiations over coffee build business ties.", "thai": "การเจรจาขณะจิบกาแฟสร้างความสัมพันธ์ทางธุรกิจ"}
+{"word": "business", "english": "Business ideas thrive on bold risks.", "thai": "ไอเดียธุรกิจเจริญรุ่งเรืองด้วยความเสี่ยงที่กล้าหาญ"}
+{"word": "risks", "english": "Taking risks fuels epic life adventures.", "thai": "การเสี่ยงขับเคลื่อนการผจญภัยชีวิตสุดยิ่งใหญ่"}
+{"word": "adventures", "english": "Adventures in forests spark wild curiosity.", "thai": "การผจญภัยในป่าจุดประกายความอยากรู้อยากเห็นที่ไร้ขีดจำกัด"}
+{"word": "curiosity", "english": "Curiosity drives kids to explore nature.", "thai": "ความอยากรู้อยากเห็นผลักดันเด็กๆ ให้สำรวจธรรมชาติ"}
+{"word": "nature", "english": "Nature’s beauty inspires poetic journal entries.", "thai": "ความงามของธรรมชาติสร้างแรงบันดาลใจให้บันทึกกวี"}
+{"word": "journal", "english": "A journal holds your deepest life thoughts.", "thai": "สมุดบันทึกเก็บความคิดชีวิตที่ลึกซึ้งที่สุดของคุณ"}
+{"word": "thoughts", "english": "Bold thoughts spark creative art projects.", "thai": "ความคิดที่กล้าหาญจุดประกายโปรเจกต์ศิลปะสร้างสรรค์"}
+{"word": "projects", "english": "Group projects teach patience and teamwork.", "thai": "โปรเจกต์กลุ่มสอนความอดทนและการทำงานเป็นทีม"}
+{"word": "teamwork", "english": "Teamwork makes big dreams come true.", "thai": "การทำงานเป็นทีมทำให้ความฝันใหญ่เป็นจริง"}
+{"word": "dreams", "english": "Dreams of travel fuel wanderlust souls.", "thai": "ความฝันถึงการเดินทางเติมพลังให้จิตวิญญาณที่โหยหาการเดินทาง"}
+{"word": "travel", "english": "Travel sparks curiosity about new cultures.", "thai": "การเดินทางจุดประกายความอยากรู้เกี่ยวกับวัฒนธรรมใหม่"}
+{"word": "curiosity", "english": "Curiosity drives kids to explore science.", "thai": "ความอยากรู้อยากเห็นผลักดันเด็กๆ ให้สำรวจวิทยาศาสตร์"}
+{"word": "science", "english": "Science experiments ignite young creative minds.", "thai": "การทดลองวิทยาศาสตร์จุดประกายจิตใจสร้างสรรค์ของเยาวชน"}
+{"word": "minds", "english": "Open minds embrace bold new ideas.", "thai": "จิตใจที่เปิดกว้างยอมรับไอเดียใหม่ที่กล้าหาญ"}
+{"word": "ideas", "english": "Fresh ideas fuel epic art projects.", "thai": "ไอเดียใหม่ๆ ขับเคลื่อนโปรเจกต์ศิลปะสุดยิ่งใหญ่"}
+{"word": "art", "english": "Street art transforms dull city corners.", "thai": "ศิลปะบนท้องถนนเปลี่ยนมุมเมืองที่น่าเบื่อ"}
+{"word": "city", "english": "City markets buzz with vibrant energy.", "thai": "ตลาดในเมืองคึกคักด้วยพลังที่สดใส"}
+{"word": "energy", "english": "Bursts of energy fuel morning dance classes.", "thai": "พลังที่พุ่งพล่านเติมพลังให้ชั้นเรียนเต้นรำตอนเช้า"}
+{"word": "dance", "english": "Dance under moonlight sparks pure joy.", "thai": "การเต้นรำใต้แสงจันทร์จุดประกายความสุขล้วน"}
+{"word": "joy", "english": "Pure joy erupts at surprise birthday parties.", "thai": "ความสุขล้นหลามระเบิดออกมาในงานวันเกิดเซอร์ไพรส์"}
+{"word": "parties", "english": "Parties with friends spark warm laughter.", "thai": "ปาร์ตี้กับเพื่อนจุดประกายเสียงหัวเราะอันอบอุ่น"}
+{"word": "laughter", "english": "Laughter heals hearts in tough moments.", "thai": "เสียงหัวเราะเยียวยาหัวใจในช่วงเวลาที่ยากลำบาก"}
+{"word": "hearts", "english": "Kind hearts shine through small caring acts.", "thai": "หัวใจที่เมตตาเปล่งประกายผ่านการกระทำที่ใส่ใจเล็กๆ"}
+{"word": "acts", "english": "Acts of kindness build strong communities.", "thai": "การกระทำที่เมตตาสร้างชุมชนที่แข็งแกร่ง"}
+{"word": "communities", "english": "Communities thrive on shared local traditions.", "thai": "ชุมชนเจริญรุ่งเรืองด้วยประเพณีท้องถิ่นที่แบ่งปัน"}
+{"word": "traditions", "english": "Holiday traditions strengthen family bonds.", "thai": "ประเพณีวันหยุดเสริมสร้างความผูกพันในครอบครัว"}
+{"word": "bonds", "english": "Strong bonds make teams unstoppable.", "thai": "ความผูกพันที่แข็งแกร่งทำให้ทีมไม่มีอะไรหยุดได้"}
+{"word": "teams", "english": "Teams in sports share epic victories.", "thai": "ทีมในกีฬาแบ่งปันชัยชนะสุดยิ่งใหญ่"}
+{"word": "victories", "english": "Victories in debates boost your confidence.", "thai": "ชัยชนะในการโต้วาทีเพิ่มความมั่นใจของคุณ"}
+{"word": "confidence", "english": "Confidence shines in bold public speeches.", "thai": "ความมั่นใจเปล่งประกายในการปราศรัยต่อสาธารณะที่กล้าหาญ"}
+{"word": "speeches", "english": "Speeches at rallies ignite crowd passion.", "thai": "สุนทรพจน์ในงานชุมนุมจุดพลังให้ฝูงชน"}
+{"word": "passion", "english": "Passion for music fuels soulful concerts.", "thai": "ความหลงใหลในดนตรีขับเคลื่อนคอนเสิร์ตที่เต็มไปด้วยจิตวิญญาณ"}
+{"word": "concerts", "english": "Concerts under stars spark electric vibes.", "thai": "คอนเสิร์ตใต้ดวงดาวจุดประกายบรรยากาศที่ตื่นเต้น"}
+{"word": "vibes", "english": "Chill vibes flow at beach bonfires.", "thai": "บรรยากาศผ่อนคลายไหลลื่นในงานกองไฟชายหาด"}
+{"word": "bonfires", "english": "Bonfires light up tales of adventure.", "thai": "กองไฟส่องสว่างเรื่องราวการผจญภัย"}
+{"word": "tales", "english": "Tales from books spark wild imaginations.", "thai": "เรื่องเล่าจากหนังสือจุดประกายจินตนาการที่ไร้ขีดจำกัด"}
+{"word": "imaginations", "english": "Imaginations run free in creative writing classes.", "thai": "จินตนาการโลดแล่นในชั้นเรียนเขียนเชิงสร้างสรรค์"}
+{"word": "writing", "english": "Writing in journals captures fleeting emotions.", "thai": "การเขียนในสมุดบันทึกจับอารมณ์ที่ผ่านไปอย่างรวดเร็ว"}
+{"word": "emotions", "english": "Raw emotions fuel gripping stage plays.", "thai": "อารมณ์ดิบขับเคลื่อนละครเวทีที่น่าติดตาม"}
+{"word": "plays", "english": "Plays in theaters captivate eager audiences.", "thai": "ละครในโรงละครดึงดูดผู้ชมที่กระตือรือร้น"}
+{"word": "audiences", "english": "Audiences cheer wildly at live sports events.", "thai": "ผู้ชมโห่ร้องอย่างคึกคักในงานกีฬาสด"}
+{"word": "events", "english": "Community events spark local pride.", "thai": "งานชุมชนจุดประกายความภาคภูมิใจในท้องถิ่น"}
+{"word": "pride", "english": "Pride in your work drives big wins.", "thai": "ความภาคภูมิใจในงานผลักดันชัยชนะครั้งใหญ่"}
+{"word": "wins", "english": "Small wins fuel daily motivation.", "thai": "ชัยชนะเล็กๆ เติมพลังให้แรงจูงใจทุกวัน"}
+{"word": "motivation", "english": "Motivation pushes you to chase bold goals.", "thai": "แรงจูงใจผลักดันให้คุณไล่ตามเป้าหมายที่กล้าหาญ"}
+{"word": "goals", "english": "Clear goals shape a focused career path.", "thai": "เป้าหมายที่ชัดเจนกำหนดเส้นทางอาชีพที่มุ่งมั่น"}
+{"word": "career", "english": "A thriving career sparks lifelong learning.", "thai": "อาชีพที่รุ่งเรืองจุดประกายการเรียนรู้ตลอดชีวิต"}
+{"word": "learning", "english": "Learning new skills opens fresh opportunities.", "thai": "การเรียนรู้ทักษะใหม่เปิดโอกาสใหม่ๆ"}
+{"word": "opportunities", "english": "Opportunities in tech fuel bold innovations.", "thai": "โอกาสในเทคโนโลยีขับเคลื่อนนวัตกรรมที่กล้าหาญ"}
+{"word": "innovations", "english": "Innovations in art inspire new perspectives.", "thai": "นวัตกรรมในศิลปะสร้างแรงบันดาลใจให้มุมมองใหม่"}
+{"word": "perspectives", "english": "Fresh perspectives solve old tricky problems.", "thai": "มุมมองใหม่แก้ปัญหาเก่าที่ซับซ้อน"}
+{"word": "problems", "english": "Tackling problems head-on builds inner strength.", "thai": "การเผชิญหน้ากับปัญหาตรงๆ สร้างความแข็งแกร่งภายใน"}
+{"word": "strength", "english": "Mental strength shines in tough negotiations.", "thai": "ความแข็งแกร่งทางจิตใจเปล่งประกายในการเจรจาที่ยากลำบาก"}
+{"word": "negotiations", "english": "Negotiations over coffee build business ties.", "thai": "การเจรจาขณะจิบกาแฟสร้างความสัมพันธ์ทางธุรกิจ"}
+{"word": "business", "english": "Business ventures thrive on bold risks.", "thai": "กิจการธุรกิจเจริญรุ่งเรืองด้วยความเสี่ยงที่กล้าหาญ"}
+{"word": "risks", "english": "Taking risks fuels epic life adventures.", "thai": "การเสี่ยงขับเคลื่อนการผจญภัยชีวิตสุดยิ่งใหญ่"}
+{"word": "adventures", "english": "Adventures in nature spark deep curiosity.", "thai": "การผจญภัยในธรรมชาติจุดประกายความอยากรู้อยากเห็นที่ลึกซึ้ง"}
+{"word": "curiosity", "english": "Curiosity drives kids to explore new hobbies.", "thai": "ความอยากรู้อยากเห็นผลักดันเด็กๆ ให้สำรวจงานอดิเรกใหม่"}
+{"word": "hobbies", "english": "Hobbies like painting unleash creative sparks.", "thai": "งานอดิเรกอย่างการวาดภาพปลดปล่อยประกายความคิดสร้างสรรค์"}
+{"word": "sparks", "english": "Sparks from campfires light up ghost stories.", "thai": "ประกายไฟจากกองไฟส่องสว่างนิทานผี"}
+{"word": "stories", "english": "Bedtime stories soothe restless young minds.", "thai": "นิทานก่อนนอนปลอบจิตใจเยาวชนที่กระสับกระส่าย"}
+{"word": "minds", "english": "Curious minds fuel groundbreaking discoveries.", "thai": "จิตใจที่อยากรู้อยากเห็นเติมพลังให้การค้นพบที่เปลี่ยนโลก"}
+{"word": "discoveries", "english": "Discoveries in science reshape modern lives.", "thai": "การค้นพบในวิทยาศาสตร์เปลี่ยนแปลงชีวิตสมัยใหม่"}
+{"word": "lives", "english": "Busy lives thrive on small joyful moments.", "thai": "ชีวิตที่วุ่นวายเจริญรุ่งเรืองด้วยช่วงเวลาความสุขเล็กๆ"}
+{"word": "moments", "english": "Quiet moments by the sea inspire peace.", "thai": "ช่วงเวลาที่เงียบสงบข้างทะเลสร้างแรงบันดาลใจให้ความสงบ"}
+{"word": "peace", "english": "Peace in the heart heals old wounds.", "thai": "ความสงบในใจเยียวยาบาดแผลเก่า"}
+{"word": "wounds", "english": "Time heals wounds with gentle care.", "thai": "เวลารักษาบาดแผลด้วยความเอาใจใส่ที่อ่อนโยน"}
+{"word": "care", "english": "Care for pets brings daily warmth.", "thai": "การดูแลสัตว์เลี้ยงนำความอบอุ่นทุกวัน"}
+{"word": "pets", "english": "Pets cuddle close on chilly evenings.", "thai": "สัตว์เลี้ยงกอดแน่นในยามเย็นที่หนาวเย็น"}
+{"word": "evenings", "english": "Quiet evenings spark deep journal reflections.", "thai": "ยามเย็นที่เงียบสงบจุดประกายการไตร่ตรองในสมุดบันทึก"}
+{"word": "journal", "english": "A journal captures fleeting life memories.", "thai": "สมุดบันทึกจับความทรงจำชีวิตที่ผ่านไปอย่างรวดเร็ว"}
+{"word": "memories", "english": "Memories of childhood spark warm nostalgia.", "thai": "ความทรงจำในวัยเด็กจุดประกายความคิดถึงที่อบอุ่น"}
+{"word": "nostalgia", "english": "Nostalgia hits hard at old school reunions.", "thai": "ความคิดถึงมาแรงในงานรวมรุ่นโรงเรียนเก่า"}
+{"word": "reunions", "english": "Reunions with friends revive old bonds.", "thai": "การรวมตัวกับเพื่อนฟื้นคืนความผูกพันเก่า"}
+{"word": "bonds", "english": "Strong bonds make teams unbeatable.", "thai": "ความผูกพันที่แข็งแกร่งทำให้ทีมไม่มีใครเทียบได้"}
+{"word": "teams", "english": "Teams in startups drive bold innovations.", "thai": "ทีมในสตาร์ทอัพผลักดันนวัตกรรมที่กล้าหาญ"}
+{"word": "innovations", "english": "Innovations in tech spark global change.", "thai": "นวัตกรรมในเทคโนโลยีจุดประกายการเปลี่ยนแปลงระดับโลก"}
+{"word": "change", "english": "Change in routines boosts daily energy.", "thai": "การเปลี่ยนแปลงในกิจวัตรเพิ่มพลังประจำวัน"}
+{"word": "energy", "english": "Bursts of energy fuel epic morning runs.", "thai": "พลังที่พุ่งพล่านเติมพลังให้การวิ่งตอนเช้าสุดยิ่งใหญ่"}
+{"word": "runs", "english": "Runs through parks lift your spirits.", "thai": "การวิ่งผ่านสวนสาธารณะยกระดับจิตใจของคุณ"}
+{"word": "spirits", "english": "High spirits make holiday gatherings shine.", "thai": "จิตใจที่ร่าเริงทำให้งานรวมตัววันหยุดเปล่งประกาย"}
+{"word": "gatherings", "english": "Gatherings with family create lasting memories.", "thai": "การรวมตัวกับครอบครัวสร้างความทรงจำที่ยั่งยืน"}
+{"word": "memories", "english": "Memories of old songs stir deep emotions.", "thai": "ความทรงจำของเพลงเก่ากระตุ้นอารมณ์ลึกซึ้ง"}
+{"word": "emotions", "english": "Raw emotions fuel gripping poetry readings.", "thai": "อารมณ์ดิบขับเคลื่อนการอ่านบทกวีที่น่าติดตาม"}
+{"word": "poetry", "english": "Poetry captures life’s fleeting beauty.", "thai": "บทกวีจับความงามที่ผ่านไปอย่างรวดเร็วของชีวิต"}
+{"word": "beauty", "english": "Natural beauty inspires quiet forest walks.", "thai": "ความงามของธรรมชาติสร้างแรงบันดาลใจให้เดินป่าอย่างเงียบสงบ"}
+{"word": "walks", "english": "Walks by the beach soothe restless souls.", "thai": "การเดินเล่นริมชายหาดปลอบประโลมจิตวิญญาณที่กระสับกระส่าย"}
+{"word": "souls", "english": "Creative souls shine in art studios.", "thai": "จิตวิญญาณที่สร้างสรรค์เปล่งประกายในสตูดิโอศิลปะ"}
+{"word": "studios", "english": "Studios buzz with bold creative projects.", "thai": "สตูดิโอคึกคักด้วยโปรเจกต์สร้างสรรค์ที่กล้าหาญ"}
+{"word": "projects", "english": "Group projects teach patience and teamwork.", "thai": "โปรเจกต์กลุ่มสอนความอดทนและการทำงานเป็นทีม"}
+{"word": "teamwork", "english": "Teamwork makes big dreams come true.", "thai": "การทำงานเป็นทีมทำให้ความฝันใหญ่เป็นจริง"}
+{"word": "dreams", "english": "Dreams of adventure fuel bold journeys.", "thai": "ความฝันถึงการผจญภัยขับเคลื่อนการเดินทางที่กล้าหาญ"}
+{"word": "journeys", "english": "Journeys through mountains spark inner peace.", "thai": "การเดินทางผ่านภูเขาจุดประกายความสงบภายใน"}
+{"word": "peace", "english": "Peace in the heart heals daily stress.", "thai": "ความสงบในใจเยียวยาความเครียดประจำวัน"}
+{"word": "stress", "english": "Stress fades with deep yoga sessions.", "thai": "ความเครียดจางหายไปด้วยเซสชันโยคะที่ลึกซึ้ง"}
+{"word": "yoga", "english": "Yoga by sunrise boosts your inner calm.", "thai": "โยคะตอนพระอาทิตย์ขึ้นเพิ่มความสงบภายใน"}
+{"word": "calm", "english": "A calm mind tackles tough life challenges.", "thai": "จิตใจที่สงบจัดการกับความท้าทายชีวิตที่หนักหน่วง"}
+{"word": "challenges", "english": "Challenges in sports build team spirit.", "thai": "ความท้าทายในกีฬาสร้างจิตวิญญาณของทีม"}
+{"word": "spirit", "english": "Festive spirit fills markets with joy.", "thai": "จิตวิญญาณแห่งเทศกาลเติมเต็มตลาดด้วยความสุข"}
+{"word": "markets", "english": "Flea markets hide treasures for collectors.", "thai": "ตลาดนัดซ่อนสมบัติสำหรับนักสะสม"}
+{"word": "treasures", "english": "Treasures in old books spark curiosity.", "thai": "สมบัติในหนังสือเก่าจุดประกายความอยากรู้อยากเห็น"}
+{"word": "curiosity", "english": "Curiosity drives kids to explore new worlds.", "thai": "ความอยากรู้อยากเห็นผลักดันเด็กๆ ให้สำรวจโลกใหม่"}
+{"word": "worlds", "english": "Fantasy worlds unfold in gripping novels.", "thai": "โลกแฟนตาซีคลี่คลายในนิยายที่น่าติดตาม"}
+{"word": "novels", "english": "Novels by the fire warm cold evenings.", "thai": "นิยายข้างกองไฟทำให้ยามเย็นที่หนาวอบอุ่น"}
+{"word": "evenings", "english": "Quiet evenings inspire deep poetic thoughts.", "thai": "ยามเย็นที่เงียบสงบสร้างแรงบันดาลใจให้ความคิดกวีที่ลึกซึ้ง"}
+{"word": "thoughts", "english": "Bold thoughts spark innovative startup ideas.", "thai": "ความคิดที่กล้าหาญจุดประกายไอเดียสตาร์ทอัพที่สร้างสรรค์"}
+{"word": "ideas", "english": "Fresh ideas transform dull work routines.", "thai": "ไอเดียใหม่ๆ เปลี่ยนกิจวัตรงานที่น่าเบื่อ"}
+{"word": "routines", "english": "Morning routines set a productive vibe.", "thai": "กิจวัตรตอนเช้ากำหนดบรรยากาศที่มีประสิทธิผล"}
+{"word": "vibe", "english": "A chill vibe makes coffee chats cozy.", "thai": "บรรยากาศผ่อนคลายทำให้การแชทกาแฟแสนอบอุ่น"}
+{"word": "coffee", "english": "Coffee fuels late-night study marathons.", "thai": "กาแฟเติมพลังให้การเรียนดึกดื่น"}
+{"word": "study", "english": "Study sessions sharpen your academic skills.", "thai": "เซสชันการเรียนฝึกฝนทักษะทางวิชาการของคุณ"}
