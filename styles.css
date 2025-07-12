@@ -36,6 +36,14 @@ body {
   line-height: 1.2;
 }
 
+.error-message {
+  color: #ff4081;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 20px;
+  max-width: 90%;
+}
+
 .stats-bar {
   width: 100%;
   max-width: 400px;
