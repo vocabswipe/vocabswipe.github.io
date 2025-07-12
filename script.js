@@ -24,17 +24,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
     let escapedSentence = escapeHTML(sentence);
     for (const { word, color } of wordsToHighlight) {
-      const regex = new RegExp(`\\b${escapeHTML(word)}\\b`, 'gi');
+      const regex = new RegExp(`\\b${escapeHTML(word)}\\b`, 'g'); // Case-sensitive
       escapedSentence = escapedSentence.replace(regex, match =>
         `<span class="highlight" style="color: ${color}">${match}</span>`
       );
@@ -51,12 +51,19 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!entries.length) throw new Error('No entries in database.jsonl');
 
       totalWordsEl.textContent = entries.length;
-      const uniqueWords = new Set(entries.map(entry => entry.word.toLowerCase()));
-      uniqueWordsEl.textContent = uniqueWords.size;
+      // Create a map to store original case for each word (case-insensitive key)
+      const wordCaseMap = new Map();
+      entries.forEach(entry => {
+        const lowerWord = entry.word.toLowerCase();
+        if (!wordCaseMap.has(lowerWord)) {
+          wordCaseMap.set(lowerWord, entry.word); // Store original case
+        }
+      });
+      uniqueWordsEl.textContent = wordCaseMap.size;
       totalSentencesEl.textContent = entries.length;
 
       wordCloud.style.display = 'block';
-      displayWordCloud(uniqueWords);
+      displayWordCloud(wordCaseMap);
     } catch (error) {
       console.error('Error:', error.message);
       wordCloud.textContent = 'Failed to load vocabulary data. Please check if data/database.jsonl exists.';
@@ -92,34 +99,34 @@ document.addEventListener('DOMContentLoaded', () => {
     return false;
   }
 
-  function displayWordCloud(uniqueWords) {
+  function displayWordCloud(wordCaseMap) {
     const wordFreq = {};
     entries.forEach(entry => {
-      const word = entry.word.toLowerCase();
-      wordFreq[word] = (wordFreq[word] || 0) + 1;
+      const lowerWord = entry.word.toLowerCase();
+      wordFreq[lowerWord] = (word寡:wordFreq[lowerWord] || 0) + 1;
     });
 
     const maxFreq = Math.max(...Object.values(wordFreq));
-    const minFreq = Math.min(...Object.values(wordFreq));
+    const minFreq = Math.max(1, Math.min(...Object.values(wordFreq))); // Avoid division by zero
     const containerWidth = window.innerWidth;
-    const containerHeight = Math.max(window.innerHeight * 0.8, uniqueWords.size * 10);
+    const containerHeight = Math.max(window.innerHeight * 0.8, wordCaseMap.size * 10);
     wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
 
     const placedWords = [];
-    const wordArray = Array.from(uniqueWords)
-      .map(word => ({ word, freq: wordFreq[word] }))
+    const wordArray = Array.from(wordCaseMap.entries())
+      .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
       .sort((a, b) => b.freq - a.freq);
 
     wordArray.forEach(({ word, freq }, index) => {
       const wordEl = document.createElement('div');
       wordEl.className = 'cloud-word';
-      wordEl.textContent = word;
+      wordEl.textContent = word; // Use original case
       const size = 0.8 + (freq / maxFreq) * 2.2;
       wordEl.style.fontSize = `${size}rem`;
       const wordColor = colors[Math.floor(Math.random() * colors.length)];
       wordEl.style.color = wordColor;
-      wordColors.set(word, wordColor);
+      wordColors.set(word.toLowerCase(), wordColor); // Store color with lowercase key
       wordEl.style.opacity = '0';
       wordCloud.appendChild(wordEl);
 
@@ -127,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let x, y, placed = false;
       const maxAttempts = 500;
 
-      // Random placement with minimal spacing
+      // Random placement
       for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
         x = Math.random() * (containerWidth - width);
         y = Math.random() * (containerHeight - height);
@@ -181,8 +188,8 @@ document.addEventListener('DOMContentLoaded', () => {
             flashcardContainer.style.opacity = '1';
           }, 50);
 
-          currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word);
-          currentColorIndex = colors.indexOf(wordColors.get(word));
+          currentIndex = entries.findIndex(entry => entry.word === word); // Case-sensitive match
+          currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
           displayEntry(currentIndex);
         }, 300);
       });
@@ -207,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
           e.touches[0].clientY - e.touches[1].clientY
         );
         const newScale = currentScale * (pinchDistance / pinchStartDistance);
-        currentScale = Math.max(1, Math.min(newScale, 3)); // Limit zoom between 1x and 3x
+        currentScale = Math.max(1, Math.min(newScale, 3));
         wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
         pinchStartDistance = pinchDistance;
       } else if (e.touches.length === 1 && currentScale > 1) {
