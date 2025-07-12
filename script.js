@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
             currentIndex++;
-            currentColorIndex = (currentColorurrentIndex + 1) % colors.length;
+            currentColorIndex = (currentColorIndex + 1) % colors.length; // Fixed typo here
             displayEntry(currentIndex);
         } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
             currentIndex--;
