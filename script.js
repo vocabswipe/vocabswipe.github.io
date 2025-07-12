@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const englishEl = document.getElementById('english');
   const thaiEl = document.getElementById('thai');
   const audioErrorEl = document.getElementById('audio-error');
+  const loadingMessage = document.getElementById('loading-message');
   const logo = document.querySelector('.logo');
   const slogan = document.querySelector('.slogan');
 
@@ -27,11 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -50,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   async function loadData() {
     try {
       wordCloud.style.display = 'block'; // Ensure word cloud is visible
+      loadingMessage.style.display = 'block'; // Show loading message
       console.log('Fetching data/database.jsonl...');
       const response = await fetch('data/database.jsonl');
       if (!response.ok) {
@@ -71,9 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       console.log(`Loaded ${entries.length} entries`);
+      loadingMessage.style.display = 'none'; // Hide loading message
       displayWordCloud();
     } catch (error) {
       console.error('LoadData Error:', error);
+      loadingMessage.style.display = 'none'; // Hide loading message
       wordCloud.innerHTML = `
         <div class="error-message">
           Failed to load vocabulary data. Please ensure 'data/database.jsonl' exists and is valid.
@@ -167,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
 
-    wordCloud.innerHTML = ''; // Clear any existing content
+    wordCloud.innerHTML = ''; // Clear loading message or error
     const placedWords = [];
     const wordArray = Array.from(wordCaseMap.entries())
       .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
