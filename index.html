@@ -8,12 +8,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+Thai:wght@400;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
+  <div class="word-cloud" id="word-cloud"></div>
   <div class="stats-bar" id="stats-bar">
     <div class="stat">Words: <span id="total-words">0</span></div>
     <div class="stat">Unique Words: <span id="unique-words">0</span></div>
     <div class="stat">Sentences: <span id="total-sentences">0</span></div>
   </div>
-  <div class="container">
+  <div class="container" id="flashcard-container" style="display: none;">
     <div class="flashcard" id="flashcard">
       <div class="content">
         <div class="word" id="word"></div>
