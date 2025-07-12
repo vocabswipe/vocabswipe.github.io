@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const uniqueWords = new Set(entries.map(entry => entry.word.toLowerCase()));
       uniqueWordsEl.textContent = uniqueWords.size;
       totalSentencesEl.textContent = entries.length;
-      statsBar.classList.add('loaded');
 
       displayWordCloud(uniqueWords);
     } catch (error) {
@@ -61,12 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
       wordCloud.style.fontSize = '1.2rem';
       wordCloud.style.textAlign = 'center';
       wordCloud.style.padding = '20px';
-      statsBar.style.display = 'none';
     }
   }
 
   function isOverlapping(x, y, width, height, placedWords) {
-    const padding = 20; // Increased padding for better readability
+    const padding = 30; // Minimum distance between words (adjustable: e.g., 20px for tighter, 40px for looser)
     for (const word of placedWords) {
       const left1 = x;
       const right1 = x + width;
@@ -98,14 +96,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const maxFreq = Math.max(...Object.values(wordFreq));
     const minFreq = Math.min(...Object.values(wordFreq));
-    const containerWidth = window.innerWidth;
-    const containerHeight = window.innerHeight * 2;
+    const containerWidth = window.innerWidth - 40; // Account for padding
+    const containerHeight = window.innerHeight * 2 - 40; // Account for padding
+    const placedWords = [];
 
     const wordArray = Array.from(uniqueWords)
       .map(word => ({ word, freq: wordFreq[word] }))
       .sort((a, b) => b.freq - a.freq);
 
-    const placedWords = [];
     wordArray.forEach(({ word, freq }, index) => {
       const wordEl = document.createElement('div');
       wordEl.className = 'cloud-word';
@@ -118,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const { width, height } = wordEl.getBoundingClientRect();
       let x, y, attempts = 0;
-      const maxAttempts = 50; // Reduced for performance
+      const maxAttempts = 50;
 
       do {
         x = Math.random() * (containerWidth - width);
@@ -127,12 +125,12 @@ document.addEventListener('DOMContentLoaded', () => {
       } while (isOverlapping(x, y, width, height, placedWords) && attempts < maxAttempts);
 
       if (attempts < maxAttempts) {
-        wordEl.style.left = `${x}px`;
-        wordEl.style.top = `${y}px`;
+        wordEl.style.left = `${x + 20}px`; // Offset for container padding
+        wordEl.style.top = `${y + 20}px`; // Offset for container padding
         placedWords.push({ x, y, width, height });
       } else {
-        wordEl.style.left = `${Math.random() * (containerWidth - width)}px`;
-        wordEl.style.top = `${Math.random() * (containerHeight - height)}px`;
+        wordEl.style.left = `${Math.random() * (containerWidth - width) + 20}px`;
+        wordEl.style.top = `${Math.random() * (containerHeight - height) + 20}px`;
       }
 
       const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
@@ -156,6 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
           wordCloud.style.display = 'none';
+          statsBar.style.display = 'flex'; // Show stats bar when flashcard appears
+          statsBar.classList.add('loaded');
           flashcardContainer.style.display = 'flex';
           flashcardContainer.style.opacity = '0';
           flashcardContainer.style.transition = 'opacity 1s ease';
