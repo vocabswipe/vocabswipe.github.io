@@ -19,7 +19,7 @@ body {
 .word-cloud {
   position: relative;
   width: 100%;
-  min-height: 200vh;
+  min-height: 100vh; /* Initial height, will be adjusted dynamically */
   overflow-y: auto;
   padding: 20px;
 }
