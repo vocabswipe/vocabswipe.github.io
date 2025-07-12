@@ -1,5 +1,4 @@
-Use the last entry from the previously generated JSONL code block as the first entry for this series. If no previous JSONL code block is provided, use this as the first entry:
-{"word": "dress", "english": "She wore a dress to the wedding.", "thai": "เธอใส่ชุดไปงานแต่ง"}
+Use the last entry from the previously generated JSONL code block as the first entry for this series. 
 
 Generate a series of 99 entries in JSONL format, starting with the second entry. For the second entry, select a random English word from the first entry's English sentence (excluding the word "dress") to be the `word` field in the new entry, and ensure this word appears in the new entry's English sentence. For each subsequent entry, select a random English word from the previous entry's English sentence (excluding the previous entry's `word`) to be the `word` field in the new entry, and ensure this word appears in the new entry's English sentence. Display each entry as a JSON object with the fields `word`, `english`, and `thai`.
 
