@@ -15,7 +15,6 @@ OUTPUT_FORMAT = "mp3"
 SAMPLE_RATE = "22050"
 VOICE_ID = "Matthew"
 ENGINE = "neural"
-REPO_BASE_URL = "https://raw.githubusercontent.com/<username>/<repo>/main/"  # TODO: Replace <username>/<repo> with your GitHub username and repository name
 
 def get_sentence_hash(sentence):
     """Generate an MD5 hash of the sentence (lowercase) for unique file naming."""
