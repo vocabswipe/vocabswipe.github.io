@@ -5,10 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const wordEl = document.getElementById('word');
   const englishEl = document.getElementById('english');
   const thaiEl = document.getElementById('thai');
-  const statsBar = document.getElementById('stats-bar');
-  const totalWordsEl = document.getElementById('total-words');
-  const uniqueWordsEl = document.getElementById('unique-words');
-  const totalSentencesEl = document.getElementById('total-sentences');
+  const logo = document.querySelector('.logo');
+  const slogan = document.querySelector('.slogan');
 
   let entries = [];
   let currentIndex = 0;
@@ -21,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentScale = 1;
   let translateX = 0;
   let translateY = 0;
+  let isPinching = false;
 
   function escapeHTML(str) {
     return str
@@ -34,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function highlightWords(sentence, wordsToHighlight) {
     let escapedSentence = escapeHTML(sentence);
     for (const { word, color } of wordsToHighlight) {
-      const regex = new RegExp(`\\b${escapeHTML(word)}\\b`, 'g'); // Case-sensitive
+      const regex = new RegExp(`\\b${escapeHTML(word)}\\b`, 'g');
       escapedSentence = escapedSentence.replace(regex, match =>
         `<span class="highlight" style="color: ${color}">${match}</span>`
       );
@@ -65,24 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       console.log(`Loaded ${entries.length} entries`);
-      totalWordsEl.textContent = entries.length;
-
-      // Create a map to store original case for each word (case-insensitive key)
-      const wordCaseMap = new Map();
-      entries.forEach(entry => {
-        if (typeof entry.word !== 'string') {
-          throw new Error('Invalid word format in database entry');
-        }
-        const lowerWord = entry.word.toLowerCase();
-        if (!wordCaseMap.has(lowerWord)) {
-          wordCaseMap.set(lowerWord, entry.word); // Store original case
-        }
-      });
-      uniqueWordsEl.textContent = wordCaseMap.size;
-      totalSentencesEl.textContent = entries.length;
-
       wordCloud.style.display = 'block';
-      displayWordCloud(wordCaseMap);
+      displayWordCloud();
     } catch (error) {
       console.error('LoadData Error:', error.message);
       wordCloud.innerHTML = `
@@ -121,17 +104,24 @@ document.addEventListener('DOMContentLoaded', () => {
     return false;
   }
 
-  function displayWordCloud(wordCaseMap) {
+  function displayWordCloud() {
     const wordFreq = {};
+    const wordCaseMap = new Map();
     entries.forEach(entry => {
+      if (typeof entry.word !== 'string') {
+        throw new Error('Invalid word format in database entry');
+      }
       const lowerWord = entry.word.toLowerCase();
       wordFreq[lowerWord] = (wordFreq[lowerWord] || 0) + 1;
+      if (!wordCaseMap.has(lowerWord)) {
+        wordCaseMap.set(lowerWord, entry.word);
+      }
     });
 
     const maxFreq = Math.max(...Object.values(wordFreq));
     const minFreq = Math.max(1, Math.min(...Object.values(wordFreq)));
     const containerWidth = window.innerWidth;
-    const containerHeight = Math.max(window.innerHeight * 0.8, wordCaseMap.size * 10);
+    const containerHeight = Math.max(window.innerHeight * 1.5, wordCaseMap.size * 15);
     wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
 
@@ -152,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     wordArray.forEach(({ word, freq }, index) => {
       const wordEl = document.createElement('div');
       wordEl.className = 'cloud-word';
-      wordEl.textContent = word; // Use original case
+      wordEl.textContent = word;
       const size = 0.8 + (freq / maxFreq) * 2.2;
       wordEl.style.fontSize = `${size}rem`;
       const wordColor = colors[Math.floor(Math.random() * colors.length)];
@@ -209,13 +199,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
           wordCloud.style.display = 'none';
-          statsBar.style.display = 'flex';
-          statsBar.classList.add('loaded');
           flashcardContainer.style.display = 'flex';
           flashcardContainer.style.opacity = '0';
           flashcardContainer.style.transition = 'opacity 0.3s ease';
+          logo.style.opacity = '0';
+          slogan.style.transform = 'translateX(100%)';
           setTimeout(() => {
             flashcardContainer.style.opacity = '1';
+            logo.style.transition = 'opacity 3s ease';
+            logo.style.opacity = '1';
+            slogan.style.transition = 'transform 0.5s ease';
+            slogan.style.transform = 'translateX(0)';
           }, 50);
 
           currentIndex = entries.findIndex(entry => entry.word === word);
@@ -225,20 +219,26 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Enable pinch-to-zoom
+    // Enable pinch-to-zoom and scrolling
     let pinchStartDistance = 0;
+    let touchStartTime = 0;
     wordCloud.addEventListener('touchstart', e => {
+      touchStartTime = Date.now();
       if (e.touches.length === 2) {
+        isPinching = true;
         pinchStartDistance = Math.hypot(
           e.touches[0].clientX - e.touches[1].clientX,
           e.touches[0].clientY - e.touches[1].clientY
         );
+      } else if (e.touches.length === 1) {
+        touchStartY = e.touches[0].clientY;
       }
     }, { passive: true });
 
     wordCloud.addEventListener('touchmove', e => {
       if (e.touches.length === 2) {
         e.preventDefault();
+        isPinching = true;
         const pinchDistance = Math.hypot(
           e.touches[0].clientX - e.touches[1].clientX,
           e.touches[0].clientY - e.touches[1].clientY
@@ -259,9 +259,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, { passive: false });
 
-    wordCloud.addEventListener('touchend', () => {
+    wordCloud.addEventListener('touchend', e => {
       wordCloud._lastX = null;
       wordCloud._lastY = null;
+      isPinching = false;
     }, { passive: true });
   }
 
