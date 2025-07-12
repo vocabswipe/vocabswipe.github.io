@@ -24,11 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -44,16 +44,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadData() {
     try {
+      console.log('Fetching data/database.jsonl...');
       const response = await fetch('data/database.jsonl');
-      if (!response.ok) throw new Error(`Failed to load database.jsonl: ${response.status}`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch data/database.jsonl: ${response.status} ${response.statusText}`);
+      }
       const data = await response.text();
-      entries = data.trim().split('\n').map(line => JSON.parse(line));
-      if (!entries.length) throw new Error('No entries in database.jsonl');
+      if (!data.trim()) {
+        throw new Error('data/database.jsonl is empty');
+      }
+      entries = data.trim().split('\n').map((line, index) => {
+        try {
+          return JSON.parse(line);
+        } catch (e) {
+          throw new Error(`Invalid JSON at line ${index + 1}: ${e.message}`);
+        }
+      });
+      if (!entries.length) {
+        throw new Error('No valid entries in data/database.jsonl');
+      }
 
+      console.log(`Loaded ${entries.length} entries`);
       totalWordsEl.textContent = entries.length;
+
       // Create a map to store original case for each word (case-insensitive key)
       const wordCaseMap = new Map();
       entries.forEach(entry => {
+        if (typeof entry.word !== 'string') {
+          throw new Error('Invalid word format in database entry');
+        }
         const lowerWord = entry.word.toLowerCase();
         if (!wordCaseMap.has(lowerWord)) {
           wordCaseMap.set(lowerWord, entry.word); // Store original case
@@ -65,13 +84,16 @@ document.addEventListener('DOMContentLoaded', () => {
       wordCloud.style.display = 'block';
       displayWordCloud(wordCaseMap);
     } catch (error) {
-      console.error('Error:', error.message);
-      wordCloud.textContent = 'Failed to load vocabulary data. Please check if data/database.jsonl exists.';
-      wordCloud.style.color = '#ff4081';
-      wordCloud.style.fontSize = '1.2rem';
-      wordCloud.style.textAlign = 'center';
-      wordCloud.style.padding = '20px';
-      wordCloud.style.display = 'block';
+      console.error('LoadData Error:', error.message);
+      wordCloud.innerHTML = `
+        <div class="error-message">
+          Failed to load vocabulary data. Please ensure 'data/database.jsonl' exists and is valid.
+          <br>Error: ${escapeHTML(error.message)}
+        </div>`;
+      wordCloud.style.display = 'flex';
+      wordCloud.style.alignItems = 'center';
+      wordCloud.style.justifyContent = 'center';
+      wordCloud.style.height = '100vh';
     }
   }
 
@@ -103,11 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const wordFreq = {};
     entries.forEach(entry => {
       const lowerWord = entry.word.toLowerCase();
-      wordFreq[lowerWord] = (word寡:wordFreq[lowerWord] || 0) + 1;
+      wordFreq[lowerWord] = (wordFreq[lowerWord] || 0) + 1;
     });
 
     const maxFreq = Math.max(...Object.values(wordFreq));
-    const minFreq = Math.max(1, Math.min(...Object.values(wordFreq))); // Avoid division by zero
+    const minFreq = Math.max(1, Math.min(...Object.values(wordFreq)));
     const containerWidth = window.innerWidth;
     const containerHeight = Math.max(window.innerHeight * 0.8, wordCaseMap.size * 10);
     wordCloud.style.width = `${containerWidth}px`;
@@ -118,6 +140,15 @@ document.addEventListener('DOMContentLoaded', () => {
       .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
       .sort((a, b) => b.freq - a.freq);
 
+    if (wordArray.length === 0) {
+      wordCloud.innerHTML = '<div class="error-message">No words to display in word cloud.</div>';
+      wordCloud.style.display = 'flex';
+      wordCloud.style.alignItems = 'center';
+      wordCloud.style.justifyContent = 'center';
+      wordCloud.style.height = '100vh';
+      return;
+    }
+
     wordArray.forEach(({ word, freq }, index) => {
       const wordEl = document.createElement('div');
       wordEl.className = 'cloud-word';
@@ -126,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
       wordEl.style.fontSize = `${size}rem`;
       const wordColor = colors[Math.floor(Math.random() * colors.length)];
       wordEl.style.color = wordColor;
-      wordColors.set(word.toLowerCase(), wordColor); // Store color with lowercase key
+      wordColors.set(word.toLowerCase(), wordColor);
       wordEl.style.opacity = '0';
       wordCloud.appendChild(wordEl);
 
@@ -134,7 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
       let x, y, placed = false;
       const maxAttempts = 500;
 
-      // Random placement
       for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
         x = Math.random() * (containerWidth - width);
         y = Math.random() * (containerHeight - height);
@@ -147,6 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (!placed) {
+        console.warn(`Could not place word: ${word}`);
         wordEl.remove();
         return;
       }
@@ -159,7 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }, index * 50 + delay);
 
       wordEl.addEventListener('click', () => {
-        // Reset zoom and transform
         wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
         wordCloud.style.transformOrigin = 'center center';
         currentScale = 1;
@@ -188,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
             flashcardContainer.style.opacity = '1';
           }, 50);
 
-          currentIndex = entries.findIndex(entry => entry.word === word); // Case-sensitive match
+          currentIndex = entries.findIndex(entry => entry.word === word);
           currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
           displayEntry(currentIndex);
         }, 300);
