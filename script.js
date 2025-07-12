@@ -23,19 +23,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, '');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
     let escapedSentence = escapeHTML(sentence);
-    wordsToHighlight.sort((a, b) => b.word.length - a.word.length); // Sort by word length to avoid partial matches
+    wordsToHighlight.sort((a, b) => b.word.length - a.word.length);
     for (const { word, color } of wordsToHighlight) {
       const escapedWord = escapeHTML(word);
-      // Use word boundaries and ensure special characters are handled
       const regex = new RegExp(`\\b${escapedWord}\\b`, 'gi');
       escapedSentence = escapedSentence.replace(regex, match =>
         `<span class="highlight" style="color: ${color}">${match}</span>`
@@ -105,6 +104,18 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     return false;
+  }
+
+  function adjustWordSize(word, element, maxWidth) {
+    element.style.fontSize = '3.75rem'; // Reset to default
+    element.textContent = word;
+    let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
+    const padding = 20; // Account for flashcard padding
+
+    while (element.scrollWidth > maxWidth - padding && fontSize > 1) {
+      fontSize -= 0.1;
+      element.style.fontSize = `${fontSize}rem`;
+    }
   }
 
   function displayWordCloud() {
@@ -183,14 +194,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }, index * 50 + delay);
 
       wordEl.addEventListener('click', () => {
-        // Reset word cloud transform
         wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
         wordCloud.style.transformOrigin = 'center center';
         currentScale = 1;
         translateX = 0;
         translateY = 0;
 
-        // Fade out other words
         document.querySelectorAll('.cloud-word').forEach(otherWord => {
           if (otherWord !== wordEl) {
             otherWord.style.transition = 'opacity 0.3s ease';
@@ -198,7 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
-        // Animate selected word to grow larger than screen and disappear
         wordEl.style.transition = 'transform 1s ease, opacity 1s ease';
         wordEl.style.transform = 'scale(10)';
         wordEl.style.opacity = '0';
@@ -208,19 +216,17 @@ document.addEventListener('DOMContentLoaded', () => {
           wordEl.style.transform = 'none';
           wordEl.style.opacity = '1';
 
-          // Flashcard fade-in
           flashcardContainer.style.display = 'flex';
           flashcardContainer.style.opacity = '0';
           flashcardContainer.style.transition = 'opacity 1s ease';
           flashcardContainer.style.opacity = '1';
 
-          // Logo animation after 1 second
           setTimeout(() => {
-            logo.style.transition = 'opacity 1s ease';
+            logo.style.transition = 'transform 1s ease, opacity 1s ease';
+            logo.style.transform = 'translateX(0)';
             logo.style.opacity = '1';
           }, 1000);
 
-          // Slogan animation after 2 seconds
           setTimeout(() => {
             slogan.style.transition = 'transform 0.5s ease';
             slogan.style.transform = 'translateX(0)';
@@ -233,7 +239,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Enable pinch-to-zoom and scrolling
     let pinchStartDistance = 0;
     let touchStartTime = 0;
     wordCloud.addEventListener('touchstart', e => {
@@ -285,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const entry = entries[index];
     const currentWord = entry.word;
 
-    wordEl.textContent = currentWord;
+    adjustWordSize(currentWord, wordEl, flashcard.offsetWidth);
     wordEl.style.color = colors[currentColorIndex];
 
     const prevWord = index > 0 ? entries[index - 1].word : null;
