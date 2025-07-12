@@ -7,11 +7,13 @@ def validate_and_append(temp_file, db_file):
     """
     Validates entries in temp_sentences.jsonl and database.jsonl, appends valid entries if both are valid,
     empties temp file, reports total/unique words and adjacent duplicates, and confirms validity.
-    Prints context (previous 3 and next 3 entries) for validation errors.
+    Prints previous 3 and next 3 valid entries for word-in-sentence errors.
+    Assumes all files are in the same directory: D:\vocabswipe.github.io\data.
     """
     errors = []
     temp_entries = []
     db_entries = []
+    error_context = []  # Store (error_msg, db_entry_index, line_number) for word-in-sentence errors
 
     # Print current working directory
     print(f"📍 Working directory: {os.getcwd()}")
@@ -63,47 +65,44 @@ def validate_and_append(temp_file, db_file):
         return False, None
 
     # Validate database file
-    print("\n📂 Validating data/database.jsonl")
+    print("\n📂 Validating database.jsonl")
     previous_english = None  # Reset for database validation
     db_line_count = 0
     db_entries_with_lines = []  # Store (entry, line_number)
-    error_context = []  # Store errors with context for later printing
-    if os.path.exists(db_file) and os.path.getsize(db_file) > 0:
-        try:
-            with open(db_file, 'r', encoding='utf-8') as f_db:
-                lines = f_db.readlines()
-                db_line_count = len(lines)
-                for i, line in enumerate(tqdm(lines, desc="Validating database", unit="entry", leave=False)):
-                    line_number = i + 1
-                    if not line.strip():
-                        errors.append(f"Database line {line_number}: Empty line")
+    try:
+        with open(db_file, 'r', encoding='utf-8') as f_db:
+            lines = f_db.readlines()
+            db_line_count = len(lines)
+            for i, line in enumerate(tqdm(lines, desc="Validating database", unit="entry", leave=False)):
+                line_number = i + 1
+                if not line.strip():
+                    errors.append(f"Database line {line_number}: Empty line")
+                    continue
+                try:
+                    entry = json.loads(line.strip())
+                    if not all(key in entry for key in ['word', 'english', 'thai']):
+                        errors.append(f"Database line {line_number}: Missing fields (word, english, thai)")
                         continue
-                    try:
-                        entry = json.loads(line.strip())
-                        if not all(key in entry for key in ['word', 'english', 'thai']):
-                            errors.append(f"Database line {line_number}: Missing fields (word, english, thai)")
-                            continue
-                        if not all(entry[key].strip() for key in ['word', 'english', 'thai']):
-                            errors.append(f"Database line {line_number}: Empty fields")
-                            continue
-                        # Check if word is in prior sentence's english field (skip for first valid entry)
-                        if previous_english and entry['word'].lower() not in previous_english.lower():
-                            error_msg = (
-                                f"Database line {line_number}: Word '{entry['word']}' not in prior sentence: '{previous_english}'"
-                            )
-                            # Store error with context (index of current entry in db_entries)
-                            error_context.append((error_msg, len(db_entries), line_number))
-                        previous_english = entry['english']
-                        db_entries.append(entry)
-                        db_entries_with_lines.append((entry, line_number))
-                    except json.JSONDecodeError:
-                        errors.append(f"Database line {line_number}: Invalid JSON")
+                    if not all(entry[key].strip() for key in ['word', 'english', 'thai']):
+                        errors.append(f"Database line {line_number}: Empty fields")
                         continue
-            print(f"  Found {db_line_count} lines, {len(db_entries)} valid entries in database.jsonl")
-        except Exception as e:
-            print(f"❌ Error reading data/database.jsonl: {e}")
-            return False, None
-    else:
+                    # Check if word is in prior sentence's english field (skip for first valid entry)
+                    if previous_english and entry['word'].lower() not in previous_english.lower():
+                        error_msg = (
+                            f"Database line {line_number}: Word '{entry['word']}' not in prior sentence: '{previous_english}'"
+                        )
+                        error_context.append((error_msg, len(db_entries), line_number))
+                    previous_english = entry['english']
+                    db_entries.append(entry)
+                    db_entries_with_lines.append((entry, line_number))
+                except json.JSONDecodeError:
+                    errors.append(f"Database line {line_number}: Invalid JSON")
+                    continue
+        print(f"  Found {db_line_count} lines, {len(db_entries)} valid entries in database.jsonl")
+    except Exception as e:
+        print(f"❌ Error reading database.jsonl: {e}")
+        return False, None
+    if db_line_count == 0:
         print(f"  {db_file} is empty or does not exist")
 
     # Report errors with context
@@ -114,9 +113,8 @@ def validate_and_append(temp_file, db_file):
         for error_msg, error_index, error_line in error_context:
             print(f"\n  {error_msg}")
             print("  Context (Previous 3 and Next 3 Valid Entries):")
-            # Get indices for previous 3 and next 3 valid entries
             start_idx = max(0, error_index - 3)
-            end_idx = min(len(db_entries), error_index + 4)  # +4 to include the error entry + next 3
+            end_idx = min(len(db_entries), error_index + 4)  # Include error entry + next 3
             for idx in range(start_idx, end_idx):
                 entry, line_num = db_entries_with_lines[idx]
                 prefix = "  * " if idx == error_index else "    "
@@ -125,7 +123,7 @@ def validate_and_append(temp_file, db_file):
         return False, db_entries[-1] if db_entries else None
 
     # Append valid temp entries to database
-    print("\n📝 Appending to data/database.jsonl")
+    print("\n📝 Appending to database.jsonl")
     try:
         with open(db_file, 'a', encoding='utf-8') as f_db:
             for entry in tqdm(temp_entries, desc="Appending", unit="entry", leave=False):
@@ -133,7 +131,7 @@ def validate_and_append(temp_file, db_file):
                 f_db.write('\n')
         print(f"  Appended {len(temp_entries)} entries to database.jsonl")
     except Exception as e:
-        print(f"❌ Error appending to data/database.jsonl: {e}")
+        print(f"❌ Error appending to database.jsonl: {e}")
         return False, db_entries[-1] if db_entries else None
 
     # Empty temp file
@@ -178,9 +176,9 @@ def validate_and_append(temp_file, db_file):
 
     # Confirmation message
     print("\n🟢 Status")
-    if not errors and not duplicates:
+    if not errors and not error_context and not duplicates:
         print("  ✅ All green: Database entries are valid, in order, and no adjacent duplicates found.")
-    elif not errors:
+    elif not errors and not error_context:
         print("  ✅ Database entries are valid and in order, but adjacent duplicates found.")
     else:
         print("  ❌ Validation failed: Fix errors in temp or database files.")
@@ -193,17 +191,16 @@ def validate_and_append(temp_file, db_file):
         print(json.dumps(last_entry, ensure_ascii=False, indent=2))
         print(f"```")
     else:
-        print("  No valid entries in data/database.jsonl")
+        print("  No valid entries in database.jsonl")
 
-    return not errors, last_entry
+    return not (errors or error_context), last_entry
 
 def main():
-    # File paths (relative, assuming same directory)
+    # File paths (all in same directory)
     temp_file = "temp_sentences.jsonl"
-    db_file = "data/database.jsonl"
+    db_file = "database.jsonl"
 
-    # Create data directory and database file if they don't exist
-    os.makedirs(os.path.dirname(db_file), exist_ok=True)
+    # Create database file if it doesn't exist
     if not os.path.exists(db_file):
         print(f"ℹ️ Creating {db_file}")
         with open(db_file, 'a', encoding='utf-8'):
