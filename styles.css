@@ -1,138 +1,137 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #1a1a1a;
-    color: #ffffff;
-    font-family: 'Roboto', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    touch-action: manipulation;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  touch-action: manipulation;
 }
 
 .stats-bar {
-    width: 100%;
-    max-width: 400px;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    background-color: #2c2c2c;
-    border-bottom: 1px solid #444;
-    opacity: 0;
-    transition: opacity 1s ease;
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #2c2c2c;
+  border-bottom: 1px solid #444;
+  opacity: 0;
+  transition: opacity 1s ease;
 }
 
 .stats-bar.loaded {
-    opacity: 1;
+  opacity: 1;
 }
 
 .stat {
-    font-size: 0.9rem;
-    color: #b0b0b0;
+  font-size: 0.9rem;
+  color: #b0b0b0;
 }
 
 .stat span {
-    color: #00ff88;
-    font-weight: 700;
+  color: #00ff88;
+  font-weight: 700;
 }
 
 .container {
-    flex-grow: 1;
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 .flashcard {
-    background-color: #2c2c2c;
-    border-radius: 15px;
-    width: 100%;
-    aspect-ratio: 9 / 16;
-    height: calc(400px * 1.777 * 0.5); /* 50% of original height */
-    max-height: calc(711px * 0.5); /* Maintain ratio, 50% of original */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    touch-action: pan-y;
-    user-select: none;
+  background-color: #2c2c2c;
+  border-radius: 15px;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  height: calc(400px * 1.777 * 0.5);
+  max-height: calc(711px * 0.5);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: pan-y;
+  user-select: none;
 }
 
 .content {
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .word {
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: center;
-    word-break: break-word;
-    margin-bottom: 20px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  word-break: break-word;
+  margin-bottom: 20px;
 }
 
 .sentences {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .english {
-    font-size: 1.2rem;
-    line-height: 1.4;
-    text-align: center;
-    margin-bottom: 8px;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  text-align: center;
+  margin-bottom: 8px;
 }
 
 .english .highlight {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .thai {
-    font-size: 1rem;
-    color: #b0b0b0;
-    font-family: 'Noto Sans Thai', sans-serif;
-    line-height: 1.4;
-    text-align: center;
+  font-size: 1rem;
+  color: #b0b0b0;
+  font-family: 'Noto Sans Thai', sans-serif;
+  line-height: 1.4;
+  text-align: center;
 }
 
-/* Responsive adjustments */
 @media (max-width: 600px) {
-    .flashcard {
-        height: calc(100vw * 1.777 * 0.5); /* Maintain ratio, 50% of original */
-    }
+  .flashcard {
+    height: calc(100vw * 1.777 * 0.5);
+  }
 
-    .word {
-        font-size: 2rem;
-    }
+  .word {
+    font-size: 2rem;
+  }
 
-    .english {
-        font-size: 1.1rem;
-    }
+  .english {
+    font-size: 1.1rem;
+  }
 
-    .thai {
-        font-size: 0.9rem;
-    }
+  .thai {
+    font-size: 0.9rem;
+  }
 
-    .stats-bar {
-        padding: 8px 15px;
-    }
+  .stats-bar {
+    padding: 8px 15px;
+  }
 
-    .stat {
-        font-size: 0.8rem;
-    }
+  .stat {
+    font-size: 0.8rem;
+  }
 }
