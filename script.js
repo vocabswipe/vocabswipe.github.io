@@ -19,16 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
     let escapedSentence = escapeHTML(sentence);
     for (const { word, color } of wordsToHighlight) {
+      // Use word boundaries and ensure case-insensitive matching
       const regex = new RegExp(`\\b${escapeHTML(word)}\\b`, 'gi');
       escapedSentence = escapedSentence.replace(regex, match =>
         `<span class="highlight" style="color: ${color}">${match}</span>`
@@ -52,19 +53,21 @@ document.addEventListener('DOMContentLoaded', () => {
       uniqueWordsEl.textContent = uniqueWords.size;
       totalSentencesEl.textContent = entries.length;
 
+      wordCloud.style.display = 'block'; // Ensure word cloud is visible
       displayWordCloud(uniqueWords);
     } catch (error) {
       console.error('Error:', error.message);
-      wordCloud.textContent = 'Failed to load vocabulary data. Please check if data/database.jsonl exists.';
+      wordCloud.textContent = 'Failed to load vocabulary data. Please check if data/database.jsonl exists and is accessible.';
       wordCloud.style.color = '#ff4081';
       wordCloud.style.fontSize = '1.2rem';
       wordCloud.style.textAlign = 'center';
       wordCloud.style.padding = '20px';
+      wordCloud.style.display = 'block'; // Ensure error message is visible
     }
   }
 
   function isOverlapping(x, y, width, height, placedWords) {
-    const padding = 30; // Minimum distance between words (adjustable: e.g., 20px for tighter, 40px for looser)
+    const padding = 50; // Increased padding for better spacing
     for (const word of placedWords) {
       const left1 = x;
       const right1 = x + width;
@@ -97,9 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const maxFreq = Math.max(...Object.values(wordFreq));
     const minFreq = Math.min(...Object.values(wordFreq));
     const containerWidth = window.innerWidth - 40; // Account for padding
-    const containerHeight = window.innerHeight * 2 - 40; // Account for padding
-    const placedWords = [];
+    // Dynamically adjust height based on number of words
+    const containerHeight = Math.max(window.innerHeight * 2, uniqueWords.size * 100); // At least 100px per word
+    wordCloud.style.minHeight = `${containerHeight}px`; // Set dynamic height
 
+    const placedWords = [];
     const wordArray = Array.from(uniqueWords)
       .map(word => ({ word, freq: wordFreq[word] }))
       .sort((a, b) => b.freq - a.freq);
@@ -116,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const { width, height } = wordEl.getBoundingClientRect();
       let x, y, attempts = 0;
-      const maxAttempts = 50;
+      const maxAttempts = 100; // Increased attempts for better placement
 
       do {
         x = Math.random() * (containerWidth - width);
@@ -129,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         wordEl.style.top = `${y + 20}px`; // Offset for container padding
         placedWords.push({ x, y, width, height });
       } else {
+        // Fallback placement with slight offset to avoid stacking
         wordEl.style.left = `${Math.random() * (containerWidth - width) + 20}px`;
         wordEl.style.top = `${Math.random() * (containerHeight - height) + 20}px`;
       }
