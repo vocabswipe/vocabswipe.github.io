@@ -16,20 +16,20 @@ document.addEventListener('DOMContentLoaded', () => {
   let touchEndY = 0;
   const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
   let currentColorIndex = 0;
+  const wordColors = new Map(); // Store word-to-color mappings
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
     let escapedSentence = escapeHTML(sentence);
     for (const { word, color } of wordsToHighlight) {
-      // Use word boundaries and ensure case-insensitive matching
       const regex = new RegExp(`\\b${escapeHTML(word)}\\b`, 'gi');
       escapedSentence = escapedSentence.replace(regex, match =>
         `<span class="highlight" style="color: ${color}">${match}</span>`
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
       uniqueWordsEl.textContent = uniqueWords.size;
       totalSentencesEl.textContent = entries.length;
 
-      wordCloud.style.display = 'block'; // Ensure word cloud is visible
+      wordCloud.style.display = 'block';
       displayWordCloud(uniqueWords);
     } catch (error) {
       console.error('Error:', error.message);
@@ -62,12 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
       wordCloud.style.fontSize = '1.2rem';
       wordCloud.style.textAlign = 'center';
       wordCloud.style.padding = '20px';
-      wordCloud.style.display = 'block'; // Ensure error message is visible
+      wordCloud.style.display = 'block';
     }
   }
 
   function isOverlapping(x, y, width, height, placedWords) {
-    const padding = 1; // Increased padding for better spacing
+    const padding = 30; // Increased padding to prevent overlap
     for (const word of placedWords) {
       const left1 = x;
       const right1 = x + width;
@@ -99,29 +99,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const maxFreq = Math.max(...Object.values(wordFreq));
     const minFreq = Math.min(...Object.values(wordFreq));
-    const containerWidth = window.innerWidth - 40; // Account for padding
-    // Dynamically adjust height based on number of words
-    const containerHeight = Math.max(window.innerHeight * 2, uniqueWords.size * 100); // At least 100px per word
-    wordCloud.style.minHeight = `${containerHeight}px`; // Set dynamic height
+    const containerWidth = 360; // Mobile screen width (360px)
+    const containerHeight = 640; // Mobile screen height (640px)
+    wordCloud.style.width = `${containerWidth}px`;
+    wordCloud.style.minHeight = `${containerHeight}px`;
 
     const placedWords = [];
     const wordArray = Array.from(uniqueWords)
       .map(word => ({ word, freq: wordFreq[word] }))
-      .sort((a, b) => b.freq - a.freq);
+      .sort((a, b) => b.freq - a.freq)
+      .slice(0, 30); // Limit to 30 words
 
     wordArray.forEach(({ word, freq }, index) => {
       const wordEl = document.createElement('div');
       wordEl.className = 'cloud-word';
       wordEl.textContent = word;
-      const size = 1 + (freq / maxFreq) * 2;
+      const size = 0.8 + (freq / maxFreq) * 1.2; // Reduced font size for density
       wordEl.style.fontSize = `${size}rem`;
-      wordEl.style.color = colors[Math.floor(Math.random() * colors.length)];
+      const wordColor = colors[Math.floor(Math.random() * colors.length)];
+      wordEl.style.color = wordColor;
+      wordColors.set(word.toLowerCase(), wordColor); // Store color for this word
       wordEl.style.opacity = '0';
       wordCloud.appendChild(wordEl);
 
       const { width, height } = wordEl.getBoundingClientRect();
       let x, y, attempts = 0;
-      const maxAttempts = 100; // Increased attempts for better placement
+      const maxAttempts = 500; // Increased attempts to ensure no overlap
 
       do {
         x = Math.random() * (containerWidth - width);
@@ -130,17 +133,16 @@ document.addEventListener('DOMContentLoaded', () => {
       } while (isOverlapping(x, y, width, height, placedWords) && attempts < maxAttempts);
 
       if (attempts < maxAttempts) {
-        wordEl.style.left = `${x + 20}px`; // Offset for container padding
-        wordEl.style.top = `${y + 20}px`; // Offset for container padding
+        wordEl.style.left = `${x}px`;
+        wordEl.style.top = `${y}px`;
         placedWords.push({ x, y, width, height });
       } else {
-        // Fallback placement with slight offset to avoid stacking
-        wordEl.style.left = `${Math.random() * (containerWidth - width) + 20}px`;
-        wordEl.style.top = `${Math.random() * (containerHeight - height) + 20}px`;
+        wordEl.style.left = `${Math.random() * (containerWidth - width)}px`;
+        wordEl.style.top = `${Math.random() * (containerHeight - height)}px`;
       }
 
       const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
-      const delay = normalizedFreq * 5000;
+      const delay = normalizedFreq * 2000; // Reduced delay for faster animation
       setTimeout(() => {
         wordEl.style.transition = 'opacity 1s ease';
         wordEl.style.opacity = '1';
@@ -160,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
           wordCloud.style.display = 'none';
-          statsBar.style.display = 'flex'; // Show stats bar when flashcard appears
+          statsBar.style.display = 'flex';
           statsBar.classList.add('loaded');
           flashcardContainer.style.display = 'flex';
           flashcardContainer.style.opacity = '0';
@@ -170,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }, 50);
 
           currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
-          currentColorIndex = Math.floor(Math.random() * colors.length);
+          currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase())); // Set color index to match word cloud
           displayEntry(currentIndex);
         }, 1000);
       });
@@ -186,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     wordEl.textContent = currentWord;
     wordEl.style.color = colors[currentColorIndex];
 
-    const prevWord = index > 0 ? entries[index - 1].word : null;
+    const prevWord = index > 0 ? entries[index城乡 - 1].word : null;
     const nextWord = index < entries.length - 1 ? entries[index + 1].word : null;
 
     const wordsToHighlight = [];
