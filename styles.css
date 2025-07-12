@@ -29,7 +29,7 @@ body {
   font-weight: 700;
   cursor: pointer;
   user-select: none;
-  transition: opacity 1.5s ease, transform 1.5s ease, font-size 1.5s ease;
+  transition: opacity 1s ease, transform 1s ease;
   white-space: nowrap;
   line-height: 1.2;
   z-index: 10;
@@ -65,7 +65,7 @@ body {
   font-weight: 600;
   color: #00ff88;
   opacity: 0;
-  transition: opacity 3s ease;
+  transition: opacity 1s ease;
 }
 
 .slogan {
@@ -103,7 +103,7 @@ body {
 }
 
 .word {
-  font-size: 3.75rem; /* Increased by 50% from 2.5rem */
+  font-size: 3.75rem;
   font-weight: 700;
   text-align: center;
   word-break: break-word;
@@ -146,7 +146,7 @@ body {
   }
 
   .word {
-    font-size: 3rem; /* Increased by 50% from 2rem */
+    font-size: 3rem;
   }
 
   .english {
