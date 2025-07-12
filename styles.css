@@ -13,6 +13,22 @@ body {
   flex-direction: column;
   align-items: center;
   touch-action: manipulation;
+  overflow-x: hidden;
+}
+
+.word-cloud {
+  position: relative;
+  width: 100%;
+  height: 200vh; /* Allow scrolling */
+  overflow-y: auto;
+}
+
+.cloud-word {
+  position: absolute;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .stats-bar {
@@ -25,6 +41,9 @@ body {
   border-bottom: 1px solid #444;
   opacity: 0;
   transition: opacity 1s ease;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .stats-bar.loaded {
