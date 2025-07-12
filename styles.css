@@ -29,9 +29,10 @@ body {
   font-weight: 700;
   cursor: pointer;
   user-select: none;
-  transition: opacity 0.5s ease, transform 0.3s ease;
+  transition: opacity 1.5s ease, transform 1.5s ease, font-size 1.5s ease;
   white-space: nowrap;
   line-height: 1.2;
+  z-index: 10;
 }
 
 .error-message {
@@ -102,11 +103,15 @@ body {
 }
 
 .word {
-  font-size: 2.5rem;
+  font-size: 3.75rem; /* Increased by 50% from 2.5rem */
   font-weight: 700;
   text-align: center;
   word-break: break-word;
   margin-bottom: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .sentences {
@@ -141,7 +146,7 @@ body {
   }
 
   .word {
-    font-size: 2rem;
+    font-size: 3rem; /* Increased by 50% from 2rem */
   }
 
   .english {
