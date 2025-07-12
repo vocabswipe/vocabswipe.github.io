@@ -9,6 +9,7 @@ def validate_and_append(temp_file, db_file):
     empties temp file, reports total/unique words and adjacent duplicates, and confirms validity.
     Prints previous 3 and next 3 valid entries for word-in-sentence errors.
     Assumes all files are in the same directory: D:\vocabswipe.github.io\data.
+    Prints last database entry as a single JSON line.
     """
     errors = []
     temp_entries = []
@@ -187,9 +188,7 @@ def validate_and_append(temp_file, db_file):
     last_entry = all_entries[-1] if all_entries else None
     print("\n📌 Last Database Entry")
     if last_entry:
-        print(f"```jsonl")
-        print(json.dumps(last_entry, ensure_ascii=False, indent=2))
-        print(f"```")
+        print(json.dumps(last_entry, ensure_ascii=False))
     else:
         print("  No valid entries in database.jsonl")
 
