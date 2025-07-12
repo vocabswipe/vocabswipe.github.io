@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const wordCloud = document.getElementById('word-cloud');
+  const flashcardContainer = document.getElementById('flashcard-container');
   const flashcard = document.getElementById('flashcard');
   const wordEl = document.getElementById('word');
   const englishEl = document.getElementById('english');
@@ -12,26 +14,23 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentIndex = 0;
   let touchStartY = 0;
   let touchEndY = 0;
-
-  const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081'];
+  const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
   let currentColorIndex = 0;
 
+  // Improved HTML escaping to prevent tag display issue
   function escapeHTML(str) {
     return str
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#039;');
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
-    // Escape HTML first
     let escapedSentence = escapeHTML(sentence);
-
-    // Replace each word in order with a span tag
     for (const { word, color } of wordsToHighlight) {
-      const regex = new RegExp(`\\b${word}\\b`, 'gi');
+      const regex = new RegExp(`\\b${escapeHTML(word)}\\b`, 'gi');
       escapedSentence = escapedSentence.replace(regex, match =>
         `<span class="highlight" style="color: ${color}">${match}</span>`
       );
@@ -43,27 +42,91 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const response = await fetch('data/database.jsonl');
       if (!response.ok) throw new Error('Failed to load database.jsonl');
-
       const data = await response.text();
       entries = data.trim().split('\n').map(line => JSON.parse(line));
       if (!entries.length) throw new Error('No entries in database.jsonl');
 
-      currentIndex = Math.floor(Math.random() * entries.length);
-      currentColorIndex = Math.floor(Math.random() * colors.length);
-      displayEntry(currentIndex);
-
+      // Update stats
       totalWordsEl.textContent = entries.length;
-      uniqueWordsEl.textContent = new Set(entries.map(entry => entry.word.toLowerCase())).size;
+      const uniqueWords = new Set(entries.map(entry => entry.word.toLowerCase()));
+      uniqueWordsEl.textContent = uniqueWords.size;
       totalSentencesEl.textContent = entries.length;
-
       statsBar.classList.add('loaded');
+
+      // Display word cloud
+      displayWordCloud(uniqueWords);
     } catch (error) {
       console.error('Error:', error);
       wordEl.textContent = 'Error';
       englishEl.textContent = 'Failed to load data';
       thaiEl.textContent = '';
       statsBar.style.display = 'none';
+      wordCloud.style.display = 'none';
     }
+  }
+
+  function displayWordCloud(uniqueWords) {
+    const wordFreq = {};
+    entries.forEach(entry => {
+      const word = entry.word.toLowerCase();
+      wordFreq[word] = (wordFreq[word] || 0) + 1;
+    });
+
+    const maxFreq = Math.max(...Object.values(wordFreq));
+    const containerWidth = window.innerWidth;
+    const containerHeight = window.innerHeight * 2; // Allow scrolling
+
+    uniqueWords.forEach(word => {
+      const wordEl = document.createElement('div');
+      wordEl.className = 'cloud-word';
+      wordEl.textContent = word;
+      const freq = wordFreq[word];
+      const size = 1 + (freq / maxFreq) * 2; // Scale font size based on frequency
+      wordEl.style.fontSize = `${size}rem`;
+      wordEl.style.color = colors[Math.floor(Math.random() * colors.length)];
+      wordEl.style.left = `${Math.random() * (containerWidth - 100)}px`;
+      wordEl.style.top = `${Math.random() * (containerHeight - 50)}px`;
+      wordEl.style.opacity = '0';
+      wordCloud.appendChild(wordEl);
+
+      // Random fade-in
+      setTimeout(() => {
+        wordEl.style.transition = 'opacity 1s ease';
+        wordEl.style.opacity = '1';
+      }, Math.random() * 2000);
+
+      // Click to transition to flashcard
+      wordEl.addEventListener('click', () => {
+        // Fade out other words
+        document.querySelectorAll('.cloud-word').forEach(otherWord => {
+          if (otherWord !== wordEl) {
+            otherWord.style.transition = 'opacity 1s ease';
+            otherWord.style.opacity = '0';
+          }
+        });
+
+        // Enlarge selected word
+        wordEl.style.transition = 'transform 1s ease, opacity 1s ease';
+        wordEl.style.transform = 'scale(5)';
+        wordEl.style.opacity = '0';
+
+        // After animation, show flashcard
+        setTimeout(() => {
+          wordCloud.style.display = 'none';
+          flashcardContainer.style.display = 'flex';
+          flashcardContainer.style.opacity = '0';
+          flashcardContainer.style.transition = 'opacity 1s ease';
+          setTimeout(() => {
+            flashcardContainer.style.opacity = '1';
+          }, 50);
+
+          // Find first entry with the selected word
+          currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
+          currentColorIndex = Math.floor(Math.random() * colors.length);
+          displayEntry(currentIndex);
+        }, 1000);
+      });
+    });
   }
 
   function displayEntry(index) {
@@ -78,14 +141,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextWord = index < entries.length - 1 ? entries[index + 1].word : null;
 
     const wordsToHighlight = [];
-
     if (prevWord) {
       const prevColor = colors[(currentColorIndex - 1 + colors.length) % colors.length];
       wordsToHighlight.push({ word: prevWord, color: prevColor });
     }
-
     wordsToHighlight.push({ word: currentWord, color: colors[currentColorIndex] });
-
     if (nextWord) {
       const nextColor = colors[(currentColorIndex + 1) % colors.length];
       wordsToHighlight.push({ word: nextWord, color: nextColor });
