@@ -330,7 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Set up audio playback
     if (entry.audio) {
-      const audioUrl = `https://raw.githubusercontent.com/<username>/<repo>/main/data/${entry.audio}`;
+      const audioUrl = `https://raw.githubusercontent.com/vocabswipe/vocabswipe.github.io/main/data/${entry.audio}`;
       flashcard.onclick = null; // Clear previous handler
       flashcard.onclick = () => {
         if (currentAudio && !currentAudio.paused) {
