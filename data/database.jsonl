@@ -1271,3 +1271,695 @@
 {"word": "project", "english": "The art project showcased her unique vision.", "thai": "โปรเจกต์ศิลปะแสดงให้เห็นวิสัยทัศน์ที่ไม่เหมือนใครของเธอ"}
 {"word": "vision", "english": "Her clear vision guided the team’s success.", "thai": "วิสัยทัศน์ที่ชัดเจนของเธอนำทีมสู่ความสำเร็จ"}
 {"word": "success", "english": "Hard-earned success tasted sweeter than expected.", "thai": "ความสำเร็จที่ได้มาด้วยความยากลำบากหวานกว่าที่คาด"}
+{"word": "expected", "english": "She expected the meeting to end early.", "thai": "เธอคาดว่าการประชุมจะจบเร็ว"}
+{"word": "meeting", "english": "The team scheduled a meeting at noon.", "thai": "ทีมกำหนดการประชุมตอนเที่ยง"}
+{"word": "team", "english": "Our team won the championship trophy.", "thai": "ทีมของเราชนะถ้วยรางวัลแชมป์"}
+{"word": "trophy", "english": "He polished the trophy until it shone.", "thai": "เขาขัดถ้วยรางวัลจนมันเงาวับ"}
+{"word": "polished", "english": "Her polished speech impressed the audience.", "thai": "คำปราศรัยที่ประณีตของเธอทำให้ผู้ฟังประทับใจ"}
+{"word": "speech", "english": "His speech class taught him confidence.", "thai": "ชั้นเรียนการพูดของเขาสอนให้เขามีความมั่นใจ"}
+{"word": "confidence", "english": "She walked with confidence into the interview.", "thai": "เธอเดินด้วยความมั่นใจเข้าสู่การสัมภาษณ์"}
+{"word": "interview", "english": "The job interview lasted thirty minutes.", "thai": "การสัมภาษณ์งานใช้เวลาสามสิบนาที"}
+{"word": "job", "english": "He landed a job at the tech startup.", "thai": "เขาได้งานที่บริษัทสตาร์ทอัพด้านเทคโนโลยี"}
+{"word": "startup", "english": "The startup launched a groundbreaking app.", "thai": "สตาร์ทอัพเปิดตัวแอปที่ล้ำสมัย"}
+{"word": "app", "english": "This app tracks your daily steps.", "thai": "แอปนี้ติดตามจำนวนก้าวรายวันของคุณ"}
+{"word": "steps", "english": "She climbed the steps to the temple.", "thai": "เธอปีนบันไดไปที่วัด"}
+{"word": "temple", "english": "The ancient temple attracted many tourists.", "thai": "วัดโบราณดึงดูดนักท่องเที่ยวจำนวนมาก"}
+{"word": "tourists", "english": "Tourists crowded the vibrant street market.", "thai": "นักท่องเที่ยวแน่นขนัดในตลาดถนนที่คึกคัก"}
+{"word": "market", "english": "The market sold fresh organic produce.", "thai": "ตลาดขายผักผลไม้สดจากธรรมชาติ"}
+{"word": "produce", "english": "Farmers produce crops for local stores.", "thai": "เกษตรกรผลิตพืชผลให้ร้านค้าในท้องถิ่น"}
+{"word": "crops", "english": "Drought ruined the crops this season.", "thai": "ภัยแล้งทำลายพืชผลในฤดูกาลนี้"}
+{"word": "drought", "english": "The drought left the riverbed dry.", "thai": "ภัยแล้งทำให้พื้นแม่น้ำแห้ง"}
+{"word": "riverbed", "english": "Fish struggled in the shrinking riverbed.", "thai": "ปลาดิ้นรนในพื้นแม่น้ำที่หดตัว"}
+{"word": "fish", "english": "He caught a fish with his new rod.", "thai": "เขาจับปลาได้ด้วยคันเบ็ดใหม่"}
+{"word": "rod", "english": "The curtain rod broke under pressure.", "thai": "ราวม่านแตกภายใต้แรงกด"}
+{"word": "curtain", "english": "She sewed a curtain for her room.", "thai": "เธอเย็บม่านสำหรับห้องของเธอ"}
+{"word": "room", "english": "The room smelled of fresh paint.", "thai": "ห้องมีกลิ่นสีใหม่"}
+{"word": "paint", "english": "He used paint to create a mural.", "thai": "เขาใช้สีวาดภาพจิตรกรรมฝาผนัง"}
+{"word": "mural", "english": "The mural depicted a historic battle.", "thai": "ภาพจิตรกรรมฝาผนังแสดงถึงการรบในประวัติศาสตร์"}
+{"word": "battle", "english": "Soldiers prepared for the upcoming battle.", "thai": "ทหารเตรียมพร้อมสำหรับการรบที่กำลังจะมาถึง"}
+{"word": "soldiers", "english": "Soldiers trained rigorously in the camp.", "thai": "ทหารฝึกอย่างหนักในค่าย"}
+{"word": "camp", "english": "Kids loved the summer camp activities.", "thai": "เด็กๆ ชอบกิจกรรมค่ายฤดูร้อน"}
+{"word": "activities", "english": "Outdoor activities kept the group busy.", "thai": "กิจกรรมกลางแจ้งทำให้กลุ่มยุ่งวุ่นวาย"}
+{"word": "group", "english": "The study group met every Wednesday.", "thai": "กลุ่มเรียนพบกันทุกวันพุธ"}
+{"word": "study", "english": "She stayed up late to study math.", "thai": "เธอนอนดึกเพื่อเรียนคณิตศาสตร์"}
+{"word": "math", "english": "Math puzzles challenge my brain daily.", "thai": "ปริศนาคณิตศาสตร์ท้าทายสมองของฉันทุกวัน"}
+{"word": "brain", "english": "His brain buzzed with creative ideas.", "thai": "สมองของเขาเต็มไปด้วยความคิดสร้างสรรค์"}
+{"word": "ideas", "english": "Her ideas transformed the boring presentation.", "thai": "ความคิดของเธอเปลี่ยนการนำเสนอที่น่าเบื่อ"}
+{"word": "presentation", "english": "The presentation wowed the corporate clients.", "thai": "การนำเสนอทำให้ลูกค้าบริษัทประทับใจ"}
+{"word": "clients", "english": "Clients demanded faster project delivery.", "thai": "ลูกค้าต้องการให้ส่งมอบโครงการเร็วขึ้น"}
+{"word": "project", "english": "The science project won first prize.", "thai": "โครงการวิทยาศาสตร์ได้รับรางวัลที่หนึ่ง"}
+{"word": "science", "english": "Science experiments thrilled the curious students.", "thai": "การทดลองวิทยาศาสตร์ทำให้เด็กนักเรียนตื่นเต้น"}
+{"word": "students", "english": "Students debated passionately in class.", "thai": "นักเรียนถกเถียงอย่างดุเดือดในชั้นเรียน"}
+{"word": "class", "english": "The yoga class relaxed her mind.", "thai": "ชั้นเรียนโยคะทำให้จิตใจของเธอผ่อนคลาย"}
+{"word": "mind", "english": "His mind wandered during the lecture.", "thai": "จิตใจของเขาเหม่อลอยระหว่างการบรรยาย"}
+{"word": "lecture", "english": "The lecture covered modern art trends.", "thai": "การบรรยายครอบคลุมแนวโน้มศิลปะสมัยใหม่"}
+{"word": "art", "english": "Her art reflected deep personal emotions.", "thai": "ศิลปะของเธอสะท้อนอารมณ์ส่วนตัวที่ลึกซึ้ง"}
+{"word": "emotions", "english": "Emotions ran high after the game.", "thai": "อารมณ์พุ่งสูงหลังเกม"}
+{"word": "game", "english": "The chess game ended in a draw.", "thai": "เกมหมากรุกจบลงด้วยผลเสมอ"}
+{"word": "chess", "english": "Chess requires strategic thinking skills.", "thai": "หมากรุกต้องการทักษะการคิดเชิงกลยุทธ์"}
+{"word": "skills", "english": "Her cooking skills impressed everyone.", "thai": "ทักษะการทำอาหารของเธอทำให้ทุกคนประทับใจ"}
+{"word": "cooking", "english": "Cooking dinner together strengthened their bond.", "thai": "การทำอาหารเย็นด้วยกันทำให้ความสัมพันธ์แน่นแฟ้น"}
+{"word": "dinner", "english": "Dinner was served on the patio.", "thai": "อาหารเย็นถูกเสิร์ฟที่ลานบ้าน"}
+{"word": "patio", "english": "The patio overlooked a serene garden.", "thai": "ลานบ้านมองเห็นสวนที่เงียบสงบ"}
+{"word": "garden", "english": "She planted roses in her garden.", "thai": "เธอปลูกกุหลาบในสวนของเธอ"}
+{"word": "roses", "english": "Roses bloomed vibrantly despite the heat.", "thai": "กุหลาบบานสะพรั่งแม้จะมีอากาศร้อน"}
+{"word": "heat", "english": "The summer heat exhausted the hikers.", "thai": "ความร้อนในฤดูร้อนทำให้ผู้เดินป่าหมดแรง"}
+{"word": "hikers", "english": "Hikers discovered a hidden waterfall.", "thai": "นักเดินป่าค้นพบน้ำตกที่ซ่อนอยู่"}
+{"word": "waterfall", "english": "The waterfall sparkled under the sunlight.", "thai": "น้ำตกส่องประกายใต้แสงแดด"}
+{"word": "sunlight", "english": "Sunlight streamed through the open window.", "thai": "แสงแดดส่องผ่านหน้าต่างที่เปิดอยู่"}
+{"word": "window", "english": "She stared out the window daydreaming.", "thai": "เธอจ้องมองออกไปนอกหน้าต่างพร้อมฝันกลางวัน"}
+{"word": "daydreaming", "english": "Daydreaming helped her spark new ideas.", "thai": "การฝันกลางวันช่วยให้เธอจุดประกายความคิดใหม่"}
+{"word": "spark", "english": "A spark ignited the campfire instantly.", "thai": "ประกายไฟจุดกองไฟได้ทันที"}
+{"word": "campfire", "english": "The campfire warmed the chilly night.", "thai": "กองไฟทำให้คืนที่หนาวเย็นอบอุ่น"}
+{"word": "night", "english": "Stars twinkled brightly in the night sky.", "thai": "ดวงดาวส่องแสงระยิบระยับในท้องฟ้ายามค่ำ"}
+{"word": "stars", "english": "Stars inspired her to write poetry.", "thai": "ดวงดาวบันดาลใจให้เธอเขียนบทกวี"}
+{"word": "poetry", "english": "Her poetry captured raw human emotions.", "thai": "บทกวีของเธอจับความรู้สึกดิบของมนุษย์"}
+{"word": "human", "english": "Human kindness restored his faith.", "thai": "ความเมตตาของมนุษย์ฟื้นฟูความเชื่อของเขา"}
+{"word": "kindness", "english": "Her kindness touched everyone she met.", "thai": "ความเมตตาของเธอทำให้ทุกคนที่พบประทับใจ"}
+{"word": "touched", "english": "The movie touched her heart deeply.", "thai": "ภาพยนตร์ทำให้หัวใจของเธอซาบซึ้งลึกซึ้ง"}
+{"word": "heart", "english": "His heart raced during the thrilling race.", "thai": "หัวใจของเขาเต้นแรงระหว่างการแข่งขันที่ตื่นเต้น"}
+{"word": "race", "english": "The marathon race tested their endurance.", "thai": "การแข่งขันมาราธอนทดสอบความอดทนของพวกเขา"}
+{"word": "endurance", "english": "Endurance training improved her stamina.", "thai": "การฝึกความอดทนช่วยเพิ่มพลังของเธอ"}
+{"word": "stamina", "english": "His stamina amazed the entire team.", "thai": "พลังของเขาทำให้ทีมทั้งหมดทึ่ง"}
+{"word": "amazed", "english": "The magic trick amazed the audience.", "thai": "กลเม็ดมายากลทำให้ผู้ชมตื่นตะลึง"}
+{"word": "magic", "english": "Magic filled the air at the festival.", "thai": "มนต์ขลังเติมเต็มบรรยากาศในงานเทศกาล"}
+{"word": "festival", "english": "The music festival drew huge crowds.", "thai": "เทศกาลดนตรีดึงดูดฝูงชนจำนวนมาก"}
+{"word": "music", "english": "Live music energized the lively party.", "thai": "ดนตรีสดทำให้งานปาร์ตี้คึกคัก"}
+{"word": "party", "english": "The birthday party lasted until midnight.", "thai": "งานเลี้ยงวันเกิดยาวนานถึงเที่ยงคืน"}
+{"word": "midnight", "english": "At midnight, the city was still awake.", "thai": "ตอนเที่ยงคืน เมืองยังคงตื่นตัว"}
+{"word": "city", "english": "The city buzzed with vibrant energy.", "thai": "เมืองเต็มไปด้วยพลังที่คึกคัก"}
+{"word": "energy", "english": "Her energy inspired the whole group.", "thai": "พลังของเธอบันดาลใจทั้งกลุ่ม"}
+{"word": "inspired", "english": "The novel inspired a hit movie.", "thai": "นิยายเล่มนี้บันดาลใจให้เกิดภาพยนตร์ดัง"}
+{"word": "movie", "english": "The movie theater was packed tonight.", "thai": "โรงภาพยนตร์แน่นขนัดคืนนี้"}
+{"word": "theater", "english": "The theater performance received rave reviews.", "thai": "การแสดงละครได้รับคำวิจารณ์ชื่นชม"}
+{"word": "performance", "english": "His performance on stage was flawless.", "thai": "การแสดงของเขาบนเวทีไร้ที่ติ"}
+{"word": "stage", "english": "The band took the stage by storm.", "thai": "วงดนตรีขึ้นเวทีอย่างยิ่งใหญ่"}
+{"word": "band", "english": "The jazz band played soulful tunes.", "thai": "วงดนตรีแจ๊สเล่นเพลงที่เต็มไปด้วยอารมณ์"}
+{"word": "tunes", "english": "Her favorite tunes lifted her mood.", "thai": "เพลงโปรดของเธอยกระดับอารมณ์ของเธอ"}
+{"word": "mood", "english": "The rainy day dampened his mood.", "thai": "วันที่ฝนตกทำให้อารมณ์ของเขาหดหู่"}
+{"word": "rainy", "english": "Rainy afternoons are perfect for reading.", "thai": "บ่ายวันที่ฝนตกเหมาะสำหรับการอ่าน"}
+{"word": "reading", "english": "Reading novels expanded her imagination.", "thai": "การอ่านนิยายขยายจินตนาการของเธอ"}
+{"word": "imagination", "english": "Her imagination crafted vivid fantasy worlds.", "thai": "จินตนาการของเธอสร้างโลกแฟนตาซีที่สดใส"}
+{"word": "worlds", "english": "Exploring new worlds excited the adventurer.", "thai": "การสำรวจโลกใหม่ทำให้ผจญภัยตื่นเต้น"}
+{"word": "adventurer", "english": "The adventurer scaled the tallest mountain.", "thai": "นักผจญภัยปีนเขาที่สูงที่สุด"}
+{"word": "mountain", "english": "The mountain trail was steep and rocky.", "thai": "เส้นทางบนเขาชันและเต็มไปด้วยหิน"}
+{"word": "trail", "english": "The trail led to a hidden cave.", "thai": "เส้นทางนำไปสู่ถ้ำที่ซ่อนอยู่"}
+{"word": "cave", "english": "The cave echoed with dripping water.", "thai": "ถ้ำดังก้องด้วยเสียงน้ำหยด"}
+{"word": "water", "english": "Fresh water sustained the small village.", "thai": "น้ำจืดค้ำจุนหมู่บ้านเล็กๆ"}
+{"word": "village", "english": "The village celebrated its annual festival.", "thai": "หมู่บ้านเฉลิมฉลองเทศกาลประจำปี"}
+{"word": "celebrated", "english": "They celebrated their victory with joy.", "thai": "พวกเขาเฉลิมฉลองชัยชนะด้วยความยินดี"}
+{"word": "victory", "english": "The victory parade filled the streets.", "thai": "ขบวนพาเหรดชัยชนะเต็มไปด้วยถนน"}
+{"word": "parade", "english": "The parade featured colorful floats.", "thai": "ขบวนพาเหรดมีขบวนรถประดับสีสัน"}
+{"word": "colorful", "english": "Her colorful scarf caught everyone’s eye.", "thai": "ผ้าพันคอสีสันของเธอดึงดูดสายตาทุกคน"}
+{"word": "scarf", "english": "She knitted a scarf for winter.", "thai": "เธอถักผ้าพันคอสำหรับฤดูหนาว"}
+{"word": "winter", "english": "Winter brought heavy snow to town.", "thai": "ฤดูหนาวนำหิมะตกหนักมาสู่เมือง"}
+{"word": "snow", "english": "Kids built a snow fort outside.", "thai": "เด็กๆ สร้างป้อมหิมะด้านนอก"}
+{"word": "fort", "english": "The old fort stood on the hill.", "thai": "ป้อมเก่าตั้งอยู่บนเนินเขา"}
+{"word": "hill", "english": "She hiked up the hill at dawn.", "thai": "เธอเดินป่าขึ้นเนินตอนรุ่งสาง"}
+{"word": "dawn", "english": "Dawn revealed a stunning pink sky.", "thai": "รุ่งสางเผยท้องฟ้าสีชมพูที่สวยงาม"}
+{"word": "sky", "english": "The sky cleared after the storm.", "thai": "ท้องฟ้าแจ่มใสหลังพายุ"}
+{"word": "storm", "english": "The storm knocked out the power.", "thai": "พายุทำให้ไฟฟ้าดับ"}
+{"word": "power", "english": "Solar power fueled their tiny cabin.", "thai": "พลังงานแสงอาทิตย์ขับเคลื่อนกระท่อมเล็กของพวกเขา"}
+{"word": "cabin", "english": "The cabin smelled of pine wood.", "thai": "กระท่อมมีกลิ่นไม้สน"}
+{"word": "pine", "english": "Pine trees lined the winding path.", "thai": "ต้นสนเรียงรายตามทางคดเคี้ยว"}
+{"word": "path", "english": "The path led to a quiet lake.", "thai": "เส้นทางนำไปสู่ทะเลสาบเงียบสงบ"}
+{"word": "lake", "english": "They fished at the lake all morning.", "thai": "พวกเขาตกปลาที่ทะเลสาบทั้งเช้า"}
+{"word": "fished", "english": "He fished for compliments with his outfit.", "thai": "เขาพยายามเรียกร้องคำชมด้วยชุดของเขา"}
+{"word": "outfit", "english": "Her outfit matched the vibrant festival.", "thai": "ชุดของเธอเข้ากับงานเทศกาลที่คึกคัก"}
+{"word": "festival", "english": "The food festival offered spicy tacos.", "thai": "งานเทศกาลอาหารมีทาโก้รสเผ็ด"}
+{"word": "food", "english": "Homemade food warmed their family gathering.", "thai": "อาหารโฮมเมดทำให้การรวมตัวของครอบครัวอบอุ่น"}
+{"word": "family", "english": "Family traditions shaped her childhood memories.", "thai": "ประเพณีครอบครัวหล่อหลอมความทรงจำวัยเด็กของเธอ"}
+{"word": "memories", "english": "Old memories flooded back during the reunion.", "thai": "ความทรงจำเก่าๆ ท่วมท้นกลับมาในงานคืนสู่เหย้า"}
+{"word": "reunion", "english": "The class reunion sparked nostalgic chats.", "thai": "งานคืนสู่เหย้าชั้นเรียนจุดประกายการสนทนาที่คิดถึง"}
+{"word": "nostalgic", "english": "Nostalgic tunes played on the radio.", "thai": "เพลงชวนคิดถึงดังจากวิทยุ"}
+{"word": "radio", "english": "The radio blared catchy pop songs.", "thai": "วิทยุดังด้วยเพลงป๊อปที่ติดหู"}
+{"word": "songs", "english": "Her songs told stories of heartbreak.", "thai": "เพลงของเธอบอกเล่าเรื่องราวของความอกหัก"}
+{"word": "heartbreak", "english": "Heartbreak taught him to value trust.", "thai": "ความอกหักสอนให้เขาเห็นคุณค่าของความไว้วางใจ"}
+{"word": "trust", "english": "Trust grew between the new teammates.", "thai": "ความไว้วางใจเพิ่มขึ้นระหว่างเพื่อนร่วมทีมใหม่"}
+{"word": "teammates", "english": "Teammates cheered loudly after the goal.", "thai": "เพื่อนร่วมทีมโห่ร้องดังลั่นหลังทำประตู"}
+{"word": "goal", "english": "Scoring the goal boosted his confidence.", "thai": "การทำประตูเพิ่มความมั่นใจให้เขา"}
+{"word": "confidence", "english": "Her confidence shone during the speech.", "thai": "ความมั่นใจของเธอเปล่งประกายระหว่างการพูด"}
+{"word": "speech", "english": "The speech inspired the young graduates.", "thai": "คำปราศรัยสร้างแรงบันดาลใจให้บัณฑิตหนุ่มสาว"}
+{"word": "graduates", "english": "Graduates tossed their caps in celebration.", "thai": "บัณฑิตโยนหมวกขึ้นเพื่อเฉลิมฉลอง"}
+{"word": "celebration", "english": "The celebration included fireworks and music.", "thai": "งานเฉลิมฉลองมีทั้งดอกไม้ไฟและดนตรี"}
+{"word": "fireworks", "english": "Fireworks lit up the night sky.", "thai": "ดอกไม้ไฟส่องสว่างท้องฟ้ายามค่ำ"}
+{"word": "night", "english": "The night market buzzed with excitement.", "thai": "ตลาดกลางคืนคึกคักด้วยความตื่นเต้น"}
+{"word": "market", "english": "Fresh fruit filled the market stalls.", "thai": "ผลไม้สดเต็มร้านค้าในตลาด"}
+{"word": "fruit", "english": "She blended fruit for a smoothie.", "thai": "เธอปั่นผลไม้ทำสมูทตี้"}
+{"word": "smoothie", "english": "The smoothie tasted refreshing and sweet.", "thai": "สมูทตี้รสชาติสดชื่นและหวาน"}
+{"word": "sweet", "english": "Sweet pastries tempted everyone at the bakery.", "thai": "ขนมหวานล่อใจทุกคนที่ร้านเบเกอรี่"}
+{"word": "bakery", "english": "The bakery opened early every morning.", "thai": "ร้านเบเกอรี่เปิดแต่เช้าทุกวัน"}
+{"word": "morning", "english": "Morning jogs energized her whole day.", "thai": "การวิ่งตอนเช้าทำให้เธอมีพลังทั้งวัน"}
+{"word": "jogs", "english": "His daily jogs improved his health.", "thai": "การวิ่งทุกวันของเขาช่วยให้สุขภาพดีขึ้น"}
+{"word": "health", "english": "Good health requires balanced meals daily.", "thai": "สุขภาพดีต้องรับประทานอาหารสมดุลทุกวัน"}
+{"word": "meals", "english": "Family meals strengthened their close bond.", "thai": "มื้ออาหารครอบครัวทำให้ความสัมพันธ์แน่นแฟ้น"}
+{"word": "bond", "english": "Their bond grew through shared adventures.", "thai": "ความผูกพันของพวกเขาเติบโตผ่านการผจญภัยร่วมกัน"}
+{"word": "adventures", "english": "Adventures abroad broadened her perspective.", "thai": "การผจญภัยในต่างแดนขยายมุมมองของเธอ"}
+{"word": "perspective", "english": "His perspective shifted after the debate.", "thai": "มุมมองของเขาเปลี่ยนไปหลังการโต้วาที"}
+{"word": "debate", "english": "The debate sparked heated online discussions.", "thai": "การโต้วาทีจุดประกายการถกเถียงออนไลน์อย่างดุเดือด"}
+{"word": "discussions", "english": "Discussions at work solved the issue.", "thai": "การสนทนาที่ทำงานแก้ปัญหาได้"}
+{"word": "work", "english": "Work deadlines kept her up late.", "thai": "กำหนดเวลางานทำให้เธอนอนดึก"}
+{"word": "deadlines", "english": "Meeting deadlines earned her a promotion.", "thai": "การทำตามกำหนดเวลาได้ทำให้เธอได้เลื่อนตำแหน่ง"}
+{"word": "promotion", "english": "The promotion came with a bigger office.", "thai": "การเลื่อนตำแหน่งมาพร้อมสำนักงานที่ใหญ่ขึ้น"}
+{"word": "office", "english": "Her office overlooked the bustling city.", "thai": "สำนักงานของเธอมองเห็นเมืองที่คึกคัก"}
+{"word": "city", "english": "The city skyline glowed at dusk.", "thai": "เส้นขอบฟ้าของเมืองส่องสว่างยามพลบค่ำ"}
+{"word": "skyline", "english": "The skyline inspired her latest painting.", "thai": "เส้นขอบฟ้าบันดาลใจให้ภาพวาดล่าสุดของเธอ"}
+{"word": "painting", "english": "Painting landscapes calmed her busy mind.", "thai": "การวาดภาพทิวทัศน์ทำให้จิตใจที่วุ่นวายของเธอสงบ"}
+{"word": "mind", "english": "His mind raced with new ideas.", "thai": "จิตใจของเขาเต็มไปด้วยความคิดใหม่"}
+{"word": "ideas", "english": "Creative ideas fueled the team’s project.", "thai": "ความคิดสร้างสรรค์ขับเคลื่อนโครงการของทีม"}
+{"word": "project", "english": "The project required late-night brainstorming.", "thai": "โครงการนี้ต้องมีการระดมสมองตอนดึก"}
+{"word": "brainstorming", "english": "Brainstorming sessions sparked innovative solutions.", "thai": "การระดมสมองจุดประกายแนวทางแก้ปัญหาที่สร้างสรรค์"}
+{"word": "solutions", "english": "Simple solutions fixed the complex bug.", "thai": "วิธีแก้ปัญหาง่ายๆ ซ่อมแซมข้อบกพร่องที่ซับซ้อน"}
+{"word": "bug", "english": "The software bug crashed the app.", "thai": "ข้อบกพร่องของซอฟต์แวร์ทำให้แอปขัดข้อง"}
+{"word": "app", "english": "The new app streamlined daily tasks.", "thai": "แอปใหม่ทำให้งานประจำวันง่ายขึ้น"}
+{"word": "tasks", "english": "Tasks piled up before the holidays.", "thai": "งานกองพะเนินก่อนวันหยุด"}
+{"word": "holidays", "english": "Holidays brought families closer together.", "thai": "วันหยุดทำให้ครอบครัวใกล้ชิดกันมากขึ้น"}
+{"word": "families", "english": "Families gathered for a festive dinner.", "thai": "ครอบครัวรวมตัวกันเพื่ออาหารค่ำเทศกาล"}
+{"word": "dinner", "english": "Dinner conversations turned to old memories.", "thai": "การสนทนาระหว่างมื้อค่ำกลายเป็นเรื่องความทรงจำเก่า"}
+{"word": "conversations", "english": "Conversations with friends eased her stress.", "thai": "การสนทนากับเพื่อนช่วยลดความเครียดของเธอ"}
+{"word": "stress", "english": "Stress melted away during her vacation.", "thai": "ความเครียดหายไประหว่างการพักร้อนของเธอ"}
+{"word": "vacation", "english": "The beach vacation was pure bliss.", "thai": "การพักร้อนที่ชายหาดคือความสุขล้วนๆ"}
+{"word": "beach", "english": "The beach stretched for miles ahead.", "thai": "ชายหาดทอดยาวไปหลายไมล์"}
+{"word": "miles", "english": "He ran miles to train for the race.", "thai": "เขาวิ่งหลายไมล์เพื่อฝึกซ้อมสำหรับการแข่งขัน"}
+{"word": "race", "english": "The race ended in a photo finish.", "thai": "การแข่งขันจบลงด้วยการเข้าเส้นชัยที่สูสี"}
+{"word": "finish", "english": "They worked hard to finish the puzzle.", "thai": "พวกเขาทำงานหนักเพื่อทำปริศนาให้เสร็จ"}
+{"word": "puzzle", "english": "The puzzle challenged their logical thinking.", "thai": "ปริศนาท้าทายการคิดเชิงตรรกะของพวกเขา"}
+{"word": "thinking", "english": "Critical thinking solved the tricky problem.", "thai": "การคิดอย่างมีวิจารณญาณแก้ปัญหาที่ยากได้"}
+{"word": "problem", "english": "The math problem stumped the class.", "thai": "โจทย์คณิตศาสตร์ทำให้ทั้งชั้นเรียนงง"}
+{"word": "class", "english": "The cooking class taught new recipes.", "thai": "ชั้นเรียนทำอาหารสอนสูตรใหม่"}
+{"word": "recipes", "english": "Her recipes always included fresh herbs.", "thai": "สูตรอาหารของเธอมักมีสมุนไพรสด"}
+{"word": "herbs", "english": "Herbs added flavor to the soup.", "thai": "สมุนไพรเพิ่มรสชาติให้ซุป"}
+{"word": "soup", "english": "Hot soup warmed them on cold nights.", "thai": "ซุปร้อนทำให้พวกเขาอบอุ่นในคืนที่หนาว"}
+{"word": "nights", "english": "Nights by the campfire were unforgettable.", "thai": "คืนข้างกองไฟนั้นน่าจดจำ"}
+{"word": "campfire", "english": "The campfire crackled under the stars.", "thai": "กองไฟดังเปาะแปะใต้ดวงดาว"}
+{"word": "stars", "english": "Stars guided their late-night hike.", "thai": "ดวงดาวนำทางในการเดินป่ากลางคืน"}
+{"word": "hike", "english": "The hike revealed breathtaking mountain views.", "thai": "การเดินป่าทำให้เห็นวิวภูเขาที่ตื่นตา"}
+{"word": "views", "english": "The hotel offered views of the ocean.", "thai": "โรงแรมมีวิวทะเล"}
+{"word": "ocean", "english": "The ocean waves crashed against the shore.", "thai": "คลื่นทะเลซัดเข้าฝั่ง"}
+{"word": "waves", "english": "Waves of excitement hit the crowd.", "thai": "คลื่นแห่งความตื่นเต้นกระทบฝูงชน"}
+{"word": "crowd", "english": "The crowd cheered for the home team.", "thai": "ฝูงชนโห่ร้องให้ทีมเจ้าบ้าน"}
+{"word": "team", "english": "The team collaborated on a new design.", "thai": "ทีมร่วมมือกันออกแบบใหม่"}
+{"word": "design", "english": "Her dress design won first place.", "thai": "การออกแบบชุดของเธอได้รางวัลที่หนึ่ง"}
+{"word": "place", "english": "This place feels like home now.", "thai": "สถานที่นี้รู้สึกเหมือนบ้านแล้ว"}
+{"word": "home", "english": "Home renovations took months to complete.", "thai": "การปรับปรุงบ้านใช้เวลาหลายเดือนกว่าจะเสร็จ"}
+{"word": "renovations", "english": "Renovations transformed the old library.", "thai": "การปรับปรุงเปลี่ยนโฉมห้องสมุดเก่า"}
+{"word": "library", "english": "The library offered free coding workshops.", "thai": "ห้องสมุดมีเวิร์กช็อปเขียนโค้ดฟรี"}
+{"word": "workshops", "english": "Workshops taught her woodworking skills.", "thai": "เวิร์กช็อปสอนทักษะงานไม้ให้เธอ"}
+{"word": "skills", "english": "Her skills impressed the hiring manager.", "thai": "ทักษะของเธอทำให้ผู้จัดการจ้างงานประทับใจ"}
+{"word": "manager", "english": "The manager praised her creative input.", "thai": "ผู้จัดการชื่นชมความคิดสร้างสรรค์ของเธอ"}
+{"word": "praised", "english": "Her teacher praised her excellent essay.", "thai": "ครูของเธอชื่นชมเรียงความที่ยอดเยี่ยมของเธอ"}
+{"word": "essay", "english": "The essay explored themes of freedom.", "thai": "เรียงความสำรวจประเด็นเรื่องอิสรภาพ"}
+{"word": "freedom", "english": "Freedom inspired his bold career move.", "thai": "อิสรภาพจุดประกายให้เขาเปลี่ยนงานอย่างกล้าหาญ"}
+{"word": "career", "english": "Her career in tech took off rapidly.", "thai": "อาชีพของเธอในด้านเทคโนโลยีเติบโตอย่างรวดเร็ว"}
+{"word": "tech", "english": "The tech conference showcased new gadgets.", "thai": "งานประชุมเทคโนโลยีแสดงอุปกรณ์ใหม่"}
+{"word": "gadgets", "english": "Gadgets simplified their daily routines.", "thai": "อุปกรณ์ช่วยให้ชีวิตประจำวันของพวกเขาง่ายขึ้น"}
+{"word": "routines", "english": "Morning routines set a productive tone.", "thai": "กิจวัตรตอนเช้าสร้างบรรยากาศที่ productive"}
+{"word": "productive", "english": "A productive day boosted her morale.", "thai": "วันที่ productive เพิ่มขวัญกำลังใจให้เธอ"}
+{"word": "morale", "english": "Team morale soared after the win.", "thai": "ขวัญกำลังใจของทีมพุ่งสูงหลังชัยชนะ"}
+{"word": "win", "english": "The win secured their playoff spot.", "thai": "ชัยชนะทำให้พวกเขาได้ตำแหน่งในรอบเพลย์ออฟ"}
+{"word": "playoff", "english": "Playoff games always draw huge crowds.", "thai": "เกมเพลย์ออฟมักดึงดูดฝูงชนจำนวนมาก"}
+{"word": "crowds", "english": "Crowds gathered for the street concert.", "thai": "ฝูngชนรวมตัวกันเพื่อคอนเสิร์ตข้างถนน"}
+{"word": "concert", "english": "The concert featured local indie bands.", "thai": "คอนเสิร์ตมีวงดนตรีอินดี้ท้องถิ่น"}
+{"word": "bands", "english": "Friendship bands symbolized their tight bond.", "thai": "สายรัดข้อมือมิตรภาพเป็นสัญลักษณ์ของความผูกพันที่แน่นแฟ้น"}
+{"word": "bond", "english": "Their bond grew stronger through challenges.", "thai": "ความผูกพันของพวกเขาแข็งแกร่งขึ้นผ่านความท้าทาย"}
+{"word": "challenges", "english": "Challenges in coding sharpened his skills.", "thai": "ความท้าทายในการเขียนโค้ดเพิ่มทักษะของเขา"}
+{"word": "skills", "english": "Her language skills impressed the interviewer.", "thai": "ทักษะด้านภาษาของเธอทำให้ผู้สัมภาษณ์ประทับใจ"}
+{"word": "interviewer", "english": "The interviewer asked tough personal questions.", "thai": "ผู้สัมภาษณ์ถามคำถามส่วนตัวที่ยาก"}
+{"word": "questions", "english": "Questions about history stumped the quiz team.", "thai": "คำถามเกี่ยวกับประวัติศาสตร์ทำให้ทีมควิซงง"}
+{"word": "history", "english": "History lessons revealed forgotten local stories.", "thai": "บทเรียนประวัติศาสตร์เผยเรื่องราวท้องถิ่นที่ถูกลืม"}
+{"word": "stories", "english": "Bedtime stories sparked her vivid imagination.", "thai": "นิทานก่อนนอนจุดประกายจินตนาการที่สดใสของเธอ"}
+{"word": "imagination", "english": "His imagination crafted wild adventure novels.", "thai": "จินตนาการของเขาสร้างนิยายผจญภัยสุดมัน"}
+{"word": "novels", "english": "Novels lined the shelves of her room.", "thai": "นิยายวางเรียงรายบนชั้นในห้องของเธอ"}
+{"word": "shelves", "english": "The shelves held colorful ceramic pots.", "thai": "ชั้นวางของเต็มไปด้วยหม้อเซรามิกสีสัน"}
+{"word": "pots", "english": "Pots simmered with fragrant curry sauce.", "thai": "หม้อเคี่ยวซอสแกงที่มีกลิ่นหอม"}
+{"word": "curry", "english": "The curry recipe needed fresh spices.", "thai": "สูตรแกงต้องใช้เครื่องเทศสด"}
+{"word": "spices", "english": "Spices added zest to her cooking.", "thai": "เครื่องเทศเพิ่มรสชาติให้การทำอาหารของเธอ"}
+{"word": "cooking", "english": "Cooking together became their weekend ritual.", "thai": "การทำอาหารด้วยกันกลายเป็นพิธีกรรมวันหยุดสุดสัปดาห์"}
+{"word": "weekend", "english": "The weekend hike offered stunning views.", "thai": "การเดินป่าช่วงสุดสัปดาห์มีวิวที่สวยงาม"}
+{"word": "views", "english": "Her views on art sparked debates.", "thai": "มุมมองของเธอเกี่ยวกับศิลปะจุดประกายการถกเถียง"}
+{"word": "art", "english": "Street art transformed the dull alley.", "thai": "ศิลปะข้างถนนเปลี่ยนตรอกที่จืดชืด"}
+{"word": "alley", "english": "The alley echoed with stray cats’ meows.", "thai": "ตรอกดังก้องด้วยเสียงร้องของแมวจร"}
+{"word": "cats", "english": "Cats napped lazily in the sunlight.", "thai": "แมวนอนขี้เกียจในแสงแดด"}
+{"word": "sunlight", "english": "Sunlight filtered through the dense forest.", "thai": "แสงแดดกรองผ่านป่าที่ยึดแน่น"}
+{"word": "forest", "english": "The forest trail led to a waterfall.", "thai": "เส้นทางในป่านำไปสู่น้ำตก"}
+{"word": "waterfall", "english": "The waterfall mist cooled the hikers.", "thai": "หมอกจากน้ำตกทำให้ผู้เดินป่าชื่นใจ"}
+{"word": "hikers", "english": "Hikers shared stories around the campfire.", "thai": "ผู้เดินป่าแบ่งปันเรื่องราวรอบกองไฟ"}
+{"word": "campfire", "english": "The campfire crackled under a starry sky.", "thai": "กองไฟดังเปาะแปะใต้ท้องฟ้าที่เต็มไปด้วยดวงดาว"}
+{"word": "sky", "english": "The clear sky promised perfect weather.", "thai": "ท้องฟ้าแจ่มใสสัญญาถึงสภาพอากาศที่สมบูรณ์แบบ"}
+{"word": "weather", "english": "Stormy weather delayed their road trip.", "thai": "สภาพอากาศที่มีพายุทำให้การเดินทางล่าช้า"}
+{"word": "trip", "english": "The road trip included scenic detours.", "thai": "การเดินทางรวมถึงเส้นทางเลี่ยงที่สวยงาม"}
+{"word": "scenic", "english": "Scenic overlooks attracted adventurous photographers.", "thai": "จุดชมวิวที่สวยงามดึงดูดช่างภาพที่ชอบผจญภัย"}
+{"word": "photographers", "english": "Photographers captured the vibrant festival.", "thai": "ช่างภาพจับภาพงานเทศกาลที่คึกคัก"}
+{"word": "festival", "english": "The festival offered live music nightly.", "thai": "งานเทศกาลมีดนตรีสดทุกคืน"}
+{"word": "music", "english": "Music filled the air at dusk.", "thai": "ดนตรีเติมเต็มบรรยากาศยามพลบค่ำ"}
+{"word": "dusk", "english": "Dusk brought a calm over the lake.", "thai": "พลบค่ำนำความสงบมาสู่ทะเลสาบ"}
+{"word": "lake", "english": "The lake reflected the glowing moon.", "thai": "ทะเลสาบสะท้อนแสงจันทร์ที่สว่างไสว"}
+{"word": "moon", "english": "The full moon lit their path.", "thai": "พระจันทร์เต็มดวงส่องทางให้พวกเขา"}
+{"word": "path", "english": "A narrow path wound through the village.", "thai": "เส้นทางแคบคดเคี้ยวผ่านหมู่บ้าน"}
+{"word": "village", "english": "The village hosted a lively market.", "thai": "หมู่บ้านจัดตลาดที่คึกคัก"}
+{"word": "market", "english": "The market bustled with local vendors.", "thai": "ตลาดคึกคักไปด้วยพ่อค้าแม่ค้าท้องถิ่น"}
+{"word": "vendors", "english": "Vendors sold handmade crafts enthusiastically.", "thai": "พ่อค้าแม่ค้าขายงานฝีมืออย่างกระตือรือร้น"}
+{"word": "crafts", "english": "Crafts decorated the cozy community center.", "thai": "งานฝีมือประดับศูนย์ชุมชนที่อบอุ่น"}
+{"word": "community", "english": "The community rallied to clean the park.", "thai": "ชุมชนรวมตัวกันทำความสะอาดสวนสาธารณะ"}
+{"word": "park", "english": "Kids played soccer in the park.", "thai": "เด็กๆ เล่นฟุตบอลในสวนสาธารณะ"}
+{"word": "soccer", "english": "Soccer matches united the neighborhood kids.", "thai": "การแข่งขันฟุตบอลรวมเด็กๆ ในละแวก"}
+{"word": "neighborhood", "english": "The neighborhood threw a block party.", "thai": "ละแวกจัดงานเลี้ยงบล็อก"}
+{"word": "party", "english": "The party featured a live DJ.", "thai": "งานเลี้ยงมีดีเจสด"}
+{"word": "DJ", "english": "The DJ mixed tracks until midnight.", "thai": "ดีเจผสมเพลงจนถึงเที่ยงคืน"}
+{"word": "tracks", "english": "Train tracks ran through the quiet town.", "thai": "รางรถไฟวิ่งผ่านเมืองเงียบสงบ"}
+{"word": "town", "english": "The town square hosted weekly concerts.", "thai": "จัตุรัสเมืองจัดคอนเสิร์ตทุกสัปดาห์"}
+{"word": "square", "english": "The chessboard’s square pattern intrigued her.", "thai": "ลายสี่เหลี่ยมของกระดานหมากรุกทำให้เธอสนใจ"}
+{"word": "pattern", "english": "Her scarf’s pattern matched her outfit.", "thai": "ลายผ้าพันคอของเธอเข้ากับชุด"}
+{"word": "outfit", "english": "Her outfit turned heads at the gala.", "thai": "ชุดของเธอทำให้คนหันมองในงานกาล่า"}
+{"word": "gala", "english": "The charity gala raised significant funds.", "thai": "งานกาล่าการกุศลระดมทุนได้มาก"}
+{"word": "funds", "english": "Funds supported the new school library.", "thai": "เงินทุนสนับสนุนห้องสมุดโรงเรียนใหม่"}
+{"word": "library", "english": "The library offered free storytelling sessions.", "thai": "ห้องสมุดมีเซสชันเล่านิทานฟรี"}
+{"word": "storytelling", "english": "Storytelling captivated the young audience.", "thai": "การเล่าเรื่องดึงดูดผู้ฟังวัยเยาว์"}
+{"word": "audience", "english": "The audience applauded the stunning performance.", "thai": "ผู้ชมปรบมือให้การแสดงที่ยอดเยี่ยม"}
+{"word": "performance", "english": "Her performance in math improved steadily.", "thai": "ผลงานด้านคณิตศาสตร์ของเธอดีขึ้นอย่างต่อเนื่อง"}
+{"word": "math", "english": "Math puzzles challenged his quick thinking.", "thai": "ปริศนาคณิตศาสตร์ท้าทายการคิดเร็วของเขา"}
+{"word": "thinking", "english": "Creative thinking solved the team’s dilemma.", "thai": "การคิดสร้างสรรค์แก้ปัญหาของทีม"}
+{"word": "dilemma", "english": "The dilemma forced a tough decision.", "thai": "ปัญหาทำให้ต้องตัดสินใจยาก"}
+{"word": "decision", "english": "Her decision to travel changed everything.", "thai": "การตัดสินใจเดินทางของเธอเปลี่ยนทุกอย่าง"}
+{"word": "travel", "english": "Travel broadened his cultural horizons.", "thai": "การเดินทางขยายขอบเขตวัฒนธรรมของเขา"}
+{"word": "horizons", "english": "New horizons awaited the bold explorer.", "thai": "ขอบฟ้าใหม่รอคอยนักสำรวจที่กล้าหาญ"}
+{"word": "explorer", "english": "The explorer mapped uncharted jungle terrain.", "thai": "นักสำรวจทำแผนที่ภูมิประเทศป่าที่ยังไม่เคยสำรวจ"}
+{"word": "jungle", "english": "Jungle sounds filled the humid night.", "thai": "เสียงป่าดังก้องในคืนที่ชื้น"}
+{"word": "sounds", "english": "Strange sounds echoed in the old house.", "thai": "เสียงแปลกๆ ดังก้องในบ้านเก่า"}
+{"word": "house", "english": "The house smelled of fresh cookies.", "thai": "บ้านมีกลิ่นคุกกี้สดใหม่"}
+{"word": "cookies", "english": "Cookies crumbled in her lunch bag.", "thai": "คุกกี้แตกในถุงอาหารกลางวันของเธอ"}
+{"word": "lunch", "english": "Lunch with friends sparked lively chats.", "thai": "มื้อกลางวันกับเพื่อนจุดประกายการสนทนาคึกคัก"}
+{"word": "chats", "english": "Online chats connected her with strangers.", "thai": "การแชทออนไลน์เชื่อมโยงเธอกับคนแปลกหน้า"}
+{"word": "strangers", "english": "Strangers helped during the sudden storm.", "thai": "คนแปลกหน้าช่วยเหลือระหว่างพายุที่มาแบบกะทันหัน"}
+{"word": "storm", "english": "The storm scattered leaves across the yard.", "thai": "พายุทำให้ใบไม้กระจัดกระจายทั่วลาน"}
+{"word": "yard", "english": "The yard bloomed with colorful flowers.", "thai": "ลานเต็มไปด้วยดอกไม้สีสัน"}
+{"word": "flowers", "english": "Flowers brightened the dull hospital room.", "thai": "ดอกไม้ทำให้ห้องโรงพยาบาลที่จืดชืดสดใสขึ้น"}
+{"word": "hospital", "english": "The hospital staff worked tirelessly overnight.", "thai": "เจ้าหน้าที่โรงพยาบาลทำงานอย่างไม่เหน็ดเหนื่อยตลอดคืน"}
+{"word": "staff", "english": "The coffee shop staff brewed perfect lattes.", "thai": "พนักงานร้านกาแฟชงลาเต้ได้อย่างสมบูรณ์แบบ"}
+{"word": "coffee", "english": "Coffee fueled her early morning study.", "thai": "กาแฟช่วยให้เธอเรียนตอนเช้าได้"}
+{"word": "study", "english": "The study group tackled complex equations.", "thai": "กลุ่มเรียนแก้โจทย์สมการที่ซับซ้อน"}
+{"word": "equations", "english": "Equations on the board confused everyone.", "thai": "สมการบนกระดานทำให้ทุกคนสับสน"}
+{"word": "board", "english": "The surfboard glided over crashing waves.", "thai": "กระดานโต้คลื่นลื่นไหลไปบนคลื่นที่ซัดสาด"}
+{"word": "waves", "english": "Waves of laughter filled the comedy club.", "thai": "คลื่นแห่งเสียงหัวเราะเต็มไปในคลับตลก"}
+{"word": "laughter", "english": "Her laughter echoed through the empty hall.", "thai": "เสียงหัวเราะของเธอดังก้องในโถงที่ว่างเปล่า"}
+{"word": "hall", "english": "The hall displayed vibrant student artwork.", "thai": "โถงแสดงผลงานศิลปะนักเรียนที่สดใส"}
+{"word": "artwork", "english": "Her artwork captured the city’s energy.", "thai": "ผลงานศิลปะของเธอจับพลังของเมือง"}
+{"word": "city", "english": "The city pulsed with vibrant nightlife.", "thai": "เมืองเต้นระรัวด้วยชีวิตยามค่ำคืนที่คึกคัก"}
+{"word": "nightlife", "english": "Nightlife in the downtown area thrived.", "thai": "ชีวิตยามค่ำคืนในย่านใจกลางเมืองเจริญรุ่งเรือง"}
+{"word": "downtown", "english": "Downtown cafes buzzed with morning crowds.", "thai": "ร้านกาแฟในย่านใจกลางเมืองคึกคักไปด้วยผู้คนตอนเช้า"}
+{"word": "cafes", "english": "Cafes served aromatic coffee all day.", "thai": "ร้านกาแฟเสิร์ฟกาแฟหอมกรุ่นทั้งวัน"}
+{"word": "coffee", "english": "Her coffee spilled during the commute.", "thai": "กาแฟของเธอหกระหว่างเดินทาง"}
+{"word": "commute", "english": "The daily commute tested his patience.", "thai": "การเดินทางประจำวันทดสอบความอดทนของเขา"}
+{"word": "patience", "english": "Patience helped her master the guitar.", "thai": "ความอดทนช่วยให้เธอเชี่ยวชาญกีตาร์"}
+{"word": "guitar", "english": "The guitar strings vibrated with each strum.", "thai": "สายกีตาร์สั่นสะเทือนทุกครั้งที่ดีด"}
+{"word": "strings", "english": "Puppet strings controlled the wooden marionette.", "thai": "เชือกหุ่นควบคุมหุ่นไม้"}
+{"word": "marionette", "english": "The marionette danced at the festival show.", "thai": "หุ่นเชิดเต้นรำในงานแสดงเทศกาล"}
+{"word": "festival", "english": "The festival featured spicy street food.", "thai": "งานเทศกาลมีอาหารข้างถนนรสเผ็ด"}
+{"word": "food", "english": "Homemade food warmed the family reunion.", "thai": "อาหารโฮมเมดทำให้งานรวมญาติอบอุ่น"}
+{"word": "reunion", "english": "The reunion brought old friends together.", "thai": "งานรวมตัวนำเพื่อนเก่ามารวมกัน"}
+{"word": "friends", "english": "Friends laughed over pizza and games.", "thai": "เพื่อนๆ หัวเราะกันขณะกินพิซซ่าและเล่นเกม"}
+{"word": "pizza", "english": "The pizza arrived hot and cheesy.", "thai": "พิซซ่ามาถึงร้อนๆ และเต็มไปด้วยชีส"}
+{"word": "cheesy", "english": "His cheesy jokes cracked everyone up.", "thai": "มุกตลกจืดๆ ของเขาทำให้ทุกคนขำ"}
+{"word": "jokes", "english": "Jokes lightened the tense meeting room.", "thai": "มุกตลกทำให้ห้องประช biteum ผ่อนคลาย"}
+{"word": "meeting", "english": "The meeting dragged on past lunch.", "thai": "การประชุมยืดเยื้อเกินเวลาพักเที่ยง"}
+{"word": "lunch", "english": "Lunch at the park was relaxing.", "thai": "มื้อเที่ยงที่buraya ที่สวนสาธารณะผ่อนคลาย"}
+{"word": "park", "english": "Kids played tag in the park.", "thai": "เด็กๆ เล่นวิ่งไล่จับในสวนสาธารณะ"}
+{"word": "tag", "english": "Tag was their favorite playground game.", "thai": "วิ่งไล่จับเป็นเกมโปรดในสนามเด็กเล่น"}
+{"word": "playground", "english": "The playground echoed with joyful laughter.", "thai": "สนามเด็กเล่นดังก้องด้วยเสียงหัวเราะร่าเริง"}
+{"word": "laughter", "english": "Laughter filled the cozy movie night.", "thai": "เสียงหัวเราะเต็มไปในค่ำคืนดูหนังที่อบอุ่น"}
+{"word": "movie", "english": "The movie kept everyone on edge.", "thai": "ภาพยนตร์ทำให้ทุกคนลุ้นระทึก"}
+{"word": "edge", "english": "She stood on the edge of adventure.", "thai": "เธอยืนอยู่บนขอบของการผจญภัย"}
+{"word": "adventure", "english": "Adventure called them to distant lands.", "thai": "การผจญภัยเรียกพวกเขาไปยังดินแดนห่างไกล"}
+{"word": "lands", "english": "Uncharted lands awaited the brave explorer.", "thai": "ดินแดนที่ยังไม่ถูกสำรวจรอนักสำรวจผู้กล้าหาญ"}
+{"word": "explorer", "english": "The explorer uncovered ancient hidden ruins.", "thai": "นักสำรวจค้นพบซากปรักหักพังโบราณที่ซ่อนอยู่"}
+{"word": "ruins", "english": "Ruins whispered stories of forgotten civilizations.", "thai": "ซากปรักหักพังกระซิบเรื่องราวของอารยธรรมที่ถูกลืม"}
+{"word": "stories", "english": "Her stories captivated the young campers.", "thai": "เรื่องราวของเธอดึงดูดเด็กๆ ในค่าย"}
+{"word": "campers", "english": "Campers roasted marshmallows under the stars.", "thai": "ผู้ตั้งแคมป์ย่างมาร์ชเมลโลว์ใต้ดวงดาว"}
+{"word": "stars", "english": "Stars twinkled above the quiet valley.", "thai": "ดวงดาวระยิบระยับเหนือหุบเขาที่เงียบสงบ"}
+{"word": "valley", "english": "The valley bloomed with wildflowers.", "thai": "หุบเขาเบ่งบานด้วยดอกไม้ป่า"}
+{"word": "wildflowers", "english": "Wildflowers added color to her hike.", "thai": "ดอกไม้ป่าเพิ่มสีสันให้การเดินป่าของเธอ"}
+{"word": "hike", "english": "The hike challenged their endurance greatly.", "thai": "การเดินป่าท้าทายความอดทนของพวกเขาอย่างมาก"}
+{"word": "endurance", "english": "Endurance races pushed her to limits.", "thai": "การแข่งขันความอดทนผลักดันเธอถึงขีดจำกัด"}
+{"word": "limits", "english": "Pushing limits sparked her personal growth.", "thai": "การผลักดันขีดจำกัดจุดประกายการเติบโตส่วนตัวของเธอ"}
+{"word": "growth", "english": "Personal growth transformed her outlook.", "thai": "การเติบโตส่วนตัวเปลี่ยนมุมมองของเธอ"}
+{"word": "outlook", "english": "Her optimistic outlook inspired the team.", "thai": "มุมมองที่มองโลกในแง่ดีของเธอสร้างแรงบันดาลใจให้ทีม"}
+{"word": "team", "english": "The team collaborated on a bold project.", "thai": "ทีมร่วมมือกันในโครงการที่กล้าหาญ"}
+{"word": "project", "english": "The project demanded creative problem-solving.", "thai": "โครงการนี้ต้องการการแก้ปัญหาอย่างสร้างสรรค์"}
+{"word": "problem-solving", "english": "Problem-solving skills saved the tight deadline.", "thai": "ทักษะการแก้ปัญหาช่วยให้ทันกำหนดเวลาที่คับขัน"}
+{"word": "deadline", "english": "The deadline loomed over their heads.", "thai": "กำหนดเวลาคืบคลานเข้ามาใกล้"}
+{"word": "heads", "english": "Cool heads prevailed in the crisis.", "thai": "ความใจเย็นมีชัยในวิกฤต"}
+{"word": "crisis", "english": "The crisis tested their quick thinking.", "thai": "วิกฤตทดสอบการคิดเร็วของพวกเขา"}
+{"word": "thinking", "english": "Clear thinking led to a breakthrough.", "thai": "การคิดอย่างชัดเจนนำไปสู่ความก้าวหน้า"}
+{"word": "breakthrough", "english": "The breakthrough revolutionized their research approach.", "thai": "ความก้าวหน้าปฏิวัติวิธีการวิจัยของพวกเขา"}
+{"word": "research", "english": "Research uncovered surprising historical facts.", "thai": "การวิจัยเผยข้อเท็จจริงทางประวัติศาสตร์ที่น่าประหลาดใจ"}
+{"word": "facts", "english": "Facts grounded her persuasive argument.", "thai": "ข้อเท็จจริงสนับสนุนข้อโต้แย้งที่โน้มน้าวของเธอ"}
+{"word": "argument", "english": "Their argument fizzled out over coffee.", "thai": "การโต้เถียงของพวกเขาคลายลงระหว่างดื่มกาแฟ"}
+{"word": "coffee", "english": "Morning coffee fueled her busy day.", "thai": "กาแฟยามเช้าช่วยเติมพลังให้วันอันวุ่นวายของเธอ"}
+{"word": "day", "english": "The day ended with a sunset walk.", "thai": "วันนั้นจบลงด้วยการเดินชมพระอาทิตย์ตก"}
+{"word": "sunset", "english": "The sunset painted the sky orange.", "thai": "พระอาทิตย์ตกแต้มสีส้มให้ท้องฟ้า"}
+{"word": "sky", "english": "A clear sky promised perfect stargazing.", "thai": "ท้องฟ้าแจ่มใสสัญญาถึงการดูดาวที่สมบูรณ์แบบ"}
+{"word": "stargazing", "english": "Stargazing bonded the group under moonlight.", "thai": "การดูดาวทำให้กลุ่มผูกพันใต้แสงจันทร์"}
+{"word": "moonlight", "english": "Moonlight illuminated their romantic evening stroll.", "thai": "แสงจันทร์ส่องสว่างการเดินเล่นยามค่ำคืนสุดโรแมนติก"}
+{"word": "stroll", "english": "A stroll through the market was lively.", "thai": "การเดินเล่นในตลาดเต็มไปด้วยชีวิตชีวา"}
+{"word": "market", "english": "The market offered fresh local produce.", "thai": "ตลาดมีผลผลิตท้องถิ่นสดใหม่"}
+{"word": "produce", "english": "Fresh produce inspired her new recipe.", "thai": "ผลผลิตสดใหม่จุดประกายสูตรอาหารใหม่ของเธอ"}
+{"word": "recipe", "english": "Her recipe won the cooking contest.", "thai": "สูตรอาหารของเธอชนะการแข่งขันทำอาหาร"}
+{"word": "contest", "english": "The contest drew talented young artists.", "thai": "การแข่งขันดึงดูดศิลปินรุ่นเยาว์ที่มีความสามารถ"}
+{"word": "artists", "english": "Artists sketched vibrant street scenes daily.", "thai": "ศิลปินร่างภาพทิวทัศน์ถนนที่คึกคักทุกวัน"}
+{"word": "scenes", "english": "Scenes from the play lingered vividly.", "thai": "ฉากจากละครยังคงติดตาอย่างชัดเจน"}
+{"word": "play", "english": "The school play showcased student talent.", "thai": "ละครโรงเรียนแสดงความสามารถของนักเรียน"}
+{"word": "talent", "english": "Her talent shone in the choir performance.", "thai": "ความสามารถของเธอเปล่งประกายในการแสดงคณะนักร้องประสานเสียง"}
+{"word": "choir", "english": "The choir sang soulful holiday carols.", "thai": "คณะนักร้องประสานเสียงร้องเพลงคริสต์มาสที่เต็มไปด้วยอารมณ์"}
+{"word": "carols", "english": "Carols echoed through the snowy streets.", "thai": "เพลงคริสต์มาสดังก้องในถนนที่ปกคลุมด้วยหิมะ"}
+{"word": "streets", "english": "Streets buzzed with festive holiday lights.", "thai": "ถนนคึกคักด้วยแสงไฟวันหยุดที่รื่นเริง"}
+{"word": "lights", "english": "Twinkling lights adorned the cozy cabin.", "thai": "แสงไฟระยิบระยับประดับกระท่อมที่อบอุ่น"}
+{"word": "cabin", "english": "The cabin offered refuge from storms.", "thai": "กระท่อมเป็นที่หลบภัยจากพายุ"}
+{"word": "storms", "english": "Storms delayed their mountain hiking plans.", "thai": "พายุทำให้แผนการเดินป่าบนเขาล่าช้า"}
+{"word": "hiking", "english": "Hiking trails revealed breathtaking valley views.", "thai": "เส้นทางเดินป่าเผยให้เห็นวิวหุบเขาที่น่าทึ่ง"}
+{"word": "views", "english": "Panoramic views rewarded their long climb.", "thai": "วิวแบบพาโนรามาเป็นรางวัลสำหรับการปีนเขาที่ยาวนาน"}
+{"word": "climb", "english": "The steep climb tested their stamina.", "thai": "การปีนเขาที่ชันทดสอบความแข็งแกร่งของพวกเขา"}
+{"word": "stamina", "english": "Stamina carried her through the marathon.", "thai": "ความแข็งแกร่งพาเธอผ่านการวิ่งมาราธอน"}
+{"word": "marathon", "english": "The marathon united runners from everywhere.", "thai": "มาราธอนรวมนักวิ่งจากทุกหนแห่ง"}
+{"word": "runners", "english": "Runners dashed through the foggy park.", "thai": "นักวิ่งพุ่งผ่านสวนสาธารณะที่หมอกลง"}
+{"word": "park", "english": "The park hosted a lively picnic.", "thai": "สวนสาธารณะจัดงานปิกนิกที่คึกคัก"}
+{"word": "picnic", "english": "The picnic featured homemade lemonade.", "thai": "ปิกนิกมีน้ำมะนาวโฮมเมด"}
+{"word": "lemonade", "english": "Lemonade cooled them on hot afternoons.", "thai": "น้ำมะนาวช่วยคลายร้อนในบ่ายที่ร้อนอบอ้าว"}
+{"word": "afternoons", "english": "Afternoons spent reading felt so relaxing.", "thai": "ช่วงบ่ายที่ใช้ในการอ่านรู้สึกผ่อนคลายมาก"}
+{"word": "reading", "english": "Reading novels sparked her wild imagination.", "thai": "การอ่านนิยายจุดประกายจินตนาการอันสุดโต่งของเธอ"}
+{"word": "imagination", "english": "Her imagination fueled bold creative projects.", "thai": "จินตนาการของเธอขับเคลื่อนโครงการสร้างสรรค์ที่กล้าหาญ"}
+{"word": "projects", "english": "Group projects taught them teamwork skills.", "thai": "โครงการกลุ่มสอนทักษะการทำงานเป็นทีมให้พวกเขา"}
+{"word": "teamwork", "english": "Teamwork turned their vision into reality.", "thai": "การทำงานเป็นทีมเปลี่ยนวิสัยทัศน์ของพวกเขาให้เป็นจริง"}
+{"word": "vision", "english": "Her vision inspired innovative startup ideas.", "thai": "วิสัยทัศน์ของเธอสร้างแรงบันดาลใจให้แนวคิดสตาร์ทอัพที่สร้างสรรค์"}
+{"word": "startup", "english": "The startup pitched to eager investors.", "thai": "สตาร์ทอัพนำเสนอต่อนักลงทุนที่กระตือรือร้น"}
+{"word": "investors", "english": "Investors funded her eco-friendly product line.", "thai": "นักลงทุนให้ทุนสนับสนุนสายผลิตภัณฑ์ที่เป็นมิตรต่อสิ่งแวดล้อมของเธอ"}
+{"word": "product", "english": "The new product sold out instantly.", "thai": "ผลิตภัณฑ์ใหม่ขายหมดทันที"}
+{"word": "sold", "english": "Her artwork sold at the gallery.", "thai": "งานศิลปะของเธอขายได้ที่แกลเลอรี่"}
+{"word": "gallery", "english": "The gallery showcased vibrant modern paintings.", "thai": "แกลเลอรี่แสดงภาพวาดสมัยใหม่ที่สดใส"}
+{"word": "paintings", "english": "Paintings adorned the quiet coffee shop.", "thai": "ภาพวาดประดับร้านกาแฟที่เงียบสงบ"}
+{"word": "shop", "english": "The thrift shop had vintage treasures.", "thai": "ร้านมือสองมีสมบัติวินเทจ"}
+{"word": "treasures", "english": "Hidden treasures awaited in the attic.", "thai": "สมบัติที่ซ่อนอยู่รออยู่ในห้องใต้หลังคา"}
+{"word": "attic", "english": "The attic held dusty family heirlooms.", "thai": "ห้องใต้หลังคาเก็บมรดกครอบครัวที่เต็มไปด้วยฝุ่น"}
+{"word": "heirlooms", "english": "Heirlooms told stories of past generations.", "thai": "มรดกครอบครัวเล่าเรื่องราวของรุ่นก่อน"}
+{"word": "generations", "english": "Generations gathered for the annual reunion.", "thai": "หลายรุ่นรวมตัวกันในงานรวมญาติประจำปี"}
+{"word": "reunion", "english": "The reunion rekindled old childhood friendships.", "thai": "งานรวมญาติจุดไฟมิตรภาพวัยเด็กเก่าๆ"}
+{"word": "friendships", "english": "Old friendships blossomed over coffee chats.", "thai": "มิตรภาพเก่าๆ เบ่งบานระหว่างการจิบกาแฟคุยกัน"}
+{"word": "coffee", "english": "The coffee shop buzzed with students.", "thai": "ร้านกาแฟคึกคักไปด้วยนักเรียน"}
+{"word": "shop", "english": "The antique shop hid rare treasures.", "thai": "ร้านขายของเก่าซ่อนสมบัติหายาก"}
+{"word": "treasures", "english": "Treasures from the past fascinated her.", "thai": "สมบัติจากอดีตทำให้เธอหลงใหล"}
+{"word": "past", "english": "Memories of the past shaped his choices.", "thai": "ความทรงจำในอดีตหล่อหลอมการเลือกของเขา"}
+{"word": "memories", "english": "Memories flooded back at the reunion.", "thai": "ความทรงจำท่วมท้นในงานรวมตัว"}
+{"word": "reunion", "english": "The family reunion sparked joyful laughter.", "thai": "งานรวมญาติจุดประกายเสียงหัวเราะร่าเริง"}
+{"word": "laughter", "english": "Her laughter echoed through the quiet park.", "thai": "เสียงหัวเราะของเธอดังก้องในสวนสาธารณะเงียบสงบ"}
+{"word": "park", "english": "The park hosted a lively festival.", "thai": "สวนสาธารณะจัดงานเทศกาลที่คึกคัก"}
+{"word": "festival", "english": "The festival showcased vibrant street art.", "thai": "งานเทศกาลแสดงศิลปะข้างถนนที่สดใส"}
+{"word": "art", "english": "Her art captured raw human emotions.", "thai": "ศิลปะของเธอจับความรู้สึกดิบของมนุษย์"}
+{"word": "emotions", "english": "Emotions ran high during the debate.", "thai": "อารมณ์พุ่งสูงในระหว่างการโต้วาที"}
+{"word": "debate", "english": "The debate team practiced every evening.", "thai": "ทีมโต้วาทีฝึกซ้อมทุกเย็น"}
+{"word": "team", "english": "The team bonded over shared goals.", "thai": "ทีมผูกพันผ่านเป้าหมายร่วมกัน"}
+{"word": "goals", "english": "Her goals pushed her to study harder.", "thai": "เป้าหมายของเธอผลักดันให้เธอเรียนหนักขึ้น"}
+{"word": "study", "english": "Late-night study sessions improved her grades.", "thai": "การเรียนดึกดื่นช่วยให้เกรดของเธอดีขึ้น"}
+{"word": "grades", "english": "Good grades opened doors to scholarships.", "thai": "เกรดดีเปิดประตูสู่ทุนการศึกษา"}
+{"word": "scholarships", "english": "Scholarships funded her dream college journey.", "thai": "ทุนการศึกษาสนับสนุนการเดินทางสู่มหาวิทยาลัยในฝันของเธอ"}
+{"word": "college", "english": "College life taught her time management.", "thai": "ชีวิตในมหาวิทยาลัยสอนให้เธอจัดการเวลา"}
+{"word": "time", "english": "Time slipped away during the road trip.", "thai": "เวลาผ่านไปอย่างรวดเร็วระหว่างการเดินทาง"}
+{"word": "trip", "english": "The camping trip was a wild adventure.", "thai": "การเดินทางตั้งแคมป์เป็นการผจญภัยสุดมัน"}
+{"word": "adventure", "english": "Adventure novels fueled his vivid imagination.", "thai": "นิยายผจญภัยจุดประกายจินตนาการอันสดใสของเขา"}
+{"word": "imagination", "english": "Her imagination crafted magical story worlds.", "thai": "จินตนาการของเธอสร้างโลกแห่งเรื่องราวที่มหัศจรรย์"}
+{"word": "story", "english": "Every story she told captivated listeners.", "thai": "ทุกเรื่องราวที่เธอเล่าดึงดูดผู้ฟัง"}
+{"word": "listeners", "english": "Listeners cheered at her poetry reading.", "thai": "ผู้ฟังโห่ร้องในงานอ่านบทกวีของเธอ"}
+{"word": "poetry", "english": "Poetry expressed her deepest hidden feelings.", "thai": "บทกวีแสดงความรู้สึกที่ซ่อนลึกที่สุดของเธอ"}
+{"word": "feelings", "english": "Mixed feelings clouded his big decision.", "thai": "ความรู้สึกที่หลากหลายทำให้การตัดสินใจครั้งใหญ่ของเขาขุ่นมัว"}
+{"word": "decision", "english": "The decision to move changed everything.", "thai": "การตัดสินใจย้ายที่อยู่อาศัยเปลี่ยนทุกอย่าง"}
+{"word": "move", "english": "The dance move stunned the audience.", "thai": "ท่าเต้นทำให้ผู้ชมตะลึง"}
+{"word": "audience", "english": "The audience roared after the performance.", "thai": "ผู้ชมคำรามหลังการแสดง"}
+{"word": "performance", "english": "Her performance in the play was flawless.", "thai": "การแสดงของเธอในละครไร้ที่ติ"}
+{"word": "play", "english": "Kids loved to play soccer after school.", "thai": "เด็กๆ ชอบเล่นฟุตบอลหลังเลิกเรียน"}
+{"word": "soccer", "english": "Soccer matches brought the community together.", "thai": "การแข่งขันฟุตบอลรวมชุมชนเข้าด้วยกัน"}
+{"word": "community", "english": "The community garden bloomed with vegetables.", "thai": "สวนชุมชนเต็มไปด้วยผักที่เบ่งบาน"}
+{"word": "garden", "english": "Her garden attracted colorful hummingbirds daily.", "thai": "สวนของเธอดึงดูดนกฮัมมิงเบิร์ดสีสันทุกวัน"}
+{"word": "hummingbirds", "english": "Hummingbirds darted around the sweet nectar.", "thai": "นกฮัมมิงเบิร์ดพุ่งไปรอบๆ น้ำหวาน"}
+{"word": "nectar", "english": "Nectar sweetened the homemade fruit juice.", "thai": "น้ำหวานทำให้น้ำผลไม้โฮมเมดหวานขึ้น"}
+{"word": "juice", "english": "Fresh juice refreshed them after hiking.", "thai": "น้ำผลไม้สดชื่นใจหลังการเดินป่า"}
+{"word": "hiking", "english": "Hiking through mountains tested their endurance.", "thai": "การเดินป่าผ่านภูเขาทดสอบความอดทนของพวกเขา"}
+{"word": "endurance", "english": "Endurance training built her mental strength.", "thai": "การฝึกความอดทนสร้างความเข้มแข็งทางจิตใจให้เธอ"}
+{"word": "strength", "english": "Her strength inspired the entire gym.", "thai": "ความแข็งแกร่งของเธอสร้างแรงบันดาลใจให้ทั้งยิม"}
+{"word": "gym", "english": "The gym offered intense yoga classes.", "thai": "ยิมมีชั้นเรียนโยคะที่เข้มข้น"}
+{"word": "yoga", "english": "Yoga calmed her after stressful days.", "thai": "โยคะทำให้เธอสงบหลังจากวันที่เครียด"}
+{"word": "days", "english": "Sunny days called for beach picnics.", "thai": "วันที่แดดจ้าชวนไปปิกนิกที่ชายหาด"}
+{"word": "beach", "english": "The beach sparkled under golden sunlight.", "thai": "ชายหาดส่องประกายใต้แสงแดดสีทอง"}
+{"word": "sunlight", "english": "Sunlight streamed through the classroom windows.", "thai": "แสงแดดส่องผ่านหน้าต่างห้องเรียน"}
+{"word": "classroom", "english": "The classroom buzzed with curious students.", "thai": "ห้องเรียนคึกคักไปด้วยนักเรียนที่อยากรู้อยากเห็น"}
+{"word": "students", "english": "Students collaborated on a science project.", "thai": "นักเรียนร่วมมือกันในโครงการวิทยาศาสตร์"}
+{"word": "project", "english": "The project deadline kept them up late.", "thai": "กำหนดเวลาโครงการทำให้พวกเขานอนดึก"}
+{"word": "deadline", "english": "Meeting the deadline earned her praise.", "thai": "การทำตามกำหนดเวลาได้ทำให้เธอได้รับคำชม"}
+{"word": "praise", "english": "Her teacher’s praise boosted her confidence.", "thai": "คำชมของครูเพิ่มความมั่นใจให้เธอ"}
+{"word": "confidence", "english": "Confidence shone in her public speech.", "thai": "ความมั่นใจเปล่งประกายในการพูดต่อหน้าสาธารณะของเธอ"}
+{"word": "speech", "english": "The speech rallied the excited crowd.", "thai": "คำปราศรัยปลุกเร้าฝูงชนที่ตื่นเต้น"}
+{"word": "crowd", "english": "The crowd cheered at the fireworks display.", "thai": "ฝูงชนโห่ร้องในงานแสดงดอกไม้ไฟ"}
+{"word": "fireworks", "english": "Fireworks lit up the festive night.", "thai": "ดอกไม้ไฟส่องสว่างคืนเทศกาล"}
+{"word": "night", "english": "The night market offered unique trinkets.", "thai": "ตลาดกลางคืนมีของที่ระลึกไม่เหมือนใคร"}
+{"word": "market", "english": "The market bustled with eager shoppers.", "thai": "ตลาดคึกคักไปด้วยนักช้อปที่กระตือรือร้น"}
+{"word": "shoppers", "english": "Shoppers hunted for holiday gift deals.", "thai": "นักช้อปตามล่าหาดีลของขวัญวันหยุด"}
+{"word": "gift", "english": "Her gift was a handmade scarf.", "thai": "ของขวัญของเธอคือผ้าพันคอทำมือ"}
+{"word": "scarf", "english": "The scarf warmed her chilly morning commute.", "thai": "ผ้าพันคอทำให้การเดินทางยามเช้าที่หนาวเย็นของเธออบอุ่น"}
+{"word": "commute", "english": "Her commute included a scenic train ride.", "thai": "การเดินทางของเธอรวมถึงการนั่งรถไฟที่มีวิวสวยงาม"}
+{"word": "train", "english": "The train whistled through rural landscapes.", "thai": "รถไฟผิวปากผ่านทิวทัศน์ชนบท"}
+{"word": "landscapes", "english": "Landscapes inspired her latest watercolor painting.", "thai": "ทิวทัศน์จุดประกายภาพวาดสีน้ำล่าสุดของเธอ"}
+{"word": "painting", "english": "The painting captured a serene sunset.", "thai": "ภาพวาดจับภาพพระอาทิตย์ตกที่เงียบสงบ"}
+{"word": "sunset", "english": "The sunset cast a glow over the lake.", "thai": "พระอาทิตย์ตกทอดแสงสว่างเหนือทะเลสาบ"}
+{"word": "lake", "english": "The lake reflected the starry night sky.", "thai": "ทะเลสาบสะท้อนท้องฟ้ายามค่ำคืนที่เต็มไปด้วยดวงดาว"}
+{"word": "sky", "english": "A clear sky promised a perfect picnic.", "thai": "ท้องฟ้าแจ่มใสสัญญาถึงปิกนิกที่สมบูรณ์แบบ"}
+{"word": "picnic", "english": "The picnic included fresh fruit salad.", "thai": "ปิกนิกมีสลัดผลไม้สด"}
+{"word": "fruit", "english": "Fruit smoothies cooled their summer afternoon.", "thai": "สมูทตี้ผลไม้ช่วยคลายร้อนในบ่ายฤดูร้อน"}
+{"word": "afternoon", "english": "The afternoon breeze felt refreshingly cool.", "thai": "สายลมยามบ่ายรู้สึกเย็นชื่นใจ"}
+{"word": "breeze", "english": "A gentle breeze rustled the autumn leaves.", "thai": "สายลมอ่อนๆ ทำให้ใบไม้ฤดูใบไม้ร่วงสั่นไหว"}
+{"word": "leaves", "english": "Leaves crunched under their hiking boots.", "thai": "ใบไม้กรอบแกรบใต้รองเท้าเดินป่าของพวกเขา"}
+{"word": "boots", "english": "Her boots trudged through muddy trails.", "thai": "รองเท้าบูทของเธอลุยผ่านเส้นทางโคลน"}
+{"word": "trails", "english": "Trails wound through the dense forest.", "thai": "เส้นทางคดเคี้ยวผ่านป่าที่ยึดแน่น"}
+{"word": "forest", "english": "The forest echoed with chirping birds.", "thai": "ป่าดังก้องด้วยเสียงนกร้อง"}
+{"word": "birds", "english": "Birds nested in the tall oak trees.", "thai": "นกทำรังในต้นโอ๊กสูง"}
+{"word": "trees", "english": "Trees swayed in the stormy wind.", "thai": "ต้นไม้ไหวในลมพายุ"}
+{"word": "wind", "english": "The wind carried scents of fresh pine.", "thai": "ลมพัดพากลิ่นสนสดชื่น"}
+{"word": "pine", "english": "Pine needles carpeted the campsite ground.", "thai": "เข็มสนปกคลุมพื้นแคมป์"}
+{"word": "campsite", "english": "The campsite glowed with a warm fire.", "thai": "แคมป์สว่างไสวด้วยกองไฟอุ่น"}
+{"word": "fire", "english": "The fire crackled as stories unfolded.", "thai": "กองไฟดังเปาะแปะขณะที่เรื่องราวคลายออก"}
+{"word": "stories", "english": "Ghost stories spooked the young campers.", "thai": "เรื่องผีทำให้เด็กแคมป์กลัว"}
+{"word": "campers", "english": "Campers bonded over roasted marshmallows.", "thai": "ผู้ตั้งแคมป์ผูกพันกันผ่านการย่างมาร์ชเมลโลว์"}
+{"word": "marshmallows", "english": "Marshmallows melted into gooey sweet treats.", "thai": "มาร์ชเมลโลว์ละลายเป็นของหวานเหนียวหนึบ"}
+{"word": "treats", "english": "Holiday treats filled the festive table.", "thai": "ของหวานวันหยุดเต็มโต๊ะรื่นเริง"}
+{"word": "table", "english": "The table creaked under heavy dishes.", "thai": "โต๊ะดังเอี๊ยดใต้จานหนักๆ"}
+{"word": "dishes", "english": "Dishes piled up after the big dinner.", "thai": "จานกองพะเนินหลังอาหารค่ำมื้อใหญ่"}
+{"word": "dinner", "english": "Dinner conversations sparked new friendships.", "thai": "การสนทนาระหว่างมื้อค่ำจุดประกายมิตรภาพใหม่"}
+{"word": "friendships", "english": "Friendships grew stronger at the book club.", "thai": "มิตรภาพแข็งแกร่งขึ้นในชมรมหนังสือ"}
+{"word": "book", "english": "The book revealed forgotten historical secrets.", "thai": "หนังสือเผยความลับทางประวัติศาสตร์ที่ถูกลืม"}
+{"word": "secrets", "english": "Secrets whispered in the old mansion.", "thai": "ความลับกระซิบในคฤหาสน์เก่า"}
+{"word": "mansion", "english": "The mansion hosted an elegant gala.", "thai": "คฤหาสน์จัดงานกาล่าที่สง่างาม"}
+{"word": "gala", "english": "The gala sparkled with dazzling lights.", "thai": "งานกาล่าส่องประกายด้วยแสงไฟที่เจิดจ้า"}
+{"word": "lights", "english": "Christmas lights twinkled on the street.", "thai": "ไฟคริสต์มาสระยิบระยับบนถนน"}
+{"word": "street", "english": "The street bustled with morning joggers.", "thai": "ถนนคึกคักไปด้วยนักวิ่งยามเช้า"}
+{"word": "joggers", "english": "Joggers raced through the foggy park.", "thai": "นักวิ่งพุ่งผ่านสวนสาธารณะที่หมอกลง"}
+{"word": "park", "english": "The park bloomed with vibrant tulips.", "thai": "สวนสาธารณะเบ่งบานด้วยทิวลิปสีสัน"}
+{"word": "tulips", "english": "Tulips brightened her small backyard garden.", "thai": "ทิวลิปทำให้สวนหลังบ้านเล็กๆ ของเธอสดใส"}
+{"word": "garden", "english": "Her garden thrived with fresh herbs.", "thai": "สวนของเธอเจริญงอกงามด้วยสมุนไพรสด"}
+{"word": "herbs", "english": "Herbs flavored the homemade soup perfectly.", "thai": "สมุนไพรเพิ่มรสชาติให้ซุปโฮมเมดอย่างลงตัว"}
+{"word": "soup", "english": "The soup warmed their chilly evening.", "thai": "ซุปทำให้ค่ำคืนที่หนาวเย็นของพวกเขาอบอุ่น"}
+{"word": "evening", "english": "An evening stroll cleared her mind.", "thai": "การเดินเล่นยามเย็นทำให้จิตใจของเธอปลอดโปร่ง"}
+{"word": "mind", "english": "Her mind buzzed with creative ideas.", "thai": "จิตใจของเธอเต็มไปด้วยความคิดสร้างสรรค์"}
+{"word": "ideas", "english": "New ideas sparked a lively brainstorm.", "thai": "ความคิดใหม่จุดประกายการระดมสมองที่คึกคัก"}
+{"word": "brainstorm", "english": "The brainstorm session solved the puzzle.", "thai": "เซสชันระดมสมองแก้ปริศนาได้"}
+{"word": "puzzle", "english": "The puzzle challenged their logical thinking.", "thai": "ปริศนาท้าทายการคิดเชิงตรรกะของพวกเขา"}
+{"word": "thinking", "english": "Quick thinking saved the failing project.", "thai": "การคิดเร็วช่วยโครงการที่กำลังล้มเหลว"}
+{"word": "project", "english": "The project united the diverse team.", "thai": "โครงการรวมทีมที่หลากหลายเข้าด้วยกัน"}
+{"word": "team", "english": "The team celebrated their hard-earned victory.", "thai": "ทีมเฉลิมฉลองชัยชนะที่ได้มาด้วยความยากลำบาก"}
+{"word": "victory", "english": "Victory boosted their confidence sky-high.", "thai": "ชัยชนะเพิ่มความมั่นใจของพวกเขาอย่างมาก"}
+{"word": "confidence", "english": "Her confidence shone during the presentation.", "thai": "ความมั่นใจของเธอเปล่งประกายระหว่างการนำเสนอ"}
+{"word": "presentation", "english": "The presentation wowed the corporate clients.", "thai": "การนำเสนอทำให้ลูกค้าบริษัทประทับใจ"}
+{"word": "clients", "english": "Clients praised her innovative design approach.", "thai": "ลูกค้าชื่นชมวิธีการออกแบบที่สร้างสรรค์ของเธอ"}
+{"word": "design", "english": "Her design transformed the outdated office.", "thai": "การออกแบบของเธอเปลี่ยนสำนักงานที่ล้าสมัย"}
+{"word": "office", "english": "The office hummed with morning chatter.", "thai": "สำนักงานคึกคักด้วยการพูดคุยตอนเช้า"}
+{"word": "chatter", "english": "Chatter filled the lively coffee shop.", "thai": "การพูดคุยเต็มไปในร้านกาแฟที่คึกคัก"}
+{"word": "coffee", "english": "Coffee fueled their late-night study session.", "thai": "กาแฟช่วยเติมพลังให้เซสชันเรียนดึก"}
+{"word": "session", "english": "The therapy session eased her stress.", "thai": "เซสชันบำบัดช่วยลดความเครียดของเธอ"}
+{"word": "stress", "english": "Stress melted away during her vacation.", "thai": "ความเครียดหายไประหว่างการพักร้อนของเธอ"}
+{"word": "vacation", "english": "The beach vacation was pure bliss.", "thai": "การพักร้อนที่ชายหาดคือความสุขล้วนๆ"}
+{"word": "beach", "english": "The beach sparkled under the midday sun.", "thai": "ชายหาดส่องประกายใต้แสงแดดตอนเที่ยง"}
+{"word": "sun", "english": "The sun set behind the rugged mountains.", "thai": "ดวงอาทิตย์ตกหลังภูเขาที่ขรุขระ"}
+{"word": "mountains", "english": "Mountains challenged their hiking endurance daily.", "thai": "ภูเขาท้าทายความอดทนในการเดินป่าของพวกเขาทุกวัน"}
+{"word": "hiking", "english": "Hiking trails revealed stunning forest views.", "thai": "เส้นทางเดินป่าเผยให้เห็นวิวป่าที่น่าทึ่ง"}
+{"word": "forest", "english": "The forest buzzed with chirping wildlife.", "thai": "ป่าคึกคักด้วยเสียงสัตว์ป่าที่ร้องเจี๊ยกๆ"}
+{"word": "wildlife", "english": "Wildlife documentaries inspired her conservation passion.", "thai": "สารคดีสัตว์ป่าจุดประกายความหลงใหลในการอนุรักษ์ของเธอ"}
+{"word": "passion", "english": "Her passion for music shone through.", "thai": "ความหลงใหลในดนตรีของเธอเปล่งประกาย"}
+{"word": "music", "english": "Live music energized the summer festival.", "thai": "ดนตรีสดทำให้งานเทศกาลฤ concerti คึกคัก"}
+{"word": "festival", "english": "The festival offered spicy street tacos.", "thai": "งานเทศกาลมีทาโก้ข้างถนนรสเผ็ด"}
+{"word": "tacos", "english": "Tacos paired perfectly with fresh salsa.", "thai": "ทาโก้เข้ากันดีกับซัลซ่าสด"}
+{"word": "salsa", "english": "Salsa dancing lit up the party.", "thai": "การเต้นซัลซ่าทำให้งานปาร์ตี้คึกคัก"}
+{"word": "party", "english": "The party spilled into the backyard.", "thai": "งานปาร์ตี้ล้นออกมาที่สนามหลังบ้าน"}
+{"word": "backyard", "english": "The backyard bloomed with colorful roses.", "thai": "สนามหลังบ้านเบ่งบานด้วยกุหลาบสีสัน"}
+{"word": "roses", "english": "Roses scented the warm evening air.", "thai": "กุหลาบส่งกลิ่นหอมในอากาศยามเย็นที่อบอุ่น"}
+{"word": "air", "english": "Fresh air revived her during the jog.", "thai": "อากาศบริสุทธิ์ทำให้เธอสดชื่นระหว่างวิ่ง"}
+{"word": "jog", "english": "A morning jog cleared his thoughts.", "thai": "การวิ่งตอนเช้าทำให้ความคิดของเขาปลอดโปร่ง"}
+{"word": "thoughts", "english": "His thoughts wandered during the lecture.", "thai": "ความคิดของเขาเหม่อลอยระหว่างการบรรยาย"}
+{"word": "lecture", "english": "The lecture explored cutting-edge tech trends.", "thai": "การบรรยายสำรวจเทรนด์เทคโนโลยีล้ำสมัย"}
+{"word": "tech", "english": "Tech startups competed for investor attention.", "thai": "สตาร์ทอัพเทคโนโลยีแข่งขันเพื่อดึงดูดความสนใจของนักลงทุน"}
+{"word": "investor", "english": "The investor backed her bold vision.", "thai": "นักลงทุนสนับสนุนวิสัยทัศน์ที่กล้าหาญของเธอ"}
+{"word": "vision", "english": "Her vision shaped the company’s future.", "thai": "วิสัยทัศน์ของเธอหล่อหลอมอนาคตของบริษัท"}
+{"word": "company", "english": "The company launched a sustainable product.", "thai": "บริษัทเปิดตัวผลิตภัณฑ์ที่ยั่งยืน"}
+{"word": "product", "english": "The product sold out in hours.", "thai": "ผลิตภัณฑ์ขายหมดในไม่กี่ชั่วโมง"}
+{"word": "hours", "english": "Hours of practice perfected her dance.", "thai": "ชั่วโมงแห่งการฝึกซ้อมทำให้การเต้นของเธอสมบูรณ์แบบ"}
+{"word": "dance", "english": "The dance class taught salsa moves.", "thai": "ชั้นเรียนเต้นสอนท่าสัลซ่า"}
+{"word": "moves", "english": "Her chess moves outsmarted the opponent.", "thai": "การเดินหมากรุกของเธอฉลาดกว่าคู่ต่อสู้"}
+{"word": "opponent", "english": "The opponent faltered under intense pressure.", "thai": "คู่ต่อสู้สะดุดภายใต้แรงกดดันที่หนักหน่วง"}
+{"word": "pressure", "english": "Pressure to win drove the team.", "thai": "แรงกดดันเพื่อชัยชนะผลักดันทีม"}
+{"word": "win", "english": "The win sparked wild crowd cheers.", "thai": "ชัยชนะจุดประกายเสียงโห่ร้องของฝูงชน"}
+{"word": "crowd", "english": "The crowd gathered for the parade.", "thai": "ฝูงชนรวมตัวกันเพื่อขบวนพาเหรด"}
+{"word": "parade", "english": "The parade featured vibrant marching bands.", "thai": "ขบวนพาเหรดมีวงดนตรีเดินขบวนที่สดใส"}
+{"word": "bands", "english": "Bands played soulful tunes at dusk.", "thai": "วงดนตรีเล่นเพลงที่เต็มไปด้วยอารมณ์ในยามพลบค่ำ"}
+{"word": "dusk", "english": "Dusk painted the sky with pinks.", "thai": "พลบค่ำแต้มท้องฟ้าด้วยสีชมพู"}
+{"word": "sky", "english": "The clear sky promised perfect stargazing.", "thai": "ท้องฟ้าแจ่มใสสัญญาถึงการดูดาวที่สมบูรณ์แบบ"}
+{"word": "stargazing", "english": "Stargazing bonded them under the moonlight.", "thai": "การดูดาวทำให้พวกเขาผูกพันใต้แสงจันทร์"}
+{"word": "moonlight", "english": "Moonlight illuminated the quiet forest path.", "thai": "แสงจันทร์ส่องสว่างเส้นทางป่าที่เงียบสงบ"}
+{"word": "path", "english": "The path wound through blooming meadows.", "thai": "เส้นทางคดเคี้ยวผ่านทุ่งหญ้าที่เบ่งบาน"}
+{"word": "meadows", "english": "Meadows buzzed with busy honeybees.", "thai": "ทุ่งหญ้าคึกคักด้วยผึ้งที่วุ่นวาย"}
+{"word": "honeybees", "english": "Honeybees pollinated the vibrant wildflowers.", "thai": "ผึ้งผสมเกสรดอกไม้ป่าที่สดใส"}
+{"word": "wildflowers", "english": "Wildflowers dotted the scenic hiking trail.", "thai": "ดอกไม้ป่าประดับเส้นทางเดินป่าที่สวยงาม"}
+{"word": "trail", "english": "The trail led to a hidden waterfall.", "thai": "เส้นทางนำไปสู่น้ำตกที่ซ่อนอยู่"}
+{"word": "waterfall", "english": "The waterfall mist cooled their faces.", "thai": "หมอกน้ำตกทำให้ใบหน้าของพวกเขาเย็นลง"}
+{"word": "faces", "english": "Smiling faces greeted her at the party.", "thai": "ใบหน้าที่ยิ้มแย้มต้อนรับเธอในงานปาร์ตี้"}
+{"word": "party", "english": "The party rocked with loud music.", "thai": "งานปาร์ตี้คึกคักด้วยดนตรีเสียงดัง"}
+{"word": "music", "english": "Music flowed through the open windows.", "thai": "ดนตรีไหลผ่านหน้าต่างที่เปิดอยู่"}
+{"word": "windows", "english": "Windows reflected the glowing city lights.", "thai": "หน้าต่างสะท้อนแสงไฟเมืองที่สว่างไสว"}
+{"word": "lights", "english": "Holiday lights twinkled on the tree.", "thai": "ไฟวันหยุดระยิบระยับบนต้นไม้"}
+{"word": "tree", "english": "The tree shaded their cozy picnic.", "thai": "ต้นไม้ให้ร่มเงางานปิกนิกที่อบอุ่นของพวกเขา"}
+{"word": "picnic", "english": "The picnic featured homemade lemonade stands.", "thai": "ปิกนิกมีร้านน้ำมะนาวโฮมเมด"}
+{"word": "lemonade", "english": "Lemonade refreshed them after the game.", "thai": "น้ำมะนาวทำให้พวกเขาสดชื่นหลังเกม"}
+{"word": "game", "english": "The board game sparked friendly competition.", "thai": "เกมกระดานจุดประกายการแข่งขันที่เป็นมิตร"}
+{"word": "competition", "english": "Competition drove her to train harder.", "thai": "การแข่งขันผลักดันให้เธอฝึกหนักขึ้น"}
+{"word": "train", "english": "The train journey offered stunning views.", "thai": "การเดินทางโดยรถไฟมีวิวที่สวยงาม"}
+{"word": "views", "english": "Ocean views calmed her restless heart.", "thai": "วิวทะเลทำให้หัวใจที่กระสับกระส่ายของเธอสงบลง"}
+{"word": "heart", "english": "Her heart raced during the thriller movie.", "thai": "หัวใจของเธอเต้นแรงระหว่างดูหนังระทึกขวัญ"}
+{"word": "movie", "english": "The movie night ended with laughter.", "thai": "คืนดูหนังจบลงด้วยเสียงหัวเราะ"}
+{"word": "laughter", "english": "Laughter echoed through the family gathering.", "thai": "เสียงหัวเราะดังก้องในงานรวมญาติ"}
+{"word": "gathering", "english": "The gathering celebrated their shared traditions.", "thai": "งานรวมตัวเฉลิมฉลองประเพณีร่วมกันของพวกเขา"}
+{"word": "traditions", "english": "Traditions shaped their vibrant holiday feast.", "thai": "ประเพณีหล่อหลอมงานเลี้ยงวันหยุดที่คึกคักของพวกเขา"}
+{"word": "feast", "english": "The feast included spicy roasted chicken.", "thai": "งานเลี้ยงมีไก่อบรสเผ็ด"}
+{"word": "chicken", "english": "Chicken curry simmered on the stove.", "thai": "แกงไก่เคี่ยวนานบนเตา"}
+{"word": "stove", "english": "The stove warmed the cozy kitchen.", "thai": "เตาทำให้ห้องครัวที่อบอุ่นร้อนขึ้น"}
+{"word": "kitchen", "english": "The kitchen smelled of fresh-baked bread.", "thai": "ห้องครัวมีกลิ่นขนมปังอบใหม่"}
+{"word": "bread", "english": "Bread paired perfectly with creamy butter.", "thai": "ขนมปังเข้ากันดีกับเนยครีม"}
+{"word": "butter", "english": "Butter melted over the hot pancakes.", "thai": "เนยละลายบนแพนเค้กร้อนๆ"}
+{"word": "pancakes", "english": "Pancakes made Sunday mornings extra special.", "thai": "แพนเค้กทำให้เช้าวันอาทิตย์พิเศษยิ่งขึ้น"}
+{"word": "mornings", "english": "Mornings began with a jog outdoors.", "thai": "เช้าเริ่มต้นด้วยการวิ่งกลางแจ้ง"}
+{"word": "outdoors", "english": "Outdoors adventures thrilled the young explorers.", "thai": "การผจญภัยกลางแจ้งทำให้ผู้สำรวจรุ่นเยาว์ตื่นเต้น"}
+{"word": "explorers", "english": "Explorers charted the unspoiled wilderness.", "thai": "นักสำรวจทำแผนที่ถิ่นทุรกันดารที่ยังบริสุทธิ์"}
+{"word": "wilderness", "english": "The wilderness whispered tales of survival.", "thai": "ถิ่นทุรกันดารกระซิบเรื่องราวของการเอาชีวิตรอด"}
+{"word": "survival", "english": "Survival skills saved them during the storm.", "thai": "ทักษะการเอาชีวิตรอดช่วยพวกเขาระหว่างพายุ"}
+{"word": "storm", "english": "The storm scattered leaves across the yard.", "thai": "พายุทำให้ใบไม้กระจัดกระจายทั่วลาน"}
+{"word": "yard", "english": "The yard hosted a lively barbecue.", "thai": "ลานจัดงานบาร์บีคิวที่คึกคัก"}
+{"word": "barbecue", "english": "The barbecue sizzled with juicy burgers.", "thai": "บาร์บีคิวร้อนฉ่าไปด้วยเบอร์เกอร์ฉ่ำ"}
+{"word": "burgers", "english": "Burgers paired well with crispy fries.", "thai": "เบอร์เกอร์เข้ากันดีกับเฟรนช์ฟรายส์กรอบ"}
+{"word": "fries", "english": "Fries dipped in ketchup were her favorite.", "thai": "เฟรนช์ฟรายส์จิ้มซอสมะเขือเทศเป็นของโปรดของเธอ"}
+{"word": "ketchup", "english": "Ketchup stained her favorite white shirt.", "thai": "ซอสมะเขือเทศเปื้อนเสื้อขาวตัวโปรดของเธอ"}
+{"word": "shirt", "english": "The shirt matched her vibrant personality.", "thai": "เสื้อเข้ากับบุคลิกที่สดใสของเธอ"}
+{"word": "vibrant", "english": "The vibrant festival attracted lively crowds.", "thai": "งานเทศกาลที่สดใสดึงดูดฝูงชนที่คึกคัก"}
+{"word": "festival", "english": "The festival sparkled with vibrant lights.", "thai": "งานเทศกาลส่องประกายด้วยแสงไฟที่สดใส"}
+{"word": "lights", "english": "Twinkling lights adorned the cozy cafe.", "thai": "แสงไฟระยิบระยับประดับร้านกาแฟที่อบอุ่น"}
+{"word": "cafe", "english": "The cafe buzzed with morning chatter.", "thai": "ร้านกาแฟคึกคักด้วยการพูดคุยยามเช้า"}
+{"word": "chatter", "english": "Chatter filled the lively classroom discussion.", "thai": "เสียงพูดคุยเต็มไปในการสนทนาในชั้นเรียนที่คึกคัก"}
+{"word": "classroom", "english": "The classroom echoed with student laughter.", "thai": "ห้องเรียนดังก้องด้วยเสียงหัวเราะของนักเรียน"}
+{"word": "laughter", "english": "Her laughter brightened the gloomy afternoon.", "thai": "เสียงหัวเราะของเธอทำให้บ่ายที่หม่นหมองสดใสขึ้น"}
+{"word": "afternoon", "english": "The afternoon breeze cooled their picnic.", "thai": "สายลมยามบ่ายทำให้ปิกนิกของพวกเขาเย็นสบาย"}
+{"word": "picnic", "english": "The picnic featured homemade apple pie.", "thai": "ปิกนิกมีพายแอปเปิ้ลโฮมเมด"}
+{"word": "pie", "english": "The pie crust flaked perfectly when cut.", "thai": "แป้งพายกรอบสมบูรณ์แบบเมื่อตัด"}
+{"word": "crust", "english": "The pizza crust was crispy and golden.", "thai": "แป้งพิซซ่ากรอบและสีทอง"}
+{"word": "pizza", "english": "Pizza night united the whole family.", "thai": "คืนพิซซ่ารวมครอบครัวทั้งหมดเข้าด้วยกัน"}
+{"word": "family", "english": "Family traditions warmed their holiday gathering.", "thai": "ประเพณีครอบครัวทำให้การรวมตัววันหยุดอบอุ่น"}
+{"word": "gathering", "english": "The gathering spilled into the moonlit yard.", "thai": "การรวมตัวล้นออกมาที่ลานใต้แสงจันทร์"}
+{"word": "yard", "english": "The yard bloomed with colorful tulips.", "thai": "ลานเต็มไปด้วยทิวลิปสีสัน"}
+{"word": "tulips", "english": "Tulips lined the path to her cottage.", "thai": "ทิวลิปเรียงรายตามทางไปยังกระท่อมของเธอ"}
+{"word": "path", "english": "The path wound through a quiet forest.", "thai": "เส้นทางคดเคี้ยวผ่านป่าที่เงียบสงบ"}
+{"word": "forest", "english": "The forest hummed with chirping birds.", "thai": "ป่าคึกคักด้วยเสียงนกร้อง"}
+{"word": "birds", "english": "Birds nested in the tall oak trees.", "thai": "นกทำรังในต้นโอ๊กสูง"}
+{"word": "trees", "english": "Trees swayed gently in the evening breeze.", "thai": "ต้นไม้ไหวเบาๆ ในสายลมยามเย็น"}
+{"word": "breeze", "english": "A cool breeze refreshed the hikers.", "thai": "สายลมเย็นทำให้ผู้เดินป่าสดชื่น"}
+{"word": "hikers", "english": "Hikers discovered a hidden mountain stream.", "thai": "นักเดินป่าค้นพบลำธารบนเขาที่ซ่อนอยู่"}
+{"word": "stream", "english": "The stream sparkled under the midday sun.", "thai": "ลำธารส่องประกายใต้แสงแดดตอนเที่ยง"}
+{"word": "sun", "english": "The sun warmed their early morning jog.", "thai": "ดวงอาทิตย์ทำให้การวิ่งยามเช้าของพวกเขาอบอุ่น"}
+{"word": "jog", "english": "A jog through the park energized her.", "thai": "การวิ่งผ่านสวนสาธารณะทำให้เธอมีพลัง"}
+{"word": "park", "english": "The park hosted a vibrant music festival.", "thai": "สวนสาธารณะจัดงานเทศกาลดนตรีที่คึกคัก"}
+{"word": "music", "english": "Music drifted from the open coffee shop.", "thai": "ดนตรีลอยมาจากร้านกาแฟที่เปิดหน้าต่าง"}
+{"word": "coffee", "english": "Coffee fueled their late-night study group.", "thai": "กาแฟช่วยเติมพลังให้กลุ่มเรียนดึก"}
+{"word": "group", "english": "The group bonded over shared campfire stories.", "thai": "กลุ่มผูกพันผ่านเรื่องราวรอบกองไฟ"}
+{"word": "campfire", "english": "The campfire crackled under a starry sky.", "thai": "กองไฟดังเปาะแปะใต้ท้องฟ้าที่เต็มไปด้วยดวงดาว"}
+{"word": "sky", "english": "The clear sky promised perfect stargazing.", "thai": "ท้องฟ้าแจ่มใสสัญญาถึงการดูดาวที่สมบูรณ์แบบ"}
+{"word": "stargazing", "english": "Stargazing inspired her poetic journal entries.", "thai": "การดูดาวจุดประกายบันทึกบทกวีของเธอ"}
+{"word": "journal", "english": "Her journal captured raw daily emotions.", "thai": "สมุดบันทึกของเธอบันทึกอารมณ์ประจำวันอย่างแท้จริง"}
+{"word": "emotions", "english": "Emotions ran high during the heated debate.", "thai": "อารมณ์พุ่งสูงในระหว่างการโต้วาทีที่ดุเดือด"}
+{"word": "debate", "english": "The debate team practiced sharp arguments.", "thai": "ทีมโต้วาทีฝึกฝนข้อโต้แย้งที่เฉียบคม"}
+{"word": "arguments", "english": "Arguments faded over a warm dinner.", "thai": "การโต้เถียงจางหายไปในมื้อค่ำที่อบอุ่น"}
+{"word": "dinner", "english": "Dinner featured spicy homemade curry.", "thai": "มื้อค่ำมีแกงโฮมเมดรสเผ็ด"}
+{"word": "curry", "english": "Curry simmered with fresh market herbs.", "thai": "แกงเคี่ยวนานด้วยสมุนไพรสดจากตลาด"}
+{"word": "herbs", "english": "Herbs scented the cozy kitchen air.", "thai": "สมุนไพรส่งกลิ่นหอมในอากาศห้องครัวที่อบอุ่น"}
+{"word": "kitchen", "english": "The kitchen bustled with holiday baking.", "thai": "ห้องครัวคึกคักด้วยการอบขนมวันหยุด"}
+{"word": "baking", "english": "Baking cookies filled the house with warmth.", "thai": "การอบคุกกี้ทำให้บ้านเต็มไปด้วยความอบอุ่น"}
+{"word": "cookies", "english": "Cookies crumbled in her picnic basket.", "thai": "คุกกี้แตกในตะกร้าปิกนิกของเธอ"}
+{"word": "basket", "english": "The basket held fresh farmer’s market produce.", "thai": "ตะกร้าใส่ผลผลิตสดจากตลาดเกษตรกร"}
+{"word": "produce", "english": "Fresh produce inspired her new recipe.", "thai": "ผลผลิตสดจุดประกายสูตรอาหารใหม่ของเธอ"}
+{"word": "recipe", "english": "The recipe called for ripe tomatoes.", "thai": "สูตรอาหารต้องใช้มะเขือเทศสุก"}
+{"word": "tomatoes", "english": "Tomatoes added color to the salad.", "thai": "มะเขือเทศเพิ่มสีสันให้สลัด"}
+{"word": "salad", "english": "The salad paired well with grilled chicken.", "thai": "สลัดเข้ากันดีกับไก่ย่าง"}
+{"word": "chicken", "english": "Chicken sizzled on the backyard grill.", "thai": "ไก่ร้อนฉ่าบนเตาย่างในสวนหลังบ้าน"}
+{"word": "grill", "english": "The grill smoked with juicy burgers.", "thai": "เตาย่างควันโขมงด้วยเบอร์เกอร์ฉ่ำ"}
+{"word": "burgers", "english": "Burgers tempted everyone at the barbecue.", "thai": "เบอร์เกอร์ล่อใจทุกคนในงานบาร์บีคิว"}
+{"word": "barbecue", "english": "The barbecue brought neighbors together outdoors.", "thai": "งานบาร์บีคิวนำเพื่อนบ้านมารวมตัวกันกลางแจ้ง"}
+{"word": "neighbors", "english": "Neighbors shared stories over evening drinks.", "thai": "เพื่อนบ้านแบ่งปันเรื่องราวระหว่างเครื่องดื่มยามเย็น"}
+{"word": "drinks", "english": "Cool drinks refreshed the hot summer day.", "thai": "เครื่องดื่มเย็นๆ ทำให้วันฤดูร้อนที่ร้อนอบอ้าวสดชื่น"}
+{"word": "summer", "english": "Summer vibes filled the beach party.", "thai": "บรรยากาศฤดูร้อนเต็มไปในงานปาร์ตี้ชายหาด"}
+{"word": "beach", "english": "The beach sparkled under golden sunlight.", "thai": "ชายหาดส่องประกายใต้แสงแดดสีทอง"}
+{"word": "sunlight", "english": "Sunlight streamed through the open windows.", "thai": "แสงแดดส่องผ่านหน้าต่างที่เปิดอยู่"}
+{"word": "windows", "english": "Windows framed views of the quiet valley.", "thai": "หน้าต่างล้อมกรอบวิวของหุบเขาที่เงียบสงบ"}
+{"word": "valley", "english": "The valley bloomed with wildflower patches.", "thai": "หุบเขาเบ่งบานด้วยแปลงดอกไม้ป่า"}
+{"word": "wildflower", "english": "Wildflower bouquets decorated the rustic wedding.", "thai": "ช่อดอกไม้ป่าประดับงานแต่งงานสไตล์ชนบท"}
+{"word": "wedding", "english": "The wedding featured a lively dance floor.", "thai": "งานแต่งงานมีฟลอร์เต้นรำที่คึกคัก"}
+{"word": "dance", "english": "Dance lessons taught her salsa moves.", "thai": "บทเรียนเต้นรำสอนท่าสัลซ่าให้เธอ"}
+{"word": "moves", "english": "Her chess moves stunned the opponent.", "thai": "การเดินหมากรุกของเธอทำให้คู่ต่อสู้ตะลึง"}
+{"word": "opponent", "english": "The opponent faltered under tough questions.", "thai": "คู่ต่อสู้สะดุดเมื่อเจอคำถามยาก"}
+{"word": "questions", "english": "Questions sparked a lively classroom debate.", "thai": "คำถามจุดประกายการโต้วาทีในชั้นเรียนที่คึกคัก"}
+{"word": "debate", "english": "The debate honed her critical thinking.", "thai": "การโต้วาทีฝึกฝนการคิดวิเคราะห์ของเธอ"}
+{"word": "thinking", "english": "Creative thinking fueled her art project.", "thai": "การคิดสร้างสรรค์ขับเคลื่อนโครงการศิลปะของเธอ"}
+{"word": "project", "english": "The project deadline loomed over them.", "thai": "กำหนดเวลาโครงการคืบคลานเข้ามาใกล้"}
+{"word": "deadline", "english": "Meeting the deadline earned her praise.", "thai": "การทำตามกำหนดเวลาได้ทำให้เธอได้รับคำชม"}
+{"word": "praise", "english": "Her teacher’s praise boosted her confidence.", "thai": "คำชมของครูเพิ่มความมั่นใจให้เธอ"}
+{"word": "confidence", "english": "Confidence carried her through the interview.", "thai": "ความมั่นใจพาเธอผ่านการสัมภาษณ์"}
+{"word": "interview", "english": "The job interview tested her quick wit.", "thai": "การสัมภาษณ์งานทดสอบไหวพริบว่องไวของเธอ"}
+{"word": "wit", "english": "Her wit charmed the entire audience.", "thai": "ไหวพริบของเธอทำให้ผู้ชมทั้งหมดหลงใหล"}
+{"word": "audience", "english": "The audience roared after the comedy show.", "thai": "ผู้ชมคำรามหลังการแสดงตลก"}
+{"word": "comedy", "english": "Comedy sketches lightened the tense mood.", "thai": "การแสดงตลกสั้นๆ ทำให้บรรยากาศที่ตึงเครียดผ่อนคลาย"}
+{"word": "mood", "english": "The rainy mood inspired her poetry.", "thai": "บรรยากาศฝนตกจุดประกายบทกวีของเธอ"}
+{"word": "poetry", "english": "Poetry readings filled the cozy bookstore.", "thai": "การอ่านบทกวีเต็มไปในร้านหนังสือที่อบอุ่น"}
+{"word": "bookstore", "english": "The bookstore hosted a local author event.", "thai": "ร้านหนังสือจัดงานพบปะนักเขียนท้องถิ่น"}
+{"word": "author", "english": "The author signed copies of her novel.", "thai": "นักเขียนลงนามในสำเนานิยายของเธอ"}
+{"word": "novel", "english": "Her novel explored deep human struggles.", "thai": "นิยายของเธอสำรวจการต่อสู้ของมนุษย์อย่างลึกซึ้ง"}
+{"word": "struggles", "english": "Struggles shaped her resilient character.", "thai": "การต่อสู้หล่อหลอมบุคลิกที่ยืดหยุ่นของเธอ"}
+{"word": "character", "english": "Her character shone in tough moments.", "thai": "บุคลิกของเธอเปล่งประกายในช่วงเวลาที่ยากลำบาก"}
+{"word": "moments", "english": "Quiet moments by the lake soothed her.", "thai": "ช่วงเวลาเงียบสงบข้างทะเลสาบปลอบโยนเธอ"}
+{"word": "lake", "english": "The lake reflected a stunning sunset glow.", "thai": "ทะเลสาบสะท้อนแสงพระอาทิตย์ตกที่สวยงาม"}
+{"word": "sunset", "english": "Sunset walks calmed his racing thoughts.", "thai": "การเดินเล่นตอนพระอาทิตย์ตกทำให้ความคิดที่วุ่นวายของเขาสงบลง"}
+{"word": "thoughts", "english": "His thoughts wandered during the long lecture.", "thai": "ความคิดของเขาเหม่อลอยระหว่างการบรรยายที่ยาวนาน"}
+{"word": "lecture", "english": "The lecture unpacked complex scientific theories.", "thai": "การบรรยายอธิบายทฤษฎีวิทยาศาสตร์ที่ซับซ้อน"}
+{"word": "theories", "english": "Theories sparked heated classroom discussions.", "thai": "ทฤษฎีจุดประกายการสนทนาในชั้นเรียนที่ดุเดือด"}
+{"word": "discussions", "english": "Discussions over coffee fueled new ideas.", "thai": "การสนทนาระหว่างดื่มกาแฟจุดประกายความคิดใหม่"}
+{"word": "ideas", "english": "Her ideas revolutionized the team’s approach.", "thai": "ความคิดของเธอปฏิวัติวิธีการของทีม"}
+{"word": "approach", "english": "A fresh approach solved the old problem.", "thai": "วิธีการใหม่แก้ปัญหาเก่าได้"}
+{"word": "problem", "english": "The math problem stumped the entire class.", "thai": "โจทย์คณิตศาสตร์ทำให้ทั้งชั้นเรียนงง"}
+{"word": "class", "english": "The class cheered for their winning team.", "thai": "ชั้นเรียนโห่ร้องให้ทีมที่ชนะ"}
+{"word": "team", "english": "The team collaborated on a bold project.", "thai": "ทีมร่วมมือกันในโครงการที่กล้าหาญ"}
+{"word": "project", "english": "The project showcased their creative talents.", "thai": "โครงการแสดงความสามารถสร้างสรรค์ของพวกเขา"}
+{"word": "talents", "english": "Her talents shone in the art gallery.", "thai": "ความสามารถของเธอเปล่งประกายในแกลเลอรีศิลปะ"}
+{"word": "gallery", "english": "The gallery displayed vibrant local paintings.", "thai": "แกลเลอรีแสดงภาพวาดท้องถิ่นที่สดใส"}
+{"word": "paintings", "english": "Paintings inspired her to start sketching.", "thai": "ภาพวาดจุดประกายให้เธอเริ่มร่างภาพ"}
+{"word": "sketching", "english": "Sketching nature calmed her busy mind.", "thai": "การร่างภาพธรรมชาติทำให้จิตใจที่วุ่นวายของเธอสงบ"}
+{"word": "nature", "english": "Nature hikes revealed breathtaking mountain views.", "thai": "การเดินป่าธรรมชาติเผยให้เห็นวิวภูเขาที่น่าทึ่ง"}
+{"word": "views", "english": "Ocean views soothed her restless soul.", "thai": "วิวทะเลปลอบโยนจิตใจที่กระสับกระส่ายของเธอ"}
+{"word": "soul", "english": "Her soul connected with the soulful music.", "thai": "จิตวิญญาณของเธอเชื่อมโยงกับดนตรีที่เต็มไปด้วยอารมณ์"}
+{"word": "music", "english": "Music filled the air at the concert.", "thai": "ดนตรีเติมเต็มบรรยากาศในคอนเสิร์ต"}
+{"word": "concert", "english": "The concert drew a massive excited crowd.", "thai": "คอนเสิร์ตดึงดูดฝูงชนที่ตื่นเต้นจำนวนมาก"}
