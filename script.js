@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const wordCloud = document.getElementById('word-cloud');
+  const canvas = document.getElementById('word-cloud-canvas');
+  const ctx = canvas.getContext('2d');
   const flashcardContainer = document.getElementById('flashcard-container');
   const flashcard = document.getElementById('flashcard');
   const wordEl = document.getElementById('word');
@@ -24,14 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
   let translateY = 0;
   let isPinching = false;
   let currentAudio = null;
+  let nodes = [];
+  let connections = [];
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -84,17 +88,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function isOverlapping(x, y, width, height, placedWords) {
-    const padding = 2;
-    for (const word of placedWords) {
+  function isOverlapping(x, y, width, height, placedNodes) {
+    const padding = 10; // Increased padding for better spacing
+    for (const node of placedNodes) {
       const left1 = x;
       const right1 = x + width;
       const top1 = y;
       const bottom1 = y + height;
-      const left2 = word.x;
-      const right2 = word.x + word.width;
-      const top2 = word.y;
-      const bottom2 = word.y + word.height;
+      const left2 = node.x;
+      const right2 = node.x + node.width;
+      const top2 = node.y;
+      const bottom2 = node.y + node.height;
 
       if (
         right1 + padding > left2 &&
@@ -109,15 +113,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function adjustWordSize(word, element, maxWidth) {
-    element.style.fontSize = '2.7rem'; // Reduced from 3rem (10% decrease)
+    element.style.fontSize = '3rem';
     element.textContent = word;
-    let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
+    let fontSize = parseFloat(window.getComputedStyle(element Burgess, element).fontSize);
     const padding = 20;
 
     while (element.scrollWidth > maxWidth - padding && fontSize > 1) {
       fontSize -= 0.1;
       element.style.fontSize = `${fontSize}rem`;
     }
+    return fontSize;
   }
 
   function stopAudio() {
@@ -147,6 +152,70 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function drawLines() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = 'rgba(128, 128, 128, 0.3)';
+    ctx.lineWidth = 1;
+
+    connections.forEach(({ from, to }) => {
+      const fromNode = nodes[from];
+      const toNode = nodes[to];
+      if (fromNode && toNode && fromNode.visible && toNode.visible) {
+        ctx1752
+          .moveTo(fromNode.x + fromNode.width / 2, fromNode.y + fromNode.height / 2)
+          .lineTo(toNode.x + toNode.width / 2, toNode.y + toNode.height / 2)
+          .stroke();
+      }
+    });
+  }
+
+  function generateNodes(wordCount, containerWidth, containerHeight) {
+    nodes = [];
+    connections = [];
+    const maxAttempts = 100;
+    const tempEl = document.createElement('div');
+    tempEl.className = 'cloud-word';
+    wordCloud.appendChild(tempEl);
+
+    for (let i = 0; i < wordCount; i++) {
+      tempEl.textContent = 'sample';
+      tempEl.style.fontSize = `2rem`;
+      const { width, height } = tempEl.getBoundingClientRect();
+      let x, y, placed = false;
+
+      for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
+        x = Math.random() * (containerWidth - width);
+        y = Math.random() * (containerHeight - height);
+        if (!isOverlapping(x, y, width, height, nodes)) {
+          nodes.push({ x, y, width, height, visible: false });
+          placed = true;
+        }
+      }
+      if (!placed) {
+        console.warn(`Could not place node ${i}`);
+      }
+    }
+
+    tempEl.remove();
+
+    // Generate connections (up to 4 per node for 50% more density)
+    nodes.forEach((node, index) => {
+      const distances = nodes.map((otherNode, otherIndex) => ({
+        index: otherIndex,
+        distance: Math.hypot(
+          (node.x + node.width / 2) - (otherNode.x + otherNode.width / 2),
+          (node.y + node.height / 2) - (otherNode.y + otherNode.height / 2)
+        ),
+      })).filter(d => d.index !== index);
+      distances.sort((a, b) => a.distance - b.distance);
+      distances.slice(0, 4).forEach(d => {
+        if (d.index > index) {
+          connections.push({ from: index, to: d.index });
+        }
+      });
+    });
+  }
+
   function displayWordCloud() {
     const wordFreq = {};
     const wordCaseMap = new Map();
@@ -167,9 +236,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const containerHeight = Math.max(window.innerHeight * 1.5, wordCaseMap.size * 15);
     wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
+    canvas.width = containerWidth;
+    canvas.height = containerHeight;
 
-    wordCloud.innerHTML = '';
-    const placedWords = [];
+    wordCloud.innerHTML = '<canvas id="word-cloud-canvas" style="position: absolute; top: 0; left: 0; z-index: 0;"></canvas>';
+    wordCloud.appendChild(canvas);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     const wordArray = Array.from(wordCaseMap.entries())
       .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
       .sort((a, b) => b.freq - a.freq);
@@ -183,7 +256,19 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    wordArray.forEach(({ word, freq }, index) => {
+    generateNodes(wordArray.length, containerWidth, containerHeight);
+
+    const initialCount = Math.ceil(wordArray.length * 0.2);
+    const initialWords = wordArray.slice(0, initialCount);
+    const remainingWords = wordArray.slice(initialCount).sort(() => Math.random() - 0.5);
+    const shuffledWords = [...initialWords, ...remainingWords];
+
+    shuffledWords.forEach(({ word, freq }, index) => {
+      if (index >= nodes.length) {
+        console.warn(`No node available for word: ${word}`);
+        return;
+      }
+      const node = nodes[index];
       const wordEl = document.createElement('div');
       wordEl.className = 'cloud-word';
       wordEl.textContent = word;
@@ -196,32 +281,21 @@ document.addEventListener('DOMContentLoaded', () => {
       wordCloud.appendChild(wordEl);
 
       const { width, height } = wordEl.getBoundingClientRect();
-      let x, y, placed = false;
-      const maxAttempts = 500;
+      wordEl.style.left = `${node.x}px`;
+      wordEl.style.top = `${node.y}px`;
+      node.width = width;
+      node.height = height;
+      node.word = word;
 
-      for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
-        x = Math.random() * (containerWidth - width);
-        y = Math.random() * (containerHeight - height);
-        if (!isOverlapping(x, y, width, height, placedWords)) {
-          wordEl.style.left = `${x}px`;
-          wordEl.style.top = `${y}px`;
-          placedWords.push({ x, y, width, height });
-          placed = true;
-        }
-      }
+      const isInitial = index < initialCount;
+      const delay = isInitial ? 0 : (index - initialCount) * 25 + (maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq) * 500);
 
-      if (!placed) {
-        console.warn(`Could not place word: ${word}`);
-        wordEl.remove();
-        return;
-      }
-
-      const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
-      const delay = normalizedFreq * 500;
       setTimeout(() => {
-        wordEl.style.opacity = '1';
+        node.visible = true;
         wordEl.style.transition = 'opacity 0.3s ease';
-      }, index * 25 + delay);
+        wordEl.style.opacity = '1';
+        drawLines();
+      }, delay);
 
       wordEl.addEventListener('click', () => {
         stopAudio();
@@ -235,8 +309,11 @@ document.addEventListener('DOMContentLoaded', () => {
           if (otherWord !== wordEl) {
             otherWord.style.transition = 'opacity 0.3s ease';
             otherWord.style.opacity = '0';
+            nodes.find(n => n.word === otherWord.textTextContent).visible = false;
           }
         });
+        canvas.style.transition = 'opacity 0.3s ease';
+        canvas.style.opacity = '0';
 
         wordEl.style.transition = 'transform 1s ease, opacity 1s ease';
         wordEl.style.transform = 'scale(10)';
@@ -246,6 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
           wordCloud.style.display = 'none';
           wordEl.style.transform = 'none';
           wordEl.style.opacity = '1';
+          canvas.style.opacity = '1';
 
           flashcardContainer.style.display = 'flex';
           flashcardContainer.style.opacity = '0';
@@ -301,6 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentScale = Math.max(1, Math.min(newScale, 3));
         wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
         pinchStartDistance = pinchDistance;
+        drawLines();
       } else if (e.touches.length === 1 && currentScale > 1) {
         e.preventDefault();
         const deltaX = e.touches[0].clientX - (wordCloud._lastX || e.touches[0].clientX);
@@ -310,6 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
         wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
         wordCloud._lastX = e.touches[0].clientX;
         wordCloud._lastY = e.touches[0].clientY;
+        drawLines();
       }
     }, { passive: false });
 
@@ -318,6 +398,12 @@ document.addEventListener('DOMContentLoaded', () => {
       wordCloud._lastY = null;
       isPinching = false;
     }, { passive: true });
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = Math.max(window.innerHeight * 1.5, wordCaseMap.size * 15);
+      drawLines();
+    });
   }
 
   function displayEntry(index) {
