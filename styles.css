@@ -30,7 +30,7 @@ body {
   font-weight: 700;
   cursor: pointer;
   user-select: none;
-  transition: opacity 0.3s ease, transform 1s ease;
+  transition: opacity 1s ease, transform 1s ease;
   white-space: nowrap;
   line-height: 1.2;
   z-index: 10;
@@ -57,7 +57,6 @@ body {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  overflow: hidden; /* Prevent scrolling when flashcard is displayed */
 }
 
 .logo-container {
@@ -98,12 +97,12 @@ body {
   justify-content: center;
   touch-action: pan-y;
   user-select: none;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+  cursor: pointer; /* Indicate tappability */
+  transition: transform 0.2s ease; /* Add slight transform for tap feedback */
 }
 
 .flashcard:active {
-  transform: scale(0.98);
+  transform: scale(0.98); /* Visual feedback on tap */
 }
 
 .flashcard.glow {
@@ -135,14 +134,12 @@ body {
 .word {
   font-size: 3.75rem;
   font-weight: 700;
-  text-align: center;
+  text-align: center; /* Ensure horizontal centering */
   word-break: break-word;
   margin-bottom: 20px;
   white-space: nowrap;
   max-width: 100%;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%; /* Ensure it takes full width for centering */
 }
 
 .sentences {
