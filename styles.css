@@ -22,7 +22,7 @@ body {
   padding: 10px;
   transform-origin: center center;
   will-change: transform;
-  display: block; /* Ensure initial visibility */
+  display: block;
 }
 
 .cloud-word {
@@ -97,6 +97,12 @@ body {
   justify-content: center;
   touch-action: pan-y;
   user-select: none;
+  cursor: pointer; /* Indicate tappability */
+  transition: transform 0.2s ease; /* Add slight transform for tap feedback */
+}
+
+.flashcard:active {
+  transform: scale(0.98); /* Visual feedback on tap */
 }
 
 .flashcard.glow {

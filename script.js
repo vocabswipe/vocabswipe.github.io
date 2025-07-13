@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadData() {
     try {
-      wordCloud.style.display = 'block'; // Ensure word cloud is visible
-      loadingMessage.style.display = 'block'; // Show loading message
+      wordCloud.style.display = 'block';
+      loadingMessage.style.display = 'block';
       console.log('Fetching data/database.jsonl...');
       const response = await fetch('data/database.jsonl');
       if (!response.ok) {
@@ -73,11 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       console.log(`Loaded ${entries.length} entries`);
-      loadingMessage.style.display = 'none'; // Hide loading message
+      loadingMessage.style.display = 'none';
       displayWordCloud();
     } catch (error) {
       console.error('LoadData Error:', error);
-      loadingMessage.style.display = 'none'; // Hide loading message
+      loadingMessage.style.display = 'none';
       wordCloud.innerHTML = `
         <div class="error-message">
           Failed to load vocabulary data. Please ensure 'data/database.jsonl' exists and is valid.
@@ -115,10 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function adjustWordSize(word, element, maxWidth) {
-    element.style.fontSize = '3.75rem'; // Reset to default
+    element.style.fontSize = '3.75rem';
     element.textContent = word;
     let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
-    const padding = 20; // Account for flashcard padding
+    const padding = 20;
 
     while (element.scrollWidth > maxWidth - padding && fontSize > 1) {
       fontSize -= 0.1;
@@ -132,21 +132,23 @@ document.addEventListener('DOMContentLoaded', () => {
       currentAudio.currentTime = 0;
       currentAudio = null;
     }
-    audioErrorEl.style.display = 'none'; // Hide error message
+    audioErrorEl.style.display = 'none';
   }
 
   function playAudio(audioUrl) {
-    stopAudio(); // Stop any currently playing audio
+    stopAudio();
+    console.log(`Attempting to play audio: ${audioUrl}`);
     currentAudio = new Audio(audioUrl);
     currentAudio.play().then(() => {
-      flashcard.classList.add('glow'); // Trigger glow effect
-      setTimeout(() => flashcard.classList.remove('glow'), 500); // Remove glow after 0.5s
-      audioErrorEl.style.display = 'none'; // Hide error message
+      console.log('Audio playing successfully');
+      flashcard.classList.add('glow');
+      setTimeout(() => flashcard.classList.remove('glow'), 500);
+      audioErrorEl.style.display = 'none';
     }).catch(e => {
-      console.error("Error playing audio:", e);
-      audioErrorEl.textContent = 'Failed to play audio';
+      console.error('Error playing audio:', e);
+      audioErrorEl.textContent = 'Failed to play audio: ' + e.message;
       audioErrorEl.style.display = 'block';
-      setTimeout(() => audioErrorEl.style.display = 'none', 2000); // Hide after 2s
+      setTimeout(() => audioErrorEl.style.display = 'none', 2000);
     });
   }
 
@@ -171,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
     wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
 
-    wordCloud.innerHTML = ''; // Clear loading message or error
+    wordCloud.innerHTML = '';
     const placedWords = [];
     const wordArray = Array.from(wordCaseMap.entries())
       .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
@@ -227,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, index * 50 + delay);
 
       wordEl.addEventListener('click', () => {
-        stopAudio(); // Stop any playing audio when returning to word cloud
+        stopAudio();
         wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
         wordCloud.style.transformOrigin = 'center center';
         currentScale = 1;
@@ -343,24 +345,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     englishEl.innerHTML = highlightWords(entry.english, wordsToHighlight);
     thaiEl.textContent = entry.thai;
-    audioErrorEl.style.display = 'none'; // Reset error message
+    audioErrorEl.style.display = 'none';
 
     // Set up audio playback
     if (entry.audio) {
-      const audioUrl = `https://raw.githubusercontent.com/vocabswipe/vocabswipe.github.io/main/data/${entry.audio}`;
+      const audioUrl = `/data/${entry.audio}`; // Use relative path for GitHub Pages
+      console.log(`Setting up audio for: ${audioUrl}`);
       flashcard.onclick = null; // Clear previous handler
       flashcard.onclick = () => {
         if (currentAudio && !currentAudio.paused) {
-          stopAudio(); // Stop if audio is playing
+          console.log('Stopping current audio');
+          stopAudio();
         } else {
-          playAudio(audioUrl); // Play if no audio or paused
+          console.log('Playing audio on tap');
+          playAudio(audioUrl);
         }
       };
     } else {
-      flashcard.onclick = null; // Clear handler if no audio
+      console.log('No audio available for this entry');
+      flashcard.onclick = null;
       audioErrorEl.textContent = 'No audio available';
       audioErrorEl.style.display = 'block';
-      setTimeout(() => audioErrorEl.style.display = 'none', 2000); // Hide after 2s
+      setTimeout(() => audioErrorEl.style.display = 'none', 2000);
     }
   }
 
@@ -376,20 +382,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const swipeDistance = touchStartY - touchEndY;
     const minSwipeDistance = 50;
     const touchDuration = Date.now() - touchStartTime;
-    const maxTapDuration = 300; // Max duration for a tap (ms)
-    const tapCooldown = 500; // Cooldown after swipe (ms)
+    const maxTapDuration = 300;
+    const tapCooldown = 500;
 
     if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance && (Date.now() - lastSwipeTime) > tapCooldown) {
-      // Single tap detected, trigger onclick (handled by displayEntry)
+      console.log('Tap detected, triggering flashcard click');
       flashcard.click();
     } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
-      stopAudio(); // Stop audio on swipe
+      console.log('Swipe up detected, going to next entry');
+      stopAudio();
       currentIndex++;
       currentColorIndex = (currentColorIndex + 1) % colors.length;
       displayEntry(currentIndex);
       lastSwipeTime = Date.now();
     } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
-      stopAudio(); // Stop audio on swipe
+      console.log('Swipe down detected, going to previous entry');
+      stopAudio();
       currentIndex--;
       currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
       displayEntry(currentIndex);
