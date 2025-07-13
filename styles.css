@@ -18,11 +18,18 @@ body {
 .word-cloud {
   position: relative;
   width: 100%;
-  overflow-y: auto;
+  height: 100vh;
   padding: 10px;
   transform-origin: center center;
   will-change: transform;
   display: block;
+}
+
+.connection-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
 }
 
 .cloud-word {
@@ -34,17 +41,6 @@ body {
   white-space: nowrap;
   line-height: 1.2;
   z-index: 10;
-}
-
-.loading-gif {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100px;
-  height: 100px;
-  z-index: 100;
-  display: block;
 }
 
 .error-message {
@@ -63,6 +59,7 @@ body {
   flex-grow: 1;
   width: 100%;
   max-width: 400px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -224,10 +221,5 @@ body {
 
   .error-message {
     font-size: 1rem;
-  }
-
-  .loading-gif {
-    width: 80px;
-    height: 80px;
   }
 }
