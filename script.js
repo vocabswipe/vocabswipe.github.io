@@ -27,11 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function adjustWordSize(word, element, maxWidth) {
-    element.style.fontSize = '3rem'; // Reduced from 3.75rem (20% decrease)
+    element.style.fontSize = '2.7rem'; // Reduced from 3rem (10% decrease)
     element.textContent = word;
     let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
     const padding = 20;
@@ -219,8 +219,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
       const delay = normalizedFreq * 500;
       setTimeout(() => {
-        wordEl.style.transition = 'opacity 0.3s ease';
         wordEl.style.opacity = '1';
+        wordEl.style.transition = 'opacity 0.3s ease';
       }, index * 25 + delay);
 
       wordEl.addEventListener('click', () => {
@@ -252,10 +252,9 @@ document.addEventListener('DOMContentLoaded', () => {
           flashcardContainer.style.transition = 'opacity 1s ease';
           flashcardContainer.style.opacity = '1';
 
-          // Ensure flashcard is centered and fits viewport
           flashcardContainer.style.height = '100vh';
           flashcardContainer.style.justifyContent = 'center';
-          document.body.style.overflow = 'hidden'; // Prevent scrolling
+          document.body.style.overflow = 'hidden';
 
           setTimeout(() => {
             logo.style.transition = 'transform 1s ease, opacity 1s ease';
