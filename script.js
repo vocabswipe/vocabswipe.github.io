@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const wordCloud = document.getElementById('word-cloud');
+  const canvas = document.getElementById('network-canvas');
+  const ctx = canvas.getContext('2d');
   const flashcardContainer = document.getElementById('flashcard-container');
   const flashcard = document.getElementById('flashcard');
   const wordEl = document.getElementById('word');
@@ -20,10 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let wordColors = new Map();
   let initialScale = 1;
   let currentScale = 1;
-  let translateX = 0;
+  letflowerX = 0;
   let translateY = 0;
   let isPinching = false;
   let currentAudio = null;
+  let placedWords = []; // Store word positions and visibility
 
   function escapeHTML(str) {
     return str
@@ -31,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -109,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function adjustWordSize(word, element, maxWidth) {
-    element.style.fontSize = '3rem'; // Reduced from 3.75rem (20% decrease)
+    element.style.fontSize = '3rem';
     element.textContent = word;
     let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
     const padding = 20;
@@ -147,6 +150,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function updateCanvasSize() {
+    canvas.width = window.innerWidth * window.devicePixelRatio;
+    canvas.height = Math.max(window.innerHeight * 1.5, wordCaseMap.size * 15) * window.devicePixelRatio;
+    canvas.style.width = `${window.innerWidth}px`;
+    canvas.style.height = `${Math.max(window.innerHeight * 1.5, wordCaseMap.size * 15)}px`;
+    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  }
+
+  function drawNetworkLines() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = 'rgba(128, 128, 128, 0.3)';
+    ctx.lineWidth = 1;
+
+    const visibleWords = placedWords.filter(word => word.visible);
+    visibleWords.forEach((word, index) => {
+      const wordCenterX = word.x + word.width / 2;
+      const wordCenterY = word.y + word.height / 2;
+
+      // Find up to 3 nearest visible words
+      const distances = visibleWords
+        .map((otherWord, otherIndex) => {
+          if (index === otherIndex) return null;
+          const otherCenterX = otherWord.x + otherWord.width / 2;
+          const otherCenterY = otherWord.y + otherWord.height / 2;
+          const distance = Math.hypot(wordCenterX - otherCenterX, wordCenterY - otherCenterY);
+          return { index: otherIndex, distance };
+        })
+        .filter(d => d !== null)
+        .sort((a, b) => a.distance - b.distance)
+        .slice(0, 3);
+
+      distances.forEach(({ index: otherIndex }) => {
+        const otherWord = visibleWords[otherIndex];
+        const otherCenterX = otherWord.x + otherWord.width / 2;
+        const otherCenterY = otherWord.y + otherWord.height / 2;
+
+        ctx.beginPath();
+        ctx.moveTo(wordCenterX, wordCenterY);
+        ctx.lineTo(otherCenterX, otherCenterY);
+        ctx.stroke();
+      });
+    });
+  }
+
   function displayWordCloud() {
     const wordFreq = {};
     const wordCaseMap = new Map();
@@ -168,8 +215,18 @@ document.addEventListener('DOMContentLoaded', () => {
     wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
 
-    wordCloud.innerHTML = '';
-    const placedWords = [];
+    updateCanvasSize();
+
+    wordCloud.innerHTML = '<canvas id="network-canvas" style="position: absolute; top: 0; left: 0; z-index: 0;"></canvas>';
+    const newCanvas = document.getElementById('network-canvas');
+    if (newCanvas !== canvas) {
+      canvas.replaceWith(newCanvas);
+      canvas = newCanvas;
+      ctx = canvas.getContext('2d');
+      updateCanvasSize();
+    }
+
+    placedWords = [];
     const wordArray = Array.from(wordCaseMap.entries())
       .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
       .sort((a, b) => b.freq - a.freq);
@@ -205,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isOverlapping(x, y, width, height, placedWords)) {
           wordEl.style.left = `${x}px`;
           wordEl.style.top = `${y}px`;
-          placedWords.push({ x, y, width, height });
+          placedWords.push({ x, y, width, height, visible: false });
           placed = true;
         }
       }
@@ -221,6 +278,8 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         wordEl.style.transition = 'opacity 0.3s ease';
         wordEl.style.opacity = '1';
+        placedWords[index].visible = true;
+        drawNetworkLines();
       }, index * 25 + delay);
 
       wordEl.addEventListener('click', () => {
@@ -252,10 +311,9 @@ document.addEventListener('DOMContentLoaded', () => {
           flashcardContainer.style.transition = 'opacity 1s ease';
           flashcardContainer.style.opacity = '1';
 
-          // Ensure flashcard is centered and fits viewport
           flashcardContainer.style.height = '100vh';
           flashcardContainer.style.justifyContent = 'center';
-          document.body.style.overflow = 'hidden'; // Prevent scrolling
+          document.body.style.overflow = 'hidden';
 
           setTimeout(() => {
             logo.style.transition = 'transform 1s ease, opacity 1s ease';
@@ -302,6 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentScale = Math.max(1, Math.min(newScale, 3));
         wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
         pinchStartDistance = pinchDistance;
+        drawNetworkLines();
       } else if (e.touches.length === 1 && currentScale > 1) {
         e.preventDefault();
         const deltaX = e.touches[0].clientX - (wordCloud._lastX || e.touches[0].clientX);
@@ -311,6 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
         wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
         wordCloud._lastX = e.touches[0].clientX;
         wordCloud._lastY = e.touches[0].clientY;
+        drawNetworkLines();
       }
     }, { passive: false });
 
@@ -420,6 +480,13 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Spacebar pressed, triggering flashcard click');
         flashcard.click();
       }
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (wordCloud.style.display === 'block') {
+      updateCanvasSize();
+      drawNetworkLines();
     }
   });
 
