@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #000000; /* Pure black for entire website */
+  background-color: #1a1a1a;
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
   min-height: 100vh;
@@ -25,19 +25,12 @@ body {
   display: block;
 }
 
-#word-cloud-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-}
-
 .cloud-word {
   position: absolute;
   font-weight: 700;
   cursor: pointer;
   user-select: none;
-  transition: opacity 0.3s ease, transform 1s ease;
+  transition: opacity 1s ease, transform 1s ease;
   white-space: nowrap;
   line-height: 1.2;
   z-index: 10;
@@ -53,7 +46,6 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10;
 }
 
 .container {
@@ -64,7 +56,6 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #000000; /* Pure black for flashcard view */
 }
 
 .logo-container {
@@ -140,7 +131,7 @@ body {
 }
 
 .word {
-  font-size: 3rem;
+  font-size: 3rem; /* Reduced from 3.75rem (20% decrease) */
   font-weight: 700;
   text-align: center;
   word-break: break-word;
@@ -190,7 +181,7 @@ body {
   }
 
   .word {
-    font-size: 2.4rem;
+    font-size: 2.4rem; /* Reduced from 3rem (20% decrease) */
   }
 
   .english {
