@@ -1,6 +1,5 @@
 import json
 import hashlib
-import os
 from pathlib import Path
 import logging
 from tqdm import tqdm
@@ -45,6 +44,9 @@ def read_database():
                     # Validate required fields
                     if not all(key in entry for key in ['word', 'english', 'thai']):
                         logging.warning(f"Skipping invalid entry (missing required fields): {line.strip()}")
+                        continue
+                    if not entry['english'].strip():
+                        logging.warning(f"Skipping entry with empty English sentence: {entry}")
                         continue
                     entries.append(entry)
         logging.info(f"Read {len(entries)} valid entries from {DATABASE_PATH}")
@@ -111,16 +113,15 @@ def clean_orphaned_audio(entries):
     return deleted_count
 
 def verify_audio_files(entries):
-    """Verify that all non-empty English sentences have corresponding audio files."""
+    """Verify that all valid entries have corresponding audio files."""
     missing_audio = []
     for entry in entries:
         sentence = entry.get('english', '')
         if not sentence:
             continue
         audio_path = entry.get('audio', '')
-        # Check if audio path is valid and file exists
         if not audio_path or not Path(audio_path).exists():
-            missing_audio.append(sentence)
+            missing_audio.append((entry['word'], sentence, audio_path))
     return missing_audio
 
 def main():
@@ -138,8 +139,7 @@ def main():
     audio_files = {f.stem: f for f in Path(AUDIO_DIR).glob(f"*.{OUTPUT_FORMAT}")}
     logging.info(f"Found {len(audio_files)} existing audio files in {AUDIO_DIR}")
 
-    # Track processed sentences and counters for summary
-    processed_sentences = set()
+    # Track counters for summary
     updated_entries = []
     generated_count = 0
     reused_count = 0
@@ -149,13 +149,7 @@ def main():
     for entry in tqdm(entries, desc="Processing entries", unit="entry"):
         sentence = entry.get('english', '')
         if not sentence:
-            logging.warning(f"Skipping entry with missing English sentence: {entry}")
-            updated_entries.append(entry)
-            skipped_count += 1
-            continue
-
-        if sentence in processed_sentences:
-            logging.info(f"Skipping duplicate sentence: {sentence}")
+            logging.warning(f"Skipping entry with empty English sentence: {entry}")
             updated_entries.append(entry)
             skipped_count += 1
             continue
@@ -165,19 +159,25 @@ def main():
         audio_path = Path(AUDIO_DIR) / audio_filename
         repo_audio_path = f"{AUDIO_DIR}/{audio_filename}"
 
-        # Check if audio file exists in directory
-        if sentence_hash in audio_files:
-            logging.info(f"Using existing audio: {audio_path}")
-            entry['audio'] = repo_audio_path
-            reused_count += 1
+        # Check if entry has no audio field or invalid audio file
+        current_audio_path = entry.get('audio', '')
+        needs_audio = not current_audio_path or not Path(current_audio_path).exists()
+
+        if needs_audio:
+            if sentence_hash in audio_files:
+                logging.info(f"Using existing audio for '{sentence}': {audio_path}")
+                entry['audio'] = repo_audio_path
+                reused_count += 1
+            else:
+                logging.info(f"Generating audio for '{sentence}': {audio_path}")
+                generate_audio(sentence, audio_path)
+                entry['audio'] = repo_audio_path
+                generated_count += 1
         else:
-            logging.info(f"Generating audio for: {sentence}")
-            generate_audio(sentence, audio_path)
-            entry['audio'] = repo_audio_path
-            generated_count += 1
+            logging.info(f"Audio already valid for '{sentence}': {current_audio_path}")
+            reused_count += 1
 
         updated_entries.append(entry)
-        processed_sentences.add(sentence)
 
     # Write updated database
     write_database(updated_entries)
@@ -185,21 +185,21 @@ def main():
     # Clean orphaned audio files
     deleted_count = clean_orphaned_audio(updated_entries)
 
-    # Verify all sentences have audio files
+    # Verify all entries have audio files
     missing_audio = verify_audio_files(updated_entries)
     if missing_audio:
-        logging.error(f"Missing audio files for {len(missing_audio)} sentences:")
-        for sentence in missing_audio:
-            logging.error(f" - {sentence}")
+        logging.error(f"Missing audio files for {len(missing_audio)} entries:")
+        for word, sentence, audio_path in missing_audio:
+            logging.error(f" - Word: {word}, Sentence: {sentence}, Audio: {audio_path or 'None'}")
     else:
-        logging.info("All sentences have corresponding audio files.")
+        logging.info("All valid entries have corresponding audio files.")
 
     # Print summary report
     logging.info("\n=== Summary Report ===")
     logging.info(f"Total entries processed: {len(entries)}")
     logging.info(f"Audio files generated: {generated_count}")
     logging.info(f"Existing audio files reused: {reused_count}")
-    logging.info(f"Entries skipped (duplicates or empty): {skipped_count}")
+    logging.info(f"Entries skipped (empty English): {skipped_count}")
     logging.info(f"Orphaned audio files deleted: {deleted_count}")
     logging.info(f"Missing audio files: {len(missing_audio)}")
     logging.info("Audio generation complete. Please use GitHub Desktop to push changes to the repository.")
