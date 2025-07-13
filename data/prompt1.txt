@@ -1,4 +1,9 @@
-Generate a series of 99 entries in JSONL format, starting with the second entry, based on the first entry: {"word": "season", "english": "This season of the show is great.", "thai": "ฤดูกาลนี้ของรายการดีมาก"}. For the second entry, select a random English word, phrasal verb, or multi-word expression (e.g., single words like "computer" or "car," phrasal verbs like "get up" or "come across," or expressions like "in order to" or "on the other hand") from the first entry's English sentence (excluding the word "season") to be the `word` field, ensuring it appears in the new entry's English sentence. For each subsequent entry, select a random English word, phrasal verb, or multi-word expression from the previous entry's English sentence (excluding the previous entry's `word`) to be the `word` field, ensuring it appears in the new entry's English sentence. Display each entry as a JSON object with the fields `word`, `english`, and `thai`.
+Generate a series of 99 entries in JSONL format, starting with the second entry, based on the first entry: 
+
+{"word": "season", "english": "This season of the show is great.", "thai": "ฤดูกาลนี้ของรายการดีมาก"}. 
+
+
+For the second entry, select a random English word, phrasal verb, or multi-word expression (e.g., single words like "computer" or "car," phrasal verbs like "get up" or "come across," or expressions like "in order to" or "on the other hand") from the first entry's English sentence to be the `word` field, ensuring it appears in the new entry's English sentence. For each subsequent entry, select a random English word, phrasal verb, or multi-word expression from the previous entry's English sentence (excluding the previous entry's `word`) to be the `word` field, ensuring it appears in the new entry's English sentence. Display each entry as a JSON object with the fields `word`, `english`, and `thai`.
 
 Each entry must follow this JSONL format: {"word":"pen","english":"This pen costs five dollars.","thai":"ปากกานี้ราคาห้าดอลลาร์"}
 
