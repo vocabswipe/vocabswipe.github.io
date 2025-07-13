@@ -1,10 +1,12 @@
-Modify the second entry in the following JSONL sequence to fix the error where Word 'trucks' not in prior sentence: 'The shirt matched her vibrant personality.'  The sequence is:
+Modify the second entry in the following JSONL sequence to fix the error where Word 'give up' not in prior sentence: 
 
-{"word":"shirt","english":"The shirt matched her vibrant personality.","thai":"เสื้อเข้ากับบุคลิกที่สดใสของเธอ"}
-{"word":"trucks","english":"Food trucks lined the bustling festival.","thai":"รถขายอาหารเรียงรายในงานเทศกาลที่คึกคัก"}
-{"word":"festival","english":"The festival sparkled with vibrant lights.","thai":"งานเทศกาลส่องประกายด้วยแสงไฟที่สดใส"}
+The sequence is:
 
-Replace the word "truck" in the second entry with a random word from the first entry's English sentence. Ensure the new English sentence in the second entry includes both the selected word and the word "festival". Update the Thai translation to match the new English sentence, ensuring it is accurate, natural, and reflects the same tone. Maintain the JSONL format:
+{"word":"hand","english":"Can you give me a hand with this box?","thai":"ช่วยฉันยกกล่องนี้หน่อยได้ไหม?"}
+{"word":"give up","english":"Don’t give up on your dreams so easily.","thai":"อย่ายอมแพ้กับความฝันของคุณง่ายๆ"}
+{"word":"dreams","english":"Her dreams of traveling the world came true.","thai":"ความฝันของเธอที่จะเดินทางรอบโลกเป็นจริง"}
+
+Replace the word "give up" in the second entry with a random word from the first entry's English sentence. Ensure the new English sentence in the second entry includes both the selected word and the word "dreams". Update the Thai translation to match the new English sentence, ensuring it is accurate, natural, and reflects the same tone. Maintain the JSONL format:
 
 {"word":"pen","english":"This pen costs five dollars.","thai":"ปากกานี้ราคาห้าดอลลาร์"}
 
