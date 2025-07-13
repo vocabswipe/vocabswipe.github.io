@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let translateX = 0;
   let translateY = 0;
   let isPinching = false;
-  let currentAudio = null; // Track currently playing audio
+  let currentAudio = null;
 
   function escapeHTML(str) {
     return str
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/'/g, '&apos;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     wordsToHighlight.sort((a, b) => b.word.length - a.word.length);
     for (const { word, color } of wordsToHighlight) {
       const escapedWord = escapeHTML(word);
-      // Use word boundaries and ensure class attribute isn't misinterpreted
       const regex = new RegExp(`\\b${escapedWord}\\b(?![^<]*>)`, 'gi');
       escapedSentence = escapedSentence.replace(regex, `<span class="highlight" style="color: ${color};">$&</span>`);
     }
@@ -110,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function adjustWordSize(word, element, maxWidth) {
-    element.style.fontSize = '3.75rem';
+    element.style.fontSize = '3rem'; // Reduced from 3.75rem (20% decrease)
     element.textContent = word;
     let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
     const padding = 20;
@@ -137,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
     currentAudio.play().then(() => {
       console.log('Audio playing successfully');
       flashcard.classList.add('glow');
-      flashcard.style.setProperty('--glow-color', wordColor); // Set glow color to match word
+      flashcard.style.setProperty('--glow-color', wordColor);
       setTimeout(() => flashcard.classList.remove('glow'), 500);
       audioErrorEl.style.display = 'none';
     }).catch(e => {
@@ -218,11 +217,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
-      const delay = normalizedFreq * 500; // Reduced delay for faster appearance
+      const delay = normalizedFreq * 500;
       setTimeout(() => {
-        wordEl.style.transition = 'opacity 0.3s ease'; // Faster transition
+        wordEl.style.transition = 'opacity 0.3s ease';
         wordEl.style.opacity = '1';
-      }, index * 25 + delay); // Faster staggering
+      }, index * 25 + delay);
 
       wordEl.addEventListener('click', () => {
         stopAudio();
@@ -253,22 +252,22 @@ document.addEventListener('DOMContentLoaded', () => {
           flashcardContainer.style.transition = 'opacity 1s ease';
           flashcardContainer.style.opacity = '1';
 
-          // Scroll to top to ensure flashcard is fully visible
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          // Lock scrolling
-          document.body.style.overflow = 'hidden';
+          // Ensure flashcard is centered and fits viewport
+          flashcardContainer.style.height = '100vh';
+          flashcardContainer.style.justifyContent = 'center';
+          document.body.style.overflow = 'hidden'; // Prevent scrolling
 
           setTimeout(() => {
             logo.style.transition = 'transform 1s ease, opacity 1s ease';
             logo.style.transform = 'translateX(0)';
             logo.style.opacity = '1';
-          }, 4000); // 4s delay
+          }, 4000);
 
           setTimeout(() => {
             slogan.style.transition = 'transform 1s ease, opacity 1s ease';
             slogan.style.transform = 'translateX(0)';
             slogan.style.opacity = '1';
-          }, 4000); // 4s delay
+          }, 4000);
 
           currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
           currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
@@ -348,11 +347,10 @@ document.addEventListener('DOMContentLoaded', () => {
     thaiEl.textContent = entry.thai;
     audioErrorEl.style.display = 'none';
 
-    // Set up audio playback
     if (entry.audio) {
-      const audioUrl = `/data/${entry.audio}`; // Use relative path for GitHub Pages
+      const audioUrl = `/data/${entry.audio}`;
       console.log(`Setting up audio for: ${audioUrl}`);
-      flashcard.onclick = null; // Clear previous handler
+      flashcard.onclick = null;
       flashcard.onclick = () => {
         console.log('Playing audio on tap');
         playAudio(audioUrl, colors[currentColorIndex]);
@@ -401,7 +399,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: false });
 
-  // Keyboard controls for PC users
   document.addEventListener('keydown', e => {
     if (flashcardContainer.style.display === 'flex') {
       if (e.key === 'ArrowUp' && currentIndex < entries.length - 1) {
@@ -419,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
         displayEntry(currentIndex);
         lastSwipeTime = Date.now();
       } else if (e.key === ' ') {
-        e.preventDefault(); // Prevent page scrolling
+        e.preventDefault();
         console.log('Spacebar pressed, triggering flashcard click');
         flashcard.click();
       }
