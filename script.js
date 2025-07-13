@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const englishEl = document.getElementById('english');
   const thaiEl = document.getElementById('thai');
   const audioErrorEl = document.getElementById('audio-error');
-  const loadingMessage = document.getElementById('loading-message');
+  const loadingGif = document.getElementById('loading-gif');
   const logo = document.querySelector('.logo');
   const slogan = document.querySelector('.slogan');
 
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   async function loadData() {
     try {
       wordCloud.style.display = 'block';
-      loadingMessage.style.display = 'block';
+      loadingGif.style.display = 'block';
       console.log('Fetching data/database.jsonl...');
       const response = await fetch('data/database.jsonl');
       if (!response.ok) {
@@ -73,11 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       console.log(`Loaded ${entries.length} entries`);
-      loadingMessage.style.display = 'none';
+      loadingGif.style.display = 'none';
       displayWordCloud();
     } catch (error) {
       console.error('LoadData Error:', error);
-      loadingMessage.style.display = 'none';
+      loadingGif.style.display = 'none';
       wordCloud.innerHTML = `
         <div class="error-message">
           Failed to load vocabulary data. Please ensure 'data/database.jsonl' exists and is valid.
@@ -124,6 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
       fontSize -= 0.1;
       element.style.fontSize = `${fontSize}rem`;
     }
+    // Ensure horizontal centering
+    element.style.display = 'block';
+    element.style.marginLeft = 'auto';
+    element.style.marginRight = 'auto';
   }
 
   function stopAudio() {
@@ -135,13 +139,14 @@ document.addEventListener('DOMContentLoaded', () => {
     audioErrorEl.style.display = 'none';
   }
 
-  function playAudio(audioUrl) {
+  function playAudio(audioUrl, wordColor) {
     stopAudio();
     console.log(`Attempting to play audio: ${audioUrl}`);
     currentAudio = new Audio(audioUrl);
     currentAudio.play().then(() => {
       console.log('Audio playing successfully');
       flashcard.classList.add('glow');
+      flashcard.style.setProperty('--glow-color', wordColor);
       setTimeout(() => flashcard.classList.remove('glow'), 500);
       audioErrorEl.style.display = 'none';
     }).catch(e => {
@@ -174,6 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
     wordCloud.style.height = `${containerHeight}px`;
 
     wordCloud.innerHTML = '';
+    wordCloud.appendChild(loadingGif);
     const placedWords = [];
     const wordArray = Array.from(wordCaseMap.entries())
       .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
@@ -188,6 +194,19 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    // Calculate GIF dimensions and reserved area
+    const gifWidth = 100; // Adjust based on actual GIF size
+    const gifHeight = 100;
+    const gifPadding = 20;
+    const gifArea = {
+      x: (containerWidth - gifWidth) / 2,
+      y: (window.innerHeight - gifHeight) / 2,
+      width: gifWidth + gifPadding,
+      height: gifHeight + gifPadding
+    };
+
+    const instantDisplayCount = Math.ceil(wordArray.length * 0.2); // First 20% of words
+
     wordArray.forEach(({ word, freq }, index) => {
       const wordEl = document.createElement('div');
       wordEl.className = 'cloud-word';
@@ -197,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const wordColor = colors[Math.floor(Math.random() * colors.length)];
       wordEl.style.color = wordColor;
       wordColors.set(word.toLowerCase(), wordColor);
-      wordEl.style.opacity = '0';
+      wordEl.style.opacity = index < instantDisplayCount ? '1' : '0';
       wordCloud.appendChild(wordEl);
 
       const { width, height } = wordEl.getBoundingClientRect();
@@ -207,7 +226,13 @@ document.addEventListener('DOMContentLoaded', () => {
       for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
         x = Math.random() * (containerWidth - width);
         y = Math.random() * (containerHeight - height);
-        if (!isOverlapping(x, y, width, height, placedWords)) {
+        // Check if word overlaps with GIF area
+        const overlapsGif =
+          x < gifArea.x + gifArea.width &&
+          x + width > gifArea.x &&
+          y < gifArea.y + gifArea.height &&
+          y + height > gifArea.y;
+        if (!overlapsGif && !isOverlapping(x, y, width, height, placedWords)) {
           wordEl.style.left = `${x}px`;
           wordEl.style.top = `${y}px`;
           placedWords.push({ x, y, width, height });
@@ -221,12 +246,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
-      const delay = normalizedFreq * 1000;
-      setTimeout(() => {
-        wordEl.style.transition = 'opacity 0.5s ease';
-        wordEl.style.opacity = '1';
-      }, index * 50 + delay);
+      if (index >= instantDisplayCount) {
+        const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
+        const delay = normalizedFreq * 1000;
+        setTimeout(() => {
+          wordEl.style.transition = 'opacity 0.5s ease';
+          wordEl.style.opacity = '1';
+        }, index * 50 + delay);
+      }
 
       wordEl.addEventListener('click', () => {
         stopAudio();
@@ -243,6 +270,9 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
+        loadingGif.style.transition = 'opacity 0.3s ease';
+        loadingGif.style.opacity = '0';
+
         wordEl.style.transition = 'transform 1s ease, opacity 1s ease';
         wordEl.style.transform = 'scale(10)';
         wordEl.style.opacity = '0';
@@ -251,23 +281,28 @@ document.addEventListener('DOMContentLoaded', () => {
           wordCloud.style.display = 'none';
           wordEl.style.transform = 'none';
           wordEl.style.opacity = '1';
+          loadingGif.style.display = 'none';
 
           flashcardContainer.style.display = 'flex';
           flashcardContainer.style.opacity = '0';
           flashcardContainer.style.transition = 'opacity 1s ease';
           flashcardContainer.style.opacity = '1';
 
+          // Scroll to top to ensure flashcard is fully visible
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+
+          // Delay logo and slogan animations by 3 seconds
           setTimeout(() => {
             logo.style.transition = 'transform 1s ease, opacity 1s ease';
             logo.style.transform = 'translateX(0)';
             logo.style.opacity = '1';
-          }, 1000);
+          }, 3000);
 
           setTimeout(() => {
             slogan.style.transition = 'transform 1s ease, opacity 1s ease';
             slogan.style.transform = 'translateX(0)';
             slogan.style.opacity = '1';
-          }, 1000);
+          }, 3000);
 
           currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
           currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
@@ -349,17 +384,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Set up audio playback
     if (entry.audio) {
-      const audioUrl = `/data/${entry.audio}`; // Use relative path for GitHub Pages
+      const audioUrl = `/data/${entry.audio}`;
       console.log(`Setting up audio for: ${audioUrl}`);
-      flashcard.onclick = null; // Clear previous handler
+      flashcard.onclick = null;
       flashcard.onclick = () => {
-        if (currentAudio && !currentAudio.paused) {
-          console.log('Stopping current audio');
-          stopAudio();
-        } else {
-          console.log('Playing audio on tap');
-          playAudio(audioUrl);
-        }
+        console.log('Tap detected, handling audio');
+        playAudio(audioUrl, colors[currentColorIndex]);
       };
     } else {
       console.log('No audio available for this entry');
