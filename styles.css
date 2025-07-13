@@ -36,7 +36,18 @@ body {
   z-index: 10;
 }
 
-.error-message, .loading-message {
+.loading-gif {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  z-index: 100;
+  display: block;
+}
+
+.error-message {
   color: #ff4081;
   font-size: 1.2rem;
   text-align: center;
@@ -97,12 +108,12 @@ body {
   justify-content: center;
   touch-action: pan-y;
   user-select: none;
-  cursor: pointer; /* Indicate tappability */
-  transition: transform 0.2s ease; /* Add slight transform for tap feedback */
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .flashcard:active {
-  transform: scale(0.98); /* Visual feedback on tap */
+  transform: scale(0.98);
 }
 
 .flashcard.glow {
@@ -111,13 +122,13 @@ body {
 
 @keyframes glow {
   0% {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 136, 0.5);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20px var(--glow-color, rgba(0, 255, 136, 0.5));
   }
   50% {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 255, 136, 0.7);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 30px var(--glow-color, rgba(0, 255, 136, 0.7));
   }
   100% {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 136, 0.5);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20px var(--glow-color, rgba(0, 255, 136, 0.5));
   }
 }
 
@@ -139,6 +150,9 @@ body {
   margin-bottom: 20px;
   white-space: nowrap;
   max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .sentences {
@@ -208,7 +222,12 @@ body {
     font-size: 1rem;
   }
 
-  .error-message, .loading-message {
+  .error-message {
     font-size: 1rem;
+  }
+
+  .loading-gif {
+    width: 80px;
+    height: 80px;
   }
 }
