@@ -1,10 +1,12 @@
 import json
 import hashlib
 import os
-import boto3
 from pathlib import Path
 import logging
 from tqdm import tqdm
+import boto3
+from botocore.exceptions import ClientError
+import time
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -16,6 +18,8 @@ OUTPUT_FORMAT = "mp3"
 SAMPLE_RATE = "22050"
 VOICE_ID = "Matthew"
 ENGINE = "neural"
+MAX_RETRIES = 3  # Number of retries for AWS Polly failures
+RETRY_DELAY = 2  # Seconds to wait between retries
 
 def get_sentence_hash(sentence):
     """Generate an MD5 hash of the sentence (lowercase) for unique file naming."""
@@ -37,8 +41,13 @@ def read_database():
         with open(DATABASE_PATH, 'r', encoding='utf-8') as f:
             for line in f:
                 if line.strip():
-                    entries.append(json.loads(line))
-        logging.info(f"Read {len(entries)} entries from {DATABASE_PATH}")
+                    entry = json.loads(line)
+                    # Validate required fields
+                    if not all(key in entry for key in ['word', 'english', 'thai']):
+                        logging.warning(f"Skipping invalid entry (missing required fields): {line.strip()}")
+                        continue
+                    entries.append(entry)
+        logging.info(f"Read {len(entries)} valid entries from {DATABASE_PATH}")
     except FileNotFoundError:
         logging.error(f"Database file not found: {DATABASE_PATH}")
         raise
@@ -61,21 +70,29 @@ def write_database(entries):
 def generate_audio(sentence, audio_path):
     """Generate audio for the given sentence using AWS Polly and save to audio_path."""
     polly_client = boto3.client('polly')
-    try:
-        response = polly_client.synthesize_speech(
-            Text=sentence,
-            OutputFormat=OUTPUT_FORMAT,
-            SampleRate=SAMPLE_RATE,
-            VoiceId=VOICE_ID,
-            Engine=ENGINE
-        )
-        with open(audio_path, 'wb') as f:
-            f.write(response['AudioStream'].read())
-        logging.info(f"Generated audio: {audio_path}")
-        return True
-    except Exception as e:
-        logging.error(f"Error generating audio for '{sentence}': {e}")
-        raise
+    for attempt in range(MAX_RETRIES):
+        try:
+            response = polly_client.synthesize_speech(
+                Text=sentence,
+                OutputFormat=OUTPUT_FORMAT,
+                SampleRate=SAMPLE_RATE,
+                VoiceId=VOICE_ID,
+                Engine=ENGINE
+            )
+            with open(audio_path, 'wb') as f:
+                f.write(response['AudioStream'].read())
+            logging.info(f"Generated audio: {audio_path}")
+            return True
+        except ClientError as e:
+            logging.error(f"Attempt {attempt + 1}/{MAX_RETRIES} failed for '{sentence}': {e}")
+            if attempt < MAX_RETRIES - 1:
+                time.sleep(RETRY_DELAY)
+            else:
+                raise
+        except Exception as e:
+            logging.error(f"Error generating audio for '{sentence}': {e}")
+            raise
+    return False
 
 def clean_orphaned_audio(entries):
     """Delete audio files not referenced by any entry."""
@@ -101,7 +118,8 @@ def verify_audio_files(entries):
         if not sentence:
             continue
         audio_path = entry.get('audio', '')
-        if not audio_path or not os.path.exists(os.path.join("data", audio_path)):
+        # Check if audio path is valid and file exists
+        if not audio_path or not Path(audio_path).exists():
             missing_audio.append(sentence)
     return missing_audio
 
@@ -113,13 +131,18 @@ def main():
     # Read database
     entries = read_database()
     if not entries:
-        logging.warning("No entries found in database.jsonl")
+        logging.warning("No valid entries found in database.jsonl")
         return
+
+    # Cache existing audio files
+    audio_files = {f.stem: f for f in Path(AUDIO_DIR).glob(f"*.{OUTPUT_FORMAT}")}
+    logging.info(f"Found {len(audio_files)} existing audio files in {AUDIO_DIR}")
 
     # Track processed sentences and counters for summary
     processed_sentences = set()
     updated_entries = []
     generated_count = 0
+    reused_count = 0
     skipped_count = 0
 
     # Process entries with progress bar
@@ -139,20 +162,20 @@ def main():
 
         sentence_hash = get_sentence_hash(sentence)
         audio_filename = f"{sentence_hash}.{OUTPUT_FORMAT}"
-        audio_path = os.path.join(AUDIO_DIR, audio_filename)
+        audio_path = Path(AUDIO_DIR) / audio_filename
         repo_audio_path = f"{AUDIO_DIR}/{audio_filename}"
 
-        # Check if audio file exists locally
-        if not os.path.exists(audio_path):
+        # Check if audio file exists in directory
+        if sentence_hash in audio_files:
+            logging.info(f"Using existing audio: {audio_path}")
+            entry['audio'] = repo_audio_path
+            reused_count += 1
+        else:
             logging.info(f"Generating audio for: {sentence}")
             generate_audio(sentence, audio_path)
+            entry['audio'] = repo_audio_path
             generated_count += 1
-        else:
-            logging.info(f"Audio already exists: {audio_path}")
-            skipped_count += 1
 
-        # Update entry with audio path
-        entry['audio'] = repo_audio_path
         updated_entries.append(entry)
         processed_sentences.add(sentence)
 
@@ -175,7 +198,8 @@ def main():
     logging.info("\n=== Summary Report ===")
     logging.info(f"Total entries processed: {len(entries)}")
     logging.info(f"Audio files generated: {generated_count}")
-    logging.info(f"Entries skipped (duplicates or existing audio): {skipped_count}")
+    logging.info(f"Existing audio files reused: {reused_count}")
+    logging.info(f"Entries skipped (duplicates or empty): {skipped_count}")
     logging.info(f"Orphaned audio files deleted: {deleted_count}")
     logging.info(f"Missing audio files: {len(missing_audio)}")
     logging.info("Audio generation complete. Please use GitHub Desktop to push changes to the repository.")
