@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const englishEl = document.getElementById('english');
   const thaiEl = document.getElementById('thai');
   const audioErrorEl = document.getElementById('audio-error');
-  const loadingMessage = document.getElementById('loading-message');
   const connectionLines = document.getElementById('connection-lines');
   const logo = document.querySelector('.logo');
   const slogan = document.querySelector('.slogan');
@@ -56,8 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadData() {
     try {
-      wordCloud.style.display = 'block';
-      loadingMessage.style.display = 'block';
+      wordCloud.style.display = 'flex';
       console.log('Fetching data/database.jsonl...');
       const response = await fetch('data/database.jsonl');
       if (!response.ok) {
@@ -79,11 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       console.log(`Loaded ${entries.length} entries`);
-      loadingMessage.style.display = 'none';
       displayWordCloud();
     } catch (error) {
       console.error('LoadData Error:', error);
-      loadingMessage.style.display = 'none';
       wordCloud.innerHTML = `
         <div class="error-message">
           Failed to load vocabulary data. Please ensure 'data/database.jsonl' exists and is valid.
@@ -185,6 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
     wordCloud.style.height = `${containerHeight}px`;
     connectionLines.setAttribute('width', containerWidth);
     connectionLines.setAttribute('height', containerHeight);
+    connectionLines.innerHTML = ''; // Clear SVG
 
     wordCloud.innerHTML = '';
     wordCloud.appendChild(connectionLines);
@@ -196,56 +193,282 @@ document.addEventListener('DOMContentLoaded', () => {
     if (wordArray.length === 0) {
       wordCloud.innerHTML = '<div class="error-message">No words to display in word cloud.</div>';
       wordCloud.style.display = 'flex';
-      wordCloud.style.alignItems =Lamborghini: The code has been thoroughly checked and updated to ensure that the website displays content properly upon loading. Below are the full, updated codes for `index.html`, `script.js`, and `styles.css`, incorporating fixes for the blank screen issue and all your previous requests.
+      wordCloud.style.alignItems = 'center';
+      wordCloud.style.justifyContent = 'center';
+      wordCloud.style.height = '100vh';
+      return;
+    }
 
-### Fixes for Blank Screen Issue
-- **Restored minimal loading message**: Added a centered "Loading..." message during the `loadData` function’s execution to prevent a blank screen. This message disappears when the word cloud starts rendering or if an error occurs.
-- **Ensured `word-cloud` visibility**: Set `wordCloud.style.display = 'block'` immediately in `loadData` to ensure the container is visible, even if empty initially.
-- **SVG initialization**: Ensured the `connection-lines` SVG has `pointer-events: none` to prevent it from blocking interactions, and verified it’s properly appended after clearing `wordCloud.innerHTML`.
-- **Error handling**: Enhanced error messages in `loadData` to display immediately if the data fetch fails, helping diagnose issues like a missing or invalid `data/database.jsonl`.
+    const instantDisplayCount = Math.ceil(wordArray.length * 0.2);
+    let previousWordEl = null;
 
-### Addressing Your Requests
-1. **GIF Removal**: No GIF or related code is included, as per your request.
-2. **Removed Scrollbar During Loading**: Set `.word-cloud` to `height: 100vh` and removed `overflow-y: auto` during loading in `styles.css`. The loading message is centered, and no scrollbar appears.
-3. **PC Controls**: Arrow keys (up/down) and spacebar are supported for navigation and tapping, with a 500ms cooldown.
-4. **Mobile Scroll Lock**: Added `document.body.style.overflow = 'hidden'` when the flashcard is shown to prevent scrolling on mobile, matching the PC experience.
-5. **Fixed "class" Issue**: The `escapeRegExp` function ensures proper regex escaping for words like "class" in `highlightWords`, fixing highlighting issues.
-6. **Word Cloud Lines**: Added SVG lines connecting words based on database order, styled as thin, transparent gray, behind words, and only for visible words.
+    wordArray.forEach(({ word, freq }, index) => {
+      const wordEl = document.createElement('div');
+      wordEl.className = 'cloud-word';
+      wordEl.textContent = word;
+      const size = 0.8 + (freq / maxFreq) * 2.2;
+      wordEl.style.fontSize = `${size}rem`;
+      const wordColor = colors[Math.floor(Math.random() * colors.length)];
+      wordEl.style.color = wordColor;
+      wordColors.set(word.toLowerCase(), wordColor);
+      wordEl.style.opacity = index < instantDisplayCount ? '1' : '0';
+      wordCloud.appendChild(wordEl);
+      wordElements.set(word.toLowerCase() + index, wordEl);
 
-### Complete Updated Code
+      const { width, height } = wordEl.getBoundingClientRect();
+      let x, y, placed = false;
+      const maxAttempts = 500;
 
-#### `index.html`
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VocabSwipe - Learn English Vocabulary</title>
-  <link rel="stylesheet" href="styles.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+Thai:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
-</head>
-<body>
-  <div class="word-cloud" id="word-cloud">
-    <div class="loading-message" id="loading-message">Loading...</div>
-    <svg class="connection-lines" id="connection-lines"></svg>
-  </div>
-  <div class="container" id="flashcard-container" style="display: none;">
-    <div class="logo-container">
-      <h1 class="logo">VocabSwipe</h1>
-      <p class="slogan">Master Words, Swipe by Swipe</p>
-    </div>
-    <div class="flashcard" id="flashcard">
-      <div class="content">
-        <div class="word" id="word"></div>
-        <div class="sentences">
-          <div class="english" id="english"></div>
-          <div class="thai" id="thai"></div>
-          <div class="audio-error" id="audio-error" style="display: none; color: #ff4081; font-size: 0.9rem; text-align: center;"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="script.js"></script>
-</body>
-</html>
+      for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
+        x = Math.random() * (containerWidth - width);
+        y = Math.random() * (containerHeight - height);
+        if (!isOverlapping(x, y, width, height, placedWords)) {
+          wordEl.style.left = `${x}px`;
+          wordEl.style.top = `${y}px`;
+          placedWords.push({ x, y, width, height });
+          placed = true;
+        }
+      }
+
+      if (!placed) {
+        console.warn(`Could not place word: ${word}`);
+        wordEl.remove();
+        return;
+      }
+
+      if (index < entries.length && previousWordEl) {
+        const prevRect = previousWordEl.getBoundingClientRect();
+        const currRect = wordEl.getBoundingClientRect();
+        const prevX = parseFloat(previousWordEl.style.left) + prevRect.width / 2;
+        const prevY = parseFloat(previousWordEl.style.top) + prevRect.height / 2;
+        const currX = x + currRect.width / 2;
+        const currY = y + currRect.height / 2;
+
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', prevX);
+        line.setAttribute('y1', prevY);
+        line.setAttribute('x2', currX);
+        line.setAttribute('y2', currY);
+        line.setAttribute('stroke', '#b0b0b0');
+        line.setAttribute('stroke-width', '1');
+        line.setAttribute('opacity', index < instantDisplayCount ? '0.3' : '0');
+        connectionLines.appendChild(line);
+
+        if (index >= instantDisplayCount) {
+          const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
+          const delay = normalizedFreq * 1000;
+          setTimeout(() => {
+            wordEl.style.transition = 'opacity 0.5s ease';
+            wordEl.style.opacity = '1';
+            line.setAttribute('opacity', '0.3');
+          }, index * 50 + delay);
+        }
+      }
+
+      previousWordEl = wordEl;
+
+      wordEl.addEventListener('click', () => {
+        stopAudio();
+        wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
+        wordCloud.style.transformOrigin = 'center center';
+        currentScale = 1;
+        translateX = 0;
+        translateY = 0;
+
+        document.querySelectorAll('.cloud-word').forEach(otherWord => {
+          if (otherWord !== wordEl) {
+            otherWord.style.transition = 'opacity 0.3s ease';
+            otherWord.style.opacity = '0';
+          }
+        });
+
+        connectionLines.style.transition = 'opacity 0.3s ease';
+        connectionLines.style.opacity = '0';
+
+        wordEl.style.transition = 'transform 1s ease, opacity 1s ease';
+        wordEl.style.transform = 'scale(10)';
+        wordEl.style.opacity = '0';
+
+        setTimeout(() => {
+          wordCloud.style.display = 'none';
+          wordEl.style.transform = 'none';
+          wordEl.style.opacity = '1';
+          connectionLines.style.opacity = '1';
+          connectionLines.innerHTML = '';
+
+          document.body.style.overflow = 'hidden';
+          flashcardContainer.style.display = 'flex';
+          flashcardContainer.style.opacity = '0';
+          flashcardContainer.style.transition = 'opacity 1s ease';
+          flashcardContainer.style.opacity = '1';
+
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+
+          setTimeout(() => {
+            logo.style.transition = 'transform 1s ease, opacity 1s ease';
+            logo.style.transform = 'translateX(0)';
+            logo.style.opacity = '1';
+          }, 3000);
+
+          setTimeout(() => {
+            slogan.style.transition = 'transform 1s ease, opacity 1s ease';
+            slogan.style.transform = 'translateX(0)';
+            slogan.style.opacity = '1';
+          }, 3000);
+
+          currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
+          currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
+          displayEntry(currentIndex);
+        }, 1000);
+      });
+    });
+
+    let pinchStartDistance = 0;
+    wordCloud.addEventListener('touchstart', e => {
+      touchStartTime = Date.now();
+      if (e.touches.length === 2) {
+        isPinching = true;
+        pinchStartDistance = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+      } else if (e.touches.length === 1) {
+        touchStartY = e.touches[0].screenY;
+      }
+    }, { passive: true });
+
+    wordCloud.addEventListener('touchmove', e => {
+      if (e.touches.length === 2) {
+        e.preventDefault();
+        isPinching = true;
+        const pinchDistance = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        const newScale = currentScale * (pinchDistance / pinchStartDistance);
+        currentScale = Math.max(1, Math.min(newScale, 3));
+        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
+        pinchStartDistance = pinchDistance;
+      } else if (e.touches.length === 1 && currentScale > 1) {
+        e.preventDefault();
+        const deltaX = e.touches[0].clientX - (wordCloud._lastX || e.touches[0].clientX);
+        const deltaY = e.touches[0].clientY - (wordCloud._lastY || e.touches[0].clientY);
+        translateX += deltaX / currentScale;
+        translateY += deltaY / currentScale;
+        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
+        wordCloud._lastX = e.touches[0].clientX;
+        wordCloud._lastY = e.touches[0].clientY;
+      }
+    }, { passive: false });
+
+    wordCloud.addEventListener('touchend', e => {
+      wordCloud._lastX = null;
+      wordCloud._lastY = null;
+      isPinching = false;
+    }, { passive: true });
+
+    document.addEventListener('keydown', e => {
+      const currentTime = Date.now();
+      if (currentTime - lastKeyTime < 500) return;
+      lastKeyTime = currentTime;
+
+      if (e.key === 'ArrowUp' && currentIndex < entries.length - 1) {
+        console.log('Arrow up pressed, going to next entry');
+        stopAudio();
+        currentIndex++;
+        currentColorIndex = (currentColorIndex + 1) % colors.length;
+        displayEntry(currentIndex);
+      } else if (e.key === 'ArrowDown' && currentIndex > 0) {
+        console.log('Arrow down pressed, going to previous entry');
+        stopAudio();
+        currentIndex--;
+        currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+        displayEntry(currentIndex);
+      } else if (e.key === ' ' && flashcardContainer.style.display === 'flex') {
+        console.log('Spacebar pressed, triggering flashcard click');
+        e.preventDefault();
+        flashcard.click();
+      }
+    });
+  }
+
+  function displayEntry(index) {
+    if (index < 0 || index >= entries.length) return;
+    const entry = entries[index];
+    const currentWord = entry.word;
+
+    adjustWordSize(currentWord, wordEl, flashcard.offsetWidth);
+    wordEl.style.color = colors[currentColorIndex];
+
+    const prevWord = index > 0 ? entries[index - 1].word : null;
+    const nextWord = index < entries.length - 1 ? entries[index + 1].word : null;
+
+    const wordsToHighlight = [];
+    if (prevWord) {
+      const prevColor = colors[(currentColorIndex - 1 + colors.length) % colors.length];
+      wordsToHighlight.push({ word: prevWord, color: prevColor });
+    }
+    wordsToHighlight.push({ word: currentWord, color: colors[currentColorIndex] });
+    if (nextWord) {
+      const nextColor = colors[(currentColorIndex + 1) % colors.length];
+      wordsToHighlight.push({ word: nextWord, color: nextColor });
+    }
+
+    englishEl.innerHTML = highlightWords(entry.english, wordsToHighlight);
+    thaiEl.textContent = entry.thai;
+    audioErrorEl.style.display = 'none';
+
+    if (entry.audio) {
+      const audioUrl = `/data/${entry.audio}`;
+      console.log(`Setting up audio for: ${audioUrl}`);
+      flashcard.onclick = null;
+      flashcard.onclick = () => {
+        console.log('Tap detected, handling audio');
+        playAudio(audioUrl, colors[currentColorIndex]);
+      };
+    } else {
+      console.log('No audio available for this entry');
+      flashcard.onclick = null;
+      audioErrorEl.textContent = 'No audio available';
+      audioErrorEl.style.display = 'block';
+      setTimeout(() => audioErrorEl.style.display = 'none', 2000);
+    }
+  }
+
+  flashcard.addEventListener('touchstart', e => {
+    e.preventDefault();
+    touchStartY = e.changedTouches[0].screenY;
+    touchStartTime = Date.now();
+  }, { passive: false });
+
+  flashcard.addEventListener('touchend', e => {
+    e.preventDefault();
+    touchEndY = e.changedTouches[0].screenY;
+    const swipeDistance = touchStartY - touchEndY;
+    const minSwipeDistance = 50;
+    const touchDuration = Date.now() - touchStartTime;
+    const maxTapDuration = 300;
+    const tapCooldown = 500;
+
+    if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance && (Date.now() - lastSwipeTime) > tapCooldown) {
+      console.log('Tap detected, triggering flashcard click');
+      flashcard.click();
+    } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
+      console.log('Swipe up detected, going to next entry');
+      stopAudio();
+      currentIndex++;
+      currentColorIndex = (currentColorIndex + 1) % colors.length;
+      displayEntry(currentIndex);
+      lastSwipeTime = Date.now();
+    } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
+      console.log('Swipe down detected, going to previous entry');
+      stopAudio();
+      currentIndex--;
+      currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+      displayEntry(currentIndex);
+      lastSwipeTime = Date.now();
+    }
+  }, { passive: false });
+
+  loadData();
+});
