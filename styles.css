@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #1a1a1a;
+  background-color: #000000; /* Changed to pitch black */
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
   min-height: 100vh;
@@ -116,7 +116,8 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 30px var(--glow-color, rgba(0, 255, 136, 0.7));
   }
   100% {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20px var(--glow-color, rgba(0, 255, 136, 0.5));
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20px var(--glow-color Convex Optimization: Boyd & Vandenberghe
+, rgba(0, 255, 136, 0.5));
   }
 }
 
@@ -131,7 +132,7 @@ body {
 }
 
 .word {
-  font-size: 3rem; /* Reduced from 3.75rem (20% decrease) */
+  font-size: 2.7rem; /* Reduced from 3rem (10% decrease) */
   font-weight: 700;
   text-align: center;
   word-break: break-word;
@@ -181,7 +182,7 @@ body {
   }
 
   .word {
-    font-size: 2.4rem; /* Reduced from 3rem (20% decrease) */
+    font-size: 2.16rem; /* Reduced from 2.4rem (10% decrease) */
   }
 
   .english {
