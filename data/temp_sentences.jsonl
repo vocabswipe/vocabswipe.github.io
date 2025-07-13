@@ -21,11 +21,11 @@
 {"word":"get","english":"Get over your fears to try something new.","thai":"เอาชนะความกลัวเพื่อลองสิ่งใหม่"}
 {"word":"try","english":"Try out the new recipe for dinner tonight.","thai":"ลองสูตรอาหารใหม่สำหรับมื้อเย็นคืนนี้"}
 {"word":"dinner","english":"Dinner plans fell through, so we hung out.","thai":"แผนมื้อเย็นล่ม เลยไปนั่งเล่นกัน"}
-{"word":"hang","english":"Hang out at the café to catch up.","thai":"นั่งเล่นที่ร้านกาแฟเพื่อคุยอัพเดท"}
+{"word":"plans","english":"New plans help you catch up with goals.","thai":"แผนใหม่ช่วยให้คุณตามทันเป้าหมาย"}
 {"word":"catch","english":"Catch up on emails to stay on track.","thai":"ตามอ่านอีเมลเพื่อให้ทันงาน"}
 {"word":"stay","english":"Stay sharp to keep up with the game.","thai":"รักษาความเฉียบคมเพื่อตามเกมให้ทัน"}
-{"word":"keep","english:":"Keep up the pace to finish on time.","thai":"รักษาความเร็วเพื่อให้เสร็จทันเวลา"}
-{"word":"finish","english":"Finish off the cake before it goes bad.","thai":"กินเค้กให้หมดก่อนมันจะเสีย"}
+{"word":"keep","english":"Keep up the pace to finish on time.","thai":"รักษาความเร็วเพื่อให้เสร็จทันเวลา"}
+{"word":"pace","english":"Pick up the pace to go faster.","thai":"เร่งจังหวะเพื่อไปได้เร็วขึ้น"}
 {"word":"go","english":"Go all out for the big presentation.","thai":"ทุ่มสุดตัวสำหรับการนำเสนอครั้งใหญ่"}
 {"word":"big","english":"Big dreams push you to step up.","thai":"ความฝันใหญ่ผลักดันให้คุณก้าวขึ้น"}
 {"word":"step","english":"Step up your game to win big.","thai":"ยกระดับการเล่นเพื่อชัยชนะครั้งใหญ่"}
@@ -48,7 +48,7 @@
 {"word":"wind","english":"Wind up the meeting with a clear plan.","thai":"สรุปการประชุมด้วยแผนที่ชัดเจน"}
 {"word":"plan","english":"Plan ahead to avoid last-minute stress.","thai":"วางแผนล่วงหน้าเพื่อหลีกเลี่ยงความเครียดนาทีสุดท้าย"}
 {"word":"avoid","english":"Avoid burning out by pacing yourself.","thai":"หลีกเลี่ยงความเหนื่อยล้าโดยควบคุมจังหวะ"}
-{"word":"pace","english":"Pace yourself to keep up your energy.","thai":"ควบคุมจังหวะเพื่อรักษาพลังงาน"}
+{"word":"burning","english":"Prevent burning out to maintain your energy.","thai":"ป้องกันความเหนื่อยล้าเพื่อรักษาพลังงานของคุณ"}
 {"word":"energy","english":"Channel your energy to power through tasks.","thai":"ใช้พลังงานของคุณเพื่อทำงานให้สำเร็จ"}
 {"word":"power","english":"Power up your laptop before the meeting.","thai":"ชาร์จแล็ปท็อปก่อนการประชุม"}
 {"word":"meeting","english":"The meeting dragged on, so we zoned out.","thai":"การประชุมยืดเยื้อ เลยเสียสมาธิ"}
@@ -244,7 +244,7 @@
 {"word":"catch","english":"Catch a break and enjoy some downtime.","thai":"พักสักหน่อยและเพลิดเพลินกับเวลาว่าง"}
 {"word":"enjoy","english":"Enjoy the sunset to recharge your soul.","thai":"เพลิดเพลินกับพระอาทิตย์ตกเพื่อเติมพลังจิตใจ"}
 {"word":"recharge","english":"Recharge your batteries with a good nap.","thai":"เติมพลังด้วยการงีบหลับที่ดี"}
-{"word":"battery","english":"A dead battery can mess up your plans.","thai":"แบตเตอรี่หมดสามารถทำให้แผนของคุณยุ่งเหยิง"}
+{"word":"nap","english":"A bad nap can mess up your focus.","thai":"การงีบที่ไม่ดีสามารถทำให้สมาธิคุณยุ่งเหยิง"}
 {"word":"mess","english":"Don’t mess up the chance to level up.","thai":"อย่าทำโอกาสเสียเพื่อยกระดับตัวเอง"}
 {"word":"level","english":"Level up your game with consistent practice.","thai":"ยกระดับการเล่นด้วยการฝึกฝนอย่างสม่ำเสมอ"}
 {"word":"practice","english":"Practice daily to nail down new skills.","thai":"ฝึกทุกวันเพื่อเชี่ยวชาญทักษะใหม่"}
@@ -297,7 +297,7 @@
 {"word":"free","english":"Free up some time to chill with friends.","thai":"หาเวลาว่างเพื่อผ่อนคลายกับเพื่อน"}
 {"word":"chill","english":"Chill out by the pool to beat the heat.","thai":"ผ่อนคลายริมสระน้ำเพื่อคลายร้อน"}
 {"word":"beat","english":"Beat the morning rush by waking up early.","thai":"หลีกเลี่ยงความวุ่นวายตอนเช้าด้วยการตื่นเร็ว"}
-{"word":"wake","english":"Wake up with coffee to kick off strong.","thai":"ตื่นมาพร้อมกาแฟเพื่อเริ่มวันอย่างมีพลัง"}
+{"word":"morning","english":"A calm morning helps you kick off strong.","thai":"เช้าที่สงบช่วยให้คุณเริ่มวันอย่างมีพลัง"}
 {"word":"kick","english":"Kick back with a movie on Friday night.","thai":"พักผ่อนดูหนังในคืนวันศุกร์"}
 {"word":"movie","english":"A good movie can lift your spirits high.","thai":"หนังดีๆ สามารถยกระดับจิตใจของคุณ"}
 {"word":"lift","english":"Lift weights to build up your strength.","thai":"ยกน้ำหนักเพื่อเสริมสร้างความแข็งแรง"}
@@ -453,7 +453,7 @@
 {"word":"speak","english":"Speak out to stand up for justice.","thai":"พูดออกมาเพื่อยืนหยัดเพื่อความยุติธรรม"}
 {"word":"stand","english":"Stand tall to inspire those around you.","thai":"ยืนเด่นเพื่อสร้างแรงบันดาลใจให้คนรอบข้าง"}
 {"word":"inspire","english":"Inspire others by chasing your dreams.","thai":"สร้างแรงบันดาลใจให้ผู้อื่นด้วยการไล่ตามความฝัน"}
-{"word":"chase","english":"Chase your goals with relentless passion.","thai":"ไล่ตามเป้าหมายด้วยความหลงใหลไม่หยุดยั้ง"}
+{"word":"dreams","english":"Follow your dreams with relentless passion.","thai":"ตามความฝันของคุณด้วยความหลงใหลไม่หยุดยั้ง"}
 {"word":"passion","english":"Passion drives you to push past limits.","thai":"ความหลงใหลผลักดันให้คุณก้าวข้ามขีดจำกัด"}
 {"word":"push","english":"Push through doubts to achieve success.","thai":"ฝ่าฟันความสงสัยเพื่อบรรลุความสำเร็จ"}
 {"word":"achieve","english":"Achieve greatness by staying true to yourself.","thai":"บรรลุความยิ่งใหญ่ด้วยการยึดมั่นในตัวเอง"}
