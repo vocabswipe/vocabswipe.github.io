@@ -22,6 +22,7 @@ body {
   padding: 10px;
   transform-origin: center center;
   will-change: transform;
+  display: block; /* Ensure initial visibility */
 }
 
 .cloud-word {
@@ -35,12 +36,16 @@ body {
   z-index: 10;
 }
 
-.error-message {
+.error-message, .loading-message {
   color: #ff4081;
   font-size: 1.2rem;
   text-align: center;
   padding: 20px;
   max-width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .container {
@@ -74,8 +79,9 @@ body {
   font-size: 1.2rem;
   font-weight: 400;
   color: #b0b0b0;
+  opacity: 0;
   transform: translateX(100%);
-  transition: transform 0.5s ease;
+  transition: transform 1s ease, opacity 1s ease;
 }
 
 .flashcard {
@@ -91,6 +97,22 @@ body {
   justify-content: center;
   touch-action: pan-y;
   user-select: none;
+}
+
+.flashcard.glow {
+  animation: glow 0.5s ease-in-out;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 136, 0.5);
+  }
+  50% {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 255, 136, 0.7);
+  }
+  100% {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 136, 0.5);
+  }
 }
 
 .content {
@@ -139,6 +161,14 @@ body {
   text-align: center;
 }
 
+.audio-error {
+  font-size: 0.9rem;
+  color: #ff4081;
+  text-align: center;
+  margin-top: 8px;
+  display: none;
+}
+
 @media (max-width: 600px) {
   .flashcard {
     height: calc(100vw * 1.777 * 0.5);
@@ -156,6 +186,10 @@ body {
     font-size: 0.9rem;
   }
 
+  .audio-error {
+    font-size: 0.8rem;
+  }
+
   .word-cloud {
     padding: 5px;
   }
@@ -165,6 +199,10 @@ body {
   }
 
   .slogan {
+    font-size: 1rem;
+  }
+
+  .error-message, .loading-message {
     font-size: 1rem;
   }
 }

@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const wordEl = document.getElementById('word');
   const englishEl = document.getElementById('english');
   const thaiEl = document.getElementById('thai');
+  const audioErrorEl = document.getElementById('audio-error');
+  const loadingMessage = document.getElementById('loading-message');
   const logo = document.querySelector('.logo');
   const slogan = document.querySelector('.slogan');
 
@@ -12,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentIndex = 0;
   let touchStartY = 0;
   let touchEndY = 0;
+  let touchStartTime = 0;
+  let lastSwipeTime = 0;
   const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
   let currentColorIndex = 0;
   let wordColors = new Map();
@@ -20,14 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
   let translateX = 0;
   let translateY = 0;
   let isPinching = false;
+  let currentAudio = null; // Track currently playing audio
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, '');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -45,6 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadData() {
     try {
+      wordCloud.style.display = 'block'; // Ensure word cloud is visible
+      loadingMessage.style.display = 'block'; // Show loading message
       console.log('Fetching data/database.jsonl...');
       const response = await fetch('data/database.jsonl');
       if (!response.ok) {
@@ -66,10 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       console.log(`Loaded ${entries.length} entries`);
-      wordCloud.style.display = 'block';
+      loadingMessage.style.display = 'none'; // Hide loading message
       displayWordCloud();
     } catch (error) {
-      console.error('LoadData Error:', error.message);
+      console.error('LoadData Error:', error);
+      loadingMessage.style.display = 'none'; // Hide loading message
       wordCloud.innerHTML = `
         <div class="error-message">
           Failed to load vocabulary data. Please ensure 'data/database.jsonl' exists and is valid.
@@ -118,6 +126,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function stopAudio() {
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+      currentAudio = null;
+    }
+    audioErrorEl.style.display = 'none'; // Hide error message
+  }
+
+  function playAudio(audioUrl) {
+    stopAudio(); // Stop any currently playing audio
+    currentAudio = new Audio(audioUrl);
+    currentAudio.play().then(() => {
+      flashcard.classList.add('glow'); // Trigger glow effect
+      setTimeout(() => flashcard.classList.remove('glow'), 500); // Remove glow after 0.5s
+      audioErrorEl.style.display = 'none'; // Hide error message
+    }).catch(e => {
+      console.error("Error playing audio:", e);
+      audioErrorEl.textContent = 'Failed to play audio';
+      audioErrorEl.style.display = 'block';
+      setTimeout(() => audioErrorEl.style.display = 'none', 2000); // Hide after 2s
+    });
+  }
+
   function displayWordCloud() {
     const wordFreq = {};
     const wordCaseMap = new Map();
@@ -139,6 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
 
+    wordCloud.innerHTML = ''; // Clear loading message or error
     const placedWords = [];
     const wordArray = Array.from(wordCaseMap.entries())
       .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
@@ -194,6 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, index * 50 + delay);
 
       wordEl.addEventListener('click', () => {
+        stopAudio(); // Stop any playing audio when returning to word cloud
         wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
         wordCloud.style.transformOrigin = 'center center';
         currentScale = 1;
@@ -228,9 +262,10 @@ document.addEventListener('DOMContentLoaded', () => {
           }, 1000);
 
           setTimeout(() => {
-            slogan.style.transition = 'transform 0.5s ease';
+            slogan.style.transition = 'transform 1s ease, opacity 1s ease';
             slogan.style.transform = 'translateX(0)';
-          }, 2000);
+            slogan.style.opacity = '1';
+          }, 1000);
 
           currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
           currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
@@ -240,7 +275,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     let pinchStartDistance = 0;
-    let touchStartTime = 0;
     wordCloud.addEventListener('touchstart', e => {
       touchStartTime = Date.now();
       if (e.touches.length === 2) {
@@ -250,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
           e.touches[0].clientY - e.touches[1].clientY
         );
       } else if (e.touches.length === 1) {
-        touchStartY = e.touches[0].clientY;
+        touchStartY = e.touches[0].screenY;
       }
     }, { passive: true });
 
@@ -309,11 +343,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     englishEl.innerHTML = highlightWords(entry.english, wordsToHighlight);
     thaiEl.textContent = entry.thai;
+    audioErrorEl.style.display = 'none'; // Reset error message
+
+    // Set up audio playback
+    if (entry.audio) {
+      const audioUrl = `https://raw.githubusercontent.com/vocabswipe/vocabswipe.github.io/main/data/${entry.audio}`;
+      flashcard.onclick = null; // Clear previous handler
+      flashcard.onclick = () => {
+        if (currentAudio && !currentAudio.paused) {
+          stopAudio(); // Stop if audio is playing
+        } else {
+          playAudio(audioUrl); // Play if no audio or paused
+        }
+      };
+    } else {
+      flashcard.onclick = null; // Clear handler if no audio
+      audioErrorEl.textContent = 'No audio available';
+      audioErrorEl.style.display = 'block';
+      setTimeout(() => audioErrorEl.style.display = 'none', 2000); // Hide after 2s
+    }
   }
 
   flashcard.addEventListener('touchstart', e => {
     e.preventDefault();
     touchStartY = e.changedTouches[0].screenY;
+    touchStartTime = Date.now();
   }, { passive: false });
 
   flashcard.addEventListener('touchend', e => {
@@ -321,15 +375,25 @@ document.addEventListener('DOMContentLoaded', () => {
     touchEndY = e.changedTouches[0].screenY;
     const swipeDistance = touchStartY - touchEndY;
     const minSwipeDistance = 50;
+    const touchDuration = Date.now() - touchStartTime;
+    const maxTapDuration = 300; // Max duration for a tap (ms)
+    const tapCooldown = 500; // Cooldown after swipe (ms)
 
-    if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
+    if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance && (Date.now() - lastSwipeTime) > tapCooldown) {
+      // Single tap detected, trigger onclick (handled by displayEntry)
+      flashcard.click();
+    } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
+      stopAudio(); // Stop audio on swipe
       currentIndex++;
       currentColorIndex = (currentColorIndex + 1) % colors.length;
       displayEntry(currentIndex);
+      lastSwipeTime = Date.now();
     } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
+      stopAudio(); // Stop audio on swipe
       currentIndex--;
       currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
       displayEntry(currentIndex);
+      lastSwipeTime = Date.now();
     }
   }, { passive: false });
 
