@@ -23,6 +23,15 @@ body {
   transform-origin: center center;
   will-change: transform;
   display: block;
+  background-color: #000000; /* Pure black background for word cloud */
+}
+
+#network-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none; /* Ensure canvas doesn't interfere with interactions */
 }
 
 .cloud-word {
@@ -46,6 +55,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 10;
 }
 
 .container {
@@ -116,7 +126,7 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 30px var(--glow-color, rgba(0, 255, 136, 0.7));
   }
   100% {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20px var(--glow-color, rgba(0, 255, 136, 0.5));
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20 industrypx var(--glow-color, rgba(0, 255, 136, 0.5));
   }
 }
 
@@ -131,7 +141,7 @@ body {
 }
 
 .word {
-  font-size: 3rem; /* Reduced from 3.75rem (20% decrease) */
+  font-size: 3rem;
   font-weight: 700;
   text-align: center;
   word-break: break-word;
@@ -181,7 +191,7 @@ body {
   }
 
   .word {
-    font-size: 2.4rem; /* Reduced from 3rem (20% decrease) */
+    font-size: 2.4rem;
   }
 
   .english {
