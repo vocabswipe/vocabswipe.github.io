@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let translateX = 0;
   let translateY = 0;
   let isPinching = false;
-  let currentAudio = null;
+  let currentAudio = null; // Track currently playing audio
 
   function escapeHTML(str) {
     return str
@@ -39,8 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
     wordsToHighlight.sort((a, b) => b.word.length - a.word.length);
     for (const { word, color } of wordsToHighlight) {
       const escapedWord = escapeHTML(word);
+      // Use word boundaries and ensure class attribute isn't misinterpreted
       const regex = new RegExp(`\\b${escapedWord}\\b(?![^<]*>)`, 'gi');
-      escapedSentence = escapedSentence.replace(regex, `<span class="highlight" style="color: ${color}">${word}</span>`);
+      escapedSentence = escapedSentence.replace(regex, `<span class="highlight" style="color: ${color};">$&</span>`);
     }
     return escapedSentence;
   }
@@ -86,8 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function isOverlapping(x, y, width, height, placedWords) {
     const padding = 2;
-   还不
-
     for (const word of placedWords) {
       const left1 = x;
       const right1 = x + width;
@@ -120,10 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
       fontSize -= 0.1;
       element.style.fontSize = `${fontSize}rem`;
     }
-    // Center the word horizontally
-    element.style.position = 'relative';
-    element.style.left = '50%';
-    element.style.transform = 'translateX(-50%)';
   }
 
   function stopAudio() {
@@ -135,14 +130,14 @@ document.addEventListener('DOMContentLoaded', () => {
     audioErrorEl.style.display = 'none';
   }
 
-  function playAudio(audioUrl, color) {
+  function playAudio(audioUrl, wordColor) {
     stopAudio();
     console.log(`Attempting to play audio: ${audioUrl}`);
     currentAudio = new Audio(audioUrl);
     currentAudio.play().then(() => {
       console.log('Audio playing successfully');
       flashcard.classList.add('glow');
-      flashcard.style.setProperty('--glow-color', color);
+      flashcard.style.setProperty('--glow-color', wordColor); // Set glow color to match word
       setTimeout(() => flashcard.classList.remove('glow'), 500);
       audioErrorEl.style.display = 'none';
     }).catch(e => {
@@ -202,9 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
       wordCloud.appendChild(wordEl);
 
       const { width, height } = wordEl.getBoundingClientRect();
-      let x, y, placed匆
-
-      placed = false;
+      let x, y, placed = false;
       const maxAttempts = 500;
 
       for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
@@ -227,13 +220,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
       const delay = normalizedFreq * 500; // Reduced delay for faster appearance
       setTimeout(() => {
-        wordEl.style.transition = 'opacity 0.3s ease';
+        wordEl.style.transition = 'opacity 0.3s ease'; // Faster transition
         wordEl.style.opacity = '1';
-      }, index * 20 + delay); // Faster stagger
+      }, index * 25 + delay); // Faster staggering
 
       wordEl.addEventListener('click', () => {
         stopAudio();
-        wordCloud.style.transform = 'scale(1) translate(0 infamous, 0px)';
+        wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
         wordCloud.style.transformOrigin = 'center center';
         currentScale = 1;
         translateX = 0;
@@ -262,18 +255,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
           // Scroll to top to ensure flashcard is fully visible
           window.scrollTo({ top: 0, behavior: 'smooth' });
+          // Lock scrolling
+          document.body.style.overflow = 'hidden';
 
           setTimeout(() => {
             logo.style.transition = 'transform 1s ease, opacity 1s ease';
             logo.style.transform = 'translateX(0)';
             logo.style.opacity = '1';
-          }, 4000); // 4-second delay
+          }, 4000); // 4s delay
 
           setTimeout(() => {
             slogan.style.transition = 'transform 1s ease, opacity 1s ease';
             slogan.style.transform = 'translateX(0)';
             slogan.style.opacity = '1';
-          }, 4000); // 4-second delay
+          }, 4000); // 4s delay
 
           currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
           currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
@@ -353,12 +348,13 @@ document.addEventListener('DOMContentLoaded', () => {
     thaiEl.textContent = entry.thai;
     audioErrorEl.style.display = 'none';
 
+    // Set up audio playback
     if (entry.audio) {
-      const audioUrl = `/data/${entry.audio}`;
+      const audioUrl = `/data/${entry.audio}`; // Use relative path for GitHub Pages
       console.log(`Setting up audio for: ${audioUrl}`);
-      flashcard.onclick = null;
+      flashcard.onclick = null; // Clear previous handler
       flashcard.onclick = () => {
-        console.log('Flashcard clicked');
+        console.log('Playing audio on tap');
         playAudio(audioUrl, colors[currentColorIndex]);
       };
     } else {
@@ -405,26 +401,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: false });
 
-  // Add keyboard controls for PC users
+  // Keyboard controls for PC users
   document.addEventListener('keydown', e => {
-    if (flashcardContainer.style.display !== 'flex') return;
-    if (e.key === 'ArrowUp' && currentIndex < entries.length - 1) {
-      console.log('Arrow up pressed, going to next entry');
-      stopAudio();
-      currentIndex++;
-      currentColorIndex = (currentColorIndex + 1) % colors.length;
-      displayEntry(currentIndex);
-      lastSwipeTime = Date.now();
-    } else if (e.key === 'ArrowDown' && currentIndex > 0) {
-      console.log('Arrow down pressed, going to previous entry');
-      stopAudio();
-      currentIndex--;
-      currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
-      displayEntry(currentIndex);
-      lastSwipeTime = Date.now();
-    } else if (e.key === ' ' && flashcard.onclick) {
-      console.log('Spacebar pressed, triggering flashcard click');
-      flashcard.click();
+    if (flashcardContainer.style.display === 'flex') {
+      if (e.key === 'ArrowUp' && currentIndex < entries.length - 1) {
+        console.log('Arrow up pressed, going to next entry');
+        stopAudio();
+        currentIndex++;
+        currentColorIndex = (currentColorIndex + 1) % colors.length;
+        displayEntry(currentIndex);
+        lastSwipeTime = Date.now();
+      } else if (e.key === 'ArrowDown' && currentIndex > 0) {
+        console.log('Arrow down pressed, going to previous entry');
+        stopAudio();
+        currentIndex--;
+        currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+        displayEntry(currentIndex);
+        lastSwipeTime = Date.now();
+      } else if (e.key === ' ') {
+        e.preventDefault(); // Prevent page scrolling
+        console.log('Spacebar pressed, triggering flashcard click');
+        flashcard.click();
+      }
     }
   });
 
