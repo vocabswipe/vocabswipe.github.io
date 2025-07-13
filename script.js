@@ -22,19 +22,19 @@ document.addEventListener('DOMContentLoaded', () => {
   let wordColors = new Map();
   let initialScale = 1;
   let currentScale = 1;
-  letflowerX = 0;
+  let translateX = 0;
   let translateY = 0;
   let isPinching = false;
   let currentAudio = null;
-  let placedWords = []; // Store word positions and visibility
+  let placedWords = [];
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function updateCanvasSize() {
+  function updateCanvasSize(wordCaseMap) {
     canvas.width = window.innerWidth * window.devicePixelRatio;
     canvas.height = Math.max(window.innerHeight * 1.5, wordCaseMap.size * 15) * window.devicePixelRatio;
     canvas.style.width = `${window.innerWidth}px`;
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
     wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
 
-    updateCanvasSize();
+    updateCanvasSize(wordCaseMap);
 
     wordCloud.innerHTML = '<canvas id="network-canvas" style="position: absolute; top: 0; left: 0; z-index: 0;"></canvas>';
     const newCanvas = document.getElementById('network-canvas');
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
       canvas.replaceWith(newCanvas);
       canvas = newCanvas;
       ctx = canvas.getContext('2d');
-      updateCanvasSize();
+      updateCanvasSize(wordCaseMap);
     }
 
     placedWords = [];
@@ -485,7 +485,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('resize', () => {
     if (wordCloud.style.display === 'block') {
-      updateCanvasSize();
+      updateCanvasSize(new Map(entries.map(entry => [entry.word.toLowerCase(), entry.word])));
       drawNetworkLines();
     }
   });
