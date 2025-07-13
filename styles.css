@@ -23,7 +23,7 @@ body {
   transform-origin: center center;
   will-change: transform;
   display: block;
-  background-color: #000000; /* Pure black background for word cloud */
+  background-color: #000000;
 }
 
 #network-canvas {
@@ -31,7 +31,7 @@ body {
   top: 0;
   left: 0;
   z-index: 0;
-  pointer-events: none; /* Ensure canvas doesn't interfere with interactions */
+  pointer-events: none;
 }
 
 .cloud-word {
@@ -126,7 +126,7 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 30px var(--glow-color, rgba(0, 255, 136, 0.7));
   }
   100% {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20 industrypx var(--glow-color, rgba(0, 255, 136, 0.5));
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20px var(--glow-color, rgba(0, 255, 136, 0.5));
   }
 }
 
