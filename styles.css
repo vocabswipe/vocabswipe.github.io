@@ -55,7 +55,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   padding: 20px;
 }
 
@@ -97,12 +96,12 @@ body {
   justify-content: center;
   touch-action: pan-y;
   user-select: none;
-  cursor: pointer; /* Indicate tappability */
-  transition: transform 0.2s ease; /* Add slight transform for tap feedback */
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .flashcard:active {
-  transform: scale(0.98); /* Visual feedback on tap */
+  transform: scale(0.98);
 }
 
 .flashcard.glow {
@@ -132,14 +131,14 @@ body {
 }
 
 .word {
-  font-size: 3.75rem;
+  font-size: 3rem; /* Reduced from 3.75rem (20% decrease) */
   font-weight: 700;
-  text-align: center; /* Ensure horizontal centering */
+  text-align: center;
   word-break: break-word;
   margin-bottom: 20px;
   white-space: nowrap;
   max-width: 100%;
-  width: 100%; /* Ensure it takes full width for centering */
+  width: 100%;
 }
 
 .sentences {
@@ -182,7 +181,7 @@ body {
   }
 
   .word {
-    font-size: 3rem;
+    font-size: 2.4rem; /* Reduced from 3rem (20% decrease) */
   }
 
   .english {
