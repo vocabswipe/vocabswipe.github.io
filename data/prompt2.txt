@@ -1,15 +1,19 @@
 Use the last entry from the previously generated JSONL code block as the first entry for this series.
 
-Generate a series of 99 entries in JSONL format, starting with the second entry. For the second entry, select a random English word, phrasal verb, or multi-word expression (e.g., single words like "computer" or "car," phrasal verbs like "get up" or "come across," or expressions like "in order to" or "on the other hand") from the first entry's English sentence (excluding the `word` field of the first entry) to be the `word` field, ensuring it appears in the new entry's English sentence. For each subsequent entry, select a random English word, phrasal verb, or multi-word expression from the previous entry's English sentence (excluding the previous entry's `word`) to be the `word` field, ensuring it appears in the new entry's English sentence. Display each entry as a JSON object with the fields `word`, `english`, and `thai`.
+Generate a series of 99 entries in JSONL format, starting with the second entry. For the second entry, select a random English single word or phrasal verb from the first entry's English sentence (excluding the `word` field of the first entry) to be the `word` field, ensuring it appears in the new entry's English sentence. For each subsequent entry, select a random English single word or phrasal verb from the previous entry's English sentence (excluding the previous entry's `word`) to be the `word` field, ensuring it appears in the new entry's English sentence. Display each entry as a JSON object with the fields `word`, `english`, and `thai`.
 
-Each entry must follow this JSONL format: {"word":"pen","english":"This pen costs five dollars.","thai":"ปากกานี้ราคาห้าดอลลาร์"}
+Each entry must follow this JSONL format:
+{"word":"pen","english":"This pen costs five dollars.","thai":"ปากกานี้ราคาห้าดอลลาร์"}
+or for phrasal verbs:
+{"word":"pick up","english":"Can you pick up some milk on your way home?","thai":"คุณช่วยซื้อนมระหว่างทางกลับบ้านได้ไหม"}
 
 To ensure diversity, accuracy, and natural language:
-- Use a broad vocabulary, including single words, phrasal verbs, and multi-word expressions, minimizing reuse of words across entries unless required by the chaining rule.
+- Use a broad range of single words and phrasal verbs commonly used in American English (e.g., "get up," "run into," "take off"), minimizing reuse of words or phrasal verbs across entries unless required by the chaining rule.
+- Ensure at least 30% of the `word` fields are phrasal verbs to reflect common American English usage.
 - Vary sentence contexts (e.g., home, work, school, travel, hobbies, technology, food, emotions, slang, idioms) to reflect diverse scenarios.
-- Ensure English sentences are natural, conversational, and representative of spoken American English, using a mix of casual, formal, informal, slang, and idiomatic expressions.
+- Ensure English sentences are natural, conversational, and representative of spoken American English, incorporating a mix of casual, formal, informal, slang, and idiomatic expressions.
 - Ensure Thai translations are accurate, natural, and match the tone of the English sentence (e.g., formal Thai for formal English, colloquial Thai for slang).
-- Verify that the selected `word` (single word, phrasal verb, or multi-word expression) exists in the previous entry's English sentence to maintain the chaining rule.
+- Strictly verify that the selected `word` (single word or phrasal verb) exists in the previous entry's English sentence to maintain the chaining rule.
 - Avoid repetitive sentence structures (e.g., not overusing "This [word] is [adjective]") and prioritize creative, contextually varied sentences.
 
 Output all 99 entries in sequence as a single JSONL code block, with each entry on a new line. Exclude the first entry from the output.
