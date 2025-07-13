@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const englishEl = document.getElementById('english');
   const thaiEl = document.getElementById('thai');
   const audioErrorEl = document.getElementById('audio-error');
-  const loadingGif = document.getElementById('loading-gif');
+  const connectionLines = document.getElementById('connection-lines');
   const logo = document.querySelector('.logo');
   const slogan = document.querySelector('.slogan');
 
@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let touchEndY = 0;
   let touchStartTime = 0;
   let lastSwipeTime = 0;
+  let lastKeyTime = 0;
   const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
   let currentColorIndex = 0;
   let wordColors = new Map();
@@ -24,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let translateX = 0;
   let translateY = 0;
   let isPinching = false;
-  let currentAudio = null; // Track currently playing audio
+  let currentAudio = null;
 
   function escapeHTML(str) {
     return str
@@ -32,14 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/'/g, '&apos;');
+  }
+
+  function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
     let escapedSentence = escapeHTML(sentence);
     wordsToHighlight.sort((a, b) => b.word.length - a.word.length);
     for (const { word, color } of wordsToHighlight) {
-      const escapedWord = escapeHTML(word);
+      const escapedWord = escapeRegExp(escapeHTML(word));
       const regex = new RegExp(`\\b${escapedWord}\\b`, 'gi');
       escapedSentence = escapedSentence.replace(regex, match =>
         `<span class="highlight" style="color: ${color}">${match}</span>`
@@ -51,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
   async function loadData() {
     try {
       wordCloud.style.display = 'block';
-      loadingGif.style.display = 'block';
       console.log('Fetching data/database.jsonl...');
       const response = await fetch('data/database.jsonl');
       if (!response.ok) {
@@ -69,15 +73,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
       if (!entries.length) {
-        throw new Error('No valid entries in data/database.jsonl');
+        throw new Error('No valid entries in data
+
+System: /database.jsonl');
       }
 
       console.log(`Loaded ${entries.length} entries`);
-      loadingGif.style.display = 'none';
       displayWordCloud();
     } catch (error) {
       console.error('LoadData Error:', error);
-      loadingGif.style.display = 'none';
       wordCloud.innerHTML = `
         <div class="error-message">
           Failed to load vocabulary data. Please ensure 'data/database.jsonl' exists and is valid.
@@ -124,7 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
       fontSize -= 0.1;
       element.style.fontSize = `${fontSize}rem`;
     }
-    // Ensure horizontal centering
     element.style.display = 'block';
     element.style.marginLeft = 'auto';
     element.style.marginRight = 'auto';
@@ -160,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function displayWordCloud() {
     const wordFreq = {};
     const wordCaseMap = new Map();
+    const wordElements = new Map();
     entries.forEach(entry => {
       if (typeof entry.word !== 'string') {
         throw new Error('Invalid word format in database entry');
@@ -177,9 +181,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const containerHeight = Math.max(window.innerHeight * 1.5, wordCaseMap.size * 15);
     wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
+    connectionLines.setAttribute('width', containerWidth);
+    connectionLines.setAttribute('height', containerHeight);
 
     wordCloud.innerHTML = '';
-    wordCloud.appendChild(loadingGif);
+    wordCloud.appendChild(connectionLines);
     const placedWords = [];
     const wordArray = Array.from(wordCaseMap.entries())
       .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
@@ -194,18 +200,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Calculate GIF dimensions and reserved area
-    const gifWidth = 100; // Adjust based on actual GIF size
-    const gifHeight = 100;
-    const gifPadding = 20;
-    const gifArea = {
-      x: (containerWidth - gifWidth) / 2,
-      y: (window.innerHeight - gifHeight) / 2,
-      width: gifWidth + gifPadding,
-      height: gifHeight + gifPadding
-    };
-
-    const instantDisplayCount = Math.ceil(wordArray.length * 0.2); // First 20% of words
+    const instantDisplayCount = Math.ceil(wordArray.length * 0.2);
+    let previousWordEl = null;
 
     wordArray.forEach(({ word, freq }, index) => {
       const wordEl = document.createElement('div');
@@ -218,6 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
       wordColors.set(word.toLowerCase(), wordColor);
       wordEl.style.opacity = index < instantDisplayCount ? '1' : '0';
       wordCloud.appendChild(wordEl);
+      wordElements.set(word.toLowerCase() + index, wordEl);
 
       const { width, height } = wordEl.getBoundingClientRect();
       let x, y, placed = false;
@@ -226,13 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
       for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
         x = Math.random() * (containerWidth - width);
         y = Math.random() * (containerHeight - height);
-        // Check if word overlaps with GIF area
-        const overlapsGif =
-          x < gifArea.x + gifArea.width &&
-          x + width > gifArea.x &&
-          y < gifArea.y + gifArea.height &&
-          y + height > gifArea.y;
-        if (!overlapsGif && !isOverlapping(x, y, width, height, placedWords)) {
+        if (!isOverlapping(x, y, width, height, placedWords)) {
           wordEl.style.left = `${x}px`;
           wordEl.style.top = `${y}px`;
           placedWords.push({ x, y, width, height });
@@ -246,14 +237,58 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      if (index >= instantDisplayCount) {
+      if (index < entries.length && previousWordEl && index >= instantDisplayCount) {
+        const prevRect = previousWordEl.getBoundingClientRect();
+        const currRect = wordEl.getBoundingClientRect();
+        const prevX = parseFloat(previousWordEl.style.left) + prevRect.width / 2;
+        const prevY = parseFloat(previousWordEl.style.top) + prevRect.height / 2;
+        const currX = x + currRect.width / 2;
+        const currY = y + currRect.height / 2;
+
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', prevX);
+        line.setAttribute('y1', prevY);
+        line.setAttribute('x2', currX);
+        line.setAttribute('y2', currY);
+        line.setAttribute('stroke', '#b0b0b0');
+        line.setAttribute('stroke-width', '1');
+        line.setAttribute('opacity', '0');
+        connectionLines.appendChild(line);
+
         const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
         const delay = normalizedFreq * 1000;
         setTimeout(() => {
           wordEl.style.transition = 'opacity 0.5s ease';
           wordEl.style.opacity = '1';
+          line.setAttribute('opacity', '0.3');
         }, index * 50 + delay);
+      } else if (index < instantDisplayCount) {
+        const prevIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase()) - 1;
+        if (prevIndex >= 0) {
+          const prevWord = entries[prevIndex].word.toLowerCase();
+          const prevWordEl = wordElements.get(prevWord + (wordArray.findIndex(w => w.word.toLowerCase() === prevWord)));
+          if (prevWordEl) {
+            const prevRect = prevWordEl.getBoundingClientRect();
+            const currRect = wordEl.getBoundingClientRect();
+            const prevX = parseFloat(prevWordEl.style.left) + prevRect.width / 2;
+            const prevY = parseFloat(prevWordEl.style.top) + prevRect.height / 2;
+            const currX = x + currRect.width / 2;
+            const currY = y + currRect.height / 2;
+
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            line.setAttribute('x1', prevX);
+            line.setAttribute('y1', prevY);
+            line.setAttribute('x2', currX);
+            line.setAttribute('y2', currY);
+            line.setAttribute('stroke', '#b0b0b0');
+            line.setAttribute('stroke-width', '1');
+            line.setAttribute('opacity', '0.3');
+            connectionLines.appendChild(line);
+          }
+        }
       }
+
+      previousWordEl = wordEl;
 
       wordEl.addEventListener('click', () => {
         stopAudio();
@@ -270,8 +305,8 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
-        loadingGif.style.transition = 'opacity 0.3s ease';
-        loadingGif.style.opacity = '0';
+        connectionLines.style.transition = 'opacity 0.3s ease';
+        connectionLines.style.opacity = '0';
 
         wordEl.style.transition = 'transform 1s ease, opacity 1s ease';
         wordEl.style.transform = 'scale(10)';
@@ -281,17 +316,17 @@ document.addEventListener('DOMContentLoaded', () => {
           wordCloud.style.display = 'none';
           wordEl.style.transform = 'none';
           wordEl.style.opacity = '1';
-          loadingGif.style.display = 'none';
+          connectionLines.style.opacity = '1';
+          connectionLines.innerHTML = '';
 
+          document.body.style.overflow = 'hidden';
           flashcardContainer.style.display = 'flex';
           flashcardContainer.style.opacity = '0';
           flashcardContainer.style.transition = 'opacity 1s ease';
           flashcardContainer.style.opacity = '1';
 
-          // Scroll to top to ensure flashcard is fully visible
           window.scrollTo({ top: 0, behavior: 'smooth' });
 
-          // Delay logo and slogan animations by 3 seconds
           setTimeout(() => {
             logo.style.transition = 'transform 1s ease, opacity 1s ease';
             logo.style.transform = 'translateX(0)';
@@ -354,6 +389,30 @@ document.addEventListener('DOMContentLoaded', () => {
       wordCloud._lastY = null;
       isPinching = false;
     }, { passive: true });
+
+    document.addEventListener('keydown', e => {
+      const currentTime = Date.now();
+      if (currentTime - lastKeyTime < 500) return;
+      lastKeyTime = currentTime;
+
+      if (e.key === 'ArrowUp' && currentIndex < entries.length - 1) {
+        console.log('Arrow up pressed, going to next entry');
+        stopAudio();
+        currentIndex++;
+        currentColorIndex = (currentColorIndex + 1) % colors.length;
+        displayEntry(currentIndex);
+      } else if (e.key === 'ArrowDown' && currentIndex > 0) {
+        console.log('Arrow down pressed, going to previous entry');
+        stopAudio();
+        currentIndex--;
+        currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+        displayEntry(currentIndex);
+      } else if (e.key === ' ' && flashcardContainer.style.display === 'flex') {
+        console.log('Spacebar pressed, triggering flashcard click');
+        e.preventDefault();
+        flashcard.click();
+      }
+    });
   }
 
   function displayEntry(index) {
@@ -382,7 +441,6 @@ document.addEventListener('DOMContentLoaded', () => {
     thaiEl.textContent = entry.thai;
     audioErrorEl.style.display = 'none';
 
-    // Set up audio playback
     if (entry.audio) {
       const audioUrl = `/data/${entry.audio}`;
       console.log(`Setting up audio for: ${audioUrl}`);
