@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
   const wordCloud = document.getElementById('word-cloud');
-  const connectLines = document.getElementById('connect-lines');
   const flashcardContainer = document.getElementById('flashcard-container');
   const flashcard = document.getElementById('flashcard');
   const wordEl = document.getElementById('word');
@@ -29,11 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -170,50 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500);
   }
 
-  function findNearestNeighbors(index, placedWords, k = 4) {
-    const word = placedWords[index];
-    const distances = placedWords.map((other, i) => {
-      if (i === index) return { index: i, distance: Infinity };
-      const dx = (word.x + word.width / 2) - (other.x + other.width / 2);
-      const dy = (word.y + word.height / 2) - (other.y + other.height / 2);
-      return { index: i, distance: Math.sqrt(dx * dx + dy * dy) };
-    });
-    return distances.sort((a, b) => a.distance - b.distance).slice(0, k).map(d => d.index);
-  }
-
-  function drawConnectionLines(placedWords) {
-    connectLines.innerHTML = '';
-    connectLines.setAttribute('width', window.innerWidth);
-    connectLines.setAttribute('height', wordCloud.style.height.replace('px', ''));
-
-    placedWords.forEach((word, index) => {
-      const neighbors = findNearestNeighbors(index, placedWords);
-      neighbors.forEach(neighborIndex => {
-        const neighbor = placedWords[neighborIndex];
-        const x1 = word.x + word.width / 2;
-        const y1 = word.y + word.height / 2;
-        const x2 = neighbor.x + neighbor.width / 2;
-        const y2 = neighbor.y + neighbor.height / 2;
-        console.log(`Drawing line from (${x1}, ${y1}) to (${x2}, ${y2}) for word ${index} to neighbor ${neighborIndex}`);
-        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        line.setAttribute('x1', x1);
-        line.setAttribute('y1', y1);
-        line.setAttribute('x2', x2);
-        line.setAttribute('y2', y2);
-        line.setAttribute('stroke', word.color || '#ffffff'); // Fallback to white if color is undefined
-        line.setAttribute('stroke-width', '4'); // Increased thickness
-        line.setAttribute('opacity', '0');
-        line.classList.add('connect-line');
-        connectLines.appendChild(line);
-
-        setTimeout(() => {
-          line.style.transition = 'opacity 0.3s ease';
-          line.setAttribute('opacity', '0.6'); // Slightly higher opacity for visibility
-        }, index * 25 + word.delay);
-      });
-    });
-  }
-
   function displayWordCloud() {
     const wordFreq = {};
     const wordCaseMap = new Map();
@@ -235,8 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
     wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
 
-    wordCloud.innerHTML = '<svg class="connect-lines" id="connect-lines"></svg>';
-    const connectLines = document.getElementById('connect-lines');
+    wordCloud.innerHTML = '';
     const placedWords = [];
     const wordArray = Array.from(wordCaseMap.entries())
       .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
@@ -273,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isOverlapping(x, y, width, height, placedWords)) {
           wordEl.style.left = `${x}px`;
           wordEl.style.top = `${y}px`;
-          placedWords.push({ x, y, width, height, color: wordColor, delay: (maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq)) * 500 });
+          placedWords.push({ x, y, width, height });
           placed = true;
         }
       }
@@ -304,11 +258,6 @@ document.addEventListener('DOMContentLoaded', () => {
             otherWord.style.transition = 'opacity 0.3s ease';
             otherWord.style.opacity = '0';
           }
-        });
-
-        document.querySelectorAll('.connect-line').forEach(line => {
-          line.style.transition = 'opacity 0.3s ease';
-          line.setAttribute('opacity', '0');
         });
 
         wordEl.style.transition = 'transform 1s ease, opacity 1s ease';
@@ -348,7 +297,49 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    drawConnectionLines(placedWords);
+    let pinchStartDistance = 0;
+    wordCloud.addEventListener('touchstart', e => {
+      touchStartTime = Date.now();
+      if (e.touches.length === 2) {
+        isPinching = true;
+        pinchStartDistance = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+      } else if (e.touches.length === 1) {
+        touchStartY = e.touches[0].screenY;
+      }
+    }, { passive: true });
+
+    wordCloud.addEventListener('touchmove', e => {
+      if (e.touches.length === 2) {
+        e.preventDefault();
+        isPinching = true;
+        const pinchDistance = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        const newScale = currentScale * (pinchDistance / pinchStartDistance);
+        currentScale = Math.max(1, Math.min(newScale, 3));
+        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
+        pinchStartDistance = pinchDistance;
+      } else if (e.touches.length === 1 && currentScale > 1) {
+        e.preventDefault();
+        const deltaX = e.touches[0].clientX - (wordCloud._lastX || e.touches[0].clientX);
+        const deltaY = e.touches[0].clientY - (wordCloud._lastY || e.touches[0].clientY);
+        translateX += deltaX / currentScale;
+        translateY += deltaY / currentScale;
+        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
+        wordCloud._lastX = e.touches[0].clientX;
+        wordCloud._lastY = e.touches[0].clientY;
+      }
+    }, { passive: false });
+
+    wordCloud.addEventListener('touchend', e => {
+      wordCloud._lastX = null;
+      wordCloud._lastY = null;
+      isPinching = false;
+    }, { passive: true });
   }
 
   function displayEntry(index) {
