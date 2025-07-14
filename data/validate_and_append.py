@@ -2,25 +2,25 @@ import json
 import os
 import hashlib
 from tqdm import tqdm
-import gtts  # For generating audio files
-import re
+from collections import Counter
 
-def validate_and_append(temp_file, db_file, audio_dir="data/audio"):
+def validate_and_append(temp_file, db_file):
     """
-    Validates entries in temp_sentences.jsonl and database.jsonl, generates audio files for entries missing them,
-    appends valid entries, empties temp file with last database entry, and provides a detailed summary.
-    Checks audio file validity and entry order. All files are in D:\vocabswipe.github.io\data.
+    Validates entries in temp_sentences.jsonl and database.jsonl, appends valid entries if both are valid,
+    empties temp file while adding the last database entry (without 'audio'), reports total/unique words,
+    total/unique English sentences, top 10 frequent words, adjacent duplicates, and confirms validity.
+    Prints previous 3 and next 3 valid entries for word-in-sentence errors.
+    Assumes all files are in the same directory: D:\vocabswipe.github.io\data.
+    Prints last database entry as a single JSON line.
     """
     errors = []
     temp_entries = []
     db_entries = []
-    audio_to_generate = []
-    
-    # Ensure audio directory exists
-    os.makedirs(audio_dir, exist_ok=True)
+    error_context = []  # Store (error_msg, db_entry_index, line_number) for word-in-sentence errors
 
-    # Print working directory
-    print(f"📍 Working in: {os.getcwd()}")
+    # Print header
+    print("\n=== VocabSwipe Data Processor ===")
+    print(f"📍 Working directory: {os.getcwd()}\n")
 
     # Check if temp file exists and is not empty
     if not os.path.exists(temp_file):
@@ -31,9 +31,10 @@ def validate_and_append(temp_file, db_file, audio_dir="data/audio"):
         return False, None
 
     # Validate temp file
-    print("\n📄 Scanning temp_sentences.jsonl...")
+    print("📄 Validating temp_sentences.jsonl")
     previous_english = None
     temp_line_count = 0
+    temp_entries_with_lines = []  # Store (entry, line_number)
     try:
         with open(temp_file, 'r', encoding='utf-8') as f_temp:
             lines = f_temp.readlines()
@@ -46,27 +47,32 @@ def validate_and_append(temp_file, db_file, audio_dir="data/audio"):
                 try:
                     entry = json.loads(line.strip())
                     if not all(key in entry for key in ['word', 'english', 'thai']):
-                        errors.append(f"Temp line {line_number}: Missing fields")
+                        errors.append(f"Temp line {line_number}: Missing fields (word, english, thai)")
                         continue
                     if not all(entry[key].strip() for key in ['word', 'english', 'thai']):
                         errors.append(f"Temp line {line_number}: Empty fields")
                         continue
+                    # Check if word is in prior sentence's english field (skip for first valid entry)
                     if previous_english and entry['word'].lower() not in previous_english.lower():
-                        errors.append(f"Temp line {line_number}: Word '{entry['word']}' not in prior sentence")
+                        errors.append(
+                            f"Temp line {line_number}: Word '{entry['word']}' not in prior sentence: '{previous_english}'"
+                        )
                     previous_english = entry['english']
                     temp_entries.append(entry)
+                    temp_entries_with_lines.append((entry, line_number))
                 except json.JSONDecodeError:
                     errors.append(f"Temp line {line_number}: Invalid JSON")
                     continue
-        print(f"✔️ {len(temp_entries)}/{temp_line_count} valid entries in temp_sentences.jsonl")
+        print(f"✔ Found {temp_line_count} lines, {len(temp_entries)} valid entries in temp_sentences.jsonl\n")
     except Exception as e:
         print(f"❌ Error reading temp_sentences.jsonl: {e}")
         return False, None
 
-    # Validate database file and check audio files
-    print("\n📂 Scanning database.jsonl...")
-    previous_english = None
+    # Validate database file
+    print("📂 Validating database.jsonl")
+    previous_english = None  # Reset for database validation
     db_line_count = 0
+    db_entries_with_lines = []  # Store (entry, line_number)
     try:
         with open(db_file, 'r', encoding='utf-8') as f_db:
             lines = f_db.readlines()
@@ -79,76 +85,80 @@ def validate_and_append(temp_file, db_file, audio_dir="data/audio"):
                 try:
                     entry = json.loads(line.strip())
                     if not all(key in entry for key in ['word', 'english', 'thai']):
-                        errors.append(f"Database line {line_number}: Missing fields")
+                        errors.append(f"Database line {line_number}: Missing fields (word, english, thai)")
                         continue
                     if not all(entry[key].strip() for key in ['word', 'english', 'thai']):
                         errors.append(f"Database line {line_number}: Empty fields")
                         continue
+                    # Check if word is in prior sentence's english field (skip for first valid entry)
                     if previous_english and entry['word'].lower() not in previous_english.lower():
-                        errors.append(f"Database line {line_number}: Word '{entry['word']}' not in prior sentence")
+                        error_msg = (
+                            f"Database line {line_number}: Word '{entry['word']}' not in prior sentence: '{previous_english}'"
+                        )
+                        error_context.append((error_msg, len(db_entries), line_number))
                     previous_english = entry['english']
-                    # Generate audio filename and check existence
-                    audio_filename = f"{re.sub(r'[^a-zA-Z0-9]', '_', entry['word'].lower())}.mp3"
-                    audio_path = os.path.join(audio_dir, audio_filename)
-                    entry['audio'] = audio_filename
-                    if not os.path.exists(audio_path):
-                        audio_to_generate.append((entry, audio_path))
                     db_entries.append(entry)
+                    db_entries_with_lines.append((entry, line_number))
                 except json.JSONDecodeError:
                     errors.append(f"Database line {line_number}: Invalid JSON")
                     continue
-        print(f"✔️ {len(db_entries)}/{db_line_count} valid entries in database.jsonl")
+        print(f"✔ Found {db_line_count} lines, {len(db_entries)} valid entries in database.jsonl")
     except Exception as e:
         print(f"❌ Error reading database.jsonl: {e}")
         return False, None
+    if db_line_count == 0:
+        print(f"⚠ {db_file} is empty or does not exist")
 
-    # Generate audio files for entries missing them
-    if audio_to_generate:
-        print("\n🎵 Generating audio files...")
-        for entry, audio_path in tqdm(audio_to_generate, desc="Generating audio", unit="file"):
-            print(f"  Generating audio for word: {entry['word']} ({entry['english']})")
-            try:
-                tts = gtts.gTTS(entry['english'], lang='en')
-                tts.save(audio_path)
-            except Exception as e:
-                errors.append(f"Failed to generate audio for '{entry['word']}': {e}")
-
-    # Report errors
-    if errors:
-        print("\n🚨 Validation Errors:")
+    # Report errors with context
+    if errors or error_context:
+        print("\n🚨 Errors Found:")
         for error in errors:
             print(f"  {error}")
-        print("❌ Validation failed. Fix errors before proceeding.")
+        for error_msg, error_index, error_line in error_context:
+            print(f"\n  {error_msg}")
+            print("  Context (Previous 3 and Next 3 Valid Entries):")
+            start_idx = max(0, error_index - 3)
+            end_idx = min(len(db_entries), error_index + 4)  # Include error entry + next 3
+            for idx in range(start_idx, end_idx):
+                entry, line_num = db_entries_with_lines[idx]
+                prefix = "  * " if idx == error_index else "    "
+                print(f"{prefix}Line {line_num}: {json.dumps(entry, ensure_ascii=False)}")
+        print("\n❌ Validation failed: Fix errors in temp or database files.")
         return False, db_entries[-1] if db_entries else None
 
     # Append valid temp entries to database
-    print("\n📝 Appending to database.jsonl...")
+    print("\n📝 Appending to database.jsonl")
     try:
         with open(db_file, 'a', encoding='utf-8') as f_db:
             for entry in tqdm(temp_entries, desc="Appending", unit="entry", leave=False):
                 json.dump(entry, f_db, ensure_ascii=False)
                 f_db.write('\n')
-        print(f"✔️ Appended {len(temp_entries)} entries")
+        print(f"✔ Appended {len(temp_entries)} entries to database.jsonl")
     except Exception as e:
         print(f"❌ Error appending to database.jsonl: {e}")
         return False, db_entries[-1] if db_entries else None
 
-    # Empty temp file and add last database entry
-    print("\n🗑️ Updating temp_sentences.jsonl...")
-    last_entry = (db_entries + temp_entries)[-1] if (db_entries + temp_entries) else None
+    # Empty temp file and write last database entry (without 'audio')
+    print("\n🗑️ Clearing temp_sentences.jsonl and adding last database entry")
     try:
+        last_entry = (db_entries + temp_entries)[-1] if (db_entries + temp_entries) else None
         with open(temp_file, 'w', encoding='utf-8') as f_temp:
             if last_entry:
-                last_entry_no_audio = {k: v for k, v in last_entry.items() if k != 'audio'}
-                json.dump(last_entry_no_audio, f_temp, ensure_ascii=False)
+                # Create entry without 'audio' field
+                temp_entry = {
+                    "word": last_entry["word"],
+                    "english": last_entry["english"],
+                    "thai": last_entry["thai"]
+                }
+                json.dump(temp_entry, f_temp, ensure_ascii=False)
                 f_temp.write('\n')
-        print(f"✔️ Temp file cleared and last entry added")
+        print(f"✔ Cleared temp_sentences.jsonl and added last database entry")
     except Exception as e:
-        print(f"❌ Error updating temp_sentences.jsonl: {e}")
-        return False, last_entry
+        print(f"❌ Error clearing temp_sentences.jsonl: {e}")
+        return False, db_entries[-1] if db_entries else None
 
     # Check for adjacent duplicates
-    print("\n🔍 Checking for duplicates...")
+    print("\n🔍 Checking for adjacent duplicates")
     duplicates = []
     all_entries = db_entries + temp_entries
     entry_hashes = {}
@@ -156,76 +166,81 @@ def validate_and_append(temp_file, db_file, audio_dir="data/audio"):
         entry_tuple = (entry['word'], entry['english'])
         entry_hash = hashlib.md5(json.dumps(entry_tuple, ensure_ascii=False).encode('utf-8')).hexdigest()
         if i > 0 and entry_hash == entry_hashes.get(i - 1):
-            duplicates.append(f"Lines {i} and {i+1}: {entry['word']} - {entry['english']}")
+            duplicates.append(
+                f"Lines {i} and {i+1}: Duplicate entry - Word: {entry['word']}, English: {entry['english']}"
+            )
         entry_hashes[i] = entry_hash
-    print(f"{'✔️ No duplicates found' if not duplicates else f'⚠️ {len(duplicates)} duplicates found'}")
 
-    # Detailed summary
-    print("\n📊 Database Summary")
-    all_entries = db_entries + temp_entries
-    total_entries = len(all_entries)
-    unique_words = len(set(entry['word'].lower() for entry in all_entries))
-    total_sentences = len([entry['english'] for entry in all_entries])
-    unique_sentences = len(set(entry['english'].lower() for entry in all_entries))
-    word_freq = {}
+    # Report duplicates
+    if duplicates:
+        print("\n⚠️ Adjacent Duplicate Entries Found:")
+        for dup in duplicates:
+            print(f"  {dup}")
+    else:
+        print("\n✅ No adjacent duplicates found")
+
+    # Summarize database
+    unique_words = len(set(entry['word'].lower() for entry in all_entries if entry))
+    total_valid_entries = len(all_entries)
+    total_words = sum(len(entry['english'].split()) for entry in all_entries if entry)
+    unique_english_sentences = len(set(entry['english'].lower() for entry in all_entries if entry))
+    total_english_sentences = sum(1 for entry in all_entries if entry['english'])
+    
+    # Calculate top 10 most frequent words
+    all_words = []
     for entry in all_entries:
-        word = entry['word'].lower()
-        word_freq[word] = word_freq.get(word, 0) + 1
-    top_words = sorted(word_freq.items(), key=lambda x: x[1], reverse=True)[:10]
+        all_words.extend(word.lower() for word in entry['english'].split())
+    word_freq = Counter(all_words)
+    top_10_words = word_freq.most_common(10)
 
-    print(f"  Total entries: {total_entries}")
-    print(f"  Unique words: {unique_words}")
-    print(f"  Total English sentences: {total_sentences}")
-    print(f"  Unique English sentences: {unique_sentences}")
+    print("\n📊 Database Summary")
+    print(f"  Total valid entries: {total_valid_entries}")
+    print(f"  Total unique words: {unique_words}")
+    print(f"  Total words in English sentences: {total_words}")
+    print(f"  Total English sentences: {total_english_sentences}")
+    print(f"  Total unique English sentences: {unique_english_sentences}")
     print(f"  Adjacent duplicates: {len(duplicates)}")
-    print(f"  Audio files validated: {len(all_entries)}/{len(all_entries)}")
-    print("\n📈 Top 10 Most Frequent Words:")
-    for word, freq in top_words:
+    print("\n📈 Top 10 Most Frequent Words in English Sentences:")
+    for word, freq in top_10_words:
         print(f"    {word}: {freq}")
 
-    # Confirm order and audio validity
-    print("\n🟢 Validation Status")
-    audio_valid = all(os.path.exists(os.path.join(audio_dir, entry.get('audio', ''))) for entry in all_entries)
-    order_valid = not any(
-        entry['word'].lower() not in all_entries[i-1]['english'].lower()
-        for i, entry in enumerate(all_entries[1:], 1) if all_entries[i-1].get('english')
-    )
-    if not errors and not duplicates and audio_valid and order_valid:
-        print("  ✅ All entries valid, ordered correctly, with valid audio files")
+    # Confirmation message
+    print("\n🟢 Status")
+    if not errors and not error_context and not duplicates:
+        print("  ✅ All green: Database entries are valid, in order, and no adjacent duplicates found.")
+    elif not errors and not error_context:
+        print("  ✅ Database entries are valid and in order, but adjacent duplicates found.")
     else:
-        print("  ❌ Issues detected:")
-        if errors: print("    - Validation errors present")
-        if duplicates: print("    - Adjacent duplicates found")
-        if not audio_valid: print("    - Missing or invalid audio files")
-        if not order_valid: print("    - Entry order issues")
+        print("  ❌ Validation failed: Fix errors in temp or database files.")
 
-    # Print last entry
+    # Get last database entry
+    last_entry = all_entries[-1] if all_entries else None
     print("\n📌 Last Database Entry")
     if last_entry:
         print(json.dumps(last_entry, ensure_ascii=False))
     else:
-        print("  No valid entries")
+        print("  No valid entries in database.jsonl")
 
-    return not (errors or duplicates), last_entry
+    return not (errors or error_context), last_entry
 
 def main():
-    # File paths
+    # File paths (all in same directory)
     temp_file = "temp_sentences.jsonl"
     db_file = "database.jsonl"
-    audio_dir = "data/audio"
-
-    # Create audio directory if it doesn't exist
-    os.makedirs(audio_dir, exist_ok=True)
 
     # Create database file if it doesn't exist
     if not os.path.exists(db_file):
         print(f"ℹ️ Creating {db_file}")
-        with open(db_file, 'w', encoding='utf-8'):
+        with open(db_file, 'a', encoding='utf-8'):
             pass
 
-    # Run validation and processing
-    success, last_entry = validate_and_append(temp_file, db_file, audio_dir)
-    print(f"\n{'🎉 Operation completed successfully' if success else '⚠️ Operation completed with issues'}")
+    # Validate and append
+    success, last_entry = validate_and_append(temp_file, db_file)
+    print("\n=== VocabSwipe Processing Complete ===")
+    if success:
+        print("🎉 Operation completed successfully")
+    else:
+        print("⚠️ Operation completed with errors")
 
 if __name__ == "__main__":
     main()
