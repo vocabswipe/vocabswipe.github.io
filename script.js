@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
   let currentColorIndex = 0;
   let wordColors = new Map();
+  let initialScale = 1;
   let currentScale = 1;
   let translateX = 0;
   let translateY = 0;
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const { word, color } of wordsToHighlight) {
       const escapedWord = escapeHTML(word);
       const regex = new RegExp(`\\b${escapedWord}\\b(?![^<]*>)`, 'gi');
-      escapedSentence = escapedSentence.replace(regex, `<span class="highlight" style="color: ${color};">$&</span>` superl);
+      escapedSentence = escapedSentence.replace(regex, `<span class="highlight" style="color: ${color};">$&</span>`);
     }
     return escapedSentence;
   }
@@ -49,9 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
       wordCloud.style.display = 'block';
       console.log('Fetching data/database.jsonl...');
       const response = await fetch('data/database.jsonl');
-      if (!response.ok) throw new Error(`Failed to fetch data/database.jsonl: ${response.status} ${response.statusText}`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch data/database.jsonl: ${response.status} ${response.statusText}`);
+      }
       const data = await response.text();
-      if (!data.trim()) throw new Error('data/database.jsonl is empty');
+      if (!data.trim()) {
+        throw new Error('data/database.jsonl is empty');
+      }
       entries = data.trim().split('\n').map((line, index) => {
         try {
           return JSON.parse(line);
@@ -59,7 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
           throw new Error(`Invalid JSON at line ${index + 1}: ${e.message}`);
         }
       });
-      if (!entries.length) throw new Error('No valid entries in data/database.jsonl');
+      if (!entries.length) {
+        throw new Error('No valid entries in data/database.jsonl');
+      }
 
       console.log(`Loaded ${entries.length} entries`);
       displayWordCloud();
@@ -80,11 +87,20 @@ document.addEventListener('DOMContentLoaded', () => {
   function isOverlapping(x, y, width, height, placedWords) {
     const padding = 2;
     for (const word of placedWords) {
+      const left1 = x;
+      const right1 = x + width;
+      const top1 = y;
+      const bottom1 = y + height;
+      const left2 = word.x;
+      const right2 = word.x + word.width;
+      const top2 = word.y;
+      const bottom2 = word.y + word.height;
+
       if (
-        x + width + padding > word.x &&
-        x - padding < word.x + word.width &&
-        y + height + padding > word.y &&
-        y - padding < word.y + word.height
+        right1 + padding > left2 &&
+        left1 - padding < right2 &&
+        bottom1 + padding > top2 &&
+        top1 - padding < bottom2
       ) {
         return true;
       }
@@ -95,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function adjustWordSize(word, element, maxWidth) {
     element.style.fontSize = '3rem';
     element.textContent = word;
-    let fontSize = parseFloat(getComputedStyle(element).fontSize);
+    let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
     const padding = 20;
 
     while (element.scrollWidth > maxWidth - padding && fontSize > 1) {
@@ -135,10 +151,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const wordFreq = {};
     const wordCaseMap = new Map();
     entries.forEach(entry => {
-      if (typeof entry.word !== 'string') throw new Error('Invalid word format in database entry');
+      if (typeof entry.word !== 'string') {
+        throw new Error('Invalid word format in database entry');
+      }
       const lowerWord = entry.word.toLowerCase();
       wordFreq[lowerWord] = (wordFreq[lowerWord] || 0) + 1;
-      if (!wordCaseMap.has(lowerWord)) wordCaseMap.set(lowerWord, entry.word);
+      if (!wordCaseMap.has(lowerWord)) {
+        wordCaseMap.set(lowerWord, entry.word);
+      }
     });
 
     const maxFreq = Math.max(...Object.values(wordFreq));
@@ -154,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
       .sort((a, b) => b.freq - a.freq);
 
-    if (!wordArray.length) {
+    if (wordArray.length === 0) {
       wordCloud.innerHTML = '<div class="error-message">No words to display in word cloud.</div>';
       wordCloud.style.display = 'flex';
       wordCloud.style.alignItems = 'center';
@@ -288,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
         translateX += deltaX / currentScale;
         translateY += deltaY / currentScale;
         wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
-        wordCloud._lastX = e.touches[ACHING0].clientX;
+        wordCloud._lastX = e.touches[0].clientX;
         wordCloud._lastY = e.touches[0].clientY;
       }
     }, { passive: false });
@@ -312,9 +332,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextWord = index < entries.length - 1 ? entries[index + 1].word : null;
 
     const wordsToHighlight = [];
-    if (prevWord) wordsToHighlight.push({ word: prevWord, color: colors[(currentColorIndex - 1 + colors.length) % colors.length] });
+    if (prevWord) {
+      const prevColor = colors[(currentColorIndex - 1 + colors.length) % colors.length];
+      wordsToHighlight.push({ word: prevWord, color: prevColor });
+    }
     wordsToHighlight.push({ word: currentWord, color: colors[currentColorIndex] });
-    if (nextWord) wordsToHighlight.push({ word: nextWord, color: colors[(currentColorIndex + 1) % colors.length] });
+    if (nextWord) {
+      const nextColor = colors[(currentColorIndex + 1) % colors.length];
+      wordsToHighlight.push({ word: nextWord, color: nextColor });
+    }
 
     englishEl.innerHTML = highlightWords(entry.english, wordsToHighlight);
     thaiEl.textContent = entry.thai;
@@ -323,6 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (entry.audio) {
       const audioUrl = `/data/${entry.audio}`;
       console.log(`Setting up audio for: ${audioUrl}`);
+      flashcard.onclick = null;
       flashcard.onclick = () => {
         console.log('Playing audio on tap');
         playAudio(audioUrl, colors[currentColorIndex]);
