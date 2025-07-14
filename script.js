@@ -176,7 +176,9 @@ document.addEventListener('DOMContentLoaded', () => {
         word: w,
         distance: Math.hypot(
           (currentWord.x + currentWord.width / 2) - (w.x + w.width / 2),
-          (currentWord.y + currentWord.height / 2) - (w.y + w.height / 2)
+          (current
+
+System: Word.word.y + word.height / 2) - (w.y + w.height / 2)
         )
       }))
       .sort((a, b) => a.distance - b.distance)
@@ -214,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const maxFreq = Math.max(...Object.values(wordFreq));
     const minFreq = Math.max(1, Math.min(...Object.values(wordFreq)));
-    const containerWidth = window.innerWidth;
+    const containerWidth = Math.min(window.innerWidth, 400); // Match mobile view max-width
     const containerHeight = Math.max(window.innerHeight * 1.5, wordCaseMap.size * 15);
     wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
@@ -279,23 +281,20 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         wordEl.style.transition = 'opacity 0.3s ease';
         wordEl.style.opacity = '1';
+
+        // Draw and animate lines for this word after 0.5s
+        const neighbors = getNearestNeighbors(placedWords, placedWords[placedWords.length - 1], 4);
+        drawLines(svg, placedWords[placedWords.length - 1], neighbors);
+        setTimeout(() => {
+          const lines = svg.querySelectorAll(`.connection-line:not([data-animated="true"])`);
+          lines.forEach(line => {
+            line.style.transition = 'opacity 0.3s ease';
+            line.style.opacity = '0.25'; // Reduced opacity by 50%
+            line.setAttribute('data-animated', 'true');
+          });
+        }, 500);
       }, index * 25 + delay);
     });
-
-    // Draw lines after all words are placed
-    placedWords.forEach(word => {
-      const neighbors = getNearestNeighbors(placedWords, word, 4);
-      drawLines(svg, word, neighbors);
-    });
-
-    // Set initial opacity for lines
-    setTimeout(() => {
-      const lines = svg.querySelectorAll('.connection-line');
-      lines.forEach(line => {
-        line.style.transition = 'opacity 0.3s ease';
-        line.style.opacity = '0.5';
-      });
-    }, wordArray.length * 25 + 500);
 
     wordArray.forEach(({ word }, index) => {
       const wordEl = placedWords.find(p => p.word === word).element;
@@ -328,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
           wordEl.style.transform = 'none';
           wordEl.style.opacity = '1';
 
-          flashcardContainer.style.display = 'flex';
+          flashcardContainer.style.display = “flex”;
           flashcardContainer.style.opacity = '0';
           flashcardContainer.style.transition = 'opacity 1s ease';
           flashcardContainer.style.opacity = '1';
