@@ -145,14 +145,14 @@ def main():
     reused_count = 0
     skipped_count = 0
 
-    # Process entries with single-line progress bar
-    with tqdm(total=len(entries), desc="Processing entries", unit="entry", bar_format="{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}]") as pbar:
+    # Process entries with progress bar based on audio files needing generation
+    with tqdm(total=need_audio_count, desc="Generating audio", unit="file", 
+              bar_format="{l_bar}{bar:20} {percentage:3.0f}% | {n_fmt}/{total_fmt} [{elapsed}<{remaining}]") as pbar:
         for entry in entries:
             sentence = entry.get('english', '')
             if not sentence:
                 updated_entries.append(entry)
                 skipped_count += 1
-                pbar.update(1)
                 continue
 
             sentence_hash = get_sentence_hash(sentence)
@@ -172,11 +172,11 @@ def main():
                     generate_audio(sentence, audio_path)
                     entry['audio'] = repo_audio_path
                     generated_count += 1
+                    pbar.update(1)  # Update progress bar only when audio is generated
             else:
                 reused_count += 1
 
             updated_entries.append(entry)
-            pbar.update(1)
 
     # Write updated database
     write_database(updated_entries)
