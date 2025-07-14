@@ -7,8 +7,8 @@ from collections import Counter
 def validate_and_append(temp_file, db_file):
     """
     Validates entries in temp_sentences.jsonl and database.jsonl, appends valid entries if both are valid,
-    empties temp file while adding the last database entry (without 'audio'), reports total/unique words,
-    total/unique English sentences, top 10 frequent words, adjacent duplicates, and confirms validity.
+    empties temp file, appends last database entry to temp file, reports total/unique words, sentences,
+    adjacent duplicates, top 10 frequent words, and confirms validity.
     Prints previous 3 and next 3 valid entries for word-in-sentence errors.
     Assumes all files are in the same directory: D:\vocabswipe.github.io\data.
     Prints last database entry as a single JSON line.
@@ -19,7 +19,9 @@ def validate_and_append(temp_file, db_file):
     error_context = []  # Store (error_msg, db_entry_index, line_number) for word-in-sentence errors
 
     # Print header
-    print("\n=== VocabSwipe Data Processor ===")
+    print("\n" + "="*50)
+    print("🌟 VocabSwipe Data Processor 🌟")
+    print("="*50)
     print(f"📍 Working directory: {os.getcwd()}\n")
 
     # Check if temp file exists and is not empty
@@ -63,13 +65,13 @@ def validate_and_append(temp_file, db_file):
                 except json.JSONDecodeError:
                     errors.append(f"Temp line {line_number}: Invalid JSON")
                     continue
-        print(f"✔ Found {temp_line_count} lines, {len(temp_entries)} valid entries in temp_sentences.jsonl\n")
+        print(f"  Found {temp_line_count} lines, {len(temp_entries)} valid entries")
     except Exception as e:
         print(f"❌ Error reading temp_sentences.jsonl: {e}")
         return False, None
 
     # Validate database file
-    print("📂 Validating database.jsonl")
+    print("\n📂 Validating database.jsonl")
     previous_english = None  # Reset for database validation
     db_line_count = 0
     db_entries_with_lines = []  # Store (entry, line_number)
@@ -100,14 +102,15 @@ def validate_and_append(temp_file, db_file):
                     db_entries.append(entry)
                     db_entries_with_lines.append((entry, line_number))
                 except json.JSONDecodeError:
-                    errors.append(f"Database line {line_number}: Invalid JSON")
+                    errors.append(f"Database line {line_number}: Invalid JSO
+N")
                     continue
-        print(f"✔ Found {db_line_count} lines, {len(db_entries)} valid entries in database.jsonl")
+        print(f"  Found {db_line_count} lines, {len(db_entries)} valid entries")
     except Exception as e:
         print(f"❌ Error reading database.jsonl: {e}")
         return False, None
     if db_line_count == 0:
-        print(f"⚠ {db_file} is empty or does not exist")
+        print(f"  {db_file} is empty or does not exist")
 
     # Report errors with context
     if errors or error_context:
@@ -133,28 +136,29 @@ def validate_and_append(temp_file, db_file):
             for entry in tqdm(temp_entries, desc="Appending", unit="entry", leave=False):
                 json.dump(entry, f_db, ensure_ascii=False)
                 f_db.write('\n')
-        print(f"✔ Appended {len(temp_entries)} entries to database.jsonl")
+        print(f"  Appended {len(temp_entries)} entries")
     except Exception as e:
         print(f"❌ Error appending to database.jsonl: {e}")
         return False, db_entries[-1] if db_entries else None
 
-    # Empty temp file and write last database entry (without 'audio')
-    print("\n🗑️ Clearing temp_sentences.jsonl and adding last database entry")
+    # Empty temp file and append last database entry
+    print("\n🗑️ Clearing temp_sentences.jsonl and appending last database entry")
     try:
-        last_entry = (db_entries + temp_entries)[-1] if (db_entries + temp_entries) else None
         with open(temp_file, 'w', encoding='utf-8') as f_temp:
-            if last_entry:
+            if db_entries or temp_entries:
+                all_entries = db_entries + temp_entries
+                last_entry = all_entries[-1]
                 # Create entry without 'audio' field
-                temp_entry = {
+                last_entry_cleaned = {
                     "word": last_entry["word"],
                     "english": last_entry["english"],
                     "thai": last_entry["thai"]
                 }
-                json.dump(temp_entry, f_temp, ensure_ascii=False)
+                json.dump(last_entry_cleaned, f_temp, ensure_ascii=False)
                 f_temp.write('\n')
-        print(f"✔ Cleared temp_sentences.jsonl and added last database entry")
+        print(f"  Cleared temp_sentences.jsonl and appended last database entry")
     except Exception as e:
-        print(f"❌ Error clearing temp_sentences.jsonl: {e}")
+        print(f"❌ Error clearing temp_sentences.jsonl or appending last entry: {e}")
         return False, db_entries[-1] if db_entries else None
 
     # Check for adjacent duplicates
@@ -170,39 +174,33 @@ def validate_and_append(temp_file, db_file):
                 f"Lines {i} and {i+1}: Duplicate entry - Word: {entry['word']}, English: {entry['english']}"
             )
         entry_hashes[i] = entry_hash
-
-    # Report duplicates
     if duplicates:
         print("\n⚠️ Adjacent Duplicate Entries Found:")
         for dup in duplicates:
             print(f"  {dup}")
     else:
-        print("\n✅ No adjacent duplicates found")
+        print("  ✅ No adjacent duplicates found")
 
-    # Summarize database
-    unique_words = len(set(entry['word'].lower() for entry in all_entries if entry))
-    total_valid_entries = len(all_entries)
-    total_words = sum(len(entry['english'].split()) for entry in all_entries if entry)
-    unique_english_sentences = len(set(entry['english'].lower() for entry in all_entries if entry))
-    total_english_sentences = sum(1 for entry in all_entries if entry['english'])
-    
-    # Calculate top 10 most frequent words
-    all_words = []
-    for entry in all_entries:
-        all_words.extend(word.lower() for word in entry['english'].split())
-    word_freq = Counter(all_words)
-    top_10_words = word_freq.most_common(10)
+    # Database statistics
+    print("\n📊 Database Statistics")
+    total_words = len(all_entries)
+    unique_words = len(set(entry['word'].lower() for entry in all_entries))
+    total_sentences = len(all_entries)
+    unique_sentences = len(set(entry['english'].lower() for entry in all_entries))
+    print(f"  Total main words: {total_words}")
+    print(f"  Unique main words: {unique_words}")
+    print(f"  Total English sentences: {total_sentences}")
+    print(f"  Unique English sentences: {unique_sentences}")
 
-    print("\n📊 Database Summary")
-    print(f"  Total valid entries: {total_valid_entries}")
-    print(f"  Total unique words: {unique_words}")
-    print(f"  Total words in English sentences: {total_words}")
-    print(f"  Total English sentences: {total_english_sentences}")
-    print(f"  Total unique English sentences: {unique_english_sentences}")
-    print(f"  Adjacent duplicates: {len(duplicates)}")
-    print("\n📈 Top 10 Most Frequent Words in English Sentences:")
-    for word, freq in top_10_words:
-        print(f"    {word}: {freq}")
+    # Top 10 most frequent words
+    word_counts = Counter(entry['word'].lower() for entry in all_entries)
+    top_10_words = word_counts.most_common(10)
+    print("\n🏆 Top 10 Most Frequent Main Words")
+    if top_10_words:
+        for word, count in top_10_words:
+            print(f"  {word}: {count}")
+    else:
+        print("  No words in database")
 
     # Confirmation message
     print("\n🟢 Status")
@@ -213,18 +211,19 @@ def validate_and_append(temp_file, db_file):
     else:
         print("  ❌ Validation failed: Fix errors in temp or database files.")
 
-    # Get last database entry
+    # Get and print last database entry
     last_entry = all_entries[-1] if all_entries else None
     print("\n📌 Last Database Entry")
     if last_entry:
-        print(json.dumps(last_entry, ensure_ascii=False))
+        print(f"  {json.dumps(last_entry, ensure_ascii=False)}")
     else:
         print("  No valid entries in database.jsonl")
 
+    print("\n" + "="*50)
     return not (errors or error_context), last_entry
 
 def main():
-    # File paths (all in same directory)
+    # File paths
     temp_file = "temp_sentences.jsonl"
     db_file = "database.jsonl"
 
@@ -236,11 +235,11 @@ def main():
 
     # Validate and append
     success, last_entry = validate_and_append(temp_file, db_file)
-    print("\n=== VocabSwipe Processing Complete ===")
     if success:
         print("🎉 Operation completed successfully")
     else:
         print("⚠️ Operation completed with errors")
+    print("="*50)
 
 if __name__ == "__main__":
     main()
