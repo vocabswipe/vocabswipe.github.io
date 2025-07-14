@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const wordCloud = document.getElementById('word-cloud');
+  const connectionLines = document.getElementById('connection-lines');
   const flashcardContainer = document.getElementById('flashcard-container');
   const flashcard = document.getElementById('flashcard');
   const wordEl = document.getElementById('word');
@@ -24,15 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
   let translateY = 0;
   let isPinching = false;
   let currentAudio = null;
-  const preloadedAudio = new Set(); // Track preloaded audio URLs
+  const preloadedAudio = new Set();
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, '');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -131,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function preloadAudio(index) {
-    const range = 10; // Preload previous and next 10 cards
+    const range = 10;
     const start = Math.max(0, index - range);
     const end = Math.min(entries.length - 1, index + range);
 
@@ -142,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(`Preloading audio: ${audioUrl}`);
           const audio = new Audio(audioUrl);
           audio.preload = 'auto';
-          audio.load(); // Start loading the audio
+          audio.load();
           preloadedAudio.add(audioUrl);
         }
       }
@@ -166,7 +167,49 @@ document.addEventListener('DOMContentLoaded', () => {
         audioErrorEl.style.display = 'block';
         setTimeout(() => audioErrorEl.style.display = 'none', 2000);
       });
-    }, 500); // Delay playback by 0.5 seconds
+    }, 500);
+  }
+
+  function findKNearestNeighbors(word, allWords, k = 4) {
+    const distances = allWords
+      .filter(w => w !== word)
+      .map(w => ({
+        word: w,
+        distance: Math.hypot(
+          (word.x + word.width / 2) - (w.x + w.width / 2),
+          (word.y + word.height / 2) - (w.y + w.height / 2)
+        )
+      }))
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, k);
+    return distances.map(d => d.word);
+  }
+
+  function drawConnectionLines(placedWords) {
+    connectionLines.innerHTML = '';
+    connectionLines.setAttribute('width', window.innerWidth);
+    connectionLines.setAttribute('height', wordCloud.style.height.replace('px', ''));
+
+    placedWords.forEach(word => {
+      const neighbors = findKNearestNeighbors(word, placedWords, 4);
+      neighbors.forEach(neighbor => {
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', word.x + word.width / 2);
+        line.setAttribute('y1', word.y + word.height / 2);
+        line.setAttribute('x2', neighbor.x + neighbor.width / 2);
+        line.setAttribute('y2', neighbor.y + neighbor.height / 2);
+        line.setAttribute('stroke', 'rgba(128, 128, 128, 0.3)');
+        line.setAttribute('stroke-width', '1');
+        line.classList.add('connection-line');
+        line.style.opacity = '0';
+        connectionLines.appendChild(line);
+
+        setTimeout(() => {
+          line.style.transition = 'opacity 0.3s ease';
+          line.style.opacity = '1';
+        }, word.delay);
+      });
+    });
   }
 
   function displayWordCloud() {
@@ -190,7 +233,8 @@ document.addEventListener('DOMContentLoaded', () => {
     wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
 
-    wordCloud.innerHTML = '';
+    wordCloud.innerHTML = '<svg class="connection-lines" id="connection-lines"></svg>';
+    const connectionLines = document.getElementById('connection-lines');
     const placedWords = [];
     const wordArray = Array.from(wordCaseMap.entries())
       .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
@@ -205,7 +249,11 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    wordArray.forEach(({ word, freq }, index) => {
+    const topWordsCount = Math.max(1, Math.floor(wordArray.length * 0.1));
+    const topWords = wordArray.slice(0, topWordsCount);
+    const otherWords = wordArray.slice(topWordsCount);
+
+    const placeWord = ({ word, freq }, index, isTopWord) => {
       const wordEl = document.createElement('div');
       wordEl.className = 'cloud-word';
       wordEl.textContent = word;
@@ -227,7 +275,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isOverlapping(x, y, width, height, placedWords)) {
           wordEl.style.left = `${x}px`;
           wordEl.style.top = `${y}px`;
-          placedWords.push({ x, y, width, height });
+          const wordData = { x, y, width, height, element: wordEl, delay: isTopWord ? 0 : index * 25 + (maxFreq === minFreq ? 0 : ((maxFreq - freq) / (maxFreq - minFreq)) * 500) };
+          placedWords.push(wordData);
           placed = true;
         }
       }
@@ -239,11 +288,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
-      const delay = normalizedFreq * 500;
+      const delay = isTopWord ? 0 : index * 25 + normalizedFreq * 500;
       setTimeout(() => {
         wordEl.style.transition = 'opacity 0.3s ease';
         wordEl.style.opacity = '1';
-      }, index * 25 + delay);
+      }, delay);
 
       wordEl.addEventListener('click', () => {
         stopAudio();
@@ -258,6 +307,11 @@ document.addEventListener('DOMContentLoaded', () => {
             otherWord.style.transition = 'opacity 0.3s ease';
             otherWord.style.opacity = '0';
           }
+        });
+
+        document.querySelectorAll('.connection-line').forEach(line => {
+          line.style.transition = 'opacity 0.3s ease';
+          line.style.opacity = '0';
         });
 
         wordEl.style.transition = 'transform 1s ease, opacity 1s ease';
@@ -295,7 +349,12 @@ document.addEventListener('DOMContentLoaded', () => {
           displayEntry(currentIndex);
         }, 1000);
       });
-    });
+    };
+
+    topWords.forEach((wordData, index) => placeWord(wordData, index, true));
+    otherWords.forEach((wordData, index) => placeWord(wordData, index, false));
+
+    drawConnectionLines(placedWords);
 
     let pinchStartDistance = 0;
     wordCloud.addEventListener('touchstart', e => {
@@ -368,7 +427,6 @@ document.addEventListener('DOMContentLoaded', () => {
     thaiEl.textContent = entry.thai;
     audioErrorEl.style.display = 'none';
 
-    // Preload audio for nearby cards
     preloadAudio(index);
 
     if (entry.audio) {
