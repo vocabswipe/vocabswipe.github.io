@@ -7,8 +7,8 @@ import boto3
 from botocore.exceptions import ClientError
 import time
 
-# Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# Configure logging (reduced verbosity)
+logging.basicConfig(level=logging.WARNING, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Configuration
 DATABASE_PATH = "database.jsonl"  # Relative path since script is in data/ directory
@@ -28,7 +28,6 @@ def ensure_audio_directory():
     """Create the audio directory if it doesn't exist."""
     try:
         Path(AUDIO_DIR).mkdir(parents=True, exist_ok=True)
-        logging.info(f"Audio directory ensured: {AUDIO_DIR}")
     except Exception as e:
         logging.error(f"Failed to create audio directory {AUDIO_DIR}: {e}")
         raise
@@ -49,7 +48,6 @@ def read_database():
                         logging.warning(f"Skipping entry with empty English sentence: {entry}")
                         continue
                     entries.append(entry)
-        logging.info(f"Read {len(entries)} valid entries from {DATABASE_PATH}")
     except FileNotFoundError:
         logging.error(f"Database file not found: {DATABASE_PATH}")
         raise
@@ -64,7 +62,6 @@ def write_database(entries):
         with open(DATABASE_PATH, 'w', encoding='utf-8') as f:
             for entry in entries:
                 f.write(json.dumps(entry, ensure_ascii=False) + '\n')
-        logging.info(f"Updated {DATABASE_PATH} with {len(entries)} entries")
     except Exception as e:
         logging.error(f"Failed to write to {DATABASE_PATH}: {e}")
         raise
@@ -83,7 +80,6 @@ def generate_audio(sentence, audio_path):
             )
             with open(audio_path, 'wb') as f:
                 f.write(response['AudioStream'].read())
-            logging.info(f"Generated audio: {audio_path}")
             return True
         except ClientError as e:
             logging.error(f"Attempt {attempt + 1}/{MAX_RETRIES} failed for '{sentence}': {e}")
@@ -106,7 +102,6 @@ def clean_orphaned_audio(entries):
         if file_hash not in used_hashes:
             try:
                 audio_file.unlink()
-                logging.info(f"Deleted orphaned audio: {audio_file}")
                 deleted_count += 1
             except Exception as e:
                 logging.error(f"Failed to delete orphaned audio {audio_file}: {e}")
@@ -132,12 +127,17 @@ def main():
     # Read database
     entries = read_database()
     if not entries:
-        logging.warning("No valid entries found in database.jsonl")
+        print("No valid entries found in database.jsonl")
         return
 
     # Cache existing audio files
     audio_files = {f.stem: f for f in Path(AUDIO_DIR).glob(f"*.{OUTPUT_FORMAT}")}
-    logging.info(f"Found {len(audio_files)} existing audio files in {AUDIO_DIR}")
+
+    # Count entries needing audio generation
+    need_audio_count = sum(1 for entry in entries 
+                          if entry.get('english') and 
+                          (not entry.get('audio') or not Path(entry['audio']).exists()))
+    print(f"Total entries needing audio generation: {need_audio_count}")
 
     # Track counters for summary
     updated_entries = []
@@ -145,39 +145,38 @@ def main():
     reused_count = 0
     skipped_count = 0
 
-    # Process entries with progress bar
-    for entry in tqdm(entries, desc="Processing entries", unit="entry"):
-        sentence = entry.get('english', '')
-        if not sentence:
-            logging.warning(f"Skipping entry with empty English sentence: {entry}")
-            updated_entries.append(entry)
-            skipped_count += 1
-            continue
+    # Process entries with single-line progress bar
+    with tqdm(total=len(entries), desc="Processing entries", unit="entry", bar_format="{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}]") as pbar:
+        for entry in entries:
+            sentence = entry.get('english', '')
+            if not sentence:
+                updated_entries.append(entry)
+                skipped_count += 1
+                pbar.update(1)
+                continue
 
-        sentence_hash = get_sentence_hash(sentence)
-        audio_filename = f"{sentence_hash}.{OUTPUT_FORMAT}"
-        audio_path = Path(AUDIO_DIR) / audio_filename
-        repo_audio_path = f"{AUDIO_DIR}/{audio_filename}"
+            sentence_hash = get_sentence_hash(sentence)
+            audio_filename = f"{sentence_hash}.{OUTPUT_FORMAT}"
+            audio_path = Path(AUDIO_DIR) / audio_filename
+            repo_audio_path = f"{AUDIO_DIR}/{audio_filename}"
 
-        # Check if entry has no audio field or invalid audio file
-        current_audio_path = entry.get('audio', '')
-        needs_audio = not current_audio_path or not Path(current_audio_path).exists()
+            # Check if entry has no audio field or invalid audio file
+            current_audio_path = entry.get('audio', '')
+            needs_audio = not current_audio_path or not Path(current_audio_path).exists()
 
-        if needs_audio:
-            if sentence_hash in audio_files:
-                logging.info(f"Using existing audio for '{sentence}': {audio_path}")
-                entry['audio'] = repo_audio_path
-                reused_count += 1
+            if needs_audio:
+                if sentence_hash in audio_files:
+                    entry['audio'] = repo_audio_path
+                    reused_count += 1
+                else:
+                    generate_audio(sentence, audio_path)
+                    entry['audio'] = repo_audio_path
+                    generated_count += 1
             else:
-                logging.info(f"Generating audio for '{sentence}': {audio_path}")
-                generate_audio(sentence, audio_path)
-                entry['audio'] = repo_audio_path
-                generated_count += 1
-        else:
-            logging.info(f"Audio already valid for '{sentence}': {current_audio_path}")
-            reused_count += 1
+                reused_count += 1
 
-        updated_entries.append(entry)
+            updated_entries.append(entry)
+            pbar.update(1)
 
     # Write updated database
     write_database(updated_entries)
@@ -188,21 +187,21 @@ def main():
     # Verify all entries have audio files
     missing_audio = verify_audio_files(updated_entries)
     if missing_audio:
-        logging.error(f"Missing audio files for {len(missing_audio)} entries:")
+        print(f"\nError: Missing audio files for {len(missing_audio)} entries:")
         for word, sentence, audio_path in missing_audio:
-            logging.error(f" - Word: {word}, Sentence: {sentence}, Audio: {audio_path or 'None'}")
+            print(f" - Word: {word}, Sentence: {sentence}, Audio: {audio_path or 'None'}")
     else:
-        logging.info("All valid entries have corresponding audio files.")
+        print("\nAll valid entries have corresponding audio files.")
 
     # Print summary report
-    logging.info("\n=== Summary Report ===")
-    logging.info(f"Total entries processed: {len(entries)}")
-    logging.info(f"Audio files generated: {generated_count}")
-    logging.info(f"Existing audio files reused: {reused_count}")
-    logging.info(f"Entries skipped (empty English): {skipped_count}")
-    logging.info(f"Orphaned audio files deleted: {deleted_count}")
-    logging.info(f"Missing audio files: {len(missing_audio)}")
-    logging.info("Audio generation complete. Please use GitHub Desktop to push changes to the repository.")
+    print("\n=== Summary Report ===")
+    print(f"Total entries processed: {len(entries)}")
+    print(f"Audio files generated: {generated_count}")
+    print(f"Existing audio files reused: {reused_count}")
+    print(f"Entries skipped (empty English): {skipped_count}")
+    print(f"Orphaned audio files deleted: {deleted_count}")
+    print(f"Missing audio files: {len(missing_audio)}")
+    print("Audio generation complete. Please use GitHub Desktop to push changes to the repository.")
 
 if __name__ == "__main__":
     main()
