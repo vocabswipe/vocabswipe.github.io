@@ -17,7 +17,9 @@ body {
 
 .word-cloud {
   position: relative;
-  width: 100%;
+  width: 100vw;
+  max-width: 400px; /* Match mobile view max-width */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
   overflow-y: auto;
   padding: 10px;
   transform-origin: center center;
