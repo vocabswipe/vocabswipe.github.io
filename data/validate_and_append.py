@@ -9,7 +9,7 @@ def validate_and_append(temp_file, db_file):
     Validates entries in temp_sentences.jsonl and database.jsonl, appends valid entries if both are valid,
     empties temp file, appends last database entry to temp file, and reports statistics including:
     - Total and unique main words and English sentences
-    - Ratio of unique main words to total main words (2 decimal points)
+    - Ratio of total main words to unique main words (2 decimal points)
     - Top 10 most frequent main words
     - Adjacent duplicates
     - Last database entry
@@ -194,14 +194,14 @@ def validate_and_append(temp_file, db_file):
     unique_words = len(set(entry['word'].lower() for entry in all_entries if entry))
     total_sentences = len(all_entries)
     unique_sentences = len(set(entry['english'].lower() for entry in all_entries if entry))
-    # Calculate unique words to total words ratio
-    unique_to_total_ratio = unique_words / total_words if total_words > 0 else 0.00
     word_freq = Counter(entry['word'].lower() for entry in all_entries if entry)
     top_words = word_freq.most_common(10)
+    # Calculate ratio of total main words to unique main words
+    ratio_words = total_words / unique_words if unique_words > 0 else "N/A"
 
     print(f"  Total main words: {total_words}")
     print(f"  Unique main words: {unique_words}")
-    print(f"  Unique/Total main words ratio: {unique_to_total_ratio:.2f}")
+    print(f"  Ratio total/unique main words: {ratio_words if isinstance(ratio_words, str) else f'{ratio_words:.2f}'}")
     print(f"  Total English sentences: {total_sentences}")
     print(f"  Unique English sentences: {unique_sentences}")
     print(f"  Adjacent duplicates: {len(duplicates)}")
