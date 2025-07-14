@@ -29,11 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -190,20 +190,25 @@ document.addEventListener('DOMContentLoaded', () => {
       const neighbors = findNearestNeighbors(index, placedWords);
       neighbors.forEach(neighborIndex => {
         const neighbor = placedWords[neighborIndex];
+        const x1 = word.x + word.width / 2;
+        const y1 = word.y + word.height / 2;
+        const x2 = neighbor.x + neighbor.width / 2;
+        const y2 = neighbor.y + neighbor.height / 2;
+        console.log(`Drawing line from (${x1}, ${y1}) to (${x2}, ${y2}) for word ${index} to neighbor ${neighborIndex}`);
         const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        line.setAttribute('x1', word.x + word.width / 2);
-        line.setAttribute('y1', word.y + word.height / 2);
-        line.setAttribute('x2', neighbor.x + neighbor.width / 2);
-        line.setAttribute('y2', neighbor.y + neighbor.height / 2);
-        line.setAttribute('stroke', word.color);
-        line.setAttribute('stroke-width', '2');
+        line.setAttribute('x1', x1);
+        line.setAttribute('y1', y1);
+        line.setAttribute('x2', x2);
+        line.setAttribute('y2', y2);
+        line.setAttribute('stroke', word.color || '#ffffff'); // Fallback to white if color is undefined
+        line.setAttribute('stroke-width', '4'); // Increased thickness
         line.setAttribute('opacity', '0');
         line.classList.add('connect-line');
         connectLines.appendChild(line);
 
         setTimeout(() => {
           line.style.transition = 'opacity 0.3s ease';
-          line.setAttribute('opacity', '0.5');
+          line.setAttribute('opacity', '0.6'); // Slightly higher opacity for visibility
         }, index * 25 + word.delay);
       });
     });
@@ -344,50 +349,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     drawConnectionLines(placedWords);
-
-    let pinchStartDistance = 0;
-    wordCloud.addEventListener('touchstart', e => {
-      touchStartTime = Date.now();
-      if (e.touches.length === 2) {
-        isPinching = true;
-        pinchStartDistance = Math.hypot(
-          e.touches[0].clientX - e.touches[1].clientX,
-          e.touches[0].clientY - e.touches[1].clientY
-        );
-      } else if (e.touches.length === 1) {
-        touchStartY = e.touches[0].screenY;
-      }
-    }, { passive: true });
-
-    wordCloud.addEventListener('touchmove', e => {
-      if (e.touches.length === 2) {
-        e.preventDefault();
-        isPinching = true;
-        const pinchDistance = Math.hypot(
-          e.touches[0].clientX - e.touches[1].clientX,
-          e.touches[0].clientY - e.touches[1].clientY
-        );
-        const newScale = currentScale * (pinchDistance / pinchStartDistance);
-        currentScale = Math.max(1, Math.min(newScale, 3));
-        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
-        pinchStartDistance = pinchDistance;
-      } else if (e.touches.length === 1 && currentScale > 1) {
-        e.preventDefault();
-        const deltaX = e.touches[0].clientX - (wordCloud._lastX || e.touches[0].clientX);
-        const deltaY = e.touches[0].clientY - (wordCloud._lastY || e.touches[0].clientY);
-        translateX += deltaX / currentScale;
-        translateY += deltaY / currentScale;
-        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
-        wordCloud._lastX = e.touches[0].clientX;
-        wordCloud._lastY = e.touches[0].clientY;
-      }
-    }, { passive: false });
-
-    wordCloud.addEventListener('touchend', e => {
-      wordCloud._lastX = null;
-      wordCloud._lastY = null;
-      isPinching = false;
-    }, { passive: true });
   }
 
   function displayEntry(index) {
