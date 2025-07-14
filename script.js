@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
   const wordCloud = document.getElementById('word-cloud');
-  const connectionLines = document.getElementById('connection-lines');
   const flashcardContainer = document.getElementById('flashcard-container');
   const flashcard = document.getElementById('flashcard');
   const wordEl = document.getElementById('word');
@@ -33,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -170,52 +169,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500);
   }
 
-  function findKNearestNeighbors(word, allWords, k = 4) {
-    const distances = allWords
-      .filter(w => w !== word)
+  function getNearestNeighbors(words, currentWord, k = 4) {
+    const distances = words
+      .filter(w => w !== currentWord)
       .map(w => ({
         word: w,
         distance: Math.hypot(
-          (word.x + word.width / 2) - (w.x + w.width / 2),
-          (word.y + word.height / 2) - (w.y + w.height / 2)
+          (currentWord.x + currentWord.width / 2) - (w.x + w.width / 2),
+          (currentWord.y + currentWord.height / 2) - (w.y + w.height / 2)
         )
       }))
       .sort((a, b) => a.distance - b.distance)
       .slice(0, k);
-    console.log(`Neighbors for ${word.element.textContent}:`, distances.map(d => d.word.element.textContent));
     return distances.map(d => d.word);
   }
 
-  function drawConnectionLines(placedWords) {
-    console.log('Drawing connection lines for', placedWords.length, 'words');
-    connectionLines.innerHTML = '';
-    connectionLines.setAttribute('width', window.innerWidth);
-    connectionLines.setAttribute('height', parseFloat(wordCloud.style.height) || window.innerHeight * 1.5);
-
-    placedWords.forEach(word => {
-      const neighbors = findKNearestNeighbors(word, placedWords, 4);
-      neighbors.forEach(neighbor => {
-        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        const x1 = word.x + word.width / 2;
-        const y1 = word.y + word.height / 2;
-        const x2 = neighbor.x + neighbor.width / 2;
-        const y2 = neighbor.y + neighbor.height / 2;
-        line.setAttribute('x1', x1);
-        line.setAttribute('y1', y1);
-        line.setAttribute('x2', x2);
-        line.setAttribute('y2', y2);
-        line.setAttribute('stroke', 'rgba(128, 128, 128, 0.3)');
-        line.setAttribute('stroke-width', '1');
-        line.classList.add('connection-line');
-        line.style.opacity = '0';
-        connectionLines.appendChild(line);
-        console.log(`Line drawn from (${x1}, ${y1}) to (${x2}, ${y2})`);
-
-        setTimeout(() => {
-          line.style.transition = 'opacity 0.3s ease';
-          line.style.opacity = '1';
-        }, word.delay + 50); // Slight delay after word appears
-      });
+  function drawLines(svg, fromWord, toWords) {
+    toWords.forEach(toWord => {
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', fromWord.x + fromWord.width / 2);
+      line.setAttribute('y1', fromWord.y + fromWord.height / 2);
+      line.setAttribute('x2', toWord.x + toWord.width / 2);
+      line.setAttribute('y2', toWord.y + toWord.height / 2);
+      line.setAttribute('stroke', fromWord.color);
+      line.setAttribute('stroke-width', '1');
+      line.classList.add('connection-line');
+      svg.appendChild(line);
     });
   }
 
@@ -240,8 +219,14 @@ document.addEventListener('DOMContentLoaded', () => {
     wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
 
-    wordCloud.innerHTML = '<svg class="connection-lines" id="connection-lines"></svg>';
-    const connectionLines = document.getElementById('connection-lines');
+    wordCloud.innerHTML = '';
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.style.position = 'absolute';
+    svg.style.width = '100%';
+    svg.style.height = '100%';
+    svg.style.pointerEvents = 'none';
+    wordCloud.appendChild(svg);
+
     const placedWords = [];
     const wordArray = Array.from(wordCaseMap.entries())
       .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
@@ -256,11 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const topWordsCount = Math.max(1, Math.floor(wordArray.length * 0.1));
-    const topWords = wordArray.slice(0, topWordsCount);
-    const otherWords = wordArray.slice(topWordsCount);
-
-    const placeWord = ({ word, freq }, index, isTopWord) => {
+    wordArray.forEach(({ word, freq }, index) => {
       const wordEl = document.createElement('div');
       wordEl.className = 'cloud-word';
       wordEl.textContent = word;
@@ -282,8 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isOverlapping(x, y, width, height, placedWords)) {
           wordEl.style.left = `${x}px`;
           wordEl.style.top = `${y}px`;
-          const wordData = { x, y, width, height, element: wordEl, delay: isTopWord ? 0 : index * 25 + (maxFreq === minFreq ? 0 : ((maxFreq - freq) / (maxFreq - minFreq)) * 500) };
-          placedWords.push(wordData);
+          placedWords.push({ x, y, width, height, word, color: wordColor, element: wordEl });
           placed = true;
         }
       }
@@ -295,12 +275,30 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
-      const delay = isTopWord ? 0 : index * 25 + normalizedFreq * 500;
+      const delay = normalizedFreq * 500;
       setTimeout(() => {
         wordEl.style.transition = 'opacity 0.3s ease';
         wordEl.style.opacity = '1';
-      }, delay);
+      }, index * 25 + delay);
+    });
 
+    // Draw lines after all words are placed
+    placedWords.forEach(word => {
+      const neighbors = getNearestNeighbors(placedWords, word, 4);
+      drawLines(svg, word, neighbors);
+    });
+
+    // Set initial opacity for lines
+    setTimeout(() => {
+      const lines = svg.querySelectorAll('.connection-line');
+      lines.forEach(line => {
+        line.style.transition = 'opacity 0.3s ease';
+        line.style.opacity = '0.5';
+      });
+    }, wordArray.length * 25 + 500);
+
+    wordArray.forEach(({ word }, index) => {
+      const wordEl = placedWords.find(p => p.word === word).element;
       wordEl.addEventListener('click', () => {
         stopAudio();
         wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
@@ -356,12 +354,51 @@ document.addEventListener('DOMContentLoaded', () => {
           displayEntry(currentIndex);
         }, 1000);
       });
-    };
+    });
 
-    topWords.forEach((wordData, index) => placeWord(wordData, index, true));
-    otherWords.forEach((wordData, index) => placeWord(wordData, index, false));
+    let pinchStartDistance = 0;
+    wordCloud.addEventListener('touchstart', e => {
+      touchStartTime = Date.now();
+      if (e.touches.length === 2) {
+        isPinching = true;
+        pinchStartDistance = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+      } else if (e.touches.length === 1) {
+        touchStartY = e.touches[0].screenY;
+      }
+    }, { passive: true });
 
-    setTimeout(() => drawConnectionLines(placedWords), 100); // Delay to ensure words are placed
+    wordCloud.addEventListener('touchmove', e => {
+      if (e.touches.length === 2) {
+        e.preventDefault();
+        isPinching = true;
+        const pinchDistance = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        const newScale = currentScale * (pinchDistance / pinchStartDistance);
+        currentScale = Math.max(1, Math.min(newScale, 3));
+        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
+        pinchStartDistance = pinchDistance;
+      } else if (e.touches.length === 1 && currentScale > 1) {
+        e.preventDefault();
+        const deltaX = e.touches[0].clientX - (wordCloud._lastX || e.touches[0].clientX);
+        const deltaY = e.touches[0].clientY - (wordCloud._lastY || e.touches[0].clientY);
+        translateX += deltaX / currentScale;
+        translateY += deltaY / currentScale;
+        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
+        wordCloud._lastX = e.touches[0].clientX;
+        wordCloud._lastY = e.touches[0].clientY;
+      }
+    }, { passive: false });
+
+    wordCloud.addEventListener('touchend', e => {
+      wordCloud._lastX = null;
+      wordCloud._lastY = null;
+      isPinching = false;
+    }, { passive: true });
   }
 
   function displayEntry(index) {
