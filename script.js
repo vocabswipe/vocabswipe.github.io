@@ -133,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     stopAudio();
     console.log(`Attempting to play audio: ${audioUrl}`);
     currentAudio = new Audio(audioUrl);
+    currentAudio.preload = 'auto'; // Ensure audio is preloaded
     currentAudio.play().then(() => {
       console.log('Audio playing successfully');
       flashcard.classList.add('glow');
@@ -144,6 +145,23 @@ document.addEventListener('DOMContentLoaded', () => {
       audioErrorEl.textContent = 'Failed to play audio: ' + e.message;
       audioErrorEl.style.display = 'block';
       setTimeout(() => audioErrorEl.style.display = 'none', 2000);
+    });
+  }
+
+  function preloadAudio(audioUrl) {
+    return new Promise((resolve, reject) => {
+      const audio = new Audio(audioUrl);
+      audio.preload = 'auto';
+      audio.addEventListener('loadeddata', () => {
+        console.log(`Audio preloaded successfully: ${audioUrl}`);
+        resolve(audio);
+      });
+      audio.addEventListener('error', () => {
+        console.error(`Failed to preload audio: ${audioUrl}`);
+        reject(new Error('Failed to preload audio'));
+      });
+      // Trigger loading
+      audio.load();
     });
   }
 
@@ -348,12 +366,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (entry.audio) {
       const audioUrl = `/data/${entry.audio}`;
-      console.log(`Setting up audio for: ${audioUrl}`);
-      flashcard.onclick = null;
-      flashcard.onclick = () => {
-        console.log('Playing audio on tap');
-        playAudio(audioUrl, colors[currentColorIndex]);
-      };
+      console.log(`Preloading audio for: ${audioUrl}`);
+      flashcard.onclick = null; // Clear previous handler
+      preloadAudio(audioUrl).then(audio => {
+        currentAudio = audio; // Set preloaded audio
+        flashcard.onclick = () => {
+          console.log('Playing preloaded audio on tap');
+          stopAudio(); // Ensure any existing audio is stopped
+          currentAudio.play().then(() => {
+            console.log('Audio playing successfully');
+            flashcard.classList.add('glow');
+            flashcard.style.setProperty('--glow-color', colors[currentColorIndex]);
+            setTimeout(() => flashcard.classList.remove('glow'), 500);
+            audioErrorEl.style.display = 'none';
+          }).catch(e => {
+            console.error('Error playing audio:', e);
+            audioErrorEl.textContent = 'Failed to play audio: ' + e.message;
+            audioErrorEl.style.display = 'block';
+            setTimeout(() => audioErrorEl.style.display = 'none', 2000);
+          });
+        };
+      }).catch(e => {
+        console.error('Preload audio failed:', e);
+        flashcard.onclick = null;
+        audioErrorEl.textContent = 'No audio available';
+        audioErrorEl.style.display = 'block';
+        setTimeout(() => audioErrorEl.style.display = 'none', 2000);
+      });
     } else {
       console.log('No audio available for this entry');
       flashcard.onclick = null;
