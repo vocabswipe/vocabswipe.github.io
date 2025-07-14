@@ -214,12 +214,13 @@ def main():
     db_file = "database.jsonl"
     audio_dir = "data/audio"
 
-    # Create database file and audio directory if they don't exist
-    os.makedirs(os.path.dirname(db_file), exist_ok=True)
+    # Create audio directory if it doesn't exist
     os.makedirs(audio_dir, exist_ok=True)
+
+    # Create database file if it doesn't exist
     if not os.path.exists(db_file):
         print(f"ℹ️ Creating {db_file}")
-        with open(db_file, 'a', encoding='utf-8'):
+        with open(db_file, 'w', encoding='utf-8'):
             pass
 
     # Run validation and processing
