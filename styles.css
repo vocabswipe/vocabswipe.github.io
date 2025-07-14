@@ -30,6 +30,7 @@ body {
   top: 0;
   left: 0;
   z-index: 5;
+  pointer-events: none; /* Prevent SVG from capturing clicks */
 }
 
 .cloud-word {
