@@ -25,14 +25,6 @@ body {
   display: block;
 }
 
-.connection-lines {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 5;
-  pointer-events: none; /* Prevent SVG from capturing clicks */
-}
-
 .cloud-word {
   position: absolute;
   font-weight: 700;
@@ -45,7 +37,9 @@ body {
 }
 
 .connection-line {
+  opacity: 0;
   transition: opacity 0.3s ease;
+  z-index: 5;
 }
 
 .error-message {
