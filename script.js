@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const wordCloud = document.getElementById('word-cloud');
+  const connectLines = document.getElementById('connect-lines');
   const flashcardContainer = document.getElementById('flashcard-container');
   const flashcard = document.getElementById('flashcard');
   const wordEl = document.getElementById('word');
@@ -169,34 +170,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500);
   }
 
-  function getNearestNeighbors(words, currentWord, k = 4) {
-    const distances = words
-      .filter(w => w !== currentWord)
-      .map(w => ({
-        word: w,
-        distance: Math.hypot(
-          (currentWord.x + currentWord.width / 2) - (w.x + w.width / 2),
-          (current
-
-System: Word.word.y + word.height / 2) - (w.y + w.height / 2)
-        )
-      }))
-      .sort((a, b) => a.distance - b.distance)
-      .slice(0, k);
-    return distances.map(d => d.word);
+  function findNearestNeighbors(index, placedWords, k = 4) {
+    const word = placedWords[index];
+    const distances = placedWords.map((other, i) => {
+      if (i === index) return { index: i, distance: Infinity };
+      const dx = (word.x + word.width / 2) - (other.x + other.width / 2);
+      const dy = (word.y + word.height / 2) - (other.y + other.height / 2);
+      return { index: i, distance: Math.sqrt(dx * dx + dy * dy) };
+    });
+    return distances.sort((a, b) => a.distance - b.distance).slice(0, k).map(d => d.index);
   }
 
-  function drawLines(svg, fromWord, toWords) {
-    toWords.forEach(toWord => {
-      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-      line.setAttribute('x1', fromWord.x + fromWord.width / 2);
-      line.setAttribute('y1', fromWord.y + fromWord.height / 2);
-      line.setAttribute('x2', toWord.x + toWord.width / 2);
-      line.setAttribute('y2', toWord.y + toWord.height / 2);
-      line.setAttribute('stroke', fromWord.color);
-      line.setAttribute('stroke-width', '1');
-      line.classList.add('connection-line');
-      svg.appendChild(line);
+  function drawConnectionLines(placedWords) {
+    connectLines.innerHTML = '';
+    connectLines.setAttribute('width', window.innerWidth);
+    connectLines.setAttribute('height', wordCloud.style.height.replace('px', ''));
+
+    placedWords.forEach((word, index) => {
+      const neighbors = findNearestNeighbors(index, placedWords);
+      neighbors.forEach(neighborIndex => {
+        const neighbor = placedWords[neighborIndex];
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', word.x + word.width / 2);
+        line.setAttribute('y1', word.y + word.height / 2);
+        line.setAttribute('x2', neighbor.x + neighbor.width / 2);
+        line.setAttribute('y2', neighbor.y + neighbor.height / 2);
+        line.setAttribute('stroke', word.color);
+        line.setAttribute('stroke-width', '2');
+        line.setAttribute('opacity', '0');
+        line.classList.add('connect-line');
+        connectLines.appendChild(line);
+
+        setTimeout(() => {
+          line.style.transition = 'opacity 0.3s ease';
+          line.setAttribute('opacity', '0.5');
+        }, index * 25 + word.delay);
+      });
     });
   }
 
@@ -216,19 +225,13 @@ System: Word.word.y + word.height / 2) - (w.y + w.height / 2)
 
     const maxFreq = Math.max(...Object.values(wordFreq));
     const minFreq = Math.max(1, Math.min(...Object.values(wordFreq)));
-    const containerWidth = Math.min(window.innerWidth, 400); // Match mobile view max-width
+    const containerWidth = window.innerWidth;
     const containerHeight = Math.max(window.innerHeight * 1.5, wordCaseMap.size * 15);
     wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
 
-    wordCloud.innerHTML = '';
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.style.position = 'absolute';
-    svg.style.width = '100%';
-    svg.style.height = '100%';
-    svg.style.pointerEvents = 'none';
-    wordCloud.appendChild(svg);
-
+    wordCloud.innerHTML = '<svg class="connect-lines" id="connect-lines"></svg>';
+    const connectLines = document.getElementById('connect-lines');
     const placedWords = [];
     const wordArray = Array.from(wordCaseMap.entries())
       .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
@@ -265,7 +268,7 @@ System: Word.word.y + word.height / 2) - (w.y + w.height / 2)
         if (!isOverlapping(x, y, width, height, placedWords)) {
           wordEl.style.left = `${x}px`;
           wordEl.style.top = `${y}px`;
-          placedWords.push({ x, y, width, height, word, color: wordColor, element: wordEl });
+          placedWords.push({ x, y, width, height, color: wordColor, delay: (maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq)) * 500 });
           placed = true;
         }
       }
@@ -281,23 +284,8 @@ System: Word.word.y + word.height / 2) - (w.y + w.height / 2)
       setTimeout(() => {
         wordEl.style.transition = 'opacity 0.3s ease';
         wordEl.style.opacity = '1';
-
-        // Draw and animate lines for this word after 0.5s
-        const neighbors = getNearestNeighbors(placedWords, placedWords[placedWords.length - 1], 4);
-        drawLines(svg, placedWords[placedWords.length - 1], neighbors);
-        setTimeout(() => {
-          const lines = svg.querySelectorAll(`.connection-line:not([data-animated="true"])`);
-          lines.forEach(line => {
-            line.style.transition = 'opacity 0.3s ease';
-            line.style.opacity = '0.25'; // Reduced opacity by 50%
-            line.setAttribute('data-animated', 'true');
-          });
-        }, 500);
       }, index * 25 + delay);
-    });
 
-    wordArray.forEach(({ word }, index) => {
-      const wordEl = placedWords.find(p => p.word === word).element;
       wordEl.addEventListener('click', () => {
         stopAudio();
         wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
@@ -313,9 +301,9 @@ System: Word.word.y + word.height / 2) - (w.y + w.height / 2)
           }
         });
 
-        document.querySelectorAll('.connection-line').forEach(line => {
+        document.querySelectorAll('.connect-line').forEach(line => {
           line.style.transition = 'opacity 0.3s ease';
-          line.style.opacity = '0';
+          line.setAttribute('opacity', '0');
         });
 
         wordEl.style.transition = 'transform 1s ease, opacity 1s ease';
@@ -327,7 +315,7 @@ System: Word.word.y + word.height / 2) - (w.y + w.height / 2)
           wordEl.style.transform = 'none';
           wordEl.style.opacity = '1';
 
-          flashcardContainer.style.display = “flex”;
+          flashcardContainer.style.display = 'flex';
           flashcardContainer.style.opacity = '0';
           flashcardContainer.style.transition = 'opacity 1s ease';
           flashcardContainer.style.opacity = '1';
@@ -354,6 +342,8 @@ System: Word.word.y + word.height / 2) - (w.y + w.height / 2)
         }, 1000);
       });
     });
+
+    drawConnectionLines(placedWords);
 
     let pinchStartDistance = 0;
     wordCloud.addEventListener('touchstart', e => {
