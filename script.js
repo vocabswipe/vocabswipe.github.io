@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let translateY = 0;
   let isPinching = false;
   let currentAudio = null;
+  const preloadedAudio = new Set(); // Track preloaded audio URLs
 
   function escapeHTML(str) {
     return str
@@ -31,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -129,40 +130,43 @@ document.addEventListener('DOMContentLoaded', () => {
     audioErrorEl.style.display = 'none';
   }
 
+  function preloadAudio(index) {
+    const range = 10; // Preload previous and next 10 cards
+    const start = Math.max(0, index - range);
+    const end = Math.min(entries.length - 1, index + range);
+
+    for (let i = start; i <= end; i++) {
+      if (i !== index && entries[i].audio) {
+        const audioUrl = `/data/${entries[i].audio}`;
+        if (!preloadedAudio.has(audioUrl)) {
+          console.log(`Preloading audio: ${audioUrl}`);
+          const audio = new Audio(audioUrl);
+          audio.preload = 'auto';
+          audio.load(); // Start loading the audio
+          preloadedAudio.add(audioUrl);
+        }
+      }
+    }
+  }
+
   function playAudio(audioUrl, wordColor) {
     stopAudio();
     console.log(`Attempting to play audio: ${audioUrl}`);
     currentAudio = new Audio(audioUrl);
-    currentAudio.preload = 'auto'; // Ensure audio is preloaded
-    currentAudio.play().then(() => {
-      console.log('Audio playing successfully');
-      flashcard.classList.add('glow');
-      flashcard.style.setProperty('--glow-color', wordColor);
-      setTimeout(() => flashcard.classList.remove('glow'), 500);
-      audioErrorEl.style.display = 'none';
-    }).catch(e => {
-      console.error('Error playing audio:', e);
-      audioErrorEl.textContent = 'Failed to play audio: ' + e.message;
-      audioErrorEl.style.display = 'block';
-      setTimeout(() => audioErrorEl.style.display = 'none', 2000);
-    });
-  }
-
-  function preloadAudio(audioUrl) {
-    return new Promise((resolve, reject) => {
-      const audio = new Audio(audioUrl);
-      audio.preload = 'auto';
-      audio.addEventListener('loadeddata', () => {
-        console.log(`Audio preloaded successfully: ${audioUrl}`);
-        resolve(audio);
+    setTimeout(() => {
+      currentAudio.play().then(() => {
+        console.log('Audio playing successfully');
+        flashcard.classList.add('glow');
+        flashcard.style.setProperty('--glow-color', wordColor);
+        setTimeout(() => flashcard.classList.remove('glow'), 500);
+        audioErrorEl.style.display = 'none';
+      }).catch(e => {
+        console.error('Error playing audio:', e);
+        audioErrorEl.textContent = 'Failed to play audio: ' + e.message;
+        audioErrorEl.style.display = 'block';
+        setTimeout(() => audioErrorEl.style.display = 'none', 2000);
       });
-      audio.addEventListener('error', () => {
-        console.error(`Failed to preload audio: ${audioUrl}`);
-        reject(new Error('Failed to preload audio'));
-      });
-      // Trigger loading
-      audio.load();
-    });
+    }, 500); // Delay playback by 0.5 seconds
   }
 
   function displayWordCloud() {
@@ -364,35 +368,17 @@ document.addEventListener('DOMContentLoaded', () => {
     thaiEl.textContent = entry.thai;
     audioErrorEl.style.display = 'none';
 
+    // Preload audio for nearby cards
+    preloadAudio(index);
+
     if (entry.audio) {
       const audioUrl = `/data/${entry.audio}`;
-      console.log(`Preloading audio for: ${audioUrl}`);
-      flashcard.onclick = null; // Clear previous handler
-      preloadAudio(audioUrl).then(audio => {
-        currentAudio = audio; // Set preloaded audio
-        flashcard.onclick = () => {
-          console.log('Playing preloaded audio on tap');
-          stopAudio(); // Ensure any existing audio is stopped
-          currentAudio.play().then(() => {
-            console.log('Audio playing successfully');
-            flashcard.classList.add('glow');
-            flashcard.style.setProperty('--glow-color', colors[currentColorIndex]);
-            setTimeout(() => flashcard.classList.remove('glow'), 500);
-            audioErrorEl.style.display = 'none';
-          }).catch(e => {
-            console.error('Error playing audio:', e);
-            audioErrorEl.textContent = 'Failed to play audio: ' + e.message;
-            audioErrorEl.style.display = 'block';
-            setTimeout(() => audioErrorEl.style.display = 'none', 2000);
-          });
-        };
-      }).catch(e => {
-        console.error('Preload audio failed:', e);
-        flashcard.onclick = null;
-        audioErrorEl.textContent = 'No audio available';
-        audioErrorEl.style.display = 'block';
-        setTimeout(() => audioErrorEl.style.display = 'none', 2000);
-      });
+      console.log(`Setting up audio for: ${audioUrl}`);
+      flashcard.onclick = null;
+      flashcard.onclick = () => {
+        console.log('Playing audio on tap');
+        playAudio(audioUrl, colors[currentColorIndex]);
+      };
     } else {
       console.log('No audio available for this entry');
       flashcard.onclick = null;
