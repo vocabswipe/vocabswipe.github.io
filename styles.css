@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #000000; /* Changed from #1a1a1a to pure black */
+  background-color: #000000;
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
   min-height: 100vh;
@@ -25,6 +25,13 @@ body {
   display: block;
 }
 
+.connection-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
 .cloud-word {
   position: absolute;
   font-weight: 700;
@@ -34,6 +41,10 @@ body {
   white-space: nowrap;
   line-height: 1.2;
   z-index: 10;
+}
+
+.connection-line {
+  transition: opacity 0.3s ease;
 }
 
 .error-message {
