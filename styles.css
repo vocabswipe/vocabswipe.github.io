@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #000000; /* Changed to 100% black */
+  background-color: #000000; /* Changed from #1a1a1a to pure black */
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
   min-height: 100vh;
@@ -18,7 +18,6 @@ body {
 .word-cloud {
   position: relative;
   width: 100%;
-  background-color: #000000; /* Ensure word cloud background is also 100% black */
   overflow-y: auto;
   padding: 10px;
   transform-origin: center center;
@@ -57,7 +56,6 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #000000; /* Ensure container background is also 100% black */
 }
 
 .logo-container {
