@@ -1,13 +1,9 @@
-Modify the second entry in the following JSONL sequence to fix the error where Word 'give up' not in prior sentence: 
+Given a JSONL sequence with three entries in the format:
 
-The sequence is:
 
-{"word":"hand","english":"Can you give me a hand with this box?","thai":"ช่วยฉันยกกล่องนี้หน่อยได้ไหม?"}
-{"word":"give up","english":"Don’t give up on your dreams so easily.","thai":"อย่ายอมแพ้กับความฝันของคุณง่ายๆ"}
-{"word":"dreams","english":"Her dreams of traveling the world came true.","thai":"ความฝันของเธอที่จะเดินทางรอบโลกเป็นจริง"}
+{"word":"[word]","english":"[English sentence]","thai":"[Thai translation]"}
+{"word":"[word]","english":"[English sentence]","thai":"[Thai translation]"}
+{"word":"[word]","english":"[English sentence]","thai":"[Thai translation]"}
 
-Replace the word "give up" in the second entry with a random word from the first entry's English sentence. Ensure the new English sentence in the second entry includes both the selected word and the word "dreams". Update the Thai translation to match the new English sentence, ensuring it is accurate, natural, and reflects the same tone. Maintain the JSONL format:
 
-{"word":"pen","english":"This pen costs five dollars.","thai":"ปากกานี้ราคาห้าดอลลาร์"}
-
-Provide the corrected second entry as a single JSONL line.
+Replace the word in the second entry's "word" field with a random word from the first entry's English sentence (excluding the word in the first entry's "word" field). Ensure the new English sentence in the second entry includes both the selected random word and the word from the third entry's "word" field. Update the Thai translation to match the new English sentence, ensuring it is accurate, natural, and reflects the same tone. Verify that the words in the "word" fields of all three entries are unique. Maintain the JSONL format:{"word":"[word]","english":"[English sentence]","thai":"[Thai translation]"}Provide only the corrected second entry as a single JSONL line.
