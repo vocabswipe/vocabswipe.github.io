@@ -7324,3 +7324,394 @@
 {"word": "song", "english": "I can’t stop singing that catchy song.", "thai": "ฉันหยุดร้องเพลงติดหูนั้นไม่ได้"}
 {"word": "catchy", "english": "The ad’s catchy slogan stuck with me.", "thai": "สโลแกนติดหูของโฆษณานั้นติดอยู่ในใจฉัน"}
 {"word": "slogan", "english": "The brand’s new slogan is super clever.", "thai": "สโลแกนใหม่ของแบรนด์นั้นฉลาดมาก"}
+{"word": "clever", "english": "Her clever idea to fix the app saved us hours.", "thai": "ไอเดียอันชาญฉลาดของเธอในการแก้ไขแอปช่วยประหยัดเวลาเราได้หลายชั่วโมง"}
+{"word": "saved", "english": "We saved up enough cash to hit the music festival.", "thai": "เราออมเงินได้พอที่จะไปงานเทศกาลดนตรี"}
+{"word": "festival", "english": "The food festival downtown is totally worth checking out.", "thai": "งานเทศกาลอาหารในตัวเมืองนี่น่าไปดูมากเลย"}
+{"word": "checking", "english": "I’m checking my texts to catch up with friends.", "thai": "ฉันกำลังเช็คข้อความเพื่อตามเพื่อนๆ"}
+{"word": "catch", "english": "Let’s catch a movie this weekend at the new theater.", "thai": "ไปดูหนังกันสุดสัปดาห์นี้ที่โรงหนังใหม่เถอะ"}
+{"word": "movie", "english": "That movie totally blew my mind with its plot twists.", "thai": "หนังเรื่องนั้นทำให้ฉันตื่นเต้นสุดๆ ด้วยพล็อตที่พลิกผัน"}
+{"word": "mind", "english": "Yoga helps me clear my mind after a long day.", "thai": "โยคะช่วยให้ฉันปลอดโปร่งจิตใจหลังจากวันที่ยาวนาน"}
+{"word": "clear", "english": "The instructions weren’t clear, so we messed up the recipe.", "thai": "คำแนะนำไม่ชัดเจน เลยทำให้เราทำสูตรอาหารพัง"}
+{"word": "recipe", "english": "This recipe calls for fresh herbs to boost flavor.", "thai": "สูตรนี้ต้องใช้สมุนไพรสดเพื่อเพิ่มรสชาติ"}
+{"word": "fresh", "english": "I picked up some fresh coffee beans this morning.", "thai": "ฉันซื้อเมล็ดกาแฟสดมาเมื่อเช้านี้"}
+{"word": "coffee", "english": "Let’s grab coffee and chat about your new project.", "thai": "ไปจิบกาแฟแล้วคุยเกี่ยวกับโปรเจกต์ใหม่ของเธอกันเถอะ"}
+{"word": "chat", "english": "We had a quick chat to sort out the team’s goals.", "thai": "เราแชทกันสั้นๆ เพื่อจัดการเป้าหมายของทีม"}
+{"word": "team", "english": "Our team pulled off an epic win at trivia night.", "thai": "ทีมของเราคว้าชัยชนะสุดยอดในคืนเกมทายปัญหา"}
+{"word": "win", "english": "She’s determined to win over the skeptical client.", "thai": "เธอมุ่งมั่นที่จะโน้มน้าวลูกค้าที่สงสัย"}
+{"word": "client", "english": "The client loved how we pitched the marketing plan.", "thai": "ลูกค้าชอบวิธีที่เรานำเสนอแผนการตลาด"}
+{"word": "plan", "english": "Let’s plan a hiking trip for next weekend.", "thai": "วางแผนไปเดินป่ากันสุดสัปดาห์หน้าเถอะ"}
+{"word": "trip", "english": "The road trip playlist needs some classic rock vibes.", "thai": "เพลย์ลิสต์ทริปถนนต้องมีเพลงร็อคคลาสสิกหน่อย"}
+{"word": "vibes", "english": "The cozy café gives off such chill vibes.", "thai": "ร้านกาแฟแสนอบอุ่นให้ความรู้สึกผ่อนคลายมาก"}
+{"word": "chill", "english": "Let’s chill at the park with some ice cream.", "thai": "ไปนั่งชิลที่สวนสาธารณะพร้อมไอศกรีมกันเถอะ"}
+{"word": "park", "english": "The dog park is packed with pups on weekends.", "thai": "สวนสำหรับสุนัขแน่นไปด้วยหมาๆ ในวันสุดสัปดาห์"}
+{"word": "packed", "english": "My schedule’s packed, but I’ll squeeze in a workout.", "thai": "ตารางของฉันแน่นมาก แต่ฉันจะหาเวลาออกกำลังกาย"}
+{"word": "workout", "english": "That workout class totally kicked my butt yesterday.", "thai": "คลาสออกกำลังกายเมื่อวานทำให้ฉันเหนื่อยสุดๆ"}
+{"word": "class", "english": "The cooking class taught us how to make sushi.", "thai": "คลาสทำอาหารสอนเราวิธีทำซูชิ"}
+{"word": "make", "english": "Let’s make a quick stop at the grocery store.", "thai": "แวะร้านของชำแป๊บหนึ่งนะ"}
+{"word": "stop", "english": "Can you stop by my place to drop off the book?", "thai": "แวะมาที่บ้านฉันเพื่อเอามาคืนได้ไหม?"}
+{"word": "book", "english": "I’m hooked on this book about space exploration.", "thai": "ฉันติดหนังสือเกี่ยวกับการสำรวจอวกาศเล่มนี้มาก"}
+{"word": "space", "english": "The new office space feels super modern and open.", "thai": "พื้นที่สำนักงานใหม่รู้สึกทันสมัยและโล่งมาก"}
+{"word": "modern", "english": "Her modern approach to teaching keeps students engaged.", "thai": "วิธีการสอนที่ทันสมัยของเธอทำให้เด็กๆ สนใจ"}
+{"word": "approach", "english": "We need to approach this problem with fresh ideas.", "thai": "เราต้องจัดการปัญหานี้ด้วยไอเดียใหม่ๆ"}
+{"word": "problem", "english": "The math problem stumped even the brightest students.", "thai": "โจทย์คณิตศาสตร์นี้ทำให้แม้แต่นักเรียนเก่งๆ ยังงง"}
+{"word": "brightest", "english": "The brightest stars were visible during our stargazing night.", "thai": "ดาวที่สว่างที่สุดมองเห็นได้ในคืนที่เราดูดาว"}
+{"word": "night", "english": "Game night with friends is always a blast.", "thai": "คืนเล่นเกมกับเพื่อนๆ สนุกสุดๆ เสมอ"}
+{"word": "blast", "english": "The concert was a total blast, with epic lights.", "thai": "คอนเสิร์ตนั้นสนุกสุดยอด มีแสงสีตระการตา"}
+{"word": "lights", "english": "The holiday lights downtown are absolutely stunning.", "thai": "ไฟประดับวันหยุดในตัวเมืองสวยงามมาก"}
+{"word": "stunning", "english": "Her stunning artwork got featured in a local gallery.", "thai": "ผลงานศิลปะอันน่าทึ่งของเธอได้แสดงในแกลเลอรี่ท้องถิ่น"}
+{"word": "gallery", "english": "The gallery opening drew a huge crowd last night.", "thai": "งานเปิดแกลเลอรี่เมื่อคืนมีคนมามากมาย"}
+{"word": "crowd", "english": "The crowd cheered when the band took the stage.", "thai": "ฝูงชนโห่ร้องเมื่อวงดนตรีขึ้นเวที"}
+{"word": "stage", "english": "She’s ready to stage a comeback in her career.", "thai": "เธอพร้อมที่จะกลับมาผงาดในอาชีพ"}
+{"word": "career", "english": "Switching career paths was a bold move for him.", "thai": "การเปลี่ยนเส้นทางอาชีพเป็นการตัดสินใจที่กล้าหาญสำหรับเขา"}
+{"word": "move", "english": "Let’s move the meeting to tomorrow morning.", "thai": "เลื่อนประชุมไปเป็นเช้าวันพรุ่งนี้ดีกว่า"}
+{"word": "meeting", "english": "The team meeting ran longer than we expected.", "thai": "การประชุมทีมยาวนานกว่าที่เราคาด"}
+{"word": "expected", "english": "The test results weren’t what we expected at all.", "thai": "ผลการสอบไม่เป็นไปอย่างที่เราคาดไว้เลย"}
+{"word": "test", "english": "I need to test out this new gaming console.", "thai": "ฉันต้องลองเล่นเครื่องเกมคอนโซลใหม่นี้"}
+{"word": "gaming", "english": "Gaming with friends online is my weekend vibe.", "thai": "การเล่นเกมออนไลน์กับเพื่อนคือความสนุกสุดสัปดาห์ของฉัน"}
+{"word": "vibe", "english": "The beach has such a relaxing vibe in summer.", "thai": "ชายหาดมีบรรยากาศผ่อนคลายมากในหน้าร้อน"}
+{"word": "summer", "english": "Summer barbecues are the best way to hang out.", "thai": "บาร์บีคิวหน้าร้อนคือวิธีที่ดีที่สุดในการสังสรรค์"}
+{"word": "hang", "english": "Let’s hang out at the arcade this afternoon.", "thai": "ไปเที่ยวที่อาร์เคดบ่ายนี้กันเถอะ"}
+{"word": "arcade", "english": "The arcade games brought back so many childhood memories.", "thai": "เกมอาร์เคดทำให้คิดถึงความทรงจำวัยเด็กมากมาย"}
+{"word": "memories", "english": "Old photos always spark memories of family vacations.", "thai": "ภาพถ่ายเก่าๆ มักจุดประกายความทรงจำของวันหยุดครอบครัว"}
+{"word": "family", "english": "Family dinners are where we spill all the gossip.", "thai": "มื้อค่ำครอบครัวคือที่ที่เราเม้าท์ทุกเรื่อง"}
+{"word": "spill", "english": "Come on, spill the beans about your new crush!", "thai": "มาเถอะ เล่าความลับเกี่ยวกับคนที่คุณแอบชอบหน่อย!"}
+{"word": "beans", "english": "These spicy beans totally stole the show at dinner.", "thai": "ถั่วรสเผ็ดนี้เด่นสุดๆ ในมื้อค่ำ"}
+{"word": "dinner", "english": "Dinner at that new sushi spot was amazing.", "thai": "มื้อค่ำที่ร้านซูชิใหม่นั้นสุดยอดมาก"}
+{"word": "spot", "english": "That hiking spot is perfect for a weekend getaway.", "thai": "จุดเดินป่านั้นเหมาะมากสำหรับทริปสุดสัปดาห์"}
+{"word": "getaway", "english": "A quick getaway to the mountains sounds refreshing.", "thai": "ทริปสั้นๆ ไปภูเขาดูเหมือนจะสดชื่นดี"}
+{"word": "mountains", "english": "The mountains were covered in snow this morning.", "thai": "ภูเขาถูกปกคลุมด้วยหิมะเมื่อเช้านี้"}
+{"word": "snow", "english": "Kids love building snow forts in the winter.", "thai": "เด็กๆ ชอบสร้างป้อมหิมะในหน้าหนาว"}
+{"word": "winter", "english": "Winter fashion is all about cozy sweaters.", "thai": "แฟชั่นหน้าหนาวเน้นเสื้อสเวตเตอร์แสนอบอุ่น"}
+{"word": "cozy", "english": "The cozy cabin was perfect for our book club.", "thai": "กระท่อมแสนอบอุ่นเหมาะมากสำหรับคลับหนังสือของเรา"}
+{"word": "book", "english": "This book on sustainability changed my perspective.", "thai": "หนังสือเกี่ยวกับความยั่งยืนเล่มนี้เปลี่ยนมุมมองของฉัน"}
+{"word": "perspective", "english": "Her perspective on teamwork really inspired the group.", "thai": "มุมมองของเธอเกี่ยวกับการทำงานเป็นทีมสร้างแรงบันดาลใจให้กลุ่มจริงๆ"}
+{"word": "inspired", "english": "The documentary inspired me to start volunteering.", "thai": "สารคดีนี้สร้างแรงบันดาลใจให้ฉันเริ่มเป็นอาสาสมัคร"}
+{"word": "volunteering", "english": "Volunteering at the animal shelter feels so rewarding.", "thai": "การเป็นอาสาที่ศูนย์พักพิงสัตว์รู้สึกคุ้มค่ามาก"}
+{"word": "shelter", "english": "The storm shelter kept us safe during the tornado.", "thai": "ที่หลบภัยพายุช่วยให้เราปลอดภัยระหว่างพายุทอร์นาโด"}
+{"word": "safe", "english": "I feel safe walking home with my new dog.", "thai": "ฉันรู้สึกปลอดภัยเมื่อเดินกลับบ้านกับสุนัขตัวใหม่"}
+{"word": "dog", "english": "My dog always barks at the delivery guy.", "thai": "สุนัขของฉันเห่าคนส่งของทุกครั้ง"}
+{"word": "delivery", "english": "The delivery arrived just in time for the party.", "thai": "ของที่ส่งมาถึงทันเวลางานปาร์ตี้พอดี"}
+{"word": "party", "english": "The block party brought the whole neighborhood together.", "thai": "งานปาร์ตี้ในชุมชนทำให้ทั้งละแวกใกล้เคียงมารวมตัวกัน"}
+{"word": "neighborhood", "english": "Our neighborhood café is the go-to spot for brunch.", "thai": "ร้านกาแฟในละแวกของเราเป็นจุดนัดพบสำหรับมื้อสาย"}
+{"word": "brunch", "english": "Brunch with friends is my favorite weekend ritual.", "thai": "มื้อสายกับเพื่อนคือพิธีกรรมสุดสัปดาห์ที่ฉันชอบ"}
+{"word": "favorite", "english": "My favorite podcast just dropped a new episode.", "thai": "พอดแคสต์ที่ฉันชอบเพิ่งปล่อยตอนใหม่"}
+{"word": "episode", "english": "That TV episode had me on the edge of my seat.", "thai": "ตอนของรายการทีวีนั้นทำให้ฉันลุ้นสุดๆ"}
+{"word": "seat", "english": "I snagged a front-row seat for the comedy show.", "thai": "ฉันได้ที่นั่งแถวหน้าสำหรับโชว์ตลก"}
+{"word": "show", "english": "The talent show at school was surprisingly awesome.", "thai": "การแสดงความสามารถที่โรงเรียนเจ๋งเกินคาด"}
+{"word": "awesome", "english": "The new skate park is totally awesome for tricks.", "thai": "สวนสเก็ตใหม่เจ๋งมากสำหรับการเล่นท่า"}
+{"word": "tricks", "english": "He taught his dog some cool new tricks.", "thai": "เขาสอนสุนัขของเขาให้ทำท่าใหม่ๆ เจ๋งๆ"}
+{"word": "cool", "english": "The cool breeze made the picnic even better.", "thai": "สายลมเย็นทำให้ปิกนิกยิ่งดีขึ้น"}
+{"word": "picnic", "english": "We packed sandwiches for a picnic by the lake.", "thai": "เราเตรียมแซนด์วิชสำหรับปิกนิกที่ริมทะเลสาบ"}
+{"word": "lake", "english": "The lake was calm, perfect for kayaking.", "thai": "ทะเลสาบเงียบสงบ เหมาะสำหรับการพายเรือคายัค"}
+{"word": "calm", "english": "Her calm demeanor helped diffuse the argument.", "thai": "ท่าทางสงบของเธอช่วยคลายความตึงเครียดของการโต้แย้ง"}
+{"word": "argument", "english": "The argument in the seminar got pretty heated.", "thai": "การถกเถียงในสัมมนาค่อนข้างดุเดือด"}
+{"word": "seminar", "english": "The seminar on AI ethics was super insightful.", "thai": "สัมมนาเกี่ยวกับจริยธรรมของ AI มีความลึกซึ้งมาก"}
+{"word": "insightful", "english": "Her insightful feedback improved our project proposal.", "thai": "ข้อเสนอแนะที่ลึกซึ้งของเธอช่วยปรับปรุงข้อเสนอโปรเจกต์ของเรา"}
+{"word": "project", "english": "The group project deadline is sneaking up fast.", "thai": "กำหนดส่งโปรเจกต์กลุ่มกำลังใกล้เข้ามาเร็วมาก"}
+{"word": "deadline", "english": "Missing the deadline could mess up our funding.", "thai": "การพลาดกำหนดเวลาอาจทำให้เงินทุนของเรายุ่งเหยิง"}
+{"word": "funding", "english": "The startup secured funding for its eco-friendly product.", "thai": "สตาร์ทอัพนี้ได้เงินทุนสำหรับผลิตภัณฑ์ที่เป็นมิตรกับสิ่งแวดล้อม"}
+{"word": "product", "english": "Their new product sold out in just hours.", "thai": "ผลิตภัณฑ์ใหม่ของพวกเขาขายหมดในเวลาไม่กี่ชั่วโมง"}
+{"word": "sold", "english": "She sold her old bike to buy a skateboard.", "thai": "เธอขายจักรยานเก่าเพื่อซื้อสเก็ตบอร์ด"}
+{"word": "skateboard", "english": "He’s practicing new tricks on his skateboard daily.", "thai": "เขาฝึกท่าใหม่ๆ บนสเก็ตบอร์ดทุกวัน"}
+{"word": "practicing", "english": "Practicing mindfulness really helps me stay focused.", "thai": "การฝึกสติช่วยให้ฉันมีสมาธิมากขึ้นจริงๆ"}
+{"word": "focused", "english": "Staying focused during meetings is tough sometimes.", "thai": "การมีสมาธิในที่ประชุมบางครั้งก็ยาก"}
+{"word": "tough", "english": "The hike was tough, but the view was worth it.", "thai": "การเดินป่ายาก แต่ทิวทัศน์นั้นคุ้มค่า"}
+{"word": "view", "english": "The view from the rooftop bar is breathtaking.", "thai": "วิวจากบาร์บนดาดฟ้าสวยจนตะลึง"}
+{"word": "breathtaking", "english": "The sunset was so breathtaking we forgot to take pics.", "thai": "พระอาทิตย์ตกสวยจนตะลึงจนเราลืมถ่ายรูป"}
+{"word": "sunset", "english": "Watching the sunset is my favorite way to unwind.", "thai": "การดูพระอาทิตย์ตกคือวิธีผ่อนคลายที่ฉันชอบที่สุด"}
+{"word": "unwind", "english": "I unwind by listening to jazz after work.", "thai": "ฉันผ่อนคลายด้วยการฟังดนตรีแจ๊สหลังเลิกงาน"}
+{"word": "jazz", "english": "The jazz band really knows how to get the crowd going.", "thai": "วงดนตรีแจ๊สรู้วิธีทำให้ฝูงชนคึกคักจริงๆ"}
+{"word": "crowd", "english": "The crowd at the farmers’ market was buzzing with energy.", "thai": "ฝูงชนที่ตลาดเกษตรกรเต็มไปด้วยพลัง"}
+{"word": "market", "english": "I picked up some fresh veggies at the market.", "thai": "ฉันซื้อผักสดจากตลาดมา"}
+{"word": "veggies", "english": "These grilled veggies pair perfectly with the steak.", "thai": "ผักย่างเหล่านี้เข้ากันได้ดีกับสเต๊ก"}
+{"word": "pair", "english": "Let’s pair up for the trivia quiz tonight.", "thai": "จับคู่กันสำหรับควิซทริเวียคืนนี้ดีกว่า"}
+{"word": "quiz", "english": "The pub quiz was tougher than we thought.", "thai": "ควิซที่ผับยากกว่าที่เราคิด"}
+{"word": "tougher", "english": "This workout is tougher than my usual routine.", "thai": "การออกกำลังกายนี้หนักกว่ากิจวัตรปกติของฉัน"}
+{"word": "routine", "english": "My morning routine includes coffee and a quick stretch.", "thai": "กิจวัตรยามเช้าของฉันรวมถึงกาแฟและการยืดกล้ามเนื้อสั้นๆ"}
+{"word": "stretch", "english": "A good stretch session helps me avoid sore muscles.", "thai": "การยืดกล้ามเนื้อดีๆ ช่วยให้ฉันไม่ปวดเมื่อย"}
+{"word": "muscles", "english": "Building muscles takes dedication and a solid diet.", "thai": "การสร้างกล้ามเนื้อต้องใช้ความทุ่มเทและอาหารที่ดี"}
+{"word": "diet", "english": "Her new diet focuses on plant-based meals.", "thai": "อาหารใหม่ของเธอเน้นที่มื้ออาหารจากพืช"}
+{"word": "meals", "english": "Preparing meals in advance saves me tons of time.", "thai": "การเตรียมอาหารล่วงหน้าช่วยประหยัดเวลาได้เยอะ"}
+{"word": "time", "english": "I’m running out of time to finish this project.", "thai": "ฉันใกล้จะหมดเวลาในการทำโปรเจกต์นี้แล้ว"}
+{"word": "project", "english": "The group project presentation went off without a hitch.", "thai": "การนำเสนอโปรเจกต์กลุ่มผ่านไปได้ด้วยดี"}
+{"word": "presentation", "english": "Her presentation skills really impressed the investors.", "thai": "ทักษะการนำเสนอของเธอทำให้กลุ่มนักลงทุนประทับใจมาก"}
+{"word": "impressed", "english": "I’m impressed by how fast you learned to code.", "thai": "ฉันประทับใจที่คุณเรียนรู้การเขียนโค้ดได้เร็วมาก"}
+{"word": "code", "english": "Writing clean code makes debugging so much easier.", "thai": "การเขียนโค้ดที่สะอาดทำให้การแก้บัคง่ายขึ้นมาก"}
+{"word": "debugging", "english": "Debugging this app took all night, but it’s fixed.", "thai": "การแก้บัคแอปนี้ใช้เวลาทั้งคืน แต่ตอนนี้แก้ได้แล้ว"}
+{"word": "fixed", "english": "The mechanic fixed my car in just an hour.", "thai": "ช่างซ่อมรถของฉันเสร็จในเวลาแค่ชั่วโมงเดียว"}
+{"word": "car", "english": "I’m thinking about renting a car for the road trip.", "thai": "ฉันกำลังคิดจะเช่ารถสำหรับทริปถนน"}
+{"word": "road", "english": "The road to the cabin is super scenic.", "thai": "ถนนไปกระท่อมสวยงามมาก"}
+{"word": "scenic", "english": "We took a scenic route through the countryside.", "thai": "เราเลือกเส้นทางที่สวยงามผ่านชนบท"}
+{"word": "route", "english": "The new bus route makes my commute way faster.", "thai": "เส้นทางรถบัสใหม่ทำให้การเดินทางของฉันเร็วขึ้นมาก"}
+{"word": "commute", "english": "My commute is so much better with podcasts.", "thai": "การเดินทางไปทำงานของฉันดีขึ้นเยอะด้วยพอดแคสต์"}
+{"word": "podcasts", "english": "Podcasts about mindfulness are my go-to for relaxation.", "thai": "พอดแคสต์เกี่ยวกับสติคือตัวเลือกของฉันสำหรับการผ่อนคลาย"}
+{"word": "relaxation", "english": "A hot bath is my ultimate relaxation trick.", "thai": "การอาบน้ำร้อนคือเคล็ดลับผ่อนคลายขั้นสุดของฉัน"}
+{"word": "trick", "english": "Her makeup trick totally transformed her look.", "thai": "เคล็ดลับการแต่งหน้าของเธอเปลี่ยนลุคของเธอไปเลย"}
+{"word": "look", "english": "That vintage jacket gives you a cool look.", "thai": "แจ็คเก็ตวินเทจนั้นทำให้คุณดูเท่"}
+{"word": "cool", "english": "The new coffee shop has a cool, artsy vibe.", "thai": "ร้านกาแฟใหม่มีบรรยากาศเท่ๆ แบบศิลปะ"}
+{"word": "artsy", "english": "Her artsy photos got tons of likes on social media.", "thai": "รูปถ่ายแนวศิลปะของเธอได้ไลค์เยอะมากในโซเชียลมีเดีย"}
+{"word": "media", "english": "The media coverage of the festival was incredible.", "thai": "การรายงานของสื่อเกี่ยวกับเทศกาลนั้นยอดเยี่ยมมาก"}
+{"word": "coverage", "english": "My phone plan has great coverage in rural areas.", "thai": "แผนโทรศัพท์ของฉันมีสัญญาณครอบคลุมดีในพื้นที่ชนบท"}
+{"word": "phone", "english": "I dropped my phone and cracked the screen.", "thai": "ฉันทำโทรศัพท์ตกและหน้าจอแตก"}
+{"word": "screen", "english": "The movie screen at the drive-in is huge.", "thai": "จอภาพยนตร์ที่โรงหนังแบบไดร์ฟอินใหญ่โตมาก"}
+{"word": "drive-in", "english": "The drive-in theater is making a comeback this summer.", "thai": "โรงหนังแบบไดร์ฟอินกำลังกลับมาฮิตในหน้าร้อนนี้"}
+{"word": "comeback", "english": "Her comeback album is blowing up the charts.", "thai": "อัลบั้มคัมแบ็คของเธอกำลังฮิตติดชาร์ต"}
+{"word": "album", "english": "I can’t stop listening to this new jazz album.", "thai": "ฉันหยุดฟังอัลบั้มแจ๊สใหม่นี้ไม่ได้เลย"}
+{"word": "listening", "english": "Listening to audiobooks makes chores way more fun.", "thai": "การฟังหนังสือเสียงทำให้งานบ้านสนุกขึ้นเยอะ"}
+{"word": "chores", "english": "I split the household chores with my roommate.", "thai": "ฉันแบ่งงานบ้านกับรูมเมท"}
+{"word": "roommate", "english": "My roommate always leaves dishes in the sink.", "thai": "รูมเมทของฉันมักทิ้งจานไว้ในอ่าง"}
+{"word": "dishes", "english": "Washing dishes by hand is oddly therapeutic.", "thai": "การล้างจานด้วยมือรู้สึกผ่อนคลายอย่างประหลาด"}
+{"word": "therapeutic", "english": "Gardening is super therapeutic after a stressful day.", "thai": "การทำสวนผ่อนคลายมากหลังจากวันที่เครียด"}
+{"word": "stressful", "english": "The deadline was stressful, but we pulled through.", "thai": "กำหนดเวลานั้นเครียดมาก แต่เราก็ผ่านมันมาได้"}
+{"word": "pulled", "english": "We pulled off an epic surprise party for her.", "thai": "เราจัดงานปาร์ตี้เซอร์ไพรส์สุดยอดให้เธอได้สำเร็จ"}
+{"word": "party", "english": "The costume party had everyone cracking up.", "thai": "งานปาร์ตี้ชุดแฟนซีทำให้ทุกคนขำกลิ้ง"}
+{"word": "cracking", "english": "Cracking jokes during meetings keeps things light.", "thai": "การเล่าเรื่องตลกในที่ประชุมช่วยให้บรรยากาศผ่อนคลาย"}
+{"word": "light", "english": "The light from the campfire made everything cozy.", "thai": "แสงจากกองไฟทำให้ทุกอย่างดูอบอุ่น"}
+{"word": "campfire", "english": "We roasted marshmallows around the campfire last night.", "thai": "เมื่อคืนเราเอามาร์ชเมลโลว์ไปย่างรอบกองไฟ"}
+{"word": "marshmallows", "english": "Marshmallows make hot chocolate so much better.", "thai": "มาร์ชเมลโลว์ทำให้ช็อกโกแลตร้อนอร่อยขึ้นเยอะ"}
+{"word": "chocolate", "english": "I’m craving chocolate chip cookies right now.", "thai": "ตอนนี้ฉันอยากกินคุกกี้ช็อกโกแลตชิปมาก"}
+{"word": "cookies", "english": "Baking cookies with my kids is always a blast.", "thai": "การอบคุกกี้กับลูกๆ สนุกสุดๆ เสมอ"}
+{"word": "blast", "english": "The festival fireworks were a total blast.", "thai": "ดอกไม้ไฟในงานเทศกาลมันสุดยอดมาก"}
+{"word": "fireworks", "english": "Fireworks lit up the sky during the holiday.", "thai": "ดอกไม้ไฟสว่างไสวบนท้องฟ้าในช่วงวันหยุด"}
+{"word": "sky", "english": "The clear sky was perfect for stargazing.", "thai": "ท้องฟ้าแจ่มใสเหมาะมากสำหรับการดูดาว"}
+{"word": "stargazing", "english": "Stargazing with a telescope is my new hobby.", "thai": "การดูดาวด้วยกล้องโทรทรรศน์คืองานอดิเรกใหม่ของฉัน"}
+{"word": "hobby", "english": "Photography is a hobby that keeps me creative.", "thai": "การถ่ายภาพคืองานอดิเรกที่ทำให้ฉันมีคสวามคิดสร้างสรรค์"}
+{"word": "creative", "english": "Her creative solution fixed the website’s glitch.", "thai": "วิธีแก้ปัญหาที่สร้างสรรค์ของเธอซ่อมแซมข้อบกพร่องของเว็บไซต์"}
+{"word": "website", "english": "The website redesign looks sleek and user-friendly.", "thai": "การออกแบบเว็บไซต์ใหม่ดูทันสมัยและใช้งานง่าย"}
+{"word": "sleek", "english": "The sleek new phone has amazing camera features.", "thai": "โทรศัพท์รุ่นใหม่ที่ดูโฉบเฉี่ยวมีฟีเจอร์กล้องที่น่าทึ่ง"}
+{"word": "camera", "english": "My camera caught the perfect sunset shot yesterday.", "thai": "กล้องของฉันจับภาพพระอาทิตย์ตกที่สมบูรณ์แบบเมื่อวานนี้"}
+{"word": "shot", "english": "I took a shot at painting, and it’s fun.", "thai": "ฉันลองวาดภาพดู แล้วมันสนุกมาก"}
+{"word": "painting", "english": "Painting the living room took all weekend.", "thai": "การทาสีห้องนั่งเล่นใช้เวลาทั้งสุดสัปดาห์"}
+{"word": "room", "english": "The guest room needs a new coat of paint.", "thai": "ห้องรับแขกต้องการทาสีใหม่"}
+{"word": "coat", "english": "I grabbed my coat because it’s freezing outside.", "thai": "ฉันหยิบเสื้อโค้ทเพราะข้างนอกหนาวมาก"}
+{"word": "freezing", "english": "The lake was freezing, but we went swimming anyway.", "thai": "ทะเลสาบหนาวมาก แต่เราก็ลงไปว่ายน้ำอยู่ดี"}
+{"word": "swimming", "english": "Swimming laps is my go-to cardio workout.", "thai": "การว่ายน้ำตีระยะเป็นการออกกำลังกายคาร์ดิโอที่ฉันชอบ"}
+{"word": "cardio", "english": "Cardio sessions always leave me feeling energized.", "thai": "การออกกำลังกายแบบคาร์ดิโอมักทำให้ฉันรู้สึกกระปรี้กระเปร่า"}
+{"word": "energized", "english": "I felt energized after a quick power nap.", "thai": "ฉันรู้สึกกระปรี้กระเปร่าหลังจากงีบสั้นๆ"}
+{"word": "nap", "english": "A short nap can recharge you for the day.", "thai": "การงีบสั้นๆ สามารถเติมพลังให้คุณได้ทั้งวัน"}
+{"word": "recharge", "english": "I need to recharge my phone before we head out.", "thai": "ฉันต้องชาร์จโทรศัพท์ก่อนที่เราจะออกไป"}
+{"word": "head", "english": "Let’s head to the mall for some shopping.", "thai": "ไปที่ห้างเพื่อช็อปปิ้งกันเถอะ"}
+{"word": "shopping", "english": "Shopping for vintage clothes is my weekend obsession.", "thai": "การช็อปปิ้งเสื้อผ้าวินเทจคือสิ่งที่ฉันหลงใหลในวันสุดสัปดาห์"}
+{"word": "obsession", "english": "Her obsession with board games is super contagious.", "thai": "ความหลงใหลในบอร์ดเกมของเธอติดต่อกันมาก"}
+{"word": "games", "english": "Video games are my escape after a long day.", "thai": "วิดีโอเกมคือทางหนีของฉันหลังจากวันที่ยาวนาน"}
+{"word": "escape", "english": "A weekend camping trip is the perfect escape.", "thai": "ทริปแคมป์ปิ้งสุดสัปดาห์คือการหลบหนีที่สมบูรณ์แบบ"}
+{"word": "camping", "english": "Camping under the stars feels like pure magic.", "thai": "การแคมป์ปิ้งใต้ดวงดาวรู้สึกเหมือนเวทมนตร์ล้วนๆ"}
+{"word": "magic", "english": "The magic show at the fair was mind-blowing.", "thai": "การแสดงมายากลที่งานแฟร์น่าทึ่งมาก"}
+{"word": "fair", "english": "The county fair had the best fried food ever.", "thai": "งานแฟร์ประจำเมืองมีอาหารทอดอร่อยที่สุดเลย"}
+{"word": "food", "english": "Street food in the city is always a hit.", "thai": "อาหารริมทางในเมืองฮิตเสมอ"}
+{"word": "hit", "english": "Her new song is a total hit on the radio.", "thai": "เพลงใหม่ของเธอฮิตมากในวิทยุ"}
+{"word": "radio", "english": "I heard a cool interview on the radio today.", "thai": "ฉันได้ยินการสัมภาษณ์เจ๋งๆ ทางวิทยุวันนี้"}
+{"word": "interview", "english": "Nailing the job interview felt like a huge win.", "thai": "การทำได้ดีในการสัมภาษณ์งานรู้สึกเหมือนชัยชนะครั้งใหญ่"}
+{"word": "job", "english": "My new job comes with a sweet office view.", "thai": "งานใหม่ของฉันมาพร้อมวิวจากออฟฟิศที่สวยงาม"}
+{"word": "office", "english": "The office vibe is so much better with plants.", "thai": "บรรยากาศในออฟฟิศดีขึ้นเยอะเมื่อมีต้นไม้"}
+{"word": "plants", "english": "I’m watering my plants to keep them thriving.", "thai": "ฉันกำลังรดน้ำต้นไม้เพื่อให้มันเจริญเติบโต"}
+{"word": "thriving", "english": "The local bakery is thriving thanks to loyal customers.", "thai": "ร้านเบเกอรี่ท้องถิ่นเติบโตได้ดีเพราะลูกค้าประจำ"}
+{"word": "bakery", "english": "The bakery’s fresh bread smells absolutely divine.", "thai": "ขนมปังสดจากร้านเบเกอรี่หอมสุดยอด"}
+{"word": "bread", "english": "I’m making avocado toast with crusty bread.", "thai": "ฉันกำลังทำอะโวคาโดโทสต์กับขนมปังกรอบ"}
+{"word": "toast", "english": "Let’s raise a toast to new beginnings tonight.", "thai": "คืนนี้มายกแก้วให้กับการเริ่มต้นใหม่กันเถอะ"}
+{"word": "beginnings", "english": "New beginnings always bring a mix of excitement and nerves.", "thai": "การเริ่มต้นใหม่มักนำมาซึ่งความตื่นเต้นและความกังวลปนกัน"}
+{"word": "excitement", "english": "The excitement of the game kept us on edge.", "thai": "ความตื่นเต้นของเกมทำให้เราลุ้นระทึก"}
+{"word": "game", "english": "Board game nights always bring out my competitive side.", "thai": "คืนเล่นบอร์ดเกมมักดึงด้านที่ชอบแข่งขันของฉันออกมา"}
+{"word": "competitive", "english": "The competitive job market is tough to navigate.", "thai": "ตลาดงานที่แข่งขันสูงนั้นยากต่อการจัดการ"}
+{"word": "navigate", "english": "I use GPS to navigate when I’m driving downtown.", "thai": "ฉันใช้ GPS เพื่อนำทางเมื่อขับรถในตัวเมือง"}
+{"word": "driving", "english": "Driving through the mountains feels like an adventure.", "thai": "การขับรถผ่านภูเขารู้สึกเหมือนการผจญภัย"}
+{"word": "adventure", "english": "Skydiving was the wildest adventure I’ve ever tried.", "thai": "การกระโดดร่มเป็นการผจญภัยที่ตื่นเต้นที่สุดที่ฉันเคยลอง"}
+{"word": "tried", "english": "I tried baking sourdough bread for the first time.", "thai": "ฉันลองอบขนมปังซาวร์โดว์เป็นครั้งแรก"}
+{"word": "baking", "english": "Baking cookies with grandma is my favorite memory.", "thai": "การอบคุกกี้กับคุณยายคือความทรงจำที่ฉันชอบที่สุด"}
+{"word": "memory", "english": "That song brings back a vivid memory of summer camp.", "thai": "เพลงนั้นทำให้ฉันนึกถึงความทรงจำที่ชัดเจนของค่ายฤดูร้อน"}
+{"word": "camp", "english": "We set up camp near a quiet river.", "thai": "เราตั้งแคมป์ใกล้แม่น้ำที่เงียบสงบ"}
+{"word": "river", "english": "The river cruise offered stunning views of the city.", "thai": "การล่องเรือในแม่น้ำให้ทัศนียภาพที่สวยงามของเมือง"}
+{"word": "views", "english": "Her views on sustainability really shaped our project.", "thai": "มุมมองของเธอเกี่ยวกับความยั่งยืนช่วยกำหนดโปรเจกต์ของเรา"}
+{"word": "project", "english": "The art project took weeks but turned out amazing.", "thai": "โปรเจกต์ศิลปะใช้เวลาหลายสัปดาห์แต่ผลลัพธ์น่าทึ่ง"}
+{"word": "art", "english": "Street art always adds color to the neighborhood.", "thai": "ศิลปะบนถนนเพิ่มสีสันให้กับย่านนี้เสมอ"}
+{"word": "color", "english": "The fall leaves burst with vibrant color every year.", "thai": "ใบไม้ในฤดูใบไม้ร่วงเต็มไปด้วยสีสันสดใสทุกปี"}
+{"word": "vibrant", "english": "The vibrant festival had music and food galore.", "thai": "งานเทศกาลที่คึกคักมีทั้งดนตรีและอาหารมากมาย"}
+{"word": "music", "english": "Live music at the bar gets everyone dancing.", "thai": "ดนตรีสดที่บาร์ทำให้ทุกคนเต้นรำ"}
+{"word": "dancing", "english": "Dancing in the rain felt so freeing last night.", "thai": "การเต้นรำท่ามกลางสายฝนเมื่อคืนรู้สึกเป็นอิสระมาก"}
+{"word": "rain", "english": "The rain canceled our picnic, so we stayed in.", "thai": "ฝนทำให้ปิกนิกของเรายกเลิก เลยต้องอยู่บ้าน"}
+{"word": "stayed", "english": "We stayed up late binge-watching a new series.", "thai": "เราไม่นอนดึกเพื่อดูซีรีส์ใหม่แบบมาราธอน"}
+{"word": "series", "english": "The new sci-fi series is totally gripping.", "thai": "ซีรีส์ไซไฟใหม่นี่น่าติดตามสุดๆ"}
+{"word": "gripping", "english": "Her gripping speech inspired the entire audience.", "thai": "คำปราศรัยที่ตราตรึงของเธอสร้างแรงบันดาลใจให้ผู้ฟังทั้งหมด"}
+{"word": "speech", "english": "I’m nervous about giving a speech at the wedding.", "thai": "ฉันตื่นเต้นที่จะต้องกล่าวสุนทรพจน์ในงานแต่งงาน"}
+{"word": "wedding", "english": "The wedding venue was decorated with fairy lights.", "thai": "สถานที่จัดงานแต่งงานถูกประดับด้วยไฟนางฟ้า"}
+{"word": "lights", "english": "The city lights look magical from the rooftop.", "thai": "แสงไฟในเมืองดูมีมนต์ขลังจากบนดาดฟ้า"}
+{"word": "rooftop", "english": "The rooftop yoga class is my new favorite thing.", "thai": "คลาสโยคะบนดาดฟ้าเป็นสิ่งที่ฉันชอบที่สุดตอนนี้"}
+{"word": "yoga", "english": "Yoga helps me stay calm during stressful weeks.", "thai": "โยคะช่วยให้ฉันสงบในช่วงสัปดาห์ที่เครียด"}
+{"word": "calm", "english": "Her calm approach diffused the tense meeting.", "thai": "วิธีการที่สงบของเธอช่วยคลายความตึงเครียดในที่ประชุม"}
+{"word": "meeting", "english": "The team meeting ran smoothly with clear goals.", "thai": "การประชุมทีมดำเนินไปอย่างราบรื่นด้วยเป้าหมายที่ชัดเจน"}
+{"word": "goals", "english": "Setting small goals keeps my workouts consistent.", "thai": "การตั้งเป้าหมายเล็กๆ ช่วยให้ฉันออกกำลังกายอย่างสม่ำเสมอ"}
+{"word": "workouts", "english": "Morning workouts give me energy for the day.", "thai": "การออกกำลังกายตอนเช้าให้พลังงานกับฉันทั้งวัน"}
+{"word": "energy", "english": "Solar energy is powering our new community center.", "thai": "พลังงานแสงอาทิตย์กำลังขับเคลื่อนศูนย์ชุมชนใหม่ของเรา"}
+{"word": "community", "english": "The community garden brings neighbors together.", "thai": "สวนชุมชนทำให้เพื่อนบ้านมารวมตัวกัน"}
+{"word": "garden", "english": "Her garden is full of colorful wildflowers.", "thai": "สวนของเธอเต็มไปด้วยดอกไม้ป่าหลากสี"}
+{"word": "colorful", "english": "The colorful murals brightened up the old building.", "thai": "ภาพจิตรกรรมฝาผนังหลากสีทำให้อาคารเก่าสว่างไสว"}
+{"word": "building", "english": "The new office building has a sleek modern design.", "thai": "อาคารสำนักงานใหม่มีดีไซน์ทันสมัยที่โฉบเฉี่ยว"}
+{"word": "design", "english": "Her fashion design portfolio blew everyone away.", "thai": "แฟ้มผลงานการออกแบบแฟชั่นของเธอทำให้ทุกคนทึ่ง"}
+{"word": "fashion", "english": "Fashion trends this season are all about bold patterns.", "thai": "เทรนด์แฟชั่นในฤดูกาลนี้เน้นลวดลายที่โดดเด่น"}
+{"word": "patterns", "english": "I love knitting scarves with intricate patterns.", "thai": "ฉันชอบถักผ้าพันคอที่มีลวดลายซับซ้อน"}
+{"word": "knitting", "english": "Knitting with friends is my kind of therapy.", "thai": "การถักนิตติ้งกับเพื่อนคือวิธีบำบัดของฉัน"}
+{"word": "therapy", "english": "Art therapy helped me process some tough emotions.", "thai": "ศิลปะบำบัดช่วยให้ฉันจัดการกับอารมณ์ที่ยากลำบาก"}
+{"word": "emotions", "english": "Expressing emotions through journaling feels so freeing.", "thai": "การแสดงอารมณ์ผ่านการเขียนบันทึกทำให้รู้สึกเป็นอิสระ"}
+{"word": "journaling", "english": "Journaling every night helps me reflect on my day.", "thai": "การเขียนบันทึกทุกคืนช่วยให้ฉันทบทวนวันของตัวเอง"}
+{"word": "reflect", "english": "The seminar gave me time to reflect on my goals.", "thai": "สัมมนานี้ให้เวลาฉันในการทบทวนเป้าหมาย"}
+{"word": "goals", "english": "My fitness goals are all about staying consistent.", "thai": "เป้าหมายการออกกำลังกายของฉันคือการรักษาความสม่ำเสมอ"}
+{"word": "fitness", "english": "The fitness app tracks my steps and calories.", "thai": "แอปฟิตเนสติดตามก้าวเดินและแคลอรี่ของฉัน"}
+{"word": "app", "english": "This new app makes meal planning so easy.", "thai": "แอปใหม่นี้ทำให้การวางแผนมื้ออาหารง่ายมาก"}
+{"word": "meal", "english": "A quick meal prep saves me time all week.", "thai": "การเตรียมอาหารล่วงหน้าช่วยประหยัดเวลาได้ทั้งสัปดาห์"}
+{"word": "time", "english": "Time management is key to juggling work and hobbies.", "thai": "การบริหารเวลาคือกุญแจในการจัดการงานและงานอดิเรก"}
+{"word": "hobbies", "english": "My hobbies include hiking and collecting vinyl records.", "thai": "งานอดิเรกของฉันรวมถึงการเดินป่าและสะสมแผ่นเสียง"}
+{"word": "hiking", "english": "Hiking up the trail gave us an epic view.", "thai": "การเดินป่าขึ้นไปตามเส้นทางให้วิวที่ยอดเยี่ยม"}
+{"word": "view", "english": "The view from the cliff was absolutely breathtaking.", "thai": "วิวจากหน้าผาสวยงามจนตะลึง"}
+{"word": "breathtaking", "english": "The ballet performance was breathtaking and graceful.", "thai": "การแสดงบัลเลต์นั้นสวยงามและสง่างาม"}
+{"word": "performance", "english": "His performance in the play got a standing ovation.", "thai": "การแสดงของเขาในละครได้รับการปรบมือยืน"}
+{"word": "play", "english": "Let’s play some board games this weekend.", "thai": "มาเล่นบอร์ดเกมกันสุดสัปดาห์นี้เถอะ"}
+{"word": "games", "english": "Video games are my go-to for stress relief.", "thai": "วิดีโอเกมคือตัวเลือกของฉันสำหรับการคลายเครียด"}
+{"word": "stress", "english": "Work stress has me craving a long vacation.", "thai": "ความเครียดจากงานทำให้ฉันอยากไปพักร้อนนานๆ"}
+{"word": "vacation", "english": "Our vacation to the beach was pure bliss.", "thai": "วันหยุดพักผ่อนที่ชายหาดคือความสุขล้วนๆ"}
+{"word": "beach", "english": "The beach sunset made for a perfect evening.", "thai": "พระอาทิตย์ตกที่ชายหาดทำให้ค่ำคืนนั้นสมบูรณ์แบบ"}
+{"word": "sunset", "english": "Watching the sunset with friends is always special.", "thai": "การดูพระอาทิตย์ตกกับเพื่อนๆ เป็นอะไรที่พิเศษเสมอ"}
+{"word": "friends", "english": "Hanging out with friends always lifts my mood.", "thai": "การไปเที่ยวกับเพื่อนๆ ทำให้ฉันอารมณ์ดีขึ้นเสมอ"}
+{"word": "mood", "english": "The cozy café put me in a great mood.", "thai": "ร้านกาแฟแสนอบอุ่นทำให้ฉันอารมณ์ดีมาก"}
+{"word": "café", "english": "The café downtown serves the best lattes ever.", "thai": "ร้านกาแฟในตัวเมืองมีลาเต้ที่ดีที่สุดเลย"}
+{"word": "lattes", "english": "I’m addicted to pumpkin spice lattes in the fall.", "thai": "ฉันติดลาเต้รสฟักทองในช่วงฤดูใบไม้ร่วง"}
+{"word": "fall", "english": "The fall festival is packed with fun activities.", "thai": "งานเทศกาลฤดูใบไม้ร่วงเต็มไปด้วยกิจกรรมสนุกๆ"}
+{"word": "activities", "english": "Outdoor activities like kayaking keep me energized.", "thai": "กิจกรรมกลางแจ้งอย่างการพายเรือคายัคทำให้ฉันมีพลัง"}
+{"word": "kayaking", "english": "Kayaking on the lake is so peaceful.", "thai": "การพายเรือคายัคบนทะเลสาบเงียบสงบมาก"}
+{"word": "peaceful", "english": "A peaceful morning walk sets the tone for my day.", "thai": "การเดินตอนเช้าที่เงียบสงบกำหนดอารมณ์ให้วันของฉัน"}
+{"word": "walk", "english": "Let’s take a walk through the park this afternoon.", "thai": "ไปเดินเล่นที่สวนสาธารณะบ่ายนี้กันเถอะ"}
+{"word": "park", "english": "The park is perfect for a quick picnic.", "thai": "สวนสาธารณะเหมาะสำหรับปิกนิกสั้นๆ"}
+{"word": "picnic", "english": "We packed sandwiches for a picnic by the river.", "thai": "เราเตรียมแซนด์วิชสำหรับปิกนิกที่ริมแม่น้ำ"}
+{"word": "sandwiches", "english": "These sandwiches from the deli are next-level good.", "thai": "แซนด์วิชจากร้านเดลี่นี้ดีสุดยอด"}
+{"word": "deli", "english": "The deli downtown makes the best pastrami on rye.", "thai": "ร้านเดลี่ในตัวเมืองทำแซนด์วิชพาสตรามีบนขนมปังไรที่ดีที่สุด"}
+{"word": "pastrami", "english": "Pastrami sandwiches are my go-to lunch order.", "thai": "แซนด์วิชพาสตรามีคือเมนูอาหารกลางวันที่ฉันเลือกเสมอ"}
+{"word": "lunch", "english": "Let’s grab lunch at the new taco spot.", "thai": "ไปกินมื้อเที่ยงที่ร้านทาโก้ใหม่กันเถอะ"}
+{"word": "taco", "english": "The taco truck has the spiciest salsa around.", "thai": "รถขายทาโก้มีซัลซ่ารสเผ็ดที่สุดในละแวกนี้"}
+{"word": "salsa", "english": "I’m practicing salsa dancing for the community event.", "thai": "ฉันกำลังฝึกเต้นซัลซ่าสำหรับงานชุมชน"}
+{"word": "dancing", "english": "Dancing at the club always feels like a party.", "thai": "การเต้นรำที่คลับรู้สึกเหมือนงานปาร์ตี้เสมอ"}
+{"word": "club", "english": "The book club meets every Thursday to discuss novels.", "thai": "ชมรมหนังสือพบกันทุกวันพฤหัสเพื่อคุยเกี่ยวกับนิยาย"}
+{"word": "novels", "english": "I’m hooked on mystery novels this month.", "thai": "เดือนนี้ฉันติดนิยายลึกลับมาก"}
+{"word": "mystery", "english": "The mystery of the missing keys kept us guessing.", "thai": "ปริศนาของกุญแจที่หายไปทำให้เราคาดเดากันใหญ่"}
+{"word": "keys", "english": "I left my keys on the kitchen counter again.", "thai": "ฉันลืมกุญแจไว้บนเคาน์เตอร์ครัวอีกแล้ว"}
+{"word": "kitchen", "english": "The kitchen smells amazing when I bake bread.", "thai": "ครัวมีกลิ่นหอมน่าทึ่งเมื่อฉันอบขนมปัง"}
+{"word": "bake", "english": "Let’s bake a cake for the birthday party.", "thai": "มาอบเค้กสำหรับงานวันเกิดกันเถอะ"}
+{"word": "cake", "english": "The chocolate cake at the bakery is unreal.", "thai": "เค้กช็อกโกแลตที่ร้านเบเกอรี่นี่สุดยอดมาก"}
+{"word": "bakery", "english": "The bakery down the street has fresh croissants daily.", "thai": "ร้านเบเกอรี่แถวนี้มีครัวซองต์สดใหม่ทุกวัน"}
+{"word": "croissants", "english": "Croissants with coffee make the perfect breakfast.", "thai": "ครัวซองต์กับกาแฟคืออาหารเช้าที่สมบูรณ์แบบ"}
+{"word": "breakfast", "english": "I whipped up a quick breakfast smoothie today.", "thai": "วันนี้ฉันทำสมูทตี้มื้อเช้าแบบเร็วๆ"}
+{"word": "smoothie", "english": "This smoothie recipe is packed with tropical flavors.", "thai": "สูตรสมูทตี้สูตรนี้เต็มไปด้วยรสชาติเขตร้อน"}
+{"word": "flavors", "english": "The ice cream shop has unique flavors like lavender.", "thai": "ร้านไอศกรีมมีรสชาติแปลกใหม่เช่นลาเวนเดอร์"}
+{"word": "ice", "english": "The ice in my drink melted way too fast.", "thai": "น้ำแข็งในเครื่องดื่มของฉันละลายเร็วเกินไป"}
+{"word": "drink", "english": "Let’s grab a drink after work to catch up.", "thai": "ไปจิบเครื่องดื่มหลังเลิกงานเพื่ออัพเดตกันหน่อย"}
+{"word": "catch", "english": "I’ll catch the bus to get to the concert.", "thai": "ฉันจะขึ้นรถบัสเพื่อไปคอนเสิร์ต"}
+{"word": "concert", "english": "The concert last night had an electric vibe.", "thai": "คอนเสิร์ตเมื่อคืนมีบรรยากาศที่ตื่นเต้นสุดๆ"}
+{"word": "vibe", "english": "The cozy bookstore has such a chill vibe.", "thai": "ร้านหนังสือแสนอบอุ่นมีบรรยากาศที่ผ่อนคลายมาก"}
+{"word": "bookstore", "english": "The bookstore downtown is my go-to for rare finds.", "thai": "ร้านหนังสือในตัวเมืองคือที่ที่ฉันไปหาหนังสือหายาก"}
+{"word": "finds", "english": "Thrift stores are great for unique vintage finds.", "thai": "ร้านมือสองเหมาะสำหรับการหาของวินเทจที่ไม่เหมือนใคร"}
+{"word": "vintage", "english": "Her vintage camera still takes stunning photos.", "thai": "กล้องวินเทจของเธอยังถ่ายรูปได้สวยงาม"}
+{"word": "photos", "english": "I’m framing some photos from our last trip.", "thai": "ฉันกำลังจะใส่กรอบรูปจากทริปครั้งล่าสุดของเรา"}
+{"word": "trip", "english": "A road trip with friends sounds like a blast.", "thai": "ทริปถนนกับเพื่อนๆ ดูเหมือนจะสนุกสุดๆ"}
+{"word": "blast", "english": "The party was a blast with non-stop dancing.", "thai": "งานปาร์ตี้สนุกสุดเหวี่ยงด้วยการเต้นรำไม่หยุด"}
+{"word": "dancing", "english": "Dancing lessons are helping me gain confidence.", "thai": "บทเรียนการเต้นรำช่วยให้ฉันมั่นใจมากขึ้น"}
+{"word": "confidence", "english": "Her confidence during the pitch won the client over.", "thai": "ความมั่นใจของเธอระหว่างการนำเสนอทำให้ลูกค้าพึงพอใจ"}
+{"word": "client", "english": "The client meeting went better than I expected.", "thai": "การประชุมกับลูกค้าเป็นไปดีกว่าที่ฉันคาดไว้"}
+{"word": "expected", "english": "The test results weren’t what we expected.", "thai": "ผลการสอบไม่เป็นไปตามที่เราคาด"}
+{"word": "test", "english": "I’m nervous about the driving test tomorrow.", "thai": "ฉันตื่นเต้นกับการสอบขับรถพรุ่งนี้"}
+{"word": "driving", "english": "Driving through the countryside is so relaxing.", "thai": "การขับรถผ่านชนบทนั้นผ่อนคลายมาก"}
+{"word": "countryside", "english": "The countryside cabin has a stunning view.", "thai": "กระท่อมในชนบทมีวิวที่สวยงาม"}
+{"word": "view", "english": "The view from the hilltop was worth the hike.", "thai": "วิวจากยอดเขาคุ้มค่ากับการเดินป่า"}
+{"word": "hike", "english": "Let’s hike the trail near the lake this weekend.", "thai": "ไปเดินป่าที่เส้นทางใกล้ทะเลสาบสุดสัปดาห์นี้กันเถอะ"}
+{"word": "lake", "english": "The lake was perfect for a quiet kayak trip.", "thai": "ทะเลสาบเหมาะสำหรับการพายเรือคายัคเงียบๆ"}
+{"word": "trip", "english": "A road trip playlist needs some upbeat tunes.", "thai": "เพลย์ลิสต์ทริปถนนต้องมีเพลงจังหวะสนุกๆ"}
+{"word": "tunes", "english": "Those retro tunes always get me dancing.", "thai": "เพลงย้อนยุคพวกนั้นทำให้ฉันอยากเต้นทุกที"}
+{"word": "dancing", "english": "Dancing at the festival was a total blast.", "thai": "การเต้นรำที่งานเทศกาลสนุกสุดยอด"}
+{"word": "festival", "english": "The music festival drew a massive crowd.", "thai": "งานเทศกาลดนตรีดึงดูดฝูงชนจำนวนมาก"}
+{"word": "crowd", "english": "The crowd cheered when the team scored.", "thai": "ฝูงชนโห่ร้องเมื่อทีมทำคะแนน"}
+{"word": "team", "english": "Our team nailed the project deadline.", "thai": "ทีมของเราทำโปรเจกต์เสร็จทันกำหนด"}
+{"word": "project", "english": "The science project blew my mind with its creativity.", "thai": "โปรเจกต์วิทยาศาสตร์ทำให้ฉันทึ่งด้วยความคิดสร้างสรรค์"}
+{"word": "creativity", "english": "Her creativity shines in her DIY home decor.", "thai": "ความคิดสร้างสรรค์ของเธอเปล่งประกายในของตกแต่งบ้านที่ทำเอง"}
+{"word": "decor", "english": "The holiday decor made the house feel festive.", "thai": "ของตกแต่งวันหยุดทำให้บ้านรู้สึกครึกครื้น"}
+{"word": "festive", "english": "The festive vibe at the market was contagious.", "thai": "บรรยากาศครึกครื้นที่ตลาดนั้นติดต่อกันได้"}
+{"word": "market", "english": "I picked up fresh produce at the farmers’ market.", "thai": "ฉันซื้อผักผลไม้สดจากตลาดเกษตรกร"}
+{"word": "fresh", "english": "Fresh coffee in the morning is a game-changer.", "thai": "กาแฟสดในตอนเช้าคือตัวเปลี่ยนเกม"}
+{"word": "coffee", "english": "Let’s meet for coffee and catch up soon.", "thai": "มานัดเจอกันที่ร้านกาแฟแล้วคุยอัพเดตกันเร็วๆ นี้"}
+{"word": "catch", "english": "I’ll catch the game on TV tonight.", "thai": "ฉันจะดูเกมทางทีวีคืนนี้"}
+{"word": "game", "english": "Board game nights always bring out the laughs.", "thai": "คืนเล่นบอร์ดเกมมักทำให้ทุกคนหัวเราะ"}
+{"word": "laughs", "english": "Her jokes always get big laughs from everyone.", "thai": "มุกตลกของเธอมักทำให้ทุกคนหัวเราะดัง"}
+{"word": "jokes", "english": "Cracking jokes during lunch breaks the ice.", "thai": "การเล่ามุกตลกระหว่างพักเที่ยงช่วยละลายพฤติกรรม"}
+{"word": "lunch", "english": "Lunch at the new sushi spot was amazing.", "thai": "มื้อเที่ยงที่ร้านซูชิใหม่สุดยอดมาก"}
+{"word": "spot", "english": "That hiking spot is perfect for sunrise views.", "thai": "จุดเดินป่านั้นเหมาะสำหรับดูพระอาทิตย์ขึ้น"}
+{"word": "sunrise", "english": "Watching the sunrise from the beach is magical.", "thai": "การดูพระอาทิตย์ขึ้นจากชายหาดนั้นมีมนต์ขลัง"}
+{"word": "beach", "english": "The beach picnic was ruined by sudden rain.", "thai": "ปิกนิกที่ชายหาดพังเพราะฝนตกกะทันหัน"}
+{"word": "rain", "english": "I forgot my umbrella, and now I’m soaked from the rain.", "thai": "ฉันลืมร่ม ตอนนี้เปียกฝนหมดเลย"}
+{"word": "soaked", "english": "My shoes got soaked after stepping in a puddle.", "thai": "รองเท้าของฉันเปียกชุ่มหลังจากเหยียบแอ่งน้ำ"}
+{"word": "shoes", "english": "These new running shoes make workouts so comfy.", "thai": "รองเท้าวิ่งคู่ใหม่ทำให้การออกกำลังกายสบายมาก"}
+{"word": "workouts", "english": "Morning workouts give me a boost of energy.", "thai": "การออกกำลังกายตอนเช้าให้พลังงานกับฉัน"}
+{"word": "energy", "english": "The crowd’s energy at the concert was electric.", "thai": "พลังของฝูงชนในคอนเสิร์ตนั้นตื่นเต้นสุดๆ"}
+{"word": "concert", "english": "The concert tickets sold out in minutes.", "thai": "ตั๋วคอนเสิร์ตขายหมดในไม่กี่นาที"}
+{"word": "tickets", "english": "I scored cheap tickets for the comedy show.", "thai": "ฉันได้ตั๋วราคาถูกสำหรับโชว์ตลก"}
+{"word": "show", "english": "The reality show drama is totally addictive.", "thai": "ดราม่าในรายการเรียลลิตี้โชว์นี่ติดหนึบเลย"}
+{"word": "drama", "english": "There’s always drama at our family reunions.", "thai": "งานรวมญาติของเรามักมีดราม่าเสมอ"}
+{"word": "family", "english": "Family game nights are my favorite tradition.", "thai": "คืนเล่นเกมกับครอบครัวคือประเพณีที่ฉันชอบที่สุด"}
+{"word": "tradition", "english": "Baking cookies is a holiday tradition for us.", "thai": "การอบคุกกี้คือประเพณีวันหยุดของเรา"}
+{"word": "cookies", "english": "I ate way too many cookies at the party.", "thai": "ฉันกินคุกกี้เยอะเกินไปในงานปาร์ตี้"}
+{"word": "party", "english": "The block party had live music and great food.", "thai": "งานปาร์ตี้ในชุมชนมีดนตรีสดและอาหารอร่อย"}
+{"word": "food", "english": "Street food trucks always have the best tacos.", "thai": "รถขายอาหารริมถนนมักมีทาโก้ที่ดีที่สุด"}
+{"word": "tacos", "english": "I’m craving tacos from that new Mexican place.", "thai": "ฉันอยากกินทาโก้จากร้านเม็กซิกันใหม่นั้น"}
+{"word": "place", "english": "This place has the coziest coffee shop vibe.", "thai": "ที่นี่มีบรรยากาศร้านกาแฟที่อบอุ่นที่สุด"}
+{"word": "vibe", "english": "The chill vibe at the bookstore is perfect.", "thai": "บรรยากาศผ่อนคลายที่ร้านหนังสือเหมาะสุดๆ"}
+{"word": "bookstore", "english": "The bookstore’s poetry section is my happy place.", "thai": "ส่วนกวีนิพนธ์ของร้านหนังสือคือที่ที่ฉันมีความสุข"}
+{"word": "poetry", "english": "Her poetry reading moved the entire audience.", "thai": "การอ่านกวีนิพนธ์ของเธอทำให้ผู้ฟังทั้งหมดประทับใจ"}
+{"word": "audience", "english": "The audience clapped wildly after the play.", "thai": "ผู้ชมปรบมืออย่างคึกคักหลังจบละคร"}
+{"word": "play", "english": "The kids put on a cute play at school.", "thai": "เด็กๆ แสดงละครน่ารักที่โรงเรียน"}
+{"word": "school", "english": "School projects are stressful but teach teamwork.", "thai": "โปรเจกต์โรงเรียนเครียดแต่สอนการทำงานเป็นทีม"}
+{"word": "teamwork", "english": "Teamwork made our charity event a huge success.", "thai": "การทำงานเป็นทีมทำให้งานการกุศลของเราประสบความสำเร็จอย่างมาก"}
+{"word": "event", "english": "The community event had games and free snacks.", "thai": "งานชุมชนมีเกมและของว่างฟรี"}
+{"word": "snacks", "english": "I packed some snacks for the road trip.", "thai": "ฉันเตรียมของว่างสำหรับทริปถนน"}
+{"word": "road", "english": "The road was bumpy, but the scenery was gorgeous.", "thai": "ถนนขรุขระ แต่ทิวทัศน์สวยงาม"}
+{"word": "scenery", "english": "The mountain scenery took my breath away.", "thai": "ทิวทัศน์ภูเขาทำให้ฉันตะลึง"}
+{"word": "mountain", "english": "We skied down the mountain last winter.", "thai": "เราสกีลงจากภูเขเมื่อหน้าหนาวที่แล้ว"}
+{"word": "winter", "english": "Winter hikes are chilly but super refreshing.", "thai": "การเดินป่าหน้าหนาวหนาวแต่สดชื่นมาก"}
+{"word": "refreshing", "english": "A cold smoothie is so refreshing after jogging.", "thai": "สมูทตี้เย็นๆ สดชื่นมากหลังวิ่งจ๊อกกิ้ง"}
+{"word": "jogging", "english": "Jogging in the park clears my head.", "thai": "การวิ่งจ๊อกกิ้งในสวนทำให้ฉันปลอดโปร่ง"}
+{"word": "head", "english": "I can’t get that song out of my head.", "thai": "ฉันเอาเพลงนั้นออกจากหัวไม่ได้"}
+{"word": "song", "english": "Her new song is climbing the charts fast.", "thai": "เพลงใหม่ของเธอกำลังไต่ชาร์ตอย่างรวดเร็ว"}
+{"word": "charts", "english": "The charts show our sales are skyrocketing.", "thai": "กราฟแสดงว่ายอดขายของเราพุ่งสูง"}
+{"word": "sales", "english": "Black Friday sales are always a mad rush.", "thai": "การลดราคาแบล็คฟรายเดย์มักเป็นการแย่งชิงสุดๆ"}
+{"word": "rush", "english": "I’m in a rush to finish this report today.", "thai": "ฉันรีบทำรายงานนี้ให้เสร็จวันนี้"}
+{"word": "report", "english": "The weather report says it’ll rain this afternoon.", "thai": "รายงานสภาพอากาศบอกว่าจะมีฝนตกบ่ายนี้"}
+{"word": "weather", "english": "The weather’s perfect for a barbecue tonight.", "thai": "สภาพอากาศเหมาะสำหรับจัดบาร์บีคิวคืนนี้"}
+{"word": "barbecue", "english": "The barbecue sauce on these ribs is unreal.", "thai": "ซอสบาร์บีคิวบนซี่โครงนี้อร่อยสุดๆ"}
+{"word": "sauce", "english": "This pasta sauce recipe is a family secret.", "thai": "สูตรซอสพาสต้านี้เป็นความลับของครอบครัว"}
+{"word": "pasta", "english": "I’m cooking pasta for dinner with friends.", "thai": "ฉันกำลังทำพาสต้าสำหรับมื้อค่ำกับเพื่อนๆ"}
+{"word": "dinner", "english": "Dinner at the rooftop restaurant was unforgettable.", "thai": "มื้อค่ำที่ร้านอาหารบนดาดฟ้าไม่มีวันลืม"}
+{"word": "restaurant", "english": "The new restaurant in town has amazing reviews.", "thai": "ร้านอาหารใหม่ในเมืองมีรีวิวสุดยอด"}
+{"word": "reviews", "english": "Online reviews helped me pick this hotel.", "thai": "รีวิวออนไลน์ช่วยให้ฉันเลือกโรงแรมนี้"}
+{"word": "hotel", "english": "The hotel pool was perfect for a quick dip.", "thai": "สระว่ายน้ำของโรงแรมเหมาะสำหรับการแช่น้ำสั้นๆ"}
+{"word": "pool", "english": "Playing pool with friends is always a good time.", "thai": "การเล่นพูลกับเพื่อนๆ สนุกเสมอ"}
+{"word": "time", "english": "I’m running out of time to plan the party.", "thai": "ฉันใกล้จะหมดเวลาในการวางแผนงานปาร์ตี้แล้ว"}
+{"word": "plan", "english": "Let’s plan a movie night this weekend.", "thai": "วางแผนคืนดูหนังกันสุดสัปดาห์นี้เถอะ"}
+{"word": "movie", "english": "The movie theater was packed for the premiere.", "thai": "โรงหนังแน่นไปด้วยผู้คนในวันฉายรอบปฐมทัศน์"}
+{"word": "theater", "english": "The community theater put on a fantastic show.", "thai": "โรงละครชุมชนจัดแสดงโชว์ที่ยอดเยี่ยม"}
+{"word": "show", "english": "The talent show had some surprising acts.", "thai": "การแสดงความสามารถมีบางการแสดงที่เซอร์ไพรส์"}
+{"word": "acts", "english": "Her kind acts made the volunteer event special.", "thai": "การกระทำที่ใจดีของเธอทำให้นัดหมายอาสาสมัครพิเศษ"}
+{"word": "volunteer", "english": "I volunteer at the animal shelter every Saturday.", "thai": "ฉันเป็นอาสาสมัครที่ศูนย์พักพิงสัตว์ทุกวันเสาร์"}
+{"word": "shelter", "english": "The storm shelter kept us safe during the tornado.", "thai": "ที่หลบภัยพายุช่วยให้เราปลอดภัยระหว่างพายุทอร์นาโด"}
+{"word": "storm", "english": "The storm last night knocked out the power.", "thai": "พายุเมื่อคืนทำให้ไฟดับ"}
+{"word": "power", "english": "Solar power is the future of energy.", "thai": "พลังงานแสงอาทิตย์คืออนาคตของพลังงาน"}
+{"word": "energy", "english": "Her energy during the workout class was infectious.", "thai": "พลังของเธอในคลาสออกกำลังกายนั้นติดต่อกันได้"}
+{"word": "class", "english": "The cooking class taught me new knife skills.", "thai": "คลาสทำอาหารสอนฉันทักษะการใช้มีดใหม่ๆ"}
+{"word": "skills", "english": "Her negotiation skills sealed the deal.", "thai": "ทักษะการเจรจาของเธอทำให้ข้อตกลงสำเร็จ"}
+{"word": "deal", "english": "I scored a great deal on concert tickets.", "thai": "ฉันได้ตั๋วคอนเสิร์ตในราคาดีมาก"}
+{"word": "concert", "english": "The outdoor concert was a summer highlight.", "thai": "คอนเสิร์ตกลางแจ้งเป็นไฮไลต์ของหน้าร้อน"}
+{"word": "summer", "english": "Summer road trips are my kind of adventure.", "thai": "ทริปถนนหน้าร้อนคือการผจญภัยในแบบของฉัน"}
+{"word": "adventure", "english": "Skydiving was the ultimate adventure for me.", "thai": "การกระโดดร่มคือการผจญภัยขั้นสุดยอดสำหรับฉัน"}
+{"word": "ultimate", "english": "The ultimate playlist keeps the party going.", "thai": "เพลย์ลิสต์ขั้นสุดยอดทำให้งานปาร์ตี้ดำเนินต่อไป"}
+{"word": "party", "english": "The costume party had everyone in stitches.", "thai": "งานปาร์ตี้ชุดแฟนซีทำให้ทุกคนหัวเราะจนท้องแข็ง"}
+{"word": "stitches", "english": "I laughed so hard I was in stitches.", "thai": "ฉันหัวเราะหนักมากจนเหมือนจะขาดใจ"}
+{"word": "laughed", "english": "We laughed all night at the comedy club.", "thai": "เราหัวเราะทั้งคืนที่คลับตลก"}
+{"word": "club", "english": "The hiking club meets every Sunday morning.", "thai": "ชมรมเดินป่าพบกันทุกเช้าวันอาทิตย์"}
+{"word": "morning", "english": "Morning coffee runs are my daily ritual.", "thai": "การวิ่งไปซื้อกาแฟตอนเช้าคือพิธีประจำวันของฉัน"}
+{"word": "coffee", "english": "This coffee shop makes the best cold brew.", "thai": "ร้านกาแฟนี้ทำโคลด์บริวได้ดีที่สุด"}
+{"word": "brew", "english": "I’m learning to brew my own craft beer.", "thai": "ฉันกำลังเรียนรู้การหมักคราฟต์เบียร์ของตัวเอง"}
+{"word": "beer", "english": "Grabbing a beer with friends is always fun.", "thai": "การจิบเบียร์กับเพื่อนๆ สนุกเสมอ"}
+{"word": "fun", "english": "The amusement park was so much fun yesterday.", "thai": "สวนสนุกเมื่อวานนี้สนุกมาก"}
