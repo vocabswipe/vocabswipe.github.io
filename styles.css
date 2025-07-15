@@ -15,17 +15,6 @@ body {
   overflow-x: hidden;
 }
 
-.loading {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.5rem;
-  color: #ffffff;
-  font-family: 'Poppins', sans-serif;
-  z-index: 1000;
-}
-
 .word-cloud {
   position: relative;
   width: 100%;
@@ -50,7 +39,7 @@ body {
   font-weight: 700;
   cursor: pointer;
   user-select: none;
-  transition: opacity 1s ease, transform 1s ease;
+  transition: opacity 0.3s ease, transform 0.7s ease;
   white-space: nowrap;
   line-height: 1.2;
   z-index: 10;
@@ -230,9 +219,5 @@ body {
 
   .error-message {
     font-size: 1rem;
-  }
-
-  .loading {
-    font-size: 1.2rem;
   }
 }
