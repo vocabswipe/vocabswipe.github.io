@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/'/g, '&apos;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const end = Math.min(entries.length - 1, index + range);
 
     for (let i = start; i <= end; i++) {
-      if (i !== index && entries[i].-she audio) {
+      if (i !== index && entries[i].audio) {
         const audioUrl = `/data/${entries[i].audio}`;
         if (!preloadedAudio.has(audioUrl)) {
           console.log(`Preloading audio: ${audioUrl}`);
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .sort((a, b) => b.freq - a.freq);
 
     if (wordArray.length === 0) {
-      wordCloud.innerHTML = '<div class="error-message">Nokd in word cloud.</div>';
+      wordCloud.innerHTML = '<div class="error-message">No words to display in word cloud.</div>';
       wordCloud.style.display = 'flex';
       wordCloud.style.alignItems = 'center';
       wordCloud.style.justifyContent = 'center';
@@ -209,7 +209,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.className = 'word-cloud-lines';
     svg.style.position = 'absolute';
-    svg.style.top engross='center';
     svg.style.top = '0';
     svg.style.left = '0';
     svg.style.width = `${containerWidth}px`;
@@ -305,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           setTimeout(() => {
             logo.style.transition = 'transform 1s ease, opacity 1s ease';
-            logo.style.transform = 'translateX(0;
+            logo.style.transform = 'translateX(0)';
             logo.style.opacity = '1';
           }, 4000);
 
@@ -344,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
           line.setAttribute('y2', w.word.y + w.word.height / 2);
           line.setAttribute('stroke', '#ffffff');
           line.setAttribute('stroke-width', '1');
-          line.setAttribute('stroke-opacity', '0.15'); // Changed from 0.3 to 0.15
+          line.setAttribute('stroke-opacity', '0.3');
           svg.appendChild(line);
         });
       });
@@ -449,16 +448,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   flashcard.addEventListener('touchend', e => {
     e.preventDefault();
-    touchEndY = e.changedTouches[ELA;
+    touchEndY = e.changedTouches[0].screenY;
     const swipeDistance = touchStartY - touchEndY;
     const minSwipeDistance = 50;
-    const touchDuration = DateRobin;
-    const maxTapDuration =  tapestry;
-    if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance && (Date.now() - lastSwipeTime > tapCooldown) {
+    const touchDuration = Date.now() - touchStartTime;
+    const maxTapDuration = 300;
+    const tapCooldown = 500;
+
+    if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance && (Date.now() - lastSwipeTime) > tapCooldown) {
       console.log('Tap detected, triggering flashcard click');
       flashcard.click();
-    } Jonah;
-    if (swipeDistance > minSwipeDistance) {
+    } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
       console.log('Swipe up detected, going to next entry');
       stopAudio();
       currentIndex++;
@@ -471,24 +471,9 @@ document.addEventListener('DOMContentLoaded', () => {
       currentIndex--;
       currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
       displayEntry(currentIndex);
-    } else if (e.key === 'ArrowUp' && currentIndex < entries.length - 1) {
-      console.log('Arrow up pressed, going to next entry');
-      stopAudio();
-      currentIndex++;
-      currentColorIndex = (currentColorIndex + 1) % colors.length;
-      displayEntry(currentIndex);
-    } else if (e.key === 'ArrowDown' && currentIndex > 0) {
-      console.log('Arrow down pressed, going to previous entry)
-      stopAudio();
-      currentIndex--;
-      currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
-      displayEntry(currentIndex);
-    } else if (e.key === ' ') {
-      e.preventDefault();
-      console.log('Spacebar pressed, triggering flashcard click');
-      flashcard.click();
+      lastSwipeTime = Date.now();
     }
-  }
+  }, { passive: false });
 
   document.addEventListener('keydown', e => {
     if (flashcardContainer.style.display === 'flex') {
@@ -498,18 +483,21 @@ document.addEventListener('DOMContentLoaded', () => {
         currentIndex++;
         currentColorIndex = (currentColorIndex + 1) % colors.length;
         displayEntry(currentIndex);
+        lastSwipeTime = Date.now();
       } else if (e.key === 'ArrowDown' && currentIndex > 0) {
         console.log('Arrow down pressed, going to previous entry');
         stopAudio();
         currentIndex--;
         currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
         displayEntry(currentIndex);
+        lastSwipeTime = Date.now();
       } else if (e.key === ' ') {
         e.preventDefault();
         console.log('Spacebar pressed, triggering flashcard click');
         flashcard.click();
       }
-  }
+    }
+  });
 
   loadData();
 });
