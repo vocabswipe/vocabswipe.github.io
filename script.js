@@ -187,9 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const minFreq = Math.max(1, Math.min(...Object.values(wordFreq)));
     const containerWidth = window.innerWidth;
     const containerHeight = Math.max(window.innerHeight * 1.5, wordCaseMap.size * 15);
-    word
-
-Cloud.style.width = `${containerWidth}px`;
+    wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
 
     wordCloud.innerHTML = '';
@@ -335,7 +333,7 @@ Cloud.style.width = `${containerWidth}px`;
           }))
           .filter(w => w.index !== i)
           .sort((a, b) => a.distance - b.distance)
-          .slice(0, 6); // Changed from slice(0, 4) to slice(0, 6)
+          .slice(0, 6);
 
         nearest.forEach(w => {
           const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
