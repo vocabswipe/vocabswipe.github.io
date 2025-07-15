@@ -28,11 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&apos;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -187,7 +187,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const minFreq = Math.max(1, Math.min(...Object.values(wordFreq)));
     const containerWidth = window.innerWidth;
     const containerHeight = Math.max(window.innerHeight * 1.5, wordCaseMap.size * 15);
-    wordCloud.style.width = `${containerWidth}px`;
+    word
+
+Cloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
 
     wordCloud.innerHTML = '';
@@ -343,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
           line.setAttribute('y2', w.word.y + w.word.height / 2);
           line.setAttribute('stroke', '#ffffff');
           line.setAttribute('stroke-width', '1');
-          line.setAttribute('stroke-opacity', '0.24'); // Changed from 0.3 to 0.24 (20% decrease)
+          line.setAttribute('stroke-opacity', '0.3');
           svg.appendChild(line);
         });
       });
