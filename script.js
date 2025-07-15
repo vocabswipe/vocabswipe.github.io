@@ -205,6 +205,23 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    // Create SVG for lines
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.className = 'word-cloud-lines';
+    svg.style.position = 'absolute';
+    svg.style.top = '0';
+    svg.style.left = '0';
+    svg.style.width = `${containerWidth}px`;
+    svg.style.height = `${containerHeight}px`;
+    svg.style.zIndex = '5';
+    svg.style.pointerEvents = 'none';
+    wordCloud.appendChild(svg);
+
+    const initialDisplayCount = Math.ceil(wordArray.length * 0.1); // 10% of words
+    const remainingWords = wordArray.length - initialDisplayCount;
+    const totalDuration = 3000; // 3 seconds for remaining words
+    const delayPerWord = remainingWords > 0 ? totalDuration / remainingWords : 0;
+
     wordArray.forEach(({ word, freq }, index) => {
       const wordEl = document.createElement('div');
       wordEl.className = 'cloud-word';
@@ -214,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const wordColor = colors[Math.floor(Math.random() * colors.length)];
       wordEl.style.color = wordColor;
       wordColors.set(word.toLowerCase(), wordColor);
-      wordEl.style.opacity = '0';
+      wordEl.style.opacity = index < initialDisplayCount ? '1' : '0';
       wordCloud.appendChild(wordEl);
 
       const { width, height } = wordEl.getBoundingClientRect();
@@ -227,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isOverlapping(x, y, width, height, placedWords)) {
           wordEl.style.left = `${x}px`;
           wordEl.style.top = `${y}px`;
-          placedWords.push({ x, y, width, height });
+          placedWords.push({ x, y, width, height, word, element: wordEl });
           placed = true;
         }
       }
@@ -238,12 +255,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
-      const delay = normalizedFreq * 500;
-      setTimeout(() => {
-        wordEl.style.transition = 'opacity 0.3s ease';
-        wordEl.style.opacity = '1';
-      }, index * 25 + delay);
+      if (index >= initialDisplayCount) {
+        const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
+        const delay = normalizedFreq * 500 + (index - initialDisplayCount) * delayPerWord;
+        setTimeout(() => {
+          wordEl.style.transition = 'opacity 0.3s ease';
+          wordEl.style.opacity = '1';
+        }, delay);
+      }
 
       wordEl.addEventListener('click', () => {
         stopAudio();
@@ -260,6 +279,10 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
+        // Fade out lines
+        svg.style.transition = 'opacity 0.3s ease';
+        svg.style.opacity = '0';
+
         wordEl.style.transition = 'transform 1s ease, opacity 1s ease';
         wordEl.style.transform = 'scale(10)';
         wordEl.style.opacity = '0';
@@ -268,6 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
           wordCloud.style.display = 'none';
           wordEl.style.transform = 'none';
           wordEl.style.opacity = '1';
+          svg.style.opacity = '1'; // Reset for next time
 
           flashcardContainer.style.display = 'flex';
           flashcardContainer.style.opacity = '0';
@@ -296,6 +320,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
       });
     });
+
+    // Draw lines after all words are placed
+    setTimeout(() => {
+      placedWords.forEach((word1, i) => {
+        // Connect to up to 3 nearest words
+        const nearest = placedWords
+          .map((word2, j) => ({
+            word: word2,
+            distance: Math.hypot(word1.x - word2.x, word1.y - word2.y),
+            index: j,
+          }))
+          .filter(w => w.index !== i)
+          .sort((a, b) => a.distance - b.distance)
+          .slice(0, 3);
+
+        nearest.forEach(w => {
+          const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+          line.setAttribute('x1', word1.x + word1.width / 2);
+          line.setAttribute('y1', word1.y + word1.height / 2);
+          line.setAttribute('x2', w.word.x + w.word.width / 2);
+          line.setAttribute('y2', w.word.y + w.word.height / 2);
+          line.setAttribute('stroke', '#ffffff');
+          line.setAttribute('stroke-width', '1');
+          line.setAttribute('stroke-opacity', '0.3');
+          svg.appendChild(line);
+        });
+      });
+      svg.style.opacity = '1';
+    }, totalDuration);
 
     let pinchStartDistance = 0;
     wordCloud.addEventListener('touchstart', e => {
