@@ -25,6 +25,15 @@ body {
   display: block;
 }
 
+.word-cloud-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+}
+
 .cloud-word {
   position: absolute;
   font-weight: 700;
