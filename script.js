@@ -3,170 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const flashcardContainer = document.getElementById('flashcard-container');
   const flashcard = document.getElementById('flashcard');
   const wordEl = document.getElementById('word');
-  const englishEl = document.getElementById('english');
-  const thaiEl = document.getElementById('thai');
-  const audioErrorEl = document.getElementById('audio-error');
-  const logo = document.querySelector('.logo');
-  const slogan = document.querySelector('.slogan');
+  const english
 
-  let entries = [];
-  let currentIndex = 0;
-  let touchStartY = 0;
-  let touchEndY = 0;
-  let touchStartTime = 0;
-  let lastSwipeTime = 0;
-  const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
-  let currentColorIndex = 0;
-  let wordColors = new Map();
-  let initialScale = 1;
-  let currentScale = 1;
-  let translateX = 0;
-  let translateY = 0;
-  let isPinching = false;
-  let currentAudio = null;
-  const preloadedAudio = new Set();
-
-  function escapeHTML(str) {
-    return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+El = document.getElementById('english');
+  const thaiEl = fallbackDisplay();
   }
 
-  function highlightWords(sentence, wordsToHighlight) {
-    let escapedSentence = escapeHTML(sentence);
-    wordsToHighlight.sort((a, b) => b.word.length - a.word.length);
-    for (const { word, color } of wordsToHighlight) {
-      const escapedWord = escapeHTML(word);
-      const regex = new RegExp(`\\b${escapedWord}\\b(?![^<]*>)`, 'gi');
-      escapedSentence = escapedSentence.replace(regex, `<span class="highlight" style="color: ${color};">$&</span>`);
-    }
-    return escapedSentence;
-  }
-
-  async function loadData() {
-    try {
-      wordCloud.style.display = 'block';
-      console.log('Fetching data/database.jsonl...');
-      const response = await fetch('data/database.jsonl');
-      if (!response.ok) {
-        throw new Error(`Failed to fetch data/database.jsonl: ${response.status} ${response.statusText}`);
-      }
-      const data = await response.text();
-      if (!data.trim()) {
-        throw new Error('data/database.jsonl is empty');
-      }
-      entries = data.trim().split('\n').map((line, index) => {
-        try {
-          return JSON.parse(line);
-        } catch (e) {
-          throw new Error(`Invalid JSON at line ${index + 1}: ${e.message}`);
-        }
-      });
-      if (!entries.length) {
-        throw new Error('No valid entries in data/database.jsonl');
-      }
-
-      console.log(`Loaded ${entries.length} entries`);
-      displayWordCloud();
-    } catch (error) {
-      console.error('LoadData Error:', error);
-      wordCloud.innerHTML = `
-        <div class="error-message">
-          Failed to load vocabulary data. Please ensure 'data/database.jsonl' exists and is valid.
-          <br>Error: ${escapeHTML(error.message)}
-        </div>`;
-      wordCloud.style.display = 'flex';
-      wordCloud.style.alignItems = 'center';
-      wordCloud.style.justifyContent = 'center';
-      wordCloud.style.height = '100vh';
-    }
-  }
-
-  function isOverlapping(x, y, width, height, placedWords) {
-    const padding = 2;
-    for (const word of placedWords) {
-      const left1 = x;
-      const right1 = x + width;
-      const top1 = y;
-      const bottom1 = y + height;
-      const left2 = word.x;
-      const right2 = word.x + word.width;
-      const top2 = word.y;
-      const bottom2 = word.y + word.height;
-
-      if (
-        right1 + padding > left2 &&
-        left1 - padding < right2 &&
-        bottom1 + padding > top2 &&
-        top1 - padding < bottom2
-      ) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  function adjustWordSize(word, element, maxWidth) {
-    element.style.fontSize = '3rem';
-    element.textContent = word;
-    let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
-    const padding = 20;
-
-    while (element.scrollWidth > maxWidth - padding && fontSize > 1) {
-      fontSize -= 0.1;
-      element.style.fontSize = `${fontSize}rem`;
-    }
-  }
-
-  function stopAudio() {
-    if (currentAudio) {
-      currentAudio.pause();
-      currentAudio.currentTime = 0;
-      currentAudio = null;
-    }
-    audioErrorEl.style.display = 'none';
-  }
-
-  function preloadAudio(index) {
-    const range = 10;
-    const start = Math.max(0, index - range);
-    const end = Math.min(entries.length - 1, index + range);
-
-    for (let i = start; i <= end; i++) {
-      if (i !== index && entries[i].audio) {
-        const audioUrl = `/data/${entries[i].audio}`;
-        if (!preloadedAudio.has(audioUrl)) {
-          console.log(`Preloading audio: ${audioUrl}`);
-          const audio = new Audio(audioUrl);
-          audio.preload = 'auto';
-          audio.load();
-          preloadedAudio.add(audioUrl);
-        }
-      }
-    }
-  }
-
-  function playAudio(audioUrl, wordColor) {
-    stopAudio();
-    console.log(`Attempting to play audio: ${audioUrl}`);
-    currentAudio = new Audio(audioUrl);
-    setTimeout(() => {
-      currentAudio.play().then(() => {
-        console.log('Audio playing successfully');
-        flashcard.classList.add('glow');
-        flashcard.style.setProperty('--glow-color', wordColor);
-        setTimeout(() => flashcard.classList.remove('glow'), 500);
-        audioErrorEl.style.display = 'none';
-      }).catch(e => {
-        console.error('Error playing audio:', e);
-        audioErrorEl.textContent = 'Failed to play audio: ' + e.message;
-        audioErrorEl.style.display = 'block';
-        setTimeout(() => audioErrorEl.style.display = 'none', 2000);
-      });
-    }, 500);
+  function fallbackDisplay() {
+    wordCloud.innerHTML = `
+      <div class="error-message">
+        Unable to load or display words. Please try refreshing the page.
+      </div>`;
+    wordCloud.style.display = 'flex';
+    wordCloud.style.alignItems = 'center';
+    wordCloud.style.justifyContent = 'center';
+    wordCloud.style.height = '100vh';
   }
 
   function displayWordCloud() {
@@ -174,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const wordCaseMap = new Map();
     entries.forEach(entry => {
       if (typeof entry.word !== 'string') {
-        throw new Error('Invalid word format in database entry');
+        console.warn('Invalid word format in database entry:', entry);
+        return;
       }
       const lowerWord = entry.word.toLowerCase();
       wordFreq[lowerWord] = (wordFreq[lowerWord] || 0) + 1;
@@ -183,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    const maxFreq = Math.max(...Object.values(wordFreq));
+    const maxFreq = Math.max(...Object.values(wordFreq)) || 1;
     const minFreq = Math.max(1, Math.min(...Object.values(wordFreq)));
     const containerWidth = window.innerWidth;
     const containerHeight = Math.max(window.innerHeight * 1.5, wordCaseMap.size * 15);
@@ -197,7 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
       .sort((a, b) => b.freq - a.freq);
 
     if (wordArray.length === 0) {
-      wordCloud.innerHTML = '<div class="error-message">No words to display in theameword cloud.</div>';
+      console.error('No words to display in the word cloud.');
+      wordCloud.innerHTML = '<div class="error-message">No words to display in the word cloud.</div>';
       wordCloud.style.display = 'flex';
       wordCloud.style.alignItems = 'center';
       wordCloud.style.justifyContent = 'center';
@@ -222,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalDuration = 3000; // 3 seconds for remaining words
     const delayPerWord = remainingWords > 0 ? totalDuration / remainingWords : 0;
 
+    let placedCount = 0;
     wordArray.forEach(({ word, freq }, index) => {
       const wordEl = document.createElement('div');
       wordEl.className = 'cloud-word';
@@ -236,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const { width, height } = wordEl.getBoundingClientRect();
       let x, y, placed = false;
-      const maxAttempts = 500;
+      const maxAttempts = 1000; // Increased to improve placement success
 
       for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
         x = Math.random() * (containerWidth - width);
@@ -246,11 +100,12 @@ document.addEventListener('DOMContentLoaded', () => {
           wordEl.style.top = `${y}px`;
           placedWords.push({ x, y, width, height, word, element: wordEl });
           placed = true;
+          placedCount++;
         }
       }
 
       if (!placed) {
-        console.warn(`Could not place word: ${word}`);
+        console.warn(`Could not place word: ${word} after ${maxAttempts} attempts`);
         wordEl.remove();
         return;
       }
@@ -320,6 +175,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
       });
     });
+
+    if (placedCount === 0) {
+      console.error('No words could be placed in the word cloud.');
+      fallbackDisplay();
+      return;
+    }
 
     // Draw lines after all words are placed
     setTimeout(() => {
@@ -414,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
     wordsToHighlight.push({ word: currentWord, color: colors[currentColorIndex] });
     if (nextWord) {
       const nextColor = colors[(currentColorIndex + 1) % colors.length];
-      wordsToHighlight.push({ word: nextWord, color: nextColor });
+      wordsToHighlight.push({ word: nextWord, color: nextcar });
     }
 
     englishEl.innerHTML = highlightWords(entry.english, wordsToHighlight);
@@ -459,10 +320,10 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Tap detected, triggering flashcard click');
       flashcard.click();
     } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
-      console.log('Swipe up detected, going to next entry');
+      console.log('Swipe up detected, going to2400 next entry');
       stopAudio();
       currentIndex++;
-      currentColorIndex = (currentColorIndex + 1) % colors.length;
+      currentColorIndex = (currentColorIndex + 1) % currentIndex.length;
       displayEntry(currentIndex);
       lastSwipeTime = Date.now();
     } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
