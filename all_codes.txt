@@ -1,0 +1,805 @@
+here is the codes of website,
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>VocabSwipe - Learn English Vocabulary</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+Thai:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="word-cloud" id="word-cloud"></div>
+  <div class="container" id="flashcard-container" style="display: none;">
+    <div class="logo-container">
+      <h1 class="logo">VocabSwipe</h1>
+      <p class="slogan">Master Words, Swipe by Swipe</p>
+    </div>
+    <div class="flashcard" id="flashcard">
+      <div class="content">
+        <div class="word" id="word"></div>
+        <div class="sentences">
+          <div class="english" id="english"></div>
+          <div class="thai" id="thai"></div>
+          <div class="audio-error" id="audio-error" style="display: none; color: #ff4081; font-size: 0.9rem; text-align: center;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const wordCloud = document.getElementById('word-cloud');
+  const flashcardContainer = document.getElementById('flashcard-container');
+  const flashcard = document.getElementById('flashcard');
+  const wordEl = document.getElementById('word');
+  const englishEl = document.getElementById('english');
+  const thaiEl = document.getElementById('thai');
+  const audioErrorEl = document.getElementById('audio-error');
+  const logo = document.querySelector('.logo');
+  const slogan = document.querySelector('.slogan');
+
+  let entries = [];
+  let currentIndex = 0;
+  let touchStartY = 0;
+  let touchEndY = 0;
+  let touchStartTime = 0;
+  let lastSwipeTime = 0;
+  const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
+  let currentColorIndex = 0;
+  let wordColors = new Map();
+  let initialScale = 1;
+  let currentScale = 1;
+  let translateX = 0;
+  let translateY = 0;
+  let isPinching = false;
+  let currentAudio = null;
+  const preloadedAudio = new Set();
+
+  function escapeHTML(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&apos;');
+  }
+
+  function highlightWords(sentence, wordsToHighlight) {
+    let escapedSentence = escapeHTML(sentence);
+    wordsToHighlight.sort((a, b) => b.word.length - a.word.length);
+    for (const { word, color } of wordsToHighlight) {
+      const escapedWord = escapeHTML(word);
+      const regex = new RegExp(`\\b${escapedWord}\\b(?![^<]*>)`, 'gi');
+      escapedSentence = escapedSentence.replace(regex, `<span class="highlight" style="color: ${color};">$&</span>`);
+    }
+    return escapedSentence;
+  }
+
+  async function loadData() {
+    try {
+      wordCloud.style.display = 'block';
+      console.log('Fetching data/database.jsonl...');
+      const response = await fetch('data/database.jsonl');
+      if (!response.ok) {
+        throw new Error(`Failed to fetch data/database.jsonl: ${response.status} ${response.statusText}`);
+      }
+      const data = await response.text();
+      if (!data.trim()) {
+        throw new Error('data/database.jsonl is empty');
+      }
+      entries = data.trim().split('\n').map((line, index) => {
+        try {
+          return JSON.parse(line);
+        } catch (e) {
+          throw new Error(`Invalid JSON at line ${index + 1}: ${e.message}`);
+        }
+      });
+      if (!entries.length) {
+        throw new Error('No valid entries in data/database.jsonl');
+      }
+
+      console.log(`Loaded ${entries.length} entries`);
+      displayWordCloud();
+    } catch (error) {
+      console.error('LoadData Error:', error);
+      wordCloud.innerHTML = `
+        <div class="error-message">
+          Failed to load vocabulary data. Please ensure 'data/database.jsonl' exists and is valid.
+          <br>Error: ${escapeHTML(error.message)}
+        </div>`;
+      wordCloud.style.display = 'flex';
+      wordCloud.style.alignItems = 'center';
+      wordCloud.style.justifyContent = 'center';
+      wordCloud.style.height = '100vh';
+    }
+  }
+
+  function isOverlapping(x, y, width, height, placedWords) {
+    const padding = 2;
+    for (const word of placedWords) {
+      const left1 = x;
+      const right1 = x + width;
+      const top1 = y;
+      const bottom1 = y + height;
+      const left2 = word.x;
+      const right2 = word.x + word.width;
+      const top2 = word.y;
+      const bottom2 = word.y + word.height;
+
+      if (
+        right1 + padding > left2 &&
+        left1 - padding < right2 &&
+        bottom1 + padding > top2 &&
+        top1 - padding < bottom2
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function adjustWordSize(word, element, maxWidth) {
+    element.style.fontSize = '3rem';
+    element.textContent = word;
+    let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
+    const padding = 20;
+
+    while (element.scrollWidth > maxWidth - padding && fontSize > 1) {
+      fontSize -= 0.1;
+      element.style.fontSize = `${fontSize}rem`;
+    }
+  }
+
+  function stopAudio() {
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+      currentAudio = null;
+    }
+    audioErrorEl.style.display = 'none';
+  }
+
+  function preloadAudio(index) {
+    const range = 10;
+    const start = Math.max(0, index - range);
+    const end = Math.min(entries.length - 1, index + range);
+
+    for (let i = start; i <= end; i++) {
+      if (i !== index && entries[i].audio) {
+        const audioUrl = `/data/${entries[i].audio}`;
+        if (!preloadedAudio.has(audioUrl)) {
+          console.log(`Preloading audio: ${audioUrl}`);
+          const audio = new Audio(audioUrl);
+          audio.preload = 'auto';
+          audio.load();
+          preloadedAudio.add(audioUrl);
+        }
+      }
+    }
+  }
+
+  function playAudio(audioUrl, wordColor) {
+    stopAudio();
+    console.log(`Attempting to play audio: ${audioUrl}`);
+    currentAudio = new Audio(audioUrl);
+    setTimeout(() => {
+      currentAudio.play().then(() => {
+        console.log('Audio playing successfully');
+        flashcard.classList.add('glow');
+        flashcard.style.setProperty('--glow-color', wordColor);
+        setTimeout(() => flashcard.classList.remove('glow'), 500);
+        audioErrorEl.style.display = 'none';
+      }).catch(e => {
+        console.error('Error playing audio:', e);
+        audioErrorEl.textContent = 'Failed to play audio: ' + e.message;
+        audioErrorEl.style.display = 'block';
+        setTimeout(() => audioErrorEl.style.display = 'none', 2000);
+      });
+    }, 500);
+  }
+
+  function displayWordCloud() {
+    const wordFreq = {};
+    const wordCaseMap = new Map();
+    entries.forEach(entry => {
+      if (typeof entry.word !== 'string') {
+        throw new Error('Invalid word format in database entry');
+      }
+      const lowerWord = entry.word.toLowerCase();
+      wordFreq[lowerWord] = (wordFreq[lowerWord] || 0) + 1;
+      if (!wordCaseMap.has(lowerWord)) {
+        wordCaseMap.set(lowerWord, entry.word);
+      }
+    });
+
+    const maxFreq = Math.max(...Object.values(wordFreq));
+    const minFreq = Math.max(1, Math.min(...Object.values(wordFreq)));
+    const containerWidth = window.innerWidth;
+    const containerHeight = Math.max(window.innerHeight * 1.5, wordCaseMap.size * 15);
+    wordCloud.style.width = `${containerWidth}px`;
+    wordCloud.style.height = `${containerHeight}px`;
+
+    wordCloud.innerHTML = '';
+    const placedWords = [];
+    const wordArray = Array.from(wordCaseMap.entries())
+      .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
+      .sort((a, b) => b.freq - a.freq);
+
+    if (wordArray.length === 0) {
+      wordCloud.innerHTML = '<div class="error-message">No words to display in word cloud.</div>';
+      wordCloud.style.display = 'flex';
+      wordCloud.style.alignItems = 'center';
+      wordCloud.style.justifyContent = 'center';
+      wordCloud.style.height = '100vh';
+      return;
+    }
+
+    // Create SVG for lines
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.className = 'word-cloud-lines';
+    svg.style.position = 'absolute';
+    svg.style.top = '0';
+    svg.style.left = '0';
+    svg.style.width = `${containerWidth}px`;
+    svg.style.height = `${containerHeight}px`;
+    svg.style.zIndex = '5';
+    svg.style.pointerEvents = 'none';
+    wordCloud.appendChild(svg);
+
+    const initialDisplayCount = Math.ceil(wordArray.length * 0.1); // 10% of words
+    const remainingWords = wordArray.length - initialDisplayCount;
+    const totalDuration = 3000; // 3 seconds for remaining words
+    const delayPerWord = remainingWords > 0 ? totalDuration / remainingWords : 0;
+
+    wordArray.forEach(({ word, freq }, index) => {
+      const wordEl = document.createElement('div');
+      wordEl.className = 'cloud-word';
+      wordEl.textContent = word;
+      const size = 0.8 + (freq / maxFreq) * 2.2;
+      wordEl.style.fontSize = `${size}rem`;
+      const wordColor = colors[Math.floor(Math.random() * colors.length)];
+      wordEl.style.color = wordColor;
+      wordColors.set(word.toLowerCase(), wordColor);
+      wordEl.style.opacity = index < initialDisplayCount ? '1' : '0';
+      wordCloud.appendChild(wordEl);
+
+      const { width, height } = wordEl.getBoundingClientRect();
+      let x, y, placed = false;
+      const maxAttempts = 500;
+
+      for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
+        x = Math.random() * (containerWidth - width);
+        y = Math.random() * (containerHeight - height);
+        if (!isOverlapping(x, y, width, height, placedWords)) {
+          wordEl.style.left = `${x}px`;
+          wordEl.style.top = `${y}px`;
+          placedWords.push({ x, y, width, height, word, element: wordEl });
+          placed = true;
+        }
+      }
+
+      if (!placed) {
+        console.warn(`Could not place word: ${word}`);
+        wordEl.remove();
+        return;
+      }
+
+      if (index >= initialDisplayCount) {
+        const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
+        const delay = normalizedFreq * 500 + (index - initialDisplayCount) * delayPerWord;
+        setTimeout(() => {
+          wordEl.style.transition = 'opacity 0.3s ease';
+          wordEl.style.opacity = '1';
+        }, delay);
+      }
+
+      wordEl.addEventListener('click', () => {
+        stopAudio();
+        wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
+        wordCloud.style.transformOrigin = 'center center';
+        currentScale = 1;
+        translateX = 0;
+        translateY = 0;
+
+        document.querySelectorAll('.cloud-word').forEach(otherWord => {
+          if (otherWord !== wordEl) {
+            otherWord.style.transition = 'opacity 0.3s ease';
+            otherWord.style.opacity = '0';
+          }
+        });
+
+        // Fade out lines
+        svg.style.transition = 'opacity 0.3s ease';
+        svg.style.opacity = '0';
+
+        wordEl.style.transition = 'transform 1s ease, opacity 1s ease';
+        wordEl.style.transform = 'scale(10)';
+        wordEl.style.opacity = '0';
+
+        setTimeout(() => {
+          wordCloud.style.display = 'none';
+          wordEl.style.transform = 'none';
+          wordEl.style.opacity = '1';
+          svg.style.opacity = '1'; // Reset for next time
+
+          flashcardContainer.style.display = 'flex';
+          flashcardContainer.style.opacity = '0';
+          flashcardContainer.style.transition = 'opacity 1s ease';
+          flashcardContainer.style.opacity = '1';
+
+          flashcardContainer.style.height = '100vh';
+          flashcardContainer.style.justifyContent = 'center';
+          document.body.style.overflow = 'hidden';
+
+          setTimeout(() => {
+            logo.style.transition = 'transform 1s ease, opacity 1s ease';
+            logo.style.transform = 'translateX(0)';
+            logo.style.opacity = '1';
+          }, 4000);
+
+          setTimeout(() => {
+            slogan.style.transition = 'transform 1s ease, opacity 1s ease';
+            slogan.style.transform = 'translateX(0)';
+            slogan.style.opacity = '1';
+          }, 4000);
+
+          currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
+          currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
+          displayEntry(currentIndex);
+        }, 1000);
+      });
+    });
+
+    // Draw lines after all words are placed
+    setTimeout(() => {
+      placedWords.forEach((word1, i) => {
+        // Connect to up to 6 nearest words
+        const nearest = placedWords
+          .map((word2, j) => ({
+            word: word2,
+            distance: Math.hypot(word1.x - word2.x, word1.y - word2.y),
+            index: j,
+          }))
+          .filter(w => w.index !== i)
+          .sort((a, b) => a.distance - b.distance)
+          .slice(0, 6);
+
+        nearest.forEach(w => {
+          const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+          line.setAttribute('x1', word1.x + word1.width / 2);
+          line.setAttribute('y1', word1.y + word1.height / 2);
+          line.setAttribute('x2', w.word.x + w.word.width / 2);
+          line.setAttribute('y2', w.word.y + w.word.height / 2);
+          line.setAttribute('stroke', '#ffffff');
+          line.setAttribute('stroke-width', '1');
+          line.setAttribute('stroke-opacity', '0.10'); // Adjust line opacity. original value = '0.3'
+          svg.appendChild(line);
+        });
+      });
+      svg.style.opacity = '1';
+    }, totalDuration);
+
+    let pinchStartDistance = 0;
+    wordCloud.addEventListener('touchstart', e => {
+      touchStartTime = Date.now();
+      if (e.touches.length === 2) {
+        isPinching = true;
+        pinchStartDistance = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+      } else if (e.touches.length === 1) {
+        touchStartY = e.touches[0].screenY;
+      }
+    }, { passive: true });
+
+    wordCloud.addEventListener('touchmove', e => {
+      if (e.touches.length === 2) {
+        e.preventDefault();
+        isPinching = true;
+        const pinchDistance = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        const newScale = currentScale * (pinchDistance / pinchStartDistance);
+        currentScale = Math.max(1, Math.min(newScale, 3));
+        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
+        pinchStartDistance = pinchDistance;
+      } else if (e.touches.length === 1 && currentScale > 1) {
+        e.preventDefault();
+        const deltaX = e.touches[0].clientX - (wordCloud._lastX || e.touches[0].clientX);
+        const deltaY = e.touches[0].clientY - (wordCloud._lastY || e.touches[0].clientY);
+        translateX += deltaX / currentScale;
+        translateY += deltaY / currentScale;
+        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
+        wordCloud._lastX = e.touches[0].clientX;
+        wordCloud._lastY = e.touches[0].clientY;
+      }
+    }, { passive: false });
+
+    wordCloud.addEventListener('touchend', e => {
+      wordCloud._lastX = null;
+      wordCloud._lastY = null;
+      isPinching = false;
+    }, { passive: true });
+  }
+
+  function displayEntry(index) {
+    if (index < 0 || index >= entries.length) return;
+    const entry = entries[index];
+    const currentWord = entry.word;
+
+    adjustWordSize(currentWord, wordEl, flashcard.offsetWidth);
+    wordEl.style.color = colors[currentColorIndex];
+
+    const prevWord = index > 0 ? entries[index - 1].word : null;
+    const nextWord = index < entries.length - 1 ? entries[index + 1].word : null;
+
+    const wordsToHighlight = [];
+    if (prevWord) {
+      const prevColor = colors[(currentColorIndex - 1 + colors.length) % colors.length];
+      wordsToHighlight.push({ word: prevWord, color: prevColor });
+    }
+    wordsToHighlight.push({ word: currentWord, color: colors[currentColorIndex] });
+    if (nextWord) {
+      const nextColor = colors[(currentColorIndex + 1) % colors.length];
+      wordsToHighlight.push({ word: nextWord, color: nextColor });
+    }
+
+    englishEl.innerHTML = highlightWords(entry.english, wordsToHighlight);
+    thaiEl.textContent = entry.thai;
+    audioErrorEl.style.display = 'none';
+
+    preloadAudio(index);
+
+    if (entry.audio) {
+      const audioUrl = `/data/${entry.audio}`;
+      console.log(`Setting up audio for: ${audioUrl}`);
+      flashcard.onclick = null;
+      flashcard.onclick = () => {
+        console.log('Playing audio on tap');
+        playAudio(audioUrl, colors[currentColorIndex]);
+      };
+    } else {
+      console.log('No audio available for this entry');
+      flashcard.onclick = null;
+      audioErrorEl.textContent = 'No audio available';
+      audioErrorEl.style.display = 'block';
+      setTimeout(() => audioErrorEl.style.display = 'none', 2000);
+    }
+  }
+
+  flashcard.addEventListener('touchstart', e => {
+    e.preventDefault();
+    touchStartY = e.changedTouches[0].screenY;
+    touchStartTime = Date.now();
+  }, { passive: false });
+
+  flashcard.addEventListener('touchend', e => {
+    e.preventDefault();
+    touchEndY = e.changedTouches[0].screenY;
+    const swipeDistance = touchStartY - touchEndY;
+    const minSwipeDistance = 50;
+    const touchDuration = Date.now() - touchStartTime;
+    const maxTapDuration = 300;
+    const tapCooldown = 500;
+
+    if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance && (Date.now() - lastSwipeTime) > tapCooldown) {
+      console.log('Tap detected, triggering flashcard click');
+      flashcard.click();
+    } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
+      console.log('Swipe up detected, going to next entry');
+      stopAudio();
+      currentIndex++;
+      currentColorIndex = (currentColorIndex + 1) % colors.length;
+      displayEntry(currentIndex);
+      lastSwipeTime = Date.now();
+    } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
+      console.log('Swipe down detected, going to previous entry');
+      stopAudio();
+      currentIndex--;
+      currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+      displayEntry(currentIndex);
+      lastSwipeTime = Date.now();
+    }
+  }, { passive: false });
+
+  document.addEventListener('keydown', e => {
+    if (flashcardContainer.style.display === 'flex') {
+      if (e.key === 'ArrowUp' && currentIndex < entries.length - 1) {
+        console.log('Arrow up pressed, going to next entry');
+        stopAudio();
+        currentIndex++;
+        currentColorIndex = (currentColorIndex + 1) % colors.length;
+        displayEntry(currentIndex);
+        lastSwipeTime = Date.now();
+      } else if (e.key === 'ArrowDown' && currentIndex > 0) {
+        console.log('Arrow down pressed, going to previous entry');
+        stopAudio();
+        currentIndex--;
+        currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+        displayEntry(currentIndex);
+        lastSwipeTime = Date.now();
+      } else if (e.key === ' ') {
+        e.preventDefault();
+        console.log('Spacebar pressed, triggering flashcard click');
+        flashcard.click();
+      }
+    }
+  });
+
+  loadData();
+});
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.word-cloud {
+  position: relative;
+  width: 100%;
+  overflow-y: auto;
+  padding: 10px;
+  transform-origin: center center;
+  will-change: transform;
+  display: block;
+}
+
+.word-cloud-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+}
+
+.cloud-word {
+  position: absolute;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 1s ease, transform 1s ease;
+  white-space: nowrap;
+  line-height: 1.2;
+  z-index: 10;
+}
+
+.error-message {
+  color: #ff4081;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 20px;
+  max-width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #00ff88;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.slogan {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #b0b0b0;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.flashcard {
+  background-color: #2c2c2c;
+  border-radius: 15px;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  height: calc(400px * 1.777 * 0.5);
+  max-height: calc(711px * 0.5);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: pan-y;
+  user-select: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.flashcard:active {
+  transform: scale(0.98);
+}
+
+.flashcard.glow {
+  animation: glow 0.5s ease-in-out;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20px var(--glow-color, rgba(0, 255, 136, 0.5));
+  }
+  50% {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 30px var(--glow-color, rgba(0, 255, 136, 0.7));
+  }
+  100% {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20px var(--glow-color, rgba(0, 255, 136, 0.5));
+  }
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.word {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  word-break: break-word;
+  margin-bottom: 20px;
+  white-space: nowrap;
+  max-width: 100%;
+  width: 100%;
+}
+
+.sentences {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.english {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.english .highlight {
+  font-weight: 700;
+}
+
+.thai {
+  font-size: 1rem;
+  color: #b0b0b0;
+  font-family: 'Noto Sans Thai', sans-serif;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.audio-error {
+  font-size: 0.9rem;
+  color: #ff4081;
+  text-align: center;
+  margin-top: 8px;
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .flashcard {
+    height: calc(100vw * 1.777 * 0.5);
+  }
+
+  .word {
+    font-size: 2.4rem;
+  }
+
+  .english {
+    font-size: 1.1rem;
+  }
+
+  .thai {
+    font-size: 0.9rem;
+  }
+
+  .audio-error {
+    font-size: 0.8rem;
+  }
+
+  .word-cloud {
+    padding: 5px;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .slogan {
+    font-size: 1rem;
+  }
+
+  .error-message {
+    font-size: 1rem;
+  }
+}
+
+
+modify the codes following the requests:
+
+1. move the positions of the website's logo text "VocabSwipe" and website's slogan text "Master Words, Swipe by Swipe" up close to the top border of the website. Their animations will be the same. Just change the y positions of the texts.
+
+2. italicize the slogan text "Master Words, Swipe by Swipe"
+
+3. from now on, users can only swipe the flashcard up, they cannot swipe the card down.
+
+4. add the box under the logo and slogan texts (between the those texts and the flashcard), maintain the original position and size of the flashcard. this box fuctions as the storage of words that users have been swiped. this box will have the same width as the flashcard, but its height depends on the available space. Let's keep the box bottom border in contact with the flashcard upper border. When users swipe the flashcard up, the main word of the card will be moved into the storage box, its position will be random and its size will be adjusted to make sure it can be in the box nicely, design the animation of the trajectory of this main word nicely, its size should be smoothly transition to its destination size in the box. also when users swipe the card up, the main word of the card will move to the storage box as mentioned earlier, the english and thai sentences, except the next card's main word in english sentence, will fade out, so users will see the next card's main word be left over, then this next card's main word will move to the new position, which is the position of it in the next card's english sentence, the next card's english sentence will appear without its main word, because it will use the main word from the previous card, then the next card's main word, english sentence, and thai sentence appear completely, when users swipe up again the current main card (at the top of the card will be moved to the storage box, its position will be random, similar to the word clouds, and there will be the line connect it to the existing word of the previous card. and its main card in english sentence will move to the new position of the next card's english sentence and so on.
+
+
+To give you the idea, I will show you the example,
+
+Assume the website transition to the flashcard, at this point we have logo and slogan text at the topmost of the website, storage box below these texts, and flashcard below the box.
+
+Assume the card's main word is "evening", english sentence is "The evening breeze carried scents of jasmine", thai sentence is "สายลมยามเย็นพัดพากลิ่นมะลิมา" 
+
+Users can tap to hear the audio as usual.
+
+when users swipe the card up:
+
+"evening" will be move to the storage box, its animation shows the trajectory of it moving to the box, while its size smoothly decrease until it reaches the destination in the box, which is random like the word clouds, all the words in english sentence fade out, except the next card's main word, in this case, it's "breeze", thai sentence fade out at the same time as english one, then the next card's main word appear at the top of the card as usual, along with its english and thai sentence, but its english sentence doesn't have its main word "breeze". Then "breeze" from the previous card will move to the position of the missing "breeze" of the current card, completing the english sentence, thai sentence also appear at the same time as english sentence, at this point the card is complete, having main word "breeze", english sentence, and thai sentence. 
+
+when users swipe the card up:
+
+the current card's main word at the top will be moved to the storage box, its position is random, similar to the word clouds, and there will be the straight line connect the existing word "evening" to it ("breeze", 
+
+when users keep swiping the card up to see the following cards,
+
+the storage box will collect more main words, each words are connected by a line, if you understand this, the order of the word is the same as the order of the "word" in the database file which has data structure as:
+
+{"word": "great", "english": "That was a great performance at the concert.", "thai": "นั่นเป็นการแสดงที่ยอดเยี่ยมในคอนเสิร์ต", "audio": "audio/b3304da1de712869dbdca989066d90c4.mp3"}
+{"word": "performance", "english": "Her performance in the play earned a standing ovation.", "thai": "การแสดงของเธอในละครได้รับการปรบมือยืน", "audio": "audio/17c2a5c10908c534f5b3f78c2cee310f.mp3"}
+{"word": "play", "english": "The kids love to play soccer after school.", "thai": "เด็กๆ ชอบเล่นฟุตบอลหลังเลิกเรียน", "audio": "audio/883066e695230cfac7643391e8a4f2ee.mp3"}
+
+
+the words in the box are designed to be like the word clouds, but their size will be the same in the box, and adjust and depend on the amount of words in the box, the more the words and smaller the size etc. but make sure the box fit the words nicely, the locations of the words are like we add the a bead to the box and that bead will be connected using a single rope to the previous bead in the box, you can design the visual here
+
+update and modify the codes, show me full codes,
+
+quick question, the codes are kinda long, if you have any idea that we can have the separate code for the heavy weight animations like this task, like if we can have separate files like script_animations.js etc. this would be awesome
