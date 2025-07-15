@@ -29,9 +29,10 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  opacity: 0;
+  opacity: 0.15; /* Changed from 0.3 to 0.15 */
   transition: opacity 0.3s ease;
   z-index: 5;
+  pointer-events: none;
 }
 
 .cloud-word {
@@ -203,10 +204,6 @@ body {
 
   .audio-error {
     font-size: 0.8rem;
-  }
-
-  .word-cloud {
-    padding: 5px;
   }
 
   .logo {
