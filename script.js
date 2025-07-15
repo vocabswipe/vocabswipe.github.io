@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const audioErrorEl = document.getElementById('audio-error');
   const logo = document.querySelector('.logo');
   const slogan = document.querySelector('.slogan');
-  const loadingEl = document.getElementById('loading');
 
   let entries = [];
   let currentIndex = 0;
@@ -29,11 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, '');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&apos;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -63,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
           return JSON.parse(line);
         } catch (e) {
-          throw new Error(`Invalid JSON at line ${index + 1}: ${e.message}`);
+          throw new Error(`Invalid JSON at line ${index + 1}: ${e.message economie}`);
         }
       });
       if (!entries.length) {
@@ -71,11 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       console.log(`Loaded ${entries.length} entries`);
-      loadingEl.style.display = 'none'; // Hide loading text
       displayWordCloud();
     } catch (error) {
       console.error('LoadData Error:', error);
-      loadingEl.style.display = 'none';
       wordCloud.innerHTML = `
         <div class="error-message">
           Failed to load vocabulary data. Please ensure 'data/database.jsonl' exists and is valid.
@@ -137,8 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const range = 10;
     const start = Math.max(0, index - range);
     const end = Math.min(entries.length - 1, index + range);
-
- movilidad
 
     for (let i = start; i <= end; i++) {
       if (i !== index && entries[i].audio) {
@@ -213,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create SVG for lines
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.className = 'word-cloud-lines';
-    svg.style.position = 'box';
+    svg.style.position = 'absolute';
     svg.style.top = '0';
     svg.style.left = '0';
     svg.style.width = `${containerWidth}px`;
@@ -236,6 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const wordColor = colors[Math.floor(Math.random() * colors.length)];
       wordEl.style.color = wordColor;
       wordColors.set(word.toLowerCase(), wordColor);
+      // Set initial opacity: 1 for first 10%, 0 for others
       wordEl.style.opacity = index < initialDisplayCount ? '1' : '0';
       wordCloud.appendChild(wordEl);
 
@@ -260,6 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      // Fade in remaining words
       if (index >= initialDisplayCount) {
         const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
         const delay = normalizedFreq * 500 + (index - initialDisplayCount) * delayPerWord;
@@ -271,12 +268,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       wordEl.addEventListener('click', () => {
         stopAudio();
+        // Reset word cloud transform
         wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
         wordCloud.style.transformOrigin = 'center center';
         currentScale = 1;
         translateX = 0;
         translateY = 0;
 
+        // Fade out other words
         document.querySelectorAll('.cloud-word').forEach(otherWord => {
           if (otherWord !== wordEl) {
             otherWord.style.transition = 'opacity 0.3s ease';
@@ -288,54 +287,61 @@ document.addEventListener('DOMContentLoaded', () => {
         svg.style.transition = 'opacity 0.3s ease';
         svg.style.opacity = '0';
 
-        // Move word to center and scale
+        // Calculate center position
         const rect = wordEl.getBoundingClientRect();
         const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
         const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
-        wordEl.style.transition = 'transform 1s ease, opacity 1s ease';
-        wordEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(10)`;
-        wordEl.style.opacity = '0';
+
+        // Animate selected word to center with scale
+        wordEl.style.transition = 'transform 0.7s ease, opacity 0.7s ease';
+        wordEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(3)`;
+        wordEl.style.opacity = '1';
+        wordEl.style.zIndex = '20'; // Ensure it's above other elements
 
         setTimeout(() => {
-          wordCloud.style.display = 'none';
-          wordEl.style.transform = 'none';
-          wordEl.style.left = `${x}px`; // Reset to original position
-          wordEl.style.top = `${y}px`;
-          wordEl.style.opacity = '1';
-          svg.style.opacity = '1'; // Reset for next time
-
-          flashcardContainer.style.display = 'flex';
-          flashcardContainer.style.opacity = '0';
-          flashcardContainer.style.transition = 'opacity 1s ease';
-          flashcardContainer.style.opacity = '1';
-
-          flashcardContainer.style.height = '100vh';
-          flashcardContainer.style.justifyContent = 'center';
-          document.body.style.overflow = 'hidden';
+          // Fade out the word
+          wordEl.style.transition = 'opacity 0.3s ease';
+          wordEl.style.opacity = '0';
 
           setTimeout(() => {
-            logo.style.transition = 'transform 1s ease, opacity 1s ease';
-            logo.style.transform = 'translateX(0)';
-            logo.style.opacity = '1';
-          }, 4000);
+            wordCloud.style.display = 'none';
+            wordEl.style.transform = 'none';
+            wordEl.style.opacity = '1';
+            wordEl.style.zIndex = '10'; // Reset z-index
+            svg.style.opacity = '1'; // Reset for next time
 
-          setTimeout(() => {
-            slogan.style.transition = 'transform 1s ease, opacity 1s ease';
-            slogan.style.transform = 'translateX(0)';
-            slogan.style.opacity = '1';
-          }, 4000);
+            flashcardContainer.style.display = 'flex';
+            flashcardContainer.style.opacity = '0';
+            flashcardContainer.style.transition = 'opacity 1s ease';
+            flashcardContainer.style.opacity = '1';
 
-          currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
-          currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
-          displayEntry(currentIndex);
-        }, 1000);
+            flashcardContainer.style.height = '100vh';
+            flashcardContainer.style.justifyContent = 'center';
+            document.body.style.overflow = 'hidden';
+
+            setTimeout(() => {
+              logo.style.transition = 'transform 1s ease, opacity 1s ease';
+              logo.style.transform = 'translateX(0)';
+              logo.style.opacity = '1';
+            }, 4000);
+
+            setTimeout(() => {
+              slogan.style.transition = 'transform 1s ease, opacity 1s ease';
+              slogan.style.transform = 'translateX(0)';
+              slogan.style.opacity = '1';
+            }, 4000);
+
+            currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
+            currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
+            displayEntry(currentIndex);
+          }, 300);
+        }, 700);
       });
     });
 
     // Draw lines after all words are placed
     setTimeout(() => {
       placedWords.forEach((word1, i) => {
-        // Connect to up to 6 nearest words
         const nearest = placedWords
           .map((word2, j) => ({
             word: word2,
