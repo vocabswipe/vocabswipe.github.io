@@ -230,7 +230,6 @@ document.addEventListener('DOMContentLoaded', () => {
       wordEl.style.fontSize = `${size}rem`;
       const wordColor = colors[Math.floor(Math.random() * colors.length)];
       wordEl.style.color = wordColor;
-      wordEl.style.setProperty('--word-color', wordColor); // Set custom property for glow
       wordColors.set(word.toLowerCase(), wordColor);
       wordEl.style.opacity = index < initialDisplayCount ? '1' : '0';
       wordCloud.appendChild(wordEl);
@@ -277,7 +276,6 @@ document.addEventListener('DOMContentLoaded', () => {
           if (otherWord !== wordEl) {
             otherWord.style.transition = 'opacity 0.3s ease';
             otherWord.style.opacity = '0';
-            otherWord.style.animation = 'none'; // Stop glow for other words
           }
         });
 
@@ -285,7 +283,6 @@ document.addEventListener('DOMContentLoaded', () => {
         svg.style.transition = 'opacity 0.3s ease';
         svg.style.opacity = '0';
 
-        wordEl.style.animation = 'none'; // Stop glow animation
         wordEl.style.transition = 'transform 1s ease, opacity 1s ease';
         wordEl.style.transform = 'scale(10)';
         wordEl.style.opacity = '0';
@@ -346,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
           line.setAttribute('y2', w.word.y + w.word.height / 2);
           line.setAttribute('stroke', '#ffffff');
           line.setAttribute('stroke-width', '1');
-          line.setAttribute('stroke-opacity', '0.15'); // Reduced by 50% from 0.3
+          line.setAttribute('stroke-opacity', '0.15'); // Changed from 0.3 to 0.15 (50% reduction)
           svg.appendChild(line);
         });
       });
