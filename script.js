@@ -28,11 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .sort((a, b) => b.freq - a.freq);
 
     if (wordArray.length === 0) {
-      wordCloud.innerHTML = '<div class="error-message">No words to display in word cloud.</div>';
+      wordCloud.innerHTML = '<div class="error-message">No words to display in theameword cloud.</div>';
       wordCloud.style.display = 'flex';
       wordCloud.style.alignItems = 'center';
       wordCloud.style.justifyContent = 'center';
@@ -324,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Draw lines after all words are placed
     setTimeout(() => {
       placedWords.forEach((word1, i) => {
-        // Connect to up to 3 nearest words
+        // Connect to up to 4 nearest words
         const nearest = placedWords
           .map((word2, j) => ({
             word: word2,
@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }))
           .filter(w => w.index !== i)
           .sort((a, b) => a.distance - b.distance)
-          .slice(0, 3);
+          .slice(0, 4);
 
         nearest.forEach(w => {
           const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
           line.setAttribute('y2', w.word.y + w.word.height / 2);
           line.setAttribute('stroke', '#ffffff');
           line.setAttribute('stroke-width', '1');
-          line.setAttribute('stroke-opacity', '0.3');
+          line.setAttribute('stroke-opacity', '0.24');
           svg.appendChild(line);
         });
       });
