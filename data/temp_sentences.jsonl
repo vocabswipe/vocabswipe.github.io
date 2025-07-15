@@ -1,1 +1,854 @@
-{"word": "stress", "english": "Deep breathing helps me manage stress daily.", "thai": "การหายใจลึกๆ ช่วยฉันจัดการความเครียดทุกวัน"}
+{"word":"manage","english":"I try to manage my time better when working from home.","thai":"ฉันพยายามจัดการเวลาให้ดีขึ้นเมื่อทำงานจากบ้าน"}
+{"word":"time","english":"Spending time with friends at the coffee shop is my favorite weekend vibe.","thai":"การใช้เวลากับเพื่อนที่ร้านกาแฟคือบรรยากาศสุดสัปดาห์ที่ฉันชอบ"}
+{"word":"friends","english":"My friends always pick up the best board games for game night.","thai":"เพื่อนของฉันมักจะเลือกเกมกระดานที่ดีที่สุดสำหรับค่ำคืนเกม"}
+{"word":"pick","english":"I need to pick out a new outfit for the music festival this weekend.","thai":"ฉันต้องเลือกชุดใหม่สำหรับงานเทศกาลดนตรีสุดสัปดาห์นี้"}
+{"word":"new","english":"Trying out new recipes in the kitchen is my kind of adventure.","thai":"การลองสูตรอาหารใหม่ในครัวคือการผจญภัยแบบของฉัน"}
+{"word":"try","english":"I always try to check out local art galleries when I travel.","thai":"ฉันมักจะลองไปดูหอศิลป์ท้องถิ่นเมื่อเดินทาง"}
+{"word":"check","english":"Let’s check in with the team to discuss our project timeline.","thai":"มาประชุมกับทีมเพื่อคุยเรื่องไทม์ไลน์ของโปรเจกต์กัน"}
+{"word":"discuss","english":"We need to discuss how to approach this research critique in the seminar.","thai":"เราต้องคุยกันว่าจะเข้าถึงการวิจารณ์งานวิจัยในสัมมนานี้ยังไง"}
+{"word":"approach","english":"Her approach to mental health involves daily meditation and journaling.","thai":"วิธีของเธอในการดูแลสุขภาพจิตคือการนั่งสมาธิและเขียนบันทึกทุกวัน"}
+{"word":"daily","english":"Daily workouts help me stay fit and focused.","thai":"การออกกำลังกายทุกวันช่วยให้ฉันฟิตและมีสมาธิ"}
+{"word":"help","english":"Volunteering at the animal shelter helps me give back to the community.","thai":"การเป็นอาสาสมัครที่ศูนย์พักพิงสัตว์ช่วยให้ฉันตอบแทนชุมชน"}
+{"word":"community","english":"The community garden is where I run into old friends unexpectedly.","thai":"สวนชุมชนคือที่ที่ฉันบังเอิญเจอเพื่อนเก่า"}
+{"word":"run","english":"I love to run along the beach during sunset for some peace.","thai":"ฉันชอบวิ่งตามชายหาดตอนพระอาทิตย์ตกเพื่อความสงบ"}
+{"word":"love","english":"I love how cooking dinner brings the family together.","thai":"ฉันชอบที่การทำอาหารเย็นทำให้ครอบครัวอยู่ด้วยกัน"}
+{"word":"family","english":"Family game nights always turn into hilarious competitions.","thai":"คืนเกมครอบครัวมักจะกลายเป็นการแข่งขันสุดฮา"}
+{"word":"turn","english":"Let’s turn up the music and dance at the backyard barbecue.","thai":"มาเปิดเพลงดังๆ แล้วเต้นกันที่งานบาร์บีคิวหลังบ้าน"}
+{"word":"music","english":"Listening to music while studying keeps me in the zone.","thai":"การฟังเพลงขณะเรียนช่วยให้ฉันมีสมาธิ"}
+{"word":"keep","english":"I try to keep my desk organized to boost productivity.","thai":"ฉันพยายามจัดโต๊ะให้เป็นระเบียบเพื่อเพิ่มประสิทธิภาพ"}
+{"word":"boost","english":"A morning coffee always boosts my energy for the day.","thai":"กาแฟยามเช้ามักจะเพิ่มพลังให้ฉันตลอดวัน"}
+{"word":"energy","english":"Her energy during the charity run inspired everyone around her.","thai":"พลังของเธอในงานวิ่งการกุศลสร้างแรงบันดาลใจให้ทุกคนรอบตัว"}
+{"word":"inspire","english":"Great teachers inspire students to think critically in class.","thai":"ครูที่ดีสร้างแรงบันดาลใจให้นักเรียนคิดอย่างมีวิจารณญาณในชั้นเรียน"}
+{"word":"think","english":"I think we should hang out at the new arcade this weekend.","thai":"ฉันคิดว่าเราควรไปเที่ยวที่อาร์เคดใหม่สุดสัปดาห์นี้"}
+{"word":"hang","english":"Let’s hang around the park and take some cool photos.","thai":"มาเดินเล่นที่สวนสาธารณะแล้วถ่ายรูปเท่ๆ กัน"}
+{"word":"cool","english":"That new app is so cool, it makes editing videos super easy.","thai":"แอปใหม่นั่นเจ๋งมาก มันทำให้ตัดต่อวิดีโอง่ายสุดๆ"}
+{"word":"easy","english":"Finding easy vegan recipes online has changed my cooking game.","thai":"การหาสูตรอาหารวีแกนง่ายๆ ทางออนไลน์เปลี่ยนวิธีการทำอาหารของฉัน"}
+{"word":"change","english":"A quick wardrobe change before dinner makes me feel refreshed.","thai":"การเปลี่ยนชุดอย่างรวดก่อนอาหารเย็นทำให้ฉันรู้สึกสดชื่น"}
+{"word":"feel","english":"I feel like going hiking this weekend to clear my mind.","thai":"ฉันรู้สึกอยากไปเดินป่าสุดสัปดาห์นี้เพื่อผ่อนคลายจิตใจ"}
+{"word":"mind","english":"Keeping an open mind during debates helps me learn new perspectives.","thai":"การมีใจที่เปิดกว้างระหว่างการโต้วาทีช่วยให้ฉันเรียนรู้มุมมองใหม่"}
+{"word":"learn","english":"I want to learn how to code to build my own website.","thai":"ฉันอยากเรียนรู้การเขียนโค้ดเพื่อสร้างเว็บไซต์ของตัวเอง"}
+{"word":"build","english":"We need to build stronger connections at the networking event.","thai":"เราต้องสร้างความสัมพันธ์ที่แน่นแฟ้นมากขึ้นในงานเน็ตเวิร์ก"}
+{"word":"connection","english":"A good internet connection is key for streaming movies smoothly.","thai":"การเชื่อมต่ออินเทอร์เน็ตที่ดีคือกุญแจสำคัญในการสตรีมหนังอย่างลื่นไหล"}
+{"word":"key","english":"Finding the key to work-life balance is tough but worth it.","thai":"การหาความสมดุลระหว่างงานและชีวิตส่วนตัวนั้นยากแต่คุ้มค่า"}
+{"word":"balance","english":"Yoga helps me balance my emotions after a long day.","thai":"โยคะช่วยให้ฉันปรับสมดุลอารมณ์หลังจากวันที่ยาวนาน"}
+{"word":"emotion","english":"Expressing emotions through journaling is super therapeutic.","thai":"การแสดงอารมณ์ผ่านการเขียนบันทึกช่วยบำบัดได้ดีมาก"}
+{"word":"help","english":"Volunteering at the food drive helps feed so many families.","thai":"การเป็นอาสาสมัครในงานบริจาคอาหารช่วยเลี้ยงครอบครัวได้มากมาย"}
+{"word":"food","english":"Trying new food trucks at the festival is always a blast.","thai":"การลองร้านอาหารรถเข็นใหม่ๆ ที่งานเทศกาลมันส์สุดๆ"}
+{"word":"try","english":"I’m gonna try to cut back on social media this month.","thai":"ฉันจะลองลดการใช้โซเชียลมีเดียในเดือนนี้"}
+{"word":"cut","english":"Let’s cut through the park to get to the concert faster.","thai":"มาตัดผ่านสวนสาธารณะเพื่อไปคอนเสิร์ตให้เร็วขึ้น"}
+{"word":"get","english":"I need to get my car checked out before the road trip.","thai":"ฉันต้องเอารถไปตรวจก่อนออกทริป"}
+{"word":"check","english":"Can you check out this new podcast I found? It’s dope.","thai":"ช่วยดูพอดแคสต์ใหม่ที่ฉันเจอนี่หน่อยสิ มันเจ๋งมาก"}
+{"word":"dope","english":"That street art mural is so dope, it brightens the whole block.","thai":"ภาพจิตรกรรมฝาผนังสตรีทอาร์ตนั้นเจ๋งมาก มันทำให้ทั้งบล็อกสว่างขึ้น"}
+{"word":"brighten","english":"A quick nap can brighten my mood in the afternoon.","thai":"การงีบสั้นๆ ช่วยให้อารมณ์ฉันดีขึ้นในช่วงบ่าย"}
+{"word":"mood","english":"The rainy weather always puts me in a chill mood.","thai":"อากาศฝนตกมักทำให้ฉันรู้สึกผ่อนคลาย"}
+{"word":"chill","english":"Let’s chill at the rooftop bar and catch up.","thai":"มาผ่อนคลายที่บาร์บนดาดฟ้าแล้วคุยอัปเดตกัน"}
+{"word":"catch","english":"I hope to catch the sunrise while camping this weekend.","thai":"ฉันหวังว่าจะได้เห็นพระอาทิตย์ขึ้นตอนแคมป์ปิ้งสุดสัปดาห์นี้"}
+{"word":"hope","english":"I hope we can pull off this community event without a hitch.","thai":"ฉันหวังว่าเราจะจัดงานชุมชนนี้ได้สำเร็จโดยไม่มีสะดุด"}
+{"word":"pull","english":"We need to pull together as a team to meet the deadline.","thai":"เราต้องรวมพลังกันเป็นทีมเพื่อให้ทันกำหนดเวลา"}
+{"word":"team","english":"Joining the soccer team was the best decision I made this year.","thai":"การเข้าร่วมทีมฟุตบอลคือการตัดสินใจที่ดีที่สุดของฉันในปีนี้"}
+{"word":"decision","english":"Making a decision about grad school is stressing me out.","thai":"การตัดสินใจเรื่องเรียนต่อป.โททำให้ฉันเครียด"}
+{"word":"stress","english":"Talking to my therapist helps me stress less about work.","thai":"การคุยกับนักบำบัดช่วยให้ฉันเครียดน้อยลงเรื่องงาน"}
+{"word":"talk","english":"Let’s talk over coffee about your new business idea.","thai":"มาคุยเรื่องไอเดียธุรกิจใหม่ของคุณกันที่ร้านกาแฟ"}
+{"word":"business","english":"Starting a small business selling handmade crafts is my dream.","thai":"การเริ่มธุรกิจเล็กๆ ขายงานฝีมือคือความฝันของฉัน"}
+{"word":"dream","english":"I dream of traveling across Europe on a budget.","thai":"ฉันฝันถึงการเดินทางทั่วยุโรปแบบประหยัด"}
+{"word":"travel","english":"I love to travel light and just go with the flow.","thai":"ฉันชอบเดินทางแบบเบาๆ และปล่อยให้ทุกอย่างเป็นไปตามธรรมชาติ"}
+{"word":"go","english":"Let’s go check out the new farmers’ market this Saturday.","thai":"ไปดูตลาดนัดเกษตรกรใหม่กันวันเสาร์นี้"}
+{"word":"market","english":"The housing market is tough for first-time buyers right now.","thai":"ตลาดที่อยู่อาศัยตอนนี้ยากสำหรับคนซื้อครั้งแรก"}
+{"word":"tough","english":"Getting through a tough workout feels so rewarding.","thai":"การผ่านการออกกำลังกายที่หนักหน่วงรู้สึกคุ้มค่ามาก"}
+{"word":"feel","english":"I feel like binge-watching a new series this weekend.","thai":"ฉันรู้สึกอยากดูซีรีส์ใหม่แบบมาราธอนสุดสัปดาห์นี้"}
+{"word":"watch","english":"I love to watch the stars while stargazing with friends.","thai":"ฉันชอบดูดาวขณะนั่งมองท้องฟ้ากับเพื่อนๆ"}
+{"word":"friend","english":"Hanging out with a friend at the arcade is always a good time.","thai":"การไปเที่ยวกับเพื่อนที่อาร์เคดมักจะสนุกเสมอ"}
+{"word":"good","english":"A good playlist can make any road trip epic.","thai":"เพลย์ลิสต์ดีๆ ทำให้ทริปถนนไหนๆ ก็ยอดเยี่ยม"}
+{"word":"make","english":"I want to make time for painting this weekend.","thai":"ฉันอยากหาเวลาวาดรูปสุดสัปดาห์นี้"}
+{"word":"time","english":"Time flies when I’m deep in a good book.","thai":"เวลาผ่านไปเร็วเมื่อฉันจมอยู่กับหนังสือดีๆ"}
+{"word":"book","english":"I need to book a spot for the yoga retreat next month.","thai":"ฉันต้องจองที่สำหรับรีทรีตโยคะเดือนหน้า"}
+{"word":"spot","english":"Finding a quiet spot to study on campus is tricky.","thai":"การหาที่เงียบๆ อ่านหนังสือในมหาลัยนี่ไม่ง่ายเลย"}
+{"word":"study","english":"I study better when I listen to lo-fi music.","thai":"ฉันเรียนได้ดีขึ้นเมื่อฟังเพลงโลไฟ"}
+{"word":"listen","english":"I love to listen to podcasts while cooking dinner.","thai":"ฉันชอบฟังพอดแคสต์ขณะทำอาหารเย็น"}
+{"word":"cook","english":"Learning to cook Thai food has been a fun challenge.","thai":"การเรียนทำอาหารไทยเป็นความท้าทายที่สนุก"}
+{"word":"fun","english":"Playing board games with family is always fun.","thai":"การเล่นเกมกระดานกับครอบครัวสนุกเสมอ"}
+{"word":"play","english":"I play pickup basketball with coworkers every Friday.","thai":"ฉันเล่นบาสเกตบอลกับเพื่อนร่วมงานทุกวันศุกร์"}
+{"word":"coworker","english":"My coworker always brings the best snacks to meetings.","thai":"เพื่อนร่วมงานของฉันมักนำของว่างดีๆ มาประชุม"}
+{"word":"bring","english":"Let’s bring some blankets to the outdoor movie night.","thai":"เอาเสื้อกันหนาวมาเพิ่มที่งานดูหนังกลางแจ้งกัน"}
+{"word":"night","english":"Staying up all night gaming with friends is a blast.","thai":"การอยู่ดึกเล่นเกมกับเพื่อนมันสุดยอดมาก"}
+{"word":"game","english":"Watching a live football game is such a thrill.","thai":"การดูเกมฟุตบอลสดมันตื่นเต้นมาก"}
+{"word":"watch","english":"I watch cooking shows to pick up new recipe ideas.","thai":"ฉันดูรายการทำอาหารเพื่อหาไอเดียสูตรใหม่ๆ"}
+{"word":"idea","english":"Her idea to start a book club was a total hit.","thai":"ไอเดียของเธอในการเริ่มคลับหนังสือได้รับความนิยมสุดๆ"}
+{"word":"start","english":"I want to start running every morning to stay healthy.","thai":"ฉันอยากเริ่มวิ่งทุกเช้าเพื่อสุขภาพ"}
+{"word":"healthy","english":"Eating healthy meals boosts my mood and energy.","thai":"การกินอาหารเพื่อสุขภาพช่วยเพิ่มอารมณ์และพลังงานของฉัน"}
+{"word":"energy","english":"I save my energy for hiking on the weekends.","thai":"ฉันเก็บพลังไว้สำหรับเดินป่าสุดสัปดาห์"}
+{"word":"weekend","english":"The weekend farmers’ market is packed with fresh produce.","thai":"ตลาดนัดเกษตรกรสุดสัปดาห์เต็มไปด้วยผักผลไม้สด"}
+{"word":"fresh","english":"A fresh coat of paint can transform any room.","thai":"การทาสีใหม่ทำให้ห้องไหนๆ ก็เปลี่ยนไป"}
+{"word":"transform","english":"Her speech on sustainability could transform how we recycle.","thai":"คำปราศรัยของเธอเกี่ยวกับความยั่งยืนอาจเปลี่ยนวิธีการรีไซเคิลของเรา"}
+{"word":"recycle","english":"I try to recycle everything to reduce my carbon footprint.","thai":"ฉันพยายามรีไซเคิลทุกอย่างเพื่อลดรอยเท้าคาร์บอน"}
+{"word":"reduce","english":"Cutting back on sugar helps reduce my stress levels.","thai":"การลดน้ำตาลช่วยลดระดับความเครียดของฉัน"}
+{"word":"level","english":"Taking my skills to the next level takes daily practice.","thai":"การยกระดับทักษะของฉันต้องฝึกฝนทุกวัน"}
+{"word":"practice","english":"Meditation practice calms my mind before a big meeting.","thai":"การฝึกสมาธิช่วยให้จิตใจฉันสงบก่อนการประชุมใหญ่"}
+{"word":"calm","english":"A calm evening walk with my dog is so relaxing.","thai":"การเดินเล่นยามเย็นกับหมาแบบสงบๆ ผ่อนคลายมาก"}
+{"word":"relax","english":"I relax by binge-watching sci-fi shows on weekends.","thai":"ฉันผ่อนคลายด้วยการดูซีรีส์ไซไฟแบบมาราธอนในวันหยุด"}
+{"word":"show","english":"Her art show at the gallery blew everyone away.","thai":"งานแสดงศิลปะของเธอที่แกลเลอรีทำให้ทุกคนทึ่ง"}
+{"word":"blow","english":"That plot twist in the movie totally blew my mind.","thai":"จุดหักเหในหนังเรื่องนั้นทำให้ฉันตะลึงเลย"}
+{"word":"mind","english":"Changing my mind about career goals was a big step.","thai":"การเปลี่ยนใจเกี่ยวกับเป้าหมายในอาชีพเป็นก้าวใหญ่"}
+{"word":"goal","english":"Setting realistic goals keeps me motivated at work.","thai":"การตั้งเป้าหมายที่เป็นจริงช่วยให้ฉันมีแรงจูงใจในงาน"}
+{"word":"motivate","english":"Her pep talk really motivated the team to push forward.","thai":"คำพูดให้กำลังใจของเธอช่วยกระตุ้นทีมให้เดินหน้าต่อ"}
+{"word":"push","english":"I need to push myself to finish this coding project.","thai":"ฉันต้องผลักดันตัวเองให้จบโปรเจกต์เขียนโค้ดนี้"}
+{"word":"finish","english":"Let’s finish up this hike before the sun sets.","thai":"มาจบการเดินป่านี้ก่อนที่พระอาทิตย์จะตก"}
+{"word":"sun","english":"Soaking up the sun at the beach is my summer vibe.","thai":"การอาบแดดที่ชายหาดคือสไตล์ฤดูร้อนของฉัน"}
+{"word":"summer","english":"Summer barbecues with friends are always a good time.","thai":"งานบาร์บีคิวฤดูร้อนกับเพื่อนๆ สนุกเสมอ"}
+{"word":"friend","english":"Catching up with an old friend over coffee is the best.","thai":"การนั่งคุยกับเพื่อนเก่าจิบกาแฟคือสิ่งที่ดีที่สุด"}
+{"word":"coffee","english":"Grabbing a coffee before class helps me stay awake.","thai":"การซื้อกาแฟก่อนเข้าเรียนช่วยให้ฉันตื่นตัว"}
+{"word":"stay","english":"I try to stay active by hitting the gym every morning.","thai":"ฉันพยายามรักษาความกระฉับกระเฉงด้วยการไปยิมทุกเช้า"}
+{"word":"active","english":"Staying active during the hiking trip was super fun.","thai":"การรักษาความกระฉับกระเฉงระหว่างทริปเดินป่านี่สนุกสุดๆ"}
+{"word":"fun","english":"Playing board games with the crew is always fun.","thai":"การเล่นเกมกระดานกับเพื่อนๆ สนุกเสมอ"}
+{"word":"play","english":"I love to play some chill music while cooking dinner.","thai":"ฉันชอบเปิดเพลงสบายๆ ขณะทำอาหารเย็น"}
+{"word":"music","english":"Streaming music at the barbecue sets the perfect vibe.","thai":"การสตรีมเพลงที่งานบาร์บีคิวสร้างบรรยากาศที่ลงตัว"}
+{"word":"vibe","english":"The chill vibe at the beach festival is so relaxing.","thai":"บรรยากาศสบายๆ ที่งานเทศกาลชายหาดผ่อนคลายมาก"}
+{"word":"relax","english":"I like to relax with a good book after a long day.","thai":"ฉันชอบผ่อนคลายด้วยการอ่านหนังสือดีๆ หลังจากวันที่ยาวนาน"}
+{"word":"book","english":"Booking a spot for the yoga retreat was a great call.","thai":"การจองที่สำหรับรีทรีตโยคะเป็นการตัดสินใจที่ยอดเยี่ยม"}
+{"word":"great","english":"Scoring great deals at the thrift store feels amazing.","thai":"การได้ของถูกที่ร้านมือสองรู้สึกดีมาก"}
+{"word":"deal","english":"Let’s figure out a deal for splitting the vacation costs.","thai":"มาหาข้อตกลงเรื่องการแบ่งค่าใช้จ่ายทริปพักร้อนกัน"}
+{"word":"figure","english":"I need to figure out how to fix my laptop before work.","thai":"ฉันต้องหาวิธีซ่อมแล็ปท็อปก่อนทำงาน"}
+{"word":"work","english":"Teamwork at the office makes projects run smoothly.","thai":"การทำงานเป็นทีมในออฟฟิศทำให้โปรเจกต์ราบรื่น"}
+{"word":"run","english":"I love to run through the park on crisp fall mornings.","thai":"ฉันชอบวิ่งผ่านสวนสาธารณะในเช้าฤดูใบไม้ร่วงที่สดชื่น"}
+{"word":"morning","english":"Morning meditation helps me start the day with focus.","thai":"การนั่งสมาธิตอนเช้าช่วยให้ฉันเริ่มวันด้วยสมาธิ"}
+{"word":"focus","english":"Keeping focus during a PhD seminar is tough but rewarding.","thai":"การรักษาสมาธิระหว่างสัมมนาป.เอกนั้นยากแต่คุ้มค่า"}
+{"word":"tough","english":"Pushing through a tough workout boosts my confidence.","thai":"การฝ่าฟันการออกกำลังกายที่หนักหน่วงเพิ่มความมั่นใจให้ฉัน"}
+{"word":"boost","english":"A quick nap boosts my energy for late-night gaming.","thai":"การงีบสั้นๆ เพิ่มพลังให้ฉันสำหรับการเล่นเกมดึกๆ"}
+{"word":"energy","english":"Channeling my energy into painting is super therapeutic.","thai":"การระบายพลังลงในการวาดภาพช่วยบำบัดได้ดีมาก"}
+{"word":"paint","english":"I want to paint the living room a bold new color.","thai":"ฉันอยากทาสีห้องนั่งเล่นด้วยสีใหม่ที่โดดเด่น"}
+{"word":"color","english":"The vibrant colors at the art gallery blew me away.","thai":"สีสันสดใสที่หอศิลป์ทำให้ฉันตื่นตะลึง"}
+{"word":"blow","english":"That plot twist in the novel totally blew my mind.","thai":"จุดหักเหในนิยายนั้นทำให้ฉันตะลึงสุดๆ"}
+{"word":"mind","english":"Keeping an open mind during debates sharpens my thinking.","thai":"การมีใจที่เปิดกว้างระหว่างการโต้วาทีช่วยให้ความคิดฉันเฉียบคม"}
+{"word":"think","english":"I think we should check out the new food truck tonight.","thai":"ฉันคิดว่าเราควรไปดูร้านอาหารรถเข็นใหม่คืนนี้"}
+{"word":"check","english":"Can you check in with the team about the project deadline?","thai":"ช่วยเช็คกับทีมเรื่องกำหนดเวลาโปรเจกต์หน่อยได้ไหม"}
+{"word":"deadline","english":"Meeting tight deadlines at work stresses me out sometimes.","thai":"การต้องทำตามกำหนดเวลาที่กระชั้นชิดในงานทำให้ฉันเครียดบ้าง"}
+{"word":"stress","english":"Yoga helps me cut back on stress after a hectic day.","thai":"โยคะช่วยให้ฉันลดความเครียดหลังจากวันที่วุ่นวาย"}
+{"word":"cut","english":"I need to cut down on junk food to stay healthy.","thai":"ฉันต้องลดการกินอาหารขยะเพื่อสุขภาพ"}
+{"word":"healthy","english":"Eating healthy snacks keeps me energized for hiking.","thai":"การกินของว่างเพื่อสุขภาพทำให้ฉันมีพลังสำหรับการเดินป่า"}
+{"word":"keep","english":"I try to keep my desk tidy to boost productivity.","thai":"ฉันพยายามจัดโต๊ะให้เป็นระเบียบเพื่อเพิ่มประสิทธิภาพ"}
+{"word":"productivity","english":"Tracking productivity with apps helps me stay on task.","thai":"การติดตามประสิทธิภาพด้วยแอปช่วยให้ฉันทำงานได้ต่อเนื่อง"}
+{"word":"task","english":"Tackling tough tasks early in the day feels so good.","thai":"การจัดการงานยากๆ ตั้งแต่เช้ารู้สึกดีมาก"}
+{"word":"feel","english":"I feel like binge-watching a new series this weekend.","thai":"ฉันรู้สึกอยากดูซีรีส์ใหม่แบบมาราธอนสุดสัปดาห์นี้"}
+{"word":"watch","english":"Watching the sunset at the lake is pure magic.","thai":"การดูพระอาทิตย์ตกที่ทะเลสาบนั้นมหัศจรรย์สุดๆ"}
+{"word":"magic","english":"The magic of live music at festivals never gets old.","thai":"มนต์เสน่ห์ของดนตรีสดในงานเทศกาลไม่เคยเก่า"}
+{"word":"live","english":"I live for those spontaneous road trips with friends.","thai":"ฉันหลงรักการออกทริปถนนแบบไม่วางแผนกับเพื่อนๆ"}
+{"word":"trip","english":"Planning a camping trip for the summer is so exciting.","thai":"การวางแผนทริปแคมป์ปิ้งสำหรับฤดูร้อนนี่ตื่นเต้นมาก"}
+{"word":"exciting","english":"Finding exciting new books at the library is the best.","thai":"การเจอหนังสือใหม่ๆ ที่น่าตื่นเต้นในห้องสมุดคือที่สุด"}
+{"word":"find","english":"I always find cool stuff at the local flea market.","thai":"ฉันมักเจอของเจ๋งๆ ที่ตลาดนัดท้องถิ่น"}
+{"word":"cool","english":"That new skate park is so cool, I gotta try it.","thai":"สเก็ตพาร์คใหม่นั่นเจ๋งมาก ฉันต้องลอง"}
+{"word":"try","english":"I’m gonna try growing my own herbs this spring.","thai":"ฉันจะลองปลูกสมุนไพรด้วยตัวเองในฤดูใบไม้ผลินี้"}
+{"word":"grow","english":"Watching my plants grow makes me oddly proud.","thai":"การดูต้นไม้ของฉันเติบโตทำให้ฉันภูมิใจแบบแปลกๆ"}
+{"word":"proud","english":"I’m proud of my team for pulling off that presentation.","thai":"ฉันภูมิใจในทีมที่ทำการนำเสนอนั้นได้สำเร็จ"}
+{"word":"pull","english":"Let’s pull together for the charity fundraiser this month.","thai":"มาร่วมแรงร่วมใจกันในงานระดมทุนการกุศลเดือนนี้"}
+{"word":"charity","english":"Volunteering at the charity event feels so rewarding.","thai":"การเป็นอาสาสมัครในงานการกุศลรู้สึกคุ้มค่ามาก"}
+{"word":"reward","english":"The reward of finishing a marathon is unbeatable.","thai":"รางวัลจากการวิ่งมาราธอนนั้นไม่มีอะไรเทียบได้"}
+{"word":"finish","english":"I need to finish editing this video before tomorrow.","thai":"ฉันต้องตัดต่อวิดีโอนี้ให้เสร็จก่อนพรุ่งนี้"}
+{"word":"video","english":"Posting a video on social media got way more likes than I expected.","thai":"การโพสต์วิดีโอบนโซเชียลมีเดียได้ไลค์เยอะกว่าที่ฉันคิด"}
+{"word":"like","english":"I like chilling with my dog after a long workday.","thai":"ฉันชอบผ่อนคลายกับหมา بعد ازวันที่ทำงานยาวนาน"}
+{"word":"chill","english":"Let’s chill at the rooftop bar and catch up.","thai":"มาผ่อนคลายที่บาร์บนดาดฟ้าแล้วคุยอัปเดตกัน"}
+{"word":"catch","english":"I hope to catch a good movie at the theater tonight.","thai":"ฉันหวังว่าจะได้ดูหนังดีๆ ที่โรงหนังคืนนี้"}
+{"word":"movie","english":"Discussing movies with friends always sparks fun debates.","thai":"การคุยเรื่องหนังกับเพื่อนๆ มักจุดประกายการโต้วาทีที่สนุก"}
+{"word":"spark","english":"Her speech sparked new ideas for our sustainability project.","thai":"คำปราศรัยของเธอจุดประกายไอเดียใหม่สำหรับโปรเจกต์ความยั่งยืน"}
+{"word":"idea","english":"Coming up with fresh ideas for the blog is challenging.","thai":"การคิดไอเดียใหม่ๆ สำหรับบล็อกนั้นท้าทาย"}
+{"word":"come","english":"Let’s come together for a potluck dinner this weekend.","thai":"มารวมตัวกันจัดงานเลี้ยงแบบทุกคนนำอาหารมาแบ่งปันสุดสัปดาห์นี้"}
+{"word":"dinner","english":"Cooking dinner for my family is my favorite ritual.","thai":"การทำอาหารเย็นให้ครอบครัวคือพิธีกรรมที่ฉันชอบ"}
+{"word":"favorite","english":"My favorite podcast always drops new episodes on Fridays.","thai":"พอดแคสต์ที่ฉันชอบมักปล่อยตอนใหม่ทุกวันศุกร์"}
+{"word":"drop","english":"I accidentally dropped my phone while hiking yesterday.","thai":"ฉันทำโทรศัพท์ตกโดยไม่ได้ตั้งใจตอนเดินป่า� yesterday"}
+{"word":"phone","english":"Checking my phone for updates is a bad habit.","thai":"การเช็คโทรศัพท์เพื่อดูอัปเดตเป็นนิสัยที่ไม่ดี"}
+{"word":"habit","english":"Breaking bad habits takes serious willpower.","thai":"การเลิกนิสัยไม่ดีต้องใช้พลังใจอย่างมาก"}
+{"word":"willpower","english":"Building willpower through meditation is life-changing.","thai":"การสร้างพลังใจผ่านการนั่งสมาธิเปลี่ยนชีวิตได้"}
+{"word":"change","english":"A quick outfit change before the party feels refreshing.","thai":"การเปลี่ยนชุดก่อนปาร์ตี้รู้สึกสดชื่น"}
+{"word":"party","english":"Throwing a small party for my birthday was a blast.","thai":"การจัดปาร์ตี้เล็กๆ สำหรับวันเกิดของฉันสนุกสุดๆ"}
+{"word":"blast","english":"Riding roller coasters at the fair is always a blast.","thai":"การนั่งรถไฟเหาะที่งานเทศกาลสนุกเสมอ"}
+{"word":"ride","english":"I love to ride my bike through the city on weekends.","thai":"ฉันชอบปั่นจักรยานผ่านเมืองในวันหยุด"}
+{"word":"city","english":"Exploring city markets for fresh produce is so fun.","thai":"การสำรวจตลาดในเมืองเพื่อหาผลิตผลสดใหม่นั้นสนุกมาก"}
+{"word":"explore","english":"I want to explore new hiking trails this summer.","thai":"ฉันอยากสำรวจเส้นทางเดินป่าใหม่ๆ ซัมเมอร์นี้"}
+{"word":"trail","english":"Finding a quiet trail for stargazing is pure bliss.","thai":"การหาเส้นทางเงียบๆ สำหรับดูดาวคือความสุขล้วนๆ"}
+{"word":"bliss","english":"The bliss of a lazy Sunday morning is unmatched.","thai":"ความสุขของเช้าวันอาทิตย์แบบขี้เกียจนั้นไม่มีอะไรเทียบได้"}
+{"word":"morning","english":"Morning runs by the river set a great tone for the day.","thai":"การวิ่งตอนเช้าข้างแม่น้ำสร้างโทนที่ดีสำหรับวัน"}
+{"word":"set","english":"Let’s set up a game night with some classic board games.","thai":"มาจัดค่ำคืนเกมด้วยเกมกระดานคลาสสิกกัน"}
+{"word":"game","english":"Watching a live baseball game is such a thrill.","thai":"การดูเกมเบสบอลสดนั้นตื่นเต้นมาก"}
+{"word":"thrill","english":"The thrill of skydiving was worth every second.","thai":"ความตื่นเต้นของการกระโดดร่มนั้นคุ้มค่าทุกวินาที"}
+{"word":"worth","english":"Volunteering at the shelter is worth all the effort.","thai":"การเป็นอาสาสมัครที่ศูนย์พักพิงนั้นคุ้มค่ากับทุกความพยายาม"}
+{"word":"effort","english":"Putting in extra effort on this project paid off big.","thai":"การทุ่มเทความพยายามเพิ่มในโปรเจกต์นี้ได้ผลตอบแทนดี"}
+{"word":"pay","english":"I need to pay off my student loans before traveling.","thai":"ฉันต้องจ่ายหนี้เงินกู้เพื่อการศึกษาก่อนไปเที่ยว"}
+{"word":"travel","english":"Traveling solo teaches you so much about yourself.","thai":"การเดินทางคนเดียวสอนอะไรคุณเกี่ยวกับตัวเองเยอะมาก"}
+{"word":"teach","english":"My coach teaches us to stay focused during practice.","thai":"โค้ชของฉันสอนให้เรามีสมาธิระหว่างซ้อม"}
+{"word":"practice","english":"Daily yoga practice keeps my stress levels low.","thai":"การฝึกโยคะทุกวันช่วยให้ระดับความเครียดของฉันต่ำ"}
+{"word":"level","english":"Taking my cooking skills to the next level is my goal.","thai":"การยกระดับทักษะการทำอาหารคือเป้าหมายของฉัน"}
+{"word":"goal","english":"Setting fitness goals keeps me motivated all year.","thai":"การตั้งเป้าหมายด้านฟิตเนสทำให้ฉันมีแรงจูงใจตลอดทั้งปี"}
+{"word":"motivate","english":"Her TED Talk motivated me to start my own business.","thai":"ทอล์คของเธอใน TED กระตุ้นให้ฉันเริ่มธุรกิจของตัวเอง"}
+{"word":"business","english":"Networking at business events opens so many doors.","thai":"การสร้างเครือข่ายในงานธุรกิจเปิดโอกาสมากมาย"}
+{"word":"open","english":"Keeping an open mind during brainstorming is key.","thai":"การมีใจที่เปิดกว้างระหว่างระดมสมองคือสิ่งสำคัญ"}
+{"word":"key","english":"Finding the key to work-life balance is a game-changer.","thai":"การหาความสมดุลระหว่างงานและชีวิตคือตัวเปลี่ยนเกม"}
+{"word":"balance","english":"Balancing school and part-time work is exhausting.","thai":"การรักษาสมดุลระหว่างเรียนและงานพาร์ทไทม์เหนื่อยมาก"}
+{"word":"work","english":"I love to work on DIY projects in my free time.","thai":"ฉันชอบทำงาน DIY ในเวลาว่าง"}
+{"word":"time","english":"Time flies when I’m deep in a good podcast.","thai":"เวลาผ่านไปเร็วเมื่อฉันจมอยู่กับพอดแคสต์ดีๆ"}
+{"word":"podcast","english":"Listening to a true-crime podcast keeps me hooked.","thai":"การฟังพอดแคสต์เกี่ยวกับคดีอาชญากรรมทำให้ฉันติดหนึบ"}
+{"word":"hook","english":"That catchy song has been stuck in my head all day.","thai":"เพลงติดหูนั้นอยู่ในหัวฉันทั้งวัน"}
+{"word":"song","english":"Singing along to songs at karaoke is my guilty pleasure.","thai":"การร้องเพลงตามในคาราโอเกะคือความสุขลับๆ ของฉัน"}
+{"word":"pleasure","english":"The pleasure of a home-cooked meal is hard to beat.","thai":"ความสุขของอาหารทำเองที่บ้านนั้นยากจะเทียบ"}
+{"word":"home","english":"Working from home makes my mornings so much easier.","thai":"การทำงานจากบ้านทำให้เช้าของฉันง่ายขึ้นมาก"}
+{"word":"easy","english":"Finding easy vegan recipes online is a lifesaver.","thai":"การหาสูตรอาหารวีแกนง่ายๆ ออนไลน์ช่วยชีวิตเลย"}
+{"word":"recipe","english":"Trying a new recipe for dinner spices things up.","thai":"การลองสูตรอาหารเย็นใหม่ๆ ทำให้ทุกอย่างน่าสนใจ"}
+{"word":"spice","english":"Adding some spice to my wardrobe feels so fresh.","thai":"การเพิ่มสีสันให้ตู้เสื้อผ้ารู้สึกสดชื่นมาก"}
+{"word":"fresh","english":"Fresh flowers from the market brighten my kitchen.","thai":"ดอกไม้สดจากตลาดทำให้ครัวของฉันสว่างขึ้น"}
+{"word":"brighten","english":"A good laugh with friends brightens any rainy day.","thai":"การหัวเราะกับเพื่อนๆ ทำให้วันที่ฝนตกสดใสขึ้น"}
+{"word":"laugh","english":"I love to laugh at silly memes with my coworkers.","thai":"ฉันชอบหัวเราะกับมีมตลกๆ กับเพื่อนร่วมงาน"}
+{"word":"love","english":"I love hanging out at the local coffee shop on weekends.","thai":"ฉันชอบไปนั่งเล่นที่ร้านกาแฟท้องถิ่นในวันหยุด"}
+{"word":"hang","english":"Let’s hang around the park and snap some photos.","thai":"มาเดินเล่นที่สวนสาธารณะแล้วถ่ายรูปกัน"}
+{"word":"photo","english":"Editing photos from the festival is my kind of fun.","thai":"การตัดต่อรูปจากงานเทศกาลคือความสนุกแบบของฉัน"}
+{"word":"fun","english":"Playing soccer with friends is always super fun.","thai":"การเตะฟุตบอลกับเพื่อนๆ สนุกสุดๆ เสมอ"}
+{"word":"play","english":"I play chill music to unwind after a long day.","thai":"ฉันเปิดเพลงสบายๆ เพื่อผ่อนคลายหลังจากวันที่ยาวนาน"}
+{"word":"unwind","english":"A hot bath helps me unwind before bed.","thai":"การแช่น้ำร้อนช่วยให้ฉันผ่อนคลายก่อนนอน"}
+{"word":"help","english":"Volunteering at the animal shelter helps the community.","thai":"การเป็นอาสาสมัครที่ศูนย์พักพิงสัตว์ช่วยชุมชน"}
+{"word":"community","english":"The community garden is where I pick up fresh veggies.","thai":"สวนชุมชนคือที่ที่ฉันไปเก็บผักสด"}
+{"word":"pick","english":"I need to pick out a gift for my sister’s birthday.","thai":"ฉันต้องเลือกของขวัญให้วันเกิดน้องสาว"}
+{"word":"gift","english":"Getting a handmade gift feels so special.","thai":"การได้ของขวัญทำมือรู้สึกพิเศษมาก"}
+{"word":"feel","english":"I feel pumped after a solid morning workout.","thai":"ฉันรู้สึกกระปรี้กระเปร่าหลังออกกำลังกายตอนเช้า"}
+{"word":"workout","english":"Trying a new workout routine keeps things exciting.","thai":"การลองตารางออกกำลังกายใหม่ทำให้ทุกอย่างน่าตื่นเต้น"}
+{"word":"exciting","english":"Starting a new project at work is pretty exciting.","thai":"การเริ่มโปรเจกต์ใหม่ที่ทำงานค่อนข้างน่าตื่นเต้น"}
+{"word":"project","english":"Collaborating on a project with my team boosts creativity.","thai":"การทำงานร่วมกันในโปรเจกต์กับทีมเพิ่มความคิดสร้างสรรค์"}
+{"word":"boost","english":"A quick coffee break boosts my focus in meetings.","thai":"การพักดื่มกาแฟสั้นๆ ช่วยเพิ่มสมาธิในที่ประชุม"}
+{"word":"focus","english":"Keeping focus during a PhD seminar is always tough.","thai":"การรักษาสมาธิระหว่างสัมมนาป.เอกนั้นยากเสมอ"}
+{"word":"tough","english":"Pushing through tough moments in therapy builds strength.","thai":"การฝ่าฟันช่วงเวลาที่ยากลำบากในการบำบัดสร้างความเข้มแข็ง"}
+{"word":"build","english":"I want to build a cool gaming setup this year.","thai":"ฉันอยากสร้างชุดเล่นเกมเจ๋งๆ ในปีนี้"}
+{"word":"cool","english":"That new skate shop is so cool, I gotta check it out.","thai":"ร้านสเก็ตใหม่นั่นเจ๋งมาก ฉันต้องไปดู"}
+{"word":"check","english":"Can you check in with the group about the hike?","thai":"ช่วยเช็คกับกลุ่มเรื่องการเดินป่านหน่อยได้ไหม"}
+{"word":"hike","english":"A sunrise hike always clears my head.","thai":"การเดินป่าตอนพระอาทิตย์ขึ้นช่วยให้สมองฉันปลอดโปร่ง"}
+{"word":"head","english":"Keeping a clear head during debates is key.","thai":"การรักษาสติในระหว่างการโต้วาทีคือสิ่งสำคัญ"}
+{"word":"key","english":"Finding the key to time management changed my life.","thai":"การหาวิธีจัดการเวลาทำให้ชีวิตฉันเปลี่ยน"}
+{"word":"time","english":"Spending time with my dog is pure joy.","thai":"การใช้เวลากับหมานั้นคือความสุขล้วนๆ"}
+{"word":"joy","english":"Cooking with friends brings so much joy to my weekends.","thai":"การทำอาหารกับเพื่อนๆ นำความสุขมาให้วันหยุดของฉัน"}
+{"word":"cook","english":"I love to cook spicy Thai dishes for dinner parties.","thai":"ฉันชอบทำอาหารไทยรสเผ็ดสำหรับงานเลี้ยงอาหารเย็น"}
+{"word":"party","english":"Throwing a small party at home is always a blast.","thai":"การจัดปาร์ตี้เล็กๆ ที่บ้านสนุกสุดๆ เสมอ"}
+{"word":"blast","english":"Riding roller coasters at the fair is a total blast.","thai":"การนั่งรถไฟเหาะที่งานเทศกาลมันส์สุดๆ"}
+{"word":"ride","english":"I ride my bike to the farmers’ market every Saturday.","thai":"ฉันปั่นจักรยานไปตลาดนัดเกษตรกรทุกวันเสาร์"}
+{"word":"market","english":"The flea market has the best vintage finds.","thai":"ตลาดนัดมีของวินเทจที่ดีที่สุด"}
+{"word":"find","english":"I always find new books to read at the library.","thai":"ฉันมักเจอหนังสือใหม่ๆ ให้อ่านที่ห้องสมุด"}
+{"word":"read","english":"Reading a good mystery novel keeps me hooked.","thai":"การอ่านนิยายลึกลับดีๆ ทำให้ฉันติดหนึบ"}
+{"word":"hook","english":"That new song is so catchy, it’s got me hooked.","thai":"เพลงใหม่นั้นติดหูมาก มันทำให้ฉันติดใจ"}
+{"word":"song","english":"Singing along to songs at karaoke is my vibe.","thai":"การร้องเพลงตามในคาราโอเกะคือสไตล์ของฉัน"}
+{"word":"vibe","english":"The chill vibe at the rooftop bar is perfect for chats.","thai":"บรรยากาศสบายๆ ที่บาร์บนดาดฟ้าสมบูรณ์แบบสำหรับการคุย"}
+{"word":"chat","english":"I love to chat with friends over brunch on Sundays.","thai":"ฉันชอบคุยกับเพื่อนๆ ระหว่างบรันช์วันอาทิตย์"}
+{"word":"friend","english":"Catching up with an old friend feels so refreshing.","thai":"การอัปเดตกับเพื่อนเก่ารู้สึกสดชื่นมาก"}
+{"word":"feel","english":"I feel amazing after a long yoga session.","thai":"ฉันรู้สึกดีสุดๆ หลังจากโยคะนานๆ"}
+{"word":"amazing","english":"The view from the mountain trail was absolutely amazing.","thai":"วิวจากเส้นทางบนเขานั้นยอดเยี่ยมสุดๆ"}
+{"word":"trail","english":"Exploring new trails while camping is my kind of adventure.","thai":"การสำรวจเส้นทางใหม่ๆ ขณะแคมป์ปิ้งคือการผจญภัยแบบของฉัน"}
+{"word":"adventure","english":"Going on a road trip adventure is always thrilling.","thai":"การออกทริปผจญภัยทางถนนนั้นตื่นเต้นเสมอ"}
+{"word":"thrill","english":"The thrill of live music concerts never gets old.","thai":"ความตื่นเต้นของคอนเสิร์ตดนตรีสดไม่เคยเก่า"}
+{"word":"live","english":"I live for those quiet evenings stargazing in the backyard.","thai":"ฉันหลงรักค่ำคืนเงียบๆ ที่ดูดาวในสวนหลังบ้าน"}
+{"word":"evening","english":"Evening walks with my partner are so relaxing.","thai":"การเดินเล่นยามเย็นกับคู่รักผ่อนคลายมาก"}
+{"word":"relax","english":"I relax by binge-watching sci-fi shows on weekends.","thai":"ฉันผ่อนคลายด้วยการดูซีรีส์ไซไฟแบบมาราธอนในวันหยุด"}
+{"word":"show","english":"Her art show at the gallery was a total hit.","thai":"งานแสดงศิลปะของเธอที่แกลเลอรีได้รับความนิยมสุดๆ"}
+{"word":"hit","english":"Hitting the gym early sets a great tone for the day.","thai":"การไปยิมแต่เช้าสร้างโทนที่ดีสำหรับวัน"}
+{"word":"set","english":"Let’s set up a board game night this Friday.","thai":"มาจัดค่ำคืนเกมกระดานวันศุกร์นี้กัน"}
+{"word":"game","english":"Watching a close basketball game gets me so hyped.","thai":"การดูเกมบาสเกตบอลที่สูสีทำให้ฉันตื่นเต้นสุดๆ"}
+{"word":"hype","english":"The hype around the new phone launch is unreal.","thai":"กระแสเกี่ยวกับการเปิดตัวโทรศัพท์ใหม่นี่ไม่น่าเชื่อ"}
+{"word":"launch","english":"Launching a small business takes serious guts.","thai":"การเริ่มธุรกิจเล็กๆ ต้องใช้ความกล้ามาก"}
+{"word":"guts","english":"It takes guts to speak up in a big meeting.","thai":"ต้องใช้ความกล้าที่จะพูดในที่ประชุมใหญ่"}
+{"word":"speak","english":"I love to speak with locals when I travel abroad.","thai":"ฉันชอบคุยกับคนท้องถิ่นเมื่อเดินทางไปต่างประเทศ"}
+{"word":"travel","english":"Traveling light makes road trips so much easier.","thai":"การเดินทางแบบเบาๆ ทำให้ทริปถนนง่ายขึ้นมาก"}
+{"word":"easy","english":"Finding easy vegan recipes online is a game-changer.","thai":"การหาสูตรอาหารวีแกนง่ายๆ ออนไลน์คือตัวเปลี่ยนเกม"}
+{"word":"recipe","english":"Trying a new recipe for tacos spiced up dinner.","thai":"การลองสูตรทาโก้ใหม่ๆ ทำให้มื้อเย็นมีสีสัน"}
+{"word":"spice","english":"Adding some spice to my playlist keeps it fresh.","thai":"การเพิ่มความจัดจ้านให้เพลย์ลิสต์ทำให้มันสดใหม่"}
+{"word":"fresh","english":"Fresh produce from the market makes cooking fun.","thai":"ผลิตผลสดจากตลาดทำให้การทำอาหารสนุก"}
+{"word":"cook","english":"I cook breakfast for my kids every weekend.","thai":"ฉันทำอาหารเช้าให้ลูกๆ ทุกสุดสัปดาห์"}
+{"word":"kid","english":"Taking the kids to the zoo is always a blast.","thai":"การพาเด็กๆ ไปสวนสัตว์สนุกสุดๆ เสมอ"}
+{"word":"blast","english":"Skydiving was such a blast, I’m doing it again.","thai":"การกระโดดร่มมันส์มาก ฉันจะทำอีก"}
+{"word":"do","english":"I need to do some yoga to clear my mind.","thai":"ฉันต้องเล่นโยคะเพื่อให้จิตใจปลอดโปร่ง"}
+{"word":"mind","english":"Changing my mind about career goals was tough.","thai":"การเปลี่ยนใจเกี่ยวกับเป้าหมายในอาชีพนั้นยาก"}
+{"word":"goal","english":"Setting realistic goals keeps me motivated daily.","thai":"การตั้งเป้าหมายที่เป็นจริงทำให้ฉันมีแรงจูงใจทุกวัน"}
+{"word":"motivate","english":"Her pep talk motivated the team to push forward.","thai":"คำพูดให้กำลังใจของเธอกระตุ้นทีมให้เดินหน้าต่อ"}
+{"word":"push","english":"I push myself to run faster every morning.","thai":"ฉันผลักดันตัวเองให้วิ่งเร็วขึ้นทุกเช้า"}
+{"word":"run","english":"Running errands on Saturday always feels productive.","thai":"การวิ่งทำธุระวันเสาร์รู้สึกมีประสิทธิผลเสมอ"}
+{"word":"productive","english":"A tidy workspace makes me feel super productive.","thai":"พื้นที่ทำงานที่เป็นระเบียบทำให้ฉันรู้สึกมีประสิทธิผลสุดๆ"}
+{"word":"feel","english":"I feel so relaxed after a long hike.","thai":"ฉันรู้สึกผ่อนคลายมากหลังเดินป่านานๆ"}
+{"word":"relax","english":"Kicking back to relax with a podcast is my vibe.","thai":"การนั่งพักผ่อนฟังพอดแคสต์คือสไตล์ของฉัน"}
+{"word":"podcast","english":"Listening to a true-crime podcast keeps me glued.","thai":"การฟังพอดแคสต์เกี่ยวกับคดีอาชญากรรมทำให้ฉันติดหนึบ"}
+{"word":"glue","english":"This new hobby has me glued to my sketchbook.","thai":"งานอดิเรกใหม่นี้ทำให้ฉันติดหนึบกับสมุดสเก็ตช์"}
+{"word":"hobby","english":"Picking up a new hobby like pottery is so fun.","thai":"การเริ่มงานอดิเรกใหม่ๆ อย่างเครื่องปั้นดินเผาสนุกมาก"}
+{"word":"fun","english":"Board game nights with the crew are always fun.","thai":"ค่ำคืนเกมกระดานกับเพื่อนๆ สนุกเสมอ"}
+{"word":"night","english":"Staying up all night gaming is my guilty pleasure.","thai":"การอยู่ดึกเล่นเกมคือความสุขลับๆ ของฉัน"}
+{"word":"pleasure","english":"The pleasure of a home-cooked meal is unmatched.","thai":"ความสุขของอาหารทำเองที่บ้านนั้นไม่มีอะไรเทียบได้"}
+{"word":"home","english":"Working from home lets me balance life better.","thai":"การทำงานจากบ้านช่วยให้ฉันสมดุลชีวิตได้ดีขึ้น"}
+{"word":"balance","english":"Balancing school and work takes serious effort.","thai":"การรักษาสมดุลระหว่างเรียนและงานต้องใช้ความพยายามอย่างมาก"}
+{"word":"effort","english":"Putting in extra effort on this project paid off.","thai":"การทุ่มเทความพยายามเพิ่มในโปรเจกต์นี้ได้ผลตอบแทน"}
+{"word":"pay","english":"I need to pay off my credit card before shopping.","thai":"ฉันต้องจ่ายหนี้บัตรเครดิตก่อนไปช็อปปิ้ง"}
+{"word":"shop","english":"Shopping for vintage clothes is my weekend ritual.","thai":"การช็อปปิ้งเสื้อผ้าวินเทจคือพิธีกรรมวันหยุดของฉัน"}
+{"word":"weekend","english":"Weekend hikes with my dog are the best escape.","thai":"การเดินป่าสุดสัปดาห์กับหมาเป็นการหลบหนีที่ดีที่สุด"}
+{"word":"escape","english":"Reading fantasy novels is my favorite escape.","thai":"การอ่านนิยายแฟนตาซีคือการหลบหนีที่ฉันชอบ"}
+{"word":"favorite","english":"My favorite coffee shop has the best lattes.","thai":"ร้านกาแฟที่ฉันชอบมีลาเต้ที่ดีที่สุด"}
+{"word":"coffee","english":"Grabbing coffee with a friend sparks great conversations.","thai":"การจิบกาแฟกับเพื่อนจุดประกายบทสนทนาดีๆ"}
+{"word":"spark","english":"Her presentation sparked new ideas for our team.","thai":"การนำเสนอของเธอจุดประกายไอเดียใหม่ๆ ให้ทีม"}
+{"word":"idea","english":"Coming up with a fresh idea for the blog is tough.","thai":"การคิดไอเดียใหม่ๆ สำหรับบล็อกนั้นยาก"}
+{"word":"come","english":"Let’s come together for a charity run this month.","thai":"มาร่วมกันวิ่งการกุศลเดือนนี้"}
+{"word":"run","english":"Running along the beach at sunrise feels amazing.","thai":"การวิ่งตามชายหาดตอนพระอาทิตย์ขึ้นรู้สึกยอดเยี่ยม"}
+{"word":"amazing","english":"The food at that new restaurant was absolutely amazing.","thai":"อาหารที่ร้านใหม่นั้นยอดเยี่ยมสุดๆ"}
+{"word":"food","english":"Trying new food trucks at the festival is a must.","thai":"การลองร้านอาหารรถเข็นที่งานเทศกาลเป็นสิ่งที่ต้องทำ"}
+{"word":"try","english":"I’m gonna try painting as a new hobby this fall.","thai":"ฉันจะลองวาดภาพเป็นงานอดิเรกใหม่ในฤดูใบไม้ร่วงนี้"}
+{"word":"paint","english":"Painting the living room blue totally changed the vibe.","thai":"การทาสีห้องนั่งเล่นเป็นสีน้ำเงินเปลี่ยนบรรยากาศไปเลย"}
+{"word":"change","english":"A quick wardrobe change before dinner feels so good.","thai":"การเปลี่ยนชุดก่อนมื้อเย็นรู้สึกดีมาก"}
+{"word":"good","english":"A good playlist makes any road trip epic.","thai":"เพลย์ลิสต์ดีๆ ทำให้ทริปถนนไหนๆ ก็ยอดเยี่ยม"}
+{"word":"playlist","english":"Creating a new playlist for the gym pumps me up.","thai":"การสร้างเพลย์ลิสต์ใหม่สำหรับยิมทำให้ฉันกระฉับกระเฉง"}
+{"word":"pump","english":"Morning workouts really pump my energy for the day.","thai":"การออกกำลังกายตอนเช้าช่วยเพิ่มพลังให้ฉันตลอดวัน"}
+{"word":"energy","english":"Channeling energy into painting is super relaxing.","thai":"การระบายพลังลงในการวาดภาพผ่อนคลายสุดๆ"}
+{"word":"relax","english":"I relax by kicking back with a sci-fi novel.","thai":"ฉันผ่อนคลายด้วยการนั่งอ่านนิยายไซไฟ"}
+{"word":"kick","english":"Let’s kick off the weekend with a barbecue.","thai":"มาเริ่มสุดสัปดาห์ด้วยงานบาร์บีคิวกัน"}
+{"word":"weekend","english":"Weekend hikes with friends are my kind of fun.","thai":"การเดินป่าสุดสัปดาห์กับเพื่อนๆ คือความสนุกแบบของฉัน"}
+{"word":"friend","english":"Catching up with a friend over coffee is the best.","thai":"การนั่งคุยกับเพื่อนจิบกาแฟคือสิ่งที่ดีที่สุด"}
+{"word":"coffee","english":"Grabbing a coffee before class keeps me focused.","thai":"การซื้อกาแฟก่อนเข้าเรียนช่วยให้ฉันมีสมาธิ"}
+{"word":"focus","english":"Keeping focus during a seminar takes real effort.","thai":"การรักษาสมาธิระหว่างสัมมนาต้องใช้ความพยายามจริงๆ"}
+{"word":"effort","english":"Putting in extra effort on this project paid off.","thai":"การทุ่มเทความพยายามเพิ่มในโปรเจกต์นี้ได้ผลตอบแทน"}
+{"word":"pay","english":"I need to pay off my credit card before shopping.","thai":"ฉันต้องจ่ายหนี้บัตรเครดิตก่อนไปช็อปปิ้ง"}
+{"word":"shop","english":"Shopping for vintage records is my weekend vibe.","thai":"การช็อปปิ้งแผ่นเสียงวินเทจคือสไตล์วันหยุดของฉัน"}
+{"word":"vibe","english":"The chill vibe at the jazz club is so relaxing.","thai":"บรรยากาศสบายๆ ที่คลับแจ๊สผ่อนคลายมาก"}
+{"word":"chill","english":"I love to chill with a good podcast after work.","thai":"ฉันชอบผ่อนคลายกับพอดแคสต์ดีๆ หลังเลิกงาน"}
+{"word":"podcast","english":"Listening to a true-crime podcast keeps me hooked.","thai":"การฟังพอดแคสต์เกี่ยวกับคดีอาชญากรรมทำให้ฉันติดหนึบ"}
+{"word":"hook","english":"That catchy song has me hooked all day long.","thai":"เพลงติดหูนั้นทำให้ฉันติดใจทั้งวัน"}
+{"word":"song","english":"Singing along to songs at karaoke is pure fun.","thai":"การร้องเพลงตามในคาราโอเกะคือความสนุกล้วนๆ"}
+{"word":"fun","english":"Playing board games with the crew is always fun.","thai":"การเล่นเกมกระดานกับเพื่อนๆ สนุกเสมอ"}
+{"word":"play","english":"I play some lo-fi beats while studying late.","thai":"ฉันเปิดเพลงโลไฟขณะอ่านหนังสือดึกๆ"}
+{"word":"study","english":"Studying for finals stresses me out big time.","thai":"การอ่านหนังสือเพื่อสอบปลายภาคทำให้ฉันเครียดมาก"}
+{"word":"stress","english":"Yoga helps me cut back on stress every day.","thai":"โยคะช่วยให้ฉันลดความเครียดทุกวัน"}
+{"word":"cut","english":"I need to cut down on junk food this month.","thai":"ฉันต้องลดการกินอาหารขยะเดือนนี้"}
+{"word":"food","english":"Trying new food trucks at the festival is a blast.","thai":"การลองร้านอาหารรถเข็นที่งานเทศกาลมันส์สุดๆ"}
+{"word":"blast","english":"Riding roller coasters at the fair is a total blast.","thai":"การนั่งรถไฟเหาะที่งานเทศกาลสนุกสุดๆ"}
+{"word":"ride","english":"I ride my bike to the park every weekend.","thai":"ฉันปั่นจักรยานไปสวนสาธารณะทุกสุดสัปดาห์"}
+{"word":"park","english":"Hanging out at the park with my dog is so chill.","thai":"การไปนั่งเล่นที่สวนกับหมานั้นสบายมาก"}
+{"word":"dog","english":"Training my dog to fetch is harder than it looks.","thai":"การฝึกหมาให้คาบของกลับมานั้นยากกว่าที่คิด"}
+{"word":"train","english":"I train at the gym to stay in shape.","thai":"ฉันฝึกที่ยิมเพื่อรักษารูปร่าง"}
+{"word":"shape","english":"Getting back in shape takes serious dedication.","thai":"การกลับมามีหุ่นดีต้องใช้ความทุ่มเทจริงจัง"}
+{"word":"dedication","english":"Her dedication to volunteering inspires everyone around.","thai":"ความทุ่มเทของเธอในการเป็นอาสาสมัครสร้างแรงบันดาลใจให้ทุกคน"}
+{"word":"inspire","english":"Her speech inspired me to start my own blog.","thai":"คำปราศรัยของเธอสร้างแรงบันดาลใจให้ฉันเริ่มบล็อกของตัวเอง"}
+{"word":"start","english":"Let’s start a book club to discuss new novels.","thai":"มาเริ่มคลับหนังสือเพื่อคุยเรื่องนิยายใหม่ๆ กัน"}
+{"word":"discuss","english":"We discuss project timelines during team meetings.","thai":"เราคุย shedding during team meetings.","thai":"เราคุยเรื่องไทม์ไลน์ของโปรเจกต์ในที่ประชุมทีม"}
+{"word":"team","english":"Working with a great team makes projects so fun.","thai":"การทำงานกับทีมดีๆ ทำให้โปรเจกต์สนุกมาก"}
+{"word":"fun","english":"Grabbing ice cream with friends is always fun.","thai":"การไปกินไอศกรีมกับเพื่อนๆ สนุกเสมอ"}
+{"word":"friend","english":"I ran into an old friend at the farmers’ market.","thai":"ฉันบังเอิญเจอเพื่อนเก่าที่ตลาดนัดเกษตรกร"}
+{"word":"market","english":"The flea market has the best vintage clothes.","thai":"ตลาดนัดมีเสื้อผ้าวินเทจที่ดีที่สุด"}
+{"word":"clothes","english":"Buying new clothes for the party feels exciting.","thai":"การซื้อเสื้อผ้าใหม่สำหรับปาร์ตี้รู้สึกตื่นเต้น"}
+{"word":"exciting","english":"Starting a new hobby like pottery is so exciting.","thai":"การเริ่มงานอดิเรกใหม่ๆ อย่างเครื่องปั้นดินเผานั้นตื่นเต้นมาก"}
+{"word":"hobby","english":"Picking up a new hobby keeps life interesting.","thai":"การเริ่มงานอดิเรกใหม่ทำให้ชีวิตน่าสนใจ"}
+{"word":"life","english":"Balancing work and life is always a challenge.","thai":"การรักษาสมดุลระหว่างงานและชีวิตส่วนตัวเป็นความท้าทายเสมอ"}
+{"word":"challenge","english":"Taking on a new challenge at work builds confidence.","thai":"การรับมือกับความท้าทายใหม่ๆ ในที่ทำงานช่วยสร้างความมั่นใจ"}
+{"word":"confidence","english":"Her confidence during the presentation was inspiring.","thai":"ความมั่นใจของเธอระหว่างการนำเสนอนั้นสร้างแรงบันดาลใจ"}
+{"word":"inspire","english":"Great teachers inspire students to think critically.","thai":"ครูที่ดีสร้างแรงบันดาลใจให้นักเรียนคิดอย่างมีวิจารณญาณ"}
+{"word":"think","english":"I think we should check out the new arcade tonight.","thai":"ฉันคิดว่าเราควรไปดูอาร์เคดใหม่คืนนี้"}
+{"word":"check","english":"Can you check in with the group about the hike?","thai":"ช่วยเช็คกับกลุ่มเรื่องการเดินป่านหน่อยได้ไหม"}
+{"word":"hike","english":"A sunrise hike is the best way to clear my head.","thai":"การเดินป่าตอนพระอาทิตย์ขึ้นเป็นวิธีที่ดีที่สุดในการปลอดโปร่งสมอง"}
+{"word":"head","english":"Keeping a clear head during debates is tough.","thai":"การรักษาสติในระหว่างการโต้วาทีนั้นยาก"}
+{"word":"tough","english":"Pushing through a tough workout feels so rewarding.","thai":"การฝ่าฟันการออกกำลังกายที่หนักหน่วงรู้สึกคุ้มค่ามาก"}
+{"word":"reward","english":"The reward of finishing a marathon is unreal.","thai":"รางวัลจากการวิ่งมาราธอนนั้นสุดยอดมาก"}
+{"word":"finish","english":"I need to finish editing this video by tomorrow.","thai":"ฉันต้องตัดต่อวิดีโอนี้ให้เสร็จภายในพรุ่งนี้"}
+{"word":"video","english":"Posting a video on social media got tons of likes.","thai":"การโพสต์วิดีโอบนโซเชียลมีเดียได้ไลค์เยอะมาก"}
+{"word":"like","english":"I like chilling with my cat after a long day.","thai":"ฉันชอบผ่อนคลายกับแมวของฉันหลังจากวันที่ยาวนาน"}
+{"word":"chill","english":"Let’s chill at the rooftop bar this weekend.","thai":"มาผ่อนคลายที่บาร์บนดาดฟ้าสุดสัปดาห์นี้"}
+{"word":"weekend","english":"Weekend road trips with the crew are always epic.","thai":"ทริปถนนสุดสัปดาห์กับเพื่อนๆ ยอดเยี่ยมเสมอ"}
+{"word":"epic","english":"That concert last night was totally epic.","thai":"คอนเสิร์ตเมื่อคืนนั้นเจ๋งสุดๆ"}
+{"word":"concert","english":"Scoring tickets to a concert is such a thrill.","thai":"การได้ตั๋วคอนเสิร์ตนั้นตื่นเต้นมาก"}
+{"word":"thrill","english":"The thrill of skydiving was worth every second.","thai":"ความตื่นเต้นของการกระโดดร่มนั้นคุ้มค่าทุกวินาที"}
+{"word":"worth","english":"Volunteering at the shelter is worth all the time.","thai":"การเป็นอาสาสมัครที่ศูนย์พักพิงนั้นคุ้มค่ากับเวลาทั้งหมด"}
+{"word":"time","english":"Spending time with family over dinner is the best.","thai":"การใช้เวลากับครอบครัวตอนมื้อเย็นคือสิ่งที่ดีที่สุด"}
+{"word":"dinner","english":"Cooking dinner for friends is my favorite ritual.","thai":"การทำอาหารเย็นให้เพื่อนๆ คือพิธีกรรมที่ฉันชอบ"}
+{"word":"favorite","english":"My favorite podcast drops new episodes every Friday.","thai":"พอดแคสต์ที่ฉันชอบปล่อยตอนใหม่ทุกวันศุกร์"}
+{"word":"drop","english":"I dropped my phone while hiking yesterday.","thai":"ฉันทำโทรศัพท์ตกตอนเดินป่าเมื่อวาน"}
+{"word":"phone","english":"Checking my phone for texts is a bad habit.","thai":"การเช็คโทรศัพท์เพื่อดูข้อความเป็นนิสัยที่ไม่ดี"}
+{"word":"habit","english":"Breaking bad habits takes serious willpower.","thai":"การเลิกนิสัยไม่ดีต้องใช้พลังใจอย่างมาก"}
+{"word":"willpower","english":"Building willpower through meditation is life-changing.","thai":"การสร้างพลังใจผ่านการนั่งสมาธิเปลี่ยนชีวิตได้"}
+{"word":"change","english":"A quick outfit change before the party feels fresh.","thai":"การเปลี่ยนชุดก่อนปาร์ตี้รู้สึกสดชื่น"}
+{"word":"party","english":"Throwing a small party at home is always a blast.","thai":"การจัดปาร์ตี้เล็กๆ ที่บ้านสนุกสุดๆ เสมอ"}
+{"word":"blast","english":"Riding roller coasters at the fair is a total blast.","thai":"การนั่งรถไฟเหาะที่งานเทศกาลมันส์สุดๆ"}
+{"word":"ride","english":"I love to ride my bike through the city trails.","thai":"ฉันชอบปั่นจักรยานผ่านเส้นทางในเมือง"}
+{"word":"city","english":"Exploring city markets for fresh produce is fun.","thai":"การสำรวจตลาดในเมืองเพื่อหาผลิตผลสดใหม่นั้นสนุก"}
+{"word":"explore","english":"I want to explore new hiking trails this summer.","thai":"ฉันอยากสำรวจเส้นทางเดินป่าใหม่ๆ ซัมเมอร์นี้"}
+{"word":"trail","english":"Finding a quiet trail for stargazing is pure magic.","thai":"การหาเส้นทางเงียบๆ สำหรับดูดาวคือมนต์เสน่ห์"}
+{"word":"magic","english":"The magic of live music at festivals never fades.","thai":"มนต์เสน่ห์ของดนตรีสดในงานเทศกาลไม่เคยจาง"}
+{"word":"live","english":"I live for those cozy evenings with a good book.","thai":"ฉันหลงรักค่ำคืนอบอุ่นกับหนังสือดีๆ"}
+{"word":"book","english":"Booking a spot for the yoga retreat was smart.","thai":"การจองที่สำหรับรีทรีตโยคะเป็นการตัดสินใจที่ฉลาด"}
+{"word":"smart","english":"Using a smart app to track fitness goals rocks.","thai":"การใช้แอปสมาร์ทเพื่อติดตามเป้าหมายฟิตเนสนั้นเจ๋งมาก"}
+{"word":"goal","english":"Setting realistic goals keeps me motivated daily.","thai":"การตั้งเป้าหมายที่เป็นจริงทำให้ฉันมีแรงจูงใจทุกวัน"}
+{"word":"motivate","english":"Her pep talk motivated the team to push forward.","thai":"คำพูดให้กำลังใจของเธอกระตุ้นทีมให้เดินหน้าต่อ"}
+{"word":"push","english":"I push myself to try new recipes every week.","thai":"ฉันผลักดันตัวเองให้ลองสูตรอาหารใหม่ทุกสัปดาห์"}
+{"word":"try","english":"Trying to learn guitar is harder than it looks.","thai":"การพยายามเรียนกีตาร์นั้นยากกว่าที่คิด"}
+{"word":"learn","english":"I want to learn coding to build my own app.","thai":"ฉันอยากเรียนเขียนโค้ดเพื่อสร้างแอปของตัวเอง"}
+{"word":"build","english":"Building a strong network at work opens doors.","thai":"การสร้างเครือข่ายที่แข็งแกร่งในที่ทำงานเปิดโอกาสมากมาย"}
+{"word":"open","english":"Keeping an open mind during brainstorming is key.","thai":"การมีใจที่เปิดกว้างระหว่างระดมสมองคือสิ่งสำคัญ"}
+{"word":"key","english":"Finding the key to work-life balance is tough.","thai":"การหาความสมดุลระหว่างงานและชีวิตส่วนตัวนั้นยาก"}
+{"word":"balance","english":"Balancing school and a part-time job is exhausting.","thai":"การรักษาสมดุลระหว่างเรียนและงานพาร์ทไทม์เหนื่อยมาก"}
+{"word":"job","english":"Landing a new job in tech was a huge win.","thai":"การได้งานใหม่ในวงการเทคโนโลยีคือชัยชนะครั้งใหญ่"}
+{"word":"win","english":"Winning at trivia night with friends feels awesome.","thai":"การชนะในค่ำคืนทายปัญหากับเพื่อนๆ รู้สึกยอดเยี่ยม"}
+{"word":"awesome","english":"That new hiking spot we found was totally awesome.","thai":"จุดเดินป่าใหม่ที่เราเจอนั้นเจ๋งสุดๆ"}
+{"word":"spot","english":"Finding a quiet spot to meditate is pure bliss.","thai":"การหาที่เงียบๆ สำหรับนั่งสมาธิคือความสุขล้วนๆ"}
+{"word":"bliss","english":"The bliss of a lazy Sunday morning is unmatched.","thai":"ความสุขของเช้าวันอาทิตย์แบบขี้เกียจนั้นไม่มีอะไรเทียบได้"}
+{"word":"morning","english":"Morning runs by the river set a great tone.","thai":"การวิ่งตอนเช้าข้างแม่น้ำสร้างโทนที่ดี"}
+{"word":"set","english":"Let’s set up a game night with some snacks.","thai":"มาจัดค่ำคืนเกมพร้อมของว่างกัน"}
+{"word":"game","english":"Watching a live football game gets me so hyped.","thai":"การดูเกมฟุตบอลสดทำให้ฉันตื่นเต้นสุดๆ"}
+{"word":"hype","english":"The hype around the new movie is totally real.","thai":"กระแสเกี่ยวกับหนังใหม่นั้นเจ๋งจริงๆ"}
+{"word":"movie","english":"Watching a movie with friends is my weekend vibe.","thai":"การดูหนังกับเพื่อนๆ คือสไตล์วันหยุดของฉัน"}
+{"word":"friend","english":"Hanging out with friends at the arcade is always fun.","thai":"การไปนั่งเล่นกับเพื่อนๆ ที่อาร์เคดสนุกเสมอ"}
+{"word":"fun","english":"Playing board games at home is super fun.","thai":"การเล่นเกมกระดานที่บ้านสนุกสุดๆ"}
+{"word":"play","english":"I play some chill music to relax after work.","thai":"ฉันเปิดเพลงสบายๆ เพื่อผ่อนคลายหลังเลิกงาน"}
+{"word":"relax","english":"A hot bath helps me relax before bed.","thai":"การแช่น้ำร้อนช่วยให้ฉันผ่อนคลายก่อนนอน"}
+{"word":"help","english":"Volunteering at the food drive helps the community.","thai":"การเป็นอาสาสมัครในงานบริจาคอาหารช่วยชุมชน"}
+{"word":"community","english":"The community garden is where I pick up fresh herbs.","thai":"สวนชุมชนคือที่ที่ฉันไปเก็บสมุนไพรสด"}
+{"word":"pick","english":"I need to pick out a new outfit for the party.","thai":"ฉันต้องเลือกชุดใหม่สำหรับปาร์ตี้"}
+{"word":"outfit","english":"Finding the perfect outfit for date night is tricky.","thai":"การหาชุดที่สมบูรณ์แบบสำหรับคืนเดตนั้นยาก"}
+{"word":"night","english":"Stargazing on a clear night is pure magic.","thai":"การดูดาวในคืนที่ท้องฟ้าโปร่งคือมนต์เสน่ห์"}
+{"word":"magic","english":"The magic of live music at festivals never fades.","thai":"มนต์เสน่ห์ของดนตรีสดในงานเทศกาลไม่เคยจาง"}
+{"word":"live","english":"I live for those cozy evenings with a good book.","thai":"ฉันหลงรักค่ำคืนอบอุ่นกับหนังสือดีๆ"}
+{"word":"book","english":"Booking a spot for the yoga retreat was a great call.","thai":"การจองที่สำหรับรีทรีตโยคะเป็นการตัดสินใจที่ยอดเยี่ยม"}
+{"word":"great","english":"Scoring great deals at the thrift store feels awesome.","thai":"การได้ของถูกที่ร้านมือสองรู้สึกยอดเยี่ยม"}
+{"word":"deal","english":"Let’s figure out a deal for splitting the vacation costs.","thai":"มาหาข้อตกลงเรื่องการแบ่งค่าใช้จ่ายทริปพักร้อนกัน"}
+{"word":"figure","english":"I need to figure out how to fix my bike this weekend.","thai":"ฉันต้องหาวิธีซ่อมจักรยานสุดสัปดาห์นี้"}
+{"word":"weekend","english":"Weekend hikes with my dog are the best escape.","thai":"การเดินป่าสุดสัปดาห์กับหมาเป็นการหลบหนีที่ดีที่สุด"}
+{"word":"escape","english":"Reading fantasy novels is my favorite escape.","thai":"การอ่านนิยายแฟนตาซีคือการหลบหนีที่ฉันชอบ"}
+{"word":"favorite","english":"My favorite coffee shop has the best lattes.","thai":"ร้านกาแฟที่ฉันชอบมีลาเต้ที่ดีที่สุด"}
+{"word":"coffee","english":"Grabbing coffee before a meeting keeps me sharp.","thai":"การซื้อกาแฟก่อนประชุมช่วยให้ฉันเฉียบคม"}
+{"word":"sharp","english":"Keeping my mind sharp during debates is key.","thai":"การรักษาความคิดให้เฉียบคมระหว่างการโต้วาทีคือสิ่งสำคัญ"}
+{"word":"key","english":"Finding the key to work-life balance is tough.","thai":"การหาความสมดุลระหว่างงานและชีวิตส่วนตัวนั้นยาก"}
+{"word":"tough","english":"Pushing through a tough workout feels so rewarding.","thai":"การฝ่าฟันการออกกำลังกายที่หนักหน่วงรู้สึกคุ้มค่ามาก"}
+{"word":"reward","english":"The reward of finishing a marathon is unreal.","thai":"รางวัลจากการวิ่งมาราธอนนั้นสุดยอดมาก"}
+{"word":"finish","english":"I need to finish editing this podcast by tomorrow.","thai":"ฉันต้องตัดต่อพอดแคสต์นี้ให้เสร็จภายในพรุ่งนี้"}
+{"word":"podcast","english":"Listening to a true-crime podcast keeps me hooked.","thai":"การฟังพอดแคสต์เกี่ยวกับคดีอาชญากรรมทำให้ฉันติดหนึบ"}
+{"word":"hook","english":"That catchy song has me hooked all day long.","thai":"เพลงติดหูนั้นทำให้ฉันติดใจทั้งวัน"}
+{"word":"song","english":"Singing along to songs at karaoke is my vibe.","thai":"การร้องเพลงตามในคาราโอเกะคือสไตล์ของฉัน"}
+{"word":"vibe","english":"The chill vibe at the rooftop bar is perfect.","thai":"บรรยากาศสบายๆ ที่บาร์บนดาดฟ้าสมบูรณ์แบบ"}
+{"word":"chill","english":"I love to chill with friends over board games.","thai":"ฉันชอบผ่อนคลายกับเพื่อนๆ ด้วยเกมกระดาน"}
+{"word":"friend","english":"Catching up with an old friend feels so good.","thai":"การอัปเดตกับเพื่อนเก่ารู้สึกดีมาก"}
+{"word":"feel","english":"I feel pumped after a morning yoga session.","thai":"ฉันรู้สึกกระปรี้กระเปร่าหลังโยคะตอนเช้า"}
+{"word":"pump","english":"Morning runs really pump my energy for the day.","thai":"การวิ่งตอนเช้าช่วยเพิ่มพลังให้ฉันตลอดวัน"}
+{"word":"energy","english":"Channeling energy into painting is super therapeutic.","thai":"การระบายพลังลงในการวาดภาพช่วยบำบัดได้ดีมาก"}
+{"word":"paint","english":"Painting my room a bold color changed the vibe.","thai":"การทาสีห้องด้วยสีจัดจ้านเปลี่ยนบรรยากาศไปเลย"}
+{"word":"change","english":"A quick wardrobe change before dinner feels fresh.","thai":"การเปลี่ยนชุดก่อนมื้อเย็นรู้สึกสดชื่น"}
+{"word":"dinner","english":"Cooking dinner for my family is my favorite ritual.","thai":"การทำอาหารเย็นให้ครอบครัวคือพิธีกรรมที่ฉันชอบ"}
+{"word":"favorite","english":"My favorite podcast drops new episodes every Friday.","thai":"พอดแคสต์ที่ฉันชอบปล่อยตอนใหม่ทุกวันศุกร์"}
+{"word":"drop","english":"I dropped my phone while hiking yesterday.","thai":"ฉันทำโทรศัพท์ตกตอนเดินป่าเมื่อวาน"}
+{"word":"phone","english":"Checking my phone for texts is a bad habit.","thai":"การเช็คโทรศัพท์เพื่อดูข้อความเป็นนิสัยที่ไม่ดี"}
+{"word":"habit","english":"Breaking bad habits takes serious willpower.","thai":"การเลิกนิสัยไม่ดีต้องใช้พลังใจอย่างมาก"}
+{"word":"willpower","english":"Building willpower through meditation is life-changing.","thai":"การสร้างพลังใจผ่านการนั่งสมาธิเปลี่ยนชีวิตได้"}
+{"word":"life","english":"Balancing work and life is always a challenge.","thai":"การรักษาสมดุลระหว่างงานและชีวิตส่วนตัวเป็นความท้าทายเสมอ"}
+{"word":"challenge","english":"Taking on a new challenge at work builds confidence.","thai":"การรับมือกับความท้าทายใหม่ๆ ในที่ทำงานช่วยสร้างความมั่นใจ"}
+{"word":"confidence","english":"Her confidence during the presentation was inspiring.","thai":"ความมั่นใจของเธอระหว่างการนำเสนอนั้นสร้างแรงบันดาลใจ"}
+{"word":"inspire","english":"Great teachers inspire students to think critically.","thai":"ครูที่ดีสร้างแรงบันดาลใจให้นักเรียนคิดอย่างมีวิจารณญาณ"}
+{"word":"think","english":"I think we should check out the new arcade tonight.","thai":"ฉันคิดว่าเราควรไปดูอาร์เคดใหม่คืนนี้"}
+{"word":"check","english":"Can you check in with the team about the project?","thai":"ช่วยเช็คกับทีมเรื่องโปรเจกต์หน่อยได้ไหม"}
+{"word":"project","english":"Collaborating on a project with coworkers is fun.","thai":"การทำงานร่วมกันในโปรเจกต์กับเพื่อนร่วมงานนั้นสนุก"}
+{"word":"fun","english":"Grabbing ice cream with the crew is always fun.","thai":"การไปกินไอศกรีมกับเพื่อนๆ สนุกเสมอ"}
+{"word":"crew","english":"Hanging with my crew at the beach is the best.","thai":"การไปเที่ยวกับเพื่อนๆ ที่ชายหาดคือที่สุด"}
+{"word":"beach","english":"A sunset walk on the beach feels so calming.","thai":"การเดินตอนพระอาทิตย์ตกที่ชายหาดรู้สึกสงบมาก"}
+{"word":"calm","english":"Meditation keeps me calm during stressful days.","thai":"การนั่งสมาธิช่วยให้ฉันสงบในวันที่เครียด"}
+{"word":"stress","english":"Cutting back on stress with yoga is a game-changer.","thai":"การลดความเครียดด้วยโยคะคือตัวเปลี่ยนเกม"}
+{"word":"cut","english":"I need to cut down on junk food this month.","thai":"ฉันต้องลดการกินอาหารขยะเดือนนี้"}
+{"word":"food","english":"Trying new food trucks at the festival is a blast.","thai":"การลองร้านอาหารรถเข็นที่งานเทศกาลมันส์สุดๆ"}
+{"word":"blast","english":"Riding roller coasters at the fair is a total blast.","thai":"การนั่งรถไฟเหาะที่งานเทศกาลสนุกสุดๆ"}
+{"word":"ride","english":"I ride my bike to the market every weekend.","thai":"ฉันปั่นจักรยานไปตลาดทุกสุดสัปดาห์"}
+{"word":"market","english":"The farmers’ market has the freshest produce.","thai":"ตลาดนัดเกษตรกรมีผักผลไม้สดใหม่ที่สุด"}
+{"word":"fresh","english":"Fresh flowers from the garden brighten my home.","thai":"ดอกไม้สดจากสวนทำให้บ้านฉันสว่างขึ้น"}
+{"word":"brighten","english":"A good laugh with friends brightens any day.","thai":"การหัวเราะกับเพื่อนๆ ทำให้วันไหนๆ ก็สดใส"}
+{"word":"laugh","english":"I laugh so hard at comedy shows with my sister.","thai":"ฉันหัวเราะหนักมากในรายการตลกกับน้องสาว"}
+{"word":"show","english":"Binge-watching a new show on Netflix is my jam.","thai":"การดูซีรีส์ใหม่บน Netflix แบบมาราธอนคือสไตล์ของฉัน"}
+{"word":"jam","english":"This new playlist is my jam for morning runs.","thai":"เพลย์ลิสต์ใหม่นี้คือเพลงโปรดของฉันสำหรับวิ่งตอนเช้า"}
+{"word":"run","english":"Running errands on Saturday feels productive.","thai":"การวิ่งทำธุระวันเสาร์รู้สึกมีประสิทธิผล"}
+{"word":"productive","english":"A tidy workspace makes me feel super productive.","thai":"พื้นที่ทำงานที่เป็นระเบียบทำให้ฉันรู้สึกมีประสิทธิผลสุดๆ"}
+{"word":"feel","english":"I feel amazing after a long hiking trip.","thai":"ฉันรู้สึกยอดเยี่ยมหลังจากทริปเดินป่านานๆ"}
+{"word":"amazing","english":"The view from the mountain was absolutely amazing.","thai":"วิวจากบนเขานั้นยอดเยี่ยมสุดๆ"}
+{"word":"view","english":"Taking in the view at the lake is so relaxing.","thai":"การชมวิวที่ทะเลสาบผ่อนคลายมาก"}
+{"word":"relax","english":"I relax by kicking back with a good podcast.","thai":"ฉันผ่อนคลายด้วยการนั่งฟังพอดแคสต์ดีๆ"}
+{"word":"kick","english":"Let’s kick off the party with some great tunes.","thai":"มาเริ่มปาร์ตี้ด้วยเพลงเจ๋งๆ กัน"}
+{"word":"tune","english":"Humming a tune while cooking makes it fun.","thai":"การฮัมเพลงขณะทำอาหารทำให้สนุก"}
+{"word":"cook","english":"I cook breakfast for my kids every weekend.","thai":"ฉันทำอาหารเช้าให้ลูกๆ ทุกสุดสัปดาห์"}
+{"word":"kid","english":"Taking the kids to the zoo is always a hit.","thai":"การพาเด็กๆ ไปสวนสัตว์ได้รับความนิยมเสมอ"}
+{"word":"hit","english":"Hitting the gym early sets a great tone.","thai":"การไปยิมแต่เช้าสร้างโทนที่ดี"}
+{"word":"set","english":"Let’s set up a game night with some snacks.","thai":"มาจัดค่ำคืนเกมพร้อมของว่างกัน"}
+{"word":"game","english":"Watching a live basketball game gets me hyped.","thai":"การดูเกมบาสเกตบอลสดทำให้ฉันตื่นเต้นสุดๆ"}
+{"word":"hype","english":"The hype around the new tech gadget is real.","thai":"กระแสเกี่ยวกับแกดเจ็ตเทคโนโลยีใหม่นั้นเจ๋งจริงๆ"}
+{"word":"tech","english":"Working in tech means always learning new skills.","thai":"การทำงานในวงการเทคโนโลยีหมายถึงต้องเรียนรู้ทักษะใหม่ๆ เสมอ"}
+{"word":"learn","english":"I want to learn to code to build my own app.","thai":"ฉันอยากเรียนเขียนโค้ดเพื่อสร้างแอปของตัวเอง"}
+{"word":"build","english":"Building a strong network at work opens doors.","thai":"การสร้างเครือข่ายที่แข็งแกร่งในที่ทำงานเปิดโอกาสมากมาย"}
+{"word":"open","english":"Keeping an open mind during brainstorming is key.","thai":"การมีใจที่เปิดกว้างระหว่างระดมสมองคือสิ่งสำคัญ"}
+{"word":"key","english":"Finding the key to time management changed my life.","thai":"การหาวิธีจัดการเวลาทำให้ชีวิตฉันเปลี่ยน"}
+{"word":"time","english":"Spending time with my dog is pure joy.","thai":"การใช้เวลากับหมานั้นคือความสุขล้วนๆ"}
+{"word":"joy","english":"The joy of a home-cooked meal is unmatched.","thai":"ความสุขของอาหารทำเองที่บ้านนั้นไม่มีอะไรเทียบได้"}
+{"word":"home","english":"Working from home lets me balance life better.","thai":"การทำงานจากบ้านช่วยให้ฉันสมดุลชีวิตได้ดีขึ้น"}
+{"word":"balance","english":"Balancing school and work takes serious effort.","thai":"การรักษาสมดุลระหว่างเรียนและงานต้องใช้ความพยายามอย่างมาก"}
+{"word":"effort","english":"Putting in extra effort on this project paid off.","thai":"การทุ่มเทความพยายามเพิ่มในโปรเจกต์นี้ได้ผลตอบแทน"}
+{"word":"pay","english":"I need to pay off my student loans before traveling.","thai":"ฉันต้องจ่ายหนี้เงินกู้เพื่อการศึกษาก่อนไปเที่ยว"}
+{"word":"travel","english":"Traveling solo teaches you so much about yourself.","thai":"การเดินทางคนเดียวสอนอะไรคุณเกี่ยวกับตัวเองเยอะมาก"}
+{"word":"teach","english":"My coach teaches us to stay focused during practice.","thai":"โค้ชของฉันสอนให้เรามีสมาธิระหว่างซ้อม"}
+{"word":"practice","english":"Daily yoga practice keeps my stress levels low.","thai":"การฝึกโยคะทุกวันช่วยให้ระดับความเครียดของฉันต่ำ"}
+{"word":"level","english":"Taking my skills to the next level takes work.","thai":"การยกระดับทักษะของฉันต้องใช้ความพยายาม"}
+{"word":"work","english":"I love to work on DIY projects in my free time.","thai":"ฉันชอบทำงาน DIY ในเวลาว่าง"}
+{"word":"free","english":"Free concerts in the park are always a blast.","thai":"คอนเสิร์ตฟรีในสวนสาธารณะมันส์สุดๆ เสมอ"}
+{"word":"blast","english":"Skydiving was such a blast, I’m hooked now.","thai":"การกระโดดร่มมันส์มาก ตอนนี้ฉันติดใจแล้ว"}
+{"word":"hooked","english":"I’m hooked on binge-watching true-crime shows.","thai":"ฉันติดใจการดูรายการแนวสืบสวนแบบมาราธอน"}
+{"word":"show","english":"Catching a comedy show with friends is always fun.","thai":"การดูรายการตลกกับเพื่อนๆ สนุกเสมอ"}
+{"word":"fun","english":"Playing board games at home is super fun.","thai":"การเล่นเกมกระดานที่บ้านสนุกสุดๆ"}
+{"word":"play","english":"I play chill music to unwind after a long day.","thai":"ฉันเปิดเพลงสบายๆ เพื่อผ่อนคลายหลังจากวันที่ยาวนาน"}
+{"word":"unwind","english":"A hot bath helps me unwind before bed.","thai":"การแช่น้ำร้อนช่วยให้ฉันผ่อนคลายก่อนนอน"}
+{"word":"help","english":"Volunteering at the animal shelter helps the community.","thai":"การเป็นอาสาสมัครที่ศูนย์พักพิงสัตว์ช่วยชุมชน"}
+{"word":"community","english":"The community garden is where I pick up fresh veggies.","thai":"สวนชุมชนคือที่ที่ฉันไปเก็บผักสด"}
+{"word":"pick","english":"I need to pick out a new outfit for the party.","thai":"ฉันต้องเลือกชุดใหม่สำหรับปาร์ตี้"}
+{"word":"outfit","english":"Finding the perfect outfit for date night is tricky.","thai":"การหาชุดที่สมบูรณ์แบบสำหรับคืนเดตนั้นยาก"}
+{"word":"night","english":"Stargazing on a clear night feels like magic.","thai":"การดูดาวในคืนที่ท้องฟ้าโปร่งรู้สึกเหมือนมีมนต์ขลัง"}
+{"word":"magic","english":"The magic of live music at festivals never fades.","thai":"มนต์เสน่ห์ของดนตรีสดในงานเทศกาลไม่เคยจาง"}
+{"word":"live","english":"I live for cozy evenings with a good book.","thai":"ฉันหลงรักค่ำคืนอบอุ่นกับหนังสือดีๆ"}
+{"word":"book","english":"Booking a spot for the yoga retreat was a smart move.","thai":"การจองที่สำหรับรีทรีตโยคะเป็นการตัดสินใจที่ฉลาด"}
+{"word":"smart","english":"Using a smart app to track fitness goals rocks.","thai":"การใช้แอปสมาร์ทเพื่อติดตามเป้าหมายฟิตเนสนั้นเจ๋งมาก"}
+{"word":"goal","english":"Setting realistic goals keeps me motivated daily.","thai":"การตั้งเป้าหมายที่เป็นจริงทำให้ฉันมีแรงจูงใจทุกวัน"}
+{"word":"motivate","english":"Her pep talk motivated the team to push forward.","thai":"คำพูดให้กำลังใจของเธอกระตุ้นทีมให้เดินหน้าต่อ"}
+{"word":"push","english":"I push myself to try new recipes every week.","thai":"ฉันผลักดันตัวเองให้ลองสูตรอาหารใหม่ทุกสัปดาห์"}
+{"word":"try","english":"Trying to learn guitar is tougher than it looks.","thai":"การพยายามเรียนกีตาร์นั้นยากกว่าที่คิด"}
+{"word":"learn","english":"I want to learn coding to build my own website.","thai":"ฉันอยากเรียนเขียนโค้ดเพื่อสร้างเว็บไซต์ของตัวเอง"}
+{"word":"build","english":"Building a strong network at work opens doors.","thai":"การสร้างเครือข่ายที่แข็งแกร่งในที่ทำงานเปิดโอกาสมากมาย"}
+{"word":"open","english":"Keeping an open mind during brainstorming is key.","thai":"การมีใจที่เปิดกว้างระหว่างระดมสมองคือสิ่งสำคัญ"}
+{"word":"key","english":"Finding the key to work-life balance is a game-changer.","thai":"การหาความสมดุลระหว่างงานและชีวิตส่วนตัวคือตัวเปลี่ยนเกม"}
+{"word":"balance","english":"Balancing school and a part-time job is exhausting.","thai":"การรักษาสมดุลระหว่างเรียนและงานพาร์ทไทม์เหนื่อยมาก"}
+{"word":"job","english":"Landing a new job in tech was a huge win.","thai":"การได้งานใหม่ในวงการเทคโนโลยีคือชัยชนะครั้ง بزرگ"}
+{"word":"win","english":"Winning at trivia night with friends feels awesome.","thai":"การชนะในค่ำคืนทายปัญหากับเพื่อนๆ รู้สึกยอดเยี่ยม"}
+{"word":"awesome","english":"The view from that hiking trail was totally awesome.","thai":"วิวจากเส้นทางเดินป่านั้นเจ๋งสุดๆ"}
+{"word":"view","english":"Taking in the view at the lake is so relaxing.","thai":"การชมวิวที่ทะเลสาบผ่อนคลายมาก"}
+{"word":"relax","english":"I relax by kicking back with a good podcast.","thai":"ฉันผ่อนคลายด้วยการนั่งฟังพอดแคสต์ดีๆ"}
+{"word":"podcast","english":"Listening to a true-crime podcast keeps me hooked.","thai":"การฟังพอดแคสต์เกี่ยวกับคดีอาชญากรรมทำให้ฉันติดหนึบ"}
+{"word":"hook","english":"That catchy song has me hooked all day long.","thai":"เพลงติดหูนั้นทำให้ฉันติดใจทั้งวัน"}
+{"word":"song","english":"Singing along to songs at karaoke is my vibe.","thai":"การร้องเพลงตามในคาราโอเกะคือสไตล์ของฉัน"}
+{"word":"vibe","english":"The chill vibe at the rooftop bar is perfect.","thai":"บรรยากาศสบายๆ ที่บาร์บนดาดฟ้าสมบูรณ์แบบ"}
+{"word":"chill","english":"I love to chill with friends over board games.","thai":"ฉันชอบผ่อนคลายกับเพื่อนๆ ด้วยเกมกระดาน"}
+{"word":"friend","english":"Catching up with an old friend feels so good.","thai":"การอัปเดตกับเพื่อนเก่ารู้สึกดีมาก"}
+{"word":"feel","english":"I feel pumped after a morning yoga session.","thai":"ฉันรู้สึกกระปรี้กระเปร่าหลังโยคะตอนเช้า"}
+{"word":"pump","english":"Morning runs really pump my energy for the day.","thai":"การวิ่งตอนเช้าช่วยเพิ่มพลังให้ฉันตลอดวัน"}
+{"word":"energy","english":"Channeling energy into painting is super therapeutic.","thai":"การระบายพลังลงในการวาดภาพช่วยบำบัดได้ดีมาก"}
+{"word":"paint","english":"Painting my room a bold color changed the vibe.","thai":"การทาสีห้องด้วยสีจัดจ้านเปลี่ยนบรรยากาศไปเลย"}
+{"word":"change","english":"A quick wardrobe change before dinner feels fresh.","thai":"การเปลี่ยนชุดก่อนมื้อเย็นรู้สึกสดชื่น"}
+{"word":"dinner","english":"Cooking dinner for my family is my favorite ritual.","thai":"การทำอาหารเย็นให้ครอบครัวคือพิธีกรรมที่ฉันชอบ"}
+{"word":"favorite","english":"My favorite coffee shop has the best lattes.","thai":"ร้านกาแฟที่ฉันชอบมีลาเต้ที่ดีที่สุด"}
+{"word":"coffee","english":"Grabbing coffee before a meeting keeps me sharp.","thai":"การซื้อกาแฟก่อนประชุมช่วยให้ฉันเฉียบคม"}
+{"word":"sharp","english":"Keeping my mind sharp during debates is key.","thai":"การรักษาความคิดให้เฉียบคมระหว่างการโต้วาทีคือสิ่งสำคัญ"}
+{"word":"mind","english":"Changing my mind about career goals was tough.","thai":"การเปลี่ยนใจเกี่ยวกับเป้าหมายในอาชีพนั้นยาก"}
+{"word":"tough","english":"Pushing through a tough workout feels so rewarding.","thai":"การฝ่าฟันการออกกำลังกายที่หนักหน่วงรู้สึกคุ้มค่ามาก"}
+{"word":"reward","english":"The reward of finishing a marathon is unreal.","thai":"รางวัลจากการวิ่งมาราธอนนั้นสุดยอดมาก"}
+{"word":"finish","english":"I need to finish editing this video by tomorrow.","thai":"ฉันต้องตัดต่อวิดีโอนี้ให้เสร็จภายในพรุ่งนี้"}
+{"word":"video","english":"Posting a video on social media got tons of likes.","thai":"การโพสต์วิดีโอบนโซเชียลมีเดียได้ไลค์เยอะมาก"}
+{"word":"like","english":"I like chilling with my dog after a long day.","thai":"ฉันชอบผ่อนคลายกับหมา setelah วันที่ยาวนาน"}
+{"word":"chill","english":"Let’s chill at the beach with some good tunes.","thai":"มาผ่อนคลายที่ชายหาดกับเพลงดีๆ กัน"}
+{"word":"beach","english":"A sunset walk on the beach feels so calming.","thai":"การเดินตอนพระอาทิตย์ตกที่ชายหาดรู้สึกสงบมาก"}
+{"word":"calm","english":"Meditation keeps me calm during stressful days.","thai":"การนั่งสมาธิช่วยให้ฉันสงบในวันที่เครียด"}
+{"word":"stress","english":"Cutting back on stress with yoga is a game-changer.","thai":"การลดความเครียดด้วยโยคะคือตัวเปลี่ยนเกม"}
+{"word":"cut","english":"I need to cut down on junk food this month.","thai":"ฉันต้องลดการกินอาหารขยะเดือนนี้"}
+{"word":"food","english":"Trying new food trucks at the festival is a blast.","thai":"การลองร้านอาหารรถเข็นที่งานเทศกาลมันส์สุดๆ"}
+{"word":"blast","english":"Riding roller coasters at the fair is a total blast.","thai":"การนั่งรถไฟเหาะที่งานเทศกาลสนุกสุดๆ"}
+{"word":"ride","english":"I ride my bike to the market every weekend.","thai":"ฉันปั่นจักรยานไปตลาดทุกสุดสัปดาห์"}
+{"word":"market","english":"The farmers’ market has the freshest produce.","thai":"ตลาดนัดเกษตรกรมีผักผลไม้สดใหม่ที่สุด"}
+{"word":"fresh","english":"Fresh flowers from the garden brighten my home.","thai":"ดอกไม้สดจากสวนทำให้บ้านฉันสว่างขึ้น"}
+{"word":"brighten","english":"A good laugh with friends brightens any day.","thai":"การหัวเราะกับเพื่อนๆ ทำให้วันไหนๆ ก็สดใส"}
+{"word":"laugh","english":"I laugh so hard at comedy shows with my sister.","thai":"ฉันหัวเราะหนักมากในรายการตลกกับน้องสาว"}
+{"word":"show","english":"Binge-watching a new show on Netflix is my jam.","thai":"การดูซีรีส์ใหม่บน Netflix แบบมาราธอนคือสไตล์ของฉัน"}
+{"word":"jam","english":"This new playlist is my jam for morning runs.","thai":"เพลย์ลิสต์ใหม่นี้คือเพลงโปรดของฉันสำหรับวิ่งตอนเช้า"}
+{"word":"run","english":"Running errands on Saturday feels productive.","thai":"การวิ่งทำธุระวันเสาร์รู้สึกมีประสิทธิผล"}
+{"word":"productive","english":"A tidy workspace makes me feel super productive.","thai":"พื้นที่ทำงานที่เป็นระเบียบทำให้ฉันรู้สึกมีประสิทธิผลสุดๆ"}
+{"word":"feel","english":"I feel amazing after a long hiking trip.","thai":"ฉันรู้สึกยอดเยี่ยมหลังจากทริปเดินป่านานๆ"}
+{"word":"amazing","english":"The view from the mountain was absolutely amazing.","thai":"วิวจากบนเขานั้นยอดเยี่ยมสุดๆ"}
+{"word":"view","english":"Taking in the view at the lake is so relaxing.","thai":"การชมวิวที่ทะเลสาบผ่อนคลายมาก"}
+{"word":"relax","english":"I relax by kicking back with a good podcast.","thai":"ฉันผ่อนคลายด้วยการนั่งฟังพอดแคสต์ดีๆ"}
+{"word":"kick","english":"Let’s kick off the party with some great tunes.","thai":"มาเริ่มปาร์ตี้ด้วยเพลงเจ๋งๆ กัน"}
+{"word":"tune","english":"Humming a tune while cooking makes it fun.","thai":"การฮัมเพลงขณะทำอาหารทำให้สนุก"}
+{"word":"cook","english":"I cook breakfast for my kids every weekend.","thai":"ฉันทำอาหารเช้าให้ลูกๆ ทุกสุดสัปดาห์"}
+{"word":"kid","english":"Taking the kids to the zoo is always a hit.","thai":"การพาเด็กๆ ไปสวนสัตว์ได้รับความนิยมเสมอ"}
+{"word":"hit","english":"Hitting the gym early sets a great tone.","thai":"การไปยิมแต่เช้าสร้างโทนที่ดี"}
+{"word":"set","english":"Let’s set up a game night with some snacks.","thai":"มาจัดค่ำคืนเกมพร้อมของว่างกัน"}
+{"word":"game","english":"Watching a live basketball game gets me hyped.","thai":"การดูเกมบาสเกตบอลสดทำให้ฉันตื่นเต้นสุดๆ"}
+{"word":"hype","english":"The hype around the new tech gadget is real.","thai":"กระแสเกี่ยวกับแกดเจ็ตเทคโนโลยีใหม่นั้นเจ๋งจริงๆ"}
+{"word":"tech","english":"Working in tech means always learning new skills.","thai":"การทำงานในวงการเทคโนโลยีหมายถึงต้องเรียนรู้ทักษะใหม่ๆ เสมอ"}
+{"word":"learn","english":"I want to learn to code to build my own app.","thai":"ฉันอยากเรียนเขียนโค้ดเพื่อสร้างแอปของตัวเอง"}
+{"word":"build","english":"Building a strong network at work opens doors.","thai":"การสร้างเครือข่ายที่แข็งแกร่งในที่ทำงานเปิดโอกาสมากมาย"}
+{"word":"open","english":"Keeping an open mind during brainstorming is key.","thai":"การมีใจที่เปิดกว้างระหว่างระดมสมองคือสิ่งสำคัญ"}
+{"word":"key","english":"Finding the key to time management changed my life.","thai":"การหาวิธีจัดการเวลาทำให้ชีวิตฉันเปลี่ยน"}
+{"word":"time","english":"Spending time with my dog is pure joy.","thai":"การใช้เวลากับหมานั้นคือความสุขล้วนๆ"}
+{"word":"joy","english":"The joy of a home-cooked meal is unmatched.","thai":"ความสุขของอาหารทำเองที่บ้านนั้นไม่มีอะไรเทียบได้"}
+{"word":"home","english":"Working from home lets me balance life better.","thai":"การทำงานจากบ้านช่วยให้ฉันสมดุลชีวิตได้ดีขึ้น"}
+{"word":"balance","english":"Balancing school and work takes serious effort.","thai":"การรักษาสมดุลระหว่างเรียนและงานต้องใช้ความพยายามอย่างมาก"}
+{"word":"effort","english":"Putting in extra effort on this project paid off.","thai":"การทุ่มเทความพยายามเพิ่มในโปรเจกต์นี้ได้ผลตอบแทน"}
+{"word":"pay","english":"I need to pay off my student loans before traveling.","thai":"ฉันต้องจ่ายหนี้เงินกู้เพื่อการศึกษาก่อนไปเที่ยว"}
+{"word":"travel","english":"Traveling solo teaches you so much about yourself.","thai":"การเดินทางคนเดียวสอนอะไรคุณเกี่ยวกับตัวเองเยอะมาก"}
+{"word":"teach","english":"My coach teaches us to stay focused during practice.","thai":"โค้ชของฉันสอนให้เรามีสมาธิระหว่างซ้อม"}
+{"word":"practice","english":"Daily yoga practice keeps my stress levels low.","thai":"การฝึกโยคะทุกวันช่วยให้ระดับความเครียดของฉันต่ำ"}
+{"word":"stress","english":"Cutting back on stress with meditation is a lifesaver.","thai":"การลดความเครียดด้วยการนั่งสมาธิช่วยชีวิตเลย"}
+{"word":"lifesaver","english":"This new app is a lifesaver for tracking my budget.","thai":"แอปใหม่นี้ช่วยชีวิตสำหรับการติดตามงบประมาณของฉัน"}
+{"word":"budget","english":"Sticking to a tight budget helps me save for travel.","thai":"การยึดติดกับงบประมาณที่จำกัดช่วยให้ฉันเก็บเงินเพื่อการเดินทาง"}
+{"word":"save","english":"I try to save time by meal-prepping on Sundays.","thai":"ฉันพยายามประหยัดเวลาโดยการเตรียมอาหารในวันอาทิตย์"}
+{"word":"time","english":"Spending time with my dog is pure joy.","thai":"การใช้เวลากับหมานั้นคือความสุขล้วนๆ"}
+{"word":"joy","english":"The joy of a home-cooked meal is unmatched.","thai":"ความสุขของอาหารทำเองที่บ้านนั้นไม่มีอะไรเทียบได้"}
+{"word":"home","english":"Working from home lets me balance life better.","thai":"การทำงานจากบ้านช่วยให้ฉันสมดุลชีวิตได้ดีขึ้น"}
+{"word":"balance","english":"Balancing school and work takes serious effort.","thai":"การรักษาสมดุลระหว่างเรียนและงานต้องใช้ความพยายามอย่างมาก"}
+{"word":"effort","english":"Putting in extra effort on this project paid off.","thai":"การทุ่มเทความพยายามเพิ่มในโปรเจกต์นี้ได้ผลตอบแทน"}
+{"word":"pay","english":"I need to pay off my credit card before shopping.","thai":"ฉันต้องจ่ายหนี้บัตรเครดิตก่อนไปช็อปปิ้ง"}
+{"word":"shop","english":"Shopping for vintage clothes is my weekend vibe.","thai":"การช็อปปิ้งเสื้อผ้าวินเทจคือสไตล์วันหยุดของฉัน"}
+{"word":"weekend","english":"Weekend hikes with friends are always a blast.","thai":"การเดินป่าสุดสัปดาห์กับเพื่อนๆ มันส์สุดๆ เสมอ"}
+{"word":"friend","english":"Catching up with a friend over coffee is the best.","thai":"การนั่งคุยกับเพื่อนจิบกาแฟคือสิ่งที่ดีที่สุด"}
+{"word":"coffee","english":"Grabbing coffee before a meeting keeps me sharp.","thai":"การซื้อกาแฟก่อนประชุมช่วยให้ฉันเฉียบคม"}
+{"word":"sharp","english":"Keeping my mind sharp during debates is key.","thai":"การรักษาความคิดให้เฉียบคมระหว่างการโต้วาทีคือสิ่งสำคัญ"}
+{"word":"key","english":"Finding the key to time management changed my life.","thai":"การหาวิธีจัดการเวลาทำให้ชีวิตฉันเปลี่ยน"}
+{"word":"life","english":"Switching to a simpler life reduces my stress.","thai":"การเปลี่ยนไปใช้ชีวิตที่เรียบง่ายช่วยลดความเครียดของฉัน"}
+{"word":"stress","english":"Cutting back on stress with yoga is a game-changer.","thai":"การลดความเครียดด้วยโยคะคือตัวเปลี่ยนเกม"}
+{"word":"cut","english":"I need to cut down on junk food this month.","thai":"ฉันต้องลดการกินอาหารขยะเดือนนี้"}
+{"word":"food","english":"Trying new food trucks at the festival is a blast.","thai":"การลองร้านอาหารรถเข็นที่งานเทศกาลมันส์สุดๆ"}
+{"word":"blast","english":"Riding roller coasters at the fair is a total blast.","thai":"การนั่งรถไฟเหาะที่งานเทศกาลสนุกสุดๆ"}
+{"word":"ride","english":"I ride my bike to the market every weekend.","thai":"ฉันปั่นจักรยานไปตลาดทุกสุดสัปดาห์"}
+{"word":"market","english":"The farmers’ market has the freshest produce.","thai":"ตลาดนัดเกษตรกรมีผักผลไม้สดใหม่ที่สุด"}
+{"word":"fresh","english":"Fresh flowers from the garden brighten my home.","thai":"ดอกไม้สดจากสวนทำให้บ้านฉันสว่างขึ้น"}
+{"word":"brighten","english":"A good laugh with friends brightens any day.","thai":"การหัวเราะกับเพื่อนๆ ทำให้วันไหนๆ ก็สดใส"}
+{"word":"laugh","english":"I laugh so hard at comedy shows with my sister.","thai":"ฉันหัวเราะหนักมากในรายการตลกกับน้องสาว"}
+{"word":"show","english":"Binge-watching a new show on Netflix is my jam.","thai":"การดูซีรีส์ใหม่บน Netflix แบบมาราธอนคือสไตล์ของฉัน"}
+{"word":"jam","english":"This new playlist is my jam for morning runs.","thai":"เพลย์ลิสต์ใหม่นี้คือเพลงโปรดของฉันสำหรับวิ่งตอนเช้า"}
+{"word":"run","english":"Running errands on Saturday feels productive.","thai":"การวิ่งทำธุระวันเสาร์รู้สึกมีประสิทธิผล"}
+{"word":"productive","english":"A tidy workspace makes me feel super productive.","thai":"พื้นที่ทำงานที่เป็นระเบียบทำให้ฉันรู้สึกมีประสิทธิผลสุดๆ"}
+{"word":"feel","english":"I feel amazing after a long hiking trip.","thai":"ฉันรู้สึกยอดเยี่ยมหลังจากทริปเดินป่านานๆ"}
+{"word":"amazing","english":"The view from the mountain was absolutely amazing.","thai":"วิวจากบนเขานั้นยอดเยี่ยมสุดๆ"}
+{"word":"view","english":"Taking in the view at the lake is so relaxing.","thai":"การชมวิวที่ทะเลสาบผ่อนคลายมาก"}
+{"word":"relax","english":"I relax by kicking back with a good podcast.","thai":"ฉันผ่อนคลายด้วยการนั่งฟังพอดแคสต์ดีๆ"}
+{"word":"podcast","english":"Listening to a true-crime podcast keeps me hooked.","thai":"การฟังพอดแคสต์เกี่ยวกับคดีอาชญากรรมทำให้ฉันติดหนึบ"}
+{"word":"hook","english":"That catchy song has me hooked all day long.","thai":"เพลงติดหูนั้นทำให้ฉันติดใจทั้งวัน"}
+{"word":"song","english":"Singing along to songs at karaoke is my vibe.","thai":"การร้องเพลงตามในคาราโอเกะคือสไตล์ของฉัน"}
+{"word":"vibe","english":"The chill vibe at the rooftop bar is perfect.","thai":"บรรยากาศสบายๆ ที่บาร์บนดาดฟ้าสมบูรณ์แบบ"}
+{"word":"chill","english":"I love to chill with friends over board games.","thai":"ฉันชอบผ่อนคลายกับเพื่อนๆ ด้วยเกมกระดาน"}
+{"word":"friend","english":"Catching up with an old friend feels so good.","thai":"การอัปเดตกับเพื่อนเก่ารู้สึกดีมาก"}
+{"word":"feel","english":"I feel pumped after a morning yoga session.","thai":"ฉันรู้สึกกระปรี้กระเปร่าหลังโยคะตอนเช้า"}
+{"word":"pump","english":"Morning runs really pump my energy for the day.","thai":"การวิ่งตอนเช้าช่วยเพิ่มพลังให้ฉันตลอดวัน"}
+{"word":"energy","english":"Channeling energy into painting is super therapeutic.","thai":"การระบายพลังลงในการวาดภาพช่วยบำบัดได้ดีมาก"}
+{"word":"paint","english":"Painting my room a bold color changed the vibe.","thai":"การทาสีห้องด้วยสีจัดจ้านเปลี่ยนบรรยากาศไปเลย"}
+{"word":"change","english":"A quick wardrobe change before dinner feels fresh.","thai":"การเปลี่ยนชุดก่อนมื้อเย็นรู้สึกสดชื่น"}
+{"word":"dinner","english":"Cooking dinner for my family is my favorite ritual.","thai":"การทำอาหารเย็นให้ครอบครัวคือพิธีกรรมที่ฉันชอบ"}
+{"word":"favorite","english":"My favorite coffee shop has the best lattes.","thai":"ร้านกาแฟที่ฉันชอบมีลาเต้ที่ดีที่สุด"}
+{"word":"coffee","english":"Grabbing coffee before a meeting keeps me sharp.","thai":"การซื้อกาแฟก่อนประชุมช่วยให้ฉันเฉียบคม"}
+{"word":"sharp","english":"Keeping my mind sharp during debates is key.","thai":"การรักษาความคิดให้เฉียบคมระหว่างการโต้วาทีคือสิ่งสำคัญ"}
+{"word":"key","english":"Finding the key to work-life balance is a game-changer.","thai":"การหาความสมดุลระหว่างงานและชีวิตส่วนตัวคือตัวเปลี่ยนเกม"}
+{"word":"balance","english":"Balancing school and a part-time job is exhausting.","thai":"การรักษาสมดุลระหว่างเรียนและงานพาร์ทไทม์เหนื่อยมาก"}
+{"word":"job","english":"Landing a new job in tech was a huge win.","thai":"การได้งานใหม่ในวงการเทคโนโลยีคือชัยชนะครั้งใหญ่"}
+{"word":"win","english":"Winning at trivia night with friends feels awesome.","thai":"การชนะในค่ำคืนทายป and feels awesome.","thai":"การชนะในค่ำคืนทายปัญหากับเพื่อนๆ รู้สึกยอดเยี่ยม"}
+{"word":"awesome","english":"The view from that hiking trail was totally awesome.","thai":"วิวจากเส้นทางเดินป่านั้นเจ๋งสุดๆ"}
+{"word":"trail","english":"Exploring new trails while camping is pure adventure.","thai":"การสำรวจเส้นทางใหม่ๆ ขณะแคมป์ปิ้งคือการผจญภัยล้วนๆ"}
+{"word":"adventure","english":"Going on a road trip adventure is always thrilling.","thai":"การออกทริปผจญภัยทางถนนนั้นตื่นเต้นเสมอ"}
+{"word":"thrill","english":"The thrill of live music concerts never gets old.","thai":"ความตื่นเต้นของคอนเสิร์ตดนตรีสดไม่เคยเก่า"}
+{"word":"live","english":"I live for those quiet evenings stargazing in the backyard.","thai":"ฉันหลงรักค่ำคืนเงียบๆ ที่ดูดาวในสวนหลังบ้าน"}
+{"word":"evening","english":"Evening walks with my partner are so relaxing.","thai":"การเดินเล่นยามเย็นกับคู่รักผ่อนคลายมาก"}
+{"word":"relax","english":"I relax by kicking back with a good book.","thai":"ฉันผ่อนคลายด้วยการนั่งอ่านหนังสือดีๆ"}
+{"word":"book","english":"Booking a spot for the yoga retreat was a great call.","thai":"การจองที่สำหรับรีทรีตโยคะเป็นการตัดสินใจที่ยอดเยี่ยม"}
+{"word":"great","english":"Scoring great deals at the thrift store feels amazing.","thai":"การได้ของถูกที่ร้านมือสองรู้สึกดีมาก"}
+{"word":"deal","english":"Let’s figure out a deal for splitting the vacation costs.","thai":"มาหาข้อตกลงเรื่องการแบ่งค่าใช้จ่ายทริปพักร้อนกัน"}
+{"word":"figure","english":"I need to figure out how to fix my laptop before work.","thai":"ฉันต้องหาวิธีซ่อมแล็ปท็อปก่อนทำงาน"}
+{"word":"work","english":"Teamwork at the office makes projects run smoothly.","thai":"การทำงานเป็นทีมในออฟฟิศทำให้โปรเจกต์ราบรื่น"}
+{"word":"project","english":"Collaborating on a project with coworkers is fun.","thai":"การทำงานร่วมกันในโปรเจกต์กับเพื่อนร่วมงานนั้นสนุก"}
+{"word":"fun","english":"Grabbing ice cream with friends is always fun.","thai":"การไปกินไอศกรีมกับเพื่อนๆ สนุกเสมอ"}
+{"word":"friend","english":"Hanging out with friends at the arcade is a blast.","thai":"การไปนั่งเล่นกับเพื่อนๆ ที่อาร์เคดมันส์สุดๆ"}
+{"word":"blast","english":"Riding roller coasters at the fair is a total blast.","thai":"การนั่งรถไฟเหาะที่งานเทศกาลสนุกสุดๆ"}
+{"word":"ride","english":"I ride my bike to the park every weekend.","thai":"ฉันปั่นจักรยานไปสวนสาธารณะทุกสุดสัปดาห์"}
+{"word":"park","english":"Hanging out at the park with my dog is so chill.","thai":"การไปนั่งเล่นที่สวนกับหมานั้นสบายมาก"}
+{"word":"chill","english":"I love to chill with a good podcast after work.","thai":"ฉันชอบผ่อนคลายกับพอดแคสต์ดีๆ หลังเลิกงาน"}
+{"word":"podcast","english":"Listening to a true-crime podcast keeps me hooked.","thai":"การฟังพอดแคสต์เกี่ยวกับคดีอาชญากรรมทำให้ฉันติดหนึบ"}
+{"word":"hook","english":"That catchy song has me hooked all day long.","thai":"เพลงติดหูนั้นทำให้ฉันติดใจทั้งวัน"}
+{"word":"song","english":"Singing along to songs at karaoke is my vibe.","thai":"การร้องเพลงตามในคาราโอเกะคือสไตล์ของฉัน"}
+{"word":"vibe","english":"The chill vibe at the rooftop bar is perfect.","thai":"บรรยากาศสบายๆ ที่บาร์บนดาดฟ้าสมบูรณ์แบบ"}
+{"word":"perfect","english":"Finding the perfect spot for a picnic is awesome.","thai":"การหาจุดที่สมบูรณ์แบบสำหรับปิกนิกนั้นยอดเยี่ยม"}
+{"word":"awesome","english":"The new skate park is totally awesome.","thai":"สเก็ตพาร์คใหม่นั้นเจ๋งสุดๆ"}
+{"word":"new","english":"Trying out new recipes keeps cooking exciting.","thai":"การลองสูตรอาหารใหม่ๆ ทำให้การทำอาหารน่าตื่นเต้น"}
+{"word":"cook","english":"I cook breakfast for my kids every weekend.","thai":"ฉันทำอาหารเช้าให้ลูกๆ ทุกสุดสัปดาห์"}
+{"word":"kid","english":"Taking the kids to the zoo is always a hit.","thai":"การพาเด็กๆ ไปสวนสัตว์ได้รับความนิยมเสมอ"}
+{"word":"hit","english":"Hitting the gym early sets a great tone.","thai":"การไปยิมแต่เช้าสร้างโทนที่ดี"}
+{"word":"set","english":"Let’s set up a game night with some snacks.","thai":"มาจัดค่ำคืนเกมพร้อมของว่างกัน"}
+{"word":"game","english":"Watching a live basketball game gets me hyped.","thai":"การดูเกมบาสเกตบอลสดทำให้ฉันตื่นเต้นสุดๆ"}
+{"word":"hype","english":"The hype around the new movie is totally real.","thai":"กระแสเกี่ยวกับหนังใหม่นั้นเจ๋งจริงๆ"}
+{"word":"movie","english":"Catching a movie with friends is my weekend plan.","thai":"การดูหนังกับเพื่อนๆ คือแผนวันหยุดของฉัน"}
+{"word":"plan","english":"I need to plan a camping trip for next month.","thai":"ฉันต้องวางแผนทริปแคมป์ปิ้งสำหรับเดือนหน้า"}
+{"word":"trip","english":"A road trip with the crew is always epic.","thai":"ทริปถนนกับเพื่อนๆ ยอดเยี่ยมเสมอ"}
+{"word":"epic","english":"That concert last night was totally epic.","thai":"คอนเสิร์ตเมื่อคืนนั้นเจ๋งสุดๆ"}
+{"word":"concert","english":"Scoring tickets to a concert is such a thrill.","thai":"การได้ตั๋วคอนเสิร์ตนั้นตื่นเต้นมาก"}
+{"word":"thrill","english":"The thrill of skydiving was worth every second.","thai":"ความตื่นเต้นของการกระโดดร่มนั้นคุ้มค่าทุกวินาที"}
+{"word":"worth","english":"Volunteering at the shelter is worth all the effort.","thai":"การเป็นอาสาสมัครที่ศูนย์พักพิงนั้นคุ้มค่ากับทุกความพยายาม"}
+{"word":"effort","english":"Putting in effort to learn coding is paying off.","thai":"การทุ่มเทความพยายามในการเรียนโค้ดกำลังได้ผล"}
+{"word":"learn","english":"I want to learn to play guitar this year.","thai":"ฉันอยากเรียนเล่นกีตาร์ในปีนี้"}
+{"word":"play","english":"I play some lo-fi beats while studying late.","thai":"ฉันเปิดเพลงโลไฟขณะอ่านหนังสือดึกๆ"}
+{"word":"study","english":"Studying for finals stresses me out big time.","thai":"การอ่านหนังสือเพื่อสอบปลายภาคทำให้ฉันเครียดมาก"}
+{"word":"stress","english":"Meditation helps me manage stress every day.","thai":"การนั่งสมาธิช่วยฉันจัดการความเครียดทุกวัน"}
+{"word":"manage","english":"I need to manage my time better for school.","thai":"ฉันต้องจัดการเวลาให้ดีขึ้นสำหรับการเรียน"}
+{"word":"time","english":"Spending time with friends at the arcade is a blast.","thai":"การใช้เวลากับเพื่อนๆ ที่อาร์เคดมันส์สุดๆ"}
+{"word":"friend","english":"Catching up with an old friend over coffee is awesome.","thai":"การนั่งคุยกับเพื่อนเก่าจิบกาแฟนั้นยอดเยี่ยม"}
+{"word":"coffee","english":"Grabbing coffee before a meeting keeps me sharp.","thai":"การซื้อกาแฟก่อนประชุมช่วยให้ฉันเฉียบคม"}
+{"word":"sharp","english":"Keeping my mind sharp during debates is tough.","thai":"การรักษาความคิดให้เฉียบคมระหว่างการโต้วาทีนั้นยาก"}
+{"word":"tough","english":"Pushing through a tough workout feels so rewarding.","thai":"การฝ่าฟันการออกกำลังกายที่หนักหน่วงรู้สึกคุ้มค่ามาก"}
+{"word":"reward","english":"The reward of finishing a marathon is unreal.","thai":"รางวัลจากการวิ่งมาราธอนนั้นสุดยอดมาก"}
+{"word":"finish","english":"I need to finish editing this video by tomorrow.","thai":"ฉันต้องตัดต่อวิดีโอนี้ให้เสร็จภายในพรุ่งนี้"}
+{"word":"video","english":"Posting a video on social media got tons of likes.","thai":"การโพสต์วิดีโอบนโซเชียลมีเดียได้ไลค์เยอะมาก"}
+{"word":"like","english":"I like chilling with my dog after a long day.","thai":"ฉันชอบผ่อนคลายกับหมา after วันที่ยาวนาน"}
+{"word":"chill","english":"Let’s chill at the rooftop bar with some tunes.","thai":"มาผ่อนคลายที่บาร์บนดาดฟ้าพร้อมเพลงกัน"}
+{"word":"tune","english":"Humming a tune while cooking makes it fun.","thai":"การฮัมเพลงขณะทำอาหารทำให้สนุก"}
+{"word":"cook","english":"I cook breakfast for my kids every weekend.","thai":"ฉันทำอาหารเช้าให้ลูกๆ ทุกสุดสัปดาห์"}
+{"word":"kid","english":"Taking the kids to the zoo is always a hit.","thai":"การพาเด็กๆ ไปสวนสัตว์ได้รับความนิยมเสมอ"}
+{"word":"hit","english":"Hitting the gym early sets a great tone.","thai":"การไปยิมแต่เช้าสร้างโทนที่ดี"}
+{"word":"set","english":"Let’s set up a game night with some snacks.","thai":"มาจัดค่ำคืนเกมพร้อมของว่างกัน"}
+{"word":"game","english":"Watching a live basketball game gets me hyped.","thai":"การดูเกมบาสเกตบอลสดทำให้ฉันตื่นเต้นสุดๆ"}
+{"word":"hype","english":"The hype around the new movie is totally real.","thai":"กระแสเกี่ยวกับหนังใหม่นั้นเจ๋งจริงๆ"}
+{"word":"movie","english":"Catching a movie with friends is my weekend vibe.","thai":"การดูหนังกับเพื่อนๆ คือสไตล์วันหยุดของฉัน"}
+{"word":"vibe","english":"The chill vibe at the beach festival is perfect.","thai":"บรรยากาศสบายๆ ที่งานเทศกาลชายหาดสมบูรณ์แบบ"}
+{"word":"chill","english":"I love to chill with a good podcast after work.","thai":"ฉันชอบผ่อนคลายกับพอดแคสต์ดีๆ หลังเลิกงาน"}
+{"word":"podcast","english":"Listening to a true-crime podcast keeps me hooked.","thai":"การฟังพอดแคสต์เกี่ยวกับคดีอาชญากรรมทำให้ฉันติดหนึบ"}
+{"word":"hook","english":"That catchy song has me hooked all day long.","thai":"เพลงติดหูนั้นทำให้ฉันติดใจทั้งวัน"}
+{"word":"song","english":"Singing along to songs at karaoke is my jam.","thai":"การร้องเพลงตามในคาราโอเกะคือสไตล์ของฉัน"}
+{"word":"jam","english":"This new playlist is my jam for morning runs.","thai":"เพลย์ลิสต์ใหม่นี้คือเพลงโปรดของฉันสำหรับวิ่งตอนเช้า"}
+{"word":"run","english":"Running errands on Saturday feels productive.","thai":"การวิ่งทำธุระวันเสาร์รู้สึกมีประสิทธิผล"}
+{"word":"productive","english":"A tidy workspace makes me feel super productive.","thai":"พื้นที่ทำงานที่เป็นระเบียบทำให้ฉันรู้สึกมีประสิทธิผลสุดๆ"}
+{"word":"feel","english":"I feel amazing after a long hiking trip.","thai":"ฉันรู้สึกยอดเยี่ยมหลังจากทริปเดินป่านานๆ"}
+{"word":"amazing","english":"The view from the mountain was absolutely amazing.","thai":"วิวจากบนเขานั้นยอดเยี่ยมสุดๆ"}
+{"word":"view","english":"Taking in the view at the lake is so relaxing.","thai":"การชมวิวที่ทะเลสาบผ่อนคลายมาก"}
+{"word":"relax","english":"I relax by kicking back with a good book.","thai":"ฉันผ่อนคลายด้วยการนั่งอ่านหนังสือดีๆ"}
+{"word":"book","english":"Booking a spot for the yoga retreat was a great call.","thai":"การจองที่สำหรับรีทรีตโยคะเป็นการตัดสินใจที่ยอดเยี่ยม"}
+{"word":"great","english":"Scoring great deals at the thrift store is awesome.","thai":"การได้ของถูกที่ร้านมือสองนั้นยอดเยี่ยม"}
+{"word":"deal","english":"Let’s figure out a deal for splitting the vacation costs.","thai":"มาหาข้อตกลงเรื่องการแบ่งค่าใช้จ่ายทริปพักร้อนกัน"}
+{"word":"figure","english":"I need to figure out how to fix my bike this weekend.","thai":"ฉันต้องหาวิธีซ่อมจักรยานสุดสัปดาห์นี้"}
+{"word":"weekend","english":"Weekend hikes with my dog are the best escape.","thai":"การเดินป่าสุดสัปดาห์กับหมาเป็นการหลบหนีที่ดีที่สุด"}
+{"word":"escape","english":"Reading fantasy novels is my favorite escape.","thai":"การอ่านนิยายแฟนตาซีคือการหลบหนีที่ฉันชอบ"}
+{"word":"favorite","english":"My favorite coffee shop has the best lattes.","thai":"ร้านกาแฟที่ฉันชอบมีลาเต้ที่ดีที่สุด"}
+{"word":"coffee","english":"Grabbing coffee before class keeps me focused.","thai":"การซื้อกาแฟก่อนเข้าเรียนช่วยให้ฉันมีสมาธิ"}
+{"word":"focus","english":"Keeping focus during a PhD seminar is tough.","thai":"การรักษาสมาธิระหว่างสัมมนาป.เอกนั้นยาก"}
+{"word":"tough","english":"Pushing through a tough workout feels so rewarding.","thai":"การฝ่าฟันการออกกำลังกายที่หนักหน่วงรู้สึกคุ้มค่ามาก"}
+{"word":"reward","english":"The reward of finishing a marathon is unreal.","thai":"รางวัลจากการวิ่งมาราธอนนั้นสุดยอดมาก"}
+{"word":"finish","english":"I need to finish editing this video by tomorrow.","thai":"ฉันต้องตัดต่อวิดีโอนี้ให้เสร็จภายในพรุ่งนี้"}
+{"word":"video","english":"Posting a video on social media got tons of likes.","thai":"การโพสต์วิดีโอบนโซเชียลมีเดียได้ไลค์เยอะมาก"}
+{"word":"like","english":"I like chilling with my cat after a long day.","thai":"ฉันชอบผ่อนคลายกับแมวหลังจากวันที่ยาวนาน"}
+{"word":"chill","english":"Let’s chill at the beach with some good tunes.","thai":"มาผ่อนคลายที่ชายหาดกับเพลงดีๆ กัน"}
+{"word":"beach","english":"A sunset walk on the beach feels so calming.","thai":"การเดินตอนพระอาทิตย์ตกที่ชายหาดรู้สึกสงบมาก"}
+{"word":"calm","english":"Meditation keeps me calm during stressful days.","thai":"การนั่งสมาธิช่วยให้ฉันสงบในวันที่เครียด"}
+{"word":"stress","english":"Cutting back on stress with yoga is a game-changer.","thai":"การลดความเครียดด้วยโยคะคือตัวเปลี่ยนเกม"}
+{"word":"cut","english":"I need to cut down on junk food this month.","thai":"ฉันต้องลดการกินอาหารขยะเดือนนี้"}
+{"word":"food","english":"Trying new food trucks at the festival is a blast.","thai":"การลองร้านอาหารรถเข็นที่งานเทศกาลมันส์สุดๆ"}
+{"word":"blast","english":"Riding roller coasters at the fair is a total blast.","thai":"การนั่งรถไฟเหาะที่งานเทศกาลสนุกสุดๆ"}
+{"word":"ride","english":"I ride my bike to the market every weekend.","thai":"ฉันปั่นจักรยานไปตลาดทุกสุดสัปดาห์"}
+{"word":"market","english":"The farmers’ market has the freshest produce.","thai":"ตลาดนัดเกษตรกรมีผักผลไม้สดใหม่ที่สุด"}
+{"word":"fresh","english":"Fresh flowers from the garden brighten my home.","thai":"ดอกไม้สดจากสวนทำให้บ้านฉันสว่างขึ้น"}
+{"word":"brighten","english":"A good laugh with friends brightens any day.","thai":"การหัวเราะกับเพื่อนๆ ทำให้วันไหนๆ ก็สดใส"}
+{"word":"laugh","english":"I laugh so hard at comedy shows with my sister.","thai":"ฉันหัวเราะหนักมากในรายการตลกกับน้องสาว"}
+{"word":"show","english":"Binge-watching a new show on Netflix is my jam.","thai":"การดูซีรีส์ใหม่บน Netflix แบบมาราธอนคือสไตล์ของฉัน"}
+{"word":"jam","english":"This new playlist is my jam for morning runs.","thai":"เพลย์ลิสต์ใหม่นี้คือเพลงโปรดของฉันสำหรับวิ่งตอนเช้า"}
+{"word":"run","english":"Running errands on Saturday feels productive.","thai":"การวิ่งทำธุระวันเสาร์รู้สึกมีประสิทธิผล"}
+{"word":"productive","english":"A tidy workspace makes me feel super productive.","thai":"พื้นที่ทำงานที่เป็นระเบียบทำให้ฉันรู้สึกมีประสิทธิผลสุดๆ"}
+{"word":"feel","english":"I feel amazing after a long hiking trip.","thai":"ฉันรู้สึกยอดเยี่ยมหลังจากทริปเดินป่านานๆ"}
+{"word":"amazing","english":"The view from the mountain was absolutely amazing.","thai":"วิวจากบนเขานั้นยอดเยี่ยมสุดๆ"}
+{"word":"view","english":"Taking in the view at the lake is so relaxing.","thai":"การชมวิวที่ทะเลสาบผ่อนคลายมาก"}
+{"word":"relax","english":"I relax by kicking back with a good podcast.","thai":"ฉันผ่อนคลายด้วยการนั่งฟังพอดแคสต์ดีๆ"}
+{"word":"podcast","english":"Listening to a true-crime podcast keeps me hooked.","thai":"การฟังพอดแคสต์เกี่ยวกับคดีอาชญากรรมทำให้ฉันติดหนึบ"}
+{"word":"hook","english":"That catchy song has me hooked all day long.","thai":"เพลงติดหูนั้นทำให้ฉันติดใจทั้งวัน"}
+{"word":"song","english":"Singing along to songs at karaoke is my vibe.","thai":"การร้องเพลงตามในคาราโอเกะคือสไตล์ของฉัน"}
+{"word":"vibe","english":"The chill vibe at the rooftop bar is perfect.","thai":"บรรยากาศสบายๆ ที่บาร์บนดาดฟ้าสมบูรณ์แบบ"}
+{"word":"perfect","english":"Finding the perfect spot for a picnic is awesome.","thai":"การหาจุดที่สมบูรณ์แบบสำหรับปิกนิกนั้นยอดเยี่ยม"}
+{"word":"awesome","english":"The new skate park is totally awesome.","thai":"สเก็ตพาร์คใหม่นั้นเจ๋งสุดๆ"}
+{"word":"new","english":"Trying out new recipes keeps cooking exciting.","thai":"การลองสูตรอาหารใหม่ๆ ทำให้การทำอาหารน่าตื่นเต้น"}
+{"word":"cook","english":"I cook breakfast for my kids every weekend.","thai":"ฉันทำอาหารเช้าให้ลูกๆ ทุกสุดสัปดาห์"}
+{"word":"kid","english":"Taking the kids to the zoo is always a hit.","thai":"การพาเด็กๆ ไปสวนสัตว์ได้รับความนิยมเสมอ"}
+{"word":"hit","english":"Hitting the gym early sets a great tone.","thai":"การไปยิมแต่เช้าสร้างโทนที่ดี"}
+{"word":"set","english":"Let’s set up a game night with some snacks.","thai":"มาจัดค่ำคืนเกมพร้อมของว่างกัน"}
+{"word":"game","english":"Watching a live basketball game gets me hyped.","thai":"การดูเกมบาสเกตบอลสดทำให้ฉันตื่นเต้นสุดๆ"}
+{"word":"hype","english":"The hype around the new tech gadget is real.","thai":"กระแสเกี่ยวกับแกดเจ็ตเทคโนโลยีใหม่นั้นเจ๋งจริงๆ"}
+{"word":"tech","english":"Working in tech means always learning new skills.","thai":"การทำงานในวงการเทคโนโลยีหมายถึงต้องเรียนรู้ทักษะใหม่ๆ เสมอ"}
+{"word":"learn","english":"I want to learn to code to build my own app.","thai":"ฉันอยากเรียนเขียนโค้ดเพื่อสร้างแอปของตัวเอง"}
+{"word":"build","english":"Building a strong network at work opens doors.","thai":"การสร้างเครือข่ายที่แข็งแกร่งในที่ทำงานเปิดโอกาสมากมาย"}
+{"word":"open","english":"Keeping an open mind during brainstorming is key.","thai":"การมีใจที่เปิดกว้างระหว่างระดมสมองคือสิ่งสำคัญ"}
+{"word":"key","english":"Finding the key to time management changed my life.","thai":"การหาวิธีจัดการเวลาทำให้ชีวิตฉันเปลี่ยน"}
+{"word":"life","english":"Switching to a simpler life reduces my stress.","thai":"การเปลี่ยนไปใช้ชีวิตที่เรียบง่ายช่วยลดความเครียดของฉัน"}
+{"word":"stress","english":"Cutting back on stress with meditation is a lifesaver.","thai":"การลดความเครียดด้วยการนั่งสมาธิช่วยชีวิตเลย"}
+{"word":"meditation","english":"Daily meditation helps me stay calm and focused.","thai":"การนั่งสมาธิทุกวันช่วยให้ฉันสงบและมีสมาธิ"}
+{"word":"calm","english":"A calm evening walk with my dog is so relaxing.","thai":"การเดินเล่นยามเย็นกับหมาแบบสงบๆ ผ่อนคลายมาก"}
+{"word":"walk","english":"I walk to the park to clear my head daily.","thai":"ฉันเดินไปสวนสาธารณะเพื่อปลอดโปร่งสมองทุกวัน"}
+{"word":"head","english":"Keeping a clear head during debates is crucial.","thai":"การรักษาสติในระหว่างการโต้วาทีนั้นสำคัญมาก"}
+{"word":"crucial","english":"Good communication is crucial for team projects.","thai":"การสื่อสารที่ดีเป็นสิ่งสำคัญสำหรับโปรเจกต์ทีม"}
+{"word":"team","english":"Working with a great team makes projects fun.","thai":"การทำงานกับทีมดีๆ ทำให้โปรเจกต์สนุก"}
+{"word":"fun","english":"Playing board games with friends is always fun.","thai":"การเล่นเกมกระดานกับเพื่อนๆ สนุกเสมอ"}
+{"word":"friend","english":"Catching up with an old friend over coffee is awesome.","thai":"การนั่งคุยกับเพื่อนเก่าจิบกาแฟนั้นยอดเยี่ยม"}
+{"word":"coffee","english":"Grabbing coffee before a meeting keeps me sharp.","thai":"การซื้อกาแฟก่อนประชุมช่วยให้ฉันเฉียบคม"}
+{"word":"sharp","english":"Keeping my mind sharp during debates is tough.","thai":"การรักษาความคิดให้เฉียบคมระหว่างการโต้วาทีนั้นยาก"}
+{"word":"tough","english":"Pushing through a tough workout feels so rewarding.","thai":"การฝ่าฟันการออกกำลังกายที่หนักหน่วงรู้สึกคุ้มค่ามาก"}
+{"word":"reward","english":"The reward of finishing a marathon is unreal.","thai":"รางวัลจากการวิ่งมาราธอนนั้นสุดยอดมาก"}
+{"word":"finish","english":"I need to finish editing this video by tomorrow.","thai":"ฉันต้องตัดต่อวิดีโอนี้ให้เสร็จภายในพรุ่งนี้"}
+{"word":"video","english":"Posting a video on social media got tons of likes.","thai":"การโพสต์วิดีโอบนโซเชียลมีเดียได้ไลค์เยอะมาก"}
+{"word":"like","english":"I like chilling with my dog after a long day.","thai":"ฉันชอบผ่อนคลายกับหมา after วันที่ยาวนาน"}
+{"word":"chill","english":"Let’s chill at the beach with some good tunes.","thai":"มาผ่อนคลายที่ชายหาดกับเพลงดีๆ กัน"}
+{"word":"tune","english":"Humming a tune while cooking makes it fun.","thai":"การฮัมเพลงขณะทำอาหารทำให้สนุก"}
+{"word":"cook","english":"I cook breakfast for my kids every weekend.","thai":"ฉันทำอาหารเช้าให้ลูกๆ ทุกสุดสัปดาห์"}
+{"word":"kid","english":"Taking the kids to the zoo is always a hit.","thai":"การพาเด็กๆ ไปสวนสัตว์ได้รับความนิยมเสมอ"}
+{"word":"hit","english":"Hitting the gym early sets a great tone.","thai":"การไปยิมแต่เช้าสร้างโทนที่ดี"}
+{"word":"set","english":"Let’s set up a game night with some snacks.","thai":"มาจัดค่ำคืนเกมพร้อมของว่างกัน"}
+{"word":"game","english":"Watching a live basketball game gets me hyped.","thai":"การดูเกมบาสเกตบอลสดทำให้ฉันตื่นเต้นสุดๆ"}
+{"word":"hype","english":"The hype around the new movie is totally real.","thai":"กระแสเกี่ยวกับหนังใหม่นั้นเจ๋งจริงๆ"}
+{"word":"movie","english":"Catching a movie with friends is my weekend vibe.","thai":"การดูหนังกับเพื่อนๆ คือสไตล์วันหยุดของฉัน"}
+{"word":"vibe","english":"The chill vibe at the rooftop bar is perfect.","thai":"บรรยากาศสบายๆ ที่บาร์บนดาดฟ้าสมบูรณ์แบบ"}
+{"word":"perfect","english":"Finding the perfect spot for a picnic is awesome.","thai":"การหาจุดที่สมบูรณ์แบบสำหรับปิกนิกนั้นยอดเยี่ยม"}
+{"word":"awesome","english":"The new skate park is totally awesome.","thai":"สเก็ตพาร์คใหม่นั้นเจ๋งสุดๆ"}
+{"word":"new","english":"Trying out new recipes keeps cooking exciting.","thai":"การลองสูตรอาหารใหม่ๆ ทำให้การทำอาหารน่าตื่นเต้น"}
+{"word":"cook","english":"I cook dinner for my family every Sunday.","thai":"ฉันทำอาหารเย็นให้ครอบครัวทุกวันอาทิตย์"}
+{"word":"family","english":"Spending time with family over board games is the best.","thai":"การใช้เวลากับครอบครัวเล่นเกมกระดานคือสิ่งที่ดีที่สุด"}
+{"word":"time","english":"Managing my time better helps me stay productive.","thai":"การจัดการเวลาให้ดีขึ้นช่วยให้ฉันมีประสิทธิผล"}
+{"word":"productive","english":"A tidy workspace makes me feel super productive.","thai":"พื้นที่ทำงานที่เป็นระเบียบทำให้ฉันรู้สึกมีประสิทธิผลสุดๆ"}
+{"word":"feel","english":"I feel amazing after a long hiking trip.","thai":"ฉันรู้สึกยอดเยี่ยมหลังจากทริปเดินป่านานๆ"}
+{"word":"amazing","english":"The view from the mountain was absolutely amazing.","thai":"วิวจากบนเขานั้นยอดเยี่ยมสุดๆ"}
+{"word":"view","english":"Taking in the view at the lake is so relaxing.","thai":"การชมวิวที่ทะเลสาบผ่อนคลายมาก"}
+{"word":"relax","english":"I relax by kicking back with a good podcast.","thai":"ฉันผ่อนคลายด้วยการนั่งฟังพอดแคสต์ดีๆ"}
+{"word":"podcast","english":"Listening to a true-crime podcast keeps me hooked.","thai":"การฟังพอดแคสต์เกี่ยวกับคดีอาชญากรรมทำให้ฉันติดหนึบ"}
+{"word":"hook","english":"That catchy song has me hooked all day long.","thai":"เพลงติดหูนั้นทำให้ฉันติดใจทั้งวัน"}
+{"word":"song","english":"Singing along to songs at karaoke is my jam.","thai":"การร้องเพลงตามในคาราโอเกะคือสไตล์ของฉัน"}
+{"word":"jam","english":"This new playlist is my jam for morning runs.","thai":"เพลย์ลิสต์ใหม่นี้คือเพลงโปรดของฉันสำหรับวิ่งตอนเช้า"}
+{"word":"run","english":"Running errands on Saturday feels productive.","thai":"การวิ่งทำธุระวันเสาร์รู้สึกมีประสิทธิผล"}
+{"word":"productive","english":"Tackling tasks early makes my day super productive.","thai":"การจัดการงานตั้งแต่เช้าทำให้วันของฉันมีประสิทธิผลสุดๆ"}
+{"word":"day","english":"A sunny day at the beach is pure bliss.","thai":"วันที่แดดออกที่ชายหาดคือความสุขล้วนๆ"}
+{"word":"bliss","english":"The bliss of a quiet evening with a book is unmatched.","thai":"ความสุขของค่ำคืนเงียบๆ กับหนังสือไม่มีอะไรเทียบได้"}
+{"word":"book","english":"Booking a spot for the yoga retreat was a great call.","thai":"การจองที่สำหรับรีทรีตโยคะเป็นการตัดสินใจที่ยอดเยี่ยม"}
+{"word":"great","english":"Scoring great deals at the thrift store feels awesome.","thai":"การได้ของถูกที่ร้านมือสองรู้สึกดีมาก"}
+{"word":"deal","english":"Let’s figure out a deal for splitting the vacation costs.","thai":"มาหาข้อตกลงเรื่องการแบ่งค่าใช้จ่ายทริปพักร้อนกัน"}
+{"word":"figure","english":"I need to figure out how to fix my bike this weekend.","thai":"ฉันต้องหาวิธีซ่อมจักรยานสุดสัปดาห์นี้"}
+{"word":"weekend","english":"Weekend hikes with my dog are the best escape.","thai":"การเดินป่าสุดสัปดาห์กับหมาเป็นการหลบหนีที่ดีที่สุด"}
+{"word":"escape","english":"Reading fantasy novels is my favorite escape.","thai":"การอ่านนิยายแฟนตาซีคือการหลบหนีที่ฉันชอบ"}
+{"word":"favorite","english":"My favorite coffee shop has the best lattes.","thai":"ร้านกาแฟที่ฉันชอบมีลาเต้ที่ดีที่สุด"}
+{"word":"coffee","english":"Grabbing coffee before class keeps me focused.","thai":"การซื้อกาแฟก่อนเข้าเรียนช่วยให้ฉันมีสมาธิ"}
+{"word":"focus","english":"Keeping focus during a PhD seminar is tough.","thai":"การรักษาสมาธิระหว่างสัมมนาป.เอกนั้นยาก"}
+{"word":"tough","english":"Pushing through a tough workout feels so rewarding.","thai":"การฝ่าฟันการออกกำลังกายที่หนักหน่วงรู้สึกคุ้มค่ามาก"}
+{"word":"reward","english":"The reward of finishing a marathon is unreal.","thai":"รางวัลจากการวิ่งมาราธอนนั้นสุดยอดมาก"}
+{"word":"finish","english":"I need to finish editing this video by tomorrow.","thai":"ฉันต้องตัดต่อวิดีโอนี้ให้เสร็จภายในพรุ่งนี้"}
+{"word":"video","english":"Posting a video on social media got tons of likes.","thai":"การโพสต์วิดีโอบนโซเชียลมีเดียได้ไลค์เยอะมาก"}
+{"word":"like","english":"I like chilling with my cat after a long day.","thai":"ฉันชอบผ่อนคลายกับแมวหลังจากวันที่ยาวนาน"}
+{"word":"chill","english":"Let’s chill at the beach with some good tunes.","thai":"มาผ่อนคลายที่ชายหาดกับเพลงดีๆ กัน"}
+{"word":"tune","english":"Humming a tune while cooking makes it fun.","thai":"การฮัมเพลงขณะทำอาหารทำให้สนุก"}
+{"word":"cook","english":"I cook breakfast for my kids every weekend.","thai":"ฉันทำอาหารเช้าให้ลูกๆ ทุกสุดสัปดาห์"}
+{"word":"kid","english":"Taking the kids to the zoo is always a hit.","thai":"การพาเด็กๆ ไปสวนสัตว์ได้รับความนิยมเสมอ"}
+{"word":"hit","english":"Hitting the gym early sets a great tone.","thai":"การไปยิมแต่เช้าสร้างโทนที่ดี"}
+{"word":"set","english":"Let’s set up a game night with some snacks.","thai":"มาจัดค่ำคืนเกมพร้อมของว่างกัน"}
+{"word":"game","english":"Watching a live basketball game gets me hyped.","thai":"การดูเกมบาสเกตบอลสดทำให้ฉันตื่นเต้นสุดๆ"}
+{"word":"hype","english":"The hype around the new movie is totally real.","thai":"กระแสเกี่ยวกับหนังใหม่นั้นเจ๋งจริงๆ"}
+{"word":"movie","english":"Catching a movie with friends is my weekend vibe.","thai":"การดูหนังกับเพื่อนๆ คือสไตล์วันหยุดของฉัน"}
+{"word":"vibe","english":"The chill vibe at the rooftop bar is perfect.","thai":"บรรยากาศสบายๆ ที่บาร์บนดาดฟ้าสมบูรณ์แบบ"}
+{"word":"perfect","english":"Finding the perfect spot for a picnic is awesome.","thai":"การหาจุดที่สมบูรณ์แบบสำหรับปิกนิกนั้นยอดเยี่ยม"}
+{"word":"awesome","english":"The new skate park is totally awesome.","thai":"สเก็ตพาร์คใหม่นั้นเจ๋งสุดๆ"}
+{"word":"new","english":"Trying out new recipes keeps cooking exciting.","thai":"การลองสูตรอาหารใหม่ๆ ทำให้การทำอาหารน่าตื่นเต้น"}
+{"word":"cook","english":"I cook dinner for my family every Sunday.","thai":"ฉันทำอาหารเย็นให้ครอบครัวทุกวันอาทิตย์"}
+{"word":"family","english":"Spending time with family over board games is fun.","thai":"การใช้เวลากับครอบครัวเล่นเกมกระดานนั้นสนุก"}
+{"word":"time","english":"Managing time well helps me juggle school and work.","thai":"การจัดการเวลาให้ดีช่วยให้ฉันรับมือกับการเรียนและการทำงาน"}
+{"word":"juggle","english":"I juggle multiple tasks to keep my startup running.","thai":"ฉันจัดการหลายงานเพื่อให้สตาร์ทอัพของฉันดำเนินต่อไป"}
+{"word":"task","english":"Tackling tough tasks early boosts my confidence.","thai":"การจัดการงานยากๆ ตั้งแต่เช้าช่วยเพิ่มความมั่นใจ"}
+{"word":"confidence","english":"Her confidence during the presentation was inspiring.","thai":"ความมั่นใจของเธอระหว่างการนำเสนอนั้นสร้างแรงบันดาลใจ"}
+{"word":"inspire","english":"Great teachers inspire students to think critically.","thai":"ครูที่ดีสร้างแรงบันดาลใจให้นักเรียนคิดอย่างมีวิจารณญาณ"}
+{"word":"think","english":"I think we should check out the new arcade tonight.","thai":"ฉันคิดว่าเราควรไปดูอาร์เคดใหม่คืนนี้"}
+{"word":"check","english":"Can you check in with the team about the project?","thai":"ช่วยเช็คกับทีมเรื่องโปรเจกต์หน่อยได้ไหม"}
+{"word":"project","english":"Collaborating on a project with coworkers is exciting.","thai":"การทำงานร่วมกันในโปรเจกต์กับเพื่อนร่วมงานนั้นน่าตื่นเต้น"}
+{"word":"exciting","english":"Starting a new hobby like pottery is so exciting.","thai":"การเริ่มงานอดิเรกใหม่ๆ อย่างเครื่องปั้นดินเผานั้นน่าตื่นเต้น"}
+{"word":"hobby","english":"Picking up a new hobby keeps life interesting.","thai":"การเริ่มงานอดิเรกใหม่ทำให้ชีวิตน่าสนใจ"}
+{"word":"life","english":"Switching to a simpler life reduces my stress.","thai":"การเปลี่ยนไปใช้ชีวิตที่เรียบง่ายช่วยลดความเครียดของฉัน"}
+{"word":"stress","english":"Cutting back on stress with meditation is a lifesaver.","thai":"การลดความเครียดด้วยการนั่งสมาธิช่วยชีวิตเลย"}
+{"word":"meditation","english":"Daily meditation keeps me calm and focused.","thai":"การนั่งสมาธิทุกวันช่วยให้ฉันสงบและมีสมาธิ"}
+{"word":"calm","english":"A calm evening walk with my dog is pure bliss.","thai":"การเดินเล่นยามเย็นกับหมาแบบสงบๆ คือความสุขล้วนๆ"}
+{"word":"bliss","english":"The bliss of a quiet morning with coffee is unmatched.","thai":"ความสุขของเช้าที่เงียบสงบกับกาแฟไม่มีอะไรเทียบได้"}
+{"word":"coffee","english":"Sipping coffee while chatting with friends is my vibe.","thai":"การจิบกาแฟขณะคุยกับเพื่อนๆ คือสไตล์ของฉัน"}
+{"word":"chat","english":"I love to chat about new books with my book club.","thai":"ฉันชอบคุยเรื่องหนังสือใหม่ๆ กับคลับหนังสือของฉัน"}
+{"word":"book","english":"Reading a good book by the fireplace is cozy.","thai":"การอ่านหนังสือดีๆ ข้างเตาผิงนั้นอบอุ่น"}
+{"word":"cozy","english":"A cozy night in with a movie feels perfect.","thai":"ค่ำคืนอบอุ่นกับหนังรู้สึกสมบูรณ์แบบ"}
+{"word":"perfect","english":"Finding the perfect playlist for a road trip is key.","thai":"การหาเพลย์ลิสต์ที่สมบูรณ์แบบสำหรับทริปถนนคือสิ่งสำคัญ"}
+{"word":"key","english":"The key to a great party is good music.","thai":"กุญแจของปาร์ตี้ที่ดีคือดนตรีดีๆ"}
+{"word":"music","english":"Playing music while cooking dinner sets the mood.","thai":"การเปิดเพลงขณะทำอาหารเย็นช่วยสร้างอารมณ์"}
+{"word":"mood","english":"A sunny day puts me in a great mood for hiking.","thai":"วันที่แดดออกทำให้ฉันอารมณ์ดีสำหรับการเดินป่า"}
+{"word":"hike","english":"A morning hike with friends is always refreshing.","thai":"การเดินป่าตอนเช้ากับเพื่อนๆ สดชื่นเสมอ"}
+{"word":"refresh","english":"A quick nap helps refresh my energy for the day.","thai":"การงีบสั้นๆ ช่วยฟื้นฟูพลังงานของฉันสำหรับวันนั้น"}
