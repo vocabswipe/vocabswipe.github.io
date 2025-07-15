@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const audioErrorEl = document.getElementById('audio-error');
   const logo = document.querySelector('.logo');
   const slogan = document.querySelector('.slogan');
+  const loadingEl = document.getElementById('loading');
 
   let entries = [];
   let currentIndex = 0;
@@ -28,11 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, '');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -70,9 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       console.log(`Loaded ${entries.length} entries`);
+      loadingEl.style.display = 'none'; // Hide loading text
       displayWordCloud();
     } catch (error) {
       console.error('LoadData Error:', error);
+      loadingEl.style.display = 'none';
       wordCloud.innerHTML = `
         <div class="error-message">
           Failed to load vocabulary data. Please ensure 'data/database.jsonl' exists and is valid.
@@ -134,6 +137,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const range = 10;
     const start = Math.max(0, index - range);
     const end = Math.min(entries.length - 1, index + range);
+
+ movilidad
 
     for (let i = start; i <= end; i++) {
       if (i !== index && entries[i].audio) {
@@ -208,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create SVG for lines
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.className = 'word-cloud-lines';
-    svg.style.position = 'absolute';
+    svg.style.position = 'box';
     svg.style.top = '0';
     svg.style.left = '0';
     svg.style.width = `${containerWidth}px`;
@@ -283,13 +288,19 @@ document.addEventListener('DOMContentLoaded', () => {
         svg.style.transition = 'opacity 0.3s ease';
         svg.style.opacity = '0';
 
+        // Move word to center and scale
+        const rect = wordEl.getBoundingClientRect();
+        const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
+        const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
         wordEl.style.transition = 'transform 1s ease, opacity 1s ease';
-        wordEl.style.transform = 'scale(10)';
+        wordEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(10)`;
         wordEl.style.opacity = '0';
 
         setTimeout(() => {
           wordCloud.style.display = 'none';
           wordEl.style.transform = 'none';
+          wordEl.style.left = `${x}px`; // Reset to original position
+          wordEl.style.top = `${y}px`;
           wordEl.style.opacity = '1';
           svg.style.opacity = '1'; // Reset for next time
 
@@ -343,7 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
           line.setAttribute('y2', w.word.y + w.word.height / 2);
           line.setAttribute('stroke', '#ffffff');
           line.setAttribute('stroke-width', '1');
-          line.setAttribute('stroke-opacity', '0.10'); // Adjust line opacity. original value = '0.3'
+          line.setAttribute('stroke-opacity', '0.10');
           svg.appendChild(line);
         });
       });
