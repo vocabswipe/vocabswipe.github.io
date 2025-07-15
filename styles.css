@@ -43,20 +43,6 @@ body {
   white-space: nowrap;
   line-height: 1.2;
   z-index: 10;
-  --word-color: #ffffff; /* Default fallback color */
-  animation: word-glow 2s ease-in-out infinite;
-}
-
-@keyframes word-glow {
-  0% {
-    text-shadow: 0 0 5px var(--word-color, #ffffff);
-  }
-  50% {
-    text-shadow: 0 0 15px var(--word-color, #ffffff);
-  }
-  100% {
-    text-shadow: 0 0 5px var(--word-color, #ffffff);
-  }
 }
 
 .error-message {
