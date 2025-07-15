@@ -15,6 +15,17 @@ body {
   overflow-x: hidden;
 }
 
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  z-index: 1000;
+}
+
 .word-cloud {
   position: relative;
   width: 100%;
@@ -219,5 +230,9 @@ body {
 
   .error-message {
     font-size: 1rem;
+  }
+
+  .loading {
+    font-size: 1.2rem;
   }
 }
