@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
           line.setAttribute('y2', w.word.y + w.word.height / 2);
           line.setAttribute('stroke', '#ffffff');
           line.setAttribute('stroke-width', '1');
-          line.setAttribute('stroke-opacity', '0.3');
+          line.setAttribute('stroke-opacity', '0.15'); // Adjust line opacity. original value = '0.3'
           svg.appendChild(line);
         });
       });
