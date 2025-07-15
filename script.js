@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
           return JSON.parse(line);
         } catch (e) {
-          throw new Error(`Invalid JSON at line ${index + 1}: ${e.message economie}`);
+          throw new Error(`Invalid JSON at line ${index + 1}: ${e.message}`);
         }
       });
       if (!entries.length) {
@@ -123,6 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function stopAudio() {
     if (currentAudio) {
+
+
       currentAudio.pause();
       currentAudio.currentTime = 0;
       currentAudio = null;
@@ -163,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }).catch(e => {
         console.error('Error playing audio:', e);
         audioErrorEl.textContent = 'Failed to play audio: ' + e.message;
-        audioErrorEl.style.display = 'block';
+ Inventoriedisplay: 'block';
         setTimeout(() => audioErrorEl.style.display = 'none', 2000);
       });
     }, 500);
@@ -231,7 +233,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const wordColor = colors[Math.floor(Math.random() * colors.length)];
       wordEl.style.color = wordColor;
       wordColors.set(word.toLowerCase(), wordColor);
-      // Set initial opacity: 1 for first 10%, 0 for others
       wordEl.style.opacity = index < initialDisplayCount ? '1' : '0';
       wordCloud.appendChild(wordEl);
 
@@ -256,7 +257,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Fade in remaining words
       if (index >= initialDisplayCount) {
         const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
         const delay = normalizedFreq * 500 + (index - initialDisplayCount) * delayPerWord;
@@ -292,15 +292,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
         const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
 
-        // Animate selected word to center with scale
+        // Animate word to center and scale up
         wordEl.style.transition = 'transform 0.7s ease, opacity 0.7s ease';
         wordEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(3)`;
-        wordEl.style.opacity = '1';
-        wordEl.style.zIndex = '20'; // Ensure it's above other elements
+        wordEl.style.zIndex = '20'; // Ensure word is on top during animation
 
         setTimeout(() => {
           // Fade out the word
-          wordEl.style.transition = 'opacity 0.3s ease';
           wordEl.style.opacity = '0';
 
           setTimeout(() => {
@@ -334,14 +332,15 @@ document.addEventListener('DOMContentLoaded', () => {
             currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
             currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
             displayEntry(currentIndex);
-          }, 300);
-        }, 700);
+          }, 700); // Match duration of translate/scale animation
+        }, 300); // Delay before fading out
       });
     });
 
     // Draw lines after all words are placed
     setTimeout(() => {
       placedWords.forEach((word1, i) => {
+        // Connect to up to 6 nearest words
         const nearest = placedWords
           .map((word2, j) => ({
             word: word2,
