@@ -1,20 +1,20 @@
-Start with this first entry:
+Generate a series of 99 entries in JSONL format, starting with the second entry, based on the first entry:
 
 {"word": "ideas", "english": "Creative ideas spark vibrant change.", "thai": "แนวคิดสร้างสรรค์จุดประกายการเปลี่ยนแปลงที่มีชีวิตชีวา"}
 
-Generate a series of 99 entries in JSONL format, starting with the second entry. For the second entry, select a random English word from the first entry's English sentence to be the `word` field in the new entry, and ensure this word appears in the new entry's English sentence. For each subsequent entry, select a random English word from the previous entry's English sentence (excluding the previous entry's `word`) to be the `word` field in the new entry, and ensure this word appears in the new entry's English sentence. Display each entry as a JSON object with the fields `word`, `english`, and `thai`.
+For the second entry, select a random English word (excluding the first entry's `word`, "ideas") from the first entry's English sentence ("Creative ideas spark vibrant change.") to be the `word` field, ensuring it appears in the new entry's English sentence. For each subsequent entry, select a random English word (excluding the previous entry's `word`) from the previous entry's English sentence to be the `word` field, ensuring it appears in the new entry's English sentence.
 
-Each entry must follow this exact JSONL format:
+Each entry must follow this JSONL format:
 {"word":"pen","english":"This pen costs five dollars.","thai":"ปากกานี้ราคาห้าดอลลาร์"}
 
-To ensure diversity and avoid repetition:
-- Use a wide range of vocabulary avoiding reuse of the same words across entries unless absolutely necessary due to the chaining rule.
-- Ensure at least 50% of the english sentence fields have phrasal verbs commonly used in American English (e.g., "pick up," "turn out," "give up") in it.
-- Vary sentence contexts to include 100 diverse scenarios (e.g., home, work, school, travel, hobbies, technology, food, emotions, slang    	    
-- shopping, health, sports, music, relationships, weather, culture, history, science, art, fashion, gaming, social media, environment, politics, education, finance, travel destinations, daily routines, holidays, transportation, fitness, pets, gardening, cooking, movies, books, celebrations, technology trends, workplace dynamics, urban life, rural life, childhood memories, future aspirations, personal growth, community events, volunteering, outdoor activities, dining out, home improvement, parenting, retirement, adventure, photography, language learning, festivals, architecture, spirituality, fitness goals, career changes, online learning, virtual reality, sustainability, mental health, teamwork, leadership, entrepreneurship, travel planning, cultural traditions, seasonal activities, local businesses, global issues, personal achievements, time management, relaxation, networking, charity, hobbies like knitting or painting, car maintenance, public speaking, social gatherings, academic research, creative writing, fitness challenges, pet adoption, home organization, minimalism, digital nomad lifestyle, thrift shopping, board games, stargazing).
-- Ensure English sentences are natural, conversational, and reflect everyday spoken American English, incorporating a mix of casual, formal, informal, slang, and idiomatic expressions.
-- Ensure Thai translations are accurate, natural, and match the tone of the English sentence (e.g., formal Thai for formal English, casual Thai for slang).
-- Strictly verify that the selected `word` for each entry exists in the previous entry's English sentence to avoid errors.
-- Avoid generic or repetitive sentence structures (e.g., do not overuse "This [word] is [adjective]").
+To ensure natural, conversational language and diversity:
+- Select words from the 5,000 most frequently used in spoken American English (e.g., based on corpora like COCA spoken section), prioritizing everyday words used in casual, slang, idiomatic, or academic contexts (e.g., "cool," "stuff," "get," "discuss," "approach").
+- Include phrasal verbs common in spoken American English (e.g., "pick up," "check out," "run into") in at least 50% of English sentences.
+- Vary sentence contexts across 99 distinct themes reflecting everyday American life, including casual settings (e.g., coffee shops, texting, hanging out), workplace interactions, academic discussions (e.g., PhD seminars, research critiques), and diverse scenarios (e.g., home, school, travel, hobbies, technology, food, emotions, slang, shopping, health, sports, music, relationships, weather, culture, science, art, gaming, social media, environment, education, finance, daily routines, holidays, fitness, pets, cooking, movies, community events, volunteering, dining out, parenting, adventure, photography, festivals, spirituality, career changes, sustainability, mental health, teamwork, entrepreneurship, local businesses, personal achievements, time management, relaxation, networking, charity, board games, stargazing).
+- Write English sentences that are natural, conversational, and reflect spoken American English, using a mix of casual expressions (e.g., "How's it going?"), slang (e.g., "That's dope!"), idioms (e.g., "Spill the beans"), and academic phrasing (e.g., "This framework challenges conventional methodologies").
+- Ensure Thai translations are accurate, natural, and match the tone of the English sentence (e.g., colloquial Thai for slang, formal Thai for academic contexts).
+- Strictly verify the selected `word` exists in the previous entry's English sentence to maintain the chaining rule.
+- Avoid repetitive sentence structures (e.g., do not overuse "This [word] is [adjective]") and ensure varied syntax reflecting natural speech patterns.
+- Minimize word reuse across entries unless required by the chaining rule, prioritizing diverse, high-frequency vocabulary.
 
-Output all 99 entries in sequence as a single JSONL code block, with each entry on a new line. Do not include the first entry in the output.
+Output all 99 entries in sequence as a single JSONL code block, with each entry on a new line. Do not include the first entry.
