@@ -34,7 +34,7 @@ body {
   height: 40px;
   cursor: pointer;
   transition: transform 0.2s ease, opacity 0.3s ease;
-  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); /* Makes SVG white */
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 }
 
 .word-cloud-icon:hover {
@@ -50,7 +50,6 @@ body {
   transform-origin: center center;
   will-change: transform;
   display: block;
-  margin-top: 60px; /* Ensure space for fixed header */
 }
 
 .word-cloud-lines {
@@ -93,7 +92,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  margin-top: 60px; /* Ensure space for fixed header */
+  padding-top: 60px; /* Adjusted to prevent overlap with header */
 }
 
 .logo-container {
@@ -105,7 +104,7 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 2.5rem;
   font-weight: 600;
-  animation: colorChange 10s infinite r;
+  animation: colorChange 60s infinite linear;
   opacity: 0;
   transform: translateX(-100%);
   transition: transform 1s ease, opacity 1s ease;
@@ -113,13 +112,13 @@ body {
 
 @keyframes colorChange {
   0% { color: #ff0000; } /* Red */
-  14% { color: #ff9900; } /* Orange */
-  28% { color: #ffff00; } /* Yellow */
-  42% { color: #00ff00; } /* Green */
-  57% { color: #00ffff; } /* Cyan */
-  71% { color: #0000ff; } /* Blue */
-  85% { color: #9900ff; } /* Violet */
-  100% { color: #ff0000; } /* Back to Red */
+  14.29% { color: #ff9900; } /* Orange */
+  28.57% { color: #ffff00; } /* Yellow */
+  42.86% { color: #00ff00; } /* Green */
+  57.14% { color: #00ffff; } /* Cyan */
+  71.43% { color: #0000ff; } /* Blue */
+  85.71% { color: #9900ff; } /* Violet */
+  100% { color: #ff0000; } /* Red */
 }
 
 .slogan {
@@ -226,6 +225,15 @@ body {
 }
 
 @media (max-width: 600px) {
+  .header {
+    padding: 8px 16px;
+  }
+
+  .word-cloud-icon {
+    width: 32px;
+    height: 32px;
+  }
+
   .flashcard {
     height: calc(100vw * 1.777 * 0.5);
   }
@@ -248,11 +256,6 @@ body {
 
   .word-cloud {
     padding: 5px;
-    margin-top: 50px; /* Adjusted for smaller screens */
-  }
-
-  .container {
-    margin-top: 50px; /* Adjusted for smaller screens */
   }
 
   .logo {
@@ -265,10 +268,5 @@ body {
 
   .error-message {
     font-size: 1rem;
-  }
-
-  .word-cloud-icon {
-    width: 32px;
-    height: 32px;
   }
 }
