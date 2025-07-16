@@ -249,7 +249,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.popup-content p.english {
+.popup-content p[lang="en"] {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   color: #ffffff;
@@ -257,10 +257,18 @@ body {
   line-height: 1.4;
 }
 
-.popup-content p.thai {
+.popup-content p[lang="th"] {
   font-family: 'Noto Sans Thai', sans-serif;
   font-size: 1rem;
   color: #ffffff;
+  margin: 10px 0;
+  line-height: 1.4;
+}
+
+.popup-content p[lang="en"].support-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+  color: #b0b0b0;
   margin: 10px 0;
   line-height: 1.4;
 }
@@ -326,8 +334,12 @@ body {
     max-width: 150px;
   }
 
-  .popup-content p.english,
-  .popup-content p.thai {
+  .popup-content p[lang="en"],
+  .popup-content p[lang="th"] {
     font-size: 0.9rem;
+  }
+
+  .popup-content p[lang="en"].support-text {
+    font-size: 0.7rem;
   }
 }
