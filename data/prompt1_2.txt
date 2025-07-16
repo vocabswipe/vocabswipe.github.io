@@ -2,19 +2,18 @@ Generate 99 JSONL entries, starting from the second entry, based on the provided
 
 {"word": "communities", "english": "Vibrant communities support cultural diversity.", "thai": "ชุมชนที่มีชีวิตชีวาสนับสนุนความหลากหลายทางวัฒนธรรม"}
 
-For the second entry, select a random English word (excluding "trust" and "ideas") from the first entry's English sentence as the `word` field, ensuring it appears exactly as written in the new English sentence. For each subsequent entry, select a random English word (excluding the previous entry's `word`) from the previous entry's English sentence as the `word` field, strictly adhering to this chaining rule. Treat words strictly (e.g., "balance" ≠ "balancing", "organize" ≠ "organizing").
+For the second entry, select a random English word (excluding "trust" and "ideas") from the first entry's English sentence as the `word` field, ensuring it appears exactly as written in the new English sentence. For each subsequent entry, select a random English word (excluding the previous entry's `word`) from the previous entry's English sentence as the `word` field, strictly following this chaining rule. Treat words strictly (e.g., "balance" ≠ "balancing", "organize" ≠ "organizing").
 
 Each entry must follow this JSONL format:
-{"word":"pen","english":"This pen costs five dollars.","thai":"ปากกานี้ราคาห้าดอลลาร์"}
+{"word": "pen", "english": "This pen costs five dollars.", "thai": "ปากกานี้ราคาห้าดอลลาร์"}
 
-**Context Requirements**:
-- English sentences should reflect casual, daily American English conversation, covering diverse situations (e.g., shopping, socializing, hobbies, travel, family, dining, technology, leisure, fitness, daily routines).
-- Vary sentence structures (simple, compound, complex) and include conversational elements like idioms, phrasal verbs, or colloquial expressions to enhance fluency.
-- Ensure Thai translations are natural, accurate, and match the conversational tone of the English sentence.
-- Use unique words and themes across entries to avoid repetition, prioritizing high-frequency conversational vocabulary.
+Generate English sentences and select words inspired by the context of the provided YouTube script (below), using natural, spoken American English. Avoid rude words, sentences, or phrases.
+
+**YouTube Script:**
+[Insert YouTube script here]
 
 Output all 99 entries in a single JSONL code block, one entry per line, excluding the first entry.
 
-After generating the batch, ask: "Would you like to continue with the next batch of 99 JSONL entries, using the last entry of this batch as the first entry for the new batch, excluding it from the new batch to avoid duplication? Respond with 'y' for yes or 'n' for no."
+After generating the batch, ask: "Would you like to continue with the next batch of 99 JSONL entries, using the last entry of this batch as the first entry for the new batch, excluding it to avoid duplication? Respond with 'y' for yes or 'n' for no."
 
-If the response is "y", generate the next batch of 99 JSONL entries, using the last entry of the previous batch as the first entry but excluding it from the new batch. Repeat this process for subsequent batches when the response is "y".
+If the response is "y", generate the next batch of 99 JSONL entries, using the last entry of the previous batch as the first entry but excluding it from the new batch. Repeat this process for subsequent "y" responses.
