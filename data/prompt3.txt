@@ -7,3 +7,5 @@ Given a JSONL sequence with three entries in the format:
 
 
 Replace the word in the second entry's "word" field with a random word from the first entry's English sentence (excluding the word in the first entry's "word" field). Ensure the new English sentence in the second entry includes both the selected random word and the word from the third entry's "word" field. Update the Thai translation to match the new English sentence, ensuring it is accurate, natural, and reflects the same tone. Verify that the words in the "word" fields of all three entries are unique. Maintain the JSONL format:{"word":"[word]","english":"[English sentence]","thai":"[Thai translation]"}Provide only the corrected second entry as a single JSONL line.
+
+Show corrected second entry in jsonl code box
