@@ -153,7 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
- policymakers
   function playAudio(audioUrl, wordColor) {
     stopAudio();
     console.log(`Attempting to play audio: ${audioUrl}`);
@@ -263,7 +262,9 @@ document.addEventListener('DOMContentLoaded', () => {
       wordEl.style.opacity = index < initialDisplayCount ? '1' : '0';
       wordCloud.appendChild(wordEl);
 
-      const { width, height } = wordEl.getBoundingClientRect();
+      const
+
+ { width, height } = wordEl.getBoundingClientRect();
       let x, y, placed = false;
       const maxAttempts = 500;
 
@@ -362,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
               slogan.style.opacity = '1';
             }, 4000);
 
-            // Find all entries matching the clicked word (case-insensitive)
+            // Find all entries matching the selected word
             const matchingIndices = entries
               .map((entry, idx) => ({ entry, idx }))
               .filter(({ entry }) => entry.word.toLowerCase() === word.toLowerCase())
@@ -372,7 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (matchingIndices.length > 0) {
               currentIndex = matchingIndices[Math.floor(Math.random() * matchingIndices.length)];
             } else {
-              currentIndex = 0; // Fallback in case no matches are found
+              currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
             }
 
             currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
