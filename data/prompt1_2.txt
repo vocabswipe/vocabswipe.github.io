@@ -1,21 +1,18 @@
-Generate 99 JSONL entries, starting from the second entry, based on the provided first entry:
+Generate 99 JSONL entries, starting from the second entry, based on this first entry:
 
-{"word": "communities", "english": "Vibrant communities support cultural diversity.", "thai": "ชุมชนที่มีชีวิตชีวาสนับสนุนความหลากหลายทางวัฒนธรรม"}
+{"word": "ideas", "english": "Fresh ideas spark creative breakthroughs.", "thai": "แนวคิดใหม่จุดประกายความก้าวหน้าทางความคิดสร้างสรรค์"}
 
-For the second entry, select a random English word (excluding "trust" and "ideas") from the first entry's English sentence as the `word` field, ensuring it appears exactly as written in the new English sentence. For each subsequent entry, select a random English word (excluding the previous entry's `word`) from the previous entry's English sentence as the `word` field, following this chaining rule strictly. Treat words strictly (e.g., "balance" ≠ "balancing", "organize" ≠ "organizing"). Prefer words that support English fluency (e.g., avoid overly simple words like "the" unless part of a phrase).
+For the second entry, select a random English word (excluding "trust" and "ideas") from the first entry's English sentence as the `word` field, matching exactly (e.g., "balance" ≠ "balancing"). For each subsequent entry, select a random English word (excluding the previous entry's `word`) from the previous entry's English sentence, following this chaining rule. Prefer words supporting English fluency (avoid simple words like "the" unless part of a phrase).
 
 Each entry must follow this JSONL format:
 {"word": "pen", "english": "This pen costs five dollars.", "thai": "ปากกานี้ราคาห้าดอลลาร์"}
 
-Use words, phrases, idioms, slang, or phrasal verbs from the provided YouTube script to create English sentences that help English learners improve spoken American English fluency. Ensure Thai translations are accurate and natural.
+Use motivational English sentences across these themes: Perseverance, Resilience, Determination, Courage, Self-Belief, Growth, Ambition, Passion, Optimism, Hope, Confidence, Discipline, Focus, Commitment, Hard Work, Success, Achievement, Leadership, Teamwork, Collaboration, Creativity, Innovation, Adaptability, Patience, Grit, Vision, Purpose, Dedication, Empowerment, Inspiration, Integrity, Honesty, Gratitude, Kindness, Empathy, Generosity, Positivity, Strength, Endurance, Balance, Mindfulness, Self-Improvement, Learning, Wisdom, Curiosity, Exploration, Adventure, Freedom, Authenticity, Bravery, Tenacity, Motivation, Drive, Aspiration, Clarity, Unity, Respect, Responsibility, Accountability, Progress, Transformation, Overcoming Obstacles, Self-Discipline, Consistency, Effort, Opportunity, Potential, Excellence, Mastery, Skill, Talent, Joy, Happiness, Fulfillment, Contentment, Peace, Harmony, Support, Encouragement, Belief, Faith, Boldness, Initiative, Action, Change, Impact, Influence, Legacy, Contribution, Service, Community, Connection, Belonging, Acceptance, Self-Love, Triumph.
 
-**YouTube Script:**
-[Insert YouTube script here or provide a specific script for word selection.]
+If unique words are exhausted, reuse words only after all eligible words are used, respecting exclusion rules.
 
 Output all 99 entries in a single JSONL code block, one entry per line, excluding the first entry.
 
-If the script lacks enough unique words to chain 99 entries, reuse words only after exhausting all eligible words from the script, respecting the exclusion rules.
+After generating, ask: "Continue with another 99 JSONL entries, using the last entry as the first for the new batch, excluding it to avoid duplication? Respond with 'y' for yes or 'n' for no."
 
-After generating the batch, ask: "Would you like to continue with the next batch of 99 JSONL entries, using the last entry of this batch as the first entry for the new batch, excluding it to avoid duplication? Respond with 'y' for yes or 'n' for no."
-
-If the response is "y", generate the next batch of 99 JSONL entries, using the last entry of the previous batch as the first entry but excluding it from the new batch. Repeat for subsequent "y" responses.
+If "y", generate the next 99 entries, repeating for each "y" response.
