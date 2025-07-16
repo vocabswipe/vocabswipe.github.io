@@ -32,11 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     donatePopup.style.display = 'none';
     flashcardContainer.style.filter = 'none';
     header.style.filter = 'none';
-    document.body.style.overflow = 'hidden'; // Keep overflow hidden for flashcard view
+    document.body.style.overflow = 'hidden';
   }
 
   donatePopup.addEventListener('click', e => {
@@ -233,7 +233,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Create SVG for lines
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.className = 'word-cloud-lines';
     svg.style.position = 'absolute';
@@ -245,9 +244,9 @@ document.addEventListener('DOMContentLoaded', () => {
     svg.style.pointerEvents = 'none';
     wordCloud.appendChild(svg);
 
-    const initialDisplayCount = Math.ceil(wordArray.length * 0.1); // 10% of words
+    const initialDisplayCount = Math.ceil(wordArray.length * 0.1);
     const remainingWords = wordArray.length - initialDisplayCount;
-    const totalDuration = 3000; // 3 seconds for remaining words
+    const totalDuration = 3000;
     const delayPerWord = remainingWords > 0 ? totalDuration / remainingWords : 0;
 
     wordArray.forEach(({ word, freq }, index) => {
@@ -262,9 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
       wordEl.style.opacity = index < initialDisplayCount ? '1' : '0';
       wordCloud.appendChild(wordEl);
 
-      const
-
- { width, height } = wordEl.getBoundingClientRect();
+      const { width, height } = wordEl.getBoundingClientRect();
       let x, y, placed = false;
       const maxAttempts = 500;
 
@@ -296,14 +293,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       wordEl.addEventListener('click', () => {
         stopAudio();
-        // Reset word cloud transform
         wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
         wordCloud.style.transformOrigin = 'center center';
         currentScale = 1;
         translateX = 0;
         translateY = 0;
 
-        // Fade out other words
         document.querySelectorAll('.cloud-word').forEach(otherWord => {
           if (otherWord !== wordEl) {
             otherWord.style.transition = 'opacity 0.3s ease';
@@ -311,30 +306,26 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
-        // Fade out lines
         svg.style.transition = 'opacity 0.3s ease';
         svg.style.opacity = '0';
 
-        // Calculate center position
         const rect = wordEl.getBoundingClientRect();
         const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
         const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
 
-        // Animate word to center and scale up
         wordEl.style.transition = 'transform 0.7s ease, opacity 0.7s ease';
         wordEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(3)`;
-        wordEl.style.zIndex = '20'; // Ensure word is on top during animation
+        wordEl.style.zIndex = '20';
 
         setTimeout(() => {
-          // Fade out the word
           wordEl.style.opacity = '0';
 
           setTimeout(() => {
             wordCloud.style.display = 'none';
             wordEl.style.transform = 'none';
             wordEl.style.opacity = '1';
-            wordEl.style.zIndex = '10'; // Reset z-index
-            svg.style.opacity = '1'; // Reset for next time
+            wordEl.style.zIndex = '10';
+            svg.style.opacity = '1';
 
             flashcardContainer.style.display = 'flex';
             flashcardContainer.style.opacity = '0';
@@ -345,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
             header.style.opacity = '0';
             header.style.transition = 'opacity 1s ease';
             header.style.opacity = '1';
-            donateIcon.style.display = 'block'; // Show donate icon
+            donateIcon.style.display = 'block';
 
             flashcardContainer.style.height = '100vh';
             flashcardContainer.style.justifyContent = 'center';
@@ -363,13 +354,11 @@ document.addEventListener('DOMContentLoaded', () => {
               slogan.style.opacity = '1';
             }, 4000);
 
-            // Find all entries matching the selected word
             const matchingIndices = entries
               .map((entry, idx) => ({ entry, idx }))
               .filter(({ entry }) => entry.word.toLowerCase() === word.toLowerCase())
               .map(({ idx }) => idx);
 
-            // Select a random index from matching entries
             if (matchingIndices.length > 0) {
               currentIndex = matchingIndices[Math.floor(Math.random() * matchingIndices.length)];
             } else {
@@ -378,15 +367,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
             displayEntry(currentIndex);
-          }, 700); // Match duration of translate/scale animation
-        }, 300); // Delay before fading out
+          }, 700);
+        }, 300);
       });
     });
 
-    // Draw lines after all words are placed
     setTimeout(() => {
       placedWords.forEach((word1, i) => {
-        // Connect to up to 6 nearest words
         const nearest = placedWords
           .map((word2, j) => ({
             word: word2,
@@ -508,8 +495,8 @@ document.addEventListener('DOMContentLoaded', () => {
     flashcardContainer.style.opacity = '0';
     header.style.transition = 'opacity 0.7s ease';
     header.style.opacity = '0';
-    donateIcon.style.display = 'none'; // Hide donate icon
-    hideDonatePopup(); // Ensure popup is closed
+    donateIcon.style.display = 'none';
+    hideDonatePopup();
 
     setTimeout(() => {
       flashcardContainer.style.display = 'none';
@@ -520,13 +507,11 @@ document.addEventListener('DOMContentLoaded', () => {
       wordCloud.style.transition = 'opacity 0.7s ease';
       wordCloud.style.opacity = '1';
 
-      // Reset logo and slogan
       logo.style.transform = 'translateX(-100%)';
       logo.style.opacity = '0';
       slogan.style.transform = 'translateX(100%)';
       slogan.style.opacity = '0';
 
-      // Restore word cloud words and lines
       document.querySelectorAll('.cloud-word').forEach(word => {
         word.style.transition = 'opacity 0.3s ease';
         word.style.opacity = '1';
