@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const audioErrorEl = document.getElementById('audio-error');
   const logo = document.querySelector('.logo');
   const slogan = document.querySelector('.slogan');
+  const wordCloudIcon = document.getElementById('word-cloud-icon');
 
   let entries = [];
   let currentIndex = 0;
@@ -45,6 +46,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return escapedSentence;
   }
+
+  function showWordCloud() {
+    stopAudio();
+    flashcardContainer.style.transition = 'opacity 0.7s ease';
+    flashcardContainer.style.opacity = '0';
+    logo.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+    logo.style.transform = 'translateX(-100%)';
+    logo.style.opacity = '0';
+    slogan.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+    slogan.style.transform = 'translateX(100%)';
+    slogan.style.opacity = '0';
+
+    setTimeout(() => {
+      flashcardContainer.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      wordCloud.style.display = 'block';
+      wordCloud.style.opacity = '0';
+      wordCloud.style.transition = 'opacity 0.7s ease';
+      setTimeout(() => {
+        wordCloud.style.opacity = '1';
+        document.querySelectorAll('.cloud-word').forEach(word => {
+          word.style.transition = 'opacity 0.3s ease';
+          word.style.opacity = '1';
+        });
+        document.querySelector('.word-cloud-lines').style.opacity = '1';
+      }, 50);
+    }, 700);
+  }
+
+  wordCloudIcon.addEventListener('click', showWordCloud);
 
   async function loadData() {
     try {
@@ -123,8 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function stopAudio() {
     if (currentAudio) {
-
-
       currentAudio.pause();
       currentAudio.currentTime = 0;
       currentAudio = null;
@@ -165,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }).catch(e => {
         console.error('Error playing audio:', e);
         audioErrorEl.textContent = 'Failed to play audio: ' + e.message;
- Inventoriedisplay: 'block';
+        audioErrorEl.style.display = 'block';
         setTimeout(() => audioErrorEl.style.display = 'none', 2000);
       });
     }, 500);
