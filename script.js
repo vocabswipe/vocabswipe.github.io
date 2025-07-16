@@ -103,9 +103,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (
         right1 + padding > left2 &&
-        left1 - padding &lt; right2 &&
+        left1 - padding < right2 &&
         bottom1 + padding > top2 &&
-        top1 - padding &lt; bottom2
+        top1 - padding < bottom2
       ) {
         return true;
       }
@@ -153,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+ policymakers
   function playAudio(audioUrl, wordColor) {
     stopAudio();
     console.log(`Attempting to play audio: ${audioUrl}`);
@@ -236,9 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create SVG for lines
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.className = 'word-cloud-lines';
-   
-
- svg.style.position = 'absolute';
+    svg.style.position = 'absolute';
     svg.style.top = '0';
     svg.style.left = '0';
     svg.style.width = `${containerWidth}px`;
@@ -363,20 +362,19 @@ document.addEventListener('DOMContentLoaded', () => {
               slogan.style.opacity = '1';
             }, 4000);
 
-            // Modified: Select a random entry for the clicked word
-            const lowerWord = word.toLowerCase();
+            // Find all entries matching the clicked word (case-insensitive)
             const matchingIndices = entries
               .map((entry, idx) => ({ entry, idx }))
-              .filter(({ entry }) => entry.word.toLowerCase() === lowerWord)
+              .filter(({ entry }) => entry.word.toLowerCase() === word.toLowerCase())
               .map(({ idx }) => idx);
-            
+
+            // Select a random index from matching entries
             if (matchingIndices.length > 0) {
               currentIndex = matchingIndices[Math.floor(Math.random() * matchingIndices.length)];
             } else {
-              // Fallback to first occurrence if something goes wrong
-              currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === lowerWord);
+              currentIndex = 0; // Fallback in case no matches are found
             }
-            
+
             currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
             displayEntry(currentIndex);
           }, 700); // Match duration of translate/scale animation
