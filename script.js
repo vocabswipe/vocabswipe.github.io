@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const audioErrorEl = document.getElementById('audio-error');
   const logo = document.querySelector('.logo');
   const slogan = document.querySelector('.slogan');
+  const header = document.getElementById('header');
   const wordCloudIcon = document.getElementById('word-cloud-icon');
 
   let entries = [];
@@ -33,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -46,36 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return escapedSentence;
   }
-
-  function showWordCloud() {
-    stopAudio();
-    flashcardContainer.style.transition = 'opacity 0.7s ease';
-    flashcardContainer.style.opacity = '0';
-    logo.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
-    logo.style.transform = 'translateX(-100%)';
-    logo.style.opacity = '0';
-    slogan.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
-    slogan.style.transform = 'translateX(100%)';
-    slogan.style.opacity = '0';
-
-    setTimeout(() => {
-      flashcardContainer.style.display = 'none';
-      document.body.style.overflow = 'auto';
-      wordCloud.style.display = 'block';
-      wordCloud.style.opacity = '0';
-      wordCloud.style.transition = 'opacity 0.7s ease';
-      setTimeout(() => {
-        wordCloud.style.opacity = '1';
-        document.querySelectorAll('.cloud-word').forEach(word => {
-          word.style.transition = 'opacity 0.3s ease';
-          word.style.opacity = '1';
-        });
-        document.querySelector('.word-cloud-lines').style.opacity = '1';
-      }, 50);
-    }, 700);
-  }
-
-  wordCloudIcon.addEventListener('click', showWordCloud);
 
   async function loadData() {
     try {
@@ -342,6 +313,11 @@ document.addEventListener('DOMContentLoaded', () => {
             flashcardContainer.style.transition = 'opacity 1s ease';
             flashcardContainer.style.opacity = '1';
 
+            header.style.display = 'flex';
+            header.style.opacity = '0';
+            header.style.transition = 'opacity 1s ease';
+            header.style.opacity = '1';
+
             flashcardContainer.style.height = '100vh';
             flashcardContainer.style.justifyContent = 'center';
             document.body.style.overflow = 'hidden';
@@ -484,6 +460,41 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => audioErrorEl.style.display = 'none', 2000);
     }
   }
+
+  wordCloudIcon.addEventListener('click', () => {
+    stopAudio();
+    flashcardContainer.style.transition = 'opacity 0.7s ease';
+    flashcardContainer.style.opacity = '0';
+    header.style.transition = 'opacity 0.7s ease';
+    header.style.opacity = '0';
+
+    setTimeout(() => {
+      flashcardContainer.style.display = 'none';
+      header.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      wordCloud.style.display = 'block';
+      wordCloud.style.opacity = '0';
+      wordCloud.style.transition = 'opacity 0.7s ease';
+      wordCloud.style.opacity = '1';
+
+      // Reset logo and slogan
+      logo.style.transform = 'translateX(-100%)';
+      logo.style.opacity = '0';
+      slogan.style.transform = 'translateX(100%)';
+      slogan.style.opacity = '0';
+
+      // Restore word cloud words and lines
+      document.querySelectorAll('.cloud-word').forEach(word => {
+        word.style.transition = 'opacity 0.3s ease';
+        word.style.opacity = '1';
+      });
+      const svg = document.querySelector('.word-cloud-lines');
+      if (svg) {
+        svg.style.transition = 'opacity 0.3s ease';
+        svg.style.opacity = '1';
+      }
+    }, 700);
+  });
 
   flashcard.addEventListener('touchstart', e => {
     e.preventDefault();
