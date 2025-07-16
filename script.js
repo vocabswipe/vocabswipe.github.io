@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const slogan = document.querySelector('.slogan');
   const header = document.getElementById('header');
   const wordCloudIcon = document.getElementById('word-cloud-icon');
+  const donateIcon = document.getElementById('donate-icon');
+  const donatePopup = document.getElementById('donate-popup');
 
   let entries = [];
   let currentIndex = 0;
@@ -171,6 +173,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500);
   }
 
+  function showDonatePopup() {
+    donatePopup.style.display = 'flex';
+    flashcardContainer.style.filter = 'blur(5px)';
+    header.style.filter = 'blur(5px)';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hideDonatePopup() {
+    donatePopup.style.display = 'none';
+    flashcardContainer.style.filter = 'none';
+    header.style.filter = 'none';
+    document.body.style.overflow = 'hidden'; // Keep overflow hidden for flashcard view
+  }
+
+  donatePopup.addEventListener('click', e => {
+    if (e.target === donatePopup) {
+      hideDonatePopup();
+    }
+  });
+
+  donateIcon.addEventListener('click', () => {
+    showDonatePopup();
+  });
+
   function displayWordCloud() {
     const wordFreq = {};
     const wordCaseMap = new Map();
@@ -317,6 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
             header.style.opacity = '0';
             header.style.transition = 'opacity 1s ease';
             header.style.opacity = '1';
+            donateIcon.style.display = 'block'; // Show donate icon
 
             flashcardContainer.style.height = '100vh';
             flashcardContainer.style.justifyContent = 'center';
@@ -467,6 +494,8 @@ document.addEventListener('DOMContentLoaded', () => {
     flashcardContainer.style.opacity = '0';
     header.style.transition = 'opacity 0.7s ease';
     header.style.opacity = '0';
+    donateIcon.style.display = 'none'; // Hide donate icon
+    hideDonatePopup(); // Ensure popup is closed
 
     setTimeout(() => {
       flashcardContainer.style.display = 'none';
