@@ -1,28 +1,19 @@
-Generate 99 JSONL entries, starting from the second entry, using the provided first entry:
+Generate 99 JSONL entries, starting from the second entry, based on the provided first entry:
 
-{"word": "fun", "english": "The amusement park was so much fun yesterday.", "thai": "สวนสนุกเมื่อวานนี้สนุกมาก"}
+{"word": "communities", "english": "Vibrant communities support cultural diversity.", "thai": "ชุมชนที่มีชีวิตชีวาสนับสนุนความหลากหลายทางวัฒนธรรม"}
 
-For the second entry, select a random English word (excluding the first entry's `word` and "ideas") from the first entry's English sentence as the `word` field, ensuring it appears exactly as written in the new English sentence. For each subsequent entry, select a random English word (excluding the previous entry's `word`) from the previous entry's English sentence as the `word` field, ensuring it appears exactly as written in the new English sentence, strictly adhering to this chaining rule. Treat words strictly (e.g., "balance" ≠ "balancing", "organize" ≠ "organizing").
+For the second entry, select a random English word (excluding "trust" and "ideas") from the first entry's English sentence as the `word` field, ensuring it appears exactly as written in the new English sentence. For each subsequent entry, select a random English word (excluding the previous entry's `word`) from the previous entry's English sentence as the `word` field, strictly following this chaining rule. Treat words strictly (e.g., "balance" ≠ "balancing", "organize" ≠ "organizing").
 
 Each entry must follow this JSONL format:
-{"word":"pen","english":"This pen costs five dollars.","thai":"ปากกานี้ราคาห้าดอลลาร์"}
+{"word": "pen", "english": "This pen costs five dollars.", "thai": "ปากกานี้ราคาห้าดอลลาร์"}
 
-To ensure natural, conversational, and academic language relevant to TOEFL, TOEIC, and IELTS exams, and to boost English fluency:
-- Use words from high-frequency vocabulary lists common in TOEFL, TOEIC, and IELTS (e.g., Academic Word List, Cambridge English Corpus, or similar), prioritizing words frequent in academic contexts (e.g., "analyze," "significant," "approach"), professional settings (e.g., "collaborate," "implement," "strategy"), and conversational English (e.g., "deal," "catch up," "sort out").
-- Include phrasal verbs (e.g., "look into," "carry out," "run out of") in at least 50% of English sentences, reflecting their prevalence in speaking and listening sections.
-- Cover 99 unique themes relevant to TOEFL, TOEIC, and IELTS topics (e.g., education, technology, environment, health, workplace dynamics, global issues, travel, cultural diversity, time management, teamwork, sustainability, innovation, social media, academic research, career development, urban planning, personal goals, communication, leadership, globalization, ethics, lifelong learning, public speaking, community involvement, scientific advancements, economic trends, cultural exchange, work-life balance, personal development).
-- Write natural English sentences that mirror the style of TOEFL, TOEIC, and IELTS tasks, including:
-  - Academic phrasing for writing/reading (e.g., "This study examines the impact of renewable energy on economic growth").
-  - Conversational expressions for speaking/listening (e.g., "Let’s catch up over coffee to discuss the project").
-  - Idiomatic expressions (e.g., "She’s on the same page as her team") or collocations (e.g., "make a decision," "take advantage of").
-  - Sentence types like cause-effect, comparison, opinion, or problem-solution to reflect test tasks.
-- Provide accurate, natural Thai translations matching the English sentence's tone (e.g., formal Thai for academic contexts, colloquial Thai for conversational sentences).
-- Strictly ensure the selected `word` exists exactly as written in the previous entry's English sentence to maintain the chaining rule, avoiding manual corrections.
-- Avoid repetitive sentence structures and minimize word reuse across entries (except for chaining), prioritizing diverse, high-frequency vocabulary relevant to English proficiency tests.
-- Ensure sentences are varied in complexity (simple, compound, complex) to prepare users for all test sections.
+Generate English sentences and select words inspired by the context of the provided YouTube script (below), using natural, spoken American English. Avoid rude words, sentences, or phrases.
+
+**YouTube Script:**
+[Insert YouTube script here]
 
 Output all 99 entries in a single JSONL code block, one entry per line, excluding the first entry.
 
-After generating the batch, ask: "Would you like to continue with the next batch of 99 JSONL entries, using the last entry of this batch as the first entry for the new batch, without including the last entry in the new batch to avoid duplication? Please respond with 'y' for yes or 'n' for no."
+After generating the batch, ask: "Would you like to continue with the next batch of 99 JSONL entries, using the last entry of this batch as the first entry for the new batch, excluding it to avoid duplication? Respond with 'y' for yes or 'n' for no."
 
-If I respond with "y", generate the next batch of 99 JSONL entries, using the last entry of the previous batch as the first entry for the new batch but not including that last entry in the new batch. Continue this process for subsequent batches when I respond with "y".
+If the response is "y", generate the next batch of 99 JSONL entries, using the last entry of the previous batch as the first entry but excluding it from the new batch. Repeat this process for subsequent "y" responses.
