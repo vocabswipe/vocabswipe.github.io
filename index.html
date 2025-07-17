@@ -41,6 +41,11 @@
       <img src="swipe-down.svg" alt="Swipe Down" class="tooltip-icon" />
       <span class="tooltip-text">Swipe down for previous card</span>
     </div>
+    <!-- Tooltip for tap -->
+    <div class="tooltip tap-tooltip" id="tap-tooltip" style="display: none;">
+      <img src="tap.svg" alt="Tap" class="tooltip-icon" />
+      <span class="tooltip-text">Tap to hear audio</span>
+    </div>
   </div>
   <div class="popup" id="donate-popup" style="display: none;">
     <div class="popup-content">
@@ -51,6 +56,14 @@
       <p lang="en" style="font-size: 0.8rem; color: #b0b0b0;">Your support keeps VocabSwipe free for everyone!</p>
     </div>
   </div>
+  <svg class="filters">
+    <defs>
+      <filter id="motion-blur">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="3 0" />
+        <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.7 0" />
+      </filter>
+    </defs>
+  </svg>
   <script src="script.js"></script>
 </body>
 </html>
