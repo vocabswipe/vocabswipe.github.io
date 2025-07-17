@@ -216,13 +216,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show tooltip
     tooltip.style.display = 'flex';
     
-    // Get flashcard position and size
+    // Get flashcard and content element positions
     const flashcardRect = flashcard.getBoundingClientRect();
     const containerRect = flashcardContainer.getBoundingClientRect();
     
-    // Position tooltip at flashcard center
+    // Calculate centerX for horizontal positioning
     const centerX = flashcardRect.left - containerRect.left + flashcardRect.width / 2;
-    const centerY = flashcardRect.top - containerRect.top + flashcardRect.height / 2;
+    
+    // Calculate Y position based on tooltip type
+    let centerY;
+    if (direction === 'tap') {
+      // For tap tooltip, position between word and english elements
+      const wordRect = wordEl.getBoundingClientRect();
+      const englishRect = englishEl.getBoundingClientRect();
+      // Place tooltip at the midpoint between the bottom of word and top of english
+      centerY = wordRect.bottom + (englishRect.top - wordRect.bottom) / 2 - containerRect.top;
+    } else {
+      // For swipe tooltips, keep centered on flashcard
+      centerY = flashcardRect.top - containerRect.top + flashcardRect.height / 2;
+    }
+    
+    // Set tooltip position
     tooltip.style.left = `${centerX}px`;
     tooltip.style.top = `${centerY}px`;
     
@@ -562,7 +576,7 @@ document.addEventListener('DOMContentLoaded', () => {
         playAudio(audioUrl, colors[currentColorIndex]);
       };
     } else {
-      console.log('No audio available for this entry');
+      console.m('No audio available for this entry');
       flashcard.onclick = null;
       audioErrorEl.textContent = 'No audio available';
       audioErrorEl.style.display = 'block';
