@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const swipeUpTooltip = document.getElementById('swipe-up-tooltip');
   const swipeDownTooltip = document.getElementById('swipe-down-tooltip');
   const tapTooltip = document.getElementById('tap-tooltip');
+  const swipedWordsContainer = document.getElementById('swiped-words-container');
+  const swipedWordsBox = document.getElementById('swiped-words-box');
 
   let entries = [];
   let currentIndex = 0;
@@ -33,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let isPinching = false;
   let currentAudio = null;
   const preloadedAudio = new Set();
+  let swipedWords = []; // Array to store swiped words in order
 
   // Track visit count using localStorage
   let visitCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
@@ -50,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/'/g, '&apos;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -139,6 +142,95 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function adjustSwipedWordsFontSize() {
+    const maxWidth = swipedWordsBox.offsetWidth - 20; // Padding
+    const wordElements = swipedWordsBox.querySelectorAll('.swiped-word');
+    let fontSize = 1.2; // Start with 1.2rem
+    const minFontSize = 0.6; // Minimum font size
+    const step = 0.1;
+
+    // Create a temporary span to measure text width
+    const tempSpan = document.createElement('span');
+    tempSpan.style.position = 'absolute';
+    tempSpan.style.visibility = 'hidden';
+    tempSpan.style.whiteSpace = 'nowrap';
+    document.body.appendChild(tempSpan);
+
+    // Test the total width of words and connectors
+    let totalWidth = 0;
+    const connectorWidth = 20; // Approximate width of "--" connector
+    swipedWords.forEach((wordObj, index) => {
+      tempSpan.style.fontSize = `${fontSize}rem`;
+      tempSpan.textContent = wordObj.word;
+      totalWidth += tempSpan.offsetWidth;
+      if (index < swipedWords.length - 1) {
+        totalWidth += connectorWidth;
+      }
+    });
+
+    // Adjust font size if total width exceeds maxWidth
+    while (totalWidth > maxWidth && fontSize > minFontSize) {
+      fontSize -= step;
+      totalWidth = 0;
+      swipedWords.forEach((wordObj, index) => {
+        tempSpan.style.fontSize = `${fontSize}rem`;
+        tempSpan.textContent = wordObj.word;
+        totalWidth += tempSpan.offsetWidth;
+        if (index < swipedWords.length - 1) {
+          totalWidth += connectorWidth;
+        }
+      });
+    }
+
+    document.body.removeChild(tempSpan);
+
+    // Apply the adjusted font size to all swiped words
+    wordElements.forEach(el => {
+      el.style.fontSize = `${fontSize}rem`;
+    });
+  }
+
+  function updateSwipedWordsBox() {
+    swipedWordsBox.innerHTML = '';
+    if (swipedWords.length === 0) {
+      swipedWordsContainer.style.display = 'none';
+      return;
+    }
+
+    swipedWordsContainer.style.display = 'flex';
+    swipedWords.forEach((wordObj, index) => {
+      const wordSpan = document.createElement('span');
+      wordSpan.className = 'swiped-word';
+      wordSpan.textContent = wordObj.word;
+      wordSpan.style.color = wordObj.color;
+      swipedWordsBox.appendChild(wordSpan);
+
+      if (index < swipedWords.length - 1) {
+        const connector = document.createElement('span');
+        connector.className = 'swiped-word-connector';
+        connector.textContent = '--';
+        swipedWordsBox.appendChild(connector);
+      }
+    });
+
+    adjustSwipedWordsFontSize();
+  }
+
+  function addSwipedWord(word, color, direction) {
+    const wordLower = word.toLowerCase();
+    // Remove duplicates
+    swipedWords = swipedWords.filter(w => w.word.toLowerCase() !== wordLower);
+    
+    // Add word based on swipe direction
+    if (direction === 'up') {
+      swipedWords.push({ word, color });
+    } else if (direction === 'down') {
+      swipedWords.unshift({ word, color });
+    }
+
+    updateSwipedWordsBox();
+  }
+
   function stopAudio() {
     if (currentAudio) {
       currentAudio.pause();
@@ -212,10 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function showTooltip(tooltip, direction) {
-    // Determine if PC or mobile
     const isPc = isPC();
-    
-    // Update tooltip icon and text based on device
     const tooltipIcon = tooltip.querySelector('.tooltip-icon');
     const tooltipText = tooltip.querySelector('.tooltip-text');
     
@@ -249,37 +338,30 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Apply blur to non-flashcard elements
     header.style.filter = 'blur(5px)';
     logo.style.filter = 'blur(5px)';
     logoCom.style.filter = 'blur(5px)';
     slogan.style.filter = 'blur(5px)';
+    swipedWordsContainer.style.filter = 'blur(5px)';
     
-    // Show tooltip
     tooltip.style.display = 'flex';
     
-    // Get flashcard and content element positions
     const flashcardRect = flashcard.getBoundingClientRect();
     const containerRect = flashcardContainer.getBoundingClientRect();
     
-    // Calculate centerX for horizontal positioning
     const centerX = flashcardRect.left - containerRect.left + flashcardRect.width / 2;
-    
-    // Calculate Y position based on tooltip type
     let centerY;
     if (direction === 'tap') {
       const wordRect = wordEl.getBoundingClientRect();
       const englishRect = englishEl.getBoundingClientRect();
-      centerY = wordRect.bottom + (englishRect.top - wordRect.bottom) / 2 - containerRect.top - 10; // Move tap tooltip up by 10 pixels
+      centerY = wordRect.bottom + (englishRect.top - wordRect.bottom) / 2 - containerRect.top - 10;
     } else {
       centerY = flashcardRect.top - containerRect.top + flashcardRect.height / 2;
     }
     
-    // Set tooltip position
     tooltip.style.left = `${centerX}px`;
     tooltip.style.top = `${centerY}px`;
     
-    // Trigger animation based on direction
     setTimeout(() => {
       if (direction === 'tap') {
         tooltip.classList.add('animate-tap');
@@ -293,7 +375,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 100);
     
-    // Remove tooltip and reset blur after animation
     setTimeout(() => {
       tooltip.style.display = 'none';
       tooltip.classList.remove(direction === 'tap' ? 'animate-tap' : direction === 'up' ? 'animate-up' : 'animate-down');
@@ -306,6 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
         logo.style.filter = 'none';
         logoCom.style.filter = 'none';
         slogan.style.filter = 'none';
+        swipedWordsContainer.style.filter = 'none';
       }
     }, direction === 'tap' ? 2500 : 2000);
   }
@@ -485,6 +567,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
+            swipedWords = []; // Reset swiped words
+            addSwipedWord(entries[currentIndex].word, colors[currentColorIndex], 'up');
             displayEntry(currentIndex);
 
             // Show tooltips for first 20 visits
@@ -629,6 +713,8 @@ document.addEventListener('DOMContentLoaded', () => {
     header.style.opacity = '0';
     donateIcon.style.display = 'none';
     hideDonatePopup();
+    swipedWordsContainer.style.display = 'none';
+    swipedWords = []; // Clear swiped words when returning to word cloud
 
     setTimeout(() => {
       flashcardContainer.style.display = 'none';
@@ -681,6 +767,7 @@ document.addEventListener('DOMContentLoaded', () => {
       stopAudio();
       currentIndex++;
       currentColorIndex = (currentColorIndex + 1) % colors.length;
+      addSwipedWord(entries[currentIndex].word, colors[currentColorIndex], 'up');
       displayEntry(currentIndex);
       lastSwipeTime = Date.now();
     } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
@@ -688,6 +775,7 @@ document.addEventListener('DOMContentLoaded', () => {
       stopAudio();
       currentIndex--;
       currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+      addSwipedWord(entries[currentIndex].word, colors[currentColorIndex], 'down');
       displayEntry(currentIndex);
       lastSwipeTime = Date.now();
     }
@@ -700,6 +788,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stopAudio();
         currentIndex++;
         currentColorIndex = (currentColorIndex + 1) % colors.length;
+        addSwipedWord(entries[currentIndex].word, colors[currentColorIndex], 'up');
         displayEntry(currentIndex);
         lastSwipeTime = Date.now();
       } else if (e.key === 'ArrowDown' && currentIndex > 0) {
@@ -707,6 +796,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stopAudio();
         currentIndex--;
         currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+        addSwipedWord(entries[currentIndex].word, colors[currentColorIndex], 'down');
         displayEntry(currentIndex);
         lastSwipeTime = Date.now();
       } else if (e.key === ' ') {
