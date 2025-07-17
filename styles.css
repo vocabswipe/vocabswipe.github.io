@@ -57,7 +57,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  opacity:  personally;
+  opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 5;
 }
@@ -329,6 +329,10 @@ body {
   animation: moveDown 2s ease-out forwards;
 }
 
+.tap-tooltip.animate-tap {
+  animation: tapAnimation 1.5s ease-out forwards;
+}
+
 @keyframes moveUp {
   0% {
     transform: translateX(-50%) translateY(0);
@@ -353,6 +357,37 @@ body {
   }
   100% {
     transform: translateX(-50%) translateY(200px); /* Move to bottom edge */
+    opacity: 0;
+  }
+}
+
+@keyframes tapAnimation {
+  0% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(0.8); /* Scale down to simulate tap */
+    opacity: 1;
+  }
+  60% {
+    transform: translateX(-50%) scale(0.8) translate(2px, 2px); /* Vibration effect */
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(-50%) scale(0.8) translate(-2px, -2px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-50%) scale(0.8) translate(2px, 2px);
+    opacity: 1;
+  }
+  90% {
+    transform: translateX(-50%) scale(0.8) translate(-2px, -2px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) scale(0.8);
     opacity: 0;
   }
 }
