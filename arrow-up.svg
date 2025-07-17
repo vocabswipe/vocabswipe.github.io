@@ -1,8 +1,11 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
-<svg fill="#000000" width="800px" height="800px" viewBox="0 0 24 24" id="up-square-3" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
+<svg fill="#00ff88" width="800px" height="800px" viewBox="0 0 24.00 24.00" id="up-square-3" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color" stroke="#00ff88" stroke-width="1.512">
 <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="1.7759999999999998">
+<rect id="primary" x="2" y="2" width="20" height="20" rx="2" style="fill: #000000;"/>
+<path id="secondary" d="M9.72,15h4.56a1,1,0,0,0,.87-1.5l-2.28-4a1,1,0,0,0-1.74,0l-2.28,4A1,1,0,0,0,9.72,15Z" style="fill: #00ff88;"/>
+</g>
 <g id="SVGRepo_iconCarrier">
 <rect id="primary" x="2" y="2" width="20" height="20" rx="2" style="fill: #000000;"/>
 <path id="secondary" d="M9.72,15h4.56a1,1,0,0,0,.87-1.5l-2.28-4a1,1,0,0,0-1.74,0l-2.28,4A1,1,0,0,0,9.72,15Z" style="fill: #00ff88;"/>
