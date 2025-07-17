@@ -168,27 +168,30 @@ body {
   }
 }
 
-.highlight-word-line-svg {
-  transition: opacity 0.3s ease;
-  z-index: 10;
-}
-
 .highlight-word-line {
-  transition: stroke-opacity 0.5s ease, x2 0.5s ease;
+  transition: opacity 0.3s ease;
+  z-index: 5;
 }
 
-.highlight-word-group.glow .highlight-word-line {
+.highlight-word-line line {
+  transition: stroke-opacity 0.5s ease;
+}
+
+.highlight-word-group.glow .highlight-word-line line {
   animation: glow-line 0.5s ease-in-out;
 }
 
 @keyframes glow-line {
   0% {
+    stroke: #ffffff;
     stroke-opacity: 0.10;
   }
   50% {
-    stroke-opacity: 0.30;
+    stroke: #ffffff;
+    stroke-opacity: 0.3;
   }
   100% {
+    stroke: #ffffff;
     stroke-opacity: 0.10;
   }
 }
