@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const audioErrorEl = document.getElementById('audio-error');
   const logo = document.querySelector('.logo');
   const logoCom = document.querySelector('.logo-com');
-  const logoWrapper = document.querySelector('.logo-wrapper');
   const slogan = document.querySelector('.slogan');
   const header = document.getElementById('header');
   const wordCloudIcon = document.getElementById('word-cloud-icon');
@@ -34,11 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -348,6 +347,8 @@ document.addEventListener('DOMContentLoaded', () => {
               logo.style.transition = 'transform 1s ease, opacity 1s ease';
               logo.style.transform = 'translateX(0)';
               logo.style.opacity = '1';
+
+              // Start .com animation 1 second after VocabSwipe logo animation completes
               setTimeout(() => {
                 logoCom.style.transition = 'transform 1s ease, opacity 1s ease';
                 logoCom.style.transform = 'translateX(0)';
