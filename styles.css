@@ -107,12 +107,10 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-bottom: 5px; /* Further reduced to move words up */
+  margin-bottom: -15px; /* Adjusted to move words 20px upward */
   min-height: 1.4rem;
   position: relative;
-  transform: translateY(-20px); /* Move words up by 20px */
   transition: filter 0.3s ease;
-  z-index: 15; /* Ensure words and line are above other elements */
 }
 
 .highlight-word {
@@ -121,7 +119,7 @@ body {
   font-weight: 700;
   line-height: 1.4;
   transition: opacity 0.5s ease, transform 0.5s ease;
-  background: transparent; /* Ensure no background */
+  background: none; /* Ensure no background */
 }
 
 .highlight-word.current-word {
@@ -135,24 +133,24 @@ body {
 }
 
 .highlight-word.glow {
-  animation: glow-word 0.5s ease-in-out;
-  background: transparent; /* Explicitly no background */
+  animation: text-glow 0.5s ease-in-out;
 }
 
-@keyframes glow-word {
+@keyframes text-glow {
   0% {
-    text-shadow: 0 0 5px var(--glow-color, #00ff88), 0 0 10px var(--glow-color, #00ff88);
+    text-shadow: 0 0 0 var(--glow-color, #00ff88);
   }
   50% {
-    text-shadow: 0 0 10px var(--glow-color, #00ff88), 0 0 20px var(--glow-color, #00ff88);
+    text-shadow: 0 0 10px var(--glow-color, #00ff88);
   }
   100% {
-    text-shadow: 0 0 5px var(--glow-color, #00ff88), 0 0 10px var(--glow-color, #00ff88);
+    text-shadow: 0 0 0 var(--glow-color, #00ff88);
   }
 }
 
 .highlight-word-line {
   transition: opacity 0.3s ease;
+  z-index: 10; /* Ensure line is above other elements */
 }
 
 .highlight-word-line.glow {
@@ -162,7 +160,7 @@ body {
 @keyframes glow-line {
   0% {
     stroke: var(--glow-color, #ffffff);
-    stroke-opacity: 0.5;
+    stroke-opacity: 0.7;
   }
   50% {
     stroke: var(--glow-color, #ffffff);
@@ -170,7 +168,7 @@ body {
   }
   100% {
     stroke: var(--glow-color, #ffffff);
-    stroke-opacity: 0.5;
+    stroke-opacity: 0.7;
   }
 }
 
