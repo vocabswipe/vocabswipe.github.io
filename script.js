@@ -16,10 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const swipeUpTooltip = document.getElementById('swipe-up-tooltip');
   const swipeDownTooltip = document.getElementById('swipe-down-tooltip');
   const tapTooltip = document.getElementById('tap-tooltip');
-  const wordPairContainer = document.getElementById('word-pair-container');
+  const prevWordEl = document.getElementById('prev-word');
   const currentWordEl = document.getElementById('current-word');
-  const pairedWordEl = document.getElementById('paired-word');
-  const wordPairLine = document.getElementById('word-pair-line');
+  const wordDisplayLine = document.getElementById('word-display-line');
 
   let entries = [];
   let currentIndex = 0;
@@ -195,7 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
     donatePopup.style.display = 'flex';
     flashcardContainer.style.filter = 'blur(5px)';
     header.style.filter = 'blur(5px)';
-    wordPairContainer.style.filter = 'blur(5px)';
     document.body.style.overflow = 'hidden';
   }
 
@@ -203,7 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
     donatePopup.style.display = 'none';
     flashcardContainer.style.filter = 'none';
     header.style.filter = 'none';
-    wordPairContainer.style.filter = 'none';
     document.body.style.overflow = 'hidden';
   }
 
@@ -253,16 +250,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     header.style.filter = 'blur(5px)';
-    wordPairContainer.style.filter = 'blur(5px)';
     logo.style.filter = 'blur(5px)';
     logoCom.style.filter = 'blur(5px)';
     slogan.style.filter = 'blur(5px)';
 
     tooltip.style.display = 'flex';
-
     const flashcardRect = flashcard.getBoundingClientRect();
     const containerRect = flashcardContainer.getBoundingClientRect();
-
     const centerX = flashcardRect.left - containerRect.left + flashcardRect.width / 2;
     let centerY;
     if (direction === 'tap') {
@@ -298,12 +292,54 @@ document.addEventListener('DOMContentLoaded', () => {
         tapTooltip.style.display === 'none'
       ) {
         header.style.filter = 'none';
-        wordPairContainer.style.filter = 'none';
         logo.style.filter = 'none';
         logoCom.style.filter = 'none';
         slogan.style.filter = 'none';
       }
     }, direction === 'tap' ? 2500 : 2000);
+  }
+
+  function updateHeaderWords(index) {
+    let prevWord = '';
+    let currentWord = entries[index].word;
+    let prevColor = colors[(currentColorIndex - 1 + colors.length) % colors.length];
+    let currentColor = colors[currentColorIndex];
+
+    if (index === 0 && entries.length > 1) {
+      prevWord = entries[1].word;
+      prevColor = colors[(currentColorIndex + 1) % colors.length];
+    } else if (index === entries.length - 1 && entries.length > 1) {
+      prevWord = entries[index - 1].word;
+    } else if (index > 0) {
+      prevWord = entries[index - 1].word;
+    }
+
+    prevWordEl.textContent = prevWord;
+    prevWordEl.style.color = prevColor;
+    currentWordEl.textContent = currentWord;
+    currentWordEl.style.color = currentColor;
+
+    // Update SVG line dynamically
+    setTimeout(() => {
+      const prevRect = prevWordEl.getBoundingClientRect();
+      const currentRect = currentWordEl.getBoundingClientRect();
+      const svg = wordDisplayLine;
+      const line = svg.querySelector('line');
+      if (prevWord && currentWord) {
+        const x1 = prevRect.width / 2;
+        const x2 = prevRect.width + 20 + currentRect.width / 2;
+        const y = prevRect.height / 2;
+        svg.setAttribute('width', prevRect.width + 20 + currentRect.width);
+        svg.setAttribute('height', prevRect.height);
+        line.setAttribute('x1', x1);
+        line.setAttribute('y1', y);
+        line.setAttribute('x2', x2);
+        line.setAttribute('y2', y);
+      } else {
+        svg.setAttribute('width', '0');
+        svg.setAttribute('height', '0');
+      }
+    }, 0);
   }
 
   function displayWordCloud() {
@@ -447,11 +483,6 @@ document.addEventListener('DOMContentLoaded', () => {
             header.style.opacity = '1';
             donateIcon.style.display = 'block';
 
-            wordPairContainer.style.display = 'flex';
-            wordPairContainer.style.opacity = '0';
-            wordPairContainer.style.transition = 'opacity 1s ease';
-            wordPairContainer.style.opacity = '1';
-
             flashcardContainer.style.height = '100vh';
             flashcardContainer.style.justifyContent = 'center';
             document.body.style.overflow = 'hidden';
@@ -487,6 +518,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
             displayEntry(currentIndex);
+            updateHeaderWords(currentIndex);
 
             if (visitCount <= 20) {
               setTimeout(() => {
@@ -576,35 +608,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  function updateWordPairDisplay(currentWord, pairedWord, currentColor, pairedColor) {
-    currentWordEl.textContent = currentWord;
-    currentWordEl.style.color = currentColor;
-    pairedWordEl.textContent = pairedWord || '';
-    pairedWordEl.style.color = pairedColor || currentColor;
-
-    wordPairLine.innerHTML = '';
-    if (pairedWord) {
-      const currentRect = currentWordEl.getBoundingClientRect();
-      const pairedRect = pairedWordEl.getBoundingClientRect();
-      const containerRect = wordPairContainer.getBoundingClientRect();
-
-      const x1 = currentRect.left - containerRect.left + currentRect.width / 2;
-      const y1 = currentRect.top - containerRect.top + currentRect.height / 2;
-      const x2 = pairedRect.left - containerRect.left + pairedRect.width / 2;
-      const y2 = pairedRect.top - containerRect.top + pairedRect.height / 2;
-
-      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-      line.setAttribute('x1', x1);
-      line.setAttribute('y1', y1);
-      line.setAttribute('x2', x2);
-      line.setAttribute('y2', y2);
-      line.setAttribute('stroke', '#ffffff');
-      line.setAttribute('stroke-width', '1');
-      line.setAttribute('stroke-opacity', '0.10');
-      wordPairLine.appendChild(line);
-    }
-  }
-
   function displayEntry(index) {
     if (index < 0 || index >= entries.length) return;
     const entry = entries[index];
@@ -631,13 +634,8 @@ document.addEventListener('DOMContentLoaded', () => {
     thaiEl.textContent = entry.thai;
     audioErrorEl.style.display = 'none';
 
-    const pairedWord = prevWord || nextWord;
-    const pairedColor = prevWord
-      ? colors[(currentColorIndex - 1 + colors.length) % colors.length]
-      : colors[(currentColorIndex + 1) % colors.length];
-    updateWordPairDisplay(currentWord, pairedWord, colors[currentColorIndex], pairedColor);
-
     preloadAudio(index);
+    updateHeaderWords(index);
 
     if (entry.audio) {
       const audioUrl = `/data/${entry.audio}`;
@@ -662,15 +660,12 @@ document.addEventListener('DOMContentLoaded', () => {
     flashcardContainer.style.opacity = '0';
     header.style.transition = 'opacity 0.7s ease';
     header.style.opacity = '0';
-    wordPairContainer.style.transition = 'opacity 0.7s ease';
-    wordPairContainer.style.opacity = '0';
     donateIcon.style.display = 'none';
     hideDonatePopup();
 
     setTimeout(() => {
       flashcardContainer.style.display = 'none';
       header.style.display = 'none';
-      wordPairContainer.style.display = 'none';
       document.body.style.overflow = 'auto';
       wordCloud.style.display = 'block';
       wordCloud.style.opacity = '0';
