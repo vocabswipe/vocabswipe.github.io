@@ -13,12 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const wordCloudIcon = document.getElementById('word-cloud-icon');
   const donateIcon = document.getElementById('donate-icon');
   const donatePopup = document.getElementById('donate-popup');
-  const closeDonatePopup = document.getElementById('close-donate-popup');
+  const closePopupIcon = document.getElementById('close-popup-icon');
   const swipeUpTooltip = document.getElementById('swipe-up-tooltip');
   const swipeDownTooltip = document.getElementById('swipe-down-tooltip');
   const tapTooltip = document.getElementById('tap-tooltip');
   const highlightWordsContainer = document.getElementById('highlight-words-container');
-  const highlightGroup = document.getElementById('highlight-group');
 
   let entries = [];
   let currentIndex = 0;
@@ -179,11 +178,11 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Audio playing successfully');
         flashcard.classList.add('glow');
         flashcard.style.setProperty('--glow-color', wordColor);
-        // Add glow to highlight group
-        highlightGroup.classList.add('glow');
+        const wordGroup = document.querySelector('.highlight-word-group');
+        if (wordGroup) wordGroup.classList.add('glow');
         setTimeout(() => {
           flashcard.classList.remove('glow');
-          highlightGroup.classList.remove('glow');
+          if (wordGroup) wordGroup.classList.remove('glow');
         }, 500);
         audioErrorEl.style.display = 'none';
       }).catch(e => {
@@ -219,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showDonatePopup();
   });
 
-  closeDonatePopup.addEventListener('click', () => {
+  closePopupIcon.addEventListener('click', () => {
     hideDonatePopup();
   });
 
@@ -258,12 +257,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Apply blur to everything except the flashcard
     header.style.filter = 'blur(5px)';
     logo.style.filter = 'blur(5px)';
     logoCom.style.filter = 'blur(5px)';
     slogan.style.filter = 'blur(5px)';
-    flashcard.style.filter = 'none'; // Ensure flashcard remains clear
+    flashcard.style.filter = 'none';
 
     tooltip.style.display = 'flex';
 
@@ -290,10 +288,11 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           flashcard.classList.add('glow');
           flashcard.style.setProperty('--glow-color', '#00ff88');
-          highlightGroup.classList.add('glow');
+          const wordGroup = document.querySelector('.highlight-word-group');
+          if (wordGroup) wordGroup.classList.add('glow');
           setTimeout(() => {
             flashcard.classList.remove('glow');
-            highlightGroup.classList.remove('glow');
+            if (wordGroup) wordGroup.classList.remove('glow');
           }, 500);
         }, 1000);
       } else {
@@ -582,25 +581,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  function drawConnectingLine(word1El, word2El) {
-    const existingLine = highlightGroup.querySelector('.highlight-word-line');
-    if (existingLine) existingLine.remove();
-
+  function drawConnectingLine(word1El, word2El, color) {
     if (!word1El || !word2El) return;
-
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.className = 'highlight-word-line';
-    svg.style.position = 'absolute';
-    svg.style.top = '0';
-    svg.style.left = '0';
-    svg.style.width = '100%';
-    svg.style.height = '100%';
-    svg.style.pointerEvents = 'none';
-    svg.style.zIndex = '10';
 
     const word1Rect = word1El.getBoundingClientRect();
     const word2Rect = word2El.getBoundingClientRect();
-    const containerRect = highlightGroup.getBoundingClientRect();
+    const containerRect = highlightWordsContainer.getBoundingClientRect();
 
     const x1 = word1Rect.right - containerRect.left + 5;
     const x2 = word2Rect.left - containerRect.left - 5;
@@ -611,19 +597,11 @@ document.addEventListener('DOMContentLoaded', () => {
     line.setAttribute('y1', y);
     line.setAttribute('x2', x1);
     line.setAttribute('y2', y);
-    line.setAttribute('stroke', '#ffffff');
+    line.setAttribute('stroke', color);
     line.setAttribute('stroke-width', '2');
     line.setAttribute('stroke-opacity', '0');
-    svg.appendChild(line);
 
-    highlightGroup.appendChild(svg);
-
-    // Animate line drawing
-    setTimeout(() => {
-      line.setAttribute('x2', x2);
-      line.setAttribute('stroke-opacity', '0.7');
-      line.style.transition = 'x2 0.5s ease, stroke-opacity 0.5s ease';
-    }, 300);
+    return line;
   }
 
   function displayEntry(index) {
@@ -652,11 +630,14 @@ document.addEventListener('DOMContentLoaded', () => {
     thaiEl.textContent = entry.thai;
     audioErrorEl.style.display = 'none';
 
-    // Update highlighted words in the middle of the flashcard
-    highlightGroup.innerHTML = '';
+    highlightWordsContainer.innerHTML = '';
     const highlightedWords = wordsToHighlight.filter(w => entry.english.toLowerCase().includes(w.word.toLowerCase()));
     const currentWordObj = highlightedWords.find(w => w.word.toLowerCase() === currentWord.toLowerCase());
     const nextWordObj = highlightedWords.find(w => w.word.toLowerCase() !== currentWord.toLowerCase());
+
+    const wordGroup = document.createElement('div');
+    wordGroup.className = 'highlight-word-group';
+    highlightWordsContainer.appendChild(wordGroup);
 
     let currentWordEl = null;
     let nextWordEl = null;
@@ -666,16 +647,9 @@ document.addEventListener('DOMContentLoaded', () => {
       currentWordEl.className = 'highlight-word current-word';
       currentWordEl.textContent = currentWordObj.word;
       currentWordEl.style.color = currentWordObj.color;
+      currentWordEl.style.transform = 'translateX(-300px)';
       currentWordEl.style.opacity = '0';
-      currentWordEl.style.transform = 'translateX(-100px)';
-      highlightGroup.appendChild(currentWordEl);
-
-      // Animate current word sliding in from left
-      setTimeout(() => {
-        currentWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
-        currentWordEl.style.transform = 'translateX(0)';
-        currentWordEl.style.opacity = '1';
-      }, 100);
+      wordGroup.appendChild(currentWordEl);
     }
 
     if (nextWordObj) {
@@ -683,22 +657,53 @@ document.addEventListener('DOMContentLoaded', () => {
       nextWordEl.className = 'highlight-word next-word';
       nextWordEl.textContent = nextWordObj.word;
       nextWordEl.style.color = nextWordObj.color;
+      nextWordEl.style.transform = 'translateX(300px)';
       nextWordEl.style.opacity = '0';
-      nextWordEl.style.transform = 'translateX(100px)';
-      highlightGroup.appendChild(nextWordEl);
+      wordGroup.appendChild(nextWordEl);
+    }
 
-      // Animate next word sliding in from right
-      setTimeout(() => {
+    if (currentWordEl && nextWordEl) {
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.className = 'highlight-word-line';
+      svg.style.position = 'absolute';
+      svg.style.top = '0';
+      svg.style.left = '0';
+      svg.style.width = '100%';
+      svg.style.height = '100%';
+      svg.style.pointerEvents = 'none';
+      svg.style.zIndex = '10';
+      const line = drawConnectingLine(currentWordEl, nextWordEl, currentWordObj.color);
+      svg.appendChild(line);
+      wordGroup.appendChild(svg);
+    }
+
+    setTimeout(() => {
+      if (currentWordEl) {
+        currentWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+        currentWordEl.style.transform = 'translateX(0)';
+        currentWordEl.style.opacity = '1';
+      }
+      if (nextWordEl) {
         nextWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
         nextWordEl.style.transform = 'translateX(0)';
         nextWordEl.style.opacity = '1';
-      }, 100);
-
-      // Draw connecting line after animation
-      setTimeout(() => {
-        drawConnectingLine(currentWordEl, nextWordEl);
-      }, 600);
-    }
+      }
+      if (currentWordEl && nextWordEl) {
+        const word1Rect = currentWordEl.getBoundingClientRect();
+        const word2Rect = nextWordEl.getBoundingClientRect();
+        const containerRect = highlightWordsContainer.getBoundingClientRect();
+        const x1 = word1Rect.right - containerRect.left + 5;
+        const x2 = word2Rect.left - containerRect.left - 5;
+        const y = (word1Rect.top + word1Rect.height / 2 - containerRect.top);
+        const line = wordGroup.querySelector('.highlight-word-line line');
+        if (line) {
+          line.setAttribute('x2', x2);
+          line.setAttribute('y2', y);
+          line.setAttribute('stroke-opacity', '0.7');
+          line.style.transition = 'x2 0.5s ease, stroke-opacity 0.5s ease';
+        }
+      }
+    }, 100);
 
     preloadAudio(index);
 
@@ -777,9 +782,11 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
       console.log('Swipe up detected, going to next entry');
       stopAudio();
-      // Instantly hide highlight group
-      highlightGroup.style.transition = 'none';
-      highlightGroup.style.opacity = '0';
+      const wordGroup = document.querySelector('.highlight-word-group');
+      if (wordGroup) {
+        wordGroup.style.transition = 'none';
+        wordGroup.style.opacity = '0';
+      }
       setTimeout(() => {
         currentIndex++;
         currentColorIndex = (currentColorIndex + 1) % colors.length;
@@ -789,9 +796,11 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
       console.log('Swipe down detected, going to previous entry');
       stopAudio();
-      // Instantly hide highlight group
-      highlightGroup.style.transition = 'none';
-      highlightGroup.style.opacity = '0';
+      const wordGroup = document.querySelector('.highlight-word-group');
+      if (wordGroup) {
+        wordGroup.style.transition = 'none';
+        wordGroup.style.opacity = '0';
+      }
       setTimeout(() => {
         currentIndex--;
         currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
@@ -806,9 +815,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'ArrowUp' && currentIndex < entries.length - 1) {
         console.log('Arrow up pressed, going to next entry');
         stopAudio();
-        // Instantly hide highlight group
-        highlightGroup.style.transition = 'none';
-        highlightGroup.style.opacity = '0';
+        const wordGroup = document.querySelector('.highlight-word-group');
+        if (wordGroup) {
+          wordGroup.style.transition = 'none';
+          wordGroup.style.opacity = '0';
+        }
         setTimeout(() => {
           currentIndex++;
           currentColorIndex = (currentColorIndex + 1) % colors.length;
@@ -818,9 +829,11 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (e.key === 'ArrowDown' && currentIndex > 0) {
         console.log('Arrow down pressed, going to previous entry');
         stopAudio();
-        // Instantly hide highlight group
-        highlightGroup.style.transition = 'none';
-        highlightGroup.style.opacity = '0';
+        const wordGroup = document.querySelector('.highlight-word-group');
+        if (wordGroup) {
+          wordGroup.style.transition = 'none';
+          wordGroup.style.opacity = '0';
+        }
         setTimeout(() => {
           currentIndex--;
           currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
