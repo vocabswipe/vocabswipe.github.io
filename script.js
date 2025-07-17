@@ -46,11 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (direction === 'tap') {
       const wordRect = wordEl.getBoundingClientRect();
       const englishRect = englishEl.getBoundingClientRect();
-      centerY = wordRect.bottom + (englishRect.top - wordRect.bottom) / 2 - containerRect.top;
+      centerY = wordRect.bottom + (englishRect.top - wordRect.bottom) / 2 - containerRect.top - 10; // Adjusted by -10px
     } else {
       centerY = flashcardRect.top - containerRect.top + flashcardRect.height / 2;
     }
@@ -397,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (index >= initialDisplayCount) {
         const normalizedFreq = maxFreq === minFreq ? 0 : (maxFreq - freq) / (maxFreq - minFreq);
-        const delay = normalizedFreq * 500 + (index - initialDisplayCount) * delayPerWord;
+        const delay = normalizedFreq * 2000 + (index - initialDisplayCount) * delayPerWord;
         setTimeout(() => {
           wordEl.style.transition = 'opacity 0.3s ease';
           wordEl.style.opacity = '1';
