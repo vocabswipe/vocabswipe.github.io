@@ -47,11 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
     logo.style.filter = 'blur(5px)';
     logoCom.style.filter = 'blur(5px)';
     slogan.style.filter = 'blur(5px)';
-    highlightWordsContainer.style.filter = 'blur(5px)';
+    highlightWordsContainer.style.filter = 'none'; // No blur on highlight-words-container
     flashcard.style.filter = 'none'; // Ensure flashcard remains clear
 
     tooltip.style.display = 'flex';
@@ -601,11 +601,11 @@ document.addEventListener('DOMContentLoaded', () => {
     svg.style.width = '100%';
     svg.style.height = '100%';
     svg.style.pointerEvents = 'none';
-    svg.style.zIndex = '10'; // Increased z-index to ensure visibility
+    svg.style.zIndex = '10';
 
     const word1Rect = word1El.getBoundingClientRect();
     const word2Rect = word2El.getBoundingClientRect();
-    const containerRect = highlightWordsContainer.getBoundingClientRect();
+    const containerRect = flashcard.getBoundingClientRect();
 
     const x1 = word1Rect.right - containerRect.left + 5;
     const x2 = word2Rect.left - containerRect.left - 5;
@@ -616,19 +616,19 @@ document.addEventListener('DOMContentLoaded', () => {
     line.setAttribute('y1', y);
     line.setAttribute('x2', x1);
     line.setAttribute('y2', y);
-    line.setAttribute('stroke', color); // Use the word's color for the line
+    line.setAttribute('stroke', color);
     line.setAttribute('stroke-width', '2');
     line.setAttribute('stroke-opacity', '0');
     svg.appendChild(line);
 
-    highlightWordsContainer.appendChild(svg);
+    flashcard.appendChild(svg);
 
     // Animate line drawing
     setTimeout(() => {
       line.setAttribute('x2', x2);
-      line.setAttribute('stroke-opacity', '0.7'); // Increased opacity for visibility
+      line.setAttribute('stroke-opacity', '0.7');
       line.style.transition = 'x2 0.5s ease, stroke-opacity 0.5s ease';
-    }, 300);
+    }, 600);
   }
 
   function displayEntry(index) {
@@ -657,9 +657,9 @@ document.addEventListener('DOMContentLoaded', () => {
     thaiEl.textContent = entry.thai;
     audioErrorEl.style.display = 'none';
 
-    // Update highlighted words above logo
+    // Update highlighted words in the middle of the flashcard
     highlightWordsContainer.innerHTML = '';
-    const highlightedWords = wordsToHighlight.filter(w => entry.english.toLowerCase().includes(w.word.toLowerCase()));
+    const highlightedWords = wordsToHighlight.filter(w => entry.english.toLowerCase().includes w.word.toLowerCase()));
     const currentWordObj = highlightedWords.find(w => w.word.toLowerCase() === currentWord.toLowerCase());
     const nextWordObj = highlightedWords.find(w => w.word.toLowerCase() !== currentWord.toLowerCase());
 
@@ -671,8 +671,16 @@ document.addEventListener('DOMContentLoaded', () => {
       currentWordEl.className = 'highlight-word current-word';
       currentWordEl.textContent = currentWordObj.word;
       currentWordEl.style.color = currentWordObj.color;
-      currentWordEl.style.opacity = '1'; // Current word appears instantly
+      currentWordEl.style.opacity = '0';
+      currentWordEl.style.transform = 'translateX(-100px)';
       highlightWordsContainer.appendChild(currentWordEl);
+
+      // Animate current word sliding in from the left
+      setTimeout(() => {
+        currentWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+        currentWordEl.style.transform = 'translateX(0)';
+        currentWordEl.style.opacity = '1';
+      }, 100);
     }
 
     if (nextWordObj) {
@@ -684,14 +692,16 @@ document.addEventListener('DOMContentLoaded', () => {
       nextWordEl.style.transform = 'translateX(100px)';
       highlightWordsContainer.appendChild(nextWordEl);
 
-      // Animate next word sliding in
+      // Animate next word sliding in from the right
       setTimeout(() => {
         nextWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
         nextWordEl.style.transform = 'translateX(0)';
         nextWordEl.style.opacity = '1';
       }, 100);
+    }
 
-      // Draw connecting line after animation
+    // Draw connecting line after both words have animated
+    if (currentWordObj && nextWordObj) {
       setTimeout(() => {
         drawConnectingLine(currentWordEl, nextWordEl, currentWordObj.color);
       }, 600);
