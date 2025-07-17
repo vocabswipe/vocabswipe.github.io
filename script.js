@@ -48,11 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -588,19 +588,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const word2Rect = word2El.getBoundingClientRect();
     const containerRect = highlightWordsContainer.getBoundingClientRect();
 
-    const x1 = word1Rect.right -stot containerRect.left + 5;
+    const x1 = word1Rect.right - containerRect.left + 5;
     const x2 = word2Rect.left - containerRect.left - 5;
     const y = word1Rect.top + word1Rect.height / 2 - containerRect.top;
 
     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
     line.setAttribute('x1', x1);
     line.setAttribute('y1', y);
-    line.setAttribute('x2', x1); // Start with x1 to animate to x2
+    line.setAttribute('x2', x2);
     line.setAttribute('y2', y);
     line.setAttribute('stroke', '#ffffff');
     line.setAttribute('stroke-width', '1');
-    line.setAttribute('stroke-opacity', '0'); // Start invisible
-    line.classList.add('highlight-word-line'); // Add class for glow animation
+    line.setAttribute('stroke-opacity', '0'); // Start invisible for animation
+    line.style.transition = 'stroke-opacity 0.5s ease';
 
     return line;
   }
@@ -638,7 +638,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const wordGroup = document.createElement('div');
     wordGroup.className = 'highlight-word-group';
-    wordGroup.style.opacity = '0'; // Start invisible for animation
     highlightWordsContainer.appendChild(wordGroup);
 
     let currentWordEl = null;
@@ -666,22 +665,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (currentWordEl && nextWordEl) {
       const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      svg.className = 'highlight-word-line-svg';
+      svg.className = 'highlight-word-line';
       svg.style.position = 'absolute';
       svg.style.top = '0';
       svg.style.left = '0';
       svg.style.width = '100%';
       svg.style.height = '100%';
       svg.style.pointerEvents = 'none';
-      svg.style.zIndex = '10';
+      svg.style.zIndex = '5'; // Match word cloud z-index
       const line = drawConnectingLine(currentWordEl, nextWordEl);
       if (line) svg.appendChild(line);
       wordGroup.appendChild(svg);
     }
 
     setTimeout(() => {
-      wordGroup.style.transition = 'opacity 0.5s ease';
-      wordGroup.style.opacity = '1';
       if (currentWordEl) {
         currentWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
         currentWordEl.style.transform = 'translateX(0)';
@@ -699,11 +696,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const x1 = word1Rect.right - containerRect.left + 5;
         const x2 = word2Rect.left - containerRect.left - 5;
         const y = word1Rect.top + word1Rect.height / 2 - containerRect.top;
-        const line = wordGroup.querySelector('.highlight-word-line');
+        const line = wordGroup.querySelector('.highlight-word-line line');
         if (line) {
+          line.setAttribute('x1', x1);
           line.setAttribute('x2', x2);
-          line.setAttribute('stroke-opacity', '0.10'); // Match word cloud line opacity
-          line.style.transition = 'stroke-opacity 0.5s ease, x2 0.5s ease';
+          line.setAttribute('y1', y);
+          line.setAttribute('y2', y);
+          line.setAttribute('stroke-opacity', '0.10'); // Match word cloud opacity
+          line.style.transition = 'stroke-opacity 0.5s ease';
         }
       }
     }, 100);
@@ -787,28 +787,28 @@ document.addEventListener('DOMContentLoaded', () => {
       stopAudio();
       const wordGroup = document.querySelector('.highlight-word-group');
       if (wordGroup) {
-        wordGroup.style.transition = 'opacity 0.3s ease';
+        wordGroup.style.transition = 'none';
         wordGroup.style.opacity = '0';
       }
       setTimeout(() => {
         currentIndex++;
         currentColorIndex = (currentColorIndex + 1) % colors.length;
         displayEntry(currentIndex);
-      }, 300);
+      }, 0);
       lastSwipeTime = Date.now();
     } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
       console.log('Swipe down detected, going to previous entry');
       stopAudio();
       const wordGroup = document.querySelector('.highlight-word-group');
       if (wordGroup) {
-        wordGroup.style.transition = 'opacity 0.3s ease';
+        wordGroup.style.transition = 'none';
         wordGroup.style.opacity = '0';
       }
       setTimeout(() => {
         currentIndex--;
         currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
         displayEntry(currentIndex);
-      }, 300);
+      }, 0);
       lastSwipeTime = Date.now();
     }
   }, { passive: false });
@@ -820,28 +820,28 @@ document.addEventListener('DOMContentLoaded', () => {
         stopAudio();
         const wordGroup = document.querySelector('.highlight-word-group');
         if (wordGroup) {
-          wordGroup.style.transition = 'opacity 0.3s ease';
+          wordGroup.style.transition = 'none';
           wordGroup.style.opacity = '0';
         }
         setTimeout(() => {
           currentIndex++;
           currentColorIndex = (currentColorIndex + 1) % colors.length;
           displayEntry(currentIndex);
-        }, 300);
+        }, 0);
         lastSwipeTime = Date.now();
       } else if (e.key === 'ArrowDown' && currentIndex > 0) {
         console.log('Arrow down pressed, going to previous entry');
         stopAudio();
         const wordGroup = document.querySelector('.highlight-word-group');
         if (wordGroup) {
-          wordGroup.style.transition = 'opacity 0.3s ease';
+          wordGroup.style.transition = 'none';
           wordGroup.style.opacity = '0';
         }
         setTimeout(() => {
           currentIndex--;
           currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
           displayEntry(currentIndex);
-        }, 300);
+        }, 0);
         lastSwipeTime = Date.now();
       } else if (e.key === ' ') {
         e.preventDefault();
