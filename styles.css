@@ -30,10 +30,16 @@ body {
 }
 
 .word-cloud-icon,
-.donate-icon,
-.close-icon {
+.donate-icon {
   width: 40px;
   height: 40px;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.close-icon {
+  width: 20px;
+  height: 20px;
   cursor: pointer;
   transition: transform 0.2s ease, opacity 0.3s ease;
 }
@@ -174,15 +180,15 @@ body {
 
 @keyframes glow-line {
   0% {
-    stroke: var(--glow-color, #ffffff);
+    stroke: #ffffff;
     stroke-opacity: 0.7;
   }
   50% {
-    stroke: var(--glow-color, #ffffff);
+    stroke: #ffffff;
     stroke-opacity: 1;
   }
   100% {
-    stroke: var(--glow-color, #ffffff);
+    stroke: #ffffff;
     stroke-opacity: 0.7;
   }
 }
@@ -385,8 +391,8 @@ body {
 
 .close-icon {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 5px;
+  right: 5px;
 }
 
 /* Tooltip Styles */
@@ -498,10 +504,14 @@ svg.filters {
   }
 
   .word-cloud-icon,
-  .donate-icon,
-  .close-icon {
+  .donate-icon {
     width: 32px;
     height: 32px;
+  }
+
+  .close-icon {
+    width: 16px;
+    height: 16px;
   }
 
   .flashcard {
