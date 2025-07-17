@@ -10,15 +10,12 @@
 <body>
   <div class="header" id="header" style="display: none;">
     <img src="neuron-connections-neural-network-svgrepo-com.svg" alt="Word Cloud" class="word-cloud-icon" id="word-cloud-icon" />
-    <div class="word-pair" id="word-pair" style="display: none;">
-      <svg class="word-pair-lines" id="word-pair-lines">
-        <line id="left-line" x1="0" y1="50%" x2="0" y2="50%" stroke="#ffffff" stroke-width="1" stroke-opacity="0.3"/>
-        <line id="right-line" x1="0" y1="50%" x2="0" y2="50%" stroke="#ffffff" stroke-width="1" stroke-opacity="0.3"/>
-      </svg>
-      <span class="prev-word" id="prev-word"></span>
-      <span class="current-word" id="current-word"></span>
-    </div>
     <img src="red-heart-svgrepo-com.svg" alt="Donate" class="donate-icon" id="donate-icon" style="display: none;" />
+  </div>
+  <div class="word-pair-container" id="word-pair-container" style="display: none;">
+    <svg class="word-pair-line" id="word-pair-line"></svg>
+    <div class="word-pair-word" id="current-word"></div>
+    <div class="word-pair-word" id="paired-word"></div>
   </div>
   <div class="word-cloud" id="word-cloud"></div>
   <div class="container" id="flashcard-container" style="display: none;">
