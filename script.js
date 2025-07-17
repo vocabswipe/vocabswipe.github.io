@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/'/g, '&apos;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -581,8 +581,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  function drawConnectingLine(word1El, word2El, color) {
-    if (!word1El || !word2El) return;
+  function drawConnectingLine(word1El, word2El) {
+    if (!word1El || !word2El) return null;
 
     const word1Rect = word1El.getBoundingClientRect();
     const word2Rect = word2El.getBoundingClientRect();
@@ -590,14 +590,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const x1 = word1Rect.right - containerRect.left + 5;
     const x2 = word2Rect.left - containerRect.left - 5;
-    const y = (word1Rect.top + word1Rect.height / 2 - containerRect.top);
+    const y = word1Rect.top + word1Rect.height / 2 - containerRect.top;
 
     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
     line.setAttribute('x1', x1);
     line.setAttribute('y1', y);
     line.setAttribute('x2', x1);
     line.setAttribute('y2', y);
-    line.setAttribute('stroke', color);
+    line.setAttribute('stroke', '#ffffff'); // Explicitly set to white
     line.setAttribute('stroke-width', '2');
     line.setAttribute('stroke-opacity', '0');
 
@@ -672,8 +672,8 @@ document.addEventListener('DOMContentLoaded', () => {
       svg.style.height = '100%';
       svg.style.pointerEvents = 'none';
       svg.style.zIndex = '10';
-      const line = drawConnectingLine(currentWordEl, nextWordEl, currentWordObj.color);
-      svg.appendChild(line);
+      const line = drawConnectingLine(currentWordEl, nextWordEl);
+      if (line) svg.appendChild(line);
       wordGroup.appendChild(svg);
     }
 
@@ -694,13 +694,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const containerRect = highlightWordsContainer.getBoundingClientRect();
         const x1 = word1Rect.right - containerRect.left + 5;
         const x2 = word2Rect.left - containerRect.left - 5;
-        const y = (word1Rect.top + word1Rect.height / 2 - containerRect.top);
+        const y = word1Rect.top + word1Rect.height / 2 - containerRect.top;
         const line = wordGroup.querySelector('.highlight-word-line line');
         if (line) {
-          line.setAttribute('x2', x2);
+          line.setAttribute('x1', x1);
           line.setAttribute('y2', y);
+          line.setAttribute('x2', x2);
           line.setAttribute('stroke-opacity', '0.7');
-          line.style.transition = 'x2 0.5s ease, stroke-opacity 0.5s ease';
+          line.style.transition = 'stroke-opacity 0.5s ease';
         }
       }
     }, 100);
