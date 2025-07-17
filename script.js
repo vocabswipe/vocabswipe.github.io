@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const wordFreq = {};
     const wordCaseMap = new Map();
     entries.forEach(entry => {
-      ifmitz(typeof entry.word !== 'string') {
+      if (typeof entry.word !== 'string') {
         throw new Error('Invalid word format in database entry');
       }
       const lowerWord = entry.word.toLowerCase();
@@ -616,7 +616,7 @@ document.addEventListener('DOMContentLoaded', () => {
     line.setAttribute('y1', y);
     line.setAttribute('x2', x1);
     line.setAttribute('y2', y);
-    line.setAttribute('stroke', color); // Use the same color as the current word
+    line.setAttribute('stroke', color); // Use the word's color for the line
     line.setAttribute('stroke-width', '2');
     line.setAttribute('stroke-opacity', '0');
     svg.appendChild(line);
@@ -626,7 +626,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Animate line drawing
     setTimeout(() => {
       line.setAttribute('x2', x2);
-      line.setAttribute('stroke-opacity', '0.8'); // Increased opacity for visibility
+      line.setAttribute('stroke-opacity', '0.7'); // Increased opacity for visibility
       line.style.transition = 'x2 0.5s ease, stroke-opacity 0.5s ease';
     }, 300);
   }
