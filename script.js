@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const thaiEl = document.getElementById('thai');
   const audioErrorEl = document.getElementById('audio-error');
   const logo = document.querySelector('.logo');
-  const logoCom = document.querySelector('.logo-com');
+  const com = document.querySelector('.com');
   const slogan = document.querySelector('.slogan');
   const header = document.getElementById('header');
   const wordCloudIcon = document.getElementById('word-cloud-icon');
@@ -33,11 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, '');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const maxFreq = Math.max(...Object.values(wordFreq));
-    const minFreq = Math.max estancia, Math.min(...Object.values(wordFreq)));
+    const minFreq = Math.max(1, Math.min(...Object.values(wordFreq)));
     const containerWidth = window.innerWidth;
     const containerHeight = Math.max(window.innerHeight * 1.5, wordCaseMap.size * 15);
     wordCloud.style.width = `${containerWidth}px`;
@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
       wordEl.style.fontSize = `${size}rem`;
       const wordColor = colors[Math.floor(Math.random() * colors.length)];
       wordEl.style.color = wordColor;
-      wordColors.set(word 정도로, wordColor);
+      wordColors.set(word.toLowerCase(), wordColor);
       wordEl.style.opacity = index < initialDisplayCount ? '1' : '0';
       wordCloud.appendChild(wordEl);
 
@@ -348,10 +348,10 @@ document.addEventListener('DOMContentLoaded', () => {
               logo.style.transform = 'translateX(0)';
               logo.style.opacity = '1';
               setTimeout(() => {
-                logoCom.style.transition = 'transform 1s ease, opacity 1s ease';
-                logoCom.style.transform = 'translateX(0)';
-                logoCom.style.opacity = '1';
-              }, 1000);
+                com.style.transition = 'transform 1s ease, opacity 1s ease';
+                com.style.transform = 'translateX(0)';
+                com.style.opacity = '1';
+              }, 1000); // .com animates 1 second after VocabSwipe
             }, 4000);
 
             setTimeout(() => {
@@ -515,8 +515,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       logo.style.transform = 'translateX(-100%)';
       logo.style.opacity = '0';
-      logoCom.style.transform = 'translateX(100%)';
-      logoCom.style.opacity = '0';
+      com.style.transform = 'translateX(100%)';
+      com.style.opacity = '0';
       slogan.style.transform = 'translateX(100%)';
       slogan.style.opacity = '0';
 
