@@ -106,7 +106,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -114,6 +113,15 @@ body {
   z-index: 10;
   width: 100%;
   min-height: 1.4rem;
+}
+
+.highlight-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* Increased from 10px to 30px for ~3x distance */
+  position: relative;
+  transition: opacity 0.3s ease;
 }
 
 .highlight-word {
@@ -136,7 +144,7 @@ body {
   opacity: 0;
 }
 
-.highlight-word.glow {
+.highlight-group.glow {
   animation: text-glow 0.5s ease-in-out;
 }
 
@@ -339,6 +347,7 @@ body {
   max-height: 90vh;
   overflow: auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 
 .popup-content p[lang="en"] {
@@ -369,6 +378,21 @@ body {
   max-width: 200px;
   width: 100%;
   margin: 10px 0;
+}
+
+.close-icon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.close-icon:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
 }
 
 /* Tooltip Styles */
@@ -542,6 +566,13 @@ svg.filters {
     font-size: 0.7rem;
   }
 
+  .close-icon {
+    width: 20px;
+    height: 20px;
+    bottom: 8px;
+    right: 8px;
+  }
+
   .tooltip-icon {
     width: 32px;
     height: 32px;
@@ -549,6 +580,10 @@ svg.filters {
 
   .tooltip-text {
     font-size: 0.9rem;
+  }
+
+  .highlight-group {
+    gap: 20px; /* Adjusted for smaller screens */
   }
 
   .highlight-word {
