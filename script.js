@@ -47,11 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&apos;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -261,7 +261,6 @@ document.addEventListener('DOMContentLoaded', () => {
     logo.style.filter = 'blur(5px)';
     logoCom.style.filter = 'blur(5px)';
     slogan.style.filter = 'blur(5px)';
-    highlightWordsContainer.style.filter = 'none'; // No blur on highlight-words-container
     flashcard.style.filter = 'none'; // Ensure flashcard remains clear
 
     tooltip.style.display = 'flex';
@@ -317,7 +316,6 @@ document.addEventListener('DOMContentLoaded', () => {
         logo.style.filter = 'none';
         logoCom.style.filter = 'none';
         slogan.style.filter = 'none';
-        highlightWordsContainer.style.filter = 'none';
       }
     }, direction === 'tap' ? 2500 : 2000);
   }
@@ -605,7 +603,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const word1Rect = word1El.getBoundingClientRect();
     const word2Rect = word2El.getBoundingClientRect();
-    const containerRect = flashcard.getBoundingClientRect();
+    const containerRect = highlightWordsContainer.getBoundingClientRect();
 
     const x1 = word1Rect.right - containerRect.left + 5;
     const x2 = word2Rect.left - containerRect.left - 5;
@@ -621,14 +619,14 @@ document.addEventListener('DOMContentLoaded', () => {
     line.setAttribute('stroke-opacity', '0');
     svg.appendChild(line);
 
-    flashcard.appendChild(svg);
+    highlightWordsContainer.appendChild(svg);
 
     // Animate line drawing
     setTimeout(() => {
       line.setAttribute('x2', x2);
       line.setAttribute('stroke-opacity', '0.7');
       line.style.transition = 'x2 0.5s ease, stroke-opacity 0.5s ease';
-    }, 600);
+    }, 300);
   }
 
   function displayEntry(index) {
@@ -659,7 +657,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update highlighted words in the middle of the flashcard
     highlightWordsContainer.innerHTML = '';
-    const highlightedWords = wordsToHighlight.filter(w => entry.english.toLowerCase().includes w.word.toLowerCase()));
+    const highlightedWords = wordsToHighlight.filter(w => entry.english.toLowerCase().includes(w.word.toLowerCase()));
     const currentWordObj = highlightedWords.find(w => w.word.toLowerCase() === currentWord.toLowerCase());
     const nextWordObj = highlightedWords.find(w => w.word.toLowerCase() !== currentWord.toLowerCase());
 
@@ -675,7 +673,7 @@ document.addEventListener('DOMContentLoaded', () => {
       currentWordEl.style.transform = 'translateX(-100px)';
       highlightWordsContainer.appendChild(currentWordEl);
 
-      // Animate current word sliding in from the left
+      // Animate current word sliding in from left
       setTimeout(() => {
         currentWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
         currentWordEl.style.transform = 'translateX(0)';
@@ -692,16 +690,14 @@ document.addEventListener('DOMContentLoaded', () => {
       nextWordEl.style.transform = 'translateX(100px)';
       highlightWordsContainer.appendChild(nextWordEl);
 
-      // Animate next word sliding in from the right
+      // Animate next word sliding in from right
       setTimeout(() => {
         nextWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
         nextWordEl.style.transform = 'translateX(0)';
         nextWordEl.style.opacity = '1';
       }, 100);
-    }
 
-    // Draw connecting line after both words have animated
-    if (currentWordObj && nextWordObj) {
+      // Draw connecting line after animation
       setTimeout(() => {
         drawConnectingLine(currentWordEl, nextWordEl, currentWordObj.color);
       }, 600);
@@ -784,40 +780,40 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
       console.log('Swipe up detected, going to next entry');
       stopAudio();
-      // Fade out highlighted words and line
+      // Instantly hide highlighted words and line
       document.querySelectorAll('.highlight-word').forEach(wordEl => {
-        wordEl.style.transition = 'opacity 0.3s ease';
+        wordEl.style.transition = 'none';
         wordEl.style.opacity = '0';
       });
       const connectingLine = document.querySelector('.highlight-word-line');
       if (connectingLine) {
-        connectingLine.style.transition = 'opacity 0.3s ease';
+        connectingLine.style.transition = 'none';
         connectingLine.style.opacity = '0';
       }
       setTimeout(() => {
         currentIndex++;
         currentColorIndex = (currentColorIndex + 1) % colors.length;
         displayEntry(currentIndex);
-      }, 300);
+      }, 0);
       lastSwipeTime = Date.now();
     } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
       console.log('Swipe down detected, going to previous entry');
       stopAudio();
-      // Fade out highlighted words and line
+      // Instantly hide highlighted words and line
       document.querySelectorAll('.highlight-word').forEach(wordEl => {
-        wordEl.style.transition = 'opacity 0.3s ease';
+        wordEl.style.transition = 'none';
         wordEl.style.opacity = '0';
       });
       const connectingLine = document.querySelector('.highlight-word-line');
       if (connectingLine) {
-        connectingLine.style.transition = 'opacity 0.3s ease';
+        connectingLine.style.transition = 'none';
         connectingLine.style.opacity = '0';
       }
       setTimeout(() => {
         currentIndex--;
         currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
         displayEntry(currentIndex);
-      }, 300);
+      }, 0);
       lastSwipeTime = Date.now();
     }
   }, { passive: false });
@@ -827,40 +823,40 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'ArrowUp' && currentIndex < entries.length - 1) {
         console.log('Arrow up pressed, going to next entry');
         stopAudio();
-        // Fade out highlighted words and line
+        // Instantly hide highlighted words and line
         document.querySelectorAll('.highlight-word').forEach(wordEl => {
-          wordEl.style.transition = 'opacity 0.3s ease';
+          wordEl.style.transition = 'none';
           wordEl.style.opacity = '0';
         });
         const connectingLine = document.querySelector('.highlight-word-line');
         if (connectingLine) {
-          connectingLine.style.transition = 'opacity 0.3s ease';
+          connectingLine.style.transition = 'none';
           connectingLine.style.opacity = '0';
         }
         setTimeout(() => {
           currentIndex++;
           currentColorIndex = (currentColorIndex + 1) % colors.length;
           displayEntry(currentIndex);
-        }, 300);
+        }, 0);
         lastSwipeTime = Date.now();
       } else if (e.key === 'ArrowDown' && currentIndex > 0) {
         console.log('Arrow down pressed, going to previous entry');
         stopAudio();
-        // Fade out highlighted words and line
+        // Instantly hide highlighted words and line
         document.querySelectorAll('.highlight-word').forEach(wordEl => {
-          wordEl.style.transition = 'opacity 0.3s ease';
+          wordEl.style.transition = 'none';
           wordEl.style.opacity = '0';
         });
         const connectingLine = document.querySelector('.highlight-word-line');
         if (connectingLine) {
-          connectingLine.style.transition = 'opacity 0.3s ease';
+          connectingLine.style.transition = 'none';
           connectingLine.style.opacity = '0';
         }
         setTimeout(() => {
           currentIndex--;
           currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
           displayEntry(currentIndex);
-        }, 300);
+        }, 0);
         lastSwipeTime = Date.now();
       } else if (e.key === ' ') {
         e.preventDefault();
