@@ -57,7 +57,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  opacity: 0;
+  opacity:  personally;
   transition: opacity 0.3s ease;
   z-index: 5;
 }
@@ -94,6 +94,7 @@ body {
   align-items: center;
   padding: 20px;
   padding-top: 60px;
+  position: relative; /* Ensure tooltips are positioned relative to container */
 }
 
 .logo-container {
@@ -114,7 +115,7 @@ body {
   animation: colorChange 60s infinite linear;
   opacity: 0;
   transform: translateX(-100%);
-  transition: transform 1s ease, opacity 1s ease;
+  transition: transform 1s ease, opacity 1s ease, filter 0.3s ease;
 }
 
 .logo-com {
@@ -124,7 +125,7 @@ body {
   animation: colorChange 60s infinite linear;
   opacity: 0;
   transform: translateX(100%);
-  transition: transform 1s ease, opacity 1s ease;
+  transition: transform 1s ease, opacity 1s ease, filter 0.3s ease;
 }
 
 @keyframes colorChange {
@@ -146,7 +147,7 @@ body {
   color: #b0b0b0;
   opacity: 0;
   transform: translateX(100%);
-  transition: transform 1s ease, opacity 1s ease;
+  transition: transform 1s ease, opacity 1s ease, filter 0.3s ease;
 }
 
 .flashcard {
@@ -163,8 +164,7 @@ body {
   touch-action: pan-y;
   user-select: none;
   cursor: pointer;
-  transition: transform 0.2s ease, filter 0.3s ease;
-  position: relative; /* For absolute positioning of tooltips */
+  transition: transform 0.2s ease;
 }
 
 .flashcard:active {
@@ -296,74 +296,75 @@ body {
   margin: 10px 0;
 }
 
+/* Tooltip Styles */
 .tooltip {
   position: absolute;
   display: none;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  z-index: 30;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: transform 2s ease, opacity 0.5s ease;
-}
-
-.tooltip.swipe-up {
-  transform: translate(-50%, -50%); /* Start at center */
-}
-
-.tooltip.swipe-down {
-  transform: translate(-50%, -50%) rotate(180deg); /* Start at center, rotated */
-}
-
-.tooltip.animate-up {
-  transform: translate(-50%, -150%) translateY(-100%); /* Move to top edge */
-  opacity: 1;
-}
-
-.tooltip.animate-down {
-  transform: translate(-50%, 150%) translateY(100%) rotate(180deg); /* Move to bottom edge */
-  opacity: 1;
+  z-index: 150;
+  transform: translateX(-50%); /* Center horizontally */
 }
 
 .tooltip-icon {
-  width: 24px;
-  height: 24px;
-  filter: invert(1); /* White icon */
+  width: 40px;
+  height: 40px;
+  filter: url(#motion-blur); /* Apply SVG filter for trail effect */
 }
 
 .tooltip-text {
   font-family: 'Roboto', sans-serif;
-  font-size: 0.9rem;
-  color: #b0b0b0; /* Gray text */
+  font-size: 1rem;
+  color: #00ff88; /* Match assumed icon color */
+  margin-top: 8px;
+  text-align: center;
+  text-shadow: 0 0 5px rgba(0, 255, 136, 0.7);
 }
 
-.tooltip::after {
-  content: '';
+.swipe-up-tooltip.animate-up {
+  animation: moveUp 2s ease-out forwards;
+}
+
+.swipe-down-tooltip.animate-down {
+  animation: moveDown 2s ease-out forwards;
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-200px); /* Move to top edge */
+    opacity: 0;
+  }
+}
+
+@keyframes moveDown {
+  0% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(200px); /* Move to bottom edge */
+    opacity: 0;
+  }
+}
+
+/* SVG Filter for Trail Effect */
+svg.filters {
   position: absolute;
-  width: 2px;
-  height: 50px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(176, 176, 176, 0.2));
-  z-index: -1;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  transition: opacity 0.5s ease, height 2s ease;
+  width: 0;
+  height: 0;
 }
 
-.tooltip.animate-up::after {
-  top: 100%;
-  height: 100px;
-  opacity: 1;
-}
-
-.tooltip.animate-down::after {
-  bottom: 100%;
-  height: 100px;
-  opacity: 1;
-}
-
+/* Media Queries */
 @media (max-width: 600px) {
   .header {
     padding: 8px 16px;
@@ -433,20 +434,11 @@ body {
   }
 
   .tooltip-icon {
-    width: 20px;
-    height: 20px;
+    width: 32px;
+    height: 32px;
   }
 
   .tooltip-text {
-    font-size: 0.8rem;
-  }
-
-  .tooltip::after {
-    height: 40px;
-  }
-
-  .tooltip.animate-up::after,
-  .tooltip.animate-down::after {
-    height: 80px;
+    font-size: 0.9rem;
   }
 }
