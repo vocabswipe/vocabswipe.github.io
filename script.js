@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (direction === 'tap') {
       const wordRect = wordEl.getBoundingClientRect();
       const englishRect = englishEl.getBoundingClientRect();
-      centerY = wordRect.bottom + (englishRect.top - wordRect.bottom) / 2 - containerRect.top;
+      centerY = wordRect.bottom + (englishRect.top - wordRect.bottom) / 2 - containerRect.top - 10; // Move tap tooltip up by 10 pixels
     } else {
       centerY = flashcardRect.top - containerRect.top + flashcardRect.height / 2;
     }
