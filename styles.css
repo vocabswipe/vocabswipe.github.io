@@ -99,7 +99,7 @@ body {
 
 .logo-container {
   text-align: center;
-  margin-bottom: 10px; /* Reduced to move highlighted words up */
+  margin-bottom: 10px;
 }
 
 .highlight-words-container {
@@ -107,7 +107,8 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-bottom: 5px; /* Further reduced to move words up */
+  margin-bottom: 5px;
+  margin-top: -20px; /* Move words up by 20px */
   min-height: 1.4rem;
   position: relative;
   transition: filter 0.3s ease;
@@ -131,29 +132,41 @@ body {
   opacity: 0;
 }
 
-.highlight-word.glow {
-  animation: glow 0.5s ease-in-out;
+.highlight-word.glow-word {
+  animation: glow-word 0.5s ease-in-out;
+}
+
+@keyframes glow-word {
+  0% {
+    text-shadow: 0 0 5px var(--glow-color, rgba(0, 255, 136, 0.5));
+  }
+  50% {
+    text-shadow: 0 0 10px var(--glow-color, rgba(0, 255, 136, 0.7));
+  }
+  100% {
+    text-shadow: 0 0 5px var(--glow-color, rgba(0, 255, 136, 0.5));
+  }
 }
 
 .highlight-word-line {
   transition: opacity 0.3s ease;
 }
 
-.highlight-word-line.glow {
+.highlight-word-line.glow-line {
   animation: glow-line 0.5s ease-in-out;
 }
 
 @keyframes glow-line {
   0% {
-    stroke: var(--glow-color, #ffffff);
+    stroke: #ffffff;
     stroke-opacity: 0.5;
   }
   50% {
-    stroke: var(--glow-color, #ffffff);
+    stroke: #ffffff;
     stroke-opacity: 1;
   }
   100% {
-    stroke: var(--glow-color, #ffffff);
+    stroke: #ffffff;
     stroke-opacity: 0.5;
   }
 }
