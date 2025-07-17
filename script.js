@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const loading = document.getElementById('loading');
   const wordCloud = document.getElementById('word-cloud');
   const flashcardContainer = document.getElementById('flashcard-container');
   const flashcard = document.getElementById('flashcard');
@@ -6,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const englishEl = document.getElementById('english');
   const thaiEl = document.getElementById('thai');
   const audioErrorEl = document.getElementById('audio-error');
-  const logo = document.querySelectorらしい('.logo');
+  const logo = document.querySelector('.logo');
   const logoCom = document.querySelector('.logo-com');
   const slogan = document.querySelector('.slogan');
   const header = document.getElementById('header');
@@ -68,7 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadData() {
     try {
-      wordCloud.style.display = 'block';
+      loading.style.display = 'flex';
+      wordCloud.style.display = 'none';
       console.log('Fetching data/database.jsonl...');
       const response = await fetch('data/database.jsonl');
       if (!response.ok) {
@@ -90,9 +92,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       console.log(`Loaded ${entries.length} entries`);
+      loading.style.display = 'none';
+      wordCloud.style.display = 'block';
       displayWordCloud();
     } catch (error) {
       console.error('LoadData Error:', error);
+      loading.style.display = 'none';
       wordCloud.innerHTML = `
         <div class="error-message">
           Failed to load vocabulary data. Please ensure 'data/database.jsonl' exists and is valid.
@@ -182,7 +187,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (wordGroup) {
           wordGroup.classList.add('glow');
           const lineSvg = wordGroup.querySelector('.highlight-word-line');
-          if (lineSvg) lineSvg.classList.add('glow');
+          if (lineSvg) {
+            lineSvg.classList.add('glow');
+            console.log('Applying glow to connecting line');
+          }
         }
         setTimeout(() => {
           flashcard.classList.remove('glow');
@@ -335,7 +343,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const wordCaseMap = new Map();
     entries.forEach(entry => {
       if (typeof entry.word !== 'string') {
-        throw new Error('Invalid word format in database entry');
+        console.error('Invalid word format in database entry:', entry);
+        return;
       }
       const lowerWord = entry.word.toLowerCase();
       wordFreq[lowerWord] = (wordFreq[lowerWord] || 0) + 1;
@@ -596,7 +605,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function drawConnectingLine(word1El, word2El) {
-    if (!word1El || !word2El) return null;
+    if (!word1El || !word2El) {
+      console.warn('Cannot draw connecting line: one or both words are missing');
+      return null;
+    }
 
     const word1Rect = word1El.getBoundingClientRect();
     const word2Rect = word2El.getBoundingClientRect();
@@ -616,11 +628,15 @@ document.addEventListener('DOMContentLoaded', () => {
     line.setAttribute('stroke-opacity', '0');
     line.style.transition = 'stroke-opacity 0.5s ease';
 
+    console.log(`Drawing line from (${x1}, ${y}) to (${x2}, ${y})`);
     return line;
   }
 
   function displayEntry(index) {
-    if (index < 0 || index >= entries.length) return;
+    if (index < 0 || index >= entries.length) {
+      console.warn(`Invalid index: ${index}`);
+      return;
+    }
     const entry = entries[index];
     const currentWord = entry.word;
 
@@ -652,6 +668,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const wordGroup = document.createElement('div');
     wordGroup.className = 'highlight-word-group';
+    wordGroup.style.opacity = '0';
     highlightWordsContainer.appendChild(wordGroup);
 
     let currentWordEl = null;
@@ -693,6 +710,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     setTimeout(() => {
+      wordGroup.style.transition = 'opacity 0.5s ease';
+      wordGroup.style.opacity = '1';
       if (currentWordEl) {
         currentWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
         currentWordEl.style.transform = 'translateX(0)';
@@ -717,6 +736,7 @@ document.addEventListener('DOMContentLoaded', () => {
           line.setAttribute('x2', x2);
           line.setAttribute('y2', y);
           line.setAttribute('stroke-opacity', '0.7');
+          console.log(`Line updated to (${x1}, ${y}) to (${x2}, ${y})`);
         }
       }
     }, 100);
