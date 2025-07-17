@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const loading = document.getElementById('loading');
   const wordCloud = document.getElementById('word-cloud');
   const flashcardContainer = document.getElementById('flashcard-container');
   const flashcard = document.getElementById('flashcard');
@@ -69,8 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadData() {
     try {
-      loading.style.display = 'flex';
-      wordCloud.style.display = 'none';
+      wordCloud.style.display = 'block';
       console.log('Fetching data/database.jsonl...');
       const response = await fetch('data/database.jsonl');
       if (!response.ok) {
@@ -92,12 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       console.log(`Loaded ${entries.length} entries`);
-      loading.style.display = 'none';
-      wordCloud.style.display = 'block';
       displayWordCloud();
     } catch (error) {
       console.error('LoadData Error:', error);
-      loading.style.display = 'none';
       wordCloud.innerHTML = `
         <div class="error-message">
           Failed to load vocabulary data. Please ensure 'data/database.jsonl' exists and is valid.
@@ -184,20 +179,10 @@ document.addEventListener('DOMContentLoaded', () => {
         flashcard.classList.add('glow');
         flashcard.style.setProperty('--glow-color', wordColor);
         const wordGroup = document.querySelector('.highlight-word-group');
-        if (wordGroup) {
-          wordGroup.classList.add('glow');
-          const lineSvg = wordGroup.querySelector('.highlight-word-line');
-          if (lineSvg) {
-            lineSvg.classList.add('glow');
-            console.log('Applying glow to connecting line');
-          }
-        }
+        if (wordGroup) wordGroup.classList.add('glow');
         setTimeout(() => {
           flashcard.classList.remove('glow');
-          if (wordGroup) {
-            wordGroup.classList.remove('glow');
-            if (lineSvg) lineSvg.classList.remove('glow');
-          }
+          if (wordGroup) wordGroup.classList.remove('glow');
         }, 500);
         audioErrorEl.style.display = 'none';
       }).catch(e => {
@@ -304,17 +289,10 @@ document.addEventListener('DOMContentLoaded', () => {
           flashcard.classList.add('glow');
           flashcard.style.setProperty('--glow-color', '#00ff88');
           const wordGroup = document.querySelector('.highlight-word-group');
-          if (wordGroup) {
-            wordGroup.classList.add('glow');
-            const lineSvg = wordGroup.querySelector('.highlight-word-line');
-            if (lineSvg) lineSvg.classList.add('glow');
-          }
+          if (wordGroup) wordGroup.classList.add('glow');
           setTimeout(() => {
             flashcard.classList.remove('glow');
-            if (wordGroup) {
-              wordGroup.classList.remove('glow');
-              if (lineSvg) lineSvg.classList.remove('glow');
-            }
+            if (wordGroup) wordGroup.classList.remove('glow');
           }, 500);
         }, 1000);
       } else {
@@ -343,8 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const wordCaseMap = new Map();
     entries.forEach(entry => {
       if (typeof entry.word !== 'string') {
-        console.error('Invalid word format in database entry:', entry);
-        return;
+        throw new Error('Invalid word format in database entry');
       }
       const lowerWord = entry.word.toLowerCase();
       wordFreq[lowerWord] = (wordFreq[lowerWord] || 0) + 1;
@@ -605,10 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function drawConnectingLine(word1El, word2El) {
-    if (!word1El || !word2El) {
-      console.warn('Cannot draw connecting line: one or both words are missing');
-      return null;
-    }
+    if (!word1El || !word2El) return null;
 
     const word1Rect = word1El.getBoundingClientRect();
     const word2Rect = word2El.getBoundingClientRect();
@@ -619,24 +593,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const y = word1Rect.top + word1Rect.height / 2 - containerRect.top;
 
     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.setAttribute('x1', x1);
-    line.setAttribute('y1', y);
-    line.setAttribute('x2', x2);
-    line.setAttribute('y2', y);
+    line.setAttribute('x1', x1.toString());
+    line.setAttribute('y1', y.toString());
+    line.setAttribute('x2', x1.toString());
+    line.setAttribute('y2', y.toString());
     line.setAttribute('stroke', '#ffffff');
     line.setAttribute('stroke-width', '2');
     line.setAttribute('stroke-opacity', '0');
-    line.style.transition = 'stroke-opacity 0.5s ease';
 
-    console.log(`Drawing line from (${x1}, ${y}) to (${x2}, ${y})`);
-    return line;
+    return { line, x1, x2, y };
   }
 
   function displayEntry(index) {
-    if (index < 0 || index >= entries.length) {
-      console.warn(`Invalid index: ${index}`);
-      return;
-    }
+    if (index < 0 || index >= entries.length) return;
     const entry = entries[index];
     const currentWord = entry.word;
 
@@ -668,7 +637,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const wordGroup = document.createElement('div');
     wordGroup.className = 'highlight-word-group';
-    wordGroup.style.opacity = '0';
     highlightWordsContainer.appendChild(wordGroup);
 
     let currentWordEl = null;
@@ -694,24 +662,18 @@ document.addEventListener('DOMContentLoaded', () => {
       wordGroup.appendChild(nextWordEl);
     }
 
-    if (currentWordEl && nextWordEl) {
-      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      svg.className = 'highlight-word-line';
-      svg.style.position = 'absolute';
-      svg.style.top = '0';
-      svg.style.left = '0';
-      svg.style.width = '100%';
-      svg.style.height = '100%';
-      svg.style.pointerEvents = 'none';
-      svg.style.zIndex = '10';
-      const line = drawConnectingLine(currentWordEl, nextWordEl);
-      if (line) svg.appendChild(line);
-      wordGroup.appendChild(svg);
-    }
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.className = 'highlight-word-line';
+    svg.style.position = 'absolute';
+    svg.style.top = '0';
+    svg.style.left = '0';
+    svg.style.width = '100%';
+    svg.style.height = '100%';
+    svg.style.pointerEvents = 'none';
+    svg.style.zIndex = '10';
+    wordGroup.appendChild(svg);
 
     setTimeout(() => {
-      wordGroup.style.transition = 'opacity 0.5s ease';
-      wordGroup.style.opacity = '1';
       if (currentWordEl) {
         currentWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
         currentWordEl.style.transform = 'translateX(0)';
@@ -723,20 +685,17 @@ document.addEventListener('DOMContentLoaded', () => {
         nextWordEl.style.opacity = '1';
       }
       if (currentWordEl && nextWordEl) {
-        const word1Rect = currentWordEl.getBoundingClientRect();
-        const word2Rect = nextWordEl.getBoundingClientRect();
-        const containerRect = highlightWordsContainer.getBoundingClientRect();
-        const x1 = word1Rect.right - containerRect.left + 5;
-        const x2 = word2Rect.left - containerRect.left - 5;
-        const y = word1Rect.top + word1Rect.height / 2 - containerRect.top;
-        const line = wordGroup.querySelector('.highlight-word-line line');
-        if (line) {
-          line.setAttribute('x1', x1);
-          line.setAttribute('y1', y);
-          line.setAttribute('x2', x2);
-          line.setAttribute('y2', y);
+        const lineData = drawConnectingLine(currentWordEl, nextWordEl);
+        if (lineData) {
+          const { line, x1, x2, y } = lineData;
+          svg.innerHTML = ''; // Clear previous lines
+          svg.appendChild(line);
+          line.setAttribute('x1', x1.toString());
+          line.setAttribute('y1', y.toString());
+          line.setAttribute('x2', x2.toString());
+          line.setAttribute('y2', y.toString());
           line.setAttribute('stroke-opacity', '0.7');
-          console.log(`Line updated to (${x1}, ${y}) to (${x2}, ${y})`);
+          line.style.transition = 'stroke-opacity 0.5s ease';
         }
       }
     }, 100);
