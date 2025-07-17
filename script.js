@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const donatePopup = document.getElementById('donate-popup');
   const swipeUpTooltip = document.getElementById('swipe-up-tooltip');
   const swipeDownTooltip = document.getElementById('swipe-down-tooltip');
+  const tapTooltip = document.getElementById('tap-tooltip');
 
   let entries = [];
   let currentIndex = 0;
@@ -40,11 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -205,43 +206,60 @@ document.addEventListener('DOMContentLoaded', () => {
     showDonatePopup();
   });
 
-  function showTooltip(tooltip, direction) {
+  function showTooltip(tooltip, type) {
     // Apply blur to non-flashcard elements
     header.style.filter = 'blur(5px)';
     logo.style.filter = 'blur(5px)';
     logoCom.style.filter = 'blur(5px)';
     slogan.style.filter = 'blur(5px)';
-    
+
     // Show tooltip
     tooltip.style.display = 'flex';
-    
+
     // Get flashcard position and size
     const flashcardRect = flashcard.getBoundingClientRect();
     const containerRect = flashcardContainer.getBoundingClientRect();
-    
+
     // Position tooltip at flashcard center
     const centerX = flashcardRect.left - containerRect.left + flashcardRect.width / 2;
     const centerY = flashcardRect.top - containerRect.top + flashcardRect.height / 2;
     tooltip.style.left = `${centerX}px`;
     tooltip.style.top = `${centerY}px`;
-    
-    // Trigger animation based on direction
+
+    // Trigger animation based on type
     setTimeout(() => {
-      tooltip.classList.add(direction === 'up' ? 'animate-up' : 'animate-down');
+      if (type === 'up') {
+        tooltip.classList.add('animate-up');
+      } else if (type === 'down') {
+        tooltip.classList.add('animate-down');
+      } else if (type === 'tap') {
+        tooltip.classList.add('animate-tap');
+        // Trigger glow effect without audio
+        setTimeout(() => {
+          flashcard.classList.add('glow');
+          flashcard.style.setProperty('--glow-color', colors[currentColorIndex]);
+          setTimeout(() => flashcard.classList.remove('glow'), 500);
+        }, 1000); // Sync with tap animation peak
+      }
     }, 100);
-    
+
     // Remove tooltip and reset blur after animation
+    const animationDuration = type === 'tap' ? 1500 : 2000; // Tap animation is shorter
     setTimeout(() => {
       tooltip.style.display = 'none';
-      tooltip.classList.remove(direction === 'up' ? 'animate-up' : 'animate-down');
+      tooltip.classList.remove(type === 'up' ? 'animate-up' : type === 'down' ? 'animate-down' : 'animate-tap');
       // Reset blur only if no other tooltip is animating
-      if (swipeUpTooltip.style.display === 'none' && swipeDownTooltip.style.display === 'none') {
+      if (
+        swipeUpTooltip.style.display === 'none' &&
+        swipeDownTooltip.style.display === 'none' &&
+        tapTooltip.style.display === 'none'
+      ) {
         header.style.filter = 'none';
         logo.style.filter = 'none';
         logoCom.style.filter = 'none';
         slogan.style.filter = 'none';
       }
-    }, 2000); // Matches animation duration
+    }, animationDuration);
   }
 
   function displayWordCloud() {
@@ -427,6 +445,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 showTooltip(swipeUpTooltip, 'up');
                 setTimeout(() => {
                   showTooltip(swipeDownTooltip, 'down');
+                  setTimeout(() => {
+                    showTooltip(tapTooltip, 'tap');
+                  }, 2500); // Start tap after swipe-down completes
                 }, 2500); // Start swipe-down after swipe-up completes
               }, 6000); // Delay to allow logo/slogan animations to finish
             }
@@ -574,7 +595,7 @@ document.addEventListener('DOMContentLoaded', () => {
       logo.style.opacity = '0';
       logoCom.style.transform = 'translateX(100%)';
       logoCom.style.opacity = '0';
-      slogan.style.transform =  'translateX(100%)';
+      slogan.style.transform = 'translateX(100%)';
       slogan.style.opacity = '0';
 
       document.querySelectorAll('.cloud-word').forEach(word => {
