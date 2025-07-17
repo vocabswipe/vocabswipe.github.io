@@ -13,10 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const wordCloudIcon = document.getElementById('word-cloud-icon');
   const donateIcon = document.getElementById('donate-icon');
   const donatePopup = document.getElementById('donate-popup');
+  const closeDonatePopup = document.getElementById('close-donate-popup');
   const swipeUpTooltip = document.getElementById('swipe-up-tooltip');
   const swipeDownTooltip = document.getElementById('swipe-down-tooltip');
   const tapTooltip = document.getElementById('tap-tooltip');
   const highlightWordsContainer = document.getElementById('highlight-words-container');
+  const highlightGroup = document.getElementById('highlight-group');
 
   let entries = [];
   let currentIndex = 0;
@@ -51,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -177,15 +179,11 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Audio playing successfully');
         flashcard.classList.add('glow');
         flashcard.style.setProperty('--glow-color', wordColor);
-        // Add glow to highlighted words and line
-        const highlightWords = document.querySelectorAll('.highlight-word');
-        const connectingLine = document.querySelector('.highlight-word-line');
-        highlightWords.forEach(word => word.classList.add('glow'));
-        if (connectingLine) connectingLine.classList.add('glow');
+        // Add glow to highlight group
+        highlightGroup.classList.add('glow');
         setTimeout(() => {
           flashcard.classList.remove('glow');
-          highlightWords.forEach(word => word.classList.remove('glow'));
-          if (connectingLine) connectingLine.classList.remove('glow');
+          highlightGroup.classList.remove('glow');
         }, 500);
         audioErrorEl.style.display = 'none';
       }).catch(e => {
@@ -219,6 +217,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   donateIcon.addEventListener('click', () => {
     showDonatePopup();
+  });
+
+  closeDonatePopup.addEventListener('click', () => {
+    hideDonatePopup();
   });
 
   function showTooltip(tooltip, direction) {
@@ -288,15 +290,10 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           flashcard.classList.add('glow');
           flashcard.style.setProperty('--glow-color', '#00ff88');
-          // Add glow to highlighted words and line
-          const highlightWords = document.querySelectorAll('.highlight-word');
-          const connectingLine = document.querySelector('.highlight-word-line');
-          highlightWords.forEach(word => word.classList.add('glow'));
-          if (connectingLine) connectingLine.classList.add('glow');
+          highlightGroup.classList.add('glow');
           setTimeout(() => {
             flashcard.classList.remove('glow');
-            highlightWords.forEach(word => word.classList.remove('glow'));
-            if (connectingLine) connectingLine.classList.remove('glow');
+            highlightGroup.classList.remove('glow');
           }, 500);
         }, 1000);
       } else {
@@ -585,8 +582,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  function drawConnectingLine(word1El, word2El, color) {
-    const existingLine = document.querySelector('.highlight-word-line');
+  function drawConnectingLine(word1El, word2El) {
+    const existingLine = highlightGroup.querySelector('.highlight-word-line');
     if (existingLine) existingLine.remove();
 
     if (!word1El || !word2El) return;
@@ -603,7 +600,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const word1Rect = word1El.getBoundingClientRect();
     const word2Rect = word2El.getBoundingClientRect();
-    const containerRect = highlightWordsContainer.getBoundingClientRect();
+    const containerRect = highlightGroup.getBoundingClientRect();
 
     const x1 = word1Rect.right - containerRect.left + 5;
     const x2 = word2Rect.left - containerRect.left - 5;
@@ -614,12 +611,12 @@ document.addEventListener('DOMContentLoaded', () => {
     line.setAttribute('y1', y);
     line.setAttribute('x2', x1);
     line.setAttribute('y2', y);
-    line.setAttribute('stroke', color);
+    line.setAttribute('stroke', '#ffffff');
     line.setAttribute('stroke-width', '2');
     line.setAttribute('stroke-opacity', '0');
     svg.appendChild(line);
 
-    highlightWordsContainer.appendChild(svg);
+    highlightGroup.appendChild(svg);
 
     // Animate line drawing
     setTimeout(() => {
@@ -656,7 +653,7 @@ document.addEventListener('DOMContentLoaded', () => {
     audioErrorEl.style.display = 'none';
 
     // Update highlighted words in the middle of the flashcard
-    highlightWordsContainer.innerHTML = '';
+    highlightGroup.innerHTML = '';
     const highlightedWords = wordsToHighlight.filter(w => entry.english.toLowerCase().includes(w.word.toLowerCase()));
     const currentWordObj = highlightedWords.find(w => w.word.toLowerCase() === currentWord.toLowerCase());
     const nextWordObj = highlightedWords.find(w => w.word.toLowerCase() !== currentWord.toLowerCase());
@@ -671,7 +668,7 @@ document.addEventListener('DOMContentLoaded', () => {
       currentWordEl.style.color = currentWordObj.color;
       currentWordEl.style.opacity = '0';
       currentWordEl.style.transform = 'translateX(-100px)';
-      highlightWordsContainer.appendChild(currentWordEl);
+      highlightGroup.appendChild(currentWordEl);
 
       // Animate current word sliding in from left
       setTimeout(() => {
@@ -688,7 +685,7 @@ document.addEventListener('DOMContentLoaded', () => {
       nextWordEl.style.color = nextWordObj.color;
       nextWordEl.style.opacity = '0';
       nextWordEl.style.transform = 'translateX(100px)';
-      highlightWordsContainer.appendChild(nextWordEl);
+      highlightGroup.appendChild(nextWordEl);
 
       // Animate next word sliding in from right
       setTimeout(() => {
@@ -699,7 +696,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Draw connecting line after animation
       setTimeout(() => {
-        drawConnectingLine(currentWordEl, nextWordEl, currentWordObj.color);
+        drawConnectingLine(currentWordEl, nextWordEl);
       }, 600);
     }
 
@@ -780,16 +777,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
       console.log('Swipe up detected, going to next entry');
       stopAudio();
-      // Instantly hide highlighted words and line
-      document.querySelectorAll('.highlight-word').forEach(wordEl => {
-        wordEl.style.transition = 'none';
-        wordEl.style.opacity = '0';
-      });
-      const connectingLine = document.querySelector('.highlight-word-line');
-      if (connectingLine) {
-        connectingLine.style.transition = 'none';
-        connectingLine.style.opacity = '0';
-      }
+      // Instantly hide highlight group
+      highlightGroup.style.transition = 'none';
+      highlightGroup.style.opacity = '0';
       setTimeout(() => {
         currentIndex++;
         currentColorIndex = (currentColorIndex + 1) % colors.length;
@@ -799,16 +789,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
       console.log('Swipe down detected, going to previous entry');
       stopAudio();
-      // Instantly hide highlighted words and line
-      document.querySelectorAll('.highlight-word').forEach(wordEl => {
-        wordEl.style.transition = 'none';
-        wordEl.style.opacity = '0';
-      });
-      const connectingLine = document.querySelector('.highlight-word-line');
-      if (connectingLine) {
-        connectingLine.style.transition = 'none';
-        connectingLine.style.opacity = '0';
-      }
+      // Instantly hide highlight group
+      highlightGroup.style.transition = 'none';
+      highlightGroup.style.opacity = '0';
       setTimeout(() => {
         currentIndex--;
         currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
@@ -823,16 +806,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'ArrowUp' && currentIndex < entries.length - 1) {
         console.log('Arrow up pressed, going to next entry');
         stopAudio();
-        // Instantly hide highlighted words and line
-        document.querySelectorAll('.highlight-word').forEach(wordEl => {
-          wordEl.style.transition = 'none';
-          wordEl.style.opacity = '0';
-        });
-        const connectingLine = document.querySelector('.highlight-word-line');
-        if (connectingLine) {
-          connectingLine.style.transition = 'none';
-          connectingLine.style.opacity = '0';
-        }
+        // Instantly hide highlight group
+        highlightGroup.style.transition = 'none';
+        highlightGroup.style.opacity = '0';
         setTimeout(() => {
           currentIndex++;
           currentColorIndex = (currentColorIndex + 1) % colors.length;
@@ -842,16 +818,9 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (e.key === 'ArrowDown' && currentIndex > 0) {
         console.log('Arrow down pressed, going to previous entry');
         stopAudio();
-        // Instantly hide highlighted words and line
-        document.querySelectorAll('.highlight-word').forEach(wordEl => {
-          wordEl.style.transition = 'none';
-          wordEl.style.opacity = '0';
-        });
-        const connectingLine = document.querySelector('.highlight-word-line');
-        if (connectingLine) {
-          connectingLine.style.transition = 'none';
-          connectingLine.style.opacity = '0';
-        }
+        // Instantly hide highlight group
+        highlightGroup.style.transition = 'none';
+        highlightGroup.style.opacity = '0';
         setTimeout(() => {
           currentIndex--;
           currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
