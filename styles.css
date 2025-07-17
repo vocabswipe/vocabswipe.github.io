@@ -99,9 +99,12 @@ body {
 .logo-container {
   text-align: center;
   margin-bottom: 20px;
+}
+
+.logo-wrapper {
   display: flex;
+  align-items: baseline;
   justify-content: center;
-  align-items: center;
 }
 
 .logo {
@@ -112,19 +115,18 @@ body {
   opacity: 0;
   transform: translateX(-100%);
   transition: transform 1s ease, opacity 1s ease;
-  display: inline-flex;
-  align-items: center;
+  display: inline;
 }
 
-.com {
+.logo-dotcom {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.25rem; /* 50% of 2.5rem */
+  font-size: 1.25rem; /* 50% of logo's 2.5rem */
   font-weight: 600;
   animation: colorChange 60s infinite linear;
   opacity: 0;
-  transform: translateX(100%);
+  transform: translateX(100vw); /* Start outside the screen */
   transition: transform 1s ease, opacity 1s ease;
-  display: inline-block;
+  display: inline;
 }
 
 @keyframes colorChange {
@@ -140,7 +142,7 @@ body {
 
 .slogan {
   font-family: 'Poppins', sans-serif;
-  font-size: 0.96rem; /* Reduced by 20% from 1.2rem */
+  font-size: 1.2rem;
   font-weight: 400;
   font-style: italic;
   color: #b0b0b0;
@@ -334,12 +336,12 @@ body {
     font-size: 2rem;
   }
 
-  .com {
-    font-size: 1rem; /* 50% of 2rem */
+  .logo-dotcom {
+    font-size: 1rem; /* 50% of logo's 2rem */
   }
 
   .slogan {
-    font-size: 0.8rem; /* Reduced by 20% from 1rem */
+    font-size: 1rem;
   }
 
   .error-message {
