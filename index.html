@@ -8,11 +8,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+Thai:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
 </head>
 <body>
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    <p>Loading vocabulary...</p>
+  </div>
   <div class="header" id="header" style="display: none;">
     <img src="neuron-connections-neural-network-svgrepo-com.svg" alt="Word Cloud" class="word-cloud-icon" id="word-cloud-icon" />
     <img src="red-heart-svgrepo-com.svg" alt="Donate" class="donate-icon" id="donate-icon" style="display: none;" />
   </div>
-  <div class="word-cloud" id="word-cloud"></div>
+  <div class="word-cloud" id="word-cloud" style="display: none;"></div>
   <div class="container" id="flashcard-container" style="display: none;">
     <div class="logo-container">
       <div class="logo-wrapper">
@@ -32,17 +36,14 @@
         </div>
       </div>
     </div>
-    <!-- Tooltip for swipe-up (uses arrow-up.svg for PC) -->
     <div class="tooltip swipe-up-tooltip" id="swipe-up-tooltip" style="display: none;">
       <img src="swipe-up.svg" alt="Swipe Up" class="tooltip-icon" />
       <span class="tooltip-text">Swipe up for next card</span>
     </div>
-    <!-- Tooltip for swipe-down (uses arrow-down.svg for PC) -->
     <div class="tooltip swipe-down-tooltip" id="swipe-down-tooltip" style="display: none;">
       <img src="swipe-down.svg" alt="Swipe Down" class="tooltip-icon" />
       <span class="tooltip-text">Swipe down for previous card</span>
     </div>
-    <!-- Tooltip for tap (uses spacebar.svg for PC) -->
     <div class="tooltip tap-tooltip" id="tap-tooltip" style="display: none;">
       <img src="tap.svg" alt="Tap" class="tooltip-icon" />
       <span class="tooltip-text">Tap to hear audio</span>
@@ -58,6 +59,13 @@
       <img src="close.svg" alt="Close" class="close-icon" id="close-popup-icon" />
     </div>
   </div>
+  <svg class="filters">
+    <defs>
+      <filter id="motion-blur">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="2,0" />
+      </filter>
+    </defs>
+  </svg>
   <script src="script.js"></script>
 </body>
 </html>
