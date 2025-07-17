@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const donatePopup = document.getElementById('donate-popup');
   const swipeUpTooltip = document.getElementById('swipe-up-tooltip');
   const swipeDownTooltip = document.getElementById('swipe-down-tooltip');
+  const tapTooltip = document.getElementById('tap-tooltip');
 
   let entries = [];
   let currentIndex = 0;
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let initialScale = 1;
   let currentScale = 1;
   let translateX = 0;
-  let translateY = 0;
+  let translationY = 0;
   let isPinching = false;
   let currentAudio = null;
   const preloadedAudio = new Set();
@@ -44,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -215,33 +216,61 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show tooltip
     tooltip.style.display = 'flex';
     
-    // Get flashcard position and size
+    // Get flashcard and content element positions
     const flashcardRect = flashcard.getBoundingClientRect();
     const containerRect = flashcardContainer.getBoundingClientRect();
     
-    // Position tooltip at flashcard center
+    // Calculate centerX for horizontal positioning
     const centerX = flashcardRect.left - containerRect.left + flashcardRect.width / 2;
-    const centerY = flashcardRect.top - containerRect.top + flashcardRect.height / 2;
+    
+    // Calculate Y position based on tooltip type
+    let centerY;
+    if (direction === 'tap') {
+      // For tap tooltip, position between word and english elements
+      const wordRect = wordEl.getBoundingClientRect();
+      const englishRect = englishEl.getBoundingClientRect();
+      // Place tooltip at the midpoint between the bottom of word and top of english
+      centerY = wordRect.bottom + (englishRect.top - wordRect.bottom) / 2 - containerRect.top;
+    } else {
+      // For swipe tooltips, keep centered on flashcard
+      centerY = flashcardRect.top - containerRect.top + flashcardRect.height / 2;
+    }
+    
+    // Set tooltip position
     tooltip.style.left = `${centerX}px`;
     tooltip.style.top = `${centerY}px`;
     
     // Trigger animation based on direction
     setTimeout(() => {
-      tooltip.classList.add(direction === 'up' ? 'animate-up' : 'animate-down');
+      if (direction === 'tap') {
+        tooltip.classList.add('animate-tap');
+        // Trigger glow effect on flashcard at the peak of tap animation
+        setTimeout(() => {
+          flashcard.classList.add('glow');
+          flashcard.style.setProperty('--glow-color', '#00ff88'); // Match tap icon color
+          setTimeout(() => flashcard.classList.remove('glow'), 500);
+        }, 1000); // Timed to coincide with tap animation peak
+      } else {
+        tooltip.classList.add(direction === 'up' ? 'animate-up' : 'animate-down');
+      }
     }, 100);
     
     // Remove tooltip and reset blur after animation
     setTimeout(() => {
       tooltip.style.display = 'none';
-      tooltip.classList.remove(direction === 'up' ? 'animate-up' : 'animate-down');
+      tooltip.classList.remove(direction === 'tap' ? 'animate-tap' : direction === 'up' ? 'animate-up' : 'animate-down');
       // Reset blur only if no other tooltip is animating
-      if (swipeUpTooltip.style.display === 'none' && swipeDownTooltip.style.display === 'none') {
+      if (
+        swipeUpTooltip.style.display === 'none' &&
+        swipeDownTooltip.style.display === 'none' &&
+        tapTooltip.style.display === 'none'
+      ) {
         header.style.filter = 'none';
         logo.style.filter = 'none';
         logoCom.style.filter = 'none';
         slogan.style.filter = 'none';
       }
-    }, 2000); // Matches animation duration
+    }, direction === 'tap' ? 2500 : 2000); // Longer duration for tap animation
   }
 
   function displayWordCloud() {
@@ -344,7 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
         wordCloud.style.transformOrigin = 'center center';
         currentScale = 1;
         translateX = 0;
-        translateY = 0;
+        translationY = 0;
 
         document.querySelectorAll('.cloud-word').forEach(otherWord => {
           if (otherWord !== wordEl) {
@@ -427,6 +456,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 showTooltip(swipeUpTooltip, 'up');
                 setTimeout(() => {
                   showTooltip(swipeDownTooltip, 'down');
+                  setTimeout(() => {
+                    showTooltip(tapTooltip, 'tap');
+                  }, 2500); // Start tap after swipe-down completes
                 }, 2500); // Start swipe-down after swipe-up completes
               }, 6000); // Delay to allow logo/slogan animations to finish
             }
@@ -486,15 +518,15 @@ document.addEventListener('DOMContentLoaded', () => {
         );
         const newScale = currentScale * (pinchDistance / pinchStartDistance);
         currentScale = Math.max(1, Math.min(newScale, 3));
-        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
+        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
         pinchStartDistance = pinchDistance;
       } else if (e.touches.length === 1 && currentScale > 1) {
         e.preventDefault();
         const deltaX = e.touches[0].clientX - (wordCloud._lastX || e.touches[0].clientX);
         const deltaY = e.touches[0].clientY - (wordCloud._lastY || e.touches[0].clientY);
         translateX += deltaX / currentScale;
-        translateY += deltaY / currentScale;
-        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
+        translationY += deltaY / currentScale;
+        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
         wordCloud._lastX = e.touches[0].clientX;
         wordCloud._lastY = e.touches[0].clientY;
       }
@@ -544,7 +576,7 @@ document.addEventListener('DOMContentLoaded', () => {
         playAudio(audioUrl, colors[currentColorIndex]);
       };
     } else {
-      console.log('No audio available for this entry');
+      console.m('No audio available for this entry');
       flashcard.onclick = null;
       audioErrorEl.textContent = 'No audio available';
       audioErrorEl.style.display = 'block';
@@ -574,7 +606,7 @@ document.addEventListener('DOMContentLoaded', () => {
       logo.style.opacity = '0';
       logoCom.style.transform = 'translateX(100%)';
       logoCom.style.opacity = '0';
-      slogan.style.transform =  'translateX(100%)';
+      slogan.style.transform = 'translateX(100%)';
       slogan.style.opacity = '0';
 
       document.querySelectorAll('.cloud-word').forEach(word => {

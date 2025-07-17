@@ -57,7 +57,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  opacity:  personally;
+  opacity: 1;
   transition: opacity 0.3s ease;
   z-index: 5;
 }
@@ -94,7 +94,7 @@ body {
   align-items: center;
   padding: 20px;
   padding-top: 60px;
-  position: relative; /* Ensure tooltips are positioned relative to container */
+  position: relative;
 }
 
 .logo-container {
@@ -120,7 +120,7 @@ body {
 
 .logo-com {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.25rem; /* 50% of logo's 2.5rem */
+  font-size: 1.25rem;
   font-weight: 600;
   animation: colorChange 60s infinite linear;
   opacity: 0;
@@ -303,19 +303,19 @@ body {
   flex-direction: column;
   align-items: center;
   z-index: 150;
-  transform: translateX(-50%); /* Center horizontally */
+  transform: translateX(-50%);
 }
 
 .tooltip-icon {
   width: 40px;
   height: 40px;
-  filter: url(#motion-blur); /* Apply SVG filter for trail effect */
+  filter: url(#motion-blur);
 }
 
 .tooltip-text {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
-  color: #00ff88; /* Match assumed icon color */
+  color: #00ff88;
   margin-top: 8px;
   text-align: center;
   text-shadow: 0 0 5px rgba(0, 255, 136, 0.7);
@@ -329,6 +329,10 @@ body {
   animation: moveDown 2s ease-out forwards;
 }
 
+.tap-tooltip.animate-tap {
+  animation: tapAnimation 2.5s ease-out forwards;
+}
+
 @keyframes moveUp {
   0% {
     transform: translateX(-50%) translateY(0);
@@ -338,7 +342,7 @@ body {
     opacity: 1;
   }
   100% {
-    transform: translateX(-50%) translateY(-200px); /* Move to top edge */
+    transform: translateX(-50%) translateY(-200px);
     opacity: 0;
   }
 }
@@ -352,7 +356,37 @@ body {
     opacity: 1;
   }
   100% {
-    transform: translateX(-50%) translateY(200px); /* Move to bottom edge */
+    transform: translateX(-50%) translateY(200px);
+    opacity: 0;
+  }
+}
+
+@keyframes tapAnimation {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: translateX(-50%) translateY(20px) scale(1.2);
+    opacity: 1;
+  }
+  45% {
+    transform: translateX(-50%) translateY(20px) scale(0.9) rotate(2deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(20px) scale(0.9) rotate(-2deg);
+  }
+  55% {
+    transform: translateX(-50%) translateY(20px) scale(0.9) rotate(2deg);
+  }
+  60% {
+    transform: translateX(-50%) translateY(20px) scale(0.9) rotate(0deg);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(20px) scale(0.9);
     opacity: 0;
   }
 }
@@ -405,7 +439,7 @@ svg.filters {
   }
 
   .logo-com {
-    font-size: 1rem; /* 50% of logo's 2rem */
+    font-size: 1rem;
   }
 
   .slogan {
