@@ -43,33 +43,38 @@ body {
   opacity: 0.8;
 }
 
-.word-pair {
+.word-pair-container {
+  width: 100%;
+  max-width: 400px;
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
   display: none;
-  flex-grow: 1;
-  position: relative;
-  text-align: center;
-  margin: 0 10px;
-  max-width: calc(100% - 100px);
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 90;
+  height: 40px;
 }
 
-.word-pair-lines {
+.word-pair-line {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 5;
+  z-index: 85;
   pointer-events: none;
 }
 
-.prev-word,
-.current-word {
+.word-pair-word {
   font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.4;
   font-weight: 700;
-  font-size: 1.5rem;
+  text-align: center;
   white-space: nowrap;
-  display: inline-block;
-  vertical-align: middle;
 }
 
 .word-cloud {
@@ -122,7 +127,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  padding-top: 60px;
+  padding-top: 100px;
   position: relative;
 }
 
@@ -245,6 +250,7 @@ body {
 }
 
 .english {
+  font-family: 'Roboto', sans-serif;
   font-size: 1.2rem;
   line-height: 1.4;
   text-align: center;
@@ -439,9 +445,14 @@ svg.filters {
     height: 32px;
   }
 
-  .prev-word,
-  .current-word {
-    font-size: 1.2rem;
+  .word-pair-container {
+    top: 48px;
+    padding: 0 16px;
+    height: 32px;
+  }
+
+  .word-pair-word {
+    font-size: 1.1rem;
   }
 
   .flashcard {
