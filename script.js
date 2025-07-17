@@ -16,9 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const swipeUpTooltip = document.getElementById('swipe-up-tooltip');
   const swipeDownTooltip = document.getElementById('swipe-down-tooltip');
   const tapTooltip = document.getElementById('tap-tooltip');
-  const highlightedWordsContainer = document.getElementById('highlighted-words-container');
-  const prevHighlightedWord = document.getElementById('prev-highlighted-word');
-  const nextHighlightedWord = document.getElementById('next-highlighted-word');
+  const highlightedWordsContainer = document.getElementById('highlighted-words');
 
   let entries = [];
   let currentIndex = 0;
@@ -53,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -215,13 +213,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function showTooltip(tooltip, direction) {
-    // Determine if PC or mobile
     const isPc = isPC();
-    
-    // Update tooltip icon and text based on device
     const tooltipIcon = tooltip.querySelector('.tooltip-icon');
     const tooltipText = tooltip.querySelector('.tooltip-text');
-    
+
     if (isPc) {
       if (direction === 'up') {
         tooltipIcon.src = 'arrow-up.svg';
@@ -252,24 +247,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Apply blur to non-flashcard elements
     header.style.filter = 'blur(5px)';
     logo.style.filter = 'blur(5px)';
     logoCom.style.filter = 'blur(5px)';
     slogan.style.filter = 'blur(5px)';
-    highlightedWordsContainer.style.filter = 'blur(5px)';
-    
-    // Show tooltip
+
     tooltip.style.display = 'flex';
-    
-    // Get flashcard and content element positions
     const flashcardRect = flashcard.getBoundingClientRect();
     const containerRect = flashcardContainer.getBoundingClientRect();
-    
-    // Calculate centerX for horizontal positioning
     const centerX = flashcardRect.left - containerRect.left + flashcardRect.width / 2;
-    
-    // Calculate Y position based on tooltip type
     let centerY;
     if (direction === 'tap') {
       const wordRect = wordEl.getBoundingClientRect();
@@ -278,12 +264,10 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       centerY = flashcardRect.top - containerRect.top + flashcardRect.height / 2;
     }
-    
-    // Set tooltip position
+
     tooltip.style.left = `${centerX}px`;
     tooltip.style.top = `${centerY}px`;
-    
-    // Trigger animation based on direction
+
     setTimeout(() => {
       if (direction === 'tap') {
         tooltip.classList.add('animate-tap');
@@ -296,8 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tooltip.classList.add(direction === 'up' ? 'animate-up' : 'animate-down');
       }
     }, 100);
-    
-    // Remove tooltip and reset blur after animation
+
     setTimeout(() => {
       tooltip.style.display = 'none';
       tooltip.classList.remove(direction === 'tap' ? 'animate-tap' : direction === 'up' ? 'animate-up' : 'animate-down');
@@ -310,7 +293,6 @@ document.addEventListener('DOMContentLoaded', () => {
         logo.style.filter = 'none';
         logoCom.style.filter = 'none';
         slogan.style.filter = 'none';
-        highlightedWordsContainer.style.filter = 'none';
       }
     }, direction === 'tap' ? 2500 : 2000);
   }
@@ -367,7 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalDuration = 3000;
     const delayPerWord = remainingWords > 0 ? totalDuration / remainingWords : 0;
 
-    wordArray.forEach(({ word, freq }, index) => {
+    wordArray.forHintedWords.forEach(({ word, freq }, index) => {
       const wordEl = document.createElement('div');
       wordEl.className = 'cloud-word';
       wordEl.textContent = word;
@@ -492,7 +474,6 @@ document.addEventListener('DOMContentLoaded', () => {
             currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
             displayEntry(currentIndex);
 
-            // Show tooltips for first 20 visits
             if (visitCount <= 20) {
               setTimeout(() => {
                 showTooltip(swipeUpTooltip, 'up');
@@ -607,29 +588,36 @@ document.addEventListener('DOMContentLoaded', () => {
     thaiEl.textContent = entry.thai;
     audioErrorEl.style.display = 'none';
 
-    // Display highlighted words above logo
-    prevHighlightedWord.style.opacity = '0';
-    nextHighlightedWord.style.opacity = '0';
-    setTimeout(() => {
-      if (prevWord) {
-        prevHighlightedWord.textContent = prevWord;
-        prevHighlightedWord.style.color = colors[(currentColorIndex - 1 + colors.length) % colors.length];
-        prevHighlightedWord.style.opacity = '1';
-        prevHighlightedWord.classList.add('fade-in');
-        setTimeout(() => prevHighlightedWord.classList.remove('fade-in'), 500);
-      } else {
-        prevHighlightedWord.textContent = '';
-      }
-      if (nextWord) {
-        nextHighlightedWord.textContent = nextWord;
-        nextHighlightedWord.style.color = colors[(currentColorIndex + 1) % colors.length];
-        nextHighlightedWord.style.opacity = '1';
-        nextHighlightedWord.classList.add('fade-in');
-        setTimeout(() => nextHighlightedWord.classList.remove('fade-in'), 500);
-      } else {
-        nextHighlightedWord.textContent = '';
-      }
-    }, 100);
+    // Display previous and next words above logo
+    highlightedWordsContainer.innerHTML = ''; // Clear previous words
+    const highlightedWords = [];
+    if (prevWord) {
+      highlightedWords.push({ word: prevWord, color: colors[(currentColorIndex - 1 + colors.length) % colors.length] });
+    }
+    if (nextWord) {
+      highlightedWords.push({ word: nextWord, color: colors[(currentColorIndex + 1) % colors.length] });
+    }
+
+    highlightedWords.forEach(({ word, color }, i) => {
+      const wordEl = document.createElement('div');
+      wordEl.className = 'highlight-word';
+      wordEl.textContent = word;
+      wordEl.style.color = color;
+      wordEl.style.opacity = '0';
+      wordEl.style.transform = i === 0 ? 'translateX(-50px)' : 'translateX(50px)';
+      highlightedWordsContainer.appendChild(wordEl);
+
+      // Animate words
+      setTimeout(() => {
+        wordEl.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        wordEl.style.opacity = '1';
+        wordEl.style.transform = 'translateX(0)';
+        setTimeout(() => {
+          wordEl.style.transition = 'opacity 0.5s ease';
+          wordEl.style.opacity = '0';
+        }, 2000); // Display for 2 seconds
+      }, 100 + i * 200); // Staggered animation
+    });
 
     preloadAudio(index);
 
@@ -674,8 +662,6 @@ document.addEventListener('DOMContentLoaded', () => {
       logoCom.style.opacity = '0';
       slogan.style.transform = 'translateX(100%)';
       slogan.style.opacity = '0';
-      prevHighlightedWord.style.opacity = '0';
-      nextHighlightedWord.style.opacity = '0';
 
       document.querySelectorAll('.cloud-word').forEach(word => {
         word.style.transition = 'opacity 0.3s ease';
