@@ -177,7 +177,16 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Audio playing successfully');
         flashcard.classList.add('glow');
         flashcard.style.setProperty('--glow-color', wordColor);
-        setTimeout(() => flashcard.classList.remove('glow'), 500);
+        // Add glow to highlighted words and line
+        const highlightWords = document.querySelectorAll('.highlight-word');
+        const connectingLine = document.querySelector('.highlight-word-line');
+        highlightWords.forEach(word => word.classList.add('glow'));
+        if (connectingLine) connectingLine.classList.add('glow');
+        setTimeout(() => {
+          flashcard.classList.remove('glow');
+          highlightWords.forEach(word => word.classList.remove('glow'));
+          if (connectingLine) connectingLine.classList.remove('glow');
+        }, 500);
         audioErrorEl.style.display = 'none';
       }).catch(e => {
         console.error('Error playing audio:', e);
@@ -247,10 +256,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    // Apply blur to everything except the flashcard
     header.style.filter = 'blur(5px)';
     logo.style.filter = 'blur(5px)';
     logoCom.style.filter = 'blur(5px)';
     slogan.style.filter = 'blur(5px)';
+    highlightWordsContainer.style.filter = 'blur(5px)';
+    flashcard.style.filter = 'none'; // Ensure flashcard remains clear
 
     tooltip.style.display = 'flex';
 
@@ -277,7 +289,16 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           flashcard.classList.add('glow');
           flashcard.style.setProperty('--glow-color', '#00ff88');
-          setTimeout(() => flashcard.classList.remove('glow'), 500);
+          // Add glow to highlighted words and line
+          const highlightWords = document.querySelectorAll('.highlight-word');
+          const connectingLine = document.querySelector('.highlight-word-line');
+          highlightWords.forEach(word => word.classList.add('glow'));
+          if (connectingLine) connectingLine.classList.add('glow');
+          setTimeout(() => {
+            flashcard.classList.remove('glow');
+            highlightWords.forEach(word => word.classList.remove('glow'));
+            if (connectingLine) connectingLine.classList.remove('glow');
+          }, 500);
         }, 1000);
       } else {
         tooltip.classList.add(direction === 'up' ? 'animate-up' : 'animate-down');
@@ -296,6 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
         logo.style.filter = 'none';
         logoCom.style.filter = 'none';
         slogan.style.filter = 'none';
+        highlightWordsContainer.style.filter = 'none';
       }
     }, direction === 'tap' ? 2500 : 2000);
   }
@@ -565,6 +587,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+  function drawConnectingLine(word1El, word2El, color) {
+    const existingLine = document.querySelector('.highlight-word-line');
+    if (existingLine) existingLine.remove();
+
+    if (!word1El || !word2El) return;
+
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.className = 'highlight-word-line';
+    svg.style.position = 'absolute';
+    svg.style.top = '0';
+    svg.style.left = '0';
+    svg.style.width = '100%';
+    svg.style.height = '100%';
+    svg.style.pointerEvents = 'none';
+    svg.style.zIndex = '5';
+
+    const word1Rect = word1El.getBoundingClientRect();
+    const word2Rect = word2El.getBoundingClientRect();
+    const containerRect = highlightWordsContainer.getBoundingClientRect();
+
+    const x1 = word1Rect.right - containerRect.left + 5;
+    const x2 = word2Rect.left - containerRect.left - 5;
+    const y = (word1Rect.top + word1Rect.height / 2 - containerRect.top);
+
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', x1);
+    line.setAttribute('y1', y);
+    line.setAttribute('x2', x1);
+    line.setAttribute('y2', y);
+    line.setAttribute('stroke', '#ffffff');
+    line.setAttribute('stroke-width', '2');
+    line.setAttribute('stroke-opacity', '0');
+    svg.appendChild(line);
+
+    highlightWordsContainer.appendChild(svg);
+
+    // Animate line drawing
+    setTimeout(() => {
+      line.setAttribute('x2', x2);
+      line.setAttribute('stroke-opacity', '1');
+      line.style.transition = 'x2 0.5s ease, stroke-opacity 0.5s ease';
+    }, 300);
+  }
+
   function displayEntry(index) {
     if (index < 0 || index >= entries.length) return;
     const entry = entries[index];
@@ -594,19 +660,42 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update highlighted words above logo
     highlightWordsContainer.innerHTML = '';
     const highlightedWords = wordsToHighlight.filter(w => entry.english.toLowerCase().includes(w.word.toLowerCase()));
-    highlightedWords.forEach(({ word, color }) => {
-      const wordEl = document.createElement('span');
-      wordEl.className = 'highlight-word';
-      wordEl.textContent = word;
-      wordEl.style.color = color;
-      wordEl.style.opacity = '0';
-      highlightWordsContainer.appendChild(wordEl);
-      // Trigger fade-in animation
+    const currentWordObj = highlightedWords.find(w => w.word.toLowerCase() === currentWord.toLowerCase());
+    const nextWordObj = highlightedWords.find(w => w.word.toLowerCase() !== currentWord.toLowerCase());
+
+    let currentWordEl = null;
+    let nextWordEl = null;
+
+    if (currentWordObj) {
+      currentWordEl = document.createElement('span');
+      currentWordEl.className = 'highlight-word current-word';
+      currentWordEl.textContent = currentWordObj.word;
+      currentWordEl.style.color = currentWordObj.color;
+      currentWordEl.style.opacity = '1'; // Current word appears instantly
+      highlightWordsContainer.appendChild(currentWordEl);
+    }
+
+    if (nextWordObj) {
+      nextWordEl = document.createElement('span');
+      nextWordEl.className = 'highlight-word next-word';
+      nextWordEl.textContent = nextWordObj.word;
+      nextWordEl.style.color = nextWordObj.color;
+      nextWordEl.style.opacity = '0';
+      nextWordEl.style.transform = 'translateX(100px)';
+      highlightWordsContainer.appendChild(nextWordEl);
+
+      // Animate next word sliding in
       setTimeout(() => {
-        wordEl.style.transition = 'opacity 0.5s ease';
-        wordEl.style.opacity = '1';
+        nextWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+        nextWordEl.style.transform = 'translateX(0)';
+        nextWordEl.style.opacity = '1';
       }, 100);
-    });
+
+      // Draw connecting line after animation
+      setTimeout(() => {
+        drawConnectingLine(currentWordEl, nextWordEl, currentWordObj.color);
+      }, 600);
+    }
 
     preloadAudio(index);
 
@@ -685,11 +774,16 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
       console.log('Swipe up detected, going to next entry');
       stopAudio();
-      // Fade out highlighted words
+      // Fade out highlighted words and line
       document.querySelectorAll('.highlight-word').forEach(wordEl => {
         wordEl.style.transition = 'opacity 0.3s ease';
         wordEl.style.opacity = '0';
       });
+      const connectingLine = document.querySelector('.highlight-word-line');
+      if (connectingLine) {
+        connectingLine.style.transition = 'opacity 0.3s ease';
+        connectingLine.style.opacity = '0';
+      }
       setTimeout(() => {
         currentIndex++;
         currentColorIndex = (currentColorIndex + 1) % colors.length;
@@ -699,11 +793,16 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
       console.log('Swipe down detected, going to previous entry');
       stopAudio();
-      // Fade out highlighted words
+      // Fade out highlighted words and line
       document.querySelectorAll('.highlight-word').forEach(wordEl => {
         wordEl.style.transition = 'opacity 0.3s ease';
         wordEl.style.opacity = '0';
       });
+      const connectingLine = document.querySelector('.highlight-word-line');
+      if (connectingLine) {
+        connectingLine.style.transition = 'opacity 0.3s ease';
+        connectingLine.style.opacity = '0';
+      }
       setTimeout(() => {
         currentIndex--;
         currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
@@ -718,11 +817,16 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'ArrowUp' && currentIndex < entries.length - 1) {
         console.log('Arrow up pressed, going to next entry');
         stopAudio();
-        // Fade out highlighted words
+        // Fade out highlighted words and line
         document.querySelectorAll('.highlight-word').forEach(wordEl => {
           wordEl.style.transition = 'opacity 0.3s ease';
           wordEl.style.opacity = '0';
         });
+        const connectingLine = document.querySelector('.highlight-word-line');
+        if (connectingLine) {
+          connectingLine.style.transition = 'opacity 0.3s ease';
+          connectingLine.style.opacity = '0';
+        }
         setTimeout(() => {
           currentIndex++;
           currentColorIndex = (currentColorIndex + 1) % colors.length;
@@ -732,11 +836,16 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (e.key === 'ArrowDown' && currentIndex > 0) {
         console.log('Arrow down pressed, going to previous entry');
         stopAudio();
-        // Fade out highlighted words
+        // Fade out highlighted words and line
         document.querySelectorAll('.highlight-word').forEach(wordEl => {
           wordEl.style.transition = 'opacity 0.3s ease';
           wordEl.style.opacity = '0';
         });
+        const connectingLine = document.querySelector('.highlight-word-line');
+        if (connectingLine) {
+          connectingLine.style.transition = 'opacity 0.3s ease';
+          connectingLine.style.opacity = '0';
+        }
         setTimeout(() => {
           currentIndex--;
           currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
