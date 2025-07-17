@@ -97,57 +97,25 @@ body {
   position: relative;
 }
 
-.highlighted-words {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 360px;
-  margin-bottom: 10px;
-  min-height: 30px;
-}
-
-.highlighted-word {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.highlighted-word.prev {
-  text-align: left;
-}
-
-.highlighted-word.next {
-  text-align: right;
-}
-
-.highlighted-word.animate {
-  opacity: 1;
-  animation: wordAppear 2s ease-out forwards;
-}
-
-@keyframes wordAppear {
-  0% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  50% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-}
-
 .logo-container {
   text-align: center;
   margin-bottom: 20px;
+}
+
+.highlight-words-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  min-height: 1.4rem; /* Ensures consistent spacing even when no words are present */
+}
+
+.highlight-word {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  transition: opacity 0.5s ease;
 }
 
 .logo-wrapper {
@@ -344,6 +312,7 @@ body {
   margin: 10px 0;
 }
 
+/* Tooltip Styles */
 .tooltip {
   position: absolute;
   display: none;
@@ -438,12 +407,14 @@ body {
   }
 }
 
+/* SVG Filter for Trail Effect */
 svg.filters {
   position: absolute;
   width: 0;
   height: 0;
 }
 
+/* Media Queries */
 @media (max-width: 600px) {
   .header {
     padding: 8px 16px;
@@ -521,7 +492,7 @@ svg.filters {
     font-size: 0.9rem;
   }
 
-  .highlighted-word {
-    font-size: 1.2rem;
+  .highlight-word {
+    font-size: 1.1rem;
   }
 }
