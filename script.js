@@ -174,8 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(`Attempting to play audio: ${audioUrl}`);
     currentAudio = new Audio(audioUrl);
     setTimeout(() => {
-      способствует
-currentAudio.play().then(() => {
+      currentAudio.play().then(() => {
         console.log('Audio playing successfully');
         flashcard.classList.add('glow');
         flashcard.style.setProperty('--glow-color', wordColor);
@@ -589,18 +588,19 @@ currentAudio.play().then(() => {
     const word2Rect = word2El.getBoundingClientRect();
     const containerRect = highlightWordsContainer.getBoundingClientRect();
 
-    const x1 = word1Rect.right - containerRect.left;
-    const x2 = word2Rect.left - containerRect.left;
+    const x1 = word1Rect.right -stot containerRect.left + 5;
+    const x2 = word2Rect.left - containerRect.left - 5;
     const y = word1Rect.top + word1Rect.height / 2 - containerRect.top;
 
     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.setAttribute('x1', x1.toString());
-    line.setAttribute('y1', y.toString());
-    line.setAttribute('x2', x2.toString());
-    line.setAttribute('y2', y.toString());
+    line.setAttribute('x1', x1);
+    line.setAttribute('y1', y);
+    line.setAttribute('x2', x1); // Start with x1 to animate to x2
+    line.setAttribute('y2', y);
     line.setAttribute('stroke', '#ffffff');
-    line.setAttribute('stroke-width', '2');
-    line.setAttribute('stroke-opacity', '0');
+    line.setAttribute('stroke-width', '1');
+    line.setAttribute('stroke-opacity', '0'); // Start invisible
+    line.classList.add('highlight-word-line'); // Add class for glow animation
 
     return line;
   }
@@ -638,6 +638,7 @@ currentAudio.play().then(() => {
 
     const wordGroup = document.createElement('div');
     wordGroup.className = 'highlight-word-group';
+    wordGroup.style.opacity = '0'; // Start invisible for animation
     highlightWordsContainer.appendChild(wordGroup);
 
     let currentWordEl = null;
@@ -663,18 +664,24 @@ currentAudio.play().then(() => {
       wordGroup.appendChild(nextWordEl);
     }
 
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.className = 'highlight-word-line';
-    svg.style.position = 'absolute';
-    svg.style.top = '0';
-    svg.style.left = '0';
-    svg.style.width = '100%';
-    svg.style.height = '100%';
-    svg.style.pointerEvents = 'none';
-    svg.style.zIndex = '10';
-    wordGroup.appendChild(svg);
+    if (currentWordEl && nextWordEl) {
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.className = 'highlight-word-line-svg';
+      svg.style.position = 'absolute';
+      svg.style.top = '0';
+      svg.style.left = '0';
+      svg.style.width = '100%';
+      svg.style.height = '100%';
+      svg.style.pointerEvents = 'none';
+      svg.style.zIndex = '10';
+      const line = drawConnectingLine(currentWordEl, nextWordEl);
+      if (line) svg.appendChild(line);
+      wordGroup.appendChild(svg);
+    }
 
     setTimeout(() => {
+      wordGroup.style.transition = 'opacity 0.5s ease';
+      wordGroup.style.opacity = '1';
       if (currentWordEl) {
         currentWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
         currentWordEl.style.transform = 'translateX(0)';
@@ -686,18 +693,18 @@ currentAudio.play().then(() => {
         nextWordEl.style.opacity = '1';
       }
       if (currentWordEl && nextWordEl) {
-        setTimeout(() => {
-          const line = drawConnectingLine(currentWordEl, nextWordEl);
-          if (line) {
-            svg.innerHTML = ''; // Clear previous lines
-            svg.appendChild(line);
-            line.setAttribute('stroke-opacity', '0');
-            setTimeout(() => {
-              line.style.transition = 'stroke-opacity 0.3s ease';
-              line.setAttribute('stroke-opacity', '0.7');
-            }, 50); // Small delay to ensure line appears after words
-          }
-        }, 500); // Wait for words to finish animating
+        const word1Rect = currentWordEl.getBoundingClientRect();
+        const word2Rect = nextWordEl.getBoundingClientRect();
+        const containerRect = highlightWordsContainer.getBoundingClientRect();
+        const x1 = word1Rect.right - containerRect.left + 5;
+        const x2 = word2Rect.left - containerRect.left - 5;
+        const y = word1Rect.top + word1Rect.height / 2 - containerRect.top;
+        const line = wordGroup.querySelector('.highlight-word-line');
+        if (line) {
+          line.setAttribute('x2', x2);
+          line.setAttribute('stroke-opacity', '0.10'); // Match word cloud line opacity
+          line.style.transition = 'stroke-opacity 0.5s ease, x2 0.5s ease';
+        }
       }
     }, 100);
 
