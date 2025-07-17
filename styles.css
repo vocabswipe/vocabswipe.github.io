@@ -99,17 +99,19 @@ body {
 
 .logo-container {
   text-align: center;
-  margin-bottom: 10px; /* Reduced to move highlighted words up */
+  margin-bottom: 20px;
 }
 
 .highlight-words-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  margin-bottom: -15px; /* Adjusted to move words 20px upward */
-  min-height: 1.4rem;
-  position: relative;
+  gap: 30px; /* Increased from 10px to 30px */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
   transition: filter 0.3s ease;
 }
 
@@ -119,15 +121,16 @@ body {
   font-weight: 700;
   line-height: 1.4;
   transition: opacity 0.5s ease, transform 0.5s ease;
-  background: none; /* Ensure no background */
+  background: none;
 }
 
 .highlight-word.current-word {
-  order: -1; /* Ensures current word appears first */
+  order: -1;
+  transform: translateX(-100px);
+  opacity: 0;
 }
 
 .highlight-word.next-word {
-  /* Initial state for animation */
   transform: translateX(100px);
   opacity: 0;
 }
@@ -150,7 +153,7 @@ body {
 
 .highlight-word-line {
   transition: opacity 0.3s ease;
-  z-index: 10; /* Ensure line is above other elements */
+  z-index: 10;
 }
 
 .highlight-word-line.glow {
@@ -235,6 +238,7 @@ body {
   user-select: none;
   cursor: pointer;
   transition: transform 0.2s ease;
+  position: relative;
 }
 
 .flashcard:active {
