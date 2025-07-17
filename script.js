@@ -7,11 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const thaiEl = document.getElementById('thai');
   const audioErrorEl = document.getElementById('audio-error');
   const logo = document.querySelector('.logo');
+  const logoCom = document.querySelector('.logo-com');
   const slogan = document.querySelector('.slogan');
   const header = document.getElementById('header');
   const wordCloudIcon = document.getElementById('word-cloud-icon');
   const donateIcon = document.getElementById('donate-icon');
   const donatePopup = document.getElementById('donate-popup');
+  const tooltipUp = document.getElementById('tooltip-up');
+  const tooltipDown = document.getElementById('tooltip-down');
 
   let entries = [];
   let currentIndex = 0;
@@ -30,13 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentAudio = null;
   const preloadedAudio = new Set();
 
+  // Track visits using localStorage
+  let visitCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
+  visitCount += 1;
+  localStorage.setItem('visitCount', visitCount.toString());
+
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, '');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -346,6 +354,12 @@ document.addEventListener('DOMContentLoaded', () => {
               logo.style.transition = 'transform 1s ease, opacity 1s ease';
               logo.style.transform = 'translateX(0)';
               logo.style.opacity = '1';
+
+              setTimeout(() => {
+                logoCom.style.transition = 'transform 1s ease, opacity 1s ease';
+                logoCom.style.transform = 'translateX(0)';
+                logoCom.style.opacity = '1';
+              }, 1000);
             }, 4000);
 
             setTimeout(() => {
@@ -367,6 +381,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
             displayEntry(currentIndex);
+
+            // Show tooltips if visit count is <= 20
+            if (visitCount <= 20) {
+              showTooltips();
+            }
           }, 700);
         }, 300);
       });
@@ -444,6 +463,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+  function showTooltips() {
+    // Apply blur to non-flashcard elements
+    header.style.transition = 'filter 0.3s ease';
+    logoContainer.style.transition = 'filter 0.3s ease';
+    donatePopup.style.transition = 'filter 0.3s ease';
+    header.style.filter = 'blur(5px)';
+    logoContainer.style.filter = 'blur(5px)';
+    donatePopup.style.filter = 'blur(5px)';
+    flashcard.style.transition = 'filter 0.3s ease';
+    flashcard.style.filter = 'none';
+
+    // Show swipe-up tooltip
+    tooltipUp.style.display = 'flex';
+    tooltipUp.style.opacity = '1';
+    tooltipUp.classList.add('animate-up');
+
+    // After swipe-up animation, show swipe-down
+    setTimeout(() => {
+      tooltipUp.style.display = 'none';
+      tooltipUp.classList.remove('animate-up');
+      tooltipUp.style.opacity = '0';
+
+      tooltipDown.style.display = 'flex';
+      tooltipDown.style.opacity = '1';
+      tooltipDown.classList.add('animate-down');
+
+      // After swipe-down animation, remove blur and hide tooltip
+      setTimeout(() => {
+        tooltipDown.style.display = 'none';
+        tooltipDown.classList.remove('animate-down');
+        tooltipDown.style.opacity = '0';
+
+        header.style.filter = 'none';
+        logoContainer.style.filter = 'none';
+        donatePopup.style.filter = 'none';
+      }, 2000); // Duration of swipe-down animation
+    }, 2500); // Duration of swipe-up animation + 0.5s delay
+  }
+
   function displayEntry(index) {
     if (index < 0 || index >= entries.length) return;
     const entry = entries[index];
@@ -509,6 +567,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       logo.style.transform = 'translateX(-100%)';
       logo.style.opacity = '0';
+      logoCom.style.transform = 'translateX(100%)';
+      logoCom.style.opacity = '0';
       slogan.style.transform = 'translateX(100%)';
       slogan.style.opacity = '0';
 
@@ -521,6 +581,15 @@ document.addEventListener('DOMContentLoaded', () => {
         svg.style.transition = 'opacity 0.3s ease';
         svg.style.opacity = '1';
       }
+
+      // Reset tooltips when returning to word cloud
+      tooltipUp.style.display = 'none';
+      tooltipUp.classList.remove('animate-up');
+      tooltipDown.style.display = 'none';
+      tooltipDown.classList.remove('animate-down');
+      header.style.filter = 'none';
+      logoContainer.style.filter = 'none';
+      donatePopup.style.filter = 'none';
     }, 700);
   });
 
@@ -549,6 +618,10 @@ document.addEventListener('DOMContentLoaded', () => {
       currentColorIndex = (currentColorIndex + 1) % colors.length;
       displayEntry(currentIndex);
       lastSwipeTime = Date.now();
+      // Show tooltips on swipe if visit count <= 20
+      if (visitCount <= 20) {
+        showTooltips();
+      }
     } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
       console.log('Swipe down detected, going to previous entry');
       stopAudio();
@@ -556,6 +629,10 @@ document.addEventListener('DOMContentLoaded', () => {
       currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
       displayEntry(currentIndex);
       lastSwipeTime = Date.now();
+      // Show tooltips on swipe if visit count <= 20
+      if (visitCount <= 20) {
+        showTooltips();
+      }
     }
   }, { passive: false });
 
@@ -568,6 +645,10 @@ document.addEventListener('DOMContentLoaded', () => {
         currentColorIndex = (currentColorIndex + 1) % colors.length;
         displayEntry(currentIndex);
         lastSwipeTime = Date.now();
+        // Show tooltips on keypress if visit count <= 20
+        if (visitCount <= 20) {
+          showTooltips();
+        }
       } else if (e.key === 'ArrowDown' && currentIndex > 0) {
         console.log('Arrow down pressed, going to previous entry');
         stopAudio();
@@ -575,6 +656,10 @@ document.addEventListener('DOMContentLoaded', () => {
         currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
         displayEntry(currentIndex);
         lastSwipeTime = Date.now();
+        // Show tooltips on keypress if visit count <= 20
+        if (visitCount <= 20) {
+          showTooltips();
+        }
       } else if (e.key === ' ') {
         e.preventDefault();
         console.log('Spacebar pressed, triggering flashcard click');
