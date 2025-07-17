@@ -43,6 +43,35 @@ body {
   opacity: 0.8;
 }
 
+.word-pair {
+  display: none;
+  flex-grow: 1;
+  position: relative;
+  text-align: center;
+  margin: 0 10px;
+  max-width: calc(100% - 100px);
+}
+
+.word-pair-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.prev-word,
+.current-word {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .word-cloud {
   position: relative;
   width: 100%;
@@ -95,43 +124,6 @@ body {
   padding: 20px;
   padding-top: 60px;
   position: relative;
-}
-
-.swiped-words-container {
-  width: 100%;
-  max-width: 400px;
-  display: none;
-  justify-content: center;
-  margin-bottom: 10px;
-  transition: filter 0.3s ease;
-}
-
-.swiped-words-box {
-  background-color: #2c2c2c;
-  border-radius: 15px;
-  width: 100%;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-}
-
-.swiped-word {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  font-size: 1.2rem;
-  white-space: nowrap;
-}
-
-.swiped-word-connector {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 1.2rem;
-  color: #b0b0b0;
-  margin: 0 5px;
 }
 
 .logo-container {
@@ -447,6 +439,11 @@ svg.filters {
     height: 32px;
   }
 
+  .prev-word,
+  .current-word {
+    font-size: 1.2rem;
+  }
+
   .flashcard {
     height: calc(100vw * 1.777 * 0.5);
   }
@@ -511,17 +508,5 @@ svg.filters {
 
   .tooltip-text {
     font-size: 0.9rem;
-  }
-
-  .swiped-words-box {
-    height: 32px;
-  }
-
-  .swiped-word {
-    font-size: 1rem;
-  }
-
-  .swiped-word-connector {
-    font-size: 1rem;
   }
 }
