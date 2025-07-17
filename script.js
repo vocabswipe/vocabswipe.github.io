@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const thaiEl = document.getElementById('thai');
   const audioErrorEl = document.getElementById('audio-error');
   const logo = document.querySelector('.logo');
-  const com = document.querySelector('.com');
   const slogan = document.querySelector('.slogan');
   const header = document.getElementById('header');
   const wordCloudIcon = document.getElementById('word-cloud-icon');
@@ -348,10 +347,11 @@ document.addEventListener('DOMContentLoaded', () => {
               logo.style.transform = 'translateX(0)';
               logo.style.opacity = '1';
               setTimeout(() => {
+                const com = document.querySelector('.com');
                 com.style.transition = 'transform 1s ease, opacity 1s ease';
                 com.style.transform = 'translateX(0)';
                 com.style.opacity = '1';
-              }, 1000); // .com animates 1 second after VocabSwipe
+              }, 1000);
             }, 4000);
 
             setTimeout(() => {
@@ -515,8 +515,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       logo.style.transform = 'translateX(-100%)';
       logo.style.opacity = '0';
-      com.style.transform = 'translateX(100%)';
-      com.style.opacity = '0';
       slogan.style.transform = 'translateX(100%)';
       slogan.style.opacity = '0';
 
