@@ -43,34 +43,6 @@ body {
   opacity: 0.8;
 }
 
-.word-display {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-grow: 1;
-  gap: 20px;
-  position: relative;
-}
-
-.header-word {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.4;
-  text-align: center;
-  white-space: nowrap;
-  max-width: 150px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.word-display-line {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
-  pointer-events: none;
-}
-
 .word-cloud {
   position: relative;
   width: 100%;
@@ -123,6 +95,39 @@ body {
   padding: 20px;
   padding-top: 60px;
   position: relative;
+}
+
+.highlighted-words-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 360px;
+  margin-bottom: 10px;
+  min-height: 30px;
+}
+
+.highlighted-word {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  white-space: nowrap;
+}
+
+.highlighted-word.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .logo-container {
@@ -324,6 +329,7 @@ body {
   margin: 10px 0;
 }
 
+/* Tooltip Styles */
 .tooltip {
   position: absolute;
   display: none;
@@ -418,12 +424,14 @@ body {
   }
 }
 
+/* SVG Filter for Trail Effect */
 svg.filters {
   position: absolute;
   width: 0;
   height: 0;
 }
 
+/* Media Queries */
 @media (max-width: 600px) {
   .header {
     padding: 8px 16px;
@@ -433,15 +441,6 @@ svg.filters {
   .donate-icon {
     width: 32px;
     height: 32px;
-  }
-
-  .header-word {
-    font-size: 1.1rem;
-    max-width: 100px;
-  }
-
-  .word-display {
-    gap: 10px;
   }
 
   .flashcard {
@@ -508,5 +507,9 @@ svg.filters {
 
   .tooltip-text {
     font-size: 0.9rem;
+  }
+
+  .highlighted-word {
+    font-size: 1rem;
   }
 }
