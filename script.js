@@ -39,6 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
   visitCount += 1;
   localStorage.setItem('visitCount', visitCount.toString());
 
+  // Function to detect if the device is a PC (non-touch device)
+  function isPC() {
+    return !('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  }
+
   function escapeHTML(str) {
     return str
       .replace(/&/g, '&amp;')
@@ -207,6 +212,43 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function showTooltip(tooltip, direction) {
+    // Determine if PC or mobile
+    const isPc = isPC();
+    
+    // Update tooltip icon and text based on device
+    const tooltipIcon = tooltip.querySelector('.tooltip-icon');
+    const tooltipText = tooltip.querySelector('.tooltip-text');
+    
+    if (isPc) {
+      if (direction === 'up') {
+        tooltipIcon.src = 'arrow-up.svg';
+        tooltipIcon.alt = 'Arrow Up';
+        tooltipText.textContent = 'Press Up Arrow for next card';
+      } else if (direction === 'down') {
+        tooltipIcon.src = 'arrow-down.svg';
+        tooltipIcon.alt = 'Arrow Down';
+        tooltipText.textContent = 'Press Down Arrow for previous card';
+      } else if (direction === 'tap') {
+        tooltipIcon.src = 'spacebar.svg';
+        tooltipIcon.alt = 'Spacebar';
+        tooltipText.textContent = 'Press Spacebar to hear audio';
+      }
+    } else {
+      if (direction === 'up') {
+        tooltipIcon.src = 'swipe-up.svg';
+        tooltipIcon.alt = 'Swipe Up';
+        tooltipText.textContent = 'Swipe up for next card';
+      } else if (direction === 'down') {
+        tooltipIcon.src = 'swipe-down.svg';
+        tooltipIcon.alt = 'Swipe Down';
+        tooltipText.textContent = 'Swipe down for previous card';
+      } else if (direction === 'tap') {
+        tooltipIcon.src = 'tap.svg';
+        tooltipIcon.alt = 'Tap';
+        tooltipText.textContent = 'Tap to hear audio';
+      }
+    }
+
     // Apply blur to non-flashcard elements
     header.style.filter = 'blur(5px)';
     logo.style.filter = 'blur(5px)';
@@ -226,13 +268,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Calculate Y position based on tooltip type
     let centerY;
     if (direction === 'tap') {
-      // For tap tooltip, position between word and english elements
       const wordRect = wordEl.getBoundingClientRect();
       const englishRect = englishEl.getBoundingClientRect();
-      // Place tooltip at the midpoint between the bottom of word and top of english
       centerY = wordRect.bottom + (englishRect.top - wordRect.bottom) / 2 - containerRect.top;
     } else {
-      // For swipe tooltips, keep centered on flashcard
       centerY = flashcardRect.top - containerRect.top + flashcardRect.height / 2;
     }
     
@@ -244,12 +283,11 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       if (direction === 'tap') {
         tooltip.classList.add('animate-tap');
-        // Trigger glow effect on flashcard at the peak of tap animation
         setTimeout(() => {
           flashcard.classList.add('glow');
-          flashcard.style.setProperty('--glow-color', '#00ff88'); // Match tap icon color
+          flashcard.style.setProperty('--glow-color', '#00ff88');
           setTimeout(() => flashcard.classList.remove('glow'), 500);
-        }, 1000); // Timed to coincide with tap animation peak
+        }, 1000);
       } else {
         tooltip.classList.add(direction === 'up' ? 'animate-up' : 'animate-down');
       }
@@ -259,7 +297,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       tooltip.style.display = 'none';
       tooltip.classList.remove(direction === 'tap' ? 'animate-tap' : direction === 'up' ? 'animate-up' : 'animate-down');
-      // Reset blur only if no other tooltip is animating
       if (
         swipeUpTooltip.style.display === 'none' &&
         swipeDownTooltip.style.display === 'none' &&
@@ -270,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
         logoCom.style.filter = 'none';
         slogan.style.filter = 'none';
       }
-    }, direction === 'tap' ? 2500 : 2000); // Longer duration for tap animation
+    }, direction === 'tap' ? 2500 : 2000);
   }
 
   function displayWordCloud() {
@@ -458,9 +495,9 @@ document.addEventListener('DOMContentLoaded', () => {
                   showTooltip(swipeDownTooltip, 'down');
                   setTimeout(() => {
                     showTooltip(tapTooltip, 'tap');
-                  }, 2500); // Start tap after swipe-down completes
-                }, 2500); // Start swipe-down after swipe-up completes
-              }, 6000); // Delay to allow logo/slogan animations to finish
+                  }, 2500);
+                }, 2500);
+              }, 6000);
             }
           }, 700);
         }, 300);
@@ -576,7 +613,7 @@ document.addEventListener('DOMContentLoaded', () => {
         playAudio(audioUrl, colors[currentColorIndex]);
       };
     } else {
-      console.m('No audio available for this entry');
+      console.log('No audio available for this entry');
       flashcard.onclick = null;
       audioErrorEl.textContent = 'No audio available';
       audioErrorEl.style.display = 'block';
