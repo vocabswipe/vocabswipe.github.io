@@ -106,13 +106,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px; /* Increased from 10px to 30px */
+  gap: 10px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  transition: filter 0.3s ease;
+  width: 100%;
+  min-height: 1.4rem;
 }
 
 .highlight-word {
