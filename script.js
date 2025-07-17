@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const thaiEl = document.getElementById('thai');
   const audioErrorEl = document.getElementById('audio-error');
   const logo = document.querySelector('.logo');
-  const logoDotCom = document.querySelector('.logo-dotcom');
+  const logoCom = document.querySelector('.logo-com');
+  const logoWrapper = document.querySelector('.logo-wrapper');
   const slogan = document.querySelector('.slogan');
   const header = document.getElementById('header');
   const wordCloudIcon = document.getElementById('word-cloud-icon');
@@ -83,9 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
           Failed to load vocabulary data. Please ensure 'data/database.jsonl' exists and is valid.
           <br>Error: ${escapeHTML(error.message)}
         </div>`;
-      wordCloud.style.display = 'flex
-
-';
+      wordCloud.style.display = 'flex';
       wordCloud.style.alignItems = 'center';
       wordCloud.style.justifyContent = 'center';
       wordCloud.style.height = '100vh';
@@ -350,10 +349,10 @@ document.addEventListener('DOMContentLoaded', () => {
               logo.style.transform = 'translateX(0)';
               logo.style.opacity = '1';
               setTimeout(() => {
-                logoDotCom.style.transition = 'transform 1s ease, opacity 1s ease';
-                logoDotCom.style.transform = 'translateX(0)';
-                logoDotCom.style.opacity = '1';
-              }, 1000); // .com slides in 1 second after VocabSwipe
+                logoCom.style.transition = 'transform 1s ease, opacity 1s ease';
+                logoCom.style.transform = 'translateX(0)';
+                logoCom.style.opacity = '1';
+              }, 1000);
             }, 4000);
 
             setTimeout(() => {
@@ -508,7 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
       flashcardContainer.style.display = 'none';
-      header–.style.display = 'none';
+      header.style.display = 'none';
       document.body.style.overflow = 'auto';
       wordCloud.style.display = 'block';
       wordCloud.style.opacity = '0';
@@ -517,8 +516,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       logo.style.transform = 'translateX(-100%)';
       logo.style.opacity = '0';
-      logoDotCom.style.transform = 'translateX(100%)';
-      logoDotCom.style.opacity = '0';
+      logoCom.style.transform = 'translateX(100%)';
+      logoCom.style.opacity = '0';
       slogan.style.transform = 'translateX(100%)';
       slogan.style.opacity = '0';
 
