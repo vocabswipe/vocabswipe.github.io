@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let initialScale = 1;
   let currentScale = 1;
   let translateX = 0;
-  let translateY = 0;
+  let translationY = 0;
   let isPinching = false;
   let currentAudio = null;
   const preloadedAudio = new Set();
@@ -41,11 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -206,48 +206,45 @@ document.addEventListener('DOMContentLoaded', () => {
     showDonatePopup();
   });
 
-  function showTooltip(tooltip, type) {
+  function showTooltip(tooltip, direction) {
     // Apply blur to non-flashcard elements
     header.style.filter = 'blur(5px)';
     logo.style.filter = 'blur(5px)';
     logoCom.style.filter = 'blur(5px)';
     slogan.style.filter = 'blur(5px)';
-
+    
     // Show tooltip
     tooltip.style.display = 'flex';
-
+    
     // Get flashcard position and size
     const flashcardRect = flashcard.getBoundingClientRect();
     const containerRect = flashcardContainer.getBoundingClientRect();
-
+    
     // Position tooltip at flashcard center
     const centerX = flashcardRect.left - containerRect.left + flashcardRect.width / 2;
     const centerY = flashcardRect.top - containerRect.top + flashcardRect.height / 2;
     tooltip.style.left = `${centerX}px`;
     tooltip.style.top = `${centerY}px`;
-
-    // Trigger animation based on type
+    
+    // Trigger animation based on direction
     setTimeout(() => {
-      if (type === 'up') {
-        tooltip.classList.add('animate-up');
-      } else if (type === 'down') {
-        tooltip.classList.add('animate-down');
-      } else if (type === 'tap') {
+      if (direction === 'tap') {
         tooltip.classList.add('animate-tap');
-        // Trigger glow effect without audio
+        // Trigger glow effect on flashcard at the peak of tap animation
         setTimeout(() => {
           flashcard.classList.add('glow');
-          flashcard.style.setProperty('--glow-color', colors[currentColorIndex]);
+          flashcard.style.setProperty('--glow-color', '#00ff88'); // Match tap icon color
           setTimeout(() => flashcard.classList.remove('glow'), 500);
-        }, 1000); // Sync with tap animation peak
+        }, 1000); // Timed to coincide with tap animation peak
+      } else {
+        tooltip.classList.add(direction === 'up' ? 'animate-up' : 'animate-down');
       }
     }, 100);
-
+    
     // Remove tooltip and reset blur after animation
-    const animationDuration = type === 'tap' ? 1500 : 2000; // Tap animation is shorter
     setTimeout(() => {
       tooltip.style.display = 'none';
-      tooltip.classList.remove(type === 'up' ? 'animate-up' : type === 'down' ? 'animate-down' : 'animate-tap');
+      tooltip.classList.remove(direction === 'tap' ? 'animate-tap' : direction === 'up' ? 'animate-up' : 'animate-down');
       // Reset blur only if no other tooltip is animating
       if (
         swipeUpTooltip.style.display === 'none' &&
@@ -259,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
         logoCom.style.filter = 'none';
         slogan.style.filter = 'none';
       }
-    }, animationDuration);
+    }, direction === 'tap' ? 2500 : 2000); // Longer duration for tap animation
   }
 
   function displayWordCloud() {
@@ -362,7 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
         wordCloud.style.transformOrigin = 'center center';
         currentScale = 1;
         translateX = 0;
-        translateY = 0;
+        translationY = 0;
 
         document.querySelectorAll('.cloud-word').forEach(otherWord => {
           if (otherWord !== wordEl) {
@@ -507,15 +504,15 @@ document.addEventListener('DOMContentLoaded', () => {
         );
         const newScale = currentScale * (pinchDistance / pinchStartDistance);
         currentScale = Math.max(1, Math.min(newScale, 3));
-        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
+        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
         pinchStartDistance = pinchDistance;
       } else if (e.touches.length === 1 && currentScale > 1) {
         e.preventDefault();
         const deltaX = e.touches[0].clientX - (wordCloud._lastX || e.touches[0].clientX);
         const deltaY = e.touches[0].clientY - (wordCloud._lastY || e.touches[0].clientY);
         translateX += deltaX / currentScale;
-        translateY += deltaY / currentScale;
-        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
+        translationY += deltaY / currentScale;
+        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
         wordCloud._lastX = e.touches[0].clientX;
         wordCloud._lastY = e.touches[0].clientY;
       }
