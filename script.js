@@ -47,11 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -180,12 +180,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add glow to highlighted words and line
         const highlightWords = document.querySelectorAll('.highlight-word');
         const connectingLine = document.querySelector('.highlight-word-line');
-        highlightWords.forEach(word => word.classList.add('glow'));
-        if (connectingLine) connectingLine.classList.add('glow');
+        highlightWords.forEach(word => word.classList.add('glow-word'));
+        if (connectingLine) connectingLine.classList.add('glow-line');
         setTimeout(() => {
           flashcard.classList.remove('glow');
-          highlightWords.forEach(word => word.classList.remove('glow'));
-          if (connectingLine) connectingLine.classList.remove('glow');
+          highlightWords.forEach(word => word.classList.remove('glow-word'));
+          if (connectingLine) connectingLine.classList.remove('glow-line');
         }, 500);
         audioErrorEl.style.display = 'none';
       }).catch(e => {
@@ -292,12 +292,12 @@ document.addEventListener('DOMContentLoaded', () => {
           // Add glow to highlighted words and line
           const highlightWords = document.querySelectorAll('.highlight-word');
           const connectingLine = document.querySelector('.highlight-word-line');
-          highlightWords.forEach(word => word.classList.add('glow'));
-          if (connectingLine) connectingLine.classList.add('glow');
+          highlightWords.forEach(word => word.classList.add('glow-word'));
+          if (connectingLine) connectingLine.classList.add('glow-line');
           setTimeout(() => {
             flashcard.classList.remove('glow');
-            highlightWords.forEach(word => word.classList.remove('glow'));
-            if (connectingLine) connectingLine.classList.remove('glow');
+            highlightWords.forEach(word => word.classList.remove('glow-word'));
+            if (connectingLine) connectingLine.classList.remove('glow-line');
           }, 500);
         }, 1000);
       } else {
@@ -587,7 +587,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  function drawConnectingLine(word1El, word2El, color) {
+  function drawConnectingLine(word1El, word2El) {
     const existingLine = document.querySelector('.highlight-word-line');
     if (existingLine) existingLine.remove();
 
@@ -601,7 +601,7 @@ document.addEventListener('DOMContentLoaded', () => {
     svg.style.width = '100%';
     svg.style.height = '100%';
     svg.style.pointerEvents = 'none';
-    svg.style.zIndex = '5';
+    svg.style.zIndex = '10'; // Increased z-index to ensure visibility
 
     const word1Rect = word1El.getBoundingClientRect();
     const word2Rect = word2El.getBoundingClientRect();
@@ -609,7 +609,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const x1 = word1Rect.right - containerRect.left + 5;
     const x2 = word2Rect.left - containerRect.left - 5;
-    const y = (word1Rect.top + word1Rect.height / 2 - containerRect.top);
+    const y = word1Rect.top + word1Rect.height / 2 - containerRect.top;
 
     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
     line.setAttribute('x1', x1);
@@ -693,7 +693,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Draw connecting line after animation
       setTimeout(() => {
-        drawConnectingLine(currentWordEl, nextWordEl, currentWordObj.color);
+        drawConnectingLine(currentWordEl, nextWordEl);
       }, 600);
     }
 
