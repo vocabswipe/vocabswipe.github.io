@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const swipeUpTooltip = document.getElementById('swipe-up-tooltip');
   const swipeDownTooltip = document.getElementById('swipe-down-tooltip');
   const tapTooltip = document.getElementById('tap-tooltip');
-  const highlightedWordsEl = document.getElementById('highlighted-words');
+  const highlightWordsContainer = document.getElementById('highlight-words-container');
 
   let entries = [];
   let currentIndex = 0;
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/'/g, '&apos;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -216,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isPc = isPC();
     const tooltipIcon = tooltip.querySelector('.tooltip-icon');
     const tooltipText = tooltip.querySelector('.tooltip-text');
-    
+
     if (isPc) {
       if (direction === 'up') {
         tooltipIcon.src = 'arrow-up.svg';
@@ -251,12 +251,14 @@ document.addEventListener('DOMContentLoaded', () => {
     logo.style.filter = 'blur(5px)';
     logoCom.style.filter = 'blur(5px)';
     slogan.style.filter = 'blur(5px)';
-    
+
     tooltip.style.display = 'flex';
-    
+
     const flashcardRect = flashcard.getBoundingClientRect();
     const containerRect = flashcardContainer.getBoundingClientRect();
+
     const centerX = flashcardRect.left - containerRect.left + flashcardRect.width / 2;
+
     let centerY;
     if (direction === 'tap') {
       const wordRect = wordEl.getBoundingClientRect();
@@ -265,10 +267,10 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       centerY = flashcardRect.top - containerRect.top + flashcardRect.height / 2;
     }
-    
+
     tooltip.style.left = `${centerX}px`;
     tooltip.style.top = `${centerY}px`;
-    
+
     setTimeout(() => {
       if (direction === 'tap') {
         tooltip.classList.add('animate-tap');
@@ -281,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tooltip.classList.add(direction === 'up' ? 'animate-up' : 'animate-down');
       }
     }, 100);
-    
+
     setTimeout(() => {
       tooltip.style.display = 'none';
       tooltip.classList.remove(direction === 'tap' ? 'animate-tap' : direction === 'up' ? 'animate-up' : 'animate-down');
@@ -589,40 +591,22 @@ document.addEventListener('DOMContentLoaded', () => {
     thaiEl.textContent = entry.thai;
     audioErrorEl.style.display = 'none';
 
-    // Display previous and next highlighted words above the logo
-    highlightedWordsEl.innerHTML = '';
-    const prevWordEl = prevWord ? document.createElement('span') : null;
-    const nextWordEl = nextWord ? document.createElement('span') : null;
-
-    if (prevWordEl) {
-      prevWordEl.className = 'highlighted-word prev';
-      prevWordEl.textContent = prevWord;
-      prevWordEl.style.color = colors[(currentColorIndex - 1 + colors.length) % colors.length];
-      highlightedWordsEl.appendChild(prevWordEl);
-      // Trigger animation
+    // Update highlighted words above logo
+    highlightWordsContainer.innerHTML = '';
+    const highlightedWords = wordsToHighlight.filter(w => entry.english.toLowerCase().includes(w.word.toLowerCase()));
+    highlightedWords.forEach(({ word, color }) => {
+      const wordEl = document.createElement('span');
+      wordEl.className = 'highlight-word';
+      wordEl.textContent = word;
+      wordEl.style.color = color;
+      wordEl.style.opacity = '0';
+      highlightWordsContainer.appendChild(wordEl);
+      // Trigger fade-in animation
       setTimeout(() => {
-        prevWordEl.classList.add('animate');
-        setTimeout(() => {
-          prevWordEl.classList.remove('animate');
-          prevWordEl.style.opacity = '0';
-        }, 2000);
+        wordEl.style.transition = 'opacity 0.5s ease';
+        wordEl.style.opacity = '1';
       }, 100);
-    }
-
-    if (nextWordEl) {
-      nextWordEl.className = 'highlighted-word next';
-      nextWordEl.textContent = nextWord;
-      nextWordEl.style.color = colors[(currentColorIndex + 1) % colors.length];
-      highlightedWordsEl.appendChild(nextWordEl);
-      // Trigger animation
-      setTimeout(() => {
-        nextWordEl.classList.add('animate');
-        setTimeout(() => {
-          nextWordEl.classList.remove('animate');
-          nextWordEl.style.opacity = '0';
-        }, 2000);
-      }, 100);
-    }
+    });
 
     preloadAudio(index);
 
@@ -651,7 +635,6 @@ document.addEventListener('DOMContentLoaded', () => {
     header.style.opacity = '0';
     donateIcon.style.display = 'none';
     hideDonatePopup();
-    highlightedWordsEl.innerHTML = ''; // Clear highlighted words
 
     setTimeout(() => {
       flashcardContainer.style.display = 'none';
@@ -702,16 +685,30 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
       console.log('Swipe up detected, going to next entry');
       stopAudio();
-      currentIndex++;
-      currentColorIndex = (currentColorIndex + 1) % colors.length;
-      displayEntry(currentIndex);
+      // Fade out highlighted words
+      document.querySelectorAll('.highlight-word').forEach(wordEl => {
+        wordEl.style.transition = 'opacity 0.3s ease';
+        wordEl.style.opacity = '0';
+      });
+      setTimeout(() => {
+        currentIndex++;
+        currentColorIndex = (currentColorIndex + 1) % colors.length;
+        displayEntry(currentIndex);
+      }, 300);
       lastSwipeTime = Date.now();
     } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
       console.log('Swipe down detected, going to previous entry');
       stopAudio();
-      currentIndex--;
-      currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
-      displayEntry(currentIndex);
+      // Fade out highlighted words
+      document.querySelectorAll('.highlight-word').forEach(wordEl => {
+        wordEl.style.transition = 'opacity 0.3s ease';
+        wordEl.style.opacity = '0';
+      });
+      setTimeout(() => {
+        currentIndex--;
+        currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+        displayEntry(currentIndex);
+      }, 300);
       lastSwipeTime = Date.now();
     }
   }, { passive: false });
@@ -721,16 +718,30 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'ArrowUp' && currentIndex < entries.length - 1) {
         console.log('Arrow up pressed, going to next entry');
         stopAudio();
-        currentIndex++;
-        currentColorIndex = (currentColorIndex + 1) % colors.length;
-        displayEntry(currentIndex);
+        // Fade out highlighted words
+        document.querySelectorAll('.highlight-word').forEach(wordEl => {
+          wordEl.style.transition = 'opacity 0.3s ease';
+          wordEl.style.opacity = '0';
+        });
+        setTimeout(() => {
+          currentIndex++;
+          currentColorIndex = (currentColorIndex + 1) % colors.length;
+          displayEntry(currentIndex);
+        }, 300);
         lastSwipeTime = Date.now();
       } else if (e.key === 'ArrowDown' && currentIndex > 0) {
         console.log('Arrow down pressed, going to previous entry');
         stopAudio();
-        currentIndex--;
-        currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
-        displayEntry(currentIndex);
+        // Fade out highlighted words
+        document.querySelectorAll('.highlight-word').forEach(wordEl => {
+          wordEl.style.transition = 'opacity 0.3s ease';
+          wordEl.style.opacity = '0';
+        });
+        setTimeout(() => {
+          currentIndex--;
+          currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+          displayEntry(currentIndex);
+        }, 300);
         lastSwipeTime = Date.now();
       } else if (e.key === ' ') {
         e.preventDefault();
