@@ -120,13 +120,14 @@ body {
   transform: translate(-50%, -50%);
   z-index: 10;
   width: 100%;
-  min-height: 1.4rem;
+  height: auto;
+  min-height: 50px; /* Increased to ensure space for SVG */
 }
 
 .highlight-word-group {
   display: flex;
   align-items: center;
-  gap: 30px; /* Increased from 10px to 30px for 3x distance */
+  gap: 30px;
   position: relative;
   transition: opacity 0.3s ease;
 }
@@ -142,18 +143,23 @@ body {
 
 .highlight-word.current-word {
   order: -1;
-  transform: translateX(-300px); /* Increased from -100px */
+  transform: translateX(-300px);
   opacity: 0;
 }
 
 .highlight-word.next-word {
-  transform: translateX(300px); /* Increased from 100px */
+  transform: translateX(300px);
   opacity: 0;
 }
 
 .highlight-word.glow,
 .highlight-word-group.glow .highlight-word {
   animation: text-glow 0.5s ease-in-out;
+}
+
+.highlight-line.glow,
+.highlight-word-group.glow .highlight-line {
+  animation: glow-line 0.5s ease-in-out;
 }
 
 @keyframes text-glow {
@@ -168,23 +174,13 @@ body {
   }
 }
 
-.highlight-word-line {
-  transition: opacity 0.3s ease;
-  z-index: 10;
-}
-
-.highlight-word-line.glow,
-.highlight-word-group.glow .highlight-word-line {
-  animation: glow-line 0.5s ease-in-out;
-}
-
 @keyframes glow-line {
   0% {
     stroke: #ffffff;
     stroke-opacity: 0.7;
   }
   50% {
-    stroke: #ffffff;
+    stroke: var(--glow-color, #00ff88);
     stroke-opacity: 1;
   }
   100% {
@@ -585,7 +581,7 @@ svg.filters {
   }
 
   .highlight-word-group {
-    gap: 20px; /* Adjusted for smaller screens */
+    gap: 20px;
   }
 
   .highlight-word.current-word {
