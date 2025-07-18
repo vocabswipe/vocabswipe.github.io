@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentAudio = null;
   const preloadedAudio = new Set();
   const CACHE_KEY = 'vocabswipe_data_v1'; // Versioned cache key
+  let wordTimeouts = []; // Array to store timeouts for word placement
 
   // Track visit count using localStorage
   let visitCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
@@ -259,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Apply blur to other elements
     header.style.filter = 'blur(5px)';
-    logo.style.filter = 'blur(5px)';
+    logo.style.filter = 'blink(5px)';
     logoCom.style.filter = 'blur(5px)';
     slogan.style.filter = 'blur(5px)';
     flashcard.style.filter = 'none';
@@ -440,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const initialDisplayCount = Math.ceil(wordArray.length * 0.05); // First 5%
     const remainingWords = wordArray.length - initialDisplayCount;
-    const delayPerWord = remainingWords > 0 ? 8.335 : 0; // Halved to 16.67ms / 2 for 2x speed
+    const delayPerWord = remainingWords > 0 ? 4.1675 : 0; // Halved from 8.335ms to 4.1675ms for 2x speed
 
     // Place initial 5% of words immediately
     wordArray.slice(0, initialDisplayCount).forEach(({ word, freq }) => {
@@ -487,7 +488,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Place remaining 95% of words progressively
     wordArray.slice(initialDisplayCount).forEach(({ word, freq }, index) => {
-      setTimeout(() => {
+      const timeoutId = setTimeout(() => {
         const wordEl = document.createElement('div');
         wordEl.className = 'cloud-word';
         wordEl.textContent = word;
@@ -531,10 +532,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         addWordEventListener(wordEl, word);
       }, index * delayPerWord);
+      wordTimeouts.push(timeoutId); // Store timeout ID
     });
 
     // Defer line drawing until after all words are placed
-    setTimeout(() => {
+    const lineTimeoutId = setTimeout(() => {
       requestAnimationFrame(() => {
         placedWords.forEach((word1, i) => {
           const nearest = placedWords
@@ -562,155 +564,7 @@ document.addEventListener('DOMContentLoaded', () => {
         svg.style.opacity = '1';
       });
     }, remainingWords * delayPerWord + 100);
-
-    function addWordEventListener(wordEl, word) {
-      wordEl.addEventListener('click', () => {
-        stopAudio();
-        // Stop twinkling for all words
-        document.querySelectorAll('.cloud-word').forEach(word => {
-          word.style.animation = 'none';
-        });
-        wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
-        wordCloud.style.transformOrigin = 'center center';
-        currentScale = 1;
-        translateX = 0;
-        translationY = 0;
-
-        // Immediate fade-out of other words and SVG lines
-        document.querySelectorAll('.cloud-word').forEach(otherWord => {
-          if (otherWord !== wordEl) {
-            otherWord.style.transition = 'none'; // Remove transition for immediate effect
-            otherWord.style.opacity = '0';
-          }
-        });
-
-        svg.style.transition = 'none'; // Remove transition for immediate effect
-        svg.style.opacity = '0';
-
-        const rect = wordEl.getBoundingClientRect();
-        const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
-        const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
-
-        wordEl.style.transition = 'transform 0.7s ease, opacity 0.7s ease';
-        wordEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(3)`;
-        wordEl.style.zIndex = '20';
-
-        setTimeout(() => {
-          wordEl.style.opacity = '0';
-
-          setTimeout(() => {
-            wordCloud.style.display = 'none';
-            wordEl.style.transform = 'none';
-            wordEl.style.opacity = '1';
-            wordEl.style.zIndex = '10';
-            svg.style.opacity = '1';
-
-            flashcardContainer.style.display = 'flex';
-            flashcardContainer.style.opacity = '0';
-            flashcardContainer.style.transition = 'opacity 1s ease';
-            flashcardContainer.style.opacity = '1';
-
-            header.style.display = 'flex';
-            header.style.opacity = '0';
-            header.style.transition = 'opacity 1s ease';
-            header.style.opacity = '1';
-            donateIcon.style.display = 'block';
-
-            flashcardContainer.style.height = '100vh';
-            flashcardContainer.style.justifyContent = 'center';
-            document.body.style.overflow = 'hidden';
-
-            setTimeout(() => {
-              logo.style.transition = 'transform 1s ease, opacity 1s ease';
-              logo.style.transform = 'translateX(0)';
-              logo.style.opacity = '1';
-
-              setTimeout(() => {
-                logoCom.style.transition = 'transform 1s ease, opacity 1s ease';
-                logoCom.style.transform = 'translateX(0)';
-                logoCom.style.opacity = '1';
-              }, 1000);
-            }, 4000);
-
-            setTimeout(() => {
-              slogan.style.transition = 'transform 1s ease, opacity 1s ease';
-              slogan.style.transform = 'translateX(0)';
-              slogan.style.opacity = '1';
-            }, 4000);
-
-            const matchingIndices = entries
-              .map((entry, idx) => ({ entry, idx }))
-              .filter(({ entry }) => entry.word.toLowerCase() === word.toLowerCase())
-              .map(({ idx }) => idx);
-
-            if (matchingIndices.length > 0) {
-              currentIndex = matchingIndices[Math.floor(Math.random() * matchingIndices.length)];
-            } else {
-              currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
-            }
-
-            currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
-            displayEntry(currentIndex);
-
-            if (visitCount <= 100) {
-              setTimeout(() => {
-                showTooltip(swipeUpTooltip, 'up');
-                setTimeout(() => {
-                  showTooltip(swipeDownTooltip, 'down');
-                  setTimeout(() => {
-                    showTooltip(tapTooltip, 'tap');
-                  }, 2500);
-                }, 2500);
-              }, 6000);
-            }
-          }, 700);
-        }, 300);
-      });
-    }
-
-    let pinchStartDistance = 0;
-    wordCloud.addEventListener('touchstart', e => {
-      touchStartTime = Date.now();
-      if (e.touches.length === 2) {
-        isPinching = true;
-        pinchStartDistance = Math.hypot(
-          e.touches[0].clientX - e.touches[1].clientX,
-          e.touches[0].clientY - e.touches[1].clientY
-        );
-      } else if (e.touches.length === 1) {
-        touchStartY = e.touches[0].screenY;
-      }
-    }, { passive: true });
-
-    wordCloud.addEventListener('touchmove', e => {
-      if (e.touches.length === 2) {
-        e.preventDefault();
-        isPinching = true;
-        const pinchDistance = Math.hypot(
-          e.touches[0].clientX - e.touches[1].clientX,
-          e.touches[0].clientY - e.touches[1].clientY
-        );
-        const newScale = currentScale * (pinchDistance / pinchStartDistance);
-        currentScale = Math.max(1, Math.min(newScale, 3));
-        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
-        pinchStartDistance = pinchDistance;
-      } else if (e.touches.length === 1 && currentScale > 1) {
-        e.preventDefault();
-        const deltaX = e.touches[0].clientX - (wordCloud._lastX || e.touches[0].clientX);
-        const deltaY = e.touches[0].clientY - (wordCloud._lastY || e.touches[0].clientY);
-        translateX += deltaX / currentScale;
-        translationY += deltaY / currentScale;
-        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
-        wordCloud._lastX = e.touches[0].clientX;
-        wordCloud._lastY = e.touches[0].clientY;
-      }
-    }, { passive: false });
-
-    wordCloud.addEventListener('touchend', e => {
-      wordCloud._lastX = null;
-      wordCloud._lastY = null;
-      isPinching = false;
-    }, { passive: true });
+    wordTimeouts.push(lineTimeoutId); // Store line drawing timeout
   }
 
   function drawConnectingLine(word1El, word2El) {
@@ -859,6 +713,114 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function addWordEventListener(wordEl, word) {
+    wordEl.addEventListener('click', () => {
+      stopAudio();
+      // Clear all pending word placement and line drawing timeouts
+      wordTimeouts.forEach(timeoutId => clearTimeout(timeoutId));
+      wordTimeouts = []; // Reset timeouts array
+      // Stop twinkling and hide all other words and SVG lines instantly
+      document.querySelectorAll('.cloud-word').forEach(otherWord => {
+        if (otherWord !== wordEl) {
+          otherWord.style.transition = 'none'; // Disable transition for instant effect
+          otherWord.style.opacity = '0';
+          otherWord.style.animation = 'none'; // Stop twinkling
+        }
+      });
+      const svg = document.querySelector('.word-cloud-lines');
+      if (svg) {
+        svg.style.transition = 'none'; // Disable transition for instant effect
+        svg.style.opacity = '0';
+      }
+      // Reset word cloud transform
+      wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
+      wordCloud.style.transformOrigin = 'center center';
+      currentScale = 1;
+      translateX = 0;
+      translationY = 0;
+
+      // Scale up selected word
+      const rect = wordEl.getBoundingClientRect();
+      const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
+      const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
+
+      wordEl.style.transition = 'transform 0.7s ease, opacity 0.7s ease';
+      wordEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(3)`;
+      wordEl.style.zIndex = '20';
+
+      setTimeout(() => {
+        wordEl.style.opacity = '0';
+
+        setTimeout(() => {
+          wordCloud.style.display = 'none';
+          wordEl.style.transform = 'none';
+          wordEl.style.opacity = '1';
+          wordEl.style.zIndex = '10';
+          if (svg) svg.style.opacity = '1';
+
+          flashcardContainer.style.display = 'flex';
+          flashcardContainer.style.opacity = '0';
+          flashcardContainer.style.transition = 'opacity 1s ease';
+          flashcardContainer.style.opacity = '1';
+
+          header.style.display = 'flex';
+          header.style.opacity = '0';
+          header.style.transition = 'opacity 1s ease';
+          header.style.opacity = '1';
+          donateIcon.style.display = 'block';
+
+          flashcardContainer.style.height = '100vh';
+          flashcardContainer.style.justifyContent = 'center';
+          document.body.style.overflow = 'hidden';
+
+          setTimeout(() => {
+            logo.style.transition = 'transform 1s ease, opacity 1s ease';
+            logo.style.transform = 'translateX(0)';
+            logo.style.opacity = '1';
+
+            setTimeout(() => {
+              logoCom.style.transition = 'transform 1s ease, opacity 1s ease';
+              logoCom.style.transform = 'translateX(0)';
+              logoCom.style.opacity = '1';
+            }, 1000);
+          }, 4000);
+
+          setTimeout(() => {
+            slogan.style.transition = 'transform 1s ease, opacity 1s ease';
+            slogan.style.transform = 'translateX(0)';
+            slogan.style.opacity = '1';
+          }, 4000);
+
+          const matchingIndices = entries
+            .map((entry, idx) => ({ entry, idx }))
+            .filter(({ entry }) => entry.word.toLowerCase() === word.toLowerCase())
+            .map(({ idx }) => idx);
+
+          if (matchingIndices.length > 0) {
+            currentIndex = matchingIndices[Math.floor(Math.random() * matchingIndices.length)];
+          } else {
+            currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
+          }
+
+          currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
+          displayEntry(currentIndex);
+
+          if (visitCount <= 100) {
+            setTimeout(() => {
+              showTooltip(swipeUpTooltip, 'up');
+              setTimeout(() => {
+                showTooltip(swipeDownTooltip, 'down');
+                setTimeout(() => {
+                  showTooltip(tapTooltip, 'tap');
+                }, 2500);
+              }, 2500);
+            }, 6000);
+          }
+        }, 700);
+      }, 300);
+    });
+  }
+
   wordCloudIcon.addEventListener('click', () => {
     stopAudio();
     flashcardContainer.style.transition = 'opacity 0.7s ease';
@@ -986,6 +948,49 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  wordCloud.addEventListener('touchstart', e => {
+    touchStartTime = Date.now();
+    if (e.touches.length === 2) {
+      isPinching = true;
+      pinchStartDistance = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+    } else if (e.touches.length === 1) {
+      touchStartY = e.touches[0].screenY;
+    }
+  }, { passive: true });
+
+  wordCloud.addEventListener('touchmove', e => {
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      isPinching = true;
+      const pinchDistance = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      const newScale = currentScale * (pinchDistance / pinchStartDistance);
+      currentScale = Math.max(1, Math.min(newScale, 3));
+      wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
+      pinchStartDistance = pinchDistance;
+    } else if (e.touches.length === 1 && currentScale > 1) {
+      e.preventDefault();
+      const deltaX = e.touches[0].clientX - (wordCloud._lastX || e.touches[0].clientX);
+      const deltaY = e.touches[0].clientY - (wordCloud._lastY || e.touches[0].clientY);
+      translateX += deltaX / currentScale;
+      translationY += deltaY / currentScale;
+      wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
+      wordCloud._lastX = e.touches[0].clientX;
+      wordCloud._lastY = e.touches[0].clientY;
+    }
+  }, { passive: false });
+
+  wordCloud.addEventListener('anutouchend', e => {
+    wordCloud._lastX = null;
+    wordCloud._lastY = null;
+    isPinching = false;
+  }, { passive: true });
 
   loadData();
 });
