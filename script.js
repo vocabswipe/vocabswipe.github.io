@@ -38,6 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const preloadedAudio = new Set();
   const CACHE_KEY = 'vocabswipe_data_v1'; // Versioned cache key
   let wordTimeouts = []; // Array to store timeouts for word placement
+  let lastWordIndex = 0; // Track the last placed word index
+  let placedWords = []; // Store placed word objects
+  let spatialGrid = null; // Store spatial grid
+  let wordCloudSvg = null; // Store SVG for connecting lines
+  let wordArray = []; // Store the sorted word array
+  let wordFreq = {}; // Store word frequencies
+  let wordCaseMap = new Map(); // Store word case mapping
 
   // Track visit count using localStorage
   let visitCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
@@ -55,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/'/g, '&apos;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -260,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Apply blur to other elements
     header.style.filter = 'blur(5px)';
-    logo.style.filter = 'blink(5px)';
+    logo.style.filter = 'blur(5px)';
     logoCom.style.filter = 'blur(5px)';
     slogan.style.filter = 'blur(5px)';
     flashcard.style.filter = 'none';
@@ -338,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
           loadingIndicator.style.opacity = '0';
           setTimeout(() => {
             loadingIndicator.style.display = 'none';
-            displayWordCloud();
+            displayWordCloud(0);
           }, 300);
           return;
         }
@@ -373,7 +380,7 @@ document.addEventListener('DOMContentLoaded', () => {
       loadingIndicator.style.opacity = '0';
       setTimeout(() => {
         loadingIndicator.style.display = 'none';
-        displayWordCloud();
+        displayWordCloud(0);
       }, 300);
     } catch (error) {
       console.error('LoadData Error:', error);
@@ -390,34 +397,62 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function displayWordCloud() {
-    const wordFreq = {};
-    const wordCaseMap = new Map();
-    entries.forEach(entry => {
-      if (typeof entry.word !== 'string') {
-        throw new Error('Invalid word format in database entry');
-      }
-      const lowerWord = entry.word.toLowerCase();
-      wordFreq[lowerWord] = (wordFreq[lowerWord] || 0) + 1;
-      if (!wordCaseMap.has(lowerWord)) {
-        wordCaseMap.set(lowerWord, entry.word);
-      }
-    });
+  function displayWordCloud(startIndex = 0) {
+    // Initialize word frequency and case mapping if not already done
+    if (!wordFreq || Object.keys(wordFreq).length === 0) {
+      wordFreq = {};
+      wordCaseMap = new Map();
+      entries.forEach(entry => {
+        if (typeof entry.word !== 'string') {
+          throw new Error('Invalid word format in database entry');
+        }
+        const lowerWord = entry.word.toLowerCase();
+        wordFreq[lowerWord] = (wordFreq[lowerWord] || 0) + 1;
+        if (!wordCaseMap.has(lowerWord)) {
+          wordCaseMap.set(lowerWord, entry.word);
+        }
+      });
+      wordArray = Array.from(wordCaseMap.entries())
+        .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
+        .sort((a, b) => b.freq - a.freq);
+    }
 
     const maxFreq = Math.max(...Object.values(wordFreq));
-    const minFreq = Math.max(1, Math.min(...Object.values(wordFreq)));
     const containerWidth = window.innerWidth;
     const containerHeight = Math.max(window.innerHeight * 1.5, wordCaseMap.size * 15);
     wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
 
-    wordCloud.innerHTML = '';
-    wordCloud.appendChild(loadingIndicator); // Re-attach loading indicator
-    const spatialGrid = createSpatialGrid(containerWidth, containerHeight);
-    const placedWords = [];
-    const wordArray = Array.from(wordCaseMap.entries())
-      .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
-      .sort((a, b) => b.freq - a.freq);
+    // Initialize spatial grid and SVG if not resuming
+    if (startIndex === 0) {
+      wordCloud.innerHTML = '';
+      wordCloud.appendChild(loadingIndicator); // Re-attach loading indicator
+      placedWords = [];
+      spatialGrid = createSpatialGrid(containerWidth, containerHeight);
+      wordCloudSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      wordCloudSvg.className = 'word-cloud-lines';
+      wordCloudSvg.style.position = 'absolute';
+      wordCloudSvg.style.top = '0';
+      wordCloudSvg.style.left = '0';
+      wordCloudSvg.style.width = `${containerWidth}px`;
+      wordCloudSvg.style.height = `${containerHeight}px`;
+      wordCloudSvg.style.zIndex = '5';
+      wordCloudSvg.style.pointerEvents = 'none';
+      wordCloud.appendChild(wordCloudSvg);
+    } else {
+      // Restore existing words' opacity and animations
+      document.querySelectorAll('.cloud-word').forEach(word => {
+        word.style.transition = 'opacity 0.3s ease';
+        word.style.opacity = '1';
+        const duration = 2 + Math.random() * 3;
+        const delay = Math.random() * 3;
+        word.style.animation = `twinkle ${duration}s infinite ${delay}s`;
+      });
+      if (wordCloudSvg) {
+        wordCloudSvg.style.transition = 'opacity 0.3s ease';
+        wordCloudSvg.style.opacity = '1';
+      }
+    }
 
     if (wordArray.length === 0) {
       wordCloud.innerHTML = '<div class="error-message">No words to display in word cloud.</div>';
@@ -428,66 +463,58 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.className = 'word-cloud-lines';
-    svg.style.position = 'absolute';
-    svg.style.top = '0';
-    svg.style.left = '0';
-    svg.style.width = `${containerWidth}px`;
-    svg.style.height = `${containerHeight}px`;
-    svg.style.zIndex = '5';
-    svg.style.pointerEvents = 'none';
-    wordCloud.appendChild(svg);
-
     const initialDisplayCount = Math.ceil(wordArray.length * 0.05); // First 5%
     const remainingWords = wordArray.length - initialDisplayCount;
-    const delayPerWord = remainingWords > 0 ? 4.1675 : 0; // Halved from 8.335ms to 4.1675ms for 2x speed
+    const delayPerWord = remainingWords > 0 ? 4.1675 : 0;
 
-    // Place initial 5% of words immediately
-    wordArray.slice(0, initialDisplayCount).forEach(({ word, freq }) => {
-      const wordEl = document.createElement('div');
-      wordEl.className = 'cloud-word';
-      wordEl.textContent = word;
-      const size = 0.8 + (freq / maxFreq) * 2.2;
-      wordEl.style.fontSize = `${size}rem`;
-      const wordColor = colors[Math.floor(Math.random() * colors.length)];
-      wordEl.style.color = wordColor;
-      wordColors.set(word.toLowerCase(), wordColor);
-      wordEl.style.opacity = '1';
-      // Add random twinkle animation
-      const duration = 2 + Math.random() * 3; // Random duration between 2-5 seconds
-      const delay = Math.random() * 3; // Random delay between 0-3 seconds
-      wordEl.style.animation = `twinkle ${duration}s infinite ${delay}s`;
-      wordCloud.appendChild(wordEl);
+    // Place initial words if starting from index 0
+    if (startIndex === 0) {
+      wordArray.slice(0, initialDisplayCount).forEach(({ word, freq }) => {
+        const wordEl = document.createElement('div');
+        wordEl.className = 'cloud-word';
+        wordEl.textContent = word;
+        const size = 0.8 + (freq / maxFreq) * 2.2;
+        wordEl.style.fontSize = `${size}rem`;
+        const wordColor = colors[Math.floor(Math.random() * colors.length)];
+        wordEl.style.color = wordColor;
+        wordColors.set(word.toLowerCase(), wordColor);
+        wordEl.style.opacity = '1';
+        const duration = 2 + Math.random() * 3;
+        const delay = Math.random() * 3;
+        wordEl.style.animation = `twinkle ${duration}s infinite ${delay}s`;
+        wordCloud.appendChild(wordEl);
 
-      const { width, height } = wordEl.getBoundingClientRect();
-      let x, y, placed = false;
-      const maxAttempts = 500;
+        const { width, height } = wordEl.getBoundingClientRect();
+        let x, y, placed = false;
+        const maxAttempts = 500;
 
-      for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
-        x = Math.random() * (containerWidth - width);
-        y = Math.random() * (containerHeight - height);
-        if (!isOverlapping(x, y, width, height, spatialGrid)) {
-          wordEl.style.left = `${x}px`;
-          wordEl.style.top = `${y}px`;
-          const wordObj = { x, y, width, height, word, element: wordEl };
-          placedWords.push(wordObj);
-          spatialGrid.addToGrid(x, y, width, height, wordObj);
-          placed = true;
+        for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
+          x = Math.random() * (containerWidth - width);
+          y = Math.random() * (containerHeight - height);
+          if (!isOverlapping(x, y, width, height, spatialGrid)) {
+            wordEl.style.left = `${x}px`;
+            wordEl.style.top = `${y}px`;
+            const wordObj = { x, y, width, height, word, element: wordEl };
+            placedWords.push(wordObj);
+            spatialGrid.addToGrid(x, y, width, height, wordObj);
+            placed = true;
+          }
         }
-      }
 
-      if (!placed) {
-        console.warn(`Could not place word: ${word}`);
-        wordEl.remove();
-        return;
-      }
+        if (!placed) {
+          console.warn(`Could not place word: ${word}`);
+          wordEl.remove();
+          return;
+        }
 
-      addWordEventListener(wordEl, word);
-    });
+        addWordEventListener(wordEl, word);
+      });
+    }
 
-    // Place remaining 95% of words progressively
-    wordArray.slice(initialDisplayCount).forEach(({ word, freq }, index) => {
+    // Place remaining words progressively starting from startIndex
+    wordArray.slice(Math.max(initialDisplayCount, startIndex)).forEach(({ word, freq }, index) => {
+      const actualIndex = initialDisplayCount + index;
+      if (actualIndex < startIndex) return; // Skip already processed words
       const timeoutId = setTimeout(() => {
         const wordEl = document.createElement('div');
         wordEl.className = 'cloud-word';
@@ -498,9 +525,8 @@ document.addEventListener('DOMContentLoaded', () => {
         wordEl.style.color = wordColor;
         wordColors.set(word.toLowerCase(), wordColor);
         wordEl.style.opacity = '0';
-        // Add random twinkle animation
-        const duration = 2 + Math.random() * 3; // Random duration between 2-5 seconds
-        const delay = Math.random() * 3; // Random delay between 0-3 seconds
+        const duration = 2 + Math.random() * 3;
+        const delay = Math.random() * 3;
         wordEl.style.animation = `twinkle ${duration}s infinite ${delay}s`;
         wordCloud.appendChild(wordEl);
 
@@ -529,42 +555,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
         wordEl.style.transition = 'opacity 0.3s ease';
         wordEl.style.opacity = '1';
+        lastWordIndex = actualIndex + 1; // Update last placed word index
 
         addWordEventListener(wordEl, word);
-      }, index * delayPerWord);
-      wordTimeouts.push(timeoutId); // Store timeout ID
+      }, (actualIndex - startIndex) * delayPerWord);
+      wordTimeouts.push(timeoutId);
     });
 
-    // Defer line drawing until after all words are placed
+    // Draw or restore SVG lines
     const lineTimeoutId = setTimeout(() => {
       requestAnimationFrame(() => {
-        placedWords.forEach((word1, i) => {
-          const nearest = placedWords
-            .map((word2, j) => ({
-              word: word2,
-              distance: Math.hypot(word1.x - word2.x, word1.y - word2.y),
-              index: j,
-            }))
-            .filter(w => w.index !== i)
-            .sort((a, b) => a.distance - b.distance)
-            .slice(0, 6);
+        if (startIndex === 0 || !wordCloudSvg.hasChildNodes()) {
+          wordCloudSvg.innerHTML = ''; // Clear existing lines if starting fresh
+          placedWords.forEach((word1, i) => {
+            const nearest = placedWords
+              .map((word2, j) => ({
+                word: word2,
+                distance: Math.hypot(word1.x - word2.x, word1.y - word2.y),
+                index: j,
+              }))
+              .filter(w => w.index !== i)
+              .sort((a, b) => a.distance - b.distance)
+              .slice(0, 6);
 
-          nearest.forEach(w => {
-            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-            line.setAttribute('x1', word1.x + word1.width / 2);
-            line.setAttribute('y1', word1.y + word1.height / 2);
-            line.setAttribute('x2', w.word.x + w.word.width / 2);
-            line.setAttribute('y2', w.word.y + w.word.height / 2);
-            line.setAttribute('stroke', '#ffffff');
-            line.setAttribute('stroke-width', '1');
-            line.setAttribute('stroke-opacity', '0.10');
-            svg.appendChild(line);
+            nearest.forEach(w => {
+              const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+              line.setAttribute('x1', word1.x + word1.width / 2);
+              line.setAttribute('y1', word1.y + word1.height / 2);
+              line.setAttribute('x2', w.word.x + w.word.width / 2);
+              line.setAttribute('y2', w.word.y + w.word.height / 2);
+              line.setAttribute('stroke', '#ffffff');
+              line.setAttribute('stroke-width', '1');
+              line.setAttribute('stroke-opacity', '0.10');
+              wordCloudSvg.appendChild(line);
+            });
           });
-        });
-        svg.style.opacity = '1';
+        }
+        wordCloudSvg.style.opacity = '1';
       });
-    }, remainingWords * delayPerWord + 100);
-    wordTimeouts.push(lineTimeoutId); // Store line drawing timeout
+    }, (wordArray.length - startIndex) * delayPerWord + 100);
+    wordTimeouts.push(lineTimeoutId);
   }
 
   function drawConnectingLine(word1El, word2El) {
@@ -716,21 +746,20 @@ document.addEventListener('DOMContentLoaded', () => {
   function addWordEventListener(wordEl, word) {
     wordEl.addEventListener('click', () => {
       stopAudio();
-      // Clear all pending word placement and line drawing timeouts
+      // Clear all pending timeouts but preserve state
       wordTimeouts.forEach(timeoutId => clearTimeout(timeoutId));
-      wordTimeouts = []; // Reset timeouts array
-      // Stop twinkling and hide all other words and SVG lines instantly
+      wordTimeouts = [];
+      // Hide other words and SVG lines
       document.querySelectorAll('.cloud-word').forEach(otherWord => {
         if (otherWord !== wordEl) {
-          otherWord.style.transition = 'none'; // Disable transition for instant effect
+          otherWord.style.transition = 'none';
           otherWord.style.opacity = '0';
-          otherWord.style.animation = 'none'; // Stop twinkling
+          otherWord.style.animation = 'none';
         }
       });
-      const svg = document.querySelector('.word-cloud-lines');
-      if (svg) {
-        svg.style.transition = 'none'; // Disable transition for instant effect
-        svg.style.opacity = '0';
+      if (wordCloudSvg) {
+        wordCloudSvg.style.transition = 'none';
+        wordCloudSvg.style.opacity = '0';
       }
       // Reset word cloud transform
       wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
@@ -756,7 +785,7 @@ document.addEventListener('DOMContentLoaded', () => {
           wordEl.style.transform = 'none';
           wordEl.style.opacity = '1';
           wordEl.style.zIndex = '10';
-          if (svg) svg.style.opacity = '1';
+          if (wordCloudSvg) wordCloudSvg.style.opacity = '1';
 
           flashcardContainer.style.display = 'flex';
           flashcardContainer.style.opacity = '0';
@@ -846,19 +875,8 @@ document.addEventListener('DOMContentLoaded', () => {
       slogan.style.transform = 'translateX(100%)';
       slogan.style.opacity = '0';
 
-      document.querySelectorAll('.cloud-word').forEach(word => {
-        word.style.transition = 'opacity 0.3s ease';
-        word.style.opacity = '1';
-        // Re-apply twinkle animation when returning to word cloud
-        const duration = 2 + Math.random() * 3; // Random duration between 2-5 seconds
-        const delay = Math.random() * 3; // Random delay between 0-3 seconds
-        word.style.animation = `twinkle ${duration}s infinite ${delay}s`;
-      });
-      const svg = document.querySelector('.word-cloud-lines');
-      if (svg) {
-        svg.style.transition = 'opacity 0.3s ease';
-        svg.style.opacity = '1';
-      }
+      // Resume word cloud animation from lastWordIndex
+      displayWordCloud(lastWordIndex);
     }, 700);
   });
 
@@ -986,7 +1004,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: false });
 
-  wordCloud.addEventListener('anutouchend', e => {
+  wordCloud.addEventListener('touchend', e => {
     wordCloud._lastX = null;
     wordCloud._lastY = null;
     isPinching = false;
