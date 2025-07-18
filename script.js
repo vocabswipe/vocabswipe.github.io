@@ -576,14 +576,15 @@ document.addEventListener('DOMContentLoaded', () => {
         translateX = 0;
         translationY = 0;
 
+        // Immediate fade-out of other words and SVG lines
         document.querySelectorAll('.cloud-word').forEach(otherWord => {
           if (otherWord !== wordEl) {
-            otherWord.style.transition = 'opacity 0.3s ease';
+            otherWord.style.transition = 'none'; // Remove transition for immediate effect
             otherWord.style.opacity = '0';
           }
         });
 
-        svg.style.transition = 'opacity 0.3s ease';
+        svg.style.transition = 'none'; // Remove transition for immediate effect
         svg.style.opacity = '0';
 
         const rect = wordEl.getBoundingClientRect();
