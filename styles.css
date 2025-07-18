@@ -398,6 +398,22 @@ body {
   right: 5px;
 }
 
+.developer-photo {
+  max-width: 100px;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  margin: 10px 0;
+  border: 2px solid #ffffff;
+}
+
+.promptpay-logo {
+  max-width: 100px;
+  width: 100%;
+  height: auto;
+  margin: 10px 0;
+}
+
 /* Tooltip Styles */
 .tooltip {
   position: absolute;
@@ -563,6 +579,14 @@ svg.filters {
 
   .qr-code {
     max-width: 150px;
+  }
+
+  .developer-photo {
+    max-width: 80px;
+  }
+
+  .promptpay-logo {
+    max-width: 80px;
   }
 
   .popup-content p[lang="en"],
