@@ -386,6 +386,23 @@ body {
   line-height: 1.4;
 }
 
+.developer-photo {
+  max-width: 100px;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  margin: 10px auto;
+  display: block;
+}
+
+.promptpay-logo {
+  max-width: 120px;
+  width: 100%;
+  height: auto;
+  margin: 10px auto;
+  display: block;
+}
+
 .qr-code {
   max-width: 200px;
   width: 100%;
@@ -396,22 +413,6 @@ body {
   position: absolute;
   bottom: 5px;
   right: 5px;
-}
-
-.developer-photo {
-  max-width: 100px;
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-  margin: 10px 0;
-  border: 2px solid #ffffff;
-}
-
-.promptpay-logo {
-  max-width: 100px;
-  width: 100%;
-  height: auto;
-  margin: 10px 0;
 }
 
 /* Tooltip Styles */
@@ -577,16 +578,16 @@ svg.filters {
     padding: 15px;
   }
 
-  .qr-code {
-    max-width: 150px;
-  }
-
   .developer-photo {
     max-width: 80px;
   }
 
   .promptpay-logo {
-    max-width: 80px;
+    max-width: 100px;
+  }
+
+  .qr-code {
+    max-width: 150px;
   }
 
   .popup-content p[lang="en"],
