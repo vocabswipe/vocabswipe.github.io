@@ -83,13 +83,16 @@ body {
 
 @keyframes twinkle {
   0% {
-    opacity: 1;
+    opacity: 0.6;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
   }
   50% {
-    opacity: 0.5;
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
   }
   100% {
-    opacity: 1;
+    opacity: 0.6;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
   }
 }
 
@@ -102,8 +105,7 @@ body {
   white-space: nowrap;
   line-height: 1.2;
   z-index: 10;
-  animation: twinkle 2s infinite;
-  animation-delay: calc(-1s * var(--random-delay)); /* Random delay for desynchronization */
+  animation: twinkle 3s infinite; /* Placeholder duration, overridden by JS */
 }
 
 .error-message {
@@ -291,7 +293,7 @@ body {
   transform: scale(0.98);
 }
 
- заседание.flashcard.glow {
+.flashcard.glow {
   animation: glow 0.5s ease-in-out;
 }
 
