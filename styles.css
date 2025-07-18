@@ -61,6 +61,17 @@ body {
   display: block;
 }
 
+.loading-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  color: #00ff88;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
 .word-cloud-lines {
   position: absolute;
   top: 0;
@@ -556,6 +567,10 @@ svg.filters {
 
   .word-cloud {
     padding: 5px;
+  }
+
+  .loading-indicator {
+    font-size: 1rem;
   }
 
   .logo {
