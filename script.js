@@ -48,11 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -595,11 +595,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
     line.setAttribute('x1', x1);
     line.setAttribute('y1', y);
-    line.setAttribute('x2', x1);
+    line.setAttribute('x2', x2);
     line.setAttribute('y2', y);
-    line.setAttribute('stroke', '#ffffff'); // Explicitly set to white
-    line.setAttribute('stroke-width', '2');
-    line.setAttribute('stroke-opacity', '0');
+    line.setAttribute('stroke', '#ffffff');
+    line.setAttribute('stroke-width', '1');
+    line.setAttribute('stroke-opacity', '0'); // Start invisible for animation
+    line.style.transition = 'stroke-opacity 0.5s ease';
 
     return line;
   }
@@ -671,7 +672,7 @@ document.addEventListener('DOMContentLoaded', () => {
       svg.style.width = '100%';
       svg.style.height = '100%';
       svg.style.pointerEvents = 'none';
-      svg.style.zIndex = '10';
+      svg.style.zIndex = '5'; // Match word cloud z-index
       const line = drawConnectingLine(currentWordEl, nextWordEl);
       if (line) svg.appendChild(line);
       wordGroup.appendChild(svg);
@@ -698,9 +699,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const line = wordGroup.querySelector('.highlight-word-line line');
         if (line) {
           line.setAttribute('x1', x1);
-          line.setAttribute('y2', y);
           line.setAttribute('x2', x2);
-          line.setAttribute('stroke-opacity', '0.7');
+          line.setAttribute('y1', y);
+          line.setAttribute('y2', y);
+          line.setAttribute('stroke-opacity', '0.10'); // Match word cloud opacity
           line.style.transition = 'stroke-opacity 0.5s ease';
         }
       }
