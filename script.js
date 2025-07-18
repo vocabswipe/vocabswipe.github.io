@@ -635,7 +635,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
             displayEntry(currentIndex);
 
-            if (visitCount <= 20) {
+            if (visitCount <= 100) { // update visit count number to 100
               setTimeout(() => {
                 showTooltip(swipeUpTooltip, 'up');
                 setTimeout(() => {
