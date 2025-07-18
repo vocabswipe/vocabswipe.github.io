@@ -50,11 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, '');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const initialDisplayCount = Math.ceil(wordArray.length * 0.05); // First 5%
     const remainingWords = wordArray.length - initialDisplayCount;
-    const delayPerWord = remainingWords > 0 ? 25 : 0; // 25ms per word (was 50ms)
+    const delayPerWord = remainingWords > 0 ? 25 : 0; // 25ms per word (2x faster)
 
     // Place initial 5% of words immediately
     wordArray.slice(0, initialDisplayCount).forEach(({ word, freq }) => {
@@ -449,7 +449,7 @@ document.addEventListener('DOMContentLoaded', () => {
       wordEl.style.color = wordColor;
       wordColors.set(word.toLowerCase(), wordColor);
       wordEl.style.opacity = '1';
-      wordEl.style.setProperty('--random-delay', Math.random() * 2); // Random delay between 0 and 2s
+      wordEl.style.setProperty('--random-delay', Math.random()); // Assign random delay
       wordCloud.appendChild(wordEl);
 
       const { width, height } = wordEl.getBoundingClientRect();
@@ -490,7 +490,7 @@ document.addEventListener('DOMContentLoaded', () => {
         wordEl.style.color = wordColor;
         wordColors.set(word.toLowerCase(), wordColor);
         wordEl.style.opacity = '0';
-        wordEl.style.setProperty('--random-delay', Math.random() * 2); // Random delay between 0 and 2s
+        wordEl.style.setProperty('--random-delay', Math.random()); // Assign random delay
         wordCloud.appendChild(wordEl);
 
         const { width, height } = wordEl.getBoundingClientRect();
