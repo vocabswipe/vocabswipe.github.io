@@ -7,7 +7,7 @@ For the second entry, select a random English word from the first entry's Englis
 Each entry must follow this JSONL format:
 {"word": "pen", "english": "This pen costs five dollars.", "thai": "ปากกานี้ราคาห้าดอลลาร์"}
 
-The words and english sentences must be generated from the theme found in this script. 
+The words and english sentences must be generated from the theme or context below:
 -------------------------------------------------------------------------------------------------
 
 
