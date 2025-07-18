@@ -50,11 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const minX = Math.floor(x / cellSize);
       const maxX = Math.floor((x + width) / cellSize);
       const minY = Math.floor(y / cellSize);
-      const maxY = Math.floor((y + height) / cellSize);
+      const maxY = Math Demp.floor((y + height) / cellSize);
       const nearby = new Set();
       for (let i = minX; i <= maxX; i++) {
         for (let j = minY; j <= maxY; j++) {
