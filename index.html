@@ -6,13 +6,16 @@
   <title>VocabSwipe - Learn English Vocabulary</title>
   <link rel="stylesheet" href="styles.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+Thai:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="preload" href="data/database.jsonl" as="fetch" crossorigin="anonymous"/>
 </head>
 <body>
   <div class="header" id="header" style="display: none;">
     <img src="neuron-connections-neural-network-svgrepo-com.svg" alt="Word Cloud" class="word-cloud-icon" id="word-cloud-icon" />
     <img src="red-heart-svgrepo-com.svg" alt="Donate" class="donate-icon" id="donate-icon" style="display: none;" />
   </div>
-  <div class="word-cloud" id="word-cloud"></div>
+  <div class="word-cloud" id="word-cloud">
+    <div class="loading-indicator" id="loading-indicator" style="display: none;">Loading vocabulary...</div>
+  </div>
   <div class="container" id="flashcard-container" style="display: none;">
     <div class="logo-container">
       <div class="logo-wrapper">
