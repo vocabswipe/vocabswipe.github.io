@@ -2,12 +2,21 @@ Generate 99 JSONL entries, starting from the second entry, based on this first e
 
 {"word": "support", "english": "Support empowers individuals to soar.", "thai": "การสนับสนุนช่วยให้บุคคลก้าวไปสู่ความสำเร็จ"}
 
-For the second entry, select a random English word (excluding "trust" and "ideas") from the first entry's English sentence as the `word` field, matching exactly (e.g., "balance" ≠ "balancing"). For each subsequent entry, select a random English word (excluding the previous entry's `word`) from the previous entry's English sentence, following this chaining rule. Prefer words that support English fluency for TOEFL speaking (avoid simple words like "the" unless part of a phrase).
+For the second entry, select a random English word from the first entry's English sentence as the `word` field, matching exactly (e.g., "balance" ≠ "balancing"). For each subsequent entry, select a random English word (excluding the previous entry's `word`) from the previous entry's English sentence, following this chaining rule. 
 
 Each entry must follow this JSONL format:
 {"word": "pen", "english": "This pen costs five dollars.", "thai": "ปากกานี้ราคาห้าดอลลาร์"}
 
-Use spoken American English sentences commonly used in TOEFL speaking, covering these topics: education, technology, environment, health, culture, family, friendship, travel, work, hobbies, sports, music, movies, books, food, fashion, social media, communication, leadership, success, failure, happiness, stress, time management, globalization, traditions, innovation, science, art, history, politics, economy, transportation, urban life, rural life, community, volunteering, charity, relationships, marriage, parenting, childhood, adolescence, adulthood, aging, diversity, equality, freedom, justice, law, crime, safety, technology impact, internet, privacy, security, education system, online learning, study abroad, career, job satisfaction, workplace, teamwork, competition, ambition, goals, dreams, challenges, problem solving, decision making, risk taking, adventure, travel experiences, cultural differences, language learning, bilingualism, immigration, global warming, pollution, recycling, sustainability, health care, mental health, physical fitness, diet, exercise, leisure, entertainment, celebrities, media influence, advertising, consumerism, shopping, money management, financial planning, entrepreneurship, business ethics, corporate culture, innovation economy, artificial intelligence, virtual reality, space exploration, scientific discovery, historical events, cultural heritage, traditional festivals, modern lifestyle.
+The words and english sentences must be generated from the theme found in this script. 
+-------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------
+English sentences must be natural spoken american english.
 
 
 Output all 99 entries in a single JSONL code block, one entry per line, excluding the first entry.
