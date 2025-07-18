@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '<')
       .replace(/>/g, '>')
       .replace(/"/g, '"')
-      .replace(/'/g, '');
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const initialDisplayCount = Math.ceil(wordArray.length * 0.05); // First 5%
     const remainingWords = wordArray.length - initialDisplayCount;
-    const delayPerWord = remainingWords > 0 ? 25 : 0; // 25ms per word (2x faster)
+    const delayPerWord = remainingWords > 0 ? 16.67 : 0; // Changed from 50ms to 16.67ms for 3x speedup
 
     // Place initial 5% of words immediately
     wordArray.slice(0, initialDisplayCount).forEach(({ word, freq }) => {
@@ -449,7 +449,10 @@ document.addEventListener('DOMContentLoaded', () => {
       wordEl.style.color = wordColor;
       wordColors.set(word.toLowerCase(), wordColor);
       wordEl.style.opacity = '1';
-      wordEl.style.setProperty('--random-delay', Math.random()); // Assign random delay
+      // Add random twinkle animation
+      const duration = 2 + Math.random() * 3; // Random duration between 2-5 seconds
+      const delay = Math.random() * 3; // Random delay between 0-3 seconds
+      wordEl.style.animation = `twinkle ${duration}s infinite ${delay}s`;
       wordCloud.appendChild(wordEl);
 
       const { width, height } = wordEl.getBoundingClientRect();
@@ -490,7 +493,10 @@ document.addEventListener('DOMContentLoaded', () => {
         wordEl.style.color = wordColor;
         wordColors.set(word.toLowerCase(), wordColor);
         wordEl.style.opacity = '0';
-        wordEl.style.setProperty('--random-delay', Math.random()); // Assign random delay
+        // Add random twinkle animation
+        const duration = 2 + Math.random() * 3; // Random duration between 2-5 seconds
+        const delay = Math.random() * 3; // Random delay between 0-3 seconds
+        wordEl.style.animation = `twinkle ${duration}s infinite ${delay}s`;
         wordCloud.appendChild(wordEl);
 
         const { width, height } = wordEl.getBoundingClientRect();
@@ -551,11 +557,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         svg.style.opacity = '1';
       });
-    }, remainingWords * delayPerWord + 50); // Reduced from 100ms to 50ms
+    }, remainingWords * delayPerWord + 100);
 
     function addWordEventListener(wordEl, word) {
       wordEl.addEventListener('click', () => {
         stopAudio();
+        // Stop twinkling for all words
+        document.querySelectorAll('.cloud-word').forEach(word => {
+          word.style.animation = 'none';
+        });
         wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
         wordCloud.style.transformOrigin = 'center center';
         currentScale = 1;
@@ -872,6 +882,10 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.cloud-word').forEach(word => {
         word.style.transition = 'opacity 0.3s ease';
         word.style.opacity = '1';
+        // Reapply twinkle animation when returning to word cloud
+        const duration = 2 + Math.random() * 3; // Random duration between 2-5 seconds
+        const delay = Math.random() * 3; // Random delay between 0-3 seconds
+        word.style.animation = `twinkle ${duration}s infinite ${delay}s`;
       });
       const svg = document.querySelector('.word-cloud-lines');
       if (svg) {
