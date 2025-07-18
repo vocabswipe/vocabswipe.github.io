@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const minX = Math.floor(x / cellSize);
       const maxX = Math.floor((x + width) / cellSize);
       const minY = Math.floor(y / cellSize);
-      const maxY = Math Demp.floor((y + height) / cellSize);
+      const maxY = Math.floor((y + height) / cellSize);
       const nearby = new Set();
       for (let i = minX; i <= maxX; i++) {
         for (let j = minY; j <= maxY; j++) {
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tooltipIcon = tooltip.querySelector('.tooltip-icon');
     const tooltipText = tooltip.querySelector('.tooltip-text');
 
-    // Update icon and text before showing the tooltip
+    // Update icon and text based on device type before displaying
     if (isPc) {
       if (direction === 'up') {
         tooltipIcon.src = 'arrow-up.svg';
@@ -257,14 +257,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Apply blur effects
+    // Apply blur to other elements
     header.style.filter = 'blur(5px)';
     logo.style.filter = 'blur(5px)';
     logoCom.style.filter = 'blur(5px)';
     slogan.style.filter = 'blur(5px)';
     flashcard.style.filter = 'none';
 
-    // Position the tooltip
+    // Position tooltip
     const flashcardRect = flashcard.getBoundingClientRect();
     const containerRect = flashcardContainer.getBoundingClientRect();
     const centerX = flashcardRect.left - containerRect.left + flashcardRect.width / 2;
@@ -276,17 +276,14 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       centerY = flashcardRect.top - containerRect.top + flashcardRect.height / 2;
     }
+
     tooltip.style.left = `${centerX}px`;
     tooltip.style.top = `${centerY}px`;
 
-    // Ensure tooltip is hidden before updating to prevent flash
-    tooltip.style.display = 'none';
-    // Force reflow to ensure styles are applied
-    void tooltip.offsetWidth;
-    // Now show the tooltip
+    // Set display to flex after updating attributes
     tooltip.style.display = 'flex';
 
-    // Trigger animation
+    // Start animation after a slight delay to ensure DOM updates are rendered
     setTimeout(() => {
       if (direction === 'tap') {
         tooltip.classList.add('animate-tap');
@@ -305,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 10); // Small delay to ensure DOM updates are applied
 
-    // Hide tooltip after animation
+    // Hide tooltip and clean up
     setTimeout(() => {
       tooltip.style.display = 'none';
       tooltip.classList.remove(direction === 'tap' ? 'animate-tap' : direction === 'up' ? 'animate-up' : 'animate-down');
