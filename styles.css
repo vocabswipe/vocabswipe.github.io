@@ -174,7 +174,6 @@ body {
 }
 
 .highlight-word-line line {
-  stroke: #ffffff; /* Explicitly white */
   transition: stroke-opacity 0.5s ease;
 }
 
@@ -184,15 +183,15 @@ body {
 
 @keyframes glow-line {
   0% {
-    stroke: #ffffff; /* White */
+    stroke: #ffffff;
     stroke-opacity: 0.10;
   }
   50% {
-    stroke: #ffffff; /* White */
+    stroke: #ffffff;
     stroke-opacity: 0.3;
   }
   100% {
-    stroke: #ffffff; /* White */
+    stroke: #ffffff;
     stroke-opacity: 0.10;
   }
 }
