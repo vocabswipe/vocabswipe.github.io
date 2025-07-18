@@ -81,6 +81,18 @@ body {
   z-index: 5;
 }
 
+@keyframes twinkle {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .cloud-word {
   position: absolute;
   font-weight: 700;
@@ -91,26 +103,7 @@ body {
   line-height: 1.2;
   z-index: 10;
   animation: twinkle 2s infinite;
-  animation-delay: calc(var(--random-delay) * -1s);
-}
-
-@keyframes twinkle {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(1.1);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.word-cloud[style*="display: none"] .cloud-word {
-  animation: none;
+  animation-delay: calc(-1s * var(--random-delay)); /* Random delay for desynchronization */
 }
 
 .error-message {
@@ -298,7 +291,7 @@ body {
   transform: scale(0.98);
 }
 
-.flashcard.glow {
+ заседание.flashcard.glow {
   animation: glow 0.5s ease-in-out;
 }
 
