@@ -81,6 +81,21 @@ body {
   z-index: 5;
 }
 
+@keyframes twinkle {
+  0% {
+    opacity: 0.6;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    opacity: 0.6;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+  }
+}
+
 .cloud-word {
   position: absolute;
   font-weight: 700;
@@ -90,27 +105,7 @@ body {
   white-space: nowrap;
   line-height: 1.2;
   z-index: 10;
-  animation: twinkle 2s infinite;
-  animation-delay: calc(var(--random-delay) * -1s);
-}
-
-@keyframes twinkle {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(1.1);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.word-cloud[style*="display: none"] .cloud-word {
-  animation: none;
+  animation: twinkle 3s infinite; /* Placeholder duration, overridden in JS */
 }
 
 .error-message {
@@ -365,6 +360,7 @@ body {
   font-size: 0.9rem;
   color: #ff4081;
   text-align: center;
+  margin: 0.9rem;
   margin-top: 8px;
   display: none;
 }

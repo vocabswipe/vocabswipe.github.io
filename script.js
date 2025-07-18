@@ -37,6 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentAudio = null;
   const preloadedAudio = new Set();
   const CACHE_KEY = 'vocabswipe_data_v1'; // Versioned cache key
+  let wordTimeouts = []; // Array to store timeouts for word placement
+  let lastWordIndex = 0; // Track the last placed word index
+  let placedWords = []; // Store placed word objects
+  let spatialGrid = null; // Store spatial grid
+  let wordCloudSvg = null; // Store SVG for connecting lines
+  let wordArray = []; // Store the sorted word array
+  let wordFreq = {}; // Store word frequencies
+  let wordCaseMap = new Map(); // Store word case mapping
 
   // Track visit count using localStorage
   let visitCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
@@ -226,6 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tooltipIcon = tooltip.querySelector('.tooltip-icon');
     const tooltipText = tooltip.querySelector('.tooltip-text');
 
+    // Update icon and text based on device type before displaying
     if (isPc) {
       if (direction === 'up') {
         tooltipIcon.src = 'arrow-up.svg';
@@ -256,19 +265,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    // Apply blur to other elements
     header.style.filter = 'blur(5px)';
     logo.style.filter = 'blur(5px)';
     logoCom.style.filter = 'blur(5px)';
     slogan.style.filter = 'blur(5px)';
     flashcard.style.filter = 'none';
 
-    tooltip.style.display = 'flex';
-
+    // Position tooltip
     const flashcardRect = flashcard.getBoundingClientRect();
     const containerRect = flashcardContainer.getBoundingClientRect();
-
     const centerX = flashcardRect.left - containerRect.left + flashcardRect.width / 2;
-
     let centerY;
     if (direction === 'tap') {
       const wordRect = wordEl.getBoundingClientRect();
@@ -281,6 +288,10 @@ document.addEventListener('DOMContentLoaded', () => {
     tooltip.style.left = `${centerX}px`;
     tooltip.style.top = `${centerY}px`;
 
+    // Set display to flex after updating attributes
+    tooltip.style.display = 'flex';
+
+    // Start animation after a slight delay to ensure DOM updates are rendered
     setTimeout(() => {
       if (direction === 'tap') {
         tooltip.classList.add('animate-tap');
@@ -297,8 +308,9 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         tooltip.classList.add(direction === 'up' ? 'animate-up' : 'animate-down');
       }
-    }, 100);
+    }, 10); // Small delay to ensure DOM updates are applied
 
+    // Hide tooltip and clean up
     setTimeout(() => {
       tooltip.style.display = 'none';
       tooltip.classList.remove(direction === 'tap' ? 'animate-tap' : direction === 'up' ? 'animate-up' : 'animate-down');
@@ -333,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
           loadingIndicator.style.opacity = '0';
           setTimeout(() => {
             loadingIndicator.style.display = 'none';
-            displayWordCloud();
+            displayWordCloud(0);
           }, 300);
           return;
         }
@@ -368,7 +380,7 @@ document.addEventListener('DOMContentLoaded', () => {
       loadingIndicator.style.opacity = '0';
       setTimeout(() => {
         loadingIndicator.style.display = 'none';
-        displayWordCloud();
+        displayWordCloud(0);
       }, 300);
     } catch (error) {
       console.error('LoadData Error:', error);
@@ -385,34 +397,62 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function displayWordCloud() {
-    const wordFreq = {};
-    const wordCaseMap = new Map();
-    entries.forEach(entry => {
-      if (typeof entry.word !== 'string') {
-        throw new Error('Invalid word format in database entry');
-      }
-      const lowerWord = entry.word.toLowerCase();
-      wordFreq[lowerWord] = (wordFreq[lowerWord] || 0) + 1;
-      if (!wordCaseMap.has(lowerWord)) {
-        wordCaseMap.set(lowerWord, entry.word);
-      }
-    });
+  function displayWordCloud(startIndex = 0) {
+    // Initialize word frequency and case mapping if not already done
+    if (!wordFreq || Object.keys(wordFreq).length === 0) {
+      wordFreq = {};
+      wordCaseMap = new Map();
+      entries.forEach(entry => {
+        if (typeof entry.word !== 'string') {
+          throw new Error('Invalid word format in database entry');
+        }
+        const lowerWord = entry.word.toLowerCase();
+        wordFreq[lowerWord] = (wordFreq[lowerWord] || 0) + 1;
+        if (!wordCaseMap.has(lowerWord)) {
+          wordCaseMap.set(lowerWord, entry.word);
+        }
+      });
+      wordArray = Array.from(wordCaseMap.entries())
+        .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
+        .sort((a, b) => b.freq - a.freq);
+    }
 
     const maxFreq = Math.max(...Object.values(wordFreq));
-    const minFreq = Math.max(1, Math.min(...Object.values(wordFreq)));
     const containerWidth = window.innerWidth;
     const containerHeight = Math.max(window.innerHeight * 1.5, wordCaseMap.size * 15);
     wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
 
-    wordCloud.innerHTML = '';
-    wordCloud.appendChild(loadingIndicator); // Re-attach loading indicator
-    const spatialGrid = createSpatialGrid(containerWidth, containerHeight);
-    const placedWords = [];
-    const wordArray = Array.from(wordCaseMap.entries())
-      .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
-      .sort((a, b) => b.freq - a.freq);
+    // Initialize spatial grid and SVG if not resuming
+    if (startIndex === 0) {
+      wordCloud.innerHTML = '';
+      wordCloud.appendChild(loadingIndicator); // Re-attach loading indicator
+      placedWords = [];
+      spatialGrid = createSpatialGrid(containerWidth, containerHeight);
+      wordCloudSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      wordCloudSvg.className = 'word-cloud-lines';
+      wordCloudSvg.style.position = 'absolute';
+      wordCloudSvg.style.top = '0';
+      wordCloudSvg.style.left = '0';
+      wordCloudSvg.style.width = `${containerWidth}px`;
+      wordCloudSvg.style.height = `${containerHeight}px`;
+      wordCloudSvg.style.zIndex = '5';
+      wordCloudSvg.style.pointerEvents = 'none';
+      wordCloud.appendChild(wordCloudSvg);
+    } else {
+      // Restore existing words' opacity and animations
+      document.querySelectorAll('.cloud-word').forEach(word => {
+        word.style.transition = 'opacity 0.3s ease';
+        word.style.opacity = '1';
+        const duration = 2 + Math.random() * 3;
+        const delay = Math.random() * 3;
+        word.style.animation = `twinkle ${duration}s infinite ${delay}s`;
+      });
+      if (wordCloudSvg) {
+        wordCloudSvg.style.transition = 'opacity 0.3s ease';
+        wordCloudSvg.style.opacity = '1';
+      }
+    }
 
     if (wordArray.length === 0) {
       wordCloud.innerHTML = '<div class="error-message">No words to display in word cloud.</div>';
@@ -423,64 +463,59 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.className = 'word-cloud-lines';
-    svg.style.position = 'absolute';
-    svg.style.top = '0';
-    svg.style.left = '0';
-    svg.style.width = `${containerWidth}px`;
-    svg.style.height = `${containerHeight}px`;
-    svg.style.zIndex = '5';
-    svg.style.pointerEvents = 'none';
-    wordCloud.appendChild(svg);
-
     const initialDisplayCount = Math.ceil(wordArray.length * 0.05); // First 5%
     const remainingWords = wordArray.length - initialDisplayCount;
-    const delayPerWord = remainingWords > 0 ? 25 : 0; // 25ms per word (was 50ms)
+    const delayPerWord = remainingWords > 0 ? 4.1675 : 0;
 
-    // Place initial 5% of words immediately
-    wordArray.slice(0, initialDisplayCount).forEach(({ word, freq }) => {
-      const wordEl = document.createElement('div');
-      wordEl.className = 'cloud-word';
-      wordEl.textContent = word;
-      const size = 0.8 + (freq / maxFreq) * 2.2;
-      wordEl.style.fontSize = `${size}rem`;
-      const wordColor = colors[Math.floor(Math.random() * colors.length)];
-      wordEl.style.color = wordColor;
-      wordColors.set(word.toLowerCase(), wordColor);
-      wordEl.style.opacity = '1';
-      wordEl.style.setProperty('--random-delay', Math.random() * 2); // Random delay between 0 and 2s
-      wordCloud.appendChild(wordEl);
+    // Place initial words if starting from index 0
+    if (startIndex === 0) {
+      wordArray.slice(0, initialDisplayCount).forEach(({ word, freq }) => {
+        const wordEl = document.createElement('div');
+        wordEl.className = 'cloud-word';
+        wordEl.textContent = word;
+        const size = 0.8 + (freq / maxFreq) * 2.2;
+        wordEl.style.fontSize = `${size}rem`;
+        const wordColor = colors[Math.floor(Math.random() * colors.length)];
+        wordEl.style.color = wordColor;
+        wordColors.set(word.toLowerCase(), wordColor);
+        wordEl.style.opacity = '1';
+        const duration = 2 + Math.random() * 3;
+        const delay = Math.random() * 3;
+        wordEl.style.animation = `twinkle ${duration}s infinite ${delay}s`;
+        wordCloud.appendChild(wordEl);
 
-      const { width, height } = wordEl.getBoundingClientRect();
-      let x, y, placed = false;
-      const maxAttempts = 500;
+        const { width, height } = wordEl.getBoundingClientRect();
+        let x, y, placed = false;
+        const maxAttempts = 500;
 
-      for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
-        x = Math.random() * (containerWidth - width);
-        y = Math.random() * (containerHeight - height);
-        if (!isOverlapping(x, y, width, height, spatialGrid)) {
-          wordEl.style.left = `${x}px`;
-          wordEl.style.top = `${y}px`;
-          const wordObj = { x, y, width, height, word, element: wordEl };
-          placedWords.push(wordObj);
-          spatialGrid.addToGrid(x, y, width, height, wordObj);
-          placed = true;
+        for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
+          x = Math.random() * (containerWidth - width);
+          y = Math.random() * (containerHeight - height);
+          if (!isOverlapping(x, y, width, height, spatialGrid)) {
+            wordEl.style.left = `${x}px`;
+            wordEl.style.top = `${y}px`;
+            const wordObj = { x, y, width, height, word, element: wordEl };
+            placedWords.push(wordObj);
+            spatialGrid.addToGrid(x, y, width, height, wordObj);
+            placed = true;
+          }
         }
-      }
 
-      if (!placed) {
-        console.warn(`Could not place word: ${word}`);
-        wordEl.remove();
-        return;
-      }
+        if (!placed) {
+          console.warn(`Could not place word: ${word}`);
+          wordEl.remove();
+          return;
+        }
 
-      addWordEventListener(wordEl, word);
-    });
+        addWordEventListener(wordEl, word);
+      });
+    }
 
-    // Place remaining 95% of words progressively
-    wordArray.slice(initialDisplayCount).forEach(({ word, freq }, index) => {
-      setTimeout(() => {
+    // Place remaining words progressively starting from startIndex
+    wordArray.slice(Math.max(initialDisplayCount, startIndex)).forEach(({ word, freq }, index) => {
+      const actualIndex = initialDisplayCount + index;
+      if (actualIndex < startIndex) return; // Skip already processed words
+      const timeoutId = setTimeout(() => {
         const wordEl = document.createElement('div');
         wordEl.className = 'cloud-word';
         wordEl.textContent = word;
@@ -490,7 +525,9 @@ document.addEventListener('DOMContentLoaded', () => {
         wordEl.style.color = wordColor;
         wordColors.set(word.toLowerCase(), wordColor);
         wordEl.style.opacity = '0';
-        wordEl.style.setProperty('--random-delay', Math.random() * 2); // Random delay between 0 and 2s
+        const duration = 2 + Math.random() * 3;
+        const delay = Math.random() * 3;
+        wordEl.style.animation = `twinkle ${duration}s infinite ${delay}s`;
         wordCloud.appendChild(wordEl);
 
         const { width, height } = wordEl.getBoundingClientRect();
@@ -518,184 +555,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
         wordEl.style.transition = 'opacity 0.3s ease';
         wordEl.style.opacity = '1';
+        lastWordIndex = actualIndex + 1; // Update last placed word index
 
         addWordEventListener(wordEl, word);
-      }, index * delayPerWord);
+      }, (actualIndex - startIndex) * delayPerWord);
+      wordTimeouts.push(timeoutId);
     });
 
-    // Defer line drawing until after all words are placed
-    setTimeout(() => {
+    // Draw or restore SVG lines
+    const lineTimeoutId = setTimeout(() => {
       requestAnimationFrame(() => {
-        placedWords.forEach((word1, i) => {
-          const nearest = placedWords
-            .map((word2, j) => ({
-              word: word2,
-              distance: Math.hypot(word1.x - word2.x, word1.y - word2.y),
-              index: j,
-            }))
-            .filter(w => w.index !== i)
-            .sort((a, b) => a.distance - b.distance)
-            .slice(0, 6);
+        if (startIndex === 0 || !wordCloudSvg.hasChildNodes()) {
+          wordCloudSvg.innerHTML = ''; // Clear existing lines if starting fresh
+          placedWords.forEach((word1, i) => {
+            const nearest = placedWords
+              .map((word2, j) => ({
+                word: word2,
+                distance: Math.hypot(word1.x - word2.x, word1.y - word2.y),
+                index: j,
+              }))
+              .filter(w => w.index !== i)
+              .sort((a, b) => a.distance - b.distance)
+              .slice(0, 6);
 
-          nearest.forEach(w => {
-            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-            line.setAttribute('x1', word1.x + word1.width / 2);
-            line.setAttribute('y1', word1.y + word1.height / 2);
-            line.setAttribute('x2', w.word.x + w.word.width / 2);
-            line.setAttribute('y2', w.word.y + w.word.height / 2);
-            line.setAttribute('stroke', '#ffffff');
-            line.setAttribute('stroke-width', '1');
-            line.setAttribute('stroke-opacity', '0.10');
-            svg.appendChild(line);
+            nearest.forEach(w => {
+              const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+              line.setAttribute('x1', word1.x + word1.width / 2);
+              line.setAttribute('y1', word1.y + word1.height / 2);
+              line.setAttribute('x2', w.word.x + w.word.width / 2);
+              line.setAttribute('y2', w.word.y + w.word.height / 2);
+              line.setAttribute('stroke', '#ffffff');
+              line.setAttribute('stroke-width', '1');
+              line.setAttribute('stroke-opacity', '0.10');
+              wordCloudSvg.appendChild(line);
+            });
           });
-        });
-        svg.style.opacity = '1';
+        }
+        wordCloudSvg.style.opacity = '1';
       });
-    }, remainingWords * delayPerWord + 50); // Reduced from 100ms to 50ms
-
-    function addWordEventListener(wordEl, word) {
-      wordEl.addEventListener('click', () => {
-        stopAudio();
-        wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
-        wordCloud.style.transformOrigin = 'center center';
-        currentScale = 1;
-        translateX = 0;
-        translationY = 0;
-
-        document.querySelectorAll('.cloud-word').forEach(otherWord => {
-          if (otherWord !== wordEl) {
-            otherWord.style.transition = 'opacity 0.3s ease';
-            otherWord.style.opacity = '0';
-          }
-        });
-
-        svg.style.transition = 'opacity 0.3s ease';
-        svg.style.opacity = '0';
-
-        const rect = wordEl.getBoundingClientRect();
-        const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
-        const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
-
-        wordEl.style.transition = 'transform 0.7s ease, opacity 0.7s ease';
-        wordEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(3)`;
-        wordEl.style.zIndex = '20';
-
-        setTimeout(() => {
-          wordEl.style.opacity = '0';
-
-          setTimeout(() => {
-            wordCloud.style.display = 'none';
-            wordEl.style.transform = 'none';
-            wordEl.style.opacity = '1';
-            wordEl.style.zIndex = '10';
-            svg.style.opacity = '1';
-
-            flashcardContainer.style.display = 'flex';
-            flashcardContainer.style.opacity = '0';
-            flashcardContainer.style.transition = 'opacity 1s ease';
-            flashcardContainer.style.opacity = '1';
-
-            header.style.display = 'flex';
-            header.style.opacity = '0';
-            header.style.transition = 'opacity 1s ease';
-            header.style.opacity = '1';
-            donateIcon.style.display = 'block';
-
-            flashcardContainer.style.height = '100vh';
-            flashcardContainer.style.justifyContent = 'center';
-            document.body.style.overflow = 'hidden';
-
-            setTimeout(() => {
-              logo.style.transition = 'transform 1s ease, opacity 1s ease';
-              logo.style.transform = 'translateX(0)';
-              logo.style.opacity = '1';
-
-              setTimeout(() => {
-                logoCom.style.transition = 'transform 1s ease, opacity 1s ease';
-                logoCom.style.transform = 'translateX(0)';
-                logoCom.style.opacity = '1';
-              }, 1000);
-            }, 4000);
-
-            setTimeout(() => {
-              slogan.style.transition = 'transform 1s ease, opacity 1s ease';
-              slogan.style.transform = 'translateX(0)';
-              slogan.style.opacity = '1';
-            }, 4000);
-
-            const matchingIndices = entries
-              .map((entry, idx) => ({ entry, idx }))
-              .filter(({ entry }) => entry.word.toLowerCase() === word.toLowerCase())
-              .map(({ idx }) => idx);
-
-            if (matchingIndices.length > 0) {
-              currentIndex = matchingIndices[Math.floor(Math.random() * matchingIndices.length)];
-            } else {
-              currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
-            }
-
-            currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
-            displayEntry(currentIndex);
-
-            if (visitCount <= 100) {
-              setTimeout(() => {
-                showTooltip(swipeUpTooltip, 'up');
-                setTimeout(() => {
-                  showTooltip(swipeDownTooltip, 'down');
-                  setTimeout(() => {
-                    showTooltip(tapTooltip, 'tap');
-                  }, 2500);
-                }, 2500);
-              }, 6000);
-            }
-          }, 700);
-        }, 300);
-      });
-    }
-
-    let pinchStartDistance = 0;
-    wordCloud.addEventListener('touchstart', e => {
-      touchStartTime = Date.now();
-      if (e.touches.length === 2) {
-        isPinching = true;
-        pinchStartDistance = Math.hypot(
-          e.touches[0].clientX - e.touches[1].clientX,
-          e.touches[0].clientY - e.touches[1].clientY
-        );
-      } else if (e.touches.length === 1) {
-        touchStartY = e.touches[0].screenY;
-      }
-    }, { passive: true });
-
-    wordCloud.addEventListener('touchmove', e => {
-      if (e.touches.length === 2) {
-        e.preventDefault();
-        isPinching = true;
-        const pinchDistance = Math.hypot(
-          e.touches[0].clientX - e.touches[1].clientX,
-          e.touches[0].clientY - e.touches[1].clientY
-        );
-        const newScale = currentScale * (pinchDistance / pinchStartDistance);
-        currentScale = Math.max(1, Math.min(newScale, 3));
-        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
-        pinchStartDistance = pinchDistance;
-      } else if (e.touches.length === 1 && currentScale > 1) {
-        e.preventDefault();
-        const deltaX = e.touches[0].clientX - (wordCloud._lastX || e.touches[0].clientX);
-        const deltaY = e.touches[0].clientY - (wordCloud._lastY || e.touches[0].clientY);
-        translateX += deltaX / currentScale;
-        translationY += deltaY / currentScale;
-        wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
-        wordCloud._lastX = e.touches[0].clientX;
-        wordCloud._lastY = e.touches[0].clientY;
-      }
-    }, { passive: false });
-
-    wordCloud.addEventListener('touchend', e => {
-      wordCloud._lastX = null;
-      wordCloud._lastY = null;
-      isPinching = false;
-    }, { passive: true });
+    }, (wordArray.length - startIndex) * delayPerWord + 100);
+    wordTimeouts.push(lineTimeoutId);
   }
 
   function drawConnectingLine(word1El, word2El) {
@@ -844,6 +743,113 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function addWordEventListener(wordEl, word) {
+    wordEl.addEventListener('click', () => {
+      stopAudio();
+      // Clear all pending timeouts but preserve state
+      wordTimeouts.forEach(timeoutId => clearTimeout(timeoutId));
+      wordTimeouts = [];
+      // Hide other words and SVG lines
+      document.querySelectorAll('.cloud-word').forEach(otherWord => {
+        if (otherWord !== wordEl) {
+          otherWord.style.transition = 'none';
+          otherWord.style.opacity = '0';
+          otherWord.style.animation = 'none';
+        }
+      });
+      if (wordCloudSvg) {
+        wordCloudSvg.style.transition = 'none';
+        wordCloudSvg.style.opacity = '0';
+      }
+      // Reset word cloud transform
+      wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
+      wordCloud.style.transformOrigin = 'center center';
+      currentScale = 1;
+      translateX = 0;
+      translationY = 0;
+
+      // Scale up selected word
+      const rect = wordEl.getBoundingClientRect();
+      const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
+      const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
+
+      wordEl.style.transition = 'transform 0.7s ease, opacity 0.7s ease';
+      wordEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(3)`;
+      wordEl.style.zIndex = '20';
+
+      setTimeout(() => {
+        wordEl.style.opacity = '0';
+
+        setTimeout(() => {
+          wordCloud.style.display = 'none';
+          wordEl.style.transform = 'none';
+          wordEl.style.opacity = '1';
+          wordEl.style.zIndex = '10';
+          if (wordCloudSvg) wordCloudSvg.style.opacity = '1';
+
+          flashcardContainer.style.display = 'flex';
+          flashcardContainer.style.opacity = '0';
+          flashcardContainer.style.transition = 'opacity 1s ease';
+          flashcardContainer.style.opacity = '1';
+
+          header.style.display = 'flex';
+          header.style.opacity = '0';
+          header.style.transition = 'opacity 1s ease';
+          header.style.opacity = '1';
+          donateIcon.style.display = 'block';
+
+          flashcardContainer.style.height = '100vh';
+          flashcardContainer.style.justifyContent = 'center';
+          document.body.style.overflow = 'hidden';
+
+          setTimeout(() => {
+            logo.style.transition = 'transform 1s ease, opacity 1s ease';
+            logo.style.transform = 'translateX(0)';
+            logo.style.opacity = '1';
+
+            setTimeout(() => {
+              logoCom.style.transition = 'transform 1s ease, opacity 1s ease';
+              logoCom.style.transform = 'translateX(0)';
+              logoCom.style.opacity = '1';
+            }, 1000);
+          }, 4000);
+
+          setTimeout(() => {
+            slogan.style.transition = 'transform 1s ease, opacity 1s ease';
+            slogan.style.transform = 'translateX(0)';
+            slogan.style.opacity = '1';
+          }, 4000);
+
+          const matchingIndices = entries
+            .map((entry, idx) => ({ entry, idx }))
+            .filter(({ entry }) => entry.word.toLowerCase() === word.toLowerCase())
+            .map(({ idx }) => idx);
+
+          if (matchingIndices.length > 0) {
+            currentIndex = matchingIndices[Math.floor(Math.random() * matchingIndices.length)];
+          } else {
+            currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
+          }
+
+          currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
+          displayEntry(currentIndex);
+
+          if (visitCount <= 100) {
+            setTimeout(() => {
+              showTooltip(swipeUpTooltip, 'up');
+              setTimeout(() => {
+                showTooltip(swipeDownTooltip, 'down');
+                setTimeout(() => {
+                  showTooltip(tapTooltip, 'tap');
+                }, 2500);
+              }, 2500);
+            }, 6000);
+          }
+        }, 700);
+      }, 300);
+    });
+  }
+
   wordCloudIcon.addEventListener('click', () => {
     stopAudio();
     flashcardContainer.style.transition = 'opacity 0.7s ease';
@@ -869,15 +875,8 @@ document.addEventListener('DOMContentLoaded', () => {
       slogan.style.transform = 'translateX(100%)';
       slogan.style.opacity = '0';
 
-      document.querySelectorAll('.cloud-word').forEach(word => {
-        word.style.transition = 'opacity 0.3s ease';
-        word.style.opacity = '1';
-      });
-      const svg = document.querySelector('.word-cloud-lines');
-      if (svg) {
-        svg.style.transition = 'opacity 0.3s ease';
-        svg.style.opacity = '1';
-      }
+      // Resume word cloud animation from lastWordIndex
+      displayWordCloud(lastWordIndex);
     }, 700);
   });
 
@@ -967,6 +966,49 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  wordCloud.addEventListener('touchstart', e => {
+    touchStartTime = Date.now();
+    if (e.touches.length === 2) {
+      isPinching = true;
+      pinchStartDistance = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+    } else if (e.touches.length === 1) {
+      touchStartY = e.touches[0].screenY;
+    }
+  }, { passive: true });
+
+  wordCloud.addEventListener('touchmove', e => {
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      isPinching = true;
+      const pinchDistance = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      const newScale = currentScale * (pinchDistance / pinchStartDistance);
+      currentScale = Math.max(1, Math.min(newScale, 3));
+      wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
+      pinchStartDistance = pinchDistance;
+    } else if (e.touches.length === 1 && currentScale > 1) {
+      e.preventDefault();
+      const deltaX = e.touches[0].clientX - (wordCloud._lastX || e.touches[0].clientX);
+      const deltaY = e.touches[0].clientY - (wordCloud._lastY || e.touches[0].clientY);
+      translateX += deltaX / currentScale;
+      translationY += deltaY / currentScale;
+      wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
+      wordCloud._lastX = e.touches[0].clientX;
+      wordCloud._lastY = e.touches[0].clientY;
+    }
+  }, { passive: false });
+
+  wordCloud.addEventListener('touchend', e => {
+    wordCloud._lastX = null;
+    wordCloud._lastY = null;
+    isPinching = false;
+  }, { passive: true });
 
   loadData();
 });
