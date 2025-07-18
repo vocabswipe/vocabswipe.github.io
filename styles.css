@@ -105,7 +105,7 @@ body {
   white-space: nowrap;
   line-height: 1.2;
   z-index: 10;
-  animation: twinkle 3s infinite; /* Placeholder duration, overridden by JS */
+  animation: twinkle 3s infinite; /* Placeholder duration, overridden in JS */
 }
 
 .error-message {
