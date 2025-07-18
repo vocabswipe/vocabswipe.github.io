@@ -50,11 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -226,6 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tooltipIcon = tooltip.querySelector('.tooltip-icon');
     const tooltipText = tooltip.querySelector('.tooltip-text');
 
+    // Update icon and text before showing the tooltip
     if (isPc) {
       if (direction === 'up') {
         tooltipIcon.src = 'arrow-up.svg';
@@ -256,19 +257,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    // Apply blur effects
     header.style.filter = 'blur(5px)';
     logo.style.filter = 'blur(5px)';
     logoCom.style.filter = 'blur(5px)';
     slogan.style.filter = 'blur(5px)';
     flashcard.style.filter = 'none';
 
-    tooltip.style.display = 'flex';
-
+    // Position the tooltip
     const flashcardRect = flashcard.getBoundingClientRect();
     const containerRect = flashcardContainer.getBoundingClientRect();
-
     const centerX = flashcardRect.left - containerRect.left + flashcardRect.width / 2;
-
     let centerY;
     if (direction === 'tap') {
       const wordRect = wordEl.getBoundingClientRect();
@@ -277,10 +276,17 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       centerY = flashcardRect.top - containerRect.top + flashcardRect.height / 2;
     }
-
     tooltip.style.left = `${centerX}px`;
     tooltip.style.top = `${centerY}px`;
 
+    // Ensure tooltip is hidden before updating to prevent flash
+    tooltip.style.display = 'none';
+    // Force reflow to ensure styles are applied
+    void tooltip.offsetWidth;
+    // Now show the tooltip
+    tooltip.style.display = 'flex';
+
+    // Trigger animation
     setTimeout(() => {
       if (direction === 'tap') {
         tooltip.classList.add('animate-tap');
@@ -297,8 +303,9 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         tooltip.classList.add(direction === 'up' ? 'animate-up' : 'animate-down');
       }
-    }, 100);
+    }, 10); // Small delay to ensure DOM updates are applied
 
+    // Hide tooltip after animation
     setTimeout(() => {
       tooltip.style.display = 'none';
       tooltip.classList.remove(direction === 'tap' ? 'animate-tap' : direction === 'up' ? 'animate-up' : 'animate-down');
