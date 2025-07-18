@@ -48,11 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -597,7 +597,7 @@ document.addEventListener('DOMContentLoaded', () => {
     line.setAttribute('y1', y);
     line.setAttribute('x2', x2);
     line.setAttribute('y2', y);
-    line.setAttribute('stroke', '#ffffff'); // Explicitly white
+    line.setAttribute('stroke', '#ffffff');
     line.setAttribute('stroke-width', '1');
     line.setAttribute('stroke-opacity', '0'); // Start invisible for animation
     line.style.transition = 'stroke-opacity 0.5s ease';
@@ -672,7 +672,7 @@ document.addEventListener('DOMContentLoaded', () => {
       svg.style.width = '100%';
       svg.style.height = '100%';
       svg.style.pointerEvents = 'none';
-      svg.style.zIndex = '5';
+      svg.style.zIndex = '5'; // Match word cloud z-index
       const line = drawConnectingLine(currentWordEl, nextWordEl);
       if (line) svg.appendChild(line);
       wordGroup.appendChild(svg);
@@ -702,7 +702,6 @@ document.addEventListener('DOMContentLoaded', () => {
           line.setAttribute('x2', x2);
           line.setAttribute('y1', y);
           line.setAttribute('y2', y);
-          line.setAttribute('stroke', '#ffffff'); // Reinforce white color
           line.setAttribute('stroke-opacity', '0.10'); // Match word cloud opacity
           line.style.transition = 'stroke-opacity 0.5s ease';
         }
@@ -728,7 +727,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  wordCloudIcon.addEventListener('click rebates, () => {
+  wordCloudIcon.addEventListener('click', () => {
     stopAudio();
     flashcardContainer.style.transition = 'opacity 0.7s ease';
     flashcardContainer.style.opacity = '0';
