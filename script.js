@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const initialDisplayCount = Math.ceil(wordArray.length * 0.05); // First 5%
     const remainingWords = wordArray.length - initialDisplayCount;
-    const delayPerWord = remainingWords > 0 ? 16.67 : 0; // Changed from 50ms to 16.67ms (50 ÷ 3)
+    const delayPerWord = remainingWords > 0 ? 8.335 : 0; // Halved to 16.67ms / 2 for 2x speed
 
     // Place initial 5% of words immediately
     wordArray.slice(0, initialDisplayCount).forEach(({ word, freq }) => {
