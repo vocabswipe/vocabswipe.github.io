@@ -50,11 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&apos;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const initialDisplayCount = Math.ceil(wordArray.length * 0.05); // First 5%
     const remainingWords = wordArray.length - initialDisplayCount;
-    const delayPerWord = remainingWords > 0 ? 16.67 : 0; // Changed from 50ms to 16.67ms for 3x speedup
+    const delayPerWord = remainingWords > 0 ? 16.67 : 0; // Changed from 50ms to 16.67ms (50 ÷ 3)
 
     // Place initial 5% of words immediately
     wordArray.slice(0, initialDisplayCount).forEach(({ word, freq }) => {
@@ -882,7 +882,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.cloud-word').forEach(word => {
         word.style.transition = 'opacity 0.3s ease';
         word.style.opacity = '1';
-        // Reapply twinkle animation when returning to word cloud
+        // Re-apply twinkle animation when returning to word cloud
         const duration = 2 + Math.random() * 3; // Random duration between 2-5 seconds
         const delay = Math.random() * 3; // Random delay between 0-3 seconds
         word.style.animation = `twinkle ${duration}s infinite ${delay}s`;
