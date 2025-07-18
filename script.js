@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/'/g, '&apos;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const initialDisplayCount = Math.ceil(wordArray.length * 0.05); // First 5%
     const remainingWords = wordArray.length - initialDisplayCount;
-    const delayPerWord = remainingWords > 0 ? 50 : 0; // 50ms per word
+    const delayPerWord = remainingWords > 0 ? 25 : 0; // 25ms per word (was 50ms)
 
     // Place initial 5% of words immediately
     wordArray.slice(0, initialDisplayCount).forEach(({ word, freq }) => {
@@ -449,6 +449,7 @@ document.addEventListener('DOMContentLoaded', () => {
       wordEl.style.color = wordColor;
       wordColors.set(word.toLowerCase(), wordColor);
       wordEl.style.opacity = '1';
+      wordEl.style.setProperty('--random-delay', Math.random() * 2); // Random delay between 0 and 2s
       wordCloud.appendChild(wordEl);
 
       const { width, height } = wordEl.getBoundingClientRect();
@@ -489,6 +490,7 @@ document.addEventListener('DOMContentLoaded', () => {
         wordEl.style.color = wordColor;
         wordColors.set(word.toLowerCase(), wordColor);
         wordEl.style.opacity = '0';
+        wordEl.style.setProperty('--random-delay', Math.random() * 2); // Random delay between 0 and 2s
         wordCloud.appendChild(wordEl);
 
         const { width, height } = wordEl.getBoundingClientRect();
@@ -549,7 +551,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         svg.style.opacity = '1';
       });
-    }, remainingWords * delayPerWord + 100);
+    }, remainingWords * delayPerWord + 50); // Reduced from 100ms to 50ms
 
     function addWordEventListener(wordEl, word) {
       wordEl.addEventListener('click', () => {
@@ -635,7 +637,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
             displayEntry(currentIndex);
 
-            if (visitCount <= 100) { // update visit count number to 100
+            if (visitCount <= 100) {
               setTimeout(() => {
                 showTooltip(swipeUpTooltip, 'up');
                 setTimeout(() => {
