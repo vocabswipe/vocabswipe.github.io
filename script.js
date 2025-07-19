@@ -16,8 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const shareIcon = document.getElementById('share-icon');
   const donatePopup = document.getElementById('donate-popup');
   const closePopupIcon = document.getElementById('close-popup-icon');
-  const sharePopup = document.getElementById('share-popup');
-  const closeSharePopup = document.getElementById('close-share-popup');
   const swipeUpTooltip = document.getElementById('swipe-up-tooltip');
   const swipeDownTooltip = document.getElementById('swipe-down-tooltip');
   const tapTooltip = document.getElementById('tap-tooltip');
@@ -59,11 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, '');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -215,20 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = 'hidden';
   }
 
-  function showSharePopup() {
-    sharePopup.style.display = 'flex';
-    flashcardContainer.style.filter = 'blur(5px)';
-    header.style.filter = 'blur(5px)';
-    document.body.style.overflow = 'hidden';
-  }
-
-  function hideSharePopup() {
-    sharePopup.style.display = 'none';
-    flashcardContainer.style.filter = 'none';
-    header.style.filter = 'none';
-    document.body.style.overflow = 'hidden';
-  }
-
   donatePopup.addEventListener('click', e => {
     if (e.target === donatePopup) {
       hideDonatePopup();
@@ -243,107 +227,53 @@ document.addEventListener('DOMContentLoaded', () => {
     hideDonatePopup();
   });
 
-  sharePopup.addEventListener('click', e => {
-    if (e.target === sharePopup) {
-      hideSharePopup();
-    }
-  });
-
-  closeSharePopup.addEventListener('click', () => {
-    hideSharePopup();
-  });
-
-  async function shareContent(platform = null) {
+  shareIcon.addEventListener('click', async () => {
     try {
-      // Capture the flashcard for sharing
-      const canvas = await html2canvas(flashcard, {
-        width: flashcard.offsetWidth,
-        height: flashcard.offsetHeight,
+      const canvas = await html2canvas(document.body, {
+        width: window.innerWidth,
+        height: window.innerHeight,
         scale: 2,
-        backgroundColor: '#2c2c2c',
+        backgroundColor: '#000000',
         useCORS: true,
       });
 
       const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+
       const file = new File([blob], 'vocabswipe_card.png', { type: 'image/png' });
-      const shareText = `Check out this word from VocabSwipe! Master words, swipe by swipe. Visit VocabSwipe.com #VocabSwipe #LearnEnglish`;
-      const shareUrl = 'https://vocabswipe.com';
 
-      if (platform) {
-        let shareLink;
-        const encodedText = encodeURIComponent(shareText);
-        const encodedUrl = encodeURIComponent(shareUrl);
-
-        switch (platform) {
-          case 'x':
-            shareLink = `https://x.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
-            window.open(shareLink, '_blank', 'noopener,noreferrer');
-            break;
-          case 'facebook':
-            shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`;
-            window.open(shareLink, '_blank', 'noopener,noreferrer');
-            break;
-          case 'instagram':
-            // Instagram doesn't support direct sharing; download image with instructions
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'vocabswipe_card.png';
-            link.click();
-            URL.revokeObjectURL(url);
-            audioErrorEl.textContent = 'Image downloaded. Share it to Instagram manually!';
-            audioErrorEl.style.display = 'block';
-            setTimeout(() => audioErrorEl.style.display = 'none', 3000);
-            break;
-          case 'line':
-            // LINE sharing via URL
-            const lineText = encodeURIComponent(`${shareText} ${shareUrl}`);
-            shareLink = `https://line.me/R/msg/text/?${lineText}`;
-            if (navigator.userAgent.includes('Line/')) {
-              window.location.href = shareLink;
-            } else {
-              window.open(shareLink, '_blank', 'noopener,noreferrer');
-            }
-            break;
-        }
-        hideSharePopup();
-        return;
-      }
-
-      // Web Share API
       const shareData = {
         files: [file],
         title: 'VocabSwipe - Learn English Vocabulary',
-        text: shareText,
-        url: shareUrl,
+        text: `Check out this word from VocabSwipe! Master words, swipe by swipe. Visit VocabSwipe.com #VocabSwipe #LearnEnglish`,
       };
 
       if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
         await navigator.share(shareData);
         console.log('Shared successfully via Web Share API');
-        hideSharePopup();
       } else {
-        // Show custom share popup if Web Share API is not available
-        showSharePopup();
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'vocabswipe_card.png';
+        link.click();
+        URL.revokeObjectURL(url);
+        console.log('Web Share API not available, image downloaded');
+
+        audioErrorEl.textContent = 'Image downloaded. Share it to Instagram Reels manually!';
+        audioErrorEl.style.display = 'block';
+        setTimeout(() => {
+          audioErrorEl.style.display = 'none';
+        }, 3000);
       }
     } catch (error) {
       console.error('Error sharing:', error);
       audioErrorEl.textContent = 'Failed to share: ' + error.message;
       audioErrorEl.style.display = 'block';
-      setTimeout(() => audioErrorEl.style.display = 'none', 3000);
-      hideSharePopup();
+      setTimeout(() => {
+        audioErrorEl.style.display = 'none';
+      }, 3000);
     }
-  }
-
-  // Share button event listeners
-  shareIcon.addEventListener('click', () => {
-    shareContent();
   });
-
-  document.getElementById('share-x').addEventListener('click', () => shareContent('x'));
-  document.getElementById('share-facebook').addEventListener('click', () => shareContent('facebook'));
-  document.getElementById('share-instagram').addEventListener('click', () => shareContent('instagram'));
-  document.getElementById('share-line').addEventListener('click', () => shareContent('line'));
 
   function showTooltip(tooltip, direction) {
     const isPc = isPC();
@@ -410,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
           flashcard.classList.add('glow');
           flashcard.style.setProperty('--glow-color', '#00ff88');
           const wordGroup = document.querySelector('.highlight-word-group');
-          if (wordGroup) wordGroup.classList.add('glow');
+          if (wordGroup) wordGroup.classList.add('left');
           setTimeout(() => {
             flashcard.classList.remove('glow');
             if (wordGroup) wordGroup.classList.remove('glow');
@@ -829,20 +759,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const audioUrl = `/data/${entry.audio}`;
       console.log(`Setting up audio for: ${audioUrl}`);
       flashcard.onclick = null;
-      flashcard.onclick = (e) => {
-        // Prevent audio playback if clicking near the share icon
-        const rect = shareIcon.getBoundingClientRect();
-        const clickX = e.clientX;
-        const clickY = e.clientY;
-        if (
-          clickX < rect.left ||
-          clickX > rect.right ||
-          clickY < rect.top ||
-          clickY > rect.bottom
-        ) {
-          console.log('Playing audio on tap');
-          playAudio(audioUrl, colors[currentColorIndex]);
-        }
+      flashcard.onclick = () => {
+        console.log('Playing audio on tap');
+        playAudio(audioUrl, colors[currentColorIndex]);
       };
     } else {
       console.log('No audio available for this entry');
@@ -968,7 +887,6 @@ document.addEventListener('DOMContentLoaded', () => {
     donateIcon.style.display = 'none';
     shareIcon.style.display = 'none';
     hideDonatePopup();
-    hideSharePopup();
 
     setTimeout(() => {
       flashcardContainer.style.display = 'none';
@@ -1007,17 +925,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance && (Date.now() - lastSwipeTime) > tapCooldown) {
       console.log('Tap detected, triggering flashcard click');
-      const rect = shareIcon.getBoundingClientRect();
-      const touchX = e.changedTouches[0].clientX;
-      const touchY = e.changedTouches[0].clientY;
-      if (
-        touchX < rect.left ||
-        touchX > rect.right ||
-        touchY < rect.top ||
-        touchY > rect.bottom
-      ) {
-        flashcard.click();
-      }
+      flashcard.click();
     } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
       console.log('Swipe up detected, going to next entry');
       stopAudio();
