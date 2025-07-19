@@ -57,11 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -227,8 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hideDonatePopup();
   });
 
-  shareIcon.addEventListener('click', async e => {
-    e.stopPropagation(); // Prevent click event from bubbling to flashcard
+  shareIcon.addEventListener('click', async () => {
     try {
       // Capture the flashcard area instead of the entire body for better mobile sharing
       const canvas = await html2canvas(flashcardContainer, {
@@ -247,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
         files: [file],
         title: 'VocabSwipe - Learn English Vocabulary',
         text: `Check out this word from VocabSwipe! Master words, swipe by swipe. Visit VocabSwipe.com #VocabSwipe #LearnEnglish`,
-        url: 'https://vocabswipe.com',
+        url: 'https://vocabswipe.com', // Added URL for better sharing context
       };
 
       if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
@@ -510,7 +509,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const delayPerWord = remainingWords > 0 ? 4.1675 : 0;
 
     if (startIndex === 0) {
-      wordArray.slice(0, initialDisplayCount).forEach(({ word, freq"}) => {
+      wordArray.slice(0, initialDisplayCount).forEach(({ word, freq }) => {
         const wordEl = document.createElement('div');
         wordEl.className = 'cloud-word';
         wordEl.textContent = word;
