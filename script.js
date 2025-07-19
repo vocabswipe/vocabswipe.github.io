@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById('header');
   const wordCloudIcon = document.getElementById('word-cloud-icon');
   const donateIcon = document.getElementById('donate-icon');
+  const shareIcon = document.getElementById('share-icon');
   const donatePopup = document.getElementById('donate-popup');
   const closePopupIcon = document.getElementById('close-popup-icon');
   const swipeUpTooltip = document.getElementById('swipe-up-tooltip');
@@ -36,22 +37,20 @@ document.addEventListener('DOMContentLoaded', () => {
   let isPinching = false;
   let currentAudio = null;
   const preloadedAudio = new Set();
-  const CACHE_KEY = 'vocabswipe_data_v1'; // Versioned cache key
-  let wordTimeouts = []; // Array to store timeouts for word placement
-  let lastWordIndex = 0; // Track the last placed word index
-  let placedWords = []; // Store placed word objects
-  let spatialGrid = null; // Store spatial grid
-  let wordCloudSvg = null; // Store SVG for connecting lines
-  let wordArray = []; // Store the sorted word array
-  let wordFreq = {}; // Store word frequencies
-  let wordCaseMap = new Map(); // Store word case mapping
+  const CACHE_KEY = 'vocabswipe_data_v1';
+  let wordTimeouts = [];
+  let lastWordIndex = 0;
+  let placedWords = [];
+  let spatialGrid = null;
+  let wordCloudSvg = null;
+  let wordArray = [];
+  let wordFreq = {};
+  let wordCaseMap = new Map();
 
-  // Track visit count using localStorage
   let visitCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
   visitCount += 1;
   localStorage.setItem('visitCount', visitCount.toString());
 
-  // Function to detect if the device is a PC (non-touch device)
   function isPC() {
     return !('ontouchstart' in window || navigator.maxTouchPoints > 0);
   }
@@ -62,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -76,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return escapedSentence;
   }
 
-  // Grid-based spatial index for overlap detection
   function createSpatialGrid(width, height, cellSize = 50) {
     const grid = new Map();
     function addToGrid(x, y, width, height, wordObj) {
@@ -229,12 +227,68 @@ document.addEventListener('DOMContentLoaded', () => {
     hideDonatePopup();
   });
 
+  shareIcon.addEventListener('click', async () => {
+    try {
+      // Capture the flashcard area instead of the entire body for better mobile sharing
+      const canvas = await html2canvas(flashcardContainer, {
+        width: flashcardContainer.offsetWidth,
+        height: flashcardContainer.offsetHeight,
+        scale: window.devicePixelRatio || 2,
+        backgroundColor: '#000000',
+        useCORS: true,
+      });
+
+      const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+
+      const file = new File([blob], 'vocabswipe_card.png', { type: 'image/png' });
+
+      const shareData = {
+        files: [file],
+        title: 'VocabSwipe - Learn English Vocabulary',
+        text: `Check out this word from VocabSwipe! Master words, swipe by swipe. Visit VocabSwipe.com #VocabSwipe #LearnEnglish`,
+        url: 'https://vocabswipe.com', // Added URL for better sharing context
+      };
+
+      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share(shareData);
+        console.log('Shared successfully via Web Share API');
+        audioErrorEl.textContent = 'Shared successfully!';
+        audioErrorEl.style.color = '#00ff88';
+        audioErrorEl.style.display = 'block';
+        setTimeout(() => {
+          audioErrorEl.style.display = 'none';
+          audioErrorEl.style.color = '#ff4081'; // Reset color
+        }, 2000);
+      } else {
+        // Fallback for devices that don't support Web Share API with files
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'vocabswipe_card.png';
+        link.click();
+        URL.revokeObjectURL(url);
+        console.log('Web Share API not available, image downloaded');
+        audioErrorEl.textContent = 'Image downloaded. Share it manually!';
+        audioErrorEl.style.display = 'block';
+        setTimeout(() => {
+          audioErrorEl.style.display = 'none';
+        }, 3000);
+      }
+    } catch (error) {
+      console.error('Error sharing:', error);
+      audioErrorEl.textContent = 'Failed to share: ' + error.message;
+      audioErrorEl.style.display = 'block';
+      setTimeout(() => {
+        audioErrorEl.style.display = 'none';
+      }, 3000);
+    }
+  });
+
   function showTooltip(tooltip, direction) {
     const isPc = isPC();
     const tooltipIcon = tooltip.querySelector('.tooltip-icon');
     const tooltipText = tooltip.querySelector('.tooltip-text');
 
-    // Update icon and text based on device type before displaying
     if (isPc) {
       if (direction === 'up') {
         tooltipIcon.src = 'arrow-up.svg';
@@ -265,14 +319,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Apply blur to other elements
     header.style.filter = 'blur(5px)';
     logo.style.filter = 'blur(5px)';
     logoCom.style.filter = 'blur(5px)';
     slogan.style.filter = 'blur(5px)';
     flashcard.style.filter = 'none';
 
-    // Position tooltip
     const flashcardRect = flashcard.getBoundingClientRect();
     const containerRect = flashcardContainer.getBoundingClientRect();
     const centerX = flashcardRect.left - containerRect.left + flashcardRect.width / 2;
@@ -288,10 +340,8 @@ document.addEventListener('DOMContentLoaded', () => {
     tooltip.style.left = `${centerX}px`;
     tooltip.style.top = `${centerY}px`;
 
-    // Set display to flex after updating attributes
     tooltip.style.display = 'flex';
 
-    // Start animation after a slight delay to ensure DOM updates are rendered
     setTimeout(() => {
       if (direction === 'tap') {
         tooltip.classList.add('animate-tap');
@@ -308,9 +358,8 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         tooltip.classList.add(direction === 'up' ? 'animate-up' : 'animate-down');
       }
-    }, 10); // Small delay to ensure DOM updates are applied
+    }, 10);
 
-    // Hide tooltip and clean up
     setTimeout(() => {
       tooltip.style.display = 'none';
       tooltip.classList.remove(direction === 'tap' ? 'animate-tap' : direction === 'up' ? 'animate-up' : 'animate-down');
@@ -329,18 +378,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadData() {
     try {
-      // Show loading indicator
       wordCloud.style.display = 'block';
       loadingIndicator.style.display = 'block';
       loadingIndicator.style.opacity = '1';
 
-      // Check cache first
       const cachedData = localStorage.getItem(CACHE_KEY);
       if (cachedData) {
         console.log('Loading data from localStorage cache');
         entries = JSON.parse(cachedData);
         if (entries.length > 0) {
-          // Hide loading indicator with fade-out
           loadingIndicator.style.transition = 'opacity 0.3s ease';
           loadingIndicator.style.opacity = '0';
           setTimeout(() => {
@@ -371,11 +417,9 @@ document.addEventListener('DOMContentLoaded', () => {
         throw new Error('No valid entries in data/database.jsonl');
       }
 
-      // Cache the data
       localStorage.setItem(CACHE_KEY, JSON.stringify(entries));
       console.log(`Loaded ${entries.length} entries and cached in localStorage`);
 
-      // Hide loading indicator with fade-out
       loadingIndicator.style.transition = 'opacity 0.3s ease';
       loadingIndicator.style.opacity = '0';
       setTimeout(() => {
@@ -398,7 +442,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function displayWordCloud(startIndex = 0) {
-    // Initialize word frequency and case mapping if not already done
     if (!wordFreq || Object.keys(wordFreq).length === 0) {
       wordFreq = {};
       wordCaseMap = new Map();
@@ -423,10 +466,9 @@ document.addEventListener('DOMContentLoaded', () => {
     wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
 
-    // Initialize spatial grid and SVG if not resuming
     if (startIndex === 0) {
       wordCloud.innerHTML = '';
-      wordCloud.appendChild(loadingIndicator); // Re-attach loading indicator
+      wordCloud.appendChild(loadingIndicator);
       placedWords = [];
       spatialGrid = createSpatialGrid(containerWidth, containerHeight);
       wordCloudSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -440,7 +482,6 @@ document.addEventListener('DOMContentLoaded', () => {
       wordCloudSvg.style.pointerEvents = 'none';
       wordCloud.appendChild(wordCloudSvg);
     } else {
-      // Restore existing words' opacity and animations
       document.querySelectorAll('.cloud-word').forEach(word => {
         word.style.transition = 'opacity 0.3s ease';
         word.style.opacity = '1';
@@ -463,11 +504,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const initialDisplayCount = Math.ceil(wordArray.length * 0.05); // First 5%
+    const initialDisplayCount = Math.ceil(wordArray.length * 0.05);
     const remainingWords = wordArray.length - initialDisplayCount;
     const delayPerWord = remainingWords > 0 ? 4.1675 : 0;
 
-    // Place initial words if starting from index 0
     if (startIndex === 0) {
       wordArray.slice(0, initialDisplayCount).forEach(({ word, freq }) => {
         const wordEl = document.createElement('div');
@@ -511,10 +551,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Place remaining words progressively starting from startIndex
     wordArray.slice(Math.max(initialDisplayCount, startIndex)).forEach(({ word, freq }, index) => {
       const actualIndex = initialDisplayCount + index;
-      if (actualIndex < startIndex) return; // Skip already processed words
+      if (actualIndex < startIndex) return;
       const timeoutId = setTimeout(() => {
         const wordEl = document.createElement('div');
         wordEl.className = 'cloud-word';
@@ -555,18 +594,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         wordEl.style.transition = 'opacity 0.3s ease';
         wordEl.style.opacity = '1';
-        lastWordIndex = actualIndex + 1; // Update last placed word index
+        lastWordIndex = actualIndex + 1;
 
         addWordEventListener(wordEl, word);
       }, (actualIndex - startIndex) * delayPerWord);
       wordTimeouts.push(timeoutId);
     });
 
-    // Draw or restore SVG lines
     const lineTimeoutId = setTimeout(() => {
       requestAnimationFrame(() => {
         if (startIndex === 0 || !wordCloudSvg.hasChildNodes()) {
-          wordCloudSvg.innerHTML = ''; // Clear existing lines if starting fresh
+          wordCloudSvg.innerHTML = '';
           placedWords.forEach((word1, i) => {
             const nearest = placedWords
               .map((word2, j) => ({
@@ -741,15 +779,15 @@ document.addEventListener('DOMContentLoaded', () => {
       audioErrorEl.style.display = 'block';
       setTimeout(() => audioErrorEl.style.display = 'none', 2000);
     }
+
+    shareIcon.style.display = 'block';
   }
 
   function addWordEventListener(wordEl, word) {
     wordEl.addEventListener('click', () => {
       stopAudio();
-      // Clear all pending timeouts but preserve state
       wordTimeouts.forEach(timeoutId => clearTimeout(timeoutId));
       wordTimeouts = [];
-      // Hide other words and SVG lines
       document.querySelectorAll('.cloud-word').forEach(otherWord => {
         if (otherWord !== wordEl) {
           otherWord.style.transition = 'none';
@@ -761,14 +799,12 @@ document.addEventListener('DOMContentLoaded', () => {
         wordCloudSvg.style.transition = 'none';
         wordCloudSvg.style.opacity = '0';
       }
-      // Reset word cloud transform
       wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
       wordCloud.style.transformOrigin = 'center center';
       currentScale = 1;
       translateX = 0;
       translationY = 0;
 
-      // Scale up selected word
       const rect = wordEl.getBoundingClientRect();
       const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
       const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
@@ -797,6 +833,7 @@ document.addEventListener('DOMContentLoaded', () => {
           header.style.transition = 'opacity 1s ease';
           header.style.opacity = '1';
           donateIcon.style.display = 'block';
+          shareIcon.style.display = 'block';
 
           flashcardContainer.style.height = '100vh';
           flashcardContainer.style.justifyContent = 'center';
@@ -857,6 +894,7 @@ document.addEventListener('DOMContentLoaded', () => {
     header.style.transition = 'opacity 0.7s ease';
     header.style.opacity = '0';
     donateIcon.style.display = 'none';
+    shareIcon.style.display = 'none';
     hideDonatePopup();
 
     setTimeout(() => {
@@ -875,7 +913,6 @@ document.addEventListener('DOMContentLoaded', () => {
       slogan.style.transform = 'translateX(100%)';
       slogan.style.opacity = '0';
 
-      // Resume word cloud animation from lastWordIndex
       displayWordCloud(lastWordIndex);
     }, 700);
   });

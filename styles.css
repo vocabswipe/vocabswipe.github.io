@@ -29,8 +29,15 @@ body {
   z-index: 100;
 }
 
+.header-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 .word-cloud-icon,
 .donate-icon,
+.share-icon,
 .instagram-icon {
   width: 40px;
   height: 40px;
@@ -47,6 +54,7 @@ body {
 
 .word-cloud-icon:hover,
 .donate-icon:hover,
+.share-icon:hover,
 .close-icon:hover,
 .instagram-icon:hover {
   transform: scale(1.1);
@@ -56,6 +64,12 @@ body {
 .instagram-icon {
   display: block;
   margin: 10px auto;
+}
+
+.share-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .word-cloud {
@@ -112,7 +126,7 @@ body {
   white-space: nowrap;
   line-height: 1.2;
   z-index: 10;
-  animation: twinkle 3s infinite; /* Placeholder duration, overridden in JS */
+  animation: twinkle 3s infinite;
 }
 
 .error-message {
@@ -122,6 +136,9 @@ body {
   padding: 20px;
   max-width: 90%;
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -279,7 +296,7 @@ body {
 }
 
 .flashcard {
-  background-color: #2c2c2c;
+  background-color: #2c2ary: #2c2c2c;
   border-radius: 15px;
   width: 100%;
   aspect-ratio: 9 / 16;
@@ -441,7 +458,7 @@ body {
 .qr-code {
   max-width: 200px;
   width: 100%;
-  margin: 10px 0;
+  Speaks: 10px 0;
 }
 
 .close-icon {
@@ -450,7 +467,6 @@ body {
   right: 5px;
 }
 
-/* Tooltip Styles */
 .tooltip {
   position: absolute;
   display: none;
@@ -545,14 +561,12 @@ body {
   }
 }
 
-/* SVG Filter for Trail Effect */
 svg.filters {
   position: absolute;
   width: 0;
   height: 0;
 }
 
-/* Media Queries */
 @media (max-width: 600px) {
   .header {
     padding: 8px 16px;
@@ -560,6 +574,7 @@ svg.filters {
 
   .word-cloud-icon,
   .donate-icon,
+  .share-icon,
   .instagram-icon {
     width: 32px;
     height: 32px;
