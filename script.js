@@ -57,11 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -227,13 +227,14 @@ document.addEventListener('DOMContentLoaded', () => {
     hideDonatePopup();
   });
 
-  shareIcon.addEventListener('click', async (e) => {
-    e.stopPropagation(); // Prevent click event from bubbling to flashcard
+  shareIcon.addEventListener('click', async () => {
     try {
-      // Capture only the flashcard element for better mobile compatibility
-      const canvas = await html2canvas(flashcard, {
-        scale: 2,
-        backgroundColor: '#2c2c2c', // Match flashcard background
+      // Capture the flashcard area instead of the entire body for better mobile sharing
+      const canvas = await html2canvas(flashcardContainer, {
+        width: flashcardContainer.offsetWidth,
+        height: flashcardContainer.offsetHeight,
+        scale: window.devicePixelRatio || 2,
+        backgroundColor: '#000000',
         useCORS: true,
       });
 
@@ -245,32 +246,21 @@ document.addEventListener('DOMContentLoaded', () => {
         files: [file],
         title: 'VocabSwipe - Learn English Vocabulary',
         text: `Check out this word from VocabSwipe! Master words, swipe by swipe. Visit VocabSwipe.com #VocabSwipe #LearnEnglish`,
+        url: 'https://vocabswipe.com', // Added URL for better sharing context
       };
 
-      // Check if Web Share API is supported and can share files
-      if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
-        try {
-          await navigator.share(shareData);
-          console.log('Shared successfully via Web Share API');
-        } catch (shareError) {
-          console.error('Web Share API failed:', shareError);
-          // Fallback to download if sharing fails
-          const url = URL.createObjectURL(blob);
-          const link = document.createElement('a');
-          link.href = url;
-          link.download = 'vocabswipe_card.png';
-          link.click();
-          URL.revokeObjectURL(url);
-          console.log('Web Share API failed, image downloaded');
-
-          audioErrorEl.textContent = 'Image downloaded. Share it to Instagram Reels manually!';
-          audioErrorEl.style.display = 'block';
-          setTimeout(() => {
-            audioErrorEl.style.display = 'none';
-          }, 3000);
-        }
+      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share(shareData);
+        console.log('Shared successfully via Web Share API');
+        audioErrorEl.textContent = 'Shared successfully!';
+        audioErrorEl.style.color = '#00ff88';
+        audioErrorEl.style.display = 'block';
+        setTimeout(() => {
+          audioErrorEl.style.display = 'none';
+          audioErrorEl.style.color = '#ff4081'; // Reset color
+        }, 2000);
       } else {
-        // Fallback for devices/browsers that don't support Web Share API
+        // Fallback for devices that don't support Web Share API with files
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
@@ -278,8 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.click();
         URL.revokeObjectURL(url);
         console.log('Web Share API not available, image downloaded');
-
-        audioErrorEl.textContent = 'Image downloaded. Share it to Instagram Reels manually!';
+        audioErrorEl.textContent = 'Image downloaded. Share it manually!';
         audioErrorEl.style.display = 'block';
         setTimeout(() => {
           audioErrorEl.style.display = 'none';
@@ -294,11 +283,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 3000);
     }
   });
-
-  // Prevent touch events on share icon from triggering flashcard tap
-  shareIcon.addEventListener('touchstart', (e) => {
-    e.stopPropagation();
-  }, { passive: false });
 
   function showTooltip(tooltip, direction) {
     const isPc = isPC();
