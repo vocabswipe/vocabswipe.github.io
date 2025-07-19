@@ -1,716 +1,1134 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #000000;
-  color: #ffffff;
-  font-family: 'Roboto', sans-serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-x: hidden;
-}
-
-.header {
-  width: 100%;
-  max-width: 400px;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 100;
-}
-
-.header-right {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.word-cloud-icon,
-.donate-icon,
-.instagram-icon {
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.3s ease;
-}
-
-.share-icon {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.3s ease;
-  position: absolute;
-  bottom: -30px;
-  right: 10px;
-  z-index: 15;
-}
-
-.close-icon {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.3s ease;
-}
-
-.word-cloud-icon:hover,
-.donate-icon:hover,
-.share-icon:hover,
-.close-icon:hover,
-.instagram-icon:hover {
-  transform: scale(1.1);
-  opacity: 0.8;
-}
-
-.instagram-icon {
-  display: block;
-  margin: 10px auto;
-}
-
-.word-cloud {
-  position: relative;
-  width: 100%;
-  overflow-y: auto;
-  padding: 10px;
-  transform-origin: center center;
-  will-change: transform;
-  display: block;
-}
-
-.loading-indicator {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.2rem;
-  color: #00ff88;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-.word-cloud-lines {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-  z-index: 5;
-}
-
-@keyframes twinkle {
-  0% {
-    opacity: 0.6;
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
-  }
-  50% {
-    opacity: 1;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-  }
-  100% {
-    opacity: 0.6;
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
-  }
-}
-
-.cloud-word {
-  position: absolute;
-  font-weight: 700;
-  cursor: pointer;
-  user-select: none;
-  transition: opacity 1s ease, transform 1s ease;
-  white-space: nowrap;
-  line-height: 1.2;
-  z-index: 10;
-  animation: twinkle 3s infinite;
-}
-
-.error-message {
-  color: #ff4081;
-  font-size: 1.2rem;
-  text-align: center;
-  padding: 20px;
-  max-width: 90%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.container {
-  flex-grow: 1;
-  width: 100%;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  padding-top: 60px;
-  position: relative;
-}
-
-.logo-container {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.highlight-words-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  width: 100%;
-  min-height: 1.4rem;
-}
-
-.highlight-word-group {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  position: relative;
-  transition: opacity 0.3s ease;
-}
-
-.highlight-word {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  line-height: 1.4;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  background: none;
-}
-
-.highlight-word.current-word {
-  order: -1;
-  transform: translateX(-300px);
-  opacity: 0;
-}
-
-.highlight-word.next-word {
-  transform: translateX(300px);
-  opacity: 0;
-}
-
-.highlight-word.glow,
-.highlight-word-group.glow .highlight-word {
-  animation: text-glow 0.5s ease-in-out;
-}
-
-@keyframes text-glow {
-  0% {
-    text-shadow: 0 0 0 var(--glow-color, #00ff88);
-  }
-  50% {
-    text-shadow: 0 0 10px var(--glow-color, #00ff88);
-  }
-  100% {
-    text-shadow: 0 0 0 var(--glow-color, #00ff88);
-  }
-}
-
-.highlight-word-line {
-  transition: opacity 0.3s ease;
-  z-index: 5;
-}
-
-.highlight-word-line line {
-  transition: stroke-opacity 0.5s ease;
-}
-
-.highlight-word-group.glow .highlight-word-line line {
-  animation: glow-line 0.5s ease-in-out;
-}
-
-@keyframes glow-line {
-  0% {
-    stroke: #ffffff;
-    stroke-opacity: 0.10;
-  }
-  50% {
-    stroke: #ffffff;
-    stroke-opacity: 0.3;
-  }
-  100% {
-    stroke: #ffffff;
-    stroke-opacity: 0.10;
-  }
-}
-
-.logo-wrapper {
-  display: inline-flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.logo {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 600;
-  animation: colorChange 60s infinite linear;
-  opacity: 0;
-  transform: translateX(-100%);
-  transition: transform 1s ease, opacity 1s ease, filter 0.3s ease;
-}
-
-.logo-com {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-  animation: colorChange 60s infinite linear;
-  opacity: 0;
-  transform: translateX(100%);
-  transition: transform 1s ease, opacity 1s ease, filter 0.3s ease;
-}
-
-@keyframes colorChange {
-  0% { color: #ff0000; }
-  14.29% { color: #ff9900; }
-  28.57% { color: #ffff00; }
-  42.86% { color: #00ff00; }
-  57.14% { color: #00ffff; }
-  71.43% { color: #0000ff; }
-  85.71% { color: #9900ff; }
-  100% { color: #ff0000; }
-}
-
-.slogan {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 400;
-  font-style: italic;
-  color: #b0b0b0;
-  opacity: 0;
-  transform: translateX(100%);
-  transition: transform 1s ease, opacity 1s ease, filter 0.3s ease;
-}
-
-.flashcard {
-  background-color: #2c2c2c;
-  border-radius: 15px;
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  height: calc(400px * 1.777 * 0.5);
-  max-height: calc(711px * 0.5);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  touch-action: pan-y;
-  user-select: none;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  position: relative;
-}
-
-.flashcard:active {
-  transform: scale(0.98);
-}
-
-.flashcard.glow {
-  animation: glow 0.5s ease-in-out;
-}
-
-@keyframes glow {
-  0% {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20px var(--glow-color, rgba(0, 255, 136, 0.5));
-  }
-  50% {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 30px var(--glow-color, rgba(0, 255, 136, 0.7));
-  }
-  100% {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20px var(--glow-color, rgba(0, 255, 136, 0.5));
-  }
-}
-
-.content {
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.word {
-  font-size: 3rem;
-  font-weight: 700;
-  text-align: center;
-  word-break: break-word;
-  margin-bottom: 20px;
-  white-space: nowrap;
-  max-width: 100%;
-  width: 100%;
-}
-
-.sentences {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.english {
-  font-size: 1.2rem;
-  line-height: 1.4;
-  text-align: center;
-  margin-bottom: 8px;
-}
-
-.english .highlight {
-  font-weight: 700;
-}
-
-.thai {
-  font-size: 1rem;
-  color: #b0b0b0;
-  font-family: 'Noto Sans Thai', sans-serif;
-  line-height: 1.4;
-  text-align: center;
-}
-
-.audio-error {
-  font-size: 0.9rem;
-  color: #ff4081;
-  text-align: center;
-  margin: 0.9rem;
-  margin-top: 8px;
-  display: none;
-}
-
-.popup {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 200;
-  justify-content: center;
-  align-items: center;
-}
-
-.popup-content {
-  background: #2c2c2c;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  max-width: 90%;
-  max-height: 90vh;
-  overflow: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  position: relative;
-}
-
-.popup-content p[lang="en"] {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  color: #ffffff;
-  margin: 10px 0;
-  line-height: 1.4;
-}
-
-.popup-content p[lang="th"] {
-  font-family: 'Noto Sans Thai', sans-serif;
-  font-size: 1rem;
-  color: #ffffff;
-  margin: 10px 0;
-  line-height: 1.4;
-}
-
-.popup-content p[lang="en"].support-text {
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.8rem;
-  color: #b0b0b0;
-  margin: 10px 0;
-  line-height: 1.4;
-}
-
-.share-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 10px 0;
-}
-
-.share-button {
-  background-color: #00ff88;
-  color: #000000;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.share-button:hover {
-  background-color: #00cc70;
-}
-
-.developer-photo {
-  max-width: 100px;
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-  margin: 10px auto;
-  display: block;
-}
-
-.promptpay-logo {
-  max-width: 120px;
-  width: 100%;
-  height: auto;
-  margin: 10px auto;
-  display: block;
-}
-
-.qr-code {
-  max-width: 200px;
-  width: 100%;
-  margin: 10px 0;
-}
-
-.close-icon {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-}
-
-.tooltip {
-  position: absolute;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  z-index: 150;
-  transform: translateX(-50%);
-}
-
-.tooltip-icon {
-  width: 40px;
-  height: 40px;
-  filter: url(#motion-blur);
-}
-
-.tooltip-text {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  color: #00ff88;
-  margin-top: 8px;
-  text-align: center;
-  text-shadow: 0 0 5px rgba(0, 255, 136, 0.7);
-}
-
-.swipe-up-tooltip.animate-up {
-  animation: moveUp 2s ease-out forwards;
-}
-
-.swipe-down-tooltip.animate-down {
-  animation: moveDown 2s ease-out forwards;
-}
-
-.tap-tooltip.animate-tap {
-  animation: tapAnimation 2.5s ease-out forwards;
-}
-
-@keyframes moveUp {
-  0% {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-50%) translateY(-200px);
-    opacity: 0;
-  }
-}
-
-@keyframes moveDown {
-  0% {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-50%) translateY(200px);
-    opacity: 0;
-  }
-}
-
-@keyframes tapAnimation {
-  0% {
-    transform: translateX(-50%) translateY(-10px) scale(1);
-    opacity: 1;
-  }
-  40% {
-    transform: translateX(-50%) translateY(10px) scale(1.2);
-    opacity: 1;
-  }
-  45% {
-    transform: translateX(-50%) translateY(10px) scale(0.9) rotate(2deg);
-  }
-  50% {
-    transform: translateX(-50%) translateY(10px) scale(0.9) rotate(-2deg);
-  }
-  55% {
-    transform: translateX(-50%) translateY(10px) scale(0.9) rotate(2deg);
-  }
-  60% {
-    transform: translateX(-50%) translateY(10px) scale(0.9) rotate(0deg);
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-50%) translateY(10px) scale(0.9);
-    opacity: 0;
-  }
-}
-
-svg.filters {
-  position: absolute;
-  width: 0;
-  height: 0;
-}
-
-@media (max-width: 600px) {
-  .header {
-    padding: 8px 16px;
+document.addEventListener('DOMContentLoaded', () => {
+  const wordCloud = document.getElementById('word-cloud');
+  const loadingIndicator = document.getElementById('loading-indicator');
+  const flashcardContainer = document.getElementById('flashcard-container');
+  const flashcard = document.getElementById('flashcard');
+  const wordEl = document.getElementById('word');
+  const englishEl = document.getElementById('english');
+  const thaiEl = document.getElementById('thai');
+  const audioErrorEl = document.getElementById('audio-error');
+  const logo = document.querySelector('.logo');
+  const logoCom = document.querySelector('.logo-com');
+  const slogan = document.querySelector('.slogan');
+  const header = document.getElementById('header');
+  const wordCloudIcon = document.getElementById('word-cloud-icon');
+  const donateIcon = document.getElementById('donate-icon');
+  const shareIcon = document.getElementById('share-icon');
+  const donatePopup = document.getElementById('donate-popup');
+  const closePopupIcon = document.getElementById('close-popup-icon');
+  const sharePopup = document.getElementById('share-popup');
+  const closeSharePopup = document.getElementById('close-share-popup');
+  const swipeUpTooltip = document.getElementById('swipe-up-tooltip');
+  const swipeDownTooltip = document.getElementById('swipe-down-tooltip');
+  const tapTooltip = document.getElementById('tap-tooltip');
+  const highlightWordsContainer = document.getElementById('highlight-words-container');
+
+  let entries = [];
+  let currentIndex = 0;
+  let touchStartY = 0;
+  let touchEndY = 0;
+  let touchStartTime = 0;
+  let lastSwipeTime = 0;
+  const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
+  let currentColorIndex = 0;
+  let wordColors = new Map();
+  let initialScale = 1;
+  let currentScale = 1;
+  let translateX = 0;
+  let translationY = 0;
+  let isPinching = false;
+  let currentAudio = null;
+  const preloadedAudio = new Set();
+  const CACHE_KEY = 'vocabswipe_data_v1';
+  let wordTimeouts = [];
+  let lastWordIndex = 0;
+  let placedWords = [];
+  let spatialGrid = null;
+  let wordCloudSvg = null;
+  let wordArray = [];
+  let wordFreq = {};
+  let wordCaseMap = new Map();
+
+  let visitCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
+  visitCount += 1;
+  localStorage.setItem('visitCount', visitCount.toString());
+
+  function isPC() {
+    return !('ontouchstart' in window || navigator.maxTouchPoints > 0);
   }
 
-  .word-cloud-icon,
-  .donate-icon,
-  .instagram-icon {
-    width: 32px;
-    height: 32px;
+  function escapeHTML(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
-  .share-icon {
-    width: 16px;
-    height: 16px;
-    bottom: -24px;
-    right: 8px;
+  function highlightWords(sentence, wordsToHighlight) {
+    let escapedSentence = escapeHTML(sentence);
+    wordsToHighlight.sort((a, b) => b.word.length - a.word.length);
+    for (const { word, color } of wordsToHighlight) {
+      const escapedWord = escapeHTML(word);
+      const regex = new RegExp(`\\b${escapedWord}\\b(?![^<]*>)`, 'gi');
+      escapedSentence = escapedSentence.replace(regex, `<span class="highlight" style="color: ${color};">$&</span>`);
+    }
+    return escapedSentence;
   }
 
-  .close-icon {
-    width: 16px;
-    height: 16px;
+  function createSpatialGrid(width, height, cellSize = 50) {
+    const grid = new Map();
+    function addToGrid(x, y, width, height, wordObj) {
+      const minX = Math.floor(x / cellSize);
+      const maxX = Math.floor((x + width) / cellSize);
+      const minY = Math.floor(y / cellSize);
+      const maxY = Math.floor((y + height) / cellSize);
+      for (let i = minX; i <= maxX; i++) {
+        for (let j = minY; j <= maxY; j++) {
+          const key = `${i},${j}`;
+          if (!grid.has(key)) grid.set(key, []);
+          grid.get(key).push(wordObj);
+        }
+      }
+    }
+    function getNearbyWords(x, y, width, height) {
+      const minX = Math.floor(x / cellSize);
+      const maxX = Math.floor((x + width) / cellSize);
+      const minY = Math.floor(y / cellSize);
+      const maxY = Math.floor((y + height) / cellSize);
+      const nearby = new Set();
+      for (let i = minX; i <= maxX; i++) {
+        for (let j = minY; j <= maxY; j++) {
+          const key = `${i},${j}`;
+          if (grid.has(key)) {
+            grid.get(key).forEach(word => nearby.add(word));
+          }
+        }
+      }
+      return Array.from(nearby);
+    }
+    return { addToGrid, getNearbyWords };
   }
 
-  .flashcard {
-    height: calc(100vw * 1.777 * 0.5);
+  function isOverlapping(x, y, width, height, spatialGrid) {
+    const padding = 2;
+    const nearbyWords = spatialGrid.getNearbyWords(x, y, width, height);
+    for (const word of nearbyWords) {
+      const left1 = x;
+      const right1 = x + width;
+      const top1 = y;
+      const bottom1 = y + height;
+      const left2 = word.x;
+      const right2 = word.x + word.width;
+      const top2 = word.y;
+      const bottom2 = word.y + word.height;
+
+      if (
+        right1 + padding > left2 &&
+        left1 - padding < right2 &&
+        bottom1 + padding > top2 &&
+        top1 - padding < bottom2
+      ) {
+        return true;
+      }
+    }
+    return false;
   }
 
-  .word {
-    font-size: 2.4rem;
+  function adjustWordSize(word, element, maxWidth) {
+    element.style.fontSize = '3rem';
+    element.textContent = word;
+    let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
+    const padding = 20;
+
+    while (element.scrollWidth > maxWidth - padding && fontSize > 1) {
+      fontSize -= 0.1;
+      element.style.fontSize = `${fontSize}rem`;
+    }
   }
 
-  .english {
-    font-size: 1.1rem;
+  function stopAudio() {
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+      currentAudio = null;
+    }
+    audioErrorEl.style.display = 'none';
   }
 
-  .thai {
-    font-size: 0.9rem;
+  function preloadAudio(index) {
+    const range = 10;
+    const start = Math.max(0, index - range);
+    const end = Math.min(entries.length - 1, index + range);
+
+    for (let i = start; i <= end; i++) {
+      if (i !== index && entries[i].audio) {
+        const audioUrl = `/data/${entries[i].audio}`;
+        if (!preloadedAudio.has(audioUrl)) {
+          console.log(`Preloading audio: ${audioUrl}`);
+          const audio = new Audio(audioUrl);
+          audio.preload = 'auto';
+          audio.load();
+          preloadedAudio.add(audioUrl);
+        }
+      }
+    }
   }
 
-  .audio-error {
-    font-size: 0.8rem;
+  function playAudio(audioUrl, wordColor) {
+    stopAudio();
+    console.log(`Attempting to play audio: ${audioUrl}`);
+    currentAudio = new Audio(audioUrl);
+    setTimeout(() => {
+      currentAudio.play().then(() => {
+        console.log('Audio playing successfully');
+        flashcard.classList.add('glow');
+        flashcard.style.setProperty('--glow-color', wordColor);
+        const wordGroup = document.querySelector('.highlight-word-group');
+        if (wordGroup) wordGroup.classList.add('glow');
+        setTimeout(() => {
+          flashcard.classList.remove('glow');
+          if (wordGroup) wordGroup.classList.remove('glow');
+        }, 500);
+        audioErrorEl.style.display = 'none';
+      }).catch(e => {
+        console.error('Error playing audio:', e);
+        audioErrorEl.textContent = 'Failed to play audio: ' + e.message;
+        audioErrorEl.style.display = 'block';
+        setTimeout(() => audioErrorEl.style.display = 'none', 2000);
+      });
+    }, 500);
   }
 
-  .word-cloud {
-    padding: 5px;
+  function showDonatePopup() {
+    donatePopup.style.display = 'flex';
+    flashcardContainer.style.filter = 'blur(5px)';
+    header.style.filter = 'blur(5px)';
+    document.body.style.overflow = 'hidden';
   }
 
-  .loading-indicator {
-    font-size: 1rem;
+  function hideDonatePopup() {
+    donatePopup.style.display = 'none';
+    flashcardContainer.style.filter = 'none';
+    header.style.filter = 'none';
+    document.body.style.overflow = 'hidden';
   }
 
-  .logo {
-    font-size: 2rem;
+  function showSharePopup() {
+    sharePopup.style.display = 'flex';
+    flashcardContainer.style.filter = 'blur(5px)';
+    header.style.filter = 'blur(5px)';
+    document.body.style.overflow = 'hidden';
   }
 
-  .logo-com {
-    font-size: 1rem;
+  function hideSharePopup() {
+    sharePopup.style.display = 'none';
+    flashcardContainer.style.filter = 'none';
+    header.style.filter = 'none';
+    document.body.style.overflow = 'hidden';
   }
 
-  .slogan {
-    font-size: 1rem;
+  donatePopup.addEventListener('click', e => {
+    if (e.target === donatePopup) {
+      hideDonatePopup();
+    }
+  });
+
+  donateIcon.addEventListener('click', () => {
+    showDonatePopup();
+  });
+
+  closePopupIcon.addEventListener('click', () => {
+    hideDonatePopup();
+  });
+
+  sharePopup.addEventListener('click', e => {
+    if (e.target === sharePopup) {
+      hideSharePopup();
+    }
+  });
+
+  closeSharePopup.addEventListener('click', () => {
+    hideSharePopup();
+  });
+
+  async function shareContent(platform = null) {
+    try {
+      // Capture the flashcard for sharing
+      const canvas = await html2canvas(flashcard, {
+        width: flashcard.offsetWidth,
+        height: flashcard.offsetHeight,
+        scale: 2,
+        backgroundColor: '#2c2c2c',
+        useCORS: true,
+      });
+
+      const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+      const file = new File([blob], 'vocabswipe_card.png', { type: 'image/png' });
+      const shareText = `Check out this word from VocabSwipe! Master words, swipe by swipe. Visit VocabSwipe.com #VocabSwipe #LearnEnglish`;
+      const shareUrl = 'https://vocabswipe.com';
+
+      if (platform) {
+        let shareLink;
+        const encodedText = encodeURIComponent(shareText);
+        const encodedUrl = encodeURIComponent(shareUrl);
+
+        switch (platform) {
+          case 'x':
+            shareLink = `https://x.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
+            window.open(shareLink, '_blank', 'noopener,noreferrer');
+            break;
+          case 'facebook':
+            shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`;
+            window.open(shareLink, '_blank', 'noopener,noreferrer');
+            break;
+          case 'instagram':
+            // Instagram doesn't support direct sharing; download image with instructions
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'vocabswipe_card.png';
+            link.click();
+            URL.revokeObjectURL(url);
+            audioErrorEl.textContent = 'Image downloaded. Share it to Instagram manually!';
+            audioErrorEl.style.display = 'block';
+            setTimeout(() => audioErrorEl.style.display = 'none', 3000);
+            break;
+          case 'line':
+            // LINE sharing via URL
+            const lineText = encodeURIComponent(`${shareText} ${shareUrl}`);
+            shareLink = `https://line.me/R/msg/text/?${lineText}`;
+            if (navigator.userAgent.includes('Line/')) {
+              window.location.href = shareLink;
+            } else {
+              window.open(shareLink, '_blank', 'noopener,noreferrer');
+            }
+            break;
+        }
+        hideSharePopup();
+        return;
+      }
+
+      // Web Share API
+      const shareData = {
+        files: [file],
+        title: 'VocabSwipe - Learn English Vocabulary',
+        text: shareText,
+        url: shareUrl,
+      };
+
+      if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+        await navigator.share(shareData);
+        console.log('Shared successfully via Web Share API');
+        hideSharePopup();
+      } else {
+        // Show custom share popup if Web Share API is not available
+        showSharePopup();
+      }
+    } catch (error) {
+      console.error('Error sharing:', error);
+      audioErrorEl.textContent = 'Failed to share: ' + error.message;
+      audioErrorEl.style.display = 'block';
+      setTimeout(() => audioErrorEl.style.display = 'none', 3000);
+      hideSharePopup();
+    }
   }
 
-  .error-message {
-    font-size: 1rem;
+  // Share button event listeners
+  shareIcon.addEventListener('click', () => {
+    shareContent();
+  });
+
+  document.getElementById('share-x').addEventListener('click', () => shareContent('x'));
+  document.getElementById('share-facebook').addEventListener('click', () => shareContent('facebook'));
+  document.getElementById('share-instagram').addEventListener('click', () => shareContent('instagram'));
+  document.getElementById('share-line').addEventListener('click', () => shareContent('line'));
+
+  function showTooltip(tooltip, direction) {
+    const isPc = isPC();
+    const tooltipIcon = tooltip.querySelector('.tooltip-icon');
+    const tooltipText = tooltip.querySelector('.tooltip-text');
+
+    if (isPc) {
+      if (direction === 'up') {
+        tooltipIcon.src = 'arrow-up.svg';
+        tooltipIcon.alt = 'Arrow Up';
+        tooltipText.textContent = 'Press Up Arrow for next card';
+      } else if (direction === 'down') {
+        tooltipIcon.src = 'arrow-down.svg';
+        tooltipIcon.alt = 'Arrow Down';
+        tooltipText.textContent = 'Press Down Arrow for previous card';
+      } else if (direction === 'tap') {
+        tooltipIcon.src = 'spacebar.svg';
+        tooltipIcon.alt = 'Spacebar';
+        tooltipText.textContent = 'Press Spacebar to hear audio';
+      }
+    } else {
+      if (direction === 'up') {
+        tooltipIcon.src = 'swipe-up.svg';
+        tooltipIcon.alt = 'Swipe Up';
+        tooltipText.textContent = 'Swipe up for next card';
+      } else if (direction === 'down') {
+        tooltipIcon.src = 'swipe-down.svg';
+        tooltipIcon.alt = 'Swipe Down';
+        tooltipText.textContent = 'Swipe down for previous card';
+      } else if (direction === 'tap') {
+        tooltipIcon.src = 'tap.svg';
+        tooltipIcon.alt = 'Tap';
+        tooltipText.textContent = 'Tap to hear audio';
+      }
+    }
+
+    header.style.filter = 'blur(5px)';
+    logo.style.filter = 'blur(5px)';
+    logoCom.style.filter = 'blur(5px)';
+    slogan.style.filter = 'blur(5px)';
+    flashcard.style.filter = 'none';
+
+    const flashcardRect = flashcard.getBoundingClientRect();
+    const containerRect = flashcardContainer.getBoundingClientRect();
+    const centerX = flashcardRect.left - containerRect.left + flashcardRect.width / 2;
+    let centerY;
+    if (direction === 'tap') {
+      const wordRect = wordEl.getBoundingClientRect();
+      const englishRect = englishEl.getBoundingClientRect();
+      centerY = wordRect.bottom + (englishRect.top - wordRect.bottom) / 2 - containerRect.top - 10;
+    } else {
+      centerY = flashcardRect.top - containerRect.top + flashcardRect.height / 2;
+    }
+
+    tooltip.style.left = `${centerX}px`;
+    tooltip.style.top = `${centerY}px`;
+
+    tooltip.style.display = 'flex';
+
+    setTimeout(() => {
+      if (direction === 'tap') {
+        tooltip.classList.add('animate-tap');
+        setTimeout(() => {
+          flashcard.classList.add('glow');
+          flashcard.style.setProperty('--glow-color', '#00ff88');
+          const wordGroup = document.querySelector('.highlight-word-group');
+          if (wordGroup) wordGroup.classList.add('glow');
+          setTimeout(() => {
+            flashcard.classList.remove('glow');
+            if (wordGroup) wordGroup.classList.remove('glow');
+          }, 500);
+        }, 1000);
+      } else {
+        tooltip.classList.add(direction === 'up' ? 'animate-up' : 'animate-down');
+      }
+    }, 10);
+
+    setTimeout(() => {
+      tooltip.style.display = 'none';
+      tooltip.classList.remove(direction === 'tap' ? 'animate-tap' : direction === 'up' ? 'animate-up' : 'animate-down');
+      if (
+        swipeUpTooltip.style.display === 'none' &&
+        swipeDownTooltip.style.display === 'none' &&
+        tapTooltip.style.display === 'none'
+      ) {
+        header.style.filter = 'none';
+        logo.style.filter = 'none';
+        logoCom.style.filter = 'none';
+        slogan.style.filter = 'none';
+      }
+    }, direction === 'tap' ? 2500 : 2000);
   }
 
-  .popup-content {
-    padding: 15px;
+  async function loadData() {
+    try {
+      wordCloud.style.display = 'block';
+      loadingIndicator.style.display = 'block';
+      loadingIndicator.style.opacity = '1';
+
+      const cachedData = localStorage.getItem(CACHE_KEY);
+      if (cachedData) {
+        console.log('Loading data from localStorage cache');
+        entries = JSON.parse(cachedData);
+        if (entries.length > 0) {
+          loadingIndicator.style.transition = 'opacity 0.3s ease';
+          loadingIndicator.style.opacity = '0';
+          setTimeout(() => {
+            loadingIndicator.style.display = 'none';
+            displayWordCloud(0);
+          }, 300);
+          return;
+        }
+      }
+
+      console.log('Fetching data/database.jsonl...');
+      const response = await fetch('data/database.jsonl');
+      if (!response.ok) {
+        throw new Error(`Failed to fetch data/database.jsonl: ${response.status} ${response.statusText}`);
+      }
+      const data = await response.text();
+      if (!data.trim()) {
+        throw new Error('data/database.jsonl is empty');
+      }
+      entries = data.trim().split('\n').map((line, index) => {
+        try {
+          return JSON.parse(line);
+        } catch (e) {
+          throw new Error(`Invalid JSON at line ${index + 1}: ${e.message}`);
+        }
+      });
+      if (!entries.length) {
+        throw new Error('No valid entries in data/database.jsonl');
+      }
+
+      localStorage.setItem(CACHE_KEY, JSON.stringify(entries));
+      console.log(`Loaded ${entries.length} entries and cached in localStorage`);
+
+      loadingIndicator.style.transition = 'opacity 0.3s ease';
+      loadingIndicator.style.opacity = '0';
+      setTimeout(() => {
+        loadingIndicator.style.display = 'none';
+        displayWordCloud(0);
+      }, 300);
+    } catch (error) {
+      console.error('LoadData Error:', error);
+      loadingIndicator.style.display = 'none';
+      wordCloud.innerHTML = `
+        <div class="error-message">
+          Failed to load vocabulary data. Please ensure 'data/database.jsonl' exists and is valid.
+          <br>Error: ${escapeHTML(error.message)}
+        </div>`;
+      wordCloud.style.display = 'flex';
+      wordCloud.style.alignItems = 'center';
+      wordCloud.style.justifyContent = 'center';
+      wordCloud.style.height = '100vh';
+    }
   }
 
-  .developer-photo {
-    max-width: 80px;
+  function displayWordCloud(startIndex = 0) {
+    if (!wordFreq || Object.keys(wordFreq).length === 0) {
+      wordFreq = {};
+      wordCaseMap = new Map();
+      entries.forEach(entry => {
+        if (typeof entry.word !== 'string') {
+          throw new Error('Invalid word format in database entry');
+        }
+        const lowerWord = entry.word.toLowerCase();
+        wordFreq[lowerWord] = (wordFreq[lowerWord] || 0) + 1;
+        if (!wordCaseMap.has(lowerWord)) {
+          wordCaseMap.set(lowerWord, entry.word);
+        }
+      });
+      wordArray = Array.from(wordCaseMap.entries())
+        .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
+        .sort((a, b) => b.freq - a.freq);
+    }
+
+    const maxFreq = Math.max(...Object.values(wordFreq));
+    const containerWidth = window.innerWidth;
+    const containerHeight = Math.max(window.innerHeight * 1.5, wordCaseMap.size * 15);
+    wordCloud.style.width = `${containerWidth}px`;
+    wordCloud.style.height = `${containerHeight}px`;
+
+    if (startIndex === 0) {
+      wordCloud.innerHTML = '';
+      wordCloud.appendChild(loadingIndicator);
+      placedWords = [];
+      spatialGrid = createSpatialGrid(containerWidth, containerHeight);
+      wordCloudSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      wordCloudSvg.className = 'word-cloud-lines';
+      wordCloudSvg.style.position = 'absolute';
+      wordCloudSvg.style.top = '0';
+      wordCloudSvg.style.left = '0';
+      wordCloudSvg.style.width = `${containerWidth}px`;
+      wordCloudSvg.style.height = `${containerHeight}px`;
+      wordCloudSvg.style.zIndex = '5';
+      wordCloudSvg.style.pointerEvents = 'none';
+      wordCloud.appendChild(wordCloudSvg);
+    } else {
+      document.querySelectorAll('.cloud-word').forEach(word => {
+        word.style.transition = 'opacity 0.3s ease';
+        word.style.opacity = '1';
+        const duration = 2 + Math.random() * 3;
+        const delay = Math.random() * 3;
+        word.style.animation = `twinkle ${duration}s infinite ${delay}s`;
+      });
+      if (wordCloudSvg) {
+        wordCloudSvg.style.transition = 'opacity 0.3s ease';
+        wordCloudSvg.style.opacity = '1';
+      }
+    }
+
+    if (wordArray.length === 0) {
+      wordCloud.innerHTML = '<div class="error-message">No words to display in word cloud.</div>';
+      wordCloud.style.display = 'flex';
+      wordCloud.style.alignItems = 'center';
+      wordCloud.style.justifyContent = 'center';
+      wordCloud.style.height = '100vh';
+      return;
+    }
+
+    const initialDisplayCount = Math.ceil(wordArray.length * 0.05);
+    const remainingWords = wordArray.length - initialDisplayCount;
+    const delayPerWord = remainingWords > 0 ? 4.1675 : 0;
+
+    if (startIndex === 0) {
+      wordArray.slice(0, initialDisplayCount).forEach(({ word, freq }) => {
+        const wordEl = document.createElement('div');
+        wordEl.className = 'cloud-word';
+        wordEl.textContent = word;
+        const size = 0.8 + (freq / maxFreq) * 2.2;
+        wordEl.style.fontSize = `${size}rem`;
+        const wordColor = colors[Math.floor(Math.random() * colors.length)];
+        wordEl.style.color = wordColor;
+        wordColors.set(word.toLowerCase(), wordColor);
+        wordEl.style.opacity = '1';
+        const duration = 2 + Math.random() * 3;
+        const delay = Math.random() * 3;
+        wordEl.style.animation = `twinkle ${duration}s infinite ${delay}s`;
+        wordCloud.appendChild(wordEl);
+
+        const { width, height } = wordEl.getBoundingClientRect();
+        let x, y, placed = false;
+        const maxAttempts = 500;
+
+        for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
+          x = Math.random() * (containerWidth - width);
+          y = Math.random() * (containerHeight - height);
+          if (!isOverlapping(x, y, width, height, spatialGrid)) {
+            wordEl.style.left = `${x}px`;
+            wordEl.style.top = `${y}px`;
+            const wordObj = { x, y, width, height, word, element: wordEl };
+            placedWords.push(wordObj);
+            spatialGrid.addToGrid(x, y, width, height, wordObj);
+            placed = true;
+          }
+        }
+
+        if (!placed) {
+          console.warn(`Could not place word: ${word}`);
+          wordEl.remove();
+          return;
+        }
+
+        addWordEventListener(wordEl, word);
+      });
+    }
+
+    wordArray.slice(Math.max(initialDisplayCount, startIndex)).forEach(({ word, freq }, index) => {
+      const actualIndex = initialDisplayCount + index;
+      if (actualIndex < startIndex) return;
+      const timeoutId = setTimeout(() => {
+        const wordEl = document.createElement('div');
+        wordEl.className = 'cloud-word';
+        wordEl.textContent = word;
+        const size = 0.8 + (freq / maxFreq) * 2.2;
+        wordEl.style.fontSize = `${size}rem`;
+        const wordColor = colors[Math.floor(Math.random() * colors.length)];
+        wordEl.style.color = wordColor;
+        wordColors.set(word.toLowerCase(), wordColor);
+        wordEl.style.opacity = '0';
+        const duration = 2 + Math.random() * 3;
+        const delay = Math.random() * 3;
+        wordEl.style.animation = `twinkle ${duration}s infinite ${delay}s`;
+        wordCloud.appendChild(wordEl);
+
+        const { width, height } = wordEl.getBoundingClientRect();
+        let x, y, placed = false;
+        const maxAttempts = 500;
+
+        for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
+          x = Math.random() * (containerWidth - width);
+          y = Math.random() * (containerHeight - height);
+          if (!isOverlapping(x, y, width, height, spatialGrid)) {
+            wordEl.style.left = `${x}px`;
+            wordEl.style.top = `${y}px`;
+            const wordObj = { x, y, width, height, word, element: wordEl };
+            placedWords.push(wordObj);
+            spatialGrid.addToGrid(x, y, width, height, wordObj);
+            placed = true;
+          }
+        }
+
+        if (!placed) {
+          console.warn(`Could not place word: ${word}`);
+          wordEl.remove();
+          return;
+        }
+
+        wordEl.style.transition = 'opacity 0.3s ease';
+        wordEl.style.opacity = '1';
+        lastWordIndex = actualIndex + 1;
+
+        addWordEventListener(wordEl, word);
+      }, (actualIndex - startIndex) * delayPerWord);
+      wordTimeouts.push(timeoutId);
+    });
+
+    const lineTimeoutId = setTimeout(() => {
+      requestAnimationFrame(() => {
+        if (startIndex === 0 || !wordCloudSvg.hasChildNodes()) {
+          wordCloudSvg.innerHTML = '';
+          placedWords.forEach((word1, i) => {
+            const nearest = placedWords
+              .map((word2, j) => ({
+                word: word2,
+                distance: Math.hypot(word1.x - word2.x, word1.y - word2.y),
+                index: j,
+              }))
+              .filter(w => w.index !== i)
+              .sort((a, b) => a.distance - b.distance)
+              .slice(0, 6);
+
+            nearest.forEach(w => {
+              const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+              line.setAttribute('x1', word1.x + word1.width / 2);
+              line.setAttribute('y1', word1.y + word1.height / 2);
+              line.setAttribute('x2', w.word.x + w.word.width / 2);
+              line.setAttribute('y2', w.word.y + w.word.height / 2);
+              line.setAttribute('stroke', '#ffffff');
+              line.setAttribute('stroke-width', '1');
+              line.setAttribute('stroke-opacity', '0.10');
+              wordCloudSvg.appendChild(line);
+            });
+          });
+        }
+        wordCloudSvg.style.opacity = '1';
+      });
+    }, (wordArray.length - startIndex) * delayPerWord + 100);
+    wordTimeouts.push(lineTimeoutId);
   }
 
-  .promptpay-logo {
-    max-width: 100px;
+  function drawConnectingLine(word1El, word2El) {
+    if (!word1El || !word2El) return null;
+
+    const word1Rect = word1El.getBoundingClientRect();
+    const word2Rect = word2El.getBoundingClientRect();
+    const containerRect = highlightWordsContainer.getBoundingClientRect();
+
+    const x1 = word1Rect.right - containerRect.left + 5;
+    const x2 = word2Rect.left - containerRect.left - 5;
+    const y = word1Rect.top + word1Rect.height / 2 - containerRect.top;
+
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', x1);
+    line.setAttribute('y1', y);
+    line.setAttribute('x2', x2);
+    line.setAttribute('y2', y);
+    line.setAttribute('stroke', '#ffffff');
+    line.setAttribute('stroke-width', '1');
+    line.setAttribute('stroke-opacity', '0');
+    line.style.transition = 'stroke-opacity 0.5s ease';
+
+    return line;
   }
 
-  .qr-code {
-    max-width: 150px;
+  function displayEntry(index) {
+    if (index < 0 || index >= entries.length) return;
+    const entry = entries[index];
+    const currentWord = entry.word;
+
+    adjustWordSize(currentWord, wordEl, flashcard.offsetWidth);
+    wordEl.style.color = colors[currentColorIndex];
+
+    const prevWord = index > 0 ? entries[index - 1].word : null;
+    const nextWord = index < entries.length - 1 ? entries[index + 1].word : null;
+
+    const wordsToHighlight = [];
+    if (prevWord) {
+      const prevColor = colors[(currentColorIndex - 1 + colors.length) % colors.length];
+      wordsToHighlight.push({ word: prevWord, color: prevColor });
+    }
+    wordsToHighlight.push({ word: currentWord, color: colors[currentColorIndex] });
+    if (nextWord) {
+      const nextColor = colors[(currentColorIndex + 1) % colors.length];
+      wordsToHighlight.push({ word: nextWord, color: nextColor });
+    }
+
+    englishEl.innerHTML = highlightWords(entry.english, wordsToHighlight);
+    thaiEl.textContent = entry.thai;
+    audioErrorEl.style.display = 'none';
+
+    highlightWordsContainer.innerHTML = '';
+    const highlightedWords = wordsToHighlight.filter(w => entry.english.toLowerCase().includes(w.word.toLowerCase()));
+    const currentWordObj = highlightedWords.find(w => w.word.toLowerCase() === currentWord.toLowerCase());
+    const nextWordObj = highlightedWords.find(w => w.word.toLowerCase() !== currentWord.toLowerCase());
+
+    const wordGroup = document.createElement('div');
+    wordGroup.className = 'highlight-word-group';
+    highlightWordsContainer.appendChild(wordGroup);
+
+    let currentWordEl = null;
+    let nextWordEl = null;
+
+    if (currentWordObj) {
+      currentWordEl = document.createElement('span');
+      currentWordEl.className = 'highlight-word current-word';
+      currentWordEl.textContent = currentWordObj.word;
+      currentWordEl.style.color = currentWordObj.color;
+      currentWordEl.style.transform = 'translateX(-300px)';
+      currentWordEl.style.opacity = '0';
+      wordGroup.appendChild(currentWordEl);
+    }
+
+    if (nextWordObj) {
+      nextWordEl = document.createElement('span');
+      nextWordEl.className = 'highlight-word next-word';
+      nextWordEl.textContent = nextWordObj.word;
+      nextWordEl.style.color = nextWordObj.color;
+      nextWordEl.style.transform = 'translateX(300px)';
+      nextWordEl.style.opacity = '0';
+      wordGroup.appendChild(nextWordEl);
+    }
+
+    if (currentWordEl && nextWordEl) {
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.className = 'highlight-word-line';
+      svg.style.position = 'absolute';
+      svg.style.top = '0';
+      svg.style.left = '0';
+      svg.style.width = '100%';
+      svg.style.height = '100%';
+      svg.style.pointerEvents = 'none';
+      svg.style.zIndex = '5';
+      const line = drawConnectingLine(currentWordEl, nextWordEl);
+      if (line) svg.appendChild(line);
+      wordGroup.appendChild(svg);
+    }
+
+    setTimeout(() => {
+      if (currentWordEl) {
+        currentWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+        currentWordEl.style.transform = 'translateX(0)';
+        currentWordEl.style.opacity = '1';
+      }
+      if (nextWordEl) {
+        nextWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+        nextWordEl.style.transform = 'translateX(0)';
+        nextWordEl.style.opacity = '1';
+      }
+      if (currentWordEl && nextWordEl) {
+        const word1Rect = currentWordEl.getBoundingClientRect();
+        const word2Rect = nextWordEl.getBoundingClientRect();
+        const containerRect = highlightWordsContainer.getBoundingClientRect();
+        const x1 = word1Rect.right - containerRect.left + 5;
+        const x2 = word2Rect.left - containerRect.left - 5;
+        const y = word1Rect.top + word1Rect.height / 2 - containerRect.top;
+        const line = wordGroup.querySelector('.highlight-word-line line');
+        if (line) {
+          line.setAttribute('x1', x1);
+          line.setAttribute('x2', x2);
+          line.setAttribute('y1', y);
+          line.setAttribute('y2', y);
+          line.setAttribute('stroke-opacity', '0.10');
+          line.style.transition = 'stroke-opacity 0.5s ease';
+        }
+      }
+    }, 100);
+
+    preloadAudio(index);
+
+    if (entry.audio) {
+      const audioUrl = `/data/${entry.audio}`;
+      console.log(`Setting up audio for: ${audioUrl}`);
+      flashcard.onclick = null;
+      flashcard.onclick = (e) => {
+        // Prevent audio playback if clicking near the share icon
+        const rect = shareIcon.getBoundingClientRect();
+        const clickX = e.clientX;
+        const clickY = e.clientY;
+        if (
+          clickX < rect.left ||
+          clickX > rect.right ||
+          clickY < rect.top ||
+          clickY > rect.bottom
+        ) {
+          console.log('Playing audio on tap');
+          playAudio(audioUrl, colors[currentColorIndex]);
+        }
+      };
+    } else {
+      console.log('No audio available for this entry');
+      flashcard.onclick = null;
+      audioErrorEl.textContent = 'No audio available';
+      audioErrorEl.style.display = 'block';
+      setTimeout(() => audioErrorEl.style.display = 'none', 2000);
+    }
+
+    shareIcon.style.display = 'block';
   }
 
-  .popup-content p[lang="en"],
-  .popup-content p[lang="th"] {
-    font-size: 0.9rem;
+  function addWordEventListener(wordEl, word) {
+    wordEl.addEventListener('click', () => {
+      stopAudio();
+      wordTimeouts.forEach(timeoutId => clearTimeout(timeoutId));
+      wordTimeouts = [];
+      document.querySelectorAll('.cloud-word').forEach(otherWord => {
+        if (otherWord !== wordEl) {
+          otherWord.style.transition = 'none';
+          otherWord.style.opacity = '0';
+          otherWord.style.animation = 'none';
+        }
+      });
+      if (wordCloudSvg) {
+        wordCloudSvg.style.transition = 'none';
+        wordCloudSvg.style.opacity = '0';
+      }
+      wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
+      wordCloud.style.transformOrigin = 'center center';
+      currentScale = 1;
+      translateX = 0;
+      translationY = 0;
+
+      const rect = wordEl.getBoundingClientRect();
+      const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
+      const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
+
+      wordEl.style.transition = 'transform 0.7s ease, opacity 0.7s ease';
+      wordEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(3)`;
+      wordEl.style.zIndex = '20';
+
+      setTimeout(() => {
+        wordEl.style.opacity = '0';
+
+        setTimeout(() => {
+          wordCloud.style.display = 'none';
+          wordEl.style.transform = 'none';
+          wordEl.style.opacity = '1';
+          wordEl.style.zIndex = '10';
+          if (wordCloudSvg) wordCloudSvg.style.opacity = '1';
+
+          flashcardContainer.style.display = 'flex';
+          flashcardContainer.style.opacity = '0';
+          flashcardContainer.style.transition = 'opacity 1s ease';
+          flashcardContainer.style.opacity = '1';
+
+          header.style.display = 'flex';
+          header.style.opacity = '0';
+          header.style.transition = 'opacity 1s ease';
+          header.style.opacity = '1';
+          donateIcon.style.display = 'block';
+          shareIcon.style.display = 'block';
+
+          flashcardContainer.style.height = '100vh';
+          flashcardContainer.style.justifyContent = 'center';
+          document.body.style.overflow = 'hidden';
+
+          setTimeout(() => {
+            logo.style.transition = 'transform 1s ease, opacity 1s ease';
+            logo.style.transform = 'translateX(0)';
+            logo.style.opacity = '1';
+
+            setTimeout(() => {
+              logoCom.style.transition = 'transform 1s ease, opacity 1s ease';
+              logoCom.style.transform = 'translateX(0)';
+              logoCom.style.opacity = '1';
+            }, 1000);
+          }, 4000);
+
+          setTimeout(() => {
+            slogan.style.transition = 'transform 1s ease, opacity 1s ease';
+            slogan.style.transform = 'translateX(0)';
+            slogan.style.opacity = '1';
+          }, 4000);
+
+          const matchingIndices = entries
+            .map((entry, idx) => ({ entry, idx }))
+            .filter(({ entry }) => entry.word.toLowerCase() === word.toLowerCase())
+            .map(({ idx }) => idx);
+
+          if (matchingIndices.length > 0) {
+            currentIndex = matchingIndices[Math.floor(Math.random() * matchingIndices.length)];
+          } else {
+            currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
+          }
+
+          currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
+          displayEntry(currentIndex);
+
+          if (visitCount <= 100) {
+            setTimeout(() => {
+              showTooltip(swipeUpTooltip, 'up');
+              setTimeout(() => {
+                showTooltip(swipeDownTooltip, 'down');
+                setTimeout(() => {
+                  showTooltip(tapTooltip, 'tap');
+                }, 2500);
+              }, 2500);
+            }, 6000);
+          }
+        }, 700);
+      }, 300);
+    });
   }
 
-  .popup-content p[lang="en"].support-text {
-    font-size: 0.7rem;
-  }
+  wordCloudIcon.addEventListener('click', () => {
+    stopAudio();
+    flashcardContainer.style.transition = 'opacity 0.7s ease';
+    flashcardContainer.style.opacity = '0';
+    header.style.transition = 'opacity 0.7s ease';
+    header.style.opacity = '0';
+    donateIcon.style.display = 'none';
+    shareIcon.style.display = 'none';
+    hideDonatePopup();
+    hideSharePopup();
 
-  .share-button {
-    font-size: 0.9rem;
-    padding: 8px;
-  }
+    setTimeout(() => {
+      flashcardContainer.style.display = 'none';
+      header.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      wordCloud.style.display = 'block';
+      wordCloud.style.opacity = '0';
+      wordCloud.style.transition = 'opacity 0.7s ease';
+      wordCloud.style.opacity = '1';
 
-  .tooltip-icon {
-    width: 32px;
-    height: 32px;
-  }
+      logo.style.transform = 'translateX(-100%)';
+      logo.style.opacity = '0';
+      logoCom.style.transform = 'translateX(100%)';
+      logoCom.style.opacity = '0';
+      slogan.style.transform = 'translateX(100%)';
+      slogan.style.opacity = '0';
 
-  .tooltip-text {
-    font-size: 0.9rem;
-  }
+      displayWordCloud(lastWordIndex);
+    }, 700);
+  });
 
-  .highlight-word {
-    font-size: 1.1rem;
-  }
+  flashcard.addEventListener('touchstart', e => {
+    e.preventDefault();
+    touchStartY = e.changedTouches[0].screenY;
+    touchStartTime = Date.now();
+  }, { passive: false });
 
-  .highlight-word-group {
-    gap: 20px;
-  }
+  flashcard.addEventListener('touchend', e => {
+    e.preventDefault();
+    touchEndY = e.changedTouches[0].screenY;
+    const swipeDistance = touchStartY - touchEndY;
+    const minSwipeDistance = 50;
+    const touchDuration = Date.now() - touchStartTime;
+    const maxTapDuration = 300;
+    const tapCooldown = 500;
 
-  .highlight-word.current-word {
-    transform: translateX(-200px);
-  }
+    if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance && (Date.now() - lastSwipeTime) > tapCooldown) {
+      console.log('Tap detected, triggering flashcard click');
+      const rect = shareIcon.getBoundingClientRect();
+      const touchX = e.changedTouches[0].clientX;
+      const touchY = e.changedTouches[0].clientY;
+      if (
+        touchX < rect.left ||
+        touchX > rect.right ||
+        touchY < rect.top ||
+        touchY > rect.bottom
+      ) {
+        flashcard.click();
+      }
+    } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
+      console.log('Swipe up detected, going to next entry');
+      stopAudio();
+      const wordGroup = document.querySelector('.highlight-word-group');
+      if (wordGroup) {
+        wordGroup.style.transition = 'none';
+        wordGroup.style.opacity = '0';
+      }
+      setTimeout(() => {
+        currentIndex++;
+        currentColorIndex = (currentColorIndex + 1) % colors.length;
+        displayEntry(currentIndex);
+      }, 0);
+      lastSwipeTime = Date.now();
+    } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
+      console.log('Swipe down detected, going to previous entry');
+      stopAudio();
+      const wordGroup = document.querySelector('.highlight-word-group');
+      if (wordGroup) {
+        wordGroup.style.transition = 'none';
+        wordGroup.style.opacity = '0';
+      }
+      setTimeout(() => {
+        currentIndex--;
+        currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+        displayEntry(currentIndex);
+      }, 0);
+      lastSwipeTime = Date.now();
+    }
+  }, { passive: false });
 
-  .highlight-word.next-word {
-    transform: translateX(200px);
-  }
-}
+  document.addEventListener('keydown', e => {
+    if (flashcardContainer.style.display === 'flex') {
+      if (e.key === 'ArrowUp' && currentIndex < entries.length - 1) {
+        console.log('Arrow up pressed, going to next entry');
+        stopAudio();
+        const wordGroup = document.querySelector('.highlight-word-group');
+        if (wordGroup) {
+          wordGroup.style.transition = 'none';
+          wordGroup.style.opacity = '0';
+        }
+        setTimeout(() => {
+          currentIndex++;
+          currentColorIndex = (currentColorIndex + 1) % colors.length;
+          displayEntry(currentIndex);
+        }, 0);
+        lastSwipeTime = Date.now();
+      } else if (e.key === 'ArrowDown' && currentIndex > 0) {
+        console.log('Arrow down pressed, going to previous entry');
+        stopAudio();
+        const wordGroup = document.querySelector('.highlight-word-group');
+        if (wordGroup) {
+          wordGroup.style.transition = 'none';
+          wordGroup.style.opacity = '0';
+        }
+        setTimeout(() => {
+          currentIndex--;
+          currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+          displayEntry(currentIndex);
+        }, 0);
+        lastSwipeTime = Date.now();
+      } else if (e.key === ' ') {
+        e.preventDefault();
+        console.log('Spacebar pressed, triggering flashcard click');
+        flashcard.click();
+      }
+    }
+  });
+
+  wordCloud.addEventListener('touchstart', e => {
+    touchStartTime = Date.now();
+    if (e.touches.length === 2) {
+      isPinching = true;
+      pinchStartDistance = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+    } else if (e.touches.length === 1) {
+      touchStartY = e.touches[0].screenY;
+    }
+  }, { passive: true });
+
+  wordCloud.addEventListener('touchmove', e => {
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      isPinching = true;
+      const pinchDistance = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      const newScale = currentScale * (pinchDistance / pinchStartDistance);
+      currentScale = Math.max(1, Math.min(newScale, 3));
+      wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
+      pinchStartDistance = pinchDistance;
+    } else if (e.touches.length === 1 && currentScale > 1) {
+      e.preventDefault();
+      const deltaX = e.touches[0].clientX - (wordCloud._lastX || e.touches[0].clientX);
+      const deltaY = e.touches[0].clientY - (wordCloud._lastY || e.touches[0].clientY);
+      translateX += deltaX / currentScale;
+      translationY += deltaY / currentScale;
+      wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
+      wordCloud._lastX = e.touches[0].clientX;
+      wordCloud._lastY = e.touches[0].clientY;
+    }
+  }, { passive: false });
+
+  wordCloud.addEventListener('touchend', e => {
+    wordCloud._lastX = null;
+    wordCloud._lastY = null;
+    isPinching = false;
+  }, { passive: true });
+
+  loadData();
+});
