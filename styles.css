@@ -29,10 +29,16 @@ body {
   z-index: 100;
 }
 
+.header-right {
+  display: flex;
+  gap: 10px; /* Space between share and donate icons */
+  align-items: center;
+}
+
 .word-cloud-icon,
 .donate-icon,
-.instagram-icon,
-.share-icon {
+.share-icon,
+.instagram-icon {
   width: 40px;
   height: 40px;
   cursor: pointer;
@@ -48,9 +54,9 @@ body {
 
 .word-cloud-icon:hover,
 .donate-icon:hover,
+.share-icon:hover,
 .close-icon:hover,
-.instagram-icon:hover,
-.share-icon:hover {
+.instagram-icon:hover {
   transform: scale(1.1);
   opacity: 0.8;
 }
@@ -58,13 +64,6 @@ body {
 .instagram-icon {
   display: block;
   margin: 10px auto;
-}
-
-.share-icon {
-  position: absolute;
-  bottom: 0;
-  right: -50px; /* Position outside the flashcard, aligned with right edge */
-  z-index: 50;
 }
 
 .word-cloud {
@@ -121,7 +120,7 @@ body {
   white-space: nowrap;
   line-height: 1.2;
   z-index: 10;
-  animation: twinkle 3s infinite; /* Placeholder duration, overridden in JS */
+  animation: twinkle 3s infinite;
 }
 
 .error-message {
@@ -459,7 +458,6 @@ body {
   right: 5px;
 }
 
-/* Tooltip Styles */
 .tooltip {
   position: absolute;
   display: none;
@@ -554,14 +552,12 @@ body {
   }
 }
 
-/* SVG Filter for Trail Effect */
 svg.filters {
   position: absolute;
   width: 0;
   height: 0;
 }
 
-/* Media Queries */
 @media (max-width: 600px) {
   .header {
     padding: 8px 16px;
@@ -569,8 +565,8 @@ svg.filters {
 
   .word-cloud-icon,
   .donate-icon,
-  .instagram-icon,
-  .share-icon {
+  .share-icon,
+  .instagram-icon {
     width: 32px;
     height: 32px;
   }
@@ -578,10 +574,6 @@ svg.filters {
   .close-icon {
     width: 16px;
     height: 16px;
-  }
-
-  .share-icon {
-    right: -40px; /* Adjust for smaller screens */
   }
 
   .flashcard {
