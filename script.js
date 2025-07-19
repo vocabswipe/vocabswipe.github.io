@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const swipeDownTooltip = document.getElementById('swipe-down-tooltip');
   const tapTooltip = document.getElementById('tap-tooltip');
   const highlightWordsContainer = document.getElementById('highlight-words-container');
+  const shareIcon = document.getElementById('share-icon'); // Added share-icon
 
   let entries = [];
   let currentIndex = 0;
@@ -227,6 +228,91 @@ document.addEventListener('DOMContentLoaded', () => {
 
   closePopupIcon.addEventListener('click', () => {
     hideDonatePopup();
+  });
+
+  // Share button functionality
+  async function shareFlashcard() {
+    if (!navigator.share || !navigator.canShare) {
+      alert('Sharing is not supported on this device or browser.');
+      return;
+    }
+
+    try {
+      // Create a temporary container to capture the flashcard and logo
+      const tempContainer = document.createElement('div');
+      tempContainer.style.position = 'absolute';
+      tempContainer.style.top = '-9999px';
+      tempContainer.style.left = '-9999px';
+      tempContainer.style.width = '1080px';
+      tempContainer.style.height = '1920px';
+      tempContainer.style.backgroundColor = '#000000';
+      tempContainer.style.display = 'flex';
+      tempContainer.style.flexDirection = 'column';
+      tempContainer.style.alignItems = 'center';
+      tempContainer.style.paddingTop = '60px';
+      document.body.appendChild(tempContainer);
+
+      // Clone logo container
+      const logoClone = logoContainer.cloneNode(true);
+      logoClone.style.transform = 'none';
+      logoClone.style.opacity = '1';
+      tempContainer.appendChild(logoClone);
+
+      // Clone flashcard
+      const flashcardClone = flashcard.cloneNode(true);
+      flashcardClone.style.transform = 'none';
+      flashcardClone.style.width = '1080px';
+      flashcardClone.style.height = 'calc(1080px * 1.777 * 0.5)';
+      flashcardClone.style.maxHeight = 'none';
+      flashcardClone.style.boxShadow = 'none';
+      tempContainer.appendChild(flashcardClone);
+
+      // Adjust font sizes for 1080px width
+      const wordClone = flashcardClone.querySelector('.word');
+      wordClone.style.fontSize = '6rem';
+      const englishClone = flashcardClone.querySelector('.english');
+      englishClone.style.fontSize = '2.4rem';
+      const thaiClone = flashcardClone.querySelector('.thai');
+      thaiClone.style.fontSize = '2rem';
+      const highlightClone = flashcardClone.querySelector('.highlight-word');
+      if (highlightClone) highlightClone.style.fontSize = '2.4rem';
+
+      // Capture the temporary container
+      const canvas = await html2canvas(tempContainer, {
+        width: 1080,
+        height: 1920,
+        scale: 1,
+        backgroundColor: '#000000',
+      });
+
+      // Remove temporary container
+      document.body.removeChild(tempContainer);
+
+      // Convert canvas to blob
+      const dataUrl = canvas.toDataURL('image/png');
+      const response = await fetch(dataUrl);
+      const blob = await response.blob();
+      const file = new File([blob], 'vocabswipe_flashcard.png', { type: 'image/png' });
+
+      // Share using Web Share API
+      if (navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          files: [file],
+          title: 'VocabSwipe Flashcard',
+          text: 'Check out this vocabulary flashcard from VocabSwipe!',
+        });
+        console.log('Shared successfully');
+      } else {
+        alert('Sharing images is not supported on this device.');
+      }
+    } catch (error) {
+      console.error('Error sharing flashcard:', error);
+      alert('Failed to share flashcard: ' + error.message);
+    }
+  }
+
+  shareIcon.addEventListener('click', () => {
+    shareFlashcard();
   });
 
   function showTooltip(tooltip, direction) {
@@ -741,6 +827,9 @@ document.addEventListener('DOMContentLoaded', () => {
       audioErrorEl.style.display = 'block';
       setTimeout(() => audioErrorEl.style.display = 'none', 2000);
     }
+
+    // Show share icon when flashcard is displayed
+    shareIcon.style.display = 'block';
   }
 
   function addWordEventListener(wordEl, word) {
@@ -797,6 +886,7 @@ document.addEventListener('DOMContentLoaded', () => {
           header.style.transition = 'opacity 1s ease';
           header.style.opacity = '1';
           donateIcon.style.display = 'block';
+          shareIcon.style.display = 'block'; // Ensure share icon is visible
 
           flashcardContainer.style.height = '100vh';
           flashcardContainer.style.justifyContent = 'center';
@@ -857,6 +947,7 @@ document.addEventListener('DOMContentLoaded', () => {
     header.style.transition = 'opacity 0.7s ease';
     header.style.opacity = '0';
     donateIcon.style.display = 'none';
+    shareIcon.style.display = 'none'; // Hide share icon when returning to word cloud
     hideDonatePopup();
 
     setTimeout(() => {
