@@ -160,7 +160,7 @@ body {
 
 .share-button-container {
   position: absolute;
-  bottom: -12px; /* Fixed distance below flashcard's bottom edge (original -8px) */
+  bottom: -20px; /* Fixed distance below flashcard's bottom edge (original -8px) */
   right: 20px;
   z-index: 100;
 }
