@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const audioUrl = `/data/${entries[i].audio}`;
         if (!preloadedAudio.has(audioUrl)) {
           console.log(`Preloading audio: ${audioUrl}`);
-          const(audio = new Audio(audioUrl);
+          const audio = new Audio(audioUrl);
           audio.preload = 'auto';
           audio.load();
           preloadedAudio.add(audioUrl);
@@ -228,13 +228,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   shareIcon.addEventListener('click', async (e) => {
-    e.stopPropagation(); // Prevent the click from triggering flashcard events
+    e.stopPropagation(); // Prevent click from bubbling to flashcard
+    console.log('Share icon clicked');
     try {
-      const canvas = await html2canvas(document.body, {
-        width: window.innerWidth,
-        height: window.innerHeight,
+      // Capture only the flashcard for sharing
+      const canvas = await html2canvas(flashcard, {
+        width: flashcard.offsetWidth,
+        height: flashcard.offsetHeight,
         scale: 2,
-        backgroundColor: '#000000',
+        backgroundColor: '#2c2c2c',
         useCORS: true,
       });
 
@@ -249,18 +251,20 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+        console.log('Attempting to share via Web Share API');
         await navigator.share(shareData);
         console.log('Shared successfully via Web Share API');
       } else {
+        console.log('Web Share API not supported or cannot share files, falling back to download');
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
         link.download = 'vocabswipe_card.png';
         link.click();
         URL.revokeObjectURL(url);
-        console.log('Web Share API not available, image downloaded');
+        console.log('Image downloaded');
 
-        audioErrorEl.textContent = 'Image downloaded. Share it to Instagram Reels manually!';
+        audioErrorEl.textContent = 'Image downloaded. Share it manually!';
         audioErrorEl.style.display = 'block';
         setTimeout(() => {
           audioErrorEl.style.display = 'none';
@@ -760,11 +764,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const audioUrl = `/data/${entry.audio}`;
       console.log(`Setting up audio for: ${audioUrl}`);
       flashcard.onclick = null;
-      flashcard.onclick = (e) => {
-        // Prevent flashcard click if the target is the share icon or its container
-        if (e.target === shareIcon || shareIcon.contains(e.target)) {
-          return;
-        }
+      flashcard.onclick = () => {
         console.log('Playing audio on tap');
         playAudio(audioUrl, colors[currentColorIndex]);
       };
@@ -914,22 +914,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   flashcard.addEventListener('touchstart', e => {
-    // Prevent touchstart on share icon from triggering flashcard events
-    if (e.target === shareIcon || shareIcon.contains(e.target)) {
-      e.stopPropagation();
-      return;
-    }
     e.preventDefault();
     touchStartY = e.changedTouches[0].screenY;
     touchStartTime = Date.now();
   }, { passive: false });
 
   flashcard.addEventListener('touchend', e => {
-    // Prevent touchend on share icon from triggering flashcard events
-    if (e.target === shareIcon || shareIcon.contains(e.target)) {
-      e.stopPropagation();
-      return;
-    }
     e.preventDefault();
     touchEndY = e.changedTouches[0].screenY;
     const swipeDistance = touchStartY - touchEndY;
