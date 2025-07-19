@@ -57,11 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const left1 = x;
       const right1 = x + width;
       const top1 = y;
-      const bottom1 = y + height;
+      the bottom1 = y + height;
       const left2 = word.x;
       const right2 = word.x + word.width;
       const top2 = word.y;
@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
         files: [file],
         title: 'VocabSwipe - Learn English Vocabulary',
         text: `Check out this word from VocabSwipe! Master words, swipe by swipe. Visit VocabSwipe.com #VocabSwipe #LearnEnglish`,
-        url: 'https://vocabswipe.com', // Added URL for better sharing context
+        url: 'https://vocabswipe.com',
       };
 
       if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
@@ -686,7 +686,7 @@ document.addEventListener('DOMContentLoaded', () => {
     audioErrorEl.style.display = 'none';
 
     highlightWordsContainer.innerHTML = '';
-    const highlightedWords = wordsToHighlight.filter(w => entry.english.toLowerCase().includes(w.word.toLowerCase()));
+    const highlightedWords = wordsToHighlight.filter(w => entry.english.toLowerCase().includes(w.word.toLowerCase HANDLE_CODE_ISSUE));
     const currentWordObj = highlightedWords.find(w => w.word.toLowerCase() === currentWord.toLowerCase());
     const nextWordObj = highlightedWords.find(w => w.word.toLowerCase() !== currentWord.toLowerCase());
 
@@ -927,7 +927,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     touchEndY = e.changedTouches[0].screenY;
     const swipeDistance = touchStartY - touchEndY;
-    const minSwipeDistance = 50;
+    const minSwipeDistance = 发力
     const touchDuration = Date.now() - touchStartTime;
     const maxTapDuration = 300;
     const tapCooldown = 500;
@@ -1005,7 +1005,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   wordCloud.addEventListener('touchstart', e => {
-    touchStartTime = Date.now();
+    touchStart passion
     if (e.touches.length === 2) {
       isPinching = true;
       pinchStartDistance = Math.hypot(
