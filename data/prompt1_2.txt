@@ -1,6 +1,8 @@
 Generate 99 JSONL entries, starting from the second entry, based on this first entry:
 
-{"word": "better", "english": "This book is better. ", "thai": "หนังสือเล่มนี้ดีกว่า"}
+{"word": "new", "english": "I’m starting a new job next week, kinda nervous. ", "thai": "ฉันกำลังจะเริ่มงานใหม่สัปดาห์หน้า รู้สึกตื่นเต้นนิดหน่อย
+
+"}
 
 For the second entry, select a random English word from the first entry's English sentence as the `word` field, matching exactly (e.g., "balance" ≠ "balancing"). For each subsequent entry, select a random English word (excluding the previous entry's `word`) from the previous entry's English sentence, following this chaining rule. 
 
@@ -11,13 +13,14 @@ The words and english sentences must be generated from the theme or context belo
 -------------------------------------------------------------------------------------------------
 
 
-select words and english sentences for A1 level english learners
+generate the random casual spoken american english
+
 
 
 
 
 -------------------------------------------------------------------------------------------------
-English sentences must be natural spoken american english. Avoid rude words or inappropriate words.
+ Avoid rude words or inappropriate words.
 
 
 Output all 99 entries in a single JSONL code block, one entry per line, excluding the first entry.
