@@ -16,23 +16,28 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
-  <div class="header" id="header" style="display: none;">
-    <img src="neuron-connections-neural-network-svgrepo-com.svg" alt="Word Cloud" class="word-cloud-icon" id="word-cloud-icon" />
-    <div class="header-right">
-      <img src="red-heart-svgrepo-com.svg" alt="Donate" class="donate-icon" id="donate-icon" style="display: none;" />
+  <div class="fixed-container" id="fixed-container">
+    <div class="header" id="header" style="display: none;">
+      <img src="neuron-connections-neural-network-svgrepo-com.svg" alt="Word Cloud" class="word-cloud-icon" id="word-cloud-icon" />
+      <div class="header-right">
+        <img src="red-heart-svgrepo-com.svg" alt="Donate" class="donate-icon" id="donate-icon" style="display: none;" />
+      </div>
     </div>
-  </div>
-  <div class="word-cloud" id="word-cloud">
-    <div class="loading-indicator" id="loading-indicator" style="display: none;">Loading vocabulary...</div>
-  </div>
-  <div class="container" id="flashcard-container" style="display: none;">
-    <div class="logo-container">
+    <div class="logo-container" id="logo-container">
       <div class="logo-wrapper">
         <span class="logo">VocabSwipe</span>
         <span class="logo-com">.com</span>
       </div>
       <p class="slogan">Master Words, Swipe by Swipe</p>
     </div>
+    <div class="share-button-container" id="share-button-container">
+      <img src="share.svg" alt="Share" class="share-icon" id="share-icon" style="display: none;" />
+    </div>
+  </div>
+  <div class="word-cloud" id="word-cloud">
+    <div class="loading-indicator" id="loading-indicator" style="display: none;">Loading vocabulary...</div>
+  </div>
+  <div class="container" id="flashcard-container" style="display: none;">
     <div class="flashcard" id="flashcard">
       <div class="content">
         <div class="word" id="word"></div>
@@ -43,9 +48,6 @@
           <div class="audio-error" id="audio-error" style="display: none; color: #ff4081; font-size: 0.9rem; text-align: center;"></div>
         </div>
       </div>
-    </div>
-    <div class="share-button-container" id="share-button-container">
-      <img src="share.svg" alt="Share" class="share-icon" id="share-icon" style="display: none;" />
     </div>
     <!-- Tooltip for swipe-up (uses arrow-up.svg for PC) -->
     <div class="tooltip swipe-up-tooltip" id="swipe-up-tooltip" style="display: none;">
