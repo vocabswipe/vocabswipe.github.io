@@ -160,7 +160,7 @@ body {
 
 .share-button-container {
   position: absolute;
-  bottom: 10px; /* Modified from 20px to move button closer to flashcard */
+  bottom: 230px; /* Adjusted to position close to flashcard's bottom right */
   right: 20px;
   z-index: 100;
 }
@@ -594,8 +594,8 @@ svg.filters {
   }
 
   .share-button-container {
+    bottom: 180px; /* Adjusted for smaller screens to align with flashcard */
     right: 16px;
-    bottom: 8px; /* Modified from 16px to move button closer to flashcard */
   }
 
   .flashcard {
