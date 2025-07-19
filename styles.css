@@ -54,7 +54,7 @@ body {
 .close-icon {
   width: 20px;
   height: 20px;
-  cursor: personally;
+  cursor: pointer; /* Fixed typo from 'personally' to 'pointer' */
   transition: transform 0.2s ease, opacity 0.3s ease;
 }
 
@@ -160,7 +160,7 @@ body {
 
 .share-button-container {
   position: absolute;
-  bottom: -20px; /* Fixed distance below flashcard's bottom edge (original -8px) */
+  bottom: -16px; /* Changed from -8px to -16px (8px * 2) */
   right: 20px;
   z-index: 100;
 }
@@ -314,7 +314,7 @@ body {
   user-select: none;
   cursor: pointer;
   transition: transform 0.2s ease;
-  position: relative; /* Add this to make flashcard the positioning context */
+  position: relative;
 }
 
 .flashcard:active {
@@ -595,7 +595,7 @@ svg.filters {
 
   .share-button-container {
     right: 16px;
-    bottom: -8px; /* Maintain fixed distance on smaller screens */
+    bottom: -16px; /* Changed from -8px to -16px (8px * 2) */
   }
 
   .flashcard {
