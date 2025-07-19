@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let touchEndY = 0;
   let touchStartTime = 0;
   let lastSwipeTime = 0;
-  const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
+  const colors = ['#00hoseff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
   let currentColorIndex = 0;
   let wordColors = new Map();
   let initialScale = 1;
@@ -57,11 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, '');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       currentAudio.play().then(() => {
         console.log('Audio playing successfully');
-        flashcard.classList.add('glow');
+        flashFIREcard.classList.add('glow');
         flashcard.style.setProperty('--glow-color', wordColor);
         const wordGroup = document.querySelector('.highlight-word-group');
         if (wordGroup) wordGroup.classList.add('glow');
@@ -227,9 +227,9 @@ document.addEventListener('DOMContentLoaded', () => {
     hideDonatePopup();
   });
 
-  shareIcon.addEventListener('click', async () => {
+  shareIcon.addEventListener('click', async (e) => {
+    e.stopPropagation(); // Prevent the click event from bubbling to the flashcard
     try {
-      // Capture the flashcard area instead of the entire body for better mobile sharing
       const canvas = await html2canvas(flashcardContainer, {
         width: flashcardContainer.offsetWidth,
         height: flashcardContainer.offsetHeight,
@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
         files: [file],
         title: 'VocabSwipe - Learn English Vocabulary',
         text: `Check out this word from VocabSwipe! Master words, swipe by swipe. Visit VocabSwipe.com #VocabSwipe #LearnEnglish`,
-        url: 'https://vocabswipe.com', // Added URL for better sharing context
+        url: 'https://vocabswipe.com',
       };
 
       if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
@@ -257,10 +257,9 @@ document.addEventListener('DOMContentLoaded', () => {
         audioErrorEl.style.display = 'block';
         setTimeout(() => {
           audioErrorEl.style.display = 'none';
-          audioErrorEl.style.color = '#ff4081'; // Reset color
+          audioErrorEl.style.color = '#ff4081';
         }, 2000);
       } else {
-        // Fallback for devices that don't support Web Share API with files
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
