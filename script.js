@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '<')
       .replace(/>/g, '>')
       .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/'/g, '');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
         audioErrorEl.style.display = 'block';
         setTimeout(() => {
           audioErrorEl.style.display = 'none';
-        }, 2000);
+        }, 3000);
       }
     } catch (error) {
       console.error('Error sharing:', error);
@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
       audioErrorEl.style.display = 'block';
       setTimeout(() => {
         audioErrorEl.style.display = 'none';
-      }, 2000);
+      }, 3000);
     }
   });
 
@@ -779,6 +779,8 @@ document.addEventListener('DOMContentLoaded', () => {
       audioErrorEl.style.display = 'block';
       setTimeout(() => audioErrorEl.style.display = 'none', 2000);
     }
+
+    shareIcon.style.display = 'block';
   }
 
   function addWordEventListener(wordEl, word) {
