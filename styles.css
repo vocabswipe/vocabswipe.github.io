@@ -49,10 +49,6 @@ body {
   height: 20px;
   cursor: pointer;
   transition: transform 0.2s ease, opacity 0.3s ease;
-  position: absolute;
-  bottom: -30px;
-  right: 10px;
-  z-index: 15;
 }
 
 .close-icon {
@@ -160,6 +156,13 @@ body {
 .logo-container {
   text-align: center;
   margin-bottom: 20px;
+}
+
+.share-button-container {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  z-index: 100;
 }
 
 .highlight-words-container {
@@ -439,29 +442,6 @@ body {
   line-height: 1.4;
 }
 
-.share-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 10px 0;
-}
-
-.share-button {
-  background-color: #00ff88;
-  color: #000000;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.share-button:hover {
-  background-color: #00cc70;
-}
-
 .developer-photo {
   max-width: 100px;
   width: 100%;
@@ -606,13 +586,15 @@ svg.filters {
   .share-icon {
     width: 16px;
     height: 16px;
-    bottom: -24px;
-    right: 8px;
   }
 
   .close-icon {
     width: 16px;
     height: 16px;
+  }
+
+  .share-button-container {
+    right: 16px;
   }
 
   .flashcard {
@@ -639,7 +621,9 @@ svg.filters {
     padding: 5px;
   }
 
-  .loading-indicator {
+  .loading
+
+-indicator {
     font-size: 1rem;
   }
 
@@ -682,11 +666,6 @@ svg.filters {
 
   .popup-content p[lang="en"].support-text {
     font-size: 0.7rem;
-  }
-
-  .share-button {
-    font-size: 0.9rem;
-    padding: 8px;
   }
 
   .tooltip-icon {
