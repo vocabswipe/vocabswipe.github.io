@@ -13,9 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById('header');
   const wordCloudIcon = document.getElementById('word-cloud-icon');
   const donateIcon = document.getElementById('donate-icon');
-  const shareIcon = document.getElementById('share-icon'); // Added share icon
+  const shareIcon = document.getElementById('share-icon');
   const donatePopup = document.getElementById('donate-popup');
   const closePopupIcon = document.getElementById('close-popup-icon');
+  const sharePopup = document.getElementById('share-popup');
+  const closeSharePopupIcon = document.getElementById('close-share-popup-icon');
   const swipeUpTooltip = document.getElementById('swipe-up-tooltip');
   const swipeDownTooltip = document.getElementById('swipe-down-tooltip');
   const tapTooltip = document.getElementById('tap-tooltip');
@@ -213,6 +215,20 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = 'hidden';
   }
 
+  function showSharePopup() {
+    sharePopup.style.display = 'flex';
+    flashcardContainer.style.filter = 'blur(5px)';
+    header.style.filter = 'blur(5px)';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hideSharePopup() {
+    sharePopup.style.display = 'none';
+    flashcardContainer.style.filter = 'none';
+    header.style.filter = 'none';
+    document.body.style.overflow = 'hidden';
+  }
+
   donatePopup.addEventListener('click', e => {
     if (e.target === donatePopup) {
       hideDonatePopup();
@@ -227,59 +243,119 @@ document.addEventListener('DOMContentLoaded', () => {
     hideDonatePopup();
   });
 
-  // Share button functionality
+  sharePopup.addEventListener('click', e => {
+    if (e.target === sharePopup) {
+      hideSharePopup();
+    }
+  });
+
+  closeSharePopupIcon.addEventListener('click', () => {
+    hideSharePopup();
+  });
+
+  async function generateShareImage() {
+    try {
+      const canvas = await html2canvas(flashcard, {
+        width: flashcard.offsetWidth,
+        height: flashcard.offsetHeight,
+        scale: 2,
+        backgroundColor: '#2c2c2c',
+        useCORS: true,
+      });
+      return new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+    } catch (error) {
+      console.error('Error generating share image:', error);
+      throw error;
+    }
+  }
+
   shareIcon.addEventListener('click', async () => {
     try {
-      // Capture the entire viewport
-      const canvas = await html2canvas(document.body, {
-        width: window.innerWidth,
-        height: window.innerHeight,
-        scale: 2, // Higher resolution for better quality
-        backgroundColor: '#000000', // Match body background
-        useCORS: true, // Allow cross-origin images
-      });
-
-      // Convert canvas to blob
-      const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
-
-      // Create a file for sharing
+      const blob = await generateShareImage();
       const file = new File([blob], 'vocabswipe_card.png', { type: 'image/png' });
-
-      // Prepare share data
+      const shareText = `Check out this word from VocabSwipe! Master words, swipe by swipe. Visit VocabSwipe.com #VocabSwipe #LearnEnglish`;
       const shareData = {
         files: [file],
         title: 'VocabSwipe - Learn English Vocabulary',
-        text: `Check out this word from VocabSwipe! Master words, swipe by swipe. Visit VocabSwipe.com #VocabSwipe #LearnEnglish`,
+        text: shareText,
+        url: 'https://VocabSwipe.com',
       };
 
-      // Attempt to use Web Share API
       if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
         await navigator.share(shareData);
         console.log('Shared successfully via Web Share API');
       } else {
-        // Fallback: Download the image
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'vocabswipe_card.png';
-        link.click();
-        URL.revokeObjectURL(url);
-        console.log('Web Share API not available, image downloaded');
-
-        // Show instructions for manual sharing
-        audioErrorEl.textContent = 'Image downloaded. Share it to Instagram Reels manually!';
-        audioErrorEl.style.display = 'block';
-        setTimeout(() => {
-          audioErrorEl.style.display = 'none';
-        }, 3000);
+        showSharePopup();
       }
     } catch (error) {
-      console.error('Error sharing:', error);
+      console.error('Error initiating share:', error);
       audioErrorEl.textContent = 'Failed to share: ' + error.message;
       audioErrorEl.style.display = 'block';
-      setTimeout(() => {
-        audioErrorEl.style.display = 'none';
-      }, 3000);
+      setTimeout(() => audioErrorEl.style.display = 'none', 3000);
+    }
+  });
+
+  document.getElementById('share-x').addEventListener('click', async () => {
+    try {
+      const blob = await generateShareImage();
+      const url = `https://x.com/intent/tweet?text=${encodeURIComponent(
+        `Check out this word from VocabSwipe! Master words, swipe by swipe. #VocabSwipe #LearnEnglish https://VocabSwipe.com`
+      )}`;
+      window.open(url, '_blank');
+      hideSharePopup();
+    } catch (error) {
+      console.error('Error sharing to X:', error);
+      audioErrorEl.textContent = 'Failed to share to X: ' + error.message;
+      audioErrorEl.style.display = 'block';
+      setTimeout(() => audioErrorEl.style.display = 'none', 3000);
+    }
+  });
+
+  document.getElementById('share-facebook').addEventListener('click', async () => {
+    try {
+      const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://VocabSwipe.com')}`;
+      window.open(url, '_blank');
+      hideSharePopup();
+    } catch (error) {
+      console.error('Error sharing to Facebook:', error);
+      audioErrorEl.textContent = 'Failed to share to Facebook: ' + error.message;
+      audioErrorEl.style.display = 'block';
+      setTimeout(() => audioErrorEl.style.display = 'none', 3000);
+    }
+  });
+
+  document.getElementById('share-instagram').addEventListener('click', async () => {
+    try {
+      const blob = await generateShareImage();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'vocabswipe_card.png';
+      link.click();
+      URL.revokeObjectURL(url);
+      audioErrorEl.textContent = 'Image downloaded. Share it to Instagram manually!';
+      audioErrorEl.style.display = 'block';
+      setTimeout(() => audioErrorEl.style.display = 'none', 3000);
+      hideSharePopup();
+    } catch (error) {
+      console.error('Error sharing to Instagram:', error);
+      audioErrorEl.textContent = 'Failed to share to Instagram: ' + error.message;
+      audioErrorEl.style.display = 'block';
+      setTimeout(() => audioErrorEl.style.display = 'none', 3000);
+    }
+  });
+
+  document.getElementById('share-line').addEventListener('click', async () => {
+    try {
+      const shareText = `Check out this word from VocabSwipe! Master words, swipe by swipe. Visit https://VocabSwipe.com #VocabSwipe #LearnEnglish`;
+      const url = `https://line.me/R/msg/text/?${encodeURIComponent(shareText)}`;
+      window.open(url, '_blank');
+      hideSharePopup();
+    } catch (error) {
+      console.error('Error sharing to LINE:', error);
+      audioErrorEl.textContent = 'Failed to share to LINE: ' + error.message;
+      audioErrorEl.style.display = 'block';
+      setTimeout(() => audioErrorEl.style.display = 'none', 3000);
     }
   });
 
@@ -779,7 +855,6 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => audioErrorEl.style.display = 'none', 2000);
     }
 
-    // Show share icon when displaying flashcard
     shareIcon.style.display = 'block';
   }
 
@@ -833,7 +908,7 @@ document.addEventListener('DOMContentLoaded', () => {
           header.style.transition = 'opacity 1s ease';
           header.style.opacity = '1';
           donateIcon.style.display = 'block';
-          shareIcon.style.display = 'block'; // Show share icon
+          shareIcon.style.display = 'block';
 
           flashcardContainer.style.height = '100vh';
           flashcardContainer.style.justifyContent = 'center';
@@ -894,8 +969,9 @@ document.addEventListener('DOMContentLoaded', () => {
     header.style.transition = 'opacity 0.7s ease';
     header.style.opacity = '0';
     donateIcon.style.display = 'none';
-    shareIcon.style.display = 'none'; // Hide share icon
+    shareIcon.style.display = 'none';
     hideDonatePopup();
+    hideSharePopup();
 
     setTimeout(() => {
       flashcardContainer.style.display = 'none';
