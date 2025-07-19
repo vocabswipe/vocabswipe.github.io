@@ -160,10 +160,9 @@ body {
 
 .share-button-container {
   position: absolute;
-  bottom: 0;
+  bottom: -32px;
   right: 20px;
   z-index: 100;
-  transform: translateY(100%);
 }
 
 .highlight-words-container {
@@ -419,7 +418,7 @@ body {
   position: relative;
 }
 
-.popup-content p[primaryLanguage="en"] {
+.popup-content p[lang="en"] {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   color: #ffffff;
@@ -427,7 +426,7 @@ body {
   line-height: 1.4;
 }
 
-.popup-content p[primaryLanguage="th"] {
+.popup-content p[lang="th"] {
   font-family: 'Noto Sans Thai', sans-serif;
   font-size: 1rem;
   color: #ffffff;
@@ -435,7 +434,7 @@ body {
   line-height: 1.4;
 }
 
-.popup-content p[primaryLanguage="en"].support-text {
+.popup-content p[lang="en"].support-text {
   font-family: 'Roboto', sans-serif;
   font-size: 0.8rem;
   color: #b0b0b0;
@@ -596,8 +595,7 @@ svg.filters {
 
   .share-button-container {
     right: 16px;
-    bottom: 0;
-    transform: translateY(100%);
+    bottom: -32px;
   }
 
   .flashcard {
@@ -660,12 +658,12 @@ svg.filters {
     max-width: 150px;
   }
 
-  .popup-content p[primaryLanguage="en"],
-  .popup-content p[primaryLanguage="th"] {
+  .popup-content p[lang="en"],
+  .popup-content p[lang="th"] {
     font-size: 0.9rem;
   }
 
-  .popup-content p[primaryLanguage="en"].support-text {
+  .popup-content p[lang="en"].support-text {
     font-size: 0.7rem;
   }
 
