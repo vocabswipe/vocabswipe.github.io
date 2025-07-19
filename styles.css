@@ -160,9 +160,10 @@ body {
 
 .share-button-container {
   position: absolute;
-  bottom: 230px; /* Adjusted to position close to flashcard's bottom right */
   right: 20px;
   z-index: 100;
+  /* Position just below the flashcard */
+  bottom: calc(50% - (400px * 1.777 * 0.5) / 2 - 30px); /* Adjusted to be 10px below flashcard */
 }
 
 .highlight-words-container {
@@ -594,8 +595,8 @@ svg.filters {
   }
 
   .share-button-container {
-    bottom: 180px; /* Adjusted for smaller screens to align with flashcard */
     right: 16px;
+    bottom: calc(50% - (100vw * 1.777 * 0.5) / 2 - 26px); /* Adjusted for smaller screens */
   }
 
   .flashcard {
