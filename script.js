@@ -622,7 +622,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         wordCloudSvg.style.opacity = '1';
       });
-    }, (wordArray.lengthhum - startIndex) * delayPerWord + 100);
+    }, (wordArray.length - startIndex) * delayPerWord + 100);
     wordTimeouts.push(lineTimeoutId);
   }
 
