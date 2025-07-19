@@ -31,7 +31,8 @@ body {
 
 .word-cloud-icon,
 .donate-icon,
-.instagram-icon {
+.instagram-icon,
+.share-icon {
   width: 40px;
   height: 40px;
   cursor: pointer;
@@ -48,7 +49,8 @@ body {
 .word-cloud-icon:hover,
 .donate-icon:hover,
 .close-icon:hover,
-.instagram-icon:hover {
+.instagram-icon:hover,
+.share-icon:hover {
   transform: scale(1.1);
   opacity: 0.8;
 }
@@ -56,6 +58,13 @@ body {
 .instagram-icon {
   display: block;
   margin: 10px auto;
+}
+
+.share-icon {
+  position: absolute;
+  bottom: 0;
+  right: -50px; /* Position outside the flashcard, aligned with right edge */
+  z-index: 50;
 }
 
 .word-cloud {
@@ -560,7 +569,8 @@ svg.filters {
 
   .word-cloud-icon,
   .donate-icon,
-  .instagram-icon {
+  .instagram-icon,
+  .share-icon {
     width: 32px;
     height: 32px;
   }
@@ -568,6 +578,10 @@ svg.filters {
   .close-icon {
     width: 16px;
     height: 16px;
+  }
+
+  .share-icon {
+    right: -40px; /* Adjust for smaller screens */
   }
 
   .flashcard {
