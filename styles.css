@@ -160,7 +160,7 @@ body {
 
 .share-button-container {
   position: absolute;
-  bottom: -16px; /* Changed from -8px to -16px (8px * 2) */
+  bottom: -32px; /* Changed from -8px to -16px (8px * 2) */
   right: 20px;
   z-index: 100;
 }
@@ -595,7 +595,7 @@ svg.filters {
 
   .share-button-container {
     right: 16px;
-    bottom: -16px; /* Changed from -8px to -16px (8px * 2) */
+    bottom: -32px; /* Changed from -8px to -16px (8px * 2) */
   }
 
   .flashcard {
