@@ -15,9 +15,18 @@ body {
   overflow-x: hidden;
 }
 
-.header {
+.fixed-container {
   width: 100%;
   max-width: 400px;
+  position: relative;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  width: 100%;
   padding: 10px 20px;
   display: flex;
   align-items: center;
@@ -26,7 +35,6 @@ body {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 100;
 }
 
 .header-right {
@@ -149,7 +157,6 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  padding-top: 60px;
   position: relative;
 }
 
@@ -160,10 +167,10 @@ body {
 
 .share-button-container {
   position: absolute;
+  bottom: 0;
   right: 20px;
   z-index: 100;
-  /* Position just below the flashcard */
-  bottom: calc(50% - (400px * 1.777 * 0.5) / 2 - 30px); /* Adjusted to be 10px below flashcard */
+  transform: translateY(calc(100% + 10px));
 }
 
 .highlight-words-container {
@@ -573,6 +580,10 @@ svg.filters {
 }
 
 @media (max-width: 600px) {
+  .fixed-container {
+    max-width: 100%;
+  }
+
   .header {
     padding: 8px 16px;
   }
@@ -596,7 +607,7 @@ svg.filters {
 
   .share-button-container {
     right: 16px;
-    bottom: calc(50% - (100vw * 1.777 * 0.5) / 2 - 26px); /* Adjusted for smaller screens */
+    transform: translateY(calc(100% + 8px));
   }
 
   .flashcard {
