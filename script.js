@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const wordCloud = document.getElementById('word-cloud');
   const loadingIndicator = document.getElementById('loading-indicator');
   const flashcardContainer = document.getElementById('flashcard-container');
+  const fixedContainer = document.getElementById('fixed-container');
   const flashcard = document.getElementById('flashcard');
   const wordEl = document.getElementById('word');
   const englishEl = document.getElementById('english');
@@ -61,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/'/g, '&apos;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -201,15 +202,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showDonatePopup() {
     donatePopup.style.display = 'flex';
+    fixedContainer.style.filter = 'blur(5px)';
     flashcardContainer.style.filter = 'blur(5px)';
-    header.style.filter = 'blur(5px)';
     document.body.style.overflow = 'hidden';
   }
 
   function hideDonatePopup() {
     donatePopup.style.display = 'none';
+    fixedContainer.style.filter = 'none';
     flashcardContainer.style.filter = 'none';
-    header.style.filter = 'none';
     document.body.style.overflow = 'hidden';
   }
 
@@ -229,20 +230,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
   shareIcon.addEventListener('click', async () => {
     try {
-      // Capture the entire viewport for Instagram Reels (1080x1920)
+      // Define Instagram Reels dimensions (9:16 aspect ratio, 1080x1920 pixels)
+      const targetWidth = 1080;
+      const targetHeight = 1920;
+      const aspectRatio = targetWidth / targetHeight;
+
+      // Calculate the capture dimensions based on the viewport
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+      let captureWidth, captureHeight;
+
+      // Ensure the captured area maintains a 9:16 aspect ratio
+      if (windowWidth / windowHeight > aspectRatio) {
+        // Window is wider than 9:16, constrain by height
+        captureHeight = windowHeight;
+        captureWidth = captureHeight * aspectRatio;
+      } else {
+        // Window is taller or equal to 9:16, constrain by width
+        captureWidth = windowWidth;
+        captureHeight = captureWidth / aspectRatio;
+      }
+
+      // Center the capture area in the viewport
+      const x = (windowWidth - captureWidth) / 2;
+      const y = 0; // Start from the top of the viewport
+
       const canvas = await html2canvas(document.body, {
-        width: 1080,
-        height: 1920,
-        scale: window.devicePixelRatio, // Adjust for device pixel ratio
-        x: 0,
-        y: 0,
-        windowWidth: window.innerWidth,
-        windowHeight: window.innerHeight,
+        x: x,
+        y: y,
+        width: captureWidth,
+        height: captureHeight,
+        scale: targetWidth / captureWidth, // Scale to achieve 1080p width
         backgroundColor: '#000000',
         useCORS: true,
       });
 
-      const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+      // Create a new canvas with exact 1080x1920 dimensions
+      const finalCanvas = document.createElement('canvas');
+      finalCanvas.width = targetWidth;
+      finalCanvas.height = targetHeight;
+      const ctx = finalCanvas.getContext('2d');
+      ctx.drawImage(canvas, 0, 0, targetWidth, targetHeight);
+
+      const blob = await new Promise(resolve => finalCanvas.toBlob(resolve, 'image/png'));
 
       const file = new File([blob], 'vocabswipe_card.png', { type: 'image/png' });
 
@@ -315,10 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    header.style.filter = 'blur(5px)';
-    logo.style.filter = 'blur(5px)';
-    logoCom.style.filter = 'blur(5px)';
-    slogan.style.filter = 'blur(5px)';
+    fixedContainer.style.filter = 'blur(5px)';
     flashcard.style.filter = 'none';
 
     const flashcardRect = flashcard.getBoundingClientRect();
@@ -364,10 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
         swipeDownTooltip.style.display === 'none' &&
         tapTooltip.style.display === 'none'
       ) {
-        header.style.filter = 'none';
-        logo.style.filter = 'none';
-        logoCom.style.filter = 'none';
-        slogan.style.filter = 'none';
+        fixedContainer.style.filter = 'none';
       }
     }, direction === 'tap' ? 2500 : 2000);
   }
@@ -824,10 +848,11 @@ document.addEventListener('DOMContentLoaded', () => {
           flashcardContainer.style.transition = 'opacity 1s ease';
           flashcardContainer.style.opacity = '1';
 
+          fixedContainer.style.display = 'block';
+          fixedContainer.style.opacity = '0';
+          fixedContainer.style.transition = 'opacity 1s ease';
+          fixedContainer.style.opacity = '1';
           header.style.display = 'flex';
-          header.style.opacity = '0';
-          header.style.transition = 'opacity 1s ease';
-          header.style.opacity = '1';
           donateIcon.style.display = 'block';
           shareIcon.style.display = 'block';
 
@@ -887,15 +912,15 @@ document.addEventListener('DOMContentLoaded', () => {
     stopAudio();
     flashcardContainer.style.transition = 'opacity 0.7s ease';
     flashcardContainer.style.opacity = '0';
-    header.style.transition = 'opacity 0.7s ease';
-    header.style.opacity = '0';
+    fixedContainer.style.transition = 'opacity 0.7s ease';
+    fixedContainer.style.opacity = '0';
     donateIcon.style.display = 'none';
     shareIcon.style.display = 'none';
     hideDonatePopup();
 
     setTimeout(() => {
       flashcardContainer.style.display = 'none';
-      header.style.display = 'none';
+      fixedContainer.style.display = 'none';
       document.body.style.overflow = 'auto';
       wordCloud.style.display = 'block';
       wordCloud.style.opacity = '0';
