@@ -11,15 +11,14 @@
   <link rel="preload" href="arrow-down.svg" as="image"/>
   <link rel="preload" href="spacebar.svg" as="image"/>
   <link rel="preload" href="my_ig.svg" as="image"/>
-  <link rel="preload" href="share.svg" as="image"/> <!-- Added share.svg preload -->
+  <link rel="preload" href="share.svg" as="image"/>
   <link rel="icon" type="image/x-icon" href="VS.ico"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script> <!-- Added html2canvas library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
   <div class="header" id="header" style="display: none;">
     <img src="neuron-connections-neural-network-svgrepo-com.svg" alt="Word Cloud" class="word-cloud-icon" id="word-cloud-icon" />
     <div class="header-right">
-      <img src="share.svg" alt="Share" class="share-icon" id="share-icon" style="display: none;" /> <!-- Added share button -->
       <img src="red-heart-svgrepo-com.svg" alt="Donate" class="donate-icon" id="donate-icon" style="display: none;" />
     </div>
   </div>
@@ -44,6 +43,7 @@
           <div class="audio-error" id="audio-error" style="display: none; color: #ff4081; font-size: 0.9rem; text-align: center;"></div>
         </div>
       </div>
+      <img src="share.svg" alt="Share" class="share-icon" id="share-icon" style="display: none;" />
     </div>
     <!-- Tooltip for swipe-up (uses arrow-up.svg for PC) -->
     <div class="tooltip swipe-up-tooltip" id="swipe-up-tooltip" style="display: none;">
@@ -74,6 +74,18 @@
       </a>
       <p lang="en" style="font-size: 0.8rem; color: #b0b0b0;">Your support keeps VocabSwipe free for everyone!</p>
       <img src="close.svg" alt="Close" class="close-icon" id="close-popup-icon" />
+    </div>
+  </div>
+  <div class="popup" id="share-popup" style="display: none;">
+    <div class="popup-content">
+      <p lang="en">Share this VocabSwipe card!</p>
+      <div class="share-buttons">
+        <button class="share-button" id="share-x"><img src="x-icon.svg" alt="X" class="share-platform-icon" /> Share to X</button>
+        <button class="share-button" id="share-facebook"><img src="facebook-icon.svg" alt="Facebook" class="share-platform-icon" /> Share to Facebook</button>
+        <button class="share-button" id="share-instagram"><img src="instagram-icon.svg" alt="Instagram" class="share-platform-icon" /> Share to Instagram</button>
+        <button class="share-button" id="share-line"><img src="line-icon.svg" alt="LINE" class="share-platform-icon" /> Share to LINE</button>
+      </div>
+      <img src="close.svg" alt="Close" class="close-icon" id="close-share-popup-icon" />
     </div>
   </div>
   <script src="script.js"></script>
