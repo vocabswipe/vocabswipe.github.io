@@ -219,22 +219,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  donateIcon.addEventListener('click', () => {
+  donateIcon.addEventListener('click', e => {
+    e.stopPropagation();
     showDonatePopup();
   });
 
-  closePopupIcon.addEventListener('click', () => {
+  closePopupIcon.addEventListener('click', e => {
+    e.stopPropagation();
     hideDonatePopup();
   });
 
-  shareIcon.addEventListener('click', async () => {
+  async function handleShare(e) {
+    e.stopPropagation(); // Prevent event from bubbling to flashcard
     try {
-      const canvas = await html2canvas(document.body, {
-        width: window.innerWidth,
-        height: window.innerHeight,
+      // Delay to ensure proper rendering on mobile
+      await new Promise(resolve => setTimeout(resolve, 100));
+      const canvas = await html2canvas(flashcard, {
+        width: flashcard.offsetWidth,
+        height: flashcard.offsetHeight,
         scale: 2,
         backgroundColor: '#000000',
         useCORS: true,
+        logging: false,
       });
 
       const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
@@ -247,19 +253,21 @@ document.addEventListener('DOMContentLoaded', () => {
         text: `Check out this word from VocabSwipe! Master words, swipe by swipe. Visit VocabSwipe.com #VocabSwipe #LearnEnglish`,
       };
 
-      if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+      // Explicitly check if file sharing is supported
+      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share(shareData);
         console.log('Shared successfully via Web Share API');
       } else {
+        // Fallback: Download the image
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
         link.download = 'vocabswipe_card.png';
         link.click();
         URL.revokeObjectURL(url);
-        console.log('Web Share API not available, image downloaded');
+        console.log('Web Share API not available or file sharing not supported, image downloaded');
 
-        audioErrorEl.textContent = 'Image downloaded. Share it to Instagram Reels manually!';
+        audioErrorEl.textContent = 'Image downloaded. Share it manually on your favorite platform!';
         audioErrorEl.style.display = 'block';
         setTimeout(() => {
           audioErrorEl.style.display = 'none';
@@ -273,7 +281,21 @@ document.addEventListener('DOMContentLoaded', () => {
         audioErrorEl.style.display = 'none';
       }, 3000);
     }
-  });
+  }
+
+  shareIcon.addEventListener('click', handleShare);
+
+  // Add touch-specific event listener for share icon
+  shareIcon.addEventListener('touchstart', e => {
+    e.stopPropagation(); // Prevent touch event from reaching flashcard
+    e.preventDefault(); // Prevent default touch behavior
+  }, { passive: false });
+
+  shareIcon.addEventListener('touchend', e => {
+    e.stopPropagation(); // Prevent touch event from reaching flashcard
+    e.preventDefault();
+    handleShare(e);
+  }, { passive: false });
 
   function showTooltip(tooltip, direction) {
     const isPc = isPC();
@@ -608,7 +630,7 @@ document.addEventListener('DOMContentLoaded', () => {
               .slice(0, 6);
 
             nearest.forEach(w => {
-              const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+              const line = document.createElementNS('http://www.w3.org/200滚动0/svg', 'line');
               line.setAttribute('x1', word1.x + word1.width / 2);
               line.setAttribute('y1', word1.y + word1.height / 2);
               line.setAttribute('x2', w.word.x + w.word.width / 2);
@@ -758,8 +780,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (entry.audio) {
       const audioUrl = `/data/${entry.audio}`;
       console.log(`Setting up audio for: ${audioUrl}`);
-      flashcard.onclick = null;
-      flashcard.onclick = () => {
+      flashcard.onclick = e => {
+        // Prevent audio playback if clicking on share icon
+        if (e.target.closest('#share-button-container')) return;
         console.log('Playing audio on tap');
         playAudio(audioUrl, colors[currentColorIndex]);
       };
@@ -909,12 +932,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   flashcard.addEventListener('touchstart', e => {
+    // Ignore touches on share icon
+    if (e.target.closest('#share-button-container')) return;
     e.preventDefault();
     touchStartY = e.changedTouches[0].screenY;
     touchStartTime = Date.now();
   }, { passive: false });
 
   flashcard.addEventListener('touchend', e => {
+    // Ignore touches on share icon
+    if (e.target.closest('#share-button-container')) return;
     e.preventDefault();
     touchEndY = e.changedTouches[0].screenY;
     const swipeDistance = touchStartY - touchEndY;
@@ -935,7 +962,7 @@ document.addEventListener('DOMContentLoaded', () => {
         wordGroup.style.opacity = '0';
       }
       setTimeout(() => {
-        currentIndex++;
+        currentIndex++;
         currentColorIndex = (currentColorIndex + 1) % colors.length;
         displayEntry(currentIndex);
       }, 0);
@@ -1030,7 +1057,7 @@ document.addEventListener('DOMContentLoaded', () => {
       wordCloud._lastX = e.touches[0].clientX;
       wordCloud._lastY = e.touches[0].clientY;
     }
-  }, { passive: false });
+  }, { events: false });
 
   wordCloud.addEventListener('touchend', e => {
     wordCloud._lastX = null;
