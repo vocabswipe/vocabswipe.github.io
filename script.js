@@ -57,11 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, '');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -229,10 +229,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   shareIcon.addEventListener('click', async () => {
     try {
+      // Capture the entire viewport for Instagram Reels (1080x1920)
       const canvas = await html2canvas(document.body, {
-        width: window.innerWidth,
-        height: window.innerHeight,
-        scale: 2,
+        width: 1080,
+        height: 1920,
+        scale: window.devicePixelRatio, // Adjust for device pixel ratio
+        x: 0,
+        y: 0,
+        windowWidth: window.innerWidth,
+        windowHeight: window.innerHeight,
         backgroundColor: '#000000',
         useCORS: true,
       });
