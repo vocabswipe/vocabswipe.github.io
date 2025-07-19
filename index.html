@@ -11,7 +11,9 @@
   <link rel="preload" href="arrow-down.svg" as="image"/>
   <link rel="preload" href="spacebar.svg" as="image"/>
   <link rel="preload" href="my_ig.svg" as="image"/>
+  <link rel="preload" href="share.svg" as="image"/> <!-- Added share.svg preload -->
   <link rel="icon" type="image/x-icon" href="VS.ico"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script> <!-- Added html2canvas -->
 </head>
 <body>
   <div class="header" id="header" style="display: none;">
@@ -40,6 +42,8 @@
         </div>
       </div>
     </div>
+    <!-- Share Button -->
+    <img src="share.svg" alt="Share" class="share-icon" id="share-icon" style="display: none;" />
     <!-- Tooltip for swipe-up (uses arrow-up.svg for PC) -->
     <div class="tooltip swipe-up-tooltip" id="swipe-up-tooltip" style="display: none;">
       <img src="swipe-up.svg" alt="Swipe Up" class="tooltip-icon" />
