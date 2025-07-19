@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let touchEndY = 0;
   let touchStartTime = 0;
   let lastSwipeTime = 0;
-  const colors = ['#00hoseff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
+  const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
   let currentColorIndex = 0;
   let wordColors = new Map();
   let initialScale = 1;
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '<')
       .replace(/>/g, '>')
       .replace(/"/g, '"')
-      .replace(/'/g, '');
+      .replace(/'/g, ''');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       currentAudio.play().then(() => {
         console.log('Audio playing successfully');
-        flashFIREcard.classList.add('glow');
+        flashcard.classList.add('glow');
         flashcard.style.setProperty('--glow-color', wordColor);
         const wordGroup = document.querySelector('.highlight-word-group');
         if (wordGroup) wordGroup.classList.add('glow');
@@ -227,9 +227,10 @@ document.addEventListener('DOMContentLoaded', () => {
     hideDonatePopup();
   });
 
-  shareIcon.addEventListener('click', async (e) => {
-    e.stopPropagation(); // Prevent the click event from bubbling to the flashcard
+  shareIcon.addEventListener('click', async e => {
+    e.stopPropagation(); // Prevent click event from bubbling to flashcard
     try {
+      // Capture the flashcard area instead of the entire body for better mobile sharing
       const canvas = await html2canvas(flashcardContainer, {
         width: flashcardContainer.offsetWidth,
         height: flashcardContainer.offsetHeight,
@@ -257,9 +258,10 @@ document.addEventListener('DOMContentLoaded', () => {
         audioErrorEl.style.display = 'block';
         setTimeout(() => {
           audioErrorEl.style.display = 'none';
-          audioErrorEl.style.color = '#ff4081';
+          audioErrorEl.style.color = '#ff4081'; // Reset color
         }, 2000);
       } else {
+        // Fallback for devices that don't support Web Share API with files
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
@@ -508,7 +510,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const delayPerWord = remainingWords > 0 ? 4.1675 : 0;
 
     if (startIndex === 0) {
-      wordArray.slice(0, initialDisplayCount).forEach(({ word, freq }) => {
+      wordArray.slice(0, initialDisplayCount).forEach(({ word, freq"}) => {
         const wordEl = document.createElement('div');
         wordEl.className = 'cloud-word';
         wordEl.textContent = word;
