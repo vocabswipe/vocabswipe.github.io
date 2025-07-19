@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const audioUrl = `/data/${entries[i].audio}`;
         if (!preloadedAudio.has(audioUrl)) {
           console.log(`Preloading audio: ${audioUrl}`);
-          const audio = new Audio(audioUrl);
+          const(audio = new Audio(audioUrl);
           audio.preload = 'auto';
           audio.load();
           preloadedAudio.add(audioUrl);
@@ -219,28 +219,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  donateIcon.addEventListener('click', e => {
-    e.stopPropagation();
+  donateIcon.addEventListener('click', () => {
     showDonatePopup();
   });
 
-  closePopupIcon.addEventListener('click', e => {
-    e.stopPropagation();
+  closePopupIcon.addEventListener('click', () => {
     hideDonatePopup();
   });
 
-  async function handleShare(e) {
-    e.stopPropagation(); // Prevent event from bubbling to flashcard
+  shareIcon.addEventListener('click', async (e) => {
+    e.stopPropagation(); // Prevent the click from triggering flashcard events
     try {
-      // Delay to ensure proper rendering on mobile
-      await new Promise(resolve => setTimeout(resolve, 100));
-      const canvas = await html2canvas(flashcard, {
-        width: flashcard.offsetWidth,
-        height: flashcard.offsetHeight,
+      const canvas = await html2canvas(document.body, {
+        width: window.innerWidth,
+        height: window.innerHeight,
         scale: 2,
         backgroundColor: '#000000',
         useCORS: true,
-        logging: false,
       });
 
       const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
@@ -253,21 +248,19 @@ document.addEventListener('DOMContentLoaded', () => {
         text: `Check out this word from VocabSwipe! Master words, swipe by swipe. Visit VocabSwipe.com #VocabSwipe #LearnEnglish`,
       };
 
-      // Explicitly check if file sharing is supported
-      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+      if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
         await navigator.share(shareData);
         console.log('Shared successfully via Web Share API');
       } else {
-        // Fallback: Download the image
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
         link.download = 'vocabswipe_card.png';
         link.click();
         URL.revokeObjectURL(url);
-        console.log('Web Share API not available or file sharing not supported, image downloaded');
+        console.log('Web Share API not available, image downloaded');
 
-        audioErrorEl.textContent = 'Image downloaded. Share it manually on your favorite platform!';
+        audioErrorEl.textContent = 'Image downloaded. Share it to Instagram Reels manually!';
         audioErrorEl.style.display = 'block';
         setTimeout(() => {
           audioErrorEl.style.display = 'none';
@@ -281,21 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
         audioErrorEl.style.display = 'none';
       }, 3000);
     }
-  }
-
-  shareIcon.addEventListener('click', handleShare);
-
-  // Add touch-specific event listener for share icon
-  shareIcon.addEventListener('touchstart', e => {
-    e.stopPropagation(); // Prevent touch event from reaching flashcard
-    e.preventDefault(); // Prevent default touch behavior
-  }, { passive: false });
-
-  shareIcon.addEventListener('touchend', e => {
-    e.stopPropagation(); // Prevent touch event from reaching flashcard
-    e.preventDefault();
-    handleShare(e);
-  }, { passive: false });
+  });
 
   function showTooltip(tooltip, direction) {
     const isPc = isPC();
@@ -630,7 +609,7 @@ document.addEventListener('DOMContentLoaded', () => {
               .slice(0, 6);
 
             nearest.forEach(w => {
-              const line = document.createElementNS('http://www.w3.org/200滚动0/svg', 'line');
+              const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
               line.setAttribute('x1', word1.x + word1.width / 2);
               line.setAttribute('y1', word1.y + word1.height / 2);
               line.setAttribute('x2', w.word.x + w.word.width / 2);
@@ -780,9 +759,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (entry.audio) {
       const audioUrl = `/data/${entry.audio}`;
       console.log(`Setting up audio for: ${audioUrl}`);
-      flashcard.onclick = e => {
-        // Prevent audio playback if clicking on share icon
-        if (e.target.closest('#share-button-container')) return;
+      flashcard.onclick = null;
+      flashcard.onclick = (e) => {
+        // Prevent flashcard click if the target is the share icon or its container
+        if (e.target === shareIcon || shareIcon.contains(e.target)) {
+          return;
+        }
         console.log('Playing audio on tap');
         playAudio(audioUrl, colors[currentColorIndex]);
       };
@@ -932,16 +914,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   flashcard.addEventListener('touchstart', e => {
-    // Ignore touches on share icon
-    if (e.target.closest('#share-button-container')) return;
+    // Prevent touchstart on share icon from triggering flashcard events
+    if (e.target === shareIcon || shareIcon.contains(e.target)) {
+      e.stopPropagation();
+      return;
+    }
     e.preventDefault();
     touchStartY = e.changedTouches[0].screenY;
     touchStartTime = Date.now();
   }, { passive: false });
 
   flashcard.addEventListener('touchend', e => {
-    // Ignore touches on share icon
-    if (e.target.closest('#share-button-container')) return;
+    // Prevent touchend on share icon from triggering flashcard events
+    if (e.target === shareIcon || shareIcon.contains(e.target)) {
+      e.stopPropagation();
+      return;
+    }
     e.preventDefault();
     touchEndY = e.changedTouches[0].screenY;
     const swipeDistance = touchStartY - touchEndY;
@@ -962,7 +950,7 @@ document.addEventListener('DOMContentLoaded', () => {
         wordGroup.style.opacity = '0';
       }
       setTimeout(() => {
-        currentIndex++;
+        currentIndex++;
         currentColorIndex = (currentColorIndex + 1) % colors.length;
         displayEntry(currentIndex);
       }, 0);
@@ -1057,7 +1045,7 @@ document.addEventListener('DOMContentLoaded', () => {
       wordCloud._lastX = e.touches[0].clientX;
       wordCloud._lastY = e.touches[0].clientY;
     }
-  }, { events: false });
+  }, { passive: false });
 
   wordCloud.addEventListener('touchend', e => {
     wordCloud._lastX = null;
