@@ -160,7 +160,7 @@ body {
 
 .share-button-container {
   position: absolute;
-  bottom: 0;
+  bottom: 10px; /* Modified from 20px to move button closer to flashcard */
   right: 20px;
   z-index: 100;
 }
@@ -595,6 +595,7 @@ svg.filters {
 
   .share-button-container {
     right: 16px;
+    bottom: 8px; /* Modified from 16px to move button closer to flashcard */
   }
 
   .flashcard {
@@ -621,9 +622,7 @@ svg.filters {
     padding: 5px;
   }
 
-  .loading
-
--indicator {
+  .loading-indicator {
     font-size: 1rem;
   }
 
