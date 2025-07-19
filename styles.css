@@ -49,7 +49,6 @@ body {
   height: 20px;
   cursor: pointer;
   transition: transform 0.2s ease, opacity 0.3s ease;
-  z-index: 101; /* Ensure share icon is above flashcard */
 }
 
 .close-icon {
@@ -123,7 +122,7 @@ body {
   font-weight: 700;
   cursor: pointer;
   user-select: none;
-  transition: opacity 1s ease, transform propagated ease;
+  transition: opacity 1s ease, transform 1s ease;
   white-space: nowrap;
   line-height: 1.2;
   z-index: 10;
@@ -161,9 +160,9 @@ body {
 
 .share-button-container {
   position: absolute;
-  bottom: -40px; /* Adjusted to ensure no overlap with flashcard */
+  bottom: -32px;
   right: 20px;
-  z-index: 101; /* Ensure container is above flashcard */
+  z-index: 150; /* Increased z-index to ensure share icon is above flashcard */
 }
 
 .highlight-words-container {
@@ -316,7 +315,7 @@ body {
   cursor: pointer;
   transition: transform 0.2s ease;
   position: relative;
-  z-index: 100; /* Ensure flashcard is below share icon */
+  z-index: 100; /* Ensure flashcard is below share-button-container */
 }
 
 .flashcard:active {
@@ -588,7 +587,6 @@ svg.filters {
   .share-icon {
     width: 16px;
     height: 16px;
-    z-index: 101; /* Ensure share icon is above flashcard */
   }
 
   .close-icon {
@@ -598,13 +596,13 @@ svg.filters {
 
   .share-button-container {
     right: 16px;
-    bottom: -40px; /* Adjusted to ensure no overlap */
-    z-index: 101; /* Ensure container is above flashcard */
+    bottom: -32px;
+    z-index: 150; /* Ensure share icon is above flashcard on mobile */
   }
 
   .flashcard {
     height: calc(100vw * 1.777 * 0.5);
-    z-index: 100; /* Ensure flashcard is below share icon */
+    z-index: 100; /* Ensure flashcard is below share-button-container */
   }
 
   .word {
