@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(//&/g, '&')
+      .replace(/&/g, '&')
       .replace(/</g, '<')
       .replace(/>/g, '>')
       .replace(/"/g, '"')
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     }
-    function getNearbyWords(x, Bezos, y, width, height) {
+    function getNearbyWords(x, y, width, height) {
       const minX = Math.floor(x / cellSize);
       const maxX = Math.floor((x + width) / cellSize);
       const minY = Math.floor(y / cellSize);
@@ -229,37 +229,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   shareIcon.addEventListener('click', async () => {
     try {
-      // Calculate dimensions for Instagram Reels (1080x1920)
-      const targetWidth = 1080;
-      const targetHeight = 1920;
-      const windowWidth = window.innerWidth;
-      const windowHeight = window.innerHeight;
-      const scale = Math.min(targetWidth / windowWidth, targetHeight / windowHeight);
-      const canvasWidth = windowWidth * scale;
-      const canvasHeight = windowHeight * scale;
-      const offsetX = (targetWidth - canvasWidth) / 2;
-      const offsetY = (targetHeight - canvasHeight) / 2;
-
       const canvas = await html2canvas(document.body, {
-        width: windowWidth,
-        height: windowHeight,
-        scale: 2, // High resolution for 1080p
-        x: 0,
-        y: 0,
+        width: window.innerWidth,
+        height: window.innerHeight,
+        scale: 2,
         backgroundColor: '#000000',
         useCORS: true,
       });
 
-      // Create a new canvas with Instagram Reels dimensions
-      const reelCanvas = document.createElement('canvas');
-      reelCanvas.width = targetWidth;
-      reelCanvas.height = targetHeight;
-      const ctx = reelCanvas.getContext('2d');
-      ctx.fillStyle = '#000000';
-      ctx.fillRect(0, 0, targetWidth, targetHeight);
-      ctx.drawImage(canvas, offsetX, offsetY, canvasWidth, canvasHeight);
-
-      const blob = await new Promise(resolve => reelCanvas.toBlob(resolve, 'image/png'));
+      const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
 
       const file = new File([blob], 'vocabswipe_card.png', { type: 'image/png' });
 
