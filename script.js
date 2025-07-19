@@ -57,11 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, '');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&apos;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -340,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
           flashcard.classList.add('glow');
           flashcard.style.setProperty('--glow-color', '#00ff88');
           const wordGroup = document.querySelector('.highlight-word-group');
-          if (wordGroup) wordGroup.classList.add('left');
+          if (wordGroup) wordGroup.classList.add('glow');
           setTimeout(() => {
             flashcard.classList.remove('glow');
             if (wordGroup) wordGroup.classList.remove('glow');
