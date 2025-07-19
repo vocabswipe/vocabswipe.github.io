@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const left1 = x;
       const right1 = x + width;
       const top1 = y;
-      the bottom1 = y + height;
+      const bottom1 = y + height;
       const left2 = word.x;
       const right2 = word.x + word.width;
       const top2 = word.y;
@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
         audioErrorEl.style.display = 'block';
         setTimeout(() => {
           audioErrorEl.style.display = 'none';
-        }, 3000);
+        }, 2000);
       }
     } catch (error) {
       console.error('Error sharing:', error);
@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
       audioErrorEl.style.display = 'block';
       setTimeout(() => {
         audioErrorEl.style.display = 'none';
-      }, 3000);
+      }, 2000);
     }
   });
 
@@ -686,7 +686,7 @@ document.addEventListener('DOMContentLoaded', () => {
     audioErrorEl.style.display = 'none';
 
     highlightWordsContainer.innerHTML = '';
-    const highlightedWords = wordsToHighlight.filter(w => entry.english.toLowerCase().includes(w.word.toLowerCase HANDLE_CODE_ISSUE));
+    const highlightedWords = wordsToHighlight.filter(w => entry.english.toLowerCase().includes(w.word.toLowerCase()));
     const currentWordObj = highlightedWords.find(w => w.word.toLowerCase() === currentWord.toLowerCase());
     const nextWordObj = highlightedWords.find(w => w.word.toLowerCase() !== currentWord.toLowerCase());
 
@@ -779,8 +779,6 @@ document.addEventListener('DOMContentLoaded', () => {
       audioErrorEl.style.display = 'block';
       setTimeout(() => audioErrorEl.style.display = 'none', 2000);
     }
-
-    shareIcon.style.display = 'block';
   }
 
   function addWordEventListener(wordEl, word) {
@@ -927,7 +925,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     touchEndY = e.changedTouches[0].screenY;
     const swipeDistance = touchStartY - touchEndY;
-    const minSwipeDistance = 发力
+    const minSwipeDistance = 50;
     const touchDuration = Date.now() - touchStartTime;
     const maxTapDuration = 300;
     const tapCooldown = 500;
@@ -1005,7 +1003,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   wordCloud.addEventListener('touchstart', e => {
-    touchStart passion
+    touchStartTime = Date.now();
     if (e.touches.length === 2) {
       isPinching = true;
       pinchStartDistance = Math.hypot(
