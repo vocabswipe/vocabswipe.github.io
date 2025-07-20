@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const highlightWordsContainer = document.getElementById('highlight-words-container');
 
   let entries = [];
-  let randomizedOrder = [];
   let currentIndex = 0;
   let touchStartY = 0;
   let touchEndY = 0;
@@ -47,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let wordArray = [];
   let wordFreq = {};
   let wordCaseMap = new Map();
-  let wordToSentenceMap = new Map(); // New: Maps entry index to indices of entries whose main word appears in its sentence
 
   let visitCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
   visitCount += 1;
@@ -63,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '<')
       .replace(/>/g, '>')
       .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/'/g, '');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -158,14 +156,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function preloadAudio(index) {
-    const range = 2; // Reduced range for faster initial load
+    const range = 10;
     const start = Math.max(0, index - range);
-    const end = Math.min(randomizedOrder.length - 1, index + range);
+    const end = Math.min(entries.length - 1, index + range);
 
     for (let i = start; i <= end; i++) {
-      const entryIndex = randomizedOrder[i];
-      if (entryIndex !== randomizedOrder[index] && entries[entryIndex].audio) {
-        const audioUrl = `/data/${entries[entryIndex].audio}`;
+      if (i !== index && entries[i].audio) {
+        const audioUrl = `/data/${entries[i].audio}`;
         if (!preloadedAudio.has(audioUrl)) {
           console.log(`Preloading audio: ${audioUrl}`);
           const audio = new Audio(audioUrl);
@@ -229,6 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   shareIcon.addEventListener('click', async () => {
     try {
+      // Capture the flashcard area instead of the entire body for better mobile sharing
       const canvas = await html2canvas(flashcardContainer, {
         width: flashcardContainer.offsetWidth,
         height: flashcardContainer.offsetHeight,
@@ -256,9 +254,10 @@ document.addEventListener('DOMContentLoaded', () => {
         audioErrorEl.style.display = 'block';
         setTimeout(() => {
           audioErrorEl.style.display = 'none';
-          audioErrorEl.style.color = '#ff4081';
+          audioErrorEl.style.color = '#ff4081'; // Reset color
         }, 2000);
       } else {
+        // Fallback for devices that don't support Web Share API with files
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
@@ -382,8 +381,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Loading data from localStorage cache');
         entries = JSON.parse(cachedData);
         if (entries.length > 0) {
-          // Precompute word-to-sentence relationships
-          computeWordToSentenceMap();
           loadingIndicator.style.transition = 'opacity 0.3s ease';
           loadingIndicator.style.opacity = '0';
           setTimeout(() => {
@@ -414,8 +411,6 @@ document.addEventListener('DOMContentLoaded', () => {
         throw new Error('No valid entries in data/database.jsonl');
       }
 
-      // Precompute word-to-sentence relationships
-      computeWordToSentenceMap();
       localStorage.setItem(CACHE_KEY, JSON.stringify(entries));
       console.log(`Loaded ${entries.length} entries and cached in localStorage`);
 
@@ -438,27 +433,6 @@ document.addEventListener('DOMContentLoaded', () => {
       wordCloud.style.justifyContent = 'center';
       wordCloud.style.height = '100vh';
     }
-  }
-
-  // New function to precompute word-to-sentence relationships
-  function computeWordToSentenceMap() {
-    wordToSentenceMap = new Map();
-    entries.forEach((currentEntry, currentIndex) => {
-      const currentWord = currentEntry.word.toLowerCase();
-      const englishSentence = currentEntry.english.toLowerCase();
-      const candidates = entries
-        .map((entry, idx) => ({ entry, idx }))
-        .filter(({ entry, idx }) => {
-          return (
-            idx !== currentIndex &&
-            entry.word.toLowerCase() !== currentWord &&
-            new RegExp(`\\b${entry.word.toLowerCase()}\\b`).test(englishSentence)
-          );
-        })
-        .map(({ idx }) => idx);
-      wordToSentenceMap.set(currentIndex, candidates);
-    });
-    console.log('Word-to-sentence map computed:', wordToSentenceMap);
   }
 
   function displayWordCloud(startIndex = 0) {
@@ -524,8 +498,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const initialDisplayCount = Math.ceil(wordArray.length * 0.02); // Reduced to 2% for faster load
-    const maxAttempts = 100; // Reduced attempts for faster placement
+    const initialDisplayCount = Math.ceil(wordArray.length * 0.05);
+    const remainingWords = wordArray.length - initialDisplayCount;
+    const delayPerWord = remainingWords > 0 ? 4.1675 : 0;
 
     if (startIndex === 0) {
       wordArray.slice(0, initialDisplayCount).forEach(({ word, freq }) => {
@@ -545,6 +520,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const { width, height } = wordEl.getBoundingClientRect();
         let x, y, placed = false;
+        const maxAttempts = 500;
 
         for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
           x = Math.random() * (containerWidth - width);
@@ -567,9 +543,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         addWordEventListener(wordEl, word);
       });
+    }
 
-      // Load remaining words immediately without delay
-      wordArray.slice(initialDisplayCount).forEach(({ word, freq }) => {
+    wordArray.slice(Math.max(initialDisplayCount, startIndex)).forEach(({ word, freq }, index) => {
+      const actualIndex = initialDisplayCount + index;
+      if (actualIndex < startIndex) return;
+      const timeoutId = setTimeout(() => {
         const wordEl = document.createElement('div');
         wordEl.className = 'cloud-word';
         wordEl.textContent = word;
@@ -586,6 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const { width, height } = wordEl.getBoundingClientRect();
         let x, y, placed = false;
+        const maxAttempts = 500;
 
         for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
           x = Math.random() * (containerWidth - width);
@@ -608,40 +588,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
         wordEl.style.transition = 'opacity 0.3s ease';
         wordEl.style.opacity = '1';
+        lastWordIndex = actualIndex + 1;
+
         addWordEventListener(wordEl, word);
-      });
-    }
-
-    // Draw connecting lines
-    requestAnimationFrame(() => {
-      if (startIndex === 0 || !wordCloudSvg.hasChildNodes()) {
-        wordCloudSvg.innerHTML = '';
-        placedWords.forEach((word1, i) => {
-          const nearest = placedWords
-            .map((word2, j) => ({
-              word: word2,
-              distance: Math.hypot(word1.x - word2.x, word1.y - word2.y),
-              index: j,
-            }))
-            .filter(w => w.index !== i)
-            .sort((a, b) => a.distance - b.distance)
-            .slice(0, 6);
-
-          nearest.forEach(w => {
-            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-            line.setAttribute('x1', word1.x + word1.width / 2);
-            line.setAttribute('y1', word1.y + word1.height / 2);
-            line.setAttribute('x2', w.word.x + w.word.width / 2);
-            line.setAttribute('y2', w.word.y + w.word.height / 2);
-            line.setAttribute('stroke', '#ffffff');
-            line.setAttribute('stroke-width', '1');
-            line.setAttribute('stroke-opacity', '0.10');
-            wordCloudSvg.appendChild(line);
-          });
-        });
-      }
-      wordCloudSvg.style.opacity = '1';
+      }, (actualIndex - startIndex) * delayPerWord);
+      wordTimeouts.push(timeoutId);
     });
+
+    const lineTimeoutId = setTimeout(() => {
+      requestAnimationFrame(() => {
+        if (startIndex === 0 || !wordCloudSvg.hasChildNodes()) {
+          wordCloudSvg.innerHTML = '';
+          placedWords.forEach((word1, i) => {
+            const nearest = placedWords
+              .map((word2, j) => ({
+                word: word2,
+                distance: Math.hypot(word1.x - word2.x, word1.y - word2.y),
+                index: j,
+              }))
+              .filter(w => w.index !== i)
+              .sort((a, b) => a.distance - b.distance)
+              .slice(0, 6);
+
+            nearest.forEach(w => {
+              const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+              line.setAttribute('x1', word1.x + word1.width / 2);
+              line.setAttribute('y1', word1.y + word1.height / 2);
+              line.setAttribute('x2', w.word.x + w.word.width / 2);
+              line.setAttribute('y2', w.word.y + w.word.height / 2);
+              line.setAttribute('stroke', '#ffffff');
+              line.setAttribute('stroke-width', '1');
+              line.setAttribute('stroke-opacity', '0.10');
+              wordCloudSvg.appendChild(line);
+            });
+          });
+        }
+        wordCloudSvg.style.opacity = '1';
+      });
+    }, (wordArray.length - startIndex) * delayPerWord + 100);
+    wordTimeouts.push(lineTimeoutId);
   }
 
   function drawConnectingLine(word1El, word2El) {
@@ -668,47 +653,16 @@ document.addEventListener('DOMContentLoaded', () => {
     return line;
   }
 
-  function createRandomizedOrder(startEntryIndex) {
-    randomizedOrder = [startEntryIndex];
-    const usedIndices = new Set([startEntryIndex]);
-    let currentEntryIndex = startEntryIndex;
-
-    while (usedIndices.size < entries.length) {
-      const candidates = wordToSentenceMap.get(currentEntryIndex).filter(idx => !usedIndices.has(idx));
-
-      if (candidates.length === 0) {
-        const unusedIndices = entries
-          .map((_, idx) => idx)
-          .filter(idx => !usedIndices.has(idx));
-        if (unusedIndices.length === 0) break;
-        const nextIndex = unusedIndices[Math.floor(Math.random() * unusedIndices.length)];
-        randomizedOrder.push(nextIndex);
-        usedIndices.add(nextIndex);
-        currentEntryIndex = nextIndex;
-      } else {
-        const nextIndex = candidates[Math.floor(Math.random() * candidates.length)];
-        randomizedOrder.push(nextIndex);
-        usedIndices.add(nextIndex);
-        currentEntryIndex = nextIndex;
-      }
-    }
-
-    console.log('Randomized order:', randomizedOrder);
-  }
-
-  function displayEntry(orderIndex) {
-    if (orderIndex < 0 || orderIndex >= randomizedOrder.length) return;
-    const entryIndex = randomizedOrder[orderIndex];
-    const entry = entries[entryIndex];
+  function displayEntry(index) {
+    if (index < 0 || index >= entries.length) return;
+    const entry = entries[index];
     const currentWord = entry.word;
 
     adjustWordSize(currentWord, wordEl, flashcard.offsetWidth);
     wordEl.style.color = colors[currentColorIndex];
 
-    const prevIndex = orderIndex > 0 ? randomizedOrder[orderIndex - 1] : null;
-    const prevWord = prevIndex !== null ? entries[prevIndex].word : null;
-    const nextIndex = orderIndex < randomizedOrder.length - 1 ? randomizedOrder[orderIndex + 1] : null;
-    const nextWord = nextIndex !== null ? entries[nextIndex].word : null;
+    const prevWord = index > 0 ? entries[index - 1].word : null;
+    const nextWord = index < entries.length - 1 ? entries[index + 1].word : null;
 
     const wordsToHighlight = [];
     if (prevWord) {
@@ -728,7 +682,7 @@ document.addEventListener('DOMContentLoaded', () => {
     highlightWordsContainer.innerHTML = '';
     const highlightedWords = wordsToHighlight.filter(w => entry.english.toLowerCase().includes(w.word.toLowerCase()));
     const currentWordObj = highlightedWords.find(w => w.word.toLowerCase() === currentWord.toLowerCase());
-    const nextWordObj = highlightedWords.find(w => w.word.toLowerCase() === nextWord?.toLowerCase());
+    const nextWordObj = highlightedWords.find(w => w.word.toLowerCase() !== currentWord.toLowerCase());
 
     const wordGroup = document.createElement('div');
     wordGroup.className = 'highlight-word-group';
@@ -800,14 +754,14 @@ document.addEventListener('DOMContentLoaded', () => {
           line.style.transition = 'stroke-opacity 0.5s ease';
         }
       }
+      // Add glow effect to highlight-word-group after move-in animation
       wordGroup.classList.add('glow');
       setTimeout(() => {
         wordGroup.classList.remove('glow');
       }, 500);
-
-      // Defer additional audio preloading after rendering
-      setTimeout(() => preloadAudio(orderIndex), 100);
     }, 100);
+
+    preloadAudio(index);
 
     if (entry.audio) {
       const audioUrl = `/data/${entry.audio}`;
@@ -907,9 +861,12 @@ document.addEventListener('DOMContentLoaded', () => {
             .filter(({ entry }) => entry.word.toLowerCase() === word.toLowerCase())
             .map(({ idx }) => idx);
 
-          const startEntryIndex = matchingIndices[Math.floor(Math.random() * matchingIndices.length)];
-          createRandomizedOrder(startEntryIndex);
-          currentIndex = 0;
+          if (matchingIndices.length > 0) {
+            currentIndex = matchingIndices[Math.floor(Math.random() * matchingIndices.length)];
+          } else {
+            currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
+          }
+
           currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
           displayEntry(currentIndex);
 
@@ -977,7 +934,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance && (Date.now() - lastSwipeTime) > tapCooldown) {
       console.log('Tap detected, triggering flashcard click');
       flashcard.click();
-    } else if (swipeDistance > minSwipeDistance && currentIndex < randomizedOrder.length - 1) {
+    } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
       console.log('Swipe up detected, going to next entry');
       stopAudio();
       const wordGroup = document.querySelector('.highlight-word-group');
@@ -1010,7 +967,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('keydown', e => {
     if (flashcardContainer.style.display === 'flex') {
-      if (e.key === 'ArrowUp' && currentIndex < randomizedOrder.length - 1) {
+      if (e.key === 'ArrowUp' && currentIndex < entries.length - 1) {
         console.log('Arrow up pressed, going to next entry');
         stopAudio();
         const wordGroup = document.querySelector('.highlight-word-group');
