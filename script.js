@@ -57,11 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, '');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -183,11 +183,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Audio playing successfully');
         flashcard.classList.add('glow');
         flashcard.style.setProperty('--glow-color', wordColor);
-        const wordGroup = document.querySelector('.highlight-word-group');
-        if (wordGroup) wordGroup.classList.add('glow');
         setTimeout(() => {
           flashcard.classList.remove('glow');
-          if (wordGroup) wordGroup.classList.remove('glow');
         }, 500);
         audioErrorEl.style.display = 'none';
       }).catch(e => {
@@ -229,7 +226,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   shareIcon.addEventListener('click', async () => {
     try {
-      // Capture the flashcard area instead of the entire body for better mobile sharing
       const canvas = await html2canvas(flashcardContainer, {
         width: flashcardContainer.offsetWidth,
         height: flashcardContainer.offsetHeight,
@@ -257,10 +253,9 @@ document.addEventListener('DOMContentLoaded', () => {
         audioErrorEl.style.display = 'block';
         setTimeout(() => {
           audioErrorEl.style.display = 'none';
-          audioErrorEl.style.color = '#ff4081'; // Reset color
+          audioErrorEl.style.color = '#ff4081';
         }, 2000);
       } else {
-        // Fallback for devices that don't support Web Share API with files
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
@@ -348,11 +343,8 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           flashcard.classList.add('glow');
           flashcard.style.setProperty('--glow-color', '#00ff88');
-          const wordGroup = document.querySelector('.highlight-word-group');
-          if (wordGroup) wordGroup.classList.add('glow');
           setTimeout(() => {
             flashcard.classList.remove('glow');
-            if (wordGroup) wordGroup.classList.remove('glow');
           }, 500);
         }, 1000);
       } else {
@@ -717,22 +709,29 @@ document.addEventListener('DOMContentLoaded', () => {
       wordGroup.appendChild(nextWordEl);
     }
 
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.className = 'highlight-word-line';
+    svg.style.position = 'absolute';
+    svg.style.top = '0';
+    svg.style.left = '0';
+    svg.style.width = '100%';
+    svg.style.height = '100%';
+    svg.style.pointerEvents = 'none';
+    svg.style.zIndex = '5';
     if (currentWordEl && nextWordEl) {
-      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      svg.className = 'highlight-word-line';
-      svg.style.position = 'absolute';
-      svg.style.top = '0';
-      svg.style.left = '0';
-      svg.style.width = '100%';
-      svg.style.height = '100%';
-      svg.style.pointerEvents = 'none';
-      svg.style.zIndex = '5';
       const line = drawConnectingLine(currentWordEl, nextWordEl);
       if (line) svg.appendChild(line);
-      wordGroup.appendChild(svg);
     }
+    wordGroup.appendChild(svg);
 
     setTimeout(() => {
+      // Position the highlight-words-container between word and english sentence
+      const wordRect = wordEl.getBoundingClientRect();
+      const englishRect = englishEl.getBoundingClientRect();
+      const containerRect = flashcardContainer.getBoundingClientRect();
+      const centerY = wordRect.bottom + (englishRect.top - wordRect.bottom) / 2 - containerRect.top;
+      highlightWordsContainer.style.top = `${centerY}px`;
+
       if (currentWordEl) {
         currentWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
         currentWordEl.style.transform = 'translateX(0)';
@@ -756,10 +755,21 @@ document.addEventListener('DOMContentLoaded', () => {
           line.setAttribute('x2', x2);
           line.setAttribute('y1', y);
           line.setAttribute('y2', y);
+          line.setAttribute('stroke', '#ffffff');
+          line.setAttribute('stroke-width', '1');
           line.setAttribute('stroke-opacity', '0.10');
           line.style.transition = 'stroke-opacity 0.5s ease';
         }
       }
+      // Trigger glow effect for paired words and line after move-in animation
+      setTimeout(() => {
+        if (wordGroup) {
+          wordGroup.classList.add('glow');
+          setTimeout(() => {
+            wordGroup.classList.remove('glow');
+          }, 500);
+        }
+      }, 500);
     }, 100);
 
     preloadAudio(index);
