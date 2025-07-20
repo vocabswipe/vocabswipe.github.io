@@ -57,11 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, '');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -226,6 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   shareIcon.addEventListener('click', async () => {
     try {
+      // Capture the flashcard area instead of the entire body for better mobile sharing
       const canvas = await html2canvas(flashcardContainer, {
         width: flashcardContainer.offsetWidth,
         height: flashcardContainer.offsetHeight,
@@ -253,9 +254,10 @@ document.addEventListener('DOMContentLoaded', () => {
         audioErrorEl.style.display = 'block';
         setTimeout(() => {
           audioErrorEl.style.display = 'none';
-          audioErrorEl.style.color = '#ff4081';
+          audioErrorEl.style.color = '#ff4081'; // Reset color
         }, 2000);
       } else {
+        // Fallback for devices that don't support Web Share API with files
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
@@ -729,21 +731,11 @@ document.addEventListener('DOMContentLoaded', () => {
         currentWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
         currentWordEl.style.transform = 'translateX(0)';
         currentWordEl.style.opacity = '1';
-        // Apply glow effect after move-in animation
-        setTimeout(() => {
-          currentWordEl.classList.add('glow');
-          currentWordEl.style.setProperty('--glow-color', currentWordObj.color);
-        }, 500); // Wait for move-in animation to complete
       }
       if (nextWordEl) {
         nextWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
         nextWordEl.style.transform = 'translateX(0)';
         nextWordEl.style.opacity = '1';
-        // Apply glow effect after move-in animation
-        setTimeout(() => {
-          nextWordEl.classList.add('glow');
-          nextWordEl.style.setProperty('--glow-color', nextWordObj.color);
-        }, 500); // Wait for move-in animation to complete
       }
       if (currentWordEl && nextWordEl) {
         const word1Rect = currentWordEl.getBoundingClientRect();
@@ -762,6 +754,11 @@ document.addEventListener('DOMContentLoaded', () => {
           line.style.transition = 'stroke-opacity 0.5s ease';
         }
       }
+      // Add glow effect to highlight-word-group after move-in animation
+      wordGroup.classList.add('glow');
+      setTimeout(() => {
+        wordGroup.classList.remove('glow');
+      }, 500);
     }, 100);
 
     preloadAudio(index);
@@ -842,7 +839,7 @@ document.addEventListener('DOMContentLoaded', () => {
           document.body.style.overflow = 'hidden';
 
           setTimeout(() => {
-            logoSTYLE.style.transition = 'transform 1s ease, opacity 1s ease';
+            logo.style.transition = 'transform 1s ease, opacity 1s ease';
             logo.style.transform = 'translateX(0)';
             logo.style.opacity = '1';
 
