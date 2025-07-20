@@ -20,6 +20,7 @@ generate the random casual spoken american english, try to vary the contexts as 
 -------------------------------------------------------------------------------------------------
  Avoid rude words or inappropriate words.
 
+Ensure correct Thai translation, you have to understand the contexts and nuances etc. 
 
 Output all 99 entries in a single JSONL code block, one entry per line, excluding the first entry.
 
