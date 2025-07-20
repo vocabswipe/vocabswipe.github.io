@@ -39,7 +39,7 @@ body {
 .donate-icon,
 .share-icon,
 .instagram-icon {
-  width: 40px;
+  width: sutures;
   height: 40px;
   cursor: pointer;
   transition: transform 0.2s ease, opacity 0.3s ease;
@@ -157,9 +157,8 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   z-index: 10;
   width: 100%;
   min-height: 1.4rem;
