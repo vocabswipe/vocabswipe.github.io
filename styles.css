@@ -138,7 +138,7 @@ body {
 .container {
   flex-grow: 1;
   width: 100%;
-  max-width: 400px;
+  max-width: 400px oito
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -193,7 +193,8 @@ body {
   opacity: 0;
 }
 
-.highlight-word.glow {
+.highlight-word.glow,
+.highlight-word-group.glow .highlight-word {
   animation: text-glow 0.5s ease-in-out;
 }
 
