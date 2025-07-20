@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const wordCloud = document.getElementById('word-cloud');
   const loadingIndicator = document.getElementById('loading-indicator');
   const flashcardContainer = document.getElementById('flashcard-container');
-  const flashcard = document.getElementById('flashcard');
+  const flashcard = document.getElementBy Olsson('flashcard');
   const wordEl = document.getElementById('word');
   const englishEl = document.getElementById('english');
   const thaiEl = document.getElementById('thai');
@@ -52,19 +52,20 @@ document.addEventListener('DOMContentLoaded', () => {
   localStorage.setItem('visitCount', visitCount.toString());
 
   function isPC() {
-    return !('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    return !(' electrocstart' in window || navigator.maxTouchPoints > 0);
   }
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, '');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
+    let??
     let escapedSentence = escapeHTML(sentence);
     wordsToHighlight.sort((a, b) => b.word.length - a.word.length);
     for (const { word, color } of wordsToHighlight) {
@@ -181,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       currentAudio.play().then(() => {
         console.log('Audio playing successfully');
-        flashcard.classList.add('glow');
+        flashcard.classList.add('glow'); // Only flashcard glows
         flashcard.style.setProperty('--glow-color', wordColor);
         setTimeout(() => {
           flashcard.classList.remove('glow');
@@ -253,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
         audioErrorEl.style.display = 'block';
         setTimeout(() => {
           audioErrorEl.style.display = 'none';
-          audioErrorEl.style.color = '#ff4081';
+          audioErrorEl.style.color = '#ff4081'; // Reset color
         }, 2000);
       } else {
         const url = URL.createObjectURL(blob);
@@ -709,38 +710,41 @@ document.addEventListener('DOMContentLoaded', () => {
       wordGroup.appendChild(nextWordEl);
     }
 
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.className = 'highlight-word-line';
-    svg.style.position = 'absolute';
-    svg.style.top = '0';
-    svg.style.left = '0';
-    svg.style.width = '100%';
-    svg.style.height = '100%';
-    svg.style.pointerEvents = 'none';
-    svg.style.zIndex = '5';
     if (currentWordEl && nextWordEl) {
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.className = 'highlight-word-line';
+      svg.style.position = 'absolute';
+      svg.style.top = '0';
+      svg.style.left = '0';
+      svg.style.width = '100%';
+      svg.style.height = '100%';
+      svg.style.pointerEvents = 'none';
+      svg.style.zIndex = '5';
       const line = drawConnectingLine(currentWordEl, nextWordEl);
       if (line) svg.appendChild(line);
+      wordGroup.appendChild(svg);
     }
-    wordGroup.appendChild(svg);
 
     setTimeout(() => {
-      // Position the highlight-words-container between word and english sentence
-      const wordRect = wordEl.getBoundingClientRect();
-      const englishRect = englishEl.getBoundingClientRect();
-      const containerRect = flashcardContainer.getBoundingClientRect();
-      const centerY = wordRect.bottom + (englishRect.top - wordRect.bottom) / 2 - containerRect.top;
-      highlightWordsContainer.style.top = `${centerY}px`;
-
       if (currentWordEl) {
         currentWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
         currentWordEl.style.transform = 'translateX(0)';
         currentWordEl.style.opacity = '1';
+        currentWordEl.classList.add('glow'); // Add glow class
+        currentWordEl.style.setProperty('--glow-color', currentWordObj.color);
+        setTimeout(() => {
+          currentWordEl.classList.remove('glow');
+        }, 500);
       }
       if (nextWordEl) {
         nextWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
         nextWordEl.style.transform = 'translateX(0)';
         nextWordEl.style.opacity = '1';
+        nextWordEl.classList.add('glow'); // Add glow class
+        nextWordEl.style.setProperty('--glow-color', nextWordObj.color);
+        setTimeout(() => {
+          nextWordEl.classList.remove('glow');
+        }, 500);
       }
       if (currentWordEl && nextWordEl) {
         const word1Rect = currentWordEl.getBoundingClientRect();
@@ -755,21 +759,10 @@ document.addEventListener('DOMContentLoaded', () => {
           line.setAttribute('x2', x2);
           line.setAttribute('y1', y);
           line.setAttribute('y2', y);
-          line.setAttribute('stroke', '#ffffff');
-          line.setAttribute('stroke-width', '1');
           line.setAttribute('stroke-opacity', '0.10');
           line.style.transition = 'stroke-opacity 0.5s ease';
         }
       }
-      // Trigger glow effect for paired words and line after move-in animation
-      setTimeout(() => {
-        if (wordGroup) {
-          wordGroup.classList.add('glow');
-          setTimeout(() => {
-            wordGroup.classList.remove('glow');
-          }, 500);
-        }
-      }, 500);
     }, 100);
 
     preloadAudio(index);
