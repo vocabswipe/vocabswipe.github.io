@@ -138,7 +138,7 @@ body {
 .container {
   flex-grow: 1;
   width: 100%;
-  max-width: 400px oito
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -193,20 +193,19 @@ body {
   opacity: 0;
 }
 
-.highlight-word.glow,
-.highlight-word-group.glow .highlight-word {
-  animation: text-glow 0.5s ease-in-out;
+.highlight-word-group.glow {
+  animation: group-glow 0.5s ease-in-out;
 }
 
-@keyframes text-glow {
+@keyframes group-glow {
   0% {
-    text-shadow: 0 0 0 var(--glow-color, #00ff88);
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
   }
   50% {
-    text-shadow: 0 0 10px var(--glow-color, #00ff88);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
   }
   100% {
-    text-shadow: 0 0 0 var(--glow-color, #00ff88);
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
   }
 }
 
