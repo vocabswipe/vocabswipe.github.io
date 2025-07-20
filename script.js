@@ -22,7 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const highlightWordsContainer = document.getElementById('highlight-words-container');
 
   let entries = [];
-  let currentIndex = 0;
+  let randomizedOrder = []; // Array to store the randomized sequence of indices
+  let currentIndex = 0; // Index in randomizedOrder
   let touchStartY = 0;
   let touchEndY = 0;
   let touchStartTime = 0;
@@ -57,11 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, '');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
@@ -158,11 +159,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function preloadAudio(index) {
     const range = 10;
     const start = Math.max(0, index - range);
-    const end = Math.min(entries.length - 1, index + range);
+    const end = Math.min(randomizedOrder.length - 1, index + range);
 
     for (let i = start; i <= end; i++) {
-      if (i !== index && entries[i].audio) {
-        const audioUrl = `/data/${entries[i].audio}`;
+      const entryIndex = randomizedOrder[i];
+      if (entryIndex !== randomizedOrder[index] && entries[entryIndex].audio) {
+        const audioUrl = `/data/${entries[entryIndex].audio}`;
         if (!preloadedAudio.has(audioUrl)) {
           console.log(`Preloading audio: ${audioUrl}`);
           const audio = new Audio(audioUrl);
@@ -226,7 +228,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   shareIcon.addEventListener('click', async () => {
     try {
-      // Capture the flashcard area instead of the entire body for better mobile sharing
       const canvas = await html2canvas(flashcardContainer, {
         width: flashcardContainer.offsetWidth,
         height: flashcardContainer.offsetHeight,
@@ -254,10 +255,9 @@ document.addEventListener('DOMContentLoaded', () => {
         audioErrorEl.style.display = 'block';
         setTimeout(() => {
           audioErrorEl.style.display = 'none';
-          audioErrorEl.style.color = '#ff4081'; // Reset color
+          audioErrorEl.style.color = '#ff4081';
         }, 2000);
       } else {
-        // Fallback for devices that don't support Web Share API with files
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
@@ -653,16 +653,64 @@ document.addEventListener('DOMContentLoaded', () => {
     return line;
   }
 
-  function displayEntry(index) {
-    if (index < 0 || index >= entries.length) return;
-    const entry = entries[index];
+  // Function to create a randomized order starting from a given word index
+  function createRandomizedOrder(startEntryIndex) {
+    randomizedOrder = [startEntryIndex];
+    const usedIndices = new Set([startEntryIndex]);
+    let currentEntryIndex = startEntryIndex;
+
+    while (usedIndices.size < entries.length) {
+      const currentEntry = entries[currentEntryIndex];
+      const currentWord = currentEntry.word.toLowerCase();
+      const englishSentence = currentEntry.english.toLowerCase();
+
+      // Find all entries where the main word appears in the current entry's English sentence
+      const candidates = entries
+        .map((entry, idx) => ({ entry, idx }))
+        .filter(({ entry, idx }) => {
+          return (
+            !usedIndices.has(idx) && // Not already used
+            entry.word.toLowerCase() !== currentWord && // Not the current word
+            new RegExp(`\\b${entry.word.toLowerCase()}\\b`).test(englishSentence) // Word appears in sentence
+          );
+        })
+        .map(({ idx }) => idx);
+
+      if (candidates.length === 0) {
+        // If no candidates, add a random unused index to continue
+        const unusedIndices = entries
+          .map((_, idx) => idx)
+          .filter(idx => !usedIndices.has(idx));
+        if (unusedIndices.length === 0) break;
+        const nextIndex = unusedIndices[Math.floor(Math.random() * unusedIndices.length)];
+        randomizedOrder.push(nextIndex);
+        usedIndices.add(nextIndex);
+        currentEntryIndex = nextIndex;
+      } else {
+        // Randomly select one of the candidates
+        const nextIndex = candidates[Math.floor(Math.random() * candidates.length)];
+        randomizedOrder.push(nextIndex);
+        usedIndices.add(nextIndex);
+        currentEntryIndex = nextIndex;
+      }
+    }
+
+    console.log('Randomized order:', randomizedOrder);
+  }
+
+  function displayEntry(orderIndex) {
+    if (orderIndex < 0 || orderIndex >= randomizedOrder.length) return;
+    const entryIndex = randomizedOrder[orderIndex];
+    const entry = entries[entryIndex];
     const currentWord = entry.word;
 
     adjustWordSize(currentWord, wordEl, flashcard.offsetWidth);
     wordEl.style.color = colors[currentColorIndex];
 
-    const prevWord = index > 0 ? entries[index - 1].word : null;
-    const nextWord = index < entries.length - 1 ? entries[index + 1].word : null;
+    const prevIndex = orderIndex > 0 ? randomizedOrder[orderIndex - 1] : null;
+    const prevWord = prevIndex !== null ? entries[prevIndex].word : null;
+    const nextIndex = orderIndex < randomizedOrder.length - 1 ? randomizedOrder[orderIndex + 1] : null;
+    const nextWord = nextIndex !== null ? entries[nextIndex].word : null;
 
     const wordsToHighlight = [];
     if (prevWord) {
@@ -682,7 +730,7 @@ document.addEventListener('DOMContentLoaded', () => {
     highlightWordsContainer.innerHTML = '';
     const highlightedWords = wordsToHighlight.filter(w => entry.english.toLowerCase().includes(w.word.toLowerCase()));
     const currentWordObj = highlightedWords.find(w => w.word.toLowerCase() === currentWord.toLowerCase());
-    const nextWordObj = highlightedWords.find(w => w.word.toLowerCase() !== currentWord.toLowerCase());
+    const nextWordObj = highlightedWords.find(w => w.word.toLowerCase() === nextWord?.toLowerCase());
 
     const wordGroup = document.createElement('div');
     wordGroup.className = 'highlight-word-group';
@@ -754,14 +802,13 @@ document.addEventListener('DOMContentLoaded', () => {
           line.style.transition = 'stroke-opacity 0.5s ease';
         }
       }
-      // Add glow effect to highlight-word-group after move-in animation
       wordGroup.classList.add('glow');
       setTimeout(() => {
         wordGroup.classList.remove('glow');
       }, 500);
     }, 100);
 
-    preloadAudio(index);
+    preloadAudio(orderIndex);
 
     if (entry.audio) {
       const audioUrl = `/data/${entry.audio}`;
@@ -861,12 +908,9 @@ document.addEventListener('DOMContentLoaded', () => {
             .filter(({ entry }) => entry.word.toLowerCase() === word.toLowerCase())
             .map(({ idx }) => idx);
 
-          if (matchingIndices.length > 0) {
-            currentIndex = matchingIndices[Math.floor(Math.random() * matchingIndices.length)];
-          } else {
-            currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
-          }
-
+          const startEntryIndex = matchingIndices[Math.floor(Math.random() * matchingIndices.length)];
+          createRandomizedOrder(startEntryIndex); // Create new randomized order
+          currentIndex = 0; // Start at the beginning of the randomized order
           currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
           displayEntry(currentIndex);
 
@@ -934,7 +978,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance && (Date.now() - lastSwipeTime) > tapCooldown) {
       console.log('Tap detected, triggering flashcard click');
       flashcard.click();
-    } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
+    } else if (swipeDistance > minSwipeDistance && currentIndex < randomizedOrder.length - 1) {
       console.log('Swipe up detected, going to next entry');
       stopAudio();
       const wordGroup = document.querySelector('.highlight-word-group');
@@ -967,7 +1011,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('keydown', e => {
     if (flashcardContainer.style.display === 'flex') {
-      if (e.key === 'ArrowUp' && currentIndex < entries.length - 1) {
+      if (e.key === 'ArrowUp' && currentIndex < randomizedOrder.length - 1) {
         console.log('Arrow up pressed, going to next entry');
         stopAudio();
         const wordGroup = document.querySelector('.highlight-word-group');
