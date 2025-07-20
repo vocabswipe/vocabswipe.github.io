@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const wordCloud = document.getElementById('word-cloud');
   const loadingIndicator = document.getElementById('loading-indicator');
   const flashcardContainer = document.getElementById('flashcard-container');
-  const flashcard = document.getElementBy Olsson('flashcard');
+  const flashcard = document.getElementById('flashcard');
   const wordEl = document.getElementById('word');
   const englishEl = document.getElementById('english');
   const thaiEl = document.getElementById('thai');
@@ -52,20 +52,19 @@ document.addEventListener('DOMContentLoaded', () => {
   localStorage.setItem('visitCount', visitCount.toString());
 
   function isPC() {
-    return !(' electrocstart' in window || navigator.maxTouchPoints > 0);
+    return !('ontouchstart' in window || navigator.maxTouchPoints > 0);
   }
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, '');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWords(sentence, wordsToHighlight) {
-    let??
     let escapedSentence = escapeHTML(sentence);
     wordsToHighlight.sort((a, b) => b.word.length - a.word.length);
     for (const { word, color } of wordsToHighlight) {
@@ -182,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       currentAudio.play().then(() => {
         console.log('Audio playing successfully');
-        flashcard.classList.add('glow'); // Only flashcard glows
+        flashcard.classList.add('glow');
         flashcard.style.setProperty('--glow-color', wordColor);
         setTimeout(() => {
           flashcard.classList.remove('glow');
@@ -254,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
         audioErrorEl.style.display = 'block';
         setTimeout(() => {
           audioErrorEl.style.display = 'none';
-          audioErrorEl.style.color = '#ff4081'; // Reset color
+          audioErrorEl.style.color = '#ff4081';
         }, 2000);
       } else {
         const url = URL.createObjectURL(blob);
@@ -730,21 +729,21 @@ document.addEventListener('DOMContentLoaded', () => {
         currentWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
         currentWordEl.style.transform = 'translateX(0)';
         currentWordEl.style.opacity = '1';
-        currentWordEl.classList.add('glow'); // Add glow class
-        currentWordEl.style.setProperty('--glow-color', currentWordObj.color);
+        // Apply glow effect after move-in animation
         setTimeout(() => {
-          currentWordEl.classList.remove('glow');
-        }, 500);
+          currentWordEl.classList.add('glow');
+          currentWordEl.style.setProperty('--glow-color', currentWordObj.color);
+        }, 500); // Wait for move-in animation to complete
       }
       if (nextWordEl) {
         nextWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
         nextWordEl.style.transform = 'translateX(0)';
         nextWordEl.style.opacity = '1';
-        nextWordEl.classList.add('glow'); // Add glow class
-        nextWordEl.style.setProperty('--glow-color', nextWordObj.color);
+        // Apply glow effect after move-in animation
         setTimeout(() => {
-          nextWordEl.classList.remove('glow');
-        }, 500);
+          nextWordEl.classList.add('glow');
+          nextWordEl.style.setProperty('--glow-color', nextWordObj.color);
+        }, 500); // Wait for move-in animation to complete
       }
       if (currentWordEl && nextWordEl) {
         const word1Rect = currentWordEl.getBoundingClientRect();
@@ -843,7 +842,7 @@ document.addEventListener('DOMContentLoaded', () => {
           document.body.style.overflow = 'hidden';
 
           setTimeout(() => {
-            logo.style.transition = 'transform 1s ease, opacity 1s ease';
+            logoSTYLE.style.transition = 'transform 1s ease, opacity 1s ease';
             logo.style.transform = 'translateX(0)';
             logo.style.opacity = '1';
 
