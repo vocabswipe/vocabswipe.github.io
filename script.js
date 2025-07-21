@@ -21,14 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const tapTooltip = document.getElementById('tap-tooltip');
 
   let entries = [];
-  let currentEntries = []; // Store filtered entries for the chosen word
   let currentIndex = 0;
   let touchStartY = 0;
   let touchEndY = 0;
   let touchStartTime = 0;
   let lastSwipeTime = 0;
   const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
-  let currentColor = ''; // Store the color of the selected word
+  let currentColorIndex = 0;
   let wordColors = new Map();
   let initialScale = 1;
   let currentScale = 1;
@@ -40,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const CACHE_KEY = 'vocabswipe_data_v1';
   let wordFreq = {};
   let wordCaseMap = new Map();
+
   let visitCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
   visitCount += 1;
   localStorage.setItem('visitCount', visitCount.toString());
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const escapedSentence = escapeHTML(sentence);
     const escapedWord = escapeHTML(word);
     const regex = new RegExp(`\\b${escapedWord}\\b(?![^<]*>)`, 'gi');
-    return escapedSentence.replace(regex, `<span class="highlight" style="color: ${color}; animation: twinkle 3s infinite;">$&</span>`);
+    return escapedSentence.replace(regex, `<span class="highlight" style="color: ${color};">$&</span>`);
   }
 
   function createSpatialGrid(width, height, cellSize = 50) {
@@ -147,11 +147,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function preloadAudio(index) {
     const range = 10;
     const start = Math.max(0, index - range);
-    const end = Math.min(currentEntries.length - 1, index + range);
+    const end = Math.min(entries.length - 1, index + range);
 
     for (let i = start; i <= end; i++) {
-      if (i !== index && currentEntries[i].audio) {
-        const audioUrl = `/data/${currentEntries[i].audio}`;
+      if (i !== index && entries[i].audio) {
+        const audioUrl = `/data/${entries[i].audio}`;
         if (!preloadedAudio.has(audioUrl)) {
           console.log(`Preloading audio: ${audioUrl}`);
           const audio = new Audio(audioUrl);
@@ -484,31 +484,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
-
   function displayEntry(index) {
-    if (currentEntries.length === 0) return;
-    // Ensure index loops within currentEntries
-    currentIndex = ((index % currentEntries.length) + currentEntries.length) % currentEntries.length;
-    const entry = currentEntries[currentIndex];
+    if (index < 0 || index >= entries.length) return;
+    const entry = entries[index];
     const currentWord = entry.word;
 
     adjustWordSize(currentWord, wordEl, flashcard.offsetWidth);
-    wordEl.style.color = currentColor;
-    wordEl.style.animation = 'twinkle 3s infinite'; // Apply twinkle animation
-    wordEl.style.textShadow = '0 0 2px rgba(255, 255, 255, 0.3)';
+    wordEl.style.color = colors[currentColorIndex];
 
-    englishEl.innerHTML = highlightWord(entry.english, currentWord, currentColor);
+    englishEl.innerHTML = highlightWord(entry.english, currentWord, colors[currentColorIndex]);
     thaiEl.textContent = entry.thai;
     audioErrorEl.style.display = 'none';
 
-    preloadAudio(currentIndex);
+    preloadAudio(index);
 
     if (entry.audio) {
       const audioUrl = `/data/${entry.audio}`;
@@ -516,7 +504,7 @@ document.addEventListener('DOMContentLoaded', () => {
       flashcard.onclick = null;
       flashcard.onclick = () => {
         console.log('Playing audio on tap');
-        playAudio(audioUrl, currentColor);
+        playAudio(audioUrl, colors[currentColorIndex]);
       };
     } else {
       console.log('No audio available for this entry');
@@ -596,11 +584,18 @@ document.addEventListener('DOMContentLoaded', () => {
             slogan.style.opacity = '1';
           }, 4000);
 
-          // Filter entries for the selected word and randomize
-          currentEntries = entries.filter(entry => entry.word.toLowerCase() === word.toLowerCase());
-          currentEntries = shuffleArray([...currentEntries]); // Randomize the filtered entries
-          currentIndex = 0;
-          currentColor = wordColors.get(word.toLowerCase()); // Set the color for the flashcard
+          const matchingIndices = entries
+            .map((entry, idx) => ({ entry, idx }))
+            .filter(({ entry }) => entry.word.toLowerCase() === word.toLowerCase())
+            .map(({ idx }) => idx);
+
+          if (matchingIndices.length > 0) {
+            currentIndex = matchingIndices[Math.floor(Math.random() * matchingIndices.length)];
+          } else {
+            currentIndex = entries.findIndex(entry => entry.word.toLowerCase() === word.toLowerCase());
+          }
+
+          currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
           displayEntry(currentIndex);
 
           if (visitCount <= 100) {
@@ -667,20 +662,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance && (Date.now() - lastSwipeTime) > tapCooldown) {
       console.log('Tap detected, triggering flashcard click');
       flashcard.click();
-    } else if (swipeDistance > minSwipeDistance) {
+    } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
       console.log('Swipe up detected, going to next entry');
       stopAudio();
       setTimeout(() => {
         currentIndex++;
-        displayEntry(currentIndex); // Looping handled in displayEntry
+        currentColorIndex = (currentColorIndex + 1) % colors.length;
+        displayEntry(currentIndex);
       }, 0);
       lastSwipeTime = Date.now();
-    } else if (swipeDistance < -minSwipeDistance) {
+    } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
       console.log('Swipe down detected, going to previous entry');
       stopAudio();
       setTimeout(() => {
         currentIndex--;
-        displayEntry(currentIndex); // Looping handled in displayEntry
+        currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+        displayEntry(currentIndex);
       }, 0);
       lastSwipeTime = Date.now();
     }
@@ -688,20 +685,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('keydown', e => {
     if (flashcardContainer.style.display === 'flex') {
-      if (e.key === 'ArrowUp') {
+      if (e.key === 'ArrowUp' && currentIndex < entries.length - 1) {
         console.log('Arrow up pressed, going to next entry');
         stopAudio();
         setTimeout(() => {
           currentIndex++;
-          displayEntry(currentIndex); // Looping handled in displayEntry
+          currentColorIndex = (currentColorIndex + 1) % colors.length;
+          displayEntry(currentIndex);
         }, 0);
         lastSwipeTime = Date.now();
-      } else if (e.key === 'ArrowDown') {
+      } else if (e.key === 'ArrowDown' && currentIndex > 0) {
         console.log('Arrow down pressed, going to previous entry');
         stopAudio();
         setTimeout(() => {
           currentIndex--;
-          displayEntry(currentIndex); // Looping handled in displayEntry
+          currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+          displayEntry(currentIndex);
         }, 0);
         lastSwipeTime = Date.now();
       } else if (e.key === ' ') {
