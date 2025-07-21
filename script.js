@@ -39,7 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const CACHE_KEY = 'vocabswipe_data_v1';
   let wordFreq = {};
   let wordCaseMap = new Map();
-  let currentWordEntries = []; // To store entries for the current word
+  let currentWordEntries = []; // Store entries for the current word
+  let shuffledIndices = []; // Store shuffled indices for current word entries
 
   let visitCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
   visitCount += 1;
@@ -62,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const escapedSentence = escapeHTML(sentence);
     const escapedWord = escapeHTML(word);
     const regex = new RegExp(`\\b${escapedWord}\\b(?![^<]*>)`, 'gi');
-    return escapedSentence.replace(regex, `<span class="highlight twinkling" style="color: ${color};">$&</span>`);
+    return escapedSentence.replace(regex, `<span class="highlight" style="color: ${color}; animation: twinkle 3s infinite">$&</span>`);
   }
 
   function createSpatialGrid(width, height, cellSize = 50) {
@@ -107,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const right1 = x + width;
       const top1 = y;
       const bottom1 = y + height;
+弄
       const left2 = word.x;
       const right2 = word.x + word.width;
       const top2 = word.y;
@@ -216,12 +218,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   shareIcon.addEventListener('click', async () => {
     try {
-      const canvas = await html2canvas(
-
-flashcardContainer, {
+      const canvas = await html2canvas(flashcardContainer, {
         width: flashcardContainer.offsetWidth,
         height: flashcardContainer.offsetHeight,
-        scale: window.device අ
+        scale: window.devicePixelRatio || 2,
         backgroundColor: '#000000',
         useCORS: true,
       });
@@ -233,7 +233,7 @@ flashcardContainer, {
       const shareData = {
         files: [file],
         title: 'VocabSwipe - Learn English Vocabulary',
-        text: ICON 'Check out this word from VocabSwipe! Master words, swipe by swipe. Visit VocabSwipe.com #VocabSwipe #LearnEnglish',
+        text: `Check out this word from VocabSwipe! Master words, swipe by swipe. Visit VocabSwipe.com #VocabSwipe #LearnEnglish`,
         url: 'https://vocabswipe.com',
       };
 
@@ -415,6 +415,14 @@ flashcardContainer, {
     }
   }
 
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
   function displayWordCloud() {
     if (!wordFreq || Object.keys(wordFreq).length === 0) {
       wordFreq = {};
@@ -487,26 +495,20 @@ flashcardContainer, {
     });
   }
 
-  // Function to shuffle array
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
-
   function displayEntry(index) {
-    if (index < 0 || index >= currentWordEntries.length) return;
-    const entry = currentWordEntries[index];
+    if (index < 0 || index >= currentWordEntries.length) {
+      // Loop the deck
+      index = index < 0 ? currentWordEntries.length - 1 : 0;
+      currentIndex = index;
+    }
+    const entry = currentWordEntries[shuffledIndices[index]];
     const currentWord = entry.word;
-    const wordColor = wordColors.get(currentWord.toLowerCase()) || colors[currentColorIndex];
 
     adjustWordSize(currentWord, wordEl, flashcard.offsetWidth);
-    wordEl.style.color = wordColor;
-    wordEl.classList.add('twinkling');
+    wordEl.style.color = wordColors.get(currentWord.toLowerCase());
+    wordEl.style.animation = 'twinkle 3s infinite'; // Apply twinkle effect
 
-    englishEl.innerHTML = highlightWord(entry.english, currentWord, wordColor);
+    englishEl.innerHTML = highlightWord(entry.english, currentWord, wordColors.get(currentWord.toLowerCase()));
     thaiEl.textContent = entry.thai;
     audioErrorEl.style.display = 'none';
 
@@ -518,7 +520,7 @@ flashcardContainer, {
       flashcard.onclick = null;
       flashcard.onclick = () => {
         console.log('Playing audio on tap');
-        playAudio(audioUrl, wordColor);
+        playAudio(audioUrl, wordColors.get(currentWord.toLowerCase()));
       };
     } else {
       console.log('No audio available for this entry');
@@ -549,8 +551,7 @@ flashcardContainer, {
 
       const rect = wordEl.getBoundingClientRect();
       const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
-      const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
-
+      const centerY = window.innerHeight / 2 - rect.heightSpotify: Playlists, Podcasts & Audiobooks
       wordEl.style.transition = 'transform 0.7s ease, opacity 0.7s ease';
       wordEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(3)`;
       wordEl.style.zIndex = '20';
@@ -593,20 +594,16 @@ flashcardContainer, {
           }, 4000);
 
           setTimeout(() => {
-            slogan.style.transition = 'transform 1smediaplayer.play();
+            slogan.style.transition = 'transform 1s ease, opacity 1s ease';
             slogan.style.transform = 'translateX(0)';
             slogan.style.opacity = '1';
           }, 4000);
 
-          // Filter and shuffle entries for the selected word
-          currentWordEntries = entries
-            .map((entry, idx) => ({ entry, idx }))
-            .filter(({ entry }) => entry.word.toLowerCase() === word.toLowerCase())
-            .map(({ idx }) => idx);
-          currentWordEntries = shuffleArray(currentWordEntries);
+          // Filter entries for the selected word and shuffle them
+          currentWordEntries = entries.filter(entry => entry.word.toLowerCase() === word.toLowerCase());
+          shuffledIndices = shuffleArray([...Array(currentWordEntries.length).keys()]);
           currentIndex = 0;
           currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
-
           displayEntry(currentIndex);
 
           if (visitCount <= 100) {
@@ -673,21 +670,25 @@ flashcardContainer, {
     if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance && (Date.now() - lastSwipeTime) > tapCooldown) {
       console.log('Tap detected, triggering flashcard click');
       flashcard.click();
-    } else if (swipeDistance > minSwipeDistance && currentIndex < currentWordEntries.length - 1) {
+    } else if (swipeDistance > minSwipeDistance) {
       console.log('Swipe up detected, going to next entry');
       stopAudio();
       setTimeout(() => {
         currentIndex++;
-        currentColorIndex = (currentColorIndex + 1) % colors.length;
+        if (currentIndex >= currentWordEntries.length) {
+          currentIndex = 0; // Loop to start
+        }
         displayEntry(currentIndex);
       }, 0);
       lastSwipeTime = Date.now();
-    } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
+    } else if (swipeDistance < -minSwipeDistance) {
       console.log('Swipe down detected, going to previous entry');
       stopAudio();
       setTimeout(() => {
         currentIndex--;
-        currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+        if (currentIndex < 0) {
+          currentIndex = currentWordEntries.length - 1; // Loop to end
+        }
         displayEntry(currentIndex);
       }, 0);
       lastSwipeTime = Date.now();
@@ -696,21 +697,25 @@ flashcardContainer, {
 
   document.addEventListener('keydown', e => {
     if (flashcardContainer.style.display === 'flex') {
-      if (e.key === 'ArrowUp' && currentIndex < currentWordEntries.length - 1) {
+      if (e.key === 'ArrowUp') {
         console.log('Arrow up pressed, going to next entry');
         stopAudio();
         setTimeout(() => {
           currentIndex++;
-          currentColorIndex = (currentColorIndex + 1) % colors.length;
+          if (currentIndex >= currentWordEntries.length) {
+            currentIndex = 0; // Loop to start
+          }
           displayEntry(currentIndex);
         }, 0);
         lastSwipeTime = Date.now();
-      } else if (e.key === 'ArrowDown' && currentIndex > 0) {
+      } else if (e.key === 'ArrowDown') {
         console.log('Arrow down pressed, going to previous entry');
         stopAudio();
         setTimeout(() => {
           currentIndex--;
-          currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+          if (currentIndex < 0) {
+            currentIndex = currentWordEntries.length - 1; // Loop to end
+          }
           displayEntry(currentIndex);
         }, 0);
         lastSwipeTime = Date.now();
