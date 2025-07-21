@@ -59,7 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function highlightWord(sentence, word, color) {
     const escapedSentence = escapeHTML(sentence);
     const escapedWord = escapeHTML(word);
-    const regex = new RegExp(`\\b${escapedWord}\\b(?![^<]*>)`, 'gi');
+    // Modified regex to match both singular and plural forms (word or word + 's')
+    const regex = new RegExp(`\\b${escapedWord}(s)?\\b(?![^<]*>)`, 'gi');
     return escapedSentence.replace(regex, `<span class="highlight" style="color: ${color}; animation: twinkle 3s infinite;">$&</span>`);
   }
 
@@ -251,8 +252,8 @@ document.addEventListener('DOMContentLoaded', () => {
         audioErrorEl.style.color = '#00ff88';
         audioErrorEl.style.display = 'block';
         setTimeout(() => {
-          audioErrorEl.style.display = 'none';
           audioErrorEl.style.color = '#ff4081';
+          audioErrorEl.style.display = 'none';
         }, 2000);
       } else {
         const url = URL.createObjectURL(blob);
