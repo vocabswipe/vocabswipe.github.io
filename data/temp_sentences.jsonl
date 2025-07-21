@@ -433,7 +433,7 @@
 {"word": "plane", "english": "She waved as the plane took off.", "thai": "เธอโบกมือเมื่อเครื่องบินขึ้น"}
 {"word": "plane", "english": "The plane flew over the ocean.", "thai": "เครื่องบินบินข้ามมหาสมุทร"}
 {"word": "plane", "english": "I forgot my headphones on the plane.", "thai": "ฉันลืมหูฟังไว้บนเครื่องบิน"}
-{"word": "plane", "english": "The plane was struck by lightning.", "thai Lot: "เครื่องบินถูกฟ้าผ่า"}
+{"word": "plane", "english": "The plane was struck by lightning.", "thai" : "เครื่องบินถูกฟ้าผ่า"}
 {"word": "plane", "english": "He’s studying to become a plane mechanic.", "thai": "เขากำลังเรียนเพื่อเป็นช่างเครื่องบิน"}
 {"word": "plane", "english": "The plane’s seats were uncomfortable.", "thai": "ที่นั่งของเครื่องบินไม่สบาย"}
 {"word": "plane", "english": "I watched a movie on the plane.", "thai": "ฉันดูหนังบนเครื่องบิน"}
@@ -890,7 +890,8 @@
 {"word": "sun", "english": "He’s drawing a sun with bright rays.", "thai": "เขากำลังวาดดวงอาทิตย์ที่มีรังสีสว่าง"}
 {"word": "sun", "english": "The sun was perfect for a day out.", "thai": "ดวงอาทิตย์เหมาะสำหรับวันออกไปข้างนอก"}
 {"word": "sun", "english": "I’m lying in the sun by the beach.", "thai": "ฉันนอนในแสงแดดที่ชายหาด"}
-{"word": "sun", "english": "The sun lit up the entire sky.", "thai": "ดวงอาทิตย์สว่างไสวทั้งท้องฟ้า"}{"word": "moon", "english": "The moon was full and bright tonight.", "thai": "ดวงจันทร์เต็มดวงและสว่างในคืนนี้"}
+{"word": "sun", "english": "The sun lit up the entire sky.", "thai": "ดวงอาทิตย์สว่างไสวทั้งท้องฟ้า"}
+{"word": "moon", "english": "The moon was full and bright tonight.", "thai": "ดวงจันทร์เต็มดวงและสว่างในคืนนี้"}
 {"word": "moon", "english": "I love watching the moon rise.", "thai": "ฉันชอบดูดวงจันทร์ขึ้น"}
 {"word": "moon", "english": "The moon cast a glow on the lake.", "thai": "ดวงจันทร์สาดแสงลงบนทะเลสาบ"}
 {"word": "moon", "english": "She’s painting a picture of the moon.", "thai": "เธอกำลังวาดภาพดวงจันทร์"}
@@ -988,7 +989,8 @@
 {"word": "moon", "english": "The moon was shining over the village.", "thai": "ดวงจันทร์ส่องแสงเหนือหมู่บ้าน"}
 {"word": "moon", "english": "I’m reading a book about the moon.", "thai": "ฉันกำลังอ่านหนังสือเกี่ยวกับดวงจันทร์"}
 {"word": "moon", "english": "The moon was perfect for a romantic evening.", "thai": "ดวงจันทร์เหมาะสำหรับค่ำคืนที่โรแมนติก"}
-{"word": "moon", "english": "She’s painting the moon with a soft glow.", "thai": "เธอกำลังวาดดวงจันทร์ที่มีแสงนุ่มนวล"}{"word": "star", "english": "The sky was filled with stars tonight.", "thai": "ท้องฟ้าเต็มไปด้วยดวงดาวในคืนนี้"}
+{"word": "moon", "english": "She’s painting the moon with a soft glow.", "thai": "เธอกำลังวาดดวงจันทร์ที่มีแสงนุ่มนวล"}
+{"word": "star", "english": "The sky was filled with stars tonight.", "thai": "ท้องฟ้าเต็มไปด้วยดวงดาวในคืนนี้"}
 {"word": "star", "english": "I saw a shooting star last night.", "thai": "เมื่อคืนฉันเห็นดาวตก"}
 {"word": "star", "english": "She’s dreaming of being a movie star.", "thai": "เธอกำลังฝันถึงการเป็นดาราภาพยนตร์"}
 {"word": "star", "english": "The star twinkled brightly above.", "thai": "ดวงดาวระยิบระยับสว่างไสวด้านบน"}
@@ -1085,7 +1087,8 @@
 {"word": "star", "english": "I saw a star near the Big Dipper.", "thai": "ฉันเห็นดวงดาวใกล้กลุ่มดาวหมีใหญ่"}
 {"word": "star", "english": "The star made the night feel alive.", "thai": "ดวงดาวทำให้คืนนี้รู้สึกมีชีวิตชีวา"}
 {"word": "star", "english": "She’s writing a poem about a fallen star.", "thai": "เธอกำลังเขียนบทกวีเกี่ยวกับดวงดาวที่ร่วงหล่น"}
-{"word": "star", "english": "The star was glowing over the forest.", "thai": "ดวงดาวเรืองแสงเหนือป่า"}{"word": "sky", "english": "The sky was clear and blue today.", "thai": "ท้องฟ้าโปร่งใสและเป็นสีฟ้าวันนี้"}
+{"word": "star", "english": "The star was glowing over the forest.", "thai": "ดวงดาวเรืองแสงเหนือป่า"}
+{"word": "sky", "english": "The sky was clear and blue today.", "thai": "ท้องฟ้าโปร่งใสและเป็นสีฟ้าวันนี้"}
 {"word": "sky", "english": "I saw a rainbow in the sky.", "thai": "ฉันเห็นรุ้งกินน้ำบนท้องฟ้า"}
 {"word": "sky", "english": "The sky turned orange at sunset.", "thai": "ท้องฟ้าเปลี่ยนเป็นสีส้มตอนพระอาทิตย์ตก"}
 {"word": "sky", "english": "She’s painting a picture of the sky.", "thai": "เธอกำลังวาดภาพท้องฟ้า"}
@@ -1184,7 +1187,8 @@
 {"word": "sky", "english": "I saw a meteor streak across the sky.", "thai": "ฉันเห็นอุกกาบาตพุ่งข้ามท้องฟ้า"}
 {"word": "sky", "english": "The sky was glowing over the forest.", "thai": "ท้องฟ้าเรืองแสงเหนือป่า"}
 {"word": "sky", "english": "She’s writing a poem about the night sky.", "thai": "เธอกำลังเขียนบทกวีเกี่ยวกับท้องฟ้ายามค่ำคืน"}
-{"word": "sky", "english": "The sky was too bright for the moon.", "thai": "ท้องฟ้าสว่างเกินไปสำหรับดวงจันทร์"}{"word": "cloud", "english": "A dark cloud covered the sun.", "thai": "เมฆมืดบดบังดวงอาทิตย์"}
+{"word": "sky", "english": "The sky was too bright for the moon.", "thai": "ท้องฟ้าสว่างเกินไปสำหรับดวงจันทร์"}
+{"word": "cloud", "english": "A dark cloud covered the sun.", "thai": "เมฆมืดบดบังดวงอาทิตย์"}
 {"word": "cloud", "english": "I saw a fluffy cloud in the sky.", "thai": "ฉันเห็นเมฆปุยบนท้องฟ้า"}
 {"word": "cloud", "english": "The cloud looked like a heart.", "thai": "เมฆนั้นดูเหมือนรูปหัวใจ"}
 {"word": "cloud", "english": "She’s painting a cloud on her canvas.", "thai": "เธอกำลังวาดเมฆบนผ้าใบ"}
