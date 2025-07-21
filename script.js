@@ -49,11 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWord(sentence, word, color) {
@@ -61,6 +61,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const escapedWord = escapeHTML(word);
     const regex = new RegExp(`\\b${escapedWord}\\b(?![^<]*>)`, 'gi');
     return escapedSentence.replace(regex, `<span class="highlight" style="color: ${color}; animation: twinkle 3s infinite;">$&</span>`);
+  }
+
+  // Function to generate a random bright color from the visible light spectrum
+  function getRandomBrightColor() {
+    // Hue: 0-360 degrees (full visible spectrum)
+    // Saturation: 100% for vibrant colors
+    // Lightness: 50-70% for brightness
+    const hue = Math.floor(Math.random() * 360);
+    const saturation = 100;
+    const lightness = 50 + Math.random() * 20; // 50-70%
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
   }
 
   function createSpatialGrid(width, height, cellSize = 50) {
@@ -412,15 +423,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Function to generate a random bright color from the visible spectrum
-  function getRandomBrightColor() {
-    // Use HSL color space: random hue (0-360), high saturation (80-100%), high lightness (50-70%)
-    const hue = Math.floor(Math.random() * 360); // Full spectrum of hues
-    const saturation = 80 + Math.random() * 20; // 80-100% for vibrant colors
-    const lightness = 50 + Math.random() * 20; // 50-70% for brightness
-    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-  }
-
   function displayWordCloud() {
     if (!wordFreq || Object.keys(wordFreq).length === 0) {
       wordFreq = {};
@@ -457,7 +459,7 @@ document.addEventListener('DOMContentLoaded', () => {
       wordEl.textContent = word;
       const size = 0.8 + (freq / maxFreq) * 2.2;
       wordEl.style.fontSize = `${size}rem`;
-      const wordColor = getRandomBrightColor(); // Use random bright color
+      const wordColor = getRandomBrightColor(); // Use random HSL color
       wordEl.style.color = wordColor;
       wordColors.set(word.toLowerCase(), wordColor);
       wordEl.style.opacity = '1';
