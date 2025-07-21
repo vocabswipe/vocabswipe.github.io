@@ -248,10 +248,7 @@ body {
   white-space: nowrap;
   max-width: 100%;
   width: 100%;
-}
-
-.word.twinkling {
-  animation: twinkle 3s infinite;
+  animation: twinkle 3s infinite; /* Added twinkle effect */
 }
 
 .sentences {
@@ -270,10 +267,7 @@ body {
 
 .english .highlight {
   font-weight: 700;
-}
-
-.english .highlight.twinkling {
-  animation: twinkle 3s infinite;
+  animation: twinkle 3s infinite; /* Added twinkle effect */
 }
 
 .thai {
