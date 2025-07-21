@@ -33,9 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentScale = 1;
   let translateX = 0;
   let translationY = 0;
-  let is
-
-System: Pinching = false;
+  let isPinching = false;
   let currentAudio = null;
   const preloadedAudio = new Set();
   const CACHE_KEY = 'vocabswipe_data_v1';
@@ -61,8 +59,8 @@ System: Pinching = false;
   function highlightWord(sentence, word, color) {
     const escapedSentence = escapeHTML(sentence);
     const escapedWord = escapeHTML(word);
-    // Modified regex to match both singular and plural forms (word or word + 's')
-    const regex = new RegExp(`\\b${escapedWord}(s)?\\b(?![^<]*>)`, 'gi');
+    // Match any word containing the main word as a substring
+    const regex = new RegExp(`\\b\\w*${escapedWord}\\w*\\b(?![^<]*>)`, 'gi');
     return escapedSentence.replace(regex, `<span class="highlight" style="color: ${color}; animation: twinkle 3s infinite;">$&</span>`);
   }
 
