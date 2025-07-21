@@ -21,13 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const tapTooltip = document.getElementById('tap-tooltip');
 
   let entries = [];
+  let currentEntries = []; // Store filtered entries for the chosen word
   let currentIndex = 0;
   let touchStartY = 0;
   let touchEndY = 0;
   let touchStartTime = 0;
   let lastSwipeTime = 0;
   const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
-  let currentColorIndex = 0;
+  let currentColor = ''; // Store the color of the selected word
   let wordColors = new Map();
   let initialScale = 1;
   let currentScale = 1;
@@ -39,9 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const CACHE_KEY = 'vocabswipe_data_v1';
   let wordFreq = {};
   let wordCaseMap = new Map();
-  let currentWordEntries = []; // Store entries for the current word
-  let shuffledIndices = []; // Store shuffled indices for current word entries
-
   let visitCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
   visitCount += 1;
   localStorage.setItem('visitCount', visitCount.toString());
@@ -63,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const escapedSentence = escapeHTML(sentence);
     const escapedWord = escapeHTML(word);
     const regex = new RegExp(`\\b${escapedWord}\\b(?![^<]*>)`, 'gi');
-    return escapedSentence.replace(regex, `<span class="highlight" style="color: ${color}; animation: twinkle 3s infinite">$&</span>`);
+    return escapedSentence.replace(regex, `<span class="highlight" style="color: ${color}; animation: twinkle 3s infinite;">$&</span>`);
   }
 
   function createSpatialGrid(width, height, cellSize = 50) {
@@ -108,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const right1 = x + width;
       const top1 = y;
       const bottom1 = y + height;
-弄
       const left2 = word.x;
       const right2 = word.x + word.width;
       const top2 = word.y;
@@ -150,11 +147,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function preloadAudio(index) {
     const range = 10;
     const start = Math.max(0, index - range);
-    const end = Math.min(currentWordEntries.length - 1, index + range);
+    const end = Math.min(currentEntries.length - 1, index + range);
 
     for (let i = start; i <= end; i++) {
-      if (i !== index && currentWordEntries[i].audio) {
-        const audioUrl = `/data/${currentWordEntries[i].audio}`;
+      if (i !== index && currentEntries[i].audio) {
+        const audioUrl = `/data/${currentEntries[i].audio}`;
         if (!preloadedAudio.has(audioUrl)) {
           console.log(`Preloading audio: ${audioUrl}`);
           const audio = new Audio(audioUrl);
@@ -415,14 +412,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
-
   function displayWordCloud() {
     if (!wordFreq || Object.keys(wordFreq).length === 0) {
       wordFreq = {};
@@ -495,24 +484,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function displayEntry(index) {
-    if (index < 0 || index >= currentWordEntries.length) {
-      // Loop the deck
-      index = index < 0 ? currentWordEntries.length - 1 : 0;
-      currentIndex = index;
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
     }
-    const entry = currentWordEntries[shuffledIndices[index]];
+    return array;
+  }
+
+  function displayEntry(index) {
+    if (currentEntries.length === 0) return;
+    // Ensure index loops within currentEntries
+    currentIndex = ((index % currentEntries.length) + currentEntries.length) % currentEntries.length;
+    const entry = currentEntries[currentIndex];
     const currentWord = entry.word;
 
     adjustWordSize(currentWord, wordEl, flashcard.offsetWidth);
-    wordEl.style.color = wordColors.get(currentWord.toLowerCase());
-    wordEl.style.animation = 'twinkle 3s infinite'; // Apply twinkle effect
+    wordEl.style.color = currentColor;
+    wordEl.style.animation = 'twinkle 3s infinite'; // Apply twinkle animation
+    wordEl.style.textShadow = '0 0 2px rgba(255, 255, 255, 0.3)';
 
-    englishEl.innerHTML = highlightWord(entry.english, currentWord, wordColors.get(currentWord.toLowerCase()));
+    englishEl.innerHTML = highlightWord(entry.english, currentWord, currentColor);
     thaiEl.textContent = entry.thai;
     audioErrorEl.style.display = 'none';
 
-    preloadAudio(index);
+    preloadAudio(currentIndex);
 
     if (entry.audio) {
       const audioUrl = `/data/${entry.audio}`;
@@ -520,7 +516,7 @@ document.addEventListener('DOMContentLoaded', () => {
       flashcard.onclick = null;
       flashcard.onclick = () => {
         console.log('Playing audio on tap');
-        playAudio(audioUrl, wordColors.get(currentWord.toLowerCase()));
+        playAudio(audioUrl, currentColor);
       };
     } else {
       console.log('No audio available for this entry');
@@ -551,7 +547,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const rect = wordEl.getBoundingClientRect();
       const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
-      const centerY = window.innerHeight / 2 - rect.heightSpotify: Playlists, Podcasts & Audiobooks
+      const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
+
       wordEl.style.transition = 'transform 0.7s ease, opacity 0.7s ease';
       wordEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(3)`;
       wordEl.style.zIndex = '20';
@@ -599,11 +596,11 @@ document.addEventListener('DOMContentLoaded', () => {
             slogan.style.opacity = '1';
           }, 4000);
 
-          // Filter entries for the selected word and shuffle them
-          currentWordEntries = entries.filter(entry => entry.word.toLowerCase() === word.toLowerCase());
-          shuffledIndices = shuffleArray([...Array(currentWordEntries.length).keys()]);
+          // Filter entries for the selected word and randomize
+          currentEntries = entries.filter(entry => entry.word.toLowerCase() === word.toLowerCase());
+          currentEntries = shuffleArray([...currentEntries]); // Randomize the filtered entries
           currentIndex = 0;
-          currentColorIndex = colors.indexOf(wordColors.get(word.toLowerCase()));
+          currentColor = wordColors.get(word.toLowerCase()); // Set the color for the flashcard
           displayEntry(currentIndex);
 
           if (visitCount <= 100) {
@@ -675,10 +672,7 @@ document.addEventListener('DOMContentLoaded', () => {
       stopAudio();
       setTimeout(() => {
         currentIndex++;
-        if (currentIndex >= currentWordEntries.length) {
-          currentIndex = 0; // Loop to start
-        }
-        displayEntry(currentIndex);
+        displayEntry(currentIndex); // Looping handled in displayEntry
       }, 0);
       lastSwipeTime = Date.now();
     } else if (swipeDistance < -minSwipeDistance) {
@@ -686,10 +680,7 @@ document.addEventListener('DOMContentLoaded', () => {
       stopAudio();
       setTimeout(() => {
         currentIndex--;
-        if (currentIndex < 0) {
-          currentIndex = currentWordEntries.length - 1; // Loop to end
-        }
-        displayEntry(currentIndex);
+        displayEntry(currentIndex); // Looping handled in displayEntry
       }, 0);
       lastSwipeTime = Date.now();
     }
@@ -702,10 +693,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stopAudio();
         setTimeout(() => {
           currentIndex++;
-          if (currentIndex >= currentWordEntries.length) {
-            currentIndex = 0; // Loop to start
-          }
-          displayEntry(currentIndex);
+          displayEntry(currentIndex); // Looping handled in displayEntry
         }, 0);
         lastSwipeTime = Date.now();
       } else if (e.key === 'ArrowDown') {
@@ -713,10 +701,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stopAudio();
         setTimeout(() => {
           currentIndex--;
-          if (currentIndex < 0) {
-            currentIndex = currentWordEntries.length - 1; // Loop to end
-          }
-          displayEntry(currentIndex);
+          displayEntry(currentIndex); // Looping handled in displayEntry
         }, 0);
         lastSwipeTime = Date.now();
       } else if (e.key === ' ') {
