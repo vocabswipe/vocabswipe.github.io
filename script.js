@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let touchEndY = 0;
   let touchStartTime = 0;
   let lastSwipeTime = 0;
-  const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
   let currentColor = ''; // Store the color of the selected word
   let wordColors = new Map();
   let initialScale = 1;
@@ -62,6 +61,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const escapedWord = escapeHTML(word);
     const regex = new RegExp(`\\b${escapedWord}\\b(?![^<]*>)`, 'gi');
     return escapedSentence.replace(regex, `<span class="highlight" style="color: ${color}; animation: twinkle 3s infinite;">$&</span>`);
+  }
+
+  // Function to generate a random bright color from the visible light spectrum
+  function getRandomBrightColor() {
+    // Hue: 0-360 degrees (full visible spectrum)
+    // Saturation: 100% for vibrant colors
+    // Lightness: 50-70% for brightness
+    const hue = Math.floor(Math.random() * 360);
+    const saturation = 100;
+    const lightness = 50 + Math.random() * 20; // 50-70%
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
   }
 
   function createSpatialGrid(width, height, cellSize = 50) {
@@ -360,7 +370,8 @@ document.addEventListener('DOMContentLoaded', () => {
   async function loadData() {
     try {
       wordCloud.style.display = 'block';
-      loadingIndicator.style.display = 'block';
+      // Remove or comment out the line that shows the loading indicator
+      // loadingIndicator.style.display = 'block';
       loadingIndicator.style.opacity = '1';
 
       // Clear cache to ensure fetching the latest database
@@ -448,7 +459,7 @@ document.addEventListener('DOMContentLoaded', () => {
       wordEl.textContent = word;
       const size = 0.8 + (freq / maxFreq) * 2.2;
       wordEl.style.fontSize = `${size}rem`;
-      const wordColor = colors[Math.floor(Math.random() * colors.length)];
+      const wordColor = getRandomBrightColor(); // Use random HSL color
       wordEl.style.color = wordColor;
       wordColors.set(word.toLowerCase(), wordColor);
       wordEl.style.opacity = '1';
