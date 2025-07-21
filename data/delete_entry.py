@@ -1,8 +1,8 @@
 # File: delete_entry.py
 import json
 import os
-import re
 from pathlib import Path
+import re
 
 def load_database(file_path):
     """Load the JSONL database into a list of dictionaries."""
@@ -13,10 +13,10 @@ def load_database(file_path):
                 data.append(json.loads(line.strip()))
         return data
     except FileNotFoundError:
-        print("Error: database.jsonl file not found.")
+        print("🚫 Error: database.jsonl file not found.")
         return []
     except json.JSONDecodeError:
-        print("Error: Invalid JSON format in database.jsonl.")
+        print("🚫 Error: Invalid JSON format in database.jsonl.")
         return []
 
 def save_database(file_path, data):
@@ -25,36 +25,6 @@ def save_database(file_path, data):
         for entry in data:
             file.write(json.dumps(entry, ensure_ascii=False) + '\n')
 
-def is_valid_english(text):
-    """Check if text contains only English letters, numbers, and basic punctuation."""
-    # Allow letters (a-z, A-Z), numbers, spaces, and common punctuation
-    pattern = r'^[a-zA-Z0-9\s.,!?\'"-]+$'
-    return bool(re.match(pattern, text))
-
-def is_valid_thai(text):
-    """Check if text contains only Thai characters, English letters, numbers, and basic punctuation."""
-    # Allow Thai characters (U+0E00–U+0E7F), English letters, numbers, spaces, and punctuation
-    pattern = r'^[\u0E00-\u0E7Fa-zA-Z0-9\s.,!?\'"-]+$'
-    return bool(re.match(pattern, text))
-
-def find_invalid_entries(data):
-    """Find entries with unwanted characters (e.g., Chinese, Russian) in any field."""
-    invalid_entries = []
-    for entry in data:
-        issues = []
-        # Check word field (English only)
-        if 'word' in entry and not is_valid_english(entry['word']):
-            issues.append(f"Word contains invalid characters: {entry['word']}")
-        # Check english field (English only)
-        if 'english' in entry and not is_valid_english(entry['english']):
-            issues.append(f"English sentence contains invalid characters: {entry['english']}")
-        # Check thai field (Thai or English only)
-        if 'thai' in entry and not is_valid_thai(entry['thai']):
-            issues.append(f"Thai sentence contains invalid characters: {entry['thai']}")
-        if issues:
-            invalid_entries.append((entry, issues))
-    return invalid_entries
-
 def search_entries(data, search_term):
     """Search for entries where the English sentence contains the search term."""
     return [
@@ -62,134 +32,124 @@ def search_entries(data, search_term):
         if search_term.lower() in entry.get('english', '').lower()
     ]
 
-def display_entries(entries, invalid=False):
-    """Display numbered list of entries (invalid or search results)."""
+def detect_unwanted_chars(text):
+    """Detect if text contains Chinese or Russian characters."""
+    # Chinese characters (basic range: \u4e00-\u9fff)
+    # Russian (Cyrillic) characters (basic range: \u0400-\u04ff)
+    unwanted_pattern = re.compile(r'[\u4e00-\u9fff\u0400-\u04ff]')
+    return bool(unwanted_pattern.search(text))
+
+def scan_unwanted_entries(data):
+    """Scan database for entries with unwanted characters in word, english, or thai fields."""
+    unwanted_entries = []
+    for entry in data:
+        word = entry.get('word', '')
+        english = entry.get('english', '')
+        thai = entry.get('thai', '')
+        if detect_unwanted_chars(word) or detect_unwanted_chars(english) or detect_unwanted_chars(thai):
+            unwanted_entries.append(entry)
+    return unwanted_entries
+
+def display_entries(entries, title="Matching Entries"):
+    """Display numbered list of entries with a given title."""
     if not entries:
-        print("\nNo entries found.")
-        return
-    print("\nMatching entries:" if not invalid else "\nEntries with invalid characters:")
-    print("-" * 60)
-    for idx, item in enumerate(entries, 1):
-        entry = item[0] if invalid else item
+        print(f"\nℹ️ No {title.lower()} found.")
+        return False
+    print(f"\n📋 {title}:")
+    print("═" * 60)
+    for idx, entry in enumerate(entries, 1):
         print(f"{idx}. Word: {entry['word']}")
         print(f"   English: {entry['english']}")
         print(f"   Thai: {entry['thai']}")
-        if invalid:
-            print(f"   Issues: {'; '.join(item[1])}")
-        print("-" * 60)
+        print("─" * 60)
+    return True
 
-def handle_invalid_entries(data, database_file):
-    """Handle deletion of entries with invalid characters."""
-    invalid_entries = find_invalid_entries(data)
-    if not invalid_entries:
-        print("\nNo entries with invalid characters found.")
-        return data
+def display_menu():
+    """Display the main menu."""
+    print("\n=== 📖 Dictionary Entry Management ===")
+    print("1️⃣ Search and delete by English sentence")
+    print("2️⃣ Scan and delete entries with unwanted characters (e.g., Chinese, Russian)")
+    print("0️⃣ Exit")
+    print("═" * 60)
 
-    print("\n=== Entries with Unwanted Characters ===")
-    print("The following entries contain invalid characters (e.g., Chinese, Russian).")
-    display_entries(invalid_entries, invalid=True)
-
-    while True:
-        try:
-            selection = input("\nEnter the number of the entry to delete (0 to skip, 'all' to delete all, 'q' to quit): ").strip().lower()
-            if selection == 'q':
-                print("Skipping invalid character deletion.")
-                return data
-            if selection == '0':
-                print("No entries deleted.")
-                return data
-            if selection == 'all':
-                confirm = input("\nAre you sure you want to delete ALL entries with invalid characters? (y/n): ").strip().lower()
-                if confirm == 'y':
-                    for entry, _ in invalid_entries:
-                        data.remove(entry)
-                    print(f"\nDeleted {len(invalid_entries)} entries successfully.")
-                    save_database(database_file, data)
-                    print(f"Database updated and saved to '{database_file}'.")
-                    return data
-                else:
-                    print("Deletion cancelled.")
-                    continue
-
-            selection = int(selection)
-            if selection < 1 or selection > len(invalid_entries):
-                print("Error: Invalid selection.")
-                continue
-
-            # Confirm deletion
-            selected_entry, issues = invalid_entries[selection - 1]
-            print("\nYou selected the following entry for deletion:")
-            print("-" * 60)
-            print(f"Word: {selected_entry['word']}")
-            print(f"English: {selected_entry['english']}")
-            print(f"Thai: {selected_entry['thai']}")
-            print(f"Issues: {'; '.join(issues)}")
-            print("-" * 60)
-
-            confirm = input("\nAre you sure you want to delete this entry? (y/n): ").strip().lower()
-            if confirm == 'y':
-                data.remove(selected_entry)
-                print("\nEntry deleted successfully.")
-                save_database(database_file, data)
-                print(f"Database updated and saved to '{database_file}'.")
-                return data
-            else:
-                print("Deletion cancelled.")
-                continue
-        except ValueError:
-            print("Error: Please enter a valid number, 'all', or 'q'.")
-            continue
-
-def handle_search_deletion(data, database_file):
-    """Handle deletion of entries based on search term."""
-    print("\n=== Delete Entry by Search ===")
-    search_term = input("\nEnter part of the English sentence to search (e.g., 'pick up some milk'): ").strip()
+def handle_search_delete(data, database_file):
+    """Handle deletion by searching English sentence."""
+    search_term = input("\n🔍 Enter part of the English sentence to search (e.g., 'pick up some milk'): ").strip()
     if not search_term:
-        print("Error: Search term cannot be empty.")
-        return data
+        print("🚫 Error: Search term cannot be empty.")
+        return False
 
-    # Find matching entries
     matching_entries = search_entries(data, search_term)
-    if not matching_entries:
-        print("\nNo entries found matching your search.")
-        return data
+    if not display_entries(matching_entries, "Matching Entries"):
+        return False
 
-    # Display matching entries
-    display_entries(matching_entries)
-
-    # Get user selection
     try:
-        selection = int(input("\nEnter the number of the entry to delete (or 0 to cancel): "))
+        selection = int(input("\n✏️ Enter the number of the entry to delete (or 0 to cancel): "))
         if selection == 0:
-            print("Operation cancelled.")
-            return data
+            print("ℹ️ Operation cancelled.")
+            return False
         if selection < 1 or selection > len(matching_entries):
-            print("Error: Invalid selection.")
-            return data
+            print("🚫 Error: Invalid selection.")
+            return False
     except ValueError:
-        print("Error: Please enter a valid number.")
-        return data
+        print("🚫 Error: Please enter a valid number.")
+        return False
 
-    # Confirm deletion
     selected_entry = matching_entries[selection - 1]
-    print("\nYou selected the following entry for deletion:")
-    print("-" * 60)
+    print("\n🗑️ You selected the following entry for deletion:")
+    print("═" * 60)
     print(f"Word: {selected_entry['word']}")
     print(f"English: {selected_entry['english']}")
     print(f"Thai: {selected_entry['thai']}")
-    print("-" * 60)
-    
-    confirm = input("\nAre you sure you want to delete this entry? (y/n): ").strip().lower()
-    if confirm != 'y':
-        print("Deletion cancelled.")
-        return data
+    print("═" * 60)
 
-    # Remove the selected entry
+    confirm = input("\n❓ Are you sure you want to delete this entry? (y/n): ").strip().lower()
+    if confirm != 'y':
+        print("ℹ️ Deletion cancelled.")
+        return False
+
     data.remove(selected_entry)
-    print("\nEntry deleted successfully.")
+    print("\n✅ Entry deleted successfully.")
     save_database(database_file, data)
-    print(f"Database updated and saved to '{database_file}'.")
-    return data
+    print(f"💾 Database updated and saved to '{database_file}'.")
+    return True
+
+def handle_unwanted_chars_delete(data, database_file):
+    """Handle deletion of entries with unwanted characters."""
+    unwanted_entries = scan_unwanted_entries(data)
+    if not display_entries(unwanted_entries, "Entries with Unwanted Characters"):
+        return False
+
+    try:
+        selection = int(input("\n✏️ Enter the number of the entry to delete (or 0 to cancel): "))
+        if selection == 0:
+            print("ℹ️ Operation cancelled.")
+            return False
+        if selection < 1 or selection > len(unwanted_entries):
+            print("🚫 Error: Invalid selection.")
+            return False
+    except ValueError:
+        print("🚫 Error: Please enter a valid number.")
+        return False
+
+    selected_entry = unwanted_entries[selection - 1]
+    print("\n🗑️ You selected the following entry for deletion:")
+    print("═" * 60)
+    print(f"Word: {selected_entry['word']}")
+    print(f"English: {selected_entry['english']}")
+    print(f"Thai: {selected_entry['thai']}")
+    print("═" * 60)
+
+    confirm = input("\n❓ Are you sure you want to delete this entry? (y/n): ").strip().lower()
+    if confirm != 'y':
+        print("ℹ️ Deletion cancelled.")
+        return False
+
+    data.remove(selected_entry)
+    print("\n✅ Entry deleted successfully.")
+    save_database(database_file, data)
+    print(f"💾 Database updated and saved to '{database_file}'.")
+    return True
 
 def main():
     database_file = 'database.jsonl'
@@ -197,25 +157,23 @@ def main():
     # Load the database
     data = load_database(database_file)
     if not data:
-        print("Exiting due to database error.")
+        print("🚫 Exiting due to database error.")
         return
 
     while True:
-        print("\n=== Delete Entry from Database ===")
-        print("1. Check for entries with invalid characters (e.g., Chinese, Russian)")
-        print("2. Search and delete by English sentence")
-        print("3. Exit")
-        choice = input("\nSelect an option (1-3): ").strip()
+        display_menu()
+        choice = input("\n➡️ Enter your choice (0-2): ").strip()
+        print()
 
-        if choice == '1':
-            data = handle_invalid_entries(data, database_file)
-        elif choice == '2':
-            data = handle_search_deletion(data, database_file)
-        elif choice == '3':
-            print("Exiting program.")
+        if choice == '0':
+            print("👋 Exiting Dictionary Entry Management.")
             break
+        elif choice == '1':
+            handle_search_delete(data, database_file)
+        elif choice == '2':
+            handle_unwanted_chars_delete(data, database_file)
         else:
-            print("Error: Invalid option. Please select 1, 2, or 3.")
+            print("🚫 Invalid choice. Please select 0, 1, or 2.")
 
 if __name__ == "__main__":
     main()
