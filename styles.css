@@ -87,15 +87,6 @@ body {
   transition: opacity 0.3s ease;
 }
 
-.word-cloud-lines {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-  z-index: 5;
-}
-
 @keyframes twinkle {
   0% {
     opacity: 0.6;
@@ -150,91 +141,6 @@ body {
 .logo-container {
   text-align: center;
   margin-bottom: 20px;
-}
-
-.highlight-words-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  width: 100%;
-  min-height: 1.4rem;
-}
-
-.highlight-word-group {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  position: relative;
-  transition: opacity 0.3s ease;
-}
-
-.highlight-word {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  line-height: 1.4;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  background: none;
-}
-
-.highlight-word.current-word {
-  order: -1;
-  transform: translateX(-300px);
-  opacity: 0;
-}
-
-.highlight-word.next-word {
-  transform: translateX(300px);
-  opacity: 0;
-}
-
-.highlight-word-group.glow {
-  animation: group-glow 0.5s ease-in-out;
-}
-
-@keyframes group-glow {
-  0% {
-    text-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
-  }
-  50% {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-  }
-  100% {
-    text-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
-  }
-}
-
-.highlight-word-line {
-  transition: opacity 0.3s ease;
-  z-index: 5;
-}
-
-.highlight-word-line line {
-  transition: stroke-opacity 0.5s ease;
-}
-
-.highlight-word-group.glow .highlight-word-line line {
-  animation: glow-line 0.5s ease-in-out;
-}
-
-@keyframes glow-line {
-  0% {
-    stroke: #ffffff;
-    stroke-opacity: 0.10;
-  }
-  50% {
-    stroke: #ffffff;
-    stroke-opacity: 0.3;
-  }
-  100% {
-    stroke: #ffffff;
-    stroke-opacity: 0.10;
-  }
 }
 
 .logo-wrapper {
@@ -651,21 +557,5 @@ svg.filters {
 
   .tooltip-text {
     font-size: 0.9rem;
-  }
-
-  .highlight-word {
-    font-size: 1.1rem;
-  }
-
-  .highlight-word-group {
-    gap: 20px;
-  }
-
-  .highlight-word.current-word {
-    transform: translateX(-200px);
-  }
-
-  .highlight-word.next-word {
-    transform: translateX(200px);
   }
 }
