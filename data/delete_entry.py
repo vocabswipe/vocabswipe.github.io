@@ -19,7 +19,7 @@ def load_database(file_path):
         return []
 
 def save_database(file_path, data):
-    """Save the modified data back to a new JSONL file."""
+    """Save the modified data back to the original JSONL file."""
     with open(file_path, 'w', encoding='utf-8') as file:
         for entry in data:
             file.write(json.dumps(entry, ensure_ascii=False) + '\n')
@@ -46,7 +46,6 @@ def display_entries(entries):
 
 def main():
     database_file = 'database.jsonl'
-    output_file = 'database_updated.jsonl'
 
     # Load the database
     data = load_database(database_file)
@@ -100,9 +99,9 @@ def main():
     data.remove(selected_entry)
     print("\nEntry deleted successfully.")
 
-    # Save to a new file
-    save_database(output_file, data)
-    print(f"Updated database saved as '{output_file}'.")
+    # Overwrite the original database file
+    save_database(database_file, data)
+    print(f"Database updated and saved to '{database_file}'.")
 
 if __name__ == "__main__":
     main()
