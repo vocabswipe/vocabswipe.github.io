@@ -33,7 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentScale = 1;
   let translateX = 0;
   let translationY = 0;
-  let isPinching = false;
+  let is
+
+System: Pinching = false;
   let currentAudio = null;
   const preloadedAudio = new Set();
   const CACHE_KEY = 'vocabswipe_data_v1';
@@ -64,14 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
     return escapedSentence.replace(regex, `<span class="highlight" style="color: ${color}; animation: twinkle 3s infinite;">$&</span>`);
   }
 
-  // Function to generate a random bright color from the visible light spectrum
   function getRandomBrightColor() {
-    // Hue: 0-360 degrees (full visible spectrum)
-    // Saturation: 100% for vibrant colors
-    // Lightness: 50-70% for brightness
     const hue = Math.floor(Math.random() * 360);
     const saturation = 100;
-    const lightness = 50 + Math.random() * 20; // 50-70%
+    const lightness = 50 + Math.random() * 20;
     return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
   }
 
@@ -371,15 +369,14 @@ document.addEventListener('DOMContentLoaded', () => {
   async function loadData() {
     try {
       wordCloud.style.display = 'block';
-      // Remove or comment out the line that shows the loading indicator
-      // loadingIndicator.style.display = 'block';
       loadingIndicator.style.opacity = '1';
 
       // Clear cache to ensure fetching the latest database
       localStorage.removeItem(CACHE_KEY);
 
       console.log('Fetching data/database.jsonl...');
-      const response = await fetch('data/database.jsonl', {
+      const cacheBuster = Date.now(); // Add cache-busting query parameter
+      const response = await fetch(`data/database.jsonl?cb=${cacheBuster}`, {
         cache: 'no-store' // Prevent caching to fetch the latest file
       });
       if (!response.ok) {
@@ -460,7 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
       wordEl.textContent = word;
       const size = 0.8 + (freq / maxFreq) * 2.2;
       wordEl.style.fontSize = `${size}rem`;
-      const wordColor = getRandomBrightColor(); // Use random HSL color
+      const wordColor = getRandomBrightColor();
       wordEl.style.color = wordColor;
       wordColors.set(word.toLowerCase(), wordColor);
       wordEl.style.opacity = '1';
@@ -506,14 +503,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function displayEntry(index) {
     if (currentEntries.length === 0) return;
-    // Ensure index loops within currentEntries
     currentIndex = ((index % currentEntries.length) + currentEntries.length) % currentEntries.length;
     const entry = currentEntries[currentIndex];
     const currentWord = entry.word;
 
     adjustWordSize(currentWord, wordEl, flashcard.offsetWidth);
     wordEl.style.color = currentColor;
-    wordEl.style.animation = 'twinkle 3s infinite'; // Apply twinkle animation
+    wordEl.style.animation = 'twinkle 3s infinite';
     wordEl.style.textShadow = '0 0 2px rgba(255, 255, 255, 0.3)';
 
     englishEl.innerHTML = highlightWord(entry.english, currentWord, currentColor);
@@ -557,12 +553,10 @@ document.addEventListener('DOMContentLoaded', () => {
       translateX = 0;
       translationY = 0;
 
-      // Calculate the maximum width as 90% of the viewport width
       const maxWordWidth = window.innerWidth * 0.9;
-      // Set initial font size and adjust to fit within maxWordWidth
       wordEl.style.fontSize = '3rem';
       wordEl.style.maxWidth = `${maxWordWidth}px`;
-      wordEl.style.whiteSpace = 'normal'; // Allow wrapping if necessary
+      wordEl.style.whiteSpace = 'normal';
       let fontSize = parseFloat(window.getComputedStyle(wordEl).fontSize);
       while (wordEl.scrollWidth > maxWordWidth && fontSize > 1) {
         fontSize -= 0.1;
@@ -573,7 +567,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
       const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
 
-      // Calculate scale factor to ensure the word fits within maxWordWidth
       const currentWidth = rect.width;
       const targetWidth = Math.min(currentWidth * 3, maxWordWidth);
       const scaleFactor = Math.min(3, targetWidth / currentWidth);
@@ -590,9 +583,9 @@ document.addEventListener('DOMContentLoaded', () => {
           wordEl.style.transform = 'none';
           wordEl.style.opacity = '1';
           wordEl.style.zIndex = '10';
-          wordEl.style.maxWidth = ''; // Reset max-width
-          wordEl.style.whiteSpace = 'nowrap'; // Reset to nowrap
-          wordEl.style.fontSize = ''; // Reset font size
+          wordEl.style.maxWidth = '';
+          wordEl.style.whiteSpace = 'nowrap';
+          wordEl.style.fontSize = '';
 
           flashcardContainer.style.display = 'flex';
           flashcardContainer.style.opacity = '0';
@@ -628,14 +621,13 @@ document.addEventListener('DOMContentLoaded', () => {
             slogan.style.opacity = '1';
           }, 4000);
 
-          // Filter entries for the selected word and randomize
           currentEntries = entries.filter(entry => entry.word.toLowerCase() === word.toLowerCase());
-          currentEntries = shuffleArray([...currentEntries]); // Randomize the filtered entries
+          currentEntries = shuffleArray([...currentEntries]);
           currentIndex = 0;
-          currentColor = wordColors.get(word.toLowerCase()); // Set the color for the flashcard
+          currentColor = wordColors.get(word.toLowerCase());
           displayEntry(currentIndex);
 
-          if (visitCount <= 5) { // number of visits to display tooltip animation for first time users (100)
+          if (visitCount <= 5) {
             setTimeout(() => {
               showTooltip(swipeUpTooltip, 'up');
               setTimeout(() => {
@@ -704,7 +696,7 @@ document.addEventListener('DOMContentLoaded', () => {
       stopAudio();
       setTimeout(() => {
         currentIndex++;
-        displayEntry(currentIndex); // Looping handled in displayEntry
+        displayEntry(currentIndex);
       }, 0);
       lastSwipeTime = Date.now();
     } else if (swipeDistance < -minSwipeDistance) {
@@ -712,7 +704,7 @@ document.addEventListener('DOMContentLoaded', () => {
       stopAudio();
       setTimeout(() => {
         currentIndex--;
-        displayEntry(currentIndex); // Looping handled in displayEntry
+        displayEntry(currentIndex);
       }, 0);
       lastSwipeTime = Date.now();
     }
@@ -725,7 +717,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stopAudio();
         setTimeout(() => {
           currentIndex++;
-          displayEntry(currentIndex); // Looping handled in displayEntry
+          displayEntry(currentIndex);
         }, 0);
         lastSwipeTime = Date.now();
       } else if (e.key === 'ArrowDown') {
@@ -733,7 +725,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stopAudio();
         setTimeout(() => {
           currentIndex--;
-          displayEntry(currentIndex); // Looping handled in displayEntry
+          displayEntry(currentIndex);
         }, 0);
         lastSwipeTime = Date.now();
       } else if (e.key === ' ') {
