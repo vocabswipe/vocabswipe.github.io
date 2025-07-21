@@ -250,6 +250,10 @@ body {
   width: 100%;
 }
 
+.word.twinkling {
+  animation: twinkle 3s infinite;
+}
+
 .sentences {
   display: flex;
   flex-direction: column;
@@ -266,6 +270,10 @@ body {
 
 .english .highlight {
   font-weight: 700;
+}
+
+.english .highlight.twinkling {
+  animation: twinkle 3s infinite;
 }
 
 .thai {
