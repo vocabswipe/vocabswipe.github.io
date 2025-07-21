@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const swipeUpTooltip = document.getElementById('swipe-up-tooltip');
   const swipeDownTooltip = document.getElementById('swipe-down-tooltip');
   const tapTooltip = document.getElementById('tap-tooltip');
-  const highlightWordsContainer = document.getElementById('highlight-words-container');
 
   let entries = [];
   let currentIndex = 0;
@@ -38,12 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentAudio = null;
   const preloadedAudio = new Set();
   const CACHE_KEY = 'vocabswipe_data_v1';
-  let wordTimeouts = [];
-  let lastWordIndex = 0;
-  let placedWords = [];
-  let spatialGrid = null;
-  let wordCloudSvg = null;
-  let wordArray = [];
   let wordFreq = {};
   let wordCaseMap = new Map();
 
@@ -57,22 +50,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, '');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
-  function highlightWords(sentence, wordsToHighlight) {
-    let escapedSentence = escapeHTML(sentence);
-    wordsToHighlight.sort((a, b) => b.word.length - a.word.length);
-    for (const { word, color } of wordsToHighlight) {
-      const escapedWord = escapeHTML(word);
-      const regex = new RegExp(`\\b${escapedWord}\\b(?![^<]*>)`, 'gi');
-      escapedSentence = escapedSentence.replace(regex, `<span class="highlight" style="color: ${color};">$&</span>`);
-    }
-    return escapedSentence;
+  function highlightWord(sentence, word, color) {
+    const escapedSentence = escapeHTML(sentence);
+    const escapedWord = escapeHTML(word);
+    const regex = new RegExp(`\\b${escapedWord}\\b(?![^<]*>)`, 'gi');
+    return escapedSentence.replace(regex, `<span class="highlight" style="color: ${color};">$&</span>`);
   }
 
   function createSpatialGrid(width, height, cellSize = 50) {
@@ -226,7 +215,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   shareIcon.addEventListener('click', async () => {
     try {
-      // Capture the flashcard area instead of the entire body for better mobile sharing
       const canvas = await html2canvas(flashcardContainer, {
         width: flashcardContainer.offsetWidth,
         height: flashcardContainer.offsetHeight,
@@ -254,10 +242,9 @@ document.addEventListener('DOMContentLoaded', () => {
         audioErrorEl.style.display = 'block';
         setTimeout(() => {
           audioErrorEl.style.display = 'none';
-          audioErrorEl.style.color = '#ff4081'; // Reset color
+          audioErrorEl.style.color = '#ff4081';
         }, 2000);
       } else {
-        // Fallback for devices that don't support Web Share API with files
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
@@ -376,23 +363,13 @@ document.addEventListener('DOMContentLoaded', () => {
       loadingIndicator.style.display = 'block';
       loadingIndicator.style.opacity = '1';
 
-      const cachedData = localStorage.getItem(CACHE_KEY);
-      if (cachedData) {
-        console.log('Loading data from localStorage cache');
-        entries = JSON.parse(cachedData);
-        if (entries.length > 0) {
-          loadingIndicator.style.transition = 'opacity 0.3s ease';
-          loadingIndicator.style.opacity = '0';
-          setTimeout(() => {
-            loadingIndicator.style.display = 'none';
-            displayWordCloud(0);
-          }, 300);
-          return;
-        }
-      }
+      // Clear cache to ensure fetching the latest database
+      localStorage.removeItem(CACHE_KEY);
 
       console.log('Fetching data/database.jsonl...');
-      const response = await fetch('data/database.jsonl');
+      const response = await fetch('data/database.jsonl', {
+        cache: 'no-store' // Prevent caching to fetch the latest file
+      });
       if (!response.ok) {
         throw new Error(`Failed to fetch data/database.jsonl: ${response.status} ${response.statusText}`);
       }
@@ -418,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
       loadingIndicator.style.opacity = '0';
       setTimeout(() => {
         loadingIndicator.style.display = 'none';
-        displayWordCloud(0);
+        displayWordCloud();
       }, 300);
     } catch (error) {
       console.error('LoadData Error:', error);
@@ -435,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function displayWordCloud(startIndex = 0) {
+  function displayWordCloud() {
     if (!wordFreq || Object.keys(wordFreq).length === 0) {
       wordFreq = {};
       wordCaseMap = new Map();
@@ -460,197 +437,51 @@ document.addEventListener('DOMContentLoaded', () => {
     wordCloud.style.width = `${containerWidth}px`;
     wordCloud.style.height = `${containerHeight}px`;
 
-    if (startIndex === 0) {
-      wordCloud.innerHTML = '';
-      wordCloud.appendChild(loadingIndicator);
-      placedWords = [];
-      spatialGrid = createSpatialGrid(containerWidth, containerHeight);
-      wordCloudSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      wordCloudSvg.className = 'word-cloud-lines';
-      wordCloudSvg.style.position = 'absolute';
-      wordCloudSvg.style.top = '0';
-      wordCloudSvg.style.left = '0';
-      wordCloudSvg.style.width = `${containerWidth}px`;
-      wordCloudSvg.style.height = `${containerHeight}px`;
-      wordCloudSvg.style.zIndex = '5';
-      wordCloudSvg.style.pointerEvents = 'none';
-      wordCloud.appendChild(wordCloudSvg);
-    } else {
-      document.querySelectorAll('.cloud-word').forEach(word => {
-        word.style.transition = 'opacity 0.3s ease';
-        word.style.opacity = '1';
-        const duration = 2 + Math.random() * 3;
-        const delay = Math.random() * 3;
-        word.style.animation = `twinkle ${duration}s infinite ${delay}s`;
-      });
-      if (wordCloudSvg) {
-        wordCloudSvg.style.transition = 'opacity 0.3s ease';
-        wordCloudSvg.style.opacity = '1';
+    wordCloud.innerHTML = '';
+    wordCloud.appendChild(loadingIndicator);
+    const placedWords = [];
+    const spatialGrid = createSpatialGrid(containerWidth, containerHeight);
+
+    wordArray.forEach(({ word, freq }) => {
+      const wordEl = document.createElement('div');
+      wordEl.className = 'cloud-word';
+      wordEl.textContent = word;
+      const size = 0.8 + (freq / maxFreq) * 2.2;
+      wordEl.style.fontSize = `${size}rem`;
+      const wordColor = colors[Math.floor(Math.random() * colors.length)];
+      wordEl.style.color = wordColor;
+      wordColors.set(word.toLowerCase(), wordColor);
+      wordEl.style.opacity = '1';
+      const duration = 2 + Math.random() * 3;
+      const delay = Math.random() * 3;
+      wordEl.style.animation = `twinkle ${duration}s infinite ${delay}s`;
+      wordCloud.appendChild(wordEl);
+
+      const { width, height } = wordEl.getBoundingClientRect();
+      let x, y, placed = false;
+      const maxAttempts = 500;
+
+      for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
+        x = Math.random() * (containerWidth - width);
+        y = Math.random() * (containerHeight - height);
+        if (!isOverlapping(x, y, width, height, spatialGrid)) {
+          wordEl.style.left = `${x}px`;
+          wordEl.style.top = `${y}px`;
+          const wordObj = { x, y, width, height, word, element: wordEl };
+          placedWords.push(wordObj);
+          spatialGrid.addToGrid(x, y, width, height, wordObj);
+          placed = true;
+        }
       }
-    }
 
-    if (wordArray.length === 0) {
-      wordCloud.innerHTML = '<div class="error-message">No words to display in word cloud.</div>';
-      wordCloud.style.display = 'flex';
-      wordCloud.style.alignItems = 'center';
-      wordCloud.style.justifyContent = 'center';
-      wordCloud.style.height = '100vh';
-      return;
-    }
+      if (!placed) {
+        console.warn(`Could not place word: ${word}`);
+        wordEl.remove();
+        return;
+      }
 
-    const initialDisplayCount = Math.ceil(wordArray.length * 0.05);
-    const remainingWords = wordArray.length - initialDisplayCount;
-    const delayPerWord = remainingWords > 0 ? 4.1675 : 0;
-
-    if (startIndex === 0) {
-      wordArray.slice(0, initialDisplayCount).forEach(({ word, freq }) => {
-        const wordEl = document.createElement('div');
-        wordEl.className = 'cloud-word';
-        wordEl.textContent = word;
-        const size = 0.8 + (freq / maxFreq) * 2.2;
-        wordEl.style.fontSize = `${size}rem`;
-        const wordColor = colors[Math.floor(Math.random() * colors.length)];
-        wordEl.style.color = wordColor;
-        wordColors.set(word.toLowerCase(), wordColor);
-        wordEl.style.opacity = '1';
-        const duration = 2 + Math.random() * 3;
-        const delay = Math.random() * 3;
-        wordEl.style.animation = `twinkle ${duration}s infinite ${delay}s`;
-        wordCloud.appendChild(wordEl);
-
-        const { width, height } = wordEl.getBoundingClientRect();
-        let x, y, placed = false;
-        const maxAttempts = 500;
-
-        for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
-          x = Math.random() * (containerWidth - width);
-          y = Math.random() * (containerHeight - height);
-          if (!isOverlapping(x, y, width, height, spatialGrid)) {
-            wordEl.style.left = `${x}px`;
-            wordEl.style.top = `${y}px`;
-            const wordObj = { x, y, width, height, word, element: wordEl };
-            placedWords.push(wordObj);
-            spatialGrid.addToGrid(x, y, width, height, wordObj);
-            placed = true;
-          }
-        }
-
-        if (!placed) {
-          console.warn(`Could not place word: ${word}`);
-          wordEl.remove();
-          return;
-        }
-
-        addWordEventListener(wordEl, word);
-      });
-    }
-
-    wordArray.slice(Math.max(initialDisplayCount, startIndex)).forEach(({ word, freq }, index) => {
-      const actualIndex = initialDisplayCount + index;
-      if (actualIndex < startIndex) return;
-      const timeoutId = setTimeout(() => {
-        const wordEl = document.createElement('div');
-        wordEl.className = 'cloud-word';
-        wordEl.textContent = word;
-        const size = 0.8 + (freq / maxFreq) * 2.2;
-        wordEl.style.fontSize = `${size}rem`;
-        const wordColor = colors[Math.floor(Math.random() * colors.length)];
-        wordEl.style.color = wordColor;
-        wordColors.set(word.toLowerCase(), wordColor);
-        wordEl.style.opacity = '0';
-        const duration = 2 + Math.random() * 3;
-        const delay = Math.random() * 3;
-        wordEl.style.animation = `twinkle ${duration}s infinite ${delay}s`;
-        wordCloud.appendChild(wordEl);
-
-        const { width, height } = wordEl.getBoundingClientRect();
-        let x, y, placed = false;
-        const maxAttempts = 500;
-
-        for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
-          x = Math.random() * (containerWidth - width);
-          y = Math.random() * (containerHeight - height);
-          if (!isOverlapping(x, y, width, height, spatialGrid)) {
-            wordEl.style.left = `${x}px`;
-            wordEl.style.top = `${y}px`;
-            const wordObj = { x, y, width, height, word, element: wordEl };
-            placedWords.push(wordObj);
-            spatialGrid.addToGrid(x, y, width, height, wordObj);
-            placed = true;
-          }
-        }
-
-        if (!placed) {
-          console.warn(`Could not place word: ${word}`);
-          wordEl.remove();
-          return;
-        }
-
-        wordEl.style.transition = 'opacity 0.3s ease';
-        wordEl.style.opacity = '1';
-        lastWordIndex = actualIndex + 1;
-
-        addWordEventListener(wordEl, word);
-      }, (actualIndex - startIndex) * delayPerWord);
-      wordTimeouts.push(timeoutId);
+      addWordEventListener(wordEl, word);
     });
-
-    const lineTimeoutId = setTimeout(() => {
-      requestAnimationFrame(() => {
-        if (startIndex === 0 || !wordCloudSvg.hasChildNodes()) {
-          wordCloudSvg.innerHTML = '';
-          placedWords.forEach((word1, i) => {
-            const nearest = placedWords
-              .map((word2, j) => ({
-                word: word2,
-                distance: Math.hypot(word1.x - word2.x, word1.y - word2.y),
-                index: j,
-              }))
-              .filter(w => w.index !== i)
-              .sort((a, b) => a.distance - b.distance)
-              .slice(0, 6);
-
-            nearest.forEach(w => {
-              const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-              line.setAttribute('x1', word1.x + word1.width / 2);
-              line.setAttribute('y1', word1.y + word1.height / 2);
-              line.setAttribute('x2', w.word.x + w.word.width / 2);
-              line.setAttribute('y2', w.word.y + w.word.height / 2);
-              line.setAttribute('stroke', '#ffffff');
-              line.setAttribute('stroke-width', '1');
-              line.setAttribute('stroke-opacity', '0.10');
-              wordCloudSvg.appendChild(line);
-            });
-          });
-        }
-        wordCloudSvg.style.opacity = '1';
-      });
-    }, (wordArray.length - startIndex) * delayPerWord + 100);
-    wordTimeouts.push(lineTimeoutId);
-  }
-
-  function drawConnectingLine(word1El, word2El) {
-    if (!word1El || !word2El) return null;
-
-    const word1Rect = word1El.getBoundingClientRect();
-    const word2Rect = word2El.getBoundingClientRect();
-    const containerRect = highlightWordsContainer.getBoundingClientRect();
-
-    const x1 = word1Rect.right - containerRect.left + 5;
-    const x2 = word2Rect.left - containerRect.left - 5;
-    const y = word1Rect.top + word1Rect.height / 2 - containerRect.top;
-
-    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.setAttribute('x1', x1);
-    line.setAttribute('y1', y);
-    line.setAttribute('x2', x2);
-    line.setAttribute('y2', y);
-    line.setAttribute('stroke', '#ffffff');
-    line.setAttribute('stroke-width', '1');
-    line.setAttribute('stroke-opacity', '0');
-    line.style.transition = 'stroke-opacity 0.5s ease';
-
-    return line;
   }
 
   function displayEntry(index) {
@@ -661,105 +492,9 @@ document.addEventListener('DOMContentLoaded', () => {
     adjustWordSize(currentWord, wordEl, flashcard.offsetWidth);
     wordEl.style.color = colors[currentColorIndex];
 
-    const prevWord = index > 0 ? entries[index - 1].word : null;
-    const nextWord = index < entries.length - 1 ? entries[index + 1].word : null;
-
-    const wordsToHighlight = [];
-    if (prevWord) {
-      const prevColor = colors[(currentColorIndex - 1 + colors.length) % colors.length];
-      wordsToHighlight.push({ word: prevWord, color: prevColor });
-    }
-    wordsToHighlight.push({ word: currentWord, color: colors[currentColorIndex] });
-    if (nextWord) {
-      const nextColor = colors[(currentColorIndex + 1) % colors.length];
-      wordsToHighlight.push({ word: nextWord, color: nextColor });
-    }
-
-    englishEl.innerHTML = highlightWords(entry.english, wordsToHighlight);
+    englishEl.innerHTML = highlightWord(entry.english, currentWord, colors[currentColorIndex]);
     thaiEl.textContent = entry.thai;
     audioErrorEl.style.display = 'none';
-
-    highlightWordsContainer.innerHTML = '';
-    const highlightedWords = wordsToHighlight.filter(w => entry.english.toLowerCase().includes(w.word.toLowerCase()));
-    const currentWordObj = highlightedWords.find(w => w.word.toLowerCase() === currentWord.toLowerCase());
-    const nextWordObj = highlightedWords.find(w => w.word.toLowerCase() !== currentWord.toLowerCase());
-
-    const wordGroup = document.createElement('div');
-    wordGroup.className = 'highlight-word-group';
-    highlightWordsContainer.appendChild(wordGroup);
-
-    let currentWordEl = null;
-    let nextWordEl = null;
-
-    if (currentWordObj) {
-      currentWordEl = document.createElement('span');
-      currentWordEl.className = 'highlight-word current-word';
-      currentWordEl.textContent = currentWordObj.word;
-      currentWordEl.style.color = currentWordObj.color;
-      currentWordEl.style.transform = 'translateX(-300px)';
-      currentWordEl.style.opacity = '0';
-      wordGroup.appendChild(currentWordEl);
-    }
-
-    if (nextWordObj) {
-      nextWordEl = document.createElement('span');
-      nextWordEl.className = 'highlight-word next-word';
-      nextWordEl.textContent = nextWordObj.word;
-      nextWordEl.style.color = nextWordObj.color;
-      nextWordEl.style.transform = 'translateX(300px)';
-      nextWordEl.style.opacity = '0';
-      wordGroup.appendChild(nextWordEl);
-    }
-
-    if (currentWordEl && nextWordEl) {
-      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      svg.className = 'highlight-word-line';
-      svg.style.position = 'absolute';
-      svg.style.top = '0';
-      svg.style.left = '0';
-      svg.style.width = '100%';
-      svg.style.height = '100%';
-      svg.style.pointerEvents = 'none';
-      svg.style.zIndex = '5';
-      const line = drawConnectingLine(currentWordEl, nextWordEl);
-      if (line) svg.appendChild(line);
-      wordGroup.appendChild(svg);
-    }
-
-    setTimeout(() => {
-      if (currentWordEl) {
-        currentWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
-        currentWordEl.style.transform = 'translateX(0)';
-        currentWordEl.style.opacity = '1';
-      }
-      if (nextWordEl) {
-        nextWordEl.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
-        nextWordEl.style.transform = 'translateX(0)';
-        nextWordEl.style.opacity = '1';
-      }
-      if (currentWordEl && nextWordEl) {
-        const word1Rect = currentWordEl.getBoundingClientRect();
-        const word2Rect = nextWordEl.getBoundingClientRect();
-        const containerRect = highlightWordsContainer.getBoundingClientRect();
-        const x1 = word1Rect.right - containerRect.left + 5;
-        const x2 = word2Rect.left - containerRect.left - 5;
-        const y = word1Rect.top + word1Rect.height / 2 - containerRect.top;
-        const line = wordGroup.querySelector('.highlight-word-line line');
-        if (line) {
-          line.setAttribute('x1', x1);
-          line.setAttribute('x2', x2);
-          line.setAttribute('y1', y);
-          line.setAttribute('y2', y);
-          line.setAttribute('stroke-opacity', '0.10');
-          line.style.transition = 'stroke-opacity 0.5s ease';
-        }
-      }
-      // Add glow effect to highlight-word-group after move-in animation
-      wordGroup.classList.add('glow');
-      setTimeout(() => {
-        wordGroup.classList.remove('glow');
-      }, 500);
-    }, 100);
 
     preloadAudio(index);
 
@@ -785,8 +520,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function addWordEventListener(wordEl, word) {
     wordEl.addEventListener('click', () => {
       stopAudio();
-      wordTimeouts.forEach(timeoutId => clearTimeout(timeoutId));
-      wordTimeouts = [];
       document.querySelectorAll('.cloud-word').forEach(otherWord => {
         if (otherWord !== wordEl) {
           otherWord.style.transition = 'none';
@@ -794,10 +527,6 @@ document.addEventListener('DOMContentLoaded', () => {
           otherWord.style.animation = 'none';
         }
       });
-      if (wordCloudSvg) {
-        wordCloudSvg.style.transition = 'none';
-        wordCloudSvg.style.opacity = '0';
-      }
       wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
       wordCloud.style.transformOrigin = 'center center';
       currentScale = 1;
@@ -820,7 +549,6 @@ document.addEventListener('DOMContentLoaded', () => {
           wordEl.style.transform = 'none';
           wordEl.style.opacity = '1';
           wordEl.style.zIndex = '10';
-          if (wordCloudSvg) wordCloudSvg.style.opacity = '1';
 
           flashcardContainer.style.display = 'flex';
           flashcardContainer.style.opacity = '0';
@@ -912,7 +640,7 @@ document.addEventListener('DOMContentLoaded', () => {
       slogan.style.transform = 'translateX(100%)';
       slogan.style.opacity = '0';
 
-      displayWordCloud(lastWordIndex);
+      displayWordCloud();
     }, 700);
   });
 
@@ -937,11 +665,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (swipeDistance > minSwipeDistance && currentIndex < entries.length - 1) {
       console.log('Swipe up detected, going to next entry');
       stopAudio();
-      const wordGroup = document.querySelector('.highlight-word-group');
-      if (wordGroup) {
-        wordGroup.style.transition = 'none';
-        wordGroup.style.opacity = '0';
-      }
       setTimeout(() => {
         currentIndex++;
         currentColorIndex = (currentColorIndex + 1) % colors.length;
@@ -951,11 +674,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (swipeDistance < -minSwipeDistance && currentIndex > 0) {
       console.log('Swipe down detected, going to previous entry');
       stopAudio();
-      const wordGroup = document.querySelector('.highlight-word-group');
-      if (wordGroup) {
-        wordGroup.style.transition = 'none';
-        wordGroup.style.opacity = '0';
-      }
       setTimeout(() => {
         currentIndex--;
         currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
@@ -970,11 +688,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'ArrowUp' && currentIndex < entries.length - 1) {
         console.log('Arrow up pressed, going to next entry');
         stopAudio();
-        const wordGroup = document.querySelector('.highlight-word-group');
-        if (wordGroup) {
-          wordGroup.style.transition = 'none';
-          wordGroup.style.opacity = '0';
-        }
         setTimeout(() => {
           currentIndex++;
           currentColorIndex = (currentColorIndex + 1) % colors.length;
@@ -984,11 +697,6 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (e.key === 'ArrowDown' && currentIndex > 0) {
         console.log('Arrow down pressed, going to previous entry');
         stopAudio();
-        const wordGroup = document.querySelector('.highlight-word-group');
-        if (wordGroup) {
-          wordGroup.style.transition = 'none';
-          wordGroup.style.opacity = '0';
-        }
         setTimeout(() => {
           currentIndex--;
           currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
