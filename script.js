@@ -1,3 +1,4 @@
+// script.js
 document.addEventListener('DOMContentLoaded', () => {
   const wordCloud = document.getElementById('word-cloud');
   const loadingIndicator = document.getElementById('loading-indicator');
@@ -21,14 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const tapTooltip = document.getElementById('tap-tooltip');
 
   let entries = [];
-  let currentEntries = []; // Store filtered entries for the chosen word
+  let currentEntries = [];
   let currentIndex = 0;
   let touchStartY = 0;
   let touchEndY = 0;
   let touchStartTime = 0;
   let lastSwipeTime = 0;
   const colors = ['#00ff88', '#ffeb3b', '#00e5ff', '#ff4081', '#ff9100', '#e040fb'];
-  let currentColor = ''; // Store the color of the selected word
+  let currentColor = '';
   let wordColors = new Map();
   let initialScale = 1;
   let currentScale = 1;
@@ -50,11 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWord(sentence, word, color) {
@@ -363,12 +364,11 @@ document.addEventListener('DOMContentLoaded', () => {
       loadingIndicator.style.display = 'block';
       loadingIndicator.style.opacity = '1';
 
-      // Clear cache to ensure fetching the latest database
       localStorage.removeItem(CACHE_KEY);
 
       console.log('Fetching data/database.jsonl...');
       const response = await fetch('data/database.jsonl', {
-        cache: 'no-store' // Prevent caching to fetch the latest file
+        cache: 'no-store'
       });
       if (!response.ok) {
         throw new Error(`Failed to fetch data/database.jsonl: ${response.status} ${response.statusText}`);
@@ -494,14 +494,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function displayEntry(index) {
     if (currentEntries.length === 0) return;
-    // Ensure index loops within currentEntries
     currentIndex = ((index % currentEntries.length) + currentEntries.length) % currentEntries.length;
     const entry = currentEntries[currentIndex];
     const currentWord = entry.word;
 
     adjustWordSize(currentWord, wordEl, flashcard.offsetWidth);
     wordEl.style.color = currentColor;
-    wordEl.style.animation = 'twinkle 3s infinite'; // Apply twinkle animation
+    wordEl.style.animation = 'twinkle 3s infinite';
     wordEl.style.textShadow = '0 0 2px rgba(255, 255, 255, 0.3)';
 
     englishEl.innerHTML = highlightWord(entry.english, currentWord, currentColor);
@@ -549,8 +548,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
       const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
 
+      // Calculate scale to limit max width to 90% of viewport width
+      const maxWidth = window.innerWidth * 0.9; // 90% of viewport width
+      const wordWidth = rect.width;
+      const maxScale = maxWidth / wordWidth;
+      const scale = Math.min(3, maxScale); // Use default scale of 3 unless it exceeds maxWidth
+
       wordEl.style.transition = 'transform 0.7s ease, opacity 0.7s ease';
-      wordEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(3)`;
+      wordEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(${scale})`;
       wordEl.style.zIndex = '20';
 
       setTimeout(() => {
@@ -596,11 +601,10 @@ document.addEventListener('DOMContentLoaded', () => {
             slogan.style.opacity = '1';
           }, 4000);
 
-          // Filter entries for the selected word and randomize
           currentEntries = entries.filter(entry => entry.word.toLowerCase() === word.toLowerCase());
-          currentEntries = shuffleArray([...currentEntries]); // Randomize the filtered entries
+          currentEntries = shuffleArray([...currentEntries]);
           currentIndex = 0;
-          currentColor = wordColors.get(word.toLowerCase()); // Set the color for the flashcard
+          currentColor = wordColors.get(word.toLowerCase());
           displayEntry(currentIndex);
 
           if (visitCount <= 100) {
@@ -672,7 +676,7 @@ document.addEventListener('DOMContentLoaded', () => {
       stopAudio();
       setTimeout(() => {
         currentIndex++;
-        displayEntry(currentIndex); // Looping handled in displayEntry
+        displayEntry(currentIndex);
       }, 0);
       lastSwipeTime = Date.now();
     } else if (swipeDistance < -minSwipeDistance) {
@@ -680,7 +684,7 @@ document.addEventListener('DOMContentLoaded', () => {
       stopAudio();
       setTimeout(() => {
         currentIndex--;
-        displayEntry(currentIndex); // Looping handled in displayEntry
+        displayEntry(currentIndex);
       }, 0);
       lastSwipeTime = Date.now();
     }
@@ -693,7 +697,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stopAudio();
         setTimeout(() => {
           currentIndex++;
-          displayEntry(currentIndex); // Looping handled in displayEntry
+          displayEntry(currentIndex);
         }, 0);
         lastSwipeTime = Date.now();
       } else if (e.key === 'ArrowDown') {
@@ -701,7 +705,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stopAudio();
         setTimeout(() => {
           currentIndex--;
-          displayEntry(currentIndex); // Looping handled in displayEntry
+          displayEntry(currentIndex);
         }, 0);
         lastSwipeTime = Date.now();
       } else if (e.key === ' ') {
@@ -710,8 +714,7 @@ document.addEventListener('DOMContentLoaded', () => {
         flashcard.click();
       }
     }
-  });
-
+    });
   wordCloud.addEventListener('touchstart', e => {
     touchStartTime = Date.now();
     if (e.touches.length === 2) {
