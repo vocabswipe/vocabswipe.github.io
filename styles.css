@@ -248,7 +248,8 @@ body {
   white-space: nowrap;
   max-width: 100%;
   width: 100%;
-  animation: twinkle 3s infinite; /* Added twinkle effect */
+  animation: twinkle 3s infinite; /* Apply twinkle animation */
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
 }
 
 .sentences {
@@ -267,7 +268,8 @@ body {
 
 .english .highlight {
   font-weight: 700;
-  animation: twinkle 3s infinite; /* Added twinkle effect */
+  animation: twinkle 3s infinite; /* Apply twinkle animation */
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
 }
 
 .thai {
