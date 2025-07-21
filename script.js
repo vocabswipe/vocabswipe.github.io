@@ -634,7 +634,7 @@ document.addEventListener('DOMContentLoaded', () => {
           currentColor = wordColors.get(word.toLowerCase()); // Set the color for the flashcard
           displayEntry(currentIndex);
 
-          if (visitCount <= 100) {
+          if (visitCount <= 5) { // number of visits to display tooltip animation for first time users (100)
             setTimeout(() => {
               showTooltip(swipeUpTooltip, 'up');
               setTimeout(() => {
