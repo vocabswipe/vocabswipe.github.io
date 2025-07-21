@@ -360,7 +360,8 @@ document.addEventListener('DOMContentLoaded', () => {
   async function loadData() {
     try {
       wordCloud.style.display = 'block';
-      loadingIndicator.style.display = 'block';
+      // Remove or comment out the line that shows the loading indicator
+      // loadingIndicator.style.display = 'block';
       loadingIndicator.style.opacity = '1';
 
       // Clear cache to ensure fetching the latest database
