@@ -346,8 +346,8 @@ document.addEventListener('DOMContentLoaded', () => {
       tooltip.classList.remove(direction === 'tap' ? 'animate-tap' : direction === 'up' ? 'animate-up' : 'animate-down');
       if (
         swipeUpTooltip.style.display === 'none' &&
-        swipeDownTooltip.style.display = 'none' &&
-        tapTooltip.style.display = 'none'
+        swipeDownTooltip.style.display === 'none' &&
+        tapTooltip.style.display === 'none'
       ) {
         header.style.filter = 'none';
         logo.style.filter = 'none';
@@ -545,18 +545,29 @@ document.addEventListener('DOMContentLoaded', () => {
       translateX = 0;
       translationY = 0;
 
+      // Calculate the maximum width as 90% of the viewport width
+      const maxWordWidth = window.innerWidth * 0.9;
+      // Set initial font size and adjust to fit within maxWordWidth
+      wordEl.style.fontSize = '3rem';
+      wordEl.style.maxWidth = `${maxWordWidth}px`;
+      wordEl.style.whiteSpace = 'normal'; // Allow wrapping if necessary
+      let fontSize = parseFloat(window.getComputedStyle(wordEl).fontSize);
+      while (wordEl.scrollWidth > maxWordWidth && fontSize > 1) {
+        fontSize -= 0.1;
+        wordEl.style.fontSize = `${fontSize}rem`;
+      }
+
       const rect = wordEl.getBoundingClientRect();
-      const viewportWidth = window.innerWidth;
-      const maxWordWidth = viewportWidth * 0.9; // 90% of viewport width
-      const currentWordWidth = rect.width;
-      // Calculate scale to ensure word width doesn't exceed maxWordWidth
-      const maxScale = maxWordWidth / currentWordWidth;
-      const scale = Math.min(3, maxScale); // Use original scale (3) unless it exceeds maxWordWidth
-      const centerX = viewportWidth / 2 - rect.width / 2 - rect.left;
+      const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
       const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
 
+      // Calculate scale factor to ensure the word fits within maxWordWidth
+      const currentWidth = rect.width;
+      const targetWidth = Math.min(currentWidth * 3, maxWordWidth);
+      const scaleFactor = Math.min(3, targetWidth / currentWidth);
+
       wordEl.style.transition = 'transform 0.7s ease, opacity 0.7s ease';
-      wordEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(${scale})`;
+      wordEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(${scaleFactor})`;
       wordEl.style.zIndex = '20';
 
       setTimeout(() => {
@@ -567,6 +578,9 @@ document.addEventListener('DOMContentLoaded', () => {
           wordEl.style.transform = 'none';
           wordEl.style.opacity = '1';
           wordEl.style.zIndex = '10';
+          wordEl.style.maxWidth = ''; // Reset max-width
+          wordEl.style.whiteSpace = 'nowrap'; // Reset to nowrap
+          wordEl.style.fontSize = ''; // Reset font size
 
           flashcardContainer.style.display = 'flex';
           flashcardContainer.style.opacity = '0';
