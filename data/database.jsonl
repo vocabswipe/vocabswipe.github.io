@@ -3349,3 +3349,902 @@
 {"word": "street", "english": "The street is full of energy.", "thai": "ถนนเต็มไปด้วยพลัง"}
 {"word": "street", "english": "I’m reading a map on the street.", "thai": "ฉันกำลังอ่านแผนที่บนถนน"}
 {"word": "street", "english": "The street has a new crossing.", "thai": "ถนนมีทางข้ามใหม่"}
+{"word": "city", "english": "I love living in the city.", "thai": "ฉันรักการอยู่ในเมือง"}
+{"word": "city", "english": "The city is so vibrant at night.", "thai": "เมืองนี้มีชีวิตชีวามากในตอนกลางคืน"}
+{"word": "city", "english": "She moved to the city for work.", "thai": "เธอย้ายไปเมืองเพื่อทำงาน"}
+{"word": "city", "english": "This city has amazing food.", "thai": "เมืองนี้มีอาหารที่น่าทึ่ง"}
+{"word": "city", "english": "The city skyline looks beautiful.", "thai": "เส้นขอบฟ้าของเมืองดูสวยงาม"}
+{"word": "city", "english": "He got lost in the city.", "thai": "เขาหลงทางในเมือง"}
+{"word": "city", "english": "The city is too noisy for me.", "thai": "เมืองนี้ดังเกินไปสำหรับฉัน"}
+{"word": "city", "english": "We explored the city yesterday.", "thai": "เราได้สำรวจเมืองเมื่อวาน"}
+{"word": "city", "english": "The city has great public transit.", "thai": "เมืองนี้มีระบบขนส่งสาธารณะที่ดี"}
+{"word": "city", "english": "Crime is a problem in this city.", "thai": "อาชญากรรมเป็นปัญหาในเมืองนี้"}
+{"word": "city", "english": "I grew up in a small city.", "thai": "ฉันเติบโตในเมืองเล็กๆ"}
+{"word": "city", "english": "The city park is always crowded.", "thai": "สวนสาธารณะของเมืองมักจะแออัด"}
+{"word": "city", "english": "She’s visiting the city this weekend.", "thai": "เธอกำลังเยี่ยมเมืองในสุดสัปดาห์นี้"}
+{"word": "city", "english": "The city is hosting a festival.", "thai": "เมืองนี้กำลังจัดงานเทศกาล"}
+{"word": "city", "english": "Traffic in the city is terrible.", "thai": "การจราจรในเมืองแย่มาก"}
+{"word": "city", "english": "The city council made a new rule.", "thai": "สภาเมืองออกกฎใหม่"}
+{"word": "city", "english": "I’m new to this city.", "thai": "ฉันเพิ่งมาอยู่เมืองนี้"}
+{"word": "city", "english": "The city has a rich history.", "thai": "เมืองนี้มีประวัติศาสตร์อันยาวนาน"}
+{"word": "city", "english": "He works in the city center.", "thai": "เขาทำงานในใจกลางเมือง"}
+{"word": "city", "english": "The city is growing fast.", "thai": "เมืองนี้เติบโตอย่างรวดเร็ว"}
+{"word": "city", "english": "I miss the quiet of the city.", "thai": "ฉันคิดถึงความเงียบสงบของเมือง"}
+{"word": "city", "english": "The city lights are stunning.", "thai": "แสงไฟของเมืองนั้นน่าทึ่ง"}
+{"word": "city", "english": "We took a tour of the city.", "thai": "เราได้ทัวร์เมือง"}
+{"word": "city", "english": "The city has a new mayor.", "thai": "เมืองนี้มีนายกเทศมนตรีคนใหม่"}
+{"word": "city", "english": "This city never sleeps.", "thai": "เมืองนี้ไม่เคยหลับ"}
+{"word": "city", "english": "The city is full of tourists.", "thai": "เมืองนี้เต็มไปด้วยนักท่องเที่ยว"}
+{"word": "city", "english": "I’m tired of city life.", "thai": "ฉันเบื่อชีวิตในเมือง"}
+{"word": "city", "english": "The city has good schools.", "thai": "เมืองนี้มีโรงเรียนดีๆ"}
+{"word": "city", "english": "She’s from a big city.", "thai": "เธอมาจากเมืองใหญ่"}
+{"word": "city", "english": "The city streets are busy.", "thai": "ถนนในเมืองคึกคัก"}
+{"word": "city", "english": "We’re moving to another city.", "thai": "เรากำลังย้ายไปเมืองอื่น"}
+{"word": "city", "english": "The city has a great museum.", "thai": "เมืองนี้มีพิพิธภัณฑ์ที่ยอดเยี่ยม"}
+{"word": "city", "english": "I got a job in the city.", "thai": "ฉันได้งานในเมือง"}
+{"word": "city", "english": "The city is under construction.", "thai": "เมืองนี้กำลังก่อสร้าง"}
+{"word": "city", "english": "He’s studying the city’s history.", "thai": "เขากำลังศึกษาประวัติศาสตร์ของเมือง"}
+{"word": "city", "english": "The city has a new library.", "thai": "เมืองนี้มีห้องสมุดใหม่"}
+{"word": "city", "english": "I walked across the city.", "thai": "ฉันเดินข้ามเมือง"}
+{"word": "city", "english": "The city smells like food.", "thai": "เมืองนี้มีกลิ่นเหมือนอาหาร"}
+{"word": "city", "english": "She loves the city vibe.", "thai": "เธอรักบรรยากาศของเมือง"}
+{"word": "city", "english": "The city is very diverse.", "thai": "เมืองนี้มีความหลากหลายมาก"}
+{"word": "city", "english": "We met in the city.", "thai": "เราเจอกันในเมือง"}
+{"word": "city", "english": "The city has a big mall.", "thai": "เมืองนี้มีห้างสรรพสินค้าใหญ่"}
+{"word": "city", "english": "I’m exploring the city today.", "thai": "ฉันกำลังสำรวจเมืองวันนี้"}
+{"word": "city", "english": "The city is safe at night.", "thai": "เมืองนี้ปลอดภัยในตอนกลางคืน"}
+{"word": "city", "english": "He’s running for city mayor.", "thai": "เขากำลังลงสมัครนายกเทศมนตรีเมือง"}
+{"word": "city", "english": "The city has old buildings.", "thai": "เมืองนี้มีตึกเก่าๆ"}
+{"word": "city", "english": "I love the city’s energy.", "thai": "ฉันรักพลังของเมือง"}
+{"word": "city", "english": "The city needs more parks.", "thai": "เมืองนี้ต้องการสวนสาธารณะเพิ่ม"}
+{"word": "city", "english": "She’s a city planner.", "thai": "เธอเป็นนักวางผังเมือง"}
+{"word": "city", "english": "The city banned plastic bags.", "thai": "เมืองนี้ห้ามใช้ถุงพลาสติก"}
+{"word": "city", "english": "I’m visiting a new city.", "thai": "ฉันกำลังเยี่ยมเมืองใหม่"}
+{"word": "city", "english": "The city has a famous bridge.", "thai": "เมืองนี้มีสะพานที่มีชื่อเสียง"}
+{"word": "city", "english": "We’re staying in the city.", "thai": "เรากำลังอยู่ในเมือง"}
+{"word": "city", "english": "The city feels alive.", "thai": "เมืองนี้รู้สึกมีชีวิตชีวา"}
+{"word": "city", "english": "He painted the city skyline.", "thai": "เขาได้วาดเส้นขอบฟ้าของเมือง"}
+{"word": "city", "english": "The city is very clean.", "thai": "เมืองนี้สะอาดมาก"}
+{"word": "city", "english": "I got stuck in city traffic.", "thai": "ฉันติดอยู่ในจราจรของเมือง"}
+{"word": "city", "english": "The city has a cool vibe.", "thai": "เมืองนี้มีบรรยากาศที่เจ๋ง"}
+{"word": "city", "english": "She’s new to the city.", "thai": "เธอเพิ่งมาอยู่เมืองนี้"}
+{"word": "city", "english": "The city hosts concerts often.", "thai": "เมืองนี้จัดคอนเสิร์ตบ่อยครั้ง"}
+{"word": "city", "english": "I’m leaving the city tomorrow.", "thai": "ฉันจะออกจากเมืองพรุ่งนี้"}
+{"word": "city", "english": "The city has tall buildings.", "thai": "เมืองนี้มีตึกสูง"}
+{"word": "city", "english": "We’re biking through the city.", "thai": "เรากำลังปั่นจักรยานผ่านเมือง"}
+{"word": "city", "english": "The city is always changing.", "thai": "เมืองนี้เปลี่ยนแปลงอยู่เสมอ"}
+{"word": "city", "english": "I found a job in the city.", "thai": "ฉันหางานในเมืองได้"}
+{"word": "city", "english": "The city has a great view.", "thai": "เมืองนี้มีวิวที่ยอดเยี่ยม"}
+{"word": "city", "english": "She’s studying city planning.", "thai": "เธอกำลังเรียนการวางผังเมือง"}
+{"word": "city", "english": "The city is full of art.", "thai": "เมืองนี้เต็มไปด้วยศิลปะ"}
+{"word": "city", "english": "I love the city’s nightlife.", "thai": "ฉันรักชีวิตยามค่ำคืนของเมือง"}
+{"word": "city", "english": "The city has a big stadium.", "thai": "เมืองนี้มีสนามกีฬาใหญ่"}
+{"word": "city", "english": "We’re lost in the city.", "thai": "เราหลงทางในเมือง"}
+{"word": "city", "english": "The city has free Wi-Fi.", "thai": "เมืองนี้มี Wi-Fi ฟรี"}
+{"word": "city", "english": "He’s filming in the city.", "thai": "เขากำลังถ่ายทำในเมือง"}
+{"word": "city", "english": "The city is expensive to live in.", "thai": "เมืองนี้มีค่าครองชีพสูง"}
+{"word": "city", "english": "I’m moving to the city soon.", "thai": "ฉันจะย้ายไปเมืองในไม่ช้า"}
+{"word": "city", "english": "The city has a new park.", "thai": "เมืองนี้มีสวนสาธารณะใหม่"}
+{"word": "city", "english": "She loves the city’s culture.", "thai": "เธอรักวัฒนธรรมของเมือง"}
+{"word": "city", "english": "The city is very modern.", "thai": "เมืองนี้ทันสมัยมาก"}
+{"word": "city", "english": "We’re walking around the city.", "thai": "เรากำลังเดินเล่นรอบเมือง"}
+{"word": "city", "english": "The city has a big market.", "thai": "เมืองนี้มีตลาดใหญ่"}
+{"word": "city", "english": "I’m excited to see the city.", "thai": "ฉันตื่นเต้นที่จะได้เห็นเมือง"}
+{"word": "city", "english": "The city has a famous statue.", "thai": "เมืองนี้มีรูปปั้นที่มีชื่อเสียง"}
+{"word": "city", "english": "He’s working in the city.", "thai": "เขากำลังทำงานในเมือง"}
+{"word": "city", "english": "The city is hard to navigate.", "thai": "เมืองนี้เดินทางลำบาก"}
+{"word": "city", "english": "I love the city’s architecture.", "thai": "ฉันรักสถาปัตยกรรมของเมือง"}
+{"word": "city", "english": "The city has a lot of traffic.", "thai": "เมืองนี้มีการจราจรเยอะ"}
+{"word": "city", "english": "She’s exploring the city alone.", "thai": "เธอกำลังสำรวจเมืองคนเดียว"}
+{"word": "city", "english": "The city is full of lights.", "thai": "เมืองนี้เต็มไปด้วยแสงไฟ"}
+{"word": "city", "english": "We’re visiting the city zoo.", "thai": "เรากำลังเยี่ยมสวนสัตว์ของเมือง"}
+{"word": "city", "english": "The city has a new subway.", "thai": "เมืองนี้มีรถไฟใต้ดินใหม่"}
+{"word": "city", "english": "I’m tired of the city noise.", "thai": "ฉันเบื่อเสียงดังของเมือง"}
+{"word": "city", "english": "The city has a great theater.", "thai": "เมืองนี้มีโรงละครที่ยอดเยี่ยม"}
+{"word": "city", "english": "He’s writing about the city.", "thai": "เขากำลังเขียนเกี่ยวกับเมือง"}
+{"word": "city", "english": "The city is full of energy.", "thai": "เมืองนี้เต็มไปด้วยพลัง"}
+{"word": "city", "english": "I’m taking photos of the city.", "thai": "ฉันกำลังถ่ายรูปเมือง"}
+{"word": "city", "english": "The city has a famous park.", "thai": "เมืองนี้มีสวนสาธารณะที่มีชื่อเสียง"}
+{"word": "city", "english": "She’s moving to a new city.", "thai": "เธอกำลังย้ายไปเมืองใหม่"}
+{"word": "city", "english": "The city is always busy.", "thai": "เมืองนี้ยุ่งอยู่เสมอ"}
+{"word": "country", "english": "I love living in the country.", "thai": "ฉันรักการอยู่ในชนบท"}
+{"word": "country", "english": "The country is peaceful at night.", "thai": "ชนบทเงียบสงบในตอนกลางคืน"}
+{"word": "country", "english": "She moved to the country for a quieter life.", "thai": "เธอย้ายไปชนบทเพื่อชีวิตที่เงียบสงบกว่า"}
+{"word": "country", "english": "This country has beautiful landscapes.", "thai": "ประเทศนี้มีทิวทัศน์ที่สวยงาม"}
+{"word": "country", "english": "He’s traveling across the country.", "thai": "เขากำลังเดินทางข้ามประเทศ"}
+{"word": "country", "english": "The country needs better healthcare.", "thai": "ประเทศนี้ต้องการระบบสาธารณสุขที่ดีกว่า"}
+{"word": "country", "english": "I grew up in a small country town.", "thai": "ฉันเติบโตในเมืองเล็กๆ ในชนบท"}
+{"word": "country", "english": "The country has a rich history.", "thai": "ประเทศนี้มีประวัติศาสตร์อันยาวนาน"}
+{"word": "country", "english": "She’s visiting another country soon.", "thai": "เธอกำลังจะไปเยือนอีกประเทศในไม่ช้า"}
+{"word": "country", "english": "The country is facing economic challenges.", "thai": "ประเทศนี้กำลังเผชิญกับความท้าทายทางเศรษฐกิจ"}
+{"word": "country", "english": "I love the country’s fresh air.", "thai": "ฉันรักอากาศบริสุทธิ์ของชนบท"}
+{"word": "country", "english": "He’s proud of his country.", "thai": "เขาภูมิใจในประเทศของเขา"}
+{"word": "country", "english": "The country has a new leader.", "thai": "ประเทศนี้มีผู้นำคนใหม่"}
+{"word": "country", "english": "We’re exploring the country this summer.", "thai": "เรากำลังสำรวจชนบทในฤดูร้อนนี้"}
+{"word": "country", "english": "The country is known for its food.", "thai": "ประเทศนี้มีชื่อเสียงด้านอาหาร"}
+{"word": "country", "english": "I want to see the whole country.", "thai": "ฉันอยากเห็นทั้งประเทศ"}
+{"word": "country", "english": "The country roads are so scenic.", "thai": "ถนนในชนบทสวยงามมาก"}
+{"word": "country", "english": "She’s studying the country’s culture.", "thai": "เธอกำลังศึกษาวัฒนธรรมของประเทศ"}
+{"word": "country", "english": "The country has strict laws.", "thai": "ประเทศนี้มีกฎหมายที่เข้มงวด"}
+{"word": "country", "english": "I’m moving to the country next month.", "thai": "ฉันจะย้ายไปชนบทเดือนหน้า"}
+{"word": "country", "english": "The country is full of forests.", "thai": "ชนบทนี้เต็มไปด้วยป่าไม้"}
+{"word": "country", "english": "He’s running for office in this country.", "thai": "เขากำลังลงสมัครรับเลือกตั้งในประเทศนี้"}
+{"word": "country", "english": "The country has a big festival.", "thai": "ประเทศนี้มีงานเทศกาลใหญ่"}
+{"word": "country", "english": "I miss the country’s quiet nights.", "thai": "ฉันคิดถึงคืนที่เงียบสงบของชนบท"}
+{"word": "country", "english": "The country is very diverse.", "thai": "ประเทศนี้มีความหลากหลายมาก"}
+{"word": "country", "english": "We’re driving through the country.", "thai": "เรากำลังขับรถผ่านชนบท"}
+{"word": "country", "english": "The country has great music.", "thai": "ประเทศนี้มีดนตรีที่ยอดเยี่ยม"}
+{"word": "country", "english": "She’s from a small country.", "thai": "เธอมาจากประเทศเล็กๆ"}
+{"word": "country", "english": "The country is changing fast.", "thai": "ประเทศนี้เปลี่ยนแปลงอย่างรวดเร็ว"}
+{"word": "country", "english": "I love the country’s traditions.", "thai": "ฉันรักประเพณีของประเทศ"}
+{"word": "country", "english": "The country has a strong economy.", "thai": "ประเทศนี้มีเศรษฐกิจที่แข็งแกร่ง"}
+{"word": "country", "english": "He’s exploring the country on foot.", "thai": "เขากำลังสำรวจชนบทด้วยการเดินเท้า"}
+{"word": "country", "english": "The country needs more jobs.", "thai": "ประเทศนี้ต้องการงานเพิ่ม"}
+{"word": "country", "english": "I’m new to this country.", "thai": "ฉันเพิ่งมาประเทศนี้"}
+{"word": "country", "english": "The country has beautiful mountains.", "thai": "ประเทศนี้มีภูเขาที่สวยงาม"}
+{"word": "country", "english": "She’s writing about the country.", "thai": "เธอกำลังเขียนเกี่ยวกับประเทศ"}
+{"word": "country", "english": "The country is safe to visit.", "thai": "ประเทศนี้ปลอดภัยสำหรับการเยี่ยมชม"}
+{"word": "country", "english": "I love the country’s open spaces.", "thai": "ฉันรักพื้นที่โล่งของชนบท"}
+{"word": "country", "english": "The country has a lot of farms.", "thai": "ชนบทนี้มีฟาร์มเยอะ"}
+{"word": "country", "english": "He’s filming in the country.", "thai": "เขากำลังถ่ายทำในชนบท"}
+{"word": "country", "english": "The country is full of history.", "thai": "ประเทศนี้เต็มไปด้วยประวัติศาสตร์"}
+{"word": "country", "english": "I’m visiting a new country.", "thai": "ฉันกำลังเยี่ยมประเทศใหม่"}
+{"word": "country", "english": "The country has a famous river.", "thai": "ประเทศนี้มีแม่น้ำที่มีชื่อเสียง"}
+{"word": "country", "english": "We’re staying in the country.", "thai": "เรากำลังอยู่ในชนบท"}
+{"word": "country", "english": "The country feels so calm.", "thai": "ชนบทนี้รู้สึกสงบมาก"}
+{"word": "country", "english": "She loves the country’s people.", "thai": "เธอรักผู้คนของประเทศ"}
+{"word": "country", "english": "The country is very modern.", "thai": "ประเทศนี้ทันสมัยมาก"}
+{"word": "country", "english": "I’m hiking in the country.", "thai": "ฉันกำลังเดินป่าในชนบท"}
+{"word": "country", "english": "The country has a big market.", "thai": "ประเทศนี้มีตลาดใหญ่"}
+{"word": "country", "english": "He’s studying the country’s laws.", "thai": "เขากำลังศึกษากฎหมายของประเทศ"}
+{"word": "country", "english": "The country is full of lakes.", "thai": "ประเทศนี้เต็มไปด้วยทะเลสาบ"}
+{"word": "country", "english": "I love the country’s weather.", "thai": "ฉันรักสภาพอากาศของประเทศ"}
+{"word": "country", "english": "The country has a new policy.", "thai": "ประเทศนี้มีนโยบายใหม่"}
+{"word": "country", "english": "She’s moving to another country.", "thai": "เธอกำลังย้ายไปอีกประเทศ"}
+{"word": "country", "english": "The country is known for art.", "thai": "ประเทศนี้มีชื่อเสียงด้านศิลปะ"}
+{"word": "country", "english": "I’m learning about the country.", "thai": "ฉันกำลังเรียนรู้เกี่ยวกับประเทศ"}
+{"word": "country", "english": "The country has a big population.", "thai": "ประเทศนี้มีประชากรจำนวนมาก"}
+{"word": "country", "english": "He’s working in the country.", "thai": "เขากำลังทำงานในชนบท"}
+{"word": "country", "english": "The country has great schools.", "thai": "ประเทศนี้มีโรงเรียนดีๆ"}
+{"word": "country", "english": "I’m taking photos of the country.", "thai": "ฉันกำลังถ่ายรูปชนบท"}
+{"word": "country", "english": "The country is hard to navigate.", "thai": "ประเทศนี้เดินทางลำบาก"}
+{"word": "country", "english": "She loves the country’s food.", "thai": "เธอรักอาหารของประเทศ"}
+{"word": "country", "english": "The country has a famous festival.", "thai": "ประเทศนี้มีเทศกาลที่มีชื่อเสียง"}
+{"word": "country", "english": "I’m tired of the country’s politics.", "thai": "ฉันเบื่อการเมืองของประเทศ"}
+{"word": "country", "english": "The country is full of energy.", "thai": "ประเทศนี้เต็มไปด้วยพลัง"}
+{"word": "country", "english": "He’s painting the country landscape.", "thai": "เขากำลังวาดทิวทัศน์ของชนบท"}
+{"word": "country", "english": "The country has a great museum.", "thai": "ประเทศนี้มีพิพิธภัณฑ์ที่ยอดเยี่ยม"}
+{"word": "country", "english": "I’m exploring the country alone.", "thai": "ฉันกำลังสำรวจชนบทคนเดียว"}
+{"word": "country", "english": "The country is very clean.", "thai": "ประเทศนี้สะอาดมาก"}
+{"word": "country", "english": "She’s writing a book about the country.", "thai": "เธอกำลังเขียนหนังสือเกี่ยวกับประเทศ"}
+{"word": "country", "english": "The country has a big city.", "thai": "ประเทศนี้มีเมืองใหญ่"}
+{"word": "country", "english": "I love the country’s nightlife.", "thai": "ฉันรักชีวิตยามค่ำคืนของประเทศ"}
+{"word": "country", "english": "The country is always welcoming.", "thai": "ประเทศนี้ต้อนรับดีเสมอ"}
+{"word": "country", "english": "He’s biking through the country.", "thai": "เขากำลังปั่นจักรยานผ่านชนบท"}
+{"word": "country", "english": "The country has a famous monument.", "thai": "ประเทศนี้มีอนุสาวรีย์ที่มีชื่อเสียง"}
+{"word": "country", "english": "I’m visiting the country next week.", "thai": "ฉันจะไปเยือนประเทศสัปดาห์หน้า"}
+{"word": "country", "english": "The country has a lot of rivers.", "thai": "ประเทศนี้มีแม่น้ำเยอะ"}
+{"word": "country", "english": "She’s learning the country’s language.", "thai": "เธอกำลังเรียนภาษาของประเทศ"}
+{"word": "country", "english": "The country is full of traditions.", "thai": "ประเทศนี้เต็มไปด้วยประเพณี"}
+{"word": "country", "english": "I’m excited to see the country.", "thai": "ฉันตื่นเต้นที่จะได้เห็นประเทศ"}
+{"word": "country", "english": "The country has a strong culture.", "thai": "ประเทศนี้มีวัฒนธรรมที่แข็งแกร่ง"}
+{"word": "country", "english": "He’s filming a movie in the country.", "thai": "เขากำลังถ่ายทำภาพยนตร์ในประเทศ"}
+{"word": "country", "english": "The country is expensive to live in.", "thai": "ประเทศนี้มีค่าครองชีพสูง"}
+{"word": "country", "english": "I’m moving to a new country.", "thai": "ฉันกำลังย้ายไปประเทศใหม่"}
+{"word": "country", "english": "The country has a great park.", "thai": "ประเทศนี้มีสวนสาธารณะที่ยอดเยี่ยม"}
+{"word": "country", "english": "She loves the country’s history.", "thai": "เธอรักประวัติศาสตร์ของประเทศ"}
+{"word": "country", "english": "The country is very safe.", "thai": "ประเทศนี้ปลอดภัยมาก"}
+{"word": "country", "english": "We’re walking around the country.", "thai": "เรากำลังเดินเล่นรอบชนบท"}
+{"word": "country", "english": "The country has a big stadium.", "thai": "ประเทศนี้มีสนามกีฬาใหญ่"}
+{"word": "country", "english": "I’m studying the country’s economy.", "thai": "ฉันกำลังศึกษเศรษฐกิจของประเทศ"}
+{"word": "country", "english": "The country is full of beauty.", "thai": "ประเทศนี้เต็มไปด้วยความสวยงาม"}
+{"word": "country", "english": "He’s working for the country.", "thai": "เขากำลังทำงานเพื่อประเทศ"}
+{"word": "country", "english": "The country has a lot of tourists.", "thai": "ประเทศนี้มีนักท่องเที่ยวเยอะ"}
+{"word": "country", "english": "I love the country’s architecture.", "thai": "ฉันรักสถาปัตยกรรมของประเทศ"}
+{"word": "country", "english": "The country is always growing.", "thai": "ประเทศนี้เติบโตอยู่เสมอ"}
+{"word": "country", "english": "She’s visiting the country’s capital.", "thai": "เธอกำลังเยี่ยมเมืองหลวงของประเทศ"}
+{"word": "country", "english": "The country has a famous beach.", "thai": "ประเทศนี้มีชายหาดที่มีชื่อเสียง"}
+{"word": "country", "english": "I’m learning about the country’s art.", "thai": "ฉันกำลังเรียนรู้เกี่ยวกับศิลปะของประเทศ"}
+{"word": "country", "english": "The country is full of opportunities.", "thai": "ประเทศนี้เต็มไปด้วยโอกาส"}
+{"word": "park", "english": "I love walking in the park.", "thai": "ฉันรักการเดินในสวนสาธารณะ"}
+{"word": "park", "english": "The park is full of flowers.", "thai": "สวนสาธารณะเต็มไปด้วยดอกไม้"}
+{"word": "park", "english": "She jogs in the park every morning.", "thai": "เธอวิ่งในสวนสาธารณะทุกเช้า"}
+{"word": "park", "english": "The park has a big playground.", "thai": "สวนสาธารณะมีสนามเด็กเล่นใหญ่"}
+{"word": "park", "english": "We had a picnic in the park.", "thai": "เราจัดปิกนิกในสวนสาธารณะ"}
+{"word": "park", "english": "The park is crowded on weekends.", "thai": "สวนสาธารณะแออัดในวันสุดสัปดาห์"}
+{"word": "park", "english": "He’s reading a book in the park.", "thai": "เขากำลังอ่านหนังสือในสวนสาธารณะ"}
+{"word": "park", "english": "The park is near my house.", "thai": "สวนสาธารณะอยู่ใกล้บ้านฉัน"}
+{"word": "park", "english": "Kids are playing in the park.", "thai": "เด็กๆ กำลังเล่นในสวนสาธารณะ"}
+{"word": "park", "english": "The park has a beautiful lake.", "thai": "สวนสาธารณะมีทะเลสาบที่สวยงาม"}
+{"word": "park", "english": "I lost my keys in the park.", "thai": "ฉันทำกุญแจหายในสวนสาธารณะ"}
+{"word": "park", "english": "The park is open until sunset.", "thai": "สวนสาธารณะเปิดจนถึงพระอาทิตย์ตก"}
+{"word": "park", "english": "She’s biking through the park.", "thai": "เธอกำลังปั่นจักรยานผ่านสวนสาธารณะ"}
+{"word": "park", "english": "The park has a new statue.", "thai": "สวนสาธารณะมีรูปปั้นใหม่"}
+{"word": "park", "english": "We met at the park yesterday.", "thai": "เราเจอกันที่สวนสาธารณะเมื่อวาน"}
+{"word": "park", "english": "The park is great for relaxing.", "thai": "สวนสาธารณะเหมาะสำหรับการพักผ่อน"}
+{"word": "park", "english": "I saw a dog in the park.", "thai": "ฉันเห็นสุนัขในสวนสาธารณะ"}
+{"word": "park", "english": "The park hosts concerts sometimes.", "thai": "สวนสาธารณะจัดคอนเสิร์ตบ้างครั้ง"}
+{"word": "park", "english": "He’s sketching in the park.", "thai": "เขากำลังวาดภาพในสวนสาธารณะ"}
+{"word": "park", "english": "The park is always clean.", "thai": "สวนสาธารณะสะอาดเสมอ"}
+{"word": "park", "english": "We’re going to the park later.", "thai": "เราจะไปสวนสาธารณะทีหลัง"}
+{"word": "park", "english": "The park has a running track.", "thai": "สวนสาธารณะมีลู่วิ่ง"}
+{"word": "park", "english": "I love the trees in the park.", "thai": "ฉันรักต้นไม้ในสวนสาธารณะ"}
+{"word": "park", "english": "The park is quiet in the morning.", "thai": "สวนสาธารณะเงียบสงบในตอนเช้า"}
+{"word": "park", "english": "She’s taking photos in the park.", "thai": "เธอกำลังถ่ายรูปในสวนสาธารณะ"}
+{"word": "park", "english": "The park has a small fountain.", "thai": "สวนสาธารณะมีน้ำพุเล็กๆ"}
+{"word": "park", "english": "We walked through the park.", "thai": "เราเดินผ่านสวนสาธารณะ"}
+{"word": "park", "english": "The park is perfect for kids.", "thai": "สวนสาธารณะเหมาะสำหรับเด็กๆ"}
+{"word": "park", "english": "I’m meeting friends at the park.", "thai": "ฉันจะเจอเพื่อนที่สวนสาธารณะ"}
+{"word": "park", "english": "The park has free Wi-Fi.", "thai": "สวนสาธารณะมี Wi-Fi ฟรี"}
+{"word": "park", "english": "He’s exercising in the park.", "thai": "เขากำลังออกกำลังกายในสวนสาธารณะ"}
+{"word": "park", "english": "The park is closed at night.", "thai": "สวนสาธารณะปิดตอนกลางคืน"}
+{"word": "park", "english": "I saw birds in the park.", "thai": "ฉันเห็นนกในสวนสาธารณะ"}
+{"word": "park", "english": "The park has a nice view.", "thai": "สวนสาธารณะมีวิวสวย"}
+{"word": "park", "english": "She’s painting in the park.", "thai": "เธอกำลังวาดภาพในสวนสาธารณะ"}
+{"word": "park", "english": "The park is full of people.", "thai": "สวนสาธารณะเต็มไปด้วยผู้คน"}
+{"word": "park", "english": "I’m relaxing in the park.", "thai": "ฉันกำลังพักผ่อนในสวนสาธารณะ"}
+{"word": "park", "english": "The park has a big tree.", "thai": "สวนสาธารณะมีต้นไม้ใหญ่"}
+{"word": "park", "english": "We’re playing soccer in the park.", "thai": "เรากำลังเล่นฟุตบอลในสวนสาธารณะ"}
+{"word": "park", "english": "The park is near the river.", "thai": "สวนสาธารณะอยู่ใกล้แม่น้ำ"}
+{"word": "park", "english": "I love the park’s atmosphere.", "thai": "ฉันรักบรรยากาศของสวนสาธารณะ"}
+{"word": "park", "english": "The park has a walking path.", "thai": "สวนสาธารณะมีทางเดิน"}
+{"word": "park", "english": "She’s reading in the park.", "thai": "เธอกำลังอ่านหนังสือในสวนสาธารณะ"}
+{"word": "park", "english": "The park is great for picnics.", "thai": "สวนสาธารณะเหมาะสำหรับปิกนิก"}
+{"word": "park", "english": "I saw a squirrel in the park.", "thai": "ฉันเห็นกระรอกในสวนสาธารณะ"}
+{"word": "park", "english": "The park has a new bench.", "thai": "สวนสาธารณะมีม้านั่งใหม่"}
+{"word": "park", "english": "We’re having lunch in the park.", "thai": "เรากำลังกินข้าวเที่ยงในสวนสาธารณะ"}
+{"word": "park", "english": "The park is very green.", "thai": "สวนสาธารณะเขียวขจีมาก"}
+{"word": "park", "english": "He’s skating in the park.", "thai": "เขากำลังเล่นสเก็ตในสวนสาธารณะ"}
+{"word": "park", "english": "The park has a small pond.", "thai": "สวนสาธารณะมีสระน้ำเล็กๆ"}
+{"word": "park", "english": "I’m visiting the park today.", "thai": "ฉันกำลังไปสวนสาธารณะวันนี้"}
+{"word": "park", "english": "The park is full of kids.", "thai": "สวนสาธารณะเต็มไปด้วยเด็กๆ"}
+{"word": "park", "english": "She’s walking her dog in the park.", "thai": "เธอกำลังพาสุนัขเดินในสวนสาธารณะ"}
+{"word": "park", "english": "The park has a great view.", "thai": "สวนสาธารณะมีวิวที่ยอดเยี่ยม"}
+{"word": "park", "english": "I’m running in the park.", "thai": "ฉันกำลังวิ่งในสวนสาธารณะ"}
+{"word": "park", "english": "The park is near the school.", "thai": "สวนสาธารณะอยู่ใกล้โรงเรียน"}
+{"word": "park", "english": "We’re meeting at the park entrance.", "thai": "เราจะเจอกันที่ทางเข้าสวนสาธารณะ"}
+{"word": "park", "english": "The park has a lot of shade.", "thai": "สวนสาธารณะมีร่มเงาเยอะ"}
+{"word": "park", "english": "I love the park’s flowers.", "thai": "ฉันรักดอกไม้ในสวนสาธารณะ"}
+{"word": "park", "english": "The park is perfect for photos.", "thai": "สวนสาธารณะเหมาะสำหรับถ่ายรูป"}
+{"word": "park", "english": "He’s sitting in the park.", "thai": "เขากำลังนั่งอยู่ในสวนสาธารณะ"}
+{"word": "park", "english": "The park has a new sign.", "thai": "สวนสาธารณะมีป้ายใหม่"}
+{"word": "park", "english": "We’re playing frisbee in the park.", "thai": "เรากำลังเล่นจานร่อนในสวนสาธารณะ"}
+{"word": "park", "english": "The park is always busy.", "thai": "สวนสาธารณะคึกคักเสมอ"}
+{"word": "park", "english": "I’m studying in the park.", "thai": "ฉันกำลังเรียนในสวนสาธารณะ"}
+{"word": "park", "english": "The park has a small bridge.", "thai": "สวนสาธารณะมีสะพานเล็กๆ"}
+{"word": "park", "english": "She’s meditating in the park.", "thai": "เธอกำลังนั่งสมาธิในสวนสาธารณะ"}
+{"word": "park", "english": "The park is great for families.", "thai": "สวนสาธารณะเหมาะสำหรับครอบครัว"}
+{"word": "park", "english": "I saw a concert in the park.", "thai": "ฉันดูคอนเสิร์ตในสวนสาธารณะ"}
+{"word": "park", "english": "The park has a bike path.", "thai": "สวนสาธารณะมีทางจักรยาน"}
+{"word": "park", "english": "We’re relaxing in the park.", "thai": "เรากำลังพักผ่อนในสวนสาธารณะ"}
+{"word": "park", "english": "The park is full of trees.", "thai": "สวนสาธารณะเต็มไปด้วยต้นไม้"}
+{"word": "park", "english": "I’m sketching in the park.", "thai": "ฉันกำลังวาดภาพในสวนสาธารณะ"}
+{"word": "park", "english": "The park has a nice breeze.", "thai": "สวนสาธารณะมีลมเย็นๆ"}
+{"word": "park", "english": "She’s having lunch in the park.", "thai": "เธอกำลังกินข้าวเที่ยงในสวนสาธารณะ"}
+{"word": "park", "english": "The park is near the library.", "thai": "สวนสาธารณะอยู่ใกล้ห้องสมุด"}
+{"word": "park", "english": "I love the park’s quietness.", "thai": "ฉันรักความเงียบสงบของสวนสาธารณะ"}
+{"word": "park", "english": "The park has a lot of benches.", "thai": "สวนสาธารณะมีม้านั่งเยอะ"}
+{"word": "park", "english": "We’re flying kites in the park.", "thai": "เรากำลังเล่นว่าวในสวนสาธารณะ"}
+{"word": "park", "english": "The park is great for jogging.", "thai": "สวนสาธารณะเหมาะสำหรับการวิ่งจ๊อกกิ้ง"}
+{"word": "park", "english": "I saw a picnic in the park.", "thai": "ฉันเห็นการปิกนิกในสวนสาธารณะ"}
+{"word": "park", "english": "The park has a small stage.", "thai": "สวนสาธารณะมีเวทีเล็กๆ"}
+{"word": "park", "english": "He’s walking in the park.", "thai": "เขากำลังเดินในสวนสาธารณะ"}
+{"word": "park", "english": "The park is full of color.", "thai": "สวนสาธารณะเต็มไปด้วยสีสัน"}
+{"word": "park", "english": "I’m exploring the park today.", "thai": "ฉันกำลังสำรวจสวนสาธารณะวันนี้"}
+{"word": "park", "english": "The park has a great fountain.", "thai": "สวนสาธารณะมีน้ำพุที่ยอดเยี่ยม"}
+{"word": "park", "english": "She’s playing in the park.", "thai": "เธอกำลังเล่นในสวนสาธารณะ"}
+{"word": "park", "english": "The park is near downtown.", "thai": "สวนสาธารณะอยู่ใกล้ตัวเมือง"}
+{"word": "park", "english": "I’m sitting in the park.", "thai": "ฉันกำลังนั่งอยู่ในสวนสาธารณะ"}
+{"word": "park", "english": "The park has a lot of birds.", "thai": "สวนสาธารณะมีนกเยอะ"}
+{"word": "park", "english": "We’re having a party in the park.", "thai": "เรากำลังจัดปาร์ตี้ในสวนสาธารณะ"}
+{"word": "park", "english": "The park is perfect for reading.", "thai": "สวนสาธารณะเหมาะสำหรับการอ่าน"}
+{"word": "park", "english": "I love the park’s scenery.", "thai": "ฉันรักทิวทัศน์ของสวนสาธารณะ"}
+{"word": "park", "english": "The park has a new path.", "thai": "สวนสาธารณะมีทางเดินใหม่"}
+{"word": "park", "english": "She’s exercising in the park.", "thai": "เธอกำลังออกกำลังกายในสวนสาธารณะ"}
+{"word": "park", "english": "The park is full of life.", "thai": "สวนสาธารณะเต็มไปด้วยชีวิตชีวา"}
+{"word": "park", "english": "I’m visiting a new park.", "thai": "ฉันกำลังไปสวนสาธารณะใหม่"}
+{"word": "park", "english": "The park has a great playground.", "thai": "สวนสาธารณะมีสนามเด็กเล่นที่ยอดเยี่ยม"}
+{"word": "park", "english": "We’re walking dogs in the park.", "thai": "เรากำลังพาสุนัขเดินในสวนสาธารณะ"}
+{"word": "shop", "english": "I’m going to the shop later.", "thai": "ฉันจะไปที่ร้านค้าทีหลัง"}
+{"word": "shop", "english": "The shop is open until nine.", "thai": "ร้านค้าเปิดจนถึงเก้าโมง"}
+{"word": "shop", "english": "She works at a coffee shop.", "thai": "เธอทำงานที่ร้านกาแฟ"}
+{"word": "shop", "english": "I need to shop for groceries.", "thai": "ฉันต้องไปซื้อของชำ"}
+{"word": "shop", "english": "The shop has a sale today.", "thai": "ร้านค้ามีลดราคาวันนี้"}
+{"word": "shop", "english": "He’s at the bike shop now.", "thai": "เขาอยู่ที่ร้านจักรยานตอนนี้"}
+{"word": "shop", "english": "Let’s shop for new clothes.", "thai": "ไปซื้อเสื้อผ้าใหม่กันเถอะ"}
+{"word": "shop", "english": "The shop is always crowded.", "thai": "ร้านค้ามักจะแออัด"}
+{"word": "shop", "english": "I found a book in the shop.", "thai": "ฉันเจอหนังสือในร้านค้า"}
+{"word": "shop", "english": "The shop sells fresh bread.", "thai": "ร้านค้าขายขนมปังสด"}
+{"word": "shop", "english": "We’re going to shop downtown.", "thai": "เราจะไปช้อปปิ้งในตัวเมือง"}
+{"word": "shop", "english": "The shop has new furniture.", "thai": "ร้านค้ามีเฟอร์นิเจอร์ใหม่"}
+{"word": "shop", "english": "I love this little antique shop.", "thai": "ฉันรักร้านของเก่าขนาดเล็กนี้"}
+{"word": "shop", "english": "He’s fixing cars at the shop.", "thai": "เขากำลังซ่อมรถที่ร้าน"}
+{"word": "shop", "english": "Let’s shop for gifts tomorrow.", "thai": "ไปซื้อของขวัญพรุ่งนี้กันเถอะ"}
+{"word": "shop", "english": "The shop is near the park.", "thai": "ร้านค้าอยู่ใกล้สวนสาธารณะ"}
+{"word": "shop", "english": "I shop online most of the time.", "thai": "ฉันซื้อของออนไลน์ส่วนใหญ่"}
+{"word": "shop", "english": "The shop has great deals.", "thai": "ร้านค้ามีข้อเสนอดีๆ"}
+{"word": "shop", "english": "She’s at the flower shop.", "thai": "เธออยู่ที่ร้านดอกไม้"}
+{"word": "shop", "english": "I need to shop for shoes.", "thai": "ฉันต้องไปซื้อรองเท้า"}
+{"word": "shop", "english": "The shop is closed on Sundays.", "thai": "ร้านค้าปิดในวันอาทิตย์"}
+{"word": "shop", "english": "He bought a phone at the shop.", "thai": "เขาซื้อโทรศัพท์ที่ร้านค้า"}
+{"word": "shop", "english": "We shop at the mall often.", "thai": "เรามักจะช้อปปิ้งที่ห้าง"}
+{"word": "shop", "english": "The shop has a new owner.", "thai": "ร้านค้ามีเจ้าของใหม่"}
+{"word": "shop", "english": "I’m going to shop for food.", "thai": "ฉันจะไปซื้ออาหาร"}
+{"word": "shop", "english": "The shop is out of stock.", "thai": "ร้านค้าสินค้าหมด"}
+{"word": "shop", "english": "She loves to shop for jewelry.", "thai": "เธอรักการซื้อเครื่องประดับ"}
+{"word": "shop", "english": "The shop has a friendly staff.", "thai": "ร้านค้ามีพนักงานที่เป็นมิตร"}
+{"word": "shop", "english": "I saw a dress in the shop.", "thai": "ฉันเห็นชุดเดรสในร้านค้า"}
+{"word": "shop", "english": "Let’s shop for holiday decorations.", "thai": "ไปซื้อของตกแต่งวันหยุดกันเถอะ"}
+{"word": "shop", "english": "The shop is in the city center.", "thai": "ร้านค้าอยู่ในใจกลางเมือง"}
+{"word": "shop", "english": "I shop there every week.", "thai": "ฉันซื้อของที่นั่นทุกสัปดาห์"}
+{"word": "shop", "english": "The shop sells handmade crafts.", "thai": "ร้านค้าขายงานฝีมือทำมือ"}
+{"word": "shop", "english": "He’s working at the repair shop.", "thai": "เขาทำงานที่ร้านซ่อม"}
+{"word": "shop", "english": "I need to shop for a gift.", "thai": "ฉันต้องไปซื้อของขวัญ"}
+{"word": "shop", "english": "The shop has a big sale.", "thai": "ร้านค้ามีลดราคาครั้งใหญ่"}
+{"word": "shop", "english": "She’s browsing in the shop.", "thai": "เธอกำลังดูของในร้านค้า"}
+{"word": "shop", "english": "The shop is always busy.", "thai": "ร้านค้ายุ่งอยู่เสมอ"}
+{"word": "shop", "english": "I shop for clothes online.", "thai": "ฉันซื้อเสื้อผ้าออนไลน์"}
+{"word": "shop", "english": "The shop has fresh flowers.", "thai": "ร้านค้ามีดอกไม้สด"}
+{"word": "shop", "english": "We’re going to the pet shop.", "thai": "เราจะไปร้านขายสัตว์เลี้ยง"}
+{"word": "shop", "english": "I love the shop’s vibe.", "thai": "ฉันรักบรรยากาศของร้านค้า"}
+{"word": "shop", "english": "The shop is open late.", "thai": "ร้านค้าเปิดถึงดึก"}
+{"word": "shop", "english": "He’s at the hardware shop.", "thai": "เขาอยู่ที่ร้านเครื่องมือ"}
+{"word": "shop", "english": "Let’s shop for some books.", "thai": "ไปซื้อหนังสือกันเถอะ"}
+{"word": "shop", "english": "The shop has a new display.", "thai": "ร้านค้ามีการจัดแสดงใหม่"}
+{"word": "shop", "english": "I shop at the local market.", "thai": "ฉันซื้อของที่ตลาดท้องถิ่น"}
+{"word": "shop", "english": "The shop sells organic food.", "thai": "ร้านค้าขายอาหารออร์แกนิก"}
+{"word": "shop", "english": "She’s at the thrift shop.", "thai": "เธออยู่ที่ร้านขายของมือสอง"}
+{"word": "shop", "english": "I need to shop for supplies.", "thai": "ฉันต้องไปซื้ออุปกรณ์"}
+{"word": "shop", "english": "The shop is near the station.", "thai": "ร้านค้าอยู่ใกล้สถานี"}
+{"word": "shop", "english": "We shop for deals online.", "thai": "เราซื้อของลดราคาออนไลน์"}
+{"word": "shop", "english": "The shop has unique gifts.", "thai": "ร้านค้ามีของขวัญที่ไม่เหมือนใคร"}
+{"word": "shop", "english": "He’s shopping at the mall.", "thai": "เขากำลังช้อปปิ้งที่ห้าง"}
+{"word": "shop", "english": "The shop is small but cozy.", "thai": "ร้านค้าเล็กแต่อบอุ่น"}
+{"word": "shop", "english": "I shop for fresh produce.", "thai": "ฉันซื้อผักผลไม้สด"}
+{"word": "shop", "english": "The shop has great coffee.", "thai": "ร้านค้ามีกาแฟอร่อย"}
+{"word": "shop", "english": "She’s at the candy shop.", "thai": "เธออยู่ที่ร้านลูกกวาด"}
+{"word": "shop", "english": "I love to shop for gadgets.", "thai": "ฉันรักการซื้ออุปกรณ์เทคโนโลยี"}
+{"word": "shop", "english": "The shop is out of bread.", "thai": "ร้านค้าขนมปังหมด"}
+{"word": "shop", "english": "We’re going to shop for toys.", "thai": "เราจะไปซื้อของเล่น"}
+{"word": "shop", "english": "The shop has a nice staff.", "thai": "ร้านค้ามีพนักงานที่ดี"}
+{"word": "shop", "english": "I shop at that store often.", "thai": "ฉันซื้อของที่ร้านนั้นบ่อย"}
+{"word": "shop", "english": "The shop sells vintage clothes.", "thai": "ร้านค้าขายเสื้อผ้าแนววินเทจ"}
+{"word": "shop", "english": "He’s at the music shop.", "thai": "เขาอยู่ที่ร้านเครื่องดนตรี"}
+{"word": "shop", "english": "Let’s shop for new furniture.", "thai": "ไปซื้อเฟอร์นิเจอร์ใหม่กันเถอะ"}
+{"word": "shop", "english": "The shop is very popular.", "thai": "ร้านค้านี้ได้รับความนิยมมาก"}
+{"word": "shop", "english": "I shop for deals weekly.", "thai": "ฉันซื้อของลดราคาทุกสัปดาห์"}
+{"word": "shop", "english": "The shop has handmade soap.", "thai": "ร้านค้ามีสบู่ทำมือ"}
+{"word": "shop", "english": "She’s shopping for a dress.", "thai": "เธอกำลังซื้อชุดเดรส"}
+{"word": "shop", "english": "The shop is near my house.", "thai": "ร้านค้าอยู่ใกล้บ้านฉัน"}
+{"word": "shop", "english": "I need to shop for a phone.", "thai": "ฉันต้องไปซื้อโทรศัพท์"}
+{"word": "shop", "english": "The shop has a big window.", "thai": "ร้านค้ามีหน้าต่างใหญ่"}
+{"word": "shop", "english": "We shop at the corner store.", "thai": "เราซื้อของที่ร้านมุมถนน"}
+{"word": "shop", "english": "The shop sells local honey.", "thai": "ร้านค้าขายน้ำผึ้งท้องถิ่น"}
+{"word": "shop", "english": "I’m going to the book shop.", "thai": "ฉันจะไปร้านหนังสือ"}
+{"word": "shop", "english": "The shop is always clean.", "thai": "ร้านค้าสะอาดเสมอ"}
+{"word": "shop", "english": "She loves to shop for hats.", "thai": "เธอรักการซื้อหมวกdab"}
+{"word": "shop", "english": "The shop has cool gadgets.", "thai": "ร้านค้ามีอุปกรณ์เจ๋งๆ"}
+{"word": "shop", "english": "I shop there every weekend.", "thai": "ฉันซื้อของที่นั่นทุกสุดสัปดาห์"}
+{"word": "shop", "english": "The shop is family-owned.", "thai": "ร้านค้านี้เป็นของครอบครัว"}
+{"word": "shop", "english": "Let’s shop for some snacks.", "thai": "ไปซื้อของว่างกันเถอะ"}
+{"word": "shop", "english": "The shop has free samples.", "thai": "ร้านค้ามีตัวอย่างฟรี"}
+{"word": "shop", "english": "He’s at the shoe shop.", "thai": "เขาอยู่ที่ร้านรองเท้า"}
+{"word": "shop", "english": "I shop for organic products.", "thai": "ฉันซื้อผลิตภัณฑ์ออร์แกนิก"}
+{"word": "shop", "english": "The shop is open all day.", "thai": "ร้านค้าเปิดทั้งวัน"}
+{"word": "shop", "english": "She’s shopping for a gift.", "thai": "เธอกำลังซื้อของขวัญ"}
+{"word": "shop", "english": "The shop has a new design.", "thai": "ร้านค้ามีดีไซน์ใหม่"}
+{"word": "shop", "english": "I shop at the grocery store.", "thai": "ฉันซื้อของที่ร้านขายของชำ"}
+{"word": "shop", "english": "The shop sells rare coins.", "thai": "ร้านค้าขายเหรียญหายาก"}
+{"word": "shop", "english": "We’re shopping for electronics.", "thai": "เรากำลังซื้ออุปกรณ์อิเล็กทรอนิกส์"}
+{"word": "shop", "english": "The shop is next to the bank.", "thai": "ร้านค้าอยู่ติดกับธนาคาร"}
+{"word": "shop", "english": "I shop for fresh vegetables.", "thai": "ฉันซื้อผักสด"}
+{"word": "shop", "english": "The shop has a cozy vibe.", "thai": "ร้านค้ามีบรรยากาศอบอุ่น"}
+{"word": "shop", "english": "She’s at the gift shop.", "thai": "เธออยู่ที่ร้านของขวัญ"}
+{"word": "shop", "english": "I shop for deals online.", "thai": "ฉันซื้อของลดราคาออนไลน์"}
+{"word": "shop", "english": "The shop sells local art.", "thai": "ร้านค้าขายงานศิลปะท้องถิ่น"}
+{"word": "shop", "english": "We shop at the same store.", "thai": "เราซื้อของที่ร้านเดียวกัน"}
+{"word": "shop", "english": "The shop is well-stocked.", "thai": "ร้านค้ามีสินค้าพร้อม"}
+{"word": "shop", "english": "I’m shopping for a new bag.", "thai": "ฉันกำลังซื้อกระเป๋าใหม่"}
+{"word": "food", "english": "I love trying new food.", "thai": "ฉันรักการลองอาหารใหม่"}
+{"word": "food", "english": "The food here is amazing.", "thai": "อาหารที่นี่น่าทึ่ง"}
+{"word": "food", "english": "She’s cooking food for dinner.", "thai": "เธอกำลังทำอาหารสำหรับมื้อเย็น"}
+{"word": "food", "english": "We need to buy more food.", "thai": "เราต้องซื้ออาหารเพิ่ม"}
+{"word": "food", "english": "The food smells so good.", "thai": "อาหารกลิ่นหอมมาก"}
+{"word": "food", "english": "He’s picky about his food.", "thai": "เขาเลือกกินอาหารมาก"}
+{"word": "food", "english": "This food is too spicy.", "thai": "อาหารนี้เผ็ดเกินไป"}
+{"word": "food", "english": "I’m hungry for some food.", "thai": "ฉันหิวอยากกินอาหาร"}
+{"word": "food", "english": "The food is getting cold.", "thai": "อาหารกำลังเย็น"}
+{"word": "food", "english": "She shared her food with me.", "thai": "เธอแบ่งอาหารให้ฉัน"}
+{"word": "food", "english": "The food tastes delicious.", "thai": "อาหารรสชาติอร่อย"}
+{"word": "food", "english": "We’re out of food at home.", "thai": "อาหารที่บ้านหมดแล้ว"}
+{"word": "food", "english": "He’s eating spicy food.", "thai": "เขากำลังกินอาหารเผ็ด"}
+{"word": "food", "english": "The food is fresh and tasty.", "thai": "อาหารสดและอร่อย"}
+{"word": "food", "english": "I’m craving Italian food.", "thai": "ฉันอยากกินอาหารอิตาเลียน"}
+{"word": "food", "english": "The food was overcooked.", "thai": "อาหารสุกเกินไป"}
+{"word": "food", "english": "She’s learning to cook food.", "thai": "เธอกำลังเรียนทำอาหาร"}
+{"word": "food", "english": "The food is on the table.", "thai": "อาหารอยู่บนโต๊ะ"}
+{"word": "food", "english": "I love street food.", "thai": "ฉันรักอาหารริมทาง"}
+{"word": "food", "english": "The food here is expensive.", "thai": "อาหารที่นี่แพง"}
+{"word": "food", "english": "He’s allergic to some food.", "thai": "เขาแพ้อาหารบางอย่าง"}
+{"word": "food", "english": "We ordered food to go.", "thai": "เราสั่งอาหารกลับบ้าน"}
+{"word": "food", "english": "The food tastes too salty.", "thai": "อาหารรสเค็มเกินไป"}
+{"word": "food", "english": "I’m looking for healthy food.", "thai": "ฉันกำลังมองหาอาหารเพื่อสุขภาพ"}
+{"word": "food", "english": "The food was really cheap.", "thai": "อาหารถูกมาก"}
+{"word": "food", "english": "She’s bringing food to the party.", "thai": "เธอกำลังนำอาหารไปงานปาร์ตี้"}
+{"word": "food", "english": "The food is locally grown.", "thai": "อาหารปลูกในท้องถิ่น"}
+{"word": "food", "english": "I’m tired of fast food.", "thai": "ฉันเบื่ออาหารฟาสต์ฟูด"}
+{"word": "food", "english": "The food arrived quickly.", "thai": "อาหารมาถึงเร็ว"}
+{"word": "food", "english": "He loves Thai food.", "thai": "เขารักอาหารไทย"}
+{"word": "food", "english": "The food was well-prepared.", "thai": "อาหารถูกจัดเตรียมอย่างดี"}
+{"word": "food", "english": "I’m cooking food tonight.", "thai": "ฉันกำลังทำอาหารคืนนี้"}
+{"word": "food", "english": "The food is organic.", "thai": "อาหารเป็นออร์แกนิก"}
+{"word": "food", "english": "She’s trying vegan food.", "thai": "เธอกำลังลองอาหารมังสวิรัติ"}
+{"word": "food", "english": "The food tastes amazing.", "thai": "อาหารรสชาติน่าทึ่ง"}
+{"word": "food", "english": "We’re sharing the food.", "thai": "เรากำลังแบ่งปันอาหาร"}
+{"word": "food", "english": "The food is too bland.", "thai": "อาหารจืดชืดเกินไป"}
+{"word": "food", "english": "I’m shopping for food now.", "thai": "ฉันกำลังซื้ออาหารตอนนี้"}
+{"word": "food", "english": "The food is very colorful.", "thai": "อาหารมีสีสันมาก"}
+{"word": "food", "english": "He’s grilling food outside.", "thai": "เขากำลังย่างอาหารข้างนอก"}
+{"word": "food", "english": "The food was delivered late.", "thai": "อาหารถูกจัดส่งช้า"}
+{"word": "food", "english": "I love homemade food.", "thai": "ฉันรักอาหารทำเอง"}
+{"word": "food", "english": "The food is gluten-free.", "thai": "อาหารปราศจากกลูเตน"}
+{"word": "food", "english": "She’s reviewing food online.", "thai": "เธอกำลังรีวิวอาหารออนไลน์"}
+{"word": "food", "english": "The food smells delicious.", "thai": "อาหารมีกลิ่นหอมอร่อย"}
+{"word": "food", "english": "I’m craving spicy food.", "thai": "ฉันอยากกินอาหารเผ็ด"}
+{"word": "food", "english": "The food was too greasy.", "thai": "อาหารมันเยิ้มเกินไป"}
+{"word": "food", "english": "He’s selling food at the market.", "thai": "เขากำลังขายอาหารที่ตลาด"}
+{"word": "food", "english": "The food is ready to eat.", "thai": "อาหารพร้อมกินแล้ว"}
+{"word": "food", "english": "I’m trying new food today.", "thai": "ฉันกำลังลองอาหารใหม่วันนี้"}
+{"word": "food", "english": "The food was cold.", "thai": "อาหารเย็นชืด"}
+{"word": "food", "english": "She loves Mexican food.", "thai": "เธอรักอาหารเม็กซิกัน"}
+{"word": "food", "english": "The food is super fresh.", "thai": "อาหารสดมาก"}
+{"word": "food", "english": "I’m packing food for lunch.", "thai": "ฉันกำลังแพ็คอาหารสำหรับมื้อเที่ยง"}
+{"word": "food", "english": "The food tastes homemade.", "thai": "อาหารรสชาติเหมือนทำเอง"}
+{"word": "food", "english": "He’s eating healthy food.", "thai": "เขากำลังกินอาหารเพื่อสุขภาพ"}
+{"word": "food", "english": "The food is locally sourced.", "thai": "อาหารมาจากแหล่งท้องถิ่น"}
+{"word": "food", "english": "I’m learning about food safety.", "thai": "ฉันกำลังเรียนรู้เกี่ยวกับความปลอดภัยของอาหาร"}
+{"word": "food", "english": "The food was amazing.", "thai": "อาหารน่าทึ่งมาก"}
+{"word": "food", "english": "She’s making food for everyone.", "thai": "เธอกำลังทำอาหารให้ทุกคน"}
+{"word": "food", "english": "The food is too sweet.", "thai": "อาหารหวานเกินไป"}
+{"word": "food", "english": "I love Asian food.", "thai": "ฉันรักอาหารเอเชีย"}
+{"word": "food", "english": "The food is very cheap.", "thai": "อาหารถูกมาก"}
+{"word": "food", "english": "He’s trying new food recipes.", "thai": "เขากำลังลองสูตรอาหารใหม่"}
+{"word": "food", "english": "The food smells so fresh.", "thai": "อาหารกลิ่นสดใหม่มาก"}
+{"word": "food", "english": "I’m donating food to charity.", "thai": "ฉันกำลังบริจาคอาหารให้การกุศล"}
+{"word": "food", "english": "The food was perfectly cooked.", "thai": "อาหารถูกปรุงอย่างสมบูรณ์แบบ"}
+{"word": "food", "english": "She’s photographing the food.", "thai": "เธอกำลังถ่ายรูปอาหาร"}
+{"word": "food", "english": "The food is very spicy.", "thai": "อาหารเผ็ดมาก"}
+{"word": "food", "english": "I’m buying food for the week.", "thai": "ฉันกำลังซื้ออาหารสำหรับทั้งสัปดาห์"}
+{"word": "food", "english": "The food tastes so good.", "thai": "อาหารรสชาติดีมาก"}
+{"word": "food", "english": "He loves fast food.", "thai": "เขารักอาหารฟาสต์ฟูด"}
+{"word": "food", "english": "The food was a bit cold.", "thai": "อาหารเย็นนิดหน่อย"}
+{"word": "food", "english": "I’m cooking spicy food tonight.", "thai": "ฉันกำลังทำอาหารเผ็ดคืนนี้"}
+{"word": "food", "english": "The food is vegan-friendly.", "thai": "อาหารเหมาะสำหรับมังสวิรัติ"}
+{"word": "food", "english": "She’s writing about food.", "thai": "เธอกำลังเขียนเกี่ยวกับอาหาร"}
+{"word": "food", "english": "The food is really tasty.", "thai": "อาหารอร่อยมาก"}
+{"word": "food", "english": "I’m craving junk food.", "thai": "ฉันอยากกินอาหารขยะ"}
+{"word": "food", "english": "The food was well-seasoned.", "thai": "อาหารปรุงรสดี"}
+{"word": "food", "english": "He’s sharing his food.", "thai": "เขากำลังแบ่งปันอาหาร"}
+{"word": "food", "english": "The food smells incredible.", "thai": "อาหารกลิ่นหอมน่าทึ่ง"}
+{"word": "food", "english": "I’m trying organic food.", "thai": "ฉันกำลังลองอาหารออร์แกนิก"}
+{"word": "food", "english": "The food is too oily.", "thai": "อาหารมันเกินไป"}
+{"word": "food", "english": "She loves spicy food.", "thai": "เธอรักอาหารเผ็ด"}
+{"word": "food", "english": "The food is freshly made.", "thai": "อาหารทำสดใหม่"}
+{"word": "food", "english": "I’m ordering food online.", "thai": "ฉันกำลังสั่งอาหารออนไลน์"}
+{"word": "food", "english": "The food was a bit salty.", "thai": "อาหารเค็มนิดหน่อย"}
+{"word": "food", "english": "He’s cooking food for friends.", "thai": "เขากำลังทำอาหารให้เพื่อน"}
+{"word": "food", "english": "The food tastes homemade.", "thai": "อาหารรสชาติเหมือนทำเองที่บ้าน"}
+{"word": "food", "english": "I love trying exotic food.", "thai": "ฉันรักการลองอาหารแปลกใหม่"}
+{"word": "food", "english": "The food is very flavorful.", "thai": "อาหารมีรสชาติมาก"}
+{"word": "food", "english": "She’s buying food for dinner.", "thai": "เธอกำลังซื้ออาหารสำหรับมื้อเย็น"}
+{"word": "food", "english": "The food was too hot.", "thai": "อาหารร้อนเกินไป"}
+{"word": "food", "english": "I’m eating healthy food now.", "thai": "ฉันกำลังกินอาหารเพื่อสุขภาพตอนนี้"}
+{"word": "food", "english": "The food is beautifully presented.", "thai": "อาหารถูกจัดวางอย่างสวยงาม"}
+{"word": "food", "english": "He’s learning about food culture.", "thai": "เขากำลังเรียนรู้เกี่ยวกับวัฒนธรรมอาหาร"}
+{"word": "food", "english": "The food is super delicious.", "thai": "อาหารอร่อยสุดยอด"}
+{"word": "food", "english": "I’m trying new food recipes.", "thai": "ฉันกำลังลองสูตรอาหารใหม่"}
+{"word": "food", "english": "The food was a bit bland.", "thai": "อาหารจืดชืดนิดหน่อย"}
+{"word": "food", "english": "She’s cooking food for the family.", "thai": "เธอกำลังทำอาหารให้ครอบครัว"}
+{"word": "food", "english": "The food is locally made.", "thai": "อาหารผลิตในท้องถิ่น"}
+{"word": "water", "english": "I need a glass of water.", "thai": "ฉันต้องการน้ำแก้วหนึ่ง"}
+{"word": "water", "english": "The water is too cold.", "thai": "น้ำเย็นเกินไป"}
+{"word": "water", "english": "She’s swimming in the water.", "thai": "เธอกำลังว่ายน้ำอยู่ในน้ำ"}
+{"word": "water", "english": "The water tastes fresh.", "thai": "น้ำรสชาติสดชื่น"}
+{"word": "water", "english": "He spilled water on the table.", "thai": "เขาทำน้ำหกบนโต๊ะ"}
+{"word": "water", "english": "We’re out of drinking water.", "thai": "น้ำดื่มของเราหมดแล้ว"}
+{"word": "water", "english": "The water is crystal clear.", "thai": "น้ำใสเหมือนคริสตัล"}
+{"word": "water", "english": "I’m thirsty for some water.", "thai": "ฉันกระหายน้ำ"}
+{"word": "water", "english": "The water is boiling now.", "thai": "น้ำกำลังเดือด"}
+{"word": "water", "english": "She’s watering the plants.", "thai": "เธอกำลังรดน้ำต้นไม้"}
+{"word": "water", "english": "The water feels refreshing.", "thai": "น้ำรู้สึกสดชื่น"}
+{"word": "water", "english": "He’s fishing in the water.", "thai": "เขากำลังตกปลาในน้ำ"}
+{"word": "water", "english": "The water is very deep.", "thai": "น้ำลึกมาก"}
+{"word": "water", "english": "I forgot to drink water today.", "thai": "ฉันลืมดื่มน้ำวันนี้"}
+{"word": "water", "english": "The water is polluted.", "thai": "น้ำปนเปื้อน"}
+{"word": "water", "english": "She’s drinking bottled water.", "thai": "เธอกำลังดื่มน้ำขวด"}
+{"word": "water", "english": "The water is calm today.", "thai": "น้ำสงบวันนี้"}
+{"word": "water", "english": "I need hot water for tea.", "thai": "ฉันต้องการน้ำร้อนสำหรับชา"}
+{"word": "water", "english": "The water is freezing cold.", "thai": "น้ำเย็นจัด"}
+{"word": "water", "english": "He’s splashing in the water.", "thai": "เขากำลังกระเด็นน้ำ"}
+{"word": "water", "english": "The water tastes strange.", "thai": "น้ำรสชาติแปลก"}
+{"word": "water", "english": "We’re kayaking on the water.", "thai": "เรากำลังพายเรือคายัคบนน้ำ"}
+{"word": "water", "english": "The water is running low.", "thai": "น้ำเหลือน้อย"}
+{"word": "water", "english": "She’s boiling water for pasta.", "thai": "เธอกำลังต้มน้ำสำหรับพาสต้า"}
+{"word": "water", "english": "The water looks murky.", "thai": "น้ำดูขุ่น"}
+{"word": "water", "english": "I spilled water on my shirt.", "thai": "ฉันทำน้ำหกใส่เสื้อ"}
+{"word": "water", "english": "The water is safe to drink.", "thai": "น้ำดื่มได้อย่างปลอดภัย"}
+{"word": "water", "english": "He’s sailing on the water.", "thai": "เขากำลังแล่นเรือบนน้ำ"}
+{"word": "water", "english": "The water is warm today.", "thai": "น้ำอุ่นวันนี้"}
+{"word": "water", "english": "I’m filling the bottle with water.", "thai": "ฉันกำลังเติมน้ำในขวด"}
+{"word": "water", "english": "The water is too shallow.", "thai": "น้ำตื้นเกินไป"}
+{"word": "water", "english": "She’s playing in the water.", "thai": "เธอกำลังเล่นน้ำ"}
+{"word": "water", "english": "The water smells funny.", "thai": "น้ำมีกลิ่นแปลก"}
+{"word": "water", "english": "We need clean water now.", "thai": "เราต้องการน้ำสะอาดตอนนี้"}
+{"word": "water", "english": "The water is sparkling clear.", "thai": "น้ำใสระยิบระยับ"}
+{"word": "water", "english": "He’s drinking water after running.", "thai": "เขากำลังดื่มน้ำหลังวิ่ง"}
+{"word": "water", "english": "The water is moving fast.", "thai": "น้ำไหลเร็ว"}
+{"word": "water", "english": "I’m soaking my feet in water.", "thai": "ฉันกำลังแช่เท้าในน้ำ"}
+{"word": "water", "english": "The water is too salty.", "thai": "น้ำเค็มเกินไป"}
+{"word": "water", "english": "She’s testing the water quality.", "thai": "เธอกำลังตรวจสอบคุณภาพน้ำ"}
+{"word": "water", "english": "The water feels so cool.", "thai": "น้ำรู้สึกเย็นสบาย"}
+{"word": "water", "english": "He’s pouring water into the glass.", "thai": "เขากำลังเทน้ำลงในแก้ว"}
+{"word": "water", "english": "The water is full of fish.", "thai": "น้ำเต็มไปด้วยปลา"}
+{"word": "water", "english": "I’m buying bottled water.", "thai": "ฉันกำลังซื้อน้ำขวด"}
+{"word": "water", "english": "The water is calm and still.", "thai": "น้ำสงบและนิ่ง"}
+{"word": "water", "english": "She’s washing dishes with water.", "thai": "เธอกำลังล้างจานด้วยน้ำ"}
+{"word": "water", "english": "The water is very clean.", "thai": "น้ำสะอาดมาก"}
+{"word": "water", "english": "He’s rowing across the water.", "thai": "เขากำลังพายเรือข้ามน้ำ"}
+{"word": "water", "english": "The water tastes pure.", "thai": "น้ำรสชาติบริสุทธิ์"}
+{"word": "water", "english": "I’m carrying water for the trip.", "thai": "ฉันกำลังนำน้ำสำหรับการเดินทาง"}
+{"word": "water", "english": "The water is icy cold.", "thai": "น้ำเย็นเหมือนน้ำแข็ง"}
+{"word": "water", "english": "She’s diving into the water.", "thai": "เธอกำลังดำน้ำ"}
+{"word": "water", "english": "The water is slightly warm.", "thai": "น้ำอุ่นเล็กน้อย"}
+{"word": "water", "english": "He’s filtering the water.", "thai": "เขากำลังกรองน้ำ"}
+{"word": "water", "english": "The water is rough today.", "thai": "น้ำเชี่ยววันนี้"}
+{"word": "water", "english": "I need water after hiking.", "thai": "ฉันต้องการน้ำหลังจากเดินป่า"}
+{"word": "water", "english": "The water looks inviting.", "thai": "น้ำดูน่าดึงดูด"}
+{"word": "water", "english": "She’s carrying a water bottle.", "thai": "เธอกำลังถือขวดน้ำ"}
+{"word": "water", "english": "The water is too murky.", "thai": "น้ำขุ่นเกินไป"}
+{"word": "water", "english": "He’s swimming in cold water.", "thai": "เขากำลังว่ายน้ำในน้ำเย็น"}
+{"word": "water", "english": "The water is perfect for swimming.", "thai": "น้ำเหมาะสำหรับว่ายน้ำ"}
+{"word": "water", "english": "I’m boiling water for coffee.", "thai": "ฉันกำลังต้มน้ำสำหรับกาแฟ"}
+{"word": "water", "english": "The water is full of waves.", "thai": "น้ำเต็มไปด้วยคลื่น"}
+{"word": "water", "english": "She’s splashing water on her face.", "thai": "เธอกำลังกระเซ็นน้ำใส่หน้า"}
+{"word": "water", "english": "The water is very pure.", "thai": "น้ำบริสุทธิ์มาก"}
+{"word": "water", "english": "He’s drinking sparkling water.", "thai": "เขากำลังดื่มน้ำโซดา"}
+{"word": "water", "english": "The water feels so nice.", "thai": "น้ำรู้สึกดีมาก"}
+{"word": "water", "english": "I’m refilling my water bottle.", "thai": "ฉันกำลังเติมน้ำในขวด"}
+{"word": "water", "english": "The water is too warm.", "thai": "น้ำอุ่นเกินไป"}
+{"word": "water", "english": "She’s painting the water scene.", "thai": "เธอกำลังวาดภาพทิวทัศน์น้ำ"}
+{"word": "water", "english": "The water is safe for fish.", "thai": "น้ำปลอดภัยสำหรับปลา"}
+{"word": "water", "english": "He’s collecting water samples.", "thai": "เขากำลังเก็บตัวอย่างน้ำ"}
+{"word": "water", "english": "The water is very still.", "thai": "น้ำนิ่งมาก"}
+{"word": "water", "english": "I’m washing with cold water.", "thai": "ฉันกำลังล้างด้วยน้ำเย็น"}
+{"word": "water", "english": "The water looks so blue.", "thai": "น้ำดูเป็นสีฟ้ามาก"}
+{"word": "water", "english": "She’s drinking water after yoga.", "thai": "เธอกำลังดื่มน้ำหลังโยคะ"}
+{"word": "water", "english": "The water is flowing fast.", "thai": "น้ำไหลเร็ว"}
+{"word": "water", "english": "I need water for cooking.", "thai": "ฉันต้องการน้ำสำหรับทำอาหาร"}
+{"word": "water", "english": "The water is too dirty.", "thai": "น้ำสกปรกเกินไป"}
+{"word": "water", "english": "He’s floating on the water.", "thai": "เขากำลังลอยน้ำ"}
+{"word": "water", "english": "The water tastes metallic.", "thai": "น้ำมีรสชาติเหมือนโลหะ"}
+{"word": "water", "english": "She’s watering the garden.", "thai": "เธอกำลังรดน้ำสวน"}
+{"word": "water", "english": "The water is good for drinking.", "thai": "น้ำเหมาะสำหรับดื่ม"}
+{"word": "water", "english": "I’m swimming in the water.", "thai": "ฉันกำลังว่ายน้ำ"}
+{"word": "water", "english": "The water is very cold.", "thai": "น้ำเย็นมาก"}
+{"word": "water", "english": "He’s testing the water temperature.", "thai": "เขากำลังทดสอบอุณหภูมิของน้ำ"}
+{"word": "water", "english": "The water looks so calm.", "thai": "น้ำดูสงบมาก"}
+{"word": "water", "english": "I’m buying water for the trip.", "thai": "ฉันกำลังซื้อน้ำสำหรับการเดินทาง"}
+{"word": "water", "english": "The water is full of algae.", "thai": "น้ำเต็มไปด้วยสาหร่าย"}
+{"word": "water", "english": "She’s sipping water slowly.", "thai": "เธอกำลังจิบน้ำช้าๆ"}
+{"word": "water", "english": "The water is too rough.", "thai": "น้ำเชี่ยวเกินไป"}
+{"word": "water", "english": "He’s purifying the water.", "thai": "เขากำลังทำน้ำให้บริสุทธิ์"}
+{"word": "water", "english": "The water feels amazing.", "thai": "น้ำรู้สึกยอดเยี่ยม"}
+{"word": "water", "english": "I’m drinking water right now.", "thai": "ฉันกำลังดื่มน้ำตอนนี้"}
+{"word": "water", "english": "The water is very clear.", "thai": "น้ำใสมาก"}
+{"word": "water", "english": "She’s standing near the water.", "thai": "เธอกำลังยืนอยู่ใกล้น้ำ"}
+{"word": "water", "english": "The water is perfect for fishing.", "thai": "น้ำเหมาะสำหรับตกปลา"}
+{"word": "water", "english": "I’m boiling water for soup.", "thai": "ฉันกำลังต้มน้ำสำหรับซุป"}
+{"word": "water", "english": "The water is icy today.", "thai": "น้ำเย็นจัดวันนี้"}
+{"word": "water", "english": "He’s jumping into the water.", "thai": "เขากำลังกระโดน้ำ"}
+{"word": "water", "english": "The water smells clean.", "thai": "น้ำมีกลิ่นสะอาด"}
+{"word": "water", "english": "I’m filling a jug with water.", "thai": "ฉันกำลังเติมน้ำในเหยือก"}
+{"word": "milk", "english": "I need a glass of milk.", "thai": "ฉันต้องการนมสักแก้ว"}
+{"word": "milk", "english": "The milk is in the fridge.", "thai": "นมอยู่ในตู้เย็น"}
+{"word": "milk", "english": "She’s drinking chocolate milk.", "thai": "เธอกำลังดื่มนมช็อกโกแลต"}
+{"word": "milk", "english": "The milk tastes fresh.", "thai": "นมรสชาติสดใหม่"}
+{"word": "milk", "english": "He spilled milk on the table.", "thai": "เขาทำนมหกบนโต๊ะ"}
+{"word": "milk", "english": "We’re out of milk at home.", "thai": "นมที่บ้านหมดแล้ว"}
+{"word": "milk", "english": "I prefer almond milk.", "thai": "ฉันชอบนมอัลมอนด์"}
+{"word": "milk", "english": "The milk is too cold.", "thai": "นมเย็นเกินไป"}
+{"word": "milk", "english": "She’s adding milk to her coffee.", "thai": "เธอกำลังเติมนมในกาแฟ"}
+{"word": "milk", "english": "The milk went bad.", "thai": "นมเสียแล้ว"}
+{"word": "milk", "english": "He’s allergic to milk.", "thai": "เขาแพ้นม"}
+{"word": "milk", "english": "I’m buying milk at the store.", "thai": "ฉันกำลังซื้อนมที่ร้าน"}
+{"word": "milk", "english": "The milk is organic.", "thai": "นมเป็นออร์แกนิก"}
+{"word": "milk", "english": "She loves strawberry milk.", "thai": "เธอชอบนมสตรอว์เบอร์รี่"}
+{"word": "milk", "english": "The milk smells funny.", "thai": "นมมีกลิ่นแปลก"}
+{"word": "milk", "english": "I’m making cereal with milk.", "thai": "ฉันกำลังทำซีเรียลกับนม"}
+{"word": "milk", "english": "The milk is low-fat.", "thai": "นมไขมันต่ำ"}
+{"word": "milk", "english": "He’s drinking milk after dinner.", "thai": "เขากำลังดื่มนมหลังอาหารเย็น"}
+{"word": "milk", "english": "The milk is warm now.", "thai": "นมอุ่นแล้ว"}
+{"word": "milk", "english": "She’s using milk in the recipe.", "thai": "เธอกำลังใช้นมในสูตรอาหาร"}
+{"word": "milk", "english": "The milk carton is empty.", "thai": "กล่องนมว่างเปล่า"}
+{"word": "milk", "english": "I love milk with cookies.", "thai": "ฉันชอบนมกับคุกกี้"}
+{"word": "milk", "english": "The milk tastes so good.", "thai": "นมรสชาติดีมาก"}
+{"word": "milk", "english": "He’s pouring milk into his tea.", "thai": "เขากำลังเทนมลงในชา"}
+{"word": "milk", "english": "The milk is on sale.", "thai": "นมกำลังลดราคา"}
+{"word": "milk", "english": "She’s drinking oat milk.", "thai": "เธอกำลังดื่มนมข้าวโอ๊ต"}
+{"word": "milk", "english": "The milk is past its date.", "thai": "นมเลยวันหมดอายุ"}
+{"word": "milk", "english": "I need milk for baking.", "thai": "ฉันต้องการนมสำหรับอบขนม"}
+{"word": "milk", "english": "The milk is locally produced.", "thai": "นมผลิตในท้องถิ่น"}
+{"word": "milk", "english": "He’s mixing milk with cereal.", "thai": "เขากำลังผสมนมกับซีเรียล"}
+{"word": "milk", "english": "The milk feels too warm.", "thai": "นมรู้สึกอุ่นเกินไป"}
+{"word": "milk", "english": "She’s buying soy milk.", "thai": "เธอกำลังซื้อนมถั่วเหลือง"}
+{"word": "milk", "english": "The milk is in a jug.", "thai": "นมอยู่ในเหยือก"}
+{"word": "milk", "english": "I’m drinking milk before bed.", "thai": "ฉันกำลังดื่มนมก่อนนอน"}
+{"word": "milk", "english": "The milk is lactose-free.", "thai": "นมปราศจากแลคโตส"}
+{"word": "milk", "english": "He loves cold milk.", "thai": "เขาชอบนมเย็น"}
+{"word": "milk", "english": "The milk spilled everywhere.", "thai": "นมหกเลอะไปหมด"}
+{"word": "milk", "english": "She’s making a milk smoothie.", "thai": "เธอกำลังทำสมูทตี้นม"}
+{"word": "milk", "english": "The milk is in the pantry.", "thai": "นมอยู่ในตู้กับข้าว"}
+{"word": "milk", "english": "I’m out of milk for coffee.", "thai": "ฉันไม่มีนมสำหรับกาแฟ"}
+{"word": "milk", "english": "The milk tastes creamy.", "thai": "นมรสชาติครีมมี่"}
+{"word": "milk", "english": "He’s drinking milk with lunch.", "thai": "เขากำลังดื่มนมกับมื้อเที่ยง"}
+{"word": "milk", "english": "The milk is from a local farm.", "thai": "นมมาจากฟาร์มท้องถิ่น"}
+{"word": "milk", "english": "She’s using milk for pancakes.", "thai": "เธอกำลังใช้นมทำแพนเค้ก"}
+{"word": "milk", "english": "The milk is on the counter.", "thai": "นมอยู่บนเคาน์เตอร์"}
+{"word": "milk", "english": "I love vanilla milk.", "thai": "ฉันชอบนมวานิลลา"}
+{"word": "milk", "english": "The milk is too sweet.", "thai": "นมหวานเกินไป"}
+{"word": "milk", "english": "He’s buying milk at the shop.", "thai": "เขากำลังซื้อนมที่ร้าน"}
+{"word": "milk", "english": "The milk is in a bottle.", "thai": "นมอยู่ในขวด"}
+{"word": "milk", "english": "She’s drinking warm milk.", "thai": "เธอกำลังดื่มนมอุ่น"}
+{"word": "milk", "english": "The milk is full-fat.", "thai": "นมเป็นแบบไขมันเต็ม"}
+{"word": "milk", "english": "I’m using milk in the soup.", "thai": "ฉันกำลังใช้นมในซุป"}
+{"word": "milk", "english": "The milk smells sour.", "thai": "นมมีกลิ่นเปรี้ยว"}
+{"word": "milk", "english": "He’s pouring milk on cereal.", "thai": "เขากำลังเทนมลงบนซีเรียล"}
+{"word": "milk", "english": "The milk is freshly delivered.", "thai": "นมเพิ่งถูกจัดส่งมาใหม่"}
+{"word": "milk", "english": "She’s making milk tea.", "thai": "เธอกำลังทำชานม"}
+{"word": "milk", "english": "The milk is in the cooler.", "thai": "นมอยู่ในตู้แช่"}
+{"word": "milk", "english": "I’m drinking milk with dinner.", "thai": "ฉันกำลังดื่มนมกับมื้อเย็น"}
+{"word": "milk", "english": "The milk is plant-based.", "thai": "นมทำจากพืช"}
+{"word": "milk", "english": "He’s buying coconut milk.", "thai": "เขากำลังซื้อนมมะพร้าว"}
+{"word": "milk", "english": "The milk tastes a bit off.", "thai": "นมรสชาติแปลกไปหน่อย"}
+{"word": "milk", "english": "She’s using milk for baking.", "thai": "เธอกำลังใช้นมสำหรับอบขนม"}
+{"word": "milk", "english": "The milk is in a carton.", "thai": "นมอยู่ในกล่อง"}
+{"word": "milk", "english": "I love milk with breakfast.", "thai": "ฉันชอบนมกับอาหารเช้า"}
+{"word": "milk", "english": "The milk is very cold.", "thai": "นมเย็นมาก"}
+{"word": "milk", "english": "He’s drinking milk from a glass.", "thai": "เขากำลังดื่มนมจากแก้ว"}
+{"word": "milk", "english": "The milk is from a dairy.", "thai": "นมมาจากโรงนม"}
+{"word": "milk", "english": "She’s making a milkshake.", "thai": "เธอกำลังทำมิลค์เชค"}
+{"word": "milk", "english": "The milk is on the shelf.", "thai": "นมอยู่บนชั้น"}
+{"word": "milk", "english": "I’m out of milk for tea.", "thai": "ฉันไม่มีนมสำหรับชา"}
+{"word": "milk", "english": "The milk tastes rich.", "thai": "นมรสชาติเข้มข้น"}
+{"word": "milk", "english": "He’s drinking milk after a workout.", "thai": "เขากำลังดื่มนมหลังออกกำลังกาย"}
+{"word": "milk", "english": "The milk is locally sourced.", "thai": "นมมาจากแหล่งท้องถิ่น"}
+{"word": "milk", "english": "She’s using milk in her recipe.", "thai": "เธอกำลังใช้นมในสูตรอาหารของเธอ"}
+{"word": "milk", "english": "The milk is in a jug.", "thai": "นมอยู่ในเหยือก"}
+{"word": "milk", "english": "I’m drinking flavored milk.", "thai": "ฉันกำลังดื่มนมปรุงรส"}
+{"word": "milk", "english": "The milk is too warm.", "thai": "นมอุ่นเกินไป"}
+{"word": "milk", "english": "He’s buying milk for the kids.", "thai": "เขากำลังซื้อนมให้เด็กๆ"}
+{"word": "milk", "english": "The milk is in a container.", "thai": "นมอยู่ในภาชนะ"}
+{"word": "milk", "english": "She’s drinking milk with cookies.", "thai": "เธอกำลังดื่มนมกับคุกกี้"}
+{"word": "milk", "english": "The milk is non-dairy.", "thai": "นมเป็นแบบไม่มีส่วนผสมของนม"}
+{"word": "milk", "english": "I’m using milk for cereal.", "thai": "ฉันกำลังใช้นมสำหรับซีเรียล"}
+{"word": "milk", "english": "The milk smells fresh.", "thai": "นมมีกลิ่นสดใหม่"}
+{"word": "milk", "english": "He’s pouring milk into coffee.", "thai": "เขากำลังเทนมลงในกาแฟ"}
+{"word": "milk", "english": "The milk is on the table.", "thai": "นมอยู่บนโต๊ะ"}
+{"word": "milk", "english": "She’s buying milk at the market.", "thai": "เธอกำลังซื้อนมที่ตลาด"}
+{"word": "milk", "english": "The milk is in a bottle.", "thai": "นมอยู่ในขวด"}
+{"word": "milk", "english": "I love cold milk.", "thai": "ฉันชอบนมเย็น"}
+{"word": "milk", "english": "The milk is freshly made.", "thai": "นมเพิ่งทำใหม่"}
+{"word": "milk", "english": "He’s drinking milk with breakfast.", "thai": "เขากำลังดื่มนมกับอาหารเช้า"}
+{"word": "milk", "english": "The milk is from a farm.", "thai": "นมมาจากฟาร์ม"}
+{"word": "milk", "english": "She’s making coffee with milk.", "thai": "เธอกำลังทำกาแฟกับนม"}
+{"word": "milk", "english": "The milk is in the kitchen.", "thai": "นมอยู่ในครัว"}
+{"word": "milk", "english": "I’m out of milk for baking.", "thai": "ฉันไม่มีนมสำหรับอบขนม"}
+{"word": "milk", "english": "The milk tastes sweet.", "thai": "นมรสชาติหวาน"}
+{"word": "milk", "english": "He’s drinking milk before bed.", "thai": "เขากำลังดื่มนมก่อนนอน"}
+{"word": "milk", "english": "The milk is in a glass.", "thai": "นมอยู่ในแก้ว"}
+{"word": "milk", "english": "She’s using milk for dessert.", "thai": "เธอกำลังใช้นมทำของหวาน"}
+{"word": "milk", "english": "The milk is very creamy.", "thai": "นมครีมมี่มาก"}
+{"word": "milk", "english": "I’m buying milk for the week.", "thai": "ฉันกำลังซื้อนมสำหรับทั้งสัปดาห์"}
+{"word": "bread", "english": "I bought fresh bread today.", "thai": "ฉันซื้อขนมปังสดวันนี้"}
+{"word": "bread", "english": "The bread smells amazing.", "thai": "ขนมปังกลิ่นหอมมาก"}
+{"word": "bread", "english": "She’s baking bread at home.", "thai": "เธอกำลังอบขนมปังที่บ้าน"}
+{"word": "bread", "english": "The bread is too stale.", "thai": "ขนมปังเก่าเกินไป"}
+{"word": "bread", "english": "He’s eating bread with butter.", "thai": "เขากำลังกินขนมปังกับเนย"}
+{"word": "bread", "english": "We’re out of bread.", "thai": "ขนมปังหมดแล้ว"}
+{"word": "bread", "english": "The bread tastes so good.", "thai": "ขนมปังรสชาติดีมาก"}
+{"word": "bread", "english": "I love sourdough bread.", "thai": "ฉันชอบขนมปังซาวร์โดว์"}
+{"word": "bread", "english": "She’s slicing the bread now.", "thai": "เธอกำลังหั่นขนมปัง"}
+{"word": "bread", "english": "The bread is freshly baked.", "thai": "ขนมปังอบใหม่"}
+{"word": "bread", "english": "He’s toasting bread for breakfast.", "thai": "เขากำลังปิ้งขนมปังสำหรับอาหารเช้า"}
+{"word": "bread", "english": "The bread is on the table.", "thai": "ขนมปังอยู่บนโต๊ะ"}
+{"word": "bread", "english": "I’m buying bread at the bakery.", "thai": "ฉันกำลังซื้อขนมปังที่ร้านเบเกอรี่"}
+{"word": "bread", "english": "The bread is a bit hard.", "thai": "ขนมปังแข็งนิดหน่อย"}
+{"word": "bread", "english": "She’s making bread from scratch.", "thai": "เธอกำลังทำขนมปังจากเริ่มต้น"}
+{"word": "bread", "english": "The bread has a crispy crust.", "thai": "ขนมปังมีเปลือกกรอบ"}
+{"word": "bread", "english": "I love bread with jam.", "thai": "ฉันชอบขนมปังกับแยม"}
+{"word": "bread", "english": "The bread is gluten-free.", "thai": "ขนมปังปราศจากกลูเตน"}
+{"word": "bread", "english": "He’s eating bread with soup.", "thai": "เขากำลังกินขนมปังกับซุป"}
+{"word": "bread", "english": "The bread smells so fresh.", "thai": "ขนมปังกลิ่นสดใหม่มาก"}
+{"word": "bread", "english": "I’m craving warm bread.", "thai": "ฉันอยากกินขนมปังอุ่น"}
+{"word": "bread", "english": "The bread is locally made.", "thai": "ขนมปังทำในท้องถิ่น"}
+{"word": "bread", "english": "She’s sharing her bread.", "thai": "เธอกำลังแบ่งปันขนมปัง"}
+{"word": "bread", "english": "The bread is too dry.", "thai": "ขนมปังแห้งเกินไป"}
+{"word": "bread", "english": "He’s buying bread for dinner.", "thai": "เขากำลังซื้อขนมปังสำหรับมื้อเย็น"}
+{"word": "bread", "english": "The bread has sesame seeds.", "thai": "ขนมปังมีเมล็ดงา"}
+{"word": "bread", "english": "I’m toasting bread now.", "thai": "ฉันกำลังปิ้งขนมปัง"}
+{"word": "bread", "english": "The bread tastes amazing.", "thai": "ขนมปังรสชาติน่าทึ่ง"}
+{"word": "bread", "english": "She’s eating bread with cheese.", "thai": "เธอกำลังกินขนมปังกับชีส"}
+{"word": "bread", "english": "The bread is on sale.", "thai": "ขนมปังกำลังลดราคา"}
+{"word": "bread", "english": "I love whole-grain bread.", "thai": "ฉันชอบขนมปังโฮลเกรน"}
+{"word": "bread", "english": "The bread is soft and fluffy.", "thai": "ขนมปังนุ่มและฟู"}
+{"word": "bread", "english": "He’s making a sandwich with bread.", "thai": "เขากำลังทำแซนด์วิชด้วยขนมปัง"}
+{"word": "bread", "english": "The bread is in the oven.", "thai": "ขนมปังอยู่ในเตาอบ"}
+{"word": "bread", "english": "I’m out of bread for lunch.", "thai": "ฉันไม่มีขนมปังสำหรับมื้อเที่ยง"}
+{"word": "bread", "english": "The bread smells like heaven.", "thai": "ขนมปังกลิ่นเหมือนสวรรค์"}
+{"word": "bread", "english": "She’s baking bread for the party.", "thai": "เธอกำลังอบขนมปังสำหรับงานปาร์ตี้"}
+{"word": "bread", "english": "The bread is a bit burnt.", "thai": "ขนมปังไหม้นิดหน่อย"}
+{"word": "bread", "english": "He’s eating bread with honey.", "thai": "เขากำลังกินขนมปังกับน้ำผึ้ง"}
+{"word": "bread", "english": "The bread is freshly sliced.", "thai": "ขนมปังถูกหั่นใหม่"}
+{"word": "bread", "english": "I’m buying bread at the market.", "thai": "ฉันกำลังซื้อขนมปังที่ตลาด"}
+{"word": "bread", "english": "The bread has a chewy texture.", "thai": "ขนมปังมีเนื้อสัมผัสหนึบ"}
+{"word": "bread", "english": "She loves rye bread.", "thai": "เธอชอบขนมปังข้าวไรย์"}
+{"word": "bread", "english": "The bread is warm and soft.", "thai": "ขนมปังอุ่นและนุ่ม"}
+{"word": "bread", "english": "He’s toasting bread for sandwiches.", "thai": "เขากำลังปิ้งขนมปังสำหรับแซนด์วิช"}
+{"word": "bread", "english": "The bread is on the counter.", "thai": "ขนมปังอยู่บนเคาน์เตอร์"}
+{"word": "bread", "english": "I’m making bread at home.", "thai": "ฉันกำลังทำขนมปังที่บ้าน"}
+{"word": "bread", "english": "The bread tastes a bit sour.", "thai": "ขนมปังรสชาติเปรี้ยวนิดหน่อย"}
+{"word": "bread", "english": "She’s eating bread with olive oil.", "thai": "เธอกำลังกินขนมปังกับน้ำมันมะกอก"}
+{"word": "bread", "english": "The bread is from a bakery.", "thai": "ขนมปังมาจากร้านเบเกอรี่"}
+{"word": "bread", "english": "I love crusty bread.", "thai": "ฉันชอบขนมปังเปลือกกรอบ"}
+{"word": "bread", "english": "The bread is in a bag.", "thai": "ขนมปังอยู่ในถุง"}
+{"word": "bread", "english": "He’s buying bread for breakfast.", "thai": "เขากำลังซื้อขนมปังสำหรับอาหารเช้า"}
+{"word": "bread", "english": "The bread has a great flavor.", "thai": "ขนมปังมีรสชาติเยี่ยม"}
+{"word": "bread", "english": "She’s slicing bread for dinner.", "thai": "เธอกำลังหั่นขนมปังสำหรับมื้อเย็น"}
+{"word": "bread", "english": "The bread is too crusty.", "thai": "ขนมปังเปลือกกรอบเกินไป"}
+{"word": "bread", "english": "I’m eating bread with soup.", "thai": "ฉันกำลังกินขนมปังกับซุป"}
+{"word": "bread", "english": "The bread is freshly made.", "thai": "ขนมปังทำใหม่"}
+{"word": "bread", "english": "He’s sharing his bread.", "thai": "เขากำลังแบ่งปันขนมปัง"}
+{"word": "bread", "english": "The bread is in the pantry.", "thai": "ขนมปังอยู่ในตู้กับข้าว"}
+{"word": "bread", "english": "I’m out of bread for sandwiches.", "thai": "ฉันไม่มีขนมปังสำหรับแซนด์วิช"}
+{"word": "bread", "english": "The bread smells so good.", "thai": "ขนมปังกลิ่นหอมมาก"}
+{"word": "bread", "english": "She’s baking bread with herbs.", "thai": "เธอกำลังอบขนมปังกับสมุนไพร"}
+{"word": "bread", "english": "The bread is a bit chewy.", "thai": "ขนมปังหนึบนิดหน่อย"}
+{"word": "bread", "english": "He’s eating bread with peanut butter.", "thai": "เขากำลังกินขนมปังกับเนยถั่ว"}
+{"word": "bread", "english": "The bread is locally baked.", "thai": "ขนมปังอบในท้องถิ่น"}
+{"word": "bread", "english": "I’m buying bread for the week.", "thai": "ฉันกำลังซื้อขนมปังสำหรับทั้งสัปดาห์"}
+{"word": "bread", "english": "The bread has a soft crust.", "thai": "ขนมปังมีเปลือกนุ่ม"}
+{"word": "bread", "english": "She loves pita bread.", "thai": "เธอชอบขนมปังพิต้า"}
+{"word": "bread", "english": "The bread is warm from the oven.", "thai": "ขนมปังอุ่นจากเตาอบ"}
+{"word": "bread", "english": "He’s toasting bread with garlic.", "thai": "เขากำลังปิ้งขนมปังกับกระเทียม"}
+{"word": "bread", "english": "The bread is on the shelf.", "thai": "ขนมปังอยู่บนชั้น"}
+{"word": "bread", "english": "I’m making bread for dinner.", "thai": "ฉันกำลังทำขนมปังสำหรับมื้อเย็น"}
+{"word": "bread", "english": "The bread tastes homemade.", "thai": "ขนมปังรสชาติเหมือนทำเอง"}
+{"word": "bread", "english": "She’s eating bread with avocado.", "thai": "เธอกำลังกินขนมปังกับอะโวคาโด"}
+{"word": "bread", "english": "The bread is from a local bakery.", "thai": "ขนมปังมาจากร้านเบเกอรี่ท้องถิ่น"}
+{"word": "bread", "english": "I love fresh bread.", "thai": "ฉันชอบขนมปังสด"}
+{"word": "bread", "english": "The bread is in a basket.", "thai": "ขนมปังอยู่ในตะกร้า"}
+{"word": "bread", "english": "He’s buying bread at the store.", "thai": "เขากำลังซื้อขนมปังที่ร้าน"}
+{"word": "bread", "english": "The bread has a nutty flavor.", "thai": "ขนมปังมีรสชาติถั่ว"}
+{"word": "bread", "english": "She’s slicing bread for lunch.", "thai": "เธอกำลังหั่นขนมปังสำหรับมื้อเที่ยง"}
+{"word": "bread", "english": "The bread is too soft.", "thai": "ขนมปังนุ่มเกินไป"}
+{"word": "bread", "english": "I’m eating bread with hummus.", "thai": "ฉันกำลังกินขนมปังกับฮัมมัส"}
+{"word": "bread", "english": "The bread is freshly baked daily.", "thai": "ขนมปังอบใหม่ทุกวัน"}
+{"word": "bread", "english": "He’s sharing bread with friends.", "thai": "เขากำลังแบ่งปันขนมปังกับเพื่อน"}
+{"word": "bread", "english": "The bread is in the kitchen.", "thai": "ขนมปังอยู่ในครัว"}
+{"word": "bread", "english": "I’m out of bread for breakfast.", "thai": "ฉันไม่มีขนมปังสำหรับอาหารเช้า"}
+{"word": "bread", "english": "The bread smells incredible.", "thai": "ขนมปังกลิ่นน่าทึ่ง"}
+{"word": "bread", "english": "She’s baking bread for everyone.", "thai": "เธอกำลังอบขนมปังให้ทุกคน"}
+{"word": "bread", "english": "The bread is a bit dense.", "thai": "ขนมปังแน่นนิดหน่อย"}
+{"word": "bread", "english": "He’s eating bread with dinner.", "thai": "เขากำลังกินขนมปังกับมื้อเย็น"}
+{"word": "bread", "english": "The bread is artisan-made.", "thai": "ขนมปังทำแบบช่างฝีมือ"}
+{"word": "bread", "english": "I’m buying bread for sandwiches.", "thai": "ฉันกำลังซื้อขนมปังสำหรับแซนด์วิช"}
+{"word": "bread", "english": "The bread has a great crust.", "thai": "ขนมปังมีเปลือกที่ยอดเยี่ยม"}
+{"word": "bread", "english": "She loves ciabatta bread.", "thai": "เธอชอบขนมปังชิอาบัตต้า"}
+{"word": "bread", "english": "The bread is warm and fresh.", "thai": "ขนมปังอุ่นและสดใหม่"}
+{"word": "bread", "english": "He’s toasting bread for lunch.", "thai": "เขากำลังปิ้งขนมปังสำหรับมื้อเที่ยง"}
+{"word": "bread", "english": "The bread is on the plate.", "thai": "ขนมปังอยู่บนจาน"}
+{"word": "bread", "english": "I’m making bread with yeast.", "thai": "ฉันกำลังทำขนมปังด้วยยีสต์"}
+{"word": "bread", "english": "The bread tastes so fresh.", "thai": "ขนมปังรสชาติสดใหม่มาก"}
+{"word": "fruit", "english": "I bought fresh fruit today.", "thai": "ฉันซื้อผลไม้สดวันนี้"}
+{"word": "fruit", "english": "The fruit tastes so sweet.", "thai": "ผลไม้รสชาติหวานมาก"}
+{"word": "fruit", "english": "She’s eating fruit for breakfast.", "thai": "เธอกำลังกินผลไม้เป็นอาหารเช้า"}
+{"word": "fruit", "english": "The fruit is in the bowl.", "thai": "ผลไม่อยู่ในชาม"}
+{"word": "fruit", "english": "He loves tropical fruit.", "thai": "เขาชอบผลไม้เมืองร้อน"}
+{"word": "fruit", "english": "We’re out of fruit at home.", "thai": "ผลไม้ที่บ้านหมดแล้ว"}
+{"word": "fruit", "english": "The fruit smells amazing.", "thai": "ผลไม้กลิ่นหอมมาก"}
+{"word": "fruit", "english": "I’m making a fruit salad.", "thai": "ฉันกำลังทำสลัดผลไม้"}
+{"word": "fruit", "english": "The fruit is very juicy.", "thai": "ผลไม้ฉ่ำมาก"}
+{"word": "fruit", "english": "She’s buying fruit at the market.", "thai": "เธอกำลังซื้อผลไม้ที่ตลาด"}
+{"word": "fruit", "english": "The fruit is locally grown.", "thai": "ผลไม้ปลูกในท้องถิ่น"}
+{"word": "fruit", "english": "He’s eating fruit with yogurt.", "thai": "เขากำลังกินผลไม้กับโยเกิร์ต"}
+{"word": "fruit", "english": "The fruit tastes a bit sour.", "thai": "ผลไม้รสชาติเปรี้ยวนิดหน่อย"}
+{"word": "fruit", "english": "I love fresh fruit in summer.", "thai": "ฉันชอบผลไม้สดในหน้าร้อน"}
+{"word": "fruit", "english": "The fruit is on the table.", "thai": "ผลไม่อยู่บนโต๊ะ"}
+{"word": "fruit", "english": "She’s cutting fruit for dessert.", "thai": "เธอกำลังหั่นผลไม้สำหรับของหวาน"}
+{"word": "fruit", "english": "The fruit is organic.", "thai": "ผลไม้เป็นออร์แกนิก"}
+{"word": "fruit", "english": "He’s blending fruit for a smoothie.", "thai": "เขากำลังปั่นผลไม้สำหรับสมูทตี้"}
+{"word": "fruit", "english": "The fruit is too ripe.", "thai": "ผลไม้สุกเกินไป"}
+{"word": "fruit", "english": "I’m craving fruit right now.", "thai": "ฉันอยากกินผลไม้ตอนนี้"}
+{"word": "fruit", "english": "The fruit is in the fridge.", "thai": "ผลไม่อยู่ในตู้เย็น"}
+{"word": "fruit", "english": "She loves dried fruit.", "thai": "เธอชอบผลไม้แห้ง"}
+{"word": "fruit", "english": "The fruit smells so fresh.", "thai": "ผลไม้กลิ่นสดใหม่มาก"}
+{"word": "fruit", "english": "He’s eating fruit for a snack.", "thai": "เขากำลังกินผลไม้เป็นของว่าง"}
+{"word": "fruit", "english": "The fruit is very colorful.", "thai": "ผลไม้มีสีสันมาก"}
+{"word": "fruit", "english": "I’m buying fruit for the week.", "thai": "ฉันกำลังซื้อผลไม้สำหรับทั้งสัปดาห์"}
+{"word": "fruit", "english": "The fruit tastes amazing.", "thai": "ผลไม้รสชาติน่าทึ่ง"}
+{"word": "fruit", "english": "She’s sharing her fruit.", "thai": "เธอกำลังแบ่งปันผลไม้"}
+{"word": "fruit", "english": "The fruit is a bit tart.", "thai": "ผลไม้เปรี้ยวนิดหน่อย"}
+{"word": "fruit", "english": "He’s picking fruit from the tree.", "thai": "เขากำลังเก็บผลไม้จากต้น"}
+{"word": "fruit", "english": "The fruit is on sale.", "thai": "ผลไม้กำลังลดราคา"}
+{"word": "fruit", "english": "I love fruit with breakfast.", "thai": "ฉันชอบผลไม้กับอาหารเช้า"}
+{"word": "fruit", "english": "The fruit is freshly picked.", "thai": "ผลไม้เพิ่งเก็บใหม่"}
+{"word": "fruit", "english": "She’s making fruit juice.", "thai": "เธอกำลังทำน้ำผลไม้"}
+{"word": "fruit", "english": "The fruit is in a basket.", "thai": "ผลไม่อยู่ในตะกร้า"}
+{"word": "fruit", "english": "He’s eating fruit with lunch.", "thai": "เขากำลังกินผลไม้กับมื้อเที่ยง"}
+{"word": "fruit", "english": "The fruit is too soft.", "thai": "ผลไม้นุ่มเกินไป"}
+{"word": "fruit", "english": "I’m adding fruit to my cereal.", "thai": "ฉันกำลังเพิ่มผลไม้ในซีเรียล"}
+{"word": "fruit", "english": "The fruit smells sweet.", "thai": "ผลไม้กลิ่นหวาน"}
+{"word": "fruit", "english": "She’s buying fruit for a party.", "thai": "เธอกำลังซื้อผลไม้สำหรับงานปาร์ตี้"}
+{"word": "fruit", "english": "The fruit is very ripe.", "thai": "ผลไม้สุกมาก"}
+{"word": "fruit", "english": "He loves exotic fruit.", "thai": "เขาชอบผลไม้แปลกใหม่"}
+{"word": "fruit", "english": "The fruit is in the kitchen.", "thai": "ผลไม่อยู่ในครัว"}
+{"word": "fruit", "english": "I’m eating fruit for dessert.", "thai": "ฉันกำลังกินผลไม้เป็นของหวาน"}
+{"word": "fruit", "english": "The fruit tastes so fresh.", "thai": "ผลไม้รสชาติสดใหม่มาก"}
+{"word": "fruit", "english": "She’s blending fruit for breakfast.", "thai": "เธอกำลังปั่นผลไม้สำหรับอาหารเช้า"}
+{"word": "fruit", "english": "The fruit is a bit unripe.", "thai": "ผลไม้ยังไม่สุกนิดหน่อย"}
+{"word": "fruit", "english": "He’s buying fruit at the store.", "thai": "เขากำลังซื้อผลไม้ที่ร้าน"}
+{"word": "fruit", "english": "The fruit has a great flavor.", "thai": "ผลไม้มีรสชาติเยี่ยม"}
+{"word": "fruit", "english": "I love fruit in smoothies.", "thai": "ฉันชอบผลไม้ในสมูทตี้"}
+{"word": "fruit", "english": "The fruit is on the counter.", "thai": "ผลไม่อยู่บนเคาน์เตอร์"}
+{"word": "fruit", "english": "She’s eating fruit with dinner.", "thai": "เธอกำลังกินผลไม้กับมื้อเย็น"}
+{"word": "fruit", "english": "The fruit is locally sourced.", "thai": "ผลไม้มาจากแหล่งท้องถิ่น"}
+{"word": "fruit", "english": "He’s making a fruit tart.", "thai": "เขากำลังทำทาร์ตผลไม้"}
+{"word": "fruit", "english": "The fruit is too sweet.", "thai": "ผลไม้หวานเกินไป"}
+{"word": "fruit", "english": "I’m buying fruit for a salad.", "thai": "ฉันกำลังซื้อผลไม้สำหรับสลัด"}
+{"word": "fruit", "english": "The fruit smells so good.", "thai": "ผลไม้กลิ่นหอมมาก"}
+{"word": "fruit", "english": "She’s cutting fruit for lunch.", "thai": "เธอกำลังหั่นผลไม้สำหรับมื้อเที่ยง"}
+{"word": "fruit", "english": "The fruit is very fresh.", "thai": "ผลไม้สดมาก"}
+{"word": "fruit", "english": "He’s eating fruit for health.", "thai": "เขากำลังกินผลไม้เพื่อสุขภาพ"}
+{"word": "fruit", "english": "The fruit is in a bag.", "thai": "ผลไม่อยู่ในถุง"}
+{"word": "fruit", "english": "I love fruit with yogurt.", "thai": "ฉันชอบผลไม้กับโยเกิร์ต"}
+{"word": "fruit", "english": "The fruit tastes juicy.", "thai": "ผลไม้รสชาติฉ่ำ"}
+{"word": "fruit", "english": "She’s making fruit jam.", "thai": "เธอกำลังทำแยมผลไม้"}
+{"word": "fruit", "english": "The fruit is on the shelf.", "thai": "ผลไม่อยู่บนชั้น"}
+{"word": "fruit", "english": "He’s buying fruit for smoothies.", "thai": "เขากำลังซื้อผลไม้สำหรับสมูทตี้"}
+{"word": "fruit", "english": "The fruit is a bit bitter.", "thai": "ผลไม้ขมเล็กน้อย"}
+{"word": "fruit", "english": "I’m eating fruit for a snack.", "thai": "ฉันกำลังกินผลไม้เป็นของว่าง"}
+{"word": "fruit", "english": "The fruit smells incredible.", "thai": "ผลไม้กลิ่นน่าทึ่ง"}
+{"word": "fruit", "english": "She’s sharing fruit with friends.", "thai": "เธอกำลังแบ่งปันผลไม้กับเพื่อน"}
+{"word": "fruit", "english": "The fruit is very sweet.", "thai": "ผลไม้หวานมาก"}
+{"word": "fruit", "english": "He’s blending fruit for juice.", "thai": "เขากำลังปั่นผลไม้สำหรับน้ำผลไม้"}
+{"word": "fruit", "english": "The fruit is in the pantry.", "thai": "ผลไม่อยู่ในตู้กับข้าว"}
+{"word": "fruit", "english": "I’m out of fruit for breakfast.", "thai": "ฉันไม่มีผลไม้สำหรับอาหารเช้า"}
+{"word": "fruit", "english": "The fruit tastes so good.", "thai": "ผลไม้รสชาติดีมาก"}
+{"word": "fruit", "english": "She’s buying fruit for dessert.", "thai": "เธอกำลังซื้อผลไม้สำหรับของหวาน"}
+{"word": "fruit", "english": "The fruit is freshly harvested.", "thai": "ผลไม้เพิ่งเก็บเกี่ยวใหม่"}
+{"word": "fruit", "english": "He’s eating fruit with cheese.", "thai": "เขากำลังกินผลไม้กับชีส"}
+{"word": "fruit", "english": "The fruit is in a container.", "thai": "ผลไม่อยู่ในภาชนะ"}
+{"word": "fruit", "english": "I love fruit in the morning.", "thai": "ฉันชอบผลไม้ในตอนเช้า"}
+{"word": "fruit", "english": "The fruit is very flavorful.", "thai": "ผลไม้มีรสชาติมาก"}
+{"word": "fruit", "english": "She’s making a fruit pie.", "thai": "เธอกำลังทำพายผลไม้"}
+{"word": "fruit", "english": "The fruit is on the plate.", "thai": "ผลไม่อยู่บนจาน"}
+{"word": "fruit", "english": "He’s buying fruit for a party.", "thai": "เขากำลังซื้อผลไม้สำหรับงานปาร์ตี้"}
+{"word": "fruit", "english": "The fruit tastes refreshing.", "thai": "ผลไม้รสชาติสดชื่น"}
+{"word": "fruit", "english": "I’m eating fruit with lunch.", "thai": "ฉันกำลังกินผลไม้กับมื้อเที่ยง"}
+{"word": "fruit", "english": "The fruit is locally picked.", "thai": "ผลไม้เก็บในท้องถิ่น"}
+{"word": "fruit", "english": "She’s blending fruit for a drink.", "thai": "เธอกำลังปั่นผลไม้สำหรับเครื่องดื่ม"}
+{"word": "fruit", "english": "The fruit is too tart.", "thai": "ผลไม้เปรี้ยวเกินไป"}
+{"word": "fruit", "english": "He’s eating fruit for dinner.", "thai": "เขากำลังกินผลไม้สำหรับมื้อเย็น"}
+{"word": "fruit", "english": "The fruit is in a jar.", "thai": "ผลไม่อยู่ในโหล"}
+{"word": "fruit", "english": "I love fruit with ice cream.", "thai": "ฉันชอบผลไม้กับไอศกรีม"}
+{"word": "fruit", "english": "The fruit tastes so juicy.", "thai": "ผลไม้รสชาติฉ่ำมาก"}
+{"word": "fruit", "english": "She’s buying fruit for smoothies.", "thai": "เธอกำลังซื้อผลไม้สำหรับสมูทตี้"}
+{"word": "fruit", "english": "The fruit is very ripe.", "thai": "ผลไม้สุกมาก"}
+{"word": "fruit", "english": "He’s making fruit preserves.", "thai": "เขากำลังทำผลไม้แช่อิ่ม"}
+{"word": "fruit", "english": "The fruit is on the shelf.", "thai": "ผลไม่อยู่บนชั้น"}
+{"word": "fruit", "english": "I’m eating fruit for health.", "thai": "ฉันกำลังกินผลไม้เพื่อสุขภาพ"}
+{"word": "fruit", "english": "The fruit smells delicious.", "thai": "ผลไม้กลิ่นอร่อย"}
+{"word": "fruit", "english": "She’s cutting fruit for a snack.", "thai": "เธอกำลังหั่นผลไม้สำหรับของว่าง"}
