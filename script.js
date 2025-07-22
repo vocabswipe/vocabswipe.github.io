@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
   visitCount += 1;
   localStorage.setItem('visitCount', visitCount.toString());
 
-  // Uno card colors (only background colors used)
   const unoColors = [
     { bg: '#ff0000' }, // Red
     { bg: '#0000ff' }, // Blue
@@ -61,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/'/g, '&apos;');
   }
 
   function highlightWord(sentence, word) {
@@ -83,30 +82,16 @@ document.addEventListener('DOMContentLoaded', () => {
     return unoColors[index];
   }
 
-  function adjustWordSize(word, element, maxWidth) {
-    const isMiniCard = element.classList.contains('mini-card-word');
-    element.style.fontSize = isMiniCard ? '1rem' : '2rem';
+  function adjustWordSize(word, element, maxWidth, isMiniCard = false) {
+    const baseFontSize = isMiniCard ? 1.5 : 2; // Match flashcard ratio for mini cards
+    element.style.fontSize = `${baseFontSize}rem`;
     element.style.whiteSpace = 'nowrap'; // Ensure single line
     element.textContent = word;
     let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
-    const padding = 10;
-    const minFontSize = isMiniCard ? 0.5 : 0.8;
-    const cardWidth = isMiniCard ? 105 : 210; // Mini card: 105px, Flashcard: 210px
-    const targetRatio = 2 / 210; // Font size to card width ratio from flashcard
-    const targetFontSize = cardWidth * targetRatio; // Scale font size proportionally
+    const padding = isMiniCard ? 5 : 10;
 
-    // Start with target font size based on ratio
-    element.style.fontSize = `${targetFontSize}rem`;
-    fontSize = parseFloat(window.getComputedStyle(element).fontSize);
-
-    // Adjust down if too wide, up if too small, but keep above minFontSize
-    while ((element.scrollWidth > maxWidth - padding || fontSize > targetFontSize * 1.1) && fontSize > minFontSize) {
-      fontSize -= 0.1;
-      element.style.fontSize = `${fontSize}rem`;
-    }
-    // Ensure not too small
-    while (element.scrollWidth < maxWidth - padding && fontSize < targetFontSize * 0.9 && fontSize < minFontSize * 1.5) {
-      fontSize += 0.1;
+    while (element.scrollWidth > maxWidth - padding && fontSize > (isMiniCard ? 0.6 : 0.8)) {
+      fontSize -= 0.05;
       element.style.fontSize = `${fontSize}rem`;
     }
   }
@@ -402,12 +387,14 @@ document.addEventListener('DOMContentLoaded', () => {
       cardEl.className = 'mini-card';
       const unoColor = getConsistentUnoColor(word.toLowerCase());
       cardEl.style.backgroundColor = unoColor.bg;
-      cardEl.style.border = '3px solid #ffffff';
+      cardEl.style.border = '3px solid #ffffff'; // Tripled border thickness
+      cardEl.style.color = '#ffffff'; // White text
+      wordColors.set(word.toLowerCase(), '#ffffff');
 
       const wordSpan = document.createElement('span');
       wordSpan.className = 'mini-card-word';
       wordSpan.textContent = word;
-      adjustWordSize(word, wordSpan, cardEl.offsetWidth * 0.9);
+      adjustWordSize(word, wordSpan, cardEl.offsetWidth * 0.9, true);
       cardEl.appendChild(wordSpan);
 
       cardDeck.appendChild(cardEl);
@@ -531,7 +518,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const unoColor = getConsistentUnoColor(currentWord.toLowerCase());
     flashcard.style.backgroundColor = unoColor.bg;
-    flashcard.style.border = '6px solid #ffffff';
+    flashcard.style.border = '6px solid #ffffff'; // Tripled border thickness
+    wordEl.style.color = '#ffffff'; // White text
+    englishEl.style.color = '#ffffff';
+    thaiEl.style.color = '#ffffff';
 
     adjustWordSize(currentWord, wordEl, flashcard.offsetWidth * 0.9);
     englishEl.innerHTML = highlightWord(entry.english, currentWord);
@@ -626,7 +616,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: false });
 
-  cardDeck.addEventListener('touchend', e =>重點
+  cardDeck.addEventListener('touchend', e => {
     cardDeck._lastX = null;
     cardDeck._lastY = null;
     isPinching = false;
