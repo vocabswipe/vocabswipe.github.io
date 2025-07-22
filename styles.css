@@ -90,20 +90,47 @@ body {
 }
 
 .mini-card {
-  background-color: #2c2c2c; /* Default, overridden by JS */
-  border: 3px solid #ffffff; /* Tripled border thickness */
+  background-color: #2c2c2c;
+  border: 3px solid #ffffff;
   border-radius: 5px;
-  width: 105px; /* Half of flashcard width */
-  height: 166.5px; /* Half of flashcard height, 1:1.59 aspect ratio */
+  width: 105px;
+  height: 166.5px;
   max-width: 90vw;
   max-height: calc(90vw * 1.59);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.7s ease;
+  transition: transform 0.7s ease, opacity 0.7s ease;
   position: relative;
   z-index: 10;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.flip .card-inner {
+  transform: rotateY(180deg);
 }
 
 .mini-card:hover {
@@ -115,9 +142,9 @@ body {
   font-size: 1rem;
   font-weight: 700;
   text-align: center;
-  color: #ffffff; /* White text */
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
-  white-space: nowrap; /* Prevent wrapping */
+  color: #ffffff;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
+  white-space: nowrap;
   max-width: 90%;
 }
 
@@ -145,62 +172,9 @@ body {
   position: relative;
 }
 
-.logo-container {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.logo-wrapper {
-  display: inline-flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.logo {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 600;
-  animation: colorChange 60s infinite linear;
-  opacity: 0;
-  transform: translateX(-100%);
-  transition: transform 1s ease, opacity 1s ease, filter 0.3s ease;
-}
-
-.logo-com {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-  animation: colorChange 60s infinite linear;
-  opacity: 0;
-  transform: translateX(100%);
-  transition: transform 1s ease, opacity 1s ease, filter 0.3s ease;
-}
-
-@keyframes colorChange {
-  0% { color: #ff0000; }
-  14.29% { color: #ff9900; }
-  28.57% { color: #ffff00; }
-  42.86% { color: #00ff00; }
-  57.14% { color: #00ffff; }
-  71.43% { color: #0000ff; }
-  85.71% { color: #9900ff; }
-  100% { color: #ff0000; }
-}
-
-.slogan {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 400;
-  font-style: italic;
-  color: #b0b0b0;
-  opacity: 0;
-  transform: translateX(100%);
-  transition: transform 1s ease, opacity 1s ease, filter 0.3s ease;
-}
-
 .flashcard {
-  background-color: #2c2c2c; /* Default, overridden by JS */
-  border: 6px solid #ffffff; /* Tripled border thickness */
+  background-color: #2c2c2c;
+  border: 6px solid #ffffff;
   border-radius: 10px;
   width: 210px;
   height: 333px;
@@ -215,6 +189,29 @@ body {
   cursor: pointer;
   transition: transform 0.2s ease;
   position: relative;
+  perspective: 1000px;
+}
+
+.flashcard .card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.flashcard .card-front, .flashcard .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flashcard .card-back {
+  transform: rotateY(180deg);
 }
 
 .flashcard:active {
@@ -237,9 +234,9 @@ body {
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
-  color: #ffffff; /* White text */
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
-  white-space: nowrap; /* Prevent wrapping */
+  color: #ffffff;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
+  white-space: nowrap;
   max-width: 90%;
   position: absolute;
   top: 50%;
@@ -259,8 +256,8 @@ body {
   font-size: 0.9rem;
   font-weight: 400;
   text-align: left;
-  color: #ffffff; /* White text */
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
+  color: #ffffff;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
   position: absolute;
   top: 10px;
   left: 10px;
@@ -269,8 +266,8 @@ body {
 
 .english .highlight {
   font-weight: 700;
-  color: #ffffff; /* White text for highlight */
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
+  color: #ffffff;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
 }
 
 .thai {
@@ -278,8 +275,8 @@ body {
   font-size: 0.8rem;
   font-weight: 400;
   text-align: right;
-  color: #ffffff; /* White text */
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
+  color: #ffffff;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
   position: absolute;
   bottom: 10px;
   right: 10px;
@@ -500,17 +497,17 @@ svg.filters {
   }
 
   .mini-card {
-    width: 90vw; /* Scales with viewport */
+    width: 90vw;
     height: calc(90vw * 1.59 / 2);
     max-width: 105px;
     max-height: 166.5px;
-    border: 3px solid #ffffff; /* Tripled border thickness */
+    border: 3px solid #ffffff;
   }
 
   .mini-card-word {
     font-size: 0.9rem;
-    color: #ffffff; /* White text */
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
+    color: #ffffff;
+    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
   }
 
   .flashcard {
@@ -518,30 +515,30 @@ svg.filters {
     height: calc(80vw * 1.59);
     max-width: 210px;
     max-height: 333px;
-    border: 6px solid #ffffff; /* Tripled border thickness */
+    border: 6px solid #ffffff;
   }
 
-  .word {
+  .word, .mini-card-word {
     font-size: 1.8rem;
-    color: #ffffff; /* White text */
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
+    color: #ffffff;
+    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
   }
 
   .english {
     font-size: 0.8rem;
-    color: #ffffff; /* White text */
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
+    color: #ffffff;
+    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
   }
 
   .english .highlight {
-    color: #ffffff; /* White text */
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
+    color: #ffffff;
+    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
   }
 
   .thai {
     font-size: 0.7rem;
-    color: #ffffff; /* White text */
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
+    color: #ffffff;
+    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
   }
 
   .audio-error {
@@ -549,18 +546,6 @@ svg.filters {
   }
 
   .loading-indicator {
-    font-size: 1rem;
-  }
-
-  .logo {
-    font-size: 2rem;
-  }
-
-  .logo-com {
-    font-size: 1rem;
-  }
-
-  .slogan {
     font-size: 1rem;
   }
 
