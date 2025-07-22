@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const wordCloud = document.getElementById('word-cloud');
+  const cardDeck = document.getElementById('card-deck');
   const loadingIndicator = document.getElementById('loading-indicator');
   const flashcardContainer = document.getElementById('flashcard-container');
   const flashcard = document.getElementById('flashcard');
@@ -67,81 +67,31 @@ document.addEventListener('DOMContentLoaded', () => {
   function highlightWord(sentence, word, color) {
     const escapedSentence = escapeHTML(sentence);
     const escapedWord = escapeHTML(word);
-    // Match any word containing the main word as a substring
     const regex = new RegExp(`\\b\\w*${escapedWord}\\w*\\b(?![^<]*>)`, 'gi');
     return escapedSentence.replace(regex, `<span class="highlight" style="color: ${color};">$&</span>`);
   }
 
-  function getRandomUnoColor() {
-    return unoColors[Math.floor(Math.random() * unoColors.length)];
-  }
-
-  function createSpatialGrid(width, height, cellSize = 50) {
-    const grid = new Map();
-    function addToGrid(x, y, width, height, wordObj) {
-      const minX = Math.floor(x / cellSize);
-      const maxX = Math.floor((x + width) / cellSize);
-      const minY = Math.floor(y / cellSize);
-      const maxY = Math.floor((y + height) / cellSize);
-      for (let i = minX; i <= maxX; i++) {
-        for (let j = minY; j <= maxY; j++) {
-          const key = `${i},${j}`;
-          if (!grid.has(key)) grid.set(key, []);
-          grid.get(key).push(wordObj);
-        }
-      }
+  function getConsistentUnoColor(word) {
+    // Simple hash function to assign consistent color based on word
+    let hash = 0;
+    for (let i = 0; i < word.length; i++) {
+      hash = word.charCodeAt(i) + ((hash << 5) - hash);
     }
-    function getNearbyWords(x, y, width, height) {
-      const minX = Math.floor(x / cellSize);
-      const maxX = Math.floor((x + width) / cellSize);
-      const minY = Math.floor(y / cellSize);
-      const maxY = Math.floor((y + height) / cellSize);
-      const nearby = new Set();
-      for (let i = minX; i <= maxX; i++) {
-        for (let j = minY; j <= maxY; j++) {
-          const key = `${i},${j}`;
-          if (grid.has(key)) {
-            grid.get(key).forEach(word => nearby.add(word));
-          }
-        }
-      }
-      return Array.from(nearby);
+    const index = Math.abs(hash) % unoColors.length;
+    // Ensure "money" is always yellow
+    if (word.toLowerCase() === 'money') {
+      return unoColors[3]; // Yellow
     }
-    return { addToGrid, getNearbyWords };
-  }
-
-  function isOverlapping(x, y, width, height, spatialGrid) {
-    const padding = 2;
-    const nearbyWords = spatialGrid.getNearbyWords(x, y, width, height);
-    for (const word of nearbyWords) {
-      const left1 = x;
-      const right1 = x + width;
-      const top1 = y;
-      const bottom1 = y + height;
-      const left2 = word.x;
-      const right2 = word.x + word.width;
-      const top2 = word.y;
-      const bottom2 = word.y + word.height;
-
-      if (
-        right1 + padding > left2 &&
-        left1 - padding < right2 &&
-        bottom1 + padding > top2 &&
-        top1 - padding < bottom2
-      ) {
-        return true;
-      }
-    }
-    return false;
+    return unoColors[index];
   }
 
   function adjustWordSize(word, element, maxWidth) {
-    element.style.fontSize = '2rem';
+    element.style.fontSize = element.classList.contains('mini-card') ? '1rem' : '2rem';
     element.textContent = word;
     let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
     const padding = 10;
 
-    while (element.scrollWidth > maxWidth - padding && fontSize > 0.8) {
+    while (element.scrollWidth > maxWidth - padding && fontSize > (element.classList.contains('mini-card') ? 0.5 : 0.8)) {
       fontSize -= 0.1;
       element.style.fontSize = `${fontSize}rem`;
     }
@@ -358,16 +308,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadData() {
     try {
-      wordCloud.style.display = 'block';
+      cardDeck.style.display = 'grid';
       loadingIndicator.style.opacity = '1';
 
       // Clear cache to ensure fetching the latest database
       localStorage.removeItem(CACHE_KEY);
 
       console.log('Fetching data/database.jsonl...');
-      const cacheBuster = Date.now(); // Add cache-busting query parameter
+      const cacheBuster = Date.now();
       const response = await fetch(`data/database.jsonl?cb=${cacheBuster}`, {
-        cache: 'no-store' // Prevent caching to fetch the latest file
+        cache: 'no-store'
       });
       if (!response.ok) {
         throw new Error(`Failed to fetch data/database.jsonl: ${response.status} ${response.statusText}`);
@@ -394,24 +344,24 @@ document.addEventListener('DOMContentLoaded', () => {
       loadingIndicator.style.opacity = '0';
       setTimeout(() => {
         loadingIndicator.style.display = 'none';
-        displayWordCloud();
+        displayCardDeck();
       }, 300);
     } catch (error) {
       console.error('LoadData Error:', error);
       loadingIndicator.style.display = 'none';
-      wordCloud.innerHTML = `
+      cardDeck.innerHTML = `
         <div class="error-message">
           Failed to load vocabulary data. Please ensure 'data/database.jsonl' exists and is valid.
           <br>Error: ${escapeHTML(error.message)}
         </div>`;
-      wordCloud.style.display = 'flex';
-      wordCloud.style.alignItems = 'center';
-      wordCloud.style.justifyContent = 'center';
-      wordCloud.style.height = '100vh';
+      cardDeck.style.display = 'flex';
+      cardDeck.style.alignItems = 'center';
+      cardDeck.style.justifyContent = 'center';
+      cardDeck.style.height = '100vh';
     }
   }
 
-  function displayWordCloud() {
+  function displayCardDeck() {
     if (!wordFreq || Object.keys(wordFreq).length === 0) {
       wordFreq = {};
       wordCaseMap = new Map();
@@ -425,161 +375,78 @@ document.addEventListener('DOMContentLoaded', () => {
           wordCaseMap.set(lowerWord, entry.word);
         }
       });
-      wordArray = Array.from(wordCaseMap.entries())
-        .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
-        .sort((a, b) => b.freq - a.freq);
     }
 
-    const maxFreq = Math.max(...Object.values(wordFreq));
-    const containerWidth = window.innerWidth;
-    const containerHeight = Math.max(window.innerHeight * 1.5, wordCaseMap.size * 15);
-    wordCloud.style.width = `${containerWidth}px`;
-    wordCloud.style.height = `${containerHeight}px`;
+    cardDeck.innerHTML = '';
+    cardDeck.appendChild(loadingIndicator);
 
-    wordCloud.innerHTML = '';
-    wordCloud.appendChild(loadingIndicator);
-    const placedWords = [];
-    const spatialGrid = createSpatialGrid(containerWidth, containerHeight);
+    const wordArray = Array.from(wordCaseMap.entries())
+      .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
+      .sort((a, b) => b.freq - a.freq);
 
-    wordArray.forEach(({ word, freq }) => {
-      const wordEl = document.createElement('div');
-      wordEl.className = 'cloud-word';
-      wordEl.textContent = word;
-      const size = 0.8 + (freq / maxFreq) * 2.2;
-      wordEl.style.fontSize = `${size}rem`;
-      const wordColor = unoColors[Math.floor(Math.random() * unoColors.length)].text;
-      wordEl.style.color = wordColor;
-      wordColors.set(word.toLowerCase(), wordColor);
-      wordEl.style.opacity = '1';
-      const duration = 2 + Math.random() * 3;
-      const delay = Math.random() * 3;
-      wordEl.style.animation = `twinkle ${duration}s infinite ${delay}s`;
-      wordCloud.appendChild(wordEl);
+    wordArray.forEach(({ word }) => {
+      const cardEl = document.createElement('div');
+      cardEl.className = 'mini-card';
+      const unoColor = getConsistentUnoColor(word.toLowerCase());
+      cardEl.style.backgroundColor = unoColor.bg;
+      cardEl.style.border = '1px solid #ffffff';
+      cardEl.style.color = unoColor.text;
+      wordColors.set(word.toLowerCase(), unoColor.text);
 
-      const { width, height } = wordEl.getBoundingClientRect();
-      let x, y, placed = false;
-      const maxAttempts = 500;
+      const wordSpan = document.createElement('span');
+      wordSpan.className = 'mini-card-word';
+      wordSpan.textContent = word;
+      adjustWordSize(word, wordSpan, cardEl.offsetWidth * 0.9);
+      cardEl.appendChild(wordSpan);
 
-      for (let attempts = 0; attempts < maxAttempts && !placed; attempts++) {
-        x = Math.random() * (containerWidth - width);
-        y = Math.random() * (containerHeight - height);
-        if (!isOverlapping(x, y, width, height, spatialGrid)) {
-          wordEl.style.left = `${x}px`;
-          wordEl.style.top = `${y}px`;
-          const wordObj = { x, y, width, height, word, element: wordEl };
-          placedWords.push(wordObj);
-          spatialGrid.addToGrid(x, y, width, height, wordObj);
-          placed = true;
-        }
-      }
+      cardDeck.appendChild(cardEl);
 
-      if (!placed) {
-        console.warn(`Could not place word: ${word}`);
-        wordEl.remove();
-        return;
-      }
-
-      addWordEventListener(wordEl, word);
+      addCardEventListener(cardEl, word);
     });
   }
 
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
-
-  function displayEntry(index) {
-    if (currentEntries.length === 0) return;
-    currentIndex = ((index % currentEntries.length) + currentEntries.length) % currentEntries.length;
-    const entry = currentEntries[currentIndex];
-    const currentWord = entry.word;
-
-    // Assign random Uno color
-    const unoColor = getRandomUnoColor();
-    flashcard.style.backgroundColor = unoColor.bg;
-    flashcard.style.border = '2px solid #ffffff';
-    wordEl.style.color = unoColor.text;
-    englishEl.style.color = unoColor.text;
-    thaiEl.style.color = unoColor.text;
-
-    adjustWordSize(currentWord, wordEl, flashcard.offsetWidth * 0.9);
-    englishEl.innerHTML = highlightWord(entry.english, currentWord, unoColor.text);
-    thaiEl.textContent = entry.thai;
-    audioErrorEl.style.display = 'none';
-
-    preloadAudio(currentIndex);
-
-    if (entry.audio) {
-      const audioUrl = `/data/${entry.audio}`;
-      console.log(`Setting up audio for: ${audioUrl}`);
-      flashcard.onclick = null;
-      flashcard.onclick = () => {
-        console.log('Playing audio on tap');
-        playAudio(audioUrl, unoColor.text);
-      };
-    } else {
-      console.log('No audio available for this entry');
-      flashcard.onclick = null;
-      audioErrorEl.textContent = 'No audio available';
-      audioErrorEl.style.display = 'block';
-      setTimeout(() => audioErrorEl.style.display = 'none', 2000);
-    }
-
-    shareIcon.style.display = 'block';
-  }
-
-  function addWordEventListener(wordEl, word) {
-    wordEl.addEventListener('click', () => {
+  function addCardEventListener(cardEl, word) {
+    cardEl.addEventListener('click', () => {
       stopAudio();
-      document.querySelectorAll('.cloud-word').forEach(otherWord => {
-        if (otherWord !== wordEl) {
-          otherWord.style.transition = 'none';
-          otherWord.style.opacity = '0';
-          otherWord.style.animation = 'none';
+      document.querySelectorAll('.mini-card').forEach(otherCard => {
+        if (otherCard !== cardEl) {
+          otherCard.style.transition = 'opacity 0.7s ease';
+          otherCard.style.opacity = '0';
         }
       });
-      wordCloud.style.transform = 'scale(1) translate(0px, 0px)';
-      wordCloud.style.transformOrigin = 'center center';
-      currentScale = 1;
-      translateX = 0;
-      translationY = 0;
 
-      const maxWordWidth = window.innerWidth * 0.9;
-      wordEl.style.fontSize = '3rem';
-      wordEl.style.maxWidth = `${maxWordWidth}px`;
-      wordEl.style.whiteSpace = 'normal';
-      let fontSize = parseFloat(window.getComputedStyle(wordEl).fontSize);
-      while (wordEl.scrollWidth > maxWordWidth && fontSize > 1) {
+      const maxCardWidth = window.innerWidth * 0.9;
+      cardEl.style.maxWidth = `${maxCardWidth}px`;
+      const wordSpan = cardEl.querySelector('.mini-card-word');
+      wordSpan.style.fontSize = '3rem';
+      let fontSize = parseFloat(window.getComputedStyle(wordSpan).fontSize);
+      while (wordSpan.scrollWidth > maxCardWidth && fontSize > 1) {
         fontSize -= 0.1;
-        wordEl.style.fontSize = `${fontSize}rem`;
+        wordSpan.style.fontSize = `${fontSize}rem`;
       }
 
-      const rect = wordEl.getBoundingClientRect();
+      const rect = cardEl.getBoundingClientRect();
       const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
       const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
 
       const currentWidth = rect.width;
-      const targetWidth = Math.min(currentWidth * 3, maxWordWidth);
-      const scaleFactor = Math.min(3, targetWidth / currentWidth);
+      const targetWidth = Math.min(currentWidth * 2, maxCardWidth); // Scale to full card size
+      const scaleFactor = Math.min(2, targetWidth / currentWidth);
 
-      wordEl.style.transition = 'transform 0.7s ease, opacity 0.7s ease';
-      wordEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(${scaleFactor})`;
-      wordEl.style.zIndex = '20';
+      cardEl.style.transition = 'transform 0.7s ease, opacity 0.7s ease';
+      cardEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(${scaleFactor})`;
+      cardEl.style.zIndex = '20';
 
       setTimeout(() => {
-        wordEl.style.opacity = '0';
+        cardEl.style.opacity = '0';
 
         setTimeout(() => {
-          wordCloud.style.display = 'none';
-          wordEl.style.transform = 'none';
-          wordEl.style.opacity = '1';
-          wordEl.style.zIndex = '10';
-          wordEl.style.maxWidth = '';
-          wordEl.style.whiteSpace = 'nowrap';
-          wordEl.style.fontSize = '';
+          cardDeck.style.display = 'none';
+          cardEl.style.transform = 'none';
+          cardEl.style.opacity = '1';
+          cardEl.style.zIndex = '10';
+          cardEl.style.maxWidth = '';
+          wordSpan.style.fontSize = '';
 
           flashcardContainer.style.display = 'flex';
           flashcardContainer.style.opacity = '0';
@@ -637,6 +504,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  function displayEntry(index) {
+    if (currentEntries.length === 0) return;
+    currentIndex = ((index % currentEntries.length) + currentEntries.length) % currentEntries.length;
+    const entry = currentEntries[currentIndex];
+    const currentWord = entry.word;
+
+    const unoColor = getConsistentUnoColor(currentWord.toLowerCase());
+    flashcard.style.backgroundColor = unoColor.bg;
+    flashcard.style.border = '2px solid #ffffff';
+    wordEl.style.color = unoColor.text;
+    englishEl.style.color = unoColor.text;
+    thaiEl.style.color = unoColor.text;
+
+    adjustWordSize(currentWord, wordEl, flashcard.offsetWidth * 0.9);
+    englishEl.innerHTML = highlightWord(entry.english, currentWord, unoColor.text);
+    thaiEl.textContent = entry.thai;
+    audioErrorEl.style.display = 'none';
+
+    preloadAudio(currentIndex);
+
+    if (entry.audio) {
+      const audioUrl = `/data/${entry.audio}`;
+      console.log(`Setting up audio for: ${audioUrl}`);
+      flashcard.onclick = null;
+      flashcard.onclick = () => {
+        console.log('Playing audio on tap');
+        playAudio(audioUrl, unoColor.text);
+      };
+    } else {
+      console.log('No audio available for this entry');
+      flashcard.onclick = null;
+      audioErrorEl.textContent = 'No audio available';
+      audioErrorEl.style.display = 'block';
+      setTimeout(() => audioErrorEl.style.display = 'none', 2000);
+    }
+
+    shareIcon.style.display = 'block';
+  }
+
   wordCloudIcon.addEventListener('click', () => {
     stopAudio();
     flashcardContainer.style.transition = 'opacity 0.7s ease';
@@ -651,10 +565,10 @@ document.addEventListener('DOMContentLoaded', () => {
       flashcardContainer.style.display = 'none';
       header.style.display = 'none';
       document.body.style.overflow = 'auto';
-      wordCloud.style.display = 'block';
-      wordCloud.style.opacity = '0';
-      wordCloud.style.transition = 'opacity 0.7s ease';
-      wordCloud.style.opacity = '1';
+      cardDeck.style.display = 'grid';
+      cardDeck.style.opacity = '0';
+      cardDeck.style.transition = 'opacity 0.7s ease';
+      cardDeck.style.opacity = '1';
 
       logo.style.transform = 'translateX(-100%)';
       logo.style.opacity = '0';
@@ -663,9 +577,52 @@ document.addEventListener('DOMContentLoaded', () => {
       slogan.style.transform = 'translateX(100%)';
       slogan.style.opacity = '0';
 
-      displayWordCloud();
+      displayCardDeck();
     }, 700);
   });
+
+  cardDeck.addEventListener('touchstart', e => {
+    touchStartTime = Date.now();
+    if (e.touches.length === 2) {
+      isPinching = true;
+      pinchStartDistance = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+    } else if (e.touches.length === 1) {
+      touchStartY = e.touches[0].screenY;
+    }
+  }, { passive: true });
+
+  cardDeck.addEventListener('touchmove', e => {
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      isPinching = true;
+      const pinchDistance = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      const newScale = currentScale * (pinchDistance / pinchStartDistance);
+      currentScale = Math.max(1, Math.min(newScale, 3));
+      cardDeck.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
+      pinchStartDistance = pinchDistance;
+    } else if (e.touches.length === 1 && currentScale > 1) {
+      e.preventDefault();
+      const deltaX = e.touches[0].clientX - (cardDeck._lastX || e.touches[0].clientX);
+      const deltaY = e.touches[0].clientY - (cardDeck._lastY || e.touches[0].clientY);
+      translateX += deltaX / currentScale;
+      translationY += deltaY / currentScale;
+      cardDeck.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
+      cardDeck._lastX = e.touches[0].clientX;
+      cardDeck._lastY = e.touches[0].clientY;
+    }
+  }, { passive: false });
+
+  cardDeck.addEventListener('touchend', e => {
+    cardDeck._lastX = null;
+    cardDeck._lastY = null;
+    isPinching = false;
+  }, { passive: true });
 
   flashcard.addEventListener('touchstart', e => {
     e.preventDefault();
@@ -729,49 +686,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
-
-  wordCloud.addEventListener('touchstart', e => {
-    touchStartTime = Date.now();
-    if (e.touches.length === 2) {
-      isPinching = true;
-      pinchStartDistance = Math.hypot(
-        e.touches[0].clientX - e.touches[1].clientX,
-        e.touches[0].clientY - e.touches[1].clientY
-      );
-    } else if (e.touches.length === 1) {
-      touchStartY = e.touches[0].screenY;
-    }
-  }, { passive: true });
-
-  wordCloud.addEventListener('touchmove', e => {
-    if (e.touches.length === 2) {
-      e.preventDefault();
-      isPinching = true;
-      const pinchDistance = Math.hypot(
-        e.touches[0].clientX - e.touches[1].clientX,
-        e.touches[0].clientY - e.touches[1].clientY
-      );
-      const newScale = currentScale * (pinchDistance / pinchStartDistance);
-      currentScale = Math.max(1, Math.min(newScale, 3));
-      wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
-      pinchStartDistance = pinchDistance;
-    } else if (e.touches.length === 1 && currentScale > 1) {
-      e.preventDefault();
-      const deltaX = e.touches[0].clientX - (wordCloud._lastX || e.touches[0].clientX);
-      const deltaY = e.touches[0].clientY - (wordCloud._lastY || e.touches[0].clientY);
-      translateX += deltaX / currentScale;
-      translationY += deltaY / currentScale;
-      wordCloud.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
-      wordCloud._lastX = e.touches[0].clientX;
-      wordCloud._lastY = e.touches[0].clientY;
-    }
-  }, { passive: false });
-
-  wordCloud.addEventListener('touchend', e => {
-    wordCloud._lastX = null;
-    wordCloud._lastY = null;
-    isPinching = false;
-  }, { passive: true });
 
   loadData();
 });
