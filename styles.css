@@ -93,8 +93,8 @@ body {
   background-color: #2c2c2c; /* Default, overridden by JS */
   border: 3px solid #ffffff; /* Tripled border thickness */
   border-radius: 5px;
-  width: 105px;
-  height: 166.5px;
+  width: 105px; /* Half of flashcard width */
+  height: 166.5px; /* Half of flashcard height, 1:1.59 aspect ratio */
   max-width: 90vw;
   max-height: calc(90vw * 1.59);
   display: flex;
@@ -111,14 +111,13 @@ body {
 }
 
 .mini-card-word {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 1.5rem; /* Increased to match flashcard ratio */
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
   font-weight: 700;
   text-align: center;
   color: #ffffff; /* White text */
-  -webkit-text-stroke: 0.05rem #000000; /* Black outline */
-  text-stroke: 0.05rem #000000;
-  white-space: nowrap;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
+  white-space: nowrap; /* Prevent wrapping */
   max-width: 90%;
 }
 
@@ -234,14 +233,13 @@ body {
 }
 
 .word {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'Arial', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
   color: #ffffff; /* White text */
-  -webkit-text-stroke: 0.08rem #000000; /* Black outline */
-  text-stroke: 0.08rem #000000;
-  white-space: nowrap;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
+  white-space: nowrap; /* Prevent wrapping */
   max-width: 90%;
   position: absolute;
   top: 50%;
@@ -257,13 +255,12 @@ body {
 }
 
 .english {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'Arial', sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   text-align: left;
   color: #ffffff; /* White text */
-  -webkit-text-stroke: 0.03rem #000000; /* Black outline */
-  text-stroke: 0.03rem #000000;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
   position: absolute;
   top: 10px;
   left: 10px;
@@ -272,8 +269,8 @@ body {
 
 .english .highlight {
   font-weight: 700;
-  -webkit-text-stroke: 0.04rem #000000; /* Slightly thicker for highlight */
-  text-stroke: 0.04rem #000000;
+  color: #ffffff; /* White text for highlight */
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
 }
 
 .thai {
@@ -282,8 +279,7 @@ body {
   font-weight: 400;
   text-align: right;
   color: #ffffff; /* White text */
-  -webkit-text-stroke: 0.03rem #000000; /* Black outline */
-  text-stroke: 0.03rem #000000;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
   position: absolute;
   bottom: 10px;
   right: 10px;
@@ -504,7 +500,7 @@ svg.filters {
   }
 
   .mini-card {
-    width: 90vw;
+    width: 90vw; /* Scales with viewport */
     height: calc(90vw * 1.59 / 2);
     max-width: 105px;
     max-height: 166.5px;
@@ -512,9 +508,9 @@ svg.filters {
   }
 
   .mini-card-word {
-    font-size: 1.2rem;
-    -webkit-text-stroke: 0.04rem #000000;
-    text-stroke: 0.04rem #000000;
+    font-size: 0.9rem;
+    color: #ffffff; /* White text */
+    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
   }
 
   .flashcard {
@@ -527,25 +523,25 @@ svg.filters {
 
   .word {
     font-size: 1.8rem;
-    -webkit-text-stroke: 0.06rem #000000;
-    text-stroke: 0.06rem #000000;
+    color: #ffffff; /* White text */
+    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
   }
 
   .english {
     font-size: 0.8rem;
-    -webkit-text-stroke: 0.025rem #000000;
-    text-stroke: 0.025rem #000000;
+    color: #ffffff; /* White text */
+    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
   }
 
   .english .highlight {
-    -webkit-text-stroke: 0.035rem #000000;
-    text-stroke: 0.035rem #000000;
+    color: #ffffff; /* White text */
+    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
   }
 
   .thai {
     font-size: 0.7rem;
-    -webkit-text-stroke: 0.025rem #000000;
-    text-stroke: 0.025rem #000000;
+    color: #ffffff; /* White text */
+    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; /* Black outline */
   }
 
   .audio-error {
