@@ -2,6 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const cardDeck = document.getElementById('card-deck');
   const loadingIndicator = document.getElementById('loading-indicator');
   const flashcardContainer = document.getElementById('flashcard-container');
+  const flashcard = document.getElementById('flashcard');
+  const cardInner = flashcard.querySelector('.card-inner');
+  const frontWordEl = document.getElementById('front-word');
+  const wordEl = document.getElementById('word');
+  const englishEl = document.getElementById('english');
+  const thaiEl = document.getElementById('thai');
+  const audioErrorEl = document.getElementById('audio-error');
   const header = document.getElementById('header');
   const wordCloudIcon = document.getElementById('word-cloud-icon');
   const donateIcon = document.getElementById('donate-icon');
@@ -32,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let wordFreq = {};
   let wordCaseMap = new Map();
   let visitCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
-  let currentFlashcard = null; // Track the current flashcard
   visitCount += 1;
   localStorage.setItem('visitCount', visitCount.toString());
 
@@ -49,11 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWord(sentence, word) {
@@ -103,8 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
       currentAudio.currentTime = 0;
       currentAudio = null;
     }
-    const audioErrorEl = currentFlashcard?.querySelector('.audio-error');
-    if (audioErrorEl) audioErrorEl.style.display = 'none';
+    audioErrorEl.style.display = 'none';
   }
 
   function preloadAudio(index) {
@@ -130,7 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
     stopAudio();
     console.log(`Attempting to play audio: ${audioUrl}`);
     currentAudio = new Audio(audioUrl);
-    const audioErrorEl = currentFlashcard.querySelector('.audio-error');
     setTimeout(() => {
       currentAudio.play().then(() => {
         console.log('Audio playing successfully');
@@ -196,7 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share(shareData);
         console.log('Shared successfully via Web Share API');
-        const audioErrorEl = currentFlashcard.querySelector('.audio-error');
         audioErrorEl.textContent = 'Shared successfully!';
         audioErrorEl.style.color = '#00ff88';
         audioErrorEl.style.display = 'block';
@@ -212,7 +215,6 @@ document.addEventListener('DOMContentLoaded', () => {
         link.click();
         URL.revokeObjectURL(url);
         console.log('Web Share API not available, image downloaded');
-        const audioErrorEl = currentFlashcard.querySelector('.audio-error');
         audioErrorEl.textContent = 'Image downloaded. Share it manually!';
         audioErrorEl.style.display = 'block';
         setTimeout(() => {
@@ -221,7 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (error) {
       console.error('Error sharing:', error);
-      const audioErrorEl = currentFlashcard.querySelector('.audio-error');
       audioErrorEl.textContent = 'Failed to share: ' + error.message;
       audioErrorEl.style.display = 'block';
       setTimeout(() => {
@@ -266,14 +267,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     header.style.filter = 'blur(5px)';
-    currentFlashcard.style.filter = 'none';
+    flashcard.style.filter = 'none';
 
-    const flashcardRect = currentFlashcard.getBoundingClientRect();
+    const flashcardRect = flashcard.getBoundingClientRect();
     const containerRect = flashcardContainer.getBoundingClientRect();
     const centerX = flashcardRect.left - containerRect.left + flashcardRect.width / 2;
     let centerY;
     if (direction === 'tap') {
-      const wordEl = currentFlashcard.querySelector('.word');
       const wordRect = wordEl.getBoundingClientRect();
       centerY = wordRect.top - containerRect.top + wordRect.height / 2;
     } else {
@@ -400,11 +400,11 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustWordSize(word, wordSpan, cardEl.offsetWidth * 0.9, true);
       cardFront.appendChild(wordSpan);
 
-      // Create card-back structure
+      // Create card-back for the mini-card
       const cardBack = document.createElement('div');
       cardBack.className = 'card-back';
-      const content = document.createElement('div');
-      content.className = 'content';
+      const contentDiv = document.createElement('div');
+      contentDiv.className = 'content';
       const wordDiv = document.createElement('div');
       wordDiv.className = 'word';
       const sentencesDiv = document.createElement('div');
@@ -413,15 +413,11 @@ document.addEventListener('DOMContentLoaded', () => {
       englishDiv.className = 'english';
       const thaiDiv = document.createElement('div');
       thaiDiv.className = 'thai';
-      const audioErrorDiv = document.createElement('div');
-      audioErrorDiv.className = 'audio-error';
-      audioErrorDiv.style.display = 'none';
       sentencesDiv.appendChild(englishDiv);
       sentencesDiv.appendChild(thaiDiv);
-      sentencesDiv.appendChild(audioErrorDiv);
-      content.appendChild(wordDiv);
-      content.appendChild(sentencesDiv);
-      cardBack.appendChild(content);
+      contentDiv.appendChild(wordDiv);
+      contentDiv.appendChild(sentencesDiv);
+      cardBack.appendChild(contentDiv);
       cardInner.appendChild(cardFront);
       cardInner.appendChild(cardBack);
       cardEl.appendChild(cardInner);
@@ -442,123 +438,128 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      const maxCardWidth = window.innerWidth * 0.9;
+      const maxCardWidth = Math.min(window.innerWidth * 0.9, 210);
+      const maxCardHeight = maxCardWidth * 1.59;
       cardEl.style.maxWidth = `${maxCardWidth}px`;
-      const wordSpan = cardEl.querySelector('.mini-card-word');
+      cardEl.style.maxHeight = `${maxCardHeight}px`;
+      cardEl.style.border = '6px solid #ffffff';
+      cardEl.style.borderRadius = '10px';
 
       const rect = cardEl.getBoundingClientRect();
       const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
       const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
 
       const currentWidth = rect.width;
-      const targetWidth = Math.min(currentWidth * 2, maxCardWidth);
+      const targetWidth = maxCardWidth;
       const scaleFactor = Math.min(2, targetWidth / currentWidth);
 
-      // Scale up to flashcard size
-      cardEl.style.transition = 'transform 0.7s ease, width 0.7s ease, height 0.7s ease, opacity 0.7s ease';
+      cardEl.style.transition = 'transform 0.7s ease, width 0.7s ease, height 0.7s ease, max-width 0.7s ease, max-height 0.7s ease, border 0.7s ease, border-radius 0.7s ease';
       cardEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(${scaleFactor})`;
-      cardEl.style.width = `${Math.min(210, maxCardWidth)}px`;
-      cardEl.style.height = `${Math.min(333, maxCardWidth * 1.59)}px`;
-      cardEl.style.border = '6px solid #ffffff';
+      cardEl.style.width = `${maxCardWidth}px`;
+      cardEl.style.height = `${maxCardHeight}px`;
       cardEl.style.zIndex = '20';
 
       setTimeout(() => {
-        // Flip the card
-        cardEl.querySelector('.card-inner').classList.add('flip');
-        cardEl.classList.remove('mini-card');
-        cardEl.classList.add('flashcard');
+        // Populate the back of the mini-card with the first entry's content
+        currentEntries = entries.filter(entry => entry.word.toLowerCase() === word.toLowerCase());
+        currentEntries = shuffleArray([...currentEntries]);
+        currentIndex = 0;
+        const entry = currentEntries[currentIndex];
+        const cardBack = cardEl.querySelector('.card-back');
+        const wordDiv = cardBack.querySelector('.word');
+        const englishDiv = cardBack.querySelector('.english');
+        const thaiDiv = cardBack.querySelector('.thai');
 
+        const unoColor = getConsistentUnoColor(word.toLowerCase());
+        cardEl.style.backgroundColor = unoColor.bg;
+        wordDiv.style.color = '#ffffff';
+        englishDiv.style.color = '#ffffff';
+        thaiDiv.style.color = '#ffffff';
+
+        adjustWordSize(entry.word, wordDiv, maxCardWidth * 0.9);
+        englishDiv.innerHTML = highlightWord(entry.english, entry.word);
+        thaiDiv.textContent = entry.thai;
+
+        // Flip the card
+        const cardInner = cardEl.querySelector('.card-inner');
+        cardInner.classList.add('flip');
+
+        // Show header and icons
+        header.style.display = 'flex';
+        header.style.opacity = '0';
+        header.style.transition = 'opacity 1s ease';
+        header.style.opacity = '1';
+        donateIcon.style.display = 'block';
+        shareIcon.style.display = 'block';
+
+        document.body.style.overflow = 'hidden';
+
+        // Set up audio
+        if (entry.audio) {
+          const audioUrl = `/data/${entry.audio}`;
+          console.log(`Setting up audio for: ${audioUrl}`);
+          cardEl.onclick = null;
+          cardEl.onclick = () => {
+            console.log('Playing audio on tap');
+            playAudio(audioUrl);
+          };
+        } else {
+          console.log('No audio available for this entry');
+          cardEl.onclick = null;
+          audioErrorEl.textContent = 'No audio available';
+          audioErrorEl.style.display = 'block';
+          setTimeout(() => audioErrorEl.style.display = 'none', 2000);
+        }
+
+        // Update flashcard container for subsequent cards
+        flashcardContainer.style.display = 'none';
+        flashcard.style.width = `${maxCardWidth}px`;
+        flashcard.style.height = `${maxCardHeight}px`;
+        flashcard.style.backgroundColor = unoColor.bg;
+        flashcard.style.border = '6px solid #ffffff';
+        adjustWordSize(entry.word, frontWordEl, maxCardWidth * 0.9, true);
+        adjustWordSize(entry.word, wordEl, maxCardWidth * 0.9);
+        englishEl.innerHTML = highlightWord(entry.english, entry.word);
+        thaiEl.textContent = entry.thai;
+
+        // Preload audio for next cards
+        preloadAudio(currentIndex);
+
+        // Show tooltips for first-time users
+        if (visitCount <= 5) {
+          setTimeout(() => {
+            showTooltip(swipeUpTooltip, 'up');
+            setTimeout(() => {
+              showTooltip(swipeDownTooltip, 'down');
+              setTimeout(() => {
+                showTooltip(tapTooltip, 'tap');
+              }, 2500);
+            }, 2500);
+          }, 6000);
+        }
+
+        // Replace mini-card with flashcard for subsequent swipes
         setTimeout(() => {
+          cardEl.style.display = 'none';
           cardDeck.style.display = 'none';
           flashcardContainer.style.display = 'flex';
-          flashcardContainer.style.opacity = '0';
-          flashcardContainer.style.transition = 'opacity 1s ease';
-          flashcardContainer.appendChild(cardEl);
           flashcardContainer.style.opacity = '1';
-
-          header.style.display = 'flex';
-          header.style.opacity = '0';
-          header.style.transition = 'opacity 1s ease';
-          header.style.opacity = '1';
-          donateIcon.style.display = 'block';
-          shareIcon.style.display = 'block';
-
-          flashcardContainer.style.height = '100vh';
-          flashcardContainer.style.justifyContent = 'center';
-          document.body.style.overflow = 'hidden';
-
-          currentFlashcard = cardEl;
-          currentEntries = entries.filter(entry => entry.word.toLowerCase() === word.toLowerCase());
-          currentEntries = shuffleArray([...currentEntries]);
-          currentIndex = 0;
-          currentColor = '#ffffff';
-
-          displayEntry(currentIndex);
-
-          // Add touch and keydown event listeners to the new flashcard
-          addFlashcardEventListeners(cardEl);
-
-          if (visitCount <= 5) {
-            setTimeout(() => {
-              showTooltip(swipeUpTooltip, 'up');
-              setTimeout(() => {
-                showTooltip(swipeDownTooltip, 'down');
-                setTimeout(() => {
-                  showTooltip(tapTooltip, 'tap');
-                }, 2500);
-              }, 2500);
-            }, 6000);
-          }
-        }, 600); // Wait for flip animation to complete
-      }, 700); // Wait for scaling animation to complete
+          cardEl.style.transform = 'none';
+          cardEl.style.width = '105px';
+          cardEl.style.height = '166.5px';
+          cardEl.style.maxWidth = '90vw';
+          cardEl.style.maxHeight = 'calc(90vw * 1.59)';
+          cardEl.style.border = '3px solid #ffffff';
+          cardEl.style.borderRadius = '5px';
+          cardEl.style.zIndex = '10';
+          cardInner.classList.remove('flip');
+          cardEl.style.opacity = '1';
+          document.querySelectorAll('.mini-card').forEach(otherCard => {
+            otherCard.style.opacity = '1';
+          });
+        }, 600);
+      }, 700);
     });
-  }
-
-  function addFlashcardEventListeners(flashcard) {
-    flashcard.addEventListener('touchstart', e => {
-      e.preventDefault();
-      touchStartY = e.changedTouches[0].screenY;
-      touchStartTime = Date.now();
-    }, { passive: false });
-
-    flashcard.addEventListener('touchend', e => {
-      e.preventDefault();
-      touchEndY = e.changedTouches[0].screenY;
-      const swipeDistance = touchStartY - touchEndY;
-      const minSwipeDistance = 50;
-      const touchDuration = Date.now() - touchStartTime;
-      const maxTapDuration = 300;
-      const tapCooldown = 500;
-
-      if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance && (Date.now() - lastSwipeTime) > tapCooldown) {
-        console.log('Tap detected, triggering flashcard click');
-        flashcard.click();
-      } else if (swipeDistance > minSwipeDistance) {
-        console.log('Swipe up detected, going to next entry');
-        stopAudio();
-        setTimeout(() => {
-          currentIndex++;
-          flashcard.querySelector('.card-inner').classList.remove('flip');
-          setTimeout(() => {
-            displayEntry(currentIndex);
-            flashcard.querySelector('.card-inner').classList.add('flip');
-          }, 300);
-        }, 0);
-        lastSwipeTime = Date.now();
-      } else if (swipeDistance < -minSwipeDistance) {
-        console.log('Swipe down detected, going to previous entry');
-        stopAudio();
-        setTimeout(() => {
-          currentIndex--;
-          flashcard.querySelector('.card-inner').classList.remove('flip');
-          setTimeout(() => {
-            displayEntry(currentIndex);
-            flashcard.querySelector('.card-inner').classList.add('flip');
-          }, 300);
-        }, 0);
-        lastSwipeTime = Date.now();
-      }
-    }, { passive: false });
   }
 
   function shuffleArray(array) {
@@ -576,22 +577,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentWord = entry.word;
 
     const unoColor = getConsistentUnoColor(currentWord.toLowerCase());
-    currentFlashcard.style.backgroundColor = unoColor.bg;
-    currentFlashcard.style.border = '6px solid #ffffff';
-
-    const frontWordEl = currentFlashcard.querySelector('.mini-card-word');
-    const wordEl = currentFlashcard.querySelector('.word');
-    const englishEl = currentFlashcard.querySelector('.english');
-    const thaiEl = currentFlashcard.querySelector('.thai');
-    const audioErrorEl = currentFlashcard.querySelector('.audio-error');
-
+    flashcard.style.backgroundColor = unoColor.bg;
+    flashcard.style.border = '6px solid #ffffff';
     frontWordEl.style.color = '#ffffff';
     wordEl.style.color = '#ffffff';
     englishEl.style.color = '#ffffff';
     thaiEl.style.color = '#ffffff';
 
-    adjustWordSize(currentWord, frontWordEl, currentFlashcard.offsetWidth * 0.9, true);
-    adjustWordSize(currentWord, wordEl, currentFlashcard.offsetWidth * 0.9);
+    adjustWordSize(currentWord, frontWordEl, flashcard.offsetWidth * 0.9, true);
+    adjustWordSize(currentWord, wordEl, flashcard.offsetWidth * 0.9);
     englishEl.innerHTML = highlightWord(entry.english, currentWord);
     thaiEl.textContent = entry.thai;
     audioErrorEl.style.display = 'none';
@@ -601,14 +595,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (entry.audio) {
       const audioUrl = `/data/${entry.audio}`;
       console.log(`Setting up audio for: ${audioUrl}`);
-      currentFlashcard.onclick = null;
-      currentFlashcard.onclick = () => {
+      flashcard.onclick = null;
+      flashcard.onclick = () => {
         console.log('Playing audio on tap');
         playAudio(audioUrl);
       };
     } else {
       console.log('No audio available for this entry');
-      currentFlashcard.onclick = null;
+      flashcard.onclick = null;
       audioErrorEl.textContent = 'No audio available';
       audioErrorEl.style.display = 'block';
       setTimeout(() => audioErrorEl.style.display = 'none', 2000);
@@ -631,14 +625,12 @@ document.addEventListener('DOMContentLoaded', () => {
       flashcardContainer.style.display = 'none';
       header.style.display = 'none';
       document.body.style.overflow = 'auto';
-      if (currentFlashcard) {
-        currentFlashcard.remove();
-        currentFlashcard = null;
-      }
       cardDeck.style.display = 'grid';
       cardDeck.style.opacity = '0';
       cardDeck.style.transition = 'opacity 0.7s ease';
       cardDeck.style.opacity = '1';
+
+      cardInner.classList.remove('flip');
       displayCardDeck();
     }, 700);
   });
@@ -660,7 +652,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.touches.length === 2) {
       e.preventDefault();
       isPinching = true;
-      const pinchDistance = Math.hypot(
+      const pinch-distance = Math.hypot(
         e.touches[0].clientX - e.touches[1].clientX,
         e.touches[0].clientY - e.touches[1].clientY
       );
@@ -686,17 +678,62 @@ document.addEventListener('DOMContentLoaded', () => {
     isPinching = false;
   }, { passive: true });
 
+  flashcard.addEventListener('touchstart', e => {
+    e.preventDefault();
+    touchStartY = e.changedTouches[0].screenY;
+    touchStartTime = Date.now();
+  }, { passive: false });
+
+  flashcard.addEventListener('touchend', e => {
+    e.preventDefault();
+    touchEndY = e.changedTouches[0].screenY;
+    const swipeDistance = touchStartY - touchEndY;
+    const minSwipeDistance = 50;
+    const touchDuration = Date.now() - touchStartTime;
+    const maxTapDuration = 300;
+    const tapCooldown = 500;
+
+    if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance && (Date.now() - lastSwipeTime) > tapCooldown) {
+      console.log('Tap detected, triggering flashcard click');
+      flashcard.click();
+    } else if (swipeDistance > minSwipeDistance) {
+      console.log('Swipe up detected, going to next entry');
+      stopAudio();
+      setTimeout(() => {
+        currentIndex++;
+        cardInner.classList.remove('flip');
+        setTimeout(() => {
+          displayEntry(currentIndex);
+          cardInner.classList.add('flip');
+        }, 300);
+      }, 0);
+      lastSwipeTime = Date.now();
+    } else if (swipeDistance < -minSwipeDistance) {
+      console.log('Swipe down detected, going to previous entry');
+      stopAudio();
+      setTimeout(() => {
+        currentIndex--;
+        cardInner.classList.remove('flip');
+        setTimeout(() => {
+          displayEntry(currentIndex);
+          cardInner.classList.add('flip');
+        }, 300);
+      }, 0);
+      lastSwipeTime = Date.now();
+    }
+  }, { passive: false });
+
   document.addEventListener('keydown', e => {
-    if (flashcardContainer.style.display === 'flex' && currentFlashcard) {
+    if (flashcardContainer.style.display === 'flex') {
       if (e.key === 'ArrowUp') {
         console.log('Arrow up pressed, going to next entry');
         stopAudio();
         setTimeout(() => {
           currentIndex++;
-          currentFlashcard.querySelector('.card-inner').classList.remove('flip');
+          cardInner.classList.remove('flip');
           setTimeout(() => {
             displayEntry(currentIndex);
-            currentFlashcard.querySelector('.card-inner').classList.add('flip');
+            cardInner.classList.add('flip');
           }, 300);
         }, 0);
         lastSwipeTime = Date.now();
@@ -705,17 +742,17 @@ document.addEventListener('DOMContentLoaded', () => {
         stopAudio();
         setTimeout(() => {
           currentIndex--;
-          currentFlashcard.querySelector('.card-inner').classList.remove('flip');
+          cardInner.classList.remove('flip');
           setTimeout(() => {
             displayEntry(currentIndex);
-            currentFlashcard.querySelector('.card-inner').classList.add('flip');
+            cardInner.classList.add('flip');
           }, 300);
         }, 0);
         lastSwipeTime = Date.now();
       } else if (e.key === ' ') {
         e.preventDefault();
         console.log('Spacebar pressed, triggering flashcard click');
-        currentFlashcard.click();
+        flashcard.click();
       }
     }
   });
