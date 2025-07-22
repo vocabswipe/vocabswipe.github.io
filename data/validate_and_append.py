@@ -4,35 +4,46 @@ import hashlib
 import re
 from tqdm import tqdm
 from collections import Counter
-import sys
-import unicodedata
+
+def contains_unwanted_chars(text):
+    """Check if text contains Chinese, Russian, or other non-Latin characters."""
+    # Matches Chinese (CJK) or Cyrillic characters
+    pattern = r'[\u4e00-\u9fff\u0400-\u04ff]'
+    return bool(re.search(pattern, text))
+
+def contains_english_chars(text):
+    """Check if text contains English (Latin) characters."""
+    pattern = r'[a-zA-Z]'
+    return bool(re.search(pattern, text))
+
+def word_in_sentence(word, sentence):
+    """Check if word (or its simple variants) is in the sentence."""
+    word = word.lower().strip()
+    sentence = sentence.lower().strip()
+    # Simple check for word presence, including basic variations (e.g., drive -> drives)
+    word_variants = [word, word + 's', word + 'd', word + 'ed', word + 'ing']
+    return any(variant in sentence.split() for variant in word_variants)
 
 def validate_and_append(temp_file, db_file):
     """
     Validates entries in temp_sentences.jsonl and database.jsonl, appends valid entries to database,
     empties temp file, appends last database entry to temp file, and reports statistics including:
     - Total and unique main words and English sentences
-    - Ratio of total main words to unique main words (2 decimal points)
-    - Top 10 most frequent main words
-    - Adjacent duplicates
-    - Last database entry
-    - Skipped entries due to unwanted characters, English in Thai, or word not in English sentence
+    - Total duplicate sentences
+    Skips entries with:
+    - Unwanted characters (e.g., Chinese, Russian) in word, english, or thai fields
+    - English sentences not containing the main word (or its variants)
+    - Thai sentences with English characters (user prompted to keep/skip)
     Assumes all files are in the same directory: D:\vocabswipe.github.io\data.
     """
     errors = []
     temp_entries = []
     db_entries = []
     skipped_entries = []
-    kept_thai_with_english = []
-
-    # Define regex patterns for unwanted characters
-    chinese_pattern = re.compile(r'[\u4E00-\u9FFF]')  # Chinese characters
-    russian_pattern = re.compile(r'[\u0400-\u04FF]')  # Russian Cyrillic characters
-    english_pattern = re.compile(r'[a-zA-Z]')  # English alphabet characters
 
     # Print header and working directory
     print("\n" + "═"*60)
-    print("🌟 VocabSwipe Data Validation and Append System 🌟")
+    print("🌟 VocabSwipe Data Validation & Append System 🌟")
     print("═"*60)
     print(f"📍 Working directory: {os.getcwd()}\n")
 
@@ -65,43 +76,21 @@ def validate_and_append(temp_file, db_file):
                     if not all(entry[key].strip() for key in ['word', 'english', 'thai']):
                         errors.append(f"Temp line {line_number}: Empty fields")
                         continue
-
-                    # Check for unwanted characters (Chinese, Russian)
-                    for field in ['word', 'english', 'thai']:
-                        if chinese_pattern.search(entry[field]) or russian_pattern.search(entry[field]):
-                            skipped_entries.append(
-                                f"Temp line {line_number}: Unwanted characters ({field}: {entry[field]})"
-                            )
-                            continue
-
-                    # Check if English sentence contains the main word
-                    word = entry['word'].lower().strip()
-                    english = entry['english'].lower().strip()
-                    if word not in english.split():
-                        skipped_entries.append(
-                            f"Temp line {line_number}: Main word '{word}' not in English sentence '{english}'"
-                        )
+                    # Check for unwanted characters
+                    if any(contains_unwanted_chars(entry[key]) for key in ['word', 'english', 'thai']):
+                        skipped_entries.append(f"Temp line {line_number}: Contains unwanted characters (e.g., Chinese, Russian)")
                         continue
-
-                    # Check for English characters in Thai sentence
-                    if english_pattern.search(entry['thai']):
-                        print(f"\n⚠️ Temp line {line_number}: English characters found in Thai sentence")
-                        print(f"  Entry: {json.dumps(entry, ensure_ascii=False)}")
-                        while True:
-                            response = input("  Keep this entry? (y/n): ").strip().lower()
-                            if response in ['y', 'n']:
-                                break
-                            print("  Please enter 'y' or 'n'")
-                        if response == 'n':
-                            skipped_entries.append(
-                                f"Temp line {line_number}: English in Thai sentence '{entry['thai']}' (user skipped)"
-                            )
+                    # Check if word is in English sentence
+                    if not word_in_sentence(entry['word'], entry['english']):
+                        skipped_entries.append(f"Temp line {line_number}: Word '{entry['word']}' not found in English sentence")
+                        continue
+                    # Check for English characters in Thai field
+                    if contains_english_chars(entry['thai']):
+                        print(f"\n⚠️ Temp line {line_number}: Thai field contains English characters: {entry['thai']}")
+                        response = input("  Keep this entry? (y/n): ").strip().lower()
+                        if response != 'y':
+                            skipped_entries.append(f"Temp line {line_number}: Thai field contains English characters (skipped by user)")
                             continue
-                        else:
-                            kept_thai_with_english.append(
-                                f"Temp line {line_number}: Kept with English in Thai sentence '{entry['thai']}'"
-                            )
-
                     temp_entries.append(entry)
                     temp_entries_with_lines.append((entry, line_number))
                 except json.JSONDecodeError:
@@ -133,6 +122,14 @@ def validate_and_append(temp_file, db_file):
                     if not all(entry[key].strip() for key in ['word', 'english', 'thai']):
                         errors.append(f"Database line {line_number}: Empty fields")
                         continue
+                    # Skip entries with unwanted characters
+                    if any(contains_unwanted_chars(entry[key]) for key in ['word', 'english', 'thai']):
+                        skipped_entries.append(f"Database line {line_number}: Contains unwanted characters (e.g., Chinese, Russian)")
+                        continue
+                    # Skip entries where word is not in English sentence
+                    if not word_in_sentence(entry['word'], entry['english']):
+                        skipped_entries.append(f"Database line {line_number}: Word '{entry['word']}' not found in English sentence")
+                        continue
                     db_entries.append(entry)
                     db_entries_with_lines.append((entry, line_number))
                 except json.JSONDecodeError:
@@ -152,6 +149,12 @@ def validate_and_append(temp_file, db_file):
             print(f"  - {error}")
         print("\n❌ Validation failed: Please fix errors in temp or database files.")
         return False, db_entries[-1] if db_entries else None
+
+    # Report skipped entries
+    if skipped_entries:
+        print("\n⏭️ Skipped Entries:")
+        for skip in skipped_entries:
+            print(f"  - {skip}")
 
     # Append valid temp entries to database
     print("\n📝 Appending to database.jsonl")
@@ -191,72 +194,28 @@ def validate_and_append(temp_file, db_file):
         print(f"❌ Error clearing or updating temp_sentences.jsonl: {e}")
         return False, db_entries[-1] if db_entries else None
 
-    # Check for adjacent duplicates
-    print("\n🔍 Checking for adjacent duplicates")
-    duplicates = []
-    all_entries = db_entries + temp_entries
-    entry_hashes = {}
-    for i, entry in enumerate(all_entries):
-        entry_tuple = (entry['word'], entry['english'])
-        entry_hash = hashlib.md5(json.dumps(entry_tuple, ensure_ascii=False).encode('utf-8')).hexdigest()
-        if i > 0 and entry_hash == entry_hashes.get(i - 1):
-            duplicates.append(
-                f"Lines {i} and {i+1}: Duplicate entry - Word: {entry['word']}, English: {entry['english']}"
-            )
-        entry_hashes[i] = entry_hash
-
-    # Report duplicates
-    if duplicates:
-        print("\n⚠️ Adjacent Duplicate Entries:")
-        for dup in duplicates:
-            print(f"  - {dup}")
-    else:
-        print("\n✅ No adjacent duplicates found")
-
     # Database statistics
     print("\n📊 Database Statistics")
+    all_entries = db_entries + temp_entries
     total_words = len(all_entries)
     unique_words = len(set(entry['word'].lower() for entry in all_entries if entry))
     total_sentences = len(all_entries)
     unique_sentences = len(set(entry['english'].lower() for entry in all_entries if entry))
-    word_freq = Counter(entry['word'].lower() for entry in all_entries if entry)
-    top_words = word_freq.most_common(10)
-    # Calculate ratio of total main words to unique main words
-    ratio_words = total_words / unique_words if unique_words > 0 else "N/A"
+    # Calculate total duplicate sentences
+    sentence_counts = Counter(entry['english'].lower() for entry in all_entries if entry)
+    total_duplicates = sum(count - 1 for count in sentence_counts.values() if count > 1)
 
     # Summary report
     print("\n" + "═"*60)
-    print("📋 Summary Report")
+    print("📈 Summary Report")
     print("═"*60)
-    print(f"📄 Temp File Processing:")
-    print(f"  Total lines processed: {temp_line_count}")
-    print(f"  Valid entries: {len(temp_entries)}")
-    print(f"  Skipped entries: {len(skipped_entries)}")
-    if skipped_entries:
-        print("  Skipped entries details:")
-        for skip in skipped_entries:
-            print(f"    - {skip}")
-    if kept_thai_with_english:
-        print("  Kept entries with English in Thai (by user choice):")
-        for kept in kept_thai_with_english:
-            print(f"    - {kept}")
-    print(f"\n📂 Database Processing:")
-    print(f"  Total lines processed: {db_line_count}")
-    print(f"  Valid entries: {len(db_entries)}")
-    print(f"  Appended entries: {len(temp_entries)}")
-    print(f"\n📊 Statistics:")
-    print(f"  Total main words: {total_words}")
-    print(f"  Unique main words: {unique_words}")
-    print(f"  Ratio total/unique main words: {ratio_words if isinstance(ratio_words, str) else f'{ratio_words:.2f}'}")
-    print(f"  Total English sentences: {total_sentences}")
-    print(f"  Unique English sentences: {unique_sentences}")
-    print(f"  Adjacent duplicates: {len(duplicates)}")
-    print("\n  Top 10 Most Frequent Main Words:")
-    if top_words:
-        for word, freq in top_words:
-            print(f"    - {word}: {freq}")
-    else:
-        print("    No words found in database.")
+    print(f"  Total Main Words: {total_words}")
+    print(f"  Unique Main Words: {unique_words}")
+    print(f"  Total English Sentences: {total_sentences}")
+    print(f"  Unique English Sentences: {unique_sentences}")
+    print(f"  Total Duplicate Sentences: {total_duplicates}")
+
+    # Last database entry
     print("\n📌 Last Database Entry")
     last_entry = all_entries[-1] if all_entries else None
     if last_entry:
@@ -266,10 +225,8 @@ def validate_and_append(temp_file, db_file):
 
     # Final status
     print("\n🟢 Operation Status")
-    if not errors and not duplicates:
-        print("  ✅ All green: Database entries are valid and no adjacent duplicates found.")
-    elif not errors:
-        print("  ✅ Database entries are valid, but adjacent duplicates found.")
+    if not errors:
+        print("  ✅ All green: Database entries are valid.")
     else:
         print("  ❌ Validation failed: Please fix errors in temp or database files.")
 
