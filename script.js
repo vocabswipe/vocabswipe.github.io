@@ -3,13 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const loadingIndicator = document.getElementById('loading-indicator');
   const flashcardContainer = document.getElementById('flashcard-container');
   const flashcard = document.getElementById('flashcard');
+  const cardInner = flashcard.querySelector('.card-inner');
+  const frontWordEl = document.getElementById('front-word');
   const wordEl = document.getElementById('word');
   const englishEl = document.getElementById('english');
   const thaiEl = document.getElementById('thai');
   const audioErrorEl = document.getElementById('audio-error');
-  const logo = document.querySelector('.logo');
-  const logoCom = document.querySelector('.logo-com');
-  const slogan = document.querySelector('.slogan');
   const header = document.getElementById('header');
   const wordCloudIcon = document.getElementById('word-cloud-icon');
   const donateIcon = document.getElementById('donate-icon');
@@ -21,13 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const tapTooltip = document.getElementById('tap-tooltip');
 
   let entries = [];
-  let currentEntries = []; // Store filtered entries for the chosen word
+  let currentEntries = [];
   let currentIndex = 0;
   let touchStartY = 0;
   let touchEndY = 0;
   let touchStartTime = 0;
   let lastSwipeTime = 0;
-  let currentColor = ''; // Store the color of the selected word
+  let currentColor = '';
   let wordColors = new Map();
   let initialScale = 1;
   let currentScale = 1;
@@ -43,12 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
   visitCount += 1;
   localStorage.setItem('visitCount', visitCount.toString());
 
-  // Uno card colors (used only for background)
   const unoColors = [
-    { bg: '#ff0000' }, // Red
-    { bg: '#0000ff' }, // Blue
-    { bg: '#00ff00' }, // Green
-    { bg: '#ffff00' }  // Yellow
+    { bg: '#ff0000' },
+    { bg: '#0000ff' },
+    { bg: '#00ff00' },
+    { bg: '#ffff00' }
   ];
 
   function isPC() {
@@ -61,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWord(sentence, word) {
@@ -72,37 +70,33 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function getConsistentUnoColor(word) {
-    // Simple hash function to assign consistent color based on word
     let hash = 0;
     for (let i = 0; i < word.length; i++) {
       hash = word.charCodeAt(i) + ((hash << 5) - hash);
     }
     const index = Math.abs(hash) % unoColors.length;
-    // Ensure "money" is always yellow
     if (word.toLowerCase() === 'money') {
-      return unoColors[3]; // Yellow
+      return unoColors[3];
     }
     return unoColors[index];
   }
 
   function adjustWordSize(word, element, maxWidth, isMiniCard = false) {
-    const baseFontSize = isMiniCard ? 1 : 2; // Base font size for mini-card and flashcard
+    const baseFontSize = isMiniCard ? 1 : 2;
     element.style.fontSize = `${baseFontSize}rem`;
-    element.style.whiteSpace = 'nowrap'; // Prevent word wrapping
+    element.style.whiteSpace = 'nowrap';
     element.textContent = word;
     let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
     const padding = isMiniCard ? 5 : 10;
 
-    // Scale font to fit within maxWidth in one line
     while (element.scrollWidth > maxWidth - padding && fontSize > (isMiniCard ? 0.5 : 0.8)) {
-      fontSize -= 0.05; // Finer adjustment for smoother scaling
+      fontSize -= 0.05;
       element.style.fontSize = `${fontSize}rem`;
     }
 
-    // For mini-cards, ensure font size is proportional to flashcard
     if (isMiniCard) {
-      const flashcardWidth = 210; // Flashcard width in pixels
-      const miniCardWidth = 105; // Mini-card width in pixels
+      const flashcardWidth = 210;
+      const miniCardWidth = 105;
       const scaleRatio = miniCardWidth / flashcardWidth;
       const targetFontSize = fontSize * scaleRatio;
       element.style.fontSize = `${Math.max(targetFontSize, 0.5)}rem`;
@@ -199,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const shareData = {
         files: [file],
         title: 'VocabSwipe - Learn English Vocabulary',
-        text: `Check out this word from VocabSwipe! Master words, swipe by swipe. Visit VocabSwipe.com #VocabSwipe #LearnEnglish`,
+        text: `Check out this word from VocabSwipe! Visit VocabSwipe.com #VocabSwipe #LearnEnglish`,
         url: 'https://vocabswipe.com',
       };
 
@@ -273,9 +267,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     header.style.filter = 'blur(5px)';
-    logo.style.filter = 'blur(5px)';
-    logoCom.style.filter = 'blur(5px)';
-    slogan.style.filter = 'blur(5px)';
     flashcard.style.filter = 'none';
 
     const flashcardRect = flashcard.getBoundingClientRect();
@@ -311,9 +302,6 @@ document.addEventListener('DOMContentLoaded', () => {
         tapTooltip.style.display === 'none'
       ) {
         header.style.filter = 'none';
-        logo.style.filter = 'none';
-        logoCom.style.filter = 'none';
-        slogan.style.filter = 'none';
       }
     }, direction === 'tap' ? 2500 : 2000);
   }
@@ -323,7 +311,6 @@ document.addEventListener('DOMContentLoaded', () => {
       cardDeck.style.display = 'grid';
       loadingIndicator.style.opacity = '1';
 
-      // Clear cache to ensure fetching the latest database
       localStorage.removeItem(CACHE_KEY);
 
       console.log('Fetching data/database.jsonl...');
@@ -401,13 +388,19 @@ document.addEventListener('DOMContentLoaded', () => {
       cardEl.className = 'mini-card';
       const unoColor = getConsistentUnoColor(word.toLowerCase());
       cardEl.style.backgroundColor = unoColor.bg;
-      cardEl.style.border = '3px solid #ffffff'; // Tripled border thickness
+      cardEl.style.border = '3px solid #ffffff';
 
+      const cardInner = document.createElement('div');
+      cardInner.className = 'card-inner';
+      const cardFront = document.createElement('div');
+      cardFront.className = 'card-front';
       const wordSpan = document.createElement('span');
       wordSpan.className = 'mini-card-word';
       wordSpan.textContent = word;
       adjustWordSize(word, wordSpan, cardEl.offsetWidth * 0.9, true);
-      cardEl.appendChild(wordSpan);
+      cardFront.appendChild(wordSpan);
+      cardInner.appendChild(cardFront);
+      cardEl.appendChild(cardInner);
 
       cardDeck.appendChild(cardEl);
 
@@ -428,12 +421,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const maxCardWidth = window.innerWidth * 0.9;
       cardEl.style.maxWidth = `${maxCardWidth}px`;
       const wordSpan = cardEl.querySelector('.mini-card-word');
-      wordSpan.style.fontSize = '3rem';
-      let fontSize = parseFloat(window.getComputedStyle(wordSpan).fontSize);
-      while (wordSpan.scrollWidth > maxCardWidth && fontSize > 1) {
-        fontSize -= 0.1;
-        wordSpan.style.fontSize = `${fontSize}rem`;
-      }
 
       const rect = cardEl.getBoundingClientRect();
       const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
@@ -474,28 +461,18 @@ document.addEventListener('DOMContentLoaded', () => {
           flashcardContainer.style.justifyContent = 'center';
           document.body.style.overflow = 'hidden';
 
-          setTimeout(() => {
-            logo.style.transition = 'transform 1s ease, opacity 1s ease';
-            logo.style.transform = 'translateX(0)';
-            logo.style.opacity = '1';
-
-            setTimeout(() => {
-              logoCom.style.transition = 'transform 1s ease, opacity 1s ease';
-              logoCom.style.transform = 'translateX(0)';
-              logoCom.style.opacity = '1';
-            }, 1000);
-          }, 4000);
-
-          setTimeout(() => {
-            slogan.style.transition = 'transform 1s ease, opacity 1s ease';
-            slogan.style.transform = 'translateX(0)';
-            slogan.style.opacity = '1';
-          }, 4000);
-
           currentEntries = entries.filter(entry => entry.word.toLowerCase() === word.toLowerCase());
           currentEntries = shuffleArray([...currentEntries]);
           currentIndex = 0;
-          currentColor = '#ffffff'; // Set to white for text
+          currentColor = '#ffffff';
+          
+          // Set front word for the initial display
+          frontWordEl.textContent = word;
+          adjustWordSize(word, frontWordEl, flashcard.offsetWidth * 0.9, true);
+          
+          // Trigger flip animation
+          cardInner.classList.add('flip');
+          
           displayEntry(currentIndex);
 
           if (visitCount <= 5) {
@@ -510,7 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 6000);
           }
         }, 700);
-      }, 300);
+      }, 700);
     });
   }
 
@@ -530,11 +507,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const unoColor = getConsistentUnoColor(currentWord.toLowerCase());
     flashcard.style.backgroundColor = unoColor.bg;
-    flashcard.style.border = '6px solid #ffffff'; // Tripled border thickness
-    wordEl.style.color = '#ffffff'; // White text
-    englishEl.style.color = '#ffffff'; // White text
-    thaiEl.style.color = '#ffffff'; // White text
+    flashcard.style.border = '6px solid #ffffff';
+    frontWordEl.style.color = '#ffffff';
+    wordEl.style.color = '#ffffff';
+    englishEl.style.color = '#ffffff';
+    thaiEl.style.color = '#ffffff';
 
+    adjustWordSize(currentWord, frontWordEl, flashcard.offsetWidth * 0.9, true);
     adjustWordSize(currentWord, wordEl, flashcard.offsetWidth * 0.9);
     englishEl.innerHTML = highlightWord(entry.english, currentWord);
     thaiEl.textContent = entry.thai;
@@ -580,13 +559,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cardDeck.style.transition = 'opacity 0.7s ease';
       cardDeck.style.opacity = '1';
 
-      logo.style.transform = 'translateX(-100%)';
-      logo.style.opacity = '0';
-      logoCom.style.transform = 'translateX(100%)';
-      logoCom.style.opacity = '0';
-      slogan.style.transform = 'translateX(100%)';
-      slogan.style.opacity = '0';
-
+      cardInner.classList.remove('flip');
       displayCardDeck();
     }, 700);
   });
@@ -657,7 +630,11 @@ document.addEventListener('DOMContentLoaded', () => {
       stopAudio();
       setTimeout(() => {
         currentIndex++;
-        displayEntry(currentIndex);
+        cardInner.classList.remove('flip');
+        setTimeout(() => {
+          displayEntry(currentIndex);
+          cardInner.classList.add('flip');
+        }, 300);
       }, 0);
       lastSwipeTime = Date.now();
     } else if (swipeDistance < -minSwipeDistance) {
@@ -665,7 +642,11 @@ document.addEventListener('DOMContentLoaded', () => {
       stopAudio();
       setTimeout(() => {
         currentIndex--;
-        displayEntry(currentIndex);
+        cardInner.classList.remove('flip');
+        setTimeout(() => {
+          displayEntry(currentIndex);
+          cardInner.classList.add('flip');
+        }, 300);
       }, 0);
       lastSwipeTime = Date.now();
     }
@@ -678,7 +659,11 @@ document.addEventListener('DOMContentLoaded', () => {
         stopAudio();
         setTimeout(() => {
           currentIndex++;
-          displayEntry(currentIndex);
+          cardInner.classList.remove('flip');
+          setTimeout(() => {
+            displayEntry(currentIndex);
+            cardInner.classList.add('flip');
+          }, 300);
         }, 0);
         lastSwipeTime = Date.now();
       } else if (e.key === 'ArrowDown') {
@@ -686,7 +671,11 @@ document.addEventListener('DOMContentLoaded', () => {
         stopAudio();
         setTimeout(() => {
           currentIndex--;
-          displayEntry(currentIndex);
+          cardInner.classList.remove('flip');
+          setTimeout(() => {
+            displayEntry(currentIndex);
+            cardInner.classList.add('flip');
+          }, 300);
         }, 0);
         lastSwipeTime = Date.now();
       } else if (e.key === ' ') {
