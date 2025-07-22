@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/'/g, '&apos;');
   }
 
   function highlightWord(sentence, word) {
@@ -400,7 +400,6 @@ document.addEventListener('DOMContentLoaded', () => {
       adjustWordSize(word, wordSpan, cardEl.offsetWidth * 0.9, true);
       cardFront.appendChild(wordSpan);
 
-      // Create card-back for the mini-card
       const cardBack = document.createElement('div');
       cardBack.className = 'card-back';
       const contentDiv = document.createElement('div');
@@ -424,11 +423,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       cardDeck.appendChild(cardEl);
 
-      addCardEventListener(cardEl, word);
+      addCardEventListener(cardEl, word, englishDiv, thaiDiv, wordDiv);
     });
   }
 
-  function addCardEventListener(cardEl, word) {
+  function addCardEventListener(cardEl, word, englishDiv, thaiDiv, wordDiv) {
     cardEl.addEventListener('click', () => {
       stopAudio();
       document.querySelectorAll('.mini-card').forEach(otherCard => {
@@ -438,127 +437,113 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      const maxCardWidth = Math.min(window.innerWidth * 0.9, 210);
-      const maxCardHeight = maxCardWidth * 1.59;
+      const maxCardWidth = window.innerWidth * 0.9;
       cardEl.style.maxWidth = `${maxCardWidth}px`;
-      cardEl.style.maxHeight = `${maxCardHeight}px`;
-      cardEl.style.border = '6px solid #ffffff';
-      cardEl.style.borderRadius = '10px';
+      const wordSpan = cardEl.querySelector('.mini-card-word');
 
       const rect = cardEl.getBoundingClientRect();
       const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
       const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
 
       const currentWidth = rect.width;
-      const targetWidth = maxCardWidth;
+      const targetWidth = Math.min(currentWidth * 2, maxCardWidth);
       const scaleFactor = Math.min(2, targetWidth / currentWidth);
 
-      cardEl.style.transition = 'transform 0.7s ease, width 0.7s ease, height 0.7s ease, max-width 0.7s ease, max-height 0.7s ease, border 0.7s ease, border-radius 0.7s ease';
+      cardEl.style.transition = 'transform 0.7s ease, width 0.7s ease, height 0.7s ease';
       cardEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(${scaleFactor})`;
-      cardEl.style.width = `${maxCardWidth}px`;
-      cardEl.style.height = `${maxCardHeight}px`;
+      cardEl.style.width = `${Math.min(210, maxCardWidth)}px`;
+      cardEl.style.height = `${Math.min(333, maxCardWidth * 1.59)}px`;
       cardEl.style.zIndex = '20';
 
       setTimeout(() => {
-        // Populate the back of the mini-card with the first entry's content
+        // Flip the card to show the back
+        cardEl.querySelector('.card-inner').classList.add('flip');
+
+        // Populate the back with the first entry's content
         currentEntries = entries.filter(entry => entry.word.toLowerCase() === word.toLowerCase());
         currentEntries = shuffleArray([...currentEntries]);
         currentIndex = 0;
         const entry = currentEntries[currentIndex];
-        const cardBack = cardEl.querySelector('.card-back');
-        const wordDiv = cardBack.querySelector('.word');
-        const englishDiv = cardBack.querySelector('.english');
-        const thaiDiv = cardBack.querySelector('.thai');
 
         const unoColor = getConsistentUnoColor(word.toLowerCase());
         cardEl.style.backgroundColor = unoColor.bg;
+        wordDiv.textContent = entry.word;
+        adjustWordSize(entry.word, wordDiv, cardEl.offsetWidth * 0.9);
+        englishDiv.innerHTML = highlightWord(entry.english, entry.word);
+        thaiDiv.textContent = entry.thai;
+
+        // Adjust styles for back content
         wordDiv.style.color = '#ffffff';
         englishDiv.style.color = '#ffffff';
         thaiDiv.style.color = '#ffffff';
 
-        adjustWordSize(entry.word, wordDiv, maxCardWidth * 0.9);
-        englishDiv.innerHTML = highlightWord(entry.english, entry.word);
-        thaiDiv.textContent = entry.thai;
-
-        // Flip the card
-        const cardInner = cardEl.querySelector('.card-inner');
-        cardInner.classList.add('flip');
-
-        // Show header and icons
-        header.style.display = 'flex';
-        header.style.opacity = '0';
-        header.style.transition = 'opacity 1s ease';
-        header.style.opacity = '1';
-        donateIcon.style.display = 'block';
-        shareIcon.style.display = 'block';
-
-        document.body.style.overflow = 'hidden';
-
-        // Set up audio
-        if (entry.audio) {
-          const audioUrl = `/data/${entry.audio}`;
-          console.log(`Setting up audio for: ${audioUrl}`);
-          cardEl.onclick = null;
-          cardEl.onclick = () => {
-            console.log('Playing audio on tap');
-            playAudio(audioUrl);
-          };
-        } else {
-          console.log('No audio available for this entry');
-          cardEl.onclick = null;
-          audioErrorEl.textContent = 'No audio available';
-          audioErrorEl.style.display = 'block';
-          setTimeout(() => audioErrorEl.style.display = 'none', 2000);
-        }
-
-        // Update flashcard container for subsequent cards
-        flashcardContainer.style.display = 'none';
-        flashcard.style.width = `${maxCardWidth}px`;
-        flashcard.style.height = `${maxCardHeight}px`;
-        flashcard.style.backgroundColor = unoColor.bg;
-        flashcard.style.border = '6px solid #ffffff';
-        adjustWordSize(entry.word, frontWordEl, maxCardWidth * 0.9, true);
-        adjustWordSize(entry.word, wordEl, maxCardWidth * 0.9);
-        englishEl.innerHTML = highlightWord(entry.english, entry.word);
-        thaiEl.textContent = entry.thai;
-
-        // Preload audio for next cards
-        preloadAudio(currentIndex);
-
-        // Show tooltips for first-time users
-        if (visitCount <= 5) {
-          setTimeout(() => {
-            showTooltip(swipeUpTooltip, 'up');
-            setTimeout(() => {
-              showTooltip(swipeDownTooltip, 'down');
-              setTimeout(() => {
-                showTooltip(tapTooltip, 'tap');
-              }, 2500);
-            }, 2500);
-          }, 6000);
-        }
-
-        // Replace mini-card with flashcard for subsequent swipes
         setTimeout(() => {
-          cardEl.style.display = 'none';
-          cardDeck.style.display = 'none';
-          flashcardContainer.style.display = 'flex';
-          flashcardContainer.style.opacity = '1';
-          cardEl.style.transform = 'none';
-          cardEl.style.width = '105px';
-          cardEl.style.height = '166.5px';
-          cardEl.style.maxWidth = '90vw';
-          cardEl.style.maxHeight = 'calc(90vw * 1.59)';
-          cardEl.style.border = '3px solid #ffffff';
-          cardEl.style.borderRadius = '5px';
-          cardEl.style.zIndex = '10';
-          cardInner.classList.remove('flip');
-          cardEl.style.opacity = '1';
-          document.querySelectorAll('.mini-card').forEach(otherCard => {
-            otherCard.style.opacity = '1';
-          });
-        }, 600);
-      }, 700);
+          // Transition to flashcard view
+          cardEl.style.opacity = '0';
+
+          setTimeout(() => {
+            cardDeck.style.display = 'none';
+            cardEl.style.transform = 'none';
+            cardEl.style.opacity = '1';
+            cardEl.style.zIndex = '10';
+            cardEl.style.maxWidth = '';
+            cardEl.style.width = '';
+            cardEl.style.height = '';
+            cardEl.querySelector('.card-inner').classList.remove('flip');
+            wordSpan.style.fontSize = '';
+            adjustWordSize(word, wordSpan, cardEl.offsetWidth * 0.9, true);
+
+            flashcardContainer.style.display = 'flex';
+            flashcardContainer.style.opacity = '0';
+            flashcardContainer.style.transition = 'opacity 1s ease';
+            flashcardContainer.style.opacity = '1';
+
+            header.style.display = 'flex';
+            header.style.opacity = '0';
+            header.style.transition = 'opacity 1s ease';
+            header.style.opacity = '1';
+            donateIcon.style.display = 'block';
+            shareIcon.style.display = 'block';
+
+            flashcardContainer.style.height = '100vh';
+            flashcardContainer.style.justifyContent = 'center';
+            document.body.style.overflow = 'hidden';
+
+            frontWordEl.textContent = word;
+            adjustWordSize(word, frontWordEl, flashcard.offsetWidth * 0.9, true);
+            cardInner.classList.add('flip');
+            displayEntry(currentIndex);
+
+            if (visitCount <= 5) {
+              setTimeout(() => {
+                showTooltip(swipeUpTooltip, 'up');
+                setTimeout(() => {
+                  showTooltip(swipeDownTooltip, 'down');
+                  setTimeout(() => {
+                    showTooltip(tapTooltip, 'tap');
+                  }, 2500);
+                }, 2500);
+              }, 6000);
+            }
+
+            // Set up audio for the flashcard
+            if (entry.audio) {
+              const audioUrl = `/data/${entry.audio}`;
+              console.log(`Setting up audio for: ${audioUrl}`);
+              flashcard.onclick = () => {
+                console.log('Playing audio on tap');
+                playAudio(audioUrl);
+              };
+            } else {
+              console.log('No audio available for this entry');
+              flashcard.onclick = null;
+              audioErrorEl.textContent = 'No audio available';
+              audioErrorEl.style.display = 'block';
+              setTimeout(() => audioErrorEl.style.display = 'none', 2000);
+            }
+          }, 700);
+        }, 600); // Wait for flip animation to complete
+      }, 700); // Wait for scaling animation to complete
     });
   }
 
@@ -652,7 +637,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.touches.length === 2) {
       e.preventDefault();
       isPinching = true;
-      const pinch-distance = Math.hypot(
+      const pinchDistance = Math.hypot(
         e.touches[0].clientX - e.touches[1].clientX,
         e.touches[0].clientY - e.touches[1].clientY
       );
