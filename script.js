@@ -51,11 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWord(sentence, word, color) {
@@ -137,13 +137,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function adjustWordSize(word, element, maxWidth) {
-    element.style.fontSize = '2rem';
+    element.style.fontSize = '3rem';
     element.textContent = word;
     let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
-    const padding = 10;
+    const padding = 20;
 
-    while (element.scrollWidth > maxWidth - padding && fontSize > 0.8) {
-      fontSize -= 0.1;
+    while (element.scrollWidth > maxWidth - padding && fontSize > 1) {
+      fontSize -= 0.2;
       element.style.fontSize = `${fontSize}rem`;
     }
   }
@@ -443,7 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const placedWords = [];
     const spatialGrid = createSpatialGrid(containerWidth, containerHeight);
 
-    wordArray.forEach(({ word, freq }) => {
+    wordArray.forEach(({ Hana({ word, freq }) => {
       const wordEl = document.createElement('div');
       wordEl.className = 'cloud-word';
       wordEl.textContent = word;
