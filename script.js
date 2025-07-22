@@ -7,8 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const englishEl = document.getElementById('english');
   const thaiEl = document.getElementById('thai');
   const audioErrorEl = document.getElementById('audio-error');
-  const cornerTopLeft = document.getElementById('corner-top-left');
-  const cornerBottomRight = document.getElementById('corner-bottom-right');
   const logo = document.querySelector('.logo');
   const logoCom = document.querySelector('.logo-com');
   const slogan = document.querySelector('.slogan');
@@ -45,6 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
   visitCount += 1;
   localStorage.setItem('visitCount', visitCount.toString());
 
+  // Uno card colors
+  const unoColors = [
+    { bg: '#ff0000', text: '#ffffff' }, // Red
+    { bg: '#0000ff', text: '#ffffff' }, // Blue
+    { bg: '#00ff00', text: '#000000' }, // Green
+    { bg: '#ffff00', text: '#000000' }  // Yellow
+  ];
+
   function isPC() {
     return !('ontouchstart' in window || navigator.maxTouchPoints > 0);
   }
@@ -55,26 +61,19 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '<')
       .replace(/>/g, '>')
       .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/'/g, '');
   }
 
   function highlightWord(sentence, word, color) {
     const escapedSentence = escapeHTML(sentence);
     const escapedWord = escapeHTML(word);
+    // Match any word containing the main word as a substring
     const regex = new RegExp(`\\b\\w*${escapedWord}\\w*\\b(?![^<]*>)`, 'gi');
     return escapedSentence.replace(regex, `<span class="highlight" style="color: ${color};">$&</span>`);
   }
 
-  function getRandomBrightColor() {
-    const hue = Math.floor(Math.random() * 360);
-    const saturation = 100;
-    const lightness = 50 + Math.random() * 20;
-    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-  }
-
-  function getUnoBackgroundColor(index) {
-    const colors = ['#ff0000', '#0000ff', '#00ff00', '#ffff00', '#000000']; // Red, Blue, Green, Yellow, Black
-    return colors[index % colors.length];
+  function getRandomUnoColor() {
+    return unoColors[Math.floor(Math.random() * unoColors.length)];
   }
 
   function createSpatialGrid(width, height, cellSize = 50) {
@@ -137,13 +136,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function adjustWordSize(word, element, maxWidth) {
-    element.style.fontSize = '3rem';
+    element.style.fontSize = '2rem';
     element.textContent = word;
     let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
-    const padding = 20;
+    const padding = 10;
 
-    while (element.scrollWidth > maxWidth - padding && fontSize > 1) {
-      fontSize -= 0.2;
+    while (element.scrollWidth > maxWidth - padding && fontSize > 0.8) {
+      fontSize -= 0.1;
       element.style.fontSize = `${fontSize}rem`;
     }
   }
@@ -323,8 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let centerY;
     if (direction === 'tap') {
       const wordRect = wordEl.getBoundingClientRect();
-      const englishRect = englishEl.getBoundingClientRect();
-      centerY = wordRect.bottom + (englishRect.top - wordRect.bottom) / 2 - containerRect.top - 10;
+      centerY = wordRect.top - containerRect.top + wordRect.height / 2;
     } else {
       centerY = flashcardRect.top - containerRect.top + flashcardRect.height / 2;
     }
@@ -367,9 +365,9 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.removeItem(CACHE_KEY);
 
       console.log('Fetching data/database.jsonl...');
-      const cacheBuster = Date.now();
+      const cacheBuster = Date.now(); // Add cache-busting query parameter
       const response = await fetch(`data/database.jsonl?cb=${cacheBuster}`, {
-        cache: 'no-store'
+        cache: 'no-store' // Prevent caching to fetch the latest file
       });
       if (!response.ok) {
         throw new Error(`Failed to fetch data/database.jsonl: ${response.status} ${response.statusText}`);
@@ -443,13 +441,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const placedWords = [];
     const spatialGrid = createSpatialGrid(containerWidth, containerHeight);
 
-    wordArray.forEach(({ Hana({ word, freq }) => {
+    wordArray.forEach(({ word, freq }) => {
       const wordEl = document.createElement('div');
       wordEl.className = 'cloud-word';
       wordEl.textContent = word;
       const size = 0.8 + (freq / maxFreq) * 2.2;
       wordEl.style.fontSize = `${size}rem`;
-      const wordColor = getRandomBrightColor();
+      const wordColor = unoColors[Math.floor(Math.random() * unoColors.length)].text;
       wordEl.style.color = wordColor;
       wordColors.set(word.toLowerCase(), wordColor);
       wordEl.style.opacity = '1';
@@ -499,21 +497,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const entry = currentEntries[currentIndex];
     const currentWord = entry.word;
 
-    // Set Uno-like background color
-    const bgColor = entry.audio ? getUnoBackgroundColor(currentIndex) : '#000000';
-    flashcard.style.backgroundColor = bgColor;
-    const textColor = bgColor === '#ffff00' ? '#000000' : '#ffffff'; // Black text on yellow, white on others
+    // Assign random Uno color
+    const unoColor = getRandomUnoColor();
+    flashcard.style.backgroundColor = unoColor.bg;
+    flashcard.style.border = '2px solid #ffffff';
+    wordEl.style.color = unoColor.text;
+    englishEl.style.color = unoColor.text;
+    thaiEl.style.color = unoColor.text;
 
-    adjustWordSize(currentWord, wordEl, flashcard.offsetWidth);
-    wordEl.style.color = textColor;
-    cornerTopLeft.textContent = currentWord;
-    cornerTopLeft.style.color = textColor;
-    cornerBottomRight.textContent = currentWord;
-    cornerBottomRight.style.color = textColor;
-
-    englishEl.innerHTML = highlightWord(entry.english, currentWord, textColor);
+    adjustWordSize(currentWord, wordEl, flashcard.offsetWidth * 0.9);
+    englishEl.innerHTML = highlightWord(entry.english, currentWord, unoColor.text);
     thaiEl.textContent = entry.thai;
-    thaiEl.style.color = textColor;
     audioErrorEl.style.display = 'none';
 
     preloadAudio(currentIndex);
@@ -524,7 +518,7 @@ document.addEventListener('DOMContentLoaded', () => {
       flashcard.onclick = null;
       flashcard.onclick = () => {
         console.log('Playing audio on tap');
-        playAudio(audioUrl, textColor);
+        playAudio(audioUrl, unoColor.text);
       };
     } else {
       console.log('No audio available for this entry');
