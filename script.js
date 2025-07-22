@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   const cardDeck = document.getElementById('card-deck');
   const loadingIndicator = document.getElementById('loading-indicator');
@@ -56,11 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"')
+      .replace(/'/g, ''');
   }
 
   function highlightWord(sentence, word) {
@@ -393,6 +392,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const cardInner = document.createElement('div');
       cardInner.className = 'card-inner';
+      
+      // Front side
       const cardFront = document.createElement('div');
       cardFront.className = 'card-front';
       const wordSpan = document.createElement('span');
@@ -400,7 +401,28 @@ document.addEventListener('DOMContentLoaded', () => {
       wordSpan.textContent = word;
       adjustWordSize(word, wordSpan, cardEl.offsetWidth * 0.9, true);
       cardFront.appendChild(wordSpan);
+      
+      // Back side
+      const cardBack = document.createElement('div');
+      cardBack.className = 'card-back';
+      const content = document.createElement('div');
+      content.className = 'content';
+      const wordEl = document.createElement('div');
+      wordEl.className = 'word';
+      const sentences = document.createElement('div');
+      sentences.className = 'sentences';
+      const englishEl = document.createElement('div');
+      englishEl.className = 'english';
+      const thaiEl = document.createElement('div');
+      thaiEl.className = 'thai';
+      sentences.appendChild(englishEl);
+      sentences.appendChild(thaiEl);
+      content.appendChild(wordEl);
+      content.appendChild(sentences);
+      cardBack.appendChild(content);
+      
       cardInner.appendChild(cardFront);
+      cardInner.appendChild(cardBack);
       cardEl.appendChild(cardInner);
 
       cardDeck.appendChild(cardEl);
@@ -431,12 +453,29 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetWidth = Math.min(currentWidth * 2, maxCardWidth);
       const scaleFactor = Math.min(2, targetWidth / currentWidth);
 
-      cardEl.style.transition = 'transform 0.7s ease, opacity 0.7s ease';
+      cardEl.style.transition = 'transform 0.7s ease';
       cardEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(${scaleFactor})`;
       cardEl.style.zIndex = '20';
 
+      // Populate back side with first entry's content
+      const firstEntry = entries.find(entry => entry.word.toLowerCase() === word.toLowerCase());
+      if (firstEntry) {
+        const backWordEl = cardEl.querySelector('.card-back .word');
+        const backEnglishEl = cardEl.querySelector('.card-back .english');
+        const backThaiEl = cardEl.querySelector('.card-back .thai');
+        
+        backWordEl.textContent = firstEntry.word;
+        adjustWordSize(firstEntry.word, backWordEl, cardEl.offsetWidth * 0.9);
+        backEnglishEl.innerHTML = highlightWord(firstEntry.english, firstEntry.word);
+        backThaiEl.textContent = firstEntry.thai;
+        
+        const unoColor = getConsistentUnoColor(word.toLowerCase());
+        cardEl.querySelector('.card-back').style.backgroundColor = unoColor.bg;
+      }
+
+      // Trigger flip animation
       setTimeout(() => {
-        cardEl.style.opacity = '0';
+        cardEl.querySelector('.card-inner').classList.add('flip');
 
         setTimeout(() => {
           cardDeck.style.display = 'none';
@@ -445,6 +484,7 @@ document.addEventListener('DOMContentLoaded', () => {
           cardEl.style.zIndex = '10';
           cardEl.style.maxWidth = '';
           wordSpan.style.fontSize = '';
+          cardEl.querySelector('.card-inner').classList.remove('flip');
 
           flashcardContainer.style.display = 'flex';
           flashcardContainer.style.opacity = '0';
@@ -471,7 +511,7 @@ document.addEventListener('DOMContentLoaded', () => {
           frontWordEl.textContent = word;
           adjustWordSize(word, frontWordEl, flashcard.offsetWidth * 0.9, true);
           
-          // Trigger flip animation
+          // Trigger flip animation for flashcard
           cardInner.classList.add('flip');
           
           displayEntry(currentIndex);
@@ -487,7 +527,7 @@ document.addEventListener('DOMContentLoaded', () => {
               }, 2500);
             }, 6000);
           }
-        }, 700);
+        }, 600); // Match CSS flip transition duration
       }, 700);
     });
   }
