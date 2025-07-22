@@ -21,13 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const tapTooltip = document.getElementById('tap-tooltip');
 
   let entries = [];
-  let currentEntries = []; // Store filtered entries for the chosen word
+  let currentEntries = [];
   let currentIndex = 0;
   let touchStartY = 0;
   let touchEndY = 0;
   let touchStartTime = 0;
   let lastSwipeTime = 0;
-  let currentColor = ''; // Store the color of the selected word
+  let currentColor = '';
   let wordColors = new Map();
   let initialScale = 1;
   let currentScale = 1;
@@ -43,12 +43,12 @@ document.addEventListener('DOMContentLoaded', () => {
   visitCount += 1;
   localStorage.setItem('visitCount', visitCount.toString());
 
-  // Uno card colors
+  // Uno card colors (only background colors used)
   const unoColors = [
-    { bg: '#ff0000', text: '#ffffff' }, // Red
-    { bg: '#0000ff', text: '#ffffff' }, // Blue
-    { bg: '#00ff00', text: '#000000' }, // Green
-    { bg: '#ffff00', text: '#000000' }  // Yellow
+    { bg: '#ff0000' }, // Red
+    { bg: '#0000ff' }, // Blue
+    { bg: '#00ff00' }, // Green
+    { bg: '#ffff00' }  // Yellow
   ];
 
   function isPC() {
@@ -57,28 +57,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, '');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
-  function highlightWord(sentence, word, color) {
+  function highlightWord(sentence, word) {
     const escapedSentence = escapeHTML(sentence);
     const escapedWord = escapeHTML(word);
     const regex = new RegExp(`\\b\\w*${escapedWord}\\w*\\b(?![^<]*>)`, 'gi');
-    return escapedSentence.replace(regex, `<span class="highlight" style="color: ${color};">$&</span>`);
+    return escapedSentence.replace(regex, `<span class="highlight">$&</span>`);
   }
 
   function getConsistentUnoColor(word) {
-    // Simple hash function to assign consistent color based on word
     let hash = 0;
     for (let i = 0; i < word.length; i++) {
       hash = word.charCodeAt(i) + ((hash << 5) - hash);
     }
     const index = Math.abs(hash) % unoColors.length;
-    // Ensure "money" is always yellow
     if (word.toLowerCase() === 'money') {
       return unoColors[3]; // Yellow
     }
@@ -86,13 +84,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function adjustWordSize(word, element, maxWidth) {
-    element.style.fontSize = element.classList.contains('mini-card') ? '1rem' : '2rem';
+    const isMiniCard = element.classList.contains('mini-card-word');
+    element.style.fontSize = isMiniCard ? '1rem' : '2rem';
+    element.style.whiteSpace = 'nowrap'; // Ensure single line
     element.textContent = word;
     let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
     const padding = 10;
+    const minFontSize = isMiniCard ? 0.5 : 0.8;
+    const cardWidth = isMiniCard ? 105 : 210; // Mini card: 105px, Flashcard: 210px
+    const targetRatio = 2 / 210; // Font size to card width ratio from flashcard
+    const targetFontSize = cardWidth * targetRatio; // Scale font size proportionally
 
-    while (element.scrollWidth > maxWidth - padding && fontSize > (element.classList.contains('mini-card') ? 0.5 : 0.8)) {
+    // Start with target font size based on ratio
+    element.style.fontSize = `${targetFontSize}rem`;
+    fontSize = parseFloat(window.getComputedStyle(element).fontSize);
+
+    // Adjust down if too wide, up if too small, but keep above minFontSize
+    while ((element.scrollWidth > maxWidth - padding || fontSize > targetFontSize * 1.1) && fontSize > minFontSize) {
       fontSize -= 0.1;
+      element.style.fontSize = `${fontSize}rem`;
+    }
+    // Ensure not too small
+    while (element.scrollWidth < maxWidth - padding && fontSize < targetFontSize * 0.9 && fontSize < minFontSize * 1.5) {
+      fontSize += 0.1;
       element.style.fontSize = `${fontSize}rem`;
     }
   }
@@ -125,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function playAudio(audioUrl, wordColor) {
+  function playAudio(audioUrl) {
     stopAudio();
     console.log(`Attempting to play audio: ${audioUrl}`);
     currentAudio = new Audio(audioUrl);
@@ -311,7 +325,6 @@ document.addEventListener('DOMContentLoaded', () => {
       cardDeck.style.display = 'grid';
       loadingIndicator.style.opacity = '1';
 
-      // Clear cache to ensure fetching the latest database
       localStorage.removeItem(CACHE_KEY);
 
       console.log('Fetching data/database.jsonl...');
@@ -389,9 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cardEl.className = 'mini-card';
       const unoColor = getConsistentUnoColor(word.toLowerCase());
       cardEl.style.backgroundColor = unoColor.bg;
-      cardEl.style.border = '1px solid #ffffff';
-      cardEl.style.color = unoColor.text;
-      wordColors.set(word.toLowerCase(), unoColor.text);
+      cardEl.style.border = '3px solid #ffffff';
 
       const wordSpan = document.createElement('span');
       wordSpan.className = 'mini-card-word';
@@ -430,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
 
       const currentWidth = rect.width;
-      const targetWidth = Math.min(currentWidth * 2, maxCardWidth); // Scale to full card size
+      const targetWidth = Math.min(currentWidth * 2, maxCardWidth);
       const scaleFactor = Math.min(2, targetWidth / currentWidth);
 
       cardEl.style.transition = 'transform 0.7s ease, opacity 0.7s ease';
@@ -520,13 +531,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const unoColor = getConsistentUnoColor(currentWord.toLowerCase());
     flashcard.style.backgroundColor = unoColor.bg;
-    flashcard.style.border = '2px solid #ffffff';
-    wordEl.style.color = unoColor.text;
-    englishEl.style.color = unoColor.text;
-    thaiEl.style.color = unoColor.text;
+    flashcard.style.border = '6px solid #ffffff';
 
     adjustWordSize(currentWord, wordEl, flashcard.offsetWidth * 0.9);
-    englishEl.innerHTML = highlightWord(entry.english, currentWord, unoColor.text);
+    englishEl.innerHTML = highlightWord(entry.english, currentWord);
     thaiEl.textContent = entry.thai;
     audioErrorEl.style.display = 'none';
 
@@ -538,7 +546,7 @@ document.addEventListener('DOMContentLoaded', () => {
       flashcard.onclick = null;
       flashcard.onclick = () => {
         console.log('Playing audio on tap');
-        playAudio(audioUrl, unoColor.text);
+        playAudio(audioUrl);
       };
     } else {
       console.log('No audio available for this entry');
@@ -618,7 +626,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: false });
 
-  cardDeck.addEventListener('touchend', e => {
+  cardDeck.addEventListener('touchend', e =>重點
     cardDeck._lastX = null;
     cardDeck._lastY = null;
     isPinching = false;
