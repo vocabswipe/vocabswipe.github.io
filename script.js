@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const englishEl = document.getElementById('english');
   const thaiEl = document.getElementById('thai');
   const audioErrorEl = document.getElementById('audio-error');
+  const cornerTopLeft = document.getElementById('corner-top-left');
+  const cornerBottomRight = document.getElementById('corner-bottom-right');
   const logo = document.querySelector('.logo');
   const logoCom = document.querySelector('.logo-com');
   const slogan = document.querySelector('.slogan');
@@ -53,15 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/'/g, '&apos;');
   }
 
   function highlightWord(sentence, word, color) {
     const escapedSentence = escapeHTML(sentence);
     const escapedWord = escapeHTML(word);
-    // Match any word containing the main word as a substring
     const regex = new RegExp(`\\b\\w*${escapedWord}\\w*\\b(?![^<]*>)`, 'gi');
-    return escapedSentence.replace(regex, `<span class="highlight" style="color: ${color}; animation: twinkle 3s infinite;">$&</span>`);
+    return escapedSentence.replace(regex, `<span class="highlight" style="color: ${color};">$&</span>`);
   }
 
   function getRandomBrightColor() {
@@ -69,6 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const saturation = 100;
     const lightness = 50 + Math.random() * 20;
     return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+  }
+
+  function getUnoBackgroundColor(index) {
+    const colors = ['#ff0000', '#0000ff', '#00ff00', '#ffff00', '#000000']; // Red, Blue, Green, Yellow, Black
+    return colors[index % colors.length];
   }
 
   function createSpatialGrid(width, height, cellSize = 50) {
@@ -131,12 +137,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function adjustWordSize(word, element, maxWidth) {
-    element.style.fontSize = '3rem';
+    element.style.fontSize = '2rem';
     element.textContent = word;
     let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
-    const padding = 20;
+    const padding = 10;
 
-    while (element.scrollWidth > maxWidth - padding && fontSize > 1) {
+    while (element.scrollWidth > maxWidth - padding && fontSize > 0.8) {
       fontSize -= 0.1;
       element.style.fontSize = `${fontSize}rem`;
     }
@@ -177,11 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       currentAudio.play().then(() => {
         console.log('Audio playing successfully');
-        flashcard.classList.add('glow');
-        flashcard.style.setProperty('--glow-color', wordColor);
-        setTimeout(() => {
-          flashcard.classList.remove('glow');
-        }, 500);
         audioErrorEl.style.display = 'none';
       }).catch(e => {
         console.error('Error playing audio:', e);
@@ -336,13 +337,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       if (direction === 'tap') {
         tooltip.classList.add('animate-tap');
-        setTimeout(() => {
-          flashcard.classList.add('glow');
-          flashcard.style.setProperty('--glow-color', '#00ff88');
-          setTimeout(() => {
-            flashcard.classList.remove('glow');
-          }, 500);
-        }, 1000);
       } else {
         tooltip.classList.add(direction === 'up' ? 'animate-up' : 'animate-down');
       }
@@ -373,9 +367,9 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.removeItem(CACHE_KEY);
 
       console.log('Fetching data/database.jsonl...');
-      const cacheBuster = Date.now(); // Add cache-busting query parameter
+      const cacheBuster = Date.now();
       const response = await fetch(`data/database.jsonl?cb=${cacheBuster}`, {
-        cache: 'no-store' // Prevent caching to fetch the latest file
+        cache: 'no-store'
       });
       if (!response.ok) {
         throw new Error(`Failed to fetch data/database.jsonl: ${response.status} ${response.statusText}`);
@@ -505,13 +499,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const entry = currentEntries[currentIndex];
     const currentWord = entry.word;
 
-    adjustWordSize(currentWord, wordEl, flashcard.offsetWidth);
-    wordEl.style.color = currentColor;
-    wordEl.style.animation = 'twinkle 3s infinite';
-    wordEl.style.textShadow = '0 0 2px rgba(255, 255, 255, 0.3)';
+    // Set Uno-like background color
+    const bgColor = entry.audio ? getUnoBackgroundColor(currentIndex) : '#000000';
+    flashcard.style.backgroundColor = bgColor;
+    const textColor = bgColor === '#ffff00' ? '#000000' : '#ffffff'; // Black text on yellow, white on others
 
-    englishEl.innerHTML = highlightWord(entry.english, currentWord, currentColor);
+    adjustWordSize(currentWord, wordEl, flashcard.offsetWidth);
+    wordEl.style.color = textColor;
+    cornerTopLeft.textContent = currentWord;
+    cornerTopLeft.style.color = textColor;
+    cornerBottomRight.textContent = currentWord;
+    cornerBottomRight.style.color = textColor;
+
+    englishEl.innerHTML = highlightWord(entry.english, currentWord, textColor);
     thaiEl.textContent = entry.thai;
+    thaiEl.style.color = textColor;
     audioErrorEl.style.display = 'none';
 
     preloadAudio(currentIndex);
@@ -522,7 +524,7 @@ document.addEventListener('DOMContentLoaded', () => {
       flashcard.onclick = null;
       flashcard.onclick = () => {
         console.log('Playing audio on tap');
-        playAudio(audioUrl, currentColor);
+        playAudio(audioUrl, textColor);
       };
     } else {
       console.log('No audio available for this entry');
