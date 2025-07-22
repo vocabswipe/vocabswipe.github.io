@@ -101,7 +101,7 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.7s ease, opacity 0.7s ease, width 0.7s ease, height 0.7s ease, max-width 0.7s ease, max-height 0.7s ease, border 0.7s ease, border-radius 0.7s ease;
+  transition: transform 0.7s ease, opacity 0.7s ease, width 0.7s ease, height 0.7s ease;
   position: relative;
   z-index: 10;
   perspective: 1000px;
@@ -145,71 +145,6 @@ body {
   color: #ffffff;
   text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
   white-space: nowrap;
-  max-width: 90%;
-}
-
-.mini-card .card-back .content {
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.mini-card .card-back .word {
-  font-family: 'Arial', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
-  color: #ffffff;
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
-  white-space: nowrap;
-  max-width: 90%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.mini-card .card-back .sentences {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.mini-card .card-back .english {
-  font-family: 'Arial', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 400;
-  text-align: left;
-  color: #ffffff;
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  max-width: 90%;
-}
-
-.mini-card .card-back .english .highlight {
-  font-weight: 700;
-  color: #ffffff;
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
-}
-
-.mini-card .card-back .thai {
-  font-family: 'Noto Sans Thai', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 400;
-  text-align: right;
-  color: #ffffff;
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
   max-width: 90%;
 }
 
@@ -508,7 +443,7 @@ body {
   }
   40% {
     transform: translateX(-50%) translateY(10px) scale(1.2);
-    opacity: 1;
+    opacity: újra
   }
   45% {
     transform: translateX(-50%) translateY(10px) scale(0.9) rotate(2deg);
@@ -573,18 +508,6 @@ svg.filters {
     font-size: 0.9rem;
     color: #ffffff;
     text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
-  }
-
-  .mini-card .card-back .word {
-    font-size: 1.8rem;
-  }
-
-  .mini-card .card-back .english {
-    font-size: 0.8rem;
-  }
-
-  .mini-card .card-back .thai {
-    font-size: 0.7rem;
   }
 
   .flashcard {
