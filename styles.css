@@ -7,7 +7,7 @@
 body {
   background-color: #000000;
   color: #ffffff;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Arial', sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -85,21 +85,18 @@ body {
   color: #00ff88;
   opacity: 1;
   transition: opacity 0.3s ease;
-  display: none;
+  display: none; /* Hide by default */
 }
 
 @keyframes twinkle {
   0% {
     opacity: 0.6;
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
   }
   50% {
     opacity: 1;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
   }
   100% {
     opacity: 0.6;
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
   }
 }
 
@@ -193,13 +190,13 @@ body {
 }
 
 .flashcard {
-  background-color: #2c2c2c;
-  border: 3px solid #ffffff;
+  background-color: #2c2c2c; /* Default, overridden by JS */
+  border: 2px solid #ffffff; /* White border like Uno cards */
   border-radius: 10px;
-  width: 90vw; /* Responsive width */
-  max-width: 300px; /* Maximum width */
-  height: calc(90vw * 1.59); /* Uno aspect ratio */
-  max-height: calc(300px * 1.59);
+  width: 210px; /* 56mm at 96 DPI */
+  height: 333px; /* 88mm at 96 DPI, aspect ratio 1:1.59 */
+  max-width: 90vw;
+  max-height: 90vh;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
@@ -218,39 +215,42 @@ body {
 .content {
   width: 100%;
   height: 100%;
-  padding: 15px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   position: relative;
 }
 
 .word {
-  font-family: 'Poppins', sans-serif;
-  font-size: 3rem;
+  font-family: 'Arial', sans-serif;
+  font-size: 2rem;
   font-weight: 700;
   text-align: center;
   word-break: break-word;
   max-width: 90%;
-  margin: 15px 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .sentences {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 15px;
+  justify-content: space-between;
 }
 
 .english {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.9rem;
   font-weight: 400;
-  line-height: 1.2;
-  text-align: center;
-  margin-bottom: 8px;
+  text-align: left;
+  position: absolute;
+  top: 10px;
+  left: 10px;
   max-width: 90%;
 }
 
@@ -260,36 +260,23 @@ body {
 
 .thai {
   font-family: 'Noto Sans Thai', sans-serif;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 400;
-  line-height: 1.2;
-  text-align: center;
+  text-align: right;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
   max-width: 90%;
 }
 
-.corner-word {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  position: absolute;
-}
-
-.corner-word.top-left {
-  top: 10px;
-  left: 10px;
-}
-
-.corner-word.bottom-right {
-  bottom: 10px;
-  right: 10px;
-}
-
 .audio-error {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.7rem;
   color: #ff4081;
   text-align: center;
-  margin: 5px;
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
   display: none;
 }
 
@@ -387,7 +374,7 @@ body {
 }
 
 .tooltip-text {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Arial', sans-serif;
   font-size: 1rem;
   color: #00ff88;
   margin-top: 8px;
@@ -490,30 +477,26 @@ svg.filters {
   }
 
   .flashcard {
-    width: 85vw; /* Slightly smaller for very small screens */
-    max-width: 280px;
-    height: calc(85vw * 1.59);
-    max-height: calc(280px * 1.59);
+    width: 80vw; /* Scales with viewport width */
+    height: calc(80vw * 1.59); /* Maintains 1:1.59 aspect ratio */
+    max-width: 210px;
+    max-height: 333px;
   }
 
   .word {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
 
   .english {
-    font-size: 1.1rem;
+    font-size: 0.8rem;
   }
 
   .thai {
-    font-size: 0.9rem;
-  }
-
-  .corner-word {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
   }
 
   .audio-error {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
 
   .word-cloud {

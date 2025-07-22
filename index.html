@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>VocabSwipe - Learn English Vocabulary</title>
   <link rel="stylesheet" href="styles.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+Thai:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+Thai:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
   <link rel="preload" href="data/database.jsonl" as="fetch" crossorigin="anonymous"/>
   <link rel="preload" href="arrow-up.svg" as="image"/>
   <link rel="preload" href="arrow-down.svg" as="image"/>
@@ -36,14 +36,12 @@
     </div>
     <div class="flashcard" id="flashcard">
       <div class="content">
-        <div class="corner-word top-left" id="corner-top-left"></div>
         <div class="word" id="word"></div>
         <div class="sentences">
           <div class="english" id="english"></div>
           <div class="thai" id="thai"></div>
           <div class="audio-error" id="audio-error" style="display: none; color: #ff4081; font-size: 0.9rem; text-align: center;"></div>
         </div>
-        <div class="corner-word bottom-right" id="corner-bottom-right"></div>
       </div>
     </div>
     <!-- Tooltip for swipe-up (uses arrow-up.svg for PC) -->
