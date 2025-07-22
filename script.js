@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
   const cardDeck = document.getElementById('card-deck');
   const loadingIndicator = document.getElementById('loading-indicator');
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWord(sentence, word) {
@@ -399,35 +400,16 @@ document.addEventListener('DOMContentLoaded', () => {
       wordSpan.textContent = word;
       adjustWordSize(word, wordSpan, cardEl.offsetWidth * 0.9, true);
       cardFront.appendChild(wordSpan);
-
-      const cardBack = document.createElement('div');
-      cardBack.className = 'card-back';
-      const contentDiv = document.createElement('div');
-      contentDiv.className = 'content';
-      const wordDiv = document.createElement('div');
-      wordDiv.className = 'word';
-      const sentencesDiv = document.createElement('div');
-      sentencesDiv.className = 'sentences';
-      const englishDiv = document.createElement('div');
-      englishDiv.className = 'english';
-      const thaiDiv = document.createElement('div');
-      thaiDiv.className = 'thai';
-      sentencesDiv.appendChild(englishDiv);
-      sentencesDiv.appendChild(thaiDiv);
-      contentDiv.appendChild(wordDiv);
-      contentDiv.appendChild(sentencesDiv);
-      cardBack.appendChild(contentDiv);
       cardInner.appendChild(cardFront);
-      cardInner.appendChild(cardBack);
       cardEl.appendChild(cardInner);
 
       cardDeck.appendChild(cardEl);
 
-      addCardEventListener(cardEl, word, englishDiv, thaiDiv, wordDiv);
+      addCardEventListener(cardEl, word);
     });
   }
 
-  function addCardEventListener(cardEl, word, englishDiv, thaiDiv, wordDiv) {
+  function addCardEventListener(cardEl, word) {
     cardEl.addEventListener('click', () => {
       stopAudio();
       document.querySelectorAll('.mini-card').forEach(otherCard => {
@@ -449,101 +431,64 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetWidth = Math.min(currentWidth * 2, maxCardWidth);
       const scaleFactor = Math.min(2, targetWidth / currentWidth);
 
-      cardEl.style.transition = 'transform 0.7s ease, width 0.7s ease, height 0.7s ease';
+      cardEl.style.transition = 'transform 0.7s ease, opacity 0.7s ease';
       cardEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(${scaleFactor})`;
-      cardEl.style.width = `${Math.min(210, maxCardWidth)}px`;
-      cardEl.style.height = `${Math.min(333, maxCardWidth * 1.59)}px`;
       cardEl.style.zIndex = '20';
 
       setTimeout(() => {
-        // Flip the card to show the back
-        cardEl.querySelector('.card-inner').classList.add('flip');
-
-        // Populate the back with the first entry's content
-        currentEntries = entries.filter(entry => entry.word.toLowerCase() === word.toLowerCase());
-        currentEntries = shuffleArray([...currentEntries]);
-        currentIndex = 0;
-        const entry = currentEntries[currentIndex];
-
-        const unoColor = getConsistentUnoColor(word.toLowerCase());
-        cardEl.style.backgroundColor = unoColor.bg;
-        wordDiv.textContent = entry.word;
-        adjustWordSize(entry.word, wordDiv, cardEl.offsetWidth * 0.9);
-        englishDiv.innerHTML = highlightWord(entry.english, entry.word);
-        thaiDiv.textContent = entry.thai;
-
-        // Adjust styles for back content
-        wordDiv.style.color = '#ffffff';
-        englishDiv.style.color = '#ffffff';
-        thaiDiv.style.color = '#ffffff';
+        cardEl.style.opacity = '0';
 
         setTimeout(() => {
-          // Transition to flashcard view
-          cardEl.style.opacity = '0';
+          cardDeck.style.display = 'none';
+          cardEl.style.transform = 'none';
+          cardEl.style.opacity = '1';
+          cardEl.style.zIndex = '10';
+          cardEl.style.maxWidth = '';
+          wordSpan.style.fontSize = '';
 
-          setTimeout(() => {
-            cardDeck.style.display = 'none';
-            cardEl.style.transform = 'none';
-            cardEl.style.opacity = '1';
-            cardEl.style.zIndex = '10';
-            cardEl.style.maxWidth = '';
-            cardEl.style.width = '';
-            cardEl.style.height = '';
-            cardEl.querySelector('.card-inner').classList.remove('flip');
-            wordSpan.style.fontSize = '';
-            adjustWordSize(word, wordSpan, cardEl.offsetWidth * 0.9, true);
+          flashcardContainer.style.display = 'flex';
+          flashcardContainer.style.opacity = '0';
+          flashcardContainer.style.transition = 'opacity 1s ease';
+          flashcardContainer.style.opacity = '1';
 
-            flashcardContainer.style.display = 'flex';
-            flashcardContainer.style.opacity = '0';
-            flashcardContainer.style.transition = 'opacity 1s ease';
-            flashcardContainer.style.opacity = '1';
+          header.style.display = 'flex';
+          header.style.opacity = '0';
+          header.style.transition = 'opacity 1s ease';
+          header.style.opacity = '1';
+          donateIcon.style.display = 'block';
+          shareIcon.style.display = 'block';
 
-            header.style.display = 'flex';
-            header.style.opacity = '0';
-            header.style.transition = 'opacity 1s ease';
-            header.style.opacity = '1';
-            donateIcon.style.display = 'block';
-            shareIcon.style.display = 'block';
+          flashcardContainer.style.height = '100vh';
+          flashcardContainer.style.justifyContent = 'center';
+          document.body.style.overflow = 'hidden';
 
-            flashcardContainer.style.height = '100vh';
-            flashcardContainer.style.justifyContent = 'center';
-            document.body.style.overflow = 'hidden';
+          currentEntries = entries.filter(entry => entry.word.toLowerCase() === word.toLowerCase());
+          currentEntries = shuffleArray([...currentEntries]);
+          currentIndex = 0;
+          currentColor = '#ffffff';
+          
+          // Set front word for the initial display
+          frontWordEl.textContent = word;
+          adjustWordSize(word, frontWordEl, flashcard.offsetWidth * 0.9, true);
+          
+          // Trigger flip animation
+          cardInner.classList.add('flip');
+          
+          displayEntry(currentIndex);
 
-            frontWordEl.textContent = word;
-            adjustWordSize(word, frontWordEl, flashcard.offsetWidth * 0.9, true);
-            cardInner.classList.add('flip');
-            displayEntry(currentIndex);
-
-            if (visitCount <= 5) {
+          if (visitCount <= 5) {
+            setTimeout(() => {
+              showTooltip(swipeUpTooltip, 'up');
               setTimeout(() => {
-                showTooltip(swipeUpTooltip, 'up');
+                showTooltip(swipeDownTooltip, 'down');
                 setTimeout(() => {
-                  showTooltip(swipeDownTooltip, 'down');
-                  setTimeout(() => {
-                    showTooltip(tapTooltip, 'tap');
-                  }, 2500);
+                  showTooltip(tapTooltip, 'tap');
                 }, 2500);
-              }, 6000);
-            }
-
-            // Set up audio for the flashcard
-            if (entry.audio) {
-              const audioUrl = `/data/${entry.audio}`;
-              console.log(`Setting up audio for: ${audioUrl}`);
-              flashcard.onclick = () => {
-                console.log('Playing audio on tap');
-                playAudio(audioUrl);
-              };
-            } else {
-              console.log('No audio available for this entry');
-              flashcard.onclick = null;
-              audioErrorEl.textContent = 'No audio available';
-              audioErrorEl.style.display = 'block';
-              setTimeout(() => audioErrorEl.style.display = 'none', 2000);
-            }
-          }, 700);
-        }, 600); // Wait for flip animation to complete
-      }, 700); // Wait for scaling animation to complete
+              }, 2500);
+            }, 6000);
+          }
+        }, 700);
+      }, 700);
     });
   }
 
