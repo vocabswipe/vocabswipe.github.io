@@ -91,10 +91,10 @@ body {
 
 .mini-card {
   background-color: #2c2c2c; /* Default, overridden by JS */
-  border: 1px solid #ffffff;
+  border: 3px solid #ffffff;
   border-radius: 5px;
-  width: 105px; /* Half of flashcard width */
-  height: 166.5px; /* Half of flashcard height, 1:1.59 aspect ratio */
+  width: 105px;
+  height: 166.5px;
   max-width: 90vw;
   max-height: calc(90vw * 1.59);
   display: flex;
@@ -115,7 +115,17 @@ body {
   font-size: 1rem;
   font-weight: 700;
   text-align: center;
-  word-break: break-word;
+  color: #ffffff;
+  text-shadow:
+    -1px -1px 0 #000000,
+     1px -1px 0 #000000,
+    -1px  1px 0 #000000,
+     1px  1px 0 #000000,
+    -2px -2px 0 #000000,
+     2px -2px 0 #000000,
+    -2px  2px 0 #000000,
+     2px  2px 0 #000000;
+  white-space: nowrap;
   max-width: 90%;
 }
 
@@ -198,7 +208,7 @@ body {
 
 .flashcard {
   background-color: #2c2c2c; /* Default, overridden by JS */
-  border: 2px solid #ffffff;
+  border: 6px solid #ffffff;
   border-radius: 10px;
   width: 210px;
   height: 333px;
@@ -235,7 +245,17 @@ body {
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
-  word-break: break-word;
+  color: #ffffff;
+  text-shadow:
+    -1px -1px 0 #000000,
+     1px -1px 0 #000000,
+    -1px  1px 0 #000000,
+     1px  1px 0 #000000,
+    -2px -2px 0 #000000,
+     2px -2px 0 #000000,
+    -2px  2px 0 #000000,
+     2px  2px 0 #000000;
+  white-space: nowrap;
   max-width: 90%;
   position: absolute;
   top: 50%;
@@ -255,6 +275,12 @@ body {
   font-size: 0.9rem;
   font-weight: 400;
   text-align: left;
+  color: #ffffff;
+  text-shadow:
+    -1px -1px 0 #000000,
+     1px -1px 0 #000000,
+    -1px  1px 0 #000000,
+     1px  1px 0 #000000;
   position: absolute;
   top: 10px;
   left: 10px;
@@ -263,6 +289,16 @@ body {
 
 .english .highlight {
   font-weight: 700;
+  color: #ffffff;
+  text-shadow:
+    -1px -1px 0 #000000,
+     1px -1px 0 #000000,
+    -1px  1px 0 #000000,
+     1px  1px 0 #000000,
+    -2px -2px 0 #000000,
+     2px -2px 0 #000000,
+    -2px  2px 0 #000000,
+     2px  2px 0 #000000;
 }
 
 .thai {
@@ -270,6 +306,12 @@ body {
   font-size: 0.8rem;
   font-weight: 400;
   text-align: right;
+  color: #ffffff;
+  text-shadow:
+    -1px -1px 0 #000000,
+     1px -1px 0 #000000,
+    -1px  1px 0 #000000,
+     1px  1px 0 #000000;
   position: absolute;
   bottom: 10px;
   right: 10px;
@@ -490,7 +532,8 @@ svg.filters {
   }
 
   .mini-card {
-    width: 90vw; /* Scales with viewport */
+    border: 3px solid #ffffff;
+    width: 90vw;
     height: calc(90vw * 1.59 / 2);
     max-width: 105px;
     max-height: 166.5px;
@@ -501,6 +544,7 @@ svg.filters {
   }
 
   .flashcard {
+    border: 6px solid #ffffff;
     width: 80vw;
     height: calc(80vw * 1.59);
     max-width: 210px;
