@@ -21,13 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const tapTooltip = document.getElementById('tap-tooltip');
 
   let entries = [];
-  let currentEntries = [];
+  let currentEntries = []; // Store filtered entries for the chosen word
   let currentIndex = 0;
   let touchStartY = 0;
   let touchEndY = 0;
   let touchStartTime = 0;
   let lastSwipeTime = 0;
-  let currentColor = '';
+  let currentColor = ''; // Store the color of the selected word
   let wordColors = new Map();
   let initialScale = 1;
   let currentScale = 1;
@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   visitCount += 1;
   localStorage.setItem('visitCount', visitCount.toString());
 
+  // Uno card colors (used only for background)
   const unoColors = [
     { bg: '#ff0000' }, // Red
     { bg: '#0000ff' }, // Blue
@@ -71,11 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function getConsistentUnoColor(word) {
+    // Simple hash function to assign consistent color based on word
     let hash = 0;
     for (let i = 0; i < word.length; i++) {
       hash = word.charCodeAt(i) + ((hash << 5) - hash);
     }
     const index = Math.abs(hash) % unoColors.length;
+    // Ensure "money" is always yellow
     if (word.toLowerCase() === 'money') {
       return unoColors[3]; // Yellow
     }
@@ -83,16 +86,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function adjustWordSize(word, element, maxWidth, isMiniCard = false) {
-    const baseFontSize = isMiniCard ? 1.5 : 2; // Match flashcard ratio for mini cards
+    const baseFontSize = isMiniCard ? 1 : 2; // Base font size for mini-card and flashcard
     element.style.fontSize = `${baseFontSize}rem`;
-    element.style.whiteSpace = 'nowrap'; // Ensure single line
+    element.style.whiteSpace = 'nowrap'; // Prevent word wrapping
     element.textContent = word;
     let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
     const padding = isMiniCard ? 5 : 10;
 
-    while (element.scrollWidth > maxWidth - padding && fontSize > (isMiniCard ? 0.6 : 0.8)) {
-      fontSize -= 0.05;
+    // Scale font to fit within maxWidth in one line
+    while (element.scrollWidth > maxWidth - padding && fontSize > (isMiniCard ? 0.5 : 0.8)) {
+      fontSize -= 0.05; // Finer adjustment for smoother scaling
       element.style.fontSize = `${fontSize}rem`;
+    }
+
+    // For mini-cards, ensure font size is proportional to flashcard
+    if (isMiniCard) {
+      const flashcardWidth = 210; // Flashcard width in pixels
+      const miniCardWidth = 105; // Mini-card width in pixels
+      const scaleRatio = miniCardWidth / flashcardWidth;
+      const targetFontSize = fontSize * scaleRatio;
+      element.style.fontSize = `${Math.max(targetFontSize, 0.5)}rem`;
     }
   }
 
@@ -310,6 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cardDeck.style.display = 'grid';
       loadingIndicator.style.opacity = '1';
 
+      // Clear cache to ensure fetching the latest database
       localStorage.removeItem(CACHE_KEY);
 
       console.log('Fetching data/database.jsonl...');
@@ -388,8 +402,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const unoColor = getConsistentUnoColor(word.toLowerCase());
       cardEl.style.backgroundColor = unoColor.bg;
       cardEl.style.border = '3px solid #ffffff'; // Tripled border thickness
-      cardEl.style.color = '#ffffff'; // White text
-      wordColors.set(word.toLowerCase(), '#ffffff');
 
       const wordSpan = document.createElement('span');
       wordSpan.className = 'mini-card-word';
@@ -483,7 +495,7 @@ document.addEventListener('DOMContentLoaded', () => {
           currentEntries = entries.filter(entry => entry.word.toLowerCase() === word.toLowerCase());
           currentEntries = shuffleArray([...currentEntries]);
           currentIndex = 0;
-          currentColor = wordColors.get(word.toLowerCase());
+          currentColor = '#ffffff'; // Set to white for text
           displayEntry(currentIndex);
 
           if (visitCount <= 5) {
@@ -520,8 +532,8 @@ document.addEventListener('DOMContentLoaded', () => {
     flashcard.style.backgroundColor = unoColor.bg;
     flashcard.style.border = '6px solid #ffffff'; // Tripled border thickness
     wordEl.style.color = '#ffffff'; // White text
-    englishEl.style.color = '#ffffff';
-    thaiEl.style.color = '#ffffff';
+    englishEl.style.color = '#ffffff'; // White text
+    thaiEl.style.color = '#ffffff'; // White text
 
     adjustWordSize(currentWord, wordEl, flashcard.offsetWidth * 0.9);
     englishEl.innerHTML = highlightWord(entry.english, currentWord);
