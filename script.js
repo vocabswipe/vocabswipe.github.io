@@ -9,15 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const englishEl = document.getElementById('english');
   const thaiEl = document.getElementById('thai');
   const audioErrorEl = document.getElementById('audio-error');
-  const header = document.getElementById('header');
-  const wordCloudIcon = document.getElementById('word-cloud-icon');
-  const donateIcon = document.getElementById('donate-icon');
-  const shareIcon = document.getElementById('share-icon');
-  const donatePopup = document.getElementById('donate-popup');
-  const closePopupIcon = document.getElementById('close-popup-icon');
-  const swipeUpTooltip = document.getElementById('swipe-up-tooltip');
-  const swipeDownTooltip = document.getElementById('swipe-down-tooltip');
-  const tapTooltip = document.getElementById('tap-tooltip');
 
   let entries = [];
   let currentEntries = [];
@@ -38,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const CACHE_KEY = 'vocabswipe_data_v1';
   let wordFreq = {};
   let wordCaseMap = new Map();
+  let wordEntryMap = new Map(); // Maps words to their entries
   let visitCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
   visitCount += 1;
   localStorage.setItem('visitCount', visitCount.toString());
@@ -55,11 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function escapeHTML(str) {
     return str
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, ''');
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function highlightWord(sentence, word) {
@@ -82,24 +74,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function adjustWordSize(word, element, maxWidth, isMiniCard = false) {
-    const baseFontSize = isMiniCard ? 1 : 2;
+    const baseFontSize = isMiniCard ? 1.2 : 2.5; // Increased base font size for mini-card
     element.style.fontSize = `${baseFontSize}rem`;
     element.style.whiteSpace = 'nowrap';
     element.textContent = word;
     let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
     const padding = isMiniCard ? 5 : 10;
 
-    while (element.scrollWidth > maxWidth - padding && fontSize > (isMiniCard ? 0.5 : 0.8)) {
+    while (element.scrollWidth > maxWidth - padding && fontSize > (isMiniCard ? 0.6 : 0.8)) {
       fontSize -= 0.05;
       element.style.fontSize = `${fontSize}rem`;
     }
 
     if (isMiniCard) {
-      const flashcardWidth = 210;
-      const miniCardWidth = 105;
+      const flashcardWidth = 280; // Updated flashcard width
+      const miniCardWidth = 140; // Updated mini-card width
       const scaleRatio = miniCardWidth / flashcardWidth;
       const targetFontSize = fontSize * scaleRatio;
-      element.style.fontSize = `${Math.max(targetFontSize, 0.5)}rem`;
+      element.style.fontSize = `${Math.max(targetFontSize, 0.6)}rem`;
     }
   }
 
@@ -146,164 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => audioErrorEl.style.display = 'none', 2000);
       });
     }, 500);
-  }
-
-  function showDonatePopup() {
-    donatePopup.style.display = 'flex';
-    flashcardContainer.style.filter = 'blur(5px)';
-    header.style.filter = 'blur(5px)';
-    document.body.style.overflow = 'hidden';
-  }
-
-  function hideDonatePopup() {
-    donatePopup.style.display = 'none';
-    flashcardContainer.style.filter = 'none';
-    header.style.filter = 'none';
-    document.body.style.overflow = 'hidden';
-  }
-
-  donatePopup.addEventListener('click', e => {
-    if (e.target === donatePopup) {
-      hideDonatePopup();
-    }
-  });
-
-  donateIcon.addEventListener('click', () => {
-    showDonatePopup();
-  });
-
-  closePopupIcon.addEventListener('click', () => {
-    hideDonatePopup();
-  });
-
-  shareIcon.addEventListener('click', async () => {
-    try {
-      const canvas = await html2canvas(flashcardContainer, {
-        width: flashcardContainer.offsetWidth,
-        height: flashcardContainer.offsetHeight,
-        scale: window.devicePixelRatio || 2,
-        backgroundColor: '#000000',
-        useCORS: true,
-      });
-
-      const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
-
-      const file = new File([blob], 'vocabswipe_card.png', { type: 'image/png' });
-
-      const shareData = {
-        files: [file],
-        title: 'VocabSwipe - Learn English Vocabulary',
-        text: `Check out this word from VocabSwipe! Visit VocabSwipe.com #VocabSwipe #LearnEnglish`,
-        url: 'https://vocabswipe.com',
-      };
-
-      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-        await navigator.share(shareData);
-        console.log('Shared successfully via Web Share API');
-        audioErrorEl.textContent = 'Shared successfully!';
-        audioErrorEl.style.color = '#00ff88';
-        audioErrorEl.style.display = 'block';
-        setTimeout(() => {
-          audioErrorEl.style.color = '#ff4081';
-          audioErrorEl.style.display = 'none';
-        }, 2000);
-      } else {
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'vocabswipe_card.png';
-        link.click();
-        URL.revokeObjectURL(url);
-        console.log('Web Share API not available, image downloaded');
-        audioErrorEl.textContent = 'Image downloaded. Share it manually!';
-        audioErrorEl.style.display = 'block';
-        setTimeout(() => {
-          audioErrorEl.style.display = 'none';
-        }, 3000);
-      }
-    } catch (error) {
-      console.error('Error sharing:', error);
-      audioErrorEl.textContent = 'Failed to share: ' + error.message;
-      audioErrorEl.style.display = 'block';
-      setTimeout(() => {
-        audioErrorEl.style.display = 'none';
-      }, 3000);
-    }
-  });
-
-  function showTooltip(tooltip, direction) {
-    const isPc = isPC();
-    const tooltipIcon = tooltip.querySelector('.tooltip-icon');
-    const tooltipText = tooltip.querySelector('.tooltip-text');
-
-    if (isPc) {
-      if (direction === 'up') {
-        tooltipIcon.src = 'arrow-up.svg';
-        tooltipIcon.alt = 'Arrow Up';
-        tooltipText.textContent = 'Press Up Arrow for next card';
-      } else if (direction === 'down') {
-        tooltipIcon.src = 'arrow-down.svg';
-        tooltipIcon.alt = 'Arrow Down';
-        tooltipText.textContent = 'Press Down Arrow for previous card';
-      } else if (direction === 'tap') {
-        tooltipIcon.src = 'spacebar.svg';
-        tooltipIcon.alt = 'Spacebar';
-        tooltipText.textContent = 'Press Spacebar to hear audio';
-      }
-    } else {
-      if (direction === 'up') {
-        tooltipIcon.src = 'swipe-up.svg';
-        tooltipIcon.alt = 'Swipe Up';
-        tooltipText.textContent = 'Swipe up for next card';
-      } else if (direction === 'down') {
-        tooltipIcon.src = 'swipe-down.svg';
-        tooltipIcon.alt = 'Swipe Down';
-        tooltipText.textContent = 'Swipe down for previous card';
-      } else if (direction === 'tap') {
-        tooltipIcon.src = 'tap.svg';
-        tooltipIcon.alt = 'Tap';
-        tooltipText.textContent = 'Tap to hear audio';
-      }
-    }
-
-    header.style.filter = 'blur(5px)';
-    flashcard.style.filter = 'none';
-
-    const flashcardRect = flashcard.getBoundingClientRect();
-    const containerRect = flashcardContainer.getBoundingClientRect();
-    const centerX = flashcardRect.left - containerRect.left + flashcardRect.width / 2;
-    let centerY;
-    if (direction === 'tap') {
-      const wordRect = wordEl.getBoundingClientRect();
-      centerY = wordRect.top - containerRect.top + wordRect.height / 2;
-    } else {
-      centerY = flashcardRect.top - containerRect.top + flashcardRect.height / 2;
-    }
-
-    tooltip.style.left = `${centerX}px`;
-    tooltip.style.top = `${centerY}px`;
-
-    tooltip.style.display = 'flex';
-
-    setTimeout(() => {
-      if (direction === 'tap') {
-        tooltip.classList.add('animate-tap');
-      } else {
-        tooltip.classList.add(direction === 'up' ? 'animate-up' : 'animate-down');
-      }
-    }, 10);
-
-    setTimeout(() => {
-      tooltip.style.display = 'none';
-      tooltip.classList.remove(direction === 'tap' ? 'animate-tap' : direction === 'up' ? 'animate-up' : 'animate-down');
-      if (
-        swipeUpTooltip.style.display === 'none' &&
-        swipeDownTooltip.style.display === 'none' &&
-        tapTooltip.style.display === 'none'
-      ) {
-        header.style.filter = 'none';
-      }
-    }, direction === 'tap' ? 2500 : 2000);
   }
 
   async function loadData() {
@@ -364,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!wordFreq || Object.keys(wordFreq).length === 0) {
       wordFreq = {};
       wordCaseMap = new Map();
+      wordEntryMap = new Map();
       entries.forEach(entry => {
         if (typeof entry.word !== 'string') {
           throw new Error('Invalid word format in database entry');
@@ -373,6 +208,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!wordCaseMap.has(lowerWord)) {
           wordCaseMap.set(lowerWord, entry.word);
         }
+        if (!wordEntryMap.has(lowerWord)) {
+          wordEntryMap.set(lowerWord, []);
+        }
+        wordEntryMap.get(lowerWord).push(entry);
       });
     }
 
@@ -392,46 +231,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const cardInner = document.createElement('div');
       cardInner.className = 'card-inner';
-      
-      // Front side
       const cardFront = document.createElement('div');
       cardFront.className = 'card-front';
-      const wordSpan = document.createElement('span');
-      wordSpan.className = 'mini-card-word';
-      wordSpan.textContent = word;
-      adjustWordSize(word, wordSpan, cardEl.offsetWidth * 0.9, true);
-      cardFront.appendChild(wordSpan);
-      
-      // Back side
-      const cardBack = document.createElement('div');
-      cardBack.className = 'card-back';
       const content = document.createElement('div');
       content.className = 'content';
-      const wordEl = document.createElement('div');
-      wordEl.className = 'word';
-      const sentences = document.createElement('div');
-      sentences.className = 'sentences';
-      const englishEl = document.createElement('div');
-      englishEl.className = 'english';
-      const thaiEl = document.createElement('div');
-      thaiEl.className = 'thai';
-      sentences.appendChild(englishEl);
-      sentences.appendChild(thaiEl);
-      content.appendChild(wordEl);
-      content.appendChild(sentences);
-      cardBack.appendChild(content);
-      
+
+      // Randomly select one entry for this word
+      const wordEntries = wordEntryMap.get(word.toLowerCase());
+      const randomEntry = wordEntries[Math.floor(Math.random() * wordEntries.length)];
+
+      const wordSpan = document.createElement('span');
+      wordSpan.className = 'mini-card-word';
+      wordSpan.textContent = randomEntry.word;
+      adjustWordSize(randomEntry.word, wordSpan, cardEl.offsetWidth * 0.9, true);
+
+      const englishSpan = document.createElement('div');
+      englishSpan.className = 'english';
+      englishSpan.innerHTML = highlightWord(randomEntry.english, randomEntry.word);
+
+      const thaiSpan = document.createElement('div');
+      thaiSpan.className = 'thai';
+      thaiSpan.textContent = randomEntry.thai;
+
+      content.appendChild(wordSpan);
+      content.appendChild(englishSpan);
+      content.appendChild(thaiSpan);
+      cardFront.appendChild(content);
       cardInner.appendChild(cardFront);
-      cardInner.appendChild(cardBack);
       cardEl.appendChild(cardInner);
 
       cardDeck.appendChild(cardEl);
 
-      addCardEventListener(cardEl, word);
+      addCardEventListener(cardEl, word, randomEntry);
     });
   }
 
-  function addCardEventListener(cardEl, word) {
+  function addCardEventListener(cardEl, word, selectedEntry) {
     cardEl.addEventListener('click', () => {
       stopAudio();
       document.querySelectorAll('.mini-card').forEach(otherCard => {
@@ -441,10 +276,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      const maxCardWidth = window.innerWidth * 0.9;
+      const maxCardWidth = window.innerWidth * 0.95; // Increased for mobile viewport
       cardEl.style.maxWidth = `${maxCardWidth}px`;
-      const wordSpan = cardEl.querySelector('.mini-card-word');
-
       const rect = cardEl.getBoundingClientRect();
       const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
       const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
@@ -457,77 +290,41 @@ document.addEventListener('DOMContentLoaded', () => {
       cardEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(${scaleFactor})`;
       cardEl.style.zIndex = '20';
 
-      // Populate back side with first entry's content
-      const firstEntry = entries.find(entry => entry.word.toLowerCase() === word.toLowerCase());
-      if (firstEntry) {
-        const backWordEl = cardEl.querySelector('.card-back .word');
-        const backEnglishEl = cardEl.querySelector('.card-back .english');
-        const backThaiEl = cardEl.querySelector('.card-back .thai');
-        
-        backWordEl.textContent = firstEntry.word;
-        adjustWordSize(firstEntry.word, backWordEl, cardEl.offsetWidth * 0.9);
-        backEnglishEl.innerHTML = highlightWord(firstEntry.english, firstEntry.word);
-        backThaiEl.textContent = firstEntry.thai;
-        
-        const unoColor = getConsistentUnoColor(word.toLowerCase());
-        cardEl.querySelector('.card-back').style.backgroundColor = unoColor.bg;
-      }
-
-      // Trigger flip animation
       setTimeout(() => {
-        cardEl.querySelector('.card-inner').classList.add('flip');
+        cardDeck.style.display = 'none';
+        cardEl.style.transform = 'none';
+        cardEl.style.zIndex = '10';
+        cardEl.style.maxWidth = '';
+        const wordSpan = cardEl.querySelector('.mini-card-word');
+        wordSpan.style.fontSize = '';
 
-        setTimeout(() => {
-          cardDeck.style.display = 'none';
-          cardEl.style.transform = 'none';
-          cardEl.style.opacity = '1';
-          cardEl.style.zIndex = '10';
-          cardEl.style.maxWidth = '';
-          wordSpan.style.fontSize = '';
-          cardEl.querySelector('.card-inner').classList.remove('flip');
+        flashcardContainer.style.display = 'flex';
+        flashcardContainer.style.opacity = '0';
+        flashcardContainer.style.transition = 'opacity 1s ease';
+        flashcardContainer.style.opacity = '1';
 
-          flashcardContainer.style.display = 'flex';
-          flashcardContainer.style.opacity = '0';
-          flashcardContainer.style.transition = 'opacity 1s ease';
-          flashcardContainer.style.opacity = '1';
+        flashcardContainer.style.height = '100vh';
+        flashcardContainer.style.justifyContent = 'center';
+        document.body.style.overflow = 'hidden';
 
-          header.style.display = 'flex';
-          header.style.opacity = '0';
-          header.style.transition = 'opacity 1s ease';
-          header.style.opacity = '1';
-          donateIcon.style.display = 'block';
-          shareIcon.style.display = 'block';
+        currentEntries = entries.filter(entry => entry.word.toLowerCase() === word.toLowerCase());
+        currentEntries = shuffleArray([...currentEntries]);
+        // Place the selected entry as the first one
+        const selectedEntryIndex = currentEntries.findIndex(entry => entry === selectedEntry);
+        if (selectedEntryIndex !== -1) {
+          [currentEntries[0], currentEntries[selectedEntryIndex]] = [currentEntries[selectedEntryIndex], currentEntries[0]];
+        }
+        currentIndex = 0;
+        currentColor = '#ffffff';
 
-          flashcardContainer.style.height = '100vh';
-          flashcardContainer.style.justifyContent = 'center';
-          document.body.style.overflow = 'hidden';
+        // Set front word for the initial display
+        frontWordEl.textContent = word;
+        adjustWordSize(word, frontWordEl, flashcard.offsetWidth * 0.9, true);
 
-          currentEntries = entries.filter(entry => entry.word.toLowerCase() === word.toLowerCase());
-          currentEntries = shuffleArray([...currentEntries]);
-          currentIndex = 0;
-          currentColor = '#ffffff';
-          
-          // Set front word for the initial display
-          frontWordEl.textContent = word;
-          adjustWordSize(word, frontWordEl, flashcard.offsetWidth * 0.9, true);
-          
-          // Trigger flip animation for flashcard
-          cardInner.classList.add('flip');
-          
-          displayEntry(currentIndex);
+        // Trigger flip animation
+        cardInner.classList.add('flip');
 
-          if (visitCount <= 5) {
-            setTimeout(() => {
-              showTooltip(swipeUpTooltip, 'up');
-              setTimeout(() => {
-                showTooltip(swipeDownTooltip, 'down');
-                setTimeout(() => {
-                  showTooltip(tapTooltip, 'tap');
-                }, 2500);
-              }, 2500);
-            }, 6000);
-          }
-        }, 600); // Match CSS flip transition duration
+        displayEntry(currentIndex);
       }, 700);
     });
   }
@@ -577,33 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
       audioErrorEl.style.display = 'block';
       setTimeout(() => audioErrorEl.style.display = 'none', 2000);
     }
-
-    shareIcon.style.display = 'block';
   }
-
-  wordCloudIcon.addEventListener('click', () => {
-    stopAudio();
-    flashcardContainer.style.transition = 'opacity 0.7s ease';
-    flashcardContainer.style.opacity = '0';
-    header.style.transition = 'opacity 0.7s ease';
-    header.style.opacity = '0';
-    donateIcon.style.display = 'none';
-    shareIcon.style.display = 'none';
-    hideDonatePopup();
-
-    setTimeout(() => {
-      flashcardContainer.style.display = 'none';
-      header.style.display = 'none';
-      document.body.style.overflow = 'auto';
-      cardDeck.style.display = 'grid';
-      cardDeck.style.opacity = '0';
-      cardDeck.style.transition = 'opacity 0.7s ease';
-      cardDeck.style.opacity = '1';
-
-      cardInner.classList.remove('flip');
-      displayCardDeck();
-    }, 700);
-  });
 
   cardDeck.addEventListener('touchstart', e => {
     touchStartTime = Date.now();
