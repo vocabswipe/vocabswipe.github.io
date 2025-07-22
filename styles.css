@@ -66,14 +66,15 @@ body {
   margin: 10px auto;
 }
 
-.word-cloud {
-  position: relative;
+.card-deck {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+  gap: 10px;
+  padding: 20px;
   width: 100%;
-  overflow-y: auto;
-  padding: 10px;
+  max-width: 400px;
   transform-origin: center center;
   will-change: transform;
-  display: block;
 }
 
 .loading-indicator {
@@ -85,31 +86,37 @@ body {
   color: #00ff88;
   opacity: 1;
   transition: opacity 0.3s ease;
-  display: none; /* Hide by default */
+  display: none;
 }
 
-@keyframes twinkle {
-  0% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.6;
-  }
-}
-
-.cloud-word {
-  position: absolute;
-  font-weight: 700;
+.mini-card {
+  background-color: #2c2c2c; /* Default, overridden by JS */
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  width: 105px; /* Half of flashcard width */
+  height: 166.5px; /* Half of flashcard height, 1:1.59 aspect ratio */
+  max-width: 90vw;
+  max-height: calc(90vw * 1.59);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  user-select: none;
-  transition: opacity 1s ease, transform 1s ease;
-  white-space: nowrap;
-  line-height: 1.2;
+  transition: transform 0.2s ease, opacity 0.7s ease;
+  position: relative;
   z-index: 10;
-  animation: twinkle 3s infinite;
+}
+
+.mini-card:hover {
+  transform: scale(1.05);
+}
+
+.mini-card-word {
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  word-break: break-word;
+  max-width: 90%;
 }
 
 .error-message {
@@ -191,10 +198,10 @@ body {
 
 .flashcard {
   background-color: #2c2c2c; /* Default, overridden by JS */
-  border: 2px solid #ffffff; /* White border like Uno cards */
+  border: 2px solid #ffffff;
   border-radius: 10px;
-  width: 210px; /* 56mm at 96 DPI */
-  height: 333px; /* 88mm at 96 DPI, aspect ratio 1:1.59 */
+  width: 210px;
+  height: 333px;
   max-width: 90vw;
   max-height: 90vh;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -476,9 +483,26 @@ svg.filters {
     height: 16px;
   }
 
+  .card-deck {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 8px;
+    padding: 15px;
+  }
+
+  .mini-card {
+    width: 90vw; /* Scales with viewport */
+    height: calc(90vw * 1.59 / 2);
+    max-width: 105px;
+    max-height: 166.5px;
+  }
+
+  .mini-card-word {
+    font-size: 0.9rem;
+  }
+
   .flashcard {
-    width: 80vw; /* Scales with viewport width */
-    height: calc(80vw * 1.59); /* Maintains 1:1.59 aspect ratio */
+    width: 80vw;
+    height: calc(80vw * 1.59);
     max-width: 210px;
     max-height: 333px;
   }
@@ -497,10 +521,6 @@ svg.filters {
 
   .audio-error {
     font-size: 0.6rem;
-  }
-
-  .word-cloud {
-    padding: 5px;
   }
 
   .loading-indicator {
