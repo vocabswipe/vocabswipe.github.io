@@ -14,12 +14,12 @@ html, body {
     justify-content: center;
     align-items: center;
     background-color: #f0f0f0; /* Light gray background */
-    font-family: 'Inter', sans-serif; /* Consistent fallback font */
+    font-family: 'Times New Roman', Times, serif; /* Poker card font for English */
 }
 
 /* Swipe counter styling */
 .swipe-counter {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 1.2rem;
     font-weight: 600;
     color: #333;
@@ -32,24 +32,24 @@ html, body {
     position: relative;
     width: 80vw;
     max-width: 300px;
-    height: calc(80vw * 1.5); /* Maintain aspect ratio */
-    max-height: 450px;
+    height: calc(80vw * 1.4); /* Poker card aspect ratio (2.5:3.5 ≈ 1:1.4) */
+    max-height: 420px; /* Adjusted to maintain aspect ratio */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* UNO-inspired card styling */
+/* Poker card styling */
 .card {
     width: 100%;
     height: 100%;
     background-color: #ff5555; /* Default color, will be randomized */
-    border: 12px solid white; /* Thicker white border for printed look */
-    border-radius: 24px; /* Slightly larger rounded corners */
+    border: 1px solid #000; /* Thin black border for poker card look */
+    border-radius: 12px; /* Rounded corners like poker cards */
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Deeper shadow for depth */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
     cursor: pointer; /* Indicate tappable */
     user-select: none; /* Prevent text selection */
     position: absolute;
@@ -75,66 +75,48 @@ html, body {
     align-items: center; /* Center sentences horizontally */
 }
 
-/* Word styling with thick white text and smooth black outline */
+/* Word styling for poker card look */
 .word {
-    font-family: 'Inter', sans-serif; /* Consistent font */
-    font-size: 1.9rem; /* Slightly larger for prominence */
-    font-weight: 900; /* Extra bold for thick text */
-    color: white; /* Thick white text */
-    text-shadow:
-        -2px -2px 0 #000,
-         2px -2px 0 #000,
-        -2px  2px 0 #000,
-         2px  2px 0 #000,
-        -1.5px -1.5px 0 #000,
-         1.5px -1.5px 0 #000,
-        -1.5px  1.5px 0 #000,
-         1.5px  1.5px 0 #000; /* Multi-layered shadow for smooth, thick outline */
+    font-family: 'Times New Roman', Times, serif; /* Classic poker card font */
+    font-size: 1.8rem; /* Adjusted for poker card style */
+    font-weight: bold; /* Bold for prominence */
+    color: #ff0000; /* Default color, will be randomized */
     position: absolute;
     margin: 0; /* Remove default margin */
 }
 
 /* Position words in corners with equal distances */
 .top-left {
-    top: 20px;
-    left: 20px; /* Equal distance from top and left edges */
+    top: 15px;
+    left: 15px; /* Adjusted for poker card proportions */
 }
 
 .bottom-right {
-    bottom: 20px;
-    right: 20px; /* Equal distance from bottom and right edges */
+    bottom: 15px;
+    right: 15px; /* Adjusted for poker card proportions */
 }
 
-/* Sentence styling with thick white text and smooth black outline */
+/* Sentence styling for poker card look */
 .sentence {
-    font-size: 1.25rem; /* Slightly larger for clarity */
-    margin: 10px 0;
-    color: white; /* Thick white text */
-    text-shadow:
-        -1.5px -1.5px 0 #000,
-         1.5px -1.5px 0 #000,
-        -1.5px  1.5px 0 #000,
-         1.5px  1.5px 0 #000,
-        -1px -1px 0 #000,
-         1px -1px 0 #000,
-        -1px  1px 0 #000,
-         1px  1px 0 #000; /* Multi-layered shadow for smooth, thick outline */
+    font-size: 1.2rem; /* Adjusted for clarity */
+    margin: 8px 0;
+    color: #ff0000; /* Default color, will be randomized */
     text-align: center; /* Ensure center alignment */
 }
 
 /* English sentence font */
 .english {
-    font-family: 'Inter', sans-serif; /* Consistent font */
-    font-weight: 900; /* Extra bold for thick text */
-    font-size: 1.3rem; /* Slightly larger for clarity */
+    font-family: 'Times New Roman', Times, serif; /* Poker card font */
+    font-weight: bold; /* Bold for poker card style */
+    font-size: 1.25rem;
     line-height: 1.4; /* Improved spacing */
 }
 
 /* Thai sentence font */
 .thai {
-    font-family: 'Noto Sans Thai', sans-serif; /* Optimized font for Thai */
-    font-weight: 900; /* Extra bold for thick text */
-    font-size: 1.3rem; /* Slightly larger for clarity */
+    font-family: 'Noto Serif Thai', serif; /* Serif font for Thai to match poker card style */
+    font-weight: bold; /* Bold for poker card style */
+    font-size: 1.25rem;
     line-height: 1.6; /* Extra spacing for Thai characters */
 }
 
@@ -142,7 +124,7 @@ html, body {
 @media (max-width: 600px) {
     .card-container {
         width: 90vw;
-        height: calc(90vw * 1.5);
+        height: calc(90vw * 1.4); /* Maintain poker card aspect ratio */
     }
 
     .swipe-counter {
@@ -150,47 +132,29 @@ html, body {
     }
 
     .word {
-        font-family: 'Inter', sans-serif; /* Consistent font */
-        font-size: 1.6rem; /* Slightly smaller for mobile */
-        font-weight: 900; /* Extra bold for thick text */
-        color: white; /* Thick white text */
-        text-shadow:
-            -1.5px -1.5px 0 #000,
-             1.5px -1.5px 0 #000,
-            -1.5px  1.5px 0 #000,
-             1.5px  1.5px 0 #000,
-            -1px -1px 0 #000,
-             1px -1px 0 #000,
-            -1px  1px 0 #000,
-             1px  1px 0 #000; /* Slightly thinner but smooth outline for mobile */
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1.5rem; /* Smaller for mobile */
+        font-weight: bold;
+        color: #ff0000; /* Default, will be randomized */
     }
 
     .sentence {
-        font-size: 1.15rem; /* Slightly smaller for mobile */
-        color: white; /* Thick white text */
-        text-shadow:
-            -1.2px -1.2px 0 #000,
-             1.2px -1.2px 0 #000,
-            -1.2px  1.2px 0 #000,
-             1.2px  1.2px 0 #000,
-            -0.8px -0.8px 0 #000,
-             0.8px -0.8px 0 #000,
-            -0.8px  0.8px 0 #000,
-             0.8px  0.8px 0 #000; /* Slightly thinner but smooth outline for mobile */
+        font-size: 1.1rem; /* Smaller for mobile */
+        color: #ff0000; /* Default, will be randomized */
     }
 
     .english {
-        font-family: 'Inter', sans-serif; /* Consistent font */
-        font-weight: 900; /* Extra bold for thick text */
-        font-size: 1.15rem;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        font-size: 1.1rem;
     }
 
     .thai {
-        font-family: 'Noto Sans Thai', sans-serif; /* Consistent font */
-        font-weight: 900; /* Extra bold for thick text */
-        font-size: 1.15rem;
+        font-family: 'Noto Serif Thai', serif;
+        font-weight: bold;
+        font-size: 1.1rem;
     }
 }
 
 /* Ensure fonts are loaded */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=Noto+Sans+Thai:wght@600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;700&display=swap');
