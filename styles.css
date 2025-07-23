@@ -5,114 +5,105 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    overflow: auto;
-}
-
-.word-selection {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-}
-
-.card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
     height: 100vh;
-    position: relative;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+#card-container {
+    perspective: 1000px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card {
-    background-color: white;
-    border: 8px solid white;
+    width: 80vw;
+    max-width: 400px;
+    aspect-ratio: 2 / 3;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s, opacity 0.3s;
+    border: 12px solid white;
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card-front, .card-back {
+    position: absolute;
     width: 100%;
-    max-width: 300px;
-    height: 400px;
+    height: 100%;
+    backface-visibility: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    padding: 20px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ff4d4d, #ff6666);
+    color: white;
+    text-align: center;
+    -webkit-text-stroke: 1px black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.word-card {
-    width: 120px;
-    height: 160px;
-    font-size: 1.2em;
+.card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, #4d79ff, #668cff);
+}
+
+.word {
+    font-size: clamp(2rem, 8vw, 3rem);
     font-weight: bold;
-}
-
-.study-card {
-    max-width: 90%;
-    width: 350px;
-    height: 500px;
-}
-
-.study-card h2 {
-    font-size: 2em;
     margin-bottom: 20px;
 }
 
-.study-card p {
-    font-size: 1.2em;
+.english, .thai {
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
     margin: 10px 0;
 }
 
-.hidden {
-    display: none;
+.card.flipped {
+    transform: rotateY(180deg);
 }
 
-.fade-out {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.scale-up {
-    transform: scale(1.2) translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-}
-
-.swipe-left {
+.card.swipe-left {
     transform: translateX(-100vw);
+    opacity: 0;
 }
 
-.swipe-right {
+.card.swipe-right {
     transform: translateX(100vw);
+    opacity: 0;
+}
+
+.card.swipe-up {
+    transform: translateY(-100vh);
+    opacity: 0;
+}
+
+.card.swipe-down {
+    transform: translateY(100vh);
+    opacity: 0;
 }
 
 @media (max-width: 600px) {
-    .word-card {
-        width: 100px;
-        height: 140px;
-        font-size: 1em;
+    .card {
+        width: 90vw;
+        border-width: 8px;
     }
 
-    .study-card {
-        width: 90%;
-        height: 450px;
+    .word {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
     }
 
-    .study-card h2 {
-        font-size: 1.5em;
-    }
-
-    .study-card p {
-        font-size: 1em;
+    .english, .thai {
+        font-size: clamp(1rem, 4vw, 1.3rem);
     }
 }
