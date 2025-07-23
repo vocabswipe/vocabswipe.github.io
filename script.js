@@ -10,6 +10,8 @@ async function loadVocabData() {
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
         vocabData = text.trim().split('\n').map(line => JSON.parse(line));
+        // Update statistics display
+        document.getElementById('stats-text').textContent = `${vocabData.length} cards available and growing!`;
         // Shuffle the array
         vocabData = vocabData.sort(() => Math.random() - 0.5);
         displayRandomCard();
@@ -19,6 +21,7 @@ async function loadVocabData() {
         document.getElementById('word-bottom').textContent = 'Error';
         document.getElementById('english').textContent = 'Failed to load data';
         document.getElementById('thai').textContent = '';
+        document.getElementById('stats-text').textContent = 'Failed to load statistics';
     }
 }
 
