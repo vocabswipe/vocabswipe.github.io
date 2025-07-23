@@ -1,8 +1,10 @@
 // Array to hold vocabulary entries
 let vocabData = [];
 
-// UNO-inspired colors
+// UNO-inspired colors for card background
 const colors = ['#ff5555', '#55ff55', '#5555ff', '#ffff55']; // Red, Green, Blue, Yellow
+// Text colors for poker card style
+const textColors = ['#ff0000', '#000000']; // Red, Black
 
 // Swipe counter
 let swipeCount = 0;
@@ -67,6 +69,13 @@ function displayRandomCard() {
     // Randomize card background color
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     card.style.backgroundColor = randomColor;
+
+    // Randomize text color (red or black)
+    const randomTextColor = textColors[Math.floor(Math.random() * textColors.length)];
+    wordTopElement.style.color = randomTextColor;
+    wordBottomElement.style.color = randomTextColor;
+    englishElement.style.color = randomTextColor;
+    thaiElement.style.color = randomTextColor;
 
     // Reset card position and opacity
     card.style.transform = 'translate(0, 0) rotate(0deg)';
