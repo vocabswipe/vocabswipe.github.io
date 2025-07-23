@@ -54,59 +54,64 @@ html, body {
 
 /* Card content */
 .card-content {
-    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
     padding: 20px;
     color: white; /* White text */
 }
 
-/* Word styling */
+/* Word styling for top-left and bottom-right */
 .word {
+    position: absolute;
     font-family: 'Inter', sans-serif; /* Modern, readable font for English */
-    font-size: 2.5rem; /* Large word */
+    font-size: 2rem; /* Adjusted for UNO style */
     font-weight: 800; /* Extra bold for clarity */
     color: white; /* White text */
-    text-shadow: 
-        -2px -2px 0 #000,
-         2px -2px 0 #000,
-        -2px  2px 0 #000,
-         2px  2px 0 #000,
-         0   -2px 0 #000,
-         0    2px 0 #000,
-        -2px  0   0 #000,
-         2px  0   0 #000; /* Thicker, complete black outline */
-    margin-bottom: 20px;
+    -webkit-text-stroke: 1px black; /* Clean black outline */
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+}
+
+.top-left {
+    top: 20px;
+    left: 20px;
+    transform: rotate(-45deg); /* Mimic UNO card angle */
+}
+
+.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    transform: rotate(45deg); /* Mimic UNO card angle */
 }
 
 /* Sentence styling */
 .sentence {
-    font-size: 1.2rem;
-    margin: 10px 0;
+    position: absolute;
+    width: 100%;
+    text-align: center;
     color: white; /* White text */
-    text-shadow: 
-        -2px -2px 0 #000,
-         2px -2px 0 #000,
-        -2px  2px 0 #000,
-         2px  2px 0 #000,
-         0   -2px 0 #000,
-         0    2px 0 #000,
-        -2px  0   0 #000,
-         2px  0   0 #000; /* Enhanced black outline for better contrast */
+    -webkit-text-stroke: 0.5px black; /* Clean black outline */
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
 }
 
-/* English sentence font */
+/* English sentence */
 .english {
     font-family: 'Inter', sans-serif; /* Clean, modern font for English */
     font-weight: 700; /* Bold for readability */
     font-size: 1.3rem; /* Slightly larger for clarity */
     line-height: 1.4; /* Improved spacing */
+    top: 35%; /* Center vertically, adjusted for overlap */
+    transform: translateY(-50%);
 }
 
-/* Thai sentence font */
+/* Thai sentence */
 .thai {
     font-family: 'Noto Sans Thai', sans-serif; /* Optimized font for Thai */
     font-weight: 600; /* Slightly lighter but still bold for Thai */
     font-size: 1.3rem; /* Slightly larger for clarity */
     line-height: 1.6; /* Extra spacing for Thai characters */
+    top: 65%; /* Below English sentence */
+    transform: translateY(-50%);
 }
 
 /* Responsive adjustments */
@@ -117,7 +122,7 @@ html, body {
     }
 
     .word {
-        font-size: 2rem; /* Slightly smaller word on mobile */
+        font-size: 1.5rem; /* Smaller word on mobile */
     }
 
     .sentence {
