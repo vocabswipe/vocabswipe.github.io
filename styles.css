@@ -10,10 +10,33 @@ html, body {
     width: 100%;
     overflow: hidden; /* Prevent scrolling */
     display: flex;
+    flex-direction: column; /* Stack stats and card vertically */
     justify-content: center;
     align-items: center;
     background-color: #f0f0f0; /* Light gray background */
     font-family: 'Arial', sans-serif; /* Fallback font */
+}
+
+/* Statistics header */
+.stats-header {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333; /* Dark background for contrast */
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10; /* Ensure it stays above cards */
+}
+
+#stats-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase; /* Stylish emphasis */
+    letter-spacing: 1px; /* Slight spacing for readability */
 }
 
 /* Card container for stacking effect */
@@ -26,6 +49,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 60px; /* Offset for stats header */
 }
 
 /* UNO-inspired card styling */
@@ -71,11 +95,8 @@ html, body {
     font-size: 1.8rem; /* Adjusted size for corner placement */
     font-weight: 800; /* Extra bold for clarity */
     color: white; /* White text */
-    text-shadow: 
-        -1px -1px 0 #000,
-         1px -1px 0 #000,
-        -1px  1px 0 #000,
-         1px  1px 0 #000; /* Smoother, less aggressive outline */
+    -webkit-text-stroke: 1px black; /* Smooth black outline */
+    text-stroke: 1px black; /* Fallback for non-Webkit browsers */
     position: absolute;
     margin: 0; /* Remove default margin */
 }
@@ -96,11 +117,8 @@ html, body {
     font-size: 1.2rem;
     margin: 10px 0;
     color: white; /* White text */
-    text-shadow: 
-        -1px -1px 0 #000,
-         1px -1px 0 #000,
-        -1px  1px 0 #000,
-         1px  1px 0 #000; /* Smoother outline */
+    -webkit-text-stroke: 0.5px black; /* Thinner outline for sentences */
+    text-stroke: 0.5px black; /* Fallback */
     text-align: center; /* Ensure center alignment */
 }
 
@@ -129,10 +147,14 @@ html, body {
 
     .word {
         font-size: 1.5rem; /* Smaller word size on mobile */
+        -webkit-text-stroke: 0.8px black; /* Slightly thinner stroke on mobile */
+        text-stroke: 0.8px black;
     }
 
     .sentence {
         font-size: 1.1rem; /* Slightly smaller sentences on mobile */
+        -webkit-text-stroke: 0.4px black; /* Thinner stroke for sentences */
+        text-stroke: 0.4px black;
     }
 
     .english {
@@ -141,6 +163,10 @@ html, body {
 
     .thai {
         font-size: 1.1rem;
+    }
+
+    #stats-text {
+        font-size: 1.2rem; /* Smaller font for mobile */
     }
 }
 
