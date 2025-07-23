@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const maxVisible = Math.min(cardCount, 3); // Show up to 3 cards for thickness
 
             for (let i = 0; i < maxVisible; i++) {
-                const card = document.createElement('div');
+                const card = document.create Experiencing an issue? Let us know at support@x.ai.createElement('div');
                 card.className = 'card';
                 card.innerHTML = `<h2>${word}</h2>`;
                 deck.appendChild(card);
@@ -55,19 +55,43 @@ document.addEventListener('DOMContentLoaded', () => {
             deck.addEventListener('click', () => {
                 currentDeck = decks[word];
                 currentIndex = 0;
+
+                // Fade other decks
                 deckSelection.querySelectorAll('.deck').forEach(d => {
                     if (d !== deck) d.classList.add('fade');
                 });
-                deck.style.transition = 'transform 0.5s, opacity 0.5s';
-                deck.style.transform = 'scale(2) translate(-50%, -50%)';
-                deck.style.position = 'fixed';
-                deck.style.left = '50%';
-                deck.style.top = '50%';
+
+                // Get the top card of the selected deck
+                const topCard = deck.querySelector('.card');
+                const cardRect = topCard.getBoundingClientRect();
+                const targetRect = cardContainer.getBoundingClientRect();
+
+                // Calculate the scale and translation needed
+                const scaleX = targetRect.width / cardRect.width;
+                const scaleY = targetRect.height / cardRect.height;
+                const translateX = (targetRect.left - cardRect.left) / scaleX;
+                const translateY = (targetRect.top - cardRect.top) / scaleY;
+
+                // Apply animation to the top card to morph into the study card
+                topCard.style.transition = 'transform 1s, width 1s, height 1s, border 1s, border-radius 1s, box-shadow 1s';
+                topCard.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY})`;
+                topCard.style.width = '300px';
+                topCard.style.height = '450px';
+                topCard.style.border = '12px solid white';
+                topCard.style.borderRadius = '16px';
+                topCard.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.3)';
+
+                // After animation, switch to card view
                 setTimeout(() => {
                     deckSelection.style.display = 'none';
                     cardView.style.display = 'flex';
+                    topCard.style.transition = 'none';
+                    topCard.style.transform = 'none';
+                    topCard.style.width = '100%';
+                    topCard.style.height = '100%';
+                    topCard.remove();
                     displayCard();
-                }, 500);
+                }, 1000);
             });
             deckSelection.appendChild(deck);
         });
