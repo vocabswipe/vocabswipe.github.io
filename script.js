@@ -97,6 +97,16 @@ document.getElementById('vocab-card').addEventListener('click', (e) => {
     audio.play().catch(error => console.error('Error playing audio:', error));
 });
 
+// Play audio on touch for mobile compatibility
+document.getElementById('vocab-card').addEventListener('touchstart', (e) => {
+    // Only play audio if it's a single touch (not a swipe)
+    if (e.touches.length === 1) {
+        e.preventDefault(); // Prevent default to avoid conflicts
+        const audio = document.getElementById('card-audio');
+        audio.play().catch(error => console.error('Error playing audio:', error));
+    }
+});
+
 // Swipe detection
 let touchStartX = 0;
 let touchStartY = 0;
@@ -105,9 +115,10 @@ let touchEndY = 0;
 const minSwipeDistance = 50;
 
 document.getElementById('vocab-card').addEventListener('touchstart', (e) => {
-    e.preventDefault(); // Prevent browser refresh on swipe down
-    touchStartX = e.changedTouches[0].screenX;
-    touchStartY = e.changedTouches[0].screenY;
+    if (e.touches.length === 1) { // Ensure single touch for swipe
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+    }
 });
 
 document.getElementById('vocab-card').addEventListener('touchend', (e) => {
