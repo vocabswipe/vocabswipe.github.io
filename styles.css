@@ -1,156 +1,82 @@
+/* Reset default styles and prevent scrolling */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    font-family: 'Noto Sans', sans-serif;
-    overflow: auto; /* Allow scrolling initially */
-}
-
-.card-grid {
-    display: grid;
-    gap: 10px;
-    padding: 10px;
+html, body {
+    height: 100%;
     width: 100%;
-    max-width: 100vw;
-}
-
-.card {
-    width: 120px;
-    aspect-ratio: 2 / 3;
-    border: 8px solid white;
-    border-radius: 12px;
+    overflow: hidden; /* Prevent scrolling */
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    transition: opacity 0.3s ease, transform 0.5s ease, width 0.5s ease, height 0.5s ease;
-    position: relative;
-    overflow: hidden;
+    background-color: #f0f0f0; /* Light gray background */
+    font-family: 'Arial', sans-serif; /* Fallback font */
 }
 
+/* UNO-inspired card styling */
+.card {
+    width: 80vw; /* Responsive width */
+    max-width: 300px; /* Max width for larger screens */
+    aspect-ratio: 2 / 3; /* UNO card aspect ratio */
+    background-color: #ff5555; /* Default color, will be randomized */
+    border: 10px solid white; /* Thick white border */
+    border-radius: 20px; /* Rounded corners */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    cursor: pointer; /* Indicate tappable */
+    user-select: none; /* Prevent text selection */
+}
+
+/* Card content */
 .card-content {
     text-align: center;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 700;
-    font-family: 'Noto Sans', sans-serif;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7), /* Stronger shadow for readability */
-                 -2px -2px 2px rgba(0, 0, 0, 0.7),
-                 2px -2px 2px rgba(0, 0, 0, 0.7),
-                 -2px 2px 2px rgba(0, 0, 0, 0.7);
-    -webkit-text-stroke: 0.5px black; /* Thinner stroke for better readability */
-}
-
-.card.back .card-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     padding: 20px;
-    height: 100%;
+    color: white; /* White text */
+    text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000; /* Black outline for text */
 }
 
-.card.back .word {
-    font-size: 1.8rem;
-    font-weight: 700;
-    font-family: 'Noto Sans', sans-serif;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
-    -webkit-text-stroke: 0.5px black;
+/* Word styling */
+.word {
+    font-family: 'Roboto', sans-serif; /* Modern font for English */
+    font-size: 2.5rem; /* Large word */
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-.card.back .english {
+/* Sentence styling */
+.sentence {
     font-size: 1.2rem;
-    font-family: 'Noto Sans', sans-serif;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
-    -webkit-text-stroke: 0.3px black;
+    margin: 10px 0;
 }
 
-.card.back .thai {
-    font-size: 1.2rem;
-    font-family: 'Noto Sans Thai', sans-serif;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
-    -webkit-text-stroke: 0.3px black;
+/* Thai font */
+.thai {
+    font-family: 'Noto Sans Thai', sans-serif; /* Suitable font for Thai */
 }
 
-.card-stack {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 240px;
-    aspect-ratio: 2 / 3;
-    perspective: 1000px;
-}
-
-.card-stack .card {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    transition: transform 0.5s ease, opacity 0.3s ease;
-}
-
-.card-stack .card.active {
-    z-index: 10;
-}
-
-.card-stack .card.next {
-    transform: translateY(10px);
-    z-index: 5;
-}
-
-.card-stack .card.swiped {
-    opacity: 0;
-}
-
-.card-stack .card.swiped-up {
-    transform: translateY(-100vh);
-}
-
-.card-stack .card.swiped-down {
-    transform: translateY(100vh);
-}
-
-.card-stack .card.swiped-left {
-    transform: translateX(-100vw);
-}
-
-.card-stack .card.swiped-right {
-    transform: translateX(100vw);
-}
-
-.card-stack .card.flipped {
-    transform: rotateY(180deg);
-}
-
-.hidden {
-    display: none;
-}
-
+/* Responsive adjustments */
 @media (max-width: 600px) {
     .card {
-        width: 100px;
+        width: 90vw; /* Slightly larger on small screens */
     }
 
-    .card-stack {
-        width: 90vw; /* Almost full width for mobile */
-        height: calc(90vw * 1.5); /* Maintain 2:3 aspect ratio */
+    .word {
+        font-size: 2rem; /* Slightly smaller word on mobile */
     }
 
-    .card.back .word {
-        font-size: 1.5rem;
-    }
-
-    .card.back .english,
-    .card.back .thai {
-        font-size: 1rem;
+    .sentence {
+        font-size: 1rem; /* Smaller sentences on mobile */
     }
 }
+
+/* Ensure fonts are loaded */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Noto+Sans+Thai:wght@400&display=swap');
