@@ -83,6 +83,23 @@ html, body {
     z-index: 10; /* Top card on top */
 }
 
+/* Glowing effect for card tap */
+.glow {
+    animation: glow 0.6s ease-in-out 2; /* Two pulses, 0.6s each */
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Original shadow */
+    }
+    50% {
+        box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.7); /* Gold glow */
+    }
+    100% {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Back to original */
+    }
+}
+
 /* Next card styling */
 #next-card {
     z-index: 9; /* Below top card but above stack */
@@ -120,7 +137,7 @@ html, body {
 
 /* Card content */
 .card-content {
-    position: relative; /* Enable absolute positioning for words */
+    position: relative; /* Enable absolute positioning for words and hand point */
     width: 100%;
     height: 100%;
     padding: 15px;
@@ -128,6 +145,85 @@ html, body {
     flex-direction: column;
     justify-content: center; /* Center sentences vertically */
     align-items: center; /* Center sentences horizontally */
+}
+
+/* Hand point styling for mobile */
+.hand-point {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11; /* Above card content */
+    opacity: 0; /* Initially hidden */
+}
+
+.hand-point.tap-animation {
+    animation: tap 0.6s ease-in-out 2; /* Two pulses, matches glow */
+}
+
+@keyframes tap {
+    0% {
+        transform: translate(-50%, 50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, 50%) scale(0.8); /* Press effect */
+    }
+    100% {
+        transform: translate(-50%, 50%) scale(1);
+    }
+}
+
+/* Arrow and spacebar styling for PC */
+.arrow, .spacebar {
+    position: absolute;
+    z-index: 11; /* Above card content */
+    opacity: 0; /* Initially hidden */
+}
+
+.arrow-left {
+    width: 40px;
+    height: 40px;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.arrow-right {
+    width: 40px;
+    height: 40px;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.arrow-up {
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.arrow-down {
+    width: 40px;
+    height: 40px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.spacebar {
+    width: 80px;
+    height: 40px;
+    bottom: -50px; /* Below card */
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.spacebar.tap-animation {
+    animation: tap 0.6s ease-in-out 2; /* Two pulses, matches glow */
 }
 
 /* Word styling for poker card */
@@ -249,6 +345,23 @@ html, body {
 
     .website-slogan {
         font-size: 1rem;
+    }
+
+    .hand-point {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Hide PC-specific SVGs on mobile */
+    .arrow, .spacebar {
+        display: none;
+    }
+}
+
+/* Show PC-specific SVGs only on desktop */
+@media (min-width: 601px) {
+    .hand-point {
+        display: none; /* Hide hand point on PC */
     }
 }
 
