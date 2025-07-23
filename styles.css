@@ -44,12 +44,12 @@ html, body {
     width: 100%;
     height: 100%;
     background-color: #ff5555; /* Default color, will be randomized */
-    border: 10px solid white; /* Thick white border */
-    border-radius: 20px; /* Rounded corners */
+    border: 12px solid white; /* Thicker white border for printed look */
+    border-radius: 24px; /* Slightly larger rounded corners */
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Deeper shadow for depth */
     cursor: pointer; /* Indicate tappable */
     user-select: none; /* Prevent text selection */
     position: absolute;
@@ -75,18 +75,21 @@ html, body {
     align-items: center; /* Center sentences horizontally */
 }
 
-/* Word styling with thick white text and black outline */
+/* Word styling with thick white text and smooth black outline */
 .word {
     font-family: 'Inter', sans-serif; /* Consistent font */
-    font-size: 1.8rem; /* Adjusted size for corner placement */
-    font-weight: 900; /* Extra bold for thicker appearance */
+    font-size: 1.9rem; /* Slightly larger for prominence */
+    font-weight: 900; /* Extra bold for thick text */
     color: white; /* Thick white text */
-    -webkit-text-stroke: 2px black; /* Thicker black outline */
     text-shadow:
         -2px -2px 0 #000,
          2px -2px 0 #000,
         -2px  2px 0 #000,
-         2px  2px 0 #000; /* Thicker shadow for smooth outline */
+         2px  2px 0 #000,
+        -1.5px -1.5px 0 #000,
+         1.5px -1.5px 0 #000,
+        -1.5px  1.5px 0 #000,
+         1.5px  1.5px 0 #000; /* Multi-layered shadow for smooth, thick outline */
     position: absolute;
     margin: 0; /* Remove default margin */
 }
@@ -102,24 +105,27 @@ html, body {
     right: 20px; /* Equal distance from bottom and right edges */
 }
 
-/* Sentence styling with thick white text and black outline */
+/* Sentence styling with thick white text and smooth black outline */
 .sentence {
-    font-size: 1.2rem;
+    font-size: 1.25rem; /* Slightly larger for clarity */
     margin: 10px 0;
     color: white; /* Thick white text */
-    -webkit-text-stroke: 1.5px black; /* Thicker black outline */
     text-shadow:
         -1.5px -1.5px 0 #000,
          1.5px -1.5px 0 #000,
         -1.5px  1.5px 0 #000,
-         1.5px  1.5px 0 #000; /* Thicker shadow for smooth outline */
+         1.5px  1.5px 0 #000,
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000; /* Multi-layered shadow for smooth, thick outline */
     text-align: center; /* Ensure center alignment */
 }
 
 /* English sentence font */
 .english {
     font-family: 'Inter', sans-serif; /* Consistent font */
-    font-weight: 900; /* Extra bold for thicker appearance */
+    font-weight: 900; /* Extra bold for thick text */
     font-size: 1.3rem; /* Slightly larger for clarity */
     line-height: 1.4; /* Improved spacing */
 }
@@ -127,7 +133,7 @@ html, body {
 /* Thai sentence font */
 .thai {
     font-family: 'Noto Sans Thai', sans-serif; /* Optimized font for Thai */
-    font-weight: 900; /* Extra bold for thicker appearance */
+    font-weight: 900; /* Extra bold for thick text */
     font-size: 1.3rem; /* Slightly larger for clarity */
     line-height: 1.6; /* Extra spacing for Thai characters */
 }
@@ -145,38 +151,44 @@ html, body {
 
     .word {
         font-family: 'Inter', sans-serif; /* Consistent font */
-        font-size: 1.5rem; /* Smaller word size on mobile */
-        font-weight: 900; /* Extra bold for thicker appearance */
+        font-size: 1.6rem; /* Slightly smaller for mobile */
+        font-weight: 900; /* Extra bold for thick text */
         color: white; /* Thick white text */
-        -webkit-text-stroke: 1.5px black; /* Slightly thinner but still thick outline for mobile */
         text-shadow:
             -1.5px -1.5px 0 #000,
              1.5px -1.5px 0 #000,
             -1.5px  1.5px 0 #000,
-             1.5px  1.5px 0 #000; /* Adjusted shadow for mobile */
+             1.5px  1.5px 0 #000,
+            -1px -1px 0 #000,
+             1px -1px 0 #000,
+            -1px  1px 0 #000,
+             1px  1px 0 #000; /* Slightly thinner but smooth outline for mobile */
     }
 
     .sentence {
-        font-size: 1.1rem; /* Slightly smaller sentences on mobile */
+        font-size: 1.15rem; /* Slightly smaller for mobile */
         color: white; /* Thick white text */
-        -webkit-text-stroke: 1.2px black; /* Slightly thinner but still thick outline for mobile */
         text-shadow:
             -1.2px -1.2px 0 #000,
              1.2px -1.2px 0 #000,
             -1.2px  1.2px 0 #000,
-             1.2px  1.2px 0 #000; /* Adjusted shadow for mobile */
+             1.2px  1.2px 0 #000,
+            -0.8px -0.8px 0 #000,
+             0.8px -0.8px 0 #000,
+            -0.8px  0.8px 0 #000,
+             0.8px  0.8px 0 #000; /* Slightly thinner but smooth outline for mobile */
     }
 
     .english {
         font-family: 'Inter', sans-serif; /* Consistent font */
-        font-weight: 900; /* Extra bold for thicker appearance */
-        font-size: 1.1rem;
+        font-weight: 900; /* Extra bold for thick text */
+        font-size: 1.15rem;
     }
 
     .thai {
         font-family: 'Noto Sans Thai', sans-serif; /* Consistent font */
-        font-weight: 900; /* Extra bold for thicker appearance */
-        font-size: 1.1rem;
+        font-weight: 900; /* Extra bold for thick text */
+        font-size: 1.15rem;
     }
 }
 
