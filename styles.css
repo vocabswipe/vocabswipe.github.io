@@ -10,7 +10,7 @@ html, body {
     width: 100%;
     overflow: hidden; /* Prevent scrolling */
     display: flex;
-    flex-direction: column; /* Stack icon panel, counter, and card vertically */
+    flex-direction: column; /* Stack icon panel, counter, card, and website info vertically */
     justify-content: center;
     align-items: center;
     background-color: #35654d; /* Poker table green */
@@ -173,6 +173,26 @@ html, body {
     line-height: 1.5; /* Extra spacing for Thai characters */
 }
 
+/* Website name and slogan styling */
+.website-info {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.website-name {
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem; /* Matches 40px at canvas scale */
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.website-slogan {
+    font-family: Arial, sans-serif;
+    font-size: 1.125rem; /* Matches 30px at canvas scale */
+    font-weight: bold;
+    color: #ffffff;
+}
+
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .card-container {
@@ -221,6 +241,14 @@ html, body {
     .share-icon {
         width: 25px;
         height: 25px;
+    }
+
+    .website-name {
+        font-size: 1.3rem;
+    }
+
+    .website-slogan {
+        font-size: 1rem;
     }
 }
 
