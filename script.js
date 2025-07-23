@@ -4,24 +4,41 @@ let vocabData = [];
 // UNO-inspired colors
 const colors = ['#ff5555', '#55ff55', '#5555ff', '#ffff55']; // Red, Green, Blue, Yellow
 
+// Swipe counter
+let swipeCount = 0;
+let lastResetDate = localStorage.getItem('lastResetDate') || '';
+const today = new Date().toISOString().split('T')[0]; // Current date (YYYY-MM-DD)
+
+// Reset swipe count if it's a new day
+if (lastResetDate !== today) {
+    swipeCount = 0;
+    localStorage.setItem('swipeCount', swipeCount);
+    localStorage.setItem('lastResetDate', today);
+} else {
+    swipeCount = parseInt(localStorage.getItem('swipeCount') || '0');
+}
+
+// Update swipe counter display
+function updateSwipeCounter() {
+    document.getElementById('swipe-counter').textContent = `${swipeCount} cards swiped`;
+}
+
 // Function to fetch and parse JSONL file
 async function loadVocabData() {
     try {
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
         vocabData = text.trim().split('\n').map(line => JSON.parse(line));
-        // Update statistics display
-        document.getElementById('stats-text').textContent = `${vocabData.length} cards available and growing!`;
         // Shuffle the array
         vocabData = vocabData.sort(() => Math.random() - 0.5);
         displayRandomCard();
+        updateSwipeCounter();
     } catch (error) {
         console.error('Error loading database:', error);
         document.getElementById('word-top').textContent = 'Error';
         document.getElementById('word-bottom').textContent = 'Error';
         document.getElementById('english').textContent = 'Failed to load data';
         document.getElementById('thai').textContent = '';
-        document.getElementById('stats-text').textContent = 'Failed to load statistics';
     }
 }
 
@@ -87,6 +104,11 @@ function moveToNextCard(direction) {
     card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
     card.style.transform = `translate(${translateX}, ${translateY}) rotate(${rotate}deg)`;
     card.style.opacity = '0';
+
+    // Increment swipe count and update storage
+    swipeCount++;
+    localStorage.setItem('swipeCount', swipeCount);
+    updateSwipeCounter();
 
     // Move to next card after animation
     setTimeout(() => {
