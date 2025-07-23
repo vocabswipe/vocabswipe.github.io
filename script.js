@@ -1,9 +1,6 @@
 // Array to hold vocabulary entries
 let vocabData = [];
 
-// Poker card text colors
-const textColors = ['#ff0000', '#000000']; // Red, Black
-
 // Swipe counter
 let swipeCount = 0;
 let lastResetDate = localStorage.getItem('lastResetDate') || '';
@@ -73,12 +70,11 @@ function displayCards() {
         thaiElement.textContent = entry.thai;
         audioElement.src = `data/${entry.audio}`;
 
-        // Randomize text color
-        const randomColor = textColors[Math.floor(Math.random() * textColors.length)];
-        wordTopElement.style.color = randomColor;
-        wordBottomElement.style.color = randomColor;
-        englishElement.style.color = randomColor;
-        thaiElement.style.color = randomColor;
+        // Set text color to black
+        wordTopElement.style.color = '#000000';
+        wordBottomElement.style.color = '#000000';
+        englishElement.style.color = '#000000';
+        thaiElement.style.color = '#000000';
 
         // Set card background to white
         currentCard.style.backgroundColor = '#ffffff';
@@ -95,12 +91,11 @@ function displayCards() {
         nextEnglishElement.textContent = nextEntry.english;
         nextThaiElement.textContent = nextEntry.thai;
 
-        // Randomize text color for next card
-        const nextRandomColor = textColors[Math.floor(Math.random() * textColors.length)];
-        nextWordTopElement.style.color = nextRandomColor;
-        nextWordBottomElement.style.color = nextRandomColor;
-        nextEnglishElement.style.color = nextRandomColor;
-        nextThaiElement.style.color = nextRandomColor;
+        // Set text color to black for next card
+        nextWordTopElement.style.color = '#000000';
+        nextWordBottomElement.style.color = '#000000';
+        nextEnglishElement.style.color = '#000000';
+        nextThaiElement.style.color = '#000000';
 
         // Set next card background to white
         nextCard.style.backgroundColor = '#ffffff';
