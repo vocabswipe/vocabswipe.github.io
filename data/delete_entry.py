@@ -22,7 +22,7 @@ def load_database(file_path):
 def save_database(file_path, data):
     """Save the modified data back to the original JSONL file."""
     with open(file_path, 'w', encoding='utf-8') as file:
-        for entry in data:
+        for entry in file:
             file.write(json.dumps(entry, ensure_ascii=False) + '\n')
 
 def search_entries(data, search_term):
@@ -39,8 +39,13 @@ def detect_unwanted_chars(text):
 
 def detect_english_in_thai(text):
     """Detect if Thai text contains English letters or words."""
+    # Pattern to match any English letters (a-z, A-Z)
     english_pattern = re.compile(r'[a-zA-Z]+')
     return bool(english_pattern.search(text))
+
+def detect_period_in_thai(text):
+    """Detect if Thai text contains the unwanted character '。'."""
+    return '。' in text
 
 def scan_unwanted_entries(data):
     """Scan database for entries with unwanted characters in word, english, or thai fields."""
@@ -72,14 +77,14 @@ def scan_english_in_thai_entries(data):
             english_in_thai_entries.append(entry)
     return english_in_thai_entries
 
-def scan_japanese_period_entries(data):
-    """Scan database for entries where Thai sentence contains the Japanese period '。'."""
-    japanese_period_entries = []
+def scan_period_in_thai_entries(data):
+    """Scan database for entries where Thai sentence contains the character '。'."""
+    period_in_thai_entries = []
     for entry in data:
         thai = entry.get('thai', '')
-        if '。' in thai:
-            japanese_period_entries.append(entry)
-    return japanese_period_entries
+        if detect_period_in_thai(thai):
+            period_in_thai_entries.append(entry)
+    return period_in_thai_entries
 
 def display_entries(entries, title="Matching Entries"):
     """Display numbered list of entries with a given title."""
@@ -102,7 +107,7 @@ def display_menu():
     print("2️⃣ Scan and delete entries with unwanted characters (e.g., Chinese, Russian)")
     print("3️⃣ Scan and delete entries where English sentence does not contain the main word")
     print("4️⃣ Scan and edit/delete entries with English in Thai sentence")
-    print("5️⃣ Scan and edit entries with Japanese period (。) in Thai sentence")
+    print("5️⃣ Scan and edit entries with '。' in Thai sentence")
     print("0️⃣ Exit")
     print("═" * 60)
 
@@ -359,15 +364,15 @@ def handle_english_in_thai(data, database_file):
         print("🚫 Invalid choice. Please select 0, 1, 2, or 3.")
         return False
 
-def handle_japanese_period_edit(data, database_file):
-    """Handle editing of entries with Japanese period (。) in Thai sentence."""
-    japanese_period_entries = scan_japanese_period_entries(data)
-    if not display_entries(japanese_period_entries, "Entries with Japanese Period in Thai Sentence"):
+def handle_period_in_thai(data, database_file):
+    """Handle editing of entries with '。' in Thai sentence by removing the character."""
+    period_in_thai_entries = scan_period_in_thai_entries(data)
+    if not display_entries(period_in_thai_entries, "Entries with '。' in Thai Sentence"):
         return False
 
     print("\n⚙️ Options:")
-    print("1️⃣ Edit a single entry (remove Japanese period)")
-    print("2️⃣ Edit all listed entries (remove Japanese period)")
+    print("1️⃣ Edit a single entry (remove '。')")
+    print("2️⃣ Edit all listed entries (remove '。')")
     print("0️⃣ Cancel")
     choice = input("\n➡️ Enter your choice (0-2): ").strip()
 
@@ -376,13 +381,17 @@ def handle_japanese_period_edit(data, database_file):
         return False
     elif choice == '2':
         confirm = input("\n❓ Are you sure you want to edit ALL listed entries to remove '。'? (y/n): ").strip().lower()
-        if confirm != 'y dív() {
-            print("ℹ️ Edit cancelled.")
+        if confirm != 'y':
+            print("ℹ️ Update cancelled.")
             return False
-        for entry in data:
-            if '。' in entry['thai']:
-                entry['thai'] = entry['thai'].replace('。', '')
-        print("\n✅ All listed entries edited successfully.")
+        for entry in period_in_thai_entries:
+            for data_entry in data:
+                if (data_entry['word'] == entry['word'] and 
+                    data_entry['english'] == entry['english'] and 
+                    data_entry['thai'] == entry['thai']):
+                    data_entry['thai'] = data_entry['thai'].replace('。', '')
+                    break
+        print("\n✅ All listed entries updated successfully.")
         save_database(database_file, data)
         print(f"💾 Database updated and saved to '{database_file}'.")
         return True
@@ -392,14 +401,14 @@ def handle_japanese_period_edit(data, database_file):
             if selection == 0:
                 print("ℹ️ Operation cancelled.")
                 return False
-            if selection < 1 or selection > len(japanese_period_entries):
+            if selection < 1 or selection > len(period_in_thai_entries):
                 print("🚫 Error: Invalid selection.")
                 return False
         except ValueError:
             print("🚫 Error: Please enter a valid number.")
             return False
 
-        selected_entry = japanese_period_entries[selection - 1]
+        selected_entry = period_in_thai_entries[selection - 1]
         print("\n📋 Selected entry:")
         print("═" * 60)
         print(f"Word: {selected_entry['word']}")
@@ -410,7 +419,7 @@ def handle_japanese_period_edit(data, database_file):
 
         confirm = input("\n❓ Are you sure you want to update this entry? (y/n): ").strip().lower()
         if confirm != 'y':
-            print("ℹ️ Edit cancelled.")
+            print("ℹ️ Update cancelled.")
             return False
 
         # Update the entry
@@ -455,7 +464,7 @@ def main():
         elif choice == '4':
             handle_english_in_thai(data, database_file)
         elif choice == '5':
-            handle_japanese_period_edit(data, database_file)
+            handle_period_in_thai(data, database_file)
         else:
             print("🚫 Invalid choice. Please select 0, 1, 2, 3, 4, or 5.")
 
