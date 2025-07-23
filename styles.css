@@ -1,6 +1,10 @@
-body {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     display: flex;
@@ -10,150 +14,105 @@ body {
     overflow: auto;
 }
 
-#deck-selection {
+.word-selection {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
     padding: 20px;
-    position: relative;
-    z-index: 1;
 }
 
-.deck {
-    position: relative;
-    width: 120px;
-    height: 180px;
-    perspective: 1000px;
-    cursor: pointer;
-    transition: opacity 1s, transform 1s;
-}
-
-.deck.fade {
-    opacity: 0.3;
-}
-
-.deck .card {
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 100%;
-    background: #2196F3;
-    border: 8px solid white;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    transform-style: preserve-3d;
-}
-
-.deck .card h2 {
-    color: white;
-    font-size: 24px;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    margin: 0;
-}
-
-.deck .card:nth-child(2) {
-    transform: translateZ(-2px) scale(0.98);
-}
-
-.deck .card:nth-child(3) {
-    transform: translateZ(-4px) scale(0.96);
-}
-
-#card-view {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.1);
-    z-index: 2;
-}
-
-#card-container {
-    perspective: 1000px;
-    width: 300px;
-    height: 450px;
+    position: relative;
 }
 
 .card {
+    background-color: white;
+    border: 8px solid white;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.5s ease, opacity 0.5s ease;
     width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.6s;
-    background: white;
-    border: 12px solid white;
-    border-radius: 16px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-.card.flipped {
-    transform: rotateY(180deg);
-}
-
-.card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
+    max-width: 300px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
+    position: absolute;
 }
 
-.card-front {
-    background: #2196F3;
+.word-card {
+    width: 120px;
+    height: 160px;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
-.card-back {
-    background: #4CAF50;
-    transform: rotateY(180deg);
-    text-align: center;
+.study-card {
+    max-width: 90%;
+    width: 350px;
+    height: 500px;
 }
 
-.card h2 {
-    color: white;
-    font-size: 36px;
-    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
-    margin: 0 0 20px 0;
+.study-card h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
 }
 
-.card p {
-    color: white;
-    font-size: 24px;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+.study-card p {
+    font-size: 1.2em;
     margin: 10px 0;
 }
 
+.hidden {
+    display: none;
+}
+
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.scale-up {
+    transform: scale(1.2) translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.swipe-left {
+    transform: translateX(-100vw);
+}
+
+.swipe-right {
+    transform: translateX(100vw);
+}
+
 @media (max-width: 600px) {
-    #card-container {
-        width: 80vw;
-        height: 120vw;
+    .word-card {
+        width: 100px;
+        height: 140px;
+        font-size: 1em;
     }
 
-    .deck {
-        width: 80px;
-        height: 120px;
+    .study-card {
+        width: 90%;
+        height: 450px;
     }
 
-    .deck .card h2 {
-        font-size: 18px;
+    .study-card h2 {
+        font-size: 1.5em;
     }
 
-    .card h2 {
-        font-size: 24px;
-    }
-
-    .card p {
-        font-size: 18px;
+    .study-card p {
+        font-size: 1em;
     }
 }
