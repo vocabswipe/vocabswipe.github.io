@@ -15,8 +15,8 @@ async function loadVocabData() {
         displayRandomCard();
     } catch (error) {
         console.error('Error loading database:', error);
-        document.getElementById('word-top-left').textContent = 'Error';
-        document.getElementById('word-bottom-right').textContent = 'Error';
+        document.getElementById('word-top').textContent = 'Error';
+        document.getElementById('word-bottom').textContent = 'Error';
         document.getElementById('english').textContent = 'Failed to load data';
         document.getElementById('thai').textContent = '';
     }
@@ -31,15 +31,15 @@ function displayRandomCard() {
 
     const entry = vocabData[currentIndex];
     const card = document.getElementById('vocab-card');
-    const wordTopLeftElement = document.getElementById('word-top-left');
-    const wordBottomRightElement = document.getElementById('word-bottom-right');
+    const wordTopElement = document.getElementById('word-top');
+    const wordBottomElement = document.getElementById('word-bottom');
     const englishElement = document.getElementById('english');
     const thaiElement = document.getElementById('thai');
     const audioElement = document.getElementById('card-audio');
 
     // Update card content
-    wordTopLeftElement.textContent = entry.word;
-    wordBottomRightElement.textContent = entry.word;
+    wordTopElement.textContent = entry.word;
+    wordBottomElement.textContent = entry.word;
     englishElement.textContent = entry.english;
     thaiElement.textContent = entry.thai;
     audioElement.src = `data/${entry.audio}`;
