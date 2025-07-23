@@ -231,9 +231,9 @@ document.getElementById('share-icon').addEventListener('click', () => {
     captureSnapshot();
 });
 
-// Function to capture snapshot of card deck
+// Function to capture snapshot of top card only
 function captureSnapshot() {
-    const cardContainer = document.getElementById('card-container');
+    const topCard = document.getElementById('vocab-card');
     const canvas = document.getElementById('snapshot-canvas');
     const ctx = canvas.getContext('2d');
 
@@ -245,30 +245,21 @@ function captureSnapshot() {
     ctx.fillStyle = '#35654d';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Calculate scaling and positioning to center the card deck
-    const cardWidth = cardContainer.offsetWidth;
-    const cardHeight = cardContainer.offsetHeight;
+    // Calculate scaling and positioning to center the top card
+    const cardWidth = topCard.offsetWidth;
+    const cardHeight = topCard.offsetHeight;
     const scale = Math.min((canvas.width * 0.8) / cardWidth, (canvas.height * 0.6) / cardHeight); // Fit within 80% width, 60% height
     const scaledWidth = cardWidth * scale;
     const scaledHeight = cardHeight * scale;
     const offsetX = (canvas.width - scaledWidth) / 2;
     const offsetY = (canvas.height - scaledHeight) / 2;
 
-    // Ensure card container is fully visible before capturing
-    cardContainer.style.opacity = '1';
-    
-    // Use html2canvas to capture the entire card container, including stacked cards
-    html2canvas(cardContainer, {
-        backgroundColor: null, // Transparent background to preserve poker table green
-        scale: scale, // Apply scaling for high-quality rendering
-        useCORS: true, // Enable CORS for external resources (if any)
-        logging: false, // Disable logging for performance
-        ignoreElements: (element) => {
-            // Exclude elements outside card-container if needed (none in this case)
-            return false;
-        }
+    // Use html2canvas to capture only the top card
+    html2canvas(topCard, {
+        backgroundColor: null, // Transparent background
+        scale: scale
     }).then(cardCanvas => {
-        // Draw card deck on canvas, preserving 3D effect
+        // Draw top card on canvas
         ctx.drawImage(cardCanvas, offsetX, offsetY, scaledWidth, scaledHeight);
 
         // Add website URL and slogan
@@ -301,9 +292,6 @@ function captureSnapshot() {
                 alert('Sharing not supported. Image downloaded instead.');
             }
         }, 'image/png');
-    }).catch(error => {
-        console.error('Error capturing snapshot:', error);
-        alert('Failed to capture snapshot.');
     });
 }
 
@@ -313,7 +301,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load html2canvas dynamically
     const script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
-    script.onload = () => console.log('html2canvas loaded');
-    script.onerror = () => console.error('Failed to load html2canvas');
     document.head.appendChild(script);
 });
