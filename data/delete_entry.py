@@ -22,7 +22,7 @@ def load_database(file_path):
 def save_database(file_path, data):
     """Save the modified data back to the original JSONL file."""
     with open(file_path, 'w', encoding='utf-8') as file:
-        for entry in file:
+        for entry in data:
             file.write(json.dumps(entry, ensure_ascii=False) + '\n')
 
 def search_entries(data, search_term):
@@ -107,7 +107,7 @@ def display_menu():
     print("2️⃣ Scan and delete entries with unwanted characters (e.g., Chinese, Russian)")
     print("3️⃣ Scan and delete entries where English sentence does not contain the main word")
     print("4️⃣ Scan and edit/delete entries with English in Thai sentence")
-    print("5️⃣ Scan and edit entries with '。' in Thai sentence")
+    print("5️⃣ Scan and delete entries with '。' in Thai sentence")
     print("0️⃣ Exit")
     print("═" * 60)
 
@@ -364,15 +364,15 @@ def handle_english_in_thai(data, database_file):
         print("🚫 Invalid choice. Please select 0, 1, 2, or 3.")
         return False
 
-def handle_period_in_thai(data, database_file):
-    """Handle editing of entries with '。' in Thai sentence by removing the character."""
+def handle_period_in_thai_delete(data, database_file):
+    """Handle deletion of entries with '。' in Thai sentence."""
     period_in_thai_entries = scan_period_in_thai_entries(data)
     if not display_entries(period_in_thai_entries, "Entries with '。' in Thai Sentence"):
         return False
 
-    print("\n⚙️ Options:")
-    print("1️⃣ Edit a single entry (remove '。')")
-    print("2️⃣ Edit all listed entries (remove '。')")
+    print("\n🗑️ Delete options:")
+    print("1️⃣ Delete a single entry")
+    print("2️⃣ Delete all listed entries")
     print("0️⃣ Cancel")
     choice = input("\n➡️ Enter your choice (0-2): ").strip()
 
@@ -380,24 +380,19 @@ def handle_period_in_thai(data, database_file):
         print("ℹ️ Operation cancelled.")
         return False
     elif choice == '2':
-        confirm = input("\n❓ Are you sure you want to edit ALL listed entries to remove '。'? (y/n): ").strip().lower()
+        confirm = input("\n❓ Are you sure you want to delete ALL listed entries? (y/n): ").strip().lower()
         if confirm != 'y':
-            print("ℹ️ Update cancelled.")
+            print("ℹ️ Deletion cancelled.")
             return False
         for entry in period_in_thai_entries:
-            for data_entry in data:
-                if (data_entry['word'] == entry['word'] and 
-                    data_entry['english'] == entry['english'] and 
-                    data_entry['thai'] == entry['thai']):
-                    data_entry['thai'] = data_entry['thai'].replace('。', '')
-                    break
-        print("\n✅ All listed entries updated successfully.")
+            data.remove(entry)
+        print("\n✅ All listed entries deleted successfully.")
         save_database(database_file, data)
         print(f"💾 Database updated and saved to '{database_file}'.")
         return True
     elif choice == '1':
         try:
-            selection = int(input("\n✏️ Enter the number of the entry to edit (or 0 to cancel): "))
+            selection = int(input("\n✏️ Enter the number of the entry to delete (or 0 to cancel): "))
             if selection == 0:
                 print("ℹ️ Operation cancelled.")
                 return False
@@ -409,28 +404,20 @@ def handle_period_in_thai(data, database_file):
             return False
 
         selected_entry = period_in_thai_entries[selection - 1]
-        print("\n📋 Selected entry:")
+        print("\n🗑️ You selected the following entry for deletion:")
         print("═" * 60)
         print(f"Word: {selected_entry['word']}")
         print(f"English: {selected_entry['english']}")
         print(f"Thai: {selected_entry['thai']}")
-        print(f"Proposed Thai (after removing '。'): {selected_entry['thai'].replace('。', '')}")
         print("═" * 60)
 
-        confirm = input("\n❓ Are you sure you want to update this entry? (y/n): ").strip().lower()
+        confirm = input("\n❓ Are you sure you want to delete this entry? (y/n): ").strip().lower()
         if confirm != 'y':
-            print("ℹ️ Update cancelled.")
+            print("ℹ️ Deletion cancelled.")
             return False
 
-        # Update the entry
-        for entry in data:
-            if (entry['word'] == selected_entry['word'] and 
-                entry['english'] == selected_entry['english'] and 
-                entry['thai'] == selected_entry['thai']):
-                entry['thai'] = entry['thai'].replace('。', '')
-                break
-
-        print("\n✅ Entry updated successfully.")
+        data.remove(selected_entry)
+        print("\n✅ Entry deleted successfully.")
         save_database(database_file, data)
         print(f"💾 Database updated and saved to '{database_file}'.")
         return True
@@ -464,7 +451,7 @@ def main():
         elif choice == '4':
             handle_english_in_thai(data, database_file)
         elif choice == '5':
-            handle_period_in_thai(data, database_file)
+            handle_period_in_thai_delete(data, database_file)
         else:
             print("🚫 Invalid choice. Please select 0, 1, 2, 3, 4, or 5.")
 
