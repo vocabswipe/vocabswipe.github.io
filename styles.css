@@ -83,10 +83,8 @@ html, body {
     font-weight: 800; /* Extra bold for clarity */
     color: white; /* White text */
     text-shadow: 
-        -1px -1px 0 #000, 1px -1px 0 #000,
-        -1px 1px 0 #000, 1px 1px 0 #000,
-        -2px -2px 0 #000, 2px -2px 0 #000,
-        -2px 2px 0 #000, 2px 2px 0 #000; /* Smoother outline with multiple shadows */
+        0 0 2px rgba(0, 0, 0, 0.8), /* Subtle inner shadow */
+        0 0 4px rgba(0, 0, 0, 0.6); /* Slightly broader shadow for smooth outline */
     position: absolute;
     margin: 0; /* Remove default margin */
 }
@@ -108,10 +106,8 @@ html, body {
     margin: 10px 0;
     color: white; /* White text */
     text-shadow: 
-        -1px -1px 0 #000, 1px -1px 0 #000,
-        -1px 1px 0 #000, 1px 1px 0 #000,
-        -2px -2px 0 #000, 2px -2px 0 #000,
-        -2px 2px 0 #000, 2px 2px 0 #000; /* Smoother outline */
+        0 0 2px rgba(0, 0, 0, 0.8), /* Subtle inner shadow */
+        0 0 4px rgba(0, 0, 0, 0.6); /* Slightly broader shadow for smooth outline */
     text-align: center; /* Ensure center alignment */
 }
 
@@ -145,10 +141,16 @@ html, body {
     .word {
         font-family: 'Inter', sans-serif; /* Consistent font */
         font-size: 1.5rem; /* Smaller word size on mobile */
+        text-shadow: 
+            0 0 2px rgba(0, 0, 0, 0.8), 
+            0 0 4px rgba(0, 0, 0, 0.6); /* Consistent outline */
     }
 
     .sentence {
         font-size: 1.1rem; /* Slightly smaller sentences on mobile */
+        text-shadow: 
+            0 0 2px rgba(0, 0, 0, 0.8), 
+            0 0 4px rgba(0, 0, 0, 0.6); /* Consistent outline */
     }
 
     .english {
