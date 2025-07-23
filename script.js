@@ -1,761 +1,180 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const cardDeck = document.getElementById('card-deck');
-  const loadingIndicator = document.getElementById('loading-indicator');
-  const flashcardContainer = document.getElementById('flashcard-container');
-  const flashcard = document.getElementById('flashcard');
-  const cardInner = flashcard.querySelector('.card-inner');
-  const frontWordEl = document.getElementById('front-word');
-  const wordEl = document.getElementById('word');
-  const englishEl = document.getElementById('english');
-  const thaiEl = document.getElementById('thai');
-  const audioErrorEl = document.getElementById('audio-error');
-  const header = document.getElementById('header');
-  const wordCloudIcon = document.getElementById('word-cloud-icon');
-  const donateIcon = document.getElementById('donate-icon');
-  const shareIcon = document.getElementById('share-icon');
-  const donatePopup = document.getElementById('donate-popup');
-  const closePopupIcon = document.getElementById('close-popup-icon');
-  const swipeUpTooltip = document.getElementById('swipe-up-tooltip');
-  const swipeDownTooltip = document.getElementById('swipe-down-tooltip');
-  const tapTooltip = document.getElementById('tap-tooltip');
+// Array to hold vocabulary entries
+let vocabData = [];
 
-  let entries = [];
-  let currentEntries = [];
-  let currentIndex = 0;
-  let touchStartY = 0;
-  let touchEndY = 0;
-  let touchStartTime = 0;
-  let lastSwipeTime = 0;
-  let currentColor = '';
-  let wordColors = new Map();
-  let initialScale = 1;
-  let currentScale = 1;
-  let translateX = 0;
-  let translationY = 0;
-  let isPinching = false;
-  let currentAudio = null;
-  const preloadedAudio = new Set();
-  const CACHE_KEY = 'vocabswipe_data_v1';
-  let wordFreq = {};
-  let wordCaseMap = new Map();
-  let visitCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
-  visitCount += 1;
-  localStorage.setItem('visitCount', visitCount.toString());
+// UNO-inspired colors
+const colors = ['#ff5555', '#55ff55', '#5555ff', '#ffff55']; // Red, Green, Blue, Yellow
 
-  const unoColors = [
-    { bg: '#ff0000' },
-    { bg: '#0000ff' },
-    { bg: '#00ff00' },
-    { bg: '#ffff00' }
-  ];
-
-  function isPC() {
-    return !('ontouchstart' in window || navigator.maxTouchPoints > 0);
-  }
-
-  function escapeHTML(str) {
-    return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
-  }
-
-  function highlightWord(sentence, word) {
-    const escapedSentence = escapeHTML(sentence);
-    const escapedWord = escapeHTML(word);
-    const regex = new RegExp(`\\b\\w*${escapedWord}\\w*\\b(?![^<]*>)`, 'gi');
-    return escapedSentence.replace(regex, `<span class="highlight">$&</span>`);
-  }
-
-  function getConsistentUnoColor(word) {
-    let hash = 0;
-    for (let i = 0; i < word.length; i++) {
-      hash = word.charCodeAt(i) + ((hash << 5) - hash);
+// Function to fetch and parse JSONL file
+async function loadVocabData() {
+    try {
+        const response = await fetch('data/database.jsonl');
+        const text = await response.text();
+        vocabData = text.trim().split('\n').map(line => JSON.parse(line));
+        // Shuffle the array
+        vocabData = vocabData.sort(() => Math.random() - 0.5);
+        displayRandomCard();
+    } catch (error) {
+        console.error('Error loading database:', error);
+        document.getElementById('word').textContent = 'Error';
+        document.getElementById('english').textContent = 'Failed to load data';
+        document.getElementById('thai').textContent = '';
     }
-    const index = Math.abs(hash) % unoColors.length;
-    if (word.toLowerCase() === 'money') {
-      return unoColors[3];
-    }
-    return unoColors[index];
-  }
+}
 
-  function adjustWordSize(word, element, maxWidth, isMiniCard = false) {
-    const baseFontSize = isMiniCard ? 1 : 2;
-    element.style.fontSize = `${baseFontSize}rem`;
-    element.style.whiteSpace = 'nowrap';
-    element.textContent = word;
-    let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
-    const padding = isMiniCard ? 5 : 10;
+// Current card index
+let currentIndex = 0;
 
-    while (element.scrollWidth > maxWidth - padding && fontSize > (isMiniCard ? 0.5 : 0.8)) {
-      fontSize -= 0.05;
-      element.style.fontSize = `${fontSize}rem`;
+// Function to display the current card
+function displayRandomCard() {
+    if (vocabData.length === 0 || currentIndex >= vocabData.length) return;
+
+    const entry = vocabData[currentIndex];
+    const card = document.getElementById('vocab-card');
+    const wordElement = document.getElementById('word');
+    const englishElement = document.getElementById('english');
+    const thaiElement = document.getElementById('thai');
+    const audioElement = document.getElementById('card-audio');
+
+    // Update card content
+    wordElement.textContent = entry.word;
+    englishElement.textContent = entry.english;
+    thaiElement.textContent = entry.thai;
+    audioElement.src = `data/${entry.audio}`;
+
+    // Randomize card background color
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    card.style.backgroundColor = randomColor;
+
+    // Reset card position and opacity
+    card.style.transform = 'translate(0, 0) rotate(0deg)';
+    card.style.opacity = '1';
+}
+
+// Function to animate and move to next card
+function moveToNextCard(direction) {
+    const card = document.getElementById('vocab-card');
+    let translateX = 0;
+    let translateY = 0;
+    let rotate = 0;
+
+    // Determine animation based on swipe direction
+    switch (direction) {
+        case 'left':
+            translateX = '-100vw';
+            rotate = -15;
+            break;
+        case 'right':
+            translateX = '100vw';
+            rotate = 15;
+            break;
+        case 'up':
+            translateY = '-100vh';
+            rotate = -10;
+            break;
+        case 'down':
+            translateY = '100vh';
+            rotate = 10;
+            break;
     }
 
-    if (isMiniCard) {
-      const flashcardWidth = 210;
-      const miniCardWidth = 105;
-      const scaleRatio = miniCardWidth / flashcardWidth;
-      const targetFontSize = fontSize * scaleRatio;
-      element.style.fontSize = `${Math.max(targetFontSize, 0.5)}rem`;
-    }
-  }
+    // Animate card out
+    card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+    card.style.transform = `translate(${translateX}, ${translateY}) rotate(${rotate}deg)`;
+    card.style.opacity = '0';
 
-  function stopAudio() {
-    if (currentAudio) {
-      currentAudio.pause();
-      currentAudio.currentTime = 0;
-      currentAudio = null;
-    }
-    audioErrorEl.style.display = 'none';
-  }
-
-  function preloadAudio(index) {
-    const range = 10;
-    const start = Math.max(0, index - range);
-    const end = Math.min(currentEntries.length - 1, index + range);
-
-    for (let i = start; i <= end; i++) {
-      if (i !== index && currentEntries[i].audio) {
-        const audioUrl = `/data/${currentEntries[i].audio}`;
-        if (!preloadedAudio.has(audioUrl)) {
-          console.log(`Preloading audio: ${audioUrl}`);
-          const audio = new Audio(audioUrl);
-          audio.preload = 'auto';
-          audio.load();
-          preloadedAudio.add(audioUrl);
-        }
-      }
-    }
-  }
-
-  function playAudio(audioUrl) {
-    stopAudio();
-    console.log(`Attempting to play audio: ${audioUrl}`);
-    currentAudio = new Audio(audioUrl);
+    // Move to next card after animation
     setTimeout(() => {
-      currentAudio.play().then(() => {
-        console.log('Audio playing successfully');
-        audioErrorEl.style.display = 'none';
-      }).catch(e => {
-        console.error('Error playing audio:', e);
-        audioErrorEl.textContent = 'Failed to play audio: ' + e.message;
-        audioErrorEl.style.display = 'block';
-        setTimeout(() => audioErrorEl.style.display = 'none', 2000);
-      });
+        currentIndex = (currentIndex + 1) % vocabData.length;
+        displayRandomCard();
+        card.style.transition = 'none'; // Reset transition for next card
     }, 500);
-  }
+}
 
-  function showDonatePopup() {
-    donatePopup.style.display = 'flex';
-    flashcardContainer.style.filter = 'blur(5px)';
-    header.style.filter = 'blur(5px)';
-    document.body.style.overflow = 'hidden';
-  }
+// Touch handling for tap vs swipe
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let touchStartTime = 0;
+const minSwipeDistance = 50; // Minimum distance for a swipe (pixels)
+const maxTapDistance = 10; // Maximum distance for a tap (pixels)
+const maxTapDuration = 300; // Maximum duration for a tap (milliseconds)
 
-  function hideDonatePopup() {
-    donatePopup.style.display = 'none';
-    flashcardContainer.style.filter = 'none';
-    header.style.filter = 'none';
-    document.body.style.overflow = 'hidden';
-  }
-
-  donatePopup.addEventListener('click', e => {
-    if (e.target === donatePopup) {
-      hideDonatePopup();
+document.getElementById('vocab-card').addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) { // Ensure single touch
+        e.preventDefault(); // Prevent default behaviors
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+        touchStartTime = Date.now();
     }
-  });
-
-  donateIcon.addEventListener('click', () => {
-    showDonatePopup();
-  });
-
-  closePopupIcon.addEventListener('click', () => {
-    hideDonatePopup();
-  });
-
-  shareIcon.addEventListener('click', async () => {
-    try {
-      const canvas = await html2canvas(flashcardContainer, {
-        width: flashcardContainer.offsetWidth,
-        height: flashcardContainer.offsetHeight,
-        scale: window.devicePixelRatio || 2,
-        backgroundColor: '#000000',
-        useCORS: true,
-      });
-
-      const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
-
-      const file = new File([blob], 'vocabswipe_card.png', { type: 'image/png' });
-
-      const shareData = {
-        files: [file],
-        title: 'VocabSwipe - Learn English Vocabulary',
-        text: `Check out this word from VocabSwipe! Visit VocabSwipe.com #VocabSwipe #LearnEnglish`,
-        url: 'https://vocabswipe.com',
-      };
-
-      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-        await navigator.share(shareData);
-        console.log('Shared successfully via Web Share API');
-        audioErrorEl.textContent = 'Shared successfully!';
-        audioErrorEl.style.color = '#00ff88';
-        audioErrorEl.style.display = 'block';
-        setTimeout(() => {
-          audioErrorEl.style.color = '#ff4081';
-          audioErrorEl.style.display = 'none';
-        }, 2000);
-      } else {
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'vocabswipe_card.png';
-        link.click();
-        URL.revokeObjectURL(url);
-        console.log('Web Share API not available, image downloaded');
-        audioErrorEl.textContent = 'Image downloaded. Share it manually!';
-        audioErrorEl.style.display = 'block';
-        setTimeout(() => {
-          audioErrorEl.style.display = 'none';
-        }, 3000);
-      }
-    } catch (error) {
-      console.error('Error sharing:', error);
-      audioErrorEl.textContent = 'Failed to share: ' + error.message;
-      audioErrorEl.style.display = 'block';
-      setTimeout(() => {
-        audioErrorEl.style.display = 'none';
-      }, 3000);
-    }
-  });
-
-  function showTooltip(tooltip, direction) {
-    const isPc = isPC();
-    const tooltipIcon = tooltip.querySelector('.tooltip-icon');
-    const tooltipText = tooltip.querySelector('.tooltip-text');
-
-    if (isPc) {
-      if (direction === 'up') {
-        tooltipIcon.src = 'arrow-up.svg';
-        tooltipIcon.alt = 'Arrow Up';
-        tooltipText.textContent = 'Press Up Arrow for next card';
-      } else if (direction === 'down') {
-        tooltipIcon.src = 'arrow-down.svg';
-        tooltipIcon.alt = 'Arrow Down';
-        tooltipText.textContent = 'Press Down Arrow for previous card';
-      } else if (direction === 'tap') {
-        tooltipIcon.src = 'spacebar.svg';
-        tooltipIcon.alt = 'Spacebar';
-        tooltipText.textContent = 'Press Spacebar to hear audio';
-      }
-    } else {
-      if (direction === 'up') {
-        tooltipIcon.src = 'swipe-up.svg';
-        tooltipIcon.alt = 'Swipe Up';
-        tooltipText.textContent = 'Swipe up for next card';
-      } else if (direction === 'down') {
-        tooltipIcon.src = 'swipe-down.svg';
-        tooltipIcon.alt = 'Swipe Down';
-        tooltipText.textContent = 'Swipe down for previous card';
-      } else if (direction === 'tap') {
-        tooltipIcon.src = 'tap.svg';
-        tooltipIcon.alt = 'Tap';
-        tooltipText.textContent = 'Tap to hear audio';
-      }
-    }
-
-    header.style.filter = 'blur(5px)';
-    flashcard.style.filter = 'none';
-
-    const flashcardRect = flashcard.getBoundingClientRect();
-    const containerRect = flashcardContainer.getBoundingClientRect();
-    const centerX = flashcardRect.left - containerRect.left + flashcardRect.width / 2;
-    let centerY;
-    if (direction === 'tap') {
-      const wordRect = wordEl.getBoundingClientRect();
-      centerY = wordRect.top - containerRect.top + wordRect.height / 2;
-    } else {
-      centerY = flashcardRect.top - containerRect.top + flashcardRect.height / 2;
-    }
-
-    tooltip.style.left = `${centerX}px`;
-    tooltip.style.top = `${centerY}px`;
-
-    tooltip.style.display = 'flex';
-
-    setTimeout(() => {
-      if (direction === 'tap') {
-        tooltip.classList.add('animate-tap');
-      } else {
-        tooltip.classList.add(direction === 'up' ? 'animate-up' : 'animate-down');
-      }
-    }, 10);
-
-    setTimeout(() => {
-      tooltip.style.display = 'none';
-      tooltip.classList.remove(direction === 'tap' ? 'animate-tap' : direction === 'up' ? 'animate-up' : 'animate-down');
-      if (
-        swipeUpTooltip.style.display === 'none' &&
-        swipeDownTooltip.style.display === 'none' &&
-        tapTooltip.style.display === 'none'
-      ) {
-        header.style.filter = 'none';
-      }
-    }, direction === 'tap' ? 2500 : 2000);
-  }
-
-  async function loadData() {
-    try {
-      cardDeck.style.display = 'grid';
-      loadingIndicator.style.opacity = '1';
-
-      localStorage.removeItem(CACHE_KEY);
-
-      console.log('Fetching data/database.jsonl...');
-      const cacheBuster = Date.now();
-      const response = await fetch(`data/database.jsonl?cb=${cacheBuster}`, {
-        cache: 'no-store'
-      });
-      if (!response.ok) {
-        throw new Error(`Failed to fetch data/database.jsonl: ${response.status} ${response.statusText}`);
-      }
-      const data = await response.text();
-      if (!data.trim()) {
-        throw new Error('data/database.jsonl is empty');
-      }
-      entries = data.trim().split('\n').map((line, index) => {
-        try {
-          return JSON.parse(line);
-        } catch (e) {
-          throw new Error(`Invalid JSON at line ${index + 1}: ${e.message}`);
-        }
-      });
-      if (!entries.length) {
-        throw new Error('No valid entries in data/database.jsonl');
-      }
-
-      localStorage.setItem(CACHE_KEY, JSON.stringify(entries));
-      console.log(`Loaded ${entries.length} entries and cached in localStorage`);
-
-      loadingIndicator.style.transition = 'opacity 0.3s ease';
-      loadingIndicator.style.opacity = '0';
-      setTimeout(() => {
-        loadingIndicator.style.display = 'none';
-        displayCardDeck();
-      }, 300);
-    } catch (error) {
-      console.error('LoadData Error:', error);
-      loadingIndicator.style.display = 'none';
-      cardDeck.innerHTML = `
-        <div class="error-message">
-          Failed to load vocabulary data. Please ensure 'data/database.jsonl' exists and is valid.
-          <br>Error: ${escapeHTML(error.message)}
-        </div>`;
-      cardDeck.style.display = 'flex';
-      cardDeck.style.alignItems = 'center';
-      cardDeck.style.justifyContent = 'center';
-      cardDeck.style.height = '100vh';
-    }
-  }
-
-  function displayCardDeck() {
-    if (!wordFreq || Object.keys(wordFreq).length === 0) {
-      wordFreq = {};
-      wordCaseMap = new Map();
-      entries.forEach(entry => {
-        if (typeof entry.word !== 'string') {
-          throw new Error('Invalid word format in database entry');
-        }
-        const lowerWord = entry.word.toLowerCase();
-        wordFreq[lowerWord] = (wordFreq[lowerWord] || 0) + 1;
-        if (!wordCaseMap.has(lowerWord)) {
-          wordCaseMap.set(lowerWord, entry.word);
-        }
-      });
-    }
-
-    cardDeck.innerHTML = '';
-    cardDeck.appendChild(loadingIndicator);
-
-    const wordArray = Array.from(wordCaseMap.entries())
-      .map(([lowerWord, originalWord]) => ({ word: originalWord, freq: wordFreq[lowerWord] }))
-      .sort((a, b) => b.freq - a.freq);
-
-    wordArray.forEach(({ word }) => {
-      const cardEl = document.createElement('div');
-      cardEl.className = 'mini-card';
-      const unoColor = getConsistentUnoColor(word.toLowerCase());
-      cardEl.style.backgroundColor = unoColor.bg;
-      cardEl.style.border = '3px solid #ffffff';
-
-      const cardInner = document.createElement('div');
-      cardInner.className = 'card-inner';
-      const cardFront = document.createElement('div');
-      cardFront.className = 'card-front';
-      const wordSpan = document.createElement('span');
-      wordSpan.className = 'mini-card-word';
-      wordSpan.textContent = word;
-      adjustWordSize(word, wordSpan, cardEl.offsetWidth * 0.9, true);
-      cardFront.appendChild(wordSpan);
-
-      // Create card-back for the mini-card
-      const cardBack = document.createElement('div');
-      cardBack.className = 'card-back';
-      const contentDiv = document.createElement('div');
-      contentDiv.className = 'content';
-      const wordDiv = document.createElement('div');
-      wordDiv.className = 'word';
-      const sentencesDiv = document.createElement('div');
-      sentencesDiv.className = 'sentences';
-      const englishDiv = document.createElement('div');
-      englishDiv.className = 'english';
-      const thaiDiv = document.createElement('div');
-      thaiDiv.className = 'thai';
-      sentencesDiv.appendChild(englishDiv);
-      sentencesDiv.appendChild(thaiDiv);
-      contentDiv.appendChild(wordDiv);
-      contentDiv.appendChild(sentencesDiv);
-      cardBack.appendChild(contentDiv);
-      cardInner.appendChild(cardFront);
-      cardInner.appendChild(cardBack);
-      cardEl.appendChild(cardInner);
-
-      cardDeck.appendChild(cardEl);
-
-      addCardEventListener(cardEl, word);
-    });
-  }
-
-  function addCardEventListener(cardEl, word) {
-    cardEl.addEventListener('click', () => {
-      stopAudio();
-      document.querySelectorAll('.mini-card').forEach(otherCard => {
-        if (otherCard !== cardEl) {
-          otherCard.style.transition = 'opacity 0.7s ease';
-          otherCard.style.opacity = '0';
-        }
-      });
-
-      const maxCardWidth = Math.min(window.innerWidth * 0.9, 210);
-      const maxCardHeight = maxCardWidth * 1.59;
-      cardEl.style.maxWidth = `${maxCardWidth}px`;
-      cardEl.style.maxHeight = `${maxCardHeight}px`;
-      cardEl.style.border = '6px solid #ffffff';
-      cardEl.style.borderRadius = '10px';
-
-      const rect = cardEl.getBoundingClientRect();
-      const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
-      const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
-
-      const currentWidth = rect.width;
-      const targetWidth = maxCardWidth;
-      const scaleFactor = Math.min(2, targetWidth / currentWidth);
-
-      cardEl.style.transition = 'transform 0.7s ease, width 0.7s ease, height 0.7s ease, max-width 0.7s ease, max-height 0.7s ease, border 0.7s ease, border-radius 0.7s ease';
-      cardEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(${scaleFactor})`;
-      cardEl.style.width = `${maxCardWidth}px`;
-      cardEl.style.height = `${maxCardHeight}px`;
-      cardEl.style.zIndex = '20';
-
-      setTimeout(() => {
-        // Populate the back of the mini-card with the first entry's content
-        currentEntries = entries.filter(entry => entry.word.toLowerCase() === word.toLowerCase());
-        currentEntries = shuffleArray([...currentEntries]);
-        currentIndex = 0;
-        const entry = currentEntries[currentIndex];
-        const cardBack = cardEl.querySelector('.card-back');
-        const wordDiv = cardBack.querySelector('.word');
-        const englishDiv = cardBack.querySelector('.english');
-        const thaiDiv = cardBack.querySelector('.thai');
-
-        const unoColor = getConsistentUnoColor(word.toLowerCase());
-        cardEl.style.backgroundColor = unoColor.bg;
-        wordDiv.style.color = '#ffffff';
-        englishDiv.style.color = '#ffffff';
-        thaiDiv.style.color = '#ffffff';
-
-        adjustWordSize(entry.word, wordDiv, maxCardWidth * 0.9);
-        englishDiv.innerHTML = highlightWord(entry.english, entry.word);
-        thaiDiv.textContent = entry.thai;
-
-        // Flip the card
-        const cardInner = cardEl.querySelector('.card-inner');
-        cardInner.classList.add('flip');
-
-        // Show header and icons
-        header.style.display = 'flex';
-        header.style.opacity = '0';
-        header.style.transition = 'opacity 1s ease';
-        header.style.opacity = '1';
-        donateIcon.style.display = 'block';
-        shareIcon.style.display = 'block';
-
-        document.body.style.overflow = 'hidden';
-
-        // Set up audio
-        if (entry.audio) {
-          const audioUrl = `/data/${entry.audio}`;
-          console.log(`Setting up audio for: ${audioUrl}`);
-          cardEl.onclick = null;
-          cardEl.onclick = () => {
-            console.log('Playing audio on tap');
-            playAudio(audioUrl);
-          };
-        } else {
-          console.log('No audio available for this entry');
-          cardEl.onclick = null;
-          audioErrorEl.textContent = 'No audio available';
-          audioErrorEl.style.display = 'block';
-          setTimeout(() => audioErrorEl.style.display = 'none', 2000);
-        }
-
-        // Update flashcard container for subsequent cards
-        flashcardContainer.style.display = 'none';
-        flashcard.style.width = `${maxCardWidth}px`;
-        flashcard.style.height = `${maxCardHeight}px`;
-        flashcard.style.backgroundColor = unoColor.bg;
-        flashcard.style.border = '6px solid #ffffff';
-        adjustWordSize(entry.word, frontWordEl, maxCardWidth * 0.9, true);
-        adjustWordSize(entry.word, wordEl, maxCardWidth * 0.9);
-        englishEl.innerHTML = highlightWord(entry.english, entry.word);
-        thaiEl.textContent = entry.thai;
-
-        // Preload audio for next cards
-        preloadAudio(currentIndex);
-
-        // Show tooltips for first-time users
-        if (visitCount <= 5) {
-          setTimeout(() => {
-            showTooltip(swipeUpTooltip, 'up');
-            setTimeout(() => {
-              showTooltip(swipeDownTooltip, 'down');
-              setTimeout(() => {
-                showTooltip(tapTooltip, 'tap');
-              }, 2500);
-            }, 2500);
-          }, 6000);
-        }
-
-        // Replace mini-card with flashcard for subsequent swipes
-        setTimeout(() => {
-          cardEl.style.display = 'none';
-          cardDeck.style.display = 'none';
-          flashcardContainer.style.display = 'flex';
-          flashcardContainer.style.opacity = '1';
-          cardEl.style.transform = 'none';
-          cardEl.style.width = '105px';
-          cardEl.style.height = '166.5px';
-          cardEl.style.maxWidth = '90vw';
-          cardEl.style.maxHeight = 'calc(90vw * 1.59)';
-          cardEl.style.border = '3px solid #ffffff';
-          cardEl.style.borderRadius = '5px';
-          cardEl.style.zIndex = '10';
-          cardInner.classList.remove('flip');
-          cardEl.style.opacity = '1';
-          document.querySelectorAll('.mini-card').forEach(otherCard => {
-            otherCard.style.opacity = '1';
-          });
-        }, 600);
-      }, 700);
-    });
-  }
-
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
-
-  function displayEntry(index) {
-    if (currentEntries.length === 0) return;
-    currentIndex = ((index % currentEntries.length) + currentEntries.length) % currentEntries.length;
-    const entry = currentEntries[currentIndex];
-    const currentWord = entry.word;
-
-    const unoColor = getConsistentUnoColor(currentWord.toLowerCase());
-    flashcard.style.backgroundColor = unoColor.bg;
-    flashcard.style.border = '6px solid #ffffff';
-    frontWordEl.style.color = '#ffffff';
-    wordEl.style.color = '#ffffff';
-    englishEl.style.color = '#ffffff';
-    thaiEl.style.color = '#ffffff';
-
-    adjustWordSize(currentWord, frontWordEl, flashcard.offsetWidth * 0.9, true);
-    adjustWordSize(currentWord, wordEl, flashcard.offsetWidth * 0.9);
-    englishEl.innerHTML = highlightWord(entry.english, currentWord);
-    thaiEl.textContent = entry.thai;
-    audioErrorEl.style.display = 'none';
-
-    preloadAudio(currentIndex);
-
-    if (entry.audio) {
-      const audioUrl = `/data/${entry.audio}`;
-      console.log(`Setting up audio for: ${audioUrl}`);
-      flashcard.onclick = null;
-      flashcard.onclick = () => {
-        console.log('Playing audio on tap');
-        playAudio(audioUrl);
-      };
-    } else {
-      console.log('No audio available for this entry');
-      flashcard.onclick = null;
-      audioErrorEl.textContent = 'No audio available';
-      audioErrorEl.style.display = 'block';
-      setTimeout(() => audioErrorEl.style.display = 'none', 2000);
-    }
-
-    shareIcon.style.display = 'block';
-  }
-
-  wordCloudIcon.addEventListener('click', () => {
-    stopAudio();
-    flashcardContainer.style.transition = 'opacity 0.7s ease';
-    flashcardContainer.style.opacity = '0';
-    header.style.transition = 'opacity 0.7s ease';
-    header.style.opacity = '0';
-    donateIcon.style.display = 'none';
-    shareIcon.style.display = 'none';
-    hideDonatePopup();
-
-    setTimeout(() => {
-      flashcardContainer.style.display = 'none';
-      header.style.display = 'none';
-      document.body.style.overflow = 'auto';
-      cardDeck.style.display = 'grid';
-      cardDeck.style.opacity = '0';
-      cardDeck.style.transition = 'opacity 0.7s ease';
-      cardDeck.style.opacity = '1';
-
-      cardInner.classList.remove('flip');
-      displayCardDeck();
-    }, 700);
-  });
-
-  cardDeck.addEventListener('touchstart', e => {
-    touchStartTime = Date.now();
-    if (e.touches.length === 2) {
-      isPinching = true;
-      pinchStartDistance = Math.hypot(
-        e.touches[0].clientX - e.touches[1].clientX,
-        e.touches[0].clientY - e.touches[1].clientY
-      );
-    } else if (e.touches.length === 1) {
-      touchStartY = e.touches[0].screenY;
-    }
-  }, { passive: true });
-
-  cardDeck.addEventListener('touchmove', e => {
-    if (e.touches.length === 2) {
-      e.preventDefault();
-      isPinching = true;
-      const pinch-distance = Math.hypot(
-        e.touches[0].clientX - e.touches[1].clientX,
-        e.touches[0].clientY - e.touches[1].clientY
-      );
-      const newScale = currentScale * (pinchDistance / pinchStartDistance);
-      currentScale = Math.max(1, Math.min(newScale, 3));
-      cardDeck.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
-      pinchStartDistance = pinchDistance;
-    } else if (e.touches.length === 1 && currentScale > 1) {
-      e.preventDefault();
-      const deltaX = e.touches[0].clientX - (cardDeck._lastX || e.touches[0].clientX);
-      const deltaY = e.touches[0].clientY - (cardDeck._lastY || e.touches[0].clientY);
-      translateX += deltaX / currentScale;
-      translationY += deltaY / currentScale;
-      cardDeck.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
-      cardDeck._lastX = e.touches[0].clientX;
-      cardDeck._lastY = e.touches[0].clientY;
-    }
-  }, { passive: false });
-
-  cardDeck.addEventListener('touchend', e => {
-    cardDeck._lastX = null;
-    cardDeck._lastY = null;
-    isPinching = false;
-  }, { passive: true });
-
-  flashcard.addEventListener('touchstart', e => {
-    e.preventDefault();
-    touchStartY = e.changedTouches[0].screenY;
-    touchStartTime = Date.now();
-  }, { passive: false });
-
-  flashcard.addEventListener('touchend', e => {
-    e.preventDefault();
-    touchEndY = e.changedTouches[0].screenY;
-    const swipeDistance = touchStartY - touchEndY;
-    const minSwipeDistance = 50;
-    const touchDuration = Date.now() - touchStartTime;
-    const maxTapDuration = 300;
-    const tapCooldown = 500;
-
-    if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance && (Date.now() - lastSwipeTime) > tapCooldown) {
-      console.log('Tap detected, triggering flashcard click');
-      flashcard.click();
-    } else if (swipeDistance > minSwipeDistance) {
-      console.log('Swipe up detected, going to next entry');
-      stopAudio();
-      setTimeout(() => {
-        currentIndex++;
-        cardInner.classList.remove('flip');
-        setTimeout(() => {
-          displayEntry(currentIndex);
-          cardInner.classList.add('flip');
-        }, 300);
-      }, 0);
-      lastSwipeTime = Date.now();
-    } else if (swipeDistance < -minSwipeDistance) {
-      console.log('Swipe down detected, going to previous entry');
-      stopAudio();
-      setTimeout(() => {
-        currentIndex--;
-        cardInner.classList.remove('flip');
-        setTimeout(() => {
-          displayEntry(currentIndex);
-          cardInner.classList.add('flip');
-        }, 300);
-      }, 0);
-      lastSwipeTime = Date.now();
-    }
-  }, { passive: false });
-
-  document.addEventListener('keydown', e => {
-    if (flashcardContainer.style.display === 'flex') {
-      if (e.key === 'ArrowUp') {
-        console.log('Arrow up pressed, going to next entry');
-        stopAudio();
-        setTimeout(() => {
-          currentIndex++;
-          cardInner.classList.remove('flip');
-          setTimeout(() => {
-            displayEntry(currentIndex);
-            cardInner.classList.add('flip');
-          }, 300);
-        }, 0);
-        lastSwipeTime = Date.now();
-      } else if (e.key === 'ArrowDown') {
-        console.log('Arrow down pressed, going to previous entry');
-        stopAudio();
-        setTimeout(() => {
-          currentIndex--;
-          cardInner.classList.remove('flip');
-          setTimeout(() => {
-            displayEntry(currentIndex);
-            cardInner.classList.add('flip');
-          }, 300);
-        }, 0);
-        lastSwipeTime = Date.now();
-      } else if (e.key === ' ') {
-        e.preventDefault();
-        console.log('Spacebar pressed, triggering flashcard click');
-        flashcard.click();
-      }
-    }
-  });
-
-  loadData();
 });
+
+document.getElementById('vocab-card').addEventListener('touchend', (e) => {
+    e.preventDefault();
+    touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
+    const touchDuration = Date.now() - touchStartTime;
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+    const absDeltaX = Math.abs(deltaX);
+    const absDeltaY = Math.abs(deltaY);
+    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+    // Check if it's a tap
+    if (distance <= maxTapDistance && touchDuration <= maxTapDuration) {
+        const audio = document.getElementById('card-audio');
+        audio.play().catch(error => console.error('Error playing audio:', error));
+    } else {
+        // Handle swipe if distance exceeds swipe threshold
+        if (absDeltaX > minSwipeDistance || absDeltaY > minSwipeDistance) {
+            if (absDeltaX > absDeltaY) {
+                // Horizontal swipe
+                if (deltaX > 0) {
+                    moveToNextCard('right');
+                } else {
+                    moveToNextCard('left');
+                }
+            } else {
+                // Vertical swipe
+                if (deltaY > 0) {
+                    moveToNextCard('down');
+                } else {
+                    moveToNextCard('up');
+                }
+            }
+        }
+    }
+});
+
+// Click event for desktop compatibility
+document.getElementById('vocab-card').addEventListener('click', (e) => {
+    e.preventDefault();
+    const audio = document.getElementById('card-audio');
+    audio.play().catch(error => console.error('Error playing audio:', error));
+});
+
+// Keyboard controls for PC
+document.addEventListener('keydown', (e) => {
+    switch (e.key) {
+        case ' ':
+            e.preventDefault();
+            const audio = document.getElementById('card-audio');
+            audio.play().catch(error => console.error('Error playing audio:', error));
+            break;
+        case 'ArrowLeft':
+            moveToNextCard('left');
+            break;
+        case 'ArrowRight':
+            moveToNextCard('right');
+            break;
+        case 'ArrowUp':
+            moveToNextCard('up');
+            break;
+        case 'ArrowDown':
+            moveToNextCard('down');
+            break;
+    }
+});
+
+// Load data when the page loads
+document.addEventListener('DOMContentLoaded', loadVocabData);
