@@ -90,34 +90,22 @@ function moveToNextCard(direction) {
     }, 500);
 }
 
-// Play audio on card click/tap
-document.getElementById('vocab-card').addEventListener('click', (e) => {
-    e.preventDefault();
-    const audio = document.getElementById('card-audio');
-    audio.play().catch(error => console.error('Error playing audio:', error));
-});
-
-// Play audio on touch for mobile compatibility
-document.getElementById('vocab-card').addEventListener('touchstart', (e) => {
-    // Only play audio if it's a single touch (not a swipe)
-    if (e.touches.length === 1) {
-        e.preventDefault(); // Prevent default to avoid conflicts
-        const audio = document.getElementById('card-audio');
-        audio.play().catch(error => console.error('Error playing audio:', error));
-    }
-});
-
-// Swipe detection
+// Touch handling for tap vs swipe
 let touchStartX = 0;
 let touchStartY = 0;
 let touchEndX = 0;
 let touchEndY = 0;
-const minSwipeDistance = 50;
+let touchStartTime = 0;
+const minSwipeDistance = 50; // Minimum distance for a swipe (pixels)
+const maxTapDistance = 10; // Maximum distance for a tap (pixels)
+const maxTapDuration = 300; // Maximum duration for a tap (milliseconds)
 
 document.getElementById('vocab-card').addEventListener('touchstart', (e) => {
-    if (e.touches.length === 1) { // Ensure single touch for swipe
+    if (e.touches.length === 1) { // Ensure single touch
+        e.preventDefault(); // Prevent default behaviors
         touchStartX = e.changedTouches[0].screenX;
         touchStartY = e.changedTouches[0].screenY;
+        touchStartTime = Date.now();
     }
 });
 
@@ -125,33 +113,45 @@ document.getElementById('vocab-card').addEventListener('touchend', (e) => {
     e.preventDefault();
     touchEndX = e.changedTouches[0].screenX;
     touchEndY = e.changedTouches[0].screenY;
-    handleSwipe();
-});
-
-function handleSwipe() {
+    const touchDuration = Date.now() - touchStartTime;
     const deltaX = touchEndX - touchStartX;
     const deltaY = touchEndY - touchStartY;
     const absDeltaX = Math.abs(deltaX);
     const absDeltaY = Math.abs(deltaY);
+    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-    if (absDeltaX > minSwipeDistance || absDeltaY > minSwipeDistance) {
-        if (absDeltaX > absDeltaY) {
-            // Horizontal swipe
-            if (deltaX > 0) {
-                moveToNextCard('right');
+    // Check if it's a tap
+    if (distance <= maxTapDistance && touchDuration <= maxTapDuration) {
+        const audio = document.getElementById('card-audio');
+        audio.play().catch(error => console.error('Error playing audio:', error));
+    } else {
+        // Handle swipe if distance exceeds swipe threshold
+        if (absDeltaX > minSwipeDistance || absDeltaY > minSwipeDistance) {
+            if (absDeltaX > absDeltaY) {
+                // Horizontal swipe
+                if (deltaX > 0) {
+                    moveToNextCard('right');
+                } else {
+                    moveToNextCard('left');
+                }
             } else {
-                moveToNextCard('left');
-            }
-        } else {
-            // Vertical swipe
-            if (deltaY > 0) {
-                moveToNextCard('down');
-            } else {
-                moveToNextCard('up');
+                // Vertical swipe
+                if (deltaY > 0) {
+                    moveToNextCard('down');
+                } else {
+                    moveToNextCard('up');
+                }
             }
         }
     }
-}
+});
+
+// Click event for desktop compatibility
+document.getElementById('vocab-card').addEventListener('click', (e) => {
+    e.preventDefault();
+    const audio = document.getElementById('card-audio');
+    audio.play().catch(error => console.error('Error playing audio:', error));
+});
 
 // Keyboard controls for PC
 document.addEventListener('keydown', (e) => {
