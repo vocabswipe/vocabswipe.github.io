@@ -31,7 +31,7 @@ async function loadVocabData() {
         vocabData = text.trim().split('\n').map(line => JSON.parse(line));
         // Shuffle the array
         vocabData = vocabData.sort(() => Math.random() - 0.5);
-        displayRandomCard();
+        displayCards();
         updateSwipeCounter();
     } catch (error) {
         console.error('Error loading database:', error);
@@ -45,38 +45,73 @@ async function loadVocabData() {
 // Current card index
 let currentIndex = 0;
 
-// Function to display the current card
-function displayRandomCard() {
-    if (vocabData.length === 0 || currentIndex >= vocabData.length) return;
+// Function to display the current and next card
+function displayCards() {
+    if (vocabData.length === 0) return;
 
-    const entry = vocabData[currentIndex];
-    const card = document.getElementById('vocab-card');
+    // Current card
+    const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
     const wordBottomElement = document.getElementById('word-bottom');
     const englishElement = document.getElementById('english');
     const thaiElement = document.getElementById('thai');
     const audioElement = document.getElementById('card-audio');
 
-    // Update card content
-    wordTopElement.textContent = entry.word;
-    wordBottomElement.textContent = entry.word;
-    englishElement.textContent = entry.english;
-    thaiElement.textContent = entry.thai;
-    audioElement.src = `data/${entry.audio}`;
+    // Next card
+    const nextCard = document.getElementById('next-card');
+    const nextWordTopElement = document.getElementById('next-word-top');
+    const nextWordBottomElement = document.getElementById('next-word-bottom');
+    const nextEnglishElement = document.getElementById('next-english');
+    const nextThaiElement = document.getElementById('next-thai');
 
-    // Randomize text color
-    const randomColor = textColors[Math.floor(Math.random() * textColors.length)];
-    wordTopElement.style.color = randomColor;
-    wordBottomElement.style.color = randomColor;
-    englishElement.style.color = randomColor;
-    thaiElement.style.color = randomColor;
+    // Update current card content
+    if (currentIndex < vocabData.length) {
+        const entry = vocabData[currentIndex];
+        wordTopElement.textContent = entry.word;
+        wordBottomElement.textContent = entry.word;
+        englishElement.textContent = entry.english;
+        thaiElement.textContent = entry.thai;
+        audioElement.src = `data/${entry.audio}`;
 
-    // Set card background to white
-    card.style.backgroundColor = '#ffffff';
+        // Randomize text color
+        const randomColor = textColors[Math.floor(Math.random() * textColors.length)];
+        wordTopElement.style.color = randomColor;
+        wordBottomElement.style.color = randomColor;
+        englishElement.style.color = randomColor;
+        thaiElement.style.color = randomColor;
 
-    // Reset card position and opacity
-    card.style.transform = 'translate(0, 0) rotate(0deg)';
-    card.style.opacity = '1';
+        // Set card background to white
+        currentCard.style.backgroundColor = '#ffffff';
+        // Reset card position and opacity
+        currentCard.style.transform = 'translate(0, 0) rotate(0deg)';
+        currentCard.style.opacity = '1';
+    }
+
+    // Update next card content
+    if (currentIndex + 1 < vocabData.length) {
+        const nextEntry = vocabData[currentIndex + 1];
+        nextWordTopElement.textContent = nextEntry.word;
+        nextWordBottomElement.textContent = nextEntry.word;
+        nextEnglishElement.textContent = nextEntry.english;
+        nextThaiElement.textContent = nextEntry.thai;
+
+        // Randomize text color for next card
+        const nextRandomColor = textColors[Math.floor(Math.random() * textColors.length)];
+        nextWordTopElement.style.color = nextRandomColor;
+        nextWordBottomElement.style.color = nextRandomColor;
+        nextEnglishElement.style.color = nextRandomColor;
+        nextThaiElement.style.color = nextRandomColor;
+
+        // Set next card background to white
+        nextCard.style.backgroundColor = '#ffffff';
+        // Position next card slightly offset
+        nextCard.style.transform = 'translate(2px, 2px) rotate(0.5deg)';
+        nextCard.style.opacity = '1';
+        nextCard.style.zIndex = '9'; // Below top card but above stack
+    } else {
+        // Hide next card if no more cards
+        nextCard.style.opacity = '0';
+    }
 }
 
 // Function to animate and move to next card
@@ -96,7 +131,7 @@ function moveToNextCard(translateX, translateY, rotate) {
     // Move to next card after animation
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % vocabData.length;
-        displayRandomCard();
+        displayCards();
         card.style.transition = 'none'; // Reset transition for next card
     }, 500);
 }
@@ -196,5 +231,80 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// Share icon functionality
+document.getElementById('share-icon').addEventListener('click', () => {
+    captureSnapshot();
+});
+
+// Function to capture snapshot of card deck
+function captureSnapshot() {
+    const cardContainer = document.getElementById('card-container');
+    const canvas = document.getElementById('snapshot-canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Instagram Reels aspect ratio (9:16, 1080x1920 for 1080p)
+    canvas.width = 1080;
+    canvas.height = 1920;
+
+    // Fill background with poker table green
+    ctx.fillStyle = '#35654d';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Calculate scaling and positioning to center the card deck
+    const cardWidth = cardContainer.offsetWidth;
+    const cardHeight = cardContainer.offsetHeight;
+    const scale = Math.min((canvas.width * 0.8) / cardWidth, (canvas.height * 0.6) / cardHeight); // Fit within 80% width, 60% height
+    const scaledWidth = cardWidth * scale;
+    const scaledHeight = cardHeight * scale;
+    const offsetX = (canvas.width - scaledWidth) / 2;
+    const offsetY = (canvas.height - scaledHeight) / 2;
+
+    // Use html2canvas to capture the card container
+    html2canvas(cardContainer, {
+        backgroundColor: null, // Transparent background
+        scale: scale
+    }).then(cardCanvas => {
+        // Draw card deck on canvas
+        ctx.drawImage(cardCanvas, offsetX, offsetY, scaledWidth, scaledHeight);
+
+        // Add website URL and slogan
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 40px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('VocabSwipe.com', canvas.width / 2, offsetY + scaledHeight + 60);
+        ctx.font = 'bold 30px Arial';
+        ctx.fillText('Master Words, Swipe by Swipe', canvas.width / 2, offsetY + scaledHeight + 100);
+
+        // Convert canvas to PNG and trigger share
+        canvas.toBlob(blob => {
+            const file = new File([blob], 'vocabswipe-card.png', { type: 'image/png' });
+            const shareData = {
+                files: [file],
+                title: 'Check out my VocabSwipe card!',
+                text: 'Master words with VocabSwipe! Try it at VocabSwipe.com',
+                url: 'https://VocabSwipe.com'
+            };
+
+            if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                navigator.share(shareData).catch(error => console.error('Error sharing:', error));
+            } else {
+                // Fallback: Download the image
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'vocabswipe-card.png';
+                link.click();
+                URL.revokeObjectURL(link.href);
+                alert('Sharing not supported. Image downloaded instead.');
+            }
+        }, 'image/png');
+    });
+}
+
 // Load data when the page loads
-document.addEventListener('DOMContentLoaded', loadVocabData);
+document.addEventListener('DOMContentLoaded', () => {
+    loadVocabData();
+    // Load html2canvas dynamically
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+    document.head.appendChild(script);
+});
