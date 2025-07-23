@@ -14,6 +14,7 @@ html, body {
     align-items: center;
     background-color: #f0f0f0; /* Light gray background */
     font-family: 'Arial', sans-serif; /* Fallback font */
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight */
 }
 
 /* UNO-inspired card styling */
@@ -30,6 +31,7 @@ html, body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Subtle shadow */
     cursor: pointer; /* Indicate tappable */
     user-select: none; /* Prevent text selection */
+    touch-action: manipulation; /* Prevent default touch behaviors */
 }
 
 /* Card content */
@@ -38,17 +40,21 @@ html, body {
     padding: 20px;
     color: white; /* White text */
     text-shadow: 
-        -1px -1px 0 #000,  
-         1px -1px 0 #000,
-        -1px  1px 0 #000,
-         1px  1px 0 #000; /* Black outline for text */
+        -2px -2px 0 #000,
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000,
+        -2px  0px 0 #000,
+         2px  0px 0 #000,
+         0px -2px 0 #000,
+         0px  2px 0 #000; /* Thicker black outline for text */
 }
 
 /* Word styling */
 .word {
-    font-family: 'Roboto', sans-serif; /* Modern font for English */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900; /* Use Roboto Black for thicker text */
     font-size: 2.5rem; /* Large word */
-    font-weight: bold;
     margin-bottom: 20px;
 }
 
@@ -56,11 +62,19 @@ html, body {
 .sentence {
     font-size: 1.2rem;
     margin: 10px 0;
+    line-height: 1.4; /* Improve readability */
+}
+
+/* English sentence */
+.english {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; /* Bolder for readability */
 }
 
 /* Thai font */
 .thai {
-    font-family: 'Noto Sans Thai', sans-serif; /* Suitable font for Thai */
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-weight: 700; /* Bolder for readability */
 }
 
 /* Responsive adjustments */
@@ -79,4 +93,4 @@ html, body {
 }
 
 /* Ensure fonts are loaded */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Noto+Sans+Thai:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&family=Noto+Sans+Thai:wght@400;700&display=swap');
