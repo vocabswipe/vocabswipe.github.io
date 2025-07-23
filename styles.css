@@ -1,20 +1,16 @@
-* {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: Arial, sans-serif;
-}
-
-body {
     background-color: #f0f0f0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow: auto;
 }
 
-.deck-selection {
+#deck-selection {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -24,61 +20,62 @@ body {
 
 .deck {
     position: relative;
-    width: 100px;
-    height: 140px;
+    width: 120px;
+    height: 180px;
     perspective: 1000px;
     cursor: pointer;
-    transition: transform 0.5s, opacity 0.5s;
+    transition: opacity 0.5s, transform 0.5s;
 }
 
-.deck-card {
-    position: absolute;
+.deck.fade {
+    opacity: 0.3;
+}
+
+.deck .card {
     width: 100%;
     height: 100%;
+    background: white;
     border: 8px solid white;
-    border-radius: 10px;
-    background-color: #2196f3;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
+    position: absolute;
+    transform-style: preserve-3d;
+}
+
+.deck .card h2 {
     color: white;
-    text-shadow: 2px 2px 2px black, -2px -2px 2px black, 2px -2px 2px black, -2px 2px 2px black;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    backface-visibility: hidden;
+    font-size: 24px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    margin: 0;
 }
 
-.deck-card:nth-child(2) { transform: translateY(2px) translateZ(-2px); }
-.deck-card:nth-child(3) { transform: translateY(4px) translateZ(-4px); }
-.deck-card:nth-child(4) { transform: translateY(6px) translateZ(-6px); }
-.deck-card:nth-child(5) { transform: translateY(8px) translateZ(-8px); }
-
-.deck:hover {
-    transform: scale(1.05);
+.deck .card:nth-child(2) {
+    transform: translateZ(-2px) scale(0.98);
 }
 
-.card-view {
-    display: none;
-    flex-direction: column;
-    align-items: center;
+.deck .card:nth-child(3) {
+    transform: translateZ(-4px) scale(0.96);
+}
+
+#card-view {
+    display: flex;
     justify-content: center;
-    width: 100%;
+    align-items: center;
     height: 100vh;
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #f0f0f0;
+    background: rgba(0, 0, 0, 0.1);
 }
 
-.card-view.active {
-    display: flex;
-}
-
-.card-container {
-    width: 100px;
-    height: 140px;
+#card-container {
     perspective: 1000px;
-    position: relative;
+    width: 300px;
+    height: 450px;
 }
 
 .card {
@@ -87,6 +84,10 @@ body {
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.6s;
+    background: white;
+    border: 12px solid white;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .card.flipped {
@@ -98,53 +99,58 @@ body {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border: 8px solid white;
-    border-radius: 10px;
-    background-color: #2196f3;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-    font-size: 1.5rem;
-    color: white;
-    text-shadow: 2px 2px 2px black, -2px -2px 2px black, 2px -2px 2px black, -2px 2px 2px black;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card-front {
+    background: #2196F3;
 }
 
 .card-back {
+    background: #4CAF50;
     transform: rotateY(180deg);
-    font-size: 0.9rem;
     text-align: center;
-    line-height: 1.4;
 }
 
-#deck-info {
-    margin-top: 20px;
-    font-size: 1rem;
-    color: #333;
+.card h2 {
+    color: white;
+    font-size: 36px;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    margin: 0 0 20px 0;
 }
 
-.hidden {
-    display: none;
+.card p {
+    color: white;
+    font-size: 24px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    margin: 10px 0;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 600px) {
+    #card-container {
+        width: 80vw;
+        height: 120vw;
+    }
+
     .deck {
-        width: 150px;
-        height: 210px;
+        width: 80px;
+        height: 120px;
     }
 
-    .card-container {
-        width: 150px;
-        height: 210px;
+    .deck .card h2 {
+        font-size: 18px;
     }
 
-    .deck-card, .card-front, .card-back {
-        font-size: 2rem;
+    .card h2 {
+        font-size: 24px;
     }
 
-    .card-back {
-        font-size: 1.2rem;
+    .card p {
+        font-size: 18px;
     }
 }
