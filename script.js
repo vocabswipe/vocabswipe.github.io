@@ -30,6 +30,9 @@ async function loadVocabData() {
         vocabData = vocabData.sort(() => Math.random() - 0.5);
         displayCards();
         updateSwipeCounter();
+        // Start animations after cards are loaded
+        startMobileAnimation();
+        startPCAnimation();
     } catch (error) {
         console.error('Error loading database:', error);
         document.getElementById('word-top').textContent = 'Error';
@@ -107,6 +110,29 @@ function displayCards() {
         // Hide next card if no more cards
         nextCard.style.opacity = '0';
     }
+
+    // Reset animations for new card
+    resetAnimations();
+}
+
+// Function to reset animations
+function resetAnimations() {
+    const handPoint = document.getElementById('hand-point');
+    const arrows = ['arrow-left', 'arrow-right', 'arrow-up', 'arrow-down'].map(id => document.getElementById(id));
+    const spacebar = document.getElementById('spacebar');
+
+    // Reset hand point
+    handPoint.style.opacity = '0';
+    handPoint.style.transform = 'translate(-50%, -50%)';
+    handPoint.classList.remove('tap-animation');
+
+    // Reset arrows and spacebar
+    arrows.forEach(arrow => {
+        arrow.style.opacity = '0';
+        arrow.style.transform = '';
+    });
+    spacebar.style.opacity = '0';
+    spacebar.style.transform = 'translate(-50%, -50%)';
 }
 
 // Function to animate and move to next card
@@ -129,6 +155,172 @@ function moveToNextCard(translateX, translateY, rotate) {
         displayCards();
         card.style.transition = 'none'; // Reset transition for next card
     }, 500);
+}
+
+// Mobile animation for swipe and tap
+function startMobileAnimation() {
+    if (window.innerWidth > 600) return; // Skip for PC
+
+    const handPoint = document.getElementById('hand-point');
+    const card = document.getElementById('vocab-card');
+
+    // Animation sequence
+    const sequence = [
+        { // Left swipe
+            startTransform: 'translate(-50%, -50%)',
+            endTransform: 'translate(-150%, -50%)',
+            duration: 1000,
+            delay: 500
+        },
+        { // Up swipe
+            startTransform: 'translate(-50%, -50%)',
+            endTransform: 'translate(-50%, -150%)',
+            duration: 1000,
+            delay: 500
+        },
+        { // Right swipe
+            startTransform: 'translate(-50%, -50%)',
+            endTransform: 'translate(50%, -50%)',
+            duration: 1000,
+            delay: 500
+        },
+        { // Down swipe
+            startTransform: 'translate(-50%, -50%)',
+            endTransform: 'translate(-50%, 50%)',
+            duration: 1000,
+            delay: 500
+        },
+        { // Tap animation
+            startTransform: 'translate(-50%, 50%)', // Below Thai sentence
+            endTransform: 'translate(-50%, 50%)',
+            duration: 1200,
+            delay: 500,
+            tap: true
+        }
+    ];
+
+    let currentStep = 0;
+
+    function animateStep() {
+        if (currentStep >= sequence.length) {
+            handPoint.style.opacity = '0'; // Hide after sequence
+            return;
+        }
+
+        const step = sequence[currentStep];
+        handPoint.style.transform = step.startTransform;
+        handPoint.style.opacity = '0';
+
+        // Fade in
+        setTimeout(() => {
+            handPoint.style.transition = 'opacity 0.5s ease';
+            handPoint.style.opacity = '1';
+
+            // Move or tap
+            setTimeout(() => {
+                handPoint.style.transition = `transform ${step.duration}ms ease`;
+                handPoint.style.transform = step.endTransform;
+
+                if (step.tap) {
+                    handPoint.classList.add('tap-animation');
+                    card.classList.add('glow');
+                    setTimeout(() => {
+                        card.classList.remove('glow');
+                        handPoint.classList.remove('tap-animation');
+                    }, 1200);
+                }
+
+                // Proceed to next step
+                setTimeout(() => {
+                    currentStep++;
+                    animateStep();
+                }, step.duration + step.delay);
+            }, 500);
+        }, step.delay);
+    }
+
+    // Start animation
+    animateStep();
+}
+
+// PC animation for arrows and spacebar
+function startPCAnimation() {
+    if (window.innerWidth <= 600) return; // Skip for mobile
+
+    const arrows = [
+        { id: 'arrow-left', endTransform: 'translateX(-100px)' },
+        { id: 'arrow-right', endTransform: 'translateX(100px)' },
+        { id: 'arrow-up', endTransform: 'translateY(-100px)' },
+        { id: 'arrow-down', endTransform: 'translateY(100px)' }
+    ];
+    const spacebar = document.getElementById('spacebar');
+    const card = document.getElementById('vocab-card');
+
+    // Animation sequence
+    const sequence = [
+        ...arrows.map(arrow => ({
+            id: arrow.id,
+            startTransform: '',
+            endTransform: arrow.endTransform,
+            duration: 1000,
+            delay: 500
+        })),
+        {
+            id: 'spacebar',
+            startTransform: 'translate(-50%, -50%)',
+            endTransform: 'translate(-50%, -50%)',
+            duration: 1200,
+            delay: 500,
+            tap: true
+        }
+    ];
+
+    let currentStep = 0;
+
+    function animateStep() {
+        if (currentStep >= sequence.length) {
+            arrows.forEach(arrow => {
+                document.getElementById(arrow.id).style.opacity = '0';
+            });
+            spacebar.style.opacity = '0';
+            return;
+        }
+
+        const step = sequence[currentStep];
+        const element = document.getElementById(step.id);
+        element.style.transform = step.startTransform;
+        element.style.opacity = '0';
+
+        // Fade in
+        setTimeout(() => {
+            element.style.transition = 'opacity 0.5s ease';
+            element.style.opacity = '1';
+
+            // Move or tap
+            setTimeout(() => {
+                element.style.transition = `transform ${step.duration}ms ease`;
+                element.style.transform = step.endTransform;
+
+                if (step.tap) {
+                    element.classList.add('tap-animation');
+                    card.classList.add('glow');
+                    setTimeout(() => {
+                        card.classList.remove('glow');
+                        element.classList.remove('tap-animation');
+                    }, 1200);
+                }
+
+                // Proceed to next step
+                setTimeout(() => {
+                    currentStep++;
+                    animateStep();
+                }, step.duration + step.delay);
+            }, 500);
+        }, step.delay);
+    }
+
+    // Start animation
+    animateStep();
 }
 
 // Touch handling for drag and swipe
