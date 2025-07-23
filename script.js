@@ -179,8 +179,13 @@ card.addEventListener('touchend', (e) => {
     // Check if it's a tap
     if (distance <= maxTapDistance && touchDuration <= maxTapDuration) {
         const audio = document.getElementById('card-audio');
+        card.classList.add('glow'); // Add glow effect
         audio.play().catch(error => console.error('Error playing audio:', error));
         card.style.transform = 'translate(0, 0) rotate(0deg)'; // Reset position
+        // Remove glow class after animation completes (0.6s * 2 pulses = 1.2s)
+        setTimeout(() => {
+            card.classList.remove('glow');
+        }, 1200);
     } else if (distance > minSwipeDistance) {
         // Calculate swipe direction and animate out
         const angle = Math.atan2(deltaY, deltaX); // Angle in radians
@@ -200,7 +205,12 @@ card.addEventListener('touchend', (e) => {
 card.addEventListener('click', (e) => {
     e.preventDefault();
     const audio = document.getElementById('card-audio');
+    card.classList.add('glow'); // Add glow effect
     audio.play().catch(error => console.error('Error playing audio:', error));
+    // Remove glow class after animation completes (0.6s * 2 pulses = 1.2s)
+    setTimeout(() => {
+        card.classList.remove('glow');
+    }, 1200);
 });
 
 // Keyboard controls for PC
@@ -209,7 +219,12 @@ document.addEventListener('keydown', (e) => {
         case ' ':
             e.preventDefault();
             const audio = document.getElementById('card-audio');
+            card.classList.add('glow'); // Add glow effect
             audio.play().catch(error => console.error('Error playing audio:', error));
+            // Remove glow class after animation completes
+            setTimeout(() => {
+                card.classList.remove('glow');
+            }, 1200);
             break;
         case 'ArrowLeft':
             moveToNextCard(-window.innerWidth, 0, -15);
