@@ -5,21 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VocabSwipe</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+Thai:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="card-container">
-        <div id="card" class="card">
-            <div class="card-front">
-                <div class="word"></div>
-            </div>
-            <div class="card-back">
-                <div class="word"></div>
-                <div class="english"></div>
-                <div class="thai"></div>
-            </div>
-        </div>
-    </div>
-    <audio id="card-audio" preload="none"></audio>
+    <div id="card-grid" class="card-grid"></div>
+    <div id="card-stack" class="card-stack hidden"></div>
     <script src="script.js"></script>
 </body>
 </html>
