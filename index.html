@@ -9,6 +9,7 @@
 <body>
     <div class="swipe-counter" id="swipe-counter">0 cards swiped</div>
     <div class="card-container">
+        <!-- Top card (interactive) -->
         <div class="card" id="vocab-card">
             <div class="card-content">
                 <h1 class="word top-left" id="word-top"></h1>
@@ -17,6 +18,10 @@
                 <h1 class="word bottom-right" id="word-bottom"></h1>
             </div>
         </div>
+        <!-- Underneath cards for stack effect -->
+        <div class="card card-stack card-stack-1"></div>
+        <div class="card card-stack card-stack-2"></div>
+        <div class="card card-stack card-stack-3"></div>
     </div>
     <audio id="card-audio" src=""></audio>
     <script src="script.js"></script>
