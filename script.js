@@ -1,218 +1,140 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const deckSelection = document.getElementById('deck-selection');
+    const cardView = document.getElementById('card-view');
+    const cardContainer = document.getElementById('card-container');
+    const cardElement = document.getElementById('card');
+    const cardFront = document.querySelector('.card-front');
+    const cardBack = document.querySelector('.card-back');
+    const deckInfo = document.getElementById('deck-info');
+    const deckSize = document.getElementById('deck-size');
 
-body {
-  background-color: #000000;
-  color: #ffffff;
-  font-family: 'Arial', sans-serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-x: hidden;
-}
+    let decks = {};
+    let currentDeck = [];
+    let currentCardIndex = 0;
 
-.card-deck {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 10px;
-  padding: 20px;
-  width: 100%;
-  max-width: 480px;
-  transform-origin: center center;
-  will-change: transform;
-}
+    // Fetch and parse the database.jsonl file
+    fetch('data/database.jsonl')
+        .then(response => response.text())
+        .then(data => {
+            const lines = data.trim().split('\n');
+            lines.forEach(line => {
+                const entry = JSON.parse(line);
+                if (!decks[entry.word]) {
+                    decks[entry.word] = [];
+                }
+                decks[entry.word].push(entry);
+            });
 
-.loading-indicator {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.2rem;
-  color: #00ff88;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-  display: none;
-}
+            // Shuffle each deck
+            Object.keys(decks).forEach(word => {
+                decks[word] = shuffle(decks[word]);
+            });
 
-.mini-card {
-  background-color: #2c2c2c;
-  border: 3px solid #ffffff;
-  border-radius: 5px;
-  width: 140px;
-  height: 222px;
-  max-width: 95vw;
-  max-height: calc(95vw * 1.59);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.7s ease, opacity 0.7s ease, width 0.7s ease, height 0.7s ease, border 0.7s ease;
-  position: relative;
-  z-index: 10;
-  perspective: 1000px;
-  touch-action: pan-y;
-  user-select: none;
-}
+            // Display all decks
+            displayDecks();
+        })
+        .catch(error => console.error('Error loading database:', error));
 
-.card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s ease;
-  transform-style: preserve-3d;
-}
+    // Shuffle array function
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
 
-.card-front, .card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    // Display all card decks
+    function displayDecks() {
+        deckSelection.innerHTML = '';
+        Object.keys(decks).forEach(word => {
+            const deckElement = document.createElement('div');
+            deckElement.classList.add('deck');
+            const cardCount = decks[word].length;
+            const maxVisibleCards = Math.min(cardCount, 5); // Show up to 5 cards for thickness
 
-.card-back {
-  transform: rotateY(180deg);
-}
+            for (let i = 0; i < maxVisibleCards; i++) {
+                const deckCard = document.createElement('div');
+                deckCard.classList.add('deck-card');
+                deckCard.textContent = word;
+                deckElement.appendChild(deckCard);
+            }
 
-.flip .card-inner {
-  transform: rotateY(180deg);
-}
+            deckElement.addEventListener('click', () => selectDeck(word));
+            deckSelection.appendChild(deckElement);
+        });
+    }
 
-.mini-card:hover {
-  transform: scale(1.05);
-}
+    // Select a deck and transition to card view
+    function selectDeck(word) {
+        currentDeck = decks[word];
+        currentCardIndex = 0;
+        deckSelection.querySelectorAll('.deck').forEach(deck => {
+            if (deck.firstChild.textContent !== word) {
+                deck.style.opacity = '0';
+            } else {
+                deck.style.transform = 'scale(1.5) translate(-50%, -50%)';
+                deck.style.position = 'fixed';
+                deck.style.left = '50%';
+                deck.style.top = '50%';
+            }
+        });
 
-.content {
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+        setTimeout(() => {
+            deckSelection.classList.add('hidden');
+            cardView.classList.add('active');
+            displayCard();
+        }, 500);
+    }
 
-.sentences {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+    // Display the current card
+    function displayCard() {
+        if (currentDeck.length === 0) return;
+        const card = currentDeck[currentCardIndex];
+        cardFront.textContent = card.word;
+        cardBack.innerHTML = `
+            <div>${card.word}</div>
+            <div>${card.english}</div>
+            <div>${card.thai}</div>
+        `;
+        deckSize.textContent = currentDeck.length;
+        deckInfo.textContent = `Card ${currentCardIndex + 1} of ${currentDeck.length}`;
+        cardElement.classList.remove('flipped');
+    }
 
-.mini-card-word {
-  font-family: 'Arial', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  text-align: center;
-  color: #ffffff;
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
-  white-space: nowrap;
-  max-width: 90%;
-}
+    // Handle card interactions
+    let touchStartX, touchStartY;
+    cardContainer.addEventListener('click', () => {
+        // Play audio on single tap
+        const card = currentDeck[currentCardIndex];
+        const audio = new Audio(`audio/${card.audio.split('/')[1]}`);
+        audio.play().catch(error => console.error('Error playing audio:', error));
+    });
 
-.english {
-  font-family: 'Arial', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 400;
-  text-align: left;
-  color: #ffffff;
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
-  max-width: 90%;
-}
+    cardContainer.addEventListener('dblclick', () => {
+        // Flip card on double tap
+        cardElement.classList.toggle('flipped');
+    });
 
-.english .highlight {
-  font-weight: 700;
-  color: #ffffff;
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
-}
+    cardContainer.addEventListener('touchstart', e => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+    });
 
-.thai {
-  font-family: 'Noto Sans Thai', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 400;
-  text-align: right;
-  color: #ffffff;
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
-  max-width: 90%;
-}
+    cardContainer.addEventListener('touchend', e => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
 
-.audio-error {
-  font-family: 'Arial', sans-serif;
-  font-size: 0.7rem;
-  color: #ff4081;
-  text-align: center;
-  position: absolute;
-  bottom: 5px;
-  width: 100%;
-  display: none;
-}
-
-.error-message {
-  color: #ff4081;
-  font-size: 1.2rem;
-  text-align: center;
-  padding: 20px;
-  max-width: 90%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-@media (max-width: 600px) {
-  .card-deck {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 8px;
-    padding: 15px;
-  }
-
-  .mini-card {
-    width: 120px;
-    height: 191px;
-    max-width: 95vw;
-    max-height: calc(95vw * 1.59);
-    border: 3px solid #ffffff;
-  }
-
-  .mini-card-word {
-    font-size: 1rem;
-    color: #ffffff;
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
-  }
-
-  .english {
-    font-size: 0.65rem;
-    color: #ffffff;
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
-  }
-
-  .english .highlight {
-    color: #ffffff;
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
-  }
-
-  .thai {
-    font-size: 0.6rem;
-    color: #ffffff;
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
-  }
-
-  .audio-error {
-    font-size: 0.6rem;
-  }
-
-  .loading-indicator {
-    font-size: 1rem;
-  }
-
-  .error-message {
-    font-size: 1rem;
-  }
-}
+        if (Math.abs(deltaX) > 50 || Math.abs(deltaY) > 50) {
+            // Swipe detected
+            if (currentCardIndex < currentDeck.length - 1) {
+                currentCardIndex++;
+            } else {
+                currentCardIndex = 0; // Loop back to start
+            }
+            displayCard();
+        }
+    });
+});
