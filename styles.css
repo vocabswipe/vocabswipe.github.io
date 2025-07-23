@@ -37,6 +37,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    perspective: 1000px; /* Add 3D perspective for stack effect */
 }
 
 /* Poker card styling */
@@ -56,6 +57,31 @@ html, body {
     top: 0;
     left: 0;
     touch-action: none; /* Prevent browser default touch actions */
+    z-index: 10; /* Top card on top */
+}
+
+/* Stack cards (underneath) */
+.card-stack {
+    background-color: #f8f8f8; /* Slightly off-white for depth */
+    z-index: 5; /* Below top card */
+}
+
+.card-stack-1 {
+    transform: translate(2px, 2px) rotate(0.5deg);
+    z-index: 4;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.card-stack-2 {
+    transform: translate(4px, 4px) rotate(1deg);
+    z-index: 3;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card-stack-3 {
+    transform: translate(6px, 6px) rotate(1.5deg);
+    z-index: 2;
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
 }
 
 /* Remove active state outline */
@@ -149,6 +175,18 @@ html, body {
         font-family: 'Noto Sans Thai', sans-serif;
         font-weight: bold;
         font-size: 1rem;
+    }
+
+    .card-stack-1 {
+        transform: translate(1px, 1px) rotate(0.5deg);
+    }
+
+    .card-stack-2 {
+        transform: translate(2px, 2px) rotate(1deg);
+    }
+
+    .card-stack-3 {
+        transform: translate(3px, 3px) rotate(1.5deg);
     }
 }
 
