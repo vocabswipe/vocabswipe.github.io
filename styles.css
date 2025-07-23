@@ -76,34 +76,44 @@ html, body {
     color: white; /* White text */
 }
 
-/* Word styling */
+/* Word styling with continuous black outline */
 .word {
     font-family: 'Inter', sans-serif; /* Consistent font */
     font-size: 1.8rem; /* Adjusted size for corner placement */
     font-weight: 800; /* Extra bold for clarity */
     color: white; /* White text */
-    -webkit-text-stroke: 0.5px black; /* Thin black outline */
+    -webkit-text-stroke: 1px black; /* Continuous black outline */
+    text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000; /* Additional shadow for smooth outline */
     position: absolute;
     margin: 0; /* Remove default margin */
 }
 
-/* Position words in corners */
+/* Position words in corners with equal distances */
 .top-left {
     top: 20px;
-    left: 20px;
+    left: 20px; /* Equal distance from top and left edges */
 }
 
 .bottom-right {
     bottom: 20px;
-    right: 20px;
+    right: 20px; /* Equal distance from bottom and right edges */
 }
 
-/* Sentence styling */
+/* Sentence styling with continuous black outline */
 .sentence {
     font-size: 1.2rem;
     margin: 10px 0;
     color: white; /* White text */
-    -webkit-text-stroke: 0.5px black; /* Thin black outline */
+    -webkit-text-stroke: 0.5px black; /* Thinner continuous black outline */
+    text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000; /* Additional shadow for smooth outline */
     text-align: center; /* Ensure center alignment */
 }
 
@@ -137,12 +147,22 @@ html, body {
     .word {
         font-family: 'Inter', sans-serif; /* Consistent font */
         font-size: 1.5rem; /* Smaller word size on mobile */
-        -webkit-text-stroke: 0.4px black; /* Slightly thinner outline for mobile */
+        -webkit-text-stroke: 0.8px black; /* Slightly thinner outline for mobile */
+        text-shadow:
+            -0.8px -0.8px 0 #000,
+             0.8px -0.8px 0 #000,
+            -0.8px  0.8px 0 #000,
+             0.8px  0.8px 0 #000; /* Adjusted shadow for mobile */
     }
 
     .sentence {
         font-size: 1.1rem; /* Slightly smaller sentences on mobile */
-        -webkit-text-stroke: 0.4px black; /* Slightly thinner outline for mobile */
+        -webkit-text-stroke: 0.4px black; /* Thinner outline for mobile */
+        text-shadow:
+            -0.8px -0.8px 0 #000,
+             0.8px -0.8px 0 #000,
+            -0.8px  0.8px 0 #000,
+             0.8px  0.8px 0 #000; /* Adjusted shadow for mobile */
     }
 
     .english {
