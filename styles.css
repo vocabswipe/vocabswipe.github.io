@@ -82,7 +82,6 @@ html, body {
     font-size: 1.8rem; /* Adjusted size for corner placement */
     font-weight: 800; /* Extra bold for clarity */
     color: white; /* White text */
-    -webkit-text-stroke: 0.5px black; /* Sharp black outline for contrast */
     position: absolute;
     margin: 0; /* Remove default margin */
 }
@@ -103,7 +102,6 @@ html, body {
     font-size: 1.2rem;
     margin: 10px 0;
     color: white; /* White text */
-    -webkit-text-stroke: 0.4px black; /* Slightly thinner outline for smaller text */
     text-align: center; /* Ensure center alignment */
 }
 
@@ -137,12 +135,10 @@ html, body {
     .word {
         font-family: 'Inter', sans-serif; /* Consistent font */
         font-size: 1.5rem; /* Smaller word size on mobile */
-        -webkit-text-stroke: 0.4px black; /* Slightly thinner outline for smaller screens */
     }
 
     .sentence {
         font-size: 1.1rem; /* Slightly smaller sentences on mobile */
-        -webkit-text-stroke: 0.3px black; /* Thinner outline for smaller text */
     }
 
     .english {
