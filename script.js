@@ -20,11 +20,18 @@ function shuffle(array) {
     return array;
 }
 
+// Random UNO card color
+function getRandomUnoColor() {
+    const colors = ['#ff4d4d', '#4d79ff', '#4dff4d', '#ffff4d']; // Red, Blue, Green, Yellow
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
 // Create card HTML
 function createCard(entry, isBack = false) {
     const card = document.createElement('div');
     card.classList.add('card');
     if (isBack) card.classList.add('back');
+    card.style.backgroundColor = getRandomUnoColor();
 
     const content = document.createElement('div');
     content.classList.add('card-content');
@@ -80,7 +87,6 @@ async function init() {
 
     // Handle window resize
     window.addEventListener('resize', adjustGridLayout);
-
     // Handle keyboard events
     document.addEventListener('keydown', handleKeydown);
 }
@@ -90,19 +96,24 @@ function adjustGridLayout() {
     const cardGrid = document.getElementById('card-grid');
     const cards = cardGrid.querySelectorAll('.card');
     const vw = window.innerWidth;
-    const vh = window.innerHeight;
     const cardWidth = window.innerWidth <= 600 ? 100 : 120;
-    const cols = Math.floor(vw / (cardWidth + 5)); // Account for gap
+    const cols = Math.floor(vw / (cardWidth + 10)); // Account for gap
     const rows = Math.ceil(cards.length / cols);
 
     cardGrid.style.gridTemplateColumns = `repeat(${cols}, ${cardWidth}px)`;
-    cardGrid.style.gridTemplateRows = `repeat(${rows}, ${cardWidth * 1.5 + 5}px)`;
+    cardGrid.style.gridTemplateRows = `repeat(${rows}, ${cardWidth * 1.5 + 10}px)`;
+    cardGrid.style.height = 'auto'; // Allow scrolling
 }
 
 // Handle card selection
 function selectCard(word, data) {
     const cardGrid = document.getElementById('card-grid');
     const cardStack = document.getElementById('card-stack');
+    const selectedCard = cardGrid.querySelector(`.card[data-word="${word}"]`);
+
+    // Calculate target width (90% of viewport width for mobile, maintaining aspect ratio)
+    const targetWidth = window.innerWidth <= 600 ? window.innerWidth * 0.9 : 240;
+    const targetHeight = targetWidth * 1.5; // Maintain 2:3 aspect ratio
 
     // Fade out other cards
     cardGrid.querySelectorAll('.card').forEach(card => {
@@ -110,13 +121,15 @@ function selectCard(word, data) {
             card.style.opacity = '0';
         } else {
             // Animate selected card
-            card.style.transition = 'transform 0.5s ease, width 0.5s ease';
-            card.style.width = window.innerWidth <= 600 ? '200px' : '240px';
-            card.style.transform = `translate(${window.innerWidth / 2 - card.offsetLeft - card.offsetWidth / 2}px, ${window.innerHeight / 2 - card.offsetTop - card.offsetHeight / 2}px)`;
-            
+            card.style.transition = 'transform 0.5s ease, width 0.5s ease, height 0.5s ease';
+            card.style.width = `${targetWidth}px`;
+            card.style.height = `${targetHeight}px`;
+            card.style.transform = `translate(${window.innerWidth / 2 - selectedCard.offsetLeft - selectedCard.offsetWidth / 2}px, ${window.innerHeight / 2 - selectedCard.offsetTop - selectedCard.offsetHeight / 2}px)`;
+
             setTimeout(() => {
                 cardGrid.classList.add('hidden');
                 cardStack.classList.remove('hidden');
+                document.body.style.overflow = window.innerWidth <= 600 ? 'hidden' : 'auto'; // Lock scroll on mobile
                 displayCardStack(word, data);
             }, 500);
         }
