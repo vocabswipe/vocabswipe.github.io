@@ -14,7 +14,7 @@ html, body {
     justify-content: center;
     align-items: center;
     background-color: #f0f0f0; /* Light gray background */
-    font-family: 'Times New Roman', Times, serif; /* Poker card font for English */
+    font-family: 'Times New Roman', Times, serif; /* Poker card font */
 }
 
 /* Swipe counter styling */
@@ -32,8 +32,8 @@ html, body {
     position: relative;
     width: 80vw;
     max-width: 300px;
-    height: calc(80vw * 1.4); /* Poker card aspect ratio (2.5:3.5 ≈ 1:1.4) */
-    max-height: 420px; /* Adjusted to maintain aspect ratio */
+    height: calc(80vw * 1.4); /* Poker card aspect ratio (2.5:3.5 ≈ 1.4) */
+    max-height: 420px; /* Max height based on max-width * 1.4 */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,13 +43,13 @@ html, body {
 .card {
     width: 100%;
     height: 100%;
-    background-color: #ff5555; /* Default color, will be randomized */
-    border: 1px solid #000; /* Thin black border for poker card look */
-    border-radius: 12px; /* Rounded corners like poker cards */
+    background-color: #ffffff; /* White background for poker card */
+    border: 1px solid #000; /* Thin black border */
+    border-radius: 8px; /* Subtle rounded corners for poker card */
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Lighter shadow for poker card */
     cursor: pointer; /* Indicate tappable */
     user-select: none; /* Prevent text selection */
     position: absolute;
@@ -68,56 +68,54 @@ html, body {
     position: relative; /* Enable absolute positioning for words */
     width: 100%;
     height: 100%;
-    padding: 20px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center sentences vertically */
     align-items: center; /* Center sentences horizontally */
 }
 
-/* Word styling for poker card look */
+/* Word styling for poker card */
 .word {
     font-family: 'Times New Roman', Times, serif; /* Classic poker card font */
-    font-size: 1.8rem; /* Adjusted for poker card style */
-    font-weight: bold; /* Bold for prominence */
-    color: #ff0000; /* Default color, will be randomized */
+    font-size: 1.5rem; /* Adjusted for poker card style */
+    font-weight: bold;
     position: absolute;
     margin: 0; /* Remove default margin */
 }
 
-/* Position words in corners with equal distances */
+/* Position words in corners */
 .top-left {
-    top: 15px;
-    left: 15px; /* Adjusted for poker card proportions */
+    top: 10px;
+    left: 10px; /* Closer to edges for poker card style */
 }
 
 .bottom-right {
-    bottom: 15px;
-    right: 15px; /* Adjusted for poker card proportions */
+    bottom: 10px;
+    right: 10px; /* Closer to edges for poker card style */
 }
 
-/* Sentence styling for poker card look */
+/* Sentence styling */
 .sentence {
-    font-size: 1.2rem; /* Adjusted for clarity */
+    font-size: 1.1rem; /* Adjusted for poker card readability */
     margin: 8px 0;
-    color: #ff0000; /* Default color, will be randomized */
     text-align: center; /* Ensure center alignment */
 }
 
 /* English sentence font */
 .english {
     font-family: 'Times New Roman', Times, serif; /* Poker card font */
-    font-weight: bold; /* Bold for poker card style */
-    font-size: 1.25rem;
-    line-height: 1.4; /* Improved spacing */
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.3; /* Adjusted spacing */
 }
 
 /* Thai sentence font */
 .thai {
-    font-family: 'Noto Serif Thai', serif; /* Serif font for Thai to match poker card style */
-    font-weight: bold; /* Bold for poker card style */
-    font-size: 1.25rem;
-    line-height: 1.6; /* Extra spacing for Thai characters */
+    font-family: 'Noto Sans Thai', sans-serif; /* Optimized for Thai */
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.5; /* Extra spacing for Thai characters */
 }
 
 /* Responsive adjustments */
@@ -133,28 +131,26 @@ html, body {
 
     .word {
         font-family: 'Times New Roman', Times, serif;
-        font-size: 1.5rem; /* Smaller for mobile */
+        font-size: 1.3rem; /* Smaller for mobile */
         font-weight: bold;
-        color: #ff0000; /* Default, will be randomized */
     }
 
     .sentence {
-        font-size: 1.1rem; /* Smaller for mobile */
-        color: #ff0000; /* Default, will be randomized */
+        font-size: 1rem; /* Smaller for mobile */
     }
 
     .english {
         font-family: 'Times New Roman', Times, serif;
         font-weight: bold;
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .thai {
-        font-family: 'Noto Serif Thai', serif;
+        font-family: 'Noto Sans Thai', sans-serif;
         font-weight: bold;
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 }
 
 /* Ensure fonts are loaded */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@600;700;900&display=swap');
