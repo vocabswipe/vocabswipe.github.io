@@ -81,29 +81,32 @@ html, body {
 .sentence {
     font-size: 1.2rem;
     margin: 10px 0;
-    font-weight: 700; /* Bold for better readability */
     color: white; /* White text */
     text-shadow: 
-        -1.5px -1.5px 0 #000,
-         1.5px -1.5px 0 #000,
-        -1.5px  1.5px 0 #000,
-         1.5px  1.5px 0 #000,
-         0   -1.5px 0 #000,
-         0    1.5px 0 #000,
-        -1.5px  0   0 #000,
-         1.5px  0   0 #000; /* Thicker, complete black outline */
+        -2px -2px 0 #000,
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000,
+         0   -2px 0 #000,
+         0    2px 0 #000,
+        -2px  0   0 #000,
+         2px  0   0 #000; /* Enhanced black outline for better contrast */
 }
 
 /* English sentence font */
 .english {
     font-family: 'Inter', sans-serif; /* Clean, modern font for English */
     font-weight: 700; /* Bold for readability */
+    font-size: 1.3rem; /* Slightly larger for clarity */
+    line-height: 1.4; /* Improved spacing */
 }
 
 /* Thai sentence font */
 .thai {
-    font-family: 'Sarabun', sans-serif; /* Modern, readable font for Thai */
+    font-family: 'Noto Sans Thai', sans-serif; /* Optimized font for Thai */
     font-weight: 600; /* Slightly lighter but still bold for Thai */
+    font-size: 1.3rem; /* Slightly larger for clarity */
+    line-height: 1.6; /* Extra spacing for Thai characters */
 }
 
 /* Responsive adjustments */
@@ -118,9 +121,17 @@ html, body {
     }
 
     .sentence {
-        font-size: 1rem; /* Smaller sentences on mobile */
+        font-size: 1.1rem; /* Slightly smaller sentences on mobile */
+    }
+
+    .english {
+        font-size: 1.1rem;
+    }
+
+    .thai {
+        font-size: 1.1rem;
     }
 }
 
 /* Ensure fonts are loaded */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800&family=Sarabun:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800&family=Noto+Sans+Thai:wght@600;700&display=swap');
