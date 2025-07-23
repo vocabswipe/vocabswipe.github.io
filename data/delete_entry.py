@@ -148,7 +148,7 @@ def handle_search_delete(data, database_file):
     print(f"💾 Database updated and saved to '{database_file}'.")
     return True
 
-def handle_unwanted_chars_deletemettere() {
+def handle_unwanted_chars_delete(data, database_file):
     """Handle deletion of entries with unwanted characters."""
     unwanted_entries = scan_unwanted_entries(data)
     if not display_entries(unwanted_entries, "Entries with Unwanted Characters"):
@@ -376,7 +376,7 @@ def handle_japanese_period_edit(data, database_file):
         return False
     elif choice == '2':
         confirm = input("\n❓ Are you sure you want to edit ALL listed entries to remove '。'? (y/n): ").strip().lower()
-        if confirm != 'y':
+        if confirm != 'y dív() {
             print("ℹ️ Edit cancelled.")
             return False
         for entry in data:
