@@ -1,19 +1,8 @@
 // Array to hold vocabulary entries
 let vocabData = [];
-let shuffledIndices = [];
-let currentIndex = 0;
 
 // UNO-inspired colors
 const colors = ['#ff5555', '#55ff55', '#5555ff', '#ffff55']; // Red, Green, Blue, Yellow
-
-// Function to shuffle array (Fisher-Yates shuffle)
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
 
 // Function to fetch and parse JSONL file
 async function loadVocabData() {
@@ -21,10 +10,9 @@ async function loadVocabData() {
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
         vocabData = text.trim().split('\n').map(line => JSON.parse(line));
-        // Create and shuffle indices
-        shuffledIndices = shuffleArray([...Array(vocabData.length).keys()]);
-        currentIndex = 0;
-        displayCard();
+        // Shuffle the array
+        vocabData = vocabData.sort(() => Math.random() - 0.5);
+        displayRandomCard();
     } catch (error) {
         console.error('Error loading database:', error);
         document.getElementById('word').textContent = 'Error';
@@ -33,104 +21,147 @@ async function loadVocabData() {
     }
 }
 
+// Current card index
+let currentIndex = 0;
+
 // Function to display the current card
-function displayCard() {
-    if (shuffledIndices.length === 0 || currentIndex >= shuffledIndices.length) {
-        // Reshuffle when deck is empty
-        shuffledIndices = shuffleArray([...Array(vocabData.length).keys()]);
-        currentIndex = 0;
-    }
+function displayRandomCard() {
+    if (vocabData.length === 0 || currentIndex >= vocabData.length) return;
 
-    const entry = vocabData[shuffledIndices[currentIndex]];
+    const entry = vocabData[currentIndex];
     const card = document.getElementById('vocab-card');
-    
-    // Reset card position and opacity
-    card.style.transform = 'translate(0, 0)';
-    card.style.opacity = '1';
-    
-    // Update card content
-    document.getElementById('word').textContent = entry.word;
-    document.getElementById('english').textContent = entry.english;
-    document.getElementById('thai').textContent = entry.thai;
-
-    // Update audio source
+    const wordElement = document.getElementById('word');
+    const englishElement = document.getElementById('english');
+    const thaiElement = document.getElementById('thai');
     const audioElement = document.getElementById('card-audio');
+
+    // Update card content
+    wordElement.textContent = entry.word;
+    englishElement.textContent = entry.english;
+    thaiElement.textContent = entry.thai;
     audioElement.src = `data/${entry.audio}`;
 
     // Randomize card background color
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     card.style.backgroundColor = randomColor;
+
+    // Reset card position and opacity
+    card.style.transform = 'translate(0, 0) rotate(0deg)';
+    card.style.opacity = '1';
+}
+
+// Function to animate and move to next card
+function moveToNextCard(direction) {
+    const card = document.getElementById('vocab-card');
+    let translateX = 0;
+    let translateY = 0;
+    let rotate = 0;
+
+    // Determine animation based on swipe direction
+    switch (direction) {
+        case 'left':
+            translateX = '-100vw';
+            rotate = -15;
+            break;
+        case 'right':
+            translateX = '100vw';
+            rotate = 15;
+            break;
+        case 'up':
+            translateY = '-100vh';
+            rotate = -10;
+            break;
+        case 'down':
+            translateY = '100vh';
+            rotate = 10;
+            break;
+    }
+
+    // Animate card out
+    card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+    card.style.transform = `translate(${translateX}, ${translateY}) rotate(${rotate}deg)`;
+    card.style.opacity = '0';
+
+    // Move to next card after animation
+    setTimeout(() => {
+        currentIndex = (currentIndex + 1) % vocabData.length;
+        displayRandomCard();
+        card.style.transition = 'none'; // Reset transition for next card
+    }, 500);
 }
 
 // Play audio on card click/tap
 document.getElementById('vocab-card').addEventListener('click', (e) => {
-    // Prevent click from interfering with swipe
-    if (e.detail === 0) return; // Ignore touch-related clicks
+    e.preventDefault();
     const audio = document.getElementById('card-audio');
     audio.play().catch(error => console.error('Error playing audio:', error));
 });
 
-// Swipe handling
+// Swipe detection
 let touchStartX = 0;
 let touchStartY = 0;
 let touchEndX = 0;
 let touchEndY = 0;
+const minSwipeDistance = 50;
 
-const card = document.getElementById('vocab-card');
-
-card.addEventListener('touchstart', (e) => {
+document.getElementById('vocab-card').addEventListener('touchstart', (e) => {
+    e.preventDefault(); // Prevent browser refresh on swipe down
     touchStartX = e.changedTouches[0].screenX;
     touchStartY = e.changedTouches[0].screenY;
 });
 
-card.addEventListener('touchmove', (e) => {
+document.getElementById('vocab-card').addEventListener('touchend', (e) => {
+    e.preventDefault();
     touchEndX = e.changedTouches[0].screenX;
     touchEndY = e.changedTouches[0].screenY;
-    const deltaX = touchEndX - touchStartX;
-    const deltaY = touchEndY - touchStartY;
-    
-    // Move card with finger
-    card.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+    handleSwipe();
 });
 
-card.addEventListener('touchend', () => {
+function handleSwipe() {
     const deltaX = touchEndX - touchStartX;
     const deltaY = touchEndY - touchStartY;
-    const minSwipeDistance = 50; // Minimum distance for a swipe
+    const absDeltaX = Math.abs(deltaX);
+    const absDeltaY = Math.abs(deltaY);
 
-    // Check if swipe distance is sufficient
-    if (Math.abs(deltaX) > minSwipeDistance || Math.abs(deltaY) > minSwipeDistance) {
-        // Determine swipe direction
-        let direction;
-        if (Math.abs(deltaX) > Math.abs(deltaY)) {
-            direction = deltaX > 0 ? 'right' : 'left';
+    if (absDeltaX > minSwipeDistance || absDeltaY > minSwipeDistance) {
+        if (absDeltaX > absDeltaY) {
+            // Horizontal swipe
+            if (deltaX > 0) {
+                moveToNextCard('right');
+            } else {
+                moveToNextCard('left');
+            }
         } else {
-            direction = deltaY > 0 ? 'down' : 'up';
+            // Vertical swipe
+            if (deltaY > 0) {
+                moveToNextCard('down');
+            } else {
+                moveToNextCard('up');
+            }
         }
+    }
+}
 
-        // Animate card out based on direction
-        let transformValue;
-        if (direction === 'left') transformValue = 'translateX(-100vw)';
-        else if (direction === 'right') transformValue = 'translateX(100vw)';
-        else if (direction === 'up') transformValue = 'translateY(-100vh)';
-        else if (direction === 'down') transformValue = 'translateY(100vh)';
-
-        card.style.transition = 'transform 0.3s ease-out';
-        card.style.transform = transformValue;
-
-        // After animation, load next card
-        setTimeout(() => {
-            card.style.transition = ''; // Reset transition
-            currentIndex++;
-            displayCard();
-        }, 300);
-    } else {
-        // Reset position if not a swipe
-        card.style.transition = 'transform 0.2s ease-out';
-        card.style.transform = 'translate(0, 0)';
-        setTimeout(() => {
-            card.style.transition = ''; // Reset transition
-        }, 200);
+// Keyboard controls for PC
+document.addEventListener('keydown', (e) => {
+    switch (e.key) {
+        case ' ':
+            e.preventDefault();
+            const audio = document.getElementById('card-audio');
+            audio.play().catch(error => console.error('Error playing audio:', error));
+            break;
+        case 'ArrowLeft':
+            moveToNextCard('left');
+            break;
+        case 'ArrowRight':
+            moveToNextCard('right');
+            break;
+        case 'ArrowUp':
+            moveToNextCard('up');
+            break;
+        case 'ArrowDown':
+            moveToNextCard('down');
+            break;
     }
 });
 
