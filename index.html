@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <title>VocabSwipe - Learn English Vocabulary</title>
-  <link rel="stylesheet" href="styles.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+Thai:wght@400;700&display=swap" rel="stylesheet"/>
-  <link rel="preload" href="data/database.jsonl" as="fetch" crossorigin="anonymous"/>
-  <link rel="icon" type="image/x-icon" href="VS.ico"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VocabSwipe</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="card-deck" id="card-deck">
-    <div class="loading-indicator" id="loading-indicator" style="display: none;">Loading vocabulary...</div>
-  </div>
-  <script src="script.js"></script>
+    <div id="deck-selection" class="deck-selection"></div>
+    <div id="card-view" class="card-view hidden">
+        <div id="card-container" class="card-container">
+            <div id="card" class="card">
+                <div class="card-front"></div>
+                <div class="card-back"></div>
+            </div>
+        </div>
+        <div id="deck-info">Card 1 of <span id="deck-size">0</span></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
