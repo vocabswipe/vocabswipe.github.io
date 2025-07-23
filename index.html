@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>VocabSwipe</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Noto+Sans+Thai:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="card-grid" class="card-grid"></div>
-    <div id="card-stack" class="card-stack hidden"></div>
+    <div class="card" id="vocab-card">
+        <div class="card-content">
+            <h1 class="word" id="word"></h1>
+            <p class="sentence english" id="english"></p>
+            <p class="sentence thai" id="thai"></p>
+        </div>
+    </div>
+    <audio id="card-audio" src=""></audio>
     <script src="script.js"></script>
 </body>
 </html>
