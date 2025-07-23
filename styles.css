@@ -83,6 +83,23 @@ html, body {
     z-index: 10; /* Top card on top */
 }
 
+/* Glowing effect for card tap */
+.glow {
+    animation: glow 0.6s ease-in-out 2; /* Two pulses, 0.6s each */
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Original shadow */
+    }
+    50% {
+        box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.7); /* Gold glow */
+    }
+    100% {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Back to original */
+    }
+}
+
 /* Next card styling */
 #next-card {
     z-index: 9; /* Below top card but above stack */
