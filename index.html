@@ -7,8 +7,19 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="word-selection" class="word-selection"></div>
-    <div id="card-container" class="card-container hidden"></div>
+    <div id="card-container">
+        <div id="card" class="card">
+            <div class="card-front">
+                <div class="word"></div>
+            </div>
+            <div class="card-back">
+                <div class="word"></div>
+                <div class="english"></div>
+                <div class="thai"></div>
+            </div>
+        </div>
+    </div>
+    <audio id="card-audio" preload="none"></audio>
     <script src="script.js"></script>
 </body>
 </html>
