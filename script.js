@@ -1,128 +1,117 @@
-// Fetch and parse the database
-async function loadDatabase() {
-    try {
-        const response = await fetch('data/database.jsonl');
-        const text = await response.text();
-        const lines = text.trim().split('\n');
-        const data = lines.map(line => JSON.parse(line));
-        return data;
-    } catch (error) {
-        console.error('Error loading database:', error);
-        return [];
+document.addEventListener('DOMContentLoaded', () => {
+    const card = document.getElementById('card');
+    const cardFront = card.querySelector('.card-front');
+    const cardBack = card.querySelector('.card-back');
+    const audio = document.getElementById('card-audio');
+    let isFlipped = false;
+    let cardsData = [];
+    let currentCard = null;
+
+    // Fetch and parse database.jsonl
+    async function loadCards() {
+        try {
+            const response = await fetch('data/database.jsonl');
+            const text = await response.text();
+            cardsData = text.trim().split('\n').map(line => JSON.parse(line));
+            loadRandomCard();
+        } catch (error) {
+            console.error('Error loading database:', error);
+        }
     }
-}
 
-// Shuffle array
-function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+    // Load a random card
+    function loadRandomCard() {
+        if (cardsData.length === 0) return;
+        currentCard = cardsData[Math.floor(Math.random() * cardsData.length)];
+        cardFront.querySelector('.word').textContent = currentCard.word;
+        cardBack.querySelector('.word').textContent = currentCard.word;
+        cardBack.querySelector('.english').textContent = currentCard.english;
+        cardBack.querySelector('.thai').textContent = currentCard.thai;
+        audio.src = `data/${currentCard.audio}`;
+        card.classList.remove('flipped', 'swipe-left', 'swipe-right', 'swipe-up', 'swipe-down');
+        isFlipped = false;
     }
-    return array;
-}
 
-// Uno card colors
-const colors = ['#ff4d4d', '#4d79ff', '#4dff4d', '#ffd11a'];
+    // Flip card on double tap/click
+    function flipCard() {
+        isFlipped = !isFlipped;
+        card.classList.toggle('flipped', isFlipped);
+    }
 
-// Initialize the app
-async function init() {
-    const data = await loadDatabase();
-    
-    // Get unique words
-    const uniqueWords = [...new Set(data.map(item => item.word))];
-    const shuffledWords = shuffle(uniqueWords);
+    // Play audio on single tap/click when flipped
+    function playAudio() {
+        if (isFlipped) {
+            audio.play().catch(error => console.error('Error playing audio:', error));
+        }
+    }
 
-    const wordSelection = document.getElementById('word-selection');
-    const cardContainer = document.getElementById('card-container');
+    // Swipe card with animation
+    function swipeCard(direction) {
+        card.classList.add(`swipe-${direction}`);
+        setTimeout(() => {
+            loadRandomCard();
+        }, 300);
+    }
 
-    // Create word selection cards
-    shuffledWords.forEach(word => {
-        const card = document.createElement('div');
-        card.classList.add('card', 'word-card');
-        card.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        card.innerHTML = `<h2>${word}</h2>`;
-        card.addEventListener('click', () => selectWord(word, data));
-        wordSelection.appendChild(card);
-    });
-}
+    // Handle touch events for mobile
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchCount = 0;
+    let touchTimer = null;
 
-// Handle word selection
-function selectWord(word, data) {
-    const wordSelection = document.getElementById('word-selection');
-    const cardContainer = document.getElementById('card-container');
-
-    // Fade out unselected cards
-    const cards = document.querySelectorAll('.word-card');
-    cards.forEach(card => {
-        if (card.querySelector('h2').textContent !== word) {
-            card.classList.add('fade-out');
-        } else {
-            card.classList.add('scale-up');
+    card.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchCount++;
+        if (touchCount === 1) {
+            touchTimer = setTimeout(() => {
+                playAudio();
+                touchCount = 0;
+            }, 300);
+        } else if (touchCount === 2) {
+            clearTimeout(touchTimer);
+            flipCard();
+            touchCount = 0;
         }
     });
 
-    // After animation, show study cards
-    setTimeout(() => {
-        wordSelection.classList.add('hidden');
-        cardContainer.classList.remove('hidden');
+    card.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
 
-        // Filter data for selected word and shuffle
-        const wordData = shuffle(data.filter(item => item.word === word));
-        showStudyCards(wordData);
-    }, 500);
-}
-
-// Display study cards
-function showStudyCards(wordData) {
-    const cardContainer = document.getElementById('card-container');
-    cardContainer.innerHTML = '';
-
-    let currentIndex = 0;
-
-    function displayCard(index) {
-        if (index >= wordData.length) return;
-
-        const item = wordData[index];
-        const card = document.createElement('div');
-        card.classList.add('card', 'study-card');
-        card.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        card.innerHTML = `
-            <h2>${item.word}</h2>
-            <p><strong>English:</strong> ${item.english}</p>
-            <p><strong>Thai:</strong> ${item.thai}</p>
-        `;
-
-        // Play audio on click
-        card.addEventListener('click', () => {
-            const audio = new Audio(`data/${item.audio}`);
-            audio.play();
-        });
-
-        cardContainer.appendChild(card);
-
-        // Swipe handling
-        let startX = 0;
-        card.addEventListener('touchstart', e => {
-            startX = e.touches[0].clientX;
-        });
-
-        card.addEventListener('touchend', e => {
-            const endX = e.changedTouches[0].clientX;
-            const deltaX = endX - startX;
-
-            if (Math.abs(deltaX) > 50) {
-                card.classList.add(deltaX > 0 ? 'swipe-right' : 'swipe-left');
-                setTimeout(() => {
-                    card.remove();
-                    currentIndex++;
-                    displayCard(currentIndex);
-                }, 500);
+        if (Math.abs(deltaX) > 50 || Math.abs(deltaY) > 50) {
+            if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                swipeCard(deltaX > 0 ? 'right' : 'left');
+            } else {
+                swipeCard(deltaY > 0 ? 'down' : 'up');
             }
-        });
-    }
+            touchCount = 0;
+            clearTimeout(touchTimer);
+        }
+    });
 
-    displayCard(currentIndex);
-}
+    // Handle keyboard events for PC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === ' ' || e.key === 'Enter') {
+            e.preventDefault();
+            if (isFlipped) {
+                playAudio();
+            } else {
+                flipCard();
+            }
+        } else if (e.key === 'ArrowLeft') {
+            swipeCard('left');
+        } else if (e.key === 'ArrowRight') {
+            swipeCard('right');
+        } else if (e.key === 'ArrowUp') {
+            swipeCard('up');
+        } else if (e.key === 'ArrowDown') {
+            swipeCard('down');
+        }
+    });
 
-// Start the app
-init();
+    // Initialize
+    loadCards();
+});
