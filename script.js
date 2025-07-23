@@ -9,6 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
   let touchEndY = 0;
   let touchStartTime = 0;
   let lastSwipeTime = 0;
+  let currentColor = '';
+  let wordColors = new Map();
+  let initialScale = 1;
+  let currentScale = 1;
+  let translateX = 0;
+  let translationY = 0;
+  let isPinching = false;
   let currentAudio = null;
   const preloadedAudio = new Set();
   const CACHE_KEY = 'vocabswipe_data_v1';
@@ -18,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let visitCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
   visitCount += 1;
   localStorage.setItem('visitCount', visitCount.toString());
-  let selectedCard = null; // Track the selected mini-card
 
   const unoColors = [
     { bg: '#ff0000' },
@@ -108,16 +114,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function playAudio(audioUrl) {
+  function playAudio(audioUrl, audioErrorEl) {
     stopAudio();
     console.log(`Attempting to play audio: ${audioUrl}`);
     currentAudio = new Audio(audioUrl);
     setTimeout(() => {
       currentAudio.play().then(() => {
         console.log('Audio playing successfully');
+        audioErrorEl.style.display = 'none';
       }).catch(e => {
         console.error('Error playing audio:', e);
-        const audioErrorEl = selectedCard.querySelector('.audio-error');
         audioErrorEl.textContent = 'Failed to play audio: ' + e.message;
         audioErrorEl.style.display = 'block';
         setTimeout(() => audioErrorEl.style.display = 'none', 2000);
@@ -234,6 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const sentencesDiv = document.createElement('div');
       sentencesDiv.className = 'sentences';
+
       const englishSpan = document.createElement('div');
       englishSpan.className = 'english';
       englishSpan.innerHTML = highlightWord(randomEntry.english, randomEntry.word);
@@ -250,58 +257,76 @@ document.addEventListener('DOMContentLoaded', () => {
       sentencesDiv.appendChild(thaiSpan);
       sentencesDiv.appendChild(audioErrorEl);
       content.appendChild(wordSpan);
-      content.appendChild(sentencesDiv);
-      cardFront.appendChild(wordSpan); // Front only shows the word
-      cardBack.appendChild(content);
+      cardBack.appendChild(sentencesDiv);
+      cardFront.appendChild(content);
       cardInner.appendChild(cardFront);
       cardInner.appendChild(cardBack);
       cardEl.appendChild(cardInner);
 
       cardDeck.appendChild(cardEl);
 
-      addCardEventListener(cardEl, word, randomEntry);
+      addCardEventListener(cardEl, word, randomEntry, audioErrorEl);
     });
   }
 
-  function addCardEventListener(cardEl, word, selectedEntry) {
+  function addCardEventListener(cardEl, word, selectedEntry, audioErrorEl) {
     cardEl.addEventListener('click', () => {
       stopAudio();
-      // Hide other cards
       document.querySelectorAll('.mini-card').forEach(otherCard => {
         if (otherCard !== cardEl) {
-          otherCard.style.display = 'none';
+          otherCard.style.transition = 'opacity 0.7s ease';
+          otherCard.style.opacity = '0';
         }
       });
 
-      // Transform the selected card into flashcard
-      selectedCard = cardEl;
-      cardEl.classList.remove('mini-card');
-      cardEl.classList.add('flashcard');
-      cardEl.style.position = 'fixed';
-      cardEl.style.top = '50%';
-      cardEl.style.left = '50%';
-      cardEl.style.transform = 'translate(-50%, -50%)';
-      cardEl.style.zIndex = '20';
-      cardEl.style.width = '280px';
-      cardEl.style.height = '445px';
+      const maxCardWidth = Math.min(window.innerWidth * 0.95, 280);
+      const rect = cardEl.getBoundingClientRect();
+      const centerX = window.innerWidth / 2 - rect.width / 2 - rect.left;
+      const centerY = window.innerHeight / 2 - rect.height / 2 - rect.top;
+
+      const currentWidth = rect.width;
+      const targetWidth = maxCardWidth;
+      const scaleFactor = targetWidth / currentWidth;
+
+      cardEl.style.transition = 'transform 0.7s ease, width 0.7s ease, height 0.7s ease, border 0.7s ease';
+      cardEl.style.transform = `translate(${centerX}px, ${centerY}px) scale(${scaleFactor})`;
+      cardEl.style.width = `${maxCardWidth}px`;
+      cardEl.style.height = `${maxCardWidth * 1.59}px`;
       cardEl.style.border = '6px solid #ffffff';
-      cardEl.style.maxWidth = '95vw';
-      cardEl.style.maxHeight = 'calc(95vw * 1.59)';
-      document.body.style.overflow = 'hidden';
+      cardEl.style.zIndex = '20';
 
-      currentEntries = entries.filter(entry => entry.word.toLowerCase() === word.toLowerCase());
-      currentEntries = shuffleArray([...currentEntries]);
-      const selectedEntryIndex = currentEntries.findIndex(entry => entry === selectedEntry);
-      if (selectedEntryIndex !== -1) {
-        [currentEntries[0], currentEntries[selectedEntryIndex]] = [currentEntries[selectedEntryIndex], currentEntries[0]];
-      }
-      currentIndex = 0;
+      const wordSpan = cardEl.querySelector('.mini-card-word');
+      adjustWordSize(wordSpan.textContent, wordSpan, maxCardWidth * 0.9, false);
 
-      // Show front initially
-      const cardInner = cardEl.querySelector('.card-inner');
-      cardInner.classList.add('flip');
+      setTimeout(() => {
+        cardDeck.style.display = 'flex';
+        cardDeck.style.flexDirection = 'column';
+        cardDeck.style.alignItems = 'center';
+        cardDeck.style.justifyContent = 'center';
+        cardDeck.style.height = '100vh';
+        cardDeck.style.padding = '20px';
+        cardDeck.style.transform = 'none';
+        cardEl.style.transform = 'none';
+        cardEl.style.zIndex = '10';
+        document.body.style.overflow = 'hidden';
 
-      displayEntry(cardEl, currentIndex);
+        currentEntries = entries.filter(entry => entry.word.toLowerCase() === word.toLowerCase());
+        currentEntries = shuffleArray([...currentEntries]);
+        const selectedEntryIndex = currentEntries.findIndex(entry => entry === selectedEntry);
+        if (selectedEntryIndex !== -1) {
+          [currentEntries[0], currentEntries[selectedEntryIndex]] = [currentEntries[selectedEntryIndex], currentEntries[0]];
+        }
+        currentIndex = 0;
+        currentColor = getConsistentUnoColor(word.toLowerCase()).bg;
+
+        const cardInner = cardEl.querySelector('.card-inner');
+        cardInner.classList.add('flip');
+
+        displayEntry(cardEl, currentIndex, audioErrorEl);
+      }, 700);
+
+      // Add touch and key event listeners for the enlarged card
+      addInteractionListeners(cardEl, audioErrorEl);
     });
   }
 
@@ -313,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return array;
   }
 
-  function displayEntry(cardEl, index) {
+  function displayEntry(cardEl, index, audioErrorEl) {
     if (currentEntries.length === 0) return;
     currentIndex = ((index % currentEntries.length) + currentEntries.length) % currentEntries.length;
     const entry = currentEntries[currentIndex];
@@ -321,20 +346,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const unoColor = getConsistentUnoColor(currentWord.toLowerCase());
     cardEl.style.backgroundColor = unoColor.bg;
+    cardEl.style.border = '6px solid #ffffff';
 
     const wordSpan = cardEl.querySelector('.mini-card-word');
     const englishSpan = cardEl.querySelector('.english');
     const thaiSpan = cardEl.querySelector('.thai');
-    const audioErrorEl = cardEl.querySelector('.audio-error');
-
-    adjustWordSize(currentWord, wordSpan, cardEl.offsetWidth * 0.9, false); // Use flashcard font size
-    englishSpan.innerHTML = highlightWord(entry.english, currentWord);
-    thaiSpan.textContent = entry.thai;
-    audioErrorEl.style.display = 'none';
 
     wordSpan.style.color = '#ffffff';
     englishSpan.style.color = '#ffffff';
     thaiSpan.style.color = '#ffffff';
+
+    adjustWordSize(currentWord, wordSpan, cardEl.offsetWidth * 0.9, false);
+    englishSpan.innerHTML = highlightWord(entry.english, currentWord);
+    thaiSpan.textContent = entry.thai;
+    audioErrorEl.style.display = 'none';
 
     preloadAudio(currentIndex);
 
@@ -344,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cardEl.onclick = null;
       cardEl.onclick = () => {
         console.log('Playing audio on tap');
-        playAudio(audioUrl);
+        playAudio(audioUrl, audioErrorEl);
       };
     } else {
       console.log('No audio available for this entry');
@@ -355,153 +380,135 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Back to card deck
-  document.addEventListener('click', e => {
-    if (selectedCard && e.target.classList.contains('flashcard') && e.target.classList.contains('back-to-deck')) {
-      stopAudio();
-      selectedCard.classList.remove('flashcard', 'back-to-deck');
-      selectedCard.classList.add('mini-card');
-      selectedCard.style.position = '';
-      selectedCard.style.top = '';
-      selectedCard.style.left = '';
-      selectedCard.style.transform = '';
-      selectedCard.style.zIndex = '10';
-      selectedCard.style.width = '140px';
-      selectedCard.style.height = '222px';
-      selectedCard.style.border = '3px solid #ffffff';
-      selectedCard.style.maxWidth = '95vw';
-      selectedCard.style.maxHeight = 'calc(95vw * 1.59)';
-      document.body.style.overflow = '';
+  function addInteractionListeners(cardEl, audioErrorEl) {
+    cardEl.addEventListener('touchstart', e => {
+      e.preventDefault();
+      touchStartY = e.changedTouches[0].screenY;
+      touchStartTime = Date.now();
+    }, { passive: false });
 
-      const wordSpan = selectedCard.querySelector('.mini-card-word');
-      adjustWordSize(wordSpan.textContent, wordSpan, selectedCard.offsetWidth * 0.9, true);
+    cardEl.addEventListener('touchend', e => {
+      e.preventDefault();
+      touchEndY = e.changedTouches[0].screenY;
+      const swipeDistance = touchStartY - touchEndY;
+      const minSwipeDistance = 50;
+      const touchDuration = Date.now() - touchStartTime;
+      const maxTapDuration = 300;
+      const tapCooldown = 500;
 
-      document.querySelectorAll('.mini-card').forEach(card => {
-        card.style.display = '';
-      });
+      if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance && (Date.now() - lastSwipeTime) > tapCooldown) {
+        console.log('Tap detected, triggering card click');
+        cardEl.click();
+      } else if (swipeDistance > minSwipeDistance) {
+        console.log('Swipe up detected, going to next entry');
+        stopAudio();
+        setTimeout(() => {
+          currentIndex++;
+          const cardInner = cardEl.querySelector('.card-inner');
+          cardInner.classList.remove('flip');
+          setTimeout(() => {
+            displayEntry(cardEl, currentIndex, audioErrorEl);
+            cardInner.classList.add('flip');
+          }, 300);
+        }, 0);
+        lastSwipeTime = Date.now();
+      } else if (swipeDistance < -minSwipeDistance) {
+        console.log('Swipe down detected, going to previous entry');
+        stopAudio();
+        setTimeout(() => {
+          currentIndex--;
+          const cardInner = cardEl.querySelector('.card-inner');
+          cardInner.classList.remove('flip');
+          setTimeout(() => {
+            displayEntry(cardEl, currentIndex, audioErrorEl);
+            cardInner.classList.add('flip');
+          }, 300);
+        }, 0);
+        lastSwipeTime = Date.now();
+      }
+    }, { passive: false });
 
-      selectedCard = null;
-    }
-  });
+    document.addEventListener('keydown', e => {
+      if (cardDeck.style.display === 'flex') {
+        if (e.key === 'ArrowUp') {
+          console.log('Arrow up pressed, going to next entry');
+          stopAudio();
+          setTimeout(() => {
+            currentIndex++;
+            const cardInner = cardEl.querySelector('.card-inner');
+            cardInner.classList.remove('flip');
+            setTimeout(() => {
+              displayEntry(cardEl, currentIndex, audioErrorEl);
+              cardInner.classList.add('flip');
+            }, 300);
+          }, 0);
+          lastSwipeTime = Date.now();
+        } else if (e.key === 'ArrowDown') {
+          console.log('Arrow down pressed, going to previous entry');
+          stopAudio();
+          setTimeout(() => {
+            currentIndex--;
+            const cardInner = cardEl.querySelector('.card-inner');
+            cardInner.classList.remove('flip');
+            setTimeout(() => {
+              displayEntry(cardEl, currentIndex, audioErrorEl);
+              cardInner.classList.add('flip');
+            }, 300);
+          }, 0);
+          lastSwipeTime = Date.now();
+        } else if (e.key === ' ') {
+          e.preventDefault();
+          console.log('Spacebar pressed, triggering card click');
+          cardEl.click();
+        }
+      }
+    });
+  }
 
   cardDeck.addEventListener('touchstart', e => {
     touchStartTime = Date.now();
     if (e.touches.length === 2) {
-      // Existing pinch-to-zoom logic
+      isPinching = true;
+      pinchStartDistance =
+
+ Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
     } else if (e.touches.length === 1) {
       touchStartY = e.touches[0].screenY;
     }
   }, { passive: true });
 
   cardDeck.addEventListener('touchmove', e => {
-    // Existing pinch-to-zoom logic
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      isPinching = true;
+      const pinchDistance = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      const newScale = currentScale * (pinchDistance / pinchStartDistance);
+      currentScale = Math.max(1, Math.min(newScale, 3));
+      cardDeck.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
+      pinchStartDistance = pinchDistance;
+    } else if (e.touches.length === 1 && currentScale > 1) {
+      e.preventDefault();
+      const deltaX = e.touches[0].clientX - (cardDeck._lastX || e.touches[0].clientX);
+      const deltaY = e.touches[0].clientY - (cardDeck._lastY || e.touches[0].clientY);
+      translateX += deltaX / currentScale;
+      translationY += deltaY / currentScale;
+      cardDeck.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translationY}px)`;
+      cardDeck._lastX = e.touches[0].clientX;
+      cardDeck._lastY = e.touches[0].clientY;
+    }
   }, { passive: false });
 
   cardDeck.addEventListener('touchend', e => {
-    // Existing pinch-to-zoom logic
+    cardDeck._lastX = null;
+    cardDeck._lastY = null;
+    isPinching = false;
   }, { passive: true });
-
-  function handleCardTouchStart(e) {
-    e.preventDefault();
-    touchStartY = e.changedTouches[0].screenY;
-    touchStartTime = Date.now();
-  }
-
-  function handleCardTouchEnd(e) {
-    e.preventDefault();
-    touchEndY = e.changedTouches[0].screenY;
-    const swipeDistance = touchStartY - touchEndY;
-    const minSwipeDistance = 50;
-    const touchDuration = Date.now() - touchStartTime;
-    const maxTapDuration = 300;
-    const tapCooldown = 500;
-
-    if (touchDuration < maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance && (Date.now() - lastSwipeTime) > tapCooldown) {
-      console.log('Tap detected, triggering flashcard click');
-      selectedCard.click();
-    } else if (swipeDistance > minSwipeDistance) {
-      console.log('Swipe up detected, going to next entry');
-      stopAudio();
-      setTimeout(() => {
-        currentIndex++;
-        const cardInner = selectedCard.querySelector('.card-inner');
-        cardInner.classList.remove('flip');
-        setTimeout(() => {
-          displayEntry(selectedCard, currentIndex);
-          cardInner.classList.add('flip');
-        }, 300);
-      }, 0);
-      lastSwipeTime = Date.now();
-    } else if (swipeDistance < -minSwipeDistance) {
-      console.log('Swipe down detected, going to previous entry');
-      stopAudio();
-      setTimeout(() => {
-        currentIndex--;
-        const cardInner = selectedCard.querySelector('.card-inner');
-        cardInner.classList.remove('flip');
-        setTimeout(() => {
-          displayEntry(selectedCard, currentIndex);
-          cardInner.classList.add('flip');
-        }, 300);
-      }, 0);
-      lastSwipeTime = Date.now();
-    } else if (touchDuration >= maxTapDuration && Math.abs(swipeDistance) < minSwipeDistance) {
-      console.log('Long press detected, adding back-to-deck class');
-      selectedCard.classList.add('back-to-deck');
-    }
-  }
-
-  document.addEventListener('touchstart', e => {
-    if (selectedCard && e.target.closest('.flashcard')) {
-      handleCardTouchStart(e);
-    }
-  }, { passive: false });
-
-  document.addEventListener('touchend', e => {
-    if (selectedCard && e.target.closest('.flashcard')) {
-      handleCardTouchEnd(e);
-    }
-  }, { passive: false });
-
-  document.addEventListener('keydown', e => {
-    if (selectedCard) {
-      if (e.key === 'ArrowUp') {
-        console.log('Arrow up pressed, going to next entry');
-        stopAudio();
-        setTimeout(() => {
-          currentIndex++;
-          const cardInner = selectedCard.querySelector('.card-inner');
-          cardInner.classList.remove('flip');
-          setTimeout(() => {
-            displayEntry(selectedCard, currentIndex);
-            cardInner.classList.add('flip');
-          }, 300);
-        }, 0);
-        lastSwipeTime = Date.now();
-      } else if (e.key === 'ArrowDown') {
-        console.log('Arrow down pressed, going to previous entry');
-        stopAudio();
-        setTimeout(() => {
-          currentIndex--;
-          const cardInner = selectedCard.querySelector('.card-inner');
-          cardInner.classList.remove('flip');
-          setTimeout(() => {
-            displayEntry(selectedCard, currentIndex);
-            cardInner.classList.add('flip');
-          }, 300);
-        }, 0);
-        lastSwipeTime = Date.now();
-      } else if (e.key === ' ') {
-        e.preventDefault();
-        console.log('Spacebar pressed, triggering flashcard click');
-        selectedCard.click();
-      } else if (e.key === 'Escape') {
-        console.log('Escape pressed, returning to card deck');
-        selectedCard.classList.add('back-to-deck');
-        document.dispatchEvent(new Event('click'));
-      }
-    }
-  });
 
   loadData();
 });
