@@ -2,139 +2,144 @@ document.addEventListener('DOMContentLoaded', () => {
     const deckSelection = document.getElementById('deck-selection');
     const cardView = document.getElementById('card-view');
     const cardContainer = document.getElementById('card-container');
-    const cardElement = document.getElementById('card');
-    const cardFront = document.querySelector('.card-front');
-    const cardBack = document.querySelector('.card-back');
-    const deckInfo = document.getElementById('deck-info');
-    const deckSize = document.getElementById('deck-size');
-
-    let decks = {};
+    const cardWord = document.getElementById('card-word');
+    const cardWordBack = document.getElementById('card-word-back');
+    const cardEnglish = document.getElementById('card-english');
+    const cardThai = document.getElementById('card-thai');
+    const cardAudio = document.getElementById('card-audio');
     let currentDeck = [];
-    let currentCardIndex = 0;
+    let currentIndex = 0;
 
-    // Fetch and parse the database.jsonl file
+    // Fetch and process database
     fetch('data/database.jsonl')
         .then(response => response.text())
         .then(data => {
-            const lines = data.trim().split('\n');
-            lines.forEach(line => {
-                const entry = JSON.parse(line);
-                if (!decks[entry.word]) {
-                    decks[entry.word] = [];
-                }
-                decks[entry.word].push(entry);
-            });
-
-            // Shuffle each deck
-            Object.keys(decks).forEach(word => {
-                decks[word] = shuffle(decks[word]);
-            });
-
-            // Display all decks
-            displayDecks();
+            const entries = data.trim().split('\n').map(line => JSON.parse(line));
+            const decks = groupByWord(entries);
+            displayDecks(decks);
         })
         .catch(error => console.error('Error loading database:', error));
 
-    // Shuffle array function
-    function shuffle(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
+    function groupByWord(entries) {
+        const decks = {};
+        entries.forEach(entry => {
+            if (!decks[entry.word]) {
+                decks[entry.word] = [];
+            }
+            decks[entry.word].push(entry);
+        });
+        // Shuffle each deck
+        Object.values(decks).forEach(deck => {
+            for (let i = deck.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [deck[i], deck[j]] = [deck[j], deck[i]];
+            }
+        });
+        return decks;
     }
 
-    // Display all card decks
-    function displayDecks() {
-        deckSelection.innerHTML = '';
+    function displayDecks(decks) {
         Object.keys(decks).forEach(word => {
-            const deckElement = document.createElement('div');
-            deckElement.classList.add('deck');
+            const deck = document.createElement('div');
+            deck.className = 'deck';
             const cardCount = decks[word].length;
-            const maxVisibleCards = Math.min(cardCount, 5); // Show up to 5 cards for thickness
+            const maxVisible = Math.min(cardCount, 3); // Show up to 3 cards for thickness
 
-            for (let i = 0; i < maxVisibleCards; i++) {
-                const deckCard = document.createElement('div');
-                deckCard.classList.add('deck-card');
-                deckCard.textContent = word;
-                deckElement.appendChild(deckCard);
+            for (let i = 0; i < maxVisible; i++) {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `<h2>${word}</h2>`;
+                deck.appendChild(card);
             }
 
-            deckElement.addEventListener('click', () => selectDeck(word));
-            deckSelection.appendChild(deckElement);
-        });
-    }
-
-    // Select a deck and transition to card view
-    function selectDeck(word) {
-        currentDeck = decks[word];
-        currentCardIndex = 0;
-        deckSelection.querySelectorAll('.deck').forEach(deck => {
-            if (deck.firstChild.textContent !== word) {
-                deck.style.opacity = '0';
-            } else {
-                deck.style.transform = 'scale(1.5) translate(-50%, -50%)';
+            deck.addEventListener('click', () => {
+                currentDeck = decks[word];
+                currentIndex = 0;
+                deckSelection.querySelectorAll('.deck').forEach(d => {
+                    if (d !== deck) d.classList.add('fade');
+                });
+                deck.style.transition = 'transform 0.5s, opacity 0.5s';
+                deck.style.transform = 'scale(2) translate(-50%, -50%)';
                 deck.style.position = 'fixed';
                 deck.style.left = '50%';
                 deck.style.top = '50%';
-            }
+                setTimeout(() => {
+                    deckSelection.style.display = 'none';
+                    cardView.style.display = 'flex';
+                    displayCard();
+                }, 500);
+            });
+            deckSelection.appendChild(deck);
         });
-
-        setTimeout(() => {
-            deckSelection.classList.add('hidden');
-            cardView.classList.add('active');
-            displayCard();
-        }, 500);
     }
 
-    // Display the current card
     function displayCard() {
-        if (currentDeck.length === 0) return;
-        const card = currentDeck[currentCardIndex];
-        cardFront.textContent = card.word;
-        cardBack.innerHTML = `
-            <div>${card.word}</div>
-            <div>${card.english}</div>
-            <div>${card.thai}</div>
-        `;
-        deckSize.textContent = currentDeck.length;
-        deckInfo.textContent = `Card ${currentCardIndex + 1} of ${currentDeck.length}`;
-        cardElement.classList.remove('flipped');
+        if (currentIndex >= currentDeck.length) currentIndex = 0;
+        const entry = currentDeck[currentIndex];
+        cardWord.textContent = entry.word;
+        cardWordBack.textContent = entry.word;
+        cardEnglish.textContent = entry.english;
+        cardThai.textContent = entry.thai;
+        cardAudio.src = `data/${entry.audio}`;
+        cardContainer.querySelector('.card').classList.remove('flipped');
     }
 
-    // Handle card interactions
-    let touchStartX, touchStartY;
+    // Card interactions
     cardContainer.addEventListener('click', () => {
-        // Play audio on single tap
-        const card = currentDeck[currentCardIndex];
-        const audio = new Audio(`audio/${card.audio.split('/')[1]}`);
-        audio.play().catch(error => console.error('Error playing audio:', error));
+        cardAudio.play();
     });
 
     cardContainer.addEventListener('dblclick', () => {
-        // Flip card on double tap
-        cardElement.classList.toggle('flipped');
+        cardContainer.querySelector('.card').classList.toggle('flipped');
     });
 
-    cardContainer.addEventListener('touchstart', e => {
-        touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
-    });
+    cardContainer.addEventListener('touchstart', handleTouchStart, false);
+    cardContainer.addEventListener('touchmove', handleTouchMove, false);
+    cardContainer.addEventListener('touchend', handleTouchEnd, false);
 
-    cardContainer.addEventListener('touchend', e => {
-        const touchEndX = e.changedTouches[0].clientX;
-        const touchEndY = e.changedTouches[0].clientY;
-        const deltaX = touchEndX - touchStartX;
-        const deltaY = touchEndY - touchStartY;
+    let xDown = null;
+    let yDown = null;
 
-        if (Math.abs(deltaX) > 50 || Math.abs(deltaY) > 50) {
-            // Swipe detected
-            if (currentCardIndex < currentDeck.length - 1) {
-                currentCardIndex++;
+    function handleTouchStart(evt) {
+        const firstTouch = evt.touches[0];
+        xDown = firstTouch.clientX;
+        yDown = firstTouch.clientY;
+    }
+
+    function handleTouchMove(evt) {
+        if (!xDown || !yDown) return;
+        const xUp = evt.touches[0].clientX;
+        const yUp = evt.touches[0].clientY;
+        const xDiff = xDown - xUp;
+        const yDiff = yDown - yUp;
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {
+            if (xDiff > 0) {
+                // Swipe left
+                currentIndex++;
+                displayCard();
             } else {
-                currentCardIndex = 0; // Loop back to start
+                // Swipe right
+                currentIndex++;
+                displayCard();
             }
-            displayCard();
+        } else {
+            if (yDiff > 0) {
+                // Swipe up
+                currentIndex++;
+                displayCard();
+            } else {
+                // Swipe down
+                currentIndex++;
+                displayCard();
+            }
         }
-    });
+        xDown = null;
+        yDown = null;
+    }
+
+    function handleTouchEnd(evt) {
+        xDown = null;
+        yDown = null;
+    }
 });
