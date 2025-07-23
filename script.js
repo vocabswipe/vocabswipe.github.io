@@ -80,35 +80,12 @@ function displayRandomCard() {
 }
 
 // Function to animate and move to next card
-function moveToNextCard(direction) {
+function moveToNextCard(translateX, translateY, rotate) {
     const card = document.getElementById('vocab-card');
-    let translateX = 0;
-    let translateY = 0;
-    let rotate = 0;
-
-    // Determine animation based on swipe direction
-    switch (direction) {
-        case 'left':
-            translateX = '-100vw';
-            rotate = -15;
-            break;
-        case 'right':
-            translateX = '100vw';
-            rotate = 15;
-            break;
-        case 'up':
-            translateY = '-100vh';
-            rotate = -10;
-            break;
-        case 'down':
-            translateY = '100vh';
-            rotate = 10;
-            break;
-    }
 
     // Animate card out
     card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
-    card.style.transform = `translate(${translateX}, ${translateY}) rotate(${rotate}deg)`;
+    card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
 
     // Increment swipe count and update storage
@@ -124,64 +101,73 @@ function moveToNextCard(direction) {
     }, 500);
 }
 
-// Touch handling for tap vs swipe
+// Touch handling for drag and swipe
 let touchStartX = 0;
 let touchStartY = 0;
-let touchEndX = 0;
-let touchEndY = 0;
+let touchCurrentX = 0;
+let touchCurrentY = 0;
 let touchStartTime = 0;
 const minSwipeDistance = 50; // Minimum distance for a swipe (pixels)
 const maxTapDistance = 10; // Maximum distance for a tap (pixels)
 const maxTapDuration = 300; // Maximum duration for a tap (milliseconds)
 
-document.getElementById('vocab-card').addEventListener('touchstart', (e) => {
+const card = document.getElementById('vocab-card');
+
+card.addEventListener('touchstart', (e) => {
     if (e.touches.length === 1) { // Ensure single touch
         e.preventDefault(); // Prevent default behaviors
         touchStartX = e.changedTouches[0].screenX;
         touchStartY = e.changedTouches[0].screenY;
+        touchCurrentX = touchStartX;
+        touchCurrentY = touchStartY;
         touchStartTime = Date.now();
+        card.style.transition = 'none'; // Smooth drag
     }
 });
 
-document.getElementById('vocab-card').addEventListener('touchend', (e) => {
+card.addEventListener('touchmove', (e) => {
+    if (e.touches.length === 1) {
+        e.preventDefault();
+        touchCurrentX = e.changedTouches[0].screenX;
+        touchCurrentY = e.changedTouches[0].screenY;
+        const deltaX = touchCurrentX - touchStartX;
+        const deltaY = touchCurrentY - touchStartY;
+        const rotate = (deltaX / window.innerWidth) * 30; // Rotate based on drag distance
+        card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
+    }
+});
+
+card.addEventListener('touchend', (e) => {
     e.preventDefault();
-    touchEndX = e.changedTouches[0].screenX;
-    touchEndY = e.changedTouches[0].screenY;
+    const touchEndX = e.changedTouches[0].screenX;
+    const touchEndY = e.changedTouches[0].screenY;
     const touchDuration = Date.now() - touchStartTime;
     const deltaX = touchEndX - touchStartX;
     const deltaY = touchEndY - touchStartY;
-    const absDeltaX = Math.abs(deltaX);
-    const absDeltaY = Math.abs(deltaY);
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
     // Check if it's a tap
     if (distance <= maxTapDistance && touchDuration <= maxTapDuration) {
         const audio = document.getElementById('card-audio');
         audio.play().catch(error => console.error('Error playing audio:', error));
+        card.style.transform = 'translate(0, 0) rotate(0deg)'; // Reset position
+    } else if (distance > minSwipeDistance) {
+        // Calculate swipe direction and animate out
+        const angle = Math.atan2(deltaY, deltaX); // Angle in radians
+        const magnitude = distance * 5; // Amplify distance for animation
+        const translateX = Math.cos(angle) * magnitude;
+        const translateY = Math.sin(angle) * magnitude;
+        const rotate = (deltaX / window.innerWidth) * 30; // Keep rotation consistent
+        moveToNextCard(translateX, translateY, rotate);
     } else {
-        // Handle swipe if distance exceeds swipe threshold
-        if (absDeltaX > minSwipeDistance || absDeltaY > minSwipeDistance) {
-            if (absDeltaX > absDeltaY) {
-                // Horizontal swipe
-                if (deltaX > 0) {
-                    moveToNextCard('right');
-                } else {
-                    moveToNextCard('left');
-                }
-            } else {
-                // Vertical swipe
-                if (deltaY > 0) {
-                    moveToNextCard('down');
-                } else {
-                    moveToNextCard('up');
-                }
-            }
-        }
+        // Not enough distance for swipe, reset position
+        card.style.transition = 'transform 0.3s ease';
+        card.style.transform = 'translate(0, 0) rotate(0deg)';
     }
 });
 
 // Click event for desktop compatibility
-document.getElementById('vocab-card').addEventListener('click', (e) => {
+card.addEventListener('click', (e) => {
     e.preventDefault();
     const audio = document.getElementById('card-audio');
     audio.play().catch(error => console.error('Error playing audio:', error));
@@ -196,16 +182,16 @@ document.addEventListener('keydown', (e) => {
             audio.play().catch(error => console.error('Error playing audio:', error));
             break;
         case 'ArrowLeft':
-            moveToNextCard('left');
+            moveToNextCard(-window.innerWidth, 0, -15);
             break;
         case 'ArrowRight':
-            moveToNextCard('right');
+            moveToNextCard(window.innerWidth, 0, 15);
             break;
         case 'ArrowUp':
-            moveToNextCard('up');
+            moveToNextCard(0, -window.innerHeight, -10);
             break;
         case 'ArrowDown':
-            moveToNextCard('down');
+            moveToNextCard(0, window.innerHeight, 10);
             break;
     }
 });
