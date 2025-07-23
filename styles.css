@@ -10,11 +10,34 @@ html, body {
     width: 100%;
     overflow: hidden; /* Prevent scrolling */
     display: flex;
-    flex-direction: column; /* Stack counter and card vertically */
+    flex-direction: column; /* Stack icon panel, counter, and card vertically */
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0; /* Light gray background */
+    background-color: #35654d; /* Poker table green */
     font-family: 'Times New Roman', Times, serif; /* Poker card font */
+}
+
+/* Icon panel styling */
+.icon-panel {
+    width: 100%;
+    max-width: 300px; /* Match card container width */
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    z-index: 20; /* Above cards */
+}
+
+.share-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.share-icon:hover {
+    transform: scale(1.1);
 }
 
 /* Swipe counter styling */
@@ -22,7 +45,7 @@ html, body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.2rem;
     font-weight: 600;
-    color: #333;
+    color: #ffffff; /* White for contrast on green background */
     margin-bottom: 10px;
     text-align: center;
 }
@@ -60,26 +83,32 @@ html, body {
     z-index: 10; /* Top card on top */
 }
 
+/* Next card styling */
+#next-card {
+    z-index: 9; /* Below top card but above stack */
+    transform: translate(2px, 2px) rotate(0.5deg);
+}
+
 /* Stack cards (underneath) */
 .card-stack {
     background-color: #f8f8f8; /* Slightly off-white for depth */
-    z-index: 5; /* Below top card */
+    z-index: 5; /* Below top and next card */
 }
 
 .card-stack-1 {
-    transform: translate(2px, 2px) rotate(0.5deg);
+    transform: translate(4px, 4px) rotate(1deg);
     z-index: 4;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .card-stack-2 {
-    transform: translate(4px, 4px) rotate(1deg);
+    transform: translate(6px, 6px) rotate(1.5deg);
     z-index: 3;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card-stack-3 {
-    transform: translate(6px, 6px) rotate(1.5deg);
+    transform: translate(8px, 8px) rotate(2deg);
     z-index: 2;
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
 }
@@ -178,15 +207,20 @@ html, body {
     }
 
     .card-stack-1 {
-        transform: translate(1px, 1px) rotate(0.5deg);
-    }
-
-    .card-stack-2 {
         transform: translate(2px, 2px) rotate(1deg);
     }
 
+    .card-stack-2 {
+        transform: translate(4px, 4px) rotate(1.5deg);
+    }
+
     .card-stack-3 {
-        transform: translate(3px, 3px) rotate(1.5deg);
+        transform: translate(6px, 6px) rotate(2deg);
+    }
+
+    .share-icon {
+        width: 25px;
+        height: 25px;
     }
 }
 
