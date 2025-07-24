@@ -37,9 +37,14 @@ def detect_unwanted_chars(text):
     unwanted_pattern = re.compile(r'[\u4e00-\u9fff\u0400-\u04ff]')
     return bool(unwanted_pattern.search(text))
 
+def detect_unwanted_symbols(text):
+    """Detect if text contains unwanted symbols like � or other invalid characters."""
+    # Pattern to match common invalid or problematic symbols, including �
+    symbol_pattern = re.compile(r'[\ufffd\u00bf-\u00ff\u2018-\u201f\u2028-\u202f]')
+    return bool(symbol_pattern.search(text))
+
 def detect_english_in_thai(text):
     """Detect if Thai text contains English letters or words."""
-    # Pattern to match any English letters (a-z, A-Z)
     english_pattern = re.compile(r'[a-zA-Z]+')
     return bool(english_pattern.search(text))
 
@@ -57,6 +62,16 @@ def scan_unwanted_entries(data):
         if detect_unwanted_chars(word) or detect_unwanted_chars(english) or detect_unwanted_chars(thai):
             unwanted_entries.append(entry)
     return unwanted_entries
+
+def scan_unwanted_symbol_entries(data):
+    """Scan database for entries with unwanted symbols in english or thai fields."""
+    unwanted_symbol_entries = []
+    for entry in data:
+        english = entry.get('english', '')
+        thai = entry.get('thai', '')
+        if detect_unwanted_symbols(english) or detect_unwanted_symbols(thai):
+            unwanted_symbol_entries.append(entry)
+    return unwanted_symbol_entries
 
 def scan_missing_word_entries(data):
     """Scan database for entries where the English sentence does not contain the main word."""
@@ -108,6 +123,7 @@ def display_menu():
     print("3️⃣ Scan and delete entries where English sentence does not contain the main word")
     print("4️⃣ Scan and edit/delete entries with English in Thai sentence")
     print("5️⃣ Scan and delete entries with '。' in Thai sentence")
+    print("6️⃣ Scan and delete entries with unwanted symbols (e.g., �)")
     print("0️⃣ Exit")
     print("═" * 60)
 
@@ -337,7 +353,6 @@ def handle_english_in_thai(data, database_file):
                 print("ℹ️ Update cancelled.")
                 return False
 
-            # Update the entry
             for entry in data:
                 if (entry['word'] == selected_entry['word'] and 
                     entry['english'] == selected_entry['english'] and 
@@ -386,7 +401,7 @@ def handle_period_in_thai_delete(data, database_file):
             return False
         for entry in period_in_thai_entries:
             data.remove(entry)
-        print("\n✅ All listed entries deleted successfully.")
+        print("\n✅ All listed entriesblia entries deleted successfully.")
         save_database(database_file, data)
         print(f"💾 Database updated and saved to '{database_file}'.")
         return True
@@ -425,6 +440,67 @@ def handle_period_in_thai_delete(data, database_file):
         print("🚫 Invalid choice. Please select 0, 1, or 2.")
         return False
 
+def handle_unwanted_symbol_delete(data, database_file):
+    """Handle deletion of entries with unwanted symbols in English or Thai sentences."""
+    unwanted_symbol_entries = scan_unwanted_symbol_entries(data)
+    if not display_entries(unwanted_symbol_entries, "Entries with Unwanted Symbols"):
+        return False
+
+    print("\n🗑️ Delete options:")
+    print("1️⃣ Delete a single entry")
+    print("2️⃣ Delete all listed entries")
+    print("0️⃣ Cancel")
+    choice = input("\n➡️ Enter your choice (0-2): ").strip()
+
+    if choice == '0':
+        print("ℹ️ Operation cancelled.")
+        return False
+    elif choice == '2':
+        confirm = input("\n❓ Are you sure you want to delete ALL listed entries? (y/n): ").strip().lower()
+        if confirm != 'y':
+            print("ℹ️ Deletion cancelled.")
+            return False
+        for entry in unwanted_symbol_entries:
+            data.remove(entry)
+        print("\n✅ All listed entries deleted successfully.")
+        save_database(database_file, data)
+        print(f"💾 Database updated and saved to '{database_file}'.")
+        return True
+    elif choice == '1':
+        try:
+            selection = int(input("\n✏️ Enter the number of the entry to delete (or 0 to cancel): "))
+            if selection == 0:
+                print("ℹ️ Operation cancelled.")
+                return False
+            if selection < 1 or selection > len(unwanted_symbol_entries):
+                print("🚫 Error: Invalid selection.")
+                return False
+        except ValueError:
+            print("🚫 Error: Please enter a valid number.")
+            return False
+
+        selected_entry = unwanted_symbol_entries[selection - 1]
+        print("\n🗑️ You selected the following entry for deletion:")
+        print("═" * 60)
+        print(f"Word: {selected_entry['word']}")
+        print(f"English: {selected_entry['english']}")
+        print(f"Thai: {selected_entry['thai']}")
+        print("═" * 60)
+
+        confirm = input("\n❓ Are you sure you want to delete this entry? (y/n): ").strip().lower()
+        if confirm != 'y':
+            print("ℹ️ Deletion cancelled.")
+            return False
+
+        data.remove(selected_entry)
+        print("\n✅ Entry deleted successfully.")
+        save_database(database_file, data)
+        print(f"💾 Database updated and saved to '{database_file}'.")
+        return True
+    else:
+        print("🚫 Invalid choice. Please select 0, 1, or 2.")
+        return False
+
 def main():
     database_file = 'database.jsonl'
 
@@ -436,7 +512,7 @@ def main():
 
     while True:
         display_menu()
-        choice = input("\n➡️ Enter your choice (0-5): ").strip()
+        choice = input("\n➡️ Enter your choice (0-6): ").strip()
         print()
 
         if choice == '0':
@@ -452,8 +528,10 @@ def main():
             handle_english_in_thai(data, database_file)
         elif choice == '5':
             handle_period_in_thai_delete(data, database_file)
+        elif choice == '6':
+            handle_unwanted_symbol_delete(data, database_file)
         else:
-            print("🚫 Invalid choice. Please select 0, 1, 2, 3, 4, or 5.")
+            print("🚫 Invalid choice. Please select 0, 1, 2, 3, 4, 5, or 6.")
 
 if __name__ == "__main__":
     main()
