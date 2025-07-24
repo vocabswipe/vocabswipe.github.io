@@ -22,25 +22,25 @@ html, body {
     width: 100%;
     max-width: 300px; /* Match card container width */
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between; /* Theme on left, share on right */
     padding: 10px;
     position: absolute;
     top: 0;
     z-index: 20; /* Above cards */
 }
 
-.share-icon {
+.share-icon, .theme-icon {
     width: 30px;
     height: 30px;
     cursor: pointer;
     transition: transform 0.2s ease;
 }
 
-.share-icon:hover {
+.share-icon:hover, .theme-icon:hover {
     transform: scale(1.1);
 }
 
-.share-icon.clicked {
+.share-icon.clicked, .theme-icon.clicked {
     transform: scale(0.9); /* Click feedback */
 }
 
@@ -92,7 +92,7 @@ html, body {
 .card {
     width: 100%;
     height: 100%;
-    background-color: #ffffff; /* White background for poker card */
+    background-color: #ffffff; /* Default to white, changed by JS for theme */
     border: 1px solid #000; /* Thin black border */
     border-radius: 8px; /* Subtle rounded corners for poker card */
     display: flex;
@@ -175,8 +175,8 @@ html, body {
 /* Hand point styling for mobile */
 .hand-point {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 200px; /* Increased by 5x from 40px */
+    height: 200px; /* Increased by 5x from 40px */
     top: 50%; /* Center for swipes, adjusted for tap */
     left: 50%;
     transform: translate(-50%, -50%);
@@ -288,24 +288,24 @@ html, body {
 
 /* Sentence styling */
 .sentence {
-    font-size: 1.1rem; /* Adjusted for poker card readability */
+    font-size: 1.4rem; /* Increased for readability (was 1.1rem) */
     margin: 8px 0;
     text-align: center; /* Ensure center alignment */
 }
 
-/* English sentence font */
+/* English sentence font - UNO style */
 .english {
-    font-family: 'Roboto', sans-serif; /* Modern, readable font */
+    font-family: 'Bowlby One SC', sans-serif; /* UNO card style font */
     font-weight: 700; /* Bold for clarity */
-    font-size: 1.1rem;
+    font-size: 1.4rem; /* Larger for readability */
     line-height: 1.3; /* Adjusted spacing */
 }
 
-/* Thai sentence font */
+/* Thai sentence font - UNO style */
 .thai {
-    font-family: 'Noto Sans Thai', sans-serif; /* Optimized for Thai */
+    font-family: 'Bowlby One SC', sans-serif; /* UNO card style font */
     font-weight: 700; /* Bold for clarity */
-    font-size: 1.1rem;
+    font-size: 1.4rem; /* Larger for readability */
     line-height: 1.5; /* Extra spacing for Thai characters */
 }
 
@@ -355,19 +355,19 @@ html, body {
     }
 
     .sentence {
-        font-size: 1rem; /* Smaller for mobile */
+        font-size: 1.2rem; /* Increased for readability (was 1rem) */
     }
 
     .english {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Bowlby One SC', sans-serif;
         font-weight: 700;
-        font-size: 1rem;
+        font-size: 1.2rem; /* Larger for readability */
     }
 
     .thai {
-        font-family: 'Noto Sans Thai', sans-serif;
+        font-family: 'Bowlby One SC', sans-serif;
         font-weight: 700;
-        font-size: 1rem;
+        font-size: 1.2rem; /* Larger for readability */
     }
 
     .card-stack-1 {
@@ -382,7 +382,7 @@ html, body {
         transform: translate(6px, 6px) rotate(2deg);
     }
 
-    .share-icon {
+    .share-icon, .theme-icon {
         width: 25px;
         height: 25px;
     }
@@ -396,8 +396,8 @@ html, body {
     }
 
     .hand-point {
-        width: 30px;
-        height: 30px;
+        width: 150px; /* Increased by 5x from 30px */
+        height: 150px; /* Increased by 5x from 30px */
     }
 
     /* Hide PC-specific SVGs and text on mobile */
@@ -419,4 +419,4 @@ html, body {
 }
 
 /* Ensure fonts are loaded */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@600;700;900&family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Noto+Sans+Thai:wght@600;700;900&display=swap');
