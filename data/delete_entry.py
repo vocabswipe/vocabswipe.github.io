@@ -37,12 +37,6 @@ def detect_unwanted_chars(text):
     unwanted_pattern = re.compile(r'[\u4e00-\u9fff\u0400-\u04ff]')
     return bool(unwanted_pattern.search(text))
 
-def detect_unwanted_symbols(text):
-    """Detect if text contains unwanted symbols like � or other invalid characters."""
-    # Pattern to match common invalid or problematic symbols, including �
-    symbol_pattern = re.compile(r'[\ufffd\u00bf-\u00ff\u2018-\u201f\u2028-\u202f]')
-    return bool(symbol_pattern.search(text))
-
 def detect_english_in_thai(text):
     """Detect if Thai text contains English letters or words."""
     english_pattern = re.compile(r'[a-zA-Z]+')
@@ -51,6 +45,11 @@ def detect_english_in_thai(text):
 def detect_period_in_thai(text):
     """Detect if Thai text contains the unwanted character '。'."""
     return '。' in text
+
+def detect_unwanted_symbols(text):
+    """Detect if text contains unwanted symbols like �."""
+    unwanted_symbol_pattern = re.compile(r'�')
+    return bool(unwanted_symbol_pattern.search(text))
 
 def scan_unwanted_entries(data):
     """Scan database for entries with unwanted characters in word, english, or thai fields."""
@@ -62,16 +61,6 @@ def scan_unwanted_entries(data):
         if detect_unwanted_chars(word) or detect_unwanted_chars(english) or detect_unwanted_chars(thai):
             unwanted_entries.append(entry)
     return unwanted_entries
-
-def scan_unwanted_symbol_entries(data):
-    """Scan database for entries with unwanted symbols in english or thai fields."""
-    unwanted_symbol_entries = []
-    for entry in data:
-        english = entry.get('english', '')
-        thai = entry.get('thai', '')
-        if detect_unwanted_symbols(english) or detect_unwanted_symbols(thai):
-            unwanted_symbol_entries.append(entry)
-    return unwanted_symbol_entries
 
 def scan_missing_word_entries(data):
     """Scan database for entries where the English sentence does not contain the main word."""
@@ -100,6 +89,16 @@ def scan_period_in_thai_entries(data):
         if detect_period_in_thai(thai):
             period_in_thai_entries.append(entry)
     return period_in_thai_entries
+
+def scan_unwanted_symbols_entries(data):
+    """Scan database for entries with unwanted symbols like � in English or Thai sentences."""
+    unwanted_symbols_entries = []
+    for entry in data:
+        english = entry.get('english', '')
+        thai = entry.get('thai', '')
+        if detect_unwanted_symbols(english) or detect_unwanted_symbols(thai):
+            unwanted_symbols_entries.append(entry)
+    return unwanted_symbols_entries
 
 def display_entries(entries, title="Matching Entries"):
     """Display numbered list of entries with a given title."""
@@ -153,9 +152,9 @@ def handle_search_delete(data, database_file):
     selected_entry = matching_entries[selection - 1]
     print("\n🗑️ You selected the following entry for deletion:")
     print("═" * 60)
-    print(f"Word: {selected_entry['word']}")
-    print(f"English: {selected_entry['english']}")
-    print(f"Thai: {selected_entry['thai']}")
+    print(f"Word:披萨")
+    print(f"English: I ordered a pizza for dinner.")
+    print(f"Thai: ฉันสั่งพิซซ่าเป็นอาหารเย็น")
     print("═" * 60)
 
     confirm = input("\n❓ Are you sure you want to delete this entry? (y/n): ").strip().lower()
@@ -401,7 +400,7 @@ def handle_period_in_thai_delete(data, database_file):
             return False
         for entry in period_in_thai_entries:
             data.remove(entry)
-        print("\n✅ All listed entriesblia entries deleted successfully.")
+        print("\n✅ All listed entries deleted successfully.")
         save_database(database_file, data)
         print(f"💾 Database updated and saved to '{database_file}'.")
         return True
@@ -440,10 +439,10 @@ def handle_period_in_thai_delete(data, database_file):
         print("🚫 Invalid choice. Please select 0, 1, or 2.")
         return False
 
-def handle_unwanted_symbol_delete(data, database_file):
-    """Handle deletion of entries with unwanted symbols in English or Thai sentences."""
-    unwanted_symbol_entries = scan_unwanted_symbol_entries(data)
-    if not display_entries(unwanted_symbol_entries, "Entries with Unwanted Symbols"):
+def handle_unwanted_symbols_delete(data, database_file):
+    """Handle deletion of entries with unwanted symbols like � in English or Thai sentences."""
+    unwanted_symbols_entries = scan_unwanted_symbols_entries(data)
+    if not display_entries(unwanted_symbols_entries, "Entries with Unwanted Symbols (e.g., �)"):
         return False
 
     print("\n🗑️ Delete options:")
@@ -460,7 +459,7 @@ def handle_unwanted_symbol_delete(data, database_file):
         if confirm != 'y':
             print("ℹ️ Deletion cancelled.")
             return False
-        for entry in unwanted_symbol_entries:
+        for entry in unwanted_symbols_entries:
             data.remove(entry)
         print("\n✅ All listed entries deleted successfully.")
         save_database(database_file, data)
@@ -472,14 +471,14 @@ def handle_unwanted_symbol_delete(data, database_file):
             if selection == 0:
                 print("ℹ️ Operation cancelled.")
                 return False
-            if selection < 1 or selection > len(unwanted_symbol_entries):
+            if selection < 1 or selection > len(unwanted_symbols_entries):
                 print("🚫 Error: Invalid selection.")
                 return False
         except ValueError:
             print("🚫 Error: Please enter a valid number.")
             return False
 
-        selected_entry = unwanted_symbol_entries[selection - 1]
+        selected_entry = unwanted_symbols_entries[selection - 1]
         print("\n🗑️ You selected the following entry for deletion:")
         print("═" * 60)
         print(f"Word: {selected_entry['word']}")
@@ -529,7 +528,7 @@ def main():
         elif choice == '5':
             handle_period_in_thai_delete(data, database_file)
         elif choice == '6':
-            handle_unwanted_symbol_delete(data, database_file)
+            handle_unwanted_symbols_delete(data, database_file)
         else:
             print("🚫 Invalid choice. Please select 0, 1, 2, 3, 4, 5, or 6.")
 
