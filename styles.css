@@ -8,25 +8,25 @@
 html, body {
     height: 100%;
     width: 100%;
-    overflow: hidden; /* Prevent scrolling */
+    overflow: hidden;
     display: flex;
-    flex-direction: column; /* Stack icon panel, stats, counter, card, and website info vertically */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #35654d; /* Poker table green */
-    font-family: 'Times New Roman', Times, serif; /* Poker card font */
+    font-family: 'Times New Roman', Times, serif;
 }
 
 /* Icon panel styling */
 .icon-panel {
     width: 100%;
-    max-width: 300px; /* Match card container width */
+    max-width: 300px;
     display: flex;
     justify-content: flex-end;
     padding: 10px;
     position: absolute;
     top: 0;
-    z-index: 20; /* Above cards */
+    z-index: 20;
 }
 
 .share-icon {
@@ -41,102 +41,96 @@ html, body {
 }
 
 .share-icon.clicked {
-    transform: scale(0.9); /* Click feedback */
+    transform: scale(0.9);
 }
 
 /* Website statistics styling */
 .website-stats {
-    font-family: Arial, sans-serif;
-    font-size: 0.9rem; /* Base size for text */
-    font-weight: bold;
-    color: #ffffff; /* White for contrast on green background */
-    margin-bottom: 5px;
+    width: 100%;
+    max-width: 300px;
     text-align: center;
-    line-height: 1.4; /* Adjusted for two lines */
-    width: 300px; /* Match card container max-width */
-    opacity: 0; /* Initially hidden, fades in after data fetch */
-    transition: opacity 1s ease; /* Smooth fade-in */
+    opacity: 0;
+    transition: opacity 1s ease;
+    margin-bottom: 10px;
 }
 
-.stats-number {
+.counter {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.count-title {
     font-family: Arial, sans-serif;
-    font-size: 1.8rem; /* Twice the base text size (0.9rem * 2) */
+    font-size: 2rem; /* Adjusted for prominence */
     font-weight: bold;
     color: #ffd700; /* Gold to highlight */
+    margin: 5px 0;
 }
 
-/* Swipe counter styling */
-.swipe-counter {
+.count-text {
     font-family: Arial, sans-serif;
-    font-size: 0.9rem; /* Decreased by 20% from 1.125rem */
+    font-size: 0.9rem;
     font-weight: bold;
-    color: #ffffff; /* White for contrast on green background */
-    margin-bottom: 10px;
-    text-align: center;
-    opacity: 0; /* Initially hidden */
-    transition: opacity 1s ease; /* Smooth fade-in */
+    color: #000000;
+    margin: 5px 0;
+    line-height: 1.4;
 }
 
-/* Card container for stacking effect */
+/* Card container */
 .card-container {
     position: relative;
     width: 80vw;
     max-width: 300px;
-    height: calc(80vw * 1.4); /* Poker card aspect ratio (2.5:3.5 ≈ 1.4) */
-    max-height: 420px; /* Max height based on max-width * 1.4 */
+    height: calc(80vw * 1.4);
+    max-height: 420px;
     display: flex;
     justify-content: center;
     align-items: center;
-    perspective: 1000px; /* Add 3D perspective for stack effect */
+    perspective: 1000px;
 }
 
 /* Poker card styling */
 .card {
     width: 100%;
     height: 100%;
-    background-color: #ffffff; /* White background for poker card */
-    border: 1px solid #000; /* Thin black border */
-    border-radius: 8px; /* Subtle rounded corners for poker card */
+    background-color: #ffffff;
+    border: 1px solid #000;
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Lighter shadow for poker card */
-    cursor: pointer; /* Indicate tappable */
-    user-select: none; /* Prevent text selection */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    user-select: none;
     position: absolute;
     top: 0;
     left: 0;
-    touch-action: none; /* Prevent browser default touch actions */
-    z-index: 10; /* Top card on top */
+    touch-action: none;
+    z-index: 10;
 }
 
-/* Glowing effect for card tap */
+/* Glowing effect */
 .glow {
-    animation: glow 0.6s ease-in-out 1; /* One pulse */
+    animation: glow 0.6s ease-in-out 1;
 }
 
 @keyframes glow {
-    0% {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Original shadow */
-    }
-    50% {
-        box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.7); /* Gold glow */
-    }
-    100% {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Back to original */
-    }
+    0% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+    50% { box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.7); }
+    100% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
 }
 
-/* Next card styling */
+/* Next card and stack cards */
 #next-card {
-    z-index: 9; /* Below top card but above stack */
+    z-index: 9;
     transform: translate(2px, 2px) rotate(0.5deg);
 }
 
-/* Stack cards (underneath) */
 .card-stack {
-    background-color: #f8f8f8; /* Slightly off-white for depth */
-    z-index: 5; /* Below top and next card */
+    background-color: #f8f8f8;
+    z-index: 5;
 }
 
 .card-stack-1 {
@@ -157,62 +151,55 @@ html, body {
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
 }
 
-/* Remove active state outline */
 .card:active {
     outline: none;
 }
 
 /* Card content */
 .card-content {
-    position: relative; /* Enable absolute positioning for words and hand point */
+    position: relative;
     width: 100%;
     height: 100%;
     padding: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center sentences vertically */
-    align-items: center; /* Center sentences horizontally */
+    justify-content: center;
+    align-items: center;
 }
 
-/* Hand point styling for mobile */
+/* Hand point styling */
 .hand-point {
     position: absolute;
-    width: 200px; /* Increased from 40px to 200px (5x) */
-    height: 200px; /* Increased from 40px to 200px (5x) */
-    top: 50%; /* Center for swipes, adjusted for tap */
+    width: 200px;
+    height: 200px;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 11; /* Above card content */
-    opacity: 0; /* Initially hidden */
+    z-index: 11;
+    opacity: 0;
 }
 
 .hand-point.tap-animation {
-    animation: tap 0.6s ease-in-out 1; /* One pulse */
+    animation: tap 0.6s ease-in-out 1;
 }
 
 @keyframes tap {
-    0% {
-        transform: translate(-50%, 25%) scale(1);
-    }
-    50% {
-        transform: translate(-50%, 25%) scale(0.8); /* Press effect */
-    }
-    100% {
-        transform: translate(-50%, 25%) scale(1);
-    }
+    0% { transform: translate(-50%, 25%) scale(1); }
+    50% { transform: translate(-50%, 25%) scale(0.8); }
+    100% { transform: translate(-50%, 25%) scale(1); }
 }
 
-/* Arrow and spacebar styling for PC */
+/* Arrow and spacebar styling */
 .arrow, .spacebar {
     position: absolute;
-    z-index: 11; /* Above card content */
-    opacity: 0; /* Initially hidden */
+    z-index: 11;
+    opacity: 0;
 }
 
 .arrow-left {
     width: 40px;
     height: 40px;
-    left: -10px; /* Outside card edge */
+    left: -10px;
     top: 50%;
     transform: translate(-50%, -50%);
 }
@@ -220,7 +207,7 @@ html, body {
 .arrow-right {
     width: 40px;
     height: 40px;
-    right: -10px; /* Outside card edge */
+    right: -10px;
     top: 50%;
     transform: translate(50%, -50%);
 }
@@ -228,7 +215,7 @@ html, body {
 .arrow-up {
     width: 40px;
     height: 40px;
-    top: -10px; /* Outside card edge */
+    top: -10px;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -236,7 +223,7 @@ html, body {
 .arrow-down {
     width: 40px;
     height: 40px;
-    bottom: -10px; /* Outside card edge */
+    bottom: -10px;
     left: 50%;
     transform: translate(-50%, 50%);
 }
@@ -244,74 +231,71 @@ html, body {
 .spacebar {
     width: 80px;
     height: 40px;
-    bottom: 25%; /* 25% from bottom */
+    bottom: 25%;
     left: 50%;
     transform: translate(-50%, 25%);
 }
 
 .spacebar-text {
     position: absolute;
-    bottom: 20%; /* Below spacebar SVG */
+    bottom: 20%;
     left: 50%;
     transform: translate(-50%, 0);
     font-family: Arial, sans-serif;
     font-size: 1rem;
     font-weight: bold;
-    color: #000000; /* Black for contrast with white card background */
+    color: #000000;
     text-align: center;
     z-index: 11;
-    opacity: 0; /* Initially hidden */
-    text-shadow: 0 0 4px rgba(255, 255, 255, 0.8); /* Slight white shadow for readability */
+    opacity: 0;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
 }
 
 .arrow.tap-animation, .spacebar.tap-animation {
-    animation: tap 0.6s ease-in-out 1; /* One pulse */
+    animation: tap 0.6s ease-in-out 1;
 }
 
-/* Word styling for poker card */
+/* Word styling */
 .word {
-    font-family: 'Times New Roman', Times, serif; /* Changed to Times New Roman */
-    font-size: 3rem; /* Base size for desktop, twice the English sentence size (1.5rem * 2) */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 3rem;
     font-weight: bold;
     position: absolute;
-    margin: 0; /* Remove default margin */
+    margin: 0;
 }
 
-/* Position words in corners */
 .top-left {
     top: 10px;
-    left: 10px; /* Closer to edges for poker card style */
+    left: 10px;
 }
 
 .bottom-right {
     bottom: 10px;
-    right: 10px; /* Closer to edges for poker card style */
+    right: 10px;
 }
 
 /* Sentence styling */
 .sentence {
-    font-size: 1.5rem; /* Increased from 1.1rem for better readability */
+    font-size: 1.5rem;
     margin: 8px 0;
-    text-align: center; /* Ensure center alignment */
+    text-align: center;
 }
 
-/* English sentence font */
 .english {
-    font-family: 'Times New Roman', Times, serif; /* Changed to Times New Roman */
-    font-weight: bold; /* Changed to bold for readability */
-    font-size: 1.5rem; /* Increased for readability */
-    line-height: 1.3; /* Adjusted spacing */
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1.3;
 }
 
-/* Thai sentence font */
 .thai {
-    font-family: 'Times New Roman', Times, serif; /* Changed to Times New Roman */
-    font-weight: bold; /* Changed to bold for readability */
-    font-size: 1.5rem; /* Increased for readability */
-    line-height: 1.5; /* Extra spacing for Thai characters */
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1.5;
 }
 
-/* Website name and slogan styling */
+/* Website name and slogan */
 .website-info {
     text-align: center;
     margin-top: 20px;
@@ -319,58 +303,51 @@ html, body {
 
 .website-name {
     font-family: Arial, sans-serif;
-    font-size: 1.0725rem; /* Increased by 10% from 0.975rem */
+    font-size: 1.0725rem;
     font-weight: bold;
     color: #ffffff;
 }
 
 .website-slogan {
     font-family: Arial, sans-serif;
-    font-size: 0.804375rem; /* Increased by 10% from 0.73125rem */
+    font-size: 0.804375rem;
     font-weight: bold;
     color: #ffffff;
 }
 
-/* Responsive adjustments for mobile */
+/* Responsive adjustments */
 @media (max-width: 600px) {
     .card-container {
         width: 90vw;
-        height: calc(90vw * 1.4); /* Maintain poker card aspect ratio */
+        height: calc(90vw * 1.4);
     }
 
     .website-stats {
-        font-size: 0.78rem; /* Base size for mobile */
         width: 90vw;
-        max-width: 300px; /* Match card container */
+        max-width: 300px;
     }
 
-    .stats-number {
-        font-size: 1.56rem; /* Twice the base text size (0.78rem * 2) */
+    .counter {
+        padding: 10px;
     }
 
-    .swipe-counter {
-        font-size: 0.78rem; /* Decreased by 20% from 0.975rem */
+    .count-title {
+        font-size: 1.56rem;
+    }
+
+    .count-text {
+        font-size: 0.78rem;
     }
 
     .word {
-        font-family: 'Times New Roman', Times, serif; /* Changed to Times New Roman */
-        font-size: 2.6rem; /* Twice the English sentence size (1.3rem * 2) */
-        font-weight: bold;
+        font-size: 2.6rem;
     }
 
     .sentence {
-        font-size: 1.3rem; /* Increased from 1rem for readability */
-    }
-
-    .english {
-        font-family: 'Times New Roman', Times, serif; /* Changed to Times New Roman */
-        font-weight: bold; /* Changed to bold for readability */
         font-size: 1.3rem;
     }
 
-    .thai {
-        font-family: 'Times New Roman', Times, serif; /* Changed to Times New Roman */
-        font-weight: bold; /* Changed to bold for readability */
+    .english, .thai {
         font-size: 1.3rem;
     }
 
@@ -392,35 +369,33 @@ html, body {
     }
 
     .website-name {
-        font-size: 0.9295rem; /* Increased by 10% from 0.845rem */
+        font-size: 0.9295rem;
     }
 
     .website-slogan {
-        font-size: 0.715rem; /* Increased by 10% from 0.65rem */
+        font-size: 0.715rem;
     }
 
     .hand-point {
-        width: 150px; /* Increased from 30px to 150px (5x) */
-        height: 150px; /* Increased from 30px to 150px (5x) */
+        width: 150px;
+        height: 150px;
     }
 
-    /* Hide PC-specific SVGs and text on mobile */
     .arrow, .spacebar, .spacebar-text {
         display: none;
     }
 }
 
-/* Show PC-specific SVGs and text only on desktop */
 @media (min-width: 601px) {
     .hand-point {
-        display: none; /* Hide hand point on PC */
+        display: none;
     }
 
     .spacebar {
-        width: 160px; /* Doubled width for PC */
+        width: 160px;
         height: 40px;
     }
 }
 
-/* Ensure fonts are loaded */
+/* Font import */
 @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap');
