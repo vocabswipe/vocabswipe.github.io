@@ -15,6 +15,9 @@ html, body {
     align-items: center;
     background-color: #35654d; /* Poker table green */
     font-family: 'Times New Roman', Times, serif; /* Poker card font */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 /* Icon panel styling */
@@ -46,7 +49,7 @@ html, body {
 
 /* Website statistics styling */
 .website-stats {
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9rem; /* Decreased by 20% from 1.125rem */
     font-weight: bold;
     color: #ffffff; /* White for contrast on green background */
@@ -57,7 +60,7 @@ html, body {
 }
 
 .stats-number {
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.56rem; /* Decreased by 20% from 1.95rem */
     font-weight: bold;
     color: #ffd700; /* Gold to highlight */
@@ -65,7 +68,7 @@ html, body {
 
 /* Swipe counter styling */
 .swipe-counter {
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9rem; /* Decreased by 20% from 1.125rem */
     font-weight: bold;
     color: #ffffff; /* White for contrast on green background */
@@ -252,7 +255,7 @@ html, body {
     bottom: 20%; /* Below spacebar SVG */
     left: 50%;
     transform: translate(-50%, 0);
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     font-weight: bold;
     color: #000000; /* Black for contrast with white card background */
@@ -268,8 +271,8 @@ html, body {
 
 /* Word styling for poker card */
 .word {
-    font-family: 'Impact', sans-serif; /* UNO-like bold font */
-    font-size: 3rem; /* Base size for desktop, twice the English sentence size (1.5rem * 2) */
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-size: 3rem; /* Base size for desktop */
     font-weight: bold;
     position: absolute;
     margin: 0; /* Remove default margin */
@@ -288,14 +291,14 @@ html, body {
 
 /* Sentence styling */
 .sentence {
-    font-size: 1.5rem; /* Increased from 1.1rem for better readability */
+    font-size: 1.5rem; /* Increased for readability */
     margin: 8px 0;
     text-align: center; /* Ensure center alignment */
 }
 
 /* English sentence font */
 .english {
-    font-family: 'Impact', sans-serif; /* UNO-like bold font */
+    font-family: 'Impact', 'Arial Black', sans-serif;
     font-weight: 900; /* Extra bold for UNO style */
     font-size: 1.5rem; /* Increased for readability */
     line-height: 1.3; /* Adjusted spacing */
@@ -303,7 +306,7 @@ html, body {
 
 /* Thai sentence font */
 .thai {
-    font-family: 'Impact', sans-serif; /* UNO-like bold font, fallback for Thai */
+    font-family: 'Impact', 'Noto Sans Thai', sans-serif;
     font-weight: 900; /* Extra bold for UNO style */
     font-size: 1.5rem; /* Increased for readability */
     line-height: 1.5; /* Extra spacing for Thai characters */
@@ -316,14 +319,14 @@ html, body {
 }
 
 .website-name {
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.0725rem; /* Increased by 10% from 0.975rem */
     font-weight: bold;
     color: #ffffff;
 }
 
 .website-slogan {
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.804375rem; /* Increased by 10% from 0.73125rem */
     font-weight: bold;
     color: #ffffff;
@@ -337,37 +340,40 @@ html, body {
     }
 
     .website-stats {
+        font-family: Arial, Helvetica, sans-serif;
         font-size: 0.78rem; /* Decreased by 20% from 0.975rem */
     }
 
     .stats-number {
-        font-size: 1.56rem; /* Decreased by 20% from 1.95rem */
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.56rem; /* Consistent with PC */
     }
 
     .swipe-counter {
+        font-family: Arial, Helvetica, sans-serif;
         font-size: 0.78rem; /* Decreased by 20% from 0.975rem */
     }
 
     .word {
-        font-family: 'Impact', sans-serif;
-        font-size: 2.6rem; /* Twice the English sentence size (1.3rem * 2) */
+        font-family: 'Impact', 'Arial Black', sans-serif;
+        font-size: 2.8rem; /* Slightly increased for better alignment with PC */
         font-weight: bold;
     }
 
     .sentence {
-        font-size: 1.3rem; /* Increased from 1rem for readability */
+        font-size: 1.4rem; /* Slightly increased for readability */
     }
 
     .english {
-        font-family: 'Impact', sans-serif;
+        font-family: 'Impact', 'Arial Black', sans-serif;
         font-weight: 900;
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 
     .thai {
-        font-family: 'Impact', sans-serif;
+        font-family: 'Impact', 'Noto Sans Thai', sans-serif;
         font-weight: 900;
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 
     .card-stack-1 {
@@ -388,10 +394,12 @@ html, body {
     }
 
     .website-name {
+        font-family: Arial, Helvetica, sans-serif;
         font-size: 0.9295rem; /* Increased by 10% from 0.845rem */
     }
 
     .website-slogan {
+        font-family: Arial, Helvetica, sans-serif;
         font-size: 0.715rem; /* Increased by 10% from 0.65rem */
     }
 
@@ -419,4 +427,4 @@ html, body {
 }
 
 /* Ensure fonts are loaded */
-@import url('https://fonts.googleapis.com/css2?family=Impact&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Impact&family=Noto+Sans+Thai:wght@900&display=swap');
