@@ -47,18 +47,20 @@ html, body {
 /* Website statistics styling */
 .website-stats {
     font-family: Arial, sans-serif;
-    font-size: 0.9rem; /* Decreased by 20% from 1.125rem */
+    font-size: 0.9rem; /* Base size for text */
     font-weight: bold;
     color: #ffffff; /* White for contrast on green background */
     margin-bottom: 5px;
     text-align: center;
     line-height: 1.4; /* Adjusted for two lines */
-    opacity: 1; /* Instantly visible */
+    width: 300px; /* Match card container max-width */
+    opacity: 0; /* Initially hidden, fades in after data fetch */
+    transition: opacity 1s ease; /* Smooth fade-in */
 }
 
 .stats-number {
     font-family: Arial, sans-serif;
-    font-size: 1.56rem; /* Decreased by 20% from 1.95rem */
+    font-size: 1.8rem; /* Twice the base text size (0.9rem * 2) */
     font-weight: bold;
     color: #ffd700; /* Gold to highlight */
 }
@@ -337,11 +339,13 @@ html, body {
     }
 
     .website-stats {
-        font-size: 0.78rem; /* Decreased by 20% from 0.975rem */
+        font-size: 0.78rem; /* Base size for mobile */
+        width: 90vw;
+        max-width: 300px; /* Match card container */
     }
 
     .stats-number {
-        font-size: 1.56rem; /* Decreased by 20% from 1.95rem */
+        font-size: 1.56rem; /* Twice the base text size (0.78rem * 2) */
     }
 
     .swipe-counter {
