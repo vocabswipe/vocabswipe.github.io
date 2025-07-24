@@ -25,12 +25,30 @@ function updateSwipeCounter() {
     }
 }
 
-// Update website statistics display with fade-in
+// Animate number from start to end
+function animateNumber(element, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const current = Math.floor(start + (end - start) * progress);
+        element.textContent = current.toLocaleString();
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        }
+    };
+    requestAnimationFrame(step);
+}
+
+// Update website statistics display with animated number
 function updateWebsiteStats() {
     const statsElement = document.getElementById('website-stats');
-    statsElement.innerHTML = `The <span class="stats-number">${vocabData.length}</span> most spoken English sentences<br>and still growing.`;
-    statsElement.style.transition = 'opacity 1s ease';
-    statsElement.style.opacity = '1';
+    const statsNumberElement = document.querySelector('.stats-number');
+    statsElement.style.opacity = '1'; // Instantly visible
+    const startNumber = 10000;
+    const endNumber = vocabData.length;
+    animateNumber(statsNumberElement, startNumber, endNumber, 2000); // 2-second animation
+    statsElement.innerHTML = `The <span class="stats-number">${endNumber.toLocaleString()}</span> most spoken English sentences<br>and still growing`;
 }
 
 // Function to fetch and parse JSONL file
@@ -366,37 +384,40 @@ function startPCAnimation() {
     animateStep();
 }
 
-// Touch handling for drag and swipe
-let touchStartX = 0;
-let touchStartY = 0;
-let touchCurrentX = 0;
-let touchCurrentY = 0;
-let touchStartTime = 0;
+// Touch and mouse handling for drag, swipe, and tap
+let isDragging = false;
+let startX = 0;
+let startY = 0;
+let currentX = 0;
+let currentY = 0;
+let startTime = 0;
 const minSwipeDistance = 50; // Minimum distance for a swipe (pixels)
 const maxTapDistance = 10; // Maximum distance for a tap (pixels)
 const maxTapDuration = 300; // Maximum duration for a tap (milliseconds)
 
 const card = document.getElementById('vocab-card');
 
+// Touch events
 card.addEventListener('touchstart', (e) => {
     if (e.touches.length === 1) { // Ensure single touch
         e.preventDefault(); // Prevent default behaviors
-        touchStartX = e.changedTouches[0].screenX;
-        touchStartY = e.changedTouches[0].screenY;
-        touchCurrentX = touchStartX;
-        touchCurrentY = touchStartY;
-        touchStartTime = Date.now();
+        startX = e.changedTouches[0].screenX;
+        startY = e.changedTouches[0].screenY;
+        currentX = startX;
+        currentY = startY;
+        startTime = Date.now();
         card.style.transition = 'none'; // Smooth drag
+        isDragging = true;
     }
 });
 
 card.addEventListener('touchmove', (e) => {
-    if (e.touches.length === 1) {
+    if (e.touches.length === 1 && isDragging) {
         e.preventDefault();
-        touchCurrentX = e.changedTouches[0].screenX;
-        touchCurrentY = e.changedTouches[0].screenY;
-        const deltaX = touchCurrentX - touchStartX;
-        const deltaY = touchCurrentY - touchStartY;
+        currentX = e.changedTouches[0].screenX;
+        currentY = e.changedTouches[0].screenY;
+        const deltaX = currentX - startX;
+        const deltaY = currentY - startY;
         const rotate = (deltaX / window.innerWidth) * 30; // Rotate based on drag distance
         card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
     }
@@ -404,11 +425,12 @@ card.addEventListener('touchmove', (e) => {
 
 card.addEventListener('touchend', (e) => {
     e.preventDefault();
-    const touchEndX = e.changedTouches[0].screenX;
-    const touchEndY = e.changedTouches[0].screenY;
-    const touchDuration = Date.now() - touchStartTime;
-    const deltaX = touchEndX - touchStartX;
-    const deltaY = touchEndY - touchStartY;
+    isDragging = false;
+    const endX = e.changedTouches[0].screenX;
+    const endY = e.changedTouches[0].screenY;
+    const touchDuration = Date.now() - startTime;
+    const deltaX = endX - startX;
+    const deltaY = endY - startY;
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
     // Check if it's a tap
@@ -436,16 +458,70 @@ card.addEventListener('touchend', (e) => {
     }
 });
 
-// Click event for desktop compatibility
-card.addEventListener('click', (e) => {
+// Mouse events for PC
+card.addEventListener('mousedown', (e) => {
     e.preventDefault();
-    const audio = document.getElementById('card-audio');
-    card.classList.add('glow'); // Add glow effect
-    audio.play().catch(error => console.error('Error playing audio:', error));
-    // Remove glow class after animation completes (0.6s for one pulse)
-    setTimeout(() => {
-        card.classList.remove('glow');
-    }, 600);
+    startX = e.screenX;
+    startY = e.screenY;
+    currentX = startX;
+    currentY = startY;
+    startTime = Date.now();
+    card.style.transition = 'none'; // Smooth drag
+    isDragging = true;
+});
+
+card.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+        e.preventDefault();
+        currentX = e.screenX;
+        currentY = e.screenY;
+        const deltaX = currentX - startX;
+        const deltaY = currentY - startY;
+        const rotate = (deltaX / window.innerWidth) * 30; // Rotate based on drag distance
+        card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
+    }
+});
+
+card.addEventListener('mouseup', (e) => {
+    e.preventDefault();
+    isDragging = false;
+    const endX = e.screenX;
+    const endY = e.screenY;
+    const duration = Date.now() - startTime;
+    const deltaX = endX - startX;
+    const deltaY = endY - startY;
+    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+    // Check if it's a click (tap equivalent)
+    if (distance <= maxTapDistance && duration <= maxTapDuration) {
+        const audio = document.getElementById('card-audio');
+        card.classList.add('glow'); // Add glow effect
+        audio.play().catch(error => console.error('Error playing audio:', error));
+        card.style.transform = 'translate(0, 0) rotate(0deg)'; // Reset position
+        setTimeout(() => {
+            card.classList.remove('glow');
+        }, 600);
+    } else if (distance > minSwipeDistance) {
+        // Calculate swipe direction and animate out
+        const angle = Math.atan2(deltaY, deltaX); // Angle in radians
+        const magnitude = distance * 5; // Amplify distance for animation
+        const translateX = Math.cos(angle) * magnitude;
+        const translateY = Math.sin(angle) * magnitude;
+        const rotate = (deltaX / window.innerWidth) * 30; // Keep rotation consistent
+        moveToNextCard(translateX, translateY, rotate);
+    } else {
+        // Not enough distance for swipe, reset position
+        card.style.transition = 'transform 0.3s ease';
+        card.style.transform = 'translate(0, 0) rotate(0deg)';
+    }
+});
+
+card.addEventListener('mouseleave', () => {
+    if (isDragging) {
+        isDragging = false;
+        card.style.transition = 'transform 0.3s ease';
+        card.style.transform = 'translate(0, 0) rotate(0deg)';
+    }
 });
 
 // Keyboard controls for PC
@@ -477,18 +553,24 @@ document.addEventListener('keydown', (e) => {
 });
 
 // Share icon functionality
-document.getElementById('share-icon').addEventListener('click', () => {
+const shareIcon = document.getElementById('share-icon');
+shareIcon.addEventListener('click', () => {
     if (typeof html2canvas === 'undefined') {
         console.error('html2canvas is not loaded');
         alert('Snapshot feature is unavailable. Please try again later.');
         return;
     }
+    // Add click animation
+    shareIcon.classList.add('clicked');
+    setTimeout(() => {
+        shareIcon.classList.remove('clicked');
+    }, 200);
     captureSnapshot();
 });
 
-// Function to capture snapshot of top card, texts above, and texts below
+// Function to capture snapshot of entire viewport
 function captureSnapshot() {
-    const topCard = document.getElementById('vocab-card');
+    const cardContainer = document.getElementById('card-container');
     const websiteStats = document.getElementById('website-stats');
     const swipeCounter = document.getElementById('swipe-counter');
     const websiteInfo = document.getElementById('website-info');
@@ -503,142 +585,96 @@ function captureSnapshot() {
     ctx.fillStyle = '#35654d';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Temporarily hide card stack and next card to capture only top card
-    const nextCard = document.getElementById('next-card');
-    const cardStack = document.querySelectorAll('.card-stack');
-    const originalNextCardOpacity = nextCard.style.opacity;
-    const originalCardStackStyles = Array.from(cardStack).map(card => card.style.opacity);
+    // Temporarily hide hand point, arrows, and spacebar
+    const handPoint = document.getElementById('hand-point');
+    const arrows = document.querySelectorAll('.arrow');
+    const spacebar = document.getElementById('spacebar');
+    const spacebarText = document.getElementById('spacebar-text');
+    const originalStyles = {
+        handPointOpacity: handPoint.style.opacity,
+        arrowOpacities: Array.from(arrows).map(arrow => arrow.style.opacity),
+        spacebarOpacity: spacebar.style.opacity,
+        spacebarTextOpacity: spacebarText.style.opacity
+    };
 
-    nextCard.style.opacity = '0';
-    cardStack.forEach(card => card.style.opacity = '0');
+    handPoint.style.opacity = '0';
+    arrows.forEach(arrow => arrow.style.opacity = '0');
+    spacebar.style.opacity = '0';
+    spacebarText.style.opacity = '0';
 
-    // Calculate scaling and positioning for elements
+    // Calculate scaling to fit viewport
     const scale = Math.min(canvas.width / window.innerWidth, canvas.height / window.innerHeight) * 0.9; // Fit within 90% of canvas
-    const cardWidth = topCard.offsetWidth;
-    const cardHeight = topCard.offsetHeight;
-    const scaledCardWidth = cardWidth * scale;
-    const scaledCardHeight = cardHeight * scale;
-    const cardOffsetX = (canvas.width - scaledCardWidth) / 2;
-    const cardOffsetY = (canvas.height - scaledCardHeight) / 2;
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    const scaledWidth = viewportWidth * scale;
+    const scaledHeight = viewportHeight * scale;
+    const offsetX = (canvas.width - scaledWidth) / 2;
+    const offsetY = (canvas.height - scaledHeight) / 2;
 
-    // Capture website stats
-    html2canvas(websiteStats, {
-        backgroundColor: null,
-        scale: scale
-    }).then(statsCanvas => {
-        const statsWidth = websiteStats.offsetWidth * scale;
-        const statsHeight = websiteStats.offsetHeight * scale;
-        const statsOffsetX = (canvas.width - statsWidth) / 2;
-        const statsOffsetY = cardOffsetY - statsHeight - 20; // 20px above card
+    // Capture entire viewport
+    html2canvas(document.body, {
+        width: window.innerWidth,
+        height: window.innerHeight,
+        scale: scale,
+        backgroundColor: '#35654d'
+    }).then(viewportCanvas => {
+        // Draw viewport on canvas
+        ctx.drawImage(viewportCanvas, offsetX, offsetY, scaledWidth, scaledHeight);
 
-        // Capture swipe counter
-        html2canvas(swipeCounter, {
-            backgroundColor: null,
-            scale: scale
-        }).then(counterCanvas => {
-            const counterWidth = swipeCounter.offsetWidth * scale;
-            const counterHeight = swipeCounter.offsetHeight * scale;
-            const counterOffsetX = (canvas.width - counterWidth) / 2;
-            const counterOffsetY = statsOffsetY - counterHeight - 10; // 10px above stats
-
-            // Capture top card
-            html2canvas(topCard, {
-                backgroundColor: '#ffffff', // Ensure white card background
-                scale: scale
-            }).then(cardCanvas => {
-                // Capture website info
-                html2canvas(websiteInfo, {
-                    backgroundColor: null,
-                    scale: scale
-                }).then(infoCanvas => {
-                    const infoWidth = websiteInfo.offsetWidth * scale;
-                    const infoHeight = websiteInfo.offsetHeight * scale;
-                    const infoOffsetX = (canvas.width - infoWidth) / 2;
-                    const infoOffsetY = cardOffsetY + scaledCardHeight + 20; // 20px below card
-
-                    // Draw all elements on canvas
-                    ctx.drawImage(counterCanvas, counterOffsetX, counterOffsetY, counterWidth, counterHeight);
-                    ctx.drawImage(statsCanvas, statsOffsetX, statsOffsetY, statsWidth, statsHeight);
-                    ctx.drawImage(cardCanvas, cardOffsetX, cardOffsetY, scaledCardWidth, scaledCardHeight);
-                    ctx.drawImage(infoCanvas, infoOffsetX, infoOffsetY, infoWidth, infoHeight);
-
-                    // Restore card stack and next card visibility
-                    nextCard.style.opacity = originalNextCardOpacity;
-                    cardStack.forEach((card, index) => {
-                        card.style.opacity = originalCardStackStyles[index];
-                    });
-
-                    // Convert canvas to PNG and trigger share
-                    canvas.toBlob(blob => {
-                        if (!blob) {
-                            console.error('Failed to generate canvas blob');
-                            alert('Failed to create snapshot. Please try again.');
-                            return;
-                        }
-                        const file = new File([blob], 'vocabswipe-card.png', { type: 'image/png' });
-                        const shareData = {
-                            files: [file],
-                            title: 'Check out my VocabSwipe card!',
-                            text: 'Master words with VocabSwipe! Try it at VocabSwipe.com',
-                            url: 'https://VocabSwipe.com'
-                        };
-
-                        if (navigator.canShare && navigator.canShare({ files: [file] })) {
-                            navigator.share(shareData).catch(error => {
-                                console.error('Error sharing:', error);
-                                // Fallback: Download the image
-                                const link = document.createElement('a');
-                                link.href = URL.createObjectURL(blob);
-                                link.download = 'vocabswipe-card.png';
-                                link.click();
-                                URL.revokeObjectURL(link.href);
-                                alert('Sharing not supported. Image downloaded instead.');
-                            });
-                        } else {
-                            // Fallback: Download the image
-                            const link = document.createElement('a');
-                            link.href = URL.createObjectURL(blob);
-                            link.download = 'vocabswipe-card.png';
-                            link.click();
-                            URL.revokeObjectURL(link.href);
-                            alert('Sharing not supported. Image downloaded instead.');
-                        }
-                    }, 'image/png');
-                }).catch(error => {
-                    console.error('Error capturing website info:', error);
-                    alert('Failed to capture snapshot. Please try again.');
-                    // Restore card stack visibility
-                    nextCard.style.opacity = originalNextCardOpacity;
-                    cardStack.forEach((card, index) => {
-                        card.style.opacity = originalCardStackStyles[index];
-                    });
-                });
-            }).catch(error => {
-                console.error('Error capturing top card:', error);
-                alert('Failed to capture snapshot. Please try again.');
-                // Restore card stack visibility
-                nextCard.style.opacity = originalNextCardOpacity;
-                cardStack.forEach((card, index) => {
-                    card.style.opacity = originalCardStackStyles[index];
-                    });
-                });
-        }).catch(error => {
-            console.error('Error capturing swipe counter:', error);
-            alert('Failed to capture snapshot. Please try again.');
-            // Restore card stack visibility
-            nextCard.style.opacity = originalNextCardOpacity;
-            cardStack.forEach((card, index) => {
-                card.style.opacity = originalCardStackStyles[index];
-            });
+        // Restore hidden elements
+        handPoint.style.opacity = originalStyles.handPointOpacity;
+        arrows.forEach((arrow, index) => {
+            arrow.style.opacity = originalStyles.arrowOpacities[index];
         });
+        spacebar.style.opacity = originalStyles.spacebarOpacity;
+        spacebarText.style.opacity = originalStyles.spacebarTextOpacity;
+
+        // Convert canvas to PNG and trigger share
+        canvas.toBlob(blob => {
+            if (!blob) {
+                console.error('Failed to generate canvas blob');
+                alert('Failed to create snapshot. Please try again.');
+                return;
+            }
+            const file = new File([blob], 'vocabswipe-snapshot.png', { type: 'image/png' });
+            const shareData = {
+                files: [file],
+                title: 'Check out my VocabSwipe snapshot!',
+                text: 'Master words with VocabSwipe! Try it at VocabSwipe.com',
+                url: 'https://VocabSwipe.com'
+            };
+
+            if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                navigator.share(shareData).catch(error => {
+                    console.error('Error sharing:', error);
+                    // Fallback: Download the image
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = 'vocabswipe-snapshot.png';
+                    link.click();
+                    URL.revokeObjectURL(link.href);
+                    alert('Sharing not supported. Image downloaded instead.');
+                });
+            } else {
+                // Fallback: Download the image
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'vocabswipe-snapshot.png';
+                link.click();
+                URL.revokeObjectURL(link.href);
+                alert('Sharing not supported. Image downloaded instead.');
+            }
+        }, 'image/png');
     }).catch(error => {
-        console.error('Error capturing website stats:', error);
+        console.error('Error capturing viewport:', error);
         alert('Failed to capture snapshot. Please try again.');
-        // Restore card stack visibility
-        nextCard.style.opacity = originalNextCardOpacity;
-        cardStack.forEach((card, index) => {
-            card.style.opacity = originalCardStackStyles[index];
+        // Restore hidden elements
+        handPoint.style.opacity = originalStyles.handPointOpacity;
+        arrows.forEach((arrow, index) => {
+            arrow.style.opacity = originalStyles.arrowOpacities[index];
         });
+        spacebar.style.opacity = originalStyles.spacebarOpacity;
+        spacebarText.style.opacity = originalStyles.spacebarTextOpacity;
     });
 }
 
