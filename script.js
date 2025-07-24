@@ -209,53 +209,59 @@ function startMobileAnimation() {
             startTransform: 'translate(-50%, 25%)', // 25% from bottom
             endTransform: 'translate(-50%, 25%)',
             duration: 600, // Single tap duration
-            delay: 500,
+            delay: 2000, // 2 seconds after swipe sequence
             tap: true
         }
     ];
 
     let currentStep = 0;
 
-    function animateStep() {
-        if (currentStep >= sequence.length) {
-            handPoint.style.opacity = '0'; // Hide after sequence
-            return;
+    // Calculate total swipe sequence duration (4 swipes)
+    const swipeSequenceDuration = sequence.slice(0, 4).reduce((total, step) => total + step.duration + step.delay, 0);
+
+    // Start animation after 5 seconds
+    setTimeout(() => {
+        function animateStep() {
+            if (currentStep >= sequence.length) {
+                handPoint.style.opacity = '0'; // Hide after sequence
+                return;
+            }
+
+            const step = sequence[currentStep];
+            handPoint.style.transform = step.startTransform;
+            handPoint.style.opacity = '0';
+
+            // Fade in
+            setTimeout(() => {
+                handPoint.style.transition = 'opacity 0.5s ease';
+                handPoint.style.opacity = '1';
+
+                // Move or tap
+                setTimeout(() => {
+                    handPoint.style.transition = `transform ${step.duration}ms ease`;
+                    handPoint.style.transform = step.endTransform;
+
+                    if (step.tap) {
+                        handPoint.classList.add('tap-animation');
+                        card.classList.add('glow');
+                        setTimeout(() => {
+                            card.classList.remove('glow');
+                            handPoint.classList.remove('tap-animation');
+                        }, 600); // Single glow/tap
+                    }
+
+                    // Proceed to next step
+                    setTimeout(() => {
+                        currentStep++;
+                        animateStep();
+                    }, step.duration + step.delay);
+                }, 500);
+            }, step.delay);
         }
 
-        const step = sequence[currentStep];
-        handPoint.style.transform = step.startTransform;
-        handPoint.style.opacity = '0';
-
-        // Fade in
-        setTimeout(() => {
-            handPoint.style.transition = 'opacity 0.5s ease';
-            handPoint.style.opacity = '1';
-
-            // Move or tap
-            setTimeout(() => {
-                handPoint.style.transition = `transform ${step.duration}ms ease`;
-                handPoint.style.transform = step.endTransform;
-
-                if (step.tap) {
-                    handPoint.classList.add('tap-animation');
-                    card.classList.add('glow');
-                    setTimeout(() => {
-                        card.classList.remove('glow');
-                        handPoint.classList.remove('tap-animation');
-                    }, 600); // Single glow/tap
-                }
-
-                // Proceed to next step
-                setTimeout(() => {
-                    currentStep++;
-                    animateStep();
-                }, step.duration + step.delay);
-            }, 500);
-        }, step.delay);
-    }
-
-    // Start animation
-    animateStep();
+        // Start animation
+        animateStep();
+    }, 5000); // 5 seconds delay
 }
 
 // PC animation for arrows and spacebar
@@ -277,15 +283,15 @@ function startPCAnimation() {
         {
             ids: arrows.map(arrow => arrow.id), // Show all arrows at once
             transforms: arrows.map(arrow => arrow.transform),
-            duration: 1800, // 3 presses at 600ms each
-            delay: 500,
-            press: true
+            duration: 1000, // Visible for 1 second
+            delay: 5000, // Start 5 seconds after page load
+            fade: true
         },
         {
             id: 'spacebar',
             transform: 'translate(-50%, 25%)', // 25% from bottom
             duration: 600, // Single tap
-            delay: 1000, // 1 second after arrows
+            delay: 2000, // 2 seconds after arrows fade out
             tap: true
         }
     ];
@@ -313,32 +319,18 @@ function startPCAnimation() {
                 setTimeout(() => {
                     element.style.transition = 'opacity 0.5s ease';
                     element.style.opacity = '1';
-                    // Animate three presses
+                    // Fade out after 1 second
                     setTimeout(() => {
-                        element.classList.add('tap-animation');
-                        setTimeout(() => {
-                            element.classList.remove('tap-animation');
-                            setTimeout(() => {
-                                element.classList.add('tap-animation');
-                                setTimeout(() => {
-                                    element.classList.remove('tap-animation');
-                                    setTimeout(() => {
-                                        element.classList.add('tap-animation');
-                                        setTimeout(() => {
-                                            element.classList.remove('tap-animation');
-                                        }, step.duration / 3);
-                                    }, step.duration / 3);
-                                }, step.duration / 3);
-                            }, step.duration / 3);
-                        }, step.duration / 3);
-                    }, 500);
+                        element.style.transition = 'opacity 0.5s ease';
+                        element.style.opacity = '0';
+                    }, 1000);
                 }, step.delay);
             });
-            // Proceed to next step after all presses
+            // Proceed to next step after fade out
             setTimeout(() => {
                 currentStep++;
                 animateStep();
-            }, step.duration + step.delay + 500);
+            }, step.delay + step.duration + 500);
         } else {
             // Handle spacebar
             const element = document.getElementById(step.id);
@@ -485,6 +477,11 @@ document.addEventListener('keydown', (e) => {
 
 // Share icon functionality
 document.getElementById('share-icon').addEventListener('click', () => {
+    if (typeof html2canvas === 'undefined') {
+        console.error('html2canvas is not loaded');
+        alert('Snapshot feature is unavailable. Please try again later.');
+        return;
+    }
     captureSnapshot();
 });
 
@@ -557,6 +554,11 @@ function captureSnapshot() {
 
                     // Convert canvas to PNG and trigger share
                     canvas.toBlob(blob => {
+                        if (!blob) {
+                            console.error('Failed to generate canvas blob');
+                            alert('Failed to create snapshot. Please try again.');
+                            return;
+                        }
                         const file = new File([blob], 'vocabswipe-card.png', { type: 'image/png' });
                         const shareData = {
                             files: [file],
@@ -566,7 +568,16 @@ function captureSnapshot() {
                         };
 
                         if (navigator.canShare && navigator.canShare({ files: [file] })) {
-                            navigator.share(shareData).catch(error => console.error('Error sharing:', error));
+                            navigator.share(shareData).catch(error => {
+                                console.error('Error sharing:', error);
+                                // Fallback: Download the image
+                                const link = document.createElement('a');
+                                link.href = URL.createObjectURL(blob);
+                                link.download = 'vocabswipe-card.png';
+                                link.click();
+                                URL.revokeObjectURL(link.href);
+                                alert('Sharing not supported. Image downloaded instead.');
+                            });
                         } else {
                             // Fallback: Download the image
                             const link = document.createElement('a');
@@ -577,17 +588,13 @@ function captureSnapshot() {
                             alert('Sharing not supported. Image downloaded instead.');
                         }
                     }, 'image/png');
-                });
-            });
-        });
-    });
+                }).catch(error => console.error('Error capturing website info:', error));
+            }).catch(error => console.error('Error capturing top card:', error));
+        }).catch(error => console.error('Error capturing swipe counter:', error));
+    }).catch(error => console.error('Error capturing website stats:', error));
 }
 
 // Load data when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     loadVocabData();
-    // Load html2canvas dynamically
-    const script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
-    document.head.appendChild(script);
 });
