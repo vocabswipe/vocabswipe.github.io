@@ -15,9 +15,6 @@ if (lastResetDate !== today) {
     swipeCount = parseInt(localStorage.getItem('swipeCount') || '0');
 }
 
-// Theme state
-let isDarkTheme = localStorage.getItem('theme') === 'dark';
-
 // Update swipe counter display
 function updateSwipeCounter() {
     const cardText = swipeCount === 1 ? 'card' : 'cards';
@@ -48,9 +45,9 @@ function updateWebsiteStats() {
     const statsElement = document.getElementById('website-stats');
     const statsNumberElement = document.querySelector('.stats-number');
     statsElement.style.opacity = '1'; // Instantly visible
-    const startNumber = 10000;
+    const startNumber = 1; // Start from 1
     const endNumber = vocabData.length;
-    animateNumber(statsNumberElement, startNumber, endNumber, 2000); // 2-second animation
+    animateNumber(statsNumberElement, startNumber, endNumber, 60000); // 1-minute animation
     statsElement.innerHTML = `The <span class="stats-number">${endNumber.toLocaleString()}</span> most spoken English sentences<br>and still growing`;
 }
 
@@ -62,12 +59,15 @@ async function loadVocabData() {
         vocabData = text.trim().split('\n').map(line => JSON.parse(line));
         // Shuffle the array
         vocabData = vocabData.sort(() => Math.random() - 0.5);
-        applyTheme(); // Apply theme before displaying cards
         displayCards();
         updateSwipeCounter();
         updateWebsiteStats();
-        // Start animations based on device type
-        startAnimations();
+        // Start appropriate animation based on device type
+        if (isMobileDevice()) {
+            startMobileAnimation();
+        } else {
+            startPCAnimation();
+        }
     } catch (error) {
         console.error('Error loading database:', error);
         document.getElementById('word-top').textContent = 'Error';
@@ -77,55 +77,17 @@ async function loadVocabData() {
     }
 }
 
+// Function to detect if the device is mobile
+function isMobileDevice() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    return (
+        /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent) ||
+        window.innerWidth <= 600
+    );
+}
+
 // Current card index
 let currentIndex = 0;
-
-// Function to apply theme (dark or light)
-function applyTheme() {
-    const currentCard = document.getElementById('vocab-card');
-    const nextCard = document.getElementById('next-card');
-    const wordTopElement = document.getElementById('word-top');
-    const wordBottomElement = document.getElementById('word-bottom');
-    const englishElement = document.getElementById('english');
-    const thaiElement = document.getElementById('thai');
-    const nextWordTopElement = document.getElementById('next-word-top');
-    const nextWordBottomElement = document.getElementById('next-word-bottom');
-    const nextEnglishElement = document.getElementById('next-english');
-    const nextThaiElement = document.getElementById('next-thai');
-
-    if (isDarkTheme) {
-        currentCard.style.backgroundColor = '#000000';
-        nextCard.style.backgroundColor = '#000000';
-        wordTopElement.style.color = '#ffffff';
-        wordBottomElement.style.color = '#ffffff';
-        englishElement.style.color = '#ffffff';
-        thaiElement.style.color = '#ffffff';
-        nextWordTopElement.style.color = '#ffffff';
-        nextWordBottomElement.style.color = '#ffffff';
-        nextEnglishElement.style.color = '#ffffff';
-        nextThaiElement.style.color = '#ffffff';
-    } else {
-        currentCard.style.backgroundColor = '#ffffff';
-        nextCard.style.backgroundColor = '#ffffff';
-        wordTopElement.style.color = '#000000';
-        wordBottomElement.style.color = '#000000';
-        englishElement.style.color = '#000000';
-        thaiElement.style.color = '#000000';
-        nextWordTopElement.style.color = '#000000';
-        nextWordBottomElement.style.color = '#000000';
-        nextEnglishElement.style.color = '#000000';
-        nextThaiElement.style.color = '#000000';
-    }
-}
-
-// Function to toggle theme
-function toggleTheme() {
-    isDarkTheme = !isDarkTheme;
-    localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
-    applyTheme();
-    // Re-display cards to ensure correct colors
-    displayCards();
-}
 
 // Function to display the current and next card
 function displayCards() {
@@ -155,9 +117,14 @@ function displayCards() {
         thaiElement.textContent = entry.thai;
         audioElement.src = `data/${entry.audio}`;
 
-        // Apply theme colors
-        applyTheme();
+        // Set text color to black
+        wordTopElement.style.color = '#000000';
+        wordBottomElement.style.color = '#000000';
+        englishElement.style.color = '#000000';
+        thaiElement.style.color = '#000000';
 
+        // Set card background to white
+        currentCard.style.backgroundColor = '#ffffff';
         // Reset card position and opacity
         currentCard.style.transform = 'translate(0, 0) rotate(0deg)';
         currentCard.style.opacity = '1';
@@ -171,9 +138,14 @@ function displayCards() {
         nextEnglishElement.textContent = nextEntry.english;
         nextThaiElement.textContent = nextEntry.thai;
 
-        // Apply theme colors
-        applyTheme();
+        // Set text color to black for next card
+        nextWordTopElement.style.color = '#000000';
+        nextWordBottomElement.style.color = '#000000';
+        nextEnglishElement.style.color = '#000000';
+        nextThaiElement.style.color = '#000000';
 
+        // Set next card background to white
+        nextCard.style.backgroundColor = '#ffffff';
         // Position next card slightly offset
         nextCard.style.transform = 'translate(2px, 2px) rotate(0.5deg)';
         nextCard.style.opacity = '1';
@@ -230,20 +202,6 @@ function moveToNextCard(translateX, translateY, rotate) {
         displayCards();
         card.style.transition = 'none'; // Reset transition for next card
     }, 500);
-}
-
-// Detect device type
-function isMobileDevice() {
-    return /Mobi|Android|iPhone|iPad|iPod|Touch/i.test(navigator.userAgent) || window.innerWidth <= 600;
-}
-
-// Start animations based on device type
-function startAnimations() {
-    if (isMobileDevice()) {
-        startMobileAnimation();
-    } else {
-        startPCAnimation();
-    }
 }
 
 // Mobile animation for swipe and tap
@@ -616,16 +574,6 @@ shareIcon.addEventListener('click', () => {
         shareIcon.classList.remove('clicked');
     }, 200);
     captureSnapshot();
-});
-
-// Theme icon functionality
-const themeIcon = document.getElementById('theme-icon');
-themeIcon.addEventListener('click', () => {
-    themeIcon.classList.add('clicked');
-    setTimeout(() => {
-        themeIcon.classList.remove('clicked');
-    }, 200);
-    toggleTheme();
 });
 
 // Function to capture snapshot of entire viewport

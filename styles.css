@@ -22,25 +22,25 @@ html, body {
     width: 100%;
     max-width: 300px; /* Match card container width */
     display: flex;
-    justify-content: space-between; /* Theme on left, share on right */
+    justify-content: flex-end;
     padding: 10px;
     position: absolute;
     top: 0;
     z-index: 20; /* Above cards */
 }
 
-.share-icon, .theme-icon {
+.share-icon {
     width: 30px;
     height: 30px;
     cursor: pointer;
     transition: transform 0.2s ease;
 }
 
-.share-icon:hover, .theme-icon:hover {
+.share-icon:hover {
     transform: scale(1.1);
 }
 
-.share-icon.clicked, .theme-icon.clicked {
+.share-icon.clicked {
     transform: scale(0.9); /* Click feedback */
 }
 
@@ -61,6 +61,18 @@ html, body {
     font-size: 1.56rem; /* Decreased by 20% from 1.95rem */
     font-weight: bold;
     color: #ffd700; /* Gold to highlight */
+    transition: transform 0.2s ease, color 0.2s ease; /* Smooth animation for number updates */
+    display: inline-block;
+}
+
+.stats-number.animate {
+    animation: number-pop 0.3s ease-in-out; /* Subtle pop effect for number updates */
+}
+
+@keyframes number-pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
 
 /* Swipe counter styling */
@@ -92,7 +104,7 @@ html, body {
 .card {
     width: 100%;
     height: 100%;
-    background-color: #ffffff; /* Default to white, changed by JS for theme */
+    background-color: #ffffff; /* White background for poker card */
     border: 1px solid #000; /* Thin black border */
     border-radius: 8px; /* Subtle rounded corners for poker card */
     display: flex;
@@ -175,8 +187,8 @@ html, body {
 /* Hand point styling for mobile */
 .hand-point {
     position: absolute;
-    width: 200px; /* Increased by 5x from 40px */
-    height: 200px; /* Increased by 5x from 40px */
+    width: 200px; /* Increased from 40px to 200px (5x) */
+    height: 200px; /* Increased from 40px to 200px (5x) */
     top: 50%; /* Center for swipes, adjusted for tap */
     left: 50%;
     transform: translate(-50%, -50%);
@@ -209,7 +221,7 @@ html, body {
 
 .arrow-left {
     width: 40px;
-    height: 40px;
+    height: 40pxល:1px;
     left: -10px; /* Outside card edge */
     top: 50%;
     transform: translate(-50%, -50%);
@@ -268,8 +280,8 @@ html, body {
 
 /* Word styling for poker card */
 .word {
-    font-family: 'Times New Roman', Times, serif; /* Classic poker card font */
-    font-size: 1.5rem; /* Adjusted for poker card style */
+    font-family: 'Bangers', sans-serif; /* Poker vibe font */
+    font-size: 3rem; /* Base size for desktop, twice the English sentence size (1.5rem * 2) */
     font-weight: bold;
     position: absolute;
     margin: 0; /* Remove default margin */
@@ -288,24 +300,24 @@ html, body {
 
 /* Sentence styling */
 .sentence {
-    font-size: 1.4rem; /* Increased for readability (was 1.1rem) */
+    font-size: 1.5rem; /* Increased from 1.1rem for better readability */
     margin: 8px 0;
     text-align: center; /* Ensure center alignment */
 }
 
-/* English sentence font - UNO style */
+/* English sentence font */
 .english {
-    font-family: 'Bowlby One SC', sans-serif; /* UNO card style font */
-    font-weight: 700; /* Bold for clarity */
-    font-size: 1.4rem; /* Larger for readability */
+    font-family: 'Bangers', sans-serif; /* Poker vibe font */
+    font-weight: 900; /* Extra bold for poker style */
+    font-size: 1.5rem; /* Increased for readability */
     line-height: 1.3; /* Adjusted spacing */
 }
 
-/* Thai sentence font - UNO style */
+/* Thai sentence font */
 .thai {
-    font-family: 'Bowlby One SC', sans-serif; /* UNO card style font */
-    font-weight: 700; /* Bold for clarity */
-    font-size: 1.4rem; /* Larger for readability */
+    font-family: 'Impact', sans-serif; /* UNO-like bold font, unchanged */
+    font-weight: 900; /* Extra bold for UNO style */
+    font-size: 1.5rem; /* Increased for readability */
     line-height: 1.5; /* Extra spacing for Thai characters */
 }
 
@@ -329,7 +341,7 @@ html, body {
     color: #ffffff;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for mobile */
 @media (max-width: 600px) {
     .card-container {
         width: 90vw;
@@ -349,25 +361,25 @@ html, body {
     }
 
     .word {
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 1.3rem; /* Smaller for mobile */
+        font-family: 'Bangers', sans-serif; /* Poker vibe font */
+        font-size: 2.6rem; /* Twice the English sentence size (1.3rem * 2) */
         font-weight: bold;
     }
 
     .sentence {
-        font-size: 1.2rem; /* Increased for readability (was 1rem) */
+        font-size: 1.3rem; /* Increased from 1rem for readability */
     }
 
     .english {
-        font-family: 'Bowlby One SC', sans-serif;
-        font-weight: 700;
-        font-size: 1.2rem; /* Larger for readability */
+        font-family: 'Bangers', sans-serif; /* Poker vibe font */
+        font-weight: 900;
+        font-size: 1.3rem;
     }
 
     .thai {
-        font-family: 'Bowlby One SC', sans-serif;
-        font-weight: 700;
-        font-size: 1.2rem; /* Larger for readability */
+        font-family: 'Impact', sans-serif; /* Unchanged */
+        font-weight: 900;
+        font-size: 1.3rem;
     }
 
     .card-stack-1 {
@@ -382,7 +394,7 @@ html, body {
         transform: translate(6px, 6px) rotate(2deg);
     }
 
-    .share-icon, .theme-icon {
+    .share-icon {
         width: 25px;
         height: 25px;
     }
@@ -396,8 +408,8 @@ html, body {
     }
 
     .hand-point {
-        width: 150px; /* Increased by 5x from 30px */
-        height: 150px; /* Increased by 5x from 30px */
+        width: 150px; /* Increased from 30px to 150px (5x) */
+        height: 150px; /* Increased from 30px to 150px (5x) */
     }
 
     /* Hide PC-specific SVGs and text on mobile */
@@ -419,4 +431,4 @@ html, body {
 }
 
 /* Ensure fonts are loaded */
-@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Noto+Sans+Thai:wght@600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Impact&display=swap');
