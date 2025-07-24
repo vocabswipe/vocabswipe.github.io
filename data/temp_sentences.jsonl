@@ -1,1 +1,984 @@
-{"word": "say", "english": "He said the book changed his life.", "thai": "เขาบอกว่าหนังสือเล่มนั้นเปลี่ยนชีวิตเขา"}
+{"word": "see", "english": "I see you over there!", "thai": "ฉันเห็นคุณอยู่ตรงนั้น!"}
+{"word": "see", "english": "Can you see the stars tonight?", "thai": "คืนนี้คุณเห็นดาวไหม?"}
+{"word": "see", "english": "Let me see your new phone.", "thai": "ให้ฉันดูโทรศัพท์ใหม่ของคุณหน่อย。"}
+{"word": "see", "english": "I can’t see anything in the dark.", "thai": "ฉันมองไม่เห็นอะไรในความมืดเลย。"}
+{"word": "see", "english": "Do you see what I mean?", "thai": "คุณเข้าใจที่ฉันหมายถึงไหม?"}
+{"word": "see", "english": "I’ll see you later.", "thai": "เดี๋ยวเจอกันนะ。"}
+{"word": "see", "english": "Come see this cool trick!", "thai": "มาดูกระบวนท่านี้สิ มันเจ๋งมาก!"}
+{"word": "see", "english": "I see the problem now.", "thai": "ตอนนี้ฉันเห็นปัญหาแล้ว。"}
+{"word": "see", "english": "Did you see that movie yet?", "thai": "คุณดูหนังเรื่องนั้นหรือยัง?"}
+{"word": "see", "english": "I want to see the world.", "thai": "ฉันอยากเห็นโลกกว้าง。"}
+{"word": "see", "english": "You’ll see, it’ll be fun!", "thai": "คุณจะเห็น มันจะสนุก!"}
+{"word": "see", "english": "I didn’t see that coming.", "thai": "ฉันไม่เห็นว่าจะเกิดเรื่องแบบนี้。"}
+{"word": "see", "english": "Can I see the menu, please?", "thai": "ขอฉันดูเมนูหน่อยได้ไหม?"}
+{"word": "see", "english": "I see her every day.", "thai": "ฉันเจอเธอทุกวัน。"}
+{"word": "see", "english": "Let’s see what happens.", "thai": "มาดูกันว่าจะเกิดอะไรขึ้น。"}
+{"word": "see", "english": "I can see the ocean from here.", "thai": "จากที่นี่ฉันเห็นทะเลได้。"}
+{"word": "see", "english": "Did you see his new car?", "thai": "คุณเห็นรถใหม่ของเขาไหม?"}
+{"word": "see", "english": "I see your point.", "thai": "ฉันเข้าใจมุมมองของคุณ。"}
+{"word": "see", "english": "Go see a doctor about that.", "thai": "ไปหาหมอเรื่องนั้นเถอะ。"}
+{"word": "see", "english": "I’ll see what I can do.", "thai": "ฉันจะดูว่าทำอะไรได้บ้าง。"}
+{"word": "see", "english": "Can you see the board from there?", "thai": "จากตรงนั้นคุณเห็นกระดานไหม?"}
+{"word": "see", "english": "I see a lot of potential here.", "thai": "ฉันเห็นศักยภาพมากมายที่นี่。"}
+{"word": "see", "english": "Did you see the news today?", "thai": "วันนี้คุณดูข่าวไหม?"}
+{"word": "see", "english": "I can’t see without my glasses.", "thai": "ไม่มีแว่นฉันมองไม่เห็นเลย。"}
+{"word": "see", "english": "Let me see if I have it.", "thai": "ให้ฉันดูว่ามีมันไหม。"}
+{"word": "see", "english": "I see him at the gym sometimes.", "thai": "บางครั้งฉันเจอเขาที่ยิม。"}
+{"word": "see", "english": "You should see her artwork.", "thai": "คุณควรดูผลงานศิลปะของเธอ。"}
+{"word": "see", "english": "I don’t see why not.", "thai": "ฉันไม่เห็นว่าทำไมจะไม่ได้。"}
+{"word": "see", "english": "Can you see the difference?", "thai": "คุณเห็นความแตกต่างไหม?"}
+{"word": "see", "english": "I see the sun setting.", "thai": "ฉันเห็นพระอาทิตย์กำลังตก。"}
+{"word": "see", "english": "Let’s see who wins.", "thai": "มาดูกันว่าใครจะชนะ。"}
+{"word": "see", "english": "I didn’t see you there!", "thai": "ฉันไม่เห็นคุณอยู่ตรงนั้น!"}
+{"word": "see", "english": "I want to see that show.", "thai": "ฉันอยากดูรายการนั้น。"}
+{"word": "see", "english": "Do you see the time?", "thai": "คุณเห็นเวลาหรือเปล่า?"}
+{"word": "see", "english": "I see a storm coming.", "thai": "ฉันเห็นพายุกำลังมา。"}
+{"word": "see", "english": "Can I see your ID, please?", "thai": "ขอฉันดูบัตรประจำตัวคุณหน่อยได้ไหม?"}
+{"word": "see", "english": "I’ll see you at the party.", "thai": "เจอกันที่งานปาร์ตี้นะ。"}
+{"word": "see", "english": "Did you see her dance?", "thai": "คุณเห็นเธอเต้นไหม?"}
+{"word": "see", "english": "I can see my house from here.", "thai": "จากที่นี่ฉันเห็นบ้านของฉันได้。"}
+{"word": "see", "english": "Let me see that picture.", "thai": "ให้ฉันดูรูปนั้นหน่อย。"}
+{"word": "see", "english": "I see what you’re saying.", "thai": "ฉันเข้าใจที่คุณพูด。"}
+{"word": "see", "english": "You’ll see how it works.", "thai": "คุณจะเห็นว่ามันทำงานยังไง。"}
+{"word": "see", "english": "I didn’t see any signs.", "thai": "ฉันไม่เห็นป้ายอะไรเลย。"}
+{"word": "see", "english": "Can you see the road ahead?", "thai": "คุณเห็นถนนข้างหน้าไหม?"}
+{"word": "see", "english": "I see her point of view.", "thai": "ฉันเข้าใจมุมมองของเธอ。"}
+{"word": "see", "english": "Let’s see if it fits.", "thai": "มาดูว่ามันพอดีไหม。"}
+{"word": "see", "english": "I see the kids playing outside.", "thai": "ฉันเห็นเด็กๆ เล่นอยู่ข้างนอก。"}
+{"word": "see", "english": "Did you see that goal?", "thai": "คุณเห็นประตูนั้นไหม?"}
+{"word": "see", "english": "I can’t see the screen.", "thai": "ฉันมองไม่เห็นหน้าจอ。"}
+{"word": "see", "english": "I’ll see you tomorrow.", "thai": "พรุ่งนี้เจอกันนะ。"}
+{"word": "see", "english": "Can you see the moon tonight?", "thai": "คืนนี้คุณเห็นพระจันทร์ไหม?"}
+{"word": "see", "english": "I see a pattern here.", "thai": "ฉันเห็นรูปแบบที่นี่。"}
+{"word": "see", "english": "Did you see the fireworks?", "thai": "คุณเห็นดอกไม้ไฟไหม?"}
+{"word": "see", "english": "I want to see the results.", "thai": "ฉันอยากเห็นผลลัพธ์。"}
+{"word": "see", "english": "Let me see your homework.", "thai": "ให้ฉันดูการบ้านของคุณหน่อย。"}
+{"word": "see", "english": "I see him walking his dog.", "thai": "ฉันเห็นเขาเดินจูงหมา。"}
+{"word": "see", "english": "You should see this place!", "thai": "คุณต้องมาดูสถานที่นี้!"}
+{"word": "see", "english": "I don’t see the issue.", "thai": "ฉันไม่เห็นปัญหาเลย。"}
+{"word": "see", "english": "Can you see the airplane?", "thai": "คุณเห็นเครื่องบินไหม?"}
+{"word": "see", "english": "I’ll see if she’s free.", "thai": "ฉันจะดูว่าเธอว่างไหม。"}
+{"word": "see", "english": "Did you see that catch?", "thai": "คุณเห็นจังหวะนั้นไหม?"}
+{"word": "see", "english": "I see the city lights.", "thai": "ฉันเห็นแสงไฟในเมือง。"}
+{"word": "see", "english": "Let’s see what’s on TV.", "thai": "มาดูว่ามีอะไรในทีวีบ้าง。"}
+{"word": "see", "english": "I didn’t see the stop sign.", "thai": "ฉันไม่เห็นป้ายหยุด。"}
+{"word": "see", "english": "I want to see my family.", "thai": "ฉันอยากเจอครอบครัวของฉัน。"}
+{"word": "see", "english": "Do you see that bird?", "thai": "คุณเห็นนกตัวนั้นไหม?"}
+{"word": "see", "english": "I see the snow falling.", "thai": "ฉันเห็นหิมะกำลังตก。"}
+{"word": "see", "english": "Can I see your ticket?", "thai": "ขอฉันดูตั๋วของคุณหน่อยได้ไหม?"}
+{"word": "see", "english": "I’ll see you at school.", "thai": "เจอกันที่โรงเรียนนะ。"}
+{"word": "see", "english": "Did you see her smile?", "thai": "คุณเห็นรอยยิ้มของเธอไหม?"}
+{"word": "see", "english": "I can see the mountains.", "thai": "ฉันเห็นภูเขาได้。"}
+{"word": "see", "english": "Let me see the map.", "thai": "ให้ฉันดูแผนที่หน่อย。"}
+{"word": "see", "english": "I see what you did there.", "thai": "ฉันเห็นสิ่งที่คุณทำตรงนั้น。"}
+{"word": "see", "english": "You’ll see it’s worth it.", "thai": "คุณจะเห็นว่ามันคุ้มค่า。"}
+{"word": "see", "english": "I didn’t see any errors.", "thai": "ฉันไม่เห็นข้อผิดพลาดใดๆ。"}
+{"word": "see", "english": "Can you see the stage?", "thai": "คุณเห็นเวทีไหม?"}
+{"word": "see", "english": "I see her in my dreams.", "thai": "ฉันเห็นเธอในความฝันของฉัน。"}
+{"word": "see", "english": "Let’s see how it goes.", "thai": "มาดูว่ามันจะเป็นยังไง。"}
+{"word": "see", "english": "I see the train coming.", "thai": "ฉันเห็นรถไฟกำลังมา。"}
+{"word": "see", "english": "Did you see that play?", "thai": "คุณเห็นการเล่นนั้นไหม?"}
+{"word": "see", "english": "I can’t see the clock.", "thai": "ฉันมองไม่เห็นนาฬิกา。"}
+{"word": "see", "english": "I’ll see you next week.", "thai": "เจอกันสัปดาห์หน้านะ。"}
+{"word": "see", "english": "Can you see the rainbow?", "thai": "คุณเห็นรุ้งกินน้ำไหม?"}
+{"word": "see", "english": "I see a bright future.", "thai": "ฉันเห็นอนาคตที่สดใส。"}
+{"word": "see", "english": "Did you see the accident?", "thai": "คุณเห็นอุบัติเหตุนั้นไหม?"}
+{"word": "see", "english": "I want to see the zoo.", "thai": "ฉันอยากไปดูสวนสัตว์。"}
+{"word": "see", "english": "Let me see your drawing.", "thai": "ให้ฉันดูภาพวาดของคุณหน่อย。"}
+{"word": "see", "english": "I see him at the store.", "thai": "ฉันเจอเขาที่ร้านค้า。"}
+{"word": "see", "english": "You should see the beach!", "thai": "คุณต้องไปดูชายหาด!"}
+{"word": "see", "english": "I don’t see any reason.", "thai": "ฉันไม่เห็นเหตุผลใดๆ。"}
+{"word": "see", "english": "Can you see the lighthouse?", "thai": "คุณเห็นประภาคารไหม?"}
+{"word": "see", "english": "I’ll see if it’s ready.", "thai": "ฉันจะดูว่ามันพร้อมหรือยัง。"}
+{"word": "see", "english": "Did you see that sunset?", "thai": "คุณเห็นพระอาทิตย์ตกนั้นไหม?"}
+{"word": "see", "english": "I see the flowers blooming.", "thai": "ฉันเห็นดอกไม้กำลังบาน。"}
+{"word": "see", "english": "Let’s see what’s for dinner.", "thai": "มาดูว่ามีอะไรให้กินมื้อเย็นบ้าง。"}
+{"word": "see", "english": "I didn’t see the warning.", "thai": "ฉันไม่เห็นคำเตือน。"}
+{"word": "see", "english": "I want to see the parade.", "thai": "ฉันอยากดูขบวนพาเหรด。"}
+{"word": "sell", "english": "I want to sell my old car.", "thai": "ฉันอยากขายรถเก่าของฉัน。"}
+{"word": "sell", "english": "Can you sell me your ticket?", "thai": "คุณขายตั๋วให้ฉันได้ไหม?"}
+{"word": "sell", "english": "They sell the best coffee here.", "thai": "ที่นี่เขาขายกาแฟที่อร่อยที่สุด。"}
+{"word": "sell", "english": "I’ll sell you this for ten bucks.", "thai": "ฉันจะขายอันนี้ให้คุณในราคาสิบเหรียญ。"}
+{"word": "sell", "english": "Did you sell your house yet?", "thai": "คุณขายบ้านแล้วหรือยัง?"}
+{"word": "sell", "english": "She wants to sell her jewelry.", "thai": "เธออยากขายเครื่องประดับของเธอ。"}
+{"word": "sell", "english": "This store doesn’t sell that brand.", "thai": "ร้านนี้ไม่ขายยี่ห้อนั้น。"}
+{"word": "sell", "english": "Let’s sell these old books online.", "thai": "มาขายหนังสือเก่าเหล่านี้ทางออนไลน์กันเถอะ。"}
+{"word": "sell", "english": "He can sell anything to anyone.", "thai": "เขาขายอะไรให้ใครก็ได้。"}
+{"word": "sell", "english": "I’m trying to sell my bike.", "thai": "ฉันกำลังพยายามขายจักรยานของฉัน。"}
+{"word": "sell", "english": "Do they sell snacks at the theater?", "thai": "โรงหนังเขาขายของว่างไหม?"}
+{"word": "sell", "english": "I’ll sell it at a discount.", "thai": "ฉันจะขายมันในราคาลดพิเศษ。"}
+{"word": "sell", "english": "She didn’t sell her old clothes.", "thai": "เธอไม่ได้ขายเสื้อผ้าเก่าของเธอ。"}
+{"word": "sell", "english": "Can you sell this for me?", "thai": "คุณช่วยขายอันนี้ให้ฉันได้ไหม?"}
+{"word": "sell", "english": "They sell fresh fruit at the market.", "thai": "ที่ตลาดเขาขายผลไม้สด。"}
+{"word": "sell", "english": "I need to sell my laptop fast.", "thai": "ฉันต้องขายแล็ปท็อปของฉันให้เร็วที่สุด。"}
+{"word": "sell", "english": "He’s trying to sell his idea.", "thai": "เขากำลังพยายามขายไอเดียของเขา。"}
+{"word": "sell", "english": "Do you sell batteries here?", "thai": "ที่นี่มีถ่านไฟฉายขายไหม?"}
+{"word": "sell", "english": "I’ll sell you my old phone.", "thai": "ฉันจะขายโทรศัพท์เก่าให้คุณ。"}
+{"word": "sell", "english": "They don’t sell alcohol after midnight.", "thai": "เขาไม่ขายแอลกอฮอล์หลังเที่ยงคืน。"}
+{"word": "sell", "english": "She wants to sell her artwork.", "thai": "เธออยากขายผลงานศิลปะของเธอ。"}
+{"word": "sell", "english": "Let’s sell the tickets online.", "thai": "มาขายตั๋วทางออนไลน์กันเถอะ。"}
+{"word": "sell", "english": "I can’t sell this at that price.", "thai": "ฉันขายในราคานั้นไม่ได้。"}
+{"word": "sell", "english": "He used to sell cars.", "thai": "เขาเคยขายรถยนต์。"}
+{"word": "sell", "english": "Do they sell ice cream here?", "thai": "ที่นี่มีไอศกรีมขายไหม?"}
+{"word": "sell", "english": "I’ll sell it to the highest bidder.", "thai": "ฉันจะขายให้กับคนที่ให้ราคาสูงสุด。"}
+{"word": "sell", "english": "She’s going to sell her business.", "thai": "เธอกำลังจะขายธุรกิจของเธอ。"}
+{"word": "sell", "english": "They sell handmade crafts at the fair.", "thai": "ที่งานแฟร์เขาขายงานฝีมือทำมือ。"}
+{"word": "sell", "english": "I don’t want to sell my guitar.", "thai": "ฉันไม่อยากขายกีตาร์ของฉัน。"}
+{"word": "sell", "english": "Can you sell me a pen?", "thai": "คุณขายปากกาให้ฉันได้ไหม?"}
+{"word": "sell", "english": "They sell organic vegetables here.", "thai": "ที่นี่เขาขายผักออร์แกนิก。"}
+{"word": "sell", "english": "I’ll sell you this for cheap.", "thai": "ฉันจะขายอันนี้ให้คุณในราคาถูก。"}
+{"word": "sell", "english": "He didn’t sell his old furniture.", "thai": "เขาไม่ได้ขายเฟอร์นิเจอร์เก่าของเขา。"}
+{"word": "sell", "english": "Do you sell phone cases?", "thai": "คุณมีเคสโทรศัพท์ขายไหม?"}
+{"word": "sell", "english": "I’m going to sell my camera.", "thai": "ฉันจะขายกล้องของฉัน。"}
+{"word": "sell", "english": "They sell tickets at the door.", "thai": "เขาขายตั๋วที่หน้าประตู。"}
+{"word": "sell", "english": "She can sell her designs online.", "thai": "เธอสามารถขายดีไซน์ของเธอทางออนไลน์ได้。"}
+{"word": "sell", "english": "I won’t sell it for less than fifty.", "thai": "ฉันจะไม่ขายมันในราคาน้อยกว่าห้าสิบ。"}
+{"word": "sell", "english": "He’s trying to sell his old records.", "thai": "เขากำลังพยายามขายแผ่นเสียงเก่าของเขา。"}
+{"word": "sell", "english": "Do they sell flowers at the shop?", "thai": "ที่ร้านเขาขายดอกไม้ไหม?"}
+{"word": "sell", "english": "I’ll sell you my bike for twenty.", "thai": "ฉันจะขายจักรยานให้คุณในราคายี่สิบ。"}
+{"word": "sell", "english": "They don’t sell that model anymore.", "thai": "เขาไม่ขายรุ่นนั้นแล้ว。"}
+{"word": "sell", "english": "She wants to sell her old shoes.", "thai": "เธออยากขายรองเท้าเก่าของเธอ。"}
+{"word": "sell", "english": "Let’s sell these cookies at the bake sale.", "thai": "มาขายคุกกี้เหล่านี้ที่งานขายขนมกันเถอะ。"}
+{"word": "sell", "english": "I can’t sell my car right now.", "thai": "ตอนนี้ฉันขายรถไม่ได้。"}
+{"word": "sell", "english": "He used to sell newspapers.", "thai": "เขาเคยขายหนังสือพิมพ์。"}
+{"word": "sell", "english": "Do you sell umbrellas here?", "thai": "ที่นี่มีร่มขายไหม?"}
+{"word": "sell", "english": "I’ll sell it if the price is right.", "thai": "ฉันจะขายมันถ้าราคาเหมาะสม。"}
+{"word": "sell", "english": "She’s going to sell her paintings.", "thai": "เธอกำลังจะขายภาพวาดของเธอ。"}
+{"word": "sell", "english": "They sell snacks at the game.", "thai": "ที่งานแข่งเขาขายของว่าง。"}
+{"word": "sell", "english": "I don’t want to sell my phone.", "thai": "ฉันไม่อยากขายโทรศัพท์ของฉัน。"}
+{"word": "sell", "english": "Can you sell me some water?", "thai": "คุณขายน้ำให้ฉันได้ไหม?"}
+{"word": "sell", "english": "They sell fresh bread daily.", "thai": "เขาขายขนมปังสดทุกวัน。"}
+{"word": "sell", "english": "I’ll sell you this for five dollars.", "thai": "ฉันจะขายอันนี้ให้คุณในราคาห้าเหรียญ。"}
+{"word": "sell", "english": "He didn’t sell his old jacket.", "thai": "เขาไม่ได้ขายแจ็คเก็ตเก่าของเขา。"}
+{"word": "sell", "english": "Do they sell hats at the store?", "thai": "ที่ร้านเขาขายหมวกไหม?"}
+{"word": "sell", "english": "I’m going to sell my watch.", "thai": "ฉันจะขายนาฬิกาของฉัน。"}
+{"word": "sell", "english": "They sell concert tickets online.", "thai": "เขาขายตั๋วคอนเสิร์ตทางออนไลน์。"}
+{"word": "sell", "english": "She can sell her crafts at the market.", "thai": "เธอสามารถขายงานฝีมือของเธอที่ตลาดได้。"}
+{"word": "sell", "english": "I won’t sell it for that price.", "thai": "ฉันจะไม่ขายมันในราคานั้น。"}
+{"word": "sell", "english": "He’s trying to sell his old TV.", "thai": "เขากำลังพยายามขายทีวีเก่าของเขา。"}
+{"word": "sell", "english": "Do they sell drinks at the café?", "thai": "ที่ร้านกาแฟเขาขายเครื่องดื่มไหม?"}
+{"word": "sell", "english": "I’ll sell you my chair for cheap.", "thai": "ฉันจะขายเก้าอี้ให้คุณในราคาถูก。"}
+{"word": "sell", "english": "They don’t sell those shoes anymore.", "thai": "เขาไม่ขายรองเท้าพวกนั้นแล้ว。"}
+{"word": "sell", "english": "She wants to sell her old laptop.", "thai": "เธออยากขายแล็ปท็อปเก่าของเธอ。"}
+{"word": "sell", "english": "Let’s sell these at the garage sale.", "thai": "มาขายของเหล่านี้ที่งานขายของในโรงรถกันเถอะ。"}
+{"word": "sell", "english": "I can’t sell my house right now.", "thai": "ตอนนี้ฉันขายบ้านไม่ได้。"}
+{"word": "sell", "english": "He used to sell ice cream.", "thai": "เขาเคยขายไอศกรีม。"}
+{"word": "sell", "english": "Do you sell sunscreen here?", "thai": "ที่นี่มีครีมกันแดดขายไหม?"}
+{"word": "sell", "english": "I’ll sell it to you for twenty.", "thai": "ฉันจะขายมันให้คุณในราคายี่สิบ。"}
+{"word": "sell", "english": "She’s going to sell her books.", "thai": "เธอกำลังจะขายหนังสือของเธอ。"}
+{"word": "sell", "english": "They sell hot dogs at the stand.", "thai": "ที่ร้านแผงลอยเขาขายฮอทดอก。"}
+{"word": "sell", "english": "I don’t want to sell my camera.", "thai": "ฉันไม่อยากขายกล้องของฉัน。"}
+{"word": "sell", "english": "Can you sell me a ticket?", "thai": "คุณขายตั๋วให้ฉันได้ไหม?"}
+{"word": "sell", "english": "They sell fresh fish at the market.", "thai": "ที่ตลาดเขาขายปลาสด。"}
+{"word": "sell", "english": "I’ll sell you this for a dollar.", "thai": "ฉันจะขายอันนี้ให้คุณในราคาหนึ่งเหรียญ。"}
+{"word": "sell", "english": "He didn’t sell his old bike.", "thai": "เขาไม่ได้ขายจักรยานเก่าของเขา。"}
+{"word": "sell", "english": "Do they sell blankets here?", "thai": "ที่นี่มีผ้าห่มขายไหม?"}
+{"word": "sell", "english": "I’m going to sell my tablet.", "thai": "ฉันจะขายแท็บเล็ตของฉัน。"}
+{"word": "sell", "english": "They sell movie tickets online.", "thai": "เขาขายตั๋วหนังทางออนไลน์。"}
+{"word": "sell", "english": "She can sell her jewelry at the fair.", "thai": "เธอสามารถขายเครื่องประดับของเธอที่งานแฟร์ได้。"}
+{"word": "sell", "english": "I won’t sell it for less than ten.", "thai": "ฉันจะไม่ขายมันในราคาน้อยกว่าสิบ。"}
+{"word": "sell", "english": "He’s trying to sell his old couch.", "thai": "เขากำลังพยายามขายโซฟาเก่าของเขา。"}
+{"word": "sell", "english": "Do they sell candles at the store?", "thai": "ที่ร้านเขาขายเทียนไหม?"}
+{"word": "sell", "english": "I’ll sell you my lamp for cheap.", "thai": "ฉันจะขายโคมไฟให้คุณในราคาถูก。"}
+{"word": "sell", "english": "They don’t sell that game anymore.", "thai": "เขาไม่ขายเกมนั้นแล้ว。"}
+{"word": "sell", "english": "She wants to sell her old dresses.", "thai": "เธออยากขายชุดเก่าของเธอ。"}
+{"word": "sell", "english": "Let’s sell these at the flea market.", "thai": "มาขายของเหล่านี้ที่ตลาดนัดกันเถอะ。"}
+{"word": "sell", "english": "I can’t sell my phone right now.", "thai": "ตอนนี้ฉันขายโทรศัพท์ไม่ได้。"}
+{"word": "sell", "english": "He used to sell lemonade.", "thai": "เขาเคยขายน้ำมะนาว。"}
+{"word": "sell", "english": "Do you sell notebooks here?", "thai": "ที่นี่มีสมุดบันทึกขายไหม?"}
+{"word": "sell", "english": "I’ll sell it if you pay now.", "thai": "ฉันจะขายมันถ้าคุณจ่ายตอนนี้。"}
+{"word": "sell", "english": "She’s going to sell her guitar.", "thai": "เธอกำลังจะขายกีตาร์ของเธอ。"}
+{"word": "sell", "english": "They sell popcorn at the cinema.", "thai": "ที่โรงหนังเขาขายป๊อปคอร์น。"}
+{"word": "sell", "english": "I don’t want to sell my watch.", "thai": "ฉันไม่อยากขายนาฬิกาของฉัน。"}
+{"word": "sell", "english": "Can you sell me some candy?", "thai": "คุณขายลูกอมให้ฉันได้ไหม?"}
+{"word": "sell", "english": "They sell fresh juice at the café.", "thai": "ที่ร้านกาแฟเขาขายน้ำผลไม้สด。"}
+{"word": "sell", "english": "I’ll sell you this for fifteen.", "thai": "ฉันจะขายอันนี้ให้คุณในราคาสิบห้า。"}
+{"word": "send", "english": "Can you send me the file?", "thai": "คุณส่งไฟล์ให้ฉันได้ไหม?"}
+{"word": "send", "english": "I’ll send you a text later.", "thai": "เดี๋ยวฉันจะส่งข้อความหาคุณนะ。"}
+{"word": "send", "english": "She wants to send a gift.", "thai": "เธออยากส่งของขวัญ。"}
+{"word": "send", "english": "They send emails every day.", "thai": "พวกเขาส่งอีเมลทุกวัน。"}
+{"word": "send", "english": "I need to send this package.", "thai": "ฉันต้องส่งพัสดุนี้。"}
+{"word": "send", "english": "Did you send the invitation?", "thai": "คุณส่งคำเชิญหรือยัง?"}
+{"word": "send", "english": "He’ll send the money tomorrow.", "thai": "เขาจะส่งเงินพรุ่งนี้。"}
+{"word": "send", "english": "Can you send a quick reply?", "thai": "คุณตอบกลับเร็วๆ ได้ไหม?"}
+{"word": "send", "english": "I forgot to send the letter.", "thai": "ฉันลืมส่งจดหมาย。"}
+{"word": "send", "english": "They send newsletters monthly.", "thai": "พวกเขาส่งจดหมายข่าวทุกเดือน。"}
+{"word": "send", "english": "Please send me the details.", "thai": "กรุณาส่งรายละเอียดให้ฉัน。"}
+{"word": "send", "english": "I’ll send you the link.", "thai": "ฉันจะส่งลิงก์ให้คุณ。"}
+{"word": "send", "english": "She sent flowers to her mom.", "thai": "เธอส่งดอกไม้ให้แม่ของเธอ。"}
+{"word": "send", "english": "Can you send it by tomorrow?", "thai": "คุณส่งมันได้ภายในพรุ่งนี้ไหม?"}
+{"word": "send", "english": "He didn’t send the report.", "thai": "เขาไม่ได้ส่งรายงาน。"}
+{"word": "send", "english": "I’ll send a photo later.", "thai": "เดี๋ยวฉันจะส่งรูปให้。"}
+{"word": "send", "english": "They send packages worldwide.", "thai": "พวกเขาส่งพัสดุไปทั่วโลก。"}
+{"word": "send", "english": "Can you send me your address?", "thai": "คุณส่งที่อยู่ให้ฉันได้ไหม?"}
+{"word": "send", "english": "I need to send an email now.", "thai": "ฉันต้องส่งอีเมลตอนนี้。"}
+{"word": "send", "english": "She sent me a birthday card.", "thai": "เธอส่งการ์ดวันเกิดให้ฉัน。"}
+{"word": "send", "english": "Did you send the payment?", "thai": "คุณส่งเงินหรือยัง?"}
+{"word": "send", "english": "I’ll send you the schedule.", "thai": "ฉันจะส่งตารางเวลาให้คุณ。"}
+{"word": "send", "english": "He sent a message to everyone.", "thai": "เขาส่งข้อความถึงทุกคน。"}
+{"word": "send", "english": "Can you send it via express?", "thai": "คุณส่งแบบด่วนได้ไหม?"}
+{"word": "send", "english": "I forgot to send the invoice.", "thai": "ฉันลืมส่งใบแจ้งหนี้。"}
+{"word": "send", "english": "They send updates every week.", "thai": "พวกเขาส่งอัปเดตทุกสัปดาห์。"}
+{"word": "send", "english": "Please send me the contract.", "thai": "กรุณาส่งสัญญาให้ฉัน。"}
+{"word": "send", "english": "I’ll send you a reminder.", "thai": "ฉันจะส่งข้อความเตือนให้คุณ。"}
+{"word": "send", "english": "She sent a thank-you note.", "thai": "เธอส่งจดหมายขอบคุณ。"}
+{"word": "send", "english": "Can you send the documents?", "thai": "คุณส่งเอกสารได้ไหม?"}
+{"word": "send", "english": "He didn’t send the package yet.", "thai": "เขายังไม่ได้ส่งพัสดุ。"}
+{"word": "send", "english": "I’ll send it to your phone.", "thai": "ฉันจะส่งมันไปที่โทรศัพท์ของคุณ。"}
+{"word": "send", "english": "They send gifts during holidays.", "thai": "พวกเขาส่งของขวัญในช่วงวันหยุด。"}
+{"word": "send", "english": "Can you send me the recipe?", "thai": "คุณส่งสูตรอาหารให้ฉันได้ไหม?"}
+{"word": "send", "english": "I need to send this today.", "thai": "ฉันต้องส่งอันนี้วันนี้。"}
+{"word": "send", "english": "She sent me a funny video.", "thai": "เธอส่งวิดีโอตลกมาให้ฉัน。"}
+{"word": "send", "english": "Did you send the application?", "thai": "คุณส่งใบสมัครหรือยัง?"}
+{"word": "send", "english": "I’ll send you the directions.", "thai": "ฉันจะส่งเส้นทางให้คุณ。"}
+{"word": "send", "english": "He sent flowers to his wife.", "thai": "เขาส่งดอกไม้ให้ภรรยาของเขา。"}
+{"word": "send", "english": "Can you send it by email?", "thai": "คุณส่งทางอีเมลได้ไหม?"}
+{"word": "send", "english": "I forgot to send the card.", "thai": "ฉันลืมส่งการ์ด。"}
+{"word": "send", "english": "They send alerts for weather.", "thai": "พวกเขาส่งแจ้งเตือนสภาพอากาศ。"}
+{"word": "send", "english": "Please send me the link.", "thai": "กรุณาส่งลิงก์ให้ฉัน。"}
+{"word": "send", "english": "I’ll send a calendar invite.", "thai": "ฉันจะส่งคำเชิญปฏิทิน。"}
+{"word": "send", "english": "She sent me her resume.", "thai": "เธอส่งประวัติส่วนตัวมาให้ฉัน。"}
+{"word": "send", "english": "Can you send the package today?", "thai": "คุณส่งพัสดุวันนี้ได้ไหม?"}
+{"word": "send", "english": "He didn’t send the message.", "thai": "เขาไม่ได้ส่งข้อความ。"}
+{"word": "send", "english": "I’ll send you the video.", "thai": "ฉันจะส่งวิดีโอให้คุณ。"}
+{"word": "send", "english": "They send food to shelters.", "thai": "พวกเขาส่งอาหารไปที่ศูนย์พักพิง。"}
+{"word": "send", "english": "Can you send me the password?", "thai": "คุณส่งรหัสผ่านให้ฉันได้ไหม?"}
+{"word": "send", "english": "I need to send a gift.", "thai": "ฉันต้องส่งของขวัญ。"}
+{"word": "send", "english": "She sent a postcard from Paris.", "thai": "เธอส่งโปสการ์ดจากปารีส。"}
+{"word": "send", "english": "Did you send the form?", "thai": "คุณส่งแบบฟอร์มหรือยัง?"}
+{"word": "send", "english": "I’ll send you the invoice.", "thai": "ฉันจะส่งใบแจ้งหนี้ให้คุณ。"}
+{"word": "send", "english": "He sent a donation to charity.", "thai": "เขาส่งเงินบริจาคให้การกุศล。"}
+{"word": "send", "english": "Can you send it overnight?", "thai": "คุณส่งแบบข้ามคืนได้ไหม?"}
+{"word": "send", "english": "I forgot to send the email.", "thai": "ฉันลืมส่งอีเมล。"}
+{"word": "send", "english": "They send reminders for events.", "thai": "พวกเขาส่งข้อความเตือนสำหรับงานอีเวนต์。"}
+{"word": "send", "english": "Please send me the photos.", "thai": "กรุณาส่งรูปให้ฉัน。"}
+{"word": "send", "english": "I’ll send you the address.", "thai": "ฉันจะส่งที่อยู่ให้คุณ。"}
+{"word": "send", "english": "She sent me a long message.", "thai": "เธอส่งข้อความยาวมาให้ฉัน。"}
+{"word": "send", "english": "Can you send the file now?", "thai": "คุณส่งไฟล์ตอนนี้ได้ไหม?"}
+{"word": "send", "english": "He didn’t send the gift yet.", "thai": "เขายังไม่ได้ส่งของขวัญ。"}
+{"word": "send", "english": "I’ll send it to your email.", "thai": "ฉันจะส่งมันไปที่อีเมลของคุณ。"}
+{"word": "send", "english": "They send books to schools.", "thai": "พวกเขาส่งหนังสือไปโรงเรียน。"}
+{"word": "send", "english": "Can you send me the time?", "thai": "คุณส่งเวลาให้ฉันได้ไหม?"}
+{"word": "send", "english": "I need to send a message.", "thai": "ฉันต้องส่งข้อความ。"}
+{"word": "send", "english": "She sent a letter to her friend.", "thai": "เธอส่งจดหมายถึงเพื่อนของเธอ。"}
+{"word": "send", "english": "Did you send the contract?", "thai": "คุณส่งสัญญาหรือยัง?"}
+{"word": "send", "english": "I’ll send you the tickets.", "thai": "ฉันจะส่งตั๋วให้คุณ。"}
+{"word": "send", "english": "He sent a package to his brother.", "thai": "เขาส่งพัสดุให้พี่ชายของเขา。"}
+{"word": "send", "english": "Can you send it by mail?", "thai": "คุณส่งทางไปรษณีย์ได้ไหม?"}
+{"word": "send", "english": "I forgot to send the receipt.", "thai": "ฉันลืมส่งใบเสร็จ。"}
+{"word": "send", "english": "They send warnings for storms.", "thai": "พวกเขาส่งคำเตือนเรื่องพายุ。"}
+{"word": "send", "english": "Please send me the schedule.", "thai": "กรุณาส่งตารางเวลาให้ฉัน。"}
+{"word": "send", "english": "I’ll send a quick text.", "thai": "ฉันจะส่งข้อความสั้นๆ。"}
+{"word": "send", "english": "She sent me her portfolio.", "thai": "เธอส่งผลงานของเธอมาให้ฉัน。"}
+{"word": "send", "english": "Can you send the report today?", "thai": "คุณส่งรายงานวันนี้ได้ไหม?"}
+{"word": "send", "english": "He didn’t send the invitation.", "thai": "เขาไม่ได้ส่งคำเชิญ。"}
+{"word": "send", "english": "I’ll send you the document.", "thai": "ฉันจะส่งเอกสารให้คุณ。"}
+{"word": "send", "english": "They send supplies to hospitals.", "thai": "พวกเขาส่งอุปกรณ์ไปโรงพยาบาล。"}
+{"word": "send", "english": "Can you send me the code?", "thai": "คุณส่งโค้ดให้ฉันได้ไหม?"}
+{"word": "send", "english": "I need to send a parcel.", "thai": "ฉันต้องส่งพัสดุ。"}
+{"word": "send", "english": "She sent a gift to her sister.", "thai": "เธอส่งของขวัญให้พี่สาวของเธอ。"}
+{"word": "send", "english": "Did you send the email yet?", "thai": "คุณส่งอีเมลหรือยัง?"}
+{"word": "send", "english": "I’ll send you the location.", "thai": "ฉันจะส่งตำแหน่งให้คุณ。"}
+{"word": "send", "english": "He sent a card to his parents.", "thai": "เขาส่งการ์ดให้พ่อแม่ของเขา。"}
+{"word": "send", "english": "Can you send it right now?", "thai": "คุณส่งมันตอนนี้ได้ไหม?"}
+{"word": "send", "english": "I forgot to send the package.", "thai": "ฉันลืมส่งพัสดุ。"}
+{"word": "send", "english": "They send news updates daily.", "thai": "พวกเขาส่งอัปเดตข่าวทุกวัน。"}
+{"word": "send", "english": "Please send me the ticket.", "thai": "กรุณาส่งตั๋วให้ฉัน。"}
+{"word": "send", "english": "I’ll send you a voice note.", "thai": "ฉันจะส่งข้อความเสียงให้คุณ。"}
+{"word": "send", "english": "She sent me a cute picture.", "thai": "เธอส่งรูปน่ารักมาให้ฉัน。"}
+{"word": "send", "english": "Can you send the link now?", "thai": "คุณส่งลิงก์ตอนนี้ได้ไหม?"}
+{"word": "send", "english": "He didn’t send the file yet.", "thai": "เขายังไม่ได้ส่งไฟล์。"}
+{"word": "send", "english": "I’ll send it to your address.", "thai": "ฉันจะส่งมันไปที่อยู่ของคุณ。"}
+{"word": "send", "english": "They send clothes to charities.", "thai": "พวกเขาส่งเสื้อผ้าให้การกุศล。"}
+{"word": "send", "english": "Can you send me the directions?", "thai": "คุณส่งเส้นทางให้ฉันได้ไหม?"}
+{"word": "send", "english": "I need to send a thank-you note.", "thai": "ฉันต้องส่งจดหมายขอบคุณ。"}
+{"word": "show", "english": "Can you show me the way?", "thai": "คุณช่วยบอกทางให้ฉันได้ไหม?"}
+{"word": "show", "english": "I’ll show you my new phone.", "thai": "ฉันจะโชว์โทรศัพท์ใหม่ให้คุณดู。"}
+{"word": "show", "english": "She wants to show her artwork.", "thai": "เธออยากแสดงผลงานศิลปะของเธอ。"}
+{"word": "show", "english": "They show movies every Friday.", "thai": "พวกเขาแสดงหนังทุกวันศุกร์。"}
+{"word": "show", "english": "Did you watch that new show?", "thai": "คุณดูรายการใหม่นั้นหรือยัง?"}
+{"word": "show", "english": "He’ll show us the project later.", "thai": "เขาจะแสดงโปรเจกต์ให้เราดูทีหลัง。"}
+{"word": "show", "english": "Can you show me how it works?", "thai": "คุณแสดงให้ฉันดูว่ามันทำงานยังไงได้ไหม?"}
+{"word": "show", "english": "I forgot to show you the photo.", "thai": "ฉันลืมแสดงรูปให้คุณดู。"}
+{"word": "show", "english": "They show sports on that channel.", "thai": "ช่องนั้นแสดงกีฬา。"}
+{"word": "show", "english": "Please show me the menu.", "thai": "กรุณาแสดงเมนูให้ฉันดู。"}
+{"word": "show", "english": "I’ll show you the results.", "thai": "ฉันจะแสดงผลลัพธ์ให้คุณดู。"}
+{"word": "show", "english": "She showed her dance moves.", "thai": "เธอแสดงท่าเต้นของเธอ。"}
+{"word": "show", "english": "Can you show me your ID?", "thai": "คุณแสดงบัตรประจำตัวให้ฉันดูได้ไหม?"}
+{"word": "show", "english": "He didn’t show up on time.", "thai": "เขาไม่มาแสดงตัวตรงเวลา。"}
+{"word": "show", "english": "I’ll show you the new game.", "thai": "ฉันจะแสดงเกมใหม่ให้คุณดู。"}
+{"word": "show", "english": "They show old films at the theater.", "thai": "โรงหนังนั้นแสดงหนังเก่า。"}
+{"word": "show", "english": "Can you show me the map?", "thai": "คุณแสดงแผนที่ให้ฉันดูได้ไหม?"}
+{"word": "show", "english": "I need to show my ticket.", "thai": "ฉันต้องแสดงตั๋วของฉัน。"}
+{"word": "show", "english": "She showed me her new dress.", "thai": "เธอแสดงชุดใหม่ให้ฉันดู。"}
+{"word": "show", "english": "Did you see that comedy show?", "thai": "คุณดูรายการตลกนั้นหรือยัง?"}
+{"word": "show", "english": "I’ll show you the garden.", "thai": "ฉันจะแสดงสวนให้คุณดู。"}
+{"word": "show", "english": "He showed his true feelings.", "thai": "เขาแสดงความรู้สึกที่แท้จริงของเขา。"}
+{"word": "show", "english": "Can you show me the recipe?", "thai": "คุณแสดงสูตรอาหารให้ฉันดูได้ไหม?"}
+{"word": "show", "english": "I forgot to show the document.", "thai": "ฉันลืมแสดงเอกสาร。"}
+{"word": "show", "english": "They show reruns on TV.", "thai": "พวกเขาแสดงรายการซ้ำทางทีวี。"}
+{"word": "show", "english": "Please show me your homework.", "thai": "กรุณาแสดงการบ้านให้ฉันดู。"}
+{"word": "show", "english": "I’ll show you how to play.", "thai": "ฉันจะแสดงวิธีเล่นให้คุณดู。"}
+{"word": "show", "english": "She showed her painting skills.", "thai": "เธอแสดงทักษะการวาดภาพของเธอ。"}
+{"word": "show", "english": "Can you show me the schedule?", "thai": "คุณแสดงตารางเวลาให้ฉันดูได้ไหม?"}
+{"word": "show", "english": "He didn’t show any interest.", "thai": "เขาไม่แสดงความสนใจเลย。"}
+{"word": "show", "english": "I’ll show you the video.", "thai": "ฉันจะแสดงวิดีโอให้คุณดู。"}
+{"word": "show", "english": "They show concerts on that app.", "thai": "แอปนั้นแสดงคอนเสิร์ต。"}
+{"word": "show", "english": "Can you show me the picture?", "thai": "คุณแสดงรูปให้ฉันดูได้ไหม?"}
+{"word": "show", "english": "I need to show my passport.", "thai": "ฉันต้องแสดงพาสปอร์ตของฉัน。"}
+{"word": "show", "english": "She showed me her new car.", "thai": "เธอแสดงรถใหม่ให้ฉันดู。"}
+{"word": "show", "english": "Did you watch that talk show?", "thai": "คุณดูรายการทอล์คโชว์นั้นหรือยัง?"}
+{"word": "show", "english": "I’ll show you the house.", "thai": "ฉันจะแสดงบ้านให้คุณดู。"}
+{"word": "show", "english": "He showed his strength in the game.", "thai": "เขาแสดงความแข็งแกร่งในเกมนั้น。"}
+{"word": "show", "english": "Can you show me the directions?", "thai": "คุณแสดงเส้นทางให้ฉันดูได้ไหม?"}
+{"word": "show", "english": "I forgot to show the receipt.", "thai": "ฉันลืมแสดงใบเสร็จ。"}
+{"word": "show", "english": "They show documentaries on Sundays.", "thai": "พวกเขาแสดงสารคดีทุกวันอาทิตย์。"}
+{"word": "show", "english": "Please show me the contract.", "thai": "กรุณาแสดงสัญญาให้ฉันดู。"}
+{"word": "show", "english": "I’ll show you my drawings.", "thai": "ฉันจะแสดงภาพวาดของฉันให้คุณดู。"}
+{"word": "show", "english": "She showed her talent on stage.", "thai": "เธอแสดงความสามารถของเธอบนเวที。"}
+{"word": "show", "english": "Can you show me the book?", "thai": "คุณแสดงหนังสือให้ฉันดูได้ไหม?"}
+{"word": "show", "english": "He didn’t show his emotions.", "thai": "เขาไม่แสดงอารมณ์ของเขา。"}
+{"word": "show", "english": "I’ll show you the app.", "thai": "ฉันจะแสดงแอปให้คุณดู。"}
+{"word": "show", "english": "They show live games online.", "thai": "พวกเขาแสดงเกมสดทางออนไลน์。"}
+{"word": "show", "english": "Can you show me the ticket?", "thai": "คุณแสดงตั๋วให้ฉันดูได้ไหม?"}
+{"word": "show", "english": "I need to show my license.", "thai": "ฉันต้องแสดงใบขับขี่ของฉัน。"}
+{"word": "show", "english": "She showed me her collection.", "thai": "เธอแสดงคอลเลกชันของเธอให้ฉันดู。"}
+{"word": "show", "english": "Did you see that game show?", "thai": "คุณดูรายการเกมโชว์นั้นหรือยัง?"}
+{"word": "show", "english": "I’ll show you the park.", "thai": "ฉันจะแสดงสวนสาธารณะให้คุณดู。"}
+{"word": "show", "english": "He showed his skills at work.", "thai": "เขาแสดงทักษะของเขาที่ทำงาน。"}
+{"word": "show", "english": "Can you show me the time?", "thai": "คุณบอกเวลาให้ฉันได้ไหม?"}
+{"word": "show", "english": "I forgot to show the email.", "thai": "ฉันลืมแสดงอีเมล。"}
+{"word": "show", "english": "They show cartoons in the morning.", "thai": "พวกเขาแสดงการ์ตูนในตอนเช้า。"}
+{"word": "show", "english": "Please show me the report.", "thai": "กรุณาแสดงรายงานให้ฉันดู。"}
+{"word": "show", "english": "I’ll show you how to cook it.", "thai": "ฉันจะแสดงวิธีทำอาหารให้คุณดู。"}
+{"word": "show", "english": "She showed her new haircut.", "thai": "เธอแสดงทรงผมใหม่ของเธอ。"}
+{"word": "show", "english": "Can you show me the website?", "thai": "คุณแสดงเว็บไซต์ให้ฉันดูได้ไหม?"}
+{"word": "show", "english": "He didn’t show any effort.", "thai": "เขาไม่แสดงความพยายามเลย。"}
+{"word": "show", "english": "I’ll show you the painting.", "thai": "ฉันจะแสดงภาพวาดให้คุณดู。"}
+{"word": "show", "english": "They show plays at the theater.", "thai": "โรงละครนั้นแสดงละคร。"}
+{"word": "show", "english": "Can you show me the video?", "thai": "คุณแสดงวิดีโอให้ฉันดูได้ไหม?"}
+{"word": "show", "english": "I need to show my boarding pass.", "thai": "ฉันต้องแสดงบัตรผ่านขึ้นเครื่อง。"}
+{"word": "show", "english": "She showed me her new shoes.", "thai": "เธอแสดงรองเท้าใหม่ให้ฉันดู。"}
+{"word": "show", "english": "Did you watch that reality show?", "thai": "คุณดูรายการเรียลลิตี้โชว์นั้นหรือยัง?"}
+{"word": "show", "english": "I’ll show you the city.", "thai": "ฉันจะแสดงเมืองให้คุณดู。"}
+{"word": "show", "english": "He showed his courage today.", "thai": "เขาแสดงความกล้าหาญของเขาวันนี้。"}
+{"word": "show", "english": "Can you show me the plans?", "thai": "คุณแสดงแผนให้ฉันดูได้ไหม?"}
+{"word": "show", "english": "I forgot to show the invitation.", "thai": "ฉันลืมแสดงคำเชิญ。"}
+{"word": "show", "english": "They show news at night.", "thai": "พวกเขาแสดงข่าวตอนกลางคืน。"}
+{"word": "show", "english": "Please show me the list.", "thai": "กรุณาแสดงรายการให้ฉันดู。"}
+{"word": "show", "english": "I’ll show you my new laptop.", "thai": "ฉันจะแสดงแล็ปท็อปใหม่ให้คุณดู。"}
+{"word": "show", "english": "She showed her kindness to everyone.", "thai": "เธอแสดงความเมตตาต่อทุกคน。"}
+{"word": "show", "english": "Can you show me the app?", "thai": "คุณแสดงแอปให้ฉันดูได้ไหม?"}
+{"word": "show", "english": "He didn’t show up for the meeting.", "thai": "เขาไม่มาแสดงตัวในที่ประชุม。"}
+{"word": "show", "english": "I’ll show you the recipe.", "thai": "ฉันจะแสดงสูตรอาหารให้คุณดู。"}
+{"word": "show", "english": "They show live music on weekends.", "thai": "พวกเขาแสดงดนตรีสดในวันสุดสัปดาห์。"}
+{"word": "show", "english": "Can you show me the contract?", "thai": "คุณแสดงสัญญาให้ฉันดูได้ไหม?"}
+{"word": "show", "english": "I need to show my membership card.", "thai": "ฉันต้องแสดงบัตรสมาชิกของฉัน。"}
+{"word": "show", "english": "She showed me her new bike.", "thai": "เธอแสดงจักรยานใหม่ให้ฉันดู。"}
+{"word": "show", "english": "Did you see that talent show?", "thai": "คุณดูรายการโชว์ความสามารถนั้นหรือยัง?"}
+{"word": "show", "english": "I’ll show you the museum.", "thai": "ฉันจะแสดงพิพิธภัณฑ์ให้คุณดู。"}
+{"word": "show", "english": "He showed his support for the team.", "thai": "เขาแสดงการสนับสนุนทีมนั้น。"}
+{"word": "show", "english": "Can you show me the instructions?", "thai": "คุณแสดงคำแนะนำให้ฉันดูได้ไหม?"}
+{"word": "show", "english": "I forgot to show the ticket.", "thai": "ฉันลืมแสดงตั๋ว。"}
+{"word": "show", "english": "They show kids’ shows in the afternoon.", "thai": "พวกเขาแสดงรายการสำหรับเด็กในตอนบ่าย。"}
+{"word": "show", "english": "Please show me the design.", "thai": "กรุณาแสดงดีไซน์ให้ฉันดู。"}
+{"word": "show", "english": "I’ll show you how to fix it.", "thai": "ฉันจะแสดงวิธีซ่อมมันให้คุณดู。"}
+{"word": "show", "english": "She showed her new ring.", "thai": "เธอแสดงแหวนใหม่ของเธอ。"}
+{"word": "show", "english": "Can you show me the route?", "thai": "คุณแสดงเส้นทางให้ฉันดูได้ไหม?"}
+{"word": "show", "english": "He didn’t show any respect.", "thai": "เขาไม่แสดงความเคารพเลย。"}
+{"word": "show", "english": "I’ll show you the album.", "thai": "ฉันจะแสดงอัลบั้มให้คุณดู。"}
+{"word": "show", "english": "They show art at the gallery.", "thai": "พวกเขาแสดงศิลปะที่แกลเลอรี。"}
+{"word": "show", "english": "Can you show me the proof?", "thai": "คุณแสดงหลักฐานให้ฉันดูได้ไหม?"}
+{"word": "show", "english": "I need to show my receipt.", "thai": "ฉันต้องแสดงใบเสร็จของฉัน。"}
+{"word": "sing", "english": "Can you sing a song for me?", "thai": "คุณร้องเพลงให้ฉันฟังได้ไหม?"}
+{"word": "sing", "english": "I love to sing in the shower.", "thai": "ฉันชอบร้องเพลงตอนอาบน้ำ。"}
+{"word": "sing", "english": "She wants to sing at the concert.", "thai": "เธออยากร้องเพลงในคอนเสิร์ต。"}
+{"word": "sing", "english": "They sing in the choir every Sunday.", "thai": "พวกเขาร้องเพลงในคณะนักร้องประสานเสียงทุกวันอาทิตย์。"}
+{"word": "sing", "english": "Did you hear her sing last night?", "thai": "คุณได้ยินเธอร้องเพลงเมื่อคืนนี้หรือเปล่า?"}
+{"word": "sing", "english": "He’ll sing a lullaby for the baby.", "thai": "เขาจะร้องเพลงกล่อมเด็กให้ทารกฟัง。"}
+{"word": "sing", "english": "Can you sing that tune again?", "thai": "คุณร้องทำนองนั้นอีกครั้งได้ไหม?"}
+{"word": "sing", "english": "I forgot how to sing that song.", "thai": "ฉันลืมวิธีร้องเพลงนั้นแล้ว。"}
+{"word": "sing", "english": "They sing karaoke every weekend.", "thai": "พวกเขาร้องคาราโอเกะทุกสุดสัปดาห์。"}
+{"word": "sing", "english": "Please sing something cheerful.", "thai": "กรุณาร้องเพลงอะไรที่ร่าเริงหน่อย。"}
+{"word": "sing", "english": "I’ll sing you my favorite song.", "thai": "ฉันจะร้องเพลงโปรดของฉันให้คุณฟัง。"}
+{"word": "sing", "english": "She sang beautifully at the show.", "thai": "เธอร้องเพลงได้ไพเราะมากในงานแสดง。"}
+{"word": "sing", "english": "Can you sing in a lower key?", "thai": "คุณร้องเพลงในคีย์ที่ต่ำลงได้ไหม?"}
+{"word": "sing", "english": "He didn’t sing at the party.", "thai": "เขาไม่ได้ร้องเพลงในงานปาร์ตี้。"}
+{"word": "sing", "english": "I’ll sing along with the radio.", "thai": "ฉันจะร้องตามวิทยุ。"}
+{"word": "sing", "english": "They sing folk songs at the festival.", "thai": "พวกเขาร้องเพลงพื้นบ้านในงานเทศกาล。"}
+{"word": "sing", "english": "Can you sing the national anthem?", "thai": "คุณร้องเพลงชาติได้ไหม?"}
+{"word": "sing", "english": "I want to sing like a professional.", "thai": "ฉันอยากร้องเพลงเหมือนมืออาชีพ。"}
+{"word": "sing", "english": "She sang a duet with her friend.", "thai": "เธอร้องเพลงคู่กับเพื่อนของเธอ。"}
+{"word": "sing", "english": "Did you sing in the talent show?", "thai": "คุณร้องเพลงในรายการแสดงความสามารถหรือเปล่า?"}
+{"word": "sing", "english": "I’ll sing a song for the kids.", "thai": "ฉันจะร้องเพลงให้เด็กๆ ฟัง。"}
+{"word": "sing", "english": "He loves to sing old rock songs.", "thai": "เขาชอบร้องเพลงร็อกเก่าๆ。"}
+{"word": "sing", "english": "Can you sing louder, please?", "thai": "คุณร้องให้ดังกว่านี้ได้ไหม?"}
+{"word": "sing", "english": "I forgot the words to sing.", "thai": "ฉันลืมเนื้อเพลงที่จะร้อง。"}
+{"word": "sing", "english": "They sing hymns at church.", "thai": "พวกเขาร้องเพลงสวดในโบสถ์。"}
+{"word": "sing", "english": "Please sing a slow song.", "thai": "กรุณาร้องเพลงช้าๆ หน่อย。"}
+{"word": "sing", "english": "I’ll sing at the open mic.", "thai": "ฉันจะร้องเพลงในงานโอเพ่นไมค์。"}
+{"word": "sing", "english": "She sang with so much passion.", "thai": "เธอร้องเพลงด้วยความรู้สึกเต็มเปี่ยม。"}
+{"word": "sing", "english": "Can you sing in tune?", "thai": "คุณร้องเพลงได้ตรงคีย์ไหม?"}
+{"word": "sing", "english": "He didn’t want to sing solo.", "thai": "เขาไม่อยากร้องเพลงเดี่ยว。"}
+{"word": "sing", "english": "I’ll sing you a happy tune.", "thai": "ฉันจะร้องเพลงร่าเริงให้คุณฟัง。"}
+{"word": "sing", "english": "They sing pop songs at the club.", "thai": "พวกเขาร้องเพลงป๊อปที่คลับ。"}
+{"word": "sing", "english": "Can you sing that new hit?", "thai": "คุณร้องเพลงฮิตใหม่นั้นได้ไหม?"}
+{"word": "sing", "english": "I love to sing with my friends.", "thai": "ฉันชอบร้องเพลงกับเพื่อนๆ。"}
+{"word": "sing", "english": "She sang at her sister’s wedding.", "thai": "เธอร้องเพลงในงานแต่งงานของพี่สาว。"}
+{"word": "sing", "english": "Did you sing in the school play?", "thai": "คุณร้องเพลงในละครโรงเรียนหรือเปล่า?"}
+{"word": "sing", "english": "I’ll sing a song from the movie.", "thai": "ฉันจะร้องเพลงจากหนังเรื่องนั้น。"}
+{"word": "sing", "english": "He loves to sing in the car.", "thai": "เขาชอบร้องเพลงในรถ。"}
+{"word": "sing", "english": "Can you sing something classic?", "thai": "คุณร้องเพลงคลาสสิกอะไรสักเพลงได้ไหม?"}
+{"word": "sing", "english": "I forgot how to sing that part.", "thai": "ฉันลืมวิธีร้องท่อนนั้นแล้ว。"}
+{"word": "sing", "english": "They sing carols during Christmas.", "thai": "พวกเขาร้องเพลงคริสต์มาสในช่วงคริสต์มาส。"}
+{"word": "sing", "english": "Please sing a love song.", "thai": "กรุณาร้องเพลงรักหน่อย。"}
+{"word": "sing", "english": "I’ll sing at the talent contest.", "thai": "ฉันจะร้องเพลงในงานประกวดความสามารถ。"}
+{"word": "sing", "english": "She sang for the whole crowd.", "thai": "เธอร้องเพลงให้ฝูงชนทั้งหมดฟัง。"}
+{"word": "sing", "english": "Can you sing without music?", "thai": "คุณร้องเพลงโดยไม่มีดนตรีได้ไหม?"}
+{"word": "sing", "english": "He didn’t sing very well.", "thai": "เขาไม่ได้ร้องเพลงเก่งมาก。"}
+{"word": "sing", "english": "I’ll sing you a folk song.", "thai": "ฉันจะร้องเพลงพื้นบ้านให้คุณฟัง。"}
+{"word": "sing", "english": "They sing at the local bar.", "thai": "พวกเขาร้องเพลงที่บาร์ท้องถิ่น。"}
+{"word": "sing", "english": "Can you sing that old ballad?", "thai": "คุณร้องเพลงบัลลาดเก่านั้นได้ไหม?"}
+{"word": "sing", "english": "I want to sing on stage.", "thai": "ฉันอยากร้องเพลงบนเวที。"}
+{"word": "sing", "english": "She sang a song for charity.", "thai": "เธอร้องเพลงเพื่อการกุศล。"}
+{"word": "sing", "english": "Did you sing with the band?", "thai": "คุณร้องเพลงกับวงดนตรีหรือเปล่า?"}
+{"word": "sing", "english": "I’ll sing a song for my mom.", "thai": "ฉันจะร้องเพลงให้แม่ของฉันฟัง。"}
+{"word": "sing", "english": "He loves to sing country music.", "thai": "เขาชอบร้องเพลงคันทรี。"}
+{"word": "sing", "english": "Can you sing a little softer?", "thai": "คุณร้องเบาๆ หน่อยได้ไหม?"}
+{"word": "sing", "english": "I forgot the lyrics to sing.", "thai": "ฉันลืมเนื้อเพลงที่จะร้อง。"}
+{"word": "sing", "english": "They sing traditional songs at school.", "thai": "พวกเขาร้องเพลงพื้นเมืองที่โรงเรียน。"}
+{"word": "sing", "english": "Please sing a happy song.", "thai": "กรุณาร้องเพลงร่าเริงหน่อย。"}
+{"word": "sing", "english": "I’ll sing at the family party.", "thai": "ฉันจะร้องเพลงในงานปาร์ตี้ครอบครัว。"}
+{"word": "sing", "english": "She sang with the local band.", "thai": "เธอร้องเพลงกับวงดนตรีท้องถิ่น。"}
+{"word": "sing", "english": "Can you sing in a higher key?", "thai": "คุณร้องเพลงในคีย์ที่สูงขึ้นได้ไหม?"}
+{"word": "sing", "english": "He didn’t sing at the event.", "thai": "เขาไม่ได้ร้องเพลงในงานนั้น。"}
+{"word": "sing", "english": "I’ll sing you a classic tune.", "thai": "ฉันจะร้องเพลงคลาสสิกให้คุณฟัง。"}
+{"word": "sing", "english": "They sing at the community center.", "thai": "พวกเขาร้องเพลงที่ศูนย์ชุมชน。"}
+{"word": "sing", "english": "Can you sing that jazz song?", "thai": "คุณร้องเพลงแจ๊สนั้นได้ไหม?"}
+{"word": "sing", "english": "I love to sing with my guitar.", "thai": "ฉันชอบร้องเพลงพร้อมกับกีตาร์。"}
+{"word": "sing", "english": "She sang at the school recital.", "thai": "เธอร้องเพลงในงานแสดงของโรงเรียน。"}
+{"word": "sing", "english": "Did you sing in the competition?", "thai": "คุณร้องเพลงในการแข่งขันหรือเปล่า?"}
+{"word": "sing", "english": "I’ll sing a song for my friend.", "thai": "ฉันจะร้องเพลงให้เพื่อนของฉันฟัง。"}
+{"word": "sing", "english": "He loves to sing at parties.", "thai": "เขาชอบร้องเพลงในงานปาร์ตี้。"}
+{"word": "sing", "english": "Can you sing something fun?", "thai": "คุณร้องเพลงอะไรสนุกๆ ได้ไหม?"}
+{"word": "sing", "english": "I forgot how to sing that melody.", "thai": "ฉันลืมวิธีร้องทำนองนั้นแล้ว。"}
+{"word": "sing", "english": "They sing lullabies to the kids.", "thai": "พวกเขาร้องเพลงกล่อมเด็กให้เด็กๆ ฟัง。"}
+{"word": "sing", "english": "Please sing a pop song.", "thai": "กรุณาร้องเพลงป๊อปหน่อย。"}
+{"word": "sing", "english": "I’ll sing at the charity event.", "thai": "ฉันจะร้องเพลงในงานการกุศล。"}
+{"word": "sing", "english": "She sang with so much emotion.", "thai": "เธอร้องเพลงด้วยอารมณ์ที่เต็มเปี่ยม。"}
+{"word": "sing", "english": "Can you sing without a mic?", "thai": "คุณร้องเพลงโดยไม่มีไมค์ได้ไหม?"}
+{"word": "sing", "english": "He didn’t sing in the show.", "thai": "เขาไม่ได้ร้องเพลงในงานแสดง。"}
+{"word": "sing", "english": "I’ll sing you a short song.", "thai": "ฉันจะร้องเพลงสั้นๆ ให้คุณฟัง。"}
+{"word": "sing", "english": "They sing at the annual festival.", "thai": "พวกเขาร้องเพลงในงานเทศกาลประจำปี。"}
+{"word": "sing", "english": "Can you sing that old hit?", "thai": "คุณร้องเพลงฮิตเก่านั้นได้ไหม?"}
+{"word": "sing", "english": "I want to sing in a band.", "thai": "ฉันอยากร้องเพลงในวงดนตรี。"}
+{"word": "sing", "english": "She sang for her classmates.", "thai": "เธอร้องเพลงให้เพื่อนร่วมชั้นฟัง。"}
+{"word": "sing", "english": "Did you sing at the audition?", "thai": "คุณร้องเพลงในการออดิชันหรือเปล่า?"}
+{"word": "sing", "english": "I’ll sing a song for the crowd.", "thai": "ฉันจะร้องเพลงให้ฝูงชนฟัง。"}
+{"word": "sing", "english": "He loves to sing gospel music.", "thai": "เขาชอบร้องเพลงกอสเปล。"}
+{"word": "sing", "english": "Can you sing a little faster?", "thai": "คุณร้องให้เร็วกว่านี้หน่อยได้ไหม?"}
+{"word": "sing", "english": "I forgot the tune to sing.", "thai": "ฉันลืมทำนองที่จะร้องแล้ว。"}
+{"word": "sing", "english": "They sing children’s songs at school.", "thai": "พวกเขาร้องเพลงเด็กที่โรงเรียน。"}
+{"word": "sing", "english": "Please sing a sad song.", "thai": "กรุณาร้องเพลงเศร้าสักเพลง。"}
+{"word": "sing", "english": "I’ll sing at the wedding.", "thai": "ฉันจะร้องเพลงในงานแต่งงาน。"}
+{"word": "sing", "english": "She sang with the choir.", "thai": "เธอร้องเพลงกับคณะนักร้องประสานเสียง。"}
+{"word": "sing", "english": "Can you sing in harmony?", "thai": "คุณร้องประสานเสียงได้ไหม?"}
+{"word": "sing", "english": "He didn’t sing at the concert.", "thai": "เขาไม่ได้ร้องเพลงในคอนเสิร์ต。"}
+{"word": "sing", "english": "I’ll sing you a new song.", "thai": "ฉันจะร้องเพลงใหม่ให้คุณฟัง。"}
+{"word": "sing", "english": "They sing at the music festival.", "thai": "พวกเขาร้องเพลงในงานเทศกาลดนตรี。"}
+{"word": "sing", "english": "Can you sing that rock song?", "thai": "คุณร้องเพลงร็อกนั้นได้ไหม?"}
+{"word": "sing", "english": "I love to sing at home.", "thai": "ฉันชอบร้องเพลงที่บ้าน。"}
+{"word": "sit", "english": "Can you sit here with me?", "thai": "คุณนั่งตรงนี้กับฉันได้ไหม?"}
+{"word": "sit", "english": "I’ll sit on the couch.", "thai": "ฉันจะนั่งบนโซฟา。"}
+{"word": "sit", "english": "She wants to sit by the window.", "thai": "เธออยากนั่งข้างหน้าต่าง。"}
+{"word": "sit", "english": "They sit together at lunch.", "thai": "พวกเขานั่งด้วยกันตอนกินข้าวเที่ยง。"}
+{"word": "sit", "english": "Did you sit in the front row?", "thai": "คุณนั่งแถวหน้าหรือเปล่า?"}
+{"word": "sit", "english": "He’ll sit with us later.", "thai": "เขาจะมานั่งกับเราทีหลัง。"}
+{"word": "sit", "english": "Can you sit still for a minute?", "thai": "คุณนั่งนิ่งๆ ได้สักนาทีไหม?"}
+{"word": "sit", "english": "I forgot to sit during the meeting.", "thai": "ฉันลืมนั่งลงตอนประชุม。"}
+{"word": "sit", "english": "They sit on the grass outside.", "thai": "พวกเขานั่งบนหญ้าข้างนอก。"}
+{"word": "sit", "english": "Please sit down and relax.", "thai": "กรุณานั่งลงและผ่อนคลาย。"}
+{"word": "sit", "english": "I’ll sit at the back.", "thai": "ฉันจะนั่งด้านหลัง。"}
+{"word": "sit", "english": "She sat quietly during the movie.", "thai": "เธอนั่งเงียบๆ ตอนดูหนัง。"}
+{"word": "sit", "english": "Can you sit next to me?", "thai": "คุณนั่งข้างฉันได้ไหม?"}
+{"word": "sit", "english": "He didn’t sit with the group.", "thai": "เขาไม่ได้นั่งกับกลุ่ม。"}
+{"word": "sit", "english": "I’ll sit on this chair.", "thai": "ฉันจะนั่งบนเก้าอี้ตัวนี้。"}
+{"word": "sit", "english": "They sit around the campfire.", "thai": "พวกเขานั่งรอบกองไฟ。"}
+{"word": "sit", "english": "Can you sit up straight?", "thai": "คุณนั่งตัวตรงได้ไหม?"}
+{"word": "sit", "english": "I want to sit by the fire.", "thai": "ฉันอยากนั่งข้างกองไฟ。"}
+{"word": "sit", "english": "She sat on the bench outside.", "thai": "เธอนั่งบนม้านั่งข้างนอก。"}
+{"word": "sit", "english": "Did you sit through the whole show?", "thai": "คุณนั่งดูรายการจนจบหรือเปล่า?"}
+{"word": "sit", "english": "I’ll sit with you at dinner.", "thai": "ฉันจะนั่งกับคุณตอนกินข้าวเย็น。"}
+{"word": "sit", "english": "He loves to sit and read.", "thai": "เขาชอบนั่งอ่านหนังสือ。"}
+{"word": "sit", "english": "Can you sit closer to me?", "thai": "คุณนั่งใกล้ฉันหน่อยได้ไหม?"}
+{"word": "sit", "english": "I forgot where to sit.", "thai": "ฉันลืมว่าจะนั่งตรงไหน。"}
+{"word": "sit", "english": "They sit in the park every evening.", "thai": "พวกเขานั่งในสวนทุกเย็น。"}
+{"word": "sit", "english": "Please sit at the table.", "thai": "กรุณานั่งที่โต๊ะ。"}
+{"word": "sit", "english": "I’ll sit on the floor.", "thai": "ฉันจะนั่งบนพื้น。"}
+{"word": "sit", "english": "She sat in the corner quietly.", "thai": "เธอนั่งเงียบๆ ที่มุมห้อง。"}
+{"word": "sit", "english": "Can you sit for a moment?", "thai": "คุณนั่งสักครู่ได้ไหม?"}
+{"word": "sit", "english": "He didn’t sit during the speech.", "thai": "เขาไม่ได้นั่งตอนที่มีการพูด。"}
+{"word": "sit", "english": "I’ll sit by the pool.", "thai": "ฉันจะนั่งข้างสระว่ายน้ำ。"}
+{"word": "sit", "english": "They sit in class together.", "thai": "พวกเขานั่งด้วยกันในชั้นเรียน。"}
+{"word": "sit", "english": "Can you sit on this stool?", "thai": "คุณนั่งบนเก้าอี้ตัวนี้ได้ไหม?"}
+{"word": "sit", "english": "I love to sit and watch TV.", "thai": "ฉันชอบนั่งดูทีวี。"}
+{"word": "sit", "english": "She sat on the porch swing.", "thai": "เธอนั่งบนชิงช้าที่ระเบียง。"}
+{"word": "sit", "english": "Did you sit near the stage?", "thai": "คุณนั่งใกล้เวทีหรือเปล่า?"}
+{"word": "sit", "english": "I’ll sit with my friends.", "thai": "ฉันจะนั่งกับเพื่อนๆ。"}
+{"word": "sit", "english": "He sat on the steps outside.", "thai": "เขานั่งบนบันไดข้างนอก。"}
+{"word": "sit", "english": "Can you sit in the shade?", "thai": "คุณนั่งในที่ร่มได้ไหม?"}
+{"word": "sit", "english": "I forgot to sit with the team.", "thai": "ฉันลืมนั่งกับทีม。"}
+{"word": "sit", "english": "They sit on the balcony at night.", "thai": "พวกเขานั่งที่ระเบียงตอนกลางคืน。"}
+{"word": "sit", "english": "Please sit next to the door.", "thai": "กรุณานั่งข้างประตู。"}
+{"word": "sit", "english": "I’ll sit in the armchair.", "thai": "ฉันจะนั่งในเก้าอี้เท้าแขน。"}
+{"word": "sit", "english": "She sat by the lake quietly.", "thai": "เธอนั่งเงียบๆ ข้างทะเลสาบ。"}
+{"word": "sit", "english": "Can you sit for the photo?", "thai": "คุณนั่งถ่ายรูปได้ไหม?"}
+{"word": "sit", "english": "He didn’t sit in the meeting.", "thai": "เขาไม่ได้นั่งในที่ประชุม。"}
+{"word": "sit", "english": "I’ll sit on the rocking chair.", "thai": "ฉันจะนั่งบนเก้าอี้โยก。"}
+{"word": "sit", "english": "They sit at the bar after work.", "thai": "พวกเขานั่งที่บาร์หลังเลิกงาน。"}
+{"word": "sit", "english": "Can you sit on the bench?", "thai": "คุณนั่งบนม้านั่งได้ไหม?"}
+{"word": "sit", "english": "I want to sit by the ocean.", "thai": "ฉันอยากนั่งข้างมหาสมุทร。"}
+{"word": "sit", "english": "She sat in the waiting room.", "thai": "เธอนั่งในห้องรอ。"}
+{"word": "sit", "english": "Did you sit in the back seat?", "thai": "คุณนั่งเบาะหลังหรือเปล่า?"}
+{"word": "sit", "english": "I’ll sit with the kids.", "thai": "ฉันจะนั่งกับเด็กๆ。"}
+{"word": "sit", "english": "He loves to sit on the patio.", "thai": "เขาชอบนั่งที่ลานบ้าน。"}
+{"word": "sit", "english": "Can you sit by the fire?", "thai": "คุณนั่งข้างกองไฟได้ไหม?"}
+{"word": "sit", "english": "I forgot to sit during the class.", "thai": "ฉันลืมนั่งลงตอนเรียน。"}
+{"word": "sit", "english": "They sit in the café all day.", "thai": "พวกเขานั่งในร้านกาแฟทั้งวัน。"}
+{"word": "sit", "english": "Please sit on this cushion.", "thai": "กรุณานั่งบนเบาะนี้。"}
+{"word": "sit", "english": "I’ll sit near the window.", "thai": "ฉันจะนั่งใกล้หน้าต่าง。"}
+{"word": "sit", "english": "She sat on the bus quietly.", "thai": "เธอนั่งเงียบๆ บนรถบัส。"}
+{"word": "sit", "english": "Can you sit for a while?", "thai": "คุณนั่งสักพักได้ไหม?"}
+{"word": "sit", "english": "He didn’t sit with his friends.", "thai": "เขาไม่ได้นั่งกับเพื่อนๆ。"}
+{"word": "sit", "english": "I’ll sit on the swing.", "thai": "ฉันจะนั่งบนชิงช้า。"}
+{"word": "sit", "english": "They sit by the riverbank.", "thai": "พวกเขานั่งริมฝั่งแม่น้ำ。"}
+{"word": "sit", "english": "Can you sit in the front?", "thai": "คุณนั่งด้านหน้าได้ไหม?"}
+{"word": "sit", "english": "I love to sit and chat.", "thai": "ฉันชอบนั่งคุยกัน。"}
+{"word": "sit", "english": "She sat on the park bench.", "thai": "เธอนั่งบนม้านั่งในสวน。"}
+{"word": "sit", "english": "Did you sit during the lecture?", "thai": "คุณนั่งฟังการบรรยายหรือเปล่า?"}
+{"word": "sit", "english": "I’ll sit with my family.", "thai": "ฉันจะนั่งกับครอบครัว。"}
+{"word": "sit", "english": "He sat on the fence outside.", "thai": "เขานั่งบนรั้วข้างนอก。"}
+{"word": "sit", "english": "Can you sit on this mat?", "thai": "คุณนั่งบนเสื่อนี้ได้ไหม?"}
+{"word": "sit", "english": "I forgot to sit by the stage.", "thai": "ฉันลืมนั่งใกล้เวที。"}
+{"word": "sit", "english": "They sit in the library quietly.", "thai": "พวกเขานั่งเงียบๆ ในห้องสมุด。"}
+{"word": "sit", "english": "Please sit at the counter.", "thai": "กรุณานั่งที่เคาน์เตอร์。"}
+{"word": "sit", "english": "I’ll sit on the porch.", "thai": "ฉันจะนั่งที่ระเบียง。"}
+{"word": "sit", "english": "She sat in the classroom silently.", "thai": "เธอนั่งเงียบๆ ในห้องเรียน。"}
+{"word": "sit", "english": "Can you sit for the interview?", "thai": "คุณนั่งเพื่อสัมภาษณ์ได้ไหม?"}
+{"word": "sit", "english": "He didn’t sit during the game.", "thai": "เขาไม่ได้นั่งตอนแข่งขัน。"}
+{"word": "sit", "english": "I’ll sit by the fountain.", "thai": "ฉันจะนั่งข้างน้ำพุ。"}
+{"word": "sit", "english": "They sit on the rooftop at night.", "thai": "พวกเขานั่งบนดาดฟ้าตอนกลางคืน。"}
+{"word": "sit", "english": "Can you sit on the couch?", "thai": "คุณนั่งบนโซฟาได้ไหม?"}
+{"word": "sit", "english": "I want to sit in the garden.", "thai": "ฉันอยากนั่งในสวน。"}
+{"word": "sit", "english": "She sat by the fireplace.", "thai": "เธอนั่งข้างเตาผิง。"}
+{"word": "sit", "english": "Did you sit with the audience?", "thai": "คุณนั่งกับผู้ชมหรือเปล่า?"}
+{"word": "sit", "english": "I’ll sit at the picnic table.", "thai": "ฉันจะนั่งที่โต๊ะปิกนิก。"}
+{"word": "sit", "english": "He loves to sit and watch birds.", "thai": "เขาชอบนั่งดูนก。"}
+{"word": "sit", "english": "Can you sit by the table?", "thai": "คุณนั่งข้างโต๊ะได้ไหม?"}
+{"word": "sit", "english": "I forgot to sit with my group.", "thai": "ฉันลืมนั่งกับกลุ่มของฉัน。"}
+{"word": "sit", "english": "They sit in the coffee shop.", "thai": "พวกเขานั่งในร้านกาแฟ。"}
+{"word": "sit", "english": "Please sit on this seat.", "thai": "กรุณานั่งบนที่นั่งนี้。"}
+{"word": "sit", "english": "I’ll sit in the corner.", "thai": "ฉันจะนั่งที่มุม。"}
+{"word": "sit", "english": "She sat on the train quietly.", "thai": "เธอนั่งเงียบๆ บนรถไฟ。"}
+{"word": "sit", "english": "Can you sit for the exam?", "thai": "คุณนั่งสอบได้ไหม?"}
+{"word": "sit", "english": "He didn’t sit at the event.", "thai": "เขาไม่ได้นั่งในงานนั้น。"}
+{"word": "sit", "english": "I’ll sit on the blanket.", "thai": "ฉันจะนั่งบนผ้าห่ม。"}
+{"word": "sit", "english": "They sit by the beach at sunset.", "thai": "พวกเขานั่งริมชายหาดตอนพระอาทิตย์ตก。"}
+{"word": "sit", "english": "Can you sit in the middle?", "thai": "คุณนั่งตรงกลางได้ไหม?"}
+{"word": "sit", "english": "I love to sit and listen to music.", "thai": "ฉันชอบนั่งฟังเพลง。"}
+{"word": "sit", "english": "She sat on the wall outside.", "thai": "เธอนั่งบนกำแพงข้างนอก。"}
+{"word": "sleep", "english": "I need to sleep early tonight.", "thai": "คืนนี้ฉันต้องนอนเร็ว。"}
+{"word": "sleep", "english": "Can you sleep with the light on?", "thai": "คุณนอนโดยเปิดไฟได้ไหม?"}
+{"word": "sleep", "english": "She loves to sleep in on weekends.", "thai": "เธอชอบนอนตื่นสายในวันหยุดสุดสัปดาห์。"}
+{"word": "sleep", "english": "They sleep in separate rooms.", "thai": "พวกเขานอนในห้องแยกกัน。"}
+{"word": "sleep", "english": "Did you sleep well last night?", "thai": "เมื่อคืนคุณนอนหลับดีไหม?"}
+{"word": "sleep", "english": "He’ll sleep through the noise.", "thai": "เขาจะนอนหลับได้แม้มีเสียงดัง。"}
+{"word": "sleep", "english": "Can you sleep on the couch?", "thai": "คุณนอนบนโซฟาได้ไหม?"}
+{"word": "sleep", "english": "I forgot to sleep enough yesterday.", "thai": "เมื่อวานฉันลืมนอนให้เพียงพอ。"}
+{"word": "sleep", "english": "They sleep late every morning.", "thai": "พวกเขานอนตื่นสายทุกเช้า。"}
+{"word": "sleep", "english": "Please let me sleep a bit longer.", "thai": "กรุณาให้ฉันนอนต่ออีกหน่อย。"}
+{"word": "sleep", "english": "I’ll sleep at my friend’s house.", "thai": "ฉันจะนอนที่บ้านเพื่อน。"}
+{"word": "sleep", "english": "She didn’t sleep at all last night.", "thai": "เมื่อคืนเธอไม่ได้นอนเลย。"}
+{"word": "sleep", "english": "Can you sleep during the day?", "thai": "คุณนอนตอนกลางวันได้ไหม?"}
+{"word": "sleep", "english": "He can’t sleep without a pillow.", "thai": "เขาไม่สามารถนอนได้ถ้าไม่มีหมอน。"}
+{"word": "sleep", "english": "I’ll sleep on the floor tonight.", "thai": "คืนนี้ฉันจะนอนบนพื้น。"}
+{"word": "sleep", "english": "They sleep in a big bed.", "thai": "พวกเขานอนบนเตียงใหญ่。"}
+{"word": "sleep", "english": "Can you sleep with the window open?", "thai": "คุณนอนโดยเปิดหน้าต่างได้ไหม?"}
+{"word": "sleep", "english": "I want to sleep for ten hours.", "thai": "ฉันอยากนอนสิบชั่วโมง。"}
+{"word": "sleep", "english": "She slept through the alarm.", "thai": "เธอนอนหลับไม่ตื่นเมื่อนาฬิกาปลุกดัง。"}
+{"word": "sleep", "english": "Did you sleep at the hotel?", "thai": "คุณนอนที่โรงแรมหรือเปล่า?"}
+{"word": "sleep", "english": "I’ll sleep in the guest room.", "thai": "ฉันจะนอนในห้องรับแขก。"}
+{"word": "sleep", "english": "He loves to sleep under the stars.", "thai": "เขาชอบนอนใต้แสงดาว。"}
+{"word": "sleep", "english": "Can you sleep on a plane?", "thai": "คุณนอนบนเครื่องบินได้ไหม?"}
+{"word": "sleep", "english": "I forgot how to sleep well.", "thai": "ฉันลืมวิธีการนอนหลับให้ดีไปแล้ว。"}
+{"word": "sleep", "english": "They sleep in tents when camping.", "thai": "พวกเขานอนในเต็นท์ตอนไปแคมป์ปิ้ง。"}
+{"word": "sleep", "english": "Please don’t disturb my sleep.", "thai": "กรุณาอย่ารบกวนการนอนของฉัน。"}
+{"word": "sleep", "english": "I’ll sleep after this movie.", "thai": "ฉันจะนอนหลังจากดูหนังเรื่องนี้。"}
+{"word": "sleep", "english": "She slept for twelve hours straight.", "thai": "เธอนอนต่อเนื่องสิบสองชั่วโมง。"}
+{"word": "sleep", "english": "Can you sleep in a noisy room?", "thai": "คุณนอนในห้องที่มีเสียงดังได้ไหม?"}
+{"word": "sleep", "english": "He didn’t sleep because of stress.", "thai": "เขาไม่ได้นอนเพราะความเครียด。"}
+{"word": "sleep", "english": "I’ll sleep on the bus.", "thai": "ฉันจะนอนบนรถบัส。"}
+{"word": "sleep", "english": "They sleep with the fan on.", "thai": "พวกเขานอนโดยเปิดพัดลม。"}
+{"word": "sleep", "english": "Can you sleep without a blanket?", "thai": "คุณนอนโดยไม่มีผ้าห่มได้ไหม?"}
+{"word": "sleep", "english": "I love to sleep in late.", "thai": "ฉันชอบนอนตื่นสาย。"}
+{"word": "sleep", "english": "She slept through the storm.", "thai": "เธอนอนหลับได้แม้มีพายุ。"}
+{"word": "sleep", "english": "Did you sleep on the train?", "thai": "คุณนอนบนรถไฟหรือเปล่า?"}
+{"word": "sleep", "english": "I’ll sleep at the campsite.", "thai": "ฉันจะนอนที่แคมป์ปิ้ง。"}
+{"word": "sleep", "english": "He can’t sleep with lights on.", "thai": "เขาไม่สามารถนอนได้ถ้ามีแสงไฟ。"}
+{"word": "sleep", "english": "Can you sleep in a hammock?", "thai": "คุณนอนในเปลญวนได้ไหม?"}
+{"word": "sleep", "english": "I forgot to sleep before the exam.", "thai": "ฉันลืมนอนก่อนสอบ。"}
+{"word": "sleep", "english": "They sleep in bunk beds.", "thai": "พวกเขานอนบนเตียงสองชั้น。"}
+{"word": "sleep", "english": "Please let the kids sleep.", "thai": "กรุณาให้เด็กๆ นอน。"}
+{"word": "sleep", "english": "I’ll sleep when I’m done.", "thai": "ฉันจะนอนเมื่อเสร็จงาน。"}
+{"word": "sleep", "english": "She slept on the couch last night.", "thai": "เมื่อคืนเธอนอนบนโซฟา。"}
+{"word": "sleep", "english": "Can you sleep with music on?", "thai": "คุณนอนโดยเปิดเพลงได้ไหม?"}
+{"word": "sleep", "english": "He didn’t sleep well yesterday.", "thai": "เมื่อวานเขาไม่ได้นอนหลับดี。"}
+{"word": "sleep", "english": "I’ll sleep in the car.", "thai": "ฉันจะนอนในรถ。"}
+{"word": "sleep", "english": "They sleep with the windows closed.", "thai": "พวกเขานอนโดยปิดหน้าต่าง。"}
+{"word": "sleep", "english": "Can you sleep on a hard bed?", "thai": "คุณนอนบนเตียงแข็งได้ไหม?"}
+{"word": "sleep", "english": "I want to sleep all day.", "thai": "ฉันอยากนอนทั้งวัน。"}
+{"word": "sleep", "english": "She slept through the meeting.", "thai": "เธอนอนหลับระหว่างการประชุม。"}
+{"word": "sleep", "english": "Did you sleep at your friend’s?", "thai": "คุณนอนที่บ้านเพื่อนหรือเปล่า?"}
+{"word": "sleep", "english": "I’ll sleep in the spare room.", "thai": "ฉันจะนอนในห้องว่าง。"}
+{"word": "sleep", "english": "He loves to sleep with a fan.", "thai": "เขาชอบนอนโดยเปิดพัดลม。"}
+{"word": "sleep", "english": "Can you sleep in a tent?", "thai": "คุณนอนในเต็นท์ได้ไหม?"}
+{"word": "sleep", "english": "I forgot to sleep last night.", "thai": "เมื่อคืนฉันลืมนอน。"}
+{"word": "sleep", "english": "They sleep in sleeping bags.", "thai": "พวกเขานอนในถุงนอน。"}
+{"word": "sleep", "english": "Please don’t wake me, I’m trying to sleep.", "thai": "กรุณาอย่าปลุกฉัน ฉันกำลังพยายามนอน。"}
+{"word": "sleep", "english": "I’ll sleep after finishing this.", "thai": "ฉันจะนอนหลังจากทำสิ่งนี้เสร็จ。"}
+{"word": "sleep", "english": "She slept in a hotel room.", "thai": "เธอนอนในห้องโรงแรม。"}
+{"word": "sleep", "english": "Can you sleep with the TV on?", "thai": "คุณนอนโดยเปิดทีวีได้ไหม?"}
+{"word": "sleep", "english": "He didn’t sleep because of the noise.", "thai": "เขาไม่ได้นอนเพราะเสียงดัง。"}
+{"word": "sleep", "english": "I’ll sleep on the recliner.", "thai": "ฉันจะนอนบนเก้าอี้เอนนอน。"}
+{"word": "sleep", "english": "They sleep in a small apartment.", "thai": "พวกเขานอนในอพาร์ตเมนต์เล็กๆ。"}
+{"word": "sleep", "english": "Can you sleep without a fan?", "thai": "คุณนอนโดยไม่มีพัดลมได้ไหม?"}
+{"word": "sleep", "english": "I love to sleep with blankets.", "thai": "ฉันชอบนอนโดยห่มผ้าห่ม。"}
+{"word": "sleep", "english": "She slept through the phone call.", "thai": "เธอนอนหลับไม่ตื่นเมื่อมีโทรศัพท์。"}
+{"word": "sleep", "english": "Did you sleep in a cabin?", "thai": "คุณนอนในกระท่อมหรือเปล่า?"}
+{"word": "sleep", "english": "I’ll sleep at the hostel.", "thai": "ฉันจะนอนที่โฮสเทล。"}
+{"word": "sleep", "english": "He can’t sleep in the heat.", "thai": "เขาไม่สามารถนอนได้ในอากาศร้อน。"}
+{"word": "sleep", "english": "Can you sleep on a train?", "thai": "คุณนอนบนรถไฟได้ไหม?"}
+{"word": "sleep", "english": "I forgot to sleep before work.", "thai": "ฉันลืมนอนก่อนทำงาน。"}
+{"word": "sleep", "english": "They sleep in a cozy cabin.", "thai": "พวกเขานอนในกระท่อมที่อบอุ่น。"}
+{"word": "sleep", "english": "Please let me sleep in peace.", "thai": "กรุณาให้ฉันนอนอย่างสงบ。"}
+{"word": "sleep", "english": "I’ll sleep after the game.", "thai": "ฉันจะนอนหลังจบเกม。"}
+{"word": "sleep", "english": "She slept on the floor last night.", "thai": "เมื่อคืนเธอนอนบนพื้น。"}
+{"word": "sleep", "english": "Can you sleep in a cold room?", "thai": "คุณนอนในห้องเย็นได้ไหม?"}
+{"word": "sleep", "english": "He didn’t sleep well this week.", "thai": "สัปดาห์นี้เขาไม่ได้นอนหลับดี。"}
+{"word": "sleep", "english": "I’ll sleep in the tent tonight.", "thai": "คืนนี้ฉันจะนอนในเต็นท์。"}
+{"word": "sleep", "english": "They sleep with the door open.", "thai": "พวกเขานอนโดยเปิดประตูทิ้งไว้。"}
+{"word": "sleep", "english": "Can you sleep without music?", "thai": "คุณนอนโดยไม่มีเพลงได้ไหม?"}
+{"word": "sleep", "english": "I want to sleep until noon.", "thai": "ฉันอยากนอนจนถึงเที่ยง。"}
+{"word": "sleep", "english": "She slept through the lecture.", "thai": "เธอนอนหลับระหว่างการบรรยาย。"}
+{"word": "sleep", "english": "Did you sleep at the campsite?", "thai": "คุณนอนที่แคมป์ปิ้งหรือเปล่า?"}
+{"word": "sleep", "english": "I’ll sleep in my old room.", "thai": "ฉันจะนอนในห้องเก่าของฉัน。"}
+{"word": "sleep", "english": "He loves to sleep with pillows.", "thai": "เขาชอบนอนโดยมีหมอนหลายใบ。"}
+{"word": "sleep", "english": "Can you sleep in a noisy place?", "thai": "คุณนอนในที่ที่มีเสียงดังได้ไหม?"}
+{"word": "sleep", "english": "I forgot to sleep this afternoon.", "thai": "บ่ายนี้ฉันลืมนอน。"}
+{"word": "sleep", "english": "They sleep in a loft bed.", "thai": "พวกเขานอนบนเตียงชั้นลอย。"}
+{"word": "sleep", "english": "Please don’t interrupt my sleep.", "thai": "กรุณาอย่าขัดจังหวะการนอนของฉัน。"}
+{"word": "sleep", "english": "I’ll sleep after this chapter.", "thai": "ฉันจะนอนหลังจากอ่านบทนี้จบ。"}
+{"word": "sleep", "english": "She slept in a sleeping bag.", "thai": "เธอนอนในถุงนอน。"}
+{"word": "sleep", "english": "Can you sleep with the AC on?", "thai": "คุณนอนโดยเปิดแอร์ได้ไหม?"}
+{"word": "sleep", "english": "He didn’t sleep because of work.", "thai": "เขาไม่ได้นอนเพราะงาน。"}
+{"word": "sleep", "english": "I’ll sleep on the mattress.", "thai": "ฉันจะนอนบนที่นอน。"}
+{"word": "sleep", "english": "They sleep in a quiet house.", "thai": "พวกเขานอนในบ้านที่เงียบสงบ。"}
+{"word": "sleep", "english": "Can you sleep in a new place?", "thai": "คุณนอนในที่ใหม่ได้ไหม?"}
+{"word": "sleep", "english": "I love to sleep with the fan on.", "thai": "ฉันชอบนอนโดยเปิดพัดลม。"}
+{"word": "sleep", "english": "She slept through the fireworks.", "thai": "เธอนอนหลับได้แม้มีดอกไม้ไฟ。"}
+{"word": "smile", "english": "Can you smile for the photo?", "thai": "คุณยิ้มให้กล้องได้ไหม?"}
+{"word": "smile", "english": "I love to see her smile.", "thai": "ฉันชอบเห็นเธอยิ้ม。"}
+{"word": "smile", "english": "She gave me a big smile.", "thai": "เธอยิ้มกว้างให้ฉัน。"}
+{"word": "smile", "english": "They smile at each other often.", "thai": "พวกเขายิ้มให้กันบ่อยๆ。"}
+{"word": "smile", "english": "Did you see his cute smile?", "thai": "คุณเห็นรอยยิ้มน่ารักของเขาไหม?"}
+{"word": "smile", "english": "He’ll smile when he hears this.", "thai": "เขาจะยิ้มเมื่อได้ยินเรื่องนี้。"}
+{"word": "smile", "english": "Can you smile a little more?", "thai": "คุณยิ้มมากกว่านี้หน่อยได้ไหม?"}
+{"word": "smile", "english": "I forgot to smile during the picture.", "thai": "ฉันลืมยิ้มตอนถ่ายรูป。"}
+{"word": "smile", "english": "They smile every time they meet.", "thai": "พวกเขายิ้มทุกครั้งที่เจอกัน。"}
+{"word": "smile", "english": "Please smile for the camera.", "thai": "กรุณายิ้มให้กล้อง。"}
+{"word": "smile", "english": "I’ll smile if you tell a joke.", "thai": "ฉันจะยิ้มถ้าคุณเล่าเรื่องตลก。"}
+{"word": "smile", "english": "She has a beautiful smile.", "thai": "เธอมีรอยยิ้มที่สวยงาม。"}
+{"word": "smile", "english": "Can you smile like you mean it?", "thai": "คุณยิ้มแบบจริงใจได้ไหม?"}
+{"word": "smile", "english": "He didn’t smile at all today.", "thai": "วันนี้เขาไม่ได้ยิ้มเลย。"}
+{"word": "smile", "english": "I’ll smile when I see you.", "thai": "ฉันจะยิ้มเมื่อเห็นคุณ。"}
+{"word": "smile", "english": "They smile during happy moments.", "thai": "พวกเขายิ้มในช่วงเวลาที่มีความสุข。"}
+{"word": "smile", "english": "Can you smile for the video?", "thai": "คุณยิ้มให้วิดีโอได้ไหม?"}
+{"word": "smile", "english": "I want to make her smile.", "thai": "ฉันอยากทำให้เธอยิ้ม。"}
+{"word": "smile", "english": "She smiled at the kind words.", "thai": "เธอยิ้มให้กับคำพูดที่ใจดี。"}
+{"word": "smile", "english": "Did you smile in the photo?", "thai": "คุณยิ้มในรูปนั้นหรือเปล่า?"}
+{"word": "smile", "english": "I’ll smile for the group picture.", "thai": "ฉันจะยิ้มให้กับรูปหมู่。"}
+{"word": "smile", "english": "He gave a shy smile.", "thai": "เขาให้รอยยิ้มแบบเขินๆ。"}
+{"word": "smile", "english": "Can you smile with your eyes?", "thai": "คุณยิ้มด้วยตาได้ไหม?"}
+{"word": "smile", "english": "I forgot why I didn’t smile.", "thai": "ฉันลืมว่าทำไมฉันไม่ได้ยิ้ม。"}
+{"word": "smile", "english": "They smile at funny stories.", "thai": "พวกเขายิ้มให้กับเรื่องตลกๆ。"}
+{"word": "smile", "english": "Please smile, it’s a happy day!", "thai": "กรุณายิ้ม วันนี้เป็นวันที่มีความสุข!"}
+{"word": "smile", "english": "I’ll smile at the good news.", "thai": "ฉันจะยิ้มเมื่อได้ยินข่าวดี。"}
+{"word": "smile", "english": "She smiled during the speech.", "thai": "เธอยิ้มระหว่างการพูด。"}
+{"word": "smile", "english": "Can you smile for the selfie?", "thai": "คุณยิ้มให้เซลฟี่ได้ไหม?"}
+{"word": "smile", "english": "He didn’t smile in the picture.", "thai": "เขาไม่ได้ยิ้มในรูปนั้น。"}
+{"word": "smile", "english": "I’ll smile when I’m ready.", "thai": "ฉันจะยิ้มเมื่อพร้อม。"}
+{"word": "smile", "english": "They smile at the kids playing.", "thai": "พวกเขายิ้มให้เด็กๆ ที่เล่นกัน。"}
+{"word": "smile", "english": "Can you smile a bit wider?", "thai": "คุณยิ้มกว้างกว่านี้หน่อยได้ไหม?"}
+{"word": "smile", "english": "I love to see you smile.", "thai": "ฉันชอบเห็นคุณยิ้ม。"}
+{"word": "smile", "english": "She gave a warm smile.", "thai": "เธอยิ้มอย่างอบอุ่น。"}
+{"word": "smile", "english": "Did you smile at the baby?", "thai": "คุณยิ้มให้ทารกหรือเปล่า?"}
+{"word": "smile", "english": "I’ll smile for the family photo.", "thai": "ฉันจะยิ้มให้กับรูปครอบครัว。"}
+{"word": "smile", "english": "He has a charming smile.", "thai": "เขามีรอยยิ้มที่น่าดึงดูด。"}
+{"word": "smile", "english": "Can you smile naturally?", "thai": "คุณยิ้มแบบเป็นธรรมชาติได้ไหม?"}
+{"word": "smile", "english": "I forgot to smile at the event.", "thai": "ฉันลืมยิ้มในงานนั้น。"}
+{"word": "smile", "english": "They smile when they’re happy.", "thai": "พวกเขายิ้มเมื่อมีความสุข。"}
+{"word": "smile", "english": "Please smile for the portrait.", "thai": "กรุณายิ้มให้กับภาพถ่ายบุคคล。"}
+{"word": "smile", "english": "I’ll smile if you say something funny.", "thai": "ฉันจะยิ้มถ้าคุณพูดอะไรตลกๆ。"}
+{"word": "smile", "english": "She smiled at her friend’s joke.", "thai": "เธอยิ้มให้กับมุกของเพื่อน。"}
+{"word": "smile", "english": "Can you smile during the speech?", "thai": "คุณยิ้มระหว่างการพูดได้ไหม?"}
+{"word": "smile", "english": "He didn’t smile at the news.", "thai": "เขาไม่ได้ยิ้มเมื่อได้ยินข่าว。"}
+{"word": "smile", "english": "I’ll smile in the video.", "thai": "ฉันจะยิ้มในวิดีโอ。"}
+{"word": "smile", "english": "They smile at the cute puppy.", "thai": "พวกเขายิ้มให้กับลูกสุนัขที่น่ารัก。"}
+{"word": "smile", "english": "Can you smile for the group?", "thai": "คุณยิ้มให้กลุ่มได้ไหม?"}
+{"word": "smile", "english": "I want to see her smile again.", "thai": "ฉันอยากเห็นเธอยิ้มอีกครั้ง。"}
+{"word": "smile", "english": "She smiled at the kind gesture.", "thai": "เธอยิ้มให้กับท่าทางที่ใจดี。"}
+{"word": "smile", "english": "Did you smile during the party?", "thai": "คุณยิ้มในงานปาร์ตี้หรือเปล่า?"}
+{"word": "smile", "english": "I’ll smile for the wedding photo.", "thai": "ฉันจะยิ้มให้กับรูปงานแต่งงาน。"}
+{"word": "smile", "english": "He gave a nervous smile.", "thai": "เขาให้รอยยิ้มแบบประหม่า。"}
+{"word": "smile", "english": "Can you smile with confidence?", "thai": "คุณยิ้มอย่างมั่นใจได้ไหม?"}
+{"word": "smile", "english": "I forgot to smile at the camera.", "thai": "ฉันลืมยิ้มให้กล้อง。"}
+{"word": "smile", "english": "They smile at the funny video.", "thai": "พวกเขายิ้มให้กับวิดีโอตลกๆ。"}
+{"word": "smile", "english": "Please smile, it’s a special moment!", "thai": "กรุณายิ้ม นี่เป็นช่วงเวลาพิเศษ!"}
+{"word": "smile", "english": "I’ll smile when I’m happy.", "thai": "ฉันจะยิ้มเมื่อมีความสุข。"}
+{"word": "smile", "english": "She smiled at the compliment.", "thai": "เธอยิ้มให้กับคำชม。"}
+{"word": "smile", "english": "Can you smile for the picture?", "thai": "คุณยิ้มให้รูปได้ไหม?"}
+{"word": "smile", "english": "He didn’t smile during the meeting.", "thai": "เขาไม่ได้ยิ้มระหว่างการประชุม。"}
+{"word": "smile", "english": "I’ll smile at the next photo.", "thai": "ฉันจะยิ้มในรูปต่อไป。"}
+{"word": "smile", "english": "They smile when they see flowers.", "thai": "พวกเขายิ้มเมื่อเห็นดอกไม้。"}
+{"word": "smile", "english": "Can you smile a bit softer?", "thai": "คุณยิ้มแบบนุ่มนวลกว่านี้ได้ไหม?"}
+{"word": "smile", "english": "I love to see his smile.", "thai": "ฉันชอบเห็นรอยยิ้มของเขา。"}
+{"word": "smile", "english": "She gave a friendly smile.", "thai": "เธอยิ้มอย่างเป็นมิตร。"}
+{"word": "smile", "english": "Did you smile at the stranger?", "thai": "คุณยิ้มให้คนแปลกหน้าหรือเปล่า?"}
+{"word": "smile", "english": "I’ll smile for the class photo.", "thai": "ฉันจะยิ้มให้กับรูปชั้นเรียน。"}
+{"word": "smile", "english": "He has a contagious smile.", "thai": "เขามีรอยยิ้มที่ติดต่อได้。"}
+{"word": "smile", "english": "Can you smile for the crowd?", "thai": "คุณยิ้มให้ฝูงชนได้ไหม?"}
+{"word": "smile", "english": "I forgot to smile in the selfie.", "thai": "ฉันลืมยิ้มในเซลฟี่。"}
+{"word": "smile", "english": "They smile at the happy news.", "thai": "พวกเขายิ้มให้กับข่าวดี。"}
+{"word": "smile", "english": "Please smile for the family.", "thai": "กรุณายิ้มให้ครอบครัว。"}
+{"word": "smile", "english": "I’ll smile if you smile first.", "thai": "ฉันจะยิ้มถ้าคุณยิ้มก่อน。"}
+{"word": "smile", "english": "She smiled at the cute baby.", "thai": "เธอยิ้มให้กับทารกที่น่ารัก。"}
+{"word": "smile", "english": "Can you smile during the video?", "thai": "คุณยิ้มระหว่างวิดีโอได้ไหม?"}
+{"word": "smile", "english": "He didn’t smile at the joke.", "thai": "เขาไม่ได้ยิ้มให้กับมุกนั้น。"}
+{"word": "smile", "english": "I’ll smile in the next picture.", "thai": "ฉันจะยิ้มในรูปต่อไป。"}
+{"word": "smile", "english": "They smile at the sunset.", "thai": "พวกเขายิ้มให้กับพระอาทิตย์ตก。"}
+{"word": "smile", "english": "Can you smile for the interview?", "thai": "คุณยิ้มให้สัมภาษณ์ได้ไหม?"}
+{"word": "smile", "english": "I want to make him smile.", "thai": "ฉันอยากทำให้เขายิ้ม。"}
+{"word": "smile", "english": "She smiled at her reflection.", "thai": "เธอยิ้มให้กับเงาสะท้อนของตัวเอง。"}
+{"word": "smile", "english": "Did you smile in the group photo?", "thai": "คุณยิ้มในรูปหมู่หรือเปล่า?"}
+{"word": "smile", "english": "I’ll smile for the holiday card.", "thai": "ฉันจะยิ้มให้กับการ์ดวันหยุด。"}
+{"word": "smile", "english": "He gave a quick smile.", "thai": "เขาให้รอยยิ้มสั้นๆ。"}
+{"word": "smile", "english": "Can you smile with your teeth?", "thai": "คุณยิ้มโชว์ฟันได้ไหม?"}
+{"word": "smile", "english": "I forgot to smile at the party.", "thai": "ฉันลืมยิ้มในงานปาร์ตี้。"}
+{"word": "smile", "english": "They smile when they’re together.", "thai": "พวกเขายิ้มเมื่ออยู่ด้วยกัน。"}
+{"word": "smile", "english": "Please smile for the team photo.", "thai": "กรุณายิ้มให้กับรูปทีม。"}
+{"word": "smile", "english": "I’ll smile when I see the gift.", "thai": "ฉันจะยิ้มเมื่อเห็นของขวัญ。"}
+{"word": "smile", "english": "She smiled at the funny story.", "thai": "เธอยิ้มให้กับเรื่องตลก。"}
+{"word": "smile", "english": "Can you smile for the yearbook?", "thai": "คุณยิ้มให้สมุดรุ่นได้ไหม?"}
+{"word": "smile", "english": "He didn’t smile during the speech.", "thai": "เขาไม่ได้ยิ้มระหว่างการพูด。"}
+{"word": "smile", "english": "I’ll smile at the next event.", "thai": "ฉันจะยิ้มในงานต่อไป。"}
+{"word": "smile", "english": "They smile at the good memories.", "thai": "พวกเขายิ้มให้กับความทรงจำดีๆ。"}
+{"word": "smile", "english": "Can you smile for the kids?", "thai": "คุณยิ้มให้เด็กๆ ได้ไหม?"}
+{"word": "smile", "english": "I love to see their smile.", "thai": "ฉันชอบเห็นรอยยิ้มของพวกเขา。"}
+{"word": "smile", "english": "She gave a bright smile.", "thai": "เธอยิ้มอย่างสดใส。"}
+{"word": "speak", "english": "Can you speak louder, please?", "thai": "คุณพูดดังขึ้นได้ไหม?"}
+{"word": "speak", "english": "I want to speak with the manager.", "thai": "ฉันอยากพูดกับผู้จัดการ。"}
+{"word": "speak", "english": "She can speak three languages.", "thai": "เธอพูดได้สามภาษา。"}
+{"word": "speak", "english": "They speak at the meeting weekly.", "thai": "พวกเขาพูดในการประชุมทุกสัปดาห์。"}
+{"word": "speak", "english": "Did you speak to him yesterday?", "thai": "เมื่อวานคุณพูดกับเขาไหม?"}
+{"word": "speak", "english": "He’ll speak at the conference.", "thai": "เขาจะพูดในงานประชุม。"}
+{"word": "speak", "english": "Can you speak more slowly?", "thai": "คุณพูดช้าลงได้ไหม?"}
+{"word": "speak", "english": "I forgot to speak during the class.", "thai": "ฉันลืมพูดในชั้นเรียน。"}
+{"word": "speak", "english": "They speak English fluently.", "thai": "พวกเขาพูดภาษาอังกฤษได้คล่อง。"}
+{"word": "speak", "english": "Please speak clearly on the phone.", "thai": "กรุณาพูดให้ชัดเจนทางโทรศัพท์。"}
+{"word": "speak", "english": "I’ll speak with her later.", "thai": "ฉันจะพูดกับเธอทีหลัง。"}
+{"word": "speak", "english": "She didn’t speak at the event.", "thai": "เธอไม่ได้พูดในงานนั้น。"}
+{"word": "speak", "english": "Can you speak Spanish?", "thai": "คุณพูดภาษาสเปนได้ไหม?"}
+{"word": "speak", "english": "He doesn’t speak much in public.", "thai": "เขาไม่ค่อยพูดในที่สาธารณะ。"}
+{"word": "speak", "english": "I’ll speak at the school assembly.", "thai": "ฉันจะพูดในงานชุมนุมของโรงเรียน。"}
+{"word": "speak", "english": "They speak softly during the movie.", "thai": "พวกเขาพูดเบาๆ ระหว่างดูหนัง。"}
+{"word": "speak", "english": "Can you speak to the team?", "thai": "คุณพูดกับทีมได้ไหม?"}
+{"word": "speak", "english": "I want to speak with my friend.", "thai": "ฉันอยากพูดกับเพื่อนของฉัน。"}
+{"word": "speak", "english": "She spoke with confidence today.", "thai": "วันนี้เธอพูดด้วยความมั่นใจ。"}
+{"word": "speak", "english": "Did you speak at the meeting?", "thai": "คุณพูดในการประชุมหรือเปล่า?"}
+{"word": "speak", "english": "I’ll speak to the group tomorrow.", "thai": "พรุ่งนี้ฉันจะพูดกับกลุ่ม。"}
+{"word": "speak", "english": "He loves to speak about history.", "thai": "เขาชอบพูดเกี่ยวกับประวัติศาสตร์。"}
+{"word": "speak", "english": "Can you speak in French?", "thai": "คุณพูดภาษาฝรั่งเศสได้ไหม?"}
+{"word": "speak", "english": "I forgot to speak up earlier.", "thai": "ฉันลืมพูดออกมาดังๆ ก่อนหน้านี้。"}
+{"word": "speak", "english": "They speak at the town hall.", "thai": "พวกเขาพูดที่ศาลากลาง。"}
+{"word": "speak", "english": "Please speak to the audience.", "thai": "กรุณาพูดกับผู้ชม。"}
+{"word": "speak", "english": "I’ll speak with the teacher.", "thai": "ฉันจะพูดกับครู。"}
+{"word": "speak", "english": "She spoke during the presentation.", "thai": "เธอพูดระหว่างการนำเสนอ。"}
+{"word": "speak", "english": "Can you speak a bit faster?", "thai": "คุณพูดเร็วขึ้นหน่อยได้ไหม?"}
+{"word": "speak", "english": "He didn’t speak to anyone.", "thai": "เขาไม่ได้พูดกับใครเลย。"}
+{"word": "speak", "english": "I’ll speak at the club meeting.", "thai": "ฉันจะพูดในที่ประชุมชมรม。"}
+{"word": "speak", "english": "They speak about their travels.", "thai": "พวกเขาพูดเกี่ยวกับการเดินทางของพวกเขา。"}
+{"word": "speak", "english": "Can you speak to the kids?", "thai": "คุณพูดกับเด็กๆ ได้ไหม?"}
+{"word": "speak", "english": "I love to speak with new people.", "thai": "ฉันชอบพูดกับคนใหม่ๆ。"}
+{"word": "speak", "english": "She spoke at her graduation.", "thai": "เธอพูดในงานรับปริญญาของเธอ。"}
+{"word": "speak", "english": "Did you speak to the boss?", "thai": "คุณพูดกับเจ้านายหรือเปล่า?"}
+{"word": "speak", "english": "I’ll speak on the radio.", "thai": "ฉันจะพูดทางวิทยุ。"}
+{"word": "speak", "english": "He can speak Italian well.", "thai": "เขาพูดภาษาอิตาลีได้ดี。"}
+{"word": "speak", "english": "Can you speak without notes?", "thai": "คุณพูดโดยไม่มีโน้ตได้ไหม?"}
+{"word": "speak", "english": "I forgot to speak at the event.", "thai": "ฉันลืมพูดในงานนั้น。"}
+{"word": "speak", "english": "They speak at community events.", "thai": "พวกเขาพูดในงานชุมชน。"}
+{"word": "speak", "english": "Please speak to the class.", "thai": "กรุณาพูดกับชั้นเรียน。"}
+{"word": "speak", "english": "I’ll speak with my parents.", "thai": "ฉันจะพูดกับพ่อแม่ของฉัน。"}
+{"word": "speak", "english": "She spoke about her project.", "thai": "เธอพูดเกี่ยวกับโปรเจกต์ของเธอ。"}
+{"word": "speak", "english": "Can you speak in Japanese?", "thai": "คุณพูดภาษาญี่ปุ่นได้ไหม?"}
+{"word": "speak", "english": "He didn’t speak during the debate.", "thai": "เขาไม่ได้พูดระหว่างการโต้วาที。"}
+{"word": "speak", "english": "I’ll speak at the seminar.", "thai": "ฉันจะพูดในงานสัมมนา。"}
+{"word": "speak", "english": "They speak quietly in the library.", "thai": "พวกเขาพูดเบาๆ ในห้องสมุด。"}
+{"word": "speak", "english": "Can you speak to the doctor?", "thai": "คุณพูดกับหมอได้ไหม?"}
+{"word": "speak", "english": "I want to speak with my lawyer.", "thai": "ฉันอยากพูดกับทนายของฉัน。"}
+{"word": "speak", "english": "She spoke with great passion.", "thai": "เธอพูดด้วยความหลงใหลมาก。"}
+{"word": "speak", "english": "Did you speak at the workshop?", "thai": "คุณพูดในเวิร์คช็อปหรือเปล่า?"}
+{"word": "speak", "english": "I’ll speak to the audience later.", "thai": "ฉันจะพูดกับผู้ชมทีหลัง。"}
+{"word": "speak", "english": "He loves to speak about science.", "thai": "เขาชอบพูดเกี่ยวกับวิทยาศาสตร์。"}
+{"word": "speak", "english": "Can you speak in German?", "thai": "คุณพูดภาษาเยอรมันได้ไหม?"}
+{"word": "speak", "english": "I forgot to speak to her.", "thai": "ฉันลืมพูดกับเธอ。"}
+{"word": "speak", "english": "They speak at the annual meeting.", "thai": "พวกเขาพูดในที่ประชุมประจำปี。"}
+{"word": "speak", "english": "Please speak up during the call.", "thai": "กรุณาพูดดังๆ ระหว่างการโทร。"}
+{"word": "speak", "english": "I’ll speak with my boss tomorrow.", "thai": "พรุ่งนี้ฉันจะพูดกับเจ้านายของฉัน。"}
+{"word": "speak", "english": "She spoke to the whole team.", "thai": "เธอพูดกับทั้งทีม。"}
+{"word": "speak", "english": "Can you speak more clearly?", "thai": "คุณพูดให้ชัดเจนกว่านี้ได้ไหม?"}
+{"word": "speak", "english": "He didn’t speak at the party.", "thai": "เขาไม่ได้พูดในงานปาร์ตี้。"}
+{"word": "speak", "english": "I’ll speak at the charity event.", "thai": "ฉันจะพูดในงานการกุศล。"}
+{"word": "speak", "english": "They speak about their dreams.", "thai": "พวกเขาพูดเกี่ยวกับความฝันของพวกเขา。"}
+{"word": "speak", "english": "Can you speak to the principal?", "thai": "คุณพูดกับครูใหญ่ได้ไหม?"}
+{"word": "speak", "english": "I love to speak with my friends.", "thai": "ฉันชอบพูดกับเพื่อนๆ ของฉัน。"}
+{"word": "speak", "english": "She spoke at the community center.", "thai": "เธอพูดที่ศูนย์ชุมชน。"}
+{"word": "speak", "english": "Did you speak to the client?", "thai": "คุณพูดกับลูกค้าหรือเปล่า?"}
+{"word": "speak", "english": "I’ll speak on the podcast.", "thai": "ฉันจะพูดในพอดแคสต์。"}
+{"word": "speak", "english": "He can speak Chinese fluently.", "thai": "เขาพูดภาษาจีนได้คล่อง。"}
+{"word": "speak", "english": "Can you speak without shouting?", "thai": "คุณพูดโดยไม่ตะโกนได้ไหม?"}
+{"word": "speak", "english": "I forgot to speak at the seminar.", "thai": "ฉันลืมพูดในงานสัมมนา。"}
+{"word": "speak", "english": "They speak at the school event.", "thai": "พวกเขาพูดในงานโรงเรียน。"}
+{"word": "speak", "english": "Please speak to the group.", "thai": "กรุณาพูดกับกลุ่ม。"}
+{"word": "speak", "english": "I’ll speak with my colleague.", "thai": "ฉันจะพูดกับเพื่อนร่วมงานของฉัน。"}
+{"word": "speak", "english": "She spoke about her experience.", "thai": "เธอพูดเกี่ยวกับประสบการณ์ของเธอ。"}
+{"word": "speak", "english": "Can you speak in Portuguese?", "thai": "คุณพูดภาษาโปรตุเกสได้ไหม?"}
+{"word": "speak", "english": "He didn’t speak during the class.", "thai": "เขาไม่ได้พูดระหว่างชั้นเรียน。"}
+{"word": "speak", "english": "I’ll speak at the town meeting.", "thai": "ฉันจะพูดในที่ประชุมเมือง。"}
+{"word": "speak", "english": "They speak loudly in the room.", "thai": "พวกเขาพูดดังๆ ในห้อง。"}
+{"word": "speak", "english": "Can you speak to the coach?", "thai": "คุณพูดกับโค้ชได้ไหม?"}
+{"word": "speak", "english": "I want to speak with the owner.", "thai": "ฉันอยากพูดกับเจ้าของ。"}
+{"word": "speak", "english": "She spoke at the award ceremony.", "thai": "เธอพูดในพิธีมอบรางวัล。"}
+{"word": "speak", "english": "Did you speak to the teacher?", "thai": "คุณพูดกับครูหรือเปล่า?"}
+{"word": "speak", "english": "I’ll speak on the panel.", "thai": "ฉันจะพูดในคณะกรรมการ。"}
+{"word": "speak", "english": "He loves to speak about art.", "thai": "เขาชอบพูดเกี่ยวกับศิลปะ。"}
+{"word": "speak", "english": "Can you speak in Korean?", "thai": "คุณพูดภาษาเกาหลีได้ไหม?"}
+{"word": "speak", "english": "I forgot to speak to the group.", "thai": "ฉันลืมพูดกับกลุ่ม。"}
+{"word": "speak", "english": "They speak at the book club.", "thai": "พวกเขาพูดในชมรมหนังสือ。"}
+{"word": "speak", "english": "Please speak up in the meeting.", "thai": "กรุณาพูดดังๆ ในที่ประชุม。"}
+{"word": "speak", "english": "I’ll speak with my advisor.", "thai": "ฉันจะพูดกับที่ปรึกษาของฉัน。"}
+{"word": "speak", "english": "She spoke about her travels.", "thai": "เธอพูดเกี่ยวกับการเดินทางของเธอ。"}
+{"word": "speak", "english": "Can you speak more softly?", "thai": "คุณพูดเบาลงได้ไหม?"}
+{"word": "speak", "english": "He didn’t speak to the crowd.", "thai": "เขาไม่ได้พูดกับฝูงชน。"}
+{"word": "speak", "english": "I’ll speak at the festival.", "thai": "ฉันจะพูดในงานเทศกาล。"}
+{"word": "speak", "english": "They speak about their plans.", "thai": "พวกเขาพูดเกี่ยวกับแผนของพวกเขา。"}
+{"word": "speak", "english": "Can you speak to the staff?", "thai": "คุณพูดกับพนักงานได้ไหม?"}
+{"word": "speak", "english": "I love to speak in public.", "thai": "ฉันชอบพูดในที่สาธารณะ。"}
+{"word": "speak", "english": "She spoke at the charity gala.", "thai": "เธอพูดในงานกาลาการกุศล。"}
+{"word": "stand", "english": "Can you stand over there?", "thai": "คุณยืนตรงนั้นได้ไหม?"}
+{"word": "stand", "english": "I’ll stand by the door.", "thai": "ฉันจะยืนข้างประตู。"}
+{"word": "stand", "english": "She wants to stand in the front.", "thai": "เธออยากยืนด้านหน้า。"}
+{"word": "stand", "english": "They stand together at the event.", "thai": "พวกเขายืนด้วยกันในงานนั้น。"}
+{"word": "stand", "english": "Did you stand during the speech?", "thai": "คุณยืนระหว่างการพูดหรือเปล่า?"}
+{"word": "stand", "english": "He’ll stand up for his friend.", "thai": "เขาจะยืนหยัดเพื่อเพื่อนของเขา。"}
+{"word": "stand", "english": "Can you stand still for a moment?", "thai": "คุณยืนนิ่งๆ สักครู่ได้ไหม?"}
+{"word": "stand", "english": "I forgot to stand during the anthem.", "thai": "ฉันลืมยืนตอนเพลงชาติ。"}
+{"word": "stand", "english": "They stand in line at the store.", "thai": "พวกเขายืนต่อแถวที่ร้านค้า。"}
+{"word": "stand", "english": "Please stand up for the photo.", "thai": "กรุณายืนขึ้นเพื่อถ่ายรูป。"}
+{"word": "stand", "english": "I’ll stand on the balcony.", "thai": "ฉันจะยืนที่ระเบียง。"}
+{"word": "stand", "english": "She stood quietly in the corner.", "thai": "เธอยืนเงียบๆ ที่มุมห้อง。"}
+{"word": "stand", "english": "Can you stand next to me?", "thai": "คุณยืนข้างฉันได้ไหม?"}
+{"word": "stand", "english": "He didn’t stand for the ceremony.", "thai": "เขาไม่ได้ยืนในพิธี。"}
+{"word": "stand", "english": "I’ll stand by the window.", "thai": "ฉันจะยืนข้างหน้าต่าง。"}
+{"word": "stand", "english": "They stand at the bus stop.", "thai": "พวกเขายืนที่ป้ายรถเมล์。"}
+{"word": "stand", "english": "Can you stand for the picture?", "thai": "คุณยืนเพื่อถ่ายรูปได้ไหม?"}
+{"word": "stand", "english": "I want to stand up for justice.", "thai": "ฉันอยากยืนหยัดเพื่อความยุติธรรม。"}
+{"word": "stand", "english": "She stood on the stage proudly.", "thai": "เธอยืนบนเวทีอย่างภาคภูมิใจ。"}
+{"word": "stand", "english": "Did you stand in the crowd?", "thai": "คุณยืนอยู่ในฝูงชนหรือเปล่า?"}
+{"word": "stand", "english": "I’ll stand with my team.", "thai": "ฉันจะยืนข้างทีมของฉัน。"}
+{"word": "stand", "english": "He loves to stand and watch.", "thai": "เขาชอบยืนดู。"}
+{"word": "stand", "english": "Can you stand on one leg?", "thai": "คุณยืนขาเดียวได้ไหม?"}
+{"word": "stand", "english": "I forgot to stand for the pledge.", "thai": "ฉันลืมยืนตอนกล่าวคำปฏิญาณ。"}
+{"word": "stand", "english": "They stand outside the theater.", "thai": "พวกเขายืนอยู่นอกโรงละคร。"}
+{"word": "stand", "english": "Please stand by the gate.", "thai": "กรุณายืนข้างประตูรั้ว。"}
+{"word": "stand", "english": "I’ll stand in the back.", "thai": "ฉันจะยืนด้านหลัง。"}
+{"word": "stand", "english": "She stood by the fountain.", "thai": "เธอยืนข้างน้ำพุ。"}
+{"word": "stand", "english": "Can you stand for the meeting?", "thai": "คุณยืนเพื่อการประชุมได้ไหม?"}
+{"word": "stand", "english": "He didn’t stand during the game.", "thai": "เขาไม่ได้ยืนระหว่างเกม。"}
+{"word": "stand", "english": "I’ll stand on the platform.", "thai": "ฉันจะยืนบนชานชาลา。"}
+{"word": "stand", "english": "They stand in the park daily.", "thai": "พวกเขายืนในสวนทุกวัน。"}
+{"word": "stand", "english": "Can you stand by the counter?", "thai": "คุณยืนข้างเคาน์เตอร์ได้ไหม?"}
+{"word": "stand", "english": "I love to stand and chat.", "thai": "ฉันชอบยืนคุยกัน。"}
+{"word": "stand", "english": "She stood at the front door.", "thai": "เธอยืนที่ประตูหน้า。"}
+{"word": "stand", "english": "Did you stand for the performance?", "thai": "คุณยืนเพื่อการแสดงหรือเปล่า?"}
+{"word": "stand", "english": "I’ll stand with my friends.", "thai": "ฉันจะยืนกับเพื่อนๆ。"}
+{"word": "stand", "english": "He stood on the hilltop.", "thai": "เขายืนบนยอดเขา。"}
+{"word": "stand", "english": "Can you stand in the shade?", "thai": "คุณยืนในที่ร่มได้ไหม?"}
+{"word": "stand", "english": "I forgot to stand during the ovation.", "thai": "ฉันลืมยืนตอนปรบมือให้เกียรติ。"}
+{"word": "stand", "english": "They stand by the riverbank.", "thai": "พวกเขายืนริมฝั่งแม่น้ำ。"}
+{"word": "stand", "english": "Please stand for the national anthem.", "thai": "กรุณายืนเพื่อเพลงชาติ。"}
+{"word": "stand", "english": "I’ll stand near the stage.", "thai": "ฉันจะยืนใกล้เวที。"}
+{"word": "stand", "english": "She stood in the hallway.", "thai": "เธอยืนในโถงทางเดิน。"}
+{"word": "stand", "english": "Can you stand for the photo?", "thai": "คุณยืนเพื่อถ่ายรูปได้ไหม?"}
+{"word": "stand", "english": "He didn’t stand for the speech.", "thai": "เขาไม่ได้ยืนเพื่อการพูดนั้น。"}
+{"word": "stand", "english": "I’ll stand by the fireplace.", "thai": "ฉันจะยืนข้างเตาผิง。"}
+{"word": "stand", "english": "They stand at the concert.", "thai": "พวกเขายืนในคอนเสิร์ต。"}
+{"word": "stand", "english": "Can you stand on the mat?", "thai": "คุณยืนบนเสื่อได้ไหม?"}
+{"word": "stand", "english": "I want to stand up for my rights.", "thai": "ฉันอยากยืนหยัดเพื่อสิทธิของฉัน。"}
+{"word": "stand", "english": "She stood by the ocean.", "thai": "เธอยืนข้างมหาสมุทร。"}
+{"word": "stand", "english": "Did you stand in the front?", "thai": "คุณยืนด้านหน้าหรือเปล่า?"}
+{"word": "stand", "english": "I’ll stand with the group.", "thai": "ฉันจะยืนกับกลุ่ม。"}
+{"word": "stand", "english": "He loves to stand and watch birds.", "thai": "เขาชอบยืนดูนก。"}
+{"word": "stand", "english": "Can you stand by the wall?", "thai": "คุณยืนข้างกำแพงได้ไหม?"}
+{"word": "stand", "english": "I forgot to stand for the toast.", "thai": "ฉันลืมยืนเพื่อการดื่มอวยพร。"}
+{"word": "stand", "english": "They stand in the coffee shop line.", "thai": "พวกเขายืนต่อแถวในร้านกาแฟ。"}
+{"word": "stand", "english": "Please stand at the entrance.", "thai": "กรุณายืนที่ทางเข้า。"}
+{"word": "stand", "english": "I’ll stand on the porch.", "thai": "ฉันจะยืนที่ระเบียง。"}
+{"word": "stand", "english": "She stood by the bus stop.", "thai": "เธอยืนที่ป้ายรถเมล์。"}
+{"word": "stand", "english": "Can you stand for the ceremony?", "thai": "คุณยืนเพื่อพิธีได้ไหม?"}
+{"word": "stand", "english": "He didn’t stand during the applause.", "thai": "เขาไม่ได้ยืนระหว่างการปรบมือ。"}
+{"word": "stand", "english": "I’ll stand by the gate.", "thai": "ฉันจะยืนข้างประตูรั้ว。"}
+{"word": "stand", "english": "They stand at the festival.", "thai": "พวกเขายืนในงานเทศกาล。"}
+{"word": "stand", "english": "Can you stand in the corner?", "thai": "คุณยืนที่มุมได้ไหม?"}
+{"word": "stand", "english": "I love to stand and talk.", "thai": "ฉันชอบยืนคุยกัน。"}
+{"word": "stand", "english": "She stood on the rooftop.", "thai": "เธอยืนบนดาดฟ้า。"}
+{"word": "stand", "english": "Did you stand during the concert?", "thai": "คุณยืนระหว่างคอนเสิร์ตหรือเปล่า?"}
+{"word": "stand", "english": "I’ll stand with my family.", "thai": "ฉันจะยืนกับครอบครัวของฉัน。"}
+{"word": "stand", "english": "He stood by the lake.", "thai": "เขายืนข้างทะเลสาบ。"}
+{"word": "stand", "english": "Can you stand on the step?", "thai": "คุณยืนบนบันไดได้ไหม?"}
+{"word": "stand", "english": "I forgot to stand for the speech.", "thai": "ฉันลืมยืนเพื่อการพูดนั้น。"}
+{"word": "stand", "english": "They stand by the food stall.", "thai": "พวกเขายืนข้างร้านอาหาร。"}
+{"word": "stand", "english": "Please stand for the group photo.", "thai": "กรุณายืนเพื่อถ่ายรูปหมู่。"}
+{"word": "stand", "english": "I’ll stand near the fountain.", "thai": "ฉันจะยืนใกล้น้ำพุ。"}
+{"word": "stand", "english": "She stood in the garden.", "thai": "เธอยืนในสวน。"}
+{"word": "stand", "english": "Can you stand for the video?", "thai": "คุณยืนเพื่อวิดีโอได้ไหม?"}
+{"word": "stand", "english": "He didn’t stand for the event.", "thai": "เขาไม่ได้ยืนในงานนั้น。"}
+{"word": "stand", "english": "I’ll stand by the tree.", "thai": "ฉันจะยืนข้างต้นไม้。"}
+{"word": "stand", "english": "They stand at the train station.", "thai": "พวกเขายืนที่สถานีรถไฟ。"}
+{"word": "stand", "english": "Can you stand on the grass?", "thai": "คุณยืนบนหญ้าได้ไหม?"}
+{"word": "stand", "english": "I want to stand up for equality.", "thai": "ฉันอยากยืนหยัดเพื่อความเท่าเทียม。"}
+{"word": "stand", "english": "She stood by the campfire.", "thai": "เธอยืนข้างกองไฟ。"}
+{"word": "stand", "english": "Did you stand at the back?", "thai": "คุณยืนด้านหลังหรือเปล่า?"}
+{"word": "stand", "english": "I’ll stand with the crowd.", "thai":จัดการ: "ฉันจะยืนกับฝูงชน。"}
+{"word": "stand", "english": "He loves to stand by the ocean.", "thai": "เขาชอบยืนข้างมหาสมุทร。"}
+{"word": "stand", "english": "Can you stand for a minute?", "thai": "คุณยืนสักนาทีได้ไหม?"}
+{"word": "stand", "english": "I forgot to stand for the flag.", "thai": "ฉันลืมยืนเพื่อธงชาติ。"}
+{"word": "stand", "english": "They stand in the waiting area.", "thai": "พวกเขายืนอยู่ในบริเวณรอ。"}
+{"word": "stand", "english": "Please stand up straight.", "thai": "กรุณายืนตัวตรง。"}
+{"word": "stand", "english": "I’ll stand by the entrance.", "thai": "ฉันจะยืนที่ทางเข้า。"}
+{"word": "stand", "english": "She stood on the bridge.", "thai": "เธอยืนบนสะพาน。"}
+{"word": "stand", "english": "Can you stand in the middle?", "thai": "คุณยืนตรงกลางได้ไหม?"}
+{"word": "stand", "english": "I love to stand and watch the sunset.", "thai": "ฉันชอบยืนดูพระอาทิตย์ตก。"}
+{"word": "stand", "english": "She stood by the statue.", "thai": "เธอยืนข้างรูปปั้น。"}
+{"word": "stand", "english": "Did you stand for the whole show?", "thai": "คุณยืนตลอดการแสดงหรือเปล่า?"}
+{"word": "stand", "english": "I’ll stand up for my beliefs.", "thai": "ฉันจะยืนหยัดเพื่อความเชื่อของฉัน。"}
+{"word": "stand", "english": "He stood in the doorway.", "thai": "เขายืนที่หน้าประตู。"}
