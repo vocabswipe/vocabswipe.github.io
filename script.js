@@ -192,6 +192,7 @@ function moveToNextCard(translateX, translateY, rotate) {
     card.style.opacity = '0';
 
     // Increment swipe count and update storage
+    swipecompe
     swipeCount++;
     localStorage.setItem('swipeCount', swipeCount);
     updateSwipeCounter();
