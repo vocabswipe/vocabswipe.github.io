@@ -1,28 +1,27 @@
 import json
 import os
-import hashlib
 import re
 from tqdm import tqdm
-from collections import Counter
+from collections import Counter, defaultdict
 
 def contains_unwanted_chars(text):
     """Check if text contains Chinese, Russian, or other non-Latin characters."""
-    # Matches Chinese (CJK) or Cyrillic characters
     pattern = r'[\u4e00-\u9fff\u0400-\u04ff]'
     return bool(re.search(pattern, text))
 
 def contains_english_chars(text):
     """Check if text contains English (Latin) characters."""
-    pattern = r'[a-zA-Z]'
+    pattern = r'[a-zA-Z]+'
     return bool(re.search(pattern, text))
 
-def word_in_sentence(word, sentence):
-    """Check if word (or its simple variants) is in the sentence."""
-    word = word.lower().strip()
-    sentence = sentence.lower().strip()
-    # Simple check for word presence, including basic variations (e.g., drive -> drives)
-    word_variants = [word, word + 's', word + 'd', word + 'ed', word + 'ing']
-    return any(variant in sentence.split() for variant in word_variants)
+def contains_period_in_thai(text):
+    """Detect if Thai text contains the character '。'."""
+    return '。' in text
+
+def contains_unwanted_symbols(text):
+    """Detect if text contains unwanted symbols like �."""
+    pattern = r'�'
+    return bool(re.search(pattern, text))
 
 def validate_and_append(temp_file, db_file):
     """
@@ -32,14 +31,17 @@ def validate_and_append(temp_file, db_file):
     - Total duplicate sentences
     Skips entries with:
     - Unwanted characters (e.g., Chinese, Russian) in word, english, or thai fields
-    - English sentences not containing the main word (or its variants)
     - Thai sentences with English characters (user prompted to keep/skip)
+    - Thai sentences containing '。'
+    - Unwanted symbols (e.g., �) in English or Thai sentences
+    - Duplicate English sentences (keeps first occurrence)
     Assumes all files are in the same directory: D:\vocabswipe.github.io\data.
+    Reports all skipped entries with reasons.
     """
     errors = []
     temp_entries = []
     db_entries = []
-    skipped_entries = []
+    skipped_entries = []  # List of (entry, line_number, reason)
 
     # Print header and working directory
     print("\n" + "═"*60)
@@ -78,19 +80,23 @@ def validate_and_append(temp_file, db_file):
                         continue
                     # Check for unwanted characters
                     if any(contains_unwanted_chars(entry[key]) for key in ['word', 'english', 'thai']):
-                        skipped_entries.append(f"Temp line {line_number}: Contains unwanted characters (e.g., Chinese, Russian)")
-                        continue
-                    # Check if word is in English sentence
-                    if not word_in_sentence(entry['word'], entry['english']):
-                        skipped_entries.append(f"Temp line {line_number}: Word '{entry['word']}' not found in English sentence")
+                        skipped_entries.append((entry, line_number, "Contains unwanted characters (e.g., Chinese, Russian)"))
                         continue
                     # Check for English characters in Thai field
                     if contains_english_chars(entry['thai']):
                         print(f"\n⚠️ Temp line {line_number}: Thai field contains English characters: {entry['thai']}")
                         response = input("  Keep this entry? (y/n): ").strip().lower()
                         if response != 'y':
-                            skipped_entries.append(f"Temp line {line_number}: Thai field contains English characters (skipped by user)")
+                            skipped_entries.append((entry, line_number, "Thai field contains English characters (skipped by user)"))
                             continue
+                    # Check for period in Thai field
+                    if contains_period_in_thai(entry['thai']):
+                        skipped_entries.append((entry, line_number, "Thai field contains '。'"))
+                        continue
+                    # Check for unwanted symbols
+                    if contains_unwanted_symbols(entry['english']) or contains_unwanted_symbols(entry['thai']):
+                        skipped_entries.append((entry, line_number, "Contains unwanted symbols (e.g., �)"))
+                        continue
                     temp_entries.append(entry)
                     temp_entries_with_lines.append((entry, line_number))
                 except json.JSONDecodeError:
@@ -124,11 +130,15 @@ def validate_and_append(temp_file, db_file):
                         continue
                     # Skip entries with unwanted characters
                     if any(contains_unwanted_chars(entry[key]) for key in ['word', 'english', 'thai']):
-                        skipped_entries.append(f"Database line {line_number}: Contains unwanted characters (e.g., Chinese, Russian)")
+                        skipped_entries.append((entry, line_number, "Contains unwanted characters (e.g., Chinese, Russian)"))
                         continue
-                    # Skip entries where word is not in English sentence
-                    if not word_in_sentence(entry['word'], entry['english']):
-                        skipped_entries.append(f"Database line {line_number}: Word '{entry['word']}' not found in English sentence")
+                    # Skip entries with period in Thai field
+                    if contains_period_in_thai(entry['thai']):
+                        skipped_entries.append((entry, line_number, "Thai field contains '。'"))
+                        continue
+                    # Skip entries with unwanted symbols
+                    if contains_unwanted_symbols(entry['english']) or contains_unwanted_symbols(entry['thai']):
+                        skipped_entries.append((entry, line_number, "Contains unwanted symbols (e.g., �)"))
                         continue
                     db_entries.append(entry)
                     db_entries_with_lines.append((entry, line_number))
@@ -142,6 +152,19 @@ def validate_and_append(temp_file, db_file):
     if db_line_count == 0:
         print(f"  ℹ️ {db_file} is empty or does not exist")
 
+    # Check for duplicate English sentences in temp entries
+    print("\n🔍 Checking for duplicate English sentences in temp entries")
+    english_sentences = {entry['english'].lower() for entry in db_entries}
+    unique_temp_entries = []
+    for entry, line_number in temp_entries_with_lines:
+        if entry['english'].lower() in english_sentences:
+            skipped_entries.append((entry, line_number, "Duplicate English sentence found in database"))
+        else:
+            unique_temp_entries.append(entry)
+            english_sentences.add(entry['english'].lower())
+    print(f"  ✅ Found {len(temp_entries) - len(unique_temp_entries)} duplicate English sentences in temp entries")
+    temp_entries = unique_temp_entries
+
     # Report errors
     if errors:
         print("\n🚨 Validation Errors:")
@@ -153,8 +176,14 @@ def validate_and_append(temp_file, db_file):
     # Report skipped entries
     if skipped_entries:
         print("\n⏭️ Skipped Entries:")
-        for skip in skipped_entries:
-            print(f"  - {skip}")
+        print("═" * 60)
+        for entry, line_number, reason in skipped_entries:
+            print(f"Line {line_number}:")
+            print(f"  Word: {entry['word']}")
+            print(f"  English: {entry['english']}")
+            print(f"  Thai: {entry['thai']}")
+            print(f"  Reason: {reason}")
+            print("─" * 60)
 
     # Append valid temp entries to database
     print("\n📝 Appending to database.jsonl")
