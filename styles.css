@@ -42,12 +42,13 @@ html, body {
 
 /* Website statistics styling */
 .website-stats {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem; /* Matches website-name size */
+    font-weight: bold;
     color: #ffffff; /* White for contrast on green background */
     margin-bottom: 5px;
     text-align: center;
+    opacity: 0; /* Initially hidden for fade-in */
 }
 
 .stats-number {
@@ -59,9 +60,9 @@ html, body {
 
 /* Swipe counter styling */
 .swipe-counter {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem; /* Matches website-stats size */
+    font-weight: bold;
     color: #ffffff; /* White for contrast on green background */
     margin-bottom: 10px;
     text-align: center;
@@ -102,7 +103,7 @@ html, body {
 
 /* Glowing effect for card tap */
 .glow {
-    animation: glow 0.6s ease-in-out 1; /* One pulse */
+    animation: glow 0.6s ease-in-out 1; /* One pulse, duration overridden in JS */
 }
 
 @keyframes glow {
@@ -169,9 +170,9 @@ html, body {
     position: absolute;
     width: 40px;
     height: 40px;
-    top: 75%; /* 25% from bottom */
+    top: 50%; /* Center for swipes */
     left: 50%;
-    transform: translate(-50%, 25%);
+    transform: translate(-50%, -50%);
     z-index: 11; /* Above card content */
     opacity: 0; /* Initially hidden */
 }
@@ -182,7 +183,7 @@ html, body {
 
 @keyframes tap {
     0% {
-        transform: translate(-50%, 25%) scale(1);
+        transform: translate(-50%, 25%) scale(1); /* 25% from bottom for tap */
     }
     50% {
         transform: translate(-50%, 25%) scale(0.8); /* Press effect */
@@ -294,14 +295,14 @@ html, body {
 
 .website-name {
     font-family: Arial, sans-serif;
-    font-size: 1.5rem; /* Matches 40px at canvas scale */
+    font-size: 0.75rem; /* Reduced by 50% from 1.5rem */
     font-weight: bold;
     color: #ffffff;
 }
 
 .website-slogan {
     font-family: Arial, sans-serif;
-    font-size: 1.125rem; /* Matches 30px at canvas scale */
+    font-size: 0.5625rem; /* Reduced by 50% from 1.125rem */
     font-weight: bold;
     color: #ffffff;
 }
@@ -314,7 +315,7 @@ html, body {
     }
 
     .website-stats {
-        font-size: 1rem; /* Slightly smaller on mobile */
+        font-size: 0.65rem; /* Matches website-name size */
     }
 
     .stats-number {
@@ -322,7 +323,7 @@ html, body {
     }
 
     .swipe-counter {
-        font-size: 1rem; /* Slightly smaller on mobile */
+        font-size: 0.65rem; /* Matches website-stats size */
     }
 
     .word {
@@ -365,11 +366,11 @@ html, body {
     }
 
     .website-name {
-        font-size: 1.3rem;
+        font-size: 0.65rem; /* Reduced by 50% from 1.3rem */
     }
 
     .website-slogan {
-        font-size: 1rem;
+        font-size: 0.5rem; /* Reduced by 50% from 1rem */
     }
 
     .hand-point {
