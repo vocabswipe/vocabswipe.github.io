@@ -43,16 +43,17 @@ html, body {
 /* Website statistics styling */
 .website-stats {
     font-family: Arial, sans-serif;
-    font-size: 0.75rem; /* Matches website-info after 50% reduction */
+    font-size: 0.9rem; /* Decreased by 20% from 1.125rem */
     font-weight: bold;
     color: #ffffff; /* White for contrast on green background */
     margin-bottom: 5px;
     text-align: center;
+    line-height: 1.4; /* Adjusted for two lines */
 }
 
 .stats-number {
     font-family: Arial, sans-serif;
-    font-size: 1.3rem; /* Matches previous stats-number size */
+    font-size: 1.56rem; /* Decreased by 20% from 1.95rem */
     font-weight: bold;
     color: #ffd700; /* Gold to highlight */
 }
@@ -60,7 +61,7 @@ html, body {
 /* Swipe counter styling */
 .swipe-counter {
     font-family: Arial, sans-serif;
-    font-size: 0.75rem; /* Matches website-stats */
+    font-size: 0.9rem; /* Decreased by 20% from 1.125rem */
     font-weight: bold;
     color: #ffffff; /* White for contrast on green background */
     margin-bottom: 10px;
@@ -239,6 +240,21 @@ html, body {
     transform: translate(-50%, 25%);
 }
 
+.spacebar-text {
+    position: absolute;
+    bottom: 20%; /* Below spacebar SVG */
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000000; /* Black for contrast with white card background */
+    text-align: center;
+    z-index: 11;
+    opacity: 0; /* Initially hidden */
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.8); /* Slight white shadow for readability */
+}
+
 .arrow.tap-animation, .spacebar.tap-animation {
     animation: tap 0.6s ease-in-out 1; /* One pulse */
 }
@@ -294,14 +310,14 @@ html, body {
 
 .website-name {
     font-family: Arial, sans-serif;
-    font-size: 0.75rem; /* 50% of original 1.5rem */
+    font-size: 0.975rem; /* Increased by 30% from 0.75rem */
     font-weight: bold;
     color: #ffffff;
 }
 
 .website-slogan {
     font-family: Arial, sans-serif;
-    font-size: 0.5625rem; /* 50% of original 1.125rem */
+    font-size: 0.73125rem; /* Increased by 30% from 0.5625rem */
     font-weight: bold;
     color: #ffffff;
 }
@@ -314,15 +330,15 @@ html, body {
     }
 
     .website-stats {
-        font-size: 0.65rem; /* Matches website-info after 50% reduction */
+        font-size: 0.78rem; /* Decreased by 20% from 0.975rem */
     }
 
     .stats-number {
-        font-size: 1.3rem;
+        font-size: 1.56rem; /* Decreased by 20% from 1.95rem */
     }
 
     .swipe-counter {
-        font-size: 0.65rem; /* Matches website-stats */
+        font-size: 0.78rem; /* Decreased by 20% from 0.975rem */
     }
 
     .word {
@@ -365,11 +381,11 @@ html, body {
     }
 
     .website-name {
-        font-size: 0.65rem;
+        font-size: 0.845rem; /* Increased by 30% from 0.65rem */
     }
 
     .website-slogan {
-        font-size: 0.5rem;
+        font-size: 0.65rem; /* Increased by 30% from 0.5rem */
     }
 
     .hand-point {
@@ -377,13 +393,13 @@ html, body {
         height: 30px;
     }
 
-    /* Hide PC-specific SVGs on mobile */
-    .arrow, .spacebar {
+    /* Hide PC-specific SVGs and text on mobile */
+    .arrow, .spacebar, .spacebar-text {
         display: none;
     }
 }
 
-/* Show PC-specific SVGs only on desktop */
+/* Show PC-specific SVGs and text only on desktop */
 @media (min-width: 601px) {
     .hand-point {
         display: none; /* Hide hand point on PC */
