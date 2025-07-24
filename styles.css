@@ -61,18 +61,6 @@ html, body {
     font-size: 1.56rem; /* Decreased by 20% from 1.95rem */
     font-weight: bold;
     color: #ffd700; /* Gold to highlight */
-    transition: transform 0.2s ease, color 0.2s ease; /* Smooth animation for number updates */
-    display: inline-block;
-}
-
-.stats-number.animate {
-    animation: number-pop 0.3s ease-in-out; /* Subtle pop effect for number updates */
-}
-
-@keyframes number-pop {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
 }
 
 /* Swipe counter styling */
@@ -221,7 +209,7 @@ html, body {
 
 .arrow-left {
     width: 40px;
-    height: 40pxល:1px;
+    height: 40px;
     left: -10px; /* Outside card edge */
     top: 50%;
     transform: translate(-50%, -50%);
@@ -280,7 +268,7 @@ html, body {
 
 /* Word styling for poker card */
 .word {
-    font-family: 'Bangers', sans-serif; /* Poker vibe font */
+    font-family: 'Impact', sans-serif; /* UNO-like bold font */
     font-size: 3rem; /* Base size for desktop, twice the English sentence size (1.5rem * 2) */
     font-weight: bold;
     position: absolute;
@@ -307,15 +295,15 @@ html, body {
 
 /* English sentence font */
 .english {
-    font-family: 'Bangers', sans-serif; /* Poker vibe font */
-    font-weight: 900; /* Extra bold for poker style */
+    font-family: 'Libre Baskerville', serif; /* Poker vibe font */
+    font-weight: 700; /* Bold for poker style */
     font-size: 1.5rem; /* Increased for readability */
     line-height: 1.3; /* Adjusted spacing */
 }
 
 /* Thai sentence font */
 .thai {
-    font-family: 'Impact', sans-serif; /* UNO-like bold font, unchanged */
+    font-family: 'Impact', sans-serif; /* UNO-like bold font, fallback for Thai */
     font-weight: 900; /* Extra bold for UNO style */
     font-size: 1.5rem; /* Increased for readability */
     line-height: 1.5; /* Extra spacing for Thai characters */
@@ -361,7 +349,7 @@ html, body {
     }
 
     .word {
-        font-family: 'Bangers', sans-serif; /* Poker vibe font */
+        font-family: 'Impact', sans-serif;
         font-size: 2.6rem; /* Twice the English sentence size (1.3rem * 2) */
         font-weight: bold;
     }
@@ -371,13 +359,13 @@ html, body {
     }
 
     .english {
-        font-family: 'Bangers', sans-serif; /* Poker vibe font */
-        font-weight: 900;
+        font-family: 'Libre Baskerville', serif; /* Poker vibe font */
+        font-weight: 700;
         font-size: 1.3rem;
     }
 
     .thai {
-        font-family: 'Impact', sans-serif; /* Unchanged */
+        font-family: 'Impact', sans-serif;
         font-weight: 900;
         font-size: 1.3rem;
     }
@@ -431,4 +419,4 @@ html, body {
 }
 
 /* Ensure fonts are loaded */
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Impact&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Impact&family=Libre+Baskerville:wght@700&display=swap');
