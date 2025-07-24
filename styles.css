@@ -51,14 +51,15 @@ html, body {
     text-align: center;
     opacity: 0;
     transition: opacity 1s ease;
-    margin-bottom: 10px;
+    position: absolute;
+    top: 50px; /* Adjusted to touch the top edge of card-container */
+    z-index: 10; /* Below icon-panel but above cards */
 }
 
 .counter {
-    background-color: #ffffff;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: transparent; /* Transparent background */
+    padding: 10px;
+    border: none; /* No border */
 }
 
 .count-title {
@@ -73,7 +74,7 @@ html, body {
     font-family: Arial, sans-serif;
     font-size: 0.9rem;
     font-weight: bold;
-    color: #000000;
+    color: #ffffff; /* Changed to white */
     margin: 5px 0;
     line-height: 1.4;
 }
@@ -89,6 +90,7 @@ html, body {
     justify-content: center;
     align-items: center;
     perspective: 1000px;
+    margin-top: 80px; /* Increased to accommodate website-stats */
 }
 
 /* Poker card styling */
@@ -320,15 +322,17 @@ html, body {
     .card-container {
         width: 90vw;
         height: calc(90vw * 1.4);
+        margin-top: 70px; /* Adjusted for smaller screens */
     }
 
     .website-stats {
         width: 90vw;
         max-width: 300px;
+        top: 40px; /* Adjusted for mobile */
     }
 
     .counter {
-        padding: 10px;
+        padding: 8px;
     }
 
     .count-title {
