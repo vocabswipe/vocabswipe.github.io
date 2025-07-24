@@ -25,16 +25,20 @@ function updateSwipeCounter() {
     }
 }
 
-// Animate number from start to end
+// Animate number from start to end with decelerating rate
 function animateNumber(element, start, end, duration) {
-    let startTimestamp = null;
+    const startTimestamp = performance.now();
+    const easeOutQuad = t => 1 - (1 - t) * (1 - t); // Easing function for deceleration
+
     const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
         const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const current = Math.floor(start + (end - start) * progress);
+        const easedProgress = easeOutQuad(progress); // Apply easing for deceleration
+        const current = Math.floor(start + (end - start) * easedProgress);
         element.textContent = current.toLocaleString();
         if (progress < 1) {
             requestAnimationFrame(step);
+        } else {
+            element.textContent = end.toLocaleString(); // Ensure final number is exact
         }
     };
     requestAnimationFrame(step);
@@ -45,7 +49,7 @@ function updateWebsiteStats() {
     const statsElement = document.getElementById('website-stats');
     const statsNumberElement = document.querySelector('.stats-number');
     statsElement.style.opacity = '1'; // Instantly visible
-    const startNumber = 1; // Start from 1
+    const startNumber = 1; // Start from 1 as requested
     const endNumber = vocabData.length;
     animateNumber(statsNumberElement, startNumber, endNumber, 60000); // 60-second animation
     statsElement.innerHTML = `The <span class="stats-number">${endNumber.toLocaleString()}</span> most spoken English sentences<br>and still growing`;
@@ -504,7 +508,7 @@ card.addEventListener('mouseup', (e) => {
     if (distance <= maxTapDistance && duration <= maxTapDuration) {
         const audio = document.getElementById('card-audio');
         card.classList.add('glow'); // Add glow effect
-        audio.play().痴
+        audio.play().catch(error => console.error('Error playing audio:', error));
         card.style.transform = 'translate(0, 0) rotate(0deg)'; // Reset position
         setTimeout(() => {
             card.classList.remove('glow');
