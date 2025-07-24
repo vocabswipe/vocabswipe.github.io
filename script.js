@@ -20,6 +20,11 @@ function updateSwipeCounter() {
     document.getElementById('swipe-counter').textContent = `${swipeCount} cards swiped`;
 }
 
+// Update website statistics display
+function updateWebsiteStats() {
+    document.getElementById('website-stats').innerHTML = `<span class="stats-number">${vocabData.length}</span> most spoken English sentences, and growing`;
+}
+
 // Function to fetch and parse JSONL file
 async function loadVocabData() {
     try {
@@ -30,6 +35,7 @@ async function loadVocabData() {
         vocabData = vocabData.sort(() => Math.random() - 0.5);
         displayCards();
         updateSwipeCounter();
+        updateWebsiteStats();
         // Start animations after cards are loaded
         startMobileAnimation();
         startPCAnimation();
@@ -123,7 +129,7 @@ function resetAnimations() {
 
     // Reset hand point
     handPoint.style.opacity = '0';
-    handPoint.style.transform = 'translate(-50%, -50%)';
+    handPoint.style.transform = 'translate(-50%, 25%)'; // 25% from bottom
     handPoint.classList.remove('tap-animation');
 
     // Reset arrows and spacebar
@@ -132,7 +138,8 @@ function resetAnimations() {
         arrow.style.transform = '';
     });
     spacebar.style.opacity = '0';
-    spacebar.style.transform = 'translate(-50%, -50%)';
+    spacebar.style.transform = 'translate(-50%, 25%)'; // 25% from bottom
+    spacebar.classList.remove('tap-animation');
 }
 
 // Function to animate and move to next card
@@ -163,37 +170,39 @@ function startMobileAnimation() {
 
     const handPoint = document.getElementById('hand-point');
     const card = document.getElementById('vocab-card');
+    const cardWidth = card.offsetWidth;
+    const cardHeight = card.offsetHeight;
 
     // Animation sequence
     const sequence = [
         { // Left swipe
-            startTransform: 'translate(-50%, -50%)',
-            endTransform: 'translate(-150%, -50%)',
-            duration: 1000,
+            startTransform: 'translate(-50%, 25%)',
+            endTransform: `translate(-${cardWidth}px, 25%)`, // To left edge
+            duration: 600, // Faster
             delay: 500
         },
         { // Up swipe
-            startTransform: 'translate(-50%, -50%)',
-            endTransform: 'translate(-50%, -150%)',
-            duration: 1000,
+            startTransform: 'translate(-50%, 25%)',
+            endTransform: `translate(-50%, -${cardHeight * 0.75}px)`, // To top edge
+            duration: 600,
             delay: 500
         },
         { // Right swipe
-            startTransform: 'translate(-50%, -50%)',
-            endTransform: 'translate(50%, -50%)',
-            duration: 1000,
+            startTransform: 'translate(-50%, 25%)',
+            endTransform: `translate(${cardWidth * 0.5}px, 25%)`, // To right edge
+            duration: 600,
             delay: 500
         },
         { // Down swipe
-            startTransform: 'translate(-50%, -50%)',
-            endTransform: 'translate(-50%, 50%)',
-            duration: 1000,
+            startTransform: 'translate(-50%, 25%)',
+            endTransform: `translate(-50%, ${cardHeight * 0.25}px)`, // To bottom edge
+            duration: 600,
             delay: 500
         },
         { // Tap animation
-            startTransform: 'translate(-50%, 50%)', // Below Thai sentence
-            endTransform: 'translate(-50%, 50%)',
-            duration: 1200,
+            startTransform: 'translate(-50%, 25%)', // 25% from bottom
+            endTransform: 'translate(-50%, 25%)',
+            duration: 600, // Single tap duration
             delay: 500,
             tap: true
         }
@@ -227,7 +236,7 @@ function startMobileAnimation() {
                     setTimeout(() => {
                         card.classList.remove('glow');
                         handPoint.classList.remove('tap-animation');
-                    }, 1200);
+                    }, 600); // Single glow/tap
                 }
 
                 // Proceed to next step
@@ -248,10 +257,10 @@ function startPCAnimation() {
     if (window.innerWidth <= 600) return; // Skip for mobile
 
     const arrows = [
-        { id: 'arrow-left', endTransform: 'translateX(-100px)' },
-        { id: 'arrow-right', endTransform: 'translateX(100px)' },
-        { id: 'arrow-up', endTransform: 'translateY(-100px)' },
-        { id: 'arrow-down', endTransform: 'translateY(100px)' }
+        { id: 'arrow-left', startTransform: 'translate(-50%, -50%)', endTransform: 'translate(-70%, -50%)', position: 'left' },
+        { id: 'arrow-up', startTransform: 'translate(-50%, -50%)', endTransform: 'translate(-50%, -70%)', position: 'top' },
+        { id: 'arrow-right', startTransform: 'translate(50%, -50%)', endTransform: 'translate(70%, -50%)', position: 'right' },
+        { id: 'arrow-down', startTransform: 'translate(-50%, 50%)', endTransform: 'translate(-50%, 70%)', position: 'bottom' }
     ];
     const spacebar = document.getElementById('spacebar');
     const card = document.getElementById('vocab-card');
@@ -260,16 +269,17 @@ function startPCAnimation() {
     const sequence = [
         ...arrows.map(arrow => ({
             id: arrow.id,
-            startTransform: '',
+            startTransform: arrow.startTransform,
             endTransform: arrow.endTransform,
-            duration: 1000,
-            delay: 500
+            duration: 600, // Faster
+            delay: 500,
+            press: true
         })),
         {
             id: 'spacebar',
-            startTransform: 'translate(-50%, -50%)',
-            endTransform: 'translate(-50%, -50%)',
-            duration: 1200,
+            startTransform: 'translate(-50%, 25%)', // 25% from bottom
+            endTransform: 'translate(-50%, 25%)',
+            duration: 600, // Single tap
             delay: 500,
             tap: true
         }
@@ -301,13 +311,13 @@ function startPCAnimation() {
                 element.style.transition = `transform ${step.duration}ms ease`;
                 element.style.transform = step.endTransform;
 
-                if (step.tap) {
+                if (step.press || step.tap) {
                     element.classList.add('tap-animation');
                     card.classList.add('glow');
                     setTimeout(() => {
                         card.classList.remove('glow');
                         element.classList.remove('tap-animation');
-                    }, 1200);
+                    }, 600); // Single glow/tap
                 }
 
                 // Proceed to next step
@@ -374,10 +384,10 @@ card.addEventListener('touchend', (e) => {
         card.classList.add('glow'); // Add glow effect
         audio.play().catch(error => console.error('Error playing audio:', error));
         card.style.transform = 'translate(0, 0) rotate(0deg)'; // Reset position
-        // Remove glow class after animation completes (0.6s * 2 pulses = 1.2s)
+        // Remove glow class after animation completes (0.6s for one pulse)
         setTimeout(() => {
             card.classList.remove('glow');
-        }, 1200);
+        }, 600);
     } else if (distance > minSwipeDistance) {
         // Calculate swipe direction and animate out
         const angle = Math.atan2(deltaY, deltaX); // Angle in radians
@@ -399,10 +409,10 @@ card.addEventListener('click', (e) => {
     const audio = document.getElementById('card-audio');
     card.classList.add('glow'); // Add glow effect
     audio.play().catch(error => console.error('Error playing audio:', error));
-    // Remove glow class after animation completes (0.6s * 2 pulses = 1.2s)
+    // Remove glow class after animation completes (0.6s for one pulse)
     setTimeout(() => {
         card.classList.remove('glow');
-    }, 1200);
+    }, 600);
 });
 
 // Keyboard controls for PC
@@ -416,7 +426,7 @@ document.addEventListener('keydown', (e) => {
             // Remove glow class after animation completes
             setTimeout(() => {
                 card.classList.remove('glow');
-            }, 1200);
+            }, 600);
             break;
         case 'ArrowLeft':
             moveToNextCard(-window.innerWidth, 0, -15);
