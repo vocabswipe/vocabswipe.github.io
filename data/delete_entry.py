@@ -3,6 +3,7 @@ import json
 import re
 import os
 from pathlib import Path
+from collections import defaultdict
 
 def load_database(file_path):
     """Load the JSONL database into a list of dictionaries."""
@@ -100,6 +101,22 @@ def scan_unwanted_symbols_entries(data):
             unwanted_symbols_entries.append(entry)
     return unwanted_symbols_entries
 
+def scan_duplicate_english_entries(data):
+    """Scan database for entries with duplicate English sentences."""
+    # Group entries by English sentence (case-insensitive)
+    english_groups = defaultdict(list)
+    for entry in data:
+        english = entry.get('english', '').lower()
+        english_groups[english].append(entry)
+    
+    # Collect entries from groups with more than one entry
+    duplicate_entries = []
+    for english, entries in english_groups.items():
+        if len(entries) > 1:
+            duplicate_entries.extend(entries)
+    
+    return duplicate_entries
+
 def display_entries(entries, title="Matching Entries"):
     """Display numbered list of entries with a given title."""
     if not entries:
@@ -123,6 +140,7 @@ def display_menu():
     print("4️⃣ Scan and edit/delete entries with English in Thai sentence")
     print("5️⃣ Scan and delete entries with '。' in Thai sentence")
     print("6️⃣ Scan and delete entries with unwanted symbols (e.g., �)")
+    print("7️⃣ Scan and delete entries with duplicate English sentences")
     print("0️⃣ Exit")
     print("═" * 60)
 
@@ -152,9 +170,9 @@ def handle_search_delete(data, database_file):
     selected_entry = matching_entries[selection - 1]
     print("\n🗑️ You selected the following entry for deletion:")
     print("═" * 60)
-    print(f"Word:披萨")
-    print(f"English: I ordered a pizza for dinner.")
-    print(f"Thai: ฉันสั่งพิซซ่าเป็นอาหารเย็น")
+    print(f"Word: {selected_entry['word']}")
+    print(f"English: {selected_entry['english']}")
+    print(f"Thai: {selected_entry['thai']}")
     print("═" * 60)
 
     confirm = input("\n❓ Are you sure you want to delete this entry? (y/n): ").strip().lower()
@@ -500,6 +518,80 @@ def handle_unwanted_symbols_delete(data, database_file):
         print("🚫 Invalid choice. Please select 0, 1, or 2.")
         return False
 
+def handle_duplicate_english_delete(data, database_file):
+    """Handle deletion of entries with duplicate English sentences."""
+    duplicate_entries = scan_duplicate_english_entries(data)
+    if not display_entries(duplicate_entries, "Entries with Duplicate English Sentences"):
+        return False
+
+    print("\n🗑️ Delete options:")
+    print("1️⃣ Delete a single entry")
+    print("2️⃣ Delete all duplicates (keep first occurrence)")
+    print("0️⃣ Cancel")
+    choice = input("\n➡️ Enter your choice (0-2): ").strip()
+
+    if choice == '0':
+        print("ℹ️ Operation cancelled.")
+        return False
+    elif choice == '2':
+        confirm = input("\n❓ Are you sure you want to delete ALL duplicate entries (keeping first occurrence)? (y/n): ").strip().lower()
+        if confirm != 'y':
+            print("ℹ️ Deletion cancelled.")
+            return False
+        # Group entries by English sentence again to process duplicates
+        english_groups = defaultdict(list)
+        for entry in data:
+            english = entry.get('english', '').lower()
+            english_groups[english].append(entry)
+        
+        entries_to_remove = []
+        for english, entries in english_groups.items():
+            if len(entries) > 1:
+                # Keep the first entry, mark others for deletion
+                entries_to_remove.extend(entries[1:])
+        
+        for entry in entries_to_remove:
+            data.remove(entry)
+        
+        print("\n✅ All duplicate entries deleted successfully, keeping first occurrence.")
+        save_database(database_file, data)
+        print(f"💾 Database updated and saved to '{database_file}'.")
+        return True
+    elif choice == '1':
+        try:
+            selection = int(input("\n✏️ Enter the number of the entry to delete (or 0 to cancel): "))
+            if selection == 0:
+                print("ℹ️ Operation cancelled.")
+                return False
+            if selection < 1 or selection > len(duplicate_entries):
+                print("🚫 Error: Invalid selection.")
+                return False
+        except ValueError:
+            print("🚫 Error: Please enter a valid number.")
+            return False
+
+        selected_entry = duplicate_entries[selection - 1]
+        print("\n🗑️ You selected the following entry for deletion:")
+        print("═" * 60)
+        print(f"Word: {selected_entry['word']}")
+        print(f"English: {selected_entry['english']}")
+        print(f"Thai: {selected_entry['thai']}")
+        print("═" * 60)
+
+        confirm = input("\n❓ Are you sure you want to delete this entry? (y/n): ").strip().lower()
+        if confirm != 'y':
+            print("ℹ️ Deletion cancelled.")
+            return False
+
+        data.remove(selected_entry)
+        print("\n✅ Entry deleted successfully.")
+        save_database(database_file, data)
+        print(f"💾 Database updated and saved to '{database_file}'.")
+        return True
+    else:
+        print("🚫 Invalid choice. Please select 0, 1, or 2.")
+        return False
+
 def main():
     database_file = 'database.jsonl'
 
@@ -511,7 +603,7 @@ def main():
 
     while True:
         display_menu()
-        choice = input("\n➡️ Enter your choice (0-6): ").strip()
+        choice = input("\n➡️ Enter your choice (0-7): ").strip()
         print()
 
         if choice == '0':
@@ -529,8 +621,10 @@ def main():
             handle_period_in_thai_delete(data, database_file)
         elif choice == '6':
             handle_unwanted_symbols_delete(data, database_file)
+        elif choice == '7':
+            handle_duplicate_english_delete(data, database_file)
         else:
-            print("🚫 Invalid choice. Please select 0, 1, 2, 3, 4, 5, or 6.")
+            print("🚫 Invalid choice. Please select 0, 1, 2, 3, 4, 5, 6, or 7.")
 
 if __name__ == "__main__":
     main()
