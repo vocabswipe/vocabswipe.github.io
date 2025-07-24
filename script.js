@@ -17,13 +17,14 @@ if (lastResetDate !== today) {
 
 // Update swipe counter display
 function updateSwipeCounter() {
-    document.getElementById('swipe-counter').textContent = `${swipeCount} cards swiped today`;
+    const cardText = swipeCount === 1 ? 'card' : 'cards';
+    document.getElementById('swipe-counter').textContent = `${swipeCount} ${cardText} swiped today`;
 }
 
 // Update website statistics display with fade-in
 function updateWebsiteStats() {
     const statsElement = document.getElementById('website-stats');
-    statsElement.innerHTML = `The <span class="stats-number">${vocabData.length}</span> most spoken English sentences, and still growing.`;
+    statsElement.innerHTML = `The <span class="stats-number">${vocabData.length}</span> most spoken English sentences<br>and still growing.`;
     statsElement.style.transition = 'opacity 1s ease';
     statsElement.style.opacity = '1';
 }
@@ -129,6 +130,7 @@ function resetAnimations() {
     const handPoint = document.getElementById('hand-point');
     const arrows = ['arrow-left', 'arrow-right', 'arrow-up', 'arrow-down'].map(id => document.getElementById(id));
     const spacebar = document.getElementById('spacebar');
+    const spacebarText = document.getElementById('spacebar-text');
 
     // Reset hand point
     handPoint.style.opacity = '0';
@@ -143,6 +145,7 @@ function resetAnimations() {
     spacebar.style.opacity = '0';
     spacebar.style.transform = 'translate(-50%, 25%)'; // 25% from bottom
     spacebar.classList.remove('tap-animation');
+    spacebarText.style.opacity = '0';
 }
 
 // Function to animate and move to next card
@@ -260,30 +263,29 @@ function startPCAnimation() {
     if (window.innerWidth <= 600) return; // Skip for mobile
 
     const arrows = [
-        { id: 'arrow-left', startTransform: 'translate(-50%, -50%)', endTransform: 'translate(-70%, -50%)', position: 'left' },
-        { id: 'arrow-up', startTransform: 'translate(-50%, -50%)', endTransform: 'translate(-50%, -70%)', position: 'top' },
-        { id: 'arrow-right', startTransform: 'translate(50%, -50%)', endTransform: 'translate(70%, -50%)', position: 'right' },
-        { id: 'arrow-down', startTransform: 'translate(-50%, 50%)', endTransform: 'translate(-50%, 70%)', position: 'bottom' }
+        { id: 'arrow-left', transform: 'translate(-50%, -50%)', position: 'left' },
+        { id: 'arrow-up', transform: 'translate(-50%, -50%)', position: 'top' },
+        { id: 'arrow-right', transform: 'translate(50%, -50%)', position: 'right' },
+        { id: 'arrow-down', transform: 'translate(-50%, 50%)', position: 'bottom' }
     ];
     const spacebar = document.getElementById('spacebar');
+    const spacebarText = document.getElementById('spacebar-text');
     const card = document.getElementById('vocab-card');
 
     // Animation sequence
     const sequence = [
         {
             ids: arrows.map(arrow => arrow.id), // Show all arrows at once
-            startTransform: arrows.map(arrow => arrow.startTransform),
-            endTransform: arrows.map(arrow => arrow.endTransform),
+            transforms: arrows.map(arrow => arrow.transform),
             duration: 1800, // 3 presses at 600ms each
             delay: 500,
             press: true
         },
         {
             id: 'spacebar',
-            startTransform: 'translate(-50%, 25%)', // 25% from bottom
-            endTransform: 'translate(-50%, 25%)',
+            transform: 'translate(-50%, 25%)', // 25% from bottom
             duration: 600, // Single tap
-            delay: 500,
+            delay: 1000, // 1 second after arrows
             tap: true
         }
     ];
@@ -296,6 +298,7 @@ function startPCAnimation() {
                 document.getElementById(arrow.id).style.opacity = '0';
             });
             spacebar.style.opacity = '0';
+            spacebarText.style.opacity = '0';
             return;
         }
 
@@ -304,7 +307,7 @@ function startPCAnimation() {
             // Handle all arrows simultaneously
             step.ids.forEach((id, index) => {
                 const element = document.getElementById(id);
-                element.style.transform = step.startTransform[index];
+                element.style.transform = step.transforms[index];
                 element.style.opacity = '0';
                 // Fade in
                 setTimeout(() => {
@@ -312,18 +315,19 @@ function startPCAnimation() {
                     element.style.opacity = '1';
                     // Animate three presses
                     setTimeout(() => {
-                        element.style.transition = `transform ${step.duration / 3}ms ease`;
-                        element.style.transform = step.endTransform[index];
                         element.classList.add('tap-animation');
-                        card.classList.add('glow');
                         setTimeout(() => {
-                            element.style.transform = step.startTransform[index];
+                            element.classList.remove('tap-animation');
                             setTimeout(() => {
-                                element.style.transform = step.endTransform[index];
+                                element.classList.add('tap-animation');
                                 setTimeout(() => {
-                                    element.style.transform = step.startTransform[index];
-                                    card.classList.remove('glow');
                                     element.classList.remove('tap-animation');
+                                    setTimeout(() => {
+                                        element.classList.add('tap-animation');
+                                        setTimeout(() => {
+                                            element.classList.remove('tap-animation');
+                                        }, step.duration / 3);
+                                    }, step.duration / 3);
                                 }, step.duration / 3);
                             }, step.duration / 3);
                         }, step.duration / 3);
@@ -338,24 +342,23 @@ function startPCAnimation() {
         } else {
             // Handle spacebar
             const element = document.getElementById(step.id);
-            element.style.transform = step.startTransform;
+            element.style.transform = step.transform;
             element.style.opacity = '0';
+            spacebarText.style.opacity = '0';
             // Fade in
             setTimeout(() => {
                 element.style.transition = 'opacity 0.5s ease';
                 element.style.opacity = '1';
+                spacebarText.style.transition = 'opacity 0.5s ease';
+                spacebarText.style.opacity = '1';
                 // Tap
                 setTimeout(() => {
-                    element.style.transition = `transform ${step.duration}ms ease`;
-                    element.style.transform = step.endTransform;
-                    if (step.tap) {
-                        element.classList.add('tap-animation');
-                        card.classList.add('glow');
-                        setTimeout(() => {
-                            card.classList.remove('glow');
-                            element.classList.remove('tap-animation');
-                        }, 600); // Single glow/tap
-                    }
+                    element.classList.add('tap-animation');
+                    card.classList.add('glow');
+                    setTimeout(() => {
+                        card.classList.remove('glow');
+                        element.classList.remove('tap-animation');
+                    }, 600); // Single glow/tap
                     // Proceed to next step
                     setTimeout(() => {
                         currentStep++;
@@ -485,9 +488,12 @@ document.getElementById('share-icon').addEventListener('click', () => {
     captureSnapshot();
 });
 
-// Function to capture snapshot of top card only
+// Function to capture snapshot of top card, texts above, and texts below
 function captureSnapshot() {
     const topCard = document.getElementById('vocab-card');
+    const websiteStats = document.getElementById('website-stats');
+    const swipeCounter = document.getElementById('swipe-counter');
+    const websiteInfo = document.getElementById('website-info');
     const canvas = document.getElementById('snapshot-canvas');
     const ctx = canvas.getContext('2d');
 
@@ -499,53 +505,81 @@ function captureSnapshot() {
     ctx.fillStyle = '#35654d';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Calculate scaling and positioning to center the top card
+    // Calculate scaling and positioning for the card
     const cardWidth = topCard.offsetWidth;
     const cardHeight = topCard.offsetHeight;
     const scale = Math.min((canvas.width * 0.8) / cardWidth, (canvas.height * 0.6) / cardHeight); // Fit within 80% width, 60% height
-    const scaledWidth = cardWidth * scale;
-    const scaledHeight = cardHeight * scale;
-    const offsetX = (canvas.width - scaledWidth) / 2;
-    const offsetY = (canvas.height - scaledHeight) / 2;
+    const scaledCardWidth = cardWidth * scale;
+    const scaledCardHeight = cardHeight * scale;
+    const cardOffsetX = (canvas.width - scaledCardWidth) / 2;
+    const cardOffsetY = (canvas.height - scaledCardHeight) / 2;
 
-    // Use html2canvas to capture only the top card
-    html2canvas(topCard, {
-        backgroundColor: null, // Transparent background
+    // Capture website stats
+    html2canvas(websiteStats, {
+        backgroundColor: null,
         scale: scale
-    }).then(cardCanvas => {
-        // Draw top card on canvas
-        ctx.drawImage(cardCanvas, offsetX, offsetY, scaledWidth, scaledHeight);
+    }).then(statsCanvas => {
+        const statsWidth = websiteStats.offsetWidth * scale;
+        const statsHeight = websiteStats.offsetHeight * scale;
+        const statsOffsetX = (canvas.width - statsWidth) / 2;
+        const statsOffsetY = cardOffsetY - statsHeight - 20; // 20px above card
 
-        // Add website URL and slogan
-        ctx.fillStyle = '#ffffff';
-        ctx.font = 'bold 20px Arial';
-        ctx.textAlign = 'center';
-        ctx.fillText('VocabSwipe.com', canvas.width / 2, offsetY + scaledHeight + 60);
-        ctx.font = 'bold 15px Arial';
-        ctx.fillText('Master Words, Swipe by Swipe', canvas.width / 2, offsetY + scaledHeight + 100);
+        // Capture swipe counter
+        html2canvas(swipeCounter, {
+            backgroundColor: null,
+            scale: scale
+        }).then(counterCanvas => {
+            const counterWidth = swipeCounter.offsetWidth * scale;
+            const counterHeight = swipeCounter.offsetHeight * scale;
+            const counterOffsetX = (canvas.width - counterWidth) / 2;
+            const counterOffsetY = statsOffsetY - counterHeight - 10; // 10px above stats
 
-        // Convert canvas to PNG and trigger share
-        canvas.toBlob(blob => {
-            const file = new File([blob], 'vocabswipe-card.png', { type: 'image/png' });
-            const shareData = {
-                files: [file],
-                title: 'Check out my VocabSwipe card!',
-                text: 'Master words with VocabSwipe! Try it at VocabSwipe.com',
-                url: 'https://VocabSwipe.com'
-            };
+            // Capture top card
+            html2canvas(topCard, {
+                backgroundColor: null,
+                scale: scale
+            }).then(cardCanvas => {
+                // Capture website info
+                html2canvas(websiteInfo, {
+                    backgroundColor: null,
+                    scale: scale
+                }).then(infoCanvas => {
+                    const infoWidth = websiteInfo.offsetWidth * scale;
+                    const infoHeight = websiteInfo.offsetHeight * scale;
+                    const infoOffsetX = (canvas.width - infoWidth) / 2;
+                    const infoOffsetY = cardOffsetY + scaledCardHeight + 20; // 20px below card
 
-            if (navigator.canShare && navigator.canShare({ files: [file] })) {
-                navigator.share(shareData).catch(error => console.error('Error sharing:', error));
-            } else {
-                // Fallback: Download the image
-                const link = document.createElement('a');
-                link.href = URL.createObjectURL(blob);
-                link.download = 'vocabswipe-card.png';
-                link.click();
-                URL.revokeObjectURL(link.href);
-                alert('Sharing not supported. Image downloaded instead.');
-            }
-        }, 'image/png');
+                    // Draw all elements on canvas
+                    ctx.drawImage(counterCanvas, counterOffsetX, counterOffsetY, counterWidth, counterHeight);
+                    ctx.drawImage(statsCanvas, statsOffsetX, statsOffsetY, statsWidth, statsHeight);
+                    ctx.drawImage(cardCanvas, cardOffsetX, cardOffsetY, scaledCardWidth, scaledCardHeight);
+                    ctx.drawImage(infoCanvas, infoOffsetX, infoOffsetY, infoWidth, infoHeight);
+
+                    // Convert canvas to PNG and trigger share
+                    canvas.toBlob(blob => {
+                        const file = new File([blob], 'vocabswipe-card.png', { type: 'image/png' });
+                        const shareData = {
+                            files: [file],
+                            title: 'Check out my VocabSwipe card!',
+                            text: 'Master words with VocabSwipe! Try it at VocabSwipe.com',
+                            url: 'https://VocabSwipe.com'
+                        };
+
+                        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                            navigator.share(shareData).catch(error => console.error('Error sharing:', error));
+                        } else {
+                            // Fallback: Download the image
+                            const link = document.createElement('a');
+                            link.href = URL.createObjectURL(blob);
+                            link.download = 'vocabswipe-card.png';
+                            link.click();
+                            URL.revokeObjectURL(link.href);
+                            alert('Sharing not supported. Image downloaded instead.');
+                        }
+                    }, 'image/png');
+                });
+            });
+        });
     });
 }
 
