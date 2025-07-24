@@ -45,9 +45,9 @@ function updateWebsiteStats() {
     const statsElement = document.getElementById('website-stats');
     const statsNumberElement = document.querySelector('.stats-number');
     statsElement.style.opacity = '1'; // Instantly visible
-    const startNumber = 10000;
+    const startNumber = 1; // Start from 1
     const endNumber = vocabData.length;
-    animateNumber(statsNumberElement, startNumber, endNumber, 2000); // 2-second animation
+    animateNumber(statsNumberElement, startNumber, endNumber, 60000); // 1-minute animation
     statsElement.innerHTML = `The <span class="stats-number">${endNumber.toLocaleString()}</span> most spoken English sentences<br>and still growing`;
 }
 
