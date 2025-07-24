@@ -6,6 +6,11 @@ let swipeCount = 0;
 let lastResetDate = localStorage.getItem('lastResetDate') || '';
 const today = new Date().toISOString().split('T')[0]; // Current date (YYYY-MM-DD)
 
+// Track visit count for animations
+let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
+visitCount++;
+localStorage.setItem('visitCount', visitCount);
+
 // Reset swipe count if it's a new day
 if (lastResetDate !== today) {
     swipeCount = 0;
@@ -44,11 +49,13 @@ function animateNumber(element, start, end, duration) {
 function updateWebsiteStats() {
     const statsElement = document.getElementById('website-stats');
     const statsNumberElement = document.querySelector('.stats-number');
-    statsElement.style.opacity = '1'; // Instantly visible
     const startNumber = 10000;
     const endNumber = vocabData.length;
     animateNumber(statsNumberElement, startNumber, endNumber, 2000); // 2-second animation
-    statsElement.innerHTML = `The <span class="stats-number">${endNumber.toLocaleString()}</span> most spoken English sentences<br>and still growing`;
+    statsElement.innerHTML = `<span class="stats-number">${endNumber.toLocaleString()}</span> most spoken English sentences<br>cards available and still growing`;
+    // Fade in the stats section
+    statsElement.style.transition = 'opacity 1s ease';
+    statsElement.style.opacity = '1';
 }
 
 // Function to fetch and parse JSONL file
@@ -62,11 +69,13 @@ async function loadVocabData() {
         displayCards();
         updateSwipeCounter();
         updateWebsiteStats();
-        // Start appropriate animation based on device type
-        if (isMobileDevice()) {
-            startMobileAnimation();
-        } else {
-            startPCAnimation();
+        // Start appropriate animation based on device type and visit count
+        if (visitCount <= 10) {
+            if (isMobileDevice()) {
+                startMobileAnimation();
+            } else {
+                startPCAnimation();
+            }
         }
     } catch (error) {
         console.error('Error loading database:', error);
