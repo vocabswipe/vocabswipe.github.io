@@ -43,7 +43,7 @@ html, body {
 /* Website statistics styling */
 .website-stats {
     font-family: Arial, sans-serif;
-    font-size: 1.125rem; /* Increased by 50% from 0.75rem */
+    font-size: 0.9rem; /* Decreased by 20% from 1.125rem */
     font-weight: bold;
     color: #ffffff; /* White for contrast on green background */
     margin-bottom: 5px;
@@ -53,7 +53,7 @@ html, body {
 
 .stats-number {
     font-family: Arial, sans-serif;
-    font-size: 1.95rem; /* Increased by 50% from 1.3rem */
+    font-size: 1.56rem; /* Decreased by 20% from 1.95rem */
     font-weight: bold;
     color: #ffd700; /* Gold to highlight */
 }
@@ -61,7 +61,7 @@ html, body {
 /* Swipe counter styling */
 .swipe-counter {
     font-family: Arial, sans-serif;
-    font-size: 1.125rem; /* Increased by 50% from 0.75rem */
+    font-size: 0.9rem; /* Decreased by 20% from 1.125rem */
     font-weight: bold;
     color: #ffffff; /* White for contrast on green background */
     margin-bottom: 10px;
@@ -248,10 +248,11 @@ html, body {
     font-family: Arial, sans-serif;
     font-size: 1rem;
     font-weight: bold;
-    color: #ffffff;
+    color: #000000; /* Black for contrast with white card background */
     text-align: center;
     z-index: 11;
     opacity: 0; /* Initially hidden */
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.8); /* Slight white shadow for readability */
 }
 
 .arrow.tap-animation, .spacebar.tap-animation {
@@ -329,15 +330,15 @@ html, body {
     }
 
     .website-stats {
-        font-size: 0.975rem; /* Increased by 50% from 0.65rem */
+        font-size: 0.78rem; /* Decreased by 20% from 0.975rem */
     }
 
     .stats-number {
-        font-size: 1.95rem; /* Increased by 50% from 1.3rem */
+        font-size: 1.56rem; /* Decreased by 20% from 1.95rem */
     }
 
     .swipe-counter {
-        font-size: 0.975rem; /* Increased by 50% from 0.65rem */
+        font-size: 0.78rem; /* Decreased by 20% from 0.975rem */
     }
 
     .word {
