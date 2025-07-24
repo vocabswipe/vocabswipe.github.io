@@ -19,6 +19,10 @@ if (lastResetDate !== today) {
 function updateSwipeCounter() {
     const cardText = swipeCount === 1 ? 'card' : 'cards';
     document.getElementById('swipe-counter').textContent = `${swipeCount} ${cardText} swiped today`;
+    // Show swipe counter after first swipe
+    if (swipeCount > 0) {
+        document.getElementById('swipe-counter').style.opacity = '1';
+    }
 }
 
 // Update website statistics display with fade-in
@@ -215,9 +219,6 @@ function startMobileAnimation() {
     ];
 
     let currentStep = 0;
-
-    // Calculate total swipe sequence duration (4 swipes)
-    const swipeSequenceDuration = sequence.slice(0, 4).reduce((total, step) => total + step.duration + step.delay, 0);
 
     // Start animation after 5 seconds
     setTimeout(() => {
@@ -502,10 +503,19 @@ function captureSnapshot() {
     ctx.fillStyle = '#35654d';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Calculate scaling and positioning for the card
+    // Temporarily hide card stack and next card to capture only top card
+    const nextCard = document.getElementById('next-card');
+    const cardStack = document.querySelectorAll('.card-stack');
+    const originalNextCardOpacity = nextCard.style.opacity;
+    const originalCardStackStyles = Array.from(cardStack).map(card => card.style.opacity);
+
+    nextCard.style.opacity = '0';
+    cardStack.forEach(card => card.style.opacity = '0');
+
+    // Calculate scaling and positioning for elements
+    const scale = Math.min(canvas.width / window.innerWidth, canvas.height / window.innerHeight) * 0.9; // Fit within 90% of canvas
     const cardWidth = topCard.offsetWidth;
     const cardHeight = topCard.offsetHeight;
-    const scale = Math.min((canvas.width * 0.8) / cardWidth, (canvas.height * 0.6) / cardHeight); // Fit within 80% width, 60% height
     const scaledCardWidth = cardWidth * scale;
     const scaledCardHeight = cardHeight * scale;
     const cardOffsetX = (canvas.width - scaledCardWidth) / 2;
@@ -533,7 +543,7 @@ function captureSnapshot() {
 
             // Capture top card
             html2canvas(topCard, {
-                backgroundColor: null,
+                backgroundColor: '#ffffff', // Ensure white card background
                 scale: scale
             }).then(cardCanvas => {
                 // Capture website info
@@ -551,6 +561,12 @@ function captureSnapshot() {
                     ctx.drawImage(statsCanvas, statsOffsetX, statsOffsetY, statsWidth, statsHeight);
                     ctx.drawImage(cardCanvas, cardOffsetX, cardOffsetY, scaledCardWidth, scaledCardHeight);
                     ctx.drawImage(infoCanvas, infoOffsetX, infoOffsetY, infoWidth, infoHeight);
+
+                    // Restore card stack and next card visibility
+                    nextCard.style.opacity = originalNextCardOpacity;
+                    cardStack.forEach((card, index) => {
+                        card.style.opacity = originalCardStackStyles[index];
+                    });
 
                     // Convert canvas to PNG and trigger share
                     canvas.toBlob(blob => {
@@ -588,10 +604,42 @@ function captureSnapshot() {
                             alert('Sharing not supported. Image downloaded instead.');
                         }
                     }, 'image/png');
-                }).catch(error => console.error('Error capturing website info:', error));
-            }).catch(error => console.error('Error capturing top card:', error));
-        }).catch(error => console.error('Error capturing swipe counter:', error));
-    }).catch(error => console.error('Error capturing website stats:', error));
+                }).catch(error => {
+                    console.error('Error capturing website info:', error);
+                    alert('Failed to capture snapshot. Please try again.');
+                    // Restore card stack visibility
+                    nextCard.style.opacity = originalNextCardOpacity;
+                    cardStack.forEach((card, index) => {
+                        card.style.opacity = originalCardStackStyles[index];
+                    });
+                });
+            }).catch(error => {
+                console.error('Error capturing top card:', error);
+                alert('Failed to capture snapshot. Please try again.');
+                // Restore card stack visibility
+                nextCard.style.opacity = originalNextCardOpacity;
+                cardStack.forEach((card, index) => {
+                    card.style.opacity = originalCardStackStyles[index];
+                    });
+                });
+        }).catch(error => {
+            console.error('Error capturing swipe counter:', error);
+            alert('Failed to capture snapshot. Please try again.');
+            // Restore card stack visibility
+            nextCard.style.opacity = originalNextCardOpacity;
+            cardStack.forEach((card, index) => {
+                card.style.opacity = originalCardStackStyles[index];
+            });
+        });
+    }).catch(error => {
+        console.error('Error capturing website stats:', error);
+        alert('Failed to capture snapshot. Please try again.');
+        // Restore card stack visibility
+        nextCard.style.opacity = originalNextCardOpacity;
+        cardStack.forEach((card, index) => {
+            card.style.opacity = originalCardStackStyles[index];
+        });
+    });
 }
 
 // Load data when the page loads
