@@ -17,12 +17,16 @@ if (lastResetDate !== today) {
 
 // Update swipe counter display
 function updateSwipeCounter() {
-    document.getElementById('swipe-counter').textContent = `${swipeCount} cards swiped`;
+    document.getElementById('swipe-counter').textContent = `${swipeCount} cards swiped today`;
 }
 
 // Update website statistics display
 function updateWebsiteStats() {
-    document.getElementById('website-stats').innerHTML = `<span class="stats-number">${vocabData.length}</span> most spoken English sentences, and growing`;
+    const statsElement = document.getElementById('website-stats');
+    statsElement.innerHTML = `The <span class="stats-number">${vocabData.length}</span> most spoken English sentences, and still growing`;
+    // Fade-in animation
+    statsElement.style.transition = 'opacity 1s ease';
+    statsElement.style.opacity = '1';
 }
 
 // Function to fetch and parse JSONL file
@@ -129,7 +133,7 @@ function resetAnimations() {
 
     // Reset hand point
     handPoint.style.opacity = '0';
-    handPoint.style.transform = 'translate(-50%, 25%)'; // 25% from bottom
+    handPoint.style.transform = 'translate(-50%, -50%)'; // Center for swipes
     handPoint.classList.remove('tap-animation');
 
     // Reset arrows and spacebar
@@ -176,26 +180,26 @@ function startMobileAnimation() {
     // Animation sequence
     const sequence = [
         { // Left swipe
-            startTransform: 'translate(-50%, 25%)',
-            endTransform: `translate(-${cardWidth}px, 25%)`, // To left edge
-            duration: 600, // Faster
+            startTransform: 'translate(-50%, -50%)', // Center
+            endTransform: `translate(-${cardWidth}px, -50%)`, // To left edge
+            duration: 600,
             delay: 500
         },
         { // Up swipe
-            startTransform: 'translate(-50%, 25%)',
-            endTransform: `translate(-50%, -${cardHeight * 0.75}px)`, // To top edge
+            startTransform: 'translate(-50%, -50%)', // Center
+            endTransform: `translate(-50%, -${cardHeight}px)`, // To top edge
             duration: 600,
             delay: 500
         },
         { // Right swipe
-            startTransform: 'translate(-50%, 25%)',
-            endTransform: `translate(${cardWidth * 0.5}px, 25%)`, // To right edge
+            startTransform: 'translate(-50%, -50%)', // Center
+            endTransform: `translate(${cardWidth}px, -50%)`, // To right edge
             duration: 600,
             delay: 500
         },
         { // Down swipe
-            startTransform: 'translate(-50%, 25%)',
-            endTransform: `translate(-50%, ${cardHeight * 0.25}px)`, // To bottom edge
+            startTransform: 'translate(-50%, -50%)', // Center
+            endTransform: `translate(-50%, ${cardHeight}px)`, // To bottom edge
             duration: 600,
             delay: 500
         },
@@ -267,14 +271,15 @@ function startPCAnimation() {
 
     // Animation sequence
     const sequence = [
-        ...arrows.map(arrow => ({
-            id: arrow.id,
-            startTransform: arrow.startTransform,
-            endTransform: arrow.endTransform,
-            duration: 600, // Faster
+        {
+            ids: arrows.map(arrow => arrow.id), // All arrows at once
+            startTransform: arrows.map(arrow => arrow.startTransform),
+            endTransform: arrows.map(arrow => arrow.endTransform),
+            duration: 1800, // 3 presses at 600ms each
             delay: 500,
-            press: true
-        })),
+            press: true,
+            repeat: 3
+        },
         {
             id: 'spacebar',
             startTransform: 'translate(-50%, 25%)', // 25% from bottom
@@ -297,36 +302,89 @@ function startPCAnimation() {
         }
 
         const step = sequence[currentStep];
-        const element = document.getElementById(step.id);
-        element.style.transform = step.startTransform;
-        element.style.opacity = '0';
 
-        // Fade in
-        setTimeout(() => {
-            element.style.transition = 'opacity 0.5s ease';
-            element.style.opacity = '1';
+        if (step.ids) {
+            // Handle multiple arrows
+            step.ids.forEach((id, index) => {
+                const element = document.getElementById(id);
+                element.style.transform = step.startTransform[index];
+                element.style.opacity = '0';
 
-            // Move or tap
-            setTimeout(() => {
-                element.style.transition = `transform ${step.duration}ms ease`;
-                element.style.transform = step.endTransform;
-
-                if (step.press || step.tap) {
-                    element.classList.add('tap-animation');
-                    card.classList.add('glow');
-                    setTimeout(() => {
-                        card.classList.remove('glow');
-                        element.classList.remove('tap-animation');
-                    }, 600); // Single glow/tap
-                }
-
-                // Proceed to next step
+                // Fade in
                 setTimeout(() => {
-                    currentStep++;
-                    animateStep();
-                }, step.duration + step.delay);
-            }, 500);
-        }, step.delay);
+                    element.style.transition = 'opacity 0.5s ease';
+                    element.style.opacity = '1';
+
+                    // Press animation (3 times)
+                    setTimeout(() => {
+                        element.style.transition = `transform ${step.duration / 3}ms ease`;
+                        element.style.transform = step.endTransform[index];
+
+                        if (step.press) {
+                            element.classList.add('tap-animation');
+                            card.classList.add('glow');
+                            setTimeout(() => {
+                                element.classList.remove('tap-animation');
+                                element.style.transform = step.startTransform[index];
+                                setTimeout(() => {
+                                    element.classList.add('tap-animation');
+                                    setTimeout(() => {
+                                        element.classList.remove('tap-animation');
+                                        element.style.transform = step.endTransform[index];
+                                        setTimeout(() => {
+                                            element.classList.add('tap-animation');
+                                            card.classList.add('glow');
+                                            setTimeout(() => {
+                                                element.classList.remove('tap-animation');
+                                                card.classList.remove('glow');
+                                            }, step.duration / 3);
+                                        }, step.duration / 3);
+                                    }, step.duration / 3);
+                                }, step.duration / 3);
+                            }, step.duration / 3);
+                        }
+                    }, 500);
+                }, step.delay);
+            });
+
+            // Proceed to next step
+            setTimeout(() => {
+                currentStep++;
+                animateStep();
+            }, step.duration + step.delay + 500);
+        } else {
+            // Handle spacebar
+            const element = document.getElementById(step.id);
+            element.style.transform = step.startTransform;
+            element.style.opacity = '0';
+
+            // Fade in
+            setTimeout(() => {
+                element.style.transition = 'opacity 0.5s ease';
+                element.style.opacity = '1';
+
+                // Tap animation
+                setTimeout(() => {
+                    element.style.transition = `transform ${step.duration}ms ease`;
+                    element.style.transform = step.endTransform;
+
+                    if (step.tap) {
+                        element.classList.add('tap-animation');
+                        card.classList.add('glow');
+                        setTimeout(() => {
+                            card.classList.remove('glow');
+                            element.classList.remove('tap-animation');
+                        }, step.duration);
+                    }
+
+                    // Proceed to next step
+                    setTimeout(() => {
+                        currentStep++;
+                        animateStep();
+                    }, step.duration + step.delay);
+                }, 500);
+            }, step.delay);
+        }
     }
 
     // Start animation
@@ -384,10 +442,13 @@ card.addEventListener('touchend', (e) => {
         card.classList.add('glow'); // Add glow effect
         audio.play().catch(error => console.error('Error playing audio:', error));
         card.style.transform = 'translate(0, 0) rotate(0deg)'; // Reset position
-        // Remove glow class after animation completes (0.6s for one pulse)
-        setTimeout(() => {
-            card.classList.remove('glow');
-        }, 600);
+        // Remove glow class after audio duration
+        audio.onloadedmetadata = () => {
+            const duration = audio.duration * 1000; // Convert to milliseconds
+            setTimeout(() => {
+                card.classList.remove('glow');
+            }, duration);
+        };
     } else if (distance > minSwipeDistance) {
         // Calculate swipe direction and animate out
         const angle = Math.atan2(deltaY, deltaX); // Angle in radians
@@ -409,10 +470,13 @@ card.addEventListener('click', (e) => {
     const audio = document.getElementById('card-audio');
     card.classList.add('glow'); // Add glow effect
     audio.play().catch(error => console.error('Error playing audio:', error));
-    // Remove glow class after animation completes (0.6s for one pulse)
-    setTimeout(() => {
-        card.classList.remove('glow');
-    }, 600);
+    // Remove glow class after audio duration
+    audio.onloadedmetadata = () => {
+        const duration = audio.duration * 1000; // Convert to milliseconds
+        setTimeout(() => {
+            card.classList.remove('glow');
+        }, duration);
+    };
 });
 
 // Keyboard controls for PC
@@ -423,10 +487,13 @@ document.addEventListener('keydown', (e) => {
             const audio = document.getElementById('card-audio');
             card.classList.add('glow'); // Add glow effect
             audio.play().catch(error => console.error('Error playing audio:', error));
-            // Remove glow class after animation completes
-            setTimeout(() => {
-                card.classList.remove('glow');
-            }, 600);
+            // Remove glow class after audio duration
+            audio.onloadedmetadata = () => {
+                const duration = audio.duration * 1000; // Convert to milliseconds
+                setTimeout(() => {
+                    card.classList.remove('glow');
+                }, duration);
+            };
             break;
         case 'ArrowLeft':
             moveToNextCard(-window.innerWidth, 0, -15);
@@ -481,10 +548,10 @@ function captureSnapshot() {
 
         // Add website URL and slogan
         ctx.fillStyle = '#ffffff';
-        ctx.font = 'bold 40px Arial';
+        ctx.font = 'bold 20px Arial'; // Reduced by 50%
         ctx.textAlign = 'center';
         ctx.fillText('VocabSwipe.com', canvas.width / 2, offsetY + scaledHeight + 60);
-        ctx.font = 'bold 30px Arial';
+        ctx.font = 'bold 15px Arial'; // Reduced by 50%
         ctx.fillText('Master Words, Swipe by Swipe', canvas.width / 2, offsetY + scaledHeight + 100);
 
         // Convert canvas to PNG and trigger share
