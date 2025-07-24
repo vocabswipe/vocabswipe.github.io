@@ -20,11 +20,10 @@ function updateSwipeCounter() {
     document.getElementById('swipe-counter').textContent = `${swipeCount} cards swiped today`;
 }
 
-// Update website statistics display
+// Update website statistics display with fade-in
 function updateWebsiteStats() {
     const statsElement = document.getElementById('website-stats');
-    statsElement.innerHTML = `The <span class="stats-number">${vocabData.length}</span> most spoken English sentences, and still growing`;
-    // Fade-in animation
+    statsElement.innerHTML = `The <span class="stats-number">${vocabData.length}</span> most spoken English sentences, and still growing.`;
     statsElement.style.transition = 'opacity 1s ease';
     statsElement.style.opacity = '1';
 }
@@ -133,7 +132,7 @@ function resetAnimations() {
 
     // Reset hand point
     handPoint.style.opacity = '0';
-    handPoint.style.transform = 'translate(-50%, -50%)'; // Center for swipes
+    handPoint.style.transform = 'translate(-50%, -50%)'; // Center for swipe, bottom for tap
     handPoint.classList.remove('tap-animation');
 
     // Reset arrows and spacebar
@@ -272,13 +271,12 @@ function startPCAnimation() {
     // Animation sequence
     const sequence = [
         {
-            ids: arrows.map(arrow => arrow.id), // All arrows at once
+            ids: arrows.map(arrow => arrow.id), // Show all arrows at once
             startTransform: arrows.map(arrow => arrow.startTransform),
             endTransform: arrows.map(arrow => arrow.endTransform),
             duration: 1800, // 3 presses at 600ms each
             delay: 500,
-            press: true,
-            repeat: 3
+            press: true
         },
         {
             id: 'spacebar',
@@ -302,52 +300,37 @@ function startPCAnimation() {
         }
 
         const step = sequence[currentStep];
-
         if (step.ids) {
-            // Handle multiple arrows
+            // Handle all arrows simultaneously
             step.ids.forEach((id, index) => {
                 const element = document.getElementById(id);
                 element.style.transform = step.startTransform[index];
                 element.style.opacity = '0';
-
                 // Fade in
                 setTimeout(() => {
                     element.style.transition = 'opacity 0.5s ease';
                     element.style.opacity = '1';
-
-                    // Press animation (3 times)
+                    // Animate three presses
                     setTimeout(() => {
                         element.style.transition = `transform ${step.duration / 3}ms ease`;
                         element.style.transform = step.endTransform[index];
-
-                        if (step.press) {
-                            element.classList.add('tap-animation');
-                            card.classList.add('glow');
+                        element.classList.add('tap-animation');
+                        card.classList.add('glow');
+                        setTimeout(() => {
+                            element.style.transform = step.startTransform[index];
                             setTimeout(() => {
-                                element.classList.remove('tap-animation');
-                                element.style.transform = step.startTransform[index];
+                                element.style.transform = step.endTransform[index];
                                 setTimeout(() => {
-                                    element.classList.add('tap-animation');
-                                    setTimeout(() => {
-                                        element.classList.remove('tap-animation');
-                                        element.style.transform = step.endTransform[index];
-                                        setTimeout(() => {
-                                            element.classList.add('tap-animation');
-                                            card.classList.add('glow');
-                                            setTimeout(() => {
-                                                element.classList.remove('tap-animation');
-                                                card.classList.remove('glow');
-                                            }, step.duration / 3);
-                                        }, step.duration / 3);
-                                    }, step.duration / 3);
+                                    element.style.transform = step.startTransform[index];
+                                    card.classList.remove('glow');
+                                    element.classList.remove('tap-animation');
                                 }, step.duration / 3);
                             }, step.duration / 3);
-                        }
+                        }, step.duration / 3);
                     }, 500);
                 }, step.delay);
             });
-
-            // Proceed to next step
+            // Proceed to next step after all presses
             setTimeout(() => {
                 currentStep++;
                 animateStep();
@@ -357,26 +340,22 @@ function startPCAnimation() {
             const element = document.getElementById(step.id);
             element.style.transform = step.startTransform;
             element.style.opacity = '0';
-
             // Fade in
             setTimeout(() => {
                 element.style.transition = 'opacity 0.5s ease';
                 element.style.opacity = '1';
-
-                // Tap animation
+                // Tap
                 setTimeout(() => {
                     element.style.transition = `transform ${step.duration}ms ease`;
                     element.style.transform = step.endTransform;
-
                     if (step.tap) {
                         element.classList.add('tap-animation');
                         card.classList.add('glow');
                         setTimeout(() => {
                             card.classList.remove('glow');
                             element.classList.remove('tap-animation');
-                        }, step.duration);
+                        }, 600); // Single glow/tap
                     }
-
                     // Proceed to next step
                     setTimeout(() => {
                         currentStep++;
@@ -442,13 +421,10 @@ card.addEventListener('touchend', (e) => {
         card.classList.add('glow'); // Add glow effect
         audio.play().catch(error => console.error('Error playing audio:', error));
         card.style.transform = 'translate(0, 0) rotate(0deg)'; // Reset position
-        // Remove glow class after audio duration
-        audio.onloadedmetadata = () => {
-            const duration = audio.duration * 1000; // Convert to milliseconds
-            setTimeout(() => {
-                card.classList.remove('glow');
-            }, duration);
-        };
+        // Remove glow class after animation completes (0.6s for one pulse)
+        setTimeout(() => {
+            card.classList.remove('glow');
+        }, 600);
     } else if (distance > minSwipeDistance) {
         // Calculate swipe direction and animate out
         const angle = Math.atan2(deltaY, deltaX); // Angle in radians
@@ -470,13 +446,10 @@ card.addEventListener('click', (e) => {
     const audio = document.getElementById('card-audio');
     card.classList.add('glow'); // Add glow effect
     audio.play().catch(error => console.error('Error playing audio:', error));
-    // Remove glow class after audio duration
-    audio.onloadedmetadata = () => {
-        const duration = audio.duration * 1000; // Convert to milliseconds
-        setTimeout(() => {
-            card.classList.remove('glow');
-        }, duration);
-    };
+    // Remove glow class after animation completes (0.6s for one pulse)
+    setTimeout(() => {
+        card.classList.remove('glow');
+    }, 600);
 });
 
 // Keyboard controls for PC
@@ -487,13 +460,10 @@ document.addEventListener('keydown', (e) => {
             const audio = document.getElementById('card-audio');
             card.classList.add('glow'); // Add glow effect
             audio.play().catch(error => console.error('Error playing audio:', error));
-            // Remove glow class after audio duration
-            audio.onloadedmetadata = () => {
-                const duration = audio.duration * 1000; // Convert to milliseconds
-                setTimeout(() => {
-                    card.classList.remove('glow');
-                }, duration);
-            };
+            // Remove glow class after animation completes
+            setTimeout(() => {
+                card.classList.remove('glow');
+            }, 600);
             break;
         case 'ArrowLeft':
             moveToNextCard(-window.innerWidth, 0, -15);
@@ -548,10 +518,10 @@ function captureSnapshot() {
 
         // Add website URL and slogan
         ctx.fillStyle = '#ffffff';
-        ctx.font = 'bold 20px Arial'; // Reduced by 50%
+        ctx.font = 'bold 20px Arial';
         ctx.textAlign = 'center';
         ctx.fillText('VocabSwipe.com', canvas.width / 2, offsetY + scaledHeight + 60);
-        ctx.font = 'bold 15px Arial'; // Reduced by 50%
+        ctx.font = 'bold 15px Arial';
         ctx.fillText('Master Words, Swipe by Swipe', canvas.width / 2, offsetY + scaledHeight + 100);
 
         // Convert canvas to PNG and trigger share
