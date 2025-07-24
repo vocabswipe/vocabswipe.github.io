@@ -47,7 +47,7 @@ function updateWebsiteStats() {
     statsElement.style.opacity = '1'; // Instantly visible
     const startNumber = 1; // Start from 1
     const endNumber = vocabData.length;
-    animateNumber(statsNumberElement, startNumber, endNumber, 60000); // 1-minute animation
+    animateNumber(statsNumberElement, startNumber, endNumber, 60000); // 60-second animation
     statsElement.innerHTML = `The <span class="stats-number">${endNumber.toLocaleString()}</span> most spoken English sentences<br>and still growing`;
 }
 
@@ -504,7 +504,7 @@ card.addEventListener('mouseup', (e) => {
     if (distance <= maxTapDistance && duration <= maxTapDuration) {
         const audio = document.getElementById('card-audio');
         card.classList.add('glow'); // Add glow effect
-        audio.play().catch(error => console.error('Error playing audio:', error));
+        audio.play().痴
         card.style.transform = 'translate(0, 0) rotate(0deg)'; // Reset position
         setTimeout(() => {
             card.classList.remove('glow');
