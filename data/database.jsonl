@@ -3161,12 +3161,10 @@
 {"word": "street", "english": "The street is so quiet now.", "thai": "ถนนเงียบมากตอนนี้", "audio": "audio/18520a853005ba8acd1ac0af02e8fd1e.mp3"}
 {"word": "street", "english": "Can you cross the street safely?", "thai": "คุณข้ามถนนได้อย่างปลอดภัยไหม", "audio": "audio/ca66301e527a365f117b7676f7245509.mp3"}
 {"word": "street", "english": "The street is full of cars.", "thai": "ถนนเต็มไปด้วยรถยนต์", "audio": "audio/493fb5fc31a7d1492d6d49c5f04b689f.mp3"}
-{"word": "street", "english": "I saw a dog on the street.", "thai": "ฉันเห็นสุนัขบนถนน", "audio": "audio/f993a0b02c93606eee8522e55bbe6fa3.mp3"}
 {"word": "street", "english": "The street needs more lights.", "thai": "ถนนต้องการไฟเพิ่ม", "audio": "audio/4f053f8f576958f54420eafccf2aea4b.mp3"}
 {"word": "street", "english": "We’re dancing on the street.", "thai": "เรากำลังเต้นรำบนถนน", "audio": "audio/a083a7db425c1ef691c77381de2f90c0.mp3"}
 {"word": "street", "english": "The street is wet from rain.", "thai": "ถนนเปียกจากฝน", "audio": "audio/4c823ba478a964d6845a7ffe2bda9f83.mp3"}
 {"word": "street", "english": "I live on this street.", "thai": "ฉันอาศัยอยู่บนถนนนี้", "audio": "audio/4d0d35d95cd1d1113a2043cc67a71f6d.mp3"}
-{"word": "street", "english": "The street smells like flowers.", "thai": "ถนนมีกลิ่นเหมือนดอกไม้", "audio": "audio/e74a9a60dcaf42584558a0a27403e615.mp3"}
 {"word": "street", "english": "There’s a café on the street.", "thai": "มีร้านกาแฟอยู่บนถนน", "audio": "audio/9ed2145b37096587f41016519fe42eeb.mp3"}
 {"word": "street", "english": "The street is blocked today.", "thai": "ถนนถูกปิดกั้นวันนี้", "audio": "audio/dba3cfee168335adf9743e65c2989a79.mp3"}
 {"word": "street", "english": "I’m biking on the street.", "thai": "ฉันกำลังปั่นจักรยานบนถนน", "audio": "audio/785201685501fd55a341c756c25c6ada.mp3"}
@@ -3727,7 +3725,6 @@
 {"word": "food", "english": "I’m ordering food online.", "thai": "ฉันกำลังสั่งอาหารออนไลน์", "audio": "audio/2f0cf7625133df25ea244e2a24f847df.mp3"}
 {"word": "food", "english": "The food was a bit salty.", "thai": "อาหารเค็มนิดหน่อย", "audio": "audio/cd05aba0d96dc20042d6da55238c2709.mp3"}
 {"word": "food", "english": "He’s cooking food for friends.", "thai": "เขากำลังทำอาหารให้เพื่อน", "audio": "audio/552ac98ed0a238df90cf206e4f07c4f6.mp3"}
-{"word": "food", "english": "The food tastes homemade.", "thai": "อาหารรสชาติเหมือนทำเองที่บ้าน", "audio": "audio/e0b9fb795e28a90b8be94652d123a7cb.mp3"}
 {"word": "food", "english": "I love trying exotic food.", "thai": "ฉันรักการลองอาหารแปลกใหม่", "audio": "audio/b37d1578e8e705ab2677b561e27fc6de.mp3"}
 {"word": "food", "english": "The food is very flavorful.", "thai": "อาหารมีรสชาติมาก", "audio": "audio/45984969ba5a89e560b6efd6823f2ae8.mp3"}
 {"word": "food", "english": "She’s buying food for dinner.", "thai": "เธอกำลังซื้ออาหารสำหรับมื้อเย็น", "audio": "audio/8461abc680ca05a4767dad16940751df.mp3"}
@@ -3874,7 +3871,6 @@
 {"word": "milk", "english": "He’s mixing milk with cereal.", "thai": "เขากำลังผสมนมกับซีเรียล", "audio": "audio/113fef97830be6f3c0951e827c5c1c08.mp3"}
 {"word": "milk", "english": "The milk feels too warm.", "thai": "นมรู้สึกอุ่นเกินไป", "audio": "audio/7ad90c263d5a992ecf6adecfde4e9e91.mp3"}
 {"word": "milk", "english": "She’s buying soy milk.", "thai": "เธอกำลังซื้อนมถั่วเหลือง", "audio": "audio/54e8ea1fefafca96eeabd94a9dedd2de.mp3"}
-{"word": "milk", "english": "The milk is in a jug.", "thai": "นมอยู่ในเหยือก", "audio": "audio/37668b6f263b95589ab2a793432aaada.mp3"}
 {"word": "milk", "english": "I’m drinking milk before bed.", "thai": "ฉันกำลังดื่มนมก่อนนอน", "audio": "audio/929a2743cc9c8e6167c7e64f0abad14a.mp3"}
 {"word": "milk", "english": "The milk is lactose-free.", "thai": "นมปราศจากแลคโตส", "audio": "audio/443332aca89d5496efd49d33339ce5c6.mp3"}
 {"word": "milk", "english": "He loves cold milk.", "thai": "เขาชอบนมเย็น", "audio": "audio/892eef52f3fb7dc530caef5a495ba179.mp3"}
@@ -3890,7 +3886,6 @@
 {"word": "milk", "english": "I love vanilla milk.", "thai": "ฉันชอบนมวานิลลา", "audio": "audio/e7cb20f60354442af3bf29efcb8bdcf2.mp3"}
 {"word": "milk", "english": "The milk is too sweet.", "thai": "นมหวานเกินไป", "audio": "audio/46410f480cebecc796976a9a8768ad0d.mp3"}
 {"word": "milk", "english": "He’s buying milk at the shop.", "thai": "เขากำลังซื้อนมที่ร้าน", "audio": "audio/3914bdb0b9754f60acbb1913ae3b2c69.mp3"}
-{"word": "milk", "english": "The milk is in a bottle.", "thai": "นมอยู่ในขวด", "audio": "audio/7a17d5e3a5adb966e964ebbbafe3da29.mp3"}
 {"word": "milk", "english": "She’s drinking warm milk.", "thai": "เธอกำลังดื่มนมอุ่น", "audio": "audio/0541953151178971921784b2826d6171.mp3"}
 {"word": "milk", "english": "The milk is full-fat.", "thai": "นมเป็นแบบไขมันเต็ม", "audio": "audio/81861161ed49751b355e8a7d0947b019.mp3"}
 {"word": "milk", "english": "I’m using milk in the soup.", "thai": "ฉันกำลังใช้นมในซุป", "audio": "audio/2c930510a96719922ea3ca6eedf506fb.mp3"}
@@ -4082,7 +4077,6 @@
 {"word": "fruit", "english": "I’m adding fruit to my cereal.", "thai": "ฉันกำลังเพิ่มผลไม้ในซีเรียล", "audio": "audio/2d07700bf5c68520d97761923316cbe4.mp3"}
 {"word": "fruit", "english": "The fruit smells sweet.", "thai": "ผลไม้กลิ่นหวาน", "audio": "audio/c6e471c662f8e71161d27e2c8c3cb89c.mp3"}
 {"word": "fruit", "english": "She’s buying fruit for a party.", "thai": "เธอกำลังซื้อผลไม้สำหรับงานปาร์ตี้", "audio": "audio/3e1ac866c1073d1f0899c6afcd967c28.mp3"}
-{"word": "fruit", "english": "The fruit is very ripe.", "thai": "ผลไม้สุกมาก", "audio": "audio/a27bcea652dc4d80063c4577130a633e.mp3"}
 {"word": "fruit", "english": "He loves exotic fruit.", "thai": "เขาชอบผลไม้แปลกใหม่", "audio": "audio/cca0c74e678c0ed65b0b30847632d340.mp3"}
 {"word": "fruit", "english": "The fruit is in the kitchen.", "thai": "ผลไม่อยู่ในครัว", "audio": "audio/5feefd9ac2629616d21c2da358ceceb8.mp3"}
 {"word": "fruit", "english": "I’m eating fruit for dessert.", "thai": "ฉันกำลังกินผลไม้เป็นของหวาน", "audio": "audio/708daec6be2f3429ef6ecf6556cd7b9e.mp3"}
@@ -4106,7 +4100,6 @@
 {"word": "fruit", "english": "I love fruit with yogurt.", "thai": "ฉันชอบผลไม้กับโยเกิร์ต", "audio": "audio/75f44185e72e5350bb6eeff95b2226cc.mp3"}
 {"word": "fruit", "english": "The fruit tastes juicy.", "thai": "ผลไม้รสชาติฉ่ำ", "audio": "audio/232a2b7cc319ee70f3aebbf2a5a8b797.mp3"}
 {"word": "fruit", "english": "She’s making fruit jam.", "thai": "เธอกำลังทำแยมผลไม้", "audio": "audio/3623953b4e53d9f3a4d60515bf453d4b.mp3"}
-{"word": "fruit", "english": "The fruit is on the shelf.", "thai": "ผลไม่อยู่บนชั้น", "audio": "audio/6a55ba006b802f30abb62ca7cd27c24b.mp3"}
 {"word": "fruit", "english": "He’s buying fruit for smoothies.", "thai": "เขากำลังซื้อผลไม้สำหรับสมูทตี้", "audio": "audio/64165ed3d43a9466a9c7c0f8bbe3d247.mp3"}
 {"word": "fruit", "english": "The fruit is a bit bitter.", "thai": "ผลไม้ขมเล็กน้อย", "audio": "audio/7a07a73e0a061f4e1d9ab5e9937219f8.mp3"}
 {"word": "fruit", "english": "I’m eating fruit for a snack.", "thai": "ฉันกำลังกินผลไม้เป็นของว่าง", "audio": "audio/38d8b69d9859752ef360b76f6288fb3c.mp3"}
@@ -4463,7 +4456,6 @@
 {"word": "meat", "english": "I’m baking meat with spices.", "thai": "ฉันกำลังอบเนื้อกับเครื่องเทศ", "audio": "audio/bf6b821f7eb72838ade052683426e9e4.mp3"}
 {"word": "meat", "english": "She’s researching meat alternatives.", "thai": "เธอกำลังวิจัยทางเลือกของเนื้อ", "audio": "audio/25558c59ee0633361c2e0395e2f1f53f.mp3"}
 {"word": "meat", "english": "The meat market is busy today.", "thai": "ตลาดเนื้อคึกคักวันนี้", "audio": "audio/91c3a6c2fbfc6cb7a90d8285f6c5daab.mp3"}
-{"word": "meat", "english": "He’s eating meat skewers.", "thai": "เขากำลังกินเนื้อเสียบไม้", "audio": "audio/f2d99f189cd1b83fceade67f191c36b7.mp3"}
 {"word": "meat", "english": "This meat dish needs more seasoning.", "thai": "จานเนื้อนี้ต้องปรุงรสเพิ่ม", "audio": "audio/f13085d83d7f3558d373cb1df8bc9c1e.mp3"}
 {"word": "meat", "english": "I’m grilling meat for the party.", "thai": "ฉันกำลังย่างเนื้อสำหรับงานปาร์ตี้", "audio": "audio/8b3bd0e5f4e683b1afd9dff01fcb2291.mp3"}
 {"word": "meat", "english": "She’s making meat dumplings.", "thai": "เธอกำลังทำเกี๊ยวเนื้อ", "audio": "audio/39015cb835054cf962c39da2992eb861.mp3"}
@@ -5697,7 +5689,6 @@
 {"word": "phone", "english": "She’s taking a selfie with her phone.", "thai": "เธอกำลังถ่ายเซลฟี่ด้วยโทรศัพท์", "audio": "audio/5aa7ad4901296e9f277db1438164389c.mp3"}
 {"word": "phone", "english": "I need to unlock my phone.", "thai": "ฉันต้องปลดล็อกโทรศัพท์", "audio": "audio/9b071be96be5c53997b0cbf972638c2b.mp3"}
 {"word": "phone", "english": "The phone has a cracked screen.", "thai": "หน้าจอโทรศัพท์แตก", "audio": "audio/eb8d9050e767d35e1ed80d8893f2733c.mp3"}
-{"word": "phone", "english": "I’m reading a book on my phone.", "thai": "ฉันกำลังอ่านหนังสือในโทรศัพท์", "audio": "audio/b29525d7a340557b78c696f76a65b7fc.mp3"}
 {"word": "phone", "english": "My phone is connected to Wi-Fi.", "thai": "โทรศัพท์ของฉันเชื่อมต่อกับไวไฟ", "audio": "audio/c85d88d4a0f60a9d54d48f85fcf50b80.mp3"}
 {"word": "phone", "english": "He’s video chatting on his phone.", "thai": "เขากำลังวิดีโอคอลในโทรศัพท์", "audio": "audio/b0460ca997dd02401e457e90273c6b3b.mp3"}
 {"word": "phone", "english": "I’m checking the weather on my phone.", "thai": "ฉันกำลังเช็คสภาพอากาศในโทรศัพท์", "audio": "audio/bfa3997b4b70285be54ac99f50271097.mp3"}
@@ -7750,7 +7741,6 @@
 {"word": "sky", "english": "I saw a rainbow in the sky.", "thai": "ฉันเห็นรุ้งกินน้ำบนท้องฟ้า", "audio": "audio/e167a0c981dcfd8214988175a77043a6.mp3"}
 {"word": "sky", "english": "The sky turned orange at sunset.", "thai": "ท้องฟ้าเปลี่ยนเป็นสีส้มตอนพระอาทิตย์ตก", "audio": "audio/a8593e58920b5c5cf317fcd1e34460d9.mp3"}
 {"word": "sky", "english": "She’s painting a picture of the sky.", "thai": "เธอกำลังวาดภาพท้องฟ้า", "audio": "audio/203ec73cb815ce51a5b815b64452afe2.mp3"}
-{"word": "sky", "english": "The sky was filled with stars tonight.", "thai": "ท้องฟ้าเต็มไปด้วยดวงดาวในคืนนี้", "audio": "audio/bdb8b287efa0918a1eadd1a39102591b.mp3"}
 {"word": "sky", "english": "I’m gazing at the sky from my window.", "thai": "ฉันกำลังจ้องมองท้องฟ้าจากหน้าต่าง", "audio": "audio/3b8591def522655863945cedd8aa2413.mp3"}
 {"word": "sky", "english": "The sky was dark with storm clouds.", "thai": "ท้องฟ้ามืดด้วยเมฆพายุ", "audio": "audio/40c1093781e10db7674c914f7b6d26c4.mp3"}
 {"word": "sky", "english": "He’s filming the sky at dusk.", "thai": "เขากำลังถ่ายทำท้องฟ้าตอนพลบค่ำ", "audio": "audio/be9667e8cec2aca320f377394d48c5f3.mp3"}
@@ -7868,13 +7858,11 @@
 {"word": "cloud", "english": "The cloud was heavy with snow.", "thai": "เมฆนั้นหนักด้วยหิมะ", "audio": "audio/5657bf160b07f80f4fc7562995ef454a.mp3"}
 {"word": "cloud", "english": "I’m watching a cloud from my window.", "thai": "ฉันกำลังดูเมฆจากหน้าต่าง", "audio": "audio/8eb64c2638a8fc09838a615010c9bb0d.mp3"}
 {"word": "cloud", "english": "The cloud looked like a cotton ball.", "thai": "เมฆนั้นดูเหมือนก้อนสำลี", "audio": "audio/ab081b6df4740c641e77db9107f77517.mp3"}
-{"word": "cloud", "english": "He’s sketching a cloud with a storm.", "thai": "เขากำลังร่างภาพเมฆพร้อมพายุ", "audio": "audio/c80da266184b35dcec88c89a66b4a033.mp3"}
 {"word": "cloud", "english": "The cloud was low over the valley.", "thai": "เมฆอยู่ต่ำเหนือหุบเขา", "audio": "audio/7726f610ed35c0b3e076c183c43d3d02.mp3"}
 {"word": "cloud", "english": "I saw a cloud shaped like a ship.", "thai": "ฉันเห็นเมฆที่มีรูปร่างเหมือนเรือ", "audio": "audio/0d583a14788c7239a94df8fb2b17b39c.mp3"}
 {"word": "cloud", "english": "The cloud drifted over the ocean.", "thai": "เมฆลอยเหนือมหาสมุทร", "audio": "audio/08105bdc33291f2f22b28516787a2fbc.mp3"}
 {"word": "cloud", "english": "She’s writing a story about a cloud.", "thai": "เธอกำลังเขียนเรื่องราวเกี่ยวกับเมฆ", "audio": "audio/537ac57382b5a490a7b60e7194875098.mp3"}
 {"word": "cloud", "english": "The cloud was lit by the sunset.", "thai": "เมฆถูกสว่างด้วยแสงพระอาทิตย์ตก", "audio": "audio/2fff7244b1230d330386a6041b802846.mp3"}
-{"word": "cloud", "english": "I’m lying under a stormy cloud.", "thai": "ฉันนอนอยู่ใต้เมฆพายุ", "audio": "audio/ec5d1e50f47dc20b4ee3f33189752187.mp3"}
 {"word": "cloud", "english": "The cloud was too dark for photos.", "thai": "เมฆมืดเกินไปสำหรับถ่ายรูป", "audio": "audio/70fa6ffca12bf5588aa5e4d5d3288374.mp3"}
 {"word": "cloud", "english": "He’s filming a cloud with lightning.", "thai": "เขากำลังถ่ายทำเมฆพร้อมฟ้าผ่า", "audio": "audio/eeb02a05ccb699398461a41fa7b6dd42.mp3"}
 {"word": "cloud", "english": "The cloud was soft and white.", "thai": "เมฆนั้นนุ่มและขาว", "audio": "audio/af32b1bd5b43a91495d7e968d82d8548.mp3"}
@@ -8238,12 +8226,10 @@
 {"word": "wall", "english": "We’re adding a wall mural.", "thai": "เรากำลังเพิ่มจิตรกรรมฝาผนังบนกำแพง", "audio": "audio/ab770fd62a49027f9bc68ab0a161bff9.mp3"}
 {"word": "wall", "english": "The wall is covered in chalkboard paint.", "thai": "กำแพงถูกทาด้วยสีกระดานดำ", "audio": "audio/74563d47afd96a0d0f43556113af2ea1.mp3"}
 {"word": "wall", "english": "I saw a bat on the wall.", "thai": "ฉันเห็นค้างคาวบนกำแพง", "audio": "audio/9762c5c7985c7cb606fd78e1bd167c16.mp3"}
-{"word": "picture", "english": "I hung a picture on the wall.", "thai": "ฉันแขวนรูปภาพบนกำแพง", "audio": "audio/cd9678cd8ccd4bb240c442161a6db9bb.mp3"}
 {"word": "picture", "english": "Can you take a picture of us?", "thai": "คุณถ่ายรูปให้เราได้ไหม", "audio": "audio/76c9327218b9c21e4d151b583d7e5377.mp3"}
 {"word": "picture", "english": "The picture is crooked.", "thai": "รูปภาพเอียง", "audio": "audio/f348f76e05e988d150044f38a36e4c86.mp3"}
 {"word": "picture", "english": "I found an old picture in the attic.", "thai": "ฉันเจอรูปภาพเก่าในห้องใต้หลังคา", "audio": "audio/a77bbc3ff0d22690c9a6dcc703885c9d.mp3"}
 {"word": "picture", "english": "This picture is worth a thousand words.", "thai": "รูปภาพนี้มีค่าพันคำ", "audio": "audio/f4ff377b61b5490d7a8db0b2b03417be.mp3"}
-{"word": "picture", "english": "She drew a picture of a tree.", "thai": "เธอวาดรูปต้นไม้", "audio": "audio/a4bd3026a997d1a8badfbd3826455390.mp3"}
 {"word": "picture", "english": "The picture fell off the wall.", "thai": "รูปภาพตกลงจากกำแพง", "audio": "audio/b3061db107fee83d4f3a42fd53628e33.mp3"}
 {"word": "picture", "english": "I love the colors in this picture.", "thai": "ฉันชอบสีในรูปภาพนี้", "audio": "audio/1707411dda22c6029e800bd26423a13f.mp3"}
 {"word": "picture", "english": "We need a frame for this picture.", "thai": "เราต้องการกรอบสำหรับรูปภาพนี้", "audio": "audio/110f72f7c3ca84f19d6a369f5d3f30e6.mp3"}
@@ -8271,7 +8257,6 @@
 {"word": "picture", "english": "The picture is slightly torn.", "thai": "รูปภาพขาดเล็กน้อย", "audio": "audio/2cd64c6e521baf701e94a5da2f8c0d13.mp3"}
 {"word": "picture", "english": "I drew a picture of my house.", "thai": "ฉันวาดรูปบ้านของฉัน", "audio": "audio/443c2bdc70028e80d6ac6c6aa7d635c7.mp3"}
 {"word": "picture", "english": "The picture is on the fridge.", "thai": "รูปภาพอยู่บนตู้เย็น", "audio": "audio/eda12f88065adec1be42ef3a7aee596b.mp3"}
-{"word": "picture", "english": "I took a picture with my phone.", "thai": "ฉันถ่ายรูปด้วยโทรศัพท์", "audio": "audio/d94a1991dae1c4a5ebf541af26e76a16.mp3"}
 {"word": "picture", "english": "The picture is of a mountain.", "thai": "รูปภาพนี้เป็นภาพภูเขา", "audio": "audio/53aec5ba07588804adf5ca4ea625482e.mp3"}
 {"word": "picture", "english": "We need a new picture for the album.", "thai": "เราต้องการรูปใหม่สำหรับอัลบั้ม", "audio": "audio/7a07b400857e7ff1eb9a51bca74a7c2e.mp3"}
 {"word": "picture", "english": "The picture is too small to see.", "thai": "รูปภาพเล็กเกินกว่าจะมองเห็น", "audio": "audio/0bb56eaa1e06a2ef9c79d1dd66f5a1ac.mp3"}
@@ -9515,7 +9500,6 @@
 {"word": "time", "english": "The time in Chiang Mai is perfect for a night market.", "thai": "เวลาในเชียงใหม่เหมาะสำหรับไปตลาดกลางคืน", "audio": "audio/f24139cfd54d6b664bba7ab174c65d2f.mp3"}
 {"word": "time", "english": "I had a fun time at the festival.", "thai": "ฉันมีช่วงเวลาที่สนุกในงานเทศกาล", "audio": "audio/55282453f392ef1c52a27433bb87f0f2.mp3"}
 {"word": "time", "english": "It’s time to make dinner.", "thai": "ถึงเวลาทำอาหารเย็นแล้ว", "audio": "audio/bc9a17ae74bcae3a43878657e21e4085.mp3"}
-{"word": "time", "english": "I love spending time with my family.", "thai": "ฉันชอบใช้เวลากับครอบครัว", "audio": "audio/90a60f4e32be7d8b652fbfd818f7a938.mp3"}
 {"word": "time", "english": "What time is it in Bangkok?", "thai": "ตอนนี้ที่กรุงเทพเป็นเวลากี่โมง?", "audio": "audio/2c1b79098327186613516aad31dfa32c.mp3"}
 {"word": "time", "english": "I wasted time looking for my keys.", "thai": "ฉันเสียเวลาหากุญแจ", "audio": "audio/d939fb4a37eec6c4b1cd018ccdf5093b.mp3"}
 {"word": "time", "english": "It’s a good time to go shopping.", "thai": "เป็นเวลาที่ดีสำหรับไปช็อปปิ้ง", "audio": "audio/a08b7e9c3bf362d740b979c69e9b656d.mp3"}
@@ -9564,7 +9548,6 @@
 {"word": "hour", "english": "I walked for an hour this morning.", "thai": "เช้านี้ฉันเดินหนึ่งชั่วโมง", "audio": "audio/81e5808e31bf8d861ef3d07071c0c2f5.mp3"}
 {"word": "hour", "english": "It’s happy hour at the restaurant!", "thai": "เป็นช่วงแฮปปี้อาวร์ที่ร้านอาหาร!", "audio": "audio/477be5c7275ce8e6f2ca3f46de65bf53.mp3"}
 {"word": "hour", "english": "I spent an hour on the phone.", "thai": "ฉันใช้เวลาหนึ่งชั่วโมงคุยโทรศัพท์", "audio": "audio/5c1aaafbe2b4c6d123915a1a33ef0471.mp3"}
-{"word": "hour", "english": "The time difference is seven hours.", "thai": "ส่วนต่างของเวลาคือเจ็ดชั่วโมง", "audio": "audio/4d38a45a5f78e9665060f065cc82a133.mp3"}
 {"word": "hour", "english": "I need one more hour to finish.", "thai": "ฉันต้องการอีกหนึ่งชั่วโมงเพื่อทำเสร็จ", "audio": "audio/56e4829fbf25eed2e8e915ccd867bb5c.mp3"}
 {"word": "hour", "english": "The shop is open for another hour.", "thai": "ร้านยังเปิดอยู่อีกหนึ่งชั่วโมง", "audio": "audio/d4bac3e3efdbd9a07254de92127b83da.mp3"}
 {"word": "hour", "english": "I jogged for an hour today.", "thai": "วันนี้ฉันวิ่งจ็อกกิ้งหนึ่งชั่วโมง", "audio": "audio/9ba5ad1def7237c5567d721252366897.mp3"}
@@ -9937,7 +9920,6 @@
 {"word": "be", "english": "Don’t be late for the meeting.", "thai": "อย่ามาสายในการประชุม", "audio": "audio/4a6a57553ad7e597913871a1f19b1974.mp3"}
 {"word": "be", "english": "It’s going to be a long day.", "thai": "มันจะเป็นวันที่ยาวนาน", "audio": "audio/0f97c4139aad4216066f72cc5ca6d994.mp3"}
 {"word": "be", "english": "Can you be more specific?", "thai": "คุณเจาะจงกว่านี้ได้ไหม?", "audio": "audio/1bf2584b35695904ce434c66f6d96ef1.mp3"}
-{"word": "be", "english": "I’ll be there in ten minutes.", "thai": "ฉันจะถึงที่นั่นในสิบนาที", "audio": "audio/e0cf088dc50ff7b35afb27f78b8b4b50.mp3"}
 {"word": "be", "english": "Let’s be honest about this.", "thai": "มาเป็นคนตรงไปตรงกันเถอะ", "audio": "audio/1170bce575c48a978a9db4cf6261d4e8.mp3"}
 {"word": "be", "english": "That can’t be true!", "thai": "นั่นเป็นไปไม่ได้!", "audio": "audio/7a576f76141aa0361e3c768459150009.mp3"}
 {"word": "be", "english": "I need to be at the airport by six.", "thai": "ฉันต้องถึงสนามบินก่อนหกโมง", "audio": "audio/46ed8efecccfdf032f1027fda66e08cb.mp3"}
@@ -10251,7 +10233,6 @@
 {"word": "bring", "english": "Can you bring the report to the office?", "thai": "คุณช่วยนำรายงานไปที่ออฟฟิศได้ไหม?", "audio": "audio/48832cb079686d5bb10aea185d3bc9c7.mp3"}
 {"word": "bring", "english": "I’ll bring my umbrella just in case.", "thai": "ฉันจะนำร่มไปด้วยเผื่อไว้", "audio": "audio/a62b9b88488a8ea47b6e8755696b26ae.mp3"}
 {"word": "bring", "english": "Please bring your ticket to the event.", "thai": "โปรดนำตั๋วไปที่งาน", "audio": "audio/b2e15ee664bfd930a8fe00880a8dbf1f.mp3"}
-{"word": "bring", "english": "He forgot to bring his wallet.", "thai": "เขาลืมนำกระเป๋าสตางค์มา", "audio": "audio/6c1eb91f66a2a75af41daf6131203e2b.mp3"}
 {"word": "bring", "english": "Can you bring some plates to the table?", "thai": "คุณช่วยนำจานมาไว้ที่โต๊ะได้ไหม?", "audio": "audio/ad8f7822e78dc9a517d4f5f82578d53b.mp3"}
 {"word": "bring", "english": "I’ll bring my kids to the park.", "thai": "ฉันจะพาลูกๆ ไปที่สวนสาธารณะ", "audio": "audio/6d41fc56c7a999a49eb4e7e1aa36987b.mp3"}
 {"word": "bring", "english": "Don’t bring your phone to dinner.", "thai": "อย่าเอาโทรศัพท์มาระหว่างมื้อเย็น", "audio": "audio/f61da7c79b5ec5bbbdc26a2076c3726a.mp3"}
@@ -10477,7 +10458,6 @@
 {"word": "call", "english": "Don’t call me so early!", "thai": "อย่าโทรหาฉันเช้าเกินไป!", "audio": "audio/c28101f554ed246736cbde0e41f5b6a4.mp3"}
 {"word": "call", "english": "Can you call the pharmacy for me?", "thai": "คุณโทรหาเภสัชได้ไหม?", "audio": "audio/a4fabbc2be29f55d681ae3a312a6c240.mp3"}
 {"word": "call", "english": "She got a call from her professor.", "thai": "เธอได้รับโทรศัพท์จากอาจารย์", "audio": "audio/e8e3e1649378a918af90109f4a7aa2a4.mp3"}
-{"word": "call", "english": "I need to call my friend back.", "thai": "ฉันต้องโทรกลับหาเพื่อน", "audio": "audio/812798cd4b20f33e0b877e2c1e5a095e.mp3"}
 {"word": "call", "english": "Let’s call the game off.", "thai": "มายกเลิกเกมกัน", "audio": "audio/c07dbf9806d7cb2883385a2dcf8742e2.mp3"}
 {"word": "call", "english": "I’ll call the repair shop tomorrow.", "thai": "ฉันจะโทรไปร้านซ่อมพรุ่งนี้", "audio": "audio/96a58fe79d410c8cfabe612fe0bb0918.mp3"}
 {"word": "call", "english": "Can you call me in an hour?", "thai": "คุณโทรหาฉันในอีกชั่วโมงได้ไหม?", "audio": "audio/9d33378589349bf31da8c2c1c90b055b.mp3"}
@@ -10567,7 +10547,6 @@
 {"word": "can", "english": "Can you bring me a towel?", "thai": "คุณเอาเก้าอี้มาให้ฉันได้ไหม?", "audio": "audio/7597dc22e55e13b4546dbd509b100561.mp3"}
 {"word": "can", "english": "I can bake a cake for the party.", "thai": "ฉันอบเค้กสำหรับงานปาร์ตี้ได้", "audio": "audio/44d0c5696c101f6ef86b11c267a2b555.mp3"}
 {"word": "can", "english": "Can I see the menu, please?", "thai": "ฉันดูเมนูได้ไหม?", "audio": "audio/99d0ec0c2c9ea0747d463445b3c88fc5.mp3"}
-{"word": "can", "english": "Can you wait a minute?", "thai": "คุณรอสักครู่ได้ไหม?", "audio": "audio/68d01ac867a97b9058f99617fc5991b1.mp3"}
 {"word": "can", "english": "I can’t find my phone anywhere.", "thai": "ฉันหาโทรศัพท์ของฉันไม่เจอเลย", "audio": "audio/a49b822b1526409cb61988979ccd029c.mp3"}
 {"word": "can", "english": "Can we reschedule the meeting?", "thai": "เราเลื่อนการประชุมได้ไหม?", "audio": "audio/b442a5de37dc56dec581d376ad2a539c.mp3"}
 {"word": "can", "english": "He can solve puzzles quickly.", "thai": "เขาแก้ปริศนาได้เร็ว", "audio": "audio/dcbbfdd4ac710bcbb90bf1e7acc81dcd.mp3"}
@@ -10584,7 +10563,6 @@
 {"word": "can", "english": "Can I join your team?", "thai": "ฉันเข้าร่วมทีมคุณได้ไหม?", "audio": "audio/d9451d979e7bf55accf17aeee890a507.mp3"}
 {"word": "can", "english": "She can write beautiful stories.", "thai": "เธอเขียนเรื่องราวได้สวยงาม", "audio": "audio/e6cabd608db3b7f6f3025e639521abdf.mp3"}
 {"word": "can", "english": "Can you turn off the light?", "thai": "คุณปิดไฟได้ไหม?", "audio": "audio/9dd9fd9de439199e20a00465cb36318c.mp3"}
-{"word": "can", "english": "I can’t see without my glasses.", "thai": "ฉันมองไม่เห็นถ้าไม่มีแว่น", "audio": "audio/12cd7504c3090691c338a8d52b7a3446.mp3"}
 {"word": "can", "english": "Can we stop for a break?", "thai": "เราหยุดพักได้ไหม?", "audio": "audio/ad8ba34f3ce75eaf97a3c57ac5506627.mp3"}
 {"word": "can", "english": "He can build a fire quickly.", "thai": "เขาจุดไฟได้เร็ว", "audio": "audio/726a62305ca330523463bd850280e3d5.mp3"}
 {"word": "can", "english": "Can you open a can of beans?", "thai": "คุณเปิดกระป๋องถั่วได้ไหม?", "audio": "audio/8449a6f268ca265f6d54faef0d6c5dda.mp3"}
@@ -11559,7 +11537,6 @@
 {"word": "dance", "english": "He did a dance to make everyone smile.", "thai": "เขาทำท่าเต้นเพื่อให้ทุกคนยิ้ม", "audio": "audio/19287212096c1dee4814345745b08d40.mp3"}
 {"word": "dance", "english": "The dance class is open to everyone.", "thai": "ชั้นเรียนเต้นรำเปิดให้ทุกคน", "audio": "audio/4020ad85c2818287ca271e09f1735f5e.mp3"}
 {"word": "dance", "english": "I can’t stop watching their dance performance.", "thai": "ฉันหยุดดูการแสดงเต้นรำของพวกเขาไม่ได้", "audio": "audio/daf83857b519304e2ad54e7cf912e95c.mp3"}
-{"word": "do", "english": "What do you want to do today?", "thai": "วันนี้คุณอยากทำอะไร?", "audio": "audio/28bd72caa47cd019d5e0a2e68ff61fc3.mp3"}
 {"word": "do", "english": "I need to do my homework before dinner.", "thai": "ฉันต้องทำการบ้านก่อนอาหารเย็น", "audio": "audio/edfe66c1e77cbc0dea3c4c444e537964.mp3"}
 {"word": "do", "english": "Can you do me a favor and grab my phone?", "thai": "คุณช่วยหยิบโทรศัพท์ให้ฉันหน่อยได้ไหม?", "audio": "audio/f1f1fc21cee49ad2e58e7d9808b6e87f.mp3"}
 {"word": "do", "english": "Let’s do something fun this weekend!", "thai": "สุดสัปดาห์นี้มาทำอะไรสนุกๆ กัน!", "audio": "audio/a680c48c2940c631ccd7a28eb15b830b.mp3"}
@@ -11591,7 +11568,6 @@
 {"word": "do", "english": "I’m doing some gardening this afternoon.", "thai": "บ่ายนี้ฉันจะทำสวน", "audio": "audio/3f77735410337802f9bec916df26ff9b.mp3"}
 {"word": "do", "english": "Can you do the presentation for the team?", "thai": "คุณนำเสนอให้ทีมได้ไหม?", "audio": "audio/90f417f610d8ccd8882f40411418ca08.mp3"}
 {"word": "do", "english": "Let’s do a picnic by the lake.", "thai": "ไปปิกนิกที่ริมทะเลสาบกันเถอะ", "audio": "audio/1ccb9deffebb5fc86f6a14b0ad1a498d.mp3"}
-{"word": "do", "english": "What do you do when you’re stressed?", "thai": "คุณทำอะไรเมื่อรู้สึกเครียด?", "audio": "audio/237633a5ef1ce99d88f105bb8dc13c1f.mp3"}
 {"word": "do", "english": "Do you know how to do a backflip?", "thai": "คุณรู้วิธีตีลังกาหลังไหม?", "audio": "audio/800db3459c7ed6a93fafdc05be295e1e.mp3"}
 {"word": "do", "english": "She’s doing a marathon next month.", "thai": "เธอจะวิ่งมาราธอนเดือนหน้า", "audio": "audio/e4674bb09bce2bb73f49e7f823322a85.mp3"}
 {"word": "do", "english": "Let’s do something special for her birthday.", "thai": "มาทำอะไรพิเศษสำหรับวันเกิดเธอกัน", "audio": "audio/de2d6d2816e38f6d4d5aec0e34d5865a.mp3"}
@@ -11600,7 +11576,6 @@
 {"word": "do", "english": "She’s doing her makeup for the party.", "thai": "เธอกำลังแต่งหน้าสำหรับงานปาร์ตี้", "audio": "audio/a6b8525aa0bb13e9aeca2c62d4a6c657.mp3"}
 {"word": "do", "english": "Can you do this task by tomorrow?", "thai": "คุณทำภารกิจนี้ให้เสร็จภายในพรุ่งนี้ได้ไหม?", "audio": "audio/c3a61a9908fe64409ea5641fc45cb194.mp3"}
 {"word": "do", "english": "I’m doing a puzzle to relax.", "thai": "ฉันกำลังเล่นปริศนาเพื่อผ่อนคลาย", "audio": "audio/8dfffce70ed66cd6fb44264dad2c02a7.mp3"}
-{"word": "do", "english": "What do you do for fun?", "thai": "คุณทำอะไรเพื่อความสนุก?", "audio": "audio/30c641f5a6edafe820a931289750ced1.mp3"}
 {"word": "do", "english": "Do you know how to do coding?", "thai": "คุณรู้วิธีเขียนโค้ดไหม?", "audio": "audio/ae5a14fcc885b9cf90455ea4fed5669a.mp3"}
 {"word": "do", "english": "Let’s do a road trip this summer.", "thai": "ไปเที่ยวแบบขับรถกันหน้าร้อนนี้เถอะ", "audio": "audio/65cd76553377f26bd7670767797f8054.mp3"}
 {"word": "do", "english": "He’s doing his homework in the library.", "thai": "เขากำลังทำการบ้านในห้องสมุด", "audio": "audio/9a0db9a6debf0ad73e3d2773c452598a.mp3"}
@@ -11779,7 +11754,6 @@
 {"word": "do", "english": "Can you do me a favor?", "thai": "คุณช่วยฉันหน่อยได้ไหม?", "audio": "audio/5d7e399fad77c99e556295230cbf9181.mp3"}
 {"word": "do", "english": "I don’t know what to do.", "thai": "ฉันไม่รู้ว่าจะทำอะไร", "audio": "audio/4f2a841ab12cdfd9bc0c7d5e90ba47bd.mp3"}
 {"word": "do", "english": "Do you like to cook?", "thai": "คุณชอบทำอาหารไหม?", "audio": "audio/de21104878de27506a40888a69137063.mp3"}
-{"word": "do", "english": "Let’s do something fun this weekend!", "thai": "สุดสัปดาห์นี้เรามาทำอะไรสนุกๆ กันเถอะ!", "audio": "audio/a680c48c2940c631ccd7a28eb15b830b.mp3"}
 {"word": "do", "english": "How do you spell that word?", "thai": "คุณสะกดคำนั้นยังไง?", "audio": "audio/7b40d62e32985ed4dca594d545c2ebe3.mp3"}
 {"word": "do", "english": "I’ll do the dishes tonight.", "thai": "คืนนี้ฉันจะล้างจาน", "audio": "audio/4278db486487c3106386433e2474cb92.mp3"}
 {"word": "do", "english": "Do you have any plans for tonight?", "thai": "คืนนี้คุณมีแพลนอะไรไหม?", "audio": "audio/e88eda07325530223af4f74bd9a188b1.mp3"}
@@ -11838,7 +11812,6 @@
 {"word": "do", "english": "What do you do on weekends?", "thai": "สุดสัปดาห์คุณทำอะไร?", "audio": "audio/fe6b9a7fb9c82d5ec3af934d44c8025f.mp3"}
 {"word": "do", "english": "Do you think he’s telling the truth?", "thai": "คุณคิดว่าเขาพูดความจริงไหม?", "audio": "audio/115191ce5f17d710cf0196391544308f.mp3"}
 {"word": "do", "english": "I can do better than that.", "thai": "ฉันทำได้ดีกว่านั้น", "audio": "audio/f04dea2ba033b0c3f6749db4316b4d73.mp3"}
-{"word": "do", "english": "Do you have a pen I can borrow?", "thai": "คุณมีปากกาให้ยืมไหม?", "audio": "audio/7c75185f5e2d2e59e5b4407502f88d51.mp3"}
 {"word": "do", "english": "I’ll do it right now.", "thai": "ฉันจะทำเดี๋ยวนี้", "audio": "audio/f49bb12e6c6089febf3a4d0935ac07dc.mp3"}
 {"word": "do", "english": "What do you do when you’re stressed?", "thai": "คุณทำอะไรเมื่อรู้สึกเครียด?", "audio": "audio/237633a5ef1ce99d88f105bb8dc13c1f.mp3"}
 {"word": "do", "english": "Do you like to sing?", "thai": "คุณชอบร้องเพลงไหม?", "audio": "audio/405dd56000e395d6cb5493a9153ed47b.mp3"}
@@ -11877,7 +11850,6 @@
 {"word": "eat", "english": "I eat breakfast every morning.", "thai": "ฉันกินอาหารเช้าทุกเช้า", "audio": "audio/4d76ca736cd735dd840a4247aae1d968.mp3"}
 {"word": "eat", "english": "Let’s eat out tonight.", "thai": "คืนนี้ไปกินข้าวนอกบ้านกันเถอะ", "audio": "audio/b4df0bffa02a05a02052195856eaf0eb.mp3"}
 {"word": "eat", "english": "Do you eat meat?", "thai": "คุณกินเนื้อสัตว์ไหม?", "audio": "audio/bd24751a14716db9f25ee922185badcb.mp3"}
-{"word": "eat", "english": "I can’t eat spicy food.", "thai": "ฉันกินอาหารเผ็ดไม่ได้", "audio": "audio/f99dfd1271c9b7f82f5237f38c7b151f.mp3"}
 {"word": "eat", "english": "Where should we eat today?", "thai": "วันนี้เราควรกินที่ไหน?", "audio": "audio/9f446d793846d1cfad4877a0dcc4e844.mp3"}
 {"word": "eat", "english": "I eat a lot of vegetables.", "thai": "ฉันกินผักเยอะมาก", "audio": "audio/6b357440a873ffefc0cd80f79543129c.mp3"}
 {"word": "eat", "english": "Do you want to eat now?", "thai": "คุณอยากกินตอนนี้ไหม?", "audio": "audio/5cc60342c62e7d5f886040972e7c4b55.mp3"}
@@ -11962,7 +11934,6 @@
 {"word": "eat", "english": "I eat cereal for breakfast.", "thai": "ฉันกินซีเรียลเป็นอาหารเช้า", "audio": "audio/4000ffbed46da67fda4600de41341269.mp3"}
 {"word": "eat", "english": "Do you eat a lot of rice?", "thai": "คุณกินข้าวเยอะไหม?", "audio": "audio/e92ea56cd539d00b1b74a6e357246bdf.mp3"}
 {"word": "eat", "english": "I eat when I’m bored.", "thai": "ฉันกินเมื่อรู้สึกเบื่อ", "audio": "audio/97085582f5330210743dd1b4aa0783d5.mp3"}
-{"word": "eat", "english": "Can we eat outside today?", "thai": "วันนี้เราไปกินข้างนอกได้ไหม?", "audio": "audio/d8cf6607c93baf342cad2ac63f466236.mp3"}
 {"word": "eat", "english": "I eat fresh food daily.", "thai": "ฉันกินอาหารสดทุกวัน", "audio": "audio/9b59854753840b98647ef74cc16a47f4.mp3"}
 {"word": "eat", "english": "Do you eat with your family?", "thai": "คุณกินข้าวกับครอบครัวไหม?", "audio": "audio/0c5ea019ce37bf1c00711fe3108e11c1.mp3"}
 {"word": "eat", "english": "I eat a lot of protein.", "thai": "ฉันกินโปรตีนเยอะ", "audio": "audio/9fb08c5a59bd9d62f363248b0fa61b60.mp3"}
@@ -12009,7 +11980,6 @@
 {"word": "enjoy", "english": "Do you enjoy your classes?", "thai": "คุณสนุกกับคลาสเรียนของคุณไหม?", "audio": "audio/7c1e44f9f6ba124af843851dd4813584.mp3"}
 {"word": "enjoy", "english": "I enjoy a good challenge.", "thai": "ฉันสนุกกับความท้าทายที่ดี", "audio": "audio/0b0ac1db920d905e7a17cb8f8caa0b0f.mp3"}
 {"word": "enjoy", "english": "I hope you enjoy the show.", "thai": "หวังว่าคุณจะสนุกกับการแสดง", "audio": "audio/3dcb81253ce16ee06b7bb895eb4f0384.mp3"}
-{"word": "enjoy", "english": "Do you enjoy board games?", "thai": "คุณสนุกกับการเล่นบอร์ดเกมไหม?", "audio": "audio/c151e6c4cdb79cf78a565e92477da940.mp3"}
 {"word": "enjoy", "english": "I enjoy running in the park.", "thai": "ฉันสนุกกับการวิ่งในสวนสาธารณะ", "audio": "audio/abd1ad4a6b20062050ada7b65f00f67a.mp3"}
 {"word": "enjoy", "english": "Let’s enjoy a movie night.", "thai": "มาสนุกกับคืนดูหนังกันเถอะ", "audio": "audio/dd50d06f95d28455687e5e8a712ce2c1.mp3"}
 {"word": "enjoy", "english": "I enjoy writing in my journal.", "thai": "ฉันสนุกกับการเขียนไดอารี่", "audio": "audio/3b966f137705f0d746fcd0d2c35d9b71.mp3"}
@@ -12022,7 +11992,6 @@
 {"word": "enjoy", "english": "I enjoy yoga in the morning.", "thai": "ฉันสนุกกับการเล่นโยคะตอนเช้า", "audio": "audio/e0923b80be490fbaab9bff4c24f625cb.mp3"}
 {"word": "enjoy", "english": "Do you enjoy camping?", "thai": "คุณสนุกกับการตั้งแคมป์ไหม?", "audio": "audio/6a97e255fc8cb7d6f0f9e881222c263c.mp3"}
 {"word": "enjoy", "english": "I enjoy a warm bath.", "thai": "ฉันสนุกกับการอาบน้ำอุ่น", "audio": "audio/2ab16566964139fa9914a4e818309be6.mp3"}
-{"word": "enjoy", "english": "Why don’t you enjoy crowds?", "thai": "ทำไมคุณถึงไม่สนุกกับฝูงชน?", "audio": "audio/737d4913fbaccbaba68034857c9a4d1e.mp3"}
 {"word": "enjoy", "english": "I enjoy solving puzzles.", "thai": "ฉันสนุกกับการแก้ปริศนา", "audio": "audio/d7b1e653b84367af36efee6329a9227e.mp3"}
 {"word": "enjoy", "english": "Do you enjoy cold weather?", "thai": "คุณสนุกกับอากาศหนาวไหม?", "audio": "audio/4b7d32c3301c0d29df41a710b05fb2f5.mp3"}
 {"word": "enjoy", "english": "I enjoy helping others.", "thai": "ฉันสนุกกับการช่วยเหลือผู้อื่น", "audio": "audio/dcf0080dd39694b7fe1c2d6c9f6687b5.mp3"}
@@ -12195,7 +12164,6 @@
 {"word": "fall", "english": "Be careful not to fall down the stairs.", "thai": "ระวังอย่าตกลงจากบันได", "audio": "audio/5bd7344e9b26c61cf9d1e64a30ad2b22.mp3"}
 {"word": "fall", "english": "The leaves turn red before they fall.", "thai": "ใบไม้เปลี่ยนเป็นสีแดงก่อนที่จะร่วง", "audio": "audio/164355b78e006c95efbcb8f47e690a11.mp3"}
 {"word": "fall", "english": "He tends to fall behind in group projects.", "thai": "เขามักจะตามหลังในโปรเจกต์กลุ่ม", "audio": "audio/a1b4ab665a6d9cfd84369113890d2533.mp3"}
-{"word": "fall", "english": "The apple didn’t fall far from the tree.", "thai": "แอปเปิ้ลไม่ตกไกลจากต้น", "audio": "audio/f1f3065641d9b8e346e47f1bbfb5aa13.mp3"}
 {"word": "fall", "english": "I saw a star fall in the night sky.", "thai": "ฉันเห็นดาวตกในท้องฟ้ายามค่ำคืน", "audio": "audio/afe922d48b6f504f4f22d8cbd837d9d7.mp3"}
 {"word": "fall", "english": "Her voice seemed to fall as she spoke.", "thai": "น้ำเสียงของเธอเหมือนจะลดลงขณะที่เธอพูด", "audio": "audio/330684726405936aea43bfd5aebf0040.mp3"}
 {"word": "fall", "english": "The building could fall if not repaired.", "thai": "อาคารอาจจะพังถ้าไม่ได้รับการซ่อมแซม", "audio": "audio/cdf23edf38dc4b79b57cdab174918251.mp3"}
@@ -12211,7 +12179,6 @@
 {"word": "fall", "english": "I saw the kite fall from the sky.", "thai": "ฉันเห็นว่าวตกลงมาจากท้องฟ้า", "audio": "audio/e220dc2b3227556a0bd28e834cf276b3.mp3"}
 {"word": "fall", "english": "The plan could fall apart without support.", "thai": "แผนอาจจะล้มเหลวถ้าไม่มีการสนับสนุน", "audio": "audio/b05b6def2786cd85d3d81a612202cf22.mp3"}
 {"word": "fall", "english": "He let the pen fall from his hand.", "thai": "เขาปล่อยให้ปากกาตกลงจากมือ", "audio": "audio/29400a2ae644dd5a5ea17131b2d64064.mp3"}
-{"word": "fall", "english": "The city’s defenses began to fall.", "thai": "การป้องกันของเมืองเริ่มพังทลาย", "audio": "audio/a3c7026b0cfc39dc39f00264f71a540e.mp3"}
 {"word": "fall", "english": "She tripped but didn’t fall.", "thai": "เธอสะดุดแต่ไม่ได้ล้ม", "audio": "audio/2ea61360a43ac254c9491269567e2501.mp3"}
 {"word": "fall", "english": "The rain began to fall heavily.", "thai": "ฝนเริ่มตกลงมาอย่างหนัก", "audio": "audio/b3ad5a26b7ed6b5976aaf2fce61aa44a.mp3"}
 {"word": "fall", "english": "His voice would fall when he was nervous.", "thai": "น้ำเสียงของเขาจะลดลงเมื่อเขาตื่นเต้น", "audio": "audio/3ed3341a2002870dfe4276c9a8ce962c.mp3"}
@@ -12280,8 +12247,6 @@
 {"word": "fall", "english": "I hope I don’t fall off my bike again.", "thai": "ฉันหวังว่าฉันจะไม่ตกจากจักรยานอีก", "audio": "audio/2f2b7946be32fab33925cb2b43744340.mp3"}
 {"word": "fall", "english": "The temperature will fall below freezing tonight.", "thai": "อุณหภูมิจะลดลงต่ำกว่าจุดเยือกแข็งคืนนี้", "audio": "audio/72c5a8f659fee3995a5c7c34ca412150.mp3"}
 {"word": "fall", "english": "He let the book fall from his hands.", "thai": "เขาปล่อยให้หนังสือหล่นจากมือ", "audio": "audio/013cdcabc7119c9696ed14cdf9a09620.mp3"}
-{"word": "fall", "english": "The old tree might fall in the storm.", "thai": "ต้นไม้เก่าอาจล้มในพายุ", "audio": "audio/0913a810325997414ca852ca7b1431cc.mp3"}
-{"word": "fall", "english": "Her grades started to fall this semester.", "thai": "เกรดของเธอเริ่มตกลงในเทอมนี้", "audio": "audio/4cd6c680696b99a701263c70e4c3129a.mp3"}
 {"word": "fall", "english": "I saw a star fall across the night sky.", "thai": "ฉันเห็นดาวตกพาดผ่านท้องฟ้ายามค่ำ", "audio": "audio/0ad1ed7844d1b4e6807c9e5eea1c9624.mp3"}
 {"word": "fall", "english": "Don’t let the baby fall off the couch.", "thai": "อย่าปล่อยให้เด็กทารกลงจากโซฟา", "audio": "audio/c10fc1a0625343d75761026bf4594225.mp3"}
 {"word": "fall", "english": "The team’s morale began to fall after the loss.", "thai": "ขวัญกำลังใจของทีมเริ่มลดลงหลังจากแพ้", "audio": "audio/1f4fb8a147d3846a51fb276fc98eb934.mp3"}
@@ -12300,7 +12265,6 @@
 {"word": "fall", "english": "The economy is expected to fall next quarter.", "thai": "เศรษฐกิจคาดว่าจะตกในไตรมาสหน้า", "audio": "audio/f0965aa02897ad0c0fb680061a8acea3.mp3"}
 {"word": "fall", "english": "Don’t fall for that scam; it’s too good to be true.", "thai": "อย่าหลงกลการหลอกลวงนั้น มันดีเกินจริง", "audio": "audio/dbf6a64b69319170463e317e6e00e5c5.mp3"}
 {"word": "fall", "english": "The kids saw the leaves fall and ran to play.", "thai": "เด็กๆ เห็นใบไม้ร่วงและวิ่งไปเล่น", "audio": "audio/192cbe56326ff26783bb1ef30c910e01.mp3"}
-{"word": "fall", "english": "The curtain will fall at the end of the play.", "thai": "ม่านจะปิดลงเมื่อการแสดงจบ", "audio": "audio/9c1f3af17b9e7ef83df2b6ae26f91b71.mp3"}
 {"word": "fall", "english": "He didn’t want to fall out with his best friend.", "thai": "เขาไม่อยากทะเลาะกับเพื่อนสนิท", "audio": "audio/109e65a3ff2ee50c01967fa66b4fb27d.mp3"}
 {"word": "fall", "english": "The tower began to fall during the earthquake.", "thai": "หอคอยเริ่มล้มในระหว่างแผ่นดินไหว", "audio": "audio/2c7b2b6b35b82c5d10afa13222181669.mp3"}
 {"word": "fall", "english": "I always fall in love with the wrong people.", "thai": "ฉันมักจะตกหลุมรักคนที่ไม่เหมาะสม", "audio": "audio/17adf7081c09b97fad15841c9e9d2622.mp3"}
@@ -12318,9 +12282,7 @@
 {"word": "fall", "english": "He was afraid to fall off the ladder.", "thai": "เขากลัวว่าจะตกจากบันได", "audio": "audio/2f65a6684934bd8fee59b15904239013.mp3"}
 {"word": "fall", "english": "The company’s profits began to fall sharply.", "thai": "กำไรของบริษัทเริ่มลดลงอย่างรวดเร็ว", "audio": "audio/33140493b8e6024dee717c745e49428d.mp3"}
 {"word": "fall", "english": "She let her guard fall during the conversation.", "thai": "เธอปล่อยให้การป้องกันตัวลดลงระหว่างการสนทนา", "audio": "audio/c8fa9860c26b412308ee046e3128ea7f.mp3"}
-{"word": "fall", "english": "The snow will fall all night long.", "thai": "หิมะจะตกลงมาทั้งคืน", "audio": "audio/98197041ab2f088f79cc015c50cd31a6.mp3"}
 {"word": "fall", "english": "I don’t want to fall into bad habits.", "thai": "ฉันไม่อยากตกอยู่ในนิสัยที่ไม่ดี", "audio": "audio/c4c9d900fe373c925540457d93bbdd99.mp3"}
-{"word": "fall", "english": "The old house might fall apart soon.", "thai": "บ้านเก่าอาจพังลงในไม่ช้า", "audio": "audio/de6a576756adaf410b0d42442d9e1fc6.mp3"}
 {"word": "fall", "english": "He watched the dominos fall one by one.", "thai": "เขาดูโดมิโนล้มลงทีละตัว", "audio": "audio/834293e625492be5c8a689cf70531df0.mp3"}
 {"word": "fall", "english": "Her mood seemed to fall after the news.", "thai": "อารมณ์ของเธอดูจะแย่ลงหลังจากได้ยินข่าว", "audio": "audio/a7f26da3600645341525d8a1b11e25e1.mp3"}
 {"word": "fall", "english": "The kite will fall if the wind stops.", "thai": "ว่าวจะตกลงถ้าลมหยุด", "audio": "audio/4e645363c4563ebe1ddb40fe4c9b8761.mp3"}
@@ -12334,7 +12296,6 @@
 {"word": "fall", "english": "The leaves fall in beautiful patterns.", "thai": "ใบไม้ร่วงเป็นลวดลายที่สวยงาม", "audio": "audio/a4cfda081e186763b4a07c9aea765db7.mp3"}
 {"word": "fall", "english": "The team’s ranking began to fall.", "thai": "อันดับของทีมเริ่มตกลง", "audio": "audio/1131f15cd4b8f394d3b635556c77f5c0.mp3"}
 {"word": "fall", "english": "She saw the petals fall from the flower.", "thai": "เธอเห็นกลีบดอกไม้ร่วงจากดอก", "audio": "audio/ee3560ef49ed7d798c54242f7d414eb0.mp3"}
-{"word": "fall", "english": "The plan could fall apart without support.", "thai": "แผนอาจล้มเหลวถ้าไม่มีการสนับสนุน", "audio": "audio/b05b6def2786cd85d3d81a612202cf22.mp3"}
 {"word": "fall", "english": "I don’t want to fall asleep at work.", "thai": "ฉันไม่อยากหลับในที่ทำงาน", "audio": "audio/3e9ce7c7e2d15284f96d955f7aa88fe8.mp3"}
 {"word": "fall", "english": "The rain will fall softly tonight.", "thai": "ฝนจะตกเบาๆ คืนนี้", "audio": "audio/da128a7e6e141cbfe5db760b7ea7f95b.mp3"}
 {"word": "fall", "english": "He felt his spirits fall after the argument.", "thai": "เขารู้สึกจิตใจหดหู่หลังจากการโต้เถียง", "audio": "audio/07ae49af5a6365565b99b6cc3376bf29.mp3"}
@@ -12362,7 +12323,6 @@
 {"word": "fall", "english": "The leaves fall every year in October.", "thai": "ใบไม้ร่วงทุกปีในเดือนตุลาคม", "audio": "audio/1868735fddace36321e20c0d235ed6fd.mp3"}
 {"word": "fall", "english": "He was afraid to fall from the roof.", "thai": "เขากลัวว่าจะตกจากหลังคา", "audio": "audio/f34c073a6e2661411deaa268392cb8fa.mp3"}
 {"word": "fall", "english": "The prices will fall after the sale.", "thai": "ราคาจะลดลงหลังการลดราคา", "audio": "audio/5c23604cd1c4fa3977fb5d6a179b4bd9.mp3"}
-{"word": "fall", "english": "She didn’t expect to fall so hard.", "thai": "เธอไม่คาดคิดว่าจะตกหลุมรักหนักขนาดนี้", "audio": "audio/19fc6acdb6efe16a0cc72bd55bcd4a2d.mp3"}
 {"word": "fall", "english": "The snow began to fall at dusk.", "thai": "หิมะเริ่มตกในตอนพลบค่ำ", "audio": "audio/5c3fc44ea4459a19f2ad26ba659a5e27.mp3"}
 {"word": "fall", "english": "The deal might fall through at the last minute.", "thai": "ข้อตกลงอาจล้มเหลวในนาทีสุดท้าย", "audio": "audio/e23a1802c62ce8b2110246ceb4c8be98.mp3"}
 {"word": "fall", "english": "I love how the leaves fall in fall.", "thai": "ฉันชอบวิธีที่ใบไม้ร่วงในฤดูใบไม้ร่วง", "audio": "audio/98ea48d123aa6530e79124ff1b33dc0b.mp3"}
@@ -12910,7 +12870,6 @@
 {"word": "get", "english": "Let's get going before it's too late.", "thai": "ไปกันเถอะ ก่อนจะสายเกินไป", "audio": "audio/e0156767d0d2d6b06ef525291965ac2a.mp3"}
 {"word": "get", "english": "I don't get what you mean.", "thai": "ฉันไม่เข้าใจว่าคุณหมายถึงอะไร", "audio": "audio/77a4c925c5bf78c3528399d011bea73f.mp3"}
 {"word": "get", "english": "We should get together this weekend.", "thai": "เราควรนัดเจอกันสุดสัปดาห์นี้", "audio": "audio/b61e43fcf278a96a1c8d94b722115c38.mp3"}
-{"word": "get", "english": "Can you get me a glass of water?", "thai": "ช่วยเอาน้ำแก้วหนึ่งมาให้ฉันได้ไหม?", "audio": "audio/7fb2a8d0f3976216db00f9921fabdae2.mp3"}
 {"word": "get", "english": "I’m trying to get in shape.", "thai": "ฉันกำลังพยายามฟิตหุ่น", "audio": "audio/7c676a85ea15db6a9ed6ea46cf9371f0.mp3"}
 {"word": "get", "english": "I need to get my car fixed.", "thai": "ฉันต้องเอารถไปซ่อม", "audio": "audio/44403b9aab0ffe88e39499025ccb5d7a.mp3"}
 {"word": "get", "english": "Did you get my email?", "thai": "คุณได้รับอีเมลของฉันหรือเปล่า?", "audio": "audio/e59f672c31e134ce72720d130e4a3219.mp3"}
@@ -13042,7 +13001,6 @@
 {"word": "go", "english": "She’s going to study abroad.", "thai": "เธอจะไปเรียนต่อต่างประเทศ", "audio": "audio/ecfe2f6bd65c53a1084661fbc24f0c0c.mp3"}
 {"word": "go", "english": "Can we go for a bike ride?", "thai": "ไปปั่นจักรยานกันได้ไหม?", "audio": "audio/fd2bd4edf1b062e0cbbc89e368491733.mp3"}
 {"word": "go", "english": "He’s going to the bank later.", "thai": "เขาจะไปธนาคารทีหลัง", "audio": "audio/83d99ebf7fc607aa8313d13b6bda9554.mp3"}
-{"word": "go", "english": "I’m going to cook dinner tonight.", "thai": "คืนนี้ฉันจะทำอาหารเย็น", "audio": "audio/59a29df0ed13004540a16b9ff25d2d1e.mp3"}
 {"word": "go", "english": "Let’s go see a play.", "thai": "ไปดูละครกันเถอะ", "audio": "audio/5ac5b0b929d578254d4a88635e83affd.mp3"}
 {"word": "go", "english": "She’s going to a book club.", "thai": "เธอจะไปชมรมหนังสือ", "audio": "audio/60652e85f2ed84cffbbc21f82cf245ee.mp3"}
 {"word": "go", "english": "Can you go get some snacks?", "thai": "ช่วยไปซื้อของว่างหน่อยได้ไหม?", "audio": "audio/b19a454274e47149f5b964f4c82749e2.mp3"}
@@ -13077,7 +13035,6 @@
 {"word": "go", "english": "She’s going to a photography workshop.", "thai": "เธอจะไปเวิร์คช็อปถ่ายภาพ", "audio": "audio/7285fe375a9b3ed69fb20d97a379297f.mp3"}
 {"word": "go", "english": "Can you go get some coffee?", "thai": "ช่วยไปซื้อกาแฟหน่อยได้ไหม?", "audio": "audio/62bdf3b2d9fc1e83f7fe1855831881b8.mp3"}
 {"word": "have", "english": "I have two cats.", "thai": "ฉันมีแมวสองตัว", "audio": "audio/e68887cd1631f558faeb2f4f82b0c569.mp3"}
-{"word": "have", "english": "Do you have a pen I can borrow?", "thai": "คุณมีปากกาให้ยืมไหม?", "audio": "audio/7c75185f5e2d2e59e5b4407502f88d51.mp3"}
 {"word": "have", "english": "We have to finish this by tomorrow.", "thai": "เราต้องทำให้เสร็จภายในพรุ่งนี้", "audio": "audio/b76f611577ccf349a2990189d41090ec.mp3"}
 {"word": "have", "english": "I have a meeting at 3 p.m.", "thai": "ฉันมีการประชุมตอนบ่ายสามโมง", "audio": "audio/cc091caede4af5e71367fbac1933b599.mp3"}
 {"word": "have", "english": "They have a big house.", "thai": "พวกเขามีบ้านใหญ่", "audio": "audio/4782c1edcf6e7e596dd01f2ba803981c.mp3"}
@@ -13089,7 +13046,6 @@
 {"word": "have", "english": "I have an idea for the project.", "thai": "ฉันมีไอเดียสำหรับโปรเจกต์", "audio": "audio/f165086ce4e66c1f2ea9dc5d8c5c8d4a.mp3"}
 {"word": "have", "english": "Do you have any spare change?", "thai": "คุณมีเงินทอนบ้างไหม?", "audio": "audio/e88bf090d2f597379299fa438513c7c3.mp3"}
 {"word": "have", "english": "I have a dog named Max.", "thai": "ฉันมีหมาชื่อแม็กซ์", "audio": "audio/fd27aaa412fa5414c83a430e4834f280.mp3"}
-{"word": "have", "english": "Can I have a glass of water?", "thai": "ขอแก้วน้ำหน่อยได้ไหม?", "audio": "audio/cb6c41c7d95d69a3bcff4da1b88964ad.mp3"}
 {"word": "have", "english": "I have to call my mom later.", "thai": "ฉันต้องโทรหาแม่ทีหลัง", "audio": "audio/43a7ac7d168db9e39302dbb87060539d.mp3"}
 {"word": "have", "english": "Do you have time to talk?", "thai": "คุณมีเวลาคุยไหม?", "audio": "audio/ef5a44d0d18874dec2246b9afd7e86f7.mp3"}
 {"word": "have", "english": "They have a new puppy.", "thai": "พวกเขามีลูกหมาใหม่", "audio": "audio/576b7ef4abe052fb85e40ff19c0c4eda.mp3"}
@@ -13103,9 +13059,7 @@
 {"word": "have", "english": "They have to move next month.", "thai": "เดือนหน้าพวกเขาต้องย้าย", "audio": "audio/3f210f0748bf020718ca241a213a1e68.mp3"}
 {"word": "have", "english": "Can we have pizza for dinner?", "thai": "กินพิซซ่ามื้อเย็นได้ไหม?", "audio": "audio/0559ef2f94d099d9003a17ba4f7b312d.mp3"}
 {"word": "have", "english": "I have to write a report.", "thai": "ฉันต้องเขียนรายงาน", "audio": "audio/a568b7f70416b9ce8a667ccccbffd2d6.mp3"}
-{"word": "have", "english": "Do you have any questions?", "thai": "คุณมีคำถามอะไรไหม?", "audio": "audio/6b09a32adc2927a5883015d67202f8a4.mp3"}
 {"word": "have", "english": "I have a new phone.", "thai": "ฉันมีโทรศัพท์ใหม่", "audio": "audio/65472c8d4bc6136f67f067854ed6e0d3.mp3"}
-{"word": "have", "english": "Can I have your email address?", "thai": "ขอที่อยู่อีเมลคุณได้ไหม?", "audio": "audio/230f488f805156636dc91dea9a526655.mp3"}
 {"word": "have", "english": "I have a busy day ahead.", "thai": "วันนี้ฉันมีวันยุ่งรออยู่", "audio": "audio/349f4405af9095e9d2587a34815c6293.mp3"}
 {"word": "have", "english": "Do you have a map?", "thai": "คุณมีแผนที่ไหม?", "audio": "audio/233eb13ab864d616c258e2d8687a8a5e.mp3"}
 {"word": "have", "english": "They have a meeting every Monday.", "thai": "พวกเขามีประชุมทุกวันจันทร์", "audio": "audio/b046f2ad4c70518103140ee8e2dadc38.mp3"}
@@ -13119,7 +13073,6 @@
 {"word": "have", "english": "They have to catch a flight.", "thai": "พวกเขาต้องไปขึ้นเครื่องบิน", "audio": "audio/9da370fbe3a7a21996428e2df597a0f5.mp3"}
 {"word": "have", "english": "Can you have the report ready?", "thai": "เตรียมรายงานให้พร้อมได้ไหม?", "audio": "audio/19d7d52b9837b74a26ddd174bb2d1acb.mp3"}
 {"word": "have", "english": "I have to walk the dog.", "thai": "ฉันต้องพาหมาไปเดินเล่น", "audio": "audio/0f5143653cc82c3bb760f08f6a9ad53a.mp3"}
-{"word": "have", "english": "Do you have any siblings?", "thai": "คุณมีพี่น้องไหม?", "audio": "audio/ccc6328a585818248919a5ff11f9c1c8.mp3"}
 {"word": "have", "english": "I have a question for you.", "thai": "ฉันมีคำถามสำหรับคุณ", "audio": "audio/c68287d57f83bf10ce5cd42144ef03b4.mp3"}
 {"word": "hear", "english": "Did you hear that loud noise?", "thai": "คุณได้ยินเสียงดังนั้นไหม?", "audio": "audio/37d153f68d45b26c67afea06fcbf0637.mp3"}
 {"word": "hear", "english": "I heard a great song today.", "thai": "วันนี้ฉันได้ยินเพลงที่ยอดเยี่ยม", "audio": "audio/89933ab7f7ebc33633c0375e0bc9fc31.mp3"}
@@ -13323,7 +13276,6 @@
 {"word": "jump", "english": "I saw a frog jump into the pond.", "thai": "ฉันเห็นกบกระโดดลงไปในสระ", "audio": "audio/f2d468603fa95a7440438aee85f0d1d5.mp3"}
 {"word": "jump", "english": "Let’s jump rope in the backyard.", "thai": "มากระโดดเชือกที่สนามหลังบ้านเถอะ", "audio": "audio/a21153d8d5e979cb7851d562ca7a649e.mp3"}
 {"word": "jump", "english": "She jumped out of her seat with excitement.", "thai": "เธอกระโดดออกจากที่นั่งด้วยความตื่นเต้น", "audio": "audio/e0c7a7a2d7f17161a5d9dd17080d66ca.mp3"}
-{"word": "jump", "english": "The dog jumped over the fence.", "thai": "หมากระโดดข้ามรั้ว", "audio": "audio/90363fcecab68b733e074e3343cb5c92.mp3"}
 {"word": "jump", "english": "I jumped when the phone rang.", "thai": "ฉันสะดุ้งกระโดดเมื่อโทรศัพท์ดัง", "audio": "audio/cc15ad629cc703b1104ca6b128f3c853.mp3"}
 {"word": "jump", "english": "Can you jump as high as me?", "thai": "คุณกระโดดได้สูงเท่าฉันไหม?", "audio": "audio/f7af2d40ef0faf827abc99f02dd7fbfc.mp3"}
 {"word": "jump", "english": "The kids love to jump on the trampoline.", "thai": "เด็กๆ ชอบกระโดดบนแทรมโพลีน", "audio": "audio/e089fc9fe447232d08a714445a77bd55.mp3"}
@@ -13407,7 +13359,6 @@
 {"word": "know", "english": "He doesn’t know the answer.", "thai": "เขาไม่รู้คำตอบ", "audio": "audio/d5edd8c627edba50d7c47dbf7a118a33.mp3"}
 {"word": "know", "english": "You know what I mean, right?", "thai": "คุณรู้ว่าฉันหมายถึงอะไร ใช่ไหม?", "audio": "audio/16d6f8be87fb04838ac439c69fcdfb93.mp3"}
 {"word": "know", "english": "I’ve known her since high school.", "thai": "ฉันรู้จักเธอตั้งแต่สมัยมัธยม", "audio": "audio/80e44b3e85b6a3f5f15de44aa7f1c6fc.mp3"}
-{"word": "know", "english": "Do you know how to drive?", "thai": "คุณรู้วิธีขับรถไหม?", "audio": "audio/cb8a4beadcfae816ac5c86d0e66aa8a2.mp3"}
 {"word": "know", "english": "She knows all the lyrics to that song.", "thai": "เธอรู้เนื้อเพลงทั้งหมดของเพลงนั้น", "audio": "audio/f8021122817fe60f5f3fc8e0ff98971f.mp3"}
 {"word": "know", "english": "I know it’s hard, but keep trying.", "thai": "ฉันรู้ว่ามันยาก แต่พยายามต่อไป", "audio": "audio/231f0cb7f5de0c15306fbd51b15d1768.mp3"}
 {"word": "know", "english": "He knows a shortcut to the mall.", "thai": "เขารู้ทางลัดไปห้าง", "audio": "audio/f55403b71ca9aa5261296ddf564e4b28.mp3"}
@@ -13431,7 +13382,6 @@
 {"word": "know", "english": "He knows the best coffee shop.", "thai": "เขารู้จักร้านกาแฟที่ดีที่สุด", "audio": "audio/6b3c2fc67ceabcb71ec86dd00839b481.mp3"}
 {"word": "know", "english": "Let me know what you think.", "thai": "บอกฉันว่าคุณคิดอะไร", "audio": "audio/062162d79a11845649c22b9c89121148.mp3"}
 {"word": "know", "english": "I know it’s a long shot.", "thai": "ฉันรู้ว่ามันยาก", "audio": "audio/a57b883aa4a9a64ea5d58de5cffb2781.mp3"}
-{"word": "know", "english": "Do you know how to swim?", "thai": "คุณรู้วิธีว่ายน้ำไหม?", "audio": "audio/e410ebd61de9d753c2873535e92b0f7e.mp3"}
 {"word": "know", "english": "She knows the recipe by heart.", "thai": "เธอจำสูตรอาหารได้ขึ้นใจ", "audio": "audio/c65c13e4efbf40eecb7a6ff645354ea2.mp3"}
 {"word": "know", "english": "I don’t know why he’s upset.", "thai": "ฉันไม่รู้ว่าทำไมเขาไม่พอใจ", "audio": "audio/998369eb429ed920d428f88f973273ed.mp3"}
 {"word": "know", "english": "He knows everyone in town.", "thai": "เขารู้จักทุกคนในเมือง", "audio": "audio/5b7339fb13019556aca2d96f434fb295.mp3"}
@@ -13532,7 +13482,6 @@
 {"word": "laugh", "english": "She laughed during the speech.", "thai": "เธอหัวเราะระหว่างสุนทรพจน์", "audio": "audio/3696a39d71e8837b633476ab511827d8.mp3"}
 {"word": "laugh", "english": "I couldn’t stop laughing at the show.", "thai": "ฉันหยุดหัวเราะกับรายการนั้นไม่ได้", "audio": "audio/ef2faf5b51a84ddff00e5bb00ed9f71d.mp3"}
 {"word": "laugh", "english": "They laughed when he fell off the chair.", "thai": "พวกเขาหัวเราะเมื่อเขาตกจากเก้าอี้", "audio": "audio/cf8889aafb4b4b7e004d7acc884d4851.mp3"}
-{"word": "laugh", "english": "Can you laugh a little softer?", "thai": "หัวเราะเบาลงหน่อยได้ไหม?", "audio": "audio/6c25fae74a71c82f0e9541b2ba6f2adf.mp3"}
 {"word": "laugh", "english": "He laughed at the silly cartoon.", "thai": "เขาหัวเราะกับการ์ตูนตลก", "audio": "audio/390714341c539a1495d36edbf16840fe.mp3"}
 {"word": "laugh", "english": "I laughed when I heard the story.", "thai": "ฉันหัวเราะเมื่อได้ยินเรื่องนั้น", "audio": "audio/042145d95caec0c74ca44c7f7bba0b64.mp3"}
 {"word": "laugh", "english": "She laughed at his goofy hat.", "thai": "เธอหัวเราะกับหมวกตลกของเขา", "audio": "audio/2e79243cd3a7ea38bac082d81aac4f6f.mp3"}
@@ -13592,7 +13541,6 @@
 {"word": "laugh", "english": "I didn’t laugh at her story.", "thai": "ฉันไม่ได้หัวเราะเยาะเรื่องของเธอ", "audio": "audio/617d2b71caa9e17910fc9f7651b14f45.mp3"}
 {"word": "laugh", "english": "He laughed when the balloon popped.", "thai": "เขาหัวเราะเมื่อลูกโป่งแตก", "audio": "audio/70ec03324d82ccfd6fdf521b5a2dcccf.mp3"}
 {"word": "laugh", "english": "She laughed at the silly game show.", "thai": "เธอหัวเราะกับรายการเกมโชว์ตลก", "audio": "audio/236218e8130d7bea1fe297b802ccee48.mp3"}
-{"word": "laugh", "english": "I laughed so much my face hurt.", "thai": "ฉันหัวเราะจนหน้าชา", "audio": "audio/6b9ed5b977353c6f8cdb01d39a189615.mp3"}
 {"word": "laugh", "english": "I laughed so much my face hurt.", "thai": "ฉันหัวเราะจนหน้าชา", "audio": "audio/6b9ed5b977353c6f8cdb01d39a189615.mp3"}
 {"word": "learn", "english": "I want to learn how to cook Italian food.", "thai": "ฉันอยากเรียนทำอาหารอิตาเลียน", "audio": "audio/c68533bd15349c0aec9470d6cda04e23.mp3"}
 {"word": "learn", "english": "She needs to learn Spanish for her job.", "thai": "เธอต้องเรียนภาษาสเปนสำหรับงานของเธอ", "audio": "audio/ccad0f69b453e1724b0c390a094296f1.mp3"}
@@ -13660,7 +13608,6 @@
 {"word": "learn", "english": "We’re learning to be more creative.", "thai": "เรากำลังเรียนรู้ที่จะมีความคิดสร้างสรรค์มากขึ้น", "audio": "audio/76ef6a51181cd2a1de18576792ceb005.mp3"}
 {"word": "learn", "english": "They learned to appreciate nature.", "thai": "พวกเขาเรียนรู้ที่จะชื่นชมธรรมชาติ", "audio": "audio/92c67a6a735ae424b445121cd9e9615b.mp3"}
 {"word": "learn", "english": "I learned to listen more carefully.", "thai": "ฉันเรียนรู้ที่จะฟังอย่างระมัดระวังมากขึ้น", "audio": "audio/52457c77199d1026b7de6db82911fd8e.mp3"}
-{"word": "learn", "english": "She’s learning to drive a car.", "thai": "เธอกำลังเรียนรู้ที่จะขับรถยนต์", "audio": "audio/015528ef7a57beeaf0a57144be48b15f.mp3"}
 {"word": "learn", "english": "He learned to negotiate better.", "thai": "เขาเรียนรู้ที่จะเจรจาให้ดีขึ้น", "audio": "audio/50e1341f9cd385017fb57c5122e857e9.mp3"}
 {"word": "learn", "english": "We need to learn about nutrition.", "thai": "เราต้องเรียนรู้เกี่ยวกับโภชนาการ", "audio": "audio/942c3277f2f201aa45802c78c53877e5.mp3"}
 {"word": "learn", "english": "They learned to share their ideas.", "thai": "พวกเขาเรียนรู้ที่จะแบ่งปันความคิดของพวกเขา", "audio": "audio/0080713c7ba5cecfd404f5d094b1e9be.mp3"}
@@ -13785,7 +13732,6 @@
 {"word": "leave", "english": "They forgot to leave the keys.", "thai": "พวกเขาลืมทิ้งกุญแจ", "audio": "audio/7ee010b8b87320a1a909e42e100630df.mp3"}
 {"word": "leave", "english": "I’ll leave my feedback later.", "thai": "ฉันจะให้ข้อเสนอแนะทีหลัง", "audio": "audio/6ac345635cf547c77c48f18b2bcea1bd.mp3"}
 {"word": "leave", "english": "She wants to leave a good impression.", "thai": "เธออยากทิ้งความประทับใจที่ดี", "audio": "audio/284ef170fdbb0c4598d9940b771bafaa.mp3"}
-{"word": "leave", "english": "He didn’t leave any instructions.", "thai": "เขาไม่ได้ทิ้งคำแนะนำใดๆ", "audio": "audio/a21956a3bbdee7023717dd47ad3b90f4.mp3"}
 {"word": "leave", "english": "We should leave the heater on.", "thai": "เราควรเปิดเครื่องทำความร้อนทิ้งไว้", "audio": "audio/eb819bb63adb73ae70339be455aea06a.mp3"}
 {"word": "leave", "english": "They’re about to leave the party.", "thai": "พวกเขากำลังจะออกจากปาร์ตี้", "audio": "audio/a988e70703285e14affd296144e41929.mp3"}
 {"word": "like", "english": "I like to drink coffee in the morning.", "thai": "ฉันชอบดื่มกาแฟตอนเช้า", "audio": "audio/99af128013af415029901dc3250cdf51.mp3"}
@@ -14187,7 +14133,6 @@
 {"word": "love", "english": "They love their new puppy.", "thai": "พวกเขารักลูกสุนัขตัวใหม่", "audio": "audio/9884b908f49c8218ee8d5916f90c6873.mp3"}
 {"word": "love", "english": "I’d love to try that dessert.", "thai": "ฉันอยากลองของหวานนั้น", "audio": "audio/5a1ab7f705531d569dff53ac7e88debd.mp3"}
 {"word": "love", "english": "Love is all we need.", "thai": "ความรักคือสิ่งที่เราต้องการ", "audio": "audio/d0b971eb71847c7e383a770ff3eaeea1.mp3"}
-{"word": "love", "english": "I love the smell of rain.", "thai": "ฉันรักกลิ่นของฝน", "audio": "audio/ada5fd0959b13eb582ffdda441c2ecc0.mp3"}
 {"word": "love", "english": "I love your new haircut!", "thai": "ฉันรักทรงผมใหม่ของคุณ!", "audio": "audio/6dd635840db39d0e9ff69e0c6374ae94.mp3"}
 {"word": "love", "english": "I love this cozy sweater.", "thai": "ฉันรักเสื้อสเวตเตอร์ตัวนี้นะ", "audio": "audio/dd78b3b00e839acbb71e7588d0232d25.mp3"}
 {"word": "love", "english": "We love hiking in the mountains.", "thai": "เรารักการเดินป่าในภูเขา", "audio": "audio/fbcb8780eda68ec377f5ccdd26254ad1.mp3"}
@@ -14295,7 +14240,6 @@
 {"word": "meet", "english": "I need to meet with my teacher.", "thai": "ฉันต้องไปเจอครูของฉัน", "audio": "audio/75db9aa4726e3069728c153de0828966.mp3"}
 {"word": "meet", "english": "When can we meet again?", "thai": "เราจะเจอกันอีกครั้งเมื่อไหร่?", "audio": "audio/d507518e5518fb951fdfeedd862f4ff4.mp3"}
 {"word": "meet", "english": "We should meet for dinner.", "thai": "เราควรเจอกันเพื่อกินข้าวเย็น", "audio": "audio/af825b657a87bf3a459eb827a5803cd2.mp3"}
-{"word": "meet", "english": "I’ll meet you in an hour.", "thai": "ฉันจะเจอคุณในอีกหนึ่งชั่วโมง", "audio": "audio/68bcc91e302306343d159d4b2982e8bd.mp3"}
 {"word": "meet", "english": "Let’s meet at the mall.", "thai": "มาเจอกันที่ห้างนะ", "audio": "audio/c7779a8cc784ef45ff0f280c24d5a961.mp3"}
 {"word": "meet", "english": "I’m here to meet a client.", "thai": "ฉันมาที่นี่เพื่อเจอลูกค้า", "audio": "audio/1ddc2eabe1dd2108dff17c13f43c3dc9.mp3"}
 {"word": "meet", "english": "Can you meet me halfway?", "thai": "คุณเจอฉันครึ่งทางได้ไหม?", "audio": "audio/c07ecac8d1b828e7a37a3bd5824ca5c8.mp3"}
@@ -14361,7 +14305,6 @@
 {"word": "move", "english": "Let’s move this table to the other room.", "thai": "มาจัดย้ายโต๊ะนี้ไปห้องอื่นกัน", "audio": "audio/225490554f1ba92a05f9ffa744a2cdc8.mp3"}
 {"word": "move", "english": "The story moves at a fast pace.", "thai": "เรื่องราวดำเนินไปอย่างรวดเร็ว", "audio": "audio/3d45e2627db6f1c9b929746800c2f784.mp3"}
 {"word": "move", "english": "I can’t move my arm after that workout.", "thai": "ฉันขยับแขนไม่ได้เลยหลังจากออกกำลังกาย", "audio": "audio/dccd475b7066168a2cb604b671ccefd3.mp3"}
-{"word": "move", "english": "They plan to move abroad next year.", "thai": "พวกเขาวางแผนจะย้ายไปต่างประเทศปีหน้า", "audio": "audio/2e73c585e7e9069fb1b62ea4ff69e780.mp3"}
 {"word": "move", "english": "Please move over so I can sit down.", "thai": "กรุณาขยับไปหน่อยเพื่อฉันจะได้นั่ง", "audio": "audio/423e9335dc2caebe9b22f3e89e68c0b3.mp3"}
 {"word": "move", "english": "The game piece moves three spaces forward.", "thai": "ตัวหมากเดินไปข้างหน้าสามช่อง", "audio": "audio/7ae43957be12a6fca20d62d5f7ca185e.mp3"}
 {"word": "move", "english": "We need to move quickly to catch the bus.", "thai": "เราต้องรีบเคลื่อนไหวเพื่อขึ้นรถบัส", "audio": "audio/748387adc3106cc25060109df0459d5c.mp3"}
@@ -14451,7 +14394,6 @@
 {"word": "move", "english": "The dancer moves to the spotlight.", "thai": "นักเต้นเคลื่อนไปยังจุดที่มีสปอตไลต์", "audio": "audio/5dcad30b2a573ebe25c93b337838bb01.mp3"}
 {"word": "move", "english": "We need to move the supplies before winter.", "thai": "เราต้องย้ายเสบียงก่อนหน้าหนาว", "audio": "audio/01444a787caa2c5562b49ebf03757e1d.mp3"}
 {"word": "move", "english": "She moves her gaze to the horizon.", "thai": "เธอเคลื่อนสายตาไปยังเส้นขอบฟ้า", "audio": "audio/2e4813462d5bb7588b0b3294d73b804c.mp3"}
-{"word": "move", "english": "I need to move to a new apartment soon.", "thai": "ฉันต้องย้ายไปอยู่ที่อพาร์ตเมนต์ใหม่เร็วๆ นี้", "audio": "audio/3a1b09dc11a84bbb2a30ee8025507248.mp3"}
 {"word": "move", "english": "Can you help me move this couch?", "thai": "ช่วยฉันย้ายโซฟานี่หน่อยได้ไหม?", "audio": "audio/c2d6ba8573d472bf70354fe55a8f09ed.mp3"}
 {"word": "move", "english": "Let's move to the next topic.", "thai": "มาเปลี่ยนไปคุยหัวข้อต่อไปกันเถอะ", "audio": "audio/0732bf36b7f7b915cbef123e56101c68.mp3"}
 {"word": "move", "english": "She decided to move back to her hometown.", "thai": "เธอตัดสินใจย้ายกลับไปที่บ้านเกิด", "audio": "audio/1fa34966e9aa4c56c7b3914c21ee781b.mp3"}
@@ -14469,7 +14411,6 @@
 {"word": "move", "english": "He tried to move the conversation away from politics.", "thai": "เขาพยายามเปลี่ยนเรื่องสนทนาให้ห่างจากเรื่องการเมือง", "audio": "audio/8a161a1c4e6e710ffd6df267ccf97ab9.mp3"}
 {"word": "move", "english": "The dancers move so gracefully on stage.", "thai": "นักเต้นเคลื่อนไหวอย่างสง่างามบนเวที", "audio": "audio/9697c199bd61f50f2a56464ee2420b6d.mp3"}
 {"word": "move", "english": "We need to move forward with the project.", "thai": "เราต้องเดินหน้าโครงการนี้ต่อไป", "audio": "audio/c1f9d8eea9966c738f9afacb32ed1ef1.mp3"}
-{"word": "move", "english": "Can you move a bit faster, please?", "thai": "ขยับให้เร็วขึ้นหน่อยได้ไหม?", "audio": "audio/554756378db77ed9355b4c248badcbf5.mp3"}
 {"word": "move", "english": "They decided to move the party to the park.", "thai": "พวกเขาตัดสินใจย้ายงานเลี้ยงไปที่สวนสาธารณะ", "audio": "audio/0c3ccfb5daf79602e0c5832bd2f2ccf5.mp3"}
 {"word": "move", "english": "I felt a sudden urge to move to the mountains.", "thai": "ฉันรู้สึกอยากย้ายไปอยู่ที่ภูเขาแบบกะทันหัน", "audio": "audio/7c8c6626be4990234683cec560927e28.mp3"}
 {"word": "move", "english": "Move your bag, it's in my way.", "thai": "ย้ายกระเป๋าของคุณ มันขวางทางฉัน", "audio": "audio/38f2dffd93bff8b11ed564c4b37190f1.mp3"}
@@ -14481,7 +14422,6 @@
 {"word": "move", "english": "He didn’t move a muscle during the test.", "thai": "เขาไม่ขยับกล้ามเนื้อเลยระหว่างการทดสอบ", "audio": "audio/5ba33967cdece1bc5fa236631ce98f64.mp3"}
 {"word": "move", "english": "Let’s move this discussion online.", "thai": "ย้ายการสนทนานี้ไปออนไลน์กันเถอะ", "audio": "audio/5057d5ea79ab0181d32a7d4c7419d8a1.mp3"}
 {"word": "move", "english": "I’m planning to move to California next month.", "thai": "ฉันวางแผนจะย้ายไปแคลิฟอร์เนียเดือนหน้า", "audio": "audio/49092935580f424cc27c44c45180249f.mp3"}
-{"word": "move", "english": "Can you move the lamp to the corner?", "thai": "ย้ายโคมไฟไปที่มุมนั้นได้ไหม?", "audio": "audio/60e248e0b8add4b9eb48848246223071.mp3"}
 {"word": "move", "english": "The story was so sad, it moved me to tears.", "thai": "เรื่องราวน่าเศร้าจนทำให้ฉันร้องไห้", "audio": "audio/71abc4c4a562d2dc83b13bc440850186.mp3"}
 {"word": "move", "english": "We need to move the boxes to the garage.", "thai": "เราต้องย้ายกล่องไปที่โรงรถ", "audio": "audio/fbeced72958feda48e40f119e65115ae.mp3"}
 {"word": "move", "english": "She made a quick move to avoid the ball.", "thai": "เธอเคลื่อนไหวอย่างรวดเร็วเพื่อหลบลูกบอล", "audio": "audio/9165f79ee69eaf748b08ee963360b431.mp3"}
@@ -14582,7 +14522,6 @@
 {"word": "need", "english": "They need a bigger budget for the project.", "thai": "พวกเขาต้องการงบประมาณที่มากขึ้นสำหรับโปรเจกต์", "audio": "audio/53d68570c14de0d5d7f50dd22b7b1ad0.mp3"}
 {"word": "need", "english": "Do you need me to pick you up later?", "thai": "คุณต้องการให้ฉันไปรับคุณทีหลังไหม?", "audio": "audio/9196093ae3d14b508dc4654b81b55f85.mp3"}
 {"word": "need", "english": "I need to update my resume this weekend.", "thai": "ฉันต้องอัปเดตเรซูเม่สุดสัปดาห์นี้", "audio": "audio/a7e90e87141b54d4879b2b4abd165034.mp3"}
-{"word": "need", "english": "We need to find a solution to this problem.", "thai": "เราต้องหาทางแก้ปัญหานี้", "audio": "audio/170960fd83f72c131626a6e0daa182c8.mp3"}
 {"word": "need", "english": "She needs to see a doctor about her cough.", "thai": "เธอต้องไปพบหมอเกี่ยวกับอาการไอของเธอ", "audio": "audio/3ded4e92cfb3809496f10d8370f21c59.mp3"}
 {"word": "need", "english": "I need some water after that run.", "thai": "ฉันต้องการน้ำหลังจากวิ่ง", "audio": "audio/1af4928ab67dc87492da9906d5e06280.mp3"}
 {"word": "need", "english": "You need to turn left at the next street.", "thai": "คุณต้องเลี้ยวซ้ายที่ถนนหน้า", "audio": "audio/a1310b40c3ce4611a27e58f9893f484d.mp3"}
