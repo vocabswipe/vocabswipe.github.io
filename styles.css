@@ -10,7 +10,7 @@ html, body {
     width: 100%;
     overflow: hidden; /* Prevent scrolling */
     display: flex;
-    flex-direction: column; /* Stack icon panel, counter, card, and website info vertically */
+    flex-direction: column; /* Stack icon panel, stats, counter, card, and website info vertically */
     justify-content: center;
     align-items: center;
     background-color: #35654d; /* Poker table green */
@@ -38,6 +38,23 @@ html, body {
 
 .share-icon:hover {
     transform: scale(1.1);
+}
+
+/* Website statistics styling */
+.website-stats {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff; /* White for contrast on green background */
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.stats-number {
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffd700; /* Gold to highlight */
 }
 
 /* Swipe counter styling */
@@ -85,7 +102,7 @@ html, body {
 
 /* Glowing effect for card tap */
 .glow {
-    animation: glow 0.6s ease-in-out 2; /* Two pulses, 0.6s each */
+    animation: glow 0.6s ease-in-out 1; /* One pulse */
 }
 
 @keyframes glow {
@@ -152,26 +169,26 @@ html, body {
     position: absolute;
     width: 40px;
     height: 40px;
-    top: 50%;
+    top: 75%; /* 25% from bottom */
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 25%);
     z-index: 11; /* Above card content */
     opacity: 0; /* Initially hidden */
 }
 
 .hand-point.tap-animation {
-    animation: tap 0.6s ease-in-out 2; /* Two pulses, matches glow */
+    animation: tap 0.6s ease-in-out 1; /* One pulse */
 }
 
 @keyframes tap {
     0% {
-        transform: translate(-50%, 50%) scale(1);
+        transform: translate(-50%, 25%) scale(1);
     }
     50% {
-        transform: translate(-50%, 50%) scale(0.8); /* Press effect */
+        transform: translate(-50%, 25%) scale(0.8); /* Press effect */
     }
     100% {
-        transform: translate(-50%, 50%) scale(1);
+        transform: translate(-50%, 25%) scale(1);
     }
 }
 
@@ -185,45 +202,45 @@ html, body {
 .arrow-left {
     width: 40px;
     height: 40px;
-    left: 10px;
+    left: -10px; /* Outside card edge */
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
 }
 
 .arrow-right {
     width: 40px;
     height: 40px;
-    right: 10px;
+    right: -10px; /* Outside card edge */
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(50%, -50%);
 }
 
 .arrow-up {
     width: 40px;
     height: 40px;
-    top: 10px;
+    top: -10px; /* Outside card edge */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
 }
 
 .arrow-down {
     width: 40px;
     height: 40px;
-    bottom: 10px;
+    bottom: -10px; /* Outside card edge */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, 50%);
 }
 
 .spacebar {
     width: 80px;
     height: 40px;
-    bottom: -50px; /* Below card */
+    bottom: 25%; /* 25% from bottom */
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 25%);
 }
 
-.spacebar.tap-animation {
-    animation: tap 0.6s ease-in-out 2; /* Two pulses, matches glow */
+.arrow.tap-animation, .spacebar.tap-animation {
+    animation: tap 0.6s ease-in-out 1; /* One pulse */
 }
 
 /* Word styling for poker card */
@@ -294,6 +311,14 @@ html, body {
     .card-container {
         width: 90vw;
         height: calc(90vw * 1.4); /* Maintain poker card aspect ratio */
+    }
+
+    .website-stats {
+        font-size: 1rem; /* Slightly smaller on mobile */
+    }
+
+    .stats-number {
+        font-size: 1.3rem;
     }
 
     .swipe-counter {
