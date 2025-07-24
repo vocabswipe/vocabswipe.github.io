@@ -66,6 +66,8 @@ html, body {
     color: #ffffff; /* White for contrast on green background */
     margin-bottom: 10px;
     text-align: center;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease; /* Smooth fade-in */
 }
 
 /* Card container for stacking effect */
