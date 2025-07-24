@@ -43,17 +43,16 @@ html, body {
 /* Website statistics styling */
 .website-stats {
     font-family: Arial, sans-serif;
-    font-size: 0.75rem; /* Matches website-name size */
+    font-size: 0.75rem; /* Matches website-info after 50% reduction */
     font-weight: bold;
     color: #ffffff; /* White for contrast on green background */
     margin-bottom: 5px;
     text-align: center;
-    opacity: 0; /* Initially hidden for fade-in */
 }
 
 .stats-number {
     font-family: Arial, sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.3rem; /* Matches previous stats-number size */
     font-weight: bold;
     color: #ffd700; /* Gold to highlight */
 }
@@ -61,7 +60,7 @@ html, body {
 /* Swipe counter styling */
 .swipe-counter {
     font-family: Arial, sans-serif;
-    font-size: 0.75rem; /* Matches website-stats size */
+    font-size: 0.75rem; /* Matches website-stats */
     font-weight: bold;
     color: #ffffff; /* White for contrast on green background */
     margin-bottom: 10px;
@@ -103,7 +102,7 @@ html, body {
 
 /* Glowing effect for card tap */
 .glow {
-    animation: glow 0.6s ease-in-out 1; /* One pulse, duration overridden in JS */
+    animation: glow 0.6s ease-in-out 1; /* One pulse */
 }
 
 @keyframes glow {
@@ -170,7 +169,7 @@ html, body {
     position: absolute;
     width: 40px;
     height: 40px;
-    top: 50%; /* Center for swipes */
+    top: 50%; /* Center for swipes, adjusted for tap */
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 11; /* Above card content */
@@ -183,7 +182,7 @@ html, body {
 
 @keyframes tap {
     0% {
-        transform: translate(-50%, 25%) scale(1); /* 25% from bottom for tap */
+        transform: translate(-50%, 25%) scale(1);
     }
     50% {
         transform: translate(-50%, 25%) scale(0.8); /* Press effect */
@@ -295,14 +294,14 @@ html, body {
 
 .website-name {
     font-family: Arial, sans-serif;
-    font-size: 0.75rem; /* Reduced by 50% from 1.5rem */
+    font-size: 0.75rem; /* 50% of original 1.5rem */
     font-weight: bold;
     color: #ffffff;
 }
 
 .website-slogan {
     font-family: Arial, sans-serif;
-    font-size: 0.5625rem; /* Reduced by 50% from 1.125rem */
+    font-size: 0.5625rem; /* 50% of original 1.125rem */
     font-weight: bold;
     color: #ffffff;
 }
@@ -315,7 +314,7 @@ html, body {
     }
 
     .website-stats {
-        font-size: 0.65rem; /* Matches website-name size */
+        font-size: 0.65rem; /* Matches website-info after 50% reduction */
     }
 
     .stats-number {
@@ -323,7 +322,7 @@ html, body {
     }
 
     .swipe-counter {
-        font-size: 0.65rem; /* Matches website-stats size */
+        font-size: 0.65rem; /* Matches website-stats */
     }
 
     .word {
@@ -366,11 +365,11 @@ html, body {
     }
 
     .website-name {
-        font-size: 0.65rem; /* Reduced by 50% from 1.3rem */
+        font-size: 0.65rem;
     }
 
     .website-slogan {
-        font-size: 0.5rem; /* Reduced by 50% from 1rem */
+        font-size: 0.5rem;
     }
 
     .hand-point {
