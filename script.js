@@ -140,6 +140,14 @@ function alternateStatsText() {
     }, 20000);
 }
 
+// Function to check if it's night time in Thailand (10 PM - 6 AM)
+function isThailandNightTime() {
+    const now = new Date();
+    const thailandTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Bangkok" }));
+    const hours = thailandTime.getHours();
+    return hours >= 22 || hours < 6;
+}
+
 // Function to fetch and parse JSONL file
 async function loadVocabData() {
     try {
@@ -182,6 +190,11 @@ let currentIndex = 0;
 function displayCards() {
     if (vocabData.length === 0) return;
 
+    const isNight = isThailandNightTime();
+    const cardBackgroundColor = isNight ? '#000000' : '#ffffff';
+    const cardTextColor = isNight ? '#FFD700' : '#000000';
+    const cardBorderColor = isNight ? '#FFD700' : '#000000';
+
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
     const wordBottomElement = document.getElementById('word-bottom');
@@ -193,6 +206,7 @@ function displayCards() {
     const nextWordBottomElement = document.getElementById('next-word-bottom');
     const nextEnglishElement = document.getElementById('next-english');
     const nextThaiElement = document.getElementById('next-thai');
+    const stackCards = document.querySelectorAll('.card-stack');
 
     if (currentIndex < vocabData.length) {
         const entry = vocabData[currentIndex];
@@ -201,11 +215,12 @@ function displayCards() {
         englishElement.textContent = entry.english;
         thaiElement.textContent = entry.thai;
         audioElement.src = `data/${entry.audio}`;
-        wordTopElement.style.color = '#000000';
-        wordBottomElement.style.color = '#000000';
-        englishElement.style.color = '#000000';
-        thaiElement.style.color = '#000000';
-        currentCard.style.backgroundColor = '#ffffff';
+        wordTopElement.style.color = cardTextColor;
+        wordBottomElement.style.color = cardTextColor;
+        englishElement.style.color = cardTextColor;
+        thaiElement.style.color = cardTextColor;
+        currentCard.style.backgroundColor = cardBackgroundColor;
+        currentCard.style.borderColor = cardBorderColor;
         currentCard.style.transform = 'translate(0, 0) rotate(0deg)';
         currentCard.style.opacity = '1';
     }
@@ -216,17 +231,24 @@ function displayCards() {
         nextWordBottomElement.textContent = nextEntry.word;
         nextEnglishElement.textContent = nextEntry.english;
         nextThaiElement.textContent = nextEntry.thai;
-        nextWordTopElement.style.color = '#000000';
-        nextWordBottomElement.style.color = '#000000';
-        nextEnglishElement.style.color = '#000000';
-        nextThaiElement.style.color = '#000000';
-        nextCard.style.backgroundColor = '#ffffff';
+        nextWordTopElement.style.color = cardTextColor;
+        nextWordBottomElement.style.color = cardTextColor;
+        nextEnglishElement.style.color = cardTextColor;
+        nextThaiElement.style.color = cardTextColor;
+        nextCard.style.backgroundColor = cardBackgroundColor;
+        nextCard.style.borderColor = cardBorderColor;
         nextCard.style.transform = 'translate(2px, 2px) rotate(0.5deg)';
         nextCard.style.opacity = '1';
         nextCard.style.zIndex = '9';
     } else {
         nextCard.style.opacity = '0';
     }
+
+    // Apply night mode to stack cards
+    stackCards.forEach(card => {
+        card.style.backgroundColor = cardBackgroundColor;
+        card.style.borderColor = cardBorderColor;
+    });
 
     resetAnimations();
 }
@@ -570,8 +592,8 @@ function captureSnapshot() {
     const canvas = document.getElementById('snapshot-canvas');
     const ctx = canvas.getContext('2d');
 
-    // Increase canvas width by 40% while maintaining 9:16 aspect ratio
-    canvas.width = 1080 * 1.4; // 1512px (40% increase from original 1080px)
+    // Decrease canvas width by 50% while maintaining 9:16 aspect ratio
+    canvas.width = 1080 * 0.5; // 540px (50% decrease from original 1080px)
     canvas.height = canvas.width * (16 / 9); // Maintain 9:16 aspect ratio
     ctx.fillStyle = '#35654d';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
