@@ -1,7 +1,7 @@
 // Array to hold vocabulary entries
 let vocabData = [];
 
-// Track visit count for animations
+// Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
 visitCount++;
 localStorage.setItem('visitCount', visitCount);
@@ -105,7 +105,7 @@ function alternateStatsText() {
     let isEnglish = true;
 
     function swapText() {
-        // Fade out
+        // Fade out text only
         line1.style.transition = 'opacity 0.5s ease';
         line2.style.transition = 'opacity 0.5s ease';
         slogan.style.transition = 'opacity 0.5s ease';
@@ -130,7 +130,7 @@ function alternateStatsText() {
                 line2.classList.add('thai-text');
                 slogan.classList.add('thai-text');
             }
-            // Fade in
+            // Fade in text
             line1.style.transition = 'opacity 0.5s ease';
             line2.style.transition = 'opacity 0.5s ease';
             slogan.style.transition = 'opacity 0.5s ease';
@@ -174,15 +174,16 @@ function setInitialCardTheme() {
     const cardTextColor = isNight ? '#FFD700' : '#000000';
     const cardBorderColor = isNight ? '#FFD700' : '#000000';
 
-    const currentCard = document.getElementById('vocab-card');
-    const nextCard = document.getElementById('next-card');
-    const stackCards = document.querySelectorAll('.card-stack');
+    const cards = [
+        document.getElementById('vocab-card'),
+        document.getElementById('next-card-1'),
+        document.getElementById('next-card-2'),
+        document.getElementById('next-card-3'),
+        document.getElementById('next-card-4'),
+        ...document.querySelectorAll('.card-stack')
+    ];
 
-    currentCard.style.backgroundColor = cardBackgroundColor;
-    currentCard.style.borderColor = cardBorderColor;
-    nextCard.style.backgroundColor = cardBackgroundColor;
-    nextCard.style.borderColor = cardBorderColor;
-    stackCards.forEach(card => {
+    cards.forEach(card => {
         card.style.backgroundColor = cardBackgroundColor;
         card.style.borderColor = cardBorderColor;
     });
@@ -192,10 +193,17 @@ function setInitialCardTheme() {
 function animateCardStackDrop(callback) {
     const cardContainer = document.getElementById('card-container');
     const cards = [
+        document.querySelector('.card-stack-7'),
+        document.querySelector('.card-stack-6'),
+        document.querySelector('.card-stack-5'),
+        document.querySelector('.card-stack-4'),
         document.querySelector('.card-stack-3'),
         document.querySelector('.card-stack-2'),
         document.querySelector('.card-stack-1'),
-        document.getElementById('next-card'),
+        document.getElementById('next-card-4'),
+        document.getElementById('next-card-3'),
+        document.getElementById('next-card-2'),
+        document.getElementById('next-card-1'),
         document.getElementById('vocab-card')
     ];
 
@@ -224,31 +232,35 @@ function animateCardStackDrop(callback) {
 // Function to fetch and parse JSONL file
 async function loadVocabData() {
     try {
-        // Set initial card theme and hide card content
+        // Set initial card theme and hide all cards
         setInitialCardTheme();
-        const currentCard = document.getElementById('vocab-card');
-        const nextCard = document.getElementById('next-card');
-        currentCard.style.opacity = '0';
-        nextCard.style.opacity = '0';
+        const cards = [
+            document.getElementById('vocab-card'),
+            document.getElementById('next-card-1'),
+            document.getElementById('next-card-2'),
+            document.getElementById('next-card-3'),
+            document.getElementById('next-card-4'),
+            ...document.querySelectorAll('.card-stack')
+        ];
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.display = 'none'; // Hide cards to simulate empty table
+        });
 
-        // Fetch data first
+        // Fetch data
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
         vocabData = text.trim().split('\n').map(line => JSON.parse(line));
         vocabData = vocabData.sort(() => Math.random() - 0.5);
 
-        // Start card stack drop animation and display content afterward
+        // Show cards and start stack drop animation
+        cards.forEach(card => {
+            card.style.display = 'block';
+        });
         animateCardStackDrop(() => {
             displayCards();
             updateWebsiteStats();
             alternateStatsText();
-            if (visitCount <= 10) {
-                if (isMobileDevice()) {
-                    startMobileAnimation();
-                } else {
-                    startPCAnimation();
-                }
-            }
         });
     } catch (error) {
         console.error('Error loading database:', error);
@@ -259,19 +271,10 @@ async function loadVocabData() {
     }
 }
 
-// Function to detect if the device is mobile
-function isMobileDevice() {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    return (
-        /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent) ||
-        window.innerWidth <= 600
-    );
-}
-
 // Current card index
 let currentIndex = 0;
 
-// Function to display the current and next card
+// Function to display the current and next cards
 function displayCards() {
     if (vocabData.length === 0) return;
 
@@ -286,13 +289,15 @@ function displayCards() {
     const englishElement = document.getElementById('english');
     const thaiElement = document.getElementById('thai');
     const audioElement = document.getElementById('card-audio');
-    const nextCard = document.getElementById('next-card');
-    const nextWordTopElement = document.getElementById('next-word-top');
-    const nextWordBottomElement = document.getElementById('next-word-bottom');
-    const nextEnglishElement = document.getElementById('next-english');
-    const nextThaiElement = document.getElementById('next-thai');
+    const nextCards = [
+        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: 9, translateX: 2, translateY: 2, rotate: 0.5 },
+        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 4, translateY: 4, rotate: 1 },
+        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: 7, translateX: 6, translateY: 6, rotate: 1.5 },
+        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 6, translateX: 8, translateY: 8, rotate: 2 }
+    ];
     const stackCards = document.querySelectorAll('.card-stack');
 
+    // Current card
     if (currentIndex < vocabData.length) {
         const entry = vocabData[currentIndex];
         wordTopElement.textContent = entry.word;
@@ -311,51 +316,37 @@ function displayCards() {
         currentCard.style.zIndex = '100';
     }
 
-    if (currentIndex + 1 < vocabData.length) {
-        const nextEntry = vocabData[currentIndex + 1];
-        nextWordTopElement.textContent = nextEntry.word;
-        nextWordBottomElement.textContent = nextEntry.word;
-        nextEnglishElement.textContent = nextEntry.english;
-        nextThaiElement.textContent = nextEntry.thai;
-        nextWordTopElement.style.color = cardTextColor;
-        nextWordBottomElement.style.color = cardTextColor;
-        nextEnglishElement.style.color = cardTextColor;
-        nextThaiElement.style.color = cardTextColor;
-        nextCard.style.backgroundColor = cardBackgroundColor;
-        nextCard.style.borderColor = cardBorderColor;
-        nextCard.style.transform = 'translate(2px, 2px) rotate(0.5deg)';
-        nextCard.style.opacity = '1';
-        nextCard.style.zIndex = '9';
-    } else {
-        nextCard.style.opacity = '0';
-    }
+    // Next cards
+    nextCards.forEach((next, index) => {
+        if (currentIndex + index + 1 < vocabData.length) {
+            const nextEntry = vocabData[currentIndex + index + 1];
+            const nextWordTopElement = document.getElementById(next.top);
+            const nextWordBottomElement = document.getElementById(next.bottom);
+            const nextEnglishElement = document.getElementById(next.english);
+            const nextThaiElement = document.getElementById(next.thai);
+            nextWordTopElement.textContent = nextEntry.word;
+            nextWordBottomElement.textContent = nextEntry.word;
+            nextEnglishElement.textContent = nextEntry.english;
+            nextThaiElement.textContent = nextEntry.thai;
+            nextWordTopElement.style.color = cardTextColor;
+            nextWordBottomElement.style.color = cardTextColor;
+            nextEnglishElement.style.color = cardTextColor;
+            nextThaiElement.style.color = cardTextColor;
+            next.card.style.backgroundColor = cardBackgroundColor;
+            next.card.style.borderColor = cardBorderColor;
+            next.card.style.transform = `translate(${next.translateX}px, ${next.translateY}px) rotate(${next.rotate}deg)`;
+            next.card.style.opacity = '1';
+            next.card.style.zIndex = next.zIndex;
+        } else {
+            next.card.style.opacity = '0';
+        }
+    });
 
-    stackCards.forEach(card => {
+    // Stack cards
+    stackCards.forEach((card, index) => {
         card.style.backgroundColor = cardBackgroundColor;
         card.style.borderColor = cardBorderColor;
     });
-
-    resetAnimations();
-}
-
-// Function to reset animations
-function resetAnimations() {
-    const handPoint = document.getElementById('hand-point');
-    const arrows = ['arrow-left', 'arrow-right', 'arrow-up', 'arrow-down'].map(id => document.getElementById(id));
-    const spacebar = document.getElementById('spacebar');
-    const spacebarText = document.getElementById('spacebar-text');
-
-    handPoint.style.opacity = '0';
-    handPoint.style.transform = 'translate(-50%, -50%)';
-    handPoint.classList.remove('tap-animation');
-    arrows.forEach(arrow => {
-        arrow.style.opacity = '0';
-        arrow.style.transform = '';
-    });
-    spacebar.style.opacity = '0';
-    spacebar.style.transform = 'translate(-50%, 25%)';
-    spacebar.classList.remove('tap-animation');
-    spacebarText.style.opacity = '0';
 }
 
 // Function to animate and move to next card
@@ -370,132 +361,6 @@ function moveToNextCard(translateX, translateY, rotate) {
         displayCards();
         card.style.transition = 'none';
     }, 500);
-}
-
-// Mobile animation for swipe and tap
-function startMobileAnimation() {
-    const handPoint = document.getElementById('hand-point');
-    const card = document.getElementById('vocab-card');
-    const cardWidth = card.offsetWidth;
-    const cardHeight = card.offsetHeight;
-
-    const sequence = [
-        { startTransform: 'translate(-50%, -50%)', endTransform: `translate(-${cardWidth}px, -50%)`, duration: 600, delay: 500 },
-        { startTransform: 'translate(-50%, -50%)', endTransform: `translate(-50%, -${cardHeight}px)`, duration: 600, delay: 500 },
-        { startTransform: 'translate(-50%, -50%)', endTransform: `translate(${cardWidth}px, -50%)`, duration: 600, delay: 500 },
-        { startTransform: 'translate(-50%, -50%)', endTransform: `translate(-50%, ${cardHeight}px)`, duration: 600, delay: 500 },
-        { startTransform: 'translate(-50%, 25%)', endTransform: 'translate(-50%, 25%)', duration: 600, delay: 2000, tap: true }
-    ];
-
-    let currentStep = 0;
-
-    setTimeout(() => {
-        function animateStep() {
-            if (currentStep >= sequence.length) {
-                handPoint.style.opacity = '0';
-                return;
-            }
-
-            const step = sequence[currentStep];
-            handPoint.style.transform = step.startTransform;
-            handPoint.style.opacity = '0';
-            setTimeout(() => {
-                handPoint.style.transition = 'opacity 0.5s ease';
-                handPoint.style.opacity = '1';
-                setTimeout(() => {
-                    handPoint.style.transition = `transform ${step.duration}ms ease`;
-                    handPoint.style.transform = step.endTransform;
-                    if (step.tap) {
-                        handPoint.classList.add('tap-animation');
-                        card.classList.add('glow');
-                        setTimeout(() => {
-                            card.classList.remove('glow');
-                            handPoint.classList.remove('tap-animation');
-                        }, 600);
-                    }
-                    setTimeout(() => {
-                        currentStep++;
-                        animateStep();
-                    }, step.duration + step.delay);
-                }, 500);
-            }, step.delay);
-        }
-        animateStep();
-    }, 5000);
-}
-
-// PC animation for arrows and spacebar
-function startPCAnimation() {
-    const arrows = [
-        { id: 'arrow-left', transform: 'translate(-50%, -50%)', position: 'left' },
-        { id: 'arrow-up', transform: 'translate(-50%, -50%)', position: 'top' },
-        { id: 'arrow-right', transform: 'translate(50%, -50%)', position: 'right' },
-        { id: 'arrow-down', transform: 'translate(-50%, 50%)', position: 'bottom' }
-    ];
-    const spacebar = document.getElementById('spacebar');
-    const spacebarText = document.getElementById('spacebar-text');
-    const card = document.getElementById('vocab-card');
-
-    const sequence = [
-        { ids: arrows.map(arrow => arrow.id), transforms: arrows.map(arrow => arrow.transform), duration: 1000, delay: 5000, fade: true },
-        { id: 'spacebar', transform: 'translate(-50%, 25%)', duration: 600, delay: 2000, tap: true }
-    ];
-
-    let currentStep = 0;
-
-    function animateStep() {
-        if (currentStep >= sequence.length) {
-            arrows.forEach(arrow => document.getElementById(arrow.id).style.opacity = '0');
-            spacebar.style.opacity = '0';
-            spacebarText.style.opacity = '0';
-            return;
-        }
-
-        const step = sequence[currentStep];
-        if (step.ids) {
-            step.ids.forEach((id, index) => {
-                const element = document.getElementById(id);
-                element.style.transform = step.transforms[index];
-                element.style.opacity = '0';
-                setTimeout(() => {
-                    element.style.transition = 'opacity 0.5s ease';
-                    element.style.opacity = '1';
-                    setTimeout(() => {
-                        element.style.transition = 'opacity 0.5s ease';
-                        element.style.opacity = '0';
-                    }, 1000);
-                }, step.delay);
-            });
-            setTimeout(() => {
-                currentStep++;
-                animateStep();
-            }, step.delay + step.duration + 500);
-        } else {
-            const element = document.getElementById(step.id);
-            element.style.transform = step.transform;
-            element.style.opacity = '0';
-            spacebarText.style.opacity = '0';
-            setTimeout(() => {
-                element.style.transition = 'opacity 0.5s ease';
-                element.style.opacity = '1';
-                spacebarText.style.transition = 'opacity 0.5s ease';
-                spacebarText.style.opacity = '1';
-                setTimeout(() => {
-                    element.classList.add('tap-animation');
-                    card.classList.add('glow');
-                    setTimeout(() => {
-                        card.classList.remove('glow');
-                        element.classList.remove('tap-animation');
-                    }, 600);
-                    setTimeout(() => {
-                        currentStep++;
-                        animateStep();
-                    }, step.duration + step.delay);
-                }, 500);
-            }, step.delay);
-        }
-    }
-    animateStep();
 }
 
 // Touch and mouse handling
@@ -677,8 +542,6 @@ shareIcon.addEventListener('click', () => {
 // Function to capture snapshot
 function captureSnapshot() {
     const cardContainer = document.getElementById('card-container');
-    const websiteStats = document.getElementById('website-stats');
-    const websiteInfo = document.getElementById('website-info');
     const canvas = document.getElementById('snapshot-canvas');
     const ctx = canvas.getContext('2d');
 
@@ -687,22 +550,6 @@ function captureSnapshot() {
     canvas.height = canvas.width * (16 / 9); // Maintain 9:16 aspect ratio
     ctx.fillStyle = '#35654d';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    const handPoint = document.getElementById('hand-point');
-    const arrows = document.querySelectorAll('.arrow');
-    const spacebar = document.getElementById('spacebar');
-    const spacebarText = document.getElementById('spacebar-text');
-    const originalStyles = {
-        handPointOpacity: handPoint.style.opacity,
-        arrowOpacities: Array.from(arrows).map(arrow => arrow.style.opacity),
-        spacebarOpacity: spacebar.style.opacity,
-        spacebarTextOpacity: spacebarText.style.opacity
-    };
-
-    handPoint.style.opacity = '0';
-    arrows.forEach(arrow => arrow.style.opacity = '0');
-    spacebar.style.opacity = '0';
-    spacebarText.style.opacity = '0';
 
     const scale = Math.min(canvas.width / window.innerWidth, canvas.height / window.innerHeight) * 0.8;
     const viewportWidth = window.innerWidth;
@@ -719,12 +566,6 @@ function captureSnapshot() {
         backgroundColor: '#35654d'
     }).then(viewportCanvas => {
         ctx.drawImage(viewportCanvas, offsetX, offsetY, scaledWidth, scaledHeight);
-        handPoint.style.opacity = originalStyles.handPointOpacity;
-        arrows.forEach((arrow, index) => {
-            arrow.style.opacity = originalStyles.arrowOpacities[index];
-        });
-        spacebar.style.opacity = originalStyles.spacebarOpacity;
-        spacebarText.style.opacity = originalStyles.spacebarTextOpacity;
 
         canvas.toBlob(blob => {
             if (!blob) {
@@ -762,12 +603,6 @@ function captureSnapshot() {
     }).catch(error => {
         console.error('Error capturing viewport:', error);
         alert('Failed to capture snapshot. Please try again.');
-        handPoint.style.opacity = originalStyles.handPointOpacity;
-        arrows.forEach((arrow, index) => {
-            arrow.style.opacity = originalStyles.arrowOpacities[index];
-        });
-        spacebar.style.opacity = originalStyles.spacebarOpacity;
-        spacebarText.style.opacity = originalStyles.spacebarTextOpacity;
     });
 }
 
