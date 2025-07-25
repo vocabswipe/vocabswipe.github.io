@@ -26,7 +26,7 @@ html, body {
 /* Fixed height containers */
 .stats-container {
     width: 100%;
-    height: 140px; /* Increased height to accommodate larger text */
+    height: 120px; /* Fixed height to prevent shifting */
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -36,13 +36,13 @@ html, body {
 
 .info-container {
     width: 100%;
-    height: 120px; /* Increased height to accommodate larger text and prevent overlap */
+    height: 120px; /* Increased height to move text down */
     display: flex;
     justify-content: center;
     align-items: flex-start;
     position: relative;
     z-index: 15;
-    padding-top: 30px; /* Increased padding to move text down */
+    padding-top: 30px; /* Increased padding to move text further down */
 }
 
 /* Icon panel styling */
@@ -94,14 +94,14 @@ html, body {
 .count-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 2.4rem; /* Increased by 20% from 2rem */
+    font-size: 2rem;
     color: #ffd700;
     margin: 5px 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added text shadow */
 }
 
 .stats-text-container {
-    min-height: 72px; /* Increased by 20% from 60px to accommodate larger text */
+    min-height: 60px; /* Ensure fixed height for text area to prevent shifting */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -110,20 +110,20 @@ html, body {
 .count-text {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 1.08rem; /* Increased by 20% from 0.9rem */
+    font-size: 0.9rem;
     color: #ffffff;
     margin: 2px 0;
-    line-height: 1.8; /* Increased line-height for better spacing */
+    line-height: 1.5;
     transition: opacity 0.5s ease;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 300px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added text shadow */
 }
 
 .count-text.thai-text#stats-line1 {
-    margin-top: 10px; /* Adjusted spacing */
+    margin-top: 8px;
 }
 
 /* Card container */
@@ -173,68 +173,81 @@ html, body {
 /* Next cards and stack cards */
 #next-card-1 {
     z-index: 9;
-    transform: translate(2px, 2px) rotate(0.5deg);
+    transform: translate(1px, 1px) rotate(0.3deg);
 }
 
 #next-card-2 {
     z-index: 8;
-    transform: translate(4px, 4px) rotate(1deg);
+    transform: translate(2px, 2px) rotate(0.6deg);
 }
 
 #next-card-3 {
     z-index: 7;
-    transform: translate(6px, 6px) rotate(1.5deg);
+    transform: translate(3px, 3px) rotate(0.9deg);
 }
 
 #next-card-4 {
     z-index: 6;
-    transform: translate(8px, 8px) rotate(2deg);
+    transform: translate(4px, 4px) rotate(1.2deg);
+}
+
+#next-card-5 {
+    z-index: 5;
+    transform: translate(5px, 5px) rotate(1.5deg);
+}
+
+#next-card-6 {
+    z-index: 4;
+    transform: translate(6px, 6px) rotate(1.8deg);
+}
+
+#next-card-7 {
+    z-index: 3;
+    transform: translate(7px, 7px) rotate(2.1deg);
+}
+
+#next-card-8 {
+    z-index: 2;
+    transform: translate(8px, 8px) rotate(2.4deg);
+}
+
+#next-card-9 {
+    z-index: 1;
+    transform: translate(9px, 9px) rotate(2.7deg);
 }
 
 .card-stack {
-    z-index: 5;
+    z-index: 0;
 }
 
 .card-stack-1 {
-    transform: translate(0.5px, 0.5px) rotate(0.1deg);
-    z-index: 4;
+    transform: translate(10px, 10px) rotate(3deg);
+    z-index: -1;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .card-stack-2 {
-    transform: translate(1px, 1px) rotate(0.2deg);
-    z-index: 3;
+    transform: translate(11px, 11px) rotate(3.3deg);
+    z-index: -2;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card-stack-3 {
-    transform: translate(1.5px, 1.5px) rotate(0.3deg);
-    z-index: 2;
+    transform: translate(12px, 12px) rotate(3.6deg);
+    z-index: -3;
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
 }
 
 .card-stack-4 {
-    transform: translate(2px, 2px) rotate(0.4deg);
-    z-index: 1;
+    transform: translate(13px, 13px) rotate(3.9deg);
+    z-index: -4;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .card-stack-5 {
-    transform: translate(2.5px, 2.5px) rotate(0.5deg);
-    z-index: 0;
+    transform: translate(14px, 14px) rotate(4.2deg);
+    z-index: -5;
     box-shadow: 0 9px 18px rgba(0, 0, 0, 0.45);
-}
-
-.card-stack-6 {
-    transform: translate(3px, 3px) rotate(0.6deg);
-    z-index: -1;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-}
-
-.card-stack-7 {
-    transform: translate(3.5px, 3.5px) rotate(0.7deg);
-    z-index: -2;
-    box-shadow: 0 11px 22px rgba(0, 0, 0, 0.55);
 }
 
 .card:active {
@@ -304,7 +317,7 @@ html, body {
     font-size: 1.55727rem; /* Increased by 20% from 1.297725rem */
     font-weight: normal;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added text shadow */
 }
 
 .website-slogan {
@@ -313,18 +326,18 @@ html, body {
     font-size: 1.1679525rem; /* Increased by 20% from 0.97329375rem */
     color: #ffffff;
     transition: opacity 0.5s ease;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added text shadow */
 }
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .stats-container {
-        height: 120px; /* Adjusted for larger text */
+        height: 100px;
     }
 
     .info-container {
-        height: 110px; /* Adjusted for larger text */
-        padding-top: 25px; /* Adjusted padding */
+        height: 110px;
+        padding-top: 25px;
     }
 
     .card-container {
@@ -342,19 +355,17 @@ html, body {
     }
 
     .count-title {
-        font-size: 2.16rem; /* Increased by 20% from 1.8rem */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
+        font-size: 1.8rem;
     }
 
     .count-text {
-        font-size: 0.96rem; /* Increased by 20% from 0.8rem */
+        font-size: 0.8rem;
         max-width: 300px;
-        line-height: 1.92; /* Increased by 20% from 1.6 */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
+        line-height: 1.6;
     }
 
     .count-text.thai-text#stats-line1 {
-        margin-top: 12px; /* Increased spacing for Thai text */
+        margin-top: 10px;
     }
 
     .word {
@@ -369,32 +380,60 @@ html, body {
         font-size: 1.3rem;
     }
 
+    #next-card-1 {
+        transform: translate(1px, 1px) rotate(0.3deg);
+    }
+
+    #next-card-2 {
+        transform: translate(2px, 2px) rotate(0.6deg);
+    }
+
+    #next-card-3 {
+        transform: translate(3px, 3px) rotate(0.9deg);
+    }
+
+    #next-card-4 {
+        transform: translate(4px, 4px) rotate(1.2deg);
+    }
+
+    #next-card-5 {
+        transform: translate(5px, 5px) rotate(1.5deg);
+    }
+
+    #next-card-6 {
+        transform: translate(6px, 6px) rotate(1.8deg);
+    }
+
+    #next-card-7 {
+        transform: translate(7px, 7px) rotate(2.1deg);
+    }
+
+    #next-card-8 {
+        transform: translate(8px, 8px) rotate(2.4deg);
+    }
+
+    #next-card-9 {
+        transform: translate(9px, 9px) rotate(2.7deg);
+    }
+
     .card-stack-1 {
-        transform: translate(0.5px, 0.5px) rotate(0.1deg);
+        transform: translate(10px, 10px) rotate(3deg);
     }
 
     .card-stack-2 {
-        transform: translate(1px, 1px) rotate(0.2deg);
+        transform: translate(11px, 11px) rotate(3.3deg);
     }
 
     .card-stack-3 {
-        transform: translate(1.5px, 1.5px) rotate(0.3deg);
+        transform: translate(12px, 12px) rotate(3.6deg);
     }
 
     .card-stack-4 {
-        transform: translate(2px, 2px) rotate(0.4deg);
+        transform: translate(13px, 13px) rotate(3.9deg);
     }
 
     .card-stack-5 {
-        transform: translate(2.5px, 2.5px) rotate(0.5deg);
-    }
-
-    .card-stack-6 {
-        transform: translate(3px, 3px) rotate(0.6deg);
-    }
-
-    .card-stack-7 {
-        transform: translate(3.5px, 3.5px) rotate(0.7deg);
+        transform: translate(14px, 14px) rotate(4.2deg);
     }
 
     .share-icon {
@@ -405,11 +444,11 @@ html, body {
     .website-name {
         font-family: 'Bangers', cursive;
         font-size: 1.349634rem; /* Increased by 20% from 1.124695rem */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added text shadow */
     }
 
     .website-slogan {
         font-size: 1.03818rem; /* Increased by 20% from 0.86515rem */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added text shadow */
     }
 }
