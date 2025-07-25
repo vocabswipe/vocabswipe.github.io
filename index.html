@@ -116,8 +116,14 @@
         <div class="card card-stack card-stack-2"></div>
         <div class="card card-stack card-stack-3"></div>
         <div class="card card-stack card-stack-4"></div>
-        <div class="card card-stack card-stack-5"></div>
-        <!-- Reduced stack cards to 5 to keep within mobile viewport -->
+        <!-- Fixed height container for website info -->
+        <div class="info-container">
+            <!-- Website name and slogan -->
+            <div class="website-info">
+                <h1 class="website-name">VocabSwipe.com</h1>
+                <p class="website-slogan">Master Words, Swipe by Swipe</p>
+            </div>
+        </div>
         <!-- Icon panel -->
         <div class="icon-panel">
             <img src="share.svg" alt="Share" class="share-icon" id="share-icon">
@@ -125,15 +131,6 @@
         <audio id="card-audio" src=""></audio>
         <!-- Canvas for snapshot -->
         <canvas id="snapshot-canvas" style="display: none;"></canvas>
-    </div>
-    <!-- Fixed height container for website info -->
-    <div class="info-container">
-        <!-- Website name and slogan -->
-        <div class="website-info">
-            <h1 class="website-name">VocabSwipe.com</h1>
-            <p class="website-slogan">Master Words, Swipe by Swipe</p>
-        </div>
-    </div>
-    <script src="script.js"></script>
+        <script src="script.js"></script>
 </body>
 </html>
