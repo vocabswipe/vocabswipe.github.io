@@ -36,13 +36,13 @@ html, body {
 
 .info-container {
     width: 100%;
-    height: 120px; /* Increased height to accommodate larger text and prevent overlap */
+    height: 120px; /* Increased height to move text down */
     display: flex;
     justify-content: center;
     align-items: flex-start;
     position: relative;
     z-index: 15;
-    padding-top: 30px; /* Increased padding to move text down */
+    padding-top: 30px; /* Increased padding to prevent overlap with card stack */
 }
 
 /* Icon panel styling */
@@ -112,8 +112,8 @@ html, body {
     font-size: 0.9rem;
     color: #ffffff;
     margin: 2px 0;
-    line-height: 1.5; /* Increased line-height for better spacing */
-    transition: line-height;
+    line-height: 1.5;
+    transition: opacity 0.5s ease;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -121,7 +121,7 @@ html, body {
 }
 
 .count-text.thai-text#stats-line1 {
-    margin-top: 8px; /* Increased spacing between stat number and Thai text */
+    margin-top: 8px;
 }
 
 /* Card container */
@@ -171,47 +171,47 @@ html, body {
 /* Next cards and stack cards */
 #next-card-1 {
     z-index: 9;
-    transform: translate(2px, 2px) rotate(0.5deg);
+    transform: translate(1.5px, 1.5px) rotate(0.3deg);
 }
 
 #next-card-2 {
     z-index: 8;
-    transform: translate(4px, 4px) rotate(1deg);
+    transform: translate(3px, 3px) rotate(0.6deg);
 }
 
 #next-card-3 {
     z-index: 7;
-    transform: translate(6px, 6px) rotate(1.5deg);
+    transform: translate(4.5px, 4.5px) rotate(0.9deg);
 }
 
 #next-card-4 {
     z-index: 6;
-    transform: translate(8px, 8px) rotate(2deg);
+    transform: translate(6px, 6px) rotate(1.2deg);
 }
 
 #next-card-5 {
     z-index: 5;
-    transform: translate(10px, 10px) rotate(2.5deg);
+    transform: translate(7.5px, 7.5px) rotate(1.5deg);
 }
 
 #next-card-6 {
     z-index: 4;
-    transform: translate(12px, 12px) rotate(3deg);
+    transform: translate(9px, 9px) rotate(1.8deg);
 }
 
 #next-card-7 {
     z-index: 3;
-    transform: translate(14px, 14px) rotate(3.5deg);
+    transform: translate(10.5px, 10.5px) rotate(2.1deg);
 }
 
 #next-card-8 {
     z-index: 2;
-    transform: translate(16px, 16px) rotate(4deg);
+    transform: translate(12px, 12px) rotate(2.4deg);
 }
 
 #next-card-9 {
     z-index: 1;
-    transform: translate(18px, 18px) rotate(4.5deg);
+    transform: translate(13.5px, 13.5px) rotate(2.7deg);
 }
 
 .card-stack {
@@ -219,21 +219,27 @@ html, body {
 }
 
 .card-stack-1 {
-    transform: translate(20px, 20px) rotate(5deg);
+    transform: translate(15px, 15px) rotate(3deg);
     z-index: -1;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .card-stack-2 {
-    transform: translate(22px, 22px) rotate(5.5deg);
+    transform: translate(16.5px, 16.5px) rotate(3.3deg);
     z-index: -2;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card-stack-3 {
-    transform: translate(24px, 24px) rotate(6deg);
+    transform: translate(18px, 18px) rotate(3.6deg);
     z-index: -3;
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
+}
+
+.card-stack-4 {
+    transform: translate(19.5px, 19.5px) rotate(3.9deg);
+    z-index: -4;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .card:active {
@@ -300,18 +306,18 @@ html, body {
 
 .website-name {
     font-family: 'Bangers', cursive;
-    font-size: 1.55727rem; /* Increased by 20% from 1.297725rem */
+    font-size: 1.55727rem; /* 1.297725rem * 1.2 */
     font-weight: normal;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added shadow */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
 }
 
 .website-slogan {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 1.1679525rem; /* Increased by 20% from 0.97329375rem */
+    font-size: 1.1679525rem; /* 0.97329375rem * 1.2 */
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added shadow */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
     transition: opacity 0.5s ease;
 }
 
@@ -347,11 +353,11 @@ html, body {
     .count-text {
         font-size: 0.8rem;
         max-width: 300px;
-        line-height: 1.6; /* Increased line-height for mobile */
+        line-height: 1.6;
     }
 
     .count-text.thai-text#stats-line1 {
-        margin-top: 10px; /* Increased spacing for Thai text on mobile */
+        margin-top: 10px;
     }
 
     .word {
@@ -366,16 +372,56 @@ html, body {
         font-size: 1.3rem;
     }
 
+    #next-card-1 {
+        transform: translate(1.5px, 1.5px) rotate(0.3deg);
+    }
+
+    #next-card-2 {
+        transform: translate(3px, 3px) rotate(0.6deg);
+    }
+
+    #next-card-3 {
+        transform: translate(4.5px, 4.5px) rotate(0.9deg);
+    }
+
+    #next-card-4 {
+        transform: translate(6px, 6px) rotate(1.2deg);
+    }
+
+    #next-card-5 {
+        transform: translate(7.5px, 7.5px) rotate(1.5deg);
+    }
+
+    #next-card-6 {
+        transform: translate(9px, 9px) rotate(1.8deg);
+    }
+
+    #next-card-7 {
+        transform: translate(10.5px, 10.5px) rotate(2.1deg);
+    }
+
+    #next-card-8 {
+        transform: translate(12px, 12px) rotate(2.4deg);
+    }
+
+    #next-card-9 {
+        transform: translate(13.5px, 13.5px) rotate(2.7deg);
+    }
+
     .card-stack-1 {
-        transform: translate(2px, 2px) rotate(5deg);
+        transform: translate(15px, 15px) rotate(3deg);
     }
 
     .card-stack-2 {
-        transform: translate(4px, 4px) rotate(5.5deg);
+        transform: translate(16.5px, 16.5px) rotate(3.3deg);
     }
 
     .card-stack-3 {
-        transform: translate(6px, 6px) rotate(6deg);
+        transform: translate(18px, 18px) rotate(3.6deg);
+    }
+
+    .card-stack-4 {
+        transform: translate(19.5px, 19.5px) rotate(3.9deg);
     }
 
     .share-icon {
@@ -384,11 +430,13 @@ html, body {
     }
 
     .website-name {
-        font-family: 'Bangers', cursive; /* Ensure Bangers font on mobile */
-        font-size: 1.349634rem; /* Increased by 20% from 1.124695rem */
+        font-family: 'Bangers', cursive;
+        font-size: 1.349634rem; /* 1.124695rem * 1.2 */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
     }
 
     .website-slogan {
-        font-size: 1.03818rem; /* Increased by 20% from 0.86515rem */
+        font-size: 1.03818rem; /* 0.86515rem * 1.2 */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
     }
 }
