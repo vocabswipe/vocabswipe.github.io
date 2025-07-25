@@ -26,7 +26,7 @@ html, body {
 /* Fixed height containers */
 .stats-container {
     width: 100%;
-    height: 120px; /* Fixed height to prevent shifting */
+    height: 120px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -36,13 +36,13 @@ html, body {
 
 .info-container {
     width: 100%;
-    height: 120px; /* Increased height to accommodate larger text and prevent overlap */
+    height: 120px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     position: relative;
     z-index: 15;
-    padding-top: 30px; /* Increased padding to move text down */
+    padding-top: 30px;
 }
 
 /* Icon panel styling */
@@ -100,7 +100,7 @@ html, body {
 }
 
 .stats-text-container {
-    min-height: 60px; /* Ensure fixed height for text area to prevent shifting */
+    min-height: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -112,7 +112,7 @@ html, body {
     font-size: 0.9rem;
     color: #ffffff;
     margin: 2px 0;
-    line-height: 1.5; /* Increased line-height for better spacing */
+    line-height: 1.5;
     transition: opacity 0.05s ease;
     white-space: nowrap;
     overflow: hidden;
@@ -121,7 +121,7 @@ html, body {
 }
 
 .count-text.thai-text#stats-line1 {
-    margin-top: 8px; /* Increased spacing between stat number and Thai text */
+    margin-top: 8px;
 }
 
 /* Card container */
@@ -171,47 +171,47 @@ html, body {
 /* Next cards and stack cards */
 #next-card-1 {
     z-index: 9;
-    transform: translate(1.44px, 1.44px) rotate(0.36deg); /* Reduced by 20% */
+    transform: translate(1.368px, 1.368px) rotate(0.342deg); /* Reduced by 5% */
 }
 
 #next-card-2 {
     z-index: 8;
-    transform: translate(2.88px, 2.88px) rotate(0.72deg); /* Reduced by 20% */
+    transform: translate(2.736px, 2.736px) rotate(0.684deg); /* Reduced by 5% */
 }
 
 #next-card-3 {
     z-index: 7;
-    transform: translate(4.32px, 4.32px) rotate(1.08deg); /* Reduced by 20% */
+    transform: translate(4.104px, 4.104px) rotate(1.026deg); /* Reduced by 5% */
 }
 
 #next-card-4 {
     z-index: 6;
-    transform: translate(5.76px, 5.76px) rotate(1.44deg); /* Reduced by 20% */
+    transform: translate(5.472px, 5.472px) rotate(1.368deg); /* Reduced by 5% */
 }
 
 #next-card-5 {
     z-index: 5;
-    transform: translate(7.2px, 7.2px) rotate(1.8deg); /* Reduced by 20% */
+    transform: translate(6.84px, 6.84px) rotate(1.71deg); /* Reduced by 5% */
 }
 
 #next-card-6 {
     z-index: 4;
-    transform: translate(8.64px, 8.64px) rotate(2.16deg); /* Reduced by 20% */
+    transform: translate(8.208px, 8.208px) rotate(2.052deg); /* Reduced by 5% */
 }
 
 #next-card-7 {
     z-index: 3;
-    transform: translate(10.08px, 10.08px) rotate(2.52deg); /* Reduced by 20% */
+    transform: translate(9.576px, 9.576px) rotate(2.394deg); /* Reduced by 5% */
 }
 
 #next-card-8 {
     z-index: 2;
-    transform: translate(11.52px, 11.52px) rotate(2.88deg); /* Reduced by 20% */
+    transform: translate(10.944px, 10.944px) rotate(2.736deg); /* Reduced by 5% */
 }
 
 #next-card-9 {
     z-index: 1;
-    transform: translate(12.96px, 12.96px) rotate(3.24deg); /* Reduced by 20% */
+    transform: translate(12.312px, 12.312px) rotate(3.078deg); /* Reduced by 5% */
 }
 
 .card-stack {
@@ -219,19 +219,19 @@ html, body {
 }
 
 .card-stack-1 {
-    transform: translate(4.32px, 4.32px) rotate(3.6deg); /* Reduced by 20% */
+    transform: translate(4.104px, 4.104px) rotate(3.42deg); /* Reduced by 5% */
     z-index: -1;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .card-stack-2 {
-    transform: translate(5.76px, 5.76px) rotate(3.96deg); /* Reduced by 20% */
+    transform: translate(5.472px, 5.472px) rotate(3.762deg); /* Reduced by 5% */
     z-index: -2;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card-stack-3 {
-    transform: translate(7.2px, 7.2px) rotate(4.32deg); /* Reduced by 20% */
+    transform: translate(6.84px, 6.84px) rotate(4.104deg); /* Reduced by 5% */
     z-index: -3;
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
 }
@@ -300,18 +300,18 @@ html, body {
 
 .website-name {
     font-family: 'Bangers', cursive;
-    font-size: 1.55727rem; /* Increased by 20% from 1.297725rem */
+    font-size: 1.55727rem;
     font-weight: normal;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added shadow */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .website-slogan {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 1.1679525rem; /* Increased by 20% from 0.97329375rem */
+    font-size: 1.1679525rem;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added shadow */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     transition: opacity 0.05s ease;
 }
 
@@ -347,12 +347,12 @@ html, body {
     .count-text {
         font-size: 0.8rem;
         max-width: 300px;
-        line-height: 1.6; /* Increased line-height for mobile */
+        line-height: 1.6;
         transition: opacity 0.05s ease;
     }
 
     .count-text.thai-text#stats-line1 {
-        margin-top: 10px; /* Increased spacing for Thai text on mobile */
+        margin-top: 10px;
     }
 
     .word {
@@ -368,15 +368,15 @@ html, body {
     }
 
     .card-stack-1 {
-        transform: translate(1.44px, 1.44px) rotate(3.6deg); /* Reduced by 20% */
+        transform: translate(1.368px, 1.368px) rotate(3.42deg); /* Reduced by 5% */
     }
 
     .card-stack-2 {
-        transform: translate(2.88px, 2.88px) rotate(3.96deg); /* Reduced by 20% */
+        transform: translate(2.736px, 2.736px) rotate(3.762deg); /* Reduced by 5% */
     }
 
     .card-stack-3 {
-        transform: translate(4.32px, 4.32px) rotate(4.32deg); /* Reduced by 20% */
+        transform: translate(4.104px, 4.104px) rotate(4.104deg); /* Reduced by 5% */
     }
 
     .share-icon {
@@ -385,12 +385,12 @@ html, body {
     }
 
     .website-name {
-        font-family: 'Bangers', cursive; /* Ensure Bangers font on mobile */
-        font-size: 1.349634rem; /* Increased by 20% from 1.124695rem */
+        font-family: 'Bangers', cursive;
+        font-size: 1.349634rem;
     }
 
     .website-slogan {
-        font-size: 1.03818rem; /* Increased by 20% from 0.86515rem */
+        font-size: 1.03818rem;
         transition: opacity 0.05s ease;
     }
 }
