@@ -116,19 +116,19 @@ function alternateStatsText() {
         setTimeout(() => {
             // Update text and classes
             if (isEnglish) {
-                line1.textContent = 'most spoken English sentences';
-                line2.textContent = 'cards available and still growing';
-                slogan.textContent = 'Master Words, Swipe by Swipe';
-                line1.classList.remove('thai-text');
-                line2.classList.remove('thai-text');
-                slogan.classList.remove('thai-text');
-            } else {
                 line1.textContent = 'ประโยคภาษาอังกฤษที่ใช้กันมากที่สุด';
                 line2.textContent = 'การ์ดที่พร้อมใช้และยังเพิ่มขึ้นเรื่อย ๆ';
                 slogan.textContent = 'ยิ่งปัด ยิ่งเก่งศัพท์';
                 line1.classList.add('thai-text');
                 line2.classList.add('thai-text');
                 slogan.classList.add('thai-text');
+            } else {
+                line1.textContent = 'most spoken English sentences';
+                line2.textContent = 'cards available and still growing';
+                slogan.textContent = 'Master Words, Swipe by Swipe';
+                line1.classList.remove('thai-text');
+                line2.classList.remove('thai-text');
+                slogan.classList.remove('thai-text');
             }
             // Fade in text
             line1.style.transition = 'opacity 0.5s ease';
@@ -141,7 +141,7 @@ function alternateStatsText() {
         }, 500);
     }
 
-    // Start with English text
+    // Start with English text (explicitly set)
     line1.textContent = 'most spoken English sentences';
     line2.textContent = 'cards available and still growing';
     slogan.textContent = 'Master Words, Swipe by Swipe';
@@ -152,7 +152,7 @@ function alternateStatsText() {
     line2.classList.remove('thai-text');
     slogan.classList.remove('thai-text');
 
-    // Start alternating after 20 seconds
+    // Start alternating after 20 seconds, switching to Thai first
     setTimeout(() => {
         swapText();
         setInterval(swapText, 20000); // Alternate every 20 seconds
@@ -189,17 +189,19 @@ function setInitialCardTheme() {
     });
 }
 
-// Function to animate card stack drop
+// Function to animate card stack drop with two groups
 function animateCardStackDrop(callback) {
     const cardContainer = document.getElementById('card-container');
-    const cards = [
+    const stackCards = [
         document.querySelector('.card-stack-7'),
         document.querySelector('.card-stack-6'),
         document.querySelector('.card-stack-5'),
         document.querySelector('.card-stack-4'),
         document.querySelector('.card-stack-3'),
         document.querySelector('.card-stack-2'),
-        document.querySelector('.card-stack-1'),
+        document.querySelector('.card-stack-1')
+    ];
+    const contentCards = [
         document.getElementById('next-card-4'),
         document.getElementById('next-card-3'),
         document.getElementById('next-card-2'),
@@ -208,24 +210,42 @@ function animateCardStackDrop(callback) {
     ];
 
     // Set initial state for animation (cards off-screen at top)
-    cards.forEach((card, index) => {
+    stackCards.forEach((card, index) => {
         card.style.transition = 'none';
-        card.style.transform = `translateY(-${window.innerHeight}px) rotate(${(cards.length - 1 - index) * 0.5}deg)`;
+        card.style.transform = `translateY(-${window.innerHeight}px) rotate(${index * 0.1}deg)`; // Tighter rotation for stack cards
+        card.style.opacity = '0';
+    });
+
+    contentCards.forEach((card, index) => {
+        card.style.transition = 'none';
+        card.style.transform = `translateY(-${window.innerHeight}px) rotate(${(contentCards.length - 1 - index) * 0.5}deg)`;
         card.style.opacity = '0';
     });
 
     // Start animation after a brief delay
     setTimeout(() => {
-        cards.forEach((card, index) => {
+        // Animate stack cards (no content) first, tightly packed
+        stackCards.forEach((card, index) => {
             setTimeout(() => {
-                card.style.transition = `transform ${0.8 + index * 0.2}s ease-out, opacity ${0.8 + index * 0.2}s ease-out`;
-                card.style.transform = `translate(${(cards.length - 1 - index) * 2}px, ${(cards.length - 1 - index) * 2}px) rotate(${(cards.length - 1 - index) * 0.5}deg)`;
+                card.style.transition = `transform ${0.8 + index * 0.05}s ease-out, opacity ${0.8 + index * 0.05}s ease-out`; // Faster for stack cards
+                card.style.transform = `translate(${(stackCards.length - 1 - index) * 0.5}px, ${(stackCards.length - 1 - index) * 0.5}px) rotate(${(stackCards.length - 1 - index) * 0.1}deg)`; // Tighter translation
                 card.style.opacity = '1';
-            }, index * 200); // Stagger each card by 200ms
+            }, index * 50); // Stagger by 50ms for stack cards
+        });
+
+        // Animate content cards after stack cards, only if data is available
+        contentCards.forEach((card, index) => {
+            if (vocabData.length > index) { // Only animate if data is loaded
+                setTimeout(() => {
+                    card.style.transition = `transform ${0.8 + index * 0.2}s ease-out, opacity ${0.8 + index * 0.2}s ease-out`;
+                    card.style.transform = `translate(${(contentCards.length - 1 - index) * 2}px, ${(contentCards.length - 1 - index) * 2}px) rotate(${(contentCards.length - 1 - index) * 0.5}deg)`;
+                    card.style.opacity = '1';
+                }, (stackCards.length * 50) + (index * 200)); // Start after stack cards, staggered by 200ms
+            }
         });
 
         // Call callback after animation completes
-        setTimeout(callback, 1000 + (cards.length - 1) * 200);
+        setTimeout(callback, 1000 + (stackCards.length * 50) + ((vocabData.length > contentCards.length ? contentCards.length : vocabData.length) * 200));
     }, 100);
 }
 
@@ -247,21 +267,37 @@ async function loadVocabData() {
             card.style.display = 'none'; // Hide cards to simulate empty table
         });
 
+        // Show stack cards immediately to start animation
+        const stackCards = document.querySelectorAll('.card-stack');
+        stackCards.forEach(card => {
+            card.style.display = 'block';
+        });
+
+        // Start stack animation for stack cards
+        animateCardStackDrop(() => {
+            displayCards();
+            updateWebsiteStats();
+            alternateStatsText();
+        });
+
         // Fetch data
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
         vocabData = text.trim().split('\n').map(line => JSON.parse(line));
         vocabData = vocabData.sort(() => Math.random() - 0.5);
 
-        // Show cards and start stack drop animation
-        cards.forEach(card => {
+        // Show content cards after data is loaded
+        const contentCards = [
+            document.getElementById('vocab-card'),
+            document.getElementById('next-card-1'),
+            document.getElementById('next-card-2'),
+            document.getElementById('next-card-3'),
+            document.getElementById('next-card-4')
+        ];
+        contentCards.forEach(card => {
             card.style.display = 'block';
         });
-        animateCardStackDrop(() => {
-            displayCards();
-            updateWebsiteStats();
-            alternateStatsText();
-        });
+
     } catch (error) {
         console.error('Error loading database:', error);
         document.getElementById('word-top').textContent = 'Error';
