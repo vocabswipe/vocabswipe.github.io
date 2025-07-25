@@ -62,7 +62,7 @@ html, body {
 
 .count-title {
     font-family: Arial, sans-serif;
-    font-size: 2.2rem; /* Increased from 2rem by 10% */
+    font-size: 2.64rem; /* Increased from 2.2rem by 20% */
     font-weight: bold;
     color: #ffd700; /* Gold to highlight */
     margin: 5px 0;
@@ -70,7 +70,7 @@ html, body {
 
 .count-text {
     font-family: Arial, sans-serif;
-    font-size: 0.99rem; /* Increased from 0.9rem by 10% */
+    font-size: 1.188rem; /* Increased from 0.99rem by 20% */
     font-weight: bold;
     color: #ffffff; /* White text */
     margin: 5px 0;
@@ -258,7 +258,7 @@ html, body {
 /* Word styling */
 .word {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 3rem;
+    font-size: 2.1rem; /* Decreased from 3rem by 30% */
     font-weight: bold;
     position: absolute;
     margin: 0;
@@ -303,14 +303,14 @@ html, body {
 
 .website-name {
     font-family: Arial, sans-serif;
-    font-size: 1.17975rem; /* Increased from 1.0725rem by 10% */
+    font-size: 1.297725rem; /* Increased from 1.17975rem by 10% */
     font-weight: bold;
     color: #ffffff;
 }
 
 .website-slogan {
     font-family: Arial, sans-serif;
-    font-size: 0.8848125rem; /* Increased from 0.804375rem by 10% */
+    font-size: 0.97329375rem; /* Increased from 0.8848125rem by 10% */
     font-weight: bold;
     color: #ffffff;
 }
@@ -333,15 +333,15 @@ html, body {
     }
 
     .count-title {
-        font-size: 1.716rem; /* Increased from 1.56rem by 10% */
+        font-size: 2.0592rem; /* Increased from 1.716rem by 20% */
     }
 
     .count-text {
-        font-size: 0.858rem; /* Increased from 0.78rem by 10% */
+        font-size: 1.0296rem; /* Increased from 0.858rem by 20% */
     }
 
     .word {
-        font-size: 2.6rem;
+        font-size: 1.82rem; /* Decreased from 2.6rem by 30% */
     }
 
     .sentence {
@@ -370,11 +370,11 @@ html, body {
     }
 
     .website-name {
-        font-size: 1.02245rem; /* Increased from 0.9295rem by 10% */
+        font-size: 1.124695rem; /* Increased from 1.02245rem by 10% */
     }
 
     .website-slogan {
-        font-size: 0.7865rem; /* Increased from 0.715rem by 10% */
+        font-size: 0.86515rem; /* Increased from 0.7865rem by 10% */
     }
 
     .hand-point {
