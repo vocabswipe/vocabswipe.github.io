@@ -272,7 +272,7 @@ function animateCardStackDrop(callback) {
     // Set initial state for animation (cards off-screen at top)
     cards.forEach((card, index) => {
         card.style.transition = 'none';
-        card.style.transform = `translateY(-${window.innerHeight}px) rotate(${(cards.length - 1 - index) * 0.45}deg)`; // Reduced rotation by 10%
+        card.style.transform = `translateY(-${window.innerHeight}px) rotate(${(cards.length - 1 - index) * 0.36}deg)`; // Reduced rotation by 20%
         card.style.opacity = '0';
     });
 
@@ -281,10 +281,10 @@ function animateCardStackDrop(callback) {
         cards.forEach((card, index) => {
             setTimeout(() => {
                 card.style.transition = `transform ${0.8 + index * 0.2}s ease-out, opacity ${0.8 + index * 0.2}s ease-out`;
-                // Reduced translation and rotation by 10%
-                const translateX = (cards.length - 1 - index) * 1.8; // Reduced from 2
-                const translateY = (cards.length - 1 - index) * 1.8; // Reduced from 2
-                const rotate = (cards.length - 1 - index) * 0.45; // Reduced from 0.5
+                // Reduced translation and rotation by 20%
+                const translateX = (cards.length - 1 - index) * 1.44; // Reduced from 1.8
+                const translateY = (cards.length - 1 - index) * 1.44; // Reduced from 1.8
+                const rotate = (cards.length - 1 - index) * 0.36; // Reduced from 0.45
                 card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
                 card.style.opacity = '1';
             }, index * 200); // Stagger each card by 200ms
@@ -399,15 +399,15 @@ function displayCards() {
     const thaiElement = document.getElementById('thai');
     const audioElement = document.getElementById('card-audio');
     const nextCards = [
-        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: 9, translateX: 1.8, translateY: 1.8, rotate: 0.45 }, // Reduced by 10%
-        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 3.6, translateY: 3.6, rotate: 0.9 }, // Reduced by 10%
-        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: 7, translateX: 5.4, translateY: 5.4, rotate: 1.35 }, // Reduced by 10%
-        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 6, translateX: 7.2, translateY: 7.2, rotate: 1.8 }, // Reduced by 10%
-        { card: document.getElementById('next-card-5'), top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5', zIndex: 5, translateX: 9, translateY: 9, rotate: 2.25 }, // Reduced by 10%
-        { card: document.getElementById('next-card-6'), top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6', zIndex: 4, translateX: 10.8, translateY: 10.8, rotate: 2.7 }, // Reduced by 10%
-        { card: document.getElementById('next-card-7'), top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7', zIndex: 3, translateX: 12.6, translateY: 12.6, rotate: 3.15 }, // Reduced by 10%
-        { card: document.getElementById('next-card-8'), top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8', zIndex: 2, translateX: 14.4, translateY: 14.4, rotate: 3.6 }, // Reduced by 10%
-        { card: document.getElementById('next-card-9'), top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9', zIndex: 1, translateX: 16.2, translateY: 16.2, rotate: 4.05 } // Reduced by 10%
+        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: 9, translateX: 1.44, translateY: 1.44, rotate: 0.36 }, // Reduced by 20%
+        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 2.88, translateY: 2.88, rotate: 0.72 }, // Reduced by 20%
+        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: 7, translateX: 4.32, translateY: 4.32, rotate: 1.08 }, // Reduced by 20%
+        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 6, translateX: 5.76, translateY: 5.76, rotate: 1.44 }, // Reduced by 20%
+        { card: document.getElementById('next-card-5'), top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5', zIndex: 5, translateX: 7.2, translateY: 7.2, rotate: 1.8 }, // Reduced by 20%
+        { card: document.getElementById('next-card-6'), top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6', zIndex: 4, translateX: 8.64, translateY: 8.64, rotate: 2.16 }, // Reduced by 20%
+        { card: document.getElementById('next-card-7'), top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7', zIndex: 3, translateX: 10.08, translateY: 10.08, rotate: 2.52 }, // Reduced by 20%
+        { card: document.getElementById('next-card-8'), top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8', zIndex: 2, translateX: 11.52, translateY: 11.52, rotate: 2.88 }, // Reduced by 20%
+        { card: document.getElementById('next-card-9'), top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9', zIndex: 1, translateX: 12.96, translateY: 12.96, rotate: 3.24 } // Reduced by 20%
     ];
     const stackCards = document.querySelectorAll('.card-stack');
 
