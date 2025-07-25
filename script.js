@@ -148,9 +148,31 @@ function isThailandNightTime() {
     return hours >= 22 || hours < 6;
 }
 
+// Function to set initial card theme based on time
+function setInitialCardTheme() {
+    const isNight = isThailandNightTime();
+    const cardBackgroundColor = isNight ? '#000000' : '#ffffff';
+    const cardTextColor = isNight ? '#FFD700' : '#000000';
+    const cardBorderColor = isNight ? '#FFD700' : '#000000';
+
+    const currentCard = document.getElementById('vocab-card');
+    const nextCard = document.getElementById('next-card');
+    const stackCards = document.querySelectorAll('.card-stack');
+
+    currentCard.style.backgroundColor = cardBackgroundColor;
+    currentCard.style.borderColor = cardBorderColor;
+    nextCard.style.backgroundColor = cardBackgroundColor;
+    nextCard.style.borderColor = cardBorderColor;
+    stackCards.forEach(card => {
+        card.style.backgroundColor = cardBackgroundColor;
+        card.style.borderColor = cardBorderColor;
+    });
+}
+
 // Function to fetch and parse JSONL file
 async function loadVocabData() {
     try {
+        setInitialCardTheme(); // Set initial card theme before loading data
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
         vocabData = text.trim().split('\n').map(line => JSON.parse(line));
@@ -223,6 +245,7 @@ function displayCards() {
         currentCard.style.borderColor = cardBorderColor;
         currentCard.style.transform = 'translate(0, 0) rotate(0deg)';
         currentCard.style.opacity = '1';
+        currentCard.style.zIndex = '100'; // Ensure card is on top during display
     }
 
     if (currentIndex + 1 < vocabData.length) {
@@ -279,6 +302,7 @@ function moveToNextCard(translateX, translateY, rotate) {
     card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
+    card.style.zIndex = '1000'; // Ensure card is on top during swipe
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % vocabData.length;
         displayCards();
@@ -434,6 +458,7 @@ card.addEventListener('touchstart', (e) => {
         currentY = startY;
         startTime = Date.now();
         card.style.transition = 'none';
+        card.style.zIndex = '1000'; // Ensure card is on top during interaction
         isDragging = true;
     }
 });
@@ -447,6 +472,7 @@ card.addEventListener('touchmove', (e) => {
         const deltaY = currentY - startY;
         const rotate = (deltaX / window.innerWidth) * 30;
         card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
+        card.style.zIndex = '1000'; // Keep card on top during swipe
     }
 });
 
@@ -489,6 +515,7 @@ card.addEventListener('mousedown', (e) => {
     currentY = startY;
     startTime = Date.now();
     card.style.transition = 'none';
+    card.style.zIndex = '1000'; // Ensure card is on top during interaction
     isDragging = true;
 });
 
@@ -501,6 +528,7 @@ card.addEventListener('mousemove', (e) => {
         const deltaY = currentY - startY;
         const rotate = (deltaX / window.innerWidth) * 30;
         card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
+        card.style.zIndex = '1000'; // Keep card on top during swipe
     }
 });
 
@@ -592,8 +620,8 @@ function captureSnapshot() {
     const canvas = document.getElementById('snapshot-canvas');
     const ctx = canvas.getContext('2d');
 
-    // Decrease canvas width by 50% while maintaining 9:16 aspect ratio
-    canvas.width = 1080 * 0.5; // 540px (50% decrease from original 1080px)
+    // Set canvas dimensions
+    canvas.width = 1080; // Set to 1080px
     canvas.height = canvas.width * (16 / 9); // Maintain 9:16 aspect ratio
     ctx.fillStyle = '#35654d';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
