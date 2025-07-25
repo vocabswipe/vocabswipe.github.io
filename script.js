@@ -141,7 +141,7 @@ function alternateStatsText() {
         }, 500);
     }
 
-    // Start with English text
+    // Start with English text instantly
     line1.textContent = 'most spoken English sentences';
     line2.textContent = 'cards available and still growing';
     slogan.textContent = 'Master Words, Swipe by Swipe';
@@ -231,8 +231,43 @@ function animateCardStackDrop(callback) {
         });
 
         // Call callback after animation completes
-        setTimeout(callback, 1000 + (cards.length - 1) * 200);
+        setTimeout(() => {
+            // Enable tap functionality for top card and next card
+            enableCardInteractions();
+            callback();
+        }, 1000 + (cards.length - 1) * 200);
     }, 100);
+}
+
+// Function to enable tap interactions for cards
+function enableCardInteractions() {
+    const topCard = document.getElementById('vocab-card');
+    const nextCard = document.getElementById('next-card-1');
+
+    // Tap handler for top card
+    topCard.addEventListener('click', () => {
+        if (!isDragging) {
+            const audio = document.getElementById('card-audio');
+            topCard.classList.add('glow');
+            audio.play().catch(error => console.error('Error playing audio:', error));
+            setTimeout(() => {
+                topCard.classList.remove('glow');
+            }, 600);
+        }
+    });
+
+    // Tap handler for next card
+    nextCard.addEventListener('click', () => {
+        if (!isDragging && currentIndex + 1 < vocabData.length) {
+            const nextEntry = vocabData[currentIndex + 1];
+            const audio = new Audio(`data/${nextEntry.audio}`);
+            nextCard.classList.add('glow');
+            audio.play().catch(error => console.error('Error playing audio:', error));
+            setTimeout(() => {
+                nextCard.classList.remove('glow');
+            }, 600);
+        }
+    });
 }
 
 // Function to fetch and parse JSONL file
@@ -302,7 +337,7 @@ function displayCards() {
     const audioElement = document.getElementById('card-audio');
     const nextCards = [
         { card: document.getElementById('next-card-1'), top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: 9, translateX: 2, translateY: 2, rotate: 0.5 },
-        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 4, translate тропY: 4, rotate: 1 },
+        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 4, translateY: 4, rotate: 1 },
         { card: document.getElementById('next-card-3'), top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: 7, translateX: 6, translateY: 6, rotate: 1.5 },
         { card: document.getElementById('next-card-4'), top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 6, translateX: 8, translateY: 8, rotate: 2 },
         { card: document.getElementById('next-card-5'), top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5', zIndex: 5, translateX: 10, translateY: 10, rotate: 2.5 },
@@ -311,7 +346,7 @@ function displayCards() {
         { card: document.getElementById('next-card-8'), top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8', zIndex: 2, translateX: 16, translateY: 16, rotate: 4 },
         { card: document.getElementById('next-card-9'), top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9', zIndex: 1, translateX: 18, translateY: 18, rotate: 4.5 }
     ];
-    const stackCards = document.querySelectorAll('.stack-card-stack');
+    const stackCards = document.querySelectorAll('.card-stack');
 
     // Current card
     if (currentIndex < vocabData.length) {
@@ -319,23 +354,22 @@ function displayCards() {
         wordTopElement.textContent = entry.word;
         wordBottomElement.textContent = entry.word;
         englishElement.textContent = entry.english;
-        thaiElement.textContent = thai.entry.thai;
+        thaiElement.textContent = entry.thai;
         audioElement.src = `data/${entry.audio}`;
         wordTopElement.style.color = cardTextColor;
         wordBottomElement.style.color = cardTextColor;
         englishElement.style.color = cardTextColor;
-        thaiElement.style.color = thai.cardTextColor;
+        thaiElement.style.color = cardTextColor;
         currentCard.style.backgroundColor = cardBackgroundColor;
         currentCard.style.borderColor = cardBorderColor;
         currentCard.style.transform = 'translate(0, 0) rotate(0deg)';
         currentCard.style.opacity = '1';
-        currentCard.currentCard.style.zIndex = '100';
-    }
+        currentCard.style.zIndex = '100';
     }
 
-    // Next cardscards
+    // Next cards
     nextCards.forEach((next, index) => {
-        if (currentIndex + index + 1 < vocabData.length)) {
+        if (currentIndex + index + 1 < vocabData.length) {
             const nextEntry = vocabData[currentIndex + index + 1];
             const nextWordTopElement = document.getElementById(next.top);
             const nextWordBottomElement = document.getElementById(next.bottom);
@@ -345,21 +379,21 @@ function displayCards() {
             nextWordBottomElement.textContent = nextEntry.word;
             nextEnglishElement.textContent = nextEntry.english;
             nextThaiElement.textContent = nextEntry.thai;
-            nextWordTopElement.nextWordStyle.colorTop = nextEntry.cardTextColor;
-            nextWordBottomElement.textContentStyle =.color = cardTextColor;
+            nextWordTopElement.style.color = cardTextColor;
+            nextWordBottomElement.style.color = cardTextColor;
             nextEnglishElement.style.color = cardTextColor;
             nextThaiElement.style.color = cardTextColor;
             next.card.style.backgroundColor = cardBackgroundColor;
-            next.cardBackgroundColor.style.borderColor = cardBorderColor;
-            next.card.style.transform = `translate(${next.translateX}px, ${next.translateY}px, rotate(${next.rotate}deg)`;
+            next.card.style.borderColor = cardBorderColor;
+            next.card.style.transform = `translate(${next.translateX}px, ${next.translateY}px) rotate(${next.rotate}deg)`;
             next.card.style.opacity = '1';
-            nextCard.next.card.style.zIndex = next.zIndex;
+            next.card.style.zIndex = next.zIndex;
         } else {
-            next.card.opacity.style.opacity = '0';
+            next.card.style.opacity = '0';
         }
     });
 
-    // Stack cardsstackCards
+    // Stack cards
     stackCards.forEach((card, index) => {
         card.style.backgroundColor = cardBackgroundColor;
         card.style.borderColor = cardBorderColor;
@@ -555,32 +589,27 @@ shareIcon.addEventListener('click', () => {
     captureSnapshot();
 });
 
-// Function to captureSnapshot() {
-    const cardContainer = document.querySelector('#card-container');
+// Function to capture snapshot
+function captureSnapshot() {
     const canvas = document.querySelector('#snapshot-canvas');
     const ctx = canvas.getContext('2d');
 
-    // Set canvas dimensions
-    canvas.width = 1620; // 1080 * 1.5
-    canvas.height = canvas.width * (16 / 9); // Maintain 16:9 aspect ratio
+    // Set canvas dimensions to match mobile viewport
+    const viewportWidth = Math.min(window.innerWidth, 360); // Typical mobile width
+    const viewportHeight = Math.min(window.innerHeight, 640); // Typical mobile height
+    canvas.width = viewportWidth * window.devicePixelRatio; // Adjust for HD
+    canvas.height = viewportHeight * window.devicePixelRatio;
+    ctx.scale(window.devicePixelRatio, window.devicePixelRatio); // Scale for HD
     ctx.fillStyle = '#35654d';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    const scale = Math.min(canvas.width / window.innerWidth, canvas.height / window.innerHeight) * 0.8;
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-    const scaledWidth = viewportWidth * scale;
-    const scaledHeight = viewportHeight * scale;
-    const offsetX = (canvas.width - scaledWidth) / 2;
-    const offsetY = (canvas.height - scaledHeight) / 2;
+    ctx.fillRect(0, 0, viewportWidth, viewportHeight);
 
     html2canvas(document.body, {
-        width: window.innerWidth,
-        height: window.innerHeight,
-        scale: scale * 1.5,
+        width: viewportWidth,
+        height: viewportHeight,
+        scale: 1,
         backgroundColor: '#35654d'
     }).then(canvas => {
-        ctx.drawImage(canvas, offsetX, offsetY, scaledWidth, scaledHeight);
+        ctx.drawImage(canvas, 0, 0, viewportWidth, viewportHeight);
         
         canvas.toBlob(blob => {
             if (!blob) {
@@ -588,8 +617,7 @@ shareIcon.addEventListener('click', () => {
                 return;
             }
             const file = new File([blob], 'vocabswipe-snapshot.png', { type: 'image/png' });
-            const shareData = shareData
-            {
+            const shareData = {
                 files: [file],
                 title: 'Check out my VocabSwipe snapshot!',
                 text: 'Master words with VocabSwipe! Try it at VocabSwipe.com',
@@ -605,7 +633,6 @@ shareIcon.addEventListener('click', () => {
                     link.click();
                     URL.revokeObjectURL(link.href);
                 });
-                });
             } else {
                 const link = document.createElement('a');
                 link.href = URL.createObjectURL(blob);
@@ -613,10 +640,9 @@ shareIcon.addEventListener('click', () => {
                 link.click();
                 URL.revokeObjectURL(link.href);
             }
-        });
+        }, 'image/png', 1.0); // Ensure high quality
     }).catch(error => {
         console.error('Error:', error);
-    });
     });
 }
 
