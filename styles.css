@@ -51,7 +51,7 @@ html, body {
     text-align: center;
     opacity: 0;
     transition: opacity 1s ease;
-    margin-bottom: 10px;
+    margin-bottom: 5px; /* Reduced from 10px to 5px (50% reduction) */
 }
 
 .counter {
@@ -62,7 +62,7 @@ html, body {
 
 .count-title {
     font-family: Arial, sans-serif;
-    font-size: 2rem; /* Adjusted for prominence */
+    font-size: 2.2rem; /* Increased from 2rem by 10% */
     font-weight: bold;
     color: #ffd700; /* Gold to highlight */
     margin: 5px 0;
@@ -70,11 +70,12 @@ html, body {
 
 .count-text {
     font-family: Arial, sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.99rem; /* Increased from 0.9rem by 10% */
     font-weight: bold;
     color: #ffffff; /* White text */
     margin: 5px 0;
     line-height: 1.4;
+    transition: opacity 0.5s ease; /* Added for fade animation */
 }
 
 /* Card container */
@@ -302,14 +303,14 @@ html, body {
 
 .website-name {
     font-family: Arial, sans-serif;
-    font-size: 1.0725rem;
+    font-size: 1.17975rem; /* Increased from 1.0725rem by 10% */
     font-weight: bold;
     color: #ffffff;
 }
 
 .website-slogan {
     font-family: Arial, sans-serif;
-    font-size: 0.804375rem;
+    font-size: 0.8848125rem; /* Increased from 0.804375rem by 10% */
     font-weight: bold;
     color: #ffffff;
 }
@@ -324,6 +325,7 @@ html, body {
     .website-stats {
         width: 90vw;
         max-width: 300px;
+        margin-bottom: 5px; /* Reduced from 10px to 5px (50% reduction) */
     }
 
     .counter {
@@ -331,11 +333,11 @@ html, body {
     }
 
     .count-title {
-        font-size: 1.56rem;
+        font-size: 1.716rem; /* Increased from 1.56rem by 10% */
     }
 
     .count-text {
-        font-size: 0.78rem;
+        font-size: 0.858rem; /* Increased from 0.78rem by 10% */
     }
 
     .word {
@@ -368,11 +370,11 @@ html, body {
     }
 
     .website-name {
-        font-size: 0.9295rem;
+        font-size: 1.02245rem; /* Increased from 0.9295rem by 10% */
     }
 
     .website-slogan {
-        font-size: 0.715rem;
+        font-size: 0.7865rem; /* Increased from 0.715rem by 10% */
     }
 
     .hand-point {
