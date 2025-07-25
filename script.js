@@ -102,14 +102,14 @@ function alternateStatsText() {
     const line1 = document.getElementById('stats-line1');
     const line2 = document.getElementById('stats-line2');
     const slogan = document.querySelector('.website-slogan');
-    let isThai = true;
+    let isEnglish = true;
 
     function swapText() {
         line1.style.opacity = '0';
         line2.style.opacity = '0';
         slogan.style.opacity = '0';
         setTimeout(() => {
-            if (isThai) {
+            if (isEnglish) {
                 line1.textContent = 'most spoken English sentences';
                 line2.textContent = 'cards available and still growing';
                 slogan.textContent = 'Master Words, Swipe by Swipe';
@@ -121,12 +121,23 @@ function alternateStatsText() {
             line1.style.opacity = '1';
             line2.style.opacity = '1';
             slogan.style.opacity = '1';
-            isThai = !isThai;
+            isEnglish = !isEnglish;
         }, 500);
     }
 
-    swapText();
-    setInterval(swapText, 30000);
+    // Start with English text
+    line1.textContent = 'most spoken English sentences';
+    line2.textContent = 'cards available and still growing';
+    slogan.textContent = 'Master Words, Swipe by Swipe';
+    line1.style.opacity = '1';
+    line2.style.opacity = '1';
+    slogan.style.opacity = '1';
+
+    // Wait 20 seconds before starting the alternation
+    setTimeout(() => {
+        swapText();
+        setInterval(swapText, 20000); // Alternate every 20 seconds
+    }, 20000);
 }
 
 // Function to fetch and parse JSONL file
