@@ -199,7 +199,7 @@ function populateCardsBeforeAnimation() {
     const isNight = isThailandNightTime();
     const cardTextColor = isNight ? '#FFD700' : '#000000';
     const isMobile = isMobileDevice();
-    const showWelcome = visitCount <= 5;
+    const showWelcome = visitCount <= 500;
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
     const wordBottomElement = document.getElementById('word-bottom');
