@@ -1,5 +1,5 @@
-/* Import Montserrat font */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+/* Import Montserrat and Bangers fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Bangers&display=swap');
 
 /* Reset default styles and prevent scrolling */
 * {
@@ -102,12 +102,16 @@ html, body {
     font-size: 0.9rem;
     color: #ffffff;
     margin: 2px 0;
-    line-height: 1.2;
+    line-height: 1.5; /* Increased line-height for better spacing */
     transition: opacity 0.5s ease;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 300px;
+}
+
+.count-text.thai-text#stats-line1 {
+    margin-top: 8px; /* Increased spacing between stat number and Thai text */
 }
 
 /* Card container */
@@ -379,6 +383,11 @@ html, body {
     .count-text {
         font-size: 0.8rem;
         max-width: 300px;
+        line-height: 1.6; /* Increased line-height for mobile */
+    }
+
+    .count-text.thai-text#stats-line1 {
+        margin-top: 10px; /* Increased spacing for Thai text on mobile */
     }
 
     .word {
@@ -411,6 +420,7 @@ html, body {
     }
 
     .website-name {
+        font-family: 'Bangers', cursive; /* Ensure Bangers font on mobile */
         font-size: 1.124695rem;
     }
 
