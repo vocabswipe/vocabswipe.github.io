@@ -42,7 +42,7 @@ html, body {
     align-items: flex-start;
     position: relative;
     z-index: 15;
-    padding-top: 30px; /* Increased padding to move text further down */
+    padding-top: 30px; /* Increased padding to prevent overlap with card stack */
 }
 
 /* Icon panel styling */
@@ -97,7 +97,6 @@ html, body {
     font-size: 2rem;
     color: #ffd700;
     margin: 5px 0;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added text shadow */
 }
 
 .stats-text-container {
@@ -119,7 +118,6 @@ html, body {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 300px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added text shadow */
 }
 
 .count-text.thai-text#stats-line1 {
@@ -173,47 +171,47 @@ html, body {
 /* Next cards and stack cards */
 #next-card-1 {
     z-index: 9;
-    transform: translate(1px, 1px) rotate(0.3deg);
+    transform: translate(1.5px, 1.5px) rotate(0.3deg);
 }
 
 #next-card-2 {
     z-index: 8;
-    transform: translate(2px, 2px) rotate(0.6deg);
+    transform: translate(3px, 3px) rotate(0.6deg);
 }
 
 #next-card-3 {
     z-index: 7;
-    transform: translate(3px, 3px) rotate(0.9deg);
+    transform: translate(4.5px, 4.5px) rotate(0.9deg);
 }
 
 #next-card-4 {
     z-index: 6;
-    transform: translate(4px, 4px) rotate(1.2deg);
+    transform: translate(6px, 6px) rotate(1.2deg);
 }
 
 #next-card-5 {
     z-index: 5;
-    transform: translate(5px, 5px) rotate(1.5deg);
+    transform: translate(7.5px, 7.5px) rotate(1.5deg);
 }
 
 #next-card-6 {
     z-index: 4;
-    transform: translate(6px, 6px) rotate(1.8deg);
+    transform: translate(9px, 9px) rotate(1.8deg);
 }
 
 #next-card-7 {
     z-index: 3;
-    transform: translate(7px, 7px) rotate(2.1deg);
+    transform: translate(10.5px, 10.5px) rotate(2.1deg);
 }
 
 #next-card-8 {
     z-index: 2;
-    transform: translate(8px, 8px) rotate(2.4deg);
+    transform: translate(12px, 12px) rotate(2.4deg);
 }
 
 #next-card-9 {
     z-index: 1;
-    transform: translate(9px, 9px) rotate(2.7deg);
+    transform: translate(13.5px, 13.5px) rotate(2.7deg);
 }
 
 .card-stack {
@@ -221,33 +219,27 @@ html, body {
 }
 
 .card-stack-1 {
-    transform: translate(10px, 10px) rotate(3deg);
+    transform: translate(15px, 15px) rotate(3deg);
     z-index: -1;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .card-stack-2 {
-    transform: translate(11px, 11px) rotate(3.3deg);
+    transform: translate(16.5px, 16.5px) rotate(3.3deg);
     z-index: -2;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card-stack-3 {
-    transform: translate(12px, 12px) rotate(3.6deg);
+    transform: translate(18px, 18px) rotate(3.6deg);
     z-index: -3;
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
 }
 
 .card-stack-4 {
-    transform: translate(13px, 13px) rotate(3.9deg);
+    transform: translate(19.5px, 19.5px) rotate(3.9deg);
     z-index: -4;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-}
-
-.card-stack-5 {
-    transform: translate(14px, 14px) rotate(4.2deg);
-    z-index: -5;
-    box-shadow: 0 9px 18px rgba(0, 0, 0, 0.45);
 }
 
 .card:active {
@@ -314,19 +306,19 @@ html, body {
 
 .website-name {
     font-family: 'Bangers', cursive;
-    font-size: 1.55727rem; /* Increased by 20% from 1.297725rem */
+    font-size: 1.55727rem; /* 1.297725rem * 1.2 */
     font-weight: normal;
     color: #ffffff;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added text shadow */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
 }
 
 .website-slogan {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 1.1679525rem; /* Increased by 20% from 0.97329375rem */
+    font-size: 1.1679525rem; /* 0.97329375rem * 1.2 */
     color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
     transition: opacity 0.5s ease;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added text shadow */
 }
 
 /* Responsive adjustments */
@@ -381,59 +373,55 @@ html, body {
     }
 
     #next-card-1 {
-        transform: translate(1px, 1px) rotate(0.3deg);
+        transform: translate(1.5px, 1.5px) rotate(0.3deg);
     }
 
     #next-card-2 {
-        transform: translate(2px, 2px) rotate(0.6deg);
+        transform: translate(3px, 3px) rotate(0.6deg);
     }
 
     #next-card-3 {
-        transform: translate(3px, 3px) rotate(0.9deg);
+        transform: translate(4.5px, 4.5px) rotate(0.9deg);
     }
 
     #next-card-4 {
-        transform: translate(4px, 4px) rotate(1.2deg);
+        transform: translate(6px, 6px) rotate(1.2deg);
     }
 
     #next-card-5 {
-        transform: translate(5px, 5px) rotate(1.5deg);
+        transform: translate(7.5px, 7.5px) rotate(1.5deg);
     }
 
     #next-card-6 {
-        transform: translate(6px, 6px) rotate(1.8deg);
+        transform: translate(9px, 9px) rotate(1.8deg);
     }
 
     #next-card-7 {
-        transform: translate(7px, 7px) rotate(2.1deg);
+        transform: translate(10.5px, 10.5px) rotate(2.1deg);
     }
 
     #next-card-8 {
-        transform: translate(8px, 8px) rotate(2.4deg);
+        transform: translate(12px, 12px) rotate(2.4deg);
     }
 
     #next-card-9 {
-        transform: translate(9px, 9px) rotate(2.7deg);
+        transform: translate(13.5px, 13.5px) rotate(2.7deg);
     }
 
     .card-stack-1 {
-        transform: translate(10px, 10px) rotate(3deg);
+        transform: translate(15px, 15px) rotate(3deg);
     }
 
     .card-stack-2 {
-        transform: translate(11px, 11px) rotate(3.3deg);
+        transform: translate(16.5px, 16.5px) rotate(3.3deg);
     }
 
     .card-stack-3 {
-        transform: translate(12px, 12px) rotate(3.6deg);
+        transform: translate(18px, 18px) rotate(3.6deg);
     }
 
     .card-stack-4 {
-        transform: translate(13px, 13px) rotate(3.9deg);
-    }
-
-    .card-stack-5 {
-        transform: translate(14px, 14px) rotate(4.2deg);
+        transform: translate(19.5px, 19.5px) rotate(3.9deg);
     }
 
     .share-icon {
@@ -443,12 +431,12 @@ html, body {
 
     .website-name {
         font-family: 'Bangers', cursive;
-        font-size: 1.349634rem; /* Increased by 20% from 1.124695rem */
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added text shadow */
+        font-size: 1.349634rem; /* 1.124695rem * 1.2 */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
     }
 
     .website-slogan {
-        font-size: 1.03818rem; /* Increased by 20% from 0.86515rem */
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Added text shadow */
+        font-size: 1.03818rem; /* 0.86515rem * 1.2 */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
     }
 }
