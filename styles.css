@@ -245,7 +245,7 @@ html, body {
     position: relative;
     width: 100%;
     height: 100%;
-    padding: 15px;
+    padding: 10px; /* Reduced from 15px to provide more space */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -273,23 +273,26 @@ html, body {
 
 /* Sentence styling */
 .sentence {
-    font-size: 1.5rem;
+    font-size: 0.75rem; /* Reduced by half for PC browsers */
     margin: 8px 0;
     text-align: center;
+    overflow-wrap: break-word; /* Prevent text overflow */
 }
 
 .english {
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 0.75rem; /* Reduced by half for PC browsers */
     line-height: 1.3;
+    overflow-wrap: break-word; /* Prevent text overflow */
 }
 
 .thai {
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 0.75rem; /* Reduced by half for PC browsers */
     line-height: 1.5;
+    overflow-wrap: break-word; /* Prevent text overflow */
 }
 
 /* Website name and slogan */
@@ -360,11 +363,11 @@ html, body {
     }
 
     .sentence {
-        font-size: 1.3rem;
+        font-size: 1.3rem; /* Maintain original size for mobile */
     }
 
     .english, .thai {
-        font-size: 1.3rem;
+        font-size: 1.3rem; /* Maintain original size for mobile */
     }
 
     .card-stack-1 {
