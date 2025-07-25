@@ -199,12 +199,13 @@ function populateCardsBeforeAnimation() {
     const isNight = isThailandNightTime();
     const cardTextColor = isNight ? '#FFD700' : '#000000';
     const isMobile = isMobileDevice();
-    const showWelcome = visitCount <= 5;
+    const showWelcome = visitCount <= 500;
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
     const wordBottomElement = document.getElementById('word-bottom');
     const englishElement = document.getElementById('english');
     const thaiElement = document.getElementById('thai');
+    const audioElement = document.getElementById('card-audio');
 
     const nextCards = [
         { top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1' },
@@ -212,7 +213,7 @@ function populateCardsBeforeAnimation() {
         { top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3' },
         { top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4' },
         { top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5' },
-        { top: 'next-word-top-6', bottom: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6' },
+        { top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6' },
         { top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7' },
         { top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8' },
         { top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9' }
@@ -230,7 +231,7 @@ function populateCardsBeforeAnimation() {
                 wordBottomElement.style.fontFamily = "'Bangers', cursive";
                 englishElement.textContent = entry.english;
                 thaiElement.textContent = entry.thai;
-                document.getElementById('card-audio').src = `data/${entry.audio}`;
+                audioElement.src = `data/${entry.audio}`;
             }
         } else {
             entry = vocabData[currentIndex];
@@ -240,7 +241,7 @@ function populateCardsBeforeAnimation() {
             wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
             englishElement.textContent = entry.english;
             thaiElement.textContent = entry.thai;
-            document.getElementById('card-audio').src = `data/${entry.audio}`;
+            audioElement.src = `data/${entry.audio}`;
         }
         wordTopElement.style.color = cardTextColor;
         wordBottomElement.style.color = cardTextColor;
@@ -292,7 +293,7 @@ function animateCardStackDrop(callback) {
     // Set initial state for animation (cards off-screen at top)
     cards.forEach((card, index) => {
         card.style.transition = 'none';
-        card.style.transform = `translateY(-${window.innerHeight}px) rotate(${(cards.length - 1 - index) * 0.342}deg)`;
+        card.style.transform = `translateY(-${window.innerHeight}px) rotate(${(cards.length - 1 - index) * 0.342}deg)`; // Reduced rotation by 5%
         card.style.opacity = '0';
     });
 
@@ -301,9 +302,9 @@ function animateCardStackDrop(callback) {
         cards.forEach((card, index) => {
             setTimeout(() => {
                 card.style.transition = `transform ${0.8 + index * 0.2}s ease-out, opacity ${0.8 + index * 0.2}s ease-out`;
-                const translateX = (cards.length - 1 - index) * 1.368;
-                const translateY = (cards.length - 1 - index) * 1.368;
-                const rotate = (cards.length - 1 - index) * 0.342;
+                const translateX = (cards.length - 1 - index) * 1.368; // Reduced from 1.44 by 5%
+                const translateY = (cards.length - 1 - index) * 1.368; // Reduced from 1.44 by 5%
+                const rotate = (cards.length - 1 - index) * 0.342; // Reduced from 0.36 by 5%
                 card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
                 card.style.opacity = '1';
             }, index * 200);
@@ -406,7 +407,7 @@ function displayCards() {
     const cardTextColor = isNight ? '#FFD700' : '#000000';
     const cardBorderColor = isNight ? '#FFD700' : '#000000';
     const isMobile = isMobileDevice();
-    const showWelcome = visitCount <= 5 && currentIndex === 0; // Modified to show welcome only at initial index
+    const showWelcome = visitCount <= 500;
 
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
@@ -430,7 +431,7 @@ function displayCards() {
     // Current card
     if (currentIndex < vocabData.length) {
         let entry;
-        if (showWelcome) {
+        if (showWelcome && currentIndex === 0) { // Only show welcome card at index 0
             entry = vocabData.find(item => item.word === (isMobile ? 'VocabSwipe_mobile_user' : 'VocabSwipe_pc_user'));
             if (entry) {
                 wordTopElement.textContent = 'VocabSwipe.com';
