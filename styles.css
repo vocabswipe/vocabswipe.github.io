@@ -26,7 +26,7 @@ html, body {
 /* Fixed height containers */
 .stats-container {
     width: 100%;
-    height: 120px; /* Fixed height to prevent shifting */
+    height: 140px; /* Increased height to accommodate larger text */
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -36,13 +36,13 @@ html, body {
 
 .info-container {
     width: 100%;
-    height: 100px; /* Increased height to prevent overlap */
+    height: 120px; /* Increased height to accommodate larger text and prevent overlap */
     display: flex;
     justify-content: center;
     align-items: flex-start;
     position: relative;
     z-index: 15;
-    padding-top: 20px; /* Added padding to move text down */
+    padding-top: 30px; /* Increased padding to move text down */
 }
 
 /* Icon panel styling */
@@ -94,13 +94,14 @@ html, body {
 .count-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 2.4rem; /* Increased by 20% from 2rem */
     color: #ffd700;
     margin: 5px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
 }
 
 .stats-text-container {
-    min-height: 60px; /* Ensure fixed height for text area to prevent shifting */
+    min-height: 72px; /* Increased by 20% from 60px to accommodate larger text */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -109,19 +110,20 @@ html, body {
 .count-text {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 1.08rem; /* Increased by 20% from 0.9rem */
     color: #ffffff;
     margin: 2px 0;
-    line-height: 1.5; /* Increased line-height for better spacing */
+    line-height: 1.8; /* Increased line-height for better spacing */
     transition: opacity 0.5s ease;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 300px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
 }
 
 .count-text.thai-text#stats-line1 {
-    margin-top: 8px; /* Increased spacing between stat number and Thai text */
+    margin-top: 10px; /* Adjusted spacing */
 }
 
 /* Card container */
@@ -194,43 +196,43 @@ html, body {
 }
 
 .card-stack-1 {
-    transform: translate(10px, 10px) rotate(2.5deg);
+    transform: translate(0.5px, 0.5px) rotate(0.1deg);
     z-index: 4;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .card-stack-2 {
-    transform: translate(12px, 12px) rotate(3deg);
+    transform: translate(1px, 1px) rotate(0.2deg);
     z-index: 3;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card-stack-3 {
-    transform: translate(14px, 14px) rotate(3.5deg);
+    transform: translate(1.5px, 1.5px) rotate(0.3deg);
     z-index: 2;
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
 }
 
 .card-stack-4 {
-    transform: translate(16px, 16px) rotate(4deg);
+    transform: translate(2px, 2px) rotate(0.4deg);
     z-index: 1;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .card-stack-5 {
-    transform: translate(18px, 18px) rotate(4.5deg);
+    transform: translate(2.5px, 2.5px) rotate(0.5deg);
     z-index: 0;
     box-shadow: 0 9px 18px rgba(0, 0, 0, 0.45);
 }
 
 .card-stack-6 {
-    transform: translate(20px, 20px) rotate(5deg);
+    transform: translate(3px, 3px) rotate(0.6deg);
     z-index: -1;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 .card-stack-7 {
-    transform: translate(22px, 22px) rotate(5.5deg);
+    transform: translate(3.5px, 3.5px) rotate(0.7deg);
     z-index: -2;
     box-shadow: 0 11px 22px rgba(0, 0, 0, 0.55);
 }
@@ -299,28 +301,30 @@ html, body {
 
 .website-name {
     font-family: 'Bangers', cursive;
-    font-size: 1.297725rem;
+    font-size: 1.55727rem; /* Increased by 20% from 1.297725rem */
     font-weight: normal;
     color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
 }
 
 .website-slogan {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 0.97329375rem;
+    font-size: 1.1679525rem; /* Increased by 20% from 0.97329375rem */
     color: #ffffff;
     transition: opacity 0.5s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
 }
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .stats-container {
-        height: 100px;
+        height: 120px; /* Adjusted for larger text */
     }
 
     .info-container {
-        height: 90px;
-        padding-top: 15px;
+        height: 110px; /* Adjusted for larger text */
+        padding-top: 25px; /* Adjusted padding */
     }
 
     .card-container {
@@ -338,17 +342,19 @@ html, body {
     }
 
     .count-title {
-        font-size: 1.8rem;
+        font-size: 2.16rem; /* Increased by 20% from 1.8rem */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
     }
 
     .count-text {
-        font-size: 0.8rem;
+        font-size: 0.96rem; /* Increased by 20% from 0.8rem */
         max-width: 300px;
-        line-height: 1.6; /* Increased line-height for mobile */
+        line-height: 1.92; /* Increased by 20% from 1.6 */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
     }
 
     .count-text.thai-text#stats-line1 {
-        margin-top: 10px; /* Increased spacing for Thai text on mobile */
+        margin-top: 12px; /* Increased spacing for Thai text */
     }
 
     .word {
@@ -364,31 +370,31 @@ html, body {
     }
 
     .card-stack-1 {
-        transform: translate(2px, 2px) rotate(2.5deg);
+        transform: translate(0.5px, 0.5px) rotate(0.1deg);
     }
 
     .card-stack-2 {
-        transform: translate(4px, 4px) rotate(3deg);
+        transform: translate(1px, 1px) rotate(0.2deg);
     }
 
     .card-stack-3 {
-        transform: translate(6px, 6px) rotate(3.5deg);
+        transform: translate(1.5px, 1.5px) rotate(0.3deg);
     }
 
     .card-stack-4 {
-        transform: translate(8px, 8px) rotate(4deg);
+        transform: translate(2px, 2px) rotate(0.4deg);
     }
 
     .card-stack-5 {
-        transform: translate(10px, 10px) rotate(4.5deg);
+        transform: translate(2.5px, 2.5px) rotate(0.5deg);
     }
 
     .card-stack-6 {
-        transform: translate(12px, 12px) rotate(5deg);
+        transform: translate(3px, 3px) rotate(0.6deg);
     }
 
     .card-stack-7 {
-        transform: translate(14px, 14px) rotate(5.5deg);
+        transform: translate(3.5px, 3.5px) rotate(0.7deg);
     }
 
     .share-icon {
@@ -397,11 +403,13 @@ html, body {
     }
 
     .website-name {
-        font-family: 'Bangers', cursive; /* Ensure Bangers font on mobile */
-        font-size: 1.124695rem;
+        font-family: 'Bangers', cursive;
+        font-size: 1.349634rem; /* Increased by 20% from 1.124695rem */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
     }
 
     .website-slogan {
-        font-size: 0.86515rem;
+        font-size: 1.03818rem; /* Increased by 20% from 0.86515rem */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
     }
 }
