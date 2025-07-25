@@ -13,16 +13,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
-    <!-- Icon panel -->
-    <div class="icon-panel">
-        <img src="share.svg" alt="Share" class="share-icon" id="share-icon">
-    </div>
-    <!-- Website statistics -->
-    <div class="website-stats" id="website-stats" style="opacity: 0;">
-        <div class="counter">
-            <h2 class="timer count-title count-number" data-to="10000" data-speed="10000"></h2>
-            <p class="count-text" id="stats-line1">most spoken English sentences</p>
-            <p class="count-text" id="stats-line2">cards available and still growing</p>
+    <!-- Fixed height container for stats -->
+    <div class="stats-container">
+        <!-- Website statistics -->
+        <div class="website-stats" id="website-stats">
+            <div class="counter">
+                <h2 class="timer count-title count-number" data-to="10000" data-speed="10000"></h2>
+                <p class="count-text" id="stats-line1">ประโยคภาษาอังกฤษที่ใช้กันมากที่สุด</p>
+                <p class="count-text" id="stats-line2">การ์ดที่พร้อมใช้และยังเพิ่มขึ้นเรื่อย ๆ</p>
+            </div>
         </div>
     </div>
     <div class="card-container" id="card-container">
@@ -58,10 +57,17 @@
         <img src="spacebar.svg" alt="Spacebar" class="spacebar" id="spacebar">
         <div class="spacebar-text" id="spacebar-text">Spacebar</div>
     </div>
-    <!-- Website name and slogan -->
-    <div class="website-info">
-        <h1 class="website-name">VocabSwipe.com</h1>
-        <p class="website-slogan">Master Words, Swipe by Swipe</p>
+    <!-- Fixed height container for website info -->
+    <div class="info-container">
+        <!-- Website name and slogan -->
+        <div class="website-info">
+            <h1 class="website-name">VocabSwipe.com</h1>
+            <p class="website-slogan">ยิ่งปัด ยิ่งเก่งศัพท์</p>
+        </div>
+    </div>
+    <!-- Icon panel -->
+    <div class="icon-panel">
+        <img src="share.svg" alt="Share" class="share-icon" id="share-icon">
     </div>
     <audio id="card-audio" src=""></audio>
     <!-- Canvas for snapshot -->
