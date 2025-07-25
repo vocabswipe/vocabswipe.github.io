@@ -69,7 +69,7 @@ localStorage.setItem('visitCount', visitCount);
     $.fn.countTo.defaults = {
         from: 0,
         to: 0,
-        speed: 10000, // Updated to 10 seconds
+        speed: 10000,
         refreshInterval: 100,
         decimals: 0,
         formatter: formatter,
@@ -86,42 +86,47 @@ localStorage.setItem('visitCount', visitCount);
 function updateWebsiteStats() {
     const statsElement = document.getElementById('website-stats');
     const countNumberElement = $('.count-number');
-    countNumberElement.data('to', vocabData.length); // Set target to fetched data length
+    countNumberElement.data('to', vocabData.length);
     countNumberElement.data('countToOptions', {
         formatter: function (value, options) {
             return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
         }
     });
-    countNumberElement.countTo(); // Start animation
+    countNumberElement.countTo();
     statsElement.style.transition = 'opacity 1s ease';
     statsElement.style.opacity = '1';
 }
 
-// Function to alternate stats text between English and Thai
+// Function to alternate stats text and slogan between English and Thai
 function alternateStatsText() {
     const line1 = document.getElementById('stats-line1');
     const line2 = document.getElementById('stats-line2');
-    let isEnglish = true;
+    const slogan = document.querySelector('.website-slogan');
+    let isThai = true;
 
     function swapText() {
         line1.style.opacity = '0';
         line2.style.opacity = '0';
+        slogan.style.opacity = '0';
         setTimeout(() => {
-            if (isEnglish) {
-                line1.textContent = 'ประโยคภาษาอังกฤษที่ใช้กันมากที่สุด';
-                line2.textContent = 'การ์ดที่พร้อมใช้และยังเพิ่มขึ้นเรื่อย ๆ';
-            } else {
+            if (isThai) {
                 line1.textContent = 'most spoken English sentences';
                 line2.textContent = 'cards available and still growing';
+                slogan.textContent = 'Master Words, Swipe by Swipe';
+            } else {
+                line1.textContent = 'ประโยคภาษาอังกฤษที่ใช้กันมากที่สุด';
+                line2.textContent = 'การ์ดที่พร้อมใช้และยังเพิ่มขึ้นเรื่อย ๆ';
+                slogan.textContent = 'ยิ่งปัด ยิ่งเก่งศัพท์';
             }
             line1.style.opacity = '1';
             line2.style.opacity = '1';
-            isEnglish = !isEnglish;
+            slogan.style.opacity = '1';
+            isThai = !isThai;
         }, 500);
     }
 
-    swapText(); // Initial call to set English text
-    setInterval(swapText, 30000); // Swap every 30 seconds
+    swapText();
+    setInterval(swapText, 30000);
 }
 
 // Function to fetch and parse JSONL file
@@ -130,7 +135,7 @@ async function loadVocabData() {
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
         vocabData = text.trim().split('\n').map(line => JSON.parse(line));
-        vocabData = vocabData.sort(() => Math.random() - 0.5); // Shuffle
+        vocabData = vocabData.sort(() => Math.random() - 0.5);
         displayCards();
         updateWebsiteStats();
         alternateStatsText();
@@ -554,8 +559,8 @@ function captureSnapshot() {
     const canvas = document.getElementById('snapshot-canvas');
     const ctx = canvas.getContext('2d');
 
-    // Reduce canvas width by 20% while maintaining 9:16 aspect ratio
-    canvas.width = 1080 * 0.8; // 864px (10% from original + additional 10%)
+    // Increase canvas width by 40% while maintaining 9:16 aspect ratio
+    canvas.width = 1080 * 1.4; // 1512px (40% increase from original 1080px)
     canvas.height = canvas.width * (16 / 9); // Maintain 9:16 aspect ratio
     ctx.fillStyle = '#35654d';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
