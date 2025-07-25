@@ -69,7 +69,7 @@ localStorage.setItem('visitCount', visitCount);
     $.fn.countTo.defaults = {
         from: 0,
         to: 0,
-        speed: 1000,
+        speed: 10000, // Updated to 10 seconds
         refreshInterval: 100,
         decimals: 0,
         formatter: formatter,
@@ -554,8 +554,8 @@ function captureSnapshot() {
     const canvas = document.getElementById('snapshot-canvas');
     const ctx = canvas.getContext('2d');
 
-    // Reduce canvas width by 10% while maintaining 9:16 aspect ratio
-    canvas.width = 1080 * 0.9; // 972px
+    // Reduce canvas width by 20% while maintaining 9:16 aspect ratio
+    canvas.width = 1080 * 0.8; // 864px (10% from original + additional 10%)
     canvas.height = canvas.width * (16 / 9); // Maintain 9:16 aspect ratio
     ctx.fillStyle = '#35654d';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -576,7 +576,7 @@ function captureSnapshot() {
     spacebar.style.opacity = '0';
     spacebarText.style.opacity = '0';
 
-    const scale = Math.min(canvas.width / window.innerWidth, canvas.height / window.innerHeight) * 0.9;
+    const scale = Math.min(canvas.width / window.innerWidth, canvas.height / window.innerHeight) * 0.8;
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
     const scaledWidth = viewportWidth * scale;
