@@ -97,6 +97,33 @@ function updateWebsiteStats() {
     statsElement.style.opacity = '1';
 }
 
+// Function to alternate stats text between English and Thai
+function alternateStatsText() {
+    const line1 = document.getElementById('stats-line1');
+    const line2 = document.getElementById('stats-line2');
+    let isEnglish = true;
+
+    function swapText() {
+        line1.style.opacity = '0';
+        line2.style.opacity = '0';
+        setTimeout(() => {
+            if (isEnglish) {
+                line1.textContent = 'ประโยคภาษาอังกฤษที่ใช้กันมากที่สุด';
+                line2.textContent = 'การ์ดที่พร้อมใช้และยังเพิ่มขึ้นเรื่อย ๆ';
+            } else {
+                line1.textContent = 'most spoken English sentences';
+                line2.textContent = 'cards available and still growing';
+            }
+            line1.style.opacity = '1';
+            line2.style.opacity = '1';
+            isEnglish = !isEnglish;
+        }, 500);
+    }
+
+    swapText(); // Initial call to set English text
+    setInterval(swapText, 30000); // Swap every 30 seconds
+}
+
 // Function to fetch and parse JSONL file
 async function loadVocabData() {
     try {
@@ -106,6 +133,7 @@ async function loadVocabData() {
         vocabData = vocabData.sort(() => Math.random() - 0.5); // Shuffle
         displayCards();
         updateWebsiteStats();
+        alternateStatsText();
         if (visitCount <= 10) {
             if (isMobileDevice()) {
                 startMobileAnimation();
@@ -526,8 +554,9 @@ function captureSnapshot() {
     const canvas = document.getElementById('snapshot-canvas');
     const ctx = canvas.getContext('2d');
 
-    canvas.width = 1080;
-    canvas.height = 1920;
+    // Reduce canvas width by 10% while maintaining 9:16 aspect ratio
+    canvas.width = 1080 * 0.9; // 972px
+    canvas.height = canvas.width * (16 / 9); // Maintain 9:16 aspect ratio
     ctx.fillStyle = '#35654d';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
