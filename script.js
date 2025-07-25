@@ -199,7 +199,7 @@ function populateCardsBeforeAnimation() {
     const isNight = isThailandNightTime();
     const cardTextColor = isNight ? '#FFD700' : '#000000';
     const isMobile = isMobileDevice();
-    const showWelcome = visitCount <= 500;
+    const showWelcome = visitCount <= 5;
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
     const wordBottomElement = document.getElementById('word-bottom');
@@ -212,7 +212,7 @@ function populateCardsBeforeAnimation() {
         { top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3' },
         { top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4' },
         { top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5' },
-        { top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6' },
+        { top: 'next-word-top-6', bottom: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6' },
         { top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7' },
         { top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8' },
         { top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9' }
@@ -228,6 +228,9 @@ function populateCardsBeforeAnimation() {
                 wordBottomElement.textContent = 'VocabSwipe.com';
                 wordTopElement.style.fontFamily = "'Bangers', cursive";
                 wordBottomElement.style.fontFamily = "'Bangers', cursive";
+                englishElement.textContent = entry.english;
+                thaiElement.textContent = entry.thai;
+                document.getElementById('card-audio').src = `data/${entry.audio}`;
             }
         } else {
             entry = vocabData[currentIndex];
@@ -235,9 +238,10 @@ function populateCardsBeforeAnimation() {
             wordBottomElement.textContent = entry.word;
             wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
             wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
+            englishElement.textContent = entry.english;
+            thaiElement.textContent = entry.thai;
+            document.getElementById('card-audio').src = `data/${entry.audio}`;
         }
-        englishElement.textContent = entry.english;
-        thaiElement.textContent = entry.thai;
         wordTopElement.style.color = cardTextColor;
         wordBottomElement.style.color = cardTextColor;
         englishElement.style.color = cardTextColor;
@@ -288,7 +292,7 @@ function animateCardStackDrop(callback) {
     // Set initial state for animation (cards off-screen at top)
     cards.forEach((card, index) => {
         card.style.transition = 'none';
-        card.style.transform = `translateY(-${window.innerHeight}px) rotate(${(cards.length - 1 - index) * 0.342}deg)`; // Reduced rotation by 5%
+        card.style.transform = `translateY(-${window.innerHeight}px) rotate(${(cards.length - 1 - index) * 0.342}deg)`;
         card.style.opacity = '0';
     });
 
@@ -297,9 +301,9 @@ function animateCardStackDrop(callback) {
         cards.forEach((card, index) => {
             setTimeout(() => {
                 card.style.transition = `transform ${0.8 + index * 0.2}s ease-out, opacity ${0.8 + index * 0.2}s ease-out`;
-                const translateX = (cards.length - 1 - index) * 1.368; // Reduced from 1.44 by 5%
-                const translateY = (cards.length - 1 - index) * 1.368; // Reduced from 1.44 by 5%
-                const rotate = (cards.length - 1 - index) * 0.342; // Reduced from 0.36 by 5%
+                const translateX = (cards.length - 1 - index) * 1.368;
+                const translateY = (cards.length - 1 - index) * 1.368;
+                const rotate = (cards.length - 1 - index) * 0.342;
                 card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
                 card.style.opacity = '1';
             }, index * 200);
@@ -402,7 +406,7 @@ function displayCards() {
     const cardTextColor = isNight ? '#FFD700' : '#000000';
     const cardBorderColor = isNight ? '#FFD700' : '#000000';
     const isMobile = isMobileDevice();
-    const showWelcome = visitCount <= 5;
+    const showWelcome = visitCount <= 5 && currentIndex === 0; // Modified to show welcome only at initial index
 
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
@@ -411,15 +415,15 @@ function displayCards() {
     const thaiElement = document.getElementById('thai');
     const audioElement = document.getElementById('card-audio');
     const nextCards = [
-        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: 9, translateX: 1.368, translateY: 1.368, rotate: 0.342 }, // Reduced by 5%
-        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 2.736, translateY: 2.736, rotate: 0.684 }, // Reduced by 5%
-        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: 7, translateX: 4.104, translateY: 4.104, rotate: 1.026 }, // Reduced by 5%
-        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 6, translateX: 5.472, translateY: 5.472, rotate: 1.368 }, // Reduced by 5%
-        { card: document.getElementById('next-card-5'), top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5', zIndex: 5, translateX: 6.84, translateY: 6.84, rotate: 1.71 }, // Reduced by 5%
-        { card: document.getElementById('next-card-6'), top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6', zIndex: 4, translateX: 8.208, translateY: 8.208, rotate: 2.052 }, // Reduced by 5%
-        { card: document.getElementById('next-card-7'), top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7', zIndex: 3, translateX: 9.576, translateY: 9.576, rotate: 2.394 }, // Reduced by 5%
-        { card: document.getElementById('next-card-8'), top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8', zIndex: 2, translateX: 10.944, translateY: 10.944, rotate: 2.736 }, // Reduced by 5%
-        { card: document.getElementById('next-card-9'), top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9', zIndex: 1, translateX: 12.312, translateY: 12.312, rotate: 3.078 } // Reduced by 5%
+        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: 9, translateX: 1.368, translateY: 1.368, rotate: 0.342 },
+        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 2.736, translateY: 2.736, rotate: 0.684 },
+        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: 7, translateX: 4.104, translateY: 4.104, rotate: 1.026 },
+        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 6, translateX: 5.472, translateY: 5.472, rotate: 1.368 },
+        { card: document.getElementById('next-card-5'), top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5', zIndex: 5, translateX: 6.84, translateY: 6.84, rotate: 1.71 },
+        { card: document.getElementById('next-card-6'), top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6', zIndex: 4, translateX: 8.208, translateY: 8.208, rotate: 2.052 },
+        { card: document.getElementById('next-card-7'), top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7', zIndex: 3, translateX: 9.576, translateY: 9.576, rotate: 2.394 },
+        { card: document.getElementById('next-card-8'), top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8', zIndex: 2, translateX: 10.944, translateY: 10.944, rotate: 2.736 },
+        { card: document.getElementById('next-card-9'), top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9', zIndex: 1, translateX: 12.312, translateY: 12.312, rotate: 3.078 }
     ];
     const stackCards = document.querySelectorAll('.card-stack');
 
@@ -433,6 +437,9 @@ function displayCards() {
                 wordBottomElement.textContent = 'VocabSwipe.com';
                 wordTopElement.style.fontFamily = "'Bangers', cursive";
                 wordBottomElement.style.fontFamily = "'Bangers', cursive";
+                englishElement.textContent = entry.english;
+                thaiElement.textContent = entry.thai;
+                audioElement.src = `data/${entry.audio}`;
             }
         } else {
             entry = vocabData[currentIndex];
@@ -440,10 +447,10 @@ function displayCards() {
             wordBottomElement.textContent = entry.word;
             wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
             wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
+            englishElement.textContent = entry.english;
+            thaiElement.textContent = entry.thai;
+            audioElement.src = `data/${entry.audio}`;
         }
-        englishElement.textContent = entry.english;
-        thaiElement.textContent = entry.thai;
-        audioElement.src = `data/${entry.audio}`;
         wordTopElement.style.color = cardTextColor;
         wordBottomElement.style.color = cardTextColor;
         englishElement.style.color = cardTextColor;
