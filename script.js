@@ -105,10 +105,10 @@ function alternateStatsText() {
     let isEnglish = true;
 
     function swapText() {
-        // Fade out text only
-        line1.style.transition = 'opacity 0.5s ease';
-        line2.style.transition = 'opacity 0.5s ease';
-        slogan.style.transition = 'opacity 0.5s ease';
+        // Near-instantaneous transition
+        line1.style.transition = 'opacity 0.05s ease';
+        line2.style.transition = 'opacity 0.05s ease';
+        slogan.style.transition = 'opacity 0.05s ease';
         line1.style.opacity = '0';
         line2.style.opacity = '0';
         slogan.style.opacity = '0';
@@ -116,29 +116,26 @@ function alternateStatsText() {
         setTimeout(() => {
             // Update text and classes
             if (isEnglish) {
-                line1.textContent = 'most spoken English sentences';
-                line2.textContent = 'cards available and still growing';
-                slogan.textContent = 'Master Words, Swipe by Swipe';
-                line1.classList.remove('thai-text');
-                line2.classList.remove('thai-text');
-                slogan.classList.remove('thai-text');
-            } else {
                 line1.textContent = 'ประโยคภาษาอังกฤษที่ใช้กันมากที่สุด';
                 line2.textContent = 'การ์ดที่พร้อมใช้และยังเพิ่มขึ้นเรื่อย ๆ';
                 slogan.textContent = 'ยิ่งปัด ยิ่งเก่งศัพท์';
                 line1.classList.add('thai-text');
                 line2.classList.add('thai-text');
                 slogan.classList.add('thai-text');
+            } else {
+                line1.textContent = 'most spoken English sentences';
+                line2.textContent = 'cards available and still growing';
+                slogan.textContent = 'Master Words, Swipe by Swipe';
+                line1.classList.remove('thai-text');
+                line2.classList.remove('thai-text');
+                slogan.classList.remove('thai-text');
             }
-            // Fade in text
-            line1.style.transition = 'opacity 0.5s ease';
-            line2.style.transition = 'opacity 0.5s ease';
-            slogan.style.transition = 'opacity 0.5s ease';
+            // Instantly fade in
             line1.style.opacity = '1';
             line2.style.opacity = '1';
             slogan.style.opacity = '1';
             isEnglish = !isEnglish;
-        }, 500);
+        }, 50);
     }
 
     // Start with English text instantly
@@ -153,10 +150,7 @@ function alternateStatsText() {
     slogan.classList.remove('thai-text');
 
     // Start alternating after 20 seconds
-    setTimeout(() => {
-        swapText();
-        setInterval(swapText, 20000); // Alternate every 20 seconds
-    }, 20000);
+    setInterval(swapText, 20000);
 }
 
 // Function to check if it's night time in Thailand (10 PM - 6 AM)
@@ -403,7 +397,7 @@ function displayCards() {
 // Function to animate and move to next card
 function moveToNextCard(translateX, translateY, rotate) {
     const card = document.getElementById('vocab-card');
-    card.style.transition = 'transform 0.5s ease';
+    card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
     card.style.zIndex = '1000';
@@ -561,15 +555,19 @@ document.addEventListener('keydown', (e) => {
             }, 600);
             break;
         case 'ArrowLeft':
+            e.preventDefault();
             moveToNextCard(-window.innerWidth, 0, -15);
             break;
         case 'ArrowRight':
+            e.preventDefault();
             moveToNextCard(window.innerWidth, 0, 15);
             break;
         case 'ArrowUp':
+            e.preventDefault();
             moveToNextCard(0, -window.innerHeight, -10);
             break;
         case 'ArrowDown':
+            e.preventDefault();
             moveToNextCard(0, window.innerHeight, 10);
             break;
     }
@@ -606,8 +604,26 @@ function captureSnapshot() {
     html2canvas(document.body, {
         width: viewportWidth,
         height: viewportHeight,
-        scale: 1,
-        backgroundColor: '#35654d'
+        scale: 2, // Increased scale for higher definition
+        backgroundColor: '#35654d',
+        useCORS: true,
+        logging: false,
+        onclone: (clonedDoc) => {
+            // Ensure all animations are stopped in the cloned document
+            const clonedCards = clonedDoc.querySelectorAll('.card');
+            clonedCards.forEach(card => {
+                card.style.transition = 'none';
+                card.style.opacity = '1';
+            });
+            const clonedStats = clonedDoc.querySelector('.website-stats');
+            clonedStats.style.transition = 'none';
+            clonedStats.style.opacity = '1';
+            const clonedText = clonedDoc.querySelectorAll('.count-text, .website-slogan');
+            clonedText.forEach(text => {
+                text.style.transition = 'none';
+                text.style.opacity = '1';
+            });
+        }
     }).then(canvas => {
         ctx.drawImage(canvas, 0, 0, viewportWidth, viewportHeight);
         
