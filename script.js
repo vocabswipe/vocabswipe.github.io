@@ -141,7 +141,7 @@ function alternateStatsText() {
         }, 500);
     }
 
-    // Start with English text (explicitly set)
+    // Start with English text
     line1.textContent = 'most spoken English sentences';
     line2.textContent = 'cards available and still growing';
     slogan.textContent = 'Master Words, Swipe by Swipe';
@@ -152,7 +152,7 @@ function alternateStatsText() {
     line2.classList.remove('thai-text');
     slogan.classList.remove('thai-text');
 
-    // Start alternating after 20 seconds, switching to Thai first
+    // Start alternating after 20 seconds
     setTimeout(() => {
         swapText();
         setInterval(swapText, 20000); // Alternate every 20 seconds
@@ -180,6 +180,11 @@ function setInitialCardTheme() {
         document.getElementById('next-card-2'),
         document.getElementById('next-card-3'),
         document.getElementById('next-card-4'),
+        document.getElementById('next-card-5'),
+        document.getElementById('next-card-6'),
+        document.getElementById('next-card-7'),
+        document.getElementById('next-card-8'),
+        document.getElementById('next-card-9'),
         ...document.querySelectorAll('.card-stack')
     ];
 
@@ -187,21 +192,70 @@ function setInitialCardTheme() {
         card.style.backgroundColor = cardBackgroundColor;
         card.style.borderColor = cardBorderColor;
     });
+
+    // Set text color for card content
+    const textElements = document.querySelectorAll('.word, .sentence');
+    textElements.forEach(element => {
+        element.style.color = cardTextColor;
+    });
 }
 
-// Function to animate card stack drop with two groups
+// Function to assign content to cards before animation
+function assignCardContent() {
+    if (vocabData.length === 0) return;
+
+    const isNight = isThailandNightTime();
+    const cardTextColor = isNight ? '#FFD700' : '#000000';
+
+    const cards = [
+        { id: 'vocab-card', top: 'word-top', bottom: 'word-bottom', english: 'english', thai: 'thai', index: currentIndex },
+        { id: 'next-card-1', top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1', index: currentIndex + 1 },
+        { id: 'next-card-2', top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2', index: currentIndex + 2 },
+        { id: 'next-card-3', top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3', index: currentIndex + 3 },
+        { id: 'next-card-4', top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4', index: currentIndex + 4 },
+        { id: 'next-card-5', top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5', index: currentIndex + 5 },
+        { id: 'next-card-6', top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6', index: currentIndex + 6 },
+        { id: 'next-card-7', top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7', index: currentIndex + 7 },
+        { id: 'next-card-8', top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8', index: currentIndex + 8 },
+        { id: 'next-card-9', top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9', index: currentIndex + 9 }
+    ];
+
+    cards.forEach(card => {
+        if (card.index < vocabData.length) {
+            const entry = vocabData[card.index];
+            const wordTopElement = document.getElementById(card.top);
+            const wordBottomElement = document.getElementById(card.bottom);
+            const englishElement = document.getElementById(card.english);
+            const thaiElement = document.getElementById(card.thai);
+            wordTopElement.textContent = entry.word;
+            wordBottomElement.textContent = entry.word;
+            englishElement.textContent = entry.english;
+            thaiElement.textContent = entry.thai;
+            wordTopElement.style.color = cardTextColor;
+            wordBottomElement.style.color = cardTextColor;
+            englishElement.style.color = cardTextColor;
+            thaiElement.style.color = cardTextColor;
+        } else {
+            const cardElement = document.getElementById(card.id);
+            cardElement.style.opacity = '0';
+        }
+    });
+}
+
+// Function to animate card stack drop
 function animateCardStackDrop(callback) {
     const cardContainer = document.getElementById('card-container');
-    const stackCards = [
-        document.querySelector('.card-stack-7'),
-        document.querySelector('.card-stack-6'),
+    const cards = [
         document.querySelector('.card-stack-5'),
         document.querySelector('.card-stack-4'),
         document.querySelector('.card-stack-3'),
         document.querySelector('.card-stack-2'),
-        document.querySelector('.card-stack-1')
-    ];
-    const contentCards = [
+        document.querySelector('.card-stack-1'),
+        document.getElementById('next-card-9'),
+        document.getElementById('next-card-8'),
+        document.getElementById('next-card-7'),
+        document.getElementById('next-card-6'),
+        document.getElementById('next-card-5'),
         document.getElementById('next-card-4'),
         document.getElementById('next-card-3'),
         document.getElementById('next-card-2'),
@@ -210,42 +264,24 @@ function animateCardStackDrop(callback) {
     ];
 
     // Set initial state for animation (cards off-screen at top)
-    stackCards.forEach((card, index) => {
+    cards.forEach((card, index) => {
         card.style.transition = 'none';
-        card.style.transform = `translateY(-${window.innerHeight}px) rotate(${index * 0.1}deg)`; // Tighter rotation for stack cards
-        card.style.opacity = '0';
-    });
-
-    contentCards.forEach((card, index) => {
-        card.style.transition = 'none';
-        card.style.transform = `translateY(-${window.innerHeight}px) rotate(${(contentCards.length - 1 - index) * 0.5}deg)`;
+        card.style.transform = `translateY(-${window.innerHeight}px) rotate(${(cards.length - 1 - index) * 0.3}deg)`;
         card.style.opacity = '0';
     });
 
     // Start animation after a brief delay
     setTimeout(() => {
-        // Animate stack cards (no content) first, tightly packed
-        stackCards.forEach((card, index) => {
+        cards.forEach((card, index) => {
             setTimeout(() => {
-                card.style.transition = `transform ${0.8 + index * 0.05}s ease-out, opacity ${0.8 + index * 0.05}s ease-out`; // Faster for stack cards
-                card.style.transform = `translate(${(stackCards.length - 1 - index) * 0.5}px, ${(stackCards.length - 1 - index) * 0.5}px) rotate(${(stackCards.length - 1 - index) * 0.1}deg)`; // Tighter translation
+                card.style.transition = `transform ${0.8 + index * 0.15}s ease-out, opacity ${0.8 + index * 0.15}s ease-out`;
+                card.style.transform = `translate(${(cards.length - 1 - index) * 1}px, ${(cards.length - 1 - index) * 1}px) rotate(${(cards.length - 1 - index) * 0.3}deg)`;
                 card.style.opacity = '1';
-            }, index * 50); // Stagger by 50ms for stack cards
-        });
-
-        // Animate content cards after stack cards, only if data is available
-        contentCards.forEach((card, index) => {
-            if (vocabData.length > index) { // Only animate if data is loaded
-                setTimeout(() => {
-                    card.style.transition = `transform ${0.8 + index * 0.2}s ease-out, opacity ${0.8 + index * 0.2}s ease-out`;
-                    card.style.transform = `translate(${(contentCards.length - 1 - index) * 2}px, ${(contentCards.length - 1 - index) * 2}px) rotate(${(contentCards.length - 1 - index) * 0.5}deg)`;
-                    card.style.opacity = '1';
-                }, (stackCards.length * 50) + (index * 200)); // Start after stack cards, staggered by 200ms
-            }
+            }, index * 150); // Reduced stagger to 150ms for faster animation
         });
 
         // Call callback after animation completes
-        setTimeout(callback, 1000 + (stackCards.length * 50) + ((vocabData.length > contentCards.length ? contentCards.length : vocabData.length) * 200));
+        setTimeout(callback, 1000 + (cards.length - 1) * 150);
     }, 100);
 }
 
@@ -260,24 +296,16 @@ async function loadVocabData() {
             document.getElementById('next-card-2'),
             document.getElementById('next-card-3'),
             document.getElementById('next-card-4'),
+            document.getElementById('next-card-5'),
+            document.getElementById('next-card-6'),
+            document.getElementById('next-card-7'),
+            document.getElementById('next-card-8'),
+            document.getElementById('next-card-9'),
             ...document.querySelectorAll('.card-stack')
         ];
         cards.forEach(card => {
             card.style.opacity = '0';
             card.style.display = 'none'; // Hide cards to simulate empty table
-        });
-
-        // Show stack cards immediately to start animation
-        const stackCards = document.querySelectorAll('.card-stack');
-        stackCards.forEach(card => {
-            card.style.display = 'block';
-        });
-
-        // Start stack animation for stack cards
-        animateCardStackDrop(() => {
-            displayCards();
-            updateWebsiteStats();
-            alternateStatsText();
         });
 
         // Fetch data
@@ -286,18 +314,18 @@ async function loadVocabData() {
         vocabData = text.trim().split('\n').map(line => JSON.parse(line));
         vocabData = vocabData.sort(() => Math.random() - 0.5);
 
-        // Show content cards after data is loaded
-        const contentCards = [
-            document.getElementById('vocab-card'),
-            document.getElementById('next-card-1'),
-            document.getElementById('next-card-2'),
-            document.getElementById('next-card-3'),
-            document.getElementById('next-card-4')
-        ];
-        contentCards.forEach(card => {
+        // Assign content to cards before animation
+        assignCardContent();
+
+        // Show cards and start stack drop animation
+        cards.forEach(card => {
             card.style.display = 'block';
         });
-
+        animateCardStackDrop(() => {
+            displayCards();
+            updateWebsiteStats();
+            alternateStatsText();
+        });
     } catch (error) {
         console.error('Error loading database:', error);
         document.getElementById('word-top').textContent = 'Error';
@@ -326,10 +354,15 @@ function displayCards() {
     const thaiElement = document.getElementById('thai');
     const audioElement = document.getElementById('card-audio');
     const nextCards = [
-        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: 9, translateX: 2, translateY: 2, rotate: 0.5 },
-        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 4, translateY: 4, rotate: 1 },
-        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: 7, translateX: 6, translateY: 6, rotate: 1.5 },
-        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 6, translateX: 8, translateY: 8, rotate: 2 }
+        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: 9, translateX: 1, translateY: 1, rotate: 0.3 },
+        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 2, translateY: 2, rotate: 0.6 },
+        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: 7, translateX: 3, translateY: 3, rotate: 0.9 },
+        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 6, translateX: 4, translateY: 4, rotate: 1.2 },
+        { card: document.getElementById('next-card-5'), top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5', zIndex: 5, translateX: 5, translateY: 5, rotate: 1.5 },
+        { card: document.getElementById('next-card-6'), top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6', zIndex: 4, translateX: 6, translateY: 6, rotate: 1.8 },
+        { card: document.getElementById('next-card-7'), top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7', zIndex: 3, translateX: 7, translateY: 7, rotate: 2.1 },
+        { card: document.getElementById('next-card-8'), top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8', zIndex: 2, translateX: 8, translateY: 8, rotate: 2.4 },
+        { card: document.getElementById('next-card-9'), top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9', zIndex: 1, translateX: 9, translateY: 9, rotate: 2.7 }
     ];
     const stackCards = document.querySelectorAll('.card-stack');
 
