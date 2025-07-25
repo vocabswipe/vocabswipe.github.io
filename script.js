@@ -169,24 +169,64 @@ function setInitialCardTheme() {
     });
 }
 
+// Function to animate card stack drop
+function animateCardStackDrop(callback) {
+    const cardContainer = document.getElementById('card-container');
+    const cards = [
+        document.getElementById('vocab-card'),
+        document.getElementById('next-card'),
+        document.querySelector('.card-stack-1'),
+        document.querySelector('.card-stack-2'),
+        document.querySelector('.card-stack-3')
+    ];
+
+    // Set initial state for animation (cards off-screen at top)
+    cards.forEach((card, index) => {
+        card.style.transition = 'none';
+        card.style.transform = `translateY(-${window.innerHeight}px) rotate(${index * 0.5}deg)`;
+        card.style.opacity = '0';
+    });
+
+    // Start animation after a brief delay
+    setTimeout(() => {
+        cards.forEach((card, index) => {
+            card.style.transition = `transform ${0.8 + index * 0.1}s ease-out, opacity ${0.8 + index * 0.1}s ease-out`;
+            card.style.transform = `translate(${index * 2}px, ${index * 2}px) rotate(${index * 0.5}deg)`;
+            card.style.opacity = '1';
+        });
+
+        // Call callback after animation completes
+        setTimeout(callback, 1000);
+    }, 100);
+}
+
 // Function to fetch and parse JSONL file
 async function loadVocabData() {
     try {
-        setInitialCardTheme(); // Set initial card theme before loading data
-        const response = await fetch('data/database.jsonl');
-        const text = await response.text();
-        vocabData = text.trim().split('\n').map(line => JSON.parse(line));
-        vocabData = vocabData.sort(() => Math.random() - 0.5);
-        displayCards();
-        updateWebsiteStats();
-        alternateStatsText();
-        if (visitCount <= 10) {
-            if (isMobileDevice()) {
-                startMobileAnimation();
-            } else {
-                startPCAnimation();
+        // Set initial card theme and hide card content
+        setInitialCardTheme();
+        const currentCard = document.getElementById('vocab-card');
+        const nextCard = document.getElementById('next-card');
+        currentCard.style.opacity = '0';
+        nextCard.style.opacity = '0';
+
+        // Start card stack drop animation
+        animateCardStackDrop(async () => {
+            const response = await fetch('data/database.jsonl');
+            const text = await response.text();
+            vocabData = text.trim().split('\n').map(line => JSON.parse(line));
+            vocabData = vocabData.sort(() => Math.random() - 0.5);
+            displayCards();
+            updateWebsiteStats();
+            alternateStatsText();
+            if (visitCount <= 10) {
+                if (isMobileDevice()) {
+                    startMobileAnimation();
+                } else {
+                    startPCAnimation();
+                }
             }
-        }
+        });
     } catch (error) {
         console.error('Error loading database:', error);
         document.getElementById('word-top').textContent = 'Error';
@@ -245,7 +285,7 @@ function displayCards() {
         currentCard.style.borderColor = cardBorderColor;
         currentCard.style.transform = 'translate(0, 0) rotate(0deg)';
         currentCard.style.opacity = '1';
-        currentCard.style.zIndex = '100'; // Ensure card is on top during display
+        currentCard.style.zIndex = '100';
     }
 
     if (currentIndex + 1 < vocabData.length) {
@@ -267,7 +307,6 @@ function displayCards() {
         nextCard.style.opacity = '0';
     }
 
-    // Apply night mode to stack cards
     stackCards.forEach(card => {
         card.style.backgroundColor = cardBackgroundColor;
         card.style.borderColor = cardBorderColor;
@@ -302,7 +341,7 @@ function moveToNextCard(translateX, translateY, rotate) {
     card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
-    card.style.zIndex = '1000'; // Ensure card is on top during swipe
+    card.style.zIndex = '1000';
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % vocabData.length;
         displayCards();
@@ -458,7 +497,7 @@ card.addEventListener('touchstart', (e) => {
         currentY = startY;
         startTime = Date.now();
         card.style.transition = 'none';
-        card.style.zIndex = '1000'; // Ensure card is on top during interaction
+        card.style.zIndex = '1000';
         isDragging = true;
     }
 });
@@ -472,7 +511,7 @@ card.addEventListener('touchmove', (e) => {
         const deltaY = currentY - startY;
         const rotate = (deltaX / window.innerWidth) * 30;
         card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
-        card.style.zIndex = '1000'; // Keep card on top during swipe
+        card.style.zIndex = '1000';
     }
 });
 
@@ -515,7 +554,7 @@ card.addEventListener('mousedown', (e) => {
     currentY = startY;
     startTime = Date.now();
     card.style.transition = 'none';
-    card.style.zIndex = '1000'; // Ensure card is on top during interaction
+    card.style.zIndex = '1000';
     isDragging = true;
 });
 
@@ -528,7 +567,7 @@ card.addEventListener('mousemove', (e) => {
         const deltaY = currentY - startY;
         const rotate = (deltaX / window.innerWidth) * 30;
         card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
-        card.style.zIndex = '1000'; // Keep card on top during swipe
+        card.style.zIndex = '1000';
     }
 });
 
@@ -620,8 +659,8 @@ function captureSnapshot() {
     const canvas = document.getElementById('snapshot-canvas');
     const ctx = canvas.getContext('2d');
 
-    // Set canvas dimensions
-    canvas.width = 1080; // Set to 1080px
+    // Set canvas dimensions (increased by 50%)
+    canvas.width = 1620; // 1080 * 1.5
     canvas.height = canvas.width * (16 / 9); // Maintain 9:16 aspect ratio
     ctx.fillStyle = '#35654d';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -653,7 +692,7 @@ function captureSnapshot() {
     html2canvas(document.body, {
         width: window.innerWidth,
         height: window.innerHeight,
-        scale: scale,
+        scale: scale * 1.5, // Increase resolution by 50%
         backgroundColor: '#35654d'
     }).then(viewportCanvas => {
         ctx.drawImage(viewportCanvas, offsetX, offsetY, scaledWidth, scaledHeight);
