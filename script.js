@@ -1,6 +1,6 @@
 // Array to hold vocabulary entries
 let vocabData = [];
-let filteredVocabData = []; // Array to hold unswiped cards
+let originalVocabLength = 0; // Store original length for stats
 let currentIndex = 0;
 
 // Track visit count
@@ -8,7 +8,7 @@ let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
 visitCount++;
 localStorage.setItem('visitCount', visitCount);
 
-// Retrieve or initialize swiped cards from localStorage
+// Initialize swiped cards from localStorage
 let swipedCards = JSON.parse(localStorage.getItem('swipedCards') || '[]');
 
 // jQuery number animation plugin
@@ -40,8 +40,6 @@ let swipedCards = JSON.parse(localStorage.getItem('swipedCards') || '[]');
                 clearInterval(data.interval);
             }
             data.interval = setInterval(updateTimer, settings.refreshInterval);
-            
-            render(value);
             
             function updateTimer() {
                 value += increment;
@@ -91,7 +89,7 @@ let swipedCards = JSON.parse(localStorage.getItem('swipedCards') || '[]');
 function updateWebsiteStats() {
     const statsElement = document.getElementById('website-stats');
     const countNumberElement = $('.count-number');
-    countNumberElement.data('to', filteredVocabData.length); // Show number of unswiped cards
+    countNumberElement.data('to', originalVocabLength); // Use original length for stats
     countNumberElement.data('countToOptions', {
         formatter: function (value, options) {
             return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
@@ -188,7 +186,7 @@ function setInitialCardTheme() {
 
 // Function to populate cards with content before animation
 function populateCardsBeforeAnimation() {
-    if (filteredVocabData.length === 0) return;
+    if (vocabData.length === 0) return;
 
     const isNight = isThailandNightTime();
     const cardTextColor = isNight ? '#FFD700' : '#000000';
@@ -214,9 +212,9 @@ function populateCardsBeforeAnimation() {
     ];
 
     // Populate current card
-    if (currentIndex < filteredVocabData.length) {
+    if (currentIndex < vocabData.length) {
         let entry;
-        if (showWelcome && currentIndex === 0) {
+        if (showWelcome) {
             entry = vocabData.find(item => item.word === (isMobile ? 'VocabSwipe_mobile_user' : 'VocabSwipe_pc_user'));
             if (entry) {
                 wordTopElement.textContent = 'VocabSwipe.com';
@@ -228,7 +226,7 @@ function populateCardsBeforeAnimation() {
                 audioElement.src = `data/${entry.audio}`;
             }
         } else {
-            entry = filteredVocabData[currentIndex];
+            entry = vocabData[currentIndex];
             wordTopElement.textContent = entry.word;
             wordBottomElement.textContent = entry.word;
             wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
@@ -245,8 +243,8 @@ function populateCardsBeforeAnimation() {
 
     // Populate next cards
     nextCards.forEach((next, index) => {
-        if (currentIndex + index + 1 < filteredVocabData.length) {
-            const nextEntry = filteredVocabData[currentIndex + index + 1];
+        if (currentIndex + index + 1 < vocabData.length) {
+            const nextEntry = vocabData[currentIndex + index + 1];
             const nextWordTopElement = document.getElementById(next.top);
             const nextWordBottomElement = document.getElementById(next.bottom);
             const nextEnglishElement = document.getElementById(next.english);
@@ -332,8 +330,8 @@ function enableCardInteractions() {
 
     // Tap handler for next card
     nextCard.addEventListener('click', () => {
-        if (!isDragging && currentIndex + 1 < filteredVocabData.length) {
-            const nextEntry = filteredVocabData[currentIndex + 1];
+        if (!isDragging && currentIndex + 1 < vocabData.length) {
+            const nextEntry = vocabData[currentIndex + 1];
             const audio = new Audio(`data/${nextEntry.audio}`);
             nextCard.classList.add('glow');
             audio.play().catch(error => console.error('Error playing audio:', error));
@@ -368,18 +366,17 @@ async function loadVocabData() {
 
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
-        vocabData = text.trim().split('\n').map(line => JSON.parse(line));
-        vocabData = vocabData.sort(() => Math.random() - 0.5);
-
+        let allVocab = text.trim().split('\n').map(line => JSON.parse(line));
+        originalVocabLength = allVocab.length; // Store original length
         // Filter out swiped cards
-        filteredVocabData = vocabData.filter((_, index) => !swipedCards.includes(index));
-
+        vocabData = allVocab.filter((_, index) => !swipedCards.includes(index));
         // If all cards are swiped, reset swipedCards
-        if (filteredVocabData.length === 0 && vocabData.length > 0) {
+        if (vocabData.length === 0) {
             swipedCards = [];
             localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
-            filteredVocabData = [...vocabData]; // Copy all cards again
+            vocabData = allVocab.slice(); // Copy all cards
         }
+        vocabData = vocabData.sort(() => Math.random() - 0.5);
 
         populateCardsBeforeAnimation();
 
@@ -399,7 +396,7 @@ async function loadVocabData() {
 
 // Function to display the current and next cards
 function displayCards() {
-    if (filteredVocabData.length === 0) return;
+    if (vocabData.length === 0) return;
 
     const isNight = isThailandNightTime();
     const cardBackgroundColor = isNight ? '#000000' : '#ffffff';
@@ -428,7 +425,7 @@ function displayCards() {
     const stackCards = document.querySelectorAll('.card-stack');
 
     // Current card
-    if (currentIndex < filteredVocabData.length) {
+    if (currentIndex < vocabData.length) {
         let entry;
         if (showWelcome && currentIndex === 0) {
             entry = vocabData.find(item => item.word === (isMobile ? 'VocabSwipe_mobile_user' : 'VocabSwipe_pc_user'));
@@ -442,7 +439,7 @@ function displayCards() {
                 audioElement.src = `data/${entry.audio}`;
             }
         } else {
-            entry = filteredVocabData[currentIndex];
+            entry = vocabData[currentIndex];
             wordTopElement.textContent = entry.word;
             wordBottomElement.textContent = entry.word;
             wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
@@ -464,8 +461,8 @@ function displayCards() {
 
     // Next cards
     nextCards.forEach((next, index) => {
-        if (currentIndex + index + 1 < filteredVocabData.length) {
-            const nextEntry = filteredVocabData[currentIndex + index + 1];
+        if (currentIndex + index + 1 < vocabData.length) {
+            const nextEntry = vocabData[currentIndex + index + 1];
             const nextWordTopElement = document.getElementById(next.top);
             const nextWordBottomElement = document.getElementById(next.bottom);
             const nextEnglishElement = document.getElementById(next.english);
@@ -504,32 +501,15 @@ function moveToNextCard(translateX, translateY, rotate) {
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
     card.style.zIndex = '1000';
-
-    // Mark the current card as swiped
-    const isMobile = isMobileDevice();
-    const showWelcome = visitCount <= 5;
-    if (!(showWelcome && currentIndex === 0)) {
-        const originalIndex = vocabData.findIndex(item => item.word === filteredVocabData[currentIndex].word);
-        if (!swipedCards.includes(originalIndex)) {
-            swipedCards.push(originalIndex);
-            localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
-        }
+    // Mark current card as swiped
+    const originalIndex = vocabData[currentIndex].originalIndex;
+    if (!swipedCards.includes(originalIndex)) {
+        swipedCards.push(originalIndex);
+        localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
     }
-
     setTimeout(() => {
-        currentIndex = (currentIndex + 1) % filteredVocabData.length;
-
-        // Check if all cards have been swiped
-        filteredVocabData = vocabData.filter((_, index) => !swipedCards.includes(index));
-        if (filteredVocabData.length === 0 && vocabData.length > 0) {
-            swipedCards = [];
-            localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
-            filteredVocabData = [...vocabData];
-            currentIndex = 0;
-        }
-
+        currentIndex = (currentIndex + 1) % vocabData.length;
         displayCards();
-        updateWebsiteStats();
         card.style.transition = 'none';
     }, 500);
 }
