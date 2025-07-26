@@ -14,7 +14,7 @@ html, body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background-color: #35654d;
     font-family: 'Times New Roman', Times, serif;
@@ -26,7 +26,7 @@ html, body {
 /* Fixed height containers */
 .stats-container {
     width: 100%;
-    height: 120px;
+    height: 120px; /* Increased to move stats downward */
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -36,13 +36,13 @@ html, body {
 
 .info-container {
     width: 100%;
-    height: 120px;
+    height: 140px; /* Decreased to reduce gap above website name */
     display: flex;
     justify-content: center;
     align-items: flex-start;
     position: relative;
     z-index: 15;
-    padding-top: 30px;
+    padding-top: 10px; /* Reduced to move website name upward */
 }
 
 /* Icon panel styling */
@@ -101,7 +101,7 @@ html, body {
 }
 
 .stats-text-container {
-    min-height: 30px; /* Adjusted for single line */
+    min-height: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -123,7 +123,69 @@ html, body {
 }
 
 .count-text.thai-text#stats-line1 {
-    margin-top: 2px; /* Adjusted margin for Thai text */
+    margin-top: 2px;
+}
+
+/* Progress bar styling */
+.progress-container {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 15px; /* Increased to add gap above progress bar */
+    position: relative;
+}
+
+.progress-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.945rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 0;
+    top: -18px;
+    transition: opacity 0.05s ease;
+    white-space: nowrap;
+}
+
+.progress-label.thai-text {
+    font-size: 0.945rem;
+}
+
+.progress-bar {
+    width: 100%;
+    max-width: 300px; /* Matches card width */
+    height: 0.945rem; /* Matches count-text height */
+    position: relative;
+}
+
+.progress-track {
+    width: 100%;
+    height: 100%;
+    background-color: #808080; /* Gray tone */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #00ff00; /* Bright green */
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width 0.5s ease;
+}
+
+.progress-value {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.945rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    right: 0;
+    top: -18px;
+    white-space: nowrap;
 }
 
 /* Card container */
@@ -138,6 +200,7 @@ html, body {
     align-items: center;
     perspective: 1000px;
     z-index: 10;
+    flex-grow: 1; /* Allows card to take available space */
 }
 
 /* Poker card styling */
@@ -157,7 +220,7 @@ html, body {
     left: 0;
     touch-action: none;
     z-index: 10;
-    display: none; /* Hide cards initially */
+    display: none;
 }
 
 /* Glowing effect */
@@ -174,47 +237,47 @@ html, body {
 /* Next cards and stack cards */
 #next-card-1 {
     z-index: 9;
-    transform: translate(1.296px, 1.296px) rotate(0.3249deg); /* Reduced by 10% */
+    transform: translate(1.296px, 1.296px) rotate(0.3249deg);
 }
 
 #next-card-2 {
     z-index: 8;
-    transform: translate(2.592px, 2.592px) rotate(0.6498deg); /* Reduced by 10% */
+    transform: translate(2.592px, 2.592px) rotate(0.6498deg);
 }
 
 #next-card-3 {
     z-index: 7;
-    transform: translate(3.888px, 3.888px) rotate(0.9747deg); /* Reduced by 10% */
+    transform: translate(3.888px, 3.888px) rotate(0.9747deg);
 }
 
 #next-card-4 {
     z-index: 6;
-    transform: translate(5.184px, 5.184px) rotate(1.2996deg); /* Reduced by 10% */
+    transform: translate(5.184px, 5.184px) rotate(1.2996deg);
 }
 
 #next-card-5 {
     z-index: 5;
-    transform: translate(6.48px, 6.48px) rotate(1.6245deg); /* Reduced by 10% */
+    transform: translate(6.48px, 6.48px) rotate(1.6245deg);
 }
 
 #next-card-6 {
     z-index: 4;
-    transform: translate(7.776px, 7.776px) rotate(1.9494deg); /* Reduced by 10% */
+    transform: translate(7.776px, 7.776px) rotate(1.9494deg);
 }
 
 #next-card-7 {
     z-index: 3;
-    transform: translate(9.072px, 9.072px) rotate(2.2743deg); /* Reduced by 10% */
+    transform: translate(9.072px, 9.072px) rotate(2.2743deg);
 }
 
 #next-card-8 {
     z-index: 2;
-    transform: translate(10.368px, 10.368px) rotate(2.5992deg); /* Reduced by 10% */
+    transform: translate(10.368px, 10.368px) rotate(2.5992deg);
 }
 
 #next-card-9 {
     z-index: 1;
-    transform: translate(11.664px, 11.664px) rotate(2.9241deg); /* Reduced by 10% */
+    transform: translate(11.664px, 11.664px) rotate(2.9241deg);
 }
 
 .card-stack {
@@ -222,19 +285,19 @@ html, body {
 }
 
 .card-stack-1 {
-    transform: translate(3.888px, 3.888px) rotate(3.24deg); /* Reduced by 10% */
+    transform: translate(3.888px, 3.888px) rotate(3.24deg);
     z-index: -1;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .card-stack-2 {
-    transform: translate(5.184px, 5.184px) rotate(3.564deg); /* Reduced by 10% */
+    transform: translate(5.184px, 5.184px) rotate(3.564deg);
     z-index: -2;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card-stack-3 {
-    transform: translate(6.48px, 6.48px) rotate(3.888deg); /* Reduced by 10% */
+    transform: translate(6.48px, 6.48px) rotate(3.888deg);
     z-index: -3;
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
 }
@@ -321,12 +384,12 @@ html, body {
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .stats-container {
-        height: 100px;
+        height: 100px; /* Adjusted for moving stats downward */
     }
 
     .info-container {
-        height: 110px;
-        padding-top: 25px;
+        height: 130px; /* Adjusted for moving website name upward */
+        padding-top: 8px;
     }
 
     .card-container {
@@ -357,7 +420,25 @@ html, body {
     }
 
     .count-text.thai-text#stats-line1 {
-        margin-top: 2px; /* Adjusted margin for Thai text */
+        margin-top: 2px;
+    }
+
+    .progress-label {
+        font-size: 0.84rem;
+        top: -16px;
+    }
+
+    .progress-label.thai-text {
+        font-size: 0.84rem;
+    }
+
+    .progress-bar {
+        height: 0.84rem;
+    }
+
+    .progress-value {
+        font-size: 0.84rem;
+        top: -16px;
     }
 
     .word {
@@ -373,15 +454,15 @@ html, body {
     }
 
     .card-stack-1 {
-        transform: translate(1.296px, 1.296px) rotate(3.24deg); /* Reduced by 10% */
+        transform: translate(1.296px, 1.296px) rotate(3.24deg);
     }
 
     .card-stack-2 {
-        transform: translate(2.592px, 2.592px) rotate(3.564deg); /* Reduced by 10% */
+        transform: translate(2.592px, 2.592px) rotate(3.564deg);
     }
 
     .card-stack-3 {
-        transform: translate(3.888px, 3.888px) rotate(3.888deg); /* Reduced by 10% */
+        transform: translate(3.888px, 3.888px) rotate(3.888deg);
     }
 
     .share-icon {
@@ -390,12 +471,15 @@ html, body {
     }
 
     .website-name {
-        font-family: 'Bangers', cursive;
         font-size: 1.349634rem;
     }
 
     .website-slogan {
         font-size: 1.03818rem;
         transition: opacity 0.05s ease;
+    }
+
+    .progress-container {
+        margin-top: 12px; /* Adjusted for mobile */
     }
 }
