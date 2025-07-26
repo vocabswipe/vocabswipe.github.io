@@ -105,10 +105,13 @@ function updateProgressBar() {
     const progressFill = document.getElementById('progress-fill');
     const progressValue = document.getElementById('progress-value');
     const progressLabel = document.getElementById('progress-label');
+    const progressBar = document.querySelector('.progress-bar');
     const totalCards = originalVocabLength;
     const swipedCount = swipedCards.length;
     const progressPercentage = totalCards > 0 ? (swipedCount / totalCards) * 100 : 0;
 
+    // Ensure progress bar width matches card width
+    progressBar.style.width = '300px'; // Matches max-width of card-container
     progressFill.style.width = `${progressPercentage}%`;
     progressValue.textContent = swipedCount.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
     progressLabel.textContent = 'Swiped Cards';
@@ -279,8 +282,8 @@ function populateCardsBeforeAnimation() {
             nextWordBottomElement.textContent = nextEntry.word;
             nextEnglishElement.textContent = nextEntry.english;
             nextThaiElement.textContent = nextEntry.thai;
-            nextWordTopElement.style.color = 'next';
-            nextWordBottomElement.style.color = next;
+            nextWordTopElement.style.color = cardTextColor;
+            nextWordBottomElement.style.color = cardTextColor;
             nextEnglishElement.style.color = cardTextColor;
             nextThaiElement.style.color = cardTextColor;
             nextWordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
@@ -444,15 +447,15 @@ function displayCards() {
     const thaiElement = document.getElementById('thai');
     const audioElement = document.getElementById('card-audio');
     const nextCards = [
-        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: '1', translateX: 1.296, translateY: '1.296', rotate: 0.3249 },
-        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 2, translateX: '2.592', translateY: '2.592', rotate: '0.6498' },
-        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: '3', translateX: '3.888', translateY: '3.888', rotate: '0.9747' },
-        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 4, translateX: 5.184, translateY: 5.184, rotate: 1.2996 },
+        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: 9, translateX: 1.296, translateY: 1.296, rotate: 0.3249 },
+        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 2.592, translateY: 2.592, rotate: 0.6498 },
+        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: 7, translateX: 3.888, translateY: 3.888, rotate: 0.9747 },
+        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 6, translateX: 5.184, translateY: 5.184, rotate: 1.2996 },
         { card: document.getElementById('next-card-5'), top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5', zIndex: 5, translateX: 6.48, translateY: 6.48, rotate: 1.6245 },
-        { card: document.getElementById('next-card-6'), top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6', zIndex: 6, translateX: 7.776, translateY: 7.776, rotate: 1.9494 },
-        { card: document.getElementById('next-card-7'), top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7', zIndex: 7, translateX: 9.072, translateY: 9.072, rotate: 2.2743 },
-        { card: document.getElementById('next-card-8'), top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8', zIndex: 8, translateX: 10.368, translateY: 10.368, rotate: 2.5992 },
-        { card: document.getElementById('next-card-9'), top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9', zIndex: 9, translateX: 11.664, translateY: 11.664, rotate: 2.9241 }
+        { card: document.getElementById('next-card-6'), top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6', zIndex: 4, translateX: 7.776, translateY: 7.776, rotate: 1.9494 },
+        { card: document.getElementById('next-card-7'), top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7', zIndex: 3, translateX: 9.072, translateY: 9.072, rotate: 2.2743 },
+        { card: document.getElementById('next-card-8'), top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8', zIndex: 2, translateX: 10.368, translateY: 10.368, rotate: 2.5992 },
+        { card: document.getElementById('next-card-9'), top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9', zIndex: 1, translateX: 11.664, translateY: 11.664, rotate: 2.9241 }
     ];
     const stackCards = document.querySelectorAll('.card-stack');
 
@@ -653,7 +656,7 @@ card.addEventListener('mouseup', (e) => {
     const duration = Date.now() - startTime;
     const deltaX = endX - startX;
     const deltaY = endY - startY;
-    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY));
+    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
     if (distance <= maxTapDistance && duration <= maxTapDuration) {
         const audio = document.querySelector('#card-audio');
