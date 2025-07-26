@@ -26,7 +26,7 @@ html, body {
 /* Fixed height containers */
 .stats-container {
     width: 100%;
-    height: 120px; /* Increased to move stats downward */
+    height: 90px; /* Reduced to bring text closer to card */
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -36,13 +36,13 @@ html, body {
 
 .info-container {
     width: 100%;
-    height: 140px; /* Decreased to reduce gap above website name */
+    height: 130px; /* Reduced to bring text closer to card */
     display: flex;
     justify-content: center;
     align-items: flex-start;
     position: relative;
     z-index: 15;
-    padding-top: 10px; /* Reduced to move website name upward */
+    padding-top: 5px; /* Reduced padding to minimize gap */
 }
 
 /* Icon panel styling */
@@ -80,11 +80,12 @@ html, body {
     text-align: center;
     position: relative;
     transition: opacity 1s ease;
+    padding-bottom: 5px; /* Adjusted to move stats downward */
 }
 
 .counter {
     background-color: transparent;
-    padding: 10px;
+    padding: 5px; /* Reduced padding */
     border: none;
     display: flex;
     flex-direction: column;
@@ -96,7 +97,7 @@ html, body {
     font-weight: 700;
     font-size: 2rem;
     color: #ffd700;
-    margin: 5px 0;
+    margin: 2px 0; /* Reduced margin */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -112,7 +113,7 @@ html, body {
     font-weight: 500;
     font-size: 0.945rem;
     color: #ffffff;
-    margin: 2px 0;
+    margin: 0; /* Adjusted margin */
     line-height: 1.5;
     transition: opacity 0.05s ease;
     white-space: nowrap;
@@ -123,14 +124,14 @@ html, body {
 }
 
 .count-text.thai-text#stats-line1 {
-    margin-top: 2px;
+    margin-top: 0;
 }
 
 /* Progress bar styling */
 .progress-container {
     width: 100%;
-    max-width: 300px;
-    margin-top: 15px; /* Increased to add gap above progress bar */
+    max-width: 300px; /* Fixed to match card width */
+    margin-top: 5px; /* Reduced to bring closer to slogan */
     position: relative;
 }
 
@@ -153,15 +154,15 @@ html, body {
 
 .progress-bar {
     width: 100%;
-    max-width: 300px; /* Matches card width */
-    height: 0.945rem; /* Matches count-text height */
+    max-width: 300px; /* Fixed to match card width */
+    height: 0.945rem;
     position: relative;
 }
 
 .progress-track {
     width: 100%;
     height: 100%;
-    background-color: #808080; /* Gray tone */
+    background-color: #808080;
     position: absolute;
     top: 0;
     left: 0;
@@ -169,7 +170,7 @@ html, body {
 
 .progress-fill {
     height: 100%;
-    background-color: #00ff00; /* Bright green */
+    background-color: #00ff00;
     position: absolute;
     top: 0;
     left: 0;
@@ -200,7 +201,7 @@ html, body {
     align-items: center;
     perspective: 1000px;
     z-index: 10;
-    flex-grow: 1; /* Allows card to take available space */
+    flex-grow: 1;
 }
 
 /* Poker card styling */
@@ -370,6 +371,7 @@ html, body {
     font-weight: normal;
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2px; /* Reduced to bring closer to card */
 }
 
 .website-slogan {
@@ -379,35 +381,33 @@ html, body {
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     transition: opacity 0.05s ease;
+    margin-bottom: 2px; /* Reduced to bring closer to card */
 }
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .stats-container {
-        height: 100px; /* Adjusted for moving stats downward */
+        height: 80px; /* Further reduced for mobile */
     }
 
     .info-container {
-        height: 130px; /* Adjusted for moving website name upward */
-        padding-top: 8px;
-    }
-
-    .card-container {
-        width: 90vw;
-        height: calc(90vw * 1.4);
+        height: 120px; /* Further reduced for mobile */
+        padding-top: 2px;
     }
 
     .website-stats {
         width: 90vw;
         max-width: 300px;
+        padding-bottom: 2px;
     }
 
     .counter {
-        padding: 8px;
+        padding: 2px;
     }
 
     .count-title {
         font-size: 1.8rem;
+        margin: 1px 0;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
@@ -417,9 +417,14 @@ html, body {
         line-height: 1.6;
         transition: opacity 0.05s ease;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin: 0;
     }
 
     .count-text.thai-text#stats-line1 {
+        margin-top: 0;
+    }
+
+    .progress-container {
         margin-top: 2px;
     }
 
@@ -434,11 +439,17 @@ html, body {
 
     .progress-bar {
         height: 0.84rem;
+        max-width: 300px;
     }
 
     .progress-value {
         font-size: 0.84rem;
         top: -16px;
+    }
+
+    .card-container {
+        width: 90vw;
+        height: calc(90vw * 1.4);
     }
 
     .word {
@@ -472,14 +483,12 @@ html, body {
 
     .website-name {
         font-size: 1.349634rem;
+        margin-bottom: 1px;
     }
 
     .website-slogan {
         font-size: 1.03818rem;
         transition: opacity 0.05s ease;
-    }
-
-    .progress-container {
-        margin-top: 12px; /* Adjusted for mobile */
+        margin-bottom: 1px;
     }
 }
