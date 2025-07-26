@@ -14,7 +14,7 @@ html, body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: #35654d;
     font-family: 'Times New Roman', Times, serif;
@@ -26,23 +26,23 @@ html, body {
 /* Fixed height containers */
 .stats-container {
     width: 100%;
-    height: 90px; /* Reduced height to move stats closer to card */
+    height: 120px;
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Align content to bottom */
+    align-items: flex-end;
     position: relative;
     z-index: 15;
 }
 
 .info-container {
     width: 100%;
-    height: 130px; /* Reduced height to move info closer to card */
+    height: 140px; /* Increased to accommodate progress bar */
     display: flex;
-    justify-content: flex-start; /* Align content to top */
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
     position: relative;
     z-index: 15;
-    padding-top: 10px; /* Reduced padding to minimize gap */
+    padding-top: 30px;
 }
 
 /* Icon panel styling */
@@ -80,12 +80,11 @@ html, body {
     text-align: center;
     position: relative;
     transition: opacity 1s ease;
-    margin-bottom: 5px; /* Small margin to fine-tune proximity to card */
 }
 
 .counter {
     background-color: transparent;
-    padding: 5px; /* Reduced padding */
+    padding: 10px;
     border: none;
     display: flex;
     flex-direction: column;
@@ -102,7 +101,7 @@ html, body {
 }
 
 .stats-text-container {
-    min-height: 30px;
+    min-height: 30px; /* Adjusted for single line */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -124,7 +123,7 @@ html, body {
 }
 
 .count-text.thai-text#stats-line1 {
-    margin-top: 2px;
+    margin-top: 2px; /* Adjusted margin for Thai text */
 }
 
 /* Progress bar styling */
@@ -140,40 +139,16 @@ html, body {
     font-weight: 500;
     font-size: 0.945rem;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     position: absolute;
     left: 0;
-    top: -18px;
+    top: -20px;
     transition: opacity 0.05s ease;
     white-space: nowrap;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .progress-label.thai-text {
     font-size: 0.945rem;
-}
-
-.progress-bar {
-    width: 300px; /* Fixed width to match card */
-    height: 0.945rem;
-    position: relative;
-}
-
-.progress-track {
-    width: 100%;
-    height: 100%;
-    background-color: #808080;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.progress-fill {
-    height: 100%;
-    background-color: #00ff00;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: width 0.5s ease;
 }
 
 .progress-value {
@@ -181,11 +156,28 @@ html, body {
     font-weight: 500;
     font-size: 0.945rem;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     position: absolute;
     right: 0;
-    top: -18px;
+    top: -20px;
+    transition: opacity 0.05s ease;
     white-space: nowrap;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.progress-bar {
+    width: 100%;
+    max-width: 300px;
+    height: 20px; /* Approximates height of "Essential American English Sentences" */
+    background-color: #808080; /* Gray track */
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #00ff00; /* Bright green fill */
+    width: 0%;
+    transition: width 0.3s ease;
 }
 
 /* Card container */
@@ -200,7 +192,6 @@ html, body {
     align-items: center;
     perspective: 1000px;
     z-index: 10;
-    flex-grow: 1;
 }
 
 /* Poker card styling */
@@ -220,7 +211,7 @@ html, body {
     left: 0;
     touch-action: none;
     z-index: 10;
-    display: none;
+    display: none; /* Hide cards initially */
 }
 
 /* Glowing effect */
@@ -237,47 +228,47 @@ html, body {
 /* Next cards and stack cards */
 #next-card-1 {
     z-index: 9;
-    transform: translate(1.296px, 1.296px) rotate(0.3249deg);
+    transform: translate(1.296px, 1.296px) rotate(0.3249deg); /* Reduced by 10% */
 }
 
 #next-card-2 {
     z-index: 8;
-    transform: translate(2.592px, 2.592px) rotate(0.6498deg);
+    transform: translate(2.592px, 2.592px) rotate(0.6498deg); /* Reduced by 10% */
 }
 
 #next-card-3 {
     z-index: 7;
-    transform: translate(3.888px, 3.888px) rotate(0.9747deg);
+    transform: translate(3.888px, 3.888px) rotate(0.9747deg); /* Reduced by 10% */
 }
 
 #next-card-4 {
     z-index: 6;
-    transform: translate(5.184px, 5.184px) rotate(1.2996deg);
+    transform: translate(5.184px, 5.184px) rotate(1.2996deg); /* Reduced by 10% */
 }
 
 #next-card-5 {
     z-index: 5;
-    transform: translate(6.48px, 6.48px) rotate(1.6245deg);
+    transform: translate(6.48px, 6.48px) rotate(1.6245deg); /* Reduced by 10% */
 }
 
 #next-card-6 {
     z-index: 4;
-    transform: translate(7.776px, 7.776px) rotate(1.9494deg);
+    transform: translate(7.776px, 7.776px) rotate(1.9494deg); /* Reduced by 10% */
 }
 
 #next-card-7 {
     z-index: 3;
-    transform: translate(9.072px, 9.072px) rotate(2.2743deg);
+    transform: translate(9.072px, 9.072px) rotate(2.2743deg); /* Reduced by 10% */
 }
 
 #next-card-8 {
     z-index: 2;
-    transform: translate(10.368px, 10.368px) rotate(2.5992deg);
+    transform: translate(10.368px, 10.368px) rotate(2.5992deg); /* Reduced by 10% */
 }
 
 #next-card-9 {
     z-index: 1;
-    transform: translate(11.664px, 11.664px) rotate(2.9241deg);
+    transform: translate(11.664px, 11.664px) rotate(2.9241deg); /* Reduced by 10% */
 }
 
 .card-stack {
@@ -285,19 +276,19 @@ html, body {
 }
 
 .card-stack-1 {
-    transform: translate(3.888px, 3.888px) rotate(3.24deg);
+    transform: translate(3.888px, 3.888px) rotate(3.24deg); /* Reduced by 10% */
     z-index: -1;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .card-stack-2 {
-    transform: translate(5.184px, 5.184px) rotate(3.564deg);
+    transform: translate(5.184px, 5.184px) rotate(3.564deg); /* Reduced by 10% */
     z-index: -2;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card-stack-3 {
-    transform: translate(6.48px, 6.48px) rotate(3.888deg);
+    transform: translate(6.48px, 6.48px) rotate(3.888deg); /* Reduced by 10% */
     z-index: -3;
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
 }
@@ -362,7 +353,6 @@ html, body {
 .website-info {
     text-align: center;
     position: relative;
-    margin-top: -10px; /* Move up to reduce gap, adjusted to avoid overlap with card shadow */
 }
 
 .website-name {
@@ -385,12 +375,12 @@ html, body {
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .stats-container {
-        height: 80px; /* Reduced further for mobile */
+        height: 100px;
     }
 
     .info-container {
-        height: 120px; /* Reduced further for mobile */
-        padding-top: 8px;
+        height: 130px; /* Adjusted for progress bar */
+        padding-top: 25px;
     }
 
     .card-container {
@@ -401,11 +391,10 @@ html, body {
     .website-stats {
         width: 90vw;
         max-width: 300px;
-        margin-bottom: 3px; /* Fine-tune proximity */
     }
 
     .counter {
-        padding: 4px; /* Reduced padding */
+        padding: 8px;
     }
 
     .count-title {
@@ -422,30 +411,33 @@ html, body {
     }
 
     .count-text.thai-text#stats-line1 {
-        margin-top: 2px;
+        margin-top: 2px; /* Adjusted margin for Thai text */
     }
 
     .progress-container {
+        width: 90vw;
         max-width: 300px;
+        margin-top: 8px;
     }
 
     .progress-label {
         font-size: 0.84rem;
-        top: -16px;
+        top: -18px;
     }
 
     .progress-label.thai-text {
         font-size: 0.84rem;
     }
 
-    .progress-bar {
-        width: 300px; /* Fixed width to match card */
-        height: 0.84rem;
-    }
-
     .progress-value {
         font-size: 0.84rem;
-        top: -16px;
+        top: -18px;
+    }
+
+    .progress-bar {
+        width: 90vw;
+        max-width: 300px;
+        height: 18px; /* Adjusted for smaller screens */
     }
 
     .word {
@@ -461,15 +453,15 @@ html, body {
     }
 
     .card-stack-1 {
-        transform: translate(1.296px, 1.296px) rotate(3.24deg);
+        transform: translate(1.296px, 1.296px) rotate(3.24deg); /* Reduced by 10% */
     }
 
     .card-stack-2 {
-        transform: translate(2.592px, 2.592px) rotate(3.564deg);
+        transform: translate(2.592px, 2.592px) rotate(3.564deg); /* Reduced by 10% */
     }
 
     .card-stack-3 {
-        transform: translate(3.888px, 3.888px) rotate(3.888deg);
+        transform: translate(3.888px, 3.888px) rotate(3.888deg); /* Reduced by 10% */
     }
 
     .share-icon {
@@ -477,11 +469,8 @@ html, body {
         height: 25px;
     }
 
-    .website-info {
-        margin-top: -8px; /* Adjusted for mobile to avoid overlap */
-    }
-
     .website-name {
+        font-family: 'Bangers', cursive;
         font-size: 1.349634rem;
     }
 
