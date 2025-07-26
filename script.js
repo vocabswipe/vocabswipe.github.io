@@ -1,14 +1,15 @@
 // Array to hold vocabulary entries
 let vocabData = [];
-let filteredVocabData = [];
+let filteredVocabData = []; // Array to hold unswiped cards
+let currentIndex = 0;
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
 visitCount++;
 localStorage.setItem('visitCount', visitCount);
 
-// Initialize swiped cards storage
-let swipedCards = JSON.parse(localStorage.getItem(' VocabSwipe_swipedCards') || '[]');
+// Retrieve or initialize swiped cards from localStorage
+let swipedCards = JSON.parse(localStorage.getItem('swipedCards') || '[]');
 
 // jQuery number animation plugin
 (function ($) {
@@ -39,6 +40,8 @@ let swipedCards = JSON.parse(localStorage.getItem(' VocabSwipe_swipedCards') || 
                 clearInterval(data.interval);
             }
             data.interval = setInterval(updateTimer, settings.refreshInterval);
+            
+            render(value);
             
             function updateTimer() {
                 value += increment;
@@ -88,7 +91,7 @@ let swipedCards = JSON.parse(localStorage.getItem(' VocabSwipe_swipedCards') || 
 function updateWebsiteStats() {
     const statsElement = document.getElementById('website-stats');
     const countNumberElement = $('.count-number');
-    countNumberElement.data('to', 20000); // Updated to 20000
+    countNumberElement.data('to', filteredVocabData.length); // Show number of unswiped cards
     countNumberElement.data('countToOptions', {
         formatter: function (value, options) {
             return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
@@ -213,7 +216,7 @@ function populateCardsBeforeAnimation() {
     // Populate current card
     if (currentIndex < filteredVocabData.length) {
         let entry;
-        if (showWelcome) {
+        if (showWelcome && currentIndex === 0) {
             entry = vocabData.find(item => item.word === (isMobile ? 'VocabSwipe_mobile_user' : 'VocabSwipe_pc_user'));
             if (entry) {
                 wordTopElement.textContent = 'VocabSwipe.com';
@@ -366,22 +369,17 @@ async function loadVocabData() {
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
         vocabData = text.trim().split('\n').map(line => JSON.parse(line));
-
-        // Assign unique IDs to vocabData for tracking
-        vocabData = vocabData.map((item, index) => ({ ...item, id: index }));
+        vocabData = vocabData.sort(() => Math.random() - 0.5);
 
         // Filter out swiped cards
-        filteredVocabData = vocabData.filter(item => !swipedCards.includes(item.id));
+        filteredVocabData = vocabData.filter((_, index) => !swipedCards.includes(index));
 
-        // If all cards have been swiped, reset swipedCards
-        if (filteredVocabData.length === 0) {
+        // If all cards are swiped, reset swipedCards
+        if (filteredVocabData.length === 0 && vocabData.length > 0) {
             swipedCards = [];
-            localStorage.setItem('VocabSwipe_swipedCards', JSON.stringify(swipedCards));
-            filteredVocabData = [...vocabData];
+            localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
+            filteredVocabData = [...vocabData]; // Copy all cards again
         }
-
-        // Shuffle filteredVocabData
-        filteredVocabData = filteredVocabData.sort(() => Math.random() - 0.5);
 
         populateCardsBeforeAnimation();
 
@@ -398,9 +396,6 @@ async function loadVocabData() {
         document.getElementById('thai').textContent = '';
     }
 }
-
-// Current card index
-let currentIndex = 0;
 
 // Function to display the current and next cards
 function displayCards() {
@@ -510,12 +505,14 @@ function moveToNextCard(translateX, translateY, rotate) {
     card.style.opacity = '0';
     card.style.zIndex = '1000';
 
-    // Mark current card as swiped
-    if (currentIndex < filteredVocabData.length) {
-        const currentEntry = filteredVocabData[currentIndex];
-        if (!swipedCards.includes(currentEntry.id)) {
-            swipedCards.push(currentEntry.id);
-            localStorage.setItem('VocabSwipe_swipedCards', JSON.stringify(swipedCards));
+    // Mark the current card as swiped
+    const isMobile = isMobileDevice();
+    const showWelcome = visitCount <= 5;
+    if (!(showWelcome && currentIndex === 0)) {
+        const originalIndex = vocabData.findIndex(item => item.word === filteredVocabData[currentIndex].word);
+        if (!swipedCards.includes(originalIndex)) {
+            swipedCards.push(originalIndex);
+            localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
         }
     }
 
@@ -523,16 +520,16 @@ function moveToNextCard(translateX, translateY, rotate) {
         currentIndex = (currentIndex + 1) % filteredVocabData.length;
 
         // Check if all cards have been swiped
-        if (currentIndex === 0 && filteredVocabData.length === 0) {
+        filteredVocabData = vocabData.filter((_, index) => !swipedCards.includes(index));
+        if (filteredVocabData.length === 0 && vocabData.length > 0) {
             swipedCards = [];
-            localStorage.setItem('VocabSwipe_swipedCards', JSON.stringify(swipedCards));
-            filteredVocabData = [...vocabData].sort(() => Math.random() - 0.5);
-        } else if (currentIndex === 0) {
-            // Re-filter and shuffle when wrapping around
-            filteredVocabData = vocabData.filter(item => !swipedCards.includes(item.id)).sort(() => Math.random() - 0.5);
+            localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
+            filteredVocabData = [...vocabData];
+            currentIndex = 0;
         }
 
         displayCards();
+        updateWebsiteStats();
         card.style.transition = 'none';
     }, 500);
 }
