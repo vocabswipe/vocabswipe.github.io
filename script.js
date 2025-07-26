@@ -89,7 +89,7 @@ let swipedCards = JSON.parse(localStorage.getItem('swipedCards') || '[]');
 function updateWebsiteStats() {
     const statsElement = document.getElementById('website-stats');
     const countNumberElement = $('.count-number');
-    countNumberElement.data('to', originalVocabLength);
+    countNumberElement.data('to', originalVocabLength); // Use original length for stats
     countNumberElement.data('countToOptions', {
         formatter: function (value, options) {
             return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
@@ -100,22 +100,16 @@ function updateWebsiteStats() {
     statsElement.style.opacity = '1';
 }
 
-// Update progress bar
+// Function to update progress bar
 function updateProgressBar() {
     const progressFill = document.getElementById('progress-fill');
     const progressValue = document.getElementById('progress-value');
-    const progressLabel = document.getElementById('progress-label');
-    const progressBar = document.querySelector('.progress-bar');
     const totalCards = originalVocabLength;
     const swipedCount = swipedCards.length;
-    const progressPercentage = totalCards > 0 ? (swipedCount / totalCards) * 100 : 0;
-
-    // Ensure progress bar width matches card width
-    progressBar.style.width = '300px'; // Matches max-width of card-container
-    progressFill.style.width = `${progressPercentage}%`;
+    const percentage = totalCards > 0 ? (swipedCount / totalCards) * 100 : 0;
+    
+    progressFill.style.width = `${percentage}%`;
     progressValue.textContent = swipedCount.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
-    progressLabel.textContent = 'Swiped Cards';
-    progressLabel.classList.remove('thai-text');
 }
 
 // Function to alternate stats text, slogan, and progress label between English and Thai
@@ -313,7 +307,7 @@ function animateCardStackDrop(callback) {
 
     // Set initial state for animation (cards off-screen at top)
     cards.forEach((card, index) => {
-        card.style.display = 'block';
+        card.style.display = 'block'; // Make cards visible just before animation
         card.style.transition = 'none';
         card.style.transform = `translateY(-${window.innerHeight}px) rotate(${(cards.length - 1 - index) * 0.3249}deg)`;
         card.style.opacity = '0';
@@ -390,26 +384,21 @@ async function loadVocabData() {
         ];
         cards.forEach(card => {
             card.style.opacity = '0';
-            card.style.display = 'none';
+            card.style.display = 'none'; // Ensure cards are hidden initially
         });
 
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
         let allVocab = text.trim().split('\n').map(line => JSON.parse(line));
-        originalVocabLength = allVocab.length;
+        originalVocabLength = allVocab.length; // Store original length
         // Filter out swiped cards
         vocabData = allVocab.filter((_, index) => !swipedCards.includes(index));
         // If all cards are swiped, reset swipedCards
         if (vocabData.length === 0) {
             swipedCards = [];
             localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
-            vocabData = allVocab.slice();
+            vocabData = allVocab.slice(); // Copy all cards
         }
-        // Add originalIndex to each vocab item
-        vocabData = vocabData.map((item, index) => ({
-            ...item,
-            originalIndex: allVocab.findIndex(v => v.word === item.word)
-        }));
         vocabData = vocabData.sort(() => Math.random() - 0.5);
 
         populateCardsBeforeAnimation();
