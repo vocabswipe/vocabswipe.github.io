@@ -97,6 +97,7 @@ html, body {
     font-size: 2rem;
     color: #ffd700;
     margin: 5px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added drop shadow */
 }
 
 .stats-text-container {
@@ -118,6 +119,7 @@ html, body {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 300px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added drop shadow */
 }
 
 .count-text.thai-text#stats-line1 {
@@ -171,47 +173,47 @@ html, body {
 /* Next cards and stack cards */
 #next-card-1 {
     z-index: 9;
-    transform: translate(1.368px, 1.368px) rotate(0.342deg); /* Reduced by 5% */
+    transform: translate(1.296px, 1.296px) rotate(0.3249deg); /* Reduced by 10% */
 }
 
 #next-card-2 {
     z-index: 8;
-    transform: translate(2.736px, 2.736px) rotate(0.684deg); /* Reduced by 5% */
+    transform: translate(2.592px, 2.592px) rotate(0.6498deg); /* Reduced by 10% */
 }
 
 #next-card-3 {
     z-index: 7;
-    transform: translate(4.104px, 4.104px) rotate(1.026deg); /* Reduced by 5% */
+    transform: translate(3.888px, 3.888px) rotate(0.9747deg); /* Reduced by 10% */
 }
 
 #next-card-4 {
     z-index: 6;
-    transform: translate(5.472px, 5.472px) rotate(1.368deg); /* Reduced by 5% */
+    transform: translate(5.184px, 5.184px) rotate(1.2996deg); /* Reduced by 10% */
 }
 
 #next-card-5 {
     z-index: 5;
-    transform: translate(6.84px, 6.84px) rotate(1.71deg); /* Reduced by 5% */
+    transform: translate(6.48px, 6.48px) rotate(1.6245deg); /* Reduced by 10% */
 }
 
 #next-card-6 {
     z-index: 4;
-    transform: translate(8.208px, 8.208px) rotate(2.052deg); /* Reduced by 5% */
+    transform: translate(7.776px, 7.776px) rotate(1.9494deg); /* Reduced by 10% */
 }
 
 #next-card-7 {
     z-index: 3;
-    transform: translate(9.576px, 9.576px) rotate(2.394deg); /* Reduced by 5% */
+    transform: translate(9.072px, 9.072px) rotate(2.2743deg); /* Reduced by 10% */
 }
 
 #next-card-8 {
     z-index: 2;
-    transform: translate(10.944px, 10.944px) rotate(2.736deg); /* Reduced by 5% */
+    transform: translate(10.368px, 10.368px) rotate(2.5992deg); /* Reduced by 10% */
 }
 
 #next-card-9 {
     z-index: 1;
-    transform: translate(12.312px, 12.312px) rotate(3.078deg); /* Reduced by 5% */
+    transform: translate(11.664px, 11.664px) rotate(2.9241deg); /* Reduced by 10% */
 }
 
 .card-stack {
@@ -219,19 +221,19 @@ html, body {
 }
 
 .card-stack-1 {
-    transform: translate(4.104px, 4.104px) rotate(3.42deg); /* Reduced by 5% */
+    transform: translate(3.888px, 3.888px) rotate(3.24deg); /* Reduced by 10% */
     z-index: -1;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .card-stack-2 {
-    transform: translate(5.472px, 5.472px) rotate(3.762deg); /* Reduced by 5% */
+    transform: translate(5.184px, 5.184px) rotate(3.564deg); /* Reduced by 10% */
     z-index: -2;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card-stack-3 {
-    transform: translate(6.84px, 6.84px) rotate(4.104deg); /* Reduced by 5% */
+    transform: translate(6.48px, 6.48px) rotate(3.888deg); /* Reduced by 10% */
     z-index: -3;
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
 }
@@ -342,6 +344,7 @@ html, body {
 
     .count-title {
         font-size: 1.8rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added drop shadow */
     }
 
     .count-text {
@@ -349,6 +352,7 @@ html, body {
         max-width: 300px;
         line-height: 1.6;
         transition: opacity 0.05s ease;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added drop shadow */
     }
 
     .count-text.thai-text#stats-line1 {
@@ -368,15 +372,15 @@ html, body {
     }
 
     .card-stack-1 {
-        transform: translate(1.368px, 1.368px) rotate(3.42deg); /* Reduced by 5% */
+        transform: translate(1.296px, 1.296px) rotate(3.24deg); /* Reduced by 10% */
     }
 
     .card-stack-2 {
-        transform: translate(2.736px, 2.736px) rotate(3.762deg); /* Reduced by 5% */
+        transform: translate(2.592px, 2.592px) rotate(3.564deg); /* Reduced by 10% */
     }
 
     .card-stack-3 {
-        transform: translate(4.104px, 4.104px) rotate(4.104deg); /* Reduced by 5% */
+        transform: translate(3.888px, 3.888px) rotate(3.888deg); /* Reduced by 10% */
     }
 
     .share-icon {
