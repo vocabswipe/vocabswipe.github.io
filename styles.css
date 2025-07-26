@@ -157,6 +157,7 @@ html, body {
     left: 0;
     touch-action: none;
     z-index: 10;
+    display: none; /* Hide cards initially */
 }
 
 /* Glowing effect */
