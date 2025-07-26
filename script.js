@@ -364,7 +364,7 @@ async function loadVocabData() {
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
         vocabData = text.trim().split('\n').map(line => JSON.parse(line));
-        vocabData = vocabData.sort(() => Math.random() - 0.5);
+        vocabData = vocabData.sort(() => Math.random - 0.5);
 
         populateCardsBeforeAnimation();
 
