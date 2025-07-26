@@ -14,7 +14,7 @@ html, body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Adjusted to space-between for progress bar */
+    justify-content: space-between;
     align-items: center;
     background-color: #35654d;
     font-family: 'Times New Roman', Times, serif;
@@ -26,7 +26,7 @@ html, body {
 /* Fixed height containers */
 .stats-container {
     width: 100%;
-    height: 110px; /* Reduced slightly to accommodate progress bar */
+    height: 120px; /* Increased to move stats downward */
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -36,13 +36,13 @@ html, body {
 
 .info-container {
     width: 100%;
-    height: 150px; /* Increased to accommodate progress bar */
+    height: 140px; /* Decreased to reduce gap above website name */
     display: flex;
     justify-content: center;
     align-items: flex-start;
     position: relative;
     z-index: 15;
-    padding-top: 20px; /* Adjusted padding */
+    padding-top: 10px; /* Reduced to move website name upward */
 }
 
 /* Icon panel styling */
@@ -130,7 +130,7 @@ html, body {
 .progress-container {
     width: 100%;
     max-width: 300px;
-    margin-top: 10px;
+    margin-top: 15px; /* Increased to add gap above progress bar */
     position: relative;
 }
 
@@ -384,12 +384,12 @@ html, body {
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .stats-container {
-        height: 90px; /* Adjusted for progress bar */
+        height: 100px; /* Adjusted for moving stats downward */
     }
 
     .info-container {
-        height: 140px; /* Adjusted for progress bar */
-        padding-top: 15px;
+        height: 130px; /* Adjusted for moving website name upward */
+        padding-top: 8px;
     }
 
     .card-container {
@@ -477,5 +477,9 @@ html, body {
     .website-slogan {
         font-size: 1.03818rem;
         transition: opacity 0.05s ease;
+    }
+
+    .progress-container {
+        margin-top: 12px; /* Adjusted for mobile */
     }
 }
