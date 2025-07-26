@@ -232,6 +232,13 @@ function populateCardsBeforeAnimation() {
                 englishElement.textContent = entry.english;
                 thaiElement.textContent = entry.thai;
                 audioElement.src = `data/${entry.audio}`;
+                if (!isMobile) {
+                    englishElement.classList.add('welcome-sentence');
+                    thaiElement.classList.add('welcome-sentence');
+                } else {
+                    englishElement.classList.remove('welcome-sentence');
+                    thaiElement.classList.remove('welcome-sentence');
+                }
             }
         } else {
             entry = vocabData[currentIndex];
@@ -242,6 +249,8 @@ function populateCardsBeforeAnimation() {
             englishElement.textContent = entry.english;
             thaiElement.textContent = entry.thai;
             audioElement.src = `data/${entry.audio}`;
+            englishElement.classList.remove('welcome-sentence');
+            thaiElement.classList.remove('welcome-sentence');
         }
         wordTopElement.style.color = cardTextColor;
         wordBottomElement.style.color = cardTextColor;
@@ -267,6 +276,8 @@ function populateCardsBeforeAnimation() {
             nextThaiElement.style.color = cardTextColor;
             nextWordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
             nextWordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
+            nextEnglishElement.classList.remove('welcome-sentence');
+            nextThaiElement.classList.remove('welcome-sentence');
         }
     });
 }
@@ -441,6 +452,13 @@ function displayCards() {
                 englishElement.textContent = entry.english;
                 thaiElement.textContent = entry.thai;
                 audioElement.src = `data/${entry.audio}`;
+                if (!isMobile) {
+                    englishElement.classList.add('welcome-sentence');
+                    thaiElement.classList.add('welcome-sentence');
+                } else {
+                    englishElement.classList.remove('welcome-sentence');
+                    thaiElement.classList.remove('welcome-sentence');
+                }
             }
         } else {
             entry = vocabData[currentIndex];
@@ -451,6 +469,8 @@ function displayCards() {
             englishElement.textContent = entry.english;
             thaiElement.textContent = entry.thai;
             audioElement.src = `data/${entry.audio}`;
+            englishElement.classList.remove('welcome-sentence');
+            thaiElement.classList.remove('welcome-sentence');
         }
         wordTopElement.style.color = cardTextColor;
         wordBottomElement.style.color = cardTextColor;
@@ -486,6 +506,8 @@ function displayCards() {
             next.card.style.transform = `translate(${next.translateX}px, ${next.translateY}px) rotate(${next.rotate}deg)`;
             next.card.style.opacity = '1';
             next.card.style.zIndex = next.zIndex;
+            nextEnglishElement.classList.remove('welcome-sentence');
+            nextThaiElement.classList.remove('welcome-sentence');
         } else {
             next.card.style.opacity = '0';
         }
@@ -590,7 +612,7 @@ card.addEventListener('mousedown', (e) => {
     currentX = startX;
     currentY = startY;
     startTime = Date.now();
-    card.style.transition = 'none';
+    cardama-style: none';
     card.style.zIndex = '1000';
     isDragging = true;
 });
