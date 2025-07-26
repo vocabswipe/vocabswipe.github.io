@@ -292,6 +292,7 @@ function animateCardStackDrop(callback) {
 
     // Set initial state for animation (cards off-screen at top)
     cards.forEach((card, index) => {
+        card.style.display = 'block'; // Make cards visible just before animation
         card.style.transition = 'none';
         card.style.transform = `translateY(-${window.innerHeight}px) rotate(${(cards.length - 1 - index) * 0.3249}deg)`; // Reduced by 10% from 0.36
         card.style.opacity = '0';
@@ -368,7 +369,7 @@ async function loadVocabData() {
         ];
         cards.forEach(card => {
             card.style.opacity = '0';
-            card.style.display = 'none';
+            card.style.display = 'none'; // Ensure cards are hidden initially
         });
 
         const response = await fetch('data/database.jsonl');
@@ -378,9 +379,6 @@ async function loadVocabData() {
 
         populateCardsBeforeAnimation();
 
-        cards.forEach(card => {
-            card.style.display = 'block';
-        });
         animateCardStackDrop(() => {
             displayCards();
             updateWebsiteStats();
