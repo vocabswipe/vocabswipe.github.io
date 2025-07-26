@@ -146,10 +146,15 @@ html, body {
     transition: opacity 0.05s ease;
     white-space: nowrap;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.2; /* Normalize line height */
+    height: 20px; /* Fixed height to prevent shifting */
+    overflow: hidden; /* Ensure no overflow affects layout */
 }
 
 .progress-label.thai-text {
     font-size: 0.945rem;
+    line-height: 1.2; /* Consistent line height for Thai */
+    height: 20px; /* Same fixed height */
 }
 
 .progress-value {
@@ -426,10 +431,15 @@ html, body {
     .progress-label {
         font-size: 0.84rem;
         top: -18px;
+        line-height: 1.2; /* Consistent line height */
+        height: 18px; /* Adjusted for smaller screens */
+        overflow: hidden; /* Ensure no overflow affects layout */
     }
 
     .progress-label.thai-text {
         font-size: 0.84rem;
+        line-height: 1.2; /* Consistent line height for Thai */
+        height: 18px; /* Same fixed height */
     }
 
     .progress-value {
