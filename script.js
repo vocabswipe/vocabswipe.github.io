@@ -397,16 +397,12 @@ async function loadVocabData() {
 
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
-        let allVocab = text.trim().split('\n').map((line, index) => {
-            const entry = JSON.parse(line);
-            entry.originalIndex = index; // Assign original index to each entry
-            return entry;
-        });
+        let allVocab = text.trim().split('\n').map(line => JSON.parse(line));
         originalVocabLength = allVocab.length; // Store original length
-
+        // Add originalIndex to each vocab entry for tracking
+        allVocab = allVocab.map((item, index) => ({ ...item, originalIndex: index }));
         // Filter out swiped cards
         vocabData = allVocab.filter(item => !swipedCards.includes(item.originalIndex));
-
         // If all cards are swiped, reset swipedCards
         if (vocabData.length === 0) {
             swipedCards = [];
@@ -542,45 +538,19 @@ function moveToNextCard(translateX, translateY, rotate) {
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
     card.style.zIndex = '1000';
-
     // Mark current card as swiped
     const originalIndex = vocabData[currentIndex].originalIndex;
     if (!swipedCards.includes(originalIndex)) {
         swipedCards.push(originalIndex);
         localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
     }
-    
     // Set hasSwiped to true after first swipe
     hasSwiped = true;
-
-    // Update progress bar immediately after swipe
-    updateProgressBar();
-
-    // Check if all cards are swiped
-    if (swipedCards.length >= originalVocabLength) {
-        swipedCards = [];
-        localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
-        // Reload vocabData with all cards
-        fetch('data/database.jsonl')
-            .then(response => response.text())
-            .then(text => {
-                vocabData = text.trim().split('\n').map((line, index) => {
-                    const entry = JSON.parse(line);
-                    entry.originalIndex = index;
-                    return entry;
-                });
-                vocabData = vocabData.sort(() => Math.random() - 0.5);
-                currentIndex = 0;
-                displayCards();
-            })
-            .catch(error => console.error('Error resetting database:', error));
-    } else {
-        setTimeout(() => {
-            currentIndex = (currentIndex + 1) % vocabData.length;
-            displayCards();
-            card.style.transition = 'none';
-        }, 500);
-    }
+    setTimeout(() => {
+        currentIndex = (currentIndex + 1) % vocabData.length;
+        displayCards();
+        card.style.transition = 'none';
+    }, 500);
 }
 
 // Touch and mouse handling
