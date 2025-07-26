@@ -42,7 +42,7 @@ html, body {
     align-items: flex-start;
     position: relative;
     z-index: 15;
-    padding-top: 30px;
+    padding-top: 40px; /* Increased from 30px to provide more space */
 }
 
 /* Icon panel styling */
@@ -141,7 +141,7 @@ html, body {
     color: #ffffff;
     position: absolute;
     left: 0;
-    top: -20px;
+    top: -25px; /* Adjusted from -20px to prevent overlap */
     transition: opacity 0.05s ease;
     white-space: nowrap;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -158,7 +158,7 @@ html, body {
     color: #ffffff;
     position: absolute;
     right: 0;
-    top: -20px;
+    top: -25px; /* Adjusted from -20px to prevent overlap */
     transition: opacity 0.05s ease;
     white-space: nowrap;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -167,7 +167,7 @@ html, body {
 .progress-bar {
     width: 100%;
     max-width: 300px;
-    height: 20px; /* Approximates height of "Essential American English Sentences" */
+    height: 20px; /* Fixed height */
     background-color: #808080; /* Gray track */
     border-radius: 4px;
     overflow: hidden;
@@ -228,47 +228,47 @@ html, body {
 /* Next cards and stack cards */
 #next-card-1 {
     z-index: 9;
-    transform: translate(1.296px, 1.296px) rotate(0.3249deg); /* Reduced by 10% */
+    transform: translate(1.296px, 1.296px) rotate(0.3249deg);
 }
 
 #next-card-2 {
     z-index: 8;
-    transform: translate(2.592px, 2.592px) rotate(0.6498deg); /* Reduced by 10% */
+    transform: translate(2.592px, 2.592px) rotate(0.6498deg);
 }
 
 #next-card-3 {
     z-index: 7;
-    transform: translate(3.888px, 3.888px) rotate(0.9747deg); /* Reduced by 10% */
+    transform: translate(3.888px, 3.888px) rotate(0.9747deg);
 }
 
 #next-card-4 {
     z-index: 6;
-    transform: translate(5.184px, 5.184px) rotate(1.2996deg); /* Reduced by 10% */
+    transform: translate(5.184px, 5.184px) rotate(1.2996deg);
 }
 
 #next-card-5 {
     z-index: 5;
-    transform: translate(6.48px, 6.48px) rotate(1.6245deg); /* Reduced by 10% */
+    transform: translate(6.48px, 6.48px) rotate(1.6245deg);
 }
 
 #next-card-6 {
     z-index: 4;
-    transform: translate(7.776px, 7.776px) rotate(1.9494deg); /* Reduced by 10% */
+    transform: translate(7.776px, 7.776px) rotate(1.9494deg);
 }
 
 #next-card-7 {
     z-index: 3;
-    transform: translate(9.072px, 9.072px) rotate(2.2743deg); /* Reduced by 10% */
+    transform: translate(9.072px, 9.072px) rotate(2.2743deg);
 }
 
 #next-card-8 {
     z-index: 2;
-    transform: translate(10.368px, 10.368px) rotate(2.5992deg); /* Reduced by 10% */
+    transform: translate(10.368px, 10.368px) rotate(2.5992deg);
 }
 
 #next-card-9 {
     z-index: 1;
-    transform: translate(11.664px, 11.664px) rotate(2.9241deg); /* Reduced by 10% */
+    transform: translate(11.664px, 11.664px) rotate(2.9241deg);
 }
 
 .card-stack {
@@ -276,19 +276,19 @@ html, body {
 }
 
 .card-stack-1 {
-    transform: translate(3.888px, 3.888px) rotate(3.24deg); /* Reduced by 10% */
+    transform: translate(3.888px, 3.888px) rotate(3.24deg);
     z-index: -1;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .card-stack-2 {
-    transform: translate(5.184px, 5.184px) rotate(3.564deg); /* Reduced by 10% */
+    transform: translate(5.184px, 5.184px) rotate(3.564deg);
     z-index: -2;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card-stack-3 {
-    transform: translate(6.48px, 6.48px) rotate(3.888deg); /* Reduced by 10% */
+    transform: translate(6.48px, 6.48px) rotate(3.888deg);
     z-index: -3;
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
 }
@@ -379,8 +379,8 @@ html, body {
     }
 
     .info-container {
-        height: 130px; /* Adjusted for progress bar */
-        padding-top: 25px;
+        height: 130px;
+        padding-top: 35px; /* Increased from 25px to provide more space */
     }
 
     .card-container {
@@ -411,7 +411,7 @@ html, body {
     }
 
     .count-text.thai-text#stats-line1 {
-        margin-top: 2px; /* Adjusted margin for Thai text */
+        margin-top: 2px;
     }
 
     .progress-container {
@@ -422,7 +422,7 @@ html, body {
 
     .progress-label {
         font-size: 0.84rem;
-        top: -18px;
+        top: -22px; /* Adjusted from -18px to prevent overlap */
     }
 
     .progress-label.thai-text {
@@ -431,13 +431,13 @@ html, body {
 
     .progress-value {
         font-size: 0.84rem;
-        top: -18px;
+        top: -22px; /* Adjusted from -18px to prevent overlap */
     }
 
     .progress-bar {
         width: 90vw;
         max-width: 300px;
-        height: 18px; /* Adjusted for smaller screens */
+        height: 18px;
     }
 
     .word {
@@ -453,15 +453,15 @@ html, body {
     }
 
     .card-stack-1 {
-        transform: translate(1.296px, 1.296px) rotate(3.24deg); /* Reduced by 10% */
+        transform: translate(1.296px, 1.296px) rotate(3.24deg);
     }
 
     .card-stack-2 {
-        transform: translate(2.592px, 2.592px) rotate(3.564deg); /* Reduced by 10% */
+        transform: translate(2.592px, 2.592px) rotate(3.564deg);
     }
 
     .card-stack-3 {
-        transform: translate(3.888px, 3.888px) rotate(3.888deg); /* Reduced by 10% */
+        transform: translate(3.888px, 3.888px) rotate(3.888deg);
     }
 
     .share-icon {
