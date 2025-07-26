@@ -112,7 +112,7 @@ function alternateStatsText() {
         setTimeout(() => {
             if (isEnglish) {
                 line1.textContent = 'ประโยคภาษาอังกฤษอเมริกันที่จำเป็น';
-                slogan.textContent = 'ยิ่งปัด ยิ่งเก่ง';
+                slogan.textContent = 'ยิ่งปัด ยิ่งเก่งศัพท์';
                 line1.classList.add('thai-text');
                 slogan.classList.add('thai-text');
             } else {
@@ -364,7 +364,7 @@ async function loadVocabData() {
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
         vocabData = text.trim().split('\n').map(line => JSON.parse(line));
-        vocabData = vocabData.sort(() => Math.random - 0.5);
+        vocabData = vocabData.sort(() => Math.random() - 0.5);
 
         populateCardsBeforeAnimation();
 
