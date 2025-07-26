@@ -100,49 +100,38 @@ function updateWebsiteStats() {
 // Function to alternate stats text and slogan between English and Thai
 function alternateStatsText() {
     const line1 = document.getElementById('stats-line1');
-    const line2 = document.getElementById('stats-line2');
     const slogan = document.querySelector('.website-slogan');
     let isEnglish = true;
 
     function swapText() {
         line1.style.transition = 'opacity 0.05s ease';
-        line2.style.transition = 'opacity 0.05s ease';
         slogan.style.transition = 'opacity 0.05s ease';
         line1.style.opacity = '0';
-        line2.style.opacity = '0';
         slogan.style.opacity = '0';
 
         setTimeout(() => {
             if (isEnglish) {
                 line1.textContent = 'ประโยคภาษาอังกฤษอเมริกันที่จำเป็น';
-                line2.textContent = 'การ์ดที่พร้อมใช้และยังเพิ่มขึ้นเรื่อย ๆ';
                 slogan.textContent = 'ยิ่งปัด ยิ่งเก่งศัพท์';
                 line1.classList.add('thai-text');
-                line2.classList.add('thai-text');
                 slogan.classList.add('thai-text');
             } else {
                 line1.textContent = 'Essential American English Sentences';
-                line2.textContent = 'cards available and still growing';
                 slogan.textContent = 'Master Words, Swipe by Swipe';
                 line1.classList.remove('thai-text');
-                line2.classList.remove('thai-text');
                 slogan.classList.remove('thai-text');
             }
             line1.style.opacity = '1';
-            line2.style.opacity = '1';
             slogan.style.opacity = '1';
             isEnglish = !isEnglish;
         }, 50);
     }
 
     line1.textContent = 'Essential American English Sentences';
-    line2.textContent = 'cards available and still growing';
     slogan.textContent = 'Master Words, Swipe by Swipe';
     line1.style.opacity = '1';
-    line2.style.opacity = '1';
     slogan.style.opacity = '1';
     line1.classList.remove('thai-text');
-    line2.classList.remove('thai-text');
     slogan.classList.remove('thai-text');
 
     setInterval(swapText, 20000);
@@ -506,7 +495,6 @@ function moveToNextCard(translateX, translateY, rotate) {
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % vocabData.length;
         displayCards();
-        card.style.transform = 'translate(0, 0) rotate(0deg)';
         card.style.transition = 'none';
     }, 500);
 }
