@@ -110,7 +110,7 @@ html, body {
 .count-text {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 0.99rem; /* Increased by 10% from 0.9rem */
+    font-size: 0.945rem; /* Increased by 5% from 0.9rem */
     color: #ffffff;
     margin: 2px 0;
     line-height: 1.5;
@@ -349,7 +349,7 @@ html, body {
     }
 
     .count-text {
-        font-size: 0.88rem; /* Increased by 10% from 0.8rem */
+        font-size: 0.84rem; /* Increased by 5% from 0.8rem */
         max-width: 300px;
         line-height: 1.6;
         transition: opacity 0.05s ease;
