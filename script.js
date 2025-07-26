@@ -112,7 +112,7 @@ function alternateStatsText() {
         setTimeout(() => {
             if (isEnglish) {
                 line1.textContent = 'ประโยคภาษาอังกฤษอเมริกันที่จำเป็น';
-                slogan.textContent = 'ยิ่งปัด ยิ่งเก่งศัพท์';
+                slogan.textContent = 'ยิ่งปัด ยิ่งเก่ง';
                 line1.classList.add('thai-text');
                 slogan.classList.add('thai-text');
             } else {
