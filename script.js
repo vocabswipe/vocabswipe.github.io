@@ -89,7 +89,7 @@ let swipedCards = JSON.parse(localStorage.getItem('swipedCards') || '[]');
 function updateWebsiteStats() {
     const statsElement = document.getElementById('website-stats');
     const countNumberElement = $('.count-number');
-    countNumberElement.data('to', originalVocabLength); // Use original length for stats
+    countNumberElement.data('to', originalVocabLength);
     countNumberElement.data('countToOptions', {
         formatter: function (value, options) {
             return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
@@ -100,42 +100,68 @@ function updateWebsiteStats() {
     statsElement.style.opacity = '1';
 }
 
-// Function to alternate stats text and slogan between English and Thai
+// Update progress bar
+function updateProgressBar() {
+    const progressFill = document.getElementById('progress-fill');
+    const progressValue = document.getElementById('progress-value');
+    const progressLabel = document.getElementById('progress-label');
+    const totalCards = originalVocabLength;
+    const swipedCount = swipedCards.length;
+    const progressPercentage = totalCards > 0 ? (swipedCount / totalCards) * 100 : 0;
+
+    progressFill.style.width = `${progressPercentage}%`;
+    progressValue.textContent = swipedCount.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+    progressLabel.textContent = 'Swiped Cards';
+    progressLabel.classList.remove('thai-text');
+}
+
+// Function to alternate stats text, slogan, and progress label between English and Thai
 function alternateStatsText() {
     const line1 = document.getElementById('stats-line1');
     const slogan = document.querySelector('.website-slogan');
+    const progressLabel = document.getElementById('progress-label');
     let isEnglish = true;
 
     function swapText() {
         line1.style.transition = 'opacity 0.05s ease';
         slogan.style.transition = 'opacity 0.05s ease';
+        progressLabel.style.transition = 'opacity 0.05s ease';
         line1.style.opacity = '0';
         slogan.style.opacity = '0';
+        progressLabel.style.opacity = '0';
 
         setTimeout(() => {
             if (isEnglish) {
                 line1.textContent = 'ประโยคภาษาอังกฤษอเมริกันที่จำเป็น';
                 slogan.textContent = 'ยิ่งปัด ยิ่งเก่ง';
+                progressLabel.textContent = 'ปัดไปแล้ว';
                 line1.classList.add('thai-text');
                 slogan.classList.add('thai-text');
+                progressLabel.classList.add('thai-text');
             } else {
                 line1.textContent = 'Essential American English Sentences';
                 slogan.textContent = 'Master Words, Swipe by Swipe';
+                progressLabel.textContent = 'Swiped Cards';
                 line1.classList.remove('thai-text');
                 slogan.classList.remove('thai-text');
+                progressLabel.classList.remove('thai-text');
             }
             line1.style.opacity = '1';
             slogan.style.opacity = '1';
+            progressLabel.style.opacity = '1';
             isEnglish = !isEnglish;
         }, 50);
     }
 
     line1.textContent = 'Essential American English Sentences';
     slogan.textContent = 'Master Words, Swipe by Swipe';
+    progressLabel.textContent = 'Swiped Cards';
     line1.style.opacity = '1';
     slogan.style.opacity = '1';
+    progressLabel.style.opacity = '1';
     line1.classList.remove('thai-text');
     slogan.classList.remove('thai-text');
+    progressLabel.classList.remove('thai-text');
 
     setInterval(swapText, 20000);
 }
@@ -284,7 +310,7 @@ function animateCardStackDrop(callback) {
 
     // Set initial state for animation (cards off-screen at top)
     cards.forEach((card, index) => {
-        card.style.display = 'block'; // Make cards visible just before animation
+        card.style.display = 'block';
         card.style.transition = 'none';
         card.style.transform = `translateY(-${window.innerHeight}px) rotate(${(cards.length - 1 - index) * 0.3249}deg)`;
         card.style.opacity = '0';
@@ -361,21 +387,26 @@ async function loadVocabData() {
         ];
         cards.forEach(card => {
             card.style.opacity = '0';
-            card.style.display = 'none'; // Ensure cards are hidden initially
+            card.style.display = 'none';
         });
 
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
         let allVocab = text.trim().split('\n').map(line => JSON.parse(line));
-        originalVocabLength = allVocab.length; // Store original length
+        originalVocabLength = allVocab.length;
         // Filter out swiped cards
         vocabData = allVocab.filter((_, index) => !swipedCards.includes(index));
         // If all cards are swiped, reset swipedCards
         if (vocabData.length === 0) {
             swipedCards = [];
             localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
-            vocabData = allVocab.slice(); // Copy all cards
+            vocabData = allVocab.slice();
         }
+        // Add originalIndex to each vocab item
+        vocabData = vocabData.map((item, index) => ({
+            ...item,
+            originalIndex: allVocab.findIndex(v => v.word === item.word)
+        }));
         vocabData = vocabData.sort(() => Math.random() - 0.5);
 
         populateCardsBeforeAnimation();
@@ -383,6 +414,7 @@ async function loadVocabData() {
         animateCardStackDrop(() => {
             displayCards();
             updateWebsiteStats();
+            updateProgressBar();
             alternateStatsText();
         });
     } catch (error) {
@@ -492,6 +524,9 @@ function displayCards() {
         card.style.backgroundColor = cardBackgroundColor;
         card.style.borderColor = cardBorderColor;
     });
+
+    // Update progress bar after displaying cards
+    updateProgressBar();
 }
 
 // Function to animate and move to next card
@@ -722,7 +757,7 @@ function captureSnapshot() {
             const clonedStats = clonedDoc.querySelector('.website-stats');
             clonedStats.style.transition = 'none';
             clonedStats.style.opacity = '1';
-            const clonedText = clonedDoc.querySelectorAll('.count-text, .website-slogan');
+            const clonedText = clonedDoc.querySelectorAll('.count-text, .website-slogan, .progress-label, .progress-value');
             clonedText.forEach(text => {
                 text.style.transition = 'none';
                 text.style.opacity = '1';
