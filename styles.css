@@ -36,13 +36,13 @@ html, body {
 
 .info-container {
     width: 100%;
-    height: 180px; /* Increased to accommodate progress bar and prevent overlap */
+    height: 160px; /* Increased to prevent overlap with progress bar */
     display: flex;
     justify-content: center;
     align-items: flex-start;
     position: relative;
     z-index: 15;
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
 /* Icon panel styling */
@@ -130,8 +130,9 @@ html, body {
 .progress-container {
     width: 100%;
     max-width: 300px;
-    margin-top: 40px; /* Increased to move progress bar down */
+    margin-top: 30px; /* Moved down to avoid overlap with slogan */
     position: relative;
+    opacity: 0; /* Initially hidden for fade-in effect */
 }
 
 .progress-label {
@@ -141,7 +142,7 @@ html, body {
     color: #ffffff;
     position: absolute;
     left: 0;
-    top: -25px; /* Adjusted to position above progress bar */
+    top: -20px;
     transition: opacity 0.05s ease;
     white-space: nowrap;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -158,7 +159,7 @@ html, body {
     color: #ffffff;
     position: absolute;
     right: 0;
-    top: -25px; /* Adjusted to align with progress-label */
+    top: -20px;
     transition: opacity 0.05s ease;
     white-space: nowrap;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -370,6 +371,7 @@ html, body {
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     transition: opacity 0.05s ease;
+    margin-bottom: 10px; /* Added to ensure spacing before progress bar */
 }
 
 /* Responsive adjustments */
@@ -379,8 +381,8 @@ html, body {
     }
 
     .info-container {
-        height: 160px; /* Adjusted for progress bar and to prevent overlap */
-        padding-top: 25px;
+        height: 150px; /* Adjusted for progress bar */
+        padding-top: 15px;
     }
 
     .card-container {
@@ -417,12 +419,13 @@ html, body {
     .progress-container {
         width: 90vw;
         max-width: 300px;
-        margin-top: 35px; /* Adjusted to move progress bar down */
+        margin-top: 25px; /* Adjusted for smaller screens */
+        opacity: 0; /* Initially hidden for fade-in effect */
     }
 
     .progress-label {
         font-size: 0.84rem;
-        top: -22px; /* Adjusted to position above progress bar */
+        top: -18px;
     }
 
     .progress-label.thai-text {
@@ -431,7 +434,7 @@ html, body {
 
     .progress-value {
         font-size: 0.84rem;
-        top: -22px; /* Adjusted to align with progress-label */
+        top: -18px;
     }
 
     .progress-bar {
@@ -477,5 +480,6 @@ html, body {
     .website-slogan {
         font-size: 1.03818rem;
         transition: opacity 0.05s ease;
+        margin-bottom: 8px; /* Adjusted for smaller screens */
     }
 }
