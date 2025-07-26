@@ -293,7 +293,7 @@ function animateCardStackDrop(callback) {
     // Set initial state for animation (cards off-screen at top)
     cards.forEach((card, index) => {
         card.style.transition = 'none';
-        card.style.transform = `translateY(-${window.innerHeight}px) rotate(${(cards.length - 1 - index) * 0.342}deg)`; // Reduced rotation by 5%
+        card.style.transform = `translateY(-${window.innerHeight}px) rotate(${(cards.length - 1 - index) * 0.3249}deg)`; // Reduced by 10% from 0.36
         card.style.opacity = '0';
     });
 
@@ -302,9 +302,9 @@ function animateCardStackDrop(callback) {
         cards.forEach((card, index) => {
             setTimeout(() => {
                 card.style.transition = `transform ${0.8 + index * 0.2}s ease-out, opacity ${0.8 + index * 0.2}s ease-out`;
-                const translateX = (cards.length - 1 - index) * 1.368; // Reduced from 1.44 by 5%
-                const translateY = (cards.length - 1 - index) * 1.368; // Reduced from 1.44 by 5%
-                const rotate = (cards.length - 1 - index) * 0.342; // Reduced from 0.36 by 5%
+                const translateX = (cards.length - 1 - index) * 1.296; // Reduced by 10% from 1.44
+                const translateY = (cards.length - 1 - index) * 1.296; // Reduced by 10% from 1.44
+                const rotate = (cards.length - 1 - index) * 0.3249; // Reduced by 10% from 0.36
                 card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
                 card.style.opacity = '1';
             }, index * 200);
@@ -416,22 +416,22 @@ function displayCards() {
     const thaiElement = document.getElementById('thai');
     const audioElement = document.getElementById('card-audio');
     const nextCards = [
-        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: 9, translateX: 1.368, translateY: 1.368, rotate: 0.342 },
-        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 2.736, translateY: 2.736, rotate: 0.684 },
-        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: 7, translateX: 4.104, translateY: 4.104, rotate: 1.026 },
-        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 6, translateX: 5.472, translateY: 5.472, rotate: 1.368 },
-        { card: document.getElementById('next-card-5'), top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5', zIndex: 5, translateX: 6.84, translateY: 6.84, rotate: 1.71 },
-        { card: document.getElementById('next-card-6'), top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6', zIndex: 4, translateX: 8.208, translateY: 8.208, rotate: 2.052 },
-        { card: document.getElementById('next-card-7'), top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7', zIndex: 3, translateX: 9.576, translateY: 9.576, rotate: 2.394 },
-        { card: document.getElementById('next-card-8'), top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8', zIndex: 2, translateX: 10.944, translateY: 10.944, rotate: 2.736 },
-        { card: document.getElementById('next-card-9'), top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9', zIndex: 1, translateX: 12.312, translateY: 12.312, rotate: 3.078 }
+        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: 9, translateX: 1.296, translateY: 1.296, rotate: 0.3249 },
+        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 2.592, translateY: 2.592, rotate: 0.6498 },
+        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: 7, translateX: 3.888, translateY: 3.888, rotate: 0.9747 },
+        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 6, translateX: 5.184, translateY: 5.184, rotate: 1.2996 },
+        { card: document.getElementById('next-card-5'), top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5', zIndex: 5, translateX: 6.48, translateY: 6.48, rotate: 1.6245 },
+        { card: document.getElementById('next-card-6'), top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6', zIndex: 4, translateX: 7.776, translateY: 7.776, rotate: 1.9494 },
+        { card: document.getElementById('next-card-7'), top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7', zIndex: 3, translateX: 9.072, translateY: 9.072, rotate: 2.2743 },
+        { card: document.getElementById('next-card-8'), top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8', zIndex: 2, translateX: 10.368, translateY: 10.368, rotate: 2.5992 },
+        { card: document.getElementById('next-card-9'), top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9', zIndex: 1, translateX: 11.664, translateY: 11.664, rotate: 2.9241 }
     ];
     const stackCards = document.querySelectorAll('.card-stack');
 
     // Current card
     if (currentIndex < vocabData.length) {
         let entry;
-        if (showWelcome && currentIndex === 0) { // Only show welcome card at index 0
+        if (showWelcome && currentIndex === 0) {
             entry = vocabData.find(item => item.word === (isMobile ? 'VocabSwipe_mobile_user' : 'VocabSwipe_pc_user'));
             if (entry) {
                 wordTopElement.textContent = 'VocabSwipe.com';
