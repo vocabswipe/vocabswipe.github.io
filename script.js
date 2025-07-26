@@ -114,14 +114,14 @@ function alternateStatsText() {
 
         setTimeout(() => {
             if (isEnglish) {
-                line1.textContent = 'ประโยคภาษาอังกฤษที่ใช้กันมากที่สุด';
+                line1.textContent = 'ประโยคภาษาอังกฤษอเมริกันที่จำเป็น';
                 line2.textContent = 'การ์ดที่พร้อมใช้และยังเพิ่มขึ้นเรื่อย ๆ';
                 slogan.textContent = 'ยิ่งปัด ยิ่งเก่งศัพท์';
                 line1.classList.add('thai-text');
                 line2.classList.add('thai-text');
                 slogan.classList.add('thai-text');
             } else {
-                line1.textContent = 'most spoken English sentences';
+                line1.textContent = 'Essential American English Sentences';
                 line2.textContent = 'cards available and still growing';
                 slogan.textContent = 'Master Words, Swipe by Swipe';
                 line1.classList.remove('thai-text');
@@ -135,7 +135,7 @@ function alternateStatsText() {
         }, 50);
     }
 
-    line1.textContent = 'most spoken English sentences';
+    line1.textContent = 'Essential American English Sentences';
     line2.textContent = 'cards available and still growing';
     slogan.textContent = 'Master Words, Swipe by Swipe';
     line1.style.opacity = '1';
@@ -506,6 +506,7 @@ function moveToNextCard(translateX, translateY, rotate) {
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % vocabData.length;
         displayCards();
+        card.style.transform = 'translate(0, 0) rotate(0deg)';
         card.style.transition = 'none';
     }, 500);
 }
