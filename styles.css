@@ -26,23 +26,23 @@ html, body {
 /* Fixed height containers */
 .stats-container {
     width: 100%;
-    height: 90px; /* Reduced to bring text closer to card */
+    height: 90px; /* Reduced height to move stats closer to card */
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-end; /* Align content to bottom */
     position: relative;
     z-index: 15;
 }
 
 .info-container {
     width: 100%;
-    height: 130px; /* Reduced to bring text closer to card */
+    height: 130px; /* Reduced height to move info closer to card */
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: flex-start; /* Align content to top */
+    align-items: center;
     position: relative;
     z-index: 15;
-    padding-top: 5px; /* Reduced padding to minimize gap */
+    padding-top: 10px; /* Reduced padding to minimize gap */
 }
 
 /* Icon panel styling */
@@ -80,7 +80,7 @@ html, body {
     text-align: center;
     position: relative;
     transition: opacity 1s ease;
-    padding-bottom: 5px; /* Adjusted to move stats downward */
+    margin-bottom: 5px; /* Small margin to fine-tune proximity to card */
 }
 
 .counter {
@@ -97,7 +97,7 @@ html, body {
     font-weight: 700;
     font-size: 2rem;
     color: #ffd700;
-    margin: 2px 0; /* Reduced margin */
+    margin: 5px 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -113,7 +113,7 @@ html, body {
     font-weight: 500;
     font-size: 0.945rem;
     color: #ffffff;
-    margin: 0; /* Adjusted margin */
+    margin: 2px 0;
     line-height: 1.5;
     transition: opacity 0.05s ease;
     white-space: nowrap;
@@ -124,14 +124,14 @@ html, body {
 }
 
 .count-text.thai-text#stats-line1 {
-    margin-top: 0;
+    margin-top: 2px;
 }
 
 /* Progress bar styling */
 .progress-container {
     width: 100%;
-    max-width: 300px; /* Fixed to match card width */
-    margin-top: 5px; /* Reduced to bring closer to slogan */
+    max-width: 300px;
+    margin-top: 10px;
     position: relative;
 }
 
@@ -153,8 +153,7 @@ html, body {
 }
 
 .progress-bar {
-    width: 100%;
-    max-width: 300px; /* Fixed to match card width */
+    width: 300px; /* Fixed width to match card */
     height: 0.945rem;
     position: relative;
 }
@@ -363,6 +362,7 @@ html, body {
 .website-info {
     text-align: center;
     position: relative;
+    margin-top: -10px; /* Move up to reduce gap, adjusted to avoid overlap with card shadow */
 }
 
 .website-name {
@@ -371,7 +371,6 @@ html, body {
     font-weight: normal;
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-bottom: 2px; /* Reduced to bring closer to card */
 }
 
 .website-slogan {
@@ -381,33 +380,36 @@ html, body {
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     transition: opacity 0.05s ease;
-    margin-bottom: 2px; /* Reduced to bring closer to card */
 }
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .stats-container {
-        height: 80px; /* Further reduced for mobile */
+        height: 80px; /* Reduced further for mobile */
     }
 
     .info-container {
-        height: 120px; /* Further reduced for mobile */
-        padding-top: 2px;
+        height: 120px; /* Reduced further for mobile */
+        padding-top: 8px;
+    }
+
+    .card-container {
+        width: 90vw;
+        height: calc(90vw * 1.4);
     }
 
     .website-stats {
         width: 90vw;
         max-width: 300px;
-        padding-bottom: 2px;
+        margin-bottom: 3px; /* Fine-tune proximity */
     }
 
     .counter {
-        padding: 2px;
+        padding: 4px; /* Reduced padding */
     }
 
     .count-title {
         font-size: 1.8rem;
-        margin: 1px 0;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
@@ -417,15 +419,14 @@ html, body {
         line-height: 1.6;
         transition: opacity 0.05s ease;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        margin: 0;
     }
 
     .count-text.thai-text#stats-line1 {
-        margin-top: 0;
+        margin-top: 2px;
     }
 
     .progress-container {
-        margin-top: 2px;
+        max-width: 300px;
     }
 
     .progress-label {
@@ -438,18 +439,13 @@ html, body {
     }
 
     .progress-bar {
+        width: 300px; /* Fixed width to match card */
         height: 0.84rem;
-        max-width: 300px;
     }
 
     .progress-value {
         font-size: 0.84rem;
         top: -16px;
-    }
-
-    .card-container {
-        width: 90vw;
-        height: calc(90vw * 1.4);
     }
 
     .word {
@@ -481,14 +477,16 @@ html, body {
         height: 25px;
     }
 
+    .website-info {
+        margin-top: -8px; /* Adjusted for mobile to avoid overlap */
+    }
+
     .website-name {
         font-size: 1.349634rem;
-        margin-bottom: 1px;
     }
 
     .website-slogan {
         font-size: 1.03818rem;
         transition: opacity 0.05s ease;
-        margin-bottom: 1px;
     }
 }
