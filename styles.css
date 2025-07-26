@@ -292,10 +292,6 @@ html, body {
     line-height: 1.5;
 }
 
-.welcome-sentence {
-    font-size: 1.2rem; /* Reduced size for welcome card sentences on PC */
-}
-
 /* Website name and slogan */
 .website-info {
     text-align: center;
