@@ -97,11 +97,11 @@ html, body {
     font-size: 2rem;
     color: #ffd700;
     margin: 5px 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added drop shadow */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .stats-text-container {
-    min-height: 60px;
+    min-height: 30px; /* Adjusted for single line */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -119,11 +119,11 @@ html, body {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 300px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added drop shadow */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .count-text.thai-text#stats-line1 {
-    margin-top: 8px;
+    margin-top: 2px; /* Adjusted margin for Thai text */
 }
 
 /* Card container */
@@ -345,7 +345,7 @@ html, body {
 
     .count-title {
         font-size: 1.8rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added drop shadow */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     .count-text {
@@ -353,11 +353,11 @@ html, body {
         max-width: 300px;
         line-height: 1.6;
         transition: opacity 0.05s ease;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added drop shadow */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     .count-text.thai-text#stats-line1 {
-        margin-top: 10px;
+        margin-top: 2px; /* Adjusted margin for Thai text */
     }
 
     .word {
