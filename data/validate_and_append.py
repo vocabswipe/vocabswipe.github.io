@@ -35,10 +35,10 @@ def validate_and_append(temp_file, db_file):
     - Thai sentences containing '。'
     - Unwanted symbols (e.g., �) in English or Thai sentences
     - Duplicate English sentences (keeps first occurrence)
+    - Invalid JSON lines in temp_sentences.jsonl (skipped and reported)
     Assumes all files are in the same directory: D:\vocabswipe.github.io\data.
     Reports all skipped entries with reasons.
     """
-    errors = []
     temp_entries = []
     db_entries = []
     skipped_entries = []  # List of (entry, line_number, reason)
@@ -68,15 +68,15 @@ def validate_and_append(temp_file, db_file):
             for i, line in enumerate(tqdm(lines, desc="Validating temp", unit="entry", leave=False)):
                 line_number = i + 1
                 if not line.strip():
-                    errors.append(f"Temp line {line_number}: Empty line")
+                    skipped_entries.append(({"line_content": line.strip()}, line_number, "Empty line"))
                     continue
                 try:
                     entry = json.loads(line.strip())
                     if not all(key in entry for key in ['word', 'english', 'thai']):
-                        errors.append(f"Temp line {line_number}: Missing fields (word, english, thai)")
+                        skipped_entries.append((entry, line_number, "Missing fields (word, english, thai)"))
                         continue
                     if not all(entry[key].strip() for key in ['word', 'english', 'thai']):
-                        errors.append(f"Temp line {line_number}: Empty fields")
+                        skipped_entries.append((entry, line_number, "Empty fields"))
                         continue
                     # Check for unwanted characters
                     if any(contains_unwanted_chars(entry[key]) for key in ['word', 'english', 'thai']):
@@ -100,7 +100,7 @@ def validate_and_append(temp_file, db_file):
                     temp_entries.append(entry)
                     temp_entries_with_lines.append((entry, line_number))
                 except json.JSONDecodeError:
-                    errors.append(f"Temp line {line_number}: Invalid JSON")
+                    skipped_entries.append(({"line_content": line.strip()}, line_number, "Invalid JSON"))
                     continue
         print(f"  ✅ Found {temp_line_count} lines, {len(temp_entries)} valid entries")
     except Exception as e:
@@ -118,15 +118,15 @@ def validate_and_append(temp_file, db_file):
             for i, line in enumerate(tqdm(lines, desc="Validating database", unit="entry", leave=False)):
                 line_number = i + 1
                 if not line.strip():
-                    errors.append(f"Database line {line_number}: Empty line")
+                    skipped_entries.append(({"line_content": line.strip()}, line_number, "Empty line"))
                     continue
                 try:
                     entry = json.loads(line.strip())
                     if not all(key in entry for key in ['word', 'english', 'thai']):
-                        errors.append(f"Database line {line_number}: Missing fields (word, english, thai)")
+                        skipped_entries.append((entry, line_number, "Missing fields (word, english, thai)"))
                         continue
                     if not all(entry[key].strip() for key in ['word', 'english', 'thai']):
-                        errors.append(f"Database line {line_number}: Empty fields")
+                        skipped_entries.append((entry, line_number, "Empty fields"))
                         continue
                     # Skip entries with unwanted characters
                     if any(contains_unwanted_chars(entry[key]) for key in ['word', 'english', 'thai']):
@@ -143,7 +143,7 @@ def validate_and_append(temp_file, db_file):
                     db_entries.append(entry)
                     db_entries_with_lines.append((entry, line_number))
                 except json.JSONDecodeError:
-                    errors.append(f"Database line {line_number}: Invalid JSON")
+                    skipped_entries.append(({"line_content": line.strip()}, line_number, "Invalid JSON"))
                     continue
         print(f"  ✅ Found {db_line_count} lines, {len(db_entries)} valid entries")
     except Exception as e:
@@ -165,23 +165,18 @@ def validate_and_append(temp_file, db_file):
     print(f"  ✅ Found {len(temp_entries) - len(unique_temp_entries)} duplicate English sentences in temp entries")
     temp_entries = unique_temp_entries
 
-    # Report errors
-    if errors:
-        print("\n🚨 Validation Errors:")
-        for error in errors:
-            print(f"  - {error}")
-        print("\n❌ Validation failed: Please fix errors in temp or database files.")
-        return False, db_entries[-1] if db_entries else None
-
     # Report skipped entries
     if skipped_entries:
         print("\n⏭️ Skipped Entries:")
         print("═" * 60)
         for entry, line_number, reason in skipped_entries:
             print(f"Line {line_number}:")
-            print(f"  Word: {entry['word']}")
-            print(f"  English: {entry['english']}")
-            print(f"  Thai: {entry['thai']}")
+            if 'line_content' in entry:
+                print(f"  Raw content: {entry['line_content']}")
+            else:
+                print(f"  Word: {entry.get('word', 'N/A')}")
+                print(f"  English: {entry.get('english', 'N/A')}")
+                print(f"  Thai: {entry.get('thai', 'N/A')}")
             print(f"  Reason: {reason}")
             print("─" * 60)
 
@@ -254,12 +249,9 @@ def validate_and_append(temp_file, db_file):
 
     # Final status
     print("\n🟢 Operation Status")
-    if not errors:
-        print("  ✅ All green: Database entries are valid.")
-    else:
-        print("  ❌ Validation failed: Please fix errors in temp or database files.")
+    print("  ✅ All green: Database entries processed, invalid lines skipped.")
 
-    return not errors, last_entry
+    return True, last_entry
 
 def main():
     print("\n🚀 Starting VocabSwipe Data Processing")
