@@ -179,7 +179,7 @@ html, body {
     width: 300px; /* Matches card width */
     height: 20px; /* Fixed height for progress bar */
     position: absolute;
-    top: 120px; /* Adjusted to move downward */
+    top: 102px; /* Moved upward by 18px (was 120px) */
     left: 50%;
     transform: translateX(-50%);
     opacity: 0; /* Initially hidden for fade-in effect */
@@ -451,7 +451,7 @@ html, body {
         width: 90vw; /* Matches card width */
         max-width: 300px;
         height: 18px; /* Fixed height for progress bar */
-        top: 110px; /* Adjusted to move downward */
+        top: 92px; /* Moved upward by 18px (was 110px) */
         left: 50%;
         transform: translateX(-50%);
         opacity: 0; /* Initially hidden */
