@@ -124,7 +124,7 @@ html, body {
 
 .count-text.thai-text#stats-line1 {
     margin-top: 2px; /* Adjusted margin for Thai text */
-    font-size: 1.040rem;
+    font-size: 1.092rem;
 }
 
 /* Website info and progress bar styling */
@@ -513,7 +513,7 @@ html, body {
 
     .count-text.thai-text#stats-line1 {
         margin-top: 2px; /* Adjusted margin for Thai text */
-        font-size: 0.924rem;
+        font-size: 0.970rem;
     }
 
     .word {
