@@ -644,7 +644,7 @@ card.addEventListener('mousemove', (e) => {
         const deltaX = currentX - startX;
         const deltaY = currentY - startY;
         const rotate = (deltaX / window.innerWidth) * 30;
-        card.style.transform = 'translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)';
+        card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
         card.style.zIndex = '1000';
     }
 });
@@ -670,8 +670,8 @@ card.addEventListener('mouseup', (e) => {
     } else if (distance > minSwipeDistance) {
         const angle = Math.atan2(deltaY, deltaX);
         const magnitude = distance * 5;
-        const translateX = Math.cos(angleX) * magnitude;
-        const translateY = Math.sin(angleY) * magnitude;
+        const translateX = Math.cos(angle) * magnitude;
+        const translateY = Math.sin(angle) * magnitude;
         const rotate = (deltaX / window.innerWidth) * 30;
         moveToNextCard(translateX, translateY, rotate);
     } else {
@@ -721,7 +721,7 @@ document.addEventListener('keydown', (e) => {
 // Share icon functionality
 const shareIcon = document.querySelector('#share-icon');
 shareIcon.addEventListener('click', () => {
-    if (typeof(html2canvas === 'undefined') {
+    if (typeof html2canvas === 'undefined') {
         console.error('html2canvas is not loaded');
         return;
     }
