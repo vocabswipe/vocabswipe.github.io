@@ -42,6 +42,7 @@ html, body {
     align-items: flex-start;
     position: relative;
     z-index: 15;
+    top: 20px; /* Moved downward to avoid overlap with card stack */
 }
 
 /* Icon panel styling */
@@ -162,8 +163,10 @@ html, body {
     transition: opacity 0.05s ease;
     line-height: 1.2;
     height: 100%; /* Match container height */
-    overflow: hidden;
+    overflow: visible; /* Changed to visible to prevent clipping */
     white-space: nowrap;
+    z-index: 20; /* Higher z-index to bring in front */
+    position: relative;
 }
 
 .website-slogan.thai-text {
@@ -176,7 +179,7 @@ html, body {
     width: 300px; /* Matches card width */
     height: 20px; /* Fixed height for progress bar */
     position: absolute;
-    top: 100px; /* Fixed position below website-info */
+    top: 120px; /* Adjusted to move downward */
     left: 50%;
     transform: translateX(-50%);
     opacity: 0; /* Initially hidden for fade-in effect */
@@ -196,6 +199,7 @@ html, body {
     line-height: 1.2;
     height: 20px; /* Fixed height to prevent shifting */
     overflow: hidden;
+    z-index: 20; /* Higher z-index to bring in front */
 }
 
 .progress-label.thai-text {
@@ -215,6 +219,7 @@ html, body {
     transition: opacity 0.05s ease;
     white-space: nowrap;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 20; /* Higher z-index to bring in front */
 }
 
 .progress-bar {
@@ -411,6 +416,7 @@ html, body {
 
     .info-container {
         height: 170px; /* Adjusted for mobile */
+        top: 20px; /* Moved downward to avoid overlap */
     }
 
     .website-info {
@@ -432,6 +438,8 @@ html, body {
         font-size: 1.03818rem;
         line-height: 1.2;
         height: 100%; /* Match container height */
+        z-index: 20; /* Higher z-index to bring in front */
+        overflow: visible; /* Prevent clipping */
     }
 
     .website-slogan.thai-text {
@@ -443,7 +451,7 @@ html, body {
         width: 90vw; /* Matches card width */
         max-width: 300px;
         height: 18px; /* Fixed height for progress bar */
-        top: 90px; /* Fixed position below website-info */
+        top: 110px; /* Adjusted to move downward */
         left: 50%;
         transform: translateX(-50%);
         opacity: 0; /* Initially hidden */
@@ -454,6 +462,7 @@ html, body {
         top: -18px; /* Fixed position above progress bar */
         line-height: 1.2;
         height: 18px; /* Fixed height */
+        z-index: 20; /* Higher z-index to bring in front */
     }
 
     .progress-label.thai-text {
@@ -465,6 +474,7 @@ html, body {
     .progress-value {
         font-size: 0.84rem;
         top: -18px; /* Fixed position above progress bar */
+        z-index: 20; /* Higher z-index to bring in front */
     }
 
     .progress-bar {
