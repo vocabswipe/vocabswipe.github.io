@@ -19,6 +19,7 @@ VOICE_ID = "Matthew"
 ENGINE = "neural"
 MAX_RETRIES = 3  # Number of retries for AWS Polly failures
 RETRY_DELAY = 2  # Seconds to wait between retries
+AWS_PROFILES = ["default", "new-account"]  # Available AWS profiles
 
 def get_sentence_hash(sentence):
     """Generate an MD5 hash of the sentence (lowercase) for unique file naming."""
@@ -66,9 +67,10 @@ def write_database(entries):
         logging.error(f"Failed to write to {DATABASE_PATH}: {e}")
         raise
 
-def generate_audio(sentence, audio_path):
+def generate_audio(sentence, audio_path, aws_profile):
     """Generate audio for the given sentence using AWS Polly and save to audio_path."""
-    polly_client = boto3.client('polly')
+    session = boto3.Session(profile_name=aws_profile)
+    polly_client = session.client('polly')
     for attempt in range(MAX_RETRIES):
         try:
             response = polly_client.synthesize_speech(
@@ -82,13 +84,13 @@ def generate_audio(sentence, audio_path):
                 f.write(response['AudioStream'].read())
             return True
         except ClientError as e:
-            logging.error(f"Attempt {attempt + 1}/{MAX_RETRIES} failed for '{sentence}': {e}")
+            logging.error(f"Attempt {attempt + 1}/{MAX_RETRIES} failed for '{sentence}' with profile '{aws_profile}': {e}")
             if attempt < MAX_RETRIES - 1:
                 time.sleep(RETRY_DELAY)
             else:
                 raise
         except Exception as e:
-            logging.error(f"Error generating audio for '{sentence}': {e}")
+            logging.error(f"Error generating audio for '{sentence}' with profile '{aws_profile}': {e}")
             raise
     return False
 
@@ -119,8 +121,28 @@ def verify_audio_files(entries):
             missing_audio.append((entry['word'], sentence, audio_path))
     return missing_audio
 
+def get_aws_profile():
+    """Prompt user to select an AWS profile."""
+    print("Available AWS accounts (profiles):")
+    for i, profile in enumerate(AWS_PROFILES, 1):
+        print(f"{i}. {profile}")
+    while True:
+        try:
+            choice = input(f"Enter the number of the AWS account to use (1-{len(AWS_PROFILES)}): ")
+            choice = int(choice)
+            if 1 <= choice <= len(AWS_PROFILES):
+                return AWS_PROFILES[choice - 1]
+            else:
+                print(f"Please enter a number between 1 and {len(AWS_PROFILES)}.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
 def main():
     """Main function to generate audio files, update database, and verify audio."""
+    # Prompt user for AWS profile
+    aws_profile = get_aws_profile()
+    print(f"Using AWS profile: {aws_profile}")
+
     # Ensure audio directory exists
     ensure_audio_directory()
 
@@ -169,7 +191,7 @@ def main():
                     entry['audio'] = repo_audio_path
                     reused_count += 1
                 else:
-                    generate_audio(sentence, audio_path)
+                    generate_audio(sentence, audio_path, aws_profile)
                     entry['audio'] = repo_audio_path
                     generated_count += 1
                     pbar.update(1)  # Update progress bar only when audio is generated
