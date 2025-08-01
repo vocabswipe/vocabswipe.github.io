@@ -80,15 +80,18 @@ html, body {
     width: 30px;
     height: 30px;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
 }
 
 .share-icon:hover, .coffee-icon:hover {
     transform: scale(1.1);
+    opacity: 0.8;
 }
 
-.share-icon.clicked, .coffee-icon.clicked {
+.share-icon:active, .coffee-icon:active {
     transform: scale(0.9);
+    opacity: 0.6;
 }
 
 /* Hide share icon on PC browsers */
@@ -705,6 +708,12 @@ html, body {
     .share-icon, .coffee-icon {
         width: 25px;
         height: 25px;
+        -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
+    }
+
+    .share-icon:active, .coffee-icon:active {
+        transform: scale(0.9);
+        opacity: 0.6;
     }
 
     .icon-panel {
