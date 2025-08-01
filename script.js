@@ -704,10 +704,6 @@ shareIcon.addEventListener('click', () => {
         console.error('html2canvas is not loaded');
         return;
     }
-    shareIcon.classList.add('clicked');
-    setTimeout(() => {
-        shareIcon.classList.remove('clicked');
-    }, 200);
     captureSnapshot();
 });
 
@@ -720,10 +716,6 @@ const mainContent = document.querySelector('.main-content');
 coffeeIcon.addEventListener('click', () => {
     donationPopup.style.display = 'flex';
     mainContent.classList.add('blurred');
-    coffeeIcon.classList.add('clicked');
-    setTimeout(() => {
-        coffeeIcon.classList.remove('clicked');
-    }, 200);
 });
 
 closeIcon.addEventListener('click', () => {
@@ -743,38 +735,54 @@ function captureSnapshot() {
     const canvas = document.querySelector('#snapshot-canvas');
     const ctx = canvas.getContext('2d');
 
-    // Fixed viewport size for consistent snapshot (matching mobile)
+    // Set canvas size to match mobile viewport exactly
     const viewportWidth = 360;
     const viewportHeight = 640;
-    canvas.width = viewportWidth * window.devicePixelRatio;
-    canvas.height = viewportHeight * window.devicePixelRatio;
-    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    const pixelRatio = window.devicePixelRatio || 1;
+    canvas.width = viewportWidth * pixelRatio;
+    canvas.height = viewportHeight * pixelRatio;
+    ctx.scale(pixelRatio, pixelRatio);
+
+    // Set background color
     ctx.fillStyle = '#35654d';
     ctx.fillRect(0, 0, viewportWidth, viewportHeight);
 
-    // Calculate offsets to center content
-    const mainContent = document.querySelector('.main-content');
-    const contentWidth = Math.min(mainContent.offsetWidth, viewportWidth);
-    const contentHeight = Math.min(mainContent.offsetHeight, viewportHeight);
-    const offsetX = (viewportWidth - contentWidth) / 2;
-    const offsetY = (viewportHeight - contentHeight) / 2;
-
-    html2canvas(document.querySelector('.main-content'), {
+    html2canvas(document.body, {
         width: viewportWidth,
         height: viewportHeight,
-        scale: window.devicePixelRatio,
+        scale: pixelRatio,
         backgroundColor: '#35654d',
         useCORS: true,
         logging: false,
+        x: (window.innerWidth - viewportWidth) / 2, // Center horizontally
+        y: (window.innerHeight - viewportHeight) / 2, // Center vertically
         onclone: (clonedDoc) => {
+            const clonedBody = clonedDoc.body;
             const clonedMainContent = clonedDoc.querySelector('.main-content');
-            // Force mobile-like styling for consistency
+            const clonedIconPanel = clonedDoc.querySelector('.icon-panel');
+
+            // Force mobile viewport styling
+            clonedBody.style.width = `${viewportWidth}px`;
+            clonedBody.style.height = `${viewportHeight}px`;
+            clonedBody.style.overflow = 'hidden';
+            clonedBody.style.position = 'relative';
+            clonedBody.style.margin = '0';
+            clonedBody.style.padding = '0';
+
+            // Style main-content
             clonedMainContent.style.width = `${viewportWidth}px`;
             clonedMainContent.style.height = `${viewportHeight}px`;
             clonedMainContent.style.transform = 'none';
             clonedMainContent.style.position = 'absolute';
             clonedMainContent.style.left = '0';
             clonedMainContent.style.top = '0';
+
+            // Style icon panel
+            clonedIconPanel.style.maxWidth = `${viewportWidth}px`;
+            clonedIconPanel.style.left = '50%';
+            clonedIconPanel.style.transform = 'translateX(-50%)';
+            clonedIconPanel.style.top = '10px';
+
             // Center card container
             const clonedCardContainer = clonedDoc.querySelector('.card-container');
             clonedCardContainer.style.width = '90vw';
@@ -783,6 +791,7 @@ function captureSnapshot() {
             clonedCardContainer.style.maxHeight = '420px';
             clonedCardContainer.style.left = '50%';
             clonedCardContainer.style.transform = 'translateX(-50%)';
+
             // Ensure cards are visible
             const clonedCards = clonedDoc.querySelectorAll('.card');
             clonedCards.forEach(card => {
@@ -790,16 +799,19 @@ function captureSnapshot() {
                 card.style.opacity = '1';
                 card.style.display = 'block';
             });
+
             // Ensure stats are visible
             const clonedStats = clonedDoc.querySelector('.website-stats');
             clonedStats.style.transition = 'none';
             clonedStats.style.opacity = '1';
+
             // Ensure text elements are visible
             const clonedText = clonedDoc.querySelectorAll('.count-text, .website-slogan, .progress-label, .progress-value');
             clonedText.forEach(text => {
                 text.style.transition = 'none';
                 text.style.opacity = '1';
             });
+
             // Adjust containers for mobile layout
             const clonedStatsContainer = clonedDoc.querySelector('.stats-container');
             clonedStatsContainer.style.height = '100px';
@@ -812,7 +824,7 @@ function captureSnapshot() {
             clonedProgressContainer.style.top = '82px';
         }
     }).then(canvas => {
-        ctx.drawImage(canvas, offsetX, offsetY, contentWidth, contentHeight);
+        ctx.drawImage(canvas, 0, 0, viewportWidth, viewportHeight);
         
         canvas.toBlob(blob => {
             if (!blob) {
