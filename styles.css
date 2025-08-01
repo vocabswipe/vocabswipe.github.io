@@ -146,6 +146,11 @@ html, body {
     line-height: 1.5;
 }
 
+.vocabswipe-text {
+    font-family: 'Bangers', cursive;
+    color: #35654d;
+}
+
 .qr-container {
     display: flex;
     flex-direction: column;
@@ -173,11 +178,12 @@ html, body {
 }
 
 .developer-photo {
-    width: 50px;
-    height: 50px;
+    width: 100px; /* Doubled from 50px */
+    height: 100px; /* Doubled from 50px */
     border-radius: 50%;
     border: 2px solid #35654d;
     margin-right: 10px;
+    image-rendering: -webkit-optimize-contrast; /* Improves resolution */
 }
 
 .developer-text {
@@ -190,6 +196,7 @@ html, body {
     font-size: 0.945rem;
     color: #333333;
     margin-bottom: 5px;
+    line-height: 1.4; /* Adjusted for new line */
 }
 
 .developer-role {
@@ -197,6 +204,11 @@ html, body {
     font-weight: 500;
     font-size: 0.84rem;
     color: #555555;
+}
+
+.developer-role .vocabswipe-text {
+    font-family: 'Bangers', cursive;
+    color: #35654d;
 }
 
 .close-icon {
@@ -707,6 +719,11 @@ html, body {
         font-size: 0.84rem;
     }
 
+    .vocabswipe-text {
+        font-family: 'Bangers', cursive;
+        color: #35654d;
+    }
+
     .qr-code {
         width: 120px;
         height: 120px;
@@ -717,16 +734,23 @@ html, body {
     }
 
     .developer-photo {
-        width: 40px;
-        height: 40px;
+        width: 80px; /* Doubled from 40px */
+        height: 80px; /* Doubled from 40px */
+        image-rendering: -webkit-optimize-contrast; /* Improves resolution */
     }
 
     .developer-name {
         font-size: 0.84rem;
+        line-height: 1.4; /* Adjusted for new line */
     }
 
     .developer-role {
         font-size: 0.756rem;
+    }
+
+    .developer-role .vocabswipe-text {
+        font-family: 'Bangers', cursive;
+        color: #35654d;
     }
 
     .close-icon {
