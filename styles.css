@@ -53,13 +53,14 @@ body.blurred {
 /* Icon panel styling */
 .icon-panel {
     width: 100%;
-    max-width: 300px;
+    max-width: 360px; /* Match max card width for alignment */
     display: flex;
-    justify-content: space-between; /* Changed to space-between for coffee and share icons */
+    justify-content: space-between; /* Coffee on left, share on right */
     padding: 10px;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 10px; /* Position at top */
+    left: 50%;
+    transform: translateX(-50%); /* Center the panel */
     z-index: 20;
 }
 
@@ -673,6 +674,10 @@ body.blurred {
     .share-icon, .coffee-icon {
         width: 25px;
         height: 25px;
+    }
+
+    .icon-panel {
+        max-width: 340px; /* Adjusted for mobile */
     }
 
     .donation-content {
