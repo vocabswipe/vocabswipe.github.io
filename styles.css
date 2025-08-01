@@ -21,10 +21,19 @@ html, body {
     position: fixed;
     top: 0;
     left: 0;
+}
+
+.main-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     transition: filter 0.3s ease;
 }
 
-body.blurred {
+.main-content.blurred {
     filter: blur(5px);
 }
 
