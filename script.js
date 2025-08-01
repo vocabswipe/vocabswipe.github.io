@@ -747,10 +747,11 @@ shareIcon.addEventListener('click', () => {
 const coffeeIcon = document.querySelector('#coffee-icon');
 const donationPopup = document.querySelector('#donation-popup');
 const closeIcon = document.querySelector('#close-icon');
+const mainContent = document.querySelector('.main-content');
 
 coffeeIcon.addEventListener('click', () => {
     donationPopup.style.display = 'flex';
-    document.body.classList.add('blurred');
+    mainContent.classList.add('blurred');
     coffeeIcon.classList.add('clicked');
     setTimeout(() => {
         coffeeIcon.classList.remove('clicked');
@@ -759,13 +760,13 @@ coffeeIcon.addEventListener('click', () => {
 
 closeIcon.addEventListener('click', () => {
     donationPopup.style.display = 'none';
-    document.body.classList.remove('blurred');
+    mainContent.classList.remove('blurred');
 });
 
 donationPopup.addEventListener('click', (e) => {
     if (e.target === donationPopup) {
         donationPopup.style.display = 'none';
-        document.body.classList.remove('blurred');
+        mainContent.classList.remove('blurred');
     }
 });
 
@@ -782,7 +783,7 @@ function captureSnapshot() {
     ctx.fillStyle = '#35654d';
     ctx.fillRect(0, 0, viewportWidth, viewportHeight);
 
-    html2canvas(document.body, {
+    html2canvas(document.querySelector('.main-content'), {
         width: viewportWidth,
         height: viewportHeight,
         scale: 2,
@@ -803,11 +804,6 @@ function captureSnapshot() {
                 text.style.transition = 'none';
                 text.style.opacity = '1';
             });
-            // Ensure donation popup is not captured
-            const clonedPopup = clonedDoc.querySelector('.donation-popup');
-            if (clonedPopup) {
-                clonedPopup.style.display = 'none';
-            }
         }
     }).then(canvas => {
         ctx.drawImage(canvas, 0, 0, viewportWidth, viewportHeight);
