@@ -232,8 +232,6 @@ function populateCardsBeforeAnimation() {
 
     const isNight = isThailandNightTime();
     const cardTextColor = isNight ? '#FFD700' : '#000000';
-    const isMobile = isMobileDevice();
-    const showWelcome = visitCount <= 5;
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
     const wordBottomElement = document.getElementById('word-bottom');
@@ -255,28 +253,14 @@ function populateCardsBeforeAnimation() {
 
     // Populate current card
     if (currentIndex < vocabData.length) {
-        let entry;
-        if (showWelcome) {
-            entry = vocabData.find(item => item.word === (isMobile ? 'VocabSwipe_mobile_user' : 'VocabSwipe_pc_user'));
-            if (entry) {
-                wordTopElement.textContent = 'VocabSwipe.com';
-                wordBottomElement.textContent = 'VocabSwipe.com';
-                wordTopElement.style.fontFamily = "'Bangers', cursive";
-                wordBottomElement.style.fontFamily = "'Bangers', cursive";
-                englishElement.textContent = entry.english;
-                thaiElement.textContent = entry.thai;
-                audioElement.src = `data/${entry.audio}`;
-            }
-        } else {
-            entry = vocabData[currentIndex];
-            wordTopElement.textContent = entry.word;
-            wordBottomElement.textContent = entry.word;
-            wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
-            wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
-            englishElement.textContent = entry.english;
-            thaiElement.textContent = entry.thai;
-            audioElement.src = `data/${entry.audio}`;
-        }
+        const entry = vocabData[currentIndex];
+        wordTopElement.textContent = entry.word;
+        wordBottomElement.textContent = entry.word;
+        wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
+        wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
+        englishElement.textContent = entry.english;
+        thaiElement.textContent = entry.thai;
+        audioElement.src = `data/${entry.audio}`;
         wordTopElement.style.color = cardTextColor;
         wordBottomElement.style.color = cardTextColor;
         englishElement.style.color = cardTextColor;
@@ -447,8 +431,6 @@ function displayCards() {
     const cardBackgroundColor = isNight ? '#000000' : '#ffffff';
     const cardTextColor = isNight ? '#FFD700' : '#000000';
     const cardBorderColor = isNight ? '#FFD700' : '#000000';
-    const isMobile = isMobileDevice();
-    const showWelcome = visitCount <= 5;
 
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
@@ -471,28 +453,14 @@ function displayCards() {
 
     // Current card
     if (currentIndex < vocabData.length) {
-        let entry;
-        if (showWelcome && currentIndex === 0) {
-            entry = vocabData.find(item => item.word === (isMobile ? 'VocabSwipe_mobile_user' : 'VocabSwipe_pc_user'));
-            if (entry) {
-                wordTopElement.textContent = 'VocabSwipe.com';
-                wordBottomElement.textContent = 'VocabSwipe.com';
-                wordTopElement.style.fontFamily = "'Bangers', cursive";
-                wordBottomElement.style.fontFamily = "'Bangers', cursive";
-                englishElement.textContent = entry.english;
-                thaiElement.textContent = entry.thai;
-                audioElement.src = `data/${entry.audio}`;
-            }
-        } else {
-            entry = vocabData[currentIndex];
-            wordTopElement.textContent = entry.word;
-            wordBottomElement.textContent = entry.word;
-            wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
-            wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
-            englishElement.textContent = entry.english;
-            thaiElement.textContent = entry.thai;
-            audioElement.src = `data/${entry.audio}`;
-        }
+        const entry = vocabData[currentIndex];
+        wordTopElement.textContent = entry.word;
+        wordBottomElement.textContent = entry.word;
+        wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
+        wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
+        englishElement.textContent = entry.english;
+        thaiElement.textContent = entry.thai;
+        audioElement.src = `data/${entry.audio}`;
         wordTopElement.style.color = cardTextColor;
         wordBottomElement.style.color = cardTextColor;
         englishElement.style.color = cardTextColor;
