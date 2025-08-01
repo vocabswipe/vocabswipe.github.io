@@ -743,38 +743,76 @@ function captureSnapshot() {
     const canvas = document.querySelector('#snapshot-canvas');
     const ctx = canvas.getContext('2d');
 
-    const viewportWidth = Math.min(window.innerWidth, 360);
-    const viewportHeight = Math.min(window.innerHeight, 640);
+    // Fixed viewport size for consistent snapshot (matching mobile)
+    const viewportWidth = 360;
+    const viewportHeight = 640;
     canvas.width = viewportWidth * window.devicePixelRatio;
     canvas.height = viewportHeight * window.devicePixelRatio;
     ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
     ctx.fillStyle = '#35654d';
     ctx.fillRect(0, 0, viewportWidth, viewportHeight);
 
+    // Calculate offsets to center content
+    const mainContent = document.querySelector('.main-content');
+    const contentWidth = Math.min(mainContent.offsetWidth, viewportWidth);
+    const contentHeight = Math.min(mainContent.offsetHeight, viewportHeight);
+    const offsetX = (viewportWidth - contentWidth) / 2;
+    const offsetY = (viewportHeight - contentHeight) / 2;
+
     html2canvas(document.querySelector('.main-content'), {
         width: viewportWidth,
         height: viewportHeight,
-        scale: 2,
+        scale: window.devicePixelRatio,
         backgroundColor: '#35654d',
         useCORS: true,
         logging: false,
         onclone: (clonedDoc) => {
+            const clonedMainContent = clonedDoc.querySelector('.main-content');
+            // Force mobile-like styling for consistency
+            clonedMainContent.style.width = `${viewportWidth}px`;
+            clonedMainContent.style.height = `${viewportHeight}px`;
+            clonedMainContent.style.transform = 'none';
+            clonedMainContent.style.position = 'absolute';
+            clonedMainContent.style.left = '0';
+            clonedMainContent.style.top = '0';
+            // Center card container
+            const clonedCardContainer = clonedDoc.querySelector('.card-container');
+            clonedCardContainer.style.width = '90vw';
+            clonedCardContainer.style.maxWidth = '300px';
+            clonedCardContainer.style.height = 'calc(90vw * 1.4)';
+            clonedCardContainer.style.maxHeight = '420px';
+            clonedCardContainer.style.left = '50%';
+            clonedCardContainer.style.transform = 'translateX(-50%)';
+            // Ensure cards are visible
             const clonedCards = clonedDoc.querySelectorAll('.card');
             clonedCards.forEach(card => {
                 card.style.transition = 'none';
                 card.style.opacity = '1';
+                card.style.display = 'block';
             });
+            // Ensure stats are visible
             const clonedStats = clonedDoc.querySelector('.website-stats');
             clonedStats.style.transition = 'none';
             clonedStats.style.opacity = '1';
+            // Ensure text elements are visible
             const clonedText = clonedDoc.querySelectorAll('.count-text, .website-slogan, .progress-label, .progress-value');
             clonedText.forEach(text => {
                 text.style.transition = 'none';
                 text.style.opacity = '1';
             });
+            // Adjust containers for mobile layout
+            const clonedStatsContainer = clonedDoc.querySelector('.stats-container');
+            clonedStatsContainer.style.height = '100px';
+            const clonedInfoContainer = clonedDoc.querySelector('.info-container');
+            clonedInfoContainer.style.height = '170px';
+            clonedInfoContainer.style.top = '20px';
+            const clonedProgressContainer = clonedDoc.querySelector('.progress-container');
+            clonedProgressContainer.style.width = '90vw';
+            clonedProgressContainer.style.maxWidth = '300px';
+            clonedProgressContainer.style.top = '82px';
         }
     }).then(canvas => {
-        ctx.drawImage(canvas, 0, 0, viewportWidth, viewportHeight);
+        ctx.drawImage(canvas, offsetX, offsetY, contentWidth, contentHeight);
         
         canvas.toBlob(blob => {
             if (!blob) {
@@ -807,7 +845,7 @@ function captureSnapshot() {
             }
         }, 'image/png', 1.0);
     }).catch(error => {
-        console.error('Error:', error);
+        console.error('Error capturing snapshot:', error);
     });
 }
 
