@@ -25,11 +25,14 @@ html, body {
 
 .main-content {
     width: 100%;
+    max-width: 360px; /* Match mobile viewport width */
     height: 100%;
+    max-height: 640px; /* Match mobile viewport height */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
     transition: filter 0.3s ease;
 }
 
@@ -66,11 +69,11 @@ html, body {
     display: flex;
     justify-content: space-between; /* Coffee on left, share on right */
     padding: 10px;
-    position: absolute;
-    top: 10px; /* Position at top */
+    position: fixed;
+    top: 10px; /* Fixed at top of viewport */
     left: 50%;
     transform: translateX(-50%); /* Center the panel */
-    z-index: 20;
+    z-index: 100; /* Ensure above all content */
 }
 
 .share-icon, .coffee-icon {
@@ -86,6 +89,13 @@ html, body {
 
 .share-icon.clicked, .coffee-icon.clicked {
     transform: scale(0.9);
+}
+
+/* Hide share icon on PC browsers */
+@media (min-width: 601px) {
+    .share-icon {
+        display: none;
+    }
 }
 
 /* Donation popup styling */
