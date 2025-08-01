@@ -143,7 +143,7 @@ function alternateStatsText() {
                 line1.textContent = 'ประโยคภาษาอังกฤษอเมริกันที่จำเป็น';
                 slogan.textContent = 'ยิ่งปัด ยิ่งเก่ง';
                 progressLabel.textContent = 'ปัดไปแล้ว';
-                donationMessage.textContent = 'การสนับสนุนของคุณช่วยให้ VocabSwipe ฟรีและเติบโตต่อไป! สแกนคิวอาร์โค้ดเพื่อบริจาคผ่านพร้อมเพย์';
+                donationMessage.innerHTML = 'ซื้อกาแฟให้ผมเพื่อให้ <span class="vocabswipe-text">VOCABSWIPE</span> ฟรีและเติบโตต่อไป! สแกนคิวอาร์โค้ดเพื่อสนับสนุนผู้พัฒนาผ่านพร้อมเพย์';
                 line1.classList.add('thai-text');
                 slogan.classList.add('thai-text');
                 progressLabel.classList.add('thai-text');
@@ -152,7 +152,7 @@ function alternateStatsText() {
                 line1.textContent = 'Essential American English Sentences';
                 slogan.textContent = 'Master Words, Swipe by Swipe';
                 progressLabel.textContent = 'Swiped Cards';
-                donationMessage.textContent = 'Your support keeps VocabSwipe free and growing! Scan the QR code to donate via PromptPay.';
+                donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support the developer via PromptPay.';
                 line1.classList.remove('thai-text');
                 slogan.classList.remove('thai-text');
                 progressLabel.classList.remove('thai-text');
@@ -169,7 +169,7 @@ function alternateStatsText() {
     line1.textContent = 'Essential American English Sentences';
     slogan.textContent = 'Master Words, Swipe by Swipe';
     progressLabel.textContent = 'Swiped Cards';
-    donationMessage.textContent = 'Your support keeps VocabSwipe free and growing! Scan the QR code to donate via PromptPay.';
+    donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support the developer via PromptPay.';
     line1.style.opacity = '1';
     slogan.style.opacity = '1';
     progressLabel.style.opacity = '1';
