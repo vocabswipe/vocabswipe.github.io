@@ -21,6 +21,11 @@ html, body {
     position: fixed;
     top: 0;
     left: 0;
+    transition: filter 0.3s ease;
+}
+
+body.blurred {
+    filter: blur(5px);
 }
 
 /* Fixed height containers */
@@ -50,7 +55,7 @@ html, body {
     width: 100%;
     max-width: 300px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between; /* Changed to space-between for coffee and share icons */
     padding: 10px;
     position: absolute;
     top: 0;
@@ -58,19 +63,144 @@ html, body {
     z-index: 20;
 }
 
-.share-icon {
+.share-icon, .coffee-icon {
     width: 30px;
     height: 30px;
     cursor: pointer;
     transition: transform 0.2s ease;
 }
 
-.share-icon:hover {
+.share-icon:hover, .coffee-icon:hover {
     transform: scale(1.1);
 }
 
-.share-icon.clicked {
+.share-icon.clicked, .coffee-icon.clicked {
     transform: scale(0.9);
+}
+
+/* Donation popup styling */
+.donation-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.donation-content {
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 340px;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    position: relative;
+    text-align: center;
+}
+
+.donation-header {
+    margin-bottom: 15px;
+}
+
+.donation-title {
+    font-family: 'Bangers', cursive;
+    font-size: 1.8rem;
+    color: #35654d;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.donation-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.donation-message {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.945rem;
+    color: #333333;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    transition: opacity 0.05s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.donation-message.thai-text {
+    font-size: 0.945rem;
+    line-height: 1.5;
+}
+
+.qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.qr-code {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #35654d;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.promptpay-logo {
+    width: 100px;
+    height: auto;
+}
+
+.developer-info {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.developer-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #35654d;
+    margin-right: 10px;
+}
+
+.developer-text {
+    text-align: left;
+}
+
+.developer-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.945rem;
+    color: #333333;
+    margin-bottom: 5px;
+}
+
+.developer-role {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.84rem;
+    color: #555555;
+}
+
+.close-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.close-icon:hover {
+    transform: scale(1.1);
 }
 
 /* Website statistics styling */
@@ -540,8 +670,55 @@ html, body {
         transform: translate(3.888px, 3.888px) rotate(3.888deg); /* Reduced by 10% */
     }
 
-    .share-icon {
+    .share-icon, .coffee-icon {
         width: 25px;
         height: 25px;
+    }
+
+    .donation-content {
+        width: 85%;
+        max-width: 300px;
+        padding: 15px;
+    }
+
+    .donation-title {
+        font-size: 1.6rem;
+    }
+
+    .donation-message {
+        font-size: 0.84rem;
+    }
+
+    .donation-message.thai-text {
+        font-size: 0.84rem;
+    }
+
+    .qr-code {
+        width: 120px;
+        height: 120px;
+    }
+
+    .promptpay-logo {
+        width: 80px;
+    }
+
+    .developer-photo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .developer-name {
+        font-size: 0.84rem;
+    }
+
+    .developer-role {
+        font-size: 0.756rem;
+    }
+
+    .close-icon {
+        width: 18px;
+        height: 18px;
+        bottom: 8px;
+        right: 8px;
     }
 }
