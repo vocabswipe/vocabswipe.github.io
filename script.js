@@ -3,6 +3,9 @@ let vocabData = [];
 let originalVocabLength = 0; // Store original length for stats
 let currentIndex = 0;
 let hasSwiped = false; // Flag to track if user has swiped
+let mediaRecorder = null;
+let recordedChunks = [];
+let isRecording = false;
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
@@ -337,35 +340,120 @@ function animateCardStackDrop(callback) {
     }, 100);
 }
 
-// Function to enable tap interactions for cards
+// Function to enable card interactions (audio and mic buttons)
 function enableCardInteractions() {
-    const topCard = document.getElementById('vocab-card');
-    const nextCard = document.getElementById('next-card-1');
+    const cards = [
+        { id: 'vocab-card', audioId: 'audio-button', micId: 'mic-button', playId: 'play-button', soundwaveId: 'soundwave-button', audioSrcId: 'card-audio' },
+        { id: 'next-card-1', audioId: 'audio-button-1', micId: 'mic-button-1', playId: 'play-button-1', soundwaveId: 'soundwave-button-1' },
+        { id: 'next-card-2', audioId: 'audio-button-2', micId: 'mic-button-2', playId: 'play-button-2', soundwaveId: 'soundwave-button-2' },
+        { id: 'next-card-3', audioId: 'audio-button-3', micId: 'mic-button-3', playId: 'play-button-3', soundwaveId: 'soundwave-button-3' },
+        { id: 'next-card-4', audioId: 'audio-button-4', micId: 'mic-button-4', playId: 'play-button-4', soundwaveId: 'soundwave-button-4' },
+        { id: 'next-card-5', audioId: 'audio-button-5', micId: 'mic-button-5', playId: 'play-button-5', soundwaveId: 'soundwave-button-5' },
+        { id: 'next-card-6', audioId: 'audio-button-6', micId: 'mic-button-6', playId: 'play-button-6', soundwaveId: 'soundwave-button-6' },
+        { id: 'next-card-7', audioId: 'audio-button-7', micId: 'mic-button-7', playId: 'play-button-7', soundwaveId: 'soundwave-button-7' },
+        { id: 'next-card-8', audioId: 'audio-button-8', micId: 'mic-button-8', playId: 'play-button-8', soundwaveId: 'soundwave-button-8' },
+        { id: 'next-card-9', audioId: 'audio-button-9', micId: 'mic-button-9', playId: 'play-button-9', soundwaveId: 'soundwave-button-9' }
+    ];
 
-    // Tap handler for top card
-    topCard.addEventListener('click', () => {
-        if (!isDragging) {
-            const audio = document.getElementById('card-audio');
-            topCard.classList.add('glow');
-            audio.play().catch(error => console.error('Error playing audio:', error));
-            setTimeout(() => {
-                topCard.classList.remove('glow');
-            }, 600);
-        }
-    });
+    cards.forEach((card, index) => {
+        const cardElement = document.getElementById(card.id);
+        const audioButton = document.getElementById(card.audioId);
+        const micButton = document.getElementById(card.micId);
+        const playButton = document.getElementById(card.playId);
+        const soundwaveButton = document.getElementById(card.soundwaveId);
 
-    // Tap handler for next card
-    nextCard.addEventListener('click', () => {
-        if (!isDragging && currentIndex + 1 < vocabData.length) {
-            const nextEntry = vocabData[currentIndex + 1];
-            const audio = new Audio(`data/${nextEntry.audio}`);
-            nextCard.classList.add('glow');
-            audio.play().catch(error => console.error('Error playing audio:', error));
-            setTimeout(() => {
-                nextCard.classList.remove('glow');
-            }, 600);
-        }
+        // Audio button handler
+        audioButton.addEventListener('click', () => {
+            let audio;
+            if (card.id === 'vocab-card') {
+                audio = document.getElementById('card-audio');
+            } else if (currentIndex + index < vocabData.length) {
+                const entry = vocabData[currentIndex + index];
+                audio = new Audio(`data/${entry.audio}`);
+            }
+            if (audio) {
+                cardElement.classList.add('glow');
+                audio.play().catch(error => console.error('Error playing audio:', error));
+                setTimeout(() => {
+                    cardElement.classList.remove('glow');
+                }, 600);
+            }
+        });
+
+        // Microphone button handler
+        micButton.addEventListener('click', () => {
+            if (!isRecording) {
+                startRecording(card.playId, card.soundwaveId);
+                micButton.classList.add('recording');
+                setTimeout(() => {
+                    stopRecording(card.playId, card.soundwaveId);
+                    micButton.classList.remove('recording');
+                }, 5000);
+            }
+        });
+
+        // Play recording button handler
+        playButton.addEventListener('click', () => {
+            const recordedAudio = document.getElementById('recorded-audio');
+            if (recordedAudio.src) {
+                cardElement.classList.add('glow');
+                recordedAudio.play().catch(error => console.error('Error playing recorded audio:', error));
+                animateSoundwave(card.soundwaveId);
+                setTimeout(() => {
+                    cardElement.classList.remove('glow');
+                }, 600);
+            }
+        });
     });
+}
+
+// Function to start recording
+function startRecording(playButtonId, soundwaveButtonId) {
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(stream => {
+                mediaRecorder = new MediaRecorder(stream);
+                recordedChunks = [];
+                mediaRecorder.start();
+                isRecording = true;
+
+                mediaRecorder.ondataavailable = (e) => {
+                    recordedChunks.push(e.data);
+                };
+
+                mediaRecorder.onstop = () => {
+                    const blob = new Blob(recordedChunks, { type: 'audio/wav' });
+                    const recordedAudio = document.getElementById('recorded-audio');
+                    recordedAudio.src = URL.createObjectURL(blob);
+                    document.getElementById(playButtonId).style.display = 'inline-block';
+                    document.getElementById(soundwaveButtonId).style.display = 'inline-block';
+                    isRecording = false;
+                    stream.getTracks().forEach(track => track.stop());
+                };
+            })
+            .catch(error => {
+                console.error('Error accessing microphone:', error);
+                isRecording = false;
+            });
+    } else {
+        console.error('MediaRecorder or getUserMedia not supported');
+        isRecording = false;
+    }
+}
+
+// Function to stop recording
+function stopRecording(playButtonId, soundwaveButtonId) {
+    if (mediaRecorder && mediaRecorder.state === 'recording') {
+        mediaRecorder.stop();
+    }
+}
+
+// Function to animate soundwave
+function animateSoundwave(soundwaveButtonId) {
+    const soundwave = document.getElementById(soundwaveButtonId);
+    soundwave.style.animation = 'none';
+    soundwave.offsetHeight; // Trigger reflow
+    soundwave.style.animation = 'soundwaveSweep 5s linear forwards';
 }
 
 // Function to fetch and parse JSONL file
@@ -470,6 +558,9 @@ function displayCards() {
         currentCard.style.transform = 'translate(0, 0) rotate(0deg)';
         currentCard.style.opacity = '1';
         currentCard.style.zIndex = '100';
+        // Reset recording buttons for new card
+        document.getElementById('play-button').style.display = 'none';
+        document.getElementById('soundwave-button').style.display = 'none';
     }
 
     // Next cards
@@ -495,6 +586,9 @@ function displayCards() {
             next.card.style.transform = `translate(${next.translateX}px, ${next.translateY}px) rotate(${next.rotate}deg)`;
             next.card.style.opacity = '1';
             next.card.style.zIndex = next.zIndex;
+            // Reset recording buttons for next cards
+            document.getElementById(`play-button-${index + 1}`).style.display = 'none';
+            document.getElementById(`soundwave-button-${index + 1}`).style.display = 'none';
         } else {
             next.card.style.opacity = '0';
         }
@@ -582,15 +676,7 @@ card.addEventListener('touchend', (e) => {
     const deltaY = endY - startY;
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-    if (distance <= maxTapDistance && touchDuration <= maxTapDuration) {
-        const audio = document.querySelector('#card-audio');
-        card.classList.add('glow');
-        audio.play().catch(error => console.error('Error playing audio:', error));
-        card.style.transform = 'translate(0, 0) rotate(0deg)';
-        setTimeout(() => {
-            card.classList.remove('glow');
-        }, 600);
-    } else if (distance > minSwipeDistance) {
+    if (distance > minSwipeDistance) {
         const angle = Math.atan2(deltaY, deltaX);
         const magnitude = distance * 5;
         const translateX = Math.cos(angle) * magnitude;
@@ -638,15 +724,7 @@ card.addEventListener('mouseup', (e) => {
     const deltaY = endY - startY;
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-    if (distance <= maxTapDistance && duration <= maxTapDuration) {
-        const audio = document.querySelector('#card-audio');
-        card.classList.add('glow');
-        audio.play().catch(error => console.error('Error playing audio:', error));
-        card.style.transform = 'translate(0, 0) rotate(0deg)';
-        setTimeout(() => {
-            card.classList.remove('glow');
-        }, 600);
-    } else if (distance > minSwipeDistance) {
+    if (distance > minSwipeDistance) {
         const angle = Math.atan2(deltaY, deltaX);
         const magnitude = distance * 5;
         const translateX = Math.cos(angle) * magnitude;
@@ -669,15 +747,6 @@ card.addEventListener('mouseleave', () => {
 
 document.addEventListener('keydown', (e) => {
     switch (e.key) {
-        case ' ':
-            e.preventDefault();
-            const audio = document.querySelector('#card-audio');
-            card.classList.add('glow');
-            audio.play().catch(error => console.error('Error playing audio:', error));
-            setTimeout(() => {
-                card.classList.remove('glow');
-            }, 600);
-            break;
         case 'ArrowLeft':
             e.preventDefault();
             moveToNextCard(-window.innerWidth, 0, -15);
