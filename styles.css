@@ -345,7 +345,7 @@ html, body {
 /* Progress bar styling */
 .progress-container {
     width: 300px; /* Matches card width */
-    height: 20px; /* Fixed height for progress bar */
+    height: 10px; /* Reduced from 20px to 10px */
     position: absolute;
     top: 92px; /* Moved upward by 18px (was 120px) */
     left: 50%;
@@ -392,8 +392,8 @@ html, body {
 
 .progress-bar {
     width: 100%;
-    height: 20px;
-    background-color: #808080; /* Gray track */
+    height: 10px; /* Reduced from 20px to 10px */
+    background-color: #ffffff; /* Changed from #808080 (gray) to #ffffff (white) */
     border-radius: 4px;
     overflow: hidden;
     position: absolute;
@@ -402,7 +402,7 @@ html, body {
 
 .progress-fill {
     height: 100%;
-    background-color: #00ff00; /* Bright green fill */
+    background-color: #ffff00; /* Changed from #00ff00 (bright green) to #ffff00 (bright yellow) */
     width: 0%;
     transition: width 0.3s ease;
 }
@@ -484,8 +484,8 @@ html, body {
 }
 
 .audio-button, .mic-button, .play-button, .soundwave-button {
-    width: 24px; /* Increased from 20px for better touch targets */
-    height: 24px; /* Increased from 20px for better touch targets */
+    width: 31.2px; /* Increased from 24px to 31.2px (24 * 1.3) */
+    height: 31.2px; /* Increased from 24px to 31.2px (24 * 1.3) */
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
     -webkit-tap-highlight-color: transparent;
@@ -663,7 +663,7 @@ html, body {
     .progress-container {
         width: 90vw; /* Matches card width */
         max-width: 300px;
-        height: 18px; /* Fixed height for progress bar */
+        height: 9px; /* Reduced from 18px to 9px */
         top: 82px; /* Moved upward by 18px (was 110px) */
         left: 50%;
         transform: translateX(-50%);
@@ -692,8 +692,16 @@ html, body {
 
     .progress-bar {
         width: 100%;
-        height: 18px;
+        height: 9px; /* Reduced from 18px to 9px */
+        background-color: #ffffff; /* Changed from #808080 (gray) to #ffffff (white) */
         top: 0;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background-color: #ffff00; /* Changed from #00ff00 (bright green) to #ffff00 (bright yellow) */
+        width: 0%;
+        transition: width 0.3s ease;
     }
 
     .card-container {
@@ -829,8 +837,8 @@ html, body {
     }
 
     .audio-button, .mic-button, .play-button, .soundwave-button {
-        width: 22px; /* Increased from 18px for better touch targets */
-        height: 22px; /* Increased from 18px for better touch targets */
+        width: 28.6px; /* Increased from 22px to 28.6px (22 * 1.3) */
+        height: 28.6px; /* Increased from 22px to 28.6px (22 * 1.3) */
         touch-action: none; /* Prevent default touch behaviors */
     }
 }
