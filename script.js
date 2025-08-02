@@ -6,8 +6,9 @@ let hasSwiped = false; // Flag to track if user has swiped
 let mediaRecorder = null;
 let recordedChunks = [];
 let isRecording = false;
-let isAudioPlaying = false; // Flag to track if audio is playing
 let audioContext = null; // Web Audio API context
+let isAudioPlaying = false; // Flag to track if audio is playing
+let isPlayingRecording = false; // Flag to track if recording is playing
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
@@ -325,7 +326,7 @@ function animateCardStackDrop(callback) {
 }
 
 // Function to play audio using Web Audio API for mobile compatibility
-function playAudio(audioSrc, audioButton, micButton, playButton) {
+function playAudio(audioSrc, audioButton, otherButtons) {
     if (!audioContext) {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
@@ -333,14 +334,14 @@ function playAudio(audioSrc, audioButton, micButton, playButton) {
     // Ensure audio context is resumed (required for mobile browsers)
     if (audioContext.state === 'suspended') {
         audioContext.resume().then(() => {
-            loadAndPlayAudio(audioSrc, audioButton, micButton, playButton);
+            loadAndPlayAudio(audioSrc, audioButton, otherButtons);
         });
     } else {
-        loadAndPlayAudio(audioSrc, audioButton, micButton, playButton);
+        loadAndPlayAudio(audioSrc, audioButton, otherButtons);
     }
 }
 
-function loadAndPlayAudio(audioSrc, audioButton, micButton, playButton) {
+function loadAndPlayAudio(audioSrc, audioButton, otherButtons) {
     fetch(audioSrc)
         .then(response => response.arrayBuffer())
         .then(buffer => audioContext.decodeAudioData(buffer))
@@ -348,33 +349,35 @@ function loadAndPlayAudio(audioSrc, audioButton, micButton, playButton) {
             const source = audioContext.createBufferSource();
             source.buffer = decodedData;
             source.connect(audioContext.destination);
-            source.start(0);
             isAudioPlaying = true;
-            audioButton.classList.add('pulsating');
-            micButton.classList.add('disabled');
-            playButton.classList.add('disabled');
+            audioButton.classList.add('pulse');
+            otherButtons.forEach(button => button.classList.add('disabled'));
+            source.start(0);
             source.onended = () => {
-                audioButton.classList.remove('pulsating');
-                micButton.classList.remove('disabled');
-                playButton.classList.remove('disabled');
                 isAudioPlaying = false;
+                audioButton.classList.remove('pulse');
+                otherButtons.forEach(button => button.classList.remove('disabled'));
             };
         })
         .catch(error => {
             console.error('Error playing audio with Web Audio API:', error);
             // Fallback to HTML5 audio
             const audio = new Audio(audioSrc);
-            audio.play().catch(err => console.error('Error playing fallback audio:', err));
             isAudioPlaying = true;
-            audioButton.classList.add('pulsating');
-            micButton.classList.add('disabled');
-            playButton.classList.add('disabled');
-            audio.onended = () => {
-                audioButton.classList.remove('pulsating');
-                micButton.classList.remove('disabled');
-                playButton.classList.remove('disabled');
+            audioButton.classList.add('pulse');
+            otherButtons.forEach(button => button.classList.add('disabled'));
+            audio.play().then(() => {
+                setTimeout(() => {
+                    isAudioPlaying = false;
+                    audioButton.classList.remove('pulse');
+                    otherButtons.forEach(button => button.classList.remove('disabled'));
+                }, audio.duration * 1000 || 600);
+            }).catch(err => {
+                console.error('Error playing fallback audio:', err);
                 isAudioPlaying = false;
-            };
+                audioButton.classList.remove('pulse');
+                otherButtons.forEach(button => button.classList.remove('disabled'));
+            });
         });
 }
 
@@ -399,10 +402,11 @@ function enableCardInteractions() {
         const micButton = document.getElementById(card.micId);
         const playButton = document.getElementById(card.playId);
         const soundwaveButton = document.getElementById(card.soundwaveId);
+        const otherButtons = [micButton, playButton].filter(Boolean); // Exclude null/undefined
 
         // Audio button handler (click and touchstart)
         const audioHandler = () => {
-            if (isRecording || isAudioPlaying) return;
+            if (isAudioPlaying || isRecording || isPlayingRecording) return;
             let audioSrc;
             if (card.id === 'vocab-card') {
                 audioSrc = document.getElementById('card-audio').src;
@@ -411,7 +415,7 @@ function enableCardInteractions() {
                 audioSrc = `data/${entry.audio}`;
             }
             if (audioSrc) {
-                playAudio(audioSrc, audioButton, micButton, playButton);
+                playAudio(audioSrc, audioButton, [micButton, playButton]);
             }
         };
 
@@ -423,13 +427,15 @@ function enableCardInteractions() {
 
         // Microphone button handler (click and touchstart)
         const micHandler = () => {
-            if (isRecording || isAudioPlaying) return;
-            startRecording(card.playId, card.soundwaveId, audioButton, micButton, playButton);
-            micButton.classList.add('pulsating');
-            setTimeout(() => {
-                stopRecording(card.playId, card.soundwaveId, audioButton, micButton, playButton);
-                micButton.classList.remove('pulsating');
-            }, 3000); // Reduced from 5000 to 3000 ms
+            if (isAudioPlaying || isRecording || isPlayingRecording) return;
+            if (!isRecording) {
+                startRecording(card.playId, card.soundwaveId, audioButton, playButton);
+                micButton.classList.add('pulse');
+                setTimeout(() => {
+                    stopRecording(card.playId, card.soundwaveId, audioButton, micButton, playButton);
+                    micButton.classList.remove('pulse');
+                }, 3000); // Reduced from 5000 to 3000
+            }
         };
 
         micButton.addEventListener('click', micHandler);
@@ -440,21 +446,27 @@ function enableCardInteractions() {
 
         // Play recording button handler (click and touchstart)
         const playHandler = () => {
-            if (isRecording || isAudioPlaying) return;
+            if (isAudioPlaying || isRecording || isPlayingRecording) return;
             const recordedAudio = document.getElementById('recorded-audio');
             if (recordedAudio.src) {
-                recordedAudio.play().catch(error => console.error('Error playing recorded audio:', error));
-                playButton.classList.add('pulsating');
-                soundwaveButton.style.display = 'inline-block';
-                animateSoundwave(card.soundwaveId);
-                audioButton.classList.add('disabled');
-                micButton.classList.add('disabled');
-                recordedAudio.onended = () => {
-                    playButton.classList.remove('pulsating');
+                isPlayingRecording = true;
+                playButton.classList.add('pulse');
+                recordedAudio.play().then(() => {
+                    document.getElementById(card.soundwaveId).style.display = 'inline-block';
+                    animateSoundwave(card.soundwaveId);
+                    setTimeout(() => {
+                        isPlayingRecording = false;
+                        playButton.classList.remove('pulse');
+                        audioButton.classList.remove('disabled');
+                        micButton.classList.remove('disabled');
+                    }, recordedAudio.duration * 1000 || 3000);
+                }).catch(error => {
+                    console.error('Error playing recorded audio:', error);
+                    isPlayingRecording = false;
+                    playButton.classList.remove('pulse');
                     audioButton.classList.remove('disabled');
                     micButton.classList.remove('disabled');
-                    isAudioPlaying = false;
-                };
+                });
             }
         };
 
@@ -467,7 +479,7 @@ function enableCardInteractions() {
 }
 
 // Function to start recording
-function startRecording(playButtonId, soundwaveButtonId, audioButton, micButton, playButton) {
+function startRecording(playButtonId, soundwaveButtonId, audioButton, playButton) {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({ audio: true })
             .then(stream => {
@@ -487,28 +499,24 @@ function startRecording(playButtonId, soundwaveButtonId, audioButton, micButton,
                     const recordedAudio = document.getElementById('recorded-audio');
                     recordedAudio.src = URL.createObjectURL(blob);
                     document.getElementById(playButtonId).style.display = 'inline-block';
-                    document.getElementById(soundwaveButtonId).style.display = 'none'; // Hidden until play button is clicked
+                    // Soundwave is shown only when play button is clicked
                     isRecording = false;
-                    audioButton.classList.remove('disabled');
-                    playButton.classList.remove('disabled');
                     stream.getTracks().forEach(track => track.stop());
                 };
             })
             .catch(error => {
                 console.error('Error accessing microphone:', error);
                 isRecording = false;
-                alert('Microphone access denied or not supported. Please ensure microphone permissions are granted.');
-                micButton.classList.remove('pulsating');
                 audioButton.classList.remove('disabled');
                 playButton.classList.remove('disabled');
+                alert('Microphone access denied or not supported. Please ensure microphone permissions are granted.');
             });
     } else {
         console.error('MediaRecorder or getUserMedia not supported');
         isRecording = false;
-        alert('Recording is not supported on this device or browser.');
-        micButton.classList.remove('pulsating');
         audioButton.classList.remove('disabled');
         playButton.classList.remove('disabled');
+        alert('Recording is not supported on this device or browser.');
     }
 }
 
@@ -516,6 +524,8 @@ function startRecording(playButtonId, soundwaveButtonId, audioButton, micButton,
 function stopRecording(playButtonId, soundwaveButtonId, audioButton, micButton, playButton) {
     if (mediaRecorder && mediaRecorder.state === 'recording') {
         mediaRecorder.stop();
+        audioButton.classList.remove('disabled');
+        playButton.classList.remove('disabled');
     }
 }
 
@@ -524,7 +534,7 @@ function animateSoundwave(soundwaveButtonId) {
     const soundwave = document.getElementById(soundwaveButtonId);
     soundwave.style.animation = 'none';
     soundwave.offsetHeight; // Trigger reflow
-    soundwave.style.animation = 'soundwaveSweep 3s linear forwards'; // Match recording duration
+    soundwave.style.animation = 'soundwaveSweep 3s linear forwards';
 }
 
 // Function to fetch and parse JSONL file
@@ -874,7 +884,7 @@ closeIcon.addEventListener('touchstart', (e) => {
 donationPopup.addEventListener('click', (e) => {
     if (e.target === donationPopup) {
         donationPopup.style.display = 'none';
-        mainContent.classList.remove('blurred');
+        mainContent.classList.add('blurred');
     }
 });
 donationPopup.addEventListener('touchstart', (e) => {
