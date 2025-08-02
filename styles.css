@@ -82,6 +82,7 @@ html, body {
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
     -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
+    touch-action: none; /* Prevent default touch behaviors */
 }
 
 .share-icon:hover, .coffee-icon:hover {
@@ -232,6 +233,7 @@ html, body {
     right: 10px;
     cursor: pointer;
     transition: transform 0.2s ease;
+    touch-action: none; /* Prevent default touch behaviors */
 }
 
 .close-icon:hover {
@@ -349,6 +351,7 @@ html, body {
     left: 50%;
     transform: translateX(-50%);
     opacity: 0; /* Initially hidden for fade-in effect */
+    z-index: 50; /* Higher z-index to ensure visibility */
 }
 
 .progress-label {
@@ -365,7 +368,7 @@ html, body {
     line-height: 1.2;
     height: 20px; /* Fixed height to prevent shifting */
     overflow: hidden;
-    z-index: 20; /* Higher z-index to bring in front */
+    z-index: 100; /* Increased z-index to bring in front */
 }
 
 .progress-label.thai-text {
@@ -439,61 +442,130 @@ html, body {
     display: none; /* Hide cards initially */
 }
 
-/* Glowing effect */
-.glow {
-    animation: glow 0.6s ease-in-out 1;
+/* Soundwave animation */
+@keyframes soundwaveSweep {
+    0% {
+        clip-path: inset(0 100% 0 0);
+        opacity: 1;
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+        opacity: 1;
+    }
 }
 
-@keyframes glow {
-    0% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
-    50% { box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.7); }
-    100% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+/* Pulse animation for buttons */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Card buttons styling */
+.card-buttons {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.audio-button {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: none;
+}
+
+.mic-button, .play-button, .soundwave-button {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: none;
+    position: absolute;
+    bottom: 10px;
+}
+
+.mic-button {
+    left: 40px; /* Positioned to the right of audio-button */
+}
+
+.play-button {
+    left: 70px; /* Positioned to the right of mic-button */
+}
+
+.soundwave-button {
+    left: 100px; /* Positioned to the right of play-button */
+}
+
+.audio-button:hover, .mic-button:hover, .play-button:hover, .soundwave-button:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.audio-button:active, .mic-button:active, .play-button:active, .soundwave-button:active {
+    transform: scale(0.9);
+    opacity: 0.6;
+}
+
+.audio-button.pulse, .mic-button.pulse, .play-button.pulse {
+    animation: pulse 0.5s ease-in-out 1;
+}
+
+.audio-button.inactive, .mic-button.inactive, .play-button.inactive, .soundwave-button.inactive {
+    pointer-events: none;
+    opacity: 0.5;
 }
 
 /* Next cards and stack cards */
 #next-card-1 {
     z-index: 9;
-    transform: translate(1.296px, 1.296px) rotate(0.3249deg); /* Reduced by 10% */
+    transform: translate(1.296px, 1.296px) rotate(0.3249deg);
 }
 
 #next-card-2 {
     z-index: 8;
-    transform: translate(2.592px, 2.592px) rotate(0.6498deg); /* Reduced by 10% */
+    transform: translate(2.592px, 2.592px) rotate(0.6498deg);
 }
 
 #next-card-3 {
     z-index: 7;
-    transform: translate(3.888px, 3.888px) rotate(0.9747deg); /* Reduced by 10% */
+    transform: translate(3.888px, 3.888px) rotate(0.9747deg);
 }
 
 #next-card-4 {
     z-index: 6;
-    transform: translate(5.184px, 5.184px) rotate(1.2996deg); /* Reduced by 10% */
+    transform: translate(5.184px, 5.184px) rotate(1.2996deg);
 }
 
 #next-card-5 {
     z-index: 5;
-    transform: translate(6.48px, 6.48px) rotate(1.6245deg); /* Reduced by 10% */
+    transform: translate(6.48px, 6.48px) rotate(1.6245deg);
 }
 
 #next-card-6 {
     z-index: 4;
-    transform: translate(7.776px, 7.776px) rotate(1.9494deg); /* Reduced by 10% */
+    transform: translate(7.776px, 7.776px) rotate(1.9494deg);
 }
 
 #next-card-7 {
     z-index: 3;
-    transform: translate(9.072px, 9.072px) rotate(2.2743deg); /* Reduced by 10% */
+    transform: translate(9.072px, 9.072px) rotate(2.2743deg);
 }
 
 #next-card-8 {
     z-index: 2;
-    transform: translate(10.368px, 10.368px) rotate(2.5992deg); /* Reduced by 10% */
+    transform: translate(10.368px, 10.368px) rotate(2.5992deg);
 }
 
 #next-card-9 {
     z-index: 1;
-    transform: translate(11.664px, 11.664px) rotate(2.9241deg); /* Reduced by 10% */
+    transform: translate(11.664px, 11.664px) rotate(2.9241deg);
 }
 
 .card-stack {
@@ -501,19 +573,19 @@ html, body {
 }
 
 .card-stack-1 {
-    transform: translate(3.888px, 3.888px) rotate(3.24deg); /* Reduced by 10% */
+    transform: translate(3.888px, 3.888px) rotate(3.24deg);
     z-index: -1;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .card-stack-2 {
-    transform: translate(5.184px, 5.184px) rotate(3.564deg); /* Reduced by 10% */
+    transform: translate(5.184px, 5.184px) rotate(3.564deg);
     z-index: -2;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card-stack-3 {
-    transform: translate(6.48px, 6.48px) rotate(3.888deg); /* Reduced by 10% */
+    transform: translate(6.48px, 6.48px) rotate(3.888deg);
     z-index: -3;
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
 }
@@ -546,11 +618,6 @@ html, body {
 .top-left {
     top: 10px;
     left: 10px;
-}
-
-.bottom-right {
-    bottom: 10px;
-    right: 10px;
 }
 
 /* Sentence styling */
@@ -621,6 +688,7 @@ html, body {
         left: 50%;
         transform: translateX(-50%);
         opacity: 0; /* Initially hidden */
+        z-index: 50; /* Higher z-index to ensure visibility */
     }
 
     .progress-label {
@@ -628,7 +696,7 @@ html, body {
         top: -18px; /* Fixed position above progress bar */
         line-height: 1.2;
         height: 18px; /* Fixed height */
-        z-index: 20; /* Higher z-index to bring in front */
+        z-index: 100; /* Increased z-index to bring in front */
     }
 
     .progress-label.thai-text {
@@ -694,21 +762,22 @@ html, body {
     }
 
     .card-stack-1 {
-        transform: translate(1.296px, 1.296px) rotate(3.24deg); /* Reduced by 10% */
+        transform: translate(1.296px, 1.296px) rotate(3.24deg);
     }
 
     .card-stack-2 {
-        transform: translate(2.592px, 2.592px) rotate(3.564deg); /* Reduced by 10% */
+        transform: translate(2.592px, 2.592px) rotate(3.564deg);
     }
 
     .card-stack-3 {
-        transform: translate(3.888px, 3.888px) rotate(3.888deg); /* Reduced by 10% */
+        transform: translate(3.888px, 3.888px) rotate(3.888deg);
     }
 
     .share-icon, .coffee-icon {
-        width: 25px;
-        height: 25px;
+        width: 28px; /* Increased from 25px for better touch targets */
+        height: 28px; /* Increased from 25px for better touch targets */
         -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
+        touch-action: none; /* Prevent default touch behaviors */
     }
 
     .share-icon:active, .coffee-icon:active {
@@ -777,5 +846,12 @@ html, body {
         height: 18px;
         bottom: 8px;
         right: 8px;
+        touch-action: none; /* Prevent default touch behaviors */
+    }
+
+    .audio-button, .mic-button, .play-button, .soundwave-button {
+        width: 22px; /* Increased from 18px for better touch targets */
+        height: 22px; /* Increased from 18px for better touch targets */
+        touch-action: none; /* Prevent default touch behaviors */
     }
 }
