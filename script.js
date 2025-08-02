@@ -6,6 +6,7 @@ let hasSwiped = false; // Flag to track if user has swiped
 let mediaRecorder = null;
 let recordedChunks = [];
 let isRecording = false;
+let audioContext = null; // Web Audio API context
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
@@ -223,7 +224,6 @@ function setInitialCardTheme() {
         card.style.backgroundColor = cardBackgroundColor;
         card.style.borderColor = cardBorderColor;
         const contentElements = card.querySelectorAll('.word, .sentence');
-        contentElements7495
         contentElements.forEach(element => {
             element.style.color = cardTextColor;
         });
@@ -341,6 +341,48 @@ function animateCardStackDrop(callback) {
     }, 100);
 }
 
+// Function to play audio using Web Audio API for mobile compatibility
+function playAudio(audioSrc, cardElement) {
+    if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    // Ensure audio context is resumed (required for mobile browsers)
+    if (audioContext.state === 'suspended') {
+        audioContext.resume().then(() => {
+            loadAndPlayAudio(audioSrc, cardElement);
+        });
+    } else {
+        loadAndPlayAudio(audioSrc, cardElement);
+    }
+}
+
+function loadAndPlayAudio(audioSrc, cardElement) {
+    fetch(audioSrc)
+        .then(response => response.arrayBuffer())
+        .then(buffer => audioContext.decodeAudioData(buffer))
+        .then(decodedData => {
+            const source = audioContext.createBufferSource();
+            source.buffer = decodedData;
+            source.connect(audioContext.destination);
+            source.start(0);
+            cardElement.classList.add('glow');
+            source.onended = () => {
+                cardElement.classList.remove('glow');
+            };
+        })
+        .catch(error => {
+            console.error('Error playing audio with Web Audio API:', error);
+            // Fallback to HTML5 audio
+            const audio = new Audio(audioSrc);
+            audio.play().catch(err => console.error('Error playing fallback audio:', err));
+            cardElement.classList.add('glow');
+            setTimeout(() => {
+                cardElement.classList.remove('glow');
+            }, 600);
+        });
+}
+
 // Function to enable card interactions (audio and mic buttons)
 function enableCardInteractions() {
     const cards = [
@@ -363,30 +405,28 @@ function enableCardInteractions() {
         const playButton = document.getElementById(card.playId);
         const soundwaveButton = document.getElementById(card.soundwaveId);
 
-        // Function to handle audio playback
-        const handleAudioPlay = (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            let audio;
+        // Audio button handler (click and touchstart)
+        const audioHandler = () => {
+            let audioSrc;
             if (card.id === 'vocab-card') {
-                audio = document.getElementById('card-audio');
+                audioSrc = document.getElementById('card-audio').src;
             } else if (currentIndex + index < vocabData.length) {
                 const entry = vocabData[currentIndex + index];
-                audio = new Audio(`data/${entry.audio}`);
+                audioSrc = `data/${entry.audio}`;
             }
-            if (audio) {
-                cardElement.classList.add('glow');
-                audio.play().catch(error => console.error('Error playing audio:', error));
-                setTimeout(() => {
-                    cardElement.classList.remove('glow');
-                }, 600);
+            if (audioSrc) {
+                playAudio(audioSrc, cardElement);
             }
         };
 
-        // Function to handle microphone recording
-        const handleMicRecord = (e) => {
-            e.preventDefault();
-            e.stopPropagation();
+        audioButton.addEventListener('click', audioHandler);
+        audioButton.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Prevent scrolling/zooming
+            audioHandler();
+        });
+
+        // Microphone button handler (click and touchstart)
+        const micHandler = () => {
             if (!isRecording) {
                 startRecording(card.playId, card.soundwaveId);
                 micButton.classList.add('recording');
@@ -397,10 +437,14 @@ function enableCardInteractions() {
             }
         };
 
-        // Function to handle recorded audio playback
-        const handlePlayRecording = (e) => {
-            e.preventDefault();
-            e.stopPropagation();
+        micButton.addEventListener('click', micHandler);
+        micButton.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Prevent scrolling/zooming
+            micHandler();
+        });
+
+        // Play recording button handler (click and touchstart)
+        const playHandler = () => {
             const recordedAudio = document.getElementById('recorded-audio');
             if (recordedAudio.src) {
                 cardElement.classList.add('glow');
@@ -412,21 +456,11 @@ function enableCardInteractions() {
             }
         };
 
-        // Add click and touchstart event listeners for audio button
-        audioButton.addEventListener('click', handleAudioPlay);
-        audioButton.addEventListener('touchstart', handleAudioPlay);
-
-        // Add click and touchstart event listeners for mic button
-        micButton.addEventListener('click', handleMicRecord);
-        micButton.addEventListener('touchstart', handleMicRecord);
-
-        // Add click and touchstart event listeners for play button
-        playButton.addEventListener('click', handlePlayRecording);
-        playButton.addEventListener('touchstart', handlePlayRecording);
-
-        // Add click and touchstart event listeners for soundwave button (for consistency, though it may not need interaction)
-        soundwaveButton.addEventListener('click', handlePlayRecording);
-        soundwaveButton.addEventListener('touchstart', handlePlayRecording);
+        playButton.addEventListener('click', playHandler);
+        playButton.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Prevent scrolling/zooming
+            playHandler();
+        });
     });
 }
 
@@ -457,10 +491,12 @@ function startRecording(playButtonId, soundwaveButtonId) {
             .catch(error => {
                 console.error('Error accessing microphone:', error);
                 isRecording = false;
+                alert('Microphone access denied or not supported. Please ensure microphone permissions are granted.');
             });
     } else {
         console.error('MediaRecorder or getUserMedia not supported');
         isRecording = false;
+        alert('Recording is not supported on this device or browser.');
     }
 }
 
@@ -798,6 +834,14 @@ shareIcon.addEventListener('click', () => {
     }
     captureSnapshot();
 });
+shareIcon.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    if (typeof html2canvas === 'undefined') {
+        console.error('html2canvas is not loaded');
+        return;
+    }
+    captureSnapshot();
+});
 
 // Coffee icon functionality
 const coffeeIcon = document.querySelector('#coffee-icon');
@@ -809,14 +853,31 @@ coffeeIcon.addEventListener('click', () => {
     donationPopup.style.display = 'flex';
     mainContent.classList.add('blurred');
 });
+coffeeIcon.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    donationPopup.style.display = 'flex';
+    mainContent.classList.add('blurred');
+});
 
 closeIcon.addEventListener('click', () => {
+    donationPopup.style.display = 'none';
+    mainContent.classList.remove('blurred');
+});
+closeIcon.addEventListener('touchstart', (e) => {
+    e.preventDefault();
     donationPopup.style.display = 'none';
     mainContent.classList.remove('blurred');
 });
 
 donationPopup.addEventListener('click', (e) => {
     if (e.target === donationPopup) {
+        donationPopup.style.display = 'none';
+        mainContent.classList.remove('blurred');
+    }
+});
+donationPopup.addEventListener('touchstart', (e) => {
+    if (e.target === donationPopup) {
+        e.preventDefault();
         donationPopup.style.display = 'none';
         mainContent.classList.remove('blurred');
     }
