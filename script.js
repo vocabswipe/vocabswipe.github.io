@@ -7,6 +7,7 @@ let mediaRecorder = null;
 let recordedChunks = [];
 let isRecording = false;
 let audioContext = null; // Web Audio API context
+let isAudioPlaying = false; // Flag to track if audio is playing
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
@@ -147,51 +148,46 @@ function alternateStatsText() {
                 line1.textContent = 'ประโยคภาษาอังกฤษอเมริกันที่จำเป็น';
                 slogan.textContent = 'ยิ่งปัด ยิ่งเก่ง';
                 progressLabel.textContent = 'ปัดไปแล้ว';
-                donationMessage.innerHTML = 'ซื้อกาแฟให้ผมเพื่อให้ <span class="vocabswipe-text">VOCABSWIPE</span> ฟรีและเติบโตต่อไป! สแกนคิวอาร์โค้ดเพื่อสนับสนุนผ่านพร้อมเพย์';
-                line1.classList.add('thai-text');
-                slogan.classList.add('thai-text');
-                progressLabel.classList.add('thai-text');
-                donationMessage.classList.add('thai-text');
-            } else {
+                donationMessage.innerHTML = 'ซื้อกಸกาแฟให้ผมเพื่อให้ <span class="vocabswipe-text">VOCABSWIPE</spanmill; margin: 0px; padding: 0px; cursor: pointer; }
                 line1.textContent = 'Essential American English Sentences';
                 slogan.textContent = 'Master Words, Swipe by Swipe';
                 progressLabel.textContent = 'Swiped Cards';
+                progressValue.textContent = '0';
                 donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support via PromptPay.';
-                line1.classList.remove('thai-text');
-                slogan.classList.remove('thai-text');
-                progressLabel.classList.remove('thai-text');
+                line1.classList.add('thai-text');
                 donationMessage.classList.remove('thai-text');
-            }
-            line1.style.opacity = '1';
-            slogan.style.opacity = '1';
-            progressLabel.style.opacity = '1';
-            donationMessage.style.opacity = '1';
-            isEnglish = !isEnglish;
-        }, 50);
+                isEnglish = !isEnglish;
+            }, 50);
+        }
+
+        line1.style.opacity = '1';
+        slogan.style.opacity = '1';
+        progressLabel.style.opacity = '1';
+        donationMessage.style.opacity = '1';
+        line1.classList.remove('thai-text');
+        slogan.classList.remove('thai-text');
+        progressLabel.classList.remove('thai-text');
+        donationMessage.classList.remove('thai-text');
+        isEnglish = !isEnglish;
     }
 
     line1.textContent = 'Essential American English Sentences';
     slogan.textContent = 'Master Words, Swipe by Swipe';
     progressLabel.textContent = 'Swiped Cards';
     donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support via PromptPay.';
-    line1.style.opacity = '1';
-    slogan.style.opacity = '1';
-    progressLabel.style.opacity = '1';
-    donationMessage.style.opacity = '1';
     line1.classList.remove('thai-text');
     slogan.classList.remove('thai-text');
     progressLabel.classList.remove('thai-text');
     donationMessage.classList.remove('thai-text');
-
-    setInterval(swapText, 20000);
-}
-
-// Function to check if it's night time in Thailand (10 PM - 6 AM)
-function isThailandNightTime() {
-    const now = new Date();
-    const thailandTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Bangkok" }));
-    const hours = thailandTime.getHours();
-    return hours >= 22 || hours < 6;
+    line1.style.opacity = '1';
+    slogan.style.opacity = '1';
+    progressLabel.style.opacity = '1';
+    donationMessage.style.opacity = '1';
+    line1.classList.add('thai-text');
+    slogan.classList.add('thai-text');
+    progressLabel.classList.add('thai-text');
+    donationMessage.classList.add('thai-text');
+    isEnglish = !isEnglish;
 }
 
 // Function to detect if user is on mobile
@@ -199,12 +195,11 @@ function isMobileDevice() {
     return /Mobi|Android/i.test(navigator.userAgent);
 }
 
-// Function to set initial card theme based on time
+// Function to set initial card theme
 function setInitialCardTheme() {
-    const isNight = isThailandNightTime();
-    const cardBackgroundColor = isNight ? '#000000' : '#ffffff';
-    const cardTextColor = isNight ? '#FFD700' : '#000000';
-    const cardBorderColor = isNight ? '#FFD700' : '#000000';
+    const cardBackgroundColor = '#ffffff';
+    const cardTextColor = '#000000';
+    const cardBorderColor = '#000000';
 
     const cards = [
         document.getElementById('vocab-card'),
@@ -234,39 +229,34 @@ function setInitialCardTheme() {
 function populateCardsBeforeAnimation() {
     if (vocabData.length === 0) return;
 
-    const isNight = isThailandNightTime();
-    const cardTextColor = isNight ? '#FFD700' : '#000000';
+    const cardTextColor = '#000000';
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
-    const wordBottomElement = document.getElementById('word-bottom');
     const englishElement = document.getElementById('english');
     const thaiElement = document.getElementById('thai');
     const audioElement = document.getElementById('card-audio');
 
     const nextCards = [
-        { top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1' },
-        { top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2' },
-        { top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3' },
-        { top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4' },
-        { top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5' },
-        { top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6' },
-        { top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7' },
-        { top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8' },
-        { top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9' }
+        { top: 'next-word-top-1', english: 'next-english-1', thai: 'next-thai-1' },
+        { top: 'next-word-top-2', english: 'next-english-2', thai: 'next-thai-2' },
+        { top: 'next-word-top-3', english: 'next-english-3', thai: 'next-thai-3' },
+        { top: 'next-word-top-4', english: 'next-english-4', thai: 'next-thai-4' },
+        { top: 'next-word-top-5', english: 'next-english-5', thai: 'next-thai-5' },
+        { top: 'next-word-top-6', english: 'next-english-6', thai: 'next-thai-6' },
+        { top: 'next-word-top-7', english: 'next-english-7', thai: 'next-thai-7' },
+        { top: 'next-word-top-8', english: 'next-english-8', thai: 'next-thai-8' },
+        { top: 'next-word-top-9', english: 'next-english-9', thai: 'next-thai-9' }
     ];
 
     // Populate current card
     if (currentIndex < vocabData.length) {
         const entry = vocabData[currentIndex];
         wordTopElement.textContent = entry.word;
-        wordBottomElement.textContent = entry.word;
         wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
-        wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
         englishElement.textContent = entry.english;
         thaiElement.textContent = entry.thai;
         audioElement.src = `data/${entry.audio}`;
         wordTopElement.style.color = cardTextColor;
-        wordBottomElement.style.color = cardTextColor;
         englishElement.style.color = cardTextColor;
         thaiElement.style.color = cardTextColor;
     }
@@ -276,19 +266,15 @@ function populateCardsBeforeAnimation() {
         if (currentIndex + index + 1 < vocabData.length) {
             const nextEntry = vocabData[currentIndex + index + 1];
             const nextWordTopElement = document.getElementById(next.top);
-            const nextWordBottomElement = document.getElementById(next.bottom);
             const nextEnglishElement = document.getElementById(next.english);
             const nextThaiElement = document.getElementById(next.thai);
             nextWordTopElement.textContent = nextEntry.word;
-            nextWordBottomElement.textContent = nextEntry.word;
             nextEnglishElement.textContent = nextEntry.english;
             nextThaiElement.textContent = nextEntry.thai;
             nextWordTopElement.style.color = cardTextColor;
-            nextWordBottomElement.style.color = cardTextColor;
             nextEnglishElement.style.color = cardTextColor;
             nextThaiElement.style.color = cardTextColor;
             nextWordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
-            nextWordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
         }
     });
 }
@@ -342,7 +328,7 @@ function animateCardStackDrop(callback) {
 }
 
 // Function to play audio using Web Audio API for mobile compatibility
-function playAudio(audioSrc, cardElement) {
+function playAudio(audioSrc, buttonElement) {
     if (!audioContext) {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
@@ -350,14 +336,14 @@ function playAudio(audioSrc, cardElement) {
     // Ensure audio context is resumed (required for mobile browsers)
     if (audioContext.state === 'suspended') {
         audioContext.resume().then(() => {
-            loadAndPlayAudio(audioSrc, cardElement);
+            loadAndPlayAudio(audioSrc, buttonElement);
         });
     } else {
-        loadAndPlayAudio(audioSrc, cardElement);
+        loadAndPlayAudio(audioSrc, buttonElement);
     }
 }
 
-function loadAndPlayAudio(audioSrc, cardElement) {
+function loadAndPlayAudio(audioSrc, buttonElement) {
     fetch(audioSrc)
         .then(response => response.arrayBuffer())
         .then(buffer => audioContext.decodeAudioData(buffer))
@@ -365,22 +351,52 @@ function loadAndPlayAudio(audioSrc, cardElement) {
             const source = audioContext.createBufferSource();
             source.buffer = decodedData;
             source.connect(audioContext.destination);
+            isAudioPlaying = true;
+            buttonElement.classList.add('pulse');
+            disableOtherButtons(buttonElement);
             source.start(0);
-            cardElement.classList.add('glow');
             source.onended = () => {
-                cardElement.classList.remove('glow');
+                buttonElement.classList.remove('pulse');
+                enableAllButtons(buttonElement);
+                isAudioPlaying = false;
             };
         })
         .catch(error => {
             console.error('Error playing audio with Web Audio API:', error);
             // Fallback to HTML5 audio
             const audio = new Audio(audioSrc);
+            isAudioPlaying = true;
+            buttonElement.classList.add('pulse');
+            disableOtherButtons(buttonElement);
             audio.play().catch(err => console.error('Error playing fallback audio:', err));
-            cardElement.classList.add('glow');
-            setTimeout(() => {
-                cardElement.classList.remove('glow');
-            }, 600);
+            audio.onended = () => {
+                buttonElement.classList.remove('pulse');
+                enableAllButtons(buttonElement);
+                isAudioPlaying = false;
+            };
         });
+}
+
+// Function to disable other buttons
+function disableOtherButtons(activeButton) {
+    const card = activeButton.closest('.card');
+    const buttons = card.querySelectorAll('.audio-button, .mic-button, .play-button');
+    buttons.forEach(button => {
+        if (button !== activeButton) {
+            button.classList.add('disabled');
+            button.style.pointerEvents = 'none';
+        }
+    });
+}
+
+// Function to enable all buttons
+function enableAllButtons(activeButton) {
+    const card = activeButton.closest('.card');
+    const buttons = card.querySelectorAll('.audio-button, .mic-button, .play-button');
+    buttons.forEach(button => {
+        button.classList.remove('disabled');
+        button.style.pointerEvents = 'auto';
+    });
 }
 
 // Function to enable card interactions (audio and mic buttons)
@@ -407,6 +423,7 @@ function enableCardInteractions() {
 
         // Audio button handler (click and touchstart)
         const audioHandler = () => {
+            if (isAudioPlaying || isRecording) return;
             let audioSrc;
             if (card.id === 'vocab-card') {
                 audioSrc = document.getElementById('card-audio').src;
@@ -415,7 +432,7 @@ function enableCardInteractions() {
                 audioSrc = `data/${entry.audio}`;
             }
             if (audioSrc) {
-                playAudio(audioSrc, cardElement);
+                playAudio(audioSrc, audioButton);
             }
         };
 
@@ -427,14 +444,13 @@ function enableCardInteractions() {
 
         // Microphone button handler (click and touchstart)
         const micHandler = () => {
-            if (!isRecording) {
-                startRecording(card.playId, card.soundwaveId);
-                micButton.classList.add('recording');
-                setTimeout(() => {
-                    stopRecording(card.playId, card.soundwaveId);
-                    micButton.classList.remove('recording');
-                }, 5000);
-            }
+            if (isAudioPlaying || isRecording) return;
+            startRecording(card.playId, card.soundwaveId);
+            micButton.classList.add('pulse', 'recording');
+            setTimeout(() => {
+                stopRecording(card.playId, card.soundwaveId);
+                micButton.classList.remove('pulse', 'recording');
+            }, 3000); // Reduced to 3 seconds
         };
 
         micButton.addEventListener('click', micHandler);
@@ -445,14 +461,18 @@ function enableCardInteractions() {
 
         // Play recording button handler (click and touchstart)
         const playHandler = () => {
+            if (isAudioPlaying || isRecording) return;
             const recordedAudio = document.getElementById('recorded-audio');
             if (recordedAudio.src) {
-                cardElement.classList.add('glow');
+                playButton.classList.add('pulse');
+                disableOtherButtons(playButton);
                 recordedAudio.play().catch(error => console.error('Error playing recorded audio:', error));
+                soundwaveButton.style.display = 'inline-block';
                 animateSoundwave(card.soundwaveId);
-                setTimeout(() => {
-                    cardElement.classList.remove('glow');
-                }, 600);
+                recordedAudio.onended = () => {
+                    playButton.classList.remove('pulse');
+                    enableAllButtons(playButton);
+                };
             }
         };
 
@@ -483,7 +503,6 @@ function startRecording(playButtonId, soundwaveButtonId) {
                     const recordedAudio = document.getElementById('recorded-audio');
                     recordedAudio.src = URL.createObjectURL(blob);
                     document.getElementById(playButtonId).style.display = 'inline-block';
-                    document.getElementById(soundwaveButtonId).style.display = 'inline-block';
                     isRecording = false;
                     stream.getTracks().forEach(track => track.stop());
                 };
@@ -512,7 +531,7 @@ function animateSoundwave(soundwaveButtonId) {
     const soundwave = document.getElementById(soundwaveButtonId);
     soundwave.style.animation = 'none';
     soundwave.offsetHeight; // Trigger reflow
-    soundwave.style.animation = 'soundwaveSweep 5s linear forwards';
+    soundwave.style.animation = 'soundwaveSweep 3s linear forwards'; // Match recording duration
 }
 
 // Function to fetch and parse JSONL file
@@ -564,7 +583,6 @@ async function loadVocabData() {
     } catch (error) {
         console.error('Error loading database:', error);
         document.getElementById('word-top').textContent = 'Error';
-        document.getElementById('word-bottom').textContent = 'Error';
         document.getElementById('english').textContent = 'Failed to load data';
         document.getElementById('thai').textContent = '';
     }
@@ -574,27 +592,25 @@ async function loadVocabData() {
 function displayCards() {
     if (vocabData.length === 0) return;
 
-    const isNight = isThailandNightTime();
-    const cardBackgroundColor = isNight ? '#000000' : '#ffffff';
-    const cardTextColor = isNight ? '#FFD700' : '#000000';
-    const cardBorderColor = isNight ? '#FFD700' : '#000000';
+    const cardBackgroundColor = '#ffffff';
+    const cardTextColor = '#000000';
+    const cardBorderColor = '#000000';
 
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
-    const wordBottomElement = document.getElementById('word-bottom');
     const englishElement = document.getElementById('english');
     const thaiElement = document.getElementById('thai');
     const audioElement = document.getElementById('card-audio');
     const nextCards = [
-        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: 9, translateX: 1.296, translateY: 1.296, rotate: 0.3249 },
-        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 2.592, translateY: 2.592, rotate: 0.6498 },
-        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: 7, translateX: 3.888, translateY: 3.888, rotate: 0.9747 },
-        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 6, translateX: 5.184, translateY: 5.184, rotate: 1.2996 },
-        { card: document.getElementById('next-card-5'), top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5', zIndex: 5, translateX: 6.48, translateY: 6.48, rotate: 1.6245 },
-        { card: document.getElementById('next-card-6'), top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6', zIndex: 4, translateX: 7.776, translateY: 7.776, rotate: 1.9494 },
-        { card: document.getElementById('next-card-7'), top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7', zIndex: 3, translateX: 9.072, translateY: 9.072, rotate: 2.2743 },
-        { card: document.getElementById('next-card-8'), top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8', zIndex: 2, translateX: 10.368, translateY: 10.368, rotate: 2.5992 },
-        { card: document.getElementById('next-card-9'), top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9', zIndex: 1, translateX: 11.664, translateY: 11.664, rotate: 2.9241 }
+        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: 9, translateX: 1.296, translateY: 1.296, rotate: 0.3249 },
+        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 2.592, translateY: 2.592, rotate: 0.6498 },
+        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: 7, translateX: 3.888, translateY: 3.888, rotate: 0.9747 },
+        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 6, translateX: 5.184, translateY: 5.184, rotate: 1.2996 },
+        { card: document.getElementById('next-card-5'), top: 'next-word-top-5', english: 'next-english-5', thai: 'next-thai-5', zIndex: 5, translateX: 6.48, translateY: 6.48, rotate: 1.6245 },
+        { card: document.getElementById('next-card-6'), top: 'next-word-top-6', english: 'next-english-6', thai: 'next-thai-6', zIndex: 4, translateX: 7.776, translateY: 7.776, rotate: 1.9494 },
+        { card: document.getElementById('next-card-7'), top: 'next-word-top-7', english: 'next-english-7', thai: 'next-thai-7', zIndex: 3, translateX: 9.072, translateY: 9.072, rotate: 2.2743 },
+        { card: document.getElementById('next-card-8'), top: 'next-word-top-8', english: 'next-english-8', thai: 'next-thai-8', zIndex: 2, translateX: 10.368, translateY: 10.368, rotate: 2.5992 },
+        { card: document.getElementById('next-card-9'), top: 'next-word-top-9', english: 'next-english-9', thai: 'next-thai-9', zIndex: 1, translateX: 11.664, translateY: 11.664, rotate: 2.9241 }
     ];
     const stackCards = document.querySelectorAll('.card-stack');
 
@@ -602,14 +618,11 @@ function displayCards() {
     if (currentIndex < vocabData.length) {
         const entry = vocabData[currentIndex];
         wordTopElement.textContent = entry.word;
-        wordBottomElement.textContent = entry.word;
         wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
-        wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
         englishElement.textContent = entry.english;
         thaiElement.textContent = entry.thai;
         audioElement.src = `data/${entry.audio}`;
         wordTopElement.style.color = cardTextColor;
-        wordBottomElement.style.color = cardTextColor;
         englishElement.style.color = cardTextColor;
         thaiElement.style.color = cardTextColor;
         currentCard.style.backgroundColor = cardBackgroundColor;
@@ -627,19 +640,15 @@ function displayCards() {
         if (currentIndex + index + 1 < vocabData.length) {
             const nextEntry = vocabData[currentIndex + index + 1];
             const nextWordTopElement = document.getElementById(next.top);
-            const nextWordBottomElement = document.getElementById(next.bottom);
             const nextEnglishElement = document.getElementById(next.english);
             const nextThaiElement = document.getElementById(next.thai);
             nextWordTopElement.textContent = nextEntry.word;
-            nextWordBottomElement.textContent = nextEntry.word;
             nextEnglishElement.textContent = nextEntry.english;
             nextThaiElement.textContent = nextEntry.thai;
             nextWordTopElement.style.color = cardTextColor;
-            nextWordBottomElement.style.color = cardTextColor;
             nextEnglishElement.style.color = cardTextColor;
             nextThaiElement.style.color = cardTextColor;
             nextWordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
-            nextWordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
             next.card.style.backgroundColor = cardBackgroundColor;
             next.card.style.borderColor = cardBorderColor;
             next.card.style.transform = `translate(${next.translateX}px, ${next.translateY}px) rotate(${next.rotate}deg)`;
