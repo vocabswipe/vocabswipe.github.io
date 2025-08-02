@@ -9,6 +9,7 @@ let isRecording = false;
 let isAudioPlaying = false;
 let isPlayingRecording = false;
 let audioContext = null; // Web Audio API context
+let currentAudioSource = null; // Track current audio source for stopping
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
@@ -79,7 +80,7 @@ let swipedCards = JSON.parse(localStorage.getItem('swipedCards') || '[]');
     $.fn.countTo.defaults = {
         from: 0,
         to: 0,
-        speed: 3000, // Changed from 10000 to 3000
+        speed: 3000,
         refreshInterval: 100,
         decimals: 0,
         formatter: formatter,
@@ -96,7 +97,7 @@ let swipedCards = JSON.parse(localStorage.getItem('swipedCards') || '[]');
 function updateWebsiteStats() {
     const statsElement = document.getElementById('website-stats');
     const countNumberElement = $('.count-number');
-    countNumberElement.data('to', originalVocabLength); // Use original length for stats
+    countNumberElement.data('to', originalVocabLength);
     countNumberElement.data('countToOptions', {
         formatter: function (value, options) {
             return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
@@ -325,8 +326,70 @@ function animateCardStackDrop(callback) {
     }, 100);
 }
 
+// Function to stop all audio and recording
+function stopAllMedia() {
+    // Stop audio playback
+    if (isAudioPlaying && currentAudioSource) {
+        try {
+            currentAudioSource.stop();
+        } catch (e) {
+            console.log('Audio source already stopped or not started:', e);
+        }
+        isAudioPlaying = false;
+        currentAudioSource = null;
+        document.querySelectorAll('.audio-button').forEach(btn => btn.classList.remove('pulsating'));
+    }
+
+    // Stop HTML5 audio fallback
+    const cardAudio = document.getElementById('card-audio');
+    if (!cardAudio.paused) {
+        cardAudio.pause();
+        cardAudio.currentTime = 0;
+    }
+
+    // Stop recording
+    if (isRecording && mediaRecorder && mediaRecorder.state === 'recording') {
+        mediaRecorder.stop();
+        isRecording = false;
+        recordedChunks = [];
+    }
+
+    // Stop recorded audio playback
+    const recordedAudio = document.getElementById('recorded-audio');
+    if (!recordedAudio.paused) {
+        recordedAudio.pause();
+        recordedAudio.currentTime = 0;
+        isPlayingRecording = false;
+    }
+
+    // Reset button states
+    document.querySelectorAll('.play-button').forEach(btn => btn.style.display = 'none');
+    document.querySelectorAll('.soundwave-button').forEach(btn => btn.style.display = 'none');
+    document.querySelectorAll('.mic-button').forEach(btn => btn.classList.remove('pulsating'));
+    updateButtonStates();
+}
+
 // Function to play audio using Web Audio API for mobile compatibility
 function playAudio(audioSrc, audioButton) {
+    // Stop any existing audio
+    if (isAudioPlaying && currentAudioSource) {
+        try {
+            currentAudioSource.stop();
+        } catch (e) {
+            console.log('Audio source already stopped:', e);
+        }
+        isAudioPlaying = false;
+        currentAudioSource = null;
+        document.querySelectorAll('.audio-button').forEach(btn => btn.classList.remove('pulsating'));
+    }
+
+    // Stop HTML5 audio fallback
+    const cardAudio = document.getElementById('card-audio');
+    if (!cardAudio.paused) {
+        cardAudio.pause();
+        cardAudio.currentTime = 0;
+    }
+
     if (!audioContext) {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
@@ -350,11 +413,13 @@ function loadAndPlayAudio(audioSrc, audioButton) {
             source.buffer = decodedData;
             source.connect(audioContext.destination);
             isAudioPlaying = true;
+            currentAudioSource = source;
             audioButton.classList.add('pulsating');
             updateButtonStates();
             source.start(0);
             source.onended = () => {
                 isAudioPlaying = false;
+                currentAudioSource = null;
                 audioButton.classList.remove('pulsating');
                 updateButtonStates();
             };
@@ -396,7 +461,7 @@ function updateButtonStates() {
         const playButton = document.getElementById(card.playId);
 
         audioButton.style.pointerEvents = (isAudioPlaying || isRecording || isPlayingRecording) ? 'none' : 'auto';
-        micButton.style.pointerEvents = (isAudioPlaying || isRecording || isPlayingRecording) ? 'none' : 'auto';
+        micButton.style.pointerEvents = (isAudioPlaying || isPlayingRecording) ? 'none' : 'auto'; // Allow mic during recording
         playButton.style.pointerEvents = (isAudioPlaying || isRecording || isPlayingRecording) ? 'none' : 'auto';
     });
 }
@@ -424,10 +489,10 @@ function enableCardInteractions() {
 
         // Audio button handler (click and touchstart)
         const audioHandler = (e) => {
-            if (isAudioPlaying || isRecording || isPlayingRecording) return;
-            e.preventDefault(); // Prevent default behaviors
+            e.preventDefault();
+            if (isRecording || isPlayingRecording) return;
             audioButton.classList.add('pulsating');
-            setTimeout(() => audioButton.classList.remove('pulsating'), 300); // Brief pulse for click
+            setTimeout(() => audioButton.classList.remove('pulsating'), 300);
             let audioSrc;
             if (card.id === 'vocab-card') {
                 audioSrc = document.getElementById('card-audio').src;
@@ -445,14 +510,26 @@ function enableCardInteractions() {
 
         // Microphone button handler (click and touchstart)
         const micHandler = (e) => {
-            if (isAudioPlaying || isRecording || isPlayingRecording) return;
-            e.preventDefault(); // Prevent default behaviors
+            e.preventDefault();
+            if (isAudioPlaying || isPlayingRecording) return;
+
+            // Reset play and soundwave buttons immediately
+            document.getElementById(card.playId).style.display = 'none';
+            document.getElementById(card.soundwaveId).style.display = 'none';
+
+            // Stop any ongoing recording
+            if (isRecording && mediaRecorder && mediaRecorder.state === 'recording') {
+                mediaRecorder.stop();
+                isRecording = false;
+                recordedChunks = [];
+            }
+
             micButton.classList.add('pulsating');
             startRecording(card.playId, card.soundwaveId);
             setTimeout(() => {
                 stopRecording(card.playId, card.soundwaveId);
                 micButton.classList.remove('pulsating');
-            }, 5000); // Changed from 4000 to 5000
+            }, 5000);
         };
 
         micButton.addEventListener('click', micHandler);
@@ -461,9 +538,9 @@ function enableCardInteractions() {
         // Play recording button handler (click and touchstart)
         const playHandler = (e) => {
             if (isAudioPlaying || isRecording || isPlayingRecording) return;
-            e.preventDefault(); // Prevent default behaviors
+            e.preventDefault();
             playButton.classList.add('pulsating');
-            setTimeout(() => playButton.classList.remove('pulsating'), 300); // Brief pulse for click
+            setTimeout(() => playButton.classList.remove('pulsating'), 300);
             const recordedAudio = document.getElementById('recorded-audio');
             if (recordedAudio.src) {
                 isPlayingRecording = true;
@@ -506,8 +583,8 @@ function startRecording(playButtonId, soundwaveButtonId) {
                     recordedAudio.src = URL.createObjectURL(blob);
                     setTimeout(() => {
                         document.getElementById(playButtonId).style.display = 'inline-block';
-                        document.getElementById(soundwaveButtonId).style.display = 'none'; // Hidden until play is clicked
-                    }, 2000); // Delay play button display by 2 seconds
+                        document.getElementById(soundwaveButtonId).style.display = 'none';
+                    }, 2000);
                     isRecording = false;
                     updateButtonStates();
                     stream.getTracks().forEach(track => track.stop());
@@ -537,10 +614,10 @@ function stopRecording(playButtonId, soundwaveButtonId) {
 // Function to animate soundwave
 function animateSoundwave(soundwaveButtonId) {
     const soundwave = document.getElementById(soundwaveButtonId);
-    soundwave.style.display = 'inline-block'; // Show waveform when play is clicked
+    soundwave.style.display = 'inline-block';
     soundwave.style.animation = 'none';
     soundwave.offsetHeight; // Trigger reflow
-    soundwave.style.animation = 'soundwaveSweep 5s linear forwards'; // Changed from 4s to 5s to match recording duration
+    soundwave.style.animation = 'soundwaveSweep 5s linear forwards';
 }
 
 // Function to fetch and parse JSONL file
@@ -562,22 +639,19 @@ async function loadVocabData() {
         ];
         cards.forEach(card => {
             card.style.opacity = '0';
-            card.style.display = 'none'; // Ensure cards are hidden initially
+            card.style.display = 'none';
         });
 
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
         let allVocab = text.trim().split('\n').map(line => JSON.parse(line));
-        originalVocabLength = allVocab.length; // Store original length
-        // Add originalIndex to each vocab entry for tracking
+        originalVocabLength = allVocab.length;
         allVocab = allVocab.map((item, index) => ({ ...item, originalIndex: index }));
-        // Filter out swiped cards
         vocabData = allVocab.filter(item => !swipedCards.includes(item.originalIndex));
-        // If all cards are swiped, reset swipedCards
         if (vocabData.length === 0) {
             swipedCards = [];
             localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
-            vocabData = allVocab.slice(); // Copy all cards
+            vocabData = allVocab.slice();
         }
         vocabData = vocabData.sort(() => Math.random() - 0.5);
 
@@ -683,6 +757,9 @@ function displayCards() {
 
 // Function to animate and move to next card
 function moveToNextCard(translateX, translateY, rotate) {
+    // Stop all media before moving to next card
+    stopAllMedia();
+
     const card = document.getElementById('vocab-card');
     card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
