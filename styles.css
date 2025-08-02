@@ -402,7 +402,7 @@ html, body {
 
 .progress-fill {
     height: 100%;
-    background-color: #ffff00; /* Changed from #00ff00 (bright green) to #ffff00 (bright yellow) */
+    background-color: #7FFF00; 
     width: 0%;
     transition: width 0.3s ease;
 }
@@ -699,7 +699,7 @@ html, body {
 
     .progress-fill {
         height: 100%;
-        background-color: #ffff00; /* Changed from #00ff00 (bright green) to #ffff00 (bright yellow) */
+        background-color: #7FFF00; 
         width: 0%;
         transition: width 0.3s ease;
     }
