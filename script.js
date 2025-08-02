@@ -152,7 +152,7 @@ function alternateStatsText() {
                 line1.textContent = 'Essential American English Sentences';
                 slogan.textContent = 'Master Words, Swipe by Swipe';
                 progressLabel.textContent = 'Swiped Cards';
-                donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support the developer via PromptPay.';
+                donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support via PromptPay.';
                 line1.classList.remove('thai-text');
                 slogan.classList.remove('thai-text');
                 progressLabel.classList.remove('thai-text');
