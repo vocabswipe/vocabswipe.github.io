@@ -947,11 +947,9 @@ function captureSnapshot() {
         logging: false,
         x: window.scrollX,
         y: window.scrollY
-    }).then(capturedCanvas => {
-        // Draw the captured canvas onto the snapshot canvas
-        ctx.drawImage(capturedCanvas, 0, 0, viewportWidth, viewportHeight);
+    }).then(canvas => {
+        ctx.drawImage(canvas, 0, 0, viewportWidth, viewportHeight);
 
-        // Generate blob with consistent settings for both sharing and downloading
         canvas.toBlob(blob => {
             if (!blob) {
                 console.error('Failed to generate canvas blob');
@@ -976,7 +974,7 @@ function captureSnapshot() {
                     URL.revokeObjectURL(link.href);
                 });
             } else {
-                // Download using the same blob with identical settings
+                // Download using the same blob
                 const link = document.createElement('a');
                 link.href = URL.createObjectURL(blob);
                 link.download = 'vocabswipe-snapshot.png';
