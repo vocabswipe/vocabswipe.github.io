@@ -333,7 +333,7 @@ html, body {
     height: 100%; /* Match container height */
     overflow: visible; /* Changed to visible to prevent clipping */
     white-space: nowrap;
-    z-index: 100; /* Higher z-index to bring in front */
+    z-index: 20; /* Higher z-index to bring in front */
     position: relative;
 }
 
@@ -351,6 +351,7 @@ html, body {
     left: 50%;
     transform: translateX(-50%);
     opacity: 0; /* Initially hidden for fade-in effect */
+    z-index: 50; /* Higher z-index to ensure visibility */
 }
 
 .progress-label {
@@ -367,7 +368,7 @@ html, body {
     line-height: 1.2;
     height: 20px; /* Fixed height to prevent shifting */
     overflow: hidden;
-    z-index: 200; /* Increased z-index to prevent clipping */
+    z-index: 100; /* Increased z-index to bring in front */
 }
 
 .progress-label.thai-text {
@@ -387,7 +388,7 @@ html, body {
     transition: opacity 0.05s ease;
     white-space: nowrap;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    z-index: 200; /* Increased z-index to bring in front */
+    z-index: 20; /* Higher z-index to bring in front */
 }
 
 .progress-bar {
@@ -441,23 +442,6 @@ html, body {
     display: none; /* Hide cards initially */
 }
 
-/* Pulse animation for buttons */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-
-.pulse {
-    animation: pulse 0.3s ease-in-out 2;
-}
-
-/* Disabled button styling */
-.disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
 /* Soundwave animation */
 @keyframes soundwaveSweep {
     0% {
@@ -470,29 +454,53 @@ html, body {
     }
 }
 
+/* Pulse animation for buttons */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
 /* Card buttons styling */
 .card-buttons {
     position: absolute;
     bottom: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10px;
-}
-
-.right-buttons {
+    left: 10px;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.audio-button, .mic-button, .play-button, .soundwave-button {
-    width: 24px; /* Increased from 20px for better touch targets */
-    height: 24px; /* Increased from 20px for better touch targets */
+.audio-button {
+    width: 24px;
+    height: 24px;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
     -webkit-tap-highlight-color: transparent;
-    touch-action: none; /* Prevent default touch behaviors */
+    touch-action: none;
+}
+
+.mic-button, .play-button, .soundwave-button {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: none;
+    position: absolute;
+    bottom: 10px;
+}
+
+.mic-button {
+    left: 40px; /* Positioned to the right of audio-button */
+}
+
+.play-button {
+    left: 70px; /* Positioned to the right of mic-button */
+}
+
+.soundwave-button {
+    left: 100px; /* Positioned to the right of play-button */
 }
 
 .audio-button:hover, .mic-button:hover, .play-button:hover, .soundwave-button:hover {
@@ -505,54 +513,59 @@ html, body {
     opacity: 0.6;
 }
 
-.mic-button.recording {
-    animation: pulse 0.3s ease-in-out infinite;
+.audio-button.pulse, .mic-button.pulse, .play-button.pulse {
+    animation: pulse 0.5s ease-in-out 1;
+}
+
+.audio-button.inactive, .mic-button.inactive, .play-button.inactive, .soundwave-button.inactive {
+    pointer-events: none;
+    opacity: 0.5;
 }
 
 /* Next cards and stack cards */
 #next-card-1 {
     z-index: 9;
-    transform: translate(1.296px, 1.296px) rotate(0.3249deg); /* Reduced by 10% */
+    transform: translate(1.296px, 1.296px) rotate(0.3249deg);
 }
 
 #next-card-2 {
     z-index: 8;
-    transform: translate(2.592px, 2.592px) rotate(0.6498deg); /* Reduced by 10% */
+    transform: translate(2.592px, 2.592px) rotate(0.6498deg);
 }
 
 #next-card-3 {
     z-index: 7;
-    transform: translate(3.888px, 3.888px) rotate(0.9747deg); /* Reduced by 10% */
+    transform: translate(3.888px, 3.888px) rotate(0.9747deg);
 }
 
 #next-card-4 {
     z-index: 6;
-    transform: translate(5.184px, 5.184px) rotate(1.2996deg); /* Reduced by 10% */
+    transform: translate(5.184px, 5.184px) rotate(1.2996deg);
 }
 
 #next-card-5 {
     z-index: 5;
-    transform: translate(6.48px, 6.48px) rotate(1.6245deg); /* Reduced by 10% */
+    transform: translate(6.48px, 6.48px) rotate(1.6245deg);
 }
 
 #next-card-6 {
     z-index: 4;
-    transform: translate(7.776px, 7.776px) rotate(1.9494deg); /* Reduced by 10% */
+    transform: translate(7.776px, 7.776px) rotate(1.9494deg);
 }
 
 #next-card-7 {
     z-index: 3;
-    transform: translate(9.072px, 9.072px) rotate(2.2743deg); /* Reduced by 10% */
+    transform: translate(9.072px, 9.072px) rotate(2.2743deg);
 }
 
 #next-card-8 {
     z-index: 2;
-    transform: translate(10.368px, 10.368px) rotate(2.5992deg); /* Reduced by 10% */
+    transform: translate(10.368px, 10.368px) rotate(2.5992deg);
 }
 
 #next-card-9 {
     z-index: 1;
-    transform: translate(11.664px, 11.664px) rotate(2.9241deg); /* Reduced by 10% */
+    transform: translate(11.664px, 11.664px) rotate(2.9241deg);
 }
 
 .card-stack {
@@ -560,19 +573,19 @@ html, body {
 }
 
 .card-stack-1 {
-    transform: translate(3.888px, 3.888px) rotate(3.24deg); /* Reduced by 10% */
+    transform: translate(3.888px, 3.888px) rotate(3.24deg);
     z-index: -1;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .card-stack-2 {
-    transform: translate(5.184px, 5.184px) rotate(3.564deg); /* Reduced by 10% */
+    transform: translate(5.184px, 5.184px) rotate(3.564deg);
     z-index: -2;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card-stack-3 {
-    transform: translate(6.48px, 6.48px) rotate(3.888deg); /* Reduced by 10% */
+    transform: translate(6.48px, 6.48px) rotate(3.888deg);
     z-index: -3;
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
 }
@@ -658,7 +671,7 @@ html, body {
         font-size: 1.03818rem;
         line-height: 1.2;
         height: 100%; /* Match container height */
-        z-index: 100; /* Higher z-index to bring in front */
+        z-index: 20; /* Higher z-index to bring in front */
         overflow: visible; /* Prevent clipping */
     }
 
@@ -675,6 +688,7 @@ html, body {
         left: 50%;
         transform: translateX(-50%);
         opacity: 0; /* Initially hidden */
+        z-index: 50; /* Higher z-index to ensure visibility */
     }
 
     .progress-label {
@@ -682,7 +696,7 @@ html, body {
         top: -18px; /* Fixed position above progress bar */
         line-height: 1.2;
         height: 18px; /* Fixed height */
-        z-index: 200; /* Increased z-index to prevent clipping */
+        z-index: 100; /* Increased z-index to bring in front */
     }
 
     .progress-label.thai-text {
@@ -694,7 +708,7 @@ html, body {
     .progress-value {
         font-size: 0.84rem;
         top: -18px; /* Fixed position above progress bar */
-        z-index: 200; /* Increased z-index to bring in front */
+        z-index: 20; /* Higher z-index to bring in front */
     }
 
     .progress-bar {
@@ -748,15 +762,15 @@ html, body {
     }
 
     .card-stack-1 {
-        transform: translate(1.296px, 1.296px) rotate(3.24deg); /* Reduced by 10% */
+        transform: translate(1.296px, 1.296px) rotate(3.24deg);
     }
 
     .card-stack-2 {
-        transform: translate(2.592px, 2.592px) rotate(3.564deg); /* Reduced by 10% */
+        transform: translate(2.592px, 2.592px) rotate(3.564deg);
     }
 
     .card-stack-3 {
-        transform: translate(3.888px, 3.888px) rotate(3.888deg); /* Reduced by 10% */
+        transform: translate(3.888px, 3.888px) rotate(3.888deg);
     }
 
     .share-icon, .coffee-icon {
