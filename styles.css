@@ -425,7 +425,8 @@ html, body {
 .card {
     width: 100%;
     height: 100%;
-    border: 1px solid #000;
+    background-color: #ffffff; /* Fixed white background */
+    border: 1px solid #000000; /* Fixed black border */
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -441,6 +442,17 @@ html, body {
     display: none; /* Hide cards initially */
 }
 
+/* Pulsating effect for buttons */
+.pulsating {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
 /* Soundwave animation */
 @keyframes soundwaveSweep {
     0% {
@@ -453,28 +465,23 @@ html, body {
     }
 }
 
-/* Pulse animation for buttons */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-
 /* Card buttons styling */
 .card-buttons {
     position: absolute;
     bottom: 10px;
+    left: 10px;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.left-buttons {
-    left: 10px;
-}
-
-.right-buttons {
+.card-buttons-top-right {
+    position: absolute;
+    top: 10px;
     right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .audio-button, .mic-button, .play-button, .soundwave-button {
@@ -496,12 +503,8 @@ html, body {
     opacity: 0.6;
 }
 
-.audio-button.pulse, .mic-button.pulse, .play-button.pulse {
-    animation: pulse 1s infinite;
-}
-
-.audio-button.disabled, .mic-button.disabled, .play-button.disabled, .soundwave-button.disabled {
-    pointer-events: none;
+.audio-button:disabled, .mic-button:disabled, .play-button:disabled, .soundwave-button:disabled {
+    cursor: not-allowed;
     opacity: 0.5;
 }
 
@@ -596,6 +599,7 @@ html, body {
     font-weight: bold;
     position: absolute;
     margin: 0;
+    color: #000000; /* Fixed black text */
 }
 
 .top-left {
@@ -603,11 +607,17 @@ html, body {
     left: 10px;
 }
 
+.bottom-right {
+    bottom: 10px;
+    right: 10px;
+}
+
 /* Sentence styling */
 .sentence {
     font-size: 1.5rem;
     margin: 8px 0;
     text-align: center;
+    color: #000000; /* Fixed black text */
 }
 
 .english {
