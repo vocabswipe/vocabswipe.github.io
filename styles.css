@@ -396,454 +396,209 @@ html, body {
     background-color: #808080; /* Gray track */
     border-radius: 4px;
     overflow: hidden;
-    position: absolute;
-    top: 0;
 }
 
 .progress-fill {
     height: 100%;
-    background-color: #00ff00; /* Bright green fill */
-    width: 0%;
-    transition: width 0.3s ease;
+    width: 0;
+    background-color: #ffd700; /* Gold fill */
+    transition: width 0.5s ease;
 }
 
-/* Card container */
+/* Card stack styling */
 .card-container {
-    position: relative;
-    width: 80vw;
+    width: 100%;
     max-width: 300px;
-    height: calc(80vw * 1.4);
-    max-height: 420px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 400px; /* Fixed height for card stack */
+    position: relative;
+    margin: 20px 0;
     perspective: 1000px;
     z-index: 10;
 }
 
-/* Poker card styling */
 .card {
+    position: absolute;
     width: 100%;
+    max-width: 300px;
     height: 100%;
-    background-color: #ffffff; /* Fixed white background */
-    border: 1px solid #000000; /* Fixed black border */
-    border-radius: 8px;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
+    transform-origin: center;
     user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation; /* Optimize for touch dragging */
+}
+
+.card-stack {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+}
+
+.card-stack-1 {
+    transform: translate(12.96px, 12.96px) rotate(3.249deg);
+    z-index: 0;
+}
+
+.card-stack-2 {
+    transform: translate(14.256px, 14.256px) rotate(3.5739deg);
+    z-index: -1;
+}
+
+.card-stack-3 {
+    transform: translate(15.552px, 15.552px) rotate(3.8988deg);
+    z-index: -2;
+}
+
+.card-content {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.word {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.top-left {
     position: absolute;
-    top: 0;
-    left: 0;
-    touch-action: none;
-    z-index: 10;
-    display: none; /* Hide cards initially */
+    top: 20px;
+    left: 20px;
 }
 
-/* Pulsating effect for buttons */
-.pulsating {
-    animation: pulse 1s infinite;
+.bottom-right {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    text-align: right;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+.sentence {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    color: #000000;
+    text-align: center;
+    margin: 10px 0;
+    line-height: 1.4;
+    max-width: 260px;
+    align-self: center;
 }
 
-/* Soundwave animation */
-@keyframes soundwaveSweep {
-    0% {
-        clip-path: inset(0 100% 0 0);
-        opacity: 1;
-    }
-    100% {
-        clip-path: inset(0 0 0 0);
-        opacity: 1;
-    }
+.english {
+    margin-top: 100px;
 }
 
-/* Card buttons styling */
+.thai {
+    margin-bottom: 100px;
+}
+
 .card-buttons {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    bottom: 20px;
+    left: 20px;
     display: flex;
-    align-items: center;
     gap: 10px;
 }
 
 .card-buttons-top-right {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     display: flex;
-    align-items: center;
     gap: 10px;
 }
 
 .audio-button, .mic-button, .play-button, .soundwave-button {
-    width: 24px; /* Increased from 20px for better touch targets */
-    height: 24px; /* Increased from 20px for better touch targets */
+    width: 30px;
+    height: 30px;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
-    -webkit-tap-highlight-color: transparent;
     touch-action: none; /* Prevent default touch behaviors */
 }
 
 .audio-button:hover, .mic-button:hover, .play-button:hover, .soundwave-button:hover {
     transform: scale(1.1);
-    opacity: 0.8;
 }
 
 .audio-button:active, .mic-button:active, .play-button:active, .soundwave-button:active {
     transform: scale(0.9);
-    opacity: 0.6;
 }
 
 .audio-button:disabled, .mic-button:disabled, .play-button:disabled, .soundwave-button:disabled {
-    cursor: not-allowed;
     opacity: 0.5;
+    cursor: not-allowed;
 }
 
-/* Next cards and stack cards */
-#next-card-1 {
-    z-index: 9;
-    transform: translate(1.296px, 1.296px) rotate(0.3249deg); /* Reduced by 10% */
+@keyframes soundwaveSweep {
+    0% {
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+    50% {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+    100% {
+        transform: scaleX(0);
+        transform-origin: right;
+    }
 }
 
-#next-card-2 {
-    z-index: 8;
-    transform: translate(2.592px, 2.592px) rotate(0.6498deg); /* Reduced by 10% */
+/* Pulsating animation for buttons */
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
-#next-card-3 {
-    z-index: 7;
-    transform: translate(3.888px, 3.888px) rotate(0.9747deg); /* Reduced by 10% */
-}
-
-#next-card-4 {
-    z-index: 6;
-    transform: translate(5.184px, 5.184px) rotate(1.2996deg); /* Reduced by 10% */
-}
-
-#next-card-5 {
-    z-index: 5;
-    transform: translate(6.48px, 6.48px) rotate(1.6245deg); /* Reduced by 10% */
-}
-
-#next-card-6 {
-    z-index: 4;
-    transform: translate(7.776px, 7.776px) rotate(1.9494deg); /* Reduced by 10% */
-}
-
-#next-card-7 {
-    z-index: 3;
-    transform: translate(9.072px, 9.072px) rotate(2.2743deg); /* Reduced by 10% */
-}
-
-#next-card-8 {
-    z-index: 2;
-    transform: translate(10.368px, 10.368px) rotate(2.5992deg); /* Reduced by 10% */
-}
-
-#next-card-9 {
-    z-index: 1;
-    transform: translate(11.664px, 11.664px) rotate(2.9241deg); /* Reduced by 10% */
-}
-
-.card-stack {
-    z-index: 0;
-}
-
-.card-stack-1 {
-    transform: translate(3.888px, 3.888px) rotate(3.24deg); /* Reduced by 10% */
-    z-index: -1;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
-}
-
-.card-stack-2 {
-    transform: translate(5.184px, 5.184px) rotate(3.564deg); /* Reduced by 10% */
-    z-index: -2;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.card-stack-3 {
-    transform: translate(6.48px, 6.48px) rotate(3.888deg); /* Reduced by 10% */
-    z-index: -3;
-    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
-}
-
-.card:active {
-    outline: none;
-}
-
-/* Card content */
-.card-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Word styling */
-.word {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2.1rem;
-    font-weight: bold;
-    position: absolute;
-    margin: 0;
-    color: #000000; /* Fixed black text */
-}
-
-.top-left {
-    top: 10px;
-    left: 10px;
-}
-
-.bottom-right {
-    bottom: 10px;
-    right: 10px;
-}
-
-/* Sentence styling */
-.sentence {
-    font-size: 1.5rem;
-    margin: 8px 0;
-    text-align: center;
-    color: #000000; /* Fixed black text */
-}
-
-.english {
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    font-size: 1.5rem;
-    line-height: 1.3;
-}
-
-.thai {
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    font-size: 1.5rem;
-    line-height: 1.5;
+.pulsating {
+    animation: pulsate 0.5s ease-in-out infinite;
 }
 
 /* Responsive adjustments */
-@media (max-width: 600px) {
-    .stats-container {
-        height: 100px;
-    }
-
-    .info-container {
-        height: 170px; /* Adjusted for mobile */
-        top: 20px; /* Moved downward to avoid overlap */
-    }
-
-    .website-info {
-        height: 110px; /* Fixed height for name and slogan on mobile */
-    }
-
-    .website-name {
-        font-size: 1.349634rem;
-        height: 28px; /* Fixed height for website name */
-        line-height: 1.2;
-    }
-
-    .slogan-container {
-        height: 26px; /* Fixed height for slogan */
-        margin: 8px 0;
-    }
-
-    .website-slogan {
-        font-size: 1.03818rem;
-        line-height: 1.2;
-        height: 100%; /* Match container height */
-        z-index: 20; /* Higher z-index to bring in front */
-        overflow: visible; /* Prevent clipping */
-    }
-
-    .website-slogan.thai-text {
-        font-size: 1.03818rem;
-        line-height: 1.2;
-    }
-
-    .progress-container {
-        width: 90vw; /* Matches card width */
-        max-width: 300px;
-        height: 18px; /* Fixed height for progress bar */
-        top: 82px; /* Moved upward by 18px (was 110px) */
-        left: 50%;
-        transform: translateX(-50%);
-        opacity: 0; /* Initially hidden */
-    }
-
-    .progress-label {
-        font-size: 0.84rem;
-        top: -18px; /* Fixed position above progress bar */
-        line-height: 1.2;
-        height: 18px; /* Fixed height */
-        z-index: 100; /* Increased z-index to bring in front */
-    }
-
-    .progress-label.thai-text {
-        font-size: 0.84rem;
-        line-height: 1.2;
-        height: 18px; /* Fixed height */
-    }
-
-    .progress-value {
-        font-size: 0.84rem;
-        top: -18px; /* Fixed position above progress bar */
-        z-index: 20; /* Higher z-index to bring in front */
-    }
-
-    .progress-bar {
-        width: 100%;
-        height: 18px;
-        top: 0;
-    }
-
+@media (max-width: 360px) {
     .card-container {
-        width: 90vw;
-        height: calc(90vw * 1.4);
+        max-width: 280px;
     }
 
-    .website-stats {
-        width: 90vw;
-        max-width: 300px;
+    .card {
+        max-width: 280px;
     }
 
-    .counter {
-        padding: 8px;
-    }
-
-    .count-title {
-        font-size: 1.8rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .count-text {
-        font-size: 0.84rem;
-        max-width: 300px;
-        line-height: 1.6;
-        transition: opacity 0.05s ease;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .count-text.thai-text#stats-line1 {
-        margin-top: 2px; /* Adjusted margin for Thai text */
-        font-size: 1.092rem;
+    .website-stats, .website-info, .progress-container {
+        max-width: 280px;
     }
 
     .word {
-        font-size: 1.82rem;
+        font-size: 1.8rem;
     }
 
     .sentence {
-        font-size: 1.3rem;
-    }
-
-    .english, .thai {
-        font-size: 1.3rem;
-    }
-
-    .card-stack-1 {
-        transform: translate(1.296px, 1.296px) rotate(3.24deg); /* Reduced by 10% */
-    }
-
-    .card-stack-2 {
-        transform: translate(2.592px, 2.592px) rotate(3.564deg); /* Reduced by 10% */
-    }
-
-    .card-stack-3 {
-        transform: translate(3.888px, 3.888px) rotate(3.888deg); /* Reduced by 10% */
-    }
-
-    .share-icon, .coffee-icon {
-        width: 28px; /* Increased from 25px for better touch targets */
-        height: 28px; /* Increased from 25px for better touch targets */
-        -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
-        touch-action: none; /* Prevent default touch behaviors */
-    }
-
-    .share-icon:active, .coffee-icon:active {
-        transform: scale(0.9);
-        opacity: 0.6;
-    }
-
-    .icon-panel {
-        max-width: 340px; /* Adjusted for mobile */
+        font-size: 1.1rem;
+        max-width: 240px;
     }
 
     .donation-content {
-        width: 85%;
         max-width: 300px;
-        padding: 15px;
-    }
-
-    .donation-title {
-        font-size: 1.6rem;
-    }
-
-    .donation-message {
-        font-size: 0.84rem;
-    }
-
-    .donation-message.thai-text {
-        font-size: 0.84rem;
-    }
-
-    .vocabswipe-text {
-        font-family: 'Bangers', cursive;
-        color: #35654d;
-    }
-
-    .qr-code {
-        width: 120px;
-        height: 120px;
-    }
-
-    .promptpay-logo {
-        width: 80px;
-    }
-
-    .developer-photo {
-        width: 80px; /* Doubled from 40px */
-        height: 80px; /* Doubled from 40px */
-        image-rendering: -webkit-optimize-contrast; /* Improves resolution */
-    }
-
-    .developer-name {
-        font-size: 0.84rem;
-        line-height: 1.4; /* Adjusted for new line */
-    }
-
-    .developer-role {
-        font-size: 0.756rem;
-    }
-
-    .developer-role .vocabswipe-text {
-        font-family: 'Bangers', cursive;
-        color: #35654d;
-    }
-
-    .close-icon {
-        width: 18px;
-        height: 18px;
-        bottom: 8px;
-        right: 8px;
-        touch-action: none; /* Prevent default touch behaviors */
-    }
-
-    .audio-button, .mic-button, .play-button, .soundwave-button {
-        width: 22px; /* Increased from 18px for better touch targets */
-        height: 22px; /* Increased from 18px for better touch targets */
-        touch-action: none; /* Prevent default touch behaviors */
     }
 }
