@@ -489,31 +489,16 @@ function enableCardInteractions() {
         { id: 'next-card-9', audioId: 'audio-button-9', micId: 'mic-button-9', playId: 'play-button-9', soundwaveId: 'soundwave-button-9' }
     ];
 
-    // Remove existing event listeners to prevent duplicates
-    cards.forEach(card => {
-        const audioButton = document.getElementById(card.audioId);
-        const micButton = document.getElementById(card.micId);
-        const playButton = document.getElementById(card.playId);
-        
-        // Clone elements to remove existing event listeners
-        const newAudioButton = audioButton.cloneNode(true);
-        const newMicButton = micButton.cloneNode(true);
-        const newPlayButton = playButton.cloneNode(true);
-        
-        audioButton.parentNode.replaceChild(newAudioButton, audioButton);
-        micButton.parentNode.replaceChild(newMicButton, micButton);
-        playButton.parentNode.replaceChild(newPlayButton, playButton);
-        
-        // Ensure buttons are reset
-        newPlayButton.style.display = recordedChunks[card.id] && recordedChunks[card.id].length > 0 ? 'inline-block' : 'none';
-        document.getElementById(card.soundwaveId).style.display = 'none';
-    });
-
     cards.forEach((card, index) => {
         const audioButton = document.getElementById(card.audioId);
         const micButton = document.getElementById(card.micId);
         const playButton = document.getElementById(card.playId);
         const soundwaveButton = document.getElementById(card.soundwaveId);
+
+        // Ensure buttons are enabled for interaction after animation
+        audioButton.style.pointerEvents = 'auto';
+        micButton.style.pointerEvents = 'auto';
+        playButton.style.pointerEvents = recordedChunks[card.id] && recordedChunks[card.id].length > 0 ? 'auto' : 'none';
 
         // Audio button handler (click and touchstart)
         const audioHandler = (e) => {
@@ -533,6 +518,10 @@ function enableCardInteractions() {
             }
         };
 
+        // Remove existing listeners to prevent duplicates
+        audioButton.removeEventListener('click', audioButton._audioHandler);
+        audioButton.removeEventListener('touchstart', audioButton._audioHandler);
+        audioButton._audioHandler = audioHandler;
         audioButton.addEventListener('click', audioHandler);
         audioButton.addEventListener('touchstart', audioHandler);
 
@@ -561,6 +550,10 @@ function enableCardInteractions() {
             }, 5000);
         };
 
+        // Remove existing listeners to prevent duplicates
+        micButton.removeEventListener('click', micButton._micHandler);
+        micButton.removeEventListener('touchstart', micButton._micHandler);
+        micButton._micHandler = micHandler;
         micButton.addEventListener('click', micHandler);
         micButton.addEventListener('touchstart', micHandler);
 
@@ -591,6 +584,10 @@ function enableCardInteractions() {
             }
         };
 
+        // Remove existing listeners to prevent duplicates
+        playButton.removeEventListener('click', playButton._playHandler);
+        playButton.removeEventListener('touchstart', playButton._playHandler);
+        playButton._playHandler = playHandler;
         playButton.addEventListener('click', playHandler);
         playButton.addEventListener('touchstart', playHandler);
     });
@@ -611,12 +608,12 @@ function startRecording(cardId, playButtonId, soundwaveButtonId) {
                     recordedChunks[cardId].push(e.data);
                 };
                 mediaRecorders[cardId].onstop = () => {
-                    const blob = new Blob(recordedChunks[cardId], { type: 'audio/wav' });
-                    const recordedAudio = document.getElementById('recorded-audio');
-                    recordedAudio.src = URL.createObjectURL(blob);
-                    if (activeCardId === cardId) { // Only show buttons if the card is still active
+                    if (recordedChunks[cardId].length > 0) {
+                        const blob = new Blob(recordedChunks[cardId], { type: 'audio/wav' });
+                        const recordedAudio = document.getElementById('recorded-audio');
+                        recordedAudio.src = URL.createObjectURL(blob);
                         setTimeout(() => {
-                            if (activeCardId === cardId) { // Double-check card is still active
+                            if (document.getElementById(playButtonId)) { // Check if button still exists
                                 document.getElementById(playButtonId).style.display = 'inline-block';
                                 document.getElementById(soundwaveButtonId).style.display = 'none';
                             }
@@ -753,10 +750,9 @@ function displayCards() {
         currentCard.style.transform = 'translate(0, 0) rotate(0deg)';
         currentCard.style.opacity = '1';
         currentCard.style.zIndex = '100';
-        // Reset recording buttons for new card
-        document.getElementById('play-button').style.display = recordedChunks['vocab-card'] && recordedChunks['vocab-card'].length > 0 ? 'inline-block' : 'none';
+        // Only show play button if there is a recording for this card
+        document.getElementById('play-button').style.display = (recordedChunks['vocab-card'] && recordedChunks['vocab-card'].length > 0) ? 'inline-block' : 'none';
         document.getElementById('soundwave-button').style.display = 'none';
-        recordedChunks['vocab-card'] = recordedChunks['vocab-card'] || []; // Ensure initialized
     }
 
     // Next cards
@@ -778,10 +774,9 @@ function displayCards() {
             next.card.style.transform = `translate(${next.translateX}px, ${next.translateY}px) rotate(${next.rotate}deg)`;
             next.card.style.opacity = '1';
             next.card.style.zIndex = next.zIndex;
-            // Reset recording buttons for next cards
-            document.getElementById(`play-button-${index + 1}`).style.display = recordedChunks[`next-card-${index + 1}`] && recordedChunks[`next-card-${index + 1}`].length > 0 ? 'inline-block' : 'none';
+            // Only show play button if there is a recording for this card
+            document.getElementById(`play-button-${index + 1}`).style.display = (recordedChunks[`next-card-${index + 1}`] && recordedChunks[`next-card-${index + 1}`].length > 0) ? 'inline-block' : 'none';
             document.getElementById(`soundwave-button-${index + 1}`).style.display = 'none';
-            recordedChunks[`next-card-${index + 1}`] = recordedChunks[`next-card-${index + 1}`] || []; // Ensure initialized
         } else {
             next.card.style.opacity = '0';
         }
@@ -817,14 +812,8 @@ function moveToNextCard(translateX, translateY, rotate) {
     hasSwiped = true;
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % vocabData.length;
-        // Reset recording state for the new top card
-        recordedChunks['vocab-card'] = [];
-        document.getElementById('play-button').style.display = 'none';
-        document.getElementById('soundwave-button').style.display = 'none';
         displayCards();
         card.style.transition = 'none';
-        // Re-enable interactions to ensure audio buttons work
-        enableCardInteractions();
     }, 500);
 }
 
