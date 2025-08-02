@@ -40,15 +40,6 @@ html, body {
     filter: blur(5px);
 }
 
-.main-content.demo-blurred {
-    filter: blur(5px);
-}
-
-/* Ensure card-container is not blurred during demo */
-.card-container {
-    transition: filter 0.3s ease;
-}
-
 /* Fixed height containers */
 .stats-container {
     width: 100%;
@@ -482,7 +473,7 @@ html, body {
 
 #next-card-5 {
     z-index: 5;
-    transform: translate(6.48px, 6.48px) rotate(1.6245deg); /* Reduced by 10% */
+    transform: translate(6.48px, 6.48px) rotate(1.6245deg); /* Reduced by  Selection: 10% */
 }
 
 #next-card-6 {
