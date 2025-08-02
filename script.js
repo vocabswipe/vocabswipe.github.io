@@ -334,7 +334,7 @@ function animateCardStackDrop(callback) {
         setTimeout(() => {
             enableCardInteractions();
             callback();
-            // Trigger demo animation after 3 seconds if visitCount <= 20 and no interaction
+            // Trigger demo animation after 3 seconds if visitCount <= 100 and no interaction
             if (visitCount <= 1000 && !hasInteracted) {
                 setTimeout(autoDemoAnimation, 3000);
             }
