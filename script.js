@@ -3,7 +3,6 @@ let vocabData = [];
 let originalVocabLength = 0; // Store original length for stats
 let currentIndex = 0;
 let hasSwiped = false; // Flag to track if user has swiped
-let hasInteracted = false; // Flag to track user interaction
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
@@ -345,7 +344,6 @@ function enableCardInteractions() {
 
     // Tap handler for top card
     topCard.addEventListener('click', () => {
-        hasInteracted = true; // Mark interaction
         if (!isDragging) {
             const audio = document.getElementById('card-audio');
             topCard.classList.add('glow');
@@ -358,7 +356,6 @@ function enableCardInteractions() {
 
     // Tap handler for next card
     nextCard.addEventListener('click', () => {
-        hasInteracted = true; // Mark interaction
         if (!isDragging && currentIndex + 1 < vocabData.length) {
             const nextEntry = vocabData[currentIndex + 1];
             const audio = new Audio(`data/${nextEntry.audio}`);
@@ -369,52 +366,6 @@ function enableCardInteractions() {
             }, 600);
         }
     });
-}
-
-// Function to perform tutorial animation
-function performTutorialAnimation() {
-    if (visitCount > 1000 || hasInteracted) return; // Skip if over 1000 visits or user has interacted
-
-    const topCard = document.getElementById('vocab-card');
-    const audio = document.getElementById('card-audio');
-
-    // Wait 1 second after stack animation
-    setTimeout(() => {
-        if (hasInteracted) return; // Skip if user interacted during delay
-
-        // Simulate tap with glow effect
-        topCard.classList.add('glow');
-        audio.play().catch(error => console.error('Error playing audio:', error));
-
-        // Wait for audio to finish before swiping
-        audio.onended = () => {
-            topCard.classList.remove('glow');
-
-            // Generate random swipe direction
-            const directions = [
-                { translateX: window.innerWidth, translateY: 0, rotate: 15 }, // Right
-                { translateX: -window.innerWidth, translateY: 0, rotate: -15 }, // Left
-                { translateX: 0, translateY: -window.innerHeight, rotate: -10 }, // Up
-                { translateX: 0, translateY: window.innerHeight, rotate: 10 } // Down
-            ];
-            const randomDirection = directions[Math.floor(Math.random() * directions.length)];
-
-            // Animate swipe slowly (1.5 seconds)
-            topCard.style.transition = 'transform 1.5s ease, opacity 1.5s ease';
-            topCard.style.transform = `translate(${randomDirection.translateX}px, ${randomDirection.translateY}px) rotate(${randomDirection.rotate}deg)`;
-            topCard.style.opacity = '0';
-            topCard.style.zIndex = '1000';
-
-            setTimeout(() => {
-                // Move to next card without counting towards swipedCards
-                currentIndex = (currentIndex + 1) % vocabData.length;
-                displayCards();
-                topCard.style.transition = 'none';
-                topCard.style.transform = 'translate(0, 0) rotate(0deg)';
-                topCard.style.opacity = '1';
-            }, 1500);
-        };
-    }, 1000);
 }
 
 // Function to fetch and parse JSONL file
@@ -462,7 +413,6 @@ async function loadVocabData() {
             updateWebsiteStats();
             updateProgressBar();
             alternateStatsText();
-            performTutorialAnimation(); // Trigger tutorial animation
         });
     } catch (error) {
         console.error('Error loading database:', error);
@@ -561,29 +511,25 @@ function displayCards() {
 }
 
 // Function to animate and move to next card
-function moveToNextCard(translateX, translateY, rotate, isTutorial = false) {
+function moveToNextCard(translateX, translateY, rotate) {
     const card = document.getElementById('vocab-card');
-    card.style.transition = `transform ${isTutorial ? '1.5s' : '0.5s'} ease, opacity ${isTutorial ? '1.5s' : '0.5s'} ease`;
+    card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
     card.style.zIndex = '1000';
-    // Only update swipedCards if not tutorial
-    if (!isTutorial) {
-        const originalIndex = vocabData[currentIndex].originalIndex;
-        if (!swipedCards.includes(originalIndex)) {
-            swipedCards.push(originalIndex);
-            localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
-        }
-        // Set hasSwiped to true after first real swipe
-        hasSwiped = true;
+    // Mark current card as swiped
+    const originalIndex = vocabData[currentIndex].originalIndex;
+    if (!swipedCards.includes(originalIndex)) {
+        swipedCards.push(originalIndex);
+        localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
     }
+    // Set hasSwiped to true after first swipe
+    hasSwiped = true;
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % vocabData.length;
         displayCards();
         card.style.transition = 'none';
-        card.style.transform = 'translate(0, 0) rotate(0deg)';
-        card.style.opacity = '1';
-    }, isTutorial ? 1500 : 500);
+    }, 500);
 }
 
 // Touch and mouse handling
@@ -610,7 +556,6 @@ card.addEventListener('touchstart', (e) => {
         card.style.transition = 'none';
         card.style.zIndex = '1000';
         isDragging = true;
-        hasInteracted = true; // Mark interaction
     }
 });
 
@@ -668,7 +613,6 @@ card.addEventListener('mousedown', (e) => {
     card.style.transition = 'none';
     card.style.zIndex = '1000';
     isDragging = true;
-    hasInteracted = true; // Mark interaction
 });
 
 card.addEventListener('mousemove', (e) => {
@@ -724,7 +668,6 @@ card.addEventListener('mouseleave', () => {
 });
 
 document.addEventListener('keydown', (e) => {
-    hasInteracted = true; // Mark interaction
     switch (e.key) {
         case ' ':
             e.preventDefault();
@@ -757,7 +700,6 @@ document.addEventListener('keydown', (e) => {
 // Share icon functionality
 const shareIcon = document.querySelector('#share-icon');
 shareIcon.addEventListener('click', () => {
-    hasInteracted = true; // Mark interaction
     if (typeof html2canvas === 'undefined') {
         console.error('html2canvas is not loaded');
         return;
@@ -772,19 +714,16 @@ const closeIcon = document.querySelector('#close-icon');
 const mainContent = document.querySelector('.main-content');
 
 coffeeIcon.addEventListener('click', () => {
-    hasInteracted = true; // Mark interaction
     donationPopup.style.display = 'flex';
     mainContent.classList.add('blurred');
 });
 
 closeIcon.addEventListener('click', () => {
-    hasInteracted = true; // Mark interaction
     donationPopup.style.display = 'none';
     mainContent.classList.remove('blurred');
 });
 
 donationPopup.addEventListener('click', (e) => {
-    hasInteracted = true; // Mark interaction
     if (e.target === donationPopup) {
         donationPopup.style.display = 'none';
         mainContent.classList.remove('blurred');
