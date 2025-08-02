@@ -735,97 +735,30 @@ function captureSnapshot() {
     const canvas = document.querySelector('#snapshot-canvas');
     const ctx = canvas.getContext('2d');
 
-    // Set canvas size to match mobile viewport exactly
-    const viewportWidth = 360;
-    const viewportHeight = 640;
+    // Set canvas size to match the current viewport
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
     const pixelRatio = window.devicePixelRatio || 1;
     canvas.width = viewportWidth * pixelRatio;
     canvas.height = viewportHeight * pixelRatio;
     ctx.scale(pixelRatio, pixelRatio);
 
-    // Set background color
+    // Set background color to match the page
     ctx.fillStyle = '#35654d';
     ctx.fillRect(0, 0, viewportWidth, viewportHeight);
 
-    html2canvas(document.body, {
+    html2canvas(document.documentElement, {
         width: viewportWidth,
         height: viewportHeight,
         scale: pixelRatio,
         backgroundColor: '#35654d',
         useCORS: true,
         logging: false,
-        x: (window.innerWidth - viewportWidth) / 2, // Center horizontally
-        y: (window.innerHeight - viewportHeight) / 2, // Center vertically
-        onclone: (clonedDoc) => {
-            const clonedBody = clonedDoc.body;
-            const clonedMainContent = clonedDoc.querySelector('.main-content');
-            const clonedIconPanel = clonedDoc.querySelector('.icon-panel');
-
-            // Force mobile viewport styling
-            clonedBody.style.width = `${viewportWidth}px`;
-            clonedBody.style.height = `${viewportHeight}px`;
-            clonedBody.style.overflow = 'hidden';
-            clonedBody.style.position = 'relative';
-            clonedBody.style.margin = '0';
-            clonedBody.style.padding = '0';
-
-            // Style main-content
-            clonedMainContent.style.width = `${viewportWidth}px`;
-            clonedMainContent.style.height = `${viewportHeight}px`;
-            clonedMainContent.style.transform = 'none';
-            clonedMainContent.style.position = 'absolute';
-            clonedMainContent.style.left = '0';
-            clonedMainContent.style.top = '0';
-
-            // Style icon panel
-            clonedIconPanel.style.maxWidth = `${viewportWidth}px`;
-            clonedIconPanel.style.left = '50%';
-            clonedIconPanel.style.transform = 'translateX(-50%)';
-            clonedIconPanel.style.top = '10px';
-
-            // Center card container
-            const clonedCardContainer = clonedDoc.querySelector('.card-container');
-            clonedCardContainer.style.width = '90vw';
-            clonedCardContainer.style.maxWidth = '300px';
-            clonedCardContainer.style.height = 'calc(90vw * 1.4)';
-            clonedCardContainer.style.maxHeight = '420px';
-            clonedCardContainer.style.left = '50%';
-            clonedCardContainer.style.transform = 'translateX(-50%)';
-
-            // Ensure cards are visible
-            const clonedCards = clonedDoc.querySelectorAll('.card');
-            clonedCards.forEach(card => {
-                card.style.transition = 'none';
-                card.style.opacity = '1';
-                card.style.display = 'block';
-            });
-
-            // Ensure stats are visible
-            const clonedStats = clonedDoc.querySelector('.website-stats');
-            clonedStats.style.transition = 'none';
-            clonedStats.style.opacity = '1';
-
-            // Ensure text elements are visible
-            const clonedText = clonedDoc.querySelectorAll('.count-text, .website-slogan, .progress-label, .progress-value');
-            clonedText.forEach(text => {
-                text.style.transition = 'none';
-                text.style.opacity = '1';
-            });
-
-            // Adjust containers for mobile layout
-            const clonedStatsContainer = clonedDoc.querySelector('.stats-container');
-            clonedStatsContainer.style.height = '100px';
-            const clonedInfoContainer = clonedDoc.querySelector('.info-container');
-            clonedInfoContainer.style.height = '170px';
-            clonedInfoContainer.style.top = '20px';
-            const clonedProgressContainer = clonedDoc.querySelector('.progress-container');
-            clonedProgressContainer.style.width = '90vw';
-            clonedProgressContainer.style.maxWidth = '300px';
-            clonedProgressContainer.style.top = '82px';
-        }
+        x: window.scrollX,
+        y: window.scrollY
     }).then(canvas => {
         ctx.drawImage(canvas, 0, 0, viewportWidth, viewportHeight);
-        
+
         canvas.toBlob(blob => {
             if (!blob) {
                 console.error('Failed to generate canvas blob');
@@ -842,6 +775,7 @@ function captureSnapshot() {
             if (navigator.canShare && navigator.canShare({ files: [file] })) {
                 navigator.share(shareData).catch(error => {
                     console.error('Error sharing:', error);
+                    // Fallback to download using the same blob
                     const link = document.createElement('a');
                     link.href = URL.createObjectURL(blob);
                     link.download = 'vocabswipe-snapshot.png';
@@ -849,6 +783,7 @@ function captureSnapshot() {
                     URL.revokeObjectURL(link.href);
                 });
             } else {
+                // Download using the same blob
                 const link = document.createElement('a');
                 link.href = URL.createObjectURL(blob);
                 link.download = 'vocabswipe-snapshot.png';
