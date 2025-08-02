@@ -82,6 +82,7 @@ html, body {
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
     -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
+    touch-action: none; /* Prevent default touch behaviors */
 }
 
 .share-icon:hover, .coffee-icon:hover {
@@ -232,6 +233,7 @@ html, body {
     right: 10px;
     cursor: pointer;
     transition: transform 0.2s ease;
+    touch-action: none; /* Prevent default touch behaviors */
 }
 
 .close-icon:hover {
@@ -473,11 +475,12 @@ html, body {
 }
 
 .audio-button, .mic-button, .play-button, .soundwave-button {
-    width: 20px;
-    height: 20px;
+    width: 24px; /* Increased from 20px for better touch targets */
+    height: 24px; /* Increased from 20px for better touch targets */
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
     -webkit-tap-highlight-color: transparent;
+    touch-action: none; /* Prevent default touch behaviors */
 }
 
 .audio-button:hover, .mic-button:hover, .play-button:hover, .soundwave-button:hover {
@@ -756,9 +759,10 @@ html, body {
     }
 
     .share-icon, .coffee-icon {
-        width: 25px;
-        height: 25px;
+        width: 28px; /* Increased from 25px for better touch targets */
+        height: 28px; /* Increased from 25px for better touch targets */
         -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
+        touch-action: none; /* Prevent default touch behaviors */
     }
 
     .share-icon:active, .coffee-icon:active {
@@ -827,10 +831,12 @@ html, body {
         height: 18px;
         bottom: 8px;
         right: 8px;
+        touch-action: none; /* Prevent default touch behaviors */
     }
 
     .audio-button, .mic-button, .play-button, .soundwave-button {
-        width: 18px;
-        height: 18px;
+        width: 22px; /* Increased from 18px for better touch targets */
+        height: 22px; /* Increased from 18px for better touch targets */
+        touch-action: none; /* Prevent default touch behaviors */
     }
 }
