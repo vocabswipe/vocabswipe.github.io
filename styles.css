@@ -333,7 +333,7 @@ html, body {
     height: 100%; /* Match container height */
     overflow: visible; /* Changed to visible to prevent clipping */
     white-space: nowrap;
-    z-index: 20; /* Higher z-index to bring in front */
+    z-index: 100; /* Higher z-index to bring in front */
     position: relative;
 }
 
@@ -367,7 +367,7 @@ html, body {
     line-height: 1.2;
     height: 20px; /* Fixed height to prevent shifting */
     overflow: hidden;
-    z-index: 20; /* Higher z-index to bring in front */
+    z-index: 200; /* Increased z-index to prevent clipping */
 }
 
 .progress-label.thai-text {
@@ -387,7 +387,7 @@ html, body {
     transition: opacity 0.05s ease;
     white-space: nowrap;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    z-index: 20; /* Higher z-index to bring in front */
+    z-index: 200; /* Increased z-index to bring in front */
 }
 
 .progress-bar {
@@ -441,15 +441,21 @@ html, body {
     display: none; /* Hide cards initially */
 }
 
-/* Glowing effect */
-.glow {
-    animation: glow 0.6s ease-in-out 1;
+/* Pulse animation for buttons */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
 
-@keyframes glow {
-    0% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
-    50% { box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.7); }
-    100% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+.pulse {
+    animation: pulse 0.3s ease-in-out 2;
+}
+
+/* Disabled button styling */
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 /* Soundwave animation */
@@ -468,7 +474,13 @@ html, body {
 .card-buttons {
     position: absolute;
     bottom: 10px;
-    left: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.right-buttons {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -494,13 +506,7 @@ html, body {
 }
 
 .mic-button.recording {
-    animation: pulse 1s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    animation: pulse 0.3s ease-in-out infinite;
 }
 
 /* Next cards and stack cards */
@@ -601,11 +607,6 @@ html, body {
     left: 10px;
 }
 
-.bottom-right {
-    bottom: 10px;
-    right: 10px;
-}
-
 /* Sentence styling */
 .sentence {
     font-size: 1.5rem;
@@ -657,7 +658,7 @@ html, body {
         font-size: 1.03818rem;
         line-height: 1.2;
         height: 100%; /* Match container height */
-        z-index: 20; /* Higher z-index to bring in front */
+        z-index: 100; /* Higher z-index to bring in front */
         overflow: visible; /* Prevent clipping */
     }
 
@@ -681,7 +682,7 @@ html, body {
         top: -18px; /* Fixed position above progress bar */
         line-height: 1.2;
         height: 18px; /* Fixed height */
-        z-index: 20; /* Higher z-index to bring in front */
+        z-index: 200; /* Increased z-index to prevent clipping */
     }
 
     .progress-label.thai-text {
@@ -693,7 +694,7 @@ html, body {
     .progress-value {
         font-size: 0.84rem;
         top: -18px; /* Fixed position above progress bar */
-        z-index: 20; /* Higher z-index to bring in front */
+        z-index: 200; /* Increased z-index to bring in front */
     }
 
     .progress-bar {
