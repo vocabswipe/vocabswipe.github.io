@@ -373,7 +373,7 @@ html, body {
 .progress-label.thai-text {
     font-size: 0.945rem;
     line-height: 1.2;
-    height: 20px;
+    height: 20px; /* Fixed height to prevent shifting */
 }
 
 .progress-value {
@@ -383,33 +383,35 @@ html, body {
     color: #ffffff;
     position: absolute;
     right: 0;
-    top: -20px; /* Align with progress-label */
+    top: -20px; /* Fixed position above progress bar */
+    transition: opacity 0.05s ease;
+    white-space: nowrap;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    line-height: 1.2;
+    z-index: 20; /* Higher z-index to bring in front */
 }
 
 .progress-bar {
     width: 100%;
-    height: 10px;
-    background-color: #ffffff;
-    border-radius: 5px;
+    height: 20px;
+    background-color: #808080; /* Gray track */
+    border-radius: 4px;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
 }
 
 .progress-fill {
     height: 100%;
-    background-color: #ffd700;
-    width: 0;
-    transition: width 0.5s ease;
+    background-color: #00ff00; /* Bright green fill */
+    width: 0%;
+    transition: width 0.3s ease;
 }
 
-/* Card container and card styling */
+/* Card container */
 .card-container {
     position: relative;
-    width: 100%;
-    max-width: 300px; /* Matches card width */
-    height: 340px; /* Fixed height for card stack */
+    width: 300px;
+    height: 300px; /* Fixed height for card stack */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -417,28 +419,28 @@ html, body {
     z-index: 10;
 }
 
+/* Card styling */
 .card {
     position: absolute;
     width: 300px;
-    height: 320px;
+    height: 300px;
     background-color: #ffffff;
     border: 2px solid #000000;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform-origin: center;
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-origin: center center;
     user-select: none;
     -webkit-user-select: none;
+    -webkit-touch-callout: none;
     touch-action: none; /* Prevent default touch behaviors */
 }
 
 .card-stack {
     background-color: #ffffff;
     border: 2px solid #000000;
-    width: 300px;
-    height: 320px;
-    position: absolute;
-    border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -447,9 +449,9 @@ html, body {
 .card-stack-3 { transform: translate(15.552px, 15.552px) rotate(3.8988deg); z-index: -2; }
 
 .card-content {
-    position: relative;
     width: 100%;
     height: 100%;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -458,7 +460,7 @@ html, body {
 
 .word {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #000000;
 }
@@ -473,7 +475,6 @@ html, body {
     position: absolute;
     bottom: 20px;
     right: 20px;
-    transform: rotate(180deg);
 }
 
 .sentence {
@@ -481,39 +482,43 @@ html, body {
     font-size: 1rem;
     color: #000000;
     text-align: center;
-    line-height: 1.5;
-    margin: 10px 0;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.4;
+    padding: 10px;
 }
 
 .english {
-    margin-top: 80px; /* Adjusted to center vertically */
+    margin-top: 40px; /* Adjust to avoid overlap with top word */
 }
 
 .thai {
-    margin-bottom: 80px; /* Adjusted to center vertically */
+    margin-bottom: 40px; /* Adjust to avoid overlap with bottom word */
 }
 
-/* Card buttons styling */
 .card-buttons {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    gap: 10px;
 }
 
 .card-buttons-top-right {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 10px;
+    right: 10px;
     display: flex;
     gap: 10px;
 }
 
 .audio-button, .mic-button, .play-button, .soundwave-button {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
-    -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
     touch-action: none; /* Prevent default touch behaviors */
 }
 
@@ -530,45 +535,88 @@ html, body {
     cursor: not-allowed;
 }
 
+/* Pulsating animation for buttons */
 .pulsating {
-    animation: pulse 1s infinite;
+    animation: pulse 0.5s infinite alternate;
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
 }
 
+/* Soundwave animation */
 @keyframes soundwaveSweep {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    0% {
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+    100% {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
 }
 
-/* Responsive adjustments */
+/* Responsive design adjustments */
 @media (max-width: 360px) {
-    .card-container, .card, .card-stack, .website-stats, .website-info, .progress-container {
+    .card-container {
         width: 100%;
-        max-width: 100%;
+        height: calc(100vw * 1); /* Maintain 1:1 aspect ratio */
     }
 
-    .card, .card-stack {
-        height: 300px;
+    .card {
+        width: 100%;
+        height: calc(100vw * 1);
     }
 
-    .word {
-        font-size: 1.6rem;
+    .card-stack-1 { transform: translate(calc(100vw * 0.0432), calc(100vw * 0.0432)) rotate(3.249deg); }
+    .card-stack-2 { transform: translate(calc(100vw * 0.04752), calc(100vw * 0.04752)) rotate(3.5739deg); }
+    .card-stack-3 { transform: translate(calc(100vw * 0.05184), calc(100vw * 0.05184)) rotate(3.8988deg); }
+
+    .progress-container {
+        width: 100%;
     }
 
-    .sentence {
-        font-size: 0.9rem;
+    .website-stats {
+        width: 100%;
     }
 
-    .english {
-        margin-top: 70px;
+    .website-info {
+        width: 100%;
+    }
+}
+
+@media (max-height: 640px) {
+    .main-content {
+        max-height: 100vh;
     }
 
-    .thai {
-        margin-bottom: 70px;
+    .stats-container {
+        height: calc(100vh * 0.1875); /* 120px / 640px */
     }
+
+    .info-container {
+        height: calc(100vh * 0.28125); /* 180px / 640px */
+        top: calc(100vh * 0.03125); /* 20px / 640px */
+    }
+
+    .progress-container {
+        top: calc(100vh * 0.14375); /* 92px / 640px */
+    }
+}
+
+/* Prevent zooming on mobile */
+html {
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure canvas is hidden */
+#snapshot-canvas {
+    display: none;
 }
