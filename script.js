@@ -326,10 +326,16 @@ function animateCardStackDrop(callback) {
     }, 100);
 }
 
-// Function to stop all audio and recording
-function stopAllMedia() {
-    // Stop audio playback
-    if (isAudioPlaying && currentAudioSource) {
+// Function to stop media for a specific card
+function stopCardMedia(cardId) {
+    const cardIndex = cardId === 'vocab-card' ? '' : cardId.replace('next-card-', '');
+    const audioButton = document.getElementById(`audio-button${cardIndex}`);
+    const micButton = document.getElementById(`mic-button${cardIndex}`);
+    const playButton = document.getElementById(`play-button${cardIndex}`);
+    const soundwaveButton = document.getElementById(`soundwave-button${cardIndex}`);
+
+    // Stop audio playback for this card
+    if (isAudioPlaying && currentAudioSource && cardId === 'vocab-card') {
         try {
             currentAudioSource.stop();
         } catch (e) {
@@ -337,21 +343,24 @@ function stopAllMedia() {
         }
         isAudioPlaying = false;
         currentAudioSource = null;
-        document.querySelectorAll('.audio-button').forEach(btn => btn.classList.remove('pulsating'));
+        audioButton.classList.remove('pulsating');
     }
 
-    // Stop HTML5 audio fallback
-    const cardAudio = document.getElementById('card-audio');
-    if (!cardAudio.paused) {
-        cardAudio.pause();
-        cardAudio.currentTime = 0;
+    // Stop HTML5 audio fallback for this card
+    if (cardId === 'vocab-card') {
+        const cardAudio = document.getElementById('card-audio');
+        if (!cardAudio.paused) {
+            cardAudio.pause();
+            cardAudio.currentTime = 0;
+        }
     }
 
-    // Stop recording
+    // Stop recording if active
     if (isRecording && mediaRecorder && mediaRecorder.state === 'recording') {
         mediaRecorder.stop();
         isRecording = false;
         recordedChunks = [];
+        micButton.classList.remove('pulsating');
     }
 
     // Stop recorded audio playback
@@ -360,13 +369,15 @@ function stopAllMedia() {
         recordedAudio.pause();
         recordedAudio.currentTime = 0;
         isPlayingRecording = false;
+        playButton.classList.remove('pulsating');
+        soundwaveButton.style.display = 'none';
     }
 
-    // Reset button states
-    document.querySelectorAll('.play-button').forEach(btn => btn.style.display = 'none');
-    document.querySelectorAll('.soundwave-button').forEach(btn => btn.style.display = 'none');
-    document.querySelectorAll('.mic-button').forEach(btn => btn.classList.remove('pulsating'));
-    updateButtonStates();
+    // Reset button states for this card
+    playButton.style.display = 'none';
+    soundwaveButton.style.display = 'none';
+    audioButton.classList.remove('pulsating');
+    micButton.classList.remove('pulsating');
 }
 
 // Function to play audio using Web Audio API for mobile compatibility
@@ -716,6 +727,8 @@ function displayCards() {
         // Reset recording buttons for new card
         document.getElementById('play-button').style.display = 'none';
         document.getElementById('soundwave-button').style.display = 'none';
+        document.getElementById('audio-button').classList.remove('pulsating');
+        document.getElementById('mic-button').classList.remove('pulsating');
     }
 
     // Next cards
@@ -740,6 +753,8 @@ function displayCards() {
             // Reset recording buttons for next cards
             document.getElementById(`play-button-${index + 1}`).style.display = 'none';
             document.getElementById(`soundwave-button-${index + 1}`).style.display = 'none';
+            document.getElementById(`audio-button-${index + 1}`).classList.remove('pulsating');
+            document.getElementById(`mic-button-${index + 1}`).classList.remove('pulsating');
         } else {
             next.card.style.opacity = '0';
         }
@@ -757,8 +772,8 @@ function displayCards() {
 
 // Function to animate and move to next card
 function moveToNextCard(translateX, translateY, rotate) {
-    // Stop all media before moving to next card
-    stopAllMedia();
+    // Stop media tasks for the current card
+    stopCardMedia('vocab-card');
 
     const card = document.getElementById('vocab-card');
     card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
