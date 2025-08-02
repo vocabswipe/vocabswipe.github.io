@@ -731,10 +731,9 @@ function displayCards() {
         currentCard.style.transform = 'translate(0, 0) rotate(0deg)';
         currentCard.style.opacity = '1';
         currentCard.style.zIndex = '100';
-        // Reset recording buttons for new card
-        document.getElementById('play-button').style.display = 'none';
+        // Reset recording buttons for new top card unless a recording exists
+        document.getElementById('play-button').style.display = recordedChunks['vocab-card'] && recordedChunks['vocab-card'].length > 0 ? 'inline-block' : 'none';
         document.getElementById('soundwave-button').style.display = 'none';
-        recordedChunks['vocab-card'] = []; // Reset recorded chunks for new card
     }
 
     // Next cards
@@ -757,9 +756,8 @@ function displayCards() {
             next.card.style.opacity = '1';
             next.card.style.zIndex = next.zIndex;
             // Reset recording buttons for next cards
-            document.getElementById(`play-button-${index + 1}`).style.display = 'none';
+            document.getElementById(`play-button-${index + 1}`).style.display = recordedChunks[`next-card-${index + 1}`] && recordedChunks[`next-card-${index + 1}`].length > 0 ? 'inline-block' : 'none';
             document.getElementById(`soundwave-button-${index + 1}`).style.display = 'none';
-            recordedChunks[`next-card-${index + 1}`] = []; // Reset recorded chunks
         } else {
             next.card.style.opacity = '0';
         }
@@ -779,6 +777,11 @@ function displayCards() {
 function moveToNextCard(translateX, translateY, rotate) {
     // Stop all media for the current card before moving to next card
     stopCardMedia('vocab-card');
+
+    // Explicitly reset recording buttons and chunks for the new top card
+    recordedChunks['vocab-card'] = []; // Clear recorded chunks for new top card
+    document.getElementById('play-button').style.display = 'none';
+    document.getElementById('soundwave-button').style.display = 'none';
 
     const card = document.getElementById('vocab-card');
     card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
