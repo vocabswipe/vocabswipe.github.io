@@ -40,6 +40,15 @@ html, body {
     filter: blur(5px);
 }
 
+.main-content.demo-blurred {
+    filter: blur(5px);
+}
+
+/* Ensure card-container is not blurred during demo */
+.card-container {
+    transition: filter 0.3s ease;
+}
+
 /* Fixed height containers */
 .stats-container {
     width: 100%;
