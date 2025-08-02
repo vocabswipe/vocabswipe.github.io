@@ -6,9 +6,9 @@ let hasSwiped = false; // Flag to track if user has swiped
 let mediaRecorder = null;
 let recordedChunks = [];
 let isRecording = false;
+let isAudioPlaying = false;
+let isRecordingPlaying = false;
 let audioContext = null; // Web Audio API context
-let isAudioPlaying = false; // Flag to track if audio is playing
-let isPlayingRecording = false; // Flag to track if recording is playing
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
@@ -193,7 +193,7 @@ function isMobileDevice() {
     return /Mobi|Android/i.test(navigator.userAgent);
 }
 
-// Function to set initial card theme (always white)
+// Function to set initial card theme (always white background)
 function setInitialCardTheme() {
     const cardBackgroundColor = '#ffffff';
     const cardTextColor = '#000000';
@@ -230,31 +230,35 @@ function populateCardsBeforeAnimation() {
     const cardTextColor = '#000000';
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
+    const wordBottomElement = document.getElementById('word-bottom');
     const englishElement = document.getElementById('english');
     const thaiElement = document.getElementById('thai');
     const audioElement = document.getElementById('card-audio');
 
     const nextCards = [
-        { top: 'next-word-top-1', english: 'next-english-1', thai: 'next-thai-1' },
-        { top: 'next-word-top-2', english: 'next-english-2', thai: 'next-thai-2' },
-        { top: 'next-word-top-3', english: 'next-english-3', thai: 'next-thai-3' },
-        { top: 'next-word-top-4', english: 'next-english-4', thai: 'next-thai-4' },
-        { top: 'next-word-top-5', english: 'next-english-5', thai: 'next-thai-5' },
-        { top: 'next-word-top-6', english: 'next-english-6', thai: 'next-thai-6' },
-        { top: 'next-word-top-7', english: 'next-english-7', thai: 'next-thai-7' },
-        { top: 'next-word-top-8', english: 'next-english-8', thai: 'next-thai-8' },
-        { top: 'next-word-top-9', english: 'next-english-9', thai: 'next-thai-9' }
+        { top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1' },
+        { top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2' },
+        { top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3' },
+        { top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4' },
+        { top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5' },
+        { top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6' },
+        { top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7' },
+        { top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8' },
+        { top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9' }
     ];
 
     // Populate current card
     if (currentIndex < vocabData.length) {
         const entry = vocabData[currentIndex];
         wordTopElement.textContent = entry.word;
+        wordBottomElement.textContent = entry.word;
         wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
+        wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
         englishElement.textContent = entry.english;
         thaiElement.textContent = entry.thai;
         audioElement.src = `data/${entry.audio}`;
         wordTopElement.style.color = cardTextColor;
+        wordBottomElement.style.color = cardTextColor;
         englishElement.style.color = cardTextColor;
         thaiElement.style.color = cardTextColor;
     }
@@ -264,15 +268,19 @@ function populateCardsBeforeAnimation() {
         if (currentIndex + index + 1 < vocabData.length) {
             const nextEntry = vocabData[currentIndex + index + 1];
             const nextWordTopElement = document.getElementById(next.top);
+            const nextWordBottomElement = document.getElementById(next.bottom);
             const nextEnglishElement = document.getElementById(next.english);
             const nextThaiElement = document.getElementById(next.thai);
             nextWordTopElement.textContent = nextEntry.word;
+            nextWordBottomElement.textContent = nextEntry.word;
             nextEnglishElement.textContent = nextEntry.english;
             nextThaiElement.textContent = nextEntry.thai;
             nextWordTopElement.style.color = cardTextColor;
+            nextWordBottomElement.style.color = cardTextColor;
             nextEnglishElement.style.color = cardTextColor;
             nextThaiElement.style.color = cardTextColor;
             nextWordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
+            nextWordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
         }
     });
 }
@@ -325,8 +333,18 @@ function animateCardStackDrop(callback) {
     }, 100);
 }
 
+// Function to toggle button states
+function toggleButtonStates(audioButton, micButton, playButton, enableAudio, enableMic, enablePlay) {
+    audioButton.disabled = !enableAudio;
+    audioButton.style.opacity = enableAudio ? '1' : '0.5';
+    micButton.disabled = !enableMic;
+    micButton.style.opacity = enableMic ? '1' : '0.5';
+    playButton.disabled = !enablePlay;
+    playButton.style.opacity = enablePlay && playButton.style.display !== 'none' ? '1' : '0.5';
+}
+
 // Function to play audio using Web Audio API for mobile compatibility
-function playAudio(audioSrc, audioButton, otherButtons) {
+function playAudio(audioSrc, cardElement, audioButton, micButton, playButton) {
     if (!audioContext) {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
@@ -334,14 +352,14 @@ function playAudio(audioSrc, audioButton, otherButtons) {
     // Ensure audio context is resumed (required for mobile browsers)
     if (audioContext.state === 'suspended') {
         audioContext.resume().then(() => {
-            loadAndPlayAudio(audioSrc, audioButton, otherButtons);
+            loadAndPlayAudio(audioSrc, cardElement, audioButton, micButton, playButton);
         });
     } else {
-        loadAndPlayAudio(audioSrc, audioButton, otherButtons);
+        loadAndPlayAudio(audioSrc, cardElement, audioButton, micButton, playButton);
     }
 }
 
-function loadAndPlayAudio(audioSrc, audioButton, otherButtons) {
+function loadAndPlayAudio(audioSrc, cardElement, audioButton, micButton, playButton) {
     fetch(audioSrc)
         .then(response => response.arrayBuffer())
         .then(buffer => audioContext.decodeAudioData(buffer))
@@ -350,13 +368,13 @@ function loadAndPlayAudio(audioSrc, audioButton, otherButtons) {
             source.buffer = decodedData;
             source.connect(audioContext.destination);
             isAudioPlaying = true;
-            audioButton.classList.add('pulse');
-            otherButtons.forEach(button => button.classList.add('disabled'));
+            toggleButtonStates(audioButton, micButton, playButton, false, false, false);
+            audioButton.classList.add('pulsating');
             source.start(0);
             source.onended = () => {
                 isAudioPlaying = false;
-                audioButton.classList.remove('pulse');
-                otherButtons.forEach(button => button.classList.remove('disabled'));
+                toggleButtonStates(audioButton, micButton, playButton, true, true, playButton.style.display !== 'none');
+                audioButton.classList.remove('pulsating');
             };
         })
         .catch(error => {
@@ -364,20 +382,14 @@ function loadAndPlayAudio(audioSrc, audioButton, otherButtons) {
             // Fallback to HTML5 audio
             const audio = new Audio(audioSrc);
             isAudioPlaying = true;
-            audioButton.classList.add('pulse');
-            otherButtons.forEach(button => button.classList.add('disabled'));
-            audio.play().then(() => {
-                setTimeout(() => {
-                    isAudioPlaying = false;
-                    audioButton.classList.remove('pulse');
-                    otherButtons.forEach(button => button.classList.remove('disabled'));
-                }, audio.duration * 1000 || 600);
-            }).catch(err => {
-                console.error('Error playing fallback audio:', err);
+            toggleButtonStates(audioButton, micButton, playButton, false, false, false);
+            audioButton.classList.add('pulsating');
+            audio.play().catch(err => console.error('Error playing fallback audio:', err));
+            audio.onended = () => {
                 isAudioPlaying = false;
-                audioButton.classList.remove('pulse');
-                otherButtons.forEach(button => button.classList.remove('disabled'));
-            });
+                toggleButtonStates(audioButton, micButton, playButton, true, true, playButton.style.display !== 'none');
+                audioButton.classList.remove('pulsating');
+            };
         });
 }
 
@@ -402,20 +414,20 @@ function enableCardInteractions() {
         const micButton = document.getElementById(card.micId);
         const playButton = document.getElementById(card.playId);
         const soundwaveButton = document.getElementById(card.soundwaveId);
-        const otherButtons = [micButton, playButton].filter(Boolean); // Exclude null/undefined
 
         // Audio button handler (click and touchstart)
         const audioHandler = () => {
-            if (isAudioPlaying || isRecording || isPlayingRecording) return;
-            let audioSrc;
-            if (card.id === 'vocab-card') {
-                audioSrc = document.getElementById('card-audio').src;
-            } else if (currentIndex + index < vocabData.length) {
-                const entry = vocabData[currentIndex + index];
-                audioSrc = `data/${entry.audio}`;
-            }
-            if (audioSrc) {
-                playAudio(audioSrc, audioButton, [micButton, playButton]);
+            if (!isAudioPlaying && !isRecording && !isRecordingPlaying) {
+                let audioSrc;
+                if (card.id === 'vocab-card') {
+                    audioSrc = document.getElementById('card-audio').src;
+                } else if (currentIndex + index < vocabData.length) {
+                    const entry = vocabData[currentIndex + index];
+                    audioSrc = `data/${entry.audio}`;
+                }
+                if (audioSrc) {
+                    playAudio(audioSrc, cardElement, audioButton, micButton, playButton);
+                }
             }
         };
 
@@ -427,14 +439,13 @@ function enableCardInteractions() {
 
         // Microphone button handler (click and touchstart)
         const micHandler = () => {
-            if (isAudioPlaying || isRecording || isPlayingRecording) return;
-            if (!isRecording) {
-                startRecording(card.playId, card.soundwaveId, audioButton, playButton);
-                micButton.classList.add('pulse');
+            if (!isRecording && !isAudioPlaying && !isRecordingPlaying) {
+                startRecording(card.playId, card.soundwaveId, audioButton, micButton, playButton);
+                micButton.classList.add('pulsating');
                 setTimeout(() => {
                     stopRecording(card.playId, card.soundwaveId, audioButton, micButton, playButton);
-                    micButton.classList.remove('pulse');
-                }, 3000); // Reduced from 5000 to 3000
+                    micButton.classList.remove('pulsating');
+                }, 4000); // Reduced to 4 seconds
             }
         };
 
@@ -446,27 +457,20 @@ function enableCardInteractions() {
 
         // Play recording button handler (click and touchstart)
         const playHandler = () => {
-            if (isAudioPlaying || isRecording || isPlayingRecording) return;
-            const recordedAudio = document.getElementById('recorded-audio');
-            if (recordedAudio.src) {
-                isPlayingRecording = true;
-                playButton.classList.add('pulse');
-                recordedAudio.play().then(() => {
-                    document.getElementById(card.soundwaveId).style.display = 'inline-block';
+            if (!isRecordingPlaying && !isAudioPlaying && !isRecording) {
+                const recordedAudio = document.getElementById('recorded-audio');
+                if (recordedAudio.src) {
+                    isRecordingPlaying = true;
+                    toggleButtonStates(audioButton, micButton, playButton, false, false, false);
+                    playButton.classList.add('pulsating');
+                    recordedAudio.play().catch(error => console.error('Error playing recorded audio:', error));
                     animateSoundwave(card.soundwaveId);
-                    setTimeout(() => {
-                        isPlayingRecording = false;
-                        playButton.classList.remove('pulse');
-                        audioButton.classList.remove('disabled');
-                        micButton.classList.remove('disabled');
-                    }, recordedAudio.duration * 1000 || 3000);
-                }).catch(error => {
-                    console.error('Error playing recorded audio:', error);
-                    isPlayingRecording = false;
-                    playButton.classList.remove('pulse');
-                    audioButton.classList.remove('disabled');
-                    micButton.classList.remove('disabled');
-                });
+                    recordedAudio.onended = () => {
+                        isRecordingPlaying = false;
+                        toggleButtonStates(audioButton, micButton, playButton, true, true, true);
+                        playButton.classList.remove('pulsating');
+                    };
+                }
             }
         };
 
@@ -479,7 +483,7 @@ function enableCardInteractions() {
 }
 
 // Function to start recording
-function startRecording(playButtonId, soundwaveButtonId, audioButton, playButton) {
+function startRecording(playButtonId, soundwaveButtonId, audioButton, micButton, playButton) {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({ audio: true })
             .then(stream => {
@@ -487,8 +491,7 @@ function startRecording(playButtonId, soundwaveButtonId, audioButton, playButton
                 recordedChunks = [];
                 mediaRecorder.start();
                 isRecording = true;
-                audioButton.classList.add('disabled');
-                playButton.classList.add('disabled');
+                toggleButtonStates(audioButton, micButton, playButton, false, false, false);
 
                 mediaRecorder.ondataavailable = (e) => {
                     recordedChunks.push(e.data);
@@ -499,23 +502,22 @@ function startRecording(playButtonId, soundwaveButtonId, audioButton, playButton
                     const recordedAudio = document.getElementById('recorded-audio');
                     recordedAudio.src = URL.createObjectURL(blob);
                     document.getElementById(playButtonId).style.display = 'inline-block';
-                    // Soundwave is shown only when play button is clicked
+                    document.getElementById(soundwaveButtonId).style.display = 'none';
                     isRecording = false;
+                    toggleButtonStates(audioButton, micButton, playButton, true, true, true);
                     stream.getTracks().forEach(track => track.stop());
                 };
             })
             .catch(error => {
                 console.error('Error accessing microphone:', error);
                 isRecording = false;
-                audioButton.classList.remove('disabled');
-                playButton.classList.remove('disabled');
+                toggleButtonStates(audioButton, micButton, playButton, true, true, playButton.style.display !== 'none');
                 alert('Microphone access denied or not supported. Please ensure microphone permissions are granted.');
             });
     } else {
         console.error('MediaRecorder or getUserMedia not supported');
         isRecording = false;
-        audioButton.classList.remove('disabled');
-        playButton.classList.remove('disabled');
+        toggleButtonStates(audioButton, micButton, playButton, true, true, playButton.style.display !== 'none');
         alert('Recording is not supported on this device or browser.');
     }
 }
@@ -524,17 +526,16 @@ function startRecording(playButtonId, soundwaveButtonId, audioButton, playButton
 function stopRecording(playButtonId, soundwaveButtonId, audioButton, micButton, playButton) {
     if (mediaRecorder && mediaRecorder.state === 'recording') {
         mediaRecorder.stop();
-        audioButton.classList.remove('disabled');
-        playButton.classList.remove('disabled');
     }
 }
 
 // Function to animate soundwave
 function animateSoundwave(soundwaveButtonId) {
     const soundwave = document.getElementById(soundwaveButtonId);
+    soundwave.style.display = 'inline-block';
     soundwave.style.animation = 'none';
     soundwave.offsetHeight; // Trigger reflow
-    soundwave.style.animation = 'soundwaveSweep 3s linear forwards';
+    soundwave.style.animation = 'soundwaveSweep 4s linear forwards';
 }
 
 // Function to fetch and parse JSONL file
@@ -586,6 +587,7 @@ async function loadVocabData() {
     } catch (error) {
         console.error('Error loading database:', error);
         document.getElementById('word-top').textContent = 'Error';
+        document.getElementById('word-bottom').textContent = 'Error';
         document.getElementById('english').textContent = 'Failed to load data';
         document.getElementById('thai').textContent = '';
     }
@@ -601,19 +603,20 @@ function displayCards() {
 
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
+    const wordBottomElement = document.getElementById('word-bottom');
     const englishElement = document.getElementById('english');
     const thaiElement = document.getElementById('thai');
     const audioElement = document.getElementById('card-audio');
     const nextCards = [
-        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: 9, translateX: 1.296, translateY: 1.296, rotate: 0.3249 },
-        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 2.592, translateY: 2.592, rotate: 0.6498 },
-        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: 7, translateX: 3.888, translateY: 3.888, rotate: 0.9747 },
-        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 6, translateX: 5.184, translateY: 5.184, rotate: 1.2996 },
-        { card: document.getElementById('next-card-5'), top: 'next-word-top-5', english: 'next-english-5', thai: 'next-thai-5', zIndex: 5, translateX: 6.48, translateY: 6.48, rotate: 1.6245 },
-        { card: document.getElementById('next-card-6'), top: 'next-word-top-6', english: 'next-english-6', thai: 'next-thai-6', zIndex: 4, translateX: 7.776, translateY: 7.776, rotate: 1.9494 },
-        { card: document.getElementById('next-card-7'), top: 'next-word-top-7', english: 'next-english-7', thai: 'next-thai-7', zIndex: 3, translateX: 9.072, translateY: 9.072, rotate: 2.2743 },
-        { card: document.getElementById('next-card-8'), top: 'next-word-top-8', english: 'next-english-8', thai: 'next-thai-8', zIndex: 2, translateX: 10.368, translateY: 10.368, rotate: 2.5992 },
-        { card: document.getElementById('next-card-9'), top: 'next-word-top-9', english: 'next-english-9', thai: 'next-thai-9', zIndex: 1, translateX: 11.664, translateY: 11.664, rotate: 2.9241 }
+        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: 9, translateX: 1.296, translateY: 1.296, rotate: 0.3249 },
+        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 2.592, translateY: 2.592, rotate: 0.6498 },
+        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: 7, translateX: 3.888, translateY: 3.888, rotate: 0.9747 },
+        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 6, translateX: 5.184, translateY: 5.184, rotate: 1.2996 },
+        { card: document.getElementById('next-card-5'), top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5', zIndex: 5, translateX: 6.48, translateY: 6.48, rotate: 1.6245 },
+        { card: document.getElementById('next-card-6'), top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6', zIndex: 4, translateX: 7.776, translateY: 7.776, rotate: 1.9494 },
+        { card: document.getElementById('next-card-7'), top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7', zIndex: 3, translateX: 9.072, translateY: 9.072, rotate: 2.2743 },
+        { card: document.getElementById('next-card-8'), top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8', zIndex: 2, translateX: 10.368, translateY: 10.368, rotate: 2.5992 },
+        { card: document.getElementById('next-card-9'), top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9', zIndex: 1, translateX: 11.664, translateY: 11.664, rotate: 2.9241 }
     ];
     const stackCards = document.querySelectorAll('.card-stack');
 
@@ -621,11 +624,14 @@ function displayCards() {
     if (currentIndex < vocabData.length) {
         const entry = vocabData[currentIndex];
         wordTopElement.textContent = entry.word;
+        wordBottomElement.textContent = entry.word;
         wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
+        wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
         englishElement.textContent = entry.english;
         thaiElement.textContent = entry.thai;
         audioElement.src = `data/${entry.audio}`;
         wordTopElement.style.color = cardTextColor;
+        wordBottomElement.style.color = cardTextColor;
         englishElement.style.color = cardTextColor;
         thaiElement.style.color = cardTextColor;
         currentCard.style.backgroundColor = cardBackgroundColor;
@@ -636,6 +642,14 @@ function displayCards() {
         // Reset recording buttons for new card
         document.getElementById('play-button').style.display = 'none';
         document.getElementById('soundwave-button').style.display = 'none';
+        toggleButtonStates(
+            document.getElementById('audio-button'),
+            document.getElementById('mic-button'),
+            document.getElementById('play-button'),
+            true,
+            true,
+            false
+        );
     }
 
     // Next cards
@@ -643,15 +657,19 @@ function displayCards() {
         if (currentIndex + index + 1 < vocabData.length) {
             const nextEntry = vocabData[currentIndex + index + 1];
             const nextWordTopElement = document.getElementById(next.top);
+            const nextWordBottomElement = document.getElementById(next.bottom);
             const nextEnglishElement = document.getElementById(next.english);
             const nextThaiElement = document.getElementById(next.thai);
             nextWordTopElement.textContent = nextEntry.word;
+            nextWordBottomElement.textContent = nextEntry.word;
             nextEnglishElement.textContent = nextEntry.english;
             nextThaiElement.textContent = nextEntry.thai;
             nextWordTopElement.style.color = cardTextColor;
+            nextWordBottomElement.style.color = cardTextColor;
             nextEnglishElement.style.color = cardTextColor;
             nextThaiElement.style.color = cardTextColor;
             nextWordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
+            nextWordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
             next.card.style.backgroundColor = cardBackgroundColor;
             next.card.style.borderColor = cardBorderColor;
             next.card.style.transform = `translate(${next.translateX}px, ${next.translateY}px) rotate(${next.rotate}deg)`;
@@ -660,6 +678,14 @@ function displayCards() {
             // Reset recording buttons for next cards
             document.getElementById(`play-button-${index + 1}`).style.display = 'none';
             document.getElementById(`soundwave-button-${index + 1}`).style.display = 'none';
+            toggleButtonStates(
+                document.getElementById(`audio-button-${index + 1}`),
+                document.getElementById(`mic-button-${index + 1}`),
+                document.getElementById(`play-button-${index + 1}`),
+                true,
+                true,
+                false
+            );
         } else {
             next.card.style.opacity = '0';
         }
@@ -884,7 +910,7 @@ closeIcon.addEventListener('touchstart', (e) => {
 donationPopup.addEventListener('click', (e) => {
     if (e.target === donationPopup) {
         donationPopup.style.display = 'none';
-        mainContent.classList.add('blurred');
+        mainContent.classList.remove('blurred');
     }
 });
 donationPopup.addEventListener('touchstart', (e) => {
