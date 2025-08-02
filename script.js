@@ -223,6 +223,7 @@ function setInitialCardTheme() {
         card.style.backgroundColor = cardBackgroundColor;
         card.style.borderColor = cardBorderColor;
         const contentElements = card.querySelectorAll('.word, .sentence');
+        contentElements7495
         contentElements.forEach(element => {
             element.style.color = cardTextColor;
         });
@@ -362,8 +363,10 @@ function enableCardInteractions() {
         const playButton = document.getElementById(card.playId);
         const soundwaveButton = document.getElementById(card.soundwaveId);
 
-        // Audio button handler
-        audioButton.addEventListener('click', () => {
+        // Function to handle audio playback
+        const handleAudioPlay = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             let audio;
             if (card.id === 'vocab-card') {
                 audio = document.getElementById('card-audio');
@@ -378,10 +381,12 @@ function enableCardInteractions() {
                     cardElement.classList.remove('glow');
                 }, 600);
             }
-        });
+        };
 
-        // Microphone button handler
-        micButton.addEventListener('click', () => {
+        // Function to handle microphone recording
+        const handleMicRecord = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             if (!isRecording) {
                 startRecording(card.playId, card.soundwaveId);
                 micButton.classList.add('recording');
@@ -390,10 +395,12 @@ function enableCardInteractions() {
                     micButton.classList.remove('recording');
                 }, 5000);
             }
-        });
+        };
 
-        // Play recording button handler
-        playButton.addEventListener('click', () => {
+        // Function to handle recorded audio playback
+        const handlePlayRecording = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             const recordedAudio = document.getElementById('recorded-audio');
             if (recordedAudio.src) {
                 cardElement.classList.add('glow');
@@ -403,7 +410,23 @@ function enableCardInteractions() {
                     cardElement.classList.remove('glow');
                 }, 600);
             }
-        });
+        };
+
+        // Add click and touchstart event listeners for audio button
+        audioButton.addEventListener('click', handleAudioPlay);
+        audioButton.addEventListener('touchstart', handleAudioPlay);
+
+        // Add click and touchstart event listeners for mic button
+        micButton.addEventListener('click', handleMicRecord);
+        micButton.addEventListener('touchstart', handleMicRecord);
+
+        // Add click and touchstart event listeners for play button
+        playButton.addEventListener('click', handlePlayRecording);
+        playButton.addEventListener('touchstart', handlePlayRecording);
+
+        // Add click and touchstart event listeners for soundwave button (for consistency, though it may not need interaction)
+        soundwaveButton.addEventListener('click', handlePlayRecording);
+        soundwaveButton.addEventListener('touchstart', handlePlayRecording);
     });
 }
 
