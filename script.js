@@ -79,7 +79,7 @@ let swipedCards = JSON.parse(localStorage.getItem('swipedCards') || '[]');
     $.fn.countTo.defaults = {
         from: 0,
         to: 0,
-        speed: 10000,
+        speed: 3000, // Changed from 10000 to 3000
         refreshInterval: 100,
         decimals: 0,
         formatter: formatter,
@@ -452,7 +452,7 @@ function enableCardInteractions() {
             setTimeout(() => {
                 stopRecording(card.playId, card.soundwaveId);
                 micButton.classList.remove('pulsating');
-            }, 4000); // Reduced to 4 seconds
+            }, 5000); // Changed from 4000 to 5000
         };
 
         micButton.addEventListener('click', micHandler);
@@ -504,8 +504,10 @@ function startRecording(playButtonId, soundwaveButtonId) {
                     const blob = new Blob(recordedChunks, { type: 'audio/wav' });
                     const recordedAudio = document.getElementById('recorded-audio');
                     recordedAudio.src = URL.createObjectURL(blob);
-                    document.getElementById(playButtonId).style.display = 'inline-block';
-                    document.getElementById(soundwaveButtonId).style.display = 'none'; // Hidden until play is clicked
+                    setTimeout(() => {
+                        document.getElementById(playButtonId).style.display = 'inline-block';
+                        document.getElementById(soundwaveButtonId).style.display = 'none'; // Hidden until play is clicked
+                    }, 2000); // Delay play button display by 2 seconds
                     isRecording = false;
                     updateButtonStates();
                     stream.getTracks().forEach(track => track.stop());
@@ -538,7 +540,7 @@ function animateSoundwave(soundwaveButtonId) {
     soundwave.style.display = 'inline-block'; // Show waveform when play is clicked
     soundwave.style.animation = 'none';
     soundwave.offsetHeight; // Trigger reflow
-    soundwave.style.animation = 'soundwaveSweep 4s linear forwards'; // Match recording duration
+    soundwave.style.animation = 'soundwaveSweep 5s linear forwards'; // Changed from 4s to 5s to match recording duration
 }
 
 // Function to fetch and parse JSONL file
