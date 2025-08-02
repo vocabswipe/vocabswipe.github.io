@@ -7,7 +7,7 @@ let mediaRecorder = null;
 let recordedChunks = [];
 let isRecording = false;
 let audioContext = null; // Web Audio API context
-let isAudioPlaying = false; // Flag to track if audio is playing
+let isButtonActive = false; // Flag to track if a button action is in progress
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
@@ -148,46 +148,43 @@ function alternateStatsText() {
                 line1.textContent = 'ประโยคภาษาอังกฤษอเมริกันที่จำเป็น';
                 slogan.textContent = 'ยิ่งปัด ยิ่งเก่ง';
                 progressLabel.textContent = 'ปัดไปแล้ว';
-                donationMessage.innerHTML = 'ซื้อกಸกาแฟให้ผมเพื่อให้ <span class="vocabswipe-text">VOCABSWIPE</spanmill; margin: 0px; padding: 0px; cursor: pointer; }
+                donationMessage.innerHTML = 'ซื้อกาแฟให้ผมเพื่อให้ <span class="vocabswipe-text">VOCABSWIPE</span> ฟรีและเติบโตต่อไป! สแกนคิวอาร์โค้ดเพื่อสนับสนุนผ่านพร้อมเพย์';
+                line1.classList.add('thai-text');
+                slogan.classList.add('thai-text');
+                progressLabel.classList.add('thai-text');
+                donationMessage.classList.add('thai-text');
+            } else {
                 line1.textContent = 'Essential American English Sentences';
                 slogan.textContent = 'Master Words, Swipe by Swipe';
                 progressLabel.textContent = 'Swiped Cards';
-                progressValue.textContent = '0';
                 donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support via PromptPay.';
-                line1.classList.add('thai-text');
+                line1.classList.remove('thai-text');
+                slogan.classList.remove('thai-text');
+                progressLabel.classList.remove('thai-text');
                 donationMessage.classList.remove('thai-text');
-                isEnglish = !isEnglish;
-            }, 50);
-        }
-
-        line1.style.opacity = '1';
-        slogan.style.opacity = '1';
-        progressLabel.style.opacity = '1';
-        donationMessage.style.opacity = '1';
-        line1.classList.remove('thai-text');
-        slogan.classList.remove('thai-text');
-        progressLabel.classList.remove('thai-text');
-        donationMessage.classList.remove('thai-text');
-        isEnglish = !isEnglish;
+            }
+            line1.style.opacity = '1';
+            slogan.style.opacity = '1';
+            progressLabel.style.opacity = '1';
+            donationMessage.style.opacity = '1';
+            isEnglish = !isEnglish;
+        }, 50);
     }
 
     line1.textContent = 'Essential American English Sentences';
     slogan.textContent = 'Master Words, Swipe by Swipe';
     progressLabel.textContent = 'Swiped Cards';
     donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support via PromptPay.';
-    line1.classList.remove('thai-text');
-    slogan.classList.remove('thai-text');
-    progressLabel.classList.remove('thai-text');
-    donationMessage.classList.remove('thai-text');
     line1.style.opacity = '1';
     slogan.style.opacity = '1';
     progressLabel.style.opacity = '1';
     donationMessage.style.opacity = '1';
-    line1.classList.add('thai-text');
-    slogan.classList.add('thai-text');
-    progressLabel.classList.add('thai-text');
-    donationMessage.classList.add('thai-text');
-    isEnglish = !isEnglish;
+    line1.classList.remove('thai-text');
+    slogan.classList.remove('thai-text');
+    progressLabel.classList.remove('thai-text');
+    donationMessage.classList.remove('thai-text');
+
+    setInterval(swapText, 20000);
 }
 
 // Function to detect if user is on mobile
@@ -195,7 +192,7 @@ function isMobileDevice() {
     return /Mobi|Android/i.test(navigator.userAgent);
 }
 
-// Function to set initial card theme
+// Function to set initial card theme (always white background)
 function setInitialCardTheme() {
     const cardBackgroundColor = '#ffffff';
     const cardTextColor = '#000000';
@@ -328,7 +325,7 @@ function animateCardStackDrop(callback) {
 }
 
 // Function to play audio using Web Audio API for mobile compatibility
-function playAudio(audioSrc, buttonElement) {
+function playAudio(audioSrc, audioButton, otherButtons) {
     if (!audioContext) {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
@@ -336,14 +333,14 @@ function playAudio(audioSrc, buttonElement) {
     // Ensure audio context is resumed (required for mobile browsers)
     if (audioContext.state === 'suspended') {
         audioContext.resume().then(() => {
-            loadAndPlayAudio(audioSrc, buttonElement);
+            loadAndPlayAudio(audioSrc, audioButton, otherButtons);
         });
     } else {
-        loadAndPlayAudio(audioSrc, buttonElement);
+        loadAndPlayAudio(audioSrc, audioButton, otherButtons);
     }
 }
 
-function loadAndPlayAudio(audioSrc, buttonElement) {
+function loadAndPlayAudio(audioSrc, audioButton, otherButtons) {
     fetch(audioSrc)
         .then(response => response.arrayBuffer())
         .then(buffer => audioContext.decodeAudioData(buffer))
@@ -351,52 +348,30 @@ function loadAndPlayAudio(audioSrc, buttonElement) {
             const source = audioContext.createBufferSource();
             source.buffer = decodedData;
             source.connect(audioContext.destination);
-            isAudioPlaying = true;
-            buttonElement.classList.add('pulse');
-            disableOtherButtons(buttonElement);
             source.start(0);
+            isButtonActive = true;
+            audioButton.classList.add('pulse');
+            otherButtons.forEach(btn => btn.classList.add('inactive'));
             source.onended = () => {
-                buttonElement.classList.remove('pulse');
-                enableAllButtons(buttonElement);
-                isAudioPlaying = false;
+                audioButton.classList.remove('pulse');
+                otherButtons.forEach(btn => btn.classList.remove('inactive'));
+                isButtonActive = false;
             };
         })
         .catch(error => {
             console.error('Error playing audio with Web Audio API:', error);
             // Fallback to HTML5 audio
             const audio = new Audio(audioSrc);
-            isAudioPlaying = true;
-            buttonElement.classList.add('pulse');
-            disableOtherButtons(buttonElement);
             audio.play().catch(err => console.error('Error playing fallback audio:', err));
-            audio.onended = () => {
-                buttonElement.classList.remove('pulse');
-                enableAllButtons(buttonElement);
-                isAudioPlaying = false;
-            };
+            isButtonActive = true;
+            audioButton.classList.add('pulse');
+            otherButtons.forEach(btn => btn.classList.add('inactive'));
+            setTimeout(() => {
+                audioButton.classList.remove('pulse');
+                otherButtons.forEach(btn => btn.classList.remove('inactive'));
+                isButtonActive = false;
+            }, 600);
         });
-}
-
-// Function to disable other buttons
-function disableOtherButtons(activeButton) {
-    const card = activeButton.closest('.card');
-    const buttons = card.querySelectorAll('.audio-button, .mic-button, .play-button');
-    buttons.forEach(button => {
-        if (button !== activeButton) {
-            button.classList.add('disabled');
-            button.style.pointerEvents = 'none';
-        }
-    });
-}
-
-// Function to enable all buttons
-function enableAllButtons(activeButton) {
-    const card = activeButton.closest('.card');
-    const buttons = card.querySelectorAll('.audio-button, .mic-button, .play-button');
-    buttons.forEach(button => {
-        button.classList.remove('disabled');
-        button.style.pointerEvents = 'auto';
-    });
 }
 
 // Function to enable card interactions (audio and mic buttons)
@@ -415,15 +390,15 @@ function enableCardInteractions() {
     ];
 
     cards.forEach((card, index) => {
-        const cardElement = document.getElementById(card.id);
         const audioButton = document.getElementById(card.audioId);
         const micButton = document.getElementById(card.micId);
         const playButton = document.getElementById(card.playId);
         const soundwaveButton = document.getElementById(card.soundwaveId);
+        const otherButtons = [micButton, playButton].filter(btn => btn); // Exclude null buttons
 
         // Audio button handler (click and touchstart)
         const audioHandler = () => {
-            if (isAudioPlaying || isRecording) return;
+            if (isButtonActive) return;
             let audioSrc;
             if (card.id === 'vocab-card') {
                 audioSrc = document.getElementById('card-audio').src;
@@ -432,7 +407,7 @@ function enableCardInteractions() {
                 audioSrc = `data/${entry.audio}`;
             }
             if (audioSrc) {
-                playAudio(audioSrc, audioButton);
+                playAudio(audioSrc, audioButton, otherButtons);
             }
         };
 
@@ -444,12 +419,12 @@ function enableCardInteractions() {
 
         // Microphone button handler (click and touchstart)
         const micHandler = () => {
-            if (isAudioPlaying || isRecording) return;
-            startRecording(card.playId, card.soundwaveId);
-            micButton.classList.add('pulse', 'recording');
+            if (isButtonActive || isRecording) return;
+            startRecording(card.playId, card.soundwaveId, [audioButton, playButton].filter(btn => btn));
+            micButton.classList.add('pulse');
             setTimeout(() => {
-                stopRecording(card.playId, card.soundwaveId);
-                micButton.classList.remove('pulse', 'recording');
+                stopRecording(card.playId, card.soundwaveId, [audioButton, playButton].filter(btn => btn));
+                micButton.classList.remove('pulse');
             }, 3000); // Reduced to 3 seconds
         };
 
@@ -461,17 +436,19 @@ function enableCardInteractions() {
 
         // Play recording button handler (click and touchstart)
         const playHandler = () => {
-            if (isAudioPlaying || isRecording) return;
+            if (isButtonActive) return;
             const recordedAudio = document.getElementById('recorded-audio');
             if (recordedAudio.src) {
+                isButtonActive = true;
                 playButton.classList.add('pulse');
-                disableOtherButtons(playButton);
+                document.getElementById(card.soundwaveId).style.display = 'inline-block'; // Show waveform on play
                 recordedAudio.play().catch(error => console.error('Error playing recorded audio:', error));
-                soundwaveButton.style.display = 'inline-block';
                 animateSoundwave(card.soundwaveId);
+                [audioButton, micButton].forEach(btn => btn.classList.add('inactive'));
                 recordedAudio.onended = () => {
                     playButton.classList.remove('pulse');
-                    enableAllButtons(playButton);
+                    [audioButton, micButton].forEach(btn => btn.classList.remove('inactive'));
+                    isButtonActive = false;
                 };
             }
         };
@@ -485,7 +462,7 @@ function enableCardInteractions() {
 }
 
 // Function to start recording
-function startRecording(playButtonId, soundwaveButtonId) {
+function startRecording(playButtonId, soundwaveButtonId, otherButtons) {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({ audio: true })
             .then(stream => {
@@ -493,6 +470,8 @@ function startRecording(playButtonId, soundwaveButtonId) {
                 recordedChunks = [];
                 mediaRecorder.start();
                 isRecording = true;
+                isButtonActive = true;
+                otherButtons.forEach(btn => btn.classList.add('inactive'));
 
                 mediaRecorder.ondataavailable = (e) => {
                     recordedChunks.push(e.data);
@@ -503,24 +482,31 @@ function startRecording(playButtonId, soundwaveButtonId) {
                     const recordedAudio = document.getElementById('recorded-audio');
                     recordedAudio.src = URL.createObjectURL(blob);
                     document.getElementById(playButtonId).style.display = 'inline-block';
+                    // Waveform is shown only on play
                     isRecording = false;
+                    isButtonActive = false;
+                    otherButtons.forEach(btn => btn.classList.remove('inactive'));
                     stream.getTracks().forEach(track => track.stop());
                 };
             })
             .catch(error => {
                 console.error('Error accessing microphone:', error);
                 isRecording = false;
+                isButtonActive = false;
+                otherButtons.forEach(btn => btn.classList.remove('inactive'));
                 alert('Microphone access denied or not supported. Please ensure microphone permissions are granted.');
             });
     } else {
         console.error('MediaRecorder or getUserMedia not supported');
         isRecording = false;
+        isButtonActive = false;
+        otherButtons.forEach(btn => btn.classList.remove('inactive'));
         alert('Recording is not supported on this device or browser.');
     }
 }
 
 // Function to stop recording
-function stopRecording(playButtonId, soundwaveButtonId) {
+function stopRecording(playButtonId, soundwaveButtonId, otherButtons) {
     if (mediaRecorder && mediaRecorder.state === 'recording') {
         mediaRecorder.stop();
     }
@@ -531,7 +517,7 @@ function animateSoundwave(soundwaveButtonId) {
     const soundwave = document.getElementById(soundwaveButtonId);
     soundwave.style.animation = 'none';
     soundwave.offsetHeight; // Trigger reflow
-    soundwave.style.animation = 'soundwaveSweep 3s linear forwards'; // Match recording duration
+    soundwave.style.animation = 'soundwaveSweep 3s linear forwards'; // Adjusted to match recording duration
 }
 
 // Function to fetch and parse JSONL file
@@ -881,7 +867,7 @@ closeIcon.addEventListener('touchstart', (e) => {
 donationPopup.addEventListener('click', (e) => {
     if (e.target === donationPopup) {
         donationPopup.style.display = 'none';
-        mainContent.classList.remove('blurred');
+        mainContent.classList.add('blurred');
     }
 });
 donationPopup.addEventListener('touchstart', (e) => {
