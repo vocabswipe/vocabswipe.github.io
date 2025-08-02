@@ -373,7 +373,7 @@ html, body {
 .progress-label.thai-text {
     font-size: 0.945rem;
     line-height: 1.2;
-    height: 20px; /* Fixed height to prevent shifting */
+    height: 20px;
 }
 
 .progress-value {
@@ -383,90 +383,82 @@ html, body {
     color: #ffffff;
     position: absolute;
     right: 0;
-    top: -20px; /* Fixed position above progress bar */
-    transition: opacity 0.05s ease;
-    white-space: nowrap;
+    top: -20px; /* Align with progress-label */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    z-index: 20; /* Higher z-index to bring in front */
+    line-height: 1.2;
 }
 
 .progress-bar {
     width: 100%;
-    height: 20px;
-    background-color: #808080; /* Gray track */
-    border-radius: 4px;
+    height: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
     overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .progress-fill {
     height: 100%;
+    background-color: #ffd700;
     width: 0;
-    background-color: #ffd700; /* Gold fill */
     transition: width 0.5s ease;
 }
 
-/* Card stack styling */
+/* Card container and card styling */
 .card-container {
-    width: 100%;
-    max-width: 300px;
-    height: 400px; /* Fixed height for card stack */
     position: relative;
-    margin: 20px 0;
+    width: 100%;
+    max-width: 300px; /* Matches card width */
+    height: 340px; /* Fixed height for card stack */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     perspective: 1000px;
     z-index: 10;
 }
 
 .card {
     position: absolute;
-    width: 100%;
-    max-width: 300px;
-    height: 100%;
+    width: 300px;
+    height: 320px;
     background-color: #ffffff;
     border: 2px solid #000000;
     border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform-origin: center;
+    transition: transform 0.5s ease, opacity 0.5s ease;
     user-select: none;
     -webkit-user-select: none;
-    touch-action: manipulation; /* Optimize for touch dragging */
+    touch-action: none; /* Prevent default touch behaviors */
 }
 
 .card-stack {
     background-color: #ffffff;
     border: 2px solid #000000;
+    width: 300px;
+    height: 320px;
+    position: absolute;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.card-stack-1 {
-    transform: translate(12.96px, 12.96px) rotate(3.249deg);
-    z-index: 0;
-}
-
-.card-stack-2 {
-    transform: translate(14.256px, 14.256px) rotate(3.5739deg);
-    z-index: -1;
-}
-
-.card-stack-3 {
-    transform: translate(15.552px, 15.552px) rotate(3.8988deg);
-    z-index: -2;
-}
+.card-stack-1 { transform: translate(12.96px, 12.96px) rotate(3.249deg); z-index: 0; }
+.card-stack-2 { transform: translate(14.256px, 14.256px) rotate(3.5739deg); z-index: -1; }
+.card-stack-3 { transform: translate(15.552px, 15.552px) rotate(3.8988deg); z-index: -2; }
 
 .card-content {
+    position: relative;
     width: 100%;
     height: 100%;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: relative;
+    padding: 20px;
 }
 
 .word {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #000000;
 }
@@ -481,34 +473,31 @@ html, body {
     position: absolute;
     bottom: 20px;
     right: 20px;
-    text-align: right;
+    transform: rotate(180deg);
 }
 
 .sentence {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #000000;
     text-align: center;
+    line-height: 1.5;
     margin: 10px 0;
-    line-height: 1.4;
-    max-width: 260px;
-    align-self: center;
 }
 
 .english {
-    margin-top: 100px;
+    margin-top: 80px; /* Adjusted to center vertically */
 }
 
 .thai {
-    margin-bottom: 100px;
+    margin-bottom: 80px; /* Adjusted to center vertically */
 }
 
+/* Card buttons styling */
 .card-buttons {
     position: absolute;
     bottom: 20px;
     left: 20px;
-    display: flex;
-    gap: 10px;
 }
 
 .card-buttons-top-right {
@@ -524,6 +513,7 @@ html, body {
     height: 30px;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
+    -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
     touch-action: none; /* Prevent default touch behaviors */
 }
 
@@ -540,65 +530,45 @@ html, body {
     cursor: not-allowed;
 }
 
-@keyframes soundwaveSweep {
-    0% {
-        transform: scaleX(0);
-        transform-origin: left;
-    }
-    50% {
-        transform: scaleX(1);
-        transform-origin: left;
-    }
-    100% {
-        transform: scaleX(0);
-        transform-origin: right;
-    }
-}
-
-/* Pulsating animation for buttons */
-@keyframes pulsate {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.1);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
 .pulsating {
-    animation: pulsate 0.5s ease-in-out infinite;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes soundwaveSweep {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
 
 /* Responsive adjustments */
 @media (max-width: 360px) {
-    .card-container {
-        max-width: 280px;
+    .card-container, .card, .card-stack, .website-stats, .website-info, .progress-container {
+        width: 100%;
+        max-width: 100%;
     }
 
-    .card {
-        max-width: 280px;
-    }
-
-    .website-stats, .website-info, .progress-container {
-        max-width: 280px;
+    .card, .card-stack {
+        height: 300px;
     }
 
     .word {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 
     .sentence {
-        font-size: 1.1rem;
-        max-width: 240px;
+        font-size: 0.9rem;
     }
 
-    .donation-content {
-        max-width: 300px;
+    .english {
+        margin-top: 70px;
+    }
+
+    .thai {
+        margin-bottom: 70px;
     }
 }
