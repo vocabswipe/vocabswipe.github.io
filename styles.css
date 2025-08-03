@@ -56,7 +56,8 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    position: relative;
+    position: absolute;
+    top: 0;
     z-index: 15;
 }
 
@@ -66,9 +67,9 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    position: relative;
+    position: absolute;
+    bottom: 0;
     z-index: 15;
-    top: 20px; /* Moved downward to avoid overlap with card stack */
 }
 
 /* Icon panel styling */
@@ -416,7 +417,9 @@ html, body {
 
 /* Card container */
 .card-container {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     width: 80vw;
     max-width: 300px;
     height: calc(80vw * 1.4);
@@ -590,12 +593,12 @@ html, body {
 @media (max-width: 600px) {
     .stats-container {
         height: 100px;
-        margin-top: 10px; /* Added to shift downward by 10px */
+        top: 10px; /* Adjusted to shift downward by 10px */
     }
 
     .info-container {
         height: 170px; /* Adjusted for mobile */
-        top: 30px; /* Increased from 20px to 30px for 10px downward shift */
+        bottom: 10px; /* Fixed position at bottom */
     }
 
     .website-info {
@@ -630,7 +633,7 @@ html, body {
         width: 90vw; /* Matches card width */
         max-width: 300px;
         height: 9px; /* Reduced by 50% from 18px */
-        top: 92px; /* Increased from 82px to 92px for 10px downward shift */
+        top: 92px; /* Fixed position */
         left: 50%;
         transform: translateX(-50%);
         opacity: 0; /* Initially hidden */
@@ -665,6 +668,8 @@ html, body {
     .card-container {
         width: 90vw;
         height: calc(90vw * 1.4);
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .website-stats {
