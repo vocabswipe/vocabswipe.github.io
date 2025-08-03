@@ -352,7 +352,7 @@ html, body {
 /* Progress bar styling */
 .progress-container {
     width: 300px; /* Matches card width */
-    height: 20px; /* Fixed height for progress bar */
+    height: 10px; /* Reduced by 50% from 20px */
     position: absolute;
     top: 92px; /* Moved upward by 18px (was 120px) */
     left: 50%;
@@ -399,7 +399,7 @@ html, body {
 
 .progress-bar {
     width: 100%;
-    height: 20px;
+    height: 10px; /* Reduced by 50% from 20px */
     background-color: #808080; /* Gray track */
     border-radius: 4px;
     overflow: hidden;
@@ -432,8 +432,9 @@ html, body {
 .card {
     width: 100%;
     height: 100%;
-    border: 1px solid #000;
+    border: 1px solid #000000;
     border-radius: 8px;
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -550,6 +551,7 @@ html, body {
     font-weight: bold;
     position: absolute;
     margin: 0;
+    color: #000000;
 }
 
 .top-left {
@@ -567,6 +569,7 @@ html, body {
     font-size: 1.5rem;
     margin: 8px 0;
     text-align: center;
+    color: #000000;
 }
 
 .english {
@@ -625,7 +628,7 @@ html, body {
     .progress-container {
         width: 90vw; /* Matches card width */
         max-width: 300px;
-        height: 18px; /* Fixed height for progress bar */
+        height: 9px; /* Reduced by 50% from 18px */
         top: 82px; /* Moved upward by 18px (was 110px) */
         left: 50%;
         transform: translateX(-50%);
@@ -654,7 +657,7 @@ html, body {
 
     .progress-bar {
         width: 100%;
-        height: 18px;
+        height: 9px; /* Reduced by 50% from 18px */
         top: 0;
     }
 
