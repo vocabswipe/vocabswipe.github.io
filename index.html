@@ -72,7 +72,7 @@
                 <div class="card-content">
                     <h1 class="word top-left" id="next-word-top-4"></h1>
                     <p class="sentence english" id="next-english-4"></p>
-                    <p class="sentence thai" id="next-thai-4"></p>
+                    <p class="sentence thai" id="thai"></p>
                     <h1 class="word bottom-right" id="next-word-bottom-4"></h1>
                 </div>
             </div>
@@ -165,6 +165,8 @@
     <audio id="card-audio" src=""></audio>
     <!-- Canvas for snapshot -->
     <canvas id="snapshot-canvas" style="display: none;"></canvas>
+    <!-- Canvas for finger tracking -->
+    <canvas id="finger-track-canvas" style="position: absolute; top: 0; left: 0; z-index: 1000; pointer-events: none;"></canvas>
     <script src="script.js"></script>
 </body>
 </html>
