@@ -319,53 +319,8 @@ function animateCardStackDrop(callback) {
         setTimeout(() => {
             enableCardInteractions();
             callback();
-            // Trigger demo animation after 3 seconds if visitCount <= 20 and no interaction
-            if (visitCount <= 20 && !hasInteracted) {
-                setTimeout(autoDemoAnimation, 3000);
-            }
         }, 1000 + (cards.length - 1) * 200);
     }, 100);
-}
-
-// Function to perform automatic tap and swipe demo
-function autoDemoAnimation() {
-    if (hasInteracted || vocabData.length === 0) return;
-
-    const card = document.getElementById('vocab-card');
-    const audio = document.getElementById('card-audio');
-    const mainContent = document.querySelector('.main-content');
-    const cardContainer = document.getElementById('card-container');
-
-    // Apply blur to background (everything except the top card)
-    mainContent.classList.add('demo-blurred');
-    cardContainer.style.filter = 'none'; // Ensure card-container remains unblurred
-
-    // Simulate tap (play audio and glow effect)
-    card.classList.add('glow');
-    audio.play().catch(error => console.error('Error playing audio:', error));
-
-    // Remove glow and proceed to swipe after 600ms (matching glow animation duration)
-    setTimeout(() => {
-        card.classList.remove('glow');
-
-        // Choose a random swipe direction
-        const directions = [
-            { translateX: window.innerWidth, translateY: 0, rotate: 15 }, // Right
-            { translateX: -window.innerWidth, translateY: 0, rotate: -15 }, // Left
-            { translateX: 0, translateY: -window.innerHeight, rotate: -10 }, // Up
-            { translateX: 0, translateY: window.innerHeight, rotate: 10 } // Down
-        ];
-        const randomDirection = directions[Math.floor(Math.random() * directions.length)];
-
-        // Animate swipe
-        moveToNextCard(randomDirection.translateX, randomDirection.translateY, randomDirection.rotate, true);
-
-        // Remove blur after swipe animation completes
-        setTimeout(() => {
-            mainContent.classList.remove('demo-blurred');
-            cardContainer.style.filter = ''; // Reset filter
-        }, 500); // Matches swipe animation duration
-    }, 600);
 }
 
 // Function to enable tap interactions for cards
@@ -543,22 +498,20 @@ function displayCards() {
 }
 
 // Function to animate and move to next card
-function moveToNextCard(translateX, translateY, rotate, isDemo = false) {
+function moveToNextCard(translateX, translateY, rotate) {
     const card = document.getElementById('vocab-card');
     card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
     card.style.zIndex = '1000';
-    // Mark current card as swiped (unless it's a demo swipe)
-    if (!isDemo) {
-        const originalIndex = vocabData[currentIndex].originalIndex;
-        if (!swipedCards.includes(originalIndex)) {
-            swipedCards.push(originalIndex);
-            localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
-        }
-        // Set hasSwiped to true after first real swipe
-        hasSwiped = true;
+    // Mark current card as swiped
+    const originalIndex = vocabData[currentIndex].originalIndex;
+    if (!swipedCards.includes(originalIndex)) {
+        swipedCards.push(originalIndex);
+        localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
     }
+    // Set hasSwiped to true after first real swipe
+    hasSwiped = true;
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % vocabData.length;
         displayCards();
