@@ -665,7 +665,6 @@ html, body {
     .card-container {
         width: 90vw;
         height: calc(90vw * 1.4);
-        margin-top: 10px; /* Added to shift downward by 10px */
     }
 
     .website-stats {
