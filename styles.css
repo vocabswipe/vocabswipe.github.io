@@ -682,7 +682,7 @@ html, body {
     }
 
     .count-text {
-        font-size: 0.84rem;
+        font-size: 0.924rem; /* Increased by 10% from 0.84rem for English version */
         max-width: 300px;
         line-height: 1.6;
         transition: opacity 0.05s ease;
