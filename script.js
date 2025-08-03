@@ -420,7 +420,7 @@ async function loadVocabData() {
 function displayCards() {
     if (vocabData.length === 0) return;
 
-    const cardBackgroundColor = '#ffffff';
+    const cardBackgroundColor = '#FFF8DC'; // updated from white '#ffffff'
     const cardTextColor = '#000000';
     const cardBorderColor = '#000000';
 
