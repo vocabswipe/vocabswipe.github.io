@@ -36,10 +36,6 @@ html, body {
     transition: filter 0.3s ease;
 }
 
-.main-content.blurred {
-    filter: blur(5px);
-}
-
 .main-content.demo-blurred {
     filter: blur(5px);
 }
@@ -76,7 +72,7 @@ html, body {
     width: 100%;
     max-width: 360px; /* Match max card width for alignment */
     display: flex;
-    justify-content: space-between; /* Coffee on left, share on right */
+    justify-content: flex-end; /* Share icon on right */
     padding: 10px;
     position: fixed;
     top: 10px; /* Fixed at top of viewport */
@@ -85,7 +81,7 @@ html, body {
     z-index: 100; /* Ensure above all content */
 }
 
-.share-icon, .coffee-icon {
+.share-icon {
     width: 30px;
     height: 30px;
     cursor: pointer;
@@ -93,12 +89,12 @@ html, body {
     -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
 }
 
-.share-icon:hover, .coffee-icon:hover {
+.share-icon:hover {
     transform: scale(1.1);
     opacity: 0.8;
 }
 
-.share-icon:active, .coffee-icon:active {
+.share-icon:active {
     transform: scale(0.9);
     opacity: 0.6;
 }
@@ -108,143 +104,6 @@ html, body {
     .share-icon {
         display: none;
     }
-}
-
-/* Donation popup styling */
-.donation-popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.donation-content {
-    background-color: #ffffff;
-    width: 90%;
-    max-width: 340px;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    position: relative;
-    text-align: center;
-}
-
-.donation-header {
-    margin-bottom: 15px;
-}
-
-.donation-title {
-    font-family: 'Bangers', cursive;
-    font-size: 1.8rem;
-    color: #35654d;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.donation-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.donation-message {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 0.945rem;
-    color: #333333;
-    margin-bottom: 20px;
-    line-height: 1.5;
-    transition: opacity 0.05s ease;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.donation-message.thai-text {
-    font-size: 0.945rem;
-    line-height: 1.5;
-}
-
-.vocabswipe-text {
-    font-family: 'Bangers', cursive;
-    color: #35654d;
-}
-
-.qr-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.qr-code {
-    width: 150px;
-    height: 150px;
-    border: 2px solid #35654d;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.promptpay-logo {
-    width: 100px;
-    height: auto;
-}
-
-.developer-info {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.developer-photo {
-    width: 100px; /* Doubled from 50px */
-    height: 100px; /* Doubled from 50px */
-    border-radius: 50%;
-    border: 2px solid #35654d;
-    margin-right: 10px;
-    image-rendering: -webkit-optimize-contrast; /* Improves resolution */
-}
-
-.developer-text {
-    text-align: left;
-}
-
-.developer-name {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 0.945rem;
-    color: #333333;
-    margin-bottom: 5px;
-    line-height: 1.4; /* Adjusted for new line */
-}
-
-.developer-role {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 0.84rem;
-    color: #555555;
-}
-
-.developer-role .vocabswipe-text {
-    font-family: 'Bangers', cursive;
-    color: #35654d;
-}
-
-.close-icon {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.close-icon:hover {
-    transform: scale(1.1);
 }
 
 /* Website statistics styling */
@@ -718,77 +577,18 @@ html, body {
         transform: translate(3.888px, 3.888px) rotate(3.888deg); /* Reduced by 10% */
     }
 
-    .share-icon, .coffee-icon {
+    .share-icon {
         width: 25px;
         height: 25px;
         -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
     }
 
-    .share-icon:active, .coffee-icon:active {
+    .share-icon:active {
         transform: scale(0.9);
         opacity: 0.6;
     }
 
     .icon-panel {
         max-width: 340px; /* Adjusted for mobile */
-    }
-
-    .donation-content {
-        width: 85%;
-        max-width: 300px;
-        padding: 15px;
-    }
-
-    .donation-title {
-        font-size: 1.6rem;
-    }
-
-    .donation-message {
-        font-size: 0.84rem;
-    }
-
-    .donation-message.thai-text {
-        font-size: 0.84rem;
-    }
-
-    .vocabswipe-text {
-        font-family: 'Bangers', cursive;
-        color: #35654d;
-    }
-
-    .qr-code {
-        width: 120px;
-        height: 120px;
-    }
-
-    .promptpay-logo {
-        width: 80px;
-    }
-
-    .developer-photo {
-        width: 80px; /* Doubled from 40px */
-        height: 80px; /* Doubled from 40px */
-        image-rendering: -webkit-optimize-contrast; /* Improves resolution */
-    }
-
-    .developer-name {
-        font-size: 0.84rem;
-        line-height: 1.4; /* Adjusted for new line */
-    }
-
-    .developer-role {
-        font-size: 0.756rem;
-    }
-
-    .developer-role .vocabswipe-text {
-        font-family: 'Bangers', cursive;
-        color: #35654d;
-    }
-
-    .close-icon {
-        width: 18px;
-        height: 18px;
-        bottom: 8px;
-        right: 8px;
     }
 }
