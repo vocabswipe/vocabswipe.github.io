@@ -183,25 +183,11 @@ function alternateStatsText() {
     setInterval(swapText, 20000);
 }
 
-// Function to check if it's night time in Thailand (10 PM - 6 AM)
-function isThailandNightTime() {
-    const now = new Date();
-    const thailandTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Bangkok" }));
-    const hours = thailandTime.getHours();
-    return hours >= 22 || hours < 6;
-}
-
-// Function to detect if user is on mobile
-function isMobileDevice() {
-    return /Mobi|Android/i.test(navigator.userAgent);
-}
-
-// Function to set initial card theme based on time
+// Function to set initial card theme
 function setInitialCardTheme() {
-    const isNight = isThailandNightTime();
-    const cardBackgroundColor = isNight ? '#000000' : '#ffffff';
-    const cardTextColor = isNight ? '#FFD700' : '#000000';
-    const cardBorderColor = isNight ? '#FFD700' : '#000000';
+    const cardBackgroundColor = '#ffffff';
+    const cardTextColor = '#000000';
+    const cardBorderColor = '#000000';
 
     const cards = [
         document.getElementById('vocab-card'),
@@ -231,8 +217,7 @@ function setInitialCardTheme() {
 function populateCardsBeforeAnimation() {
     if (vocabData.length === 0) return;
 
-    const isNight = isThailandNightTime();
-    const cardTextColor = isNight ? '#FFD700' : '#000000';
+    const cardTextColor = '#000000';
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
     const wordBottomElement = document.getElementById('word-bottom');
@@ -475,10 +460,9 @@ async function loadVocabData() {
 function displayCards() {
     if (vocabData.length === 0) return;
 
-    const isNight = isThailandNightTime();
-    const cardBackgroundColor = isNight ? '#000000' : '#ffffff';
-    const cardTextColor = isNight ? '#FFD700' : '#000000';
-    const cardBorderColor = isNight ? '#FFD700' : '#000000';
+    const cardBackgroundColor = '#ffffff';
+    const cardTextColor = '#000000';
+    const cardBorderColor = '#000000';
 
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
