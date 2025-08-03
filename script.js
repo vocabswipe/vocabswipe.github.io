@@ -321,25 +321,8 @@ function animateCardStackDrop(callback) {
 
         // Call callback after animation completes to enable interactions
         setTimeout(() => {
-            // Ensure audio context is created and resumed for mobile devices
-            if (isMobileDevice()) {
-                if (!audioContext) {
-                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                }
-                if (audioContext.state === 'suspended') {
-                    audioContext.resume().then(() => {
-                        console.log('AudioContext resumed');
-                        enableCardInteractions();
-                        callback();
-                    });
-                } else {
-                    enableCardInteractions();
-                    callback();
-                }
-            } else {
-                enableCardInteractions();
-                callback();
-            }
+            enableCardInteractions();
+            callback();
         }, 1000 + (cards.length - 1) * 200);
     }, 100);
 }
@@ -369,7 +352,7 @@ function stopCardMedia(cardId) {
     if (mediaRecorders[cardId] && mediaRecorders[cardId].state === 'recording') {
         mediaRecorders[cardId].stop();
         isRecording = false;
-        recordedChunks[cardId] = []; // Clear recorded chunks
+        recordedChunks[cardId] = [];
         delete mediaRecorders[cardId]; // Clear the recorder
         document.getElementById(`mic-button${cardId === 'vocab-card' ? '' : '-' + cardId.split('-')[1]}`).classList.remove('pulsating');
         const playButton = document.getElementById(`play-button${cardId === 'vocab-card' ? '' : '-' + cardId.split('-')[1]}`);
@@ -535,10 +518,7 @@ function enableCardInteractions() {
         };
 
         audioButton.addEventListener('click', audioHandler);
-        audioButton.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            audioHandler(e);
-        });
+        audioButton.addEventListener('touchstart', audioHandler);
 
         // Microphone button handler (click and touchstart)
         const micHandler = (e) => {
@@ -566,10 +546,7 @@ function enableCardInteractions() {
         };
 
         micButton.addEventListener('click', micHandler);
-        micButton.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            micHandler(e);
-        });
+        micButton.addEventListener('touchstart', micHandler);
 
         // Play recording button handler (click and touchstart)
         const playHandler = (e) => {
@@ -599,10 +576,7 @@ function enableCardInteractions() {
         };
 
         playButton.addEventListener('click', playHandler);
-        playButton.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            playHandler(e);
-        });
+        playButton.addEventListener('touchstart', playHandler);
     });
 }
 
@@ -831,7 +805,7 @@ function moveToNextCard(translateX, translateY, rotate) {
     hasSwiped = true;
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % vocabData.length;
-        // Shift recorded chunks for the new top card (previously next-card-1)
+        // Clear recorded chunks for the new top card (previously next-card-1)
         if (currentIndex < vocabData.length) {
             recordedChunks['vocab-card'] = recordedChunks['next-card-1'] || [];
             recordedChunks['next-card-1'] = recordedChunks['next-card-2'] || [];
