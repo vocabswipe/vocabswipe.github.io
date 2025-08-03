@@ -3,14 +3,10 @@ let vocabData = [];
 let originalVocabLength = 0; // Store original length for stats
 let currentIndex = 0;
 let hasSwiped = false; // Flag to track if user has swiped
-<<<<<<< HEAD
-let hasInteracted = false; // Flag to track user interaction
-=======
 let isAudioPlaying = false; // Track if any audio is playing
 let audioContext = null; // Web Audio API context
 let currentAudioSource = null; // Track current audio source for stopping
 let activeCardId = null; // Track the active card for audio operations
->>>>>>> b8e6f32b62817c1723197b49380e629f2afacbfc
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
@@ -144,48 +140,48 @@ function updateProgressBar() {
     }
 }
 
-// Function to alternate stats text, slogan, progress label, and donation message between English and Thai
+// Function to alternate stats text, slogan, progress label, and shop message between English and Thai
 function alternateStatsText() {
     const line1 = document.getElementById('stats-line1');
     const slogan = document.querySelector('.website-slogan');
     const progressLabel = document.getElementById('progress-label');
-    const donationMessage = document.getElementById('donation-message');
+    const shopMessage = document.getElementById('shop-message');
     let isEnglish = true;
 
     function swapText() {
         line1.style.transition = 'opacity 0.05s ease';
         slogan.style.transition = 'opacity 0.05s ease';
         progressLabel.style.transition = 'opacity 0.05s ease';
-        donationMessage.style.transition = 'opacity 0.05s ease';
+        shopMessage.style.transition = 'opacity 0.05s ease';
         line1.style.opacity = '0';
         slogan.style.opacity = '0';
         progressLabel.style.opacity = '0';
-        donationMessage.style.opacity = '0';
+        shopMessage.style.opacity = '0';
 
         setTimeout(() => {
             if (isEnglish) {
                 line1.textContent = 'ประโยคภาษาอังกฤษอเมริกันที่จำเป็น';
                 slogan.textContent = 'ยิ่งปัด ยิ่งเก่ง';
                 progressLabel.textContent = 'ปัดไปแล้ว';
-                donationMessage.innerHTML = 'ซื้อกาแฟให้ผมเพื่อให้ <span class="vocabswipe-text">VOCABSWIPE</span> ฟรีและเติบโตต่อไป! สแกนคิวอาร์โค้ดเพื่อสนับสนุนผ่านพร้อมเพย์';
+                shopMessage.innerHTML = 'สนับสนุน <span class="vocabswipe-text">VOCABSWIPE</span> ด้วยการซื้อสินค้าพิเศษของเรา! สแกนคิวอาร์โค้ดเพื่อชำระเงินผ่านพร้อมเพย์';
                 line1.classList.add('thai-text');
                 slogan.classList.add('thai-text');
                 progressLabel.classList.add('thai-text');
-                donationMessage.classList.add('thai-text');
+                shopMessage.classList.add('thai-text');
             } else {
                 line1.textContent = 'Essential American English Sentences';
                 slogan.textContent = 'Master Words, Swipe by Swipe';
                 progressLabel.textContent = 'Swiped Cards';
-                donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support via PromptPay.';
+                shopMessage.innerHTML = 'Support <span class="vocabswipe-text">VOCABSWIPE</span> by purchasing our exclusive products! Scan the QR code to pay via PromptPay.';
                 line1.classList.remove('thai-text');
                 slogan.classList.remove('thai-text');
                 progressLabel.classList.remove('thai-text');
-                donationMessage.classList.remove('thai-text');
+                shopMessage.classList.remove('thai-text');
             }
             line1.style.opacity = '1';
             slogan.style.opacity = '1';
             progressLabel.style.opacity = '1';
-            donationMessage.style.opacity = '1';
+            shopMessage.style.opacity = '1';
             isEnglish = !isEnglish;
         }, 50);
     }
@@ -193,25 +189,17 @@ function alternateStatsText() {
     line1.textContent = 'Essential American English Sentences';
     slogan.textContent = 'Master Words, Swipe by Swipe';
     progressLabel.textContent = 'Swiped Cards';
-    donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support via PromptPay.';
+    shopMessage.innerHTML = 'Support <span class="vocabswipe-text">VOCABSWIPE</span> by purchasing our exclusive products! Scan the QR code to pay via PromptPay.';
     line1.style.opacity = '1';
     slogan.style.opacity = '1';
     progressLabel.style.opacity = '1';
-    donationMessage.style.opacity = '1';
+    shopMessage.style.opacity = '1';
     line1.classList.remove('thai-text');
     slogan.classList.remove('thai-text');
     progressLabel.classList.remove('thai-text');
-    donationMessage.classList.remove('thai-text');
+    shopMessage.classList.remove('thai-text');
 
     setInterval(swapText, 20000);
-}
-
-// Function to check if it's night time in Thailand (10 PM - 6 AM)
-function isThailandNightTime() {
-    const now = new Date();
-    const thailandTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Bangkok" }));
-    const hours = thailandTime.getHours();
-    return hours >= 22 || hours < 6;
 }
 
 // Function to detect if user is on mobile
@@ -219,39 +207,6 @@ function isMobileDevice() {
     return /Mobi|Android/i.test(navigator.userAgent);
 }
 
-// Function to set initial card theme based on time
-function setInitialCardTheme() {
-    const isNight = isThailandNightTime();
-    const cardBackgroundColor = isNight ? '#000000' : '#ffffff';
-    const cardTextColor = isNight ? '#FFD700' : '#000000';
-    const cardBorderColor = isNight ? '#FFD700' : '#000000';
-
-    const cards = [
-        document.getElementById('vocab-card'),
-        document.getElementById('next-card-1'),
-        document.getElementById('next-card-2'),
-        document.getElementById('next-card-3'),
-        document.getElementById('next-card-4'),
-        document.getElementById('next-card-5'),
-        document.getElementById('next-card-6'),
-        document.getElementById('next-card-7'),
-        document.getElementById('next-card-8'),
-        document.getElementById('next-card-9'),
-        ...document.querySelectorAll('.card-stack')
-    ];
-
-    cards.forEach(card => {
-        card.style.backgroundColor = cardBackgroundColor;
-        card.style.borderColor = cardBorderColor;
-        const contentElements = card.querySelectorAll('.word, .sentence');
-        contentElements.forEach(element => {
-            element.style.color = cardTextColor;
-        });
-    });
-}
-
-<<<<<<< HEAD
-=======
 // Function to create ripple effect
 function createRippleEffect(x, y, cardElement) {
     const ripple = document.createElement('div');
@@ -301,13 +256,11 @@ function resizeFingerTrackCanvas() {
     fingerTrackCtx.scale(pixelRatio, pixelRatio);
 }
 
->>>>>>> b8e6f32b62817c1723197b49380e629f2afacbfc
 // Function to populate cards with content before animation
 function populateCardsBeforeAnimation() {
     if (vocabData.length === 0) return;
 
-    const isNight = isThailandNightTime();
-    const cardTextColor = isNight ? '#FFD700' : '#000000';
+    const cardTextColor = '#000000'; // Always black for white background
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
     const wordBottomElement = document.getElementById('word-bottom');
@@ -409,58 +362,10 @@ function animateCardStackDrop(callback) {
         setTimeout(() => {
             enableCardInteractions();
             callback();
-            // Trigger demo animation after 3 seconds if visitCount <= 20 and no interaction
-            if (visitCount <= 20 && !hasInteracted) {
-                setTimeout(autoDemoAnimation, 3000);
-            }
         }, 1000 + (cards.length - 1) * 200);
     }, 100);
 }
 
-<<<<<<< HEAD
-// Function to perform automatic tap and swipe demo
-function autoDemoAnimation() {
-    if (hasInteracted || vocabData.length === 0) return;
-
-    const card = document.getElementById('vocab-card');
-    const audio = document.getElementById('card-audio');
-    const mainContent = document.querySelector('.main-content');
-    const cardContainer = document.getElementById('card-container');
-
-    // Apply blur to background (everything except the top card)
-    mainContent.classList.add('demo-blurred');
-    cardContainer.style.filter = 'none'; // Ensure card-container remains unblurred
-
-    // Simulate tap (play audio and glow effect)
-    card.classList.add('glow');
-    audio.play().catch(error => console.error('Error playing audio:', error));
-
-    // Remove glow and proceed to swipe after 600ms (matching glow animation duration)
-    setTimeout(() => {
-        card.classList.remove('glow');
-
-        // Choose a random swipe direction
-        const directions = [
-            { translateX: window.innerWidth, translateY: 0, rotate: 15 }, // Right
-            { translateX: -window.innerWidth, translateY: 0, rotate: -15 }, // Left
-            { translateX: 0, translateY: -window.innerHeight, rotate: -10 }, // Up
-            { translateX: 0, translateY: window.innerHeight, rotate: 10 } // Down
-        ];
-        const randomDirection = directions[Math.floor(Math.random() * directions.length)];
-
-        // Animate swipe
-        moveToNextCard(randomDirection.translateX, randomDirection.translateY, randomDirection.rotate, true);
-
-        // Remove blur after swipe animation completes
-        setTimeout(() => {
-            mainContent.classList.remove('demo-blurred');
-            cardContainer.style.filter = ''; // Reset filter
-        }, 500); // Matches swipe animation duration
-    }, 600);
-}
-
-// Function to enable tap interactions for cards
-=======
 // Function to stop audio for a specific card
 function stopCardAudio(cardId) {
     if (isAudioPlaying && currentAudioSource && activeCardId === cardId) {
@@ -555,38 +460,20 @@ function loadAndPlayAudio(audioSrc, cardId) {
 }
 
 // Function to enable card interactions (tap to play audio)
->>>>>>> b8e6f32b62817c1723197b49380e629f2afacbfc
 function enableCardInteractions() {
-    const topCard = document.getElementById('vocab-card');
-    const nextCard = document.getElementById('next-card-1');
+    const cards = [
+        { id: 'vocab-card' },
+        { id: 'next-card-1' },
+        { id: 'next-card-2' },
+        { id: 'next-card-3' },
+        { id: 'next-card-4' },
+        { id: 'next-card-5' },
+        { id: 'next-card-6' },
+        { id: 'next-card-7' },
+        { id: 'next-card-8' },
+        { id: 'next-card-9' }
+    ];
 
-<<<<<<< HEAD
-    // Tap handler for top card
-    topCard.addEventListener('click', () => {
-        hasInteracted = true; // Mark interaction
-        if (!isDragging) {
-            const audio = document.getElementById('card-audio');
-            topCard.classList.add('glow');
-            audio.play().catch(error => console.error('Error playing audio:', error));
-            setTimeout(() => {
-                topCard.classList.remove('glow');
-            }, 600);
-        }
-    });
-
-    // Tap handler for next card
-    nextCard.addEventListener('click', () => {
-        hasInteracted = true; // Mark interaction
-        if (!isDragging && currentIndex + 1 < vocabData.length) {
-            const nextEntry = vocabData[currentIndex + 1];
-            const audio = new Audio(`data/${nextEntry.audio}`);
-            nextCard.classList.add('glow');
-            audio.play().catch(error => console.error('Error playing audio:', error));
-            setTimeout(() => {
-                nextCard.classList.remove('glow');
-            }, 600);
-        }
-=======
     cards.forEach((card, index) => {
         const cardElement = document.getElementById(card.id);
         const tapHandler = (e) => {
@@ -614,16 +501,14 @@ function enableCardInteractions() {
             }
         };
 
-        cardElementഗElement.addEventListener('click', tapHandler);
+        cardElement.addEventListener('click', tapHandler);
         cardElement.addEventListener('touchstart', tapHandler);
->>>>>>> b8e6f32b62817c1723197b49380e629f2afacbfc
     });
 }
 
 // Function to fetch and parse JSONL file
 async function loadVocabData() {
     try {
-        setInitialCardTheme();
         const cards = [
             document.getElementById('vocab-card'),
             document.getElementById('next-card-1'),
@@ -638,6 +523,8 @@ async function loadVocabData() {
             ...document.querySelectorAll('.card-stack')
         ];
         cards.forEach(card => {
+            card.style.backgroundColor = '#ffffff'; // Set to white background
+            card.style.borderColor = '#000000'; // Black border
             card.style.opacity = '0';
             card.style.display = 'none'; // Ensure cards are hidden initially
         });
@@ -679,10 +566,9 @@ async function loadVocabData() {
 function displayCards() {
     if (vocabData.length === 0) return;
 
-    const isNight = isThailandNightTime();
-    const cardBackgroundColor = isNight ? '#000000' : '#ffffff';
-    const cardTextColor = isNight ? '#FFD700' : '#000000';
-    const cardBorderColor = isNight ? '#FFD700' : '#000000';
+    const cardBackgroundColor = '#ffffff'; // Always white
+    const cardTextColor = '#000000'; // Always black
+    const cardBorderColor = '#000000'; // Always black
 
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
@@ -763,29 +649,25 @@ function displayCards() {
 }
 
 // Function to animate and move to next card
-<<<<<<< HEAD
-function moveToNextCard(translateX, translateY, rotate, isDemo = false) {
-=======
 function moveToNextCard(translateX, translateY, rotate) {
     // Stop all audio for the current card before moving to next card
     stopCardAudio('vocab-card');
 
->>>>>>> b8e6f32b62817c1723197b49380e629f2afacbfc
     const card = document.getElementById('vocab-card');
     card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
     card.style.zIndex = '1000';
-    // Mark current card as swiped (unless it's a demo swipe)
-    if (!isDemo) {
-        const originalIndex = vocabData[currentIndex].originalIndex;
-        if (!swipedCards.includes(originalIndex)) {
-            swipedCards.push(originalIndex);
-            localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
-        }
-        // Set hasSwiped to true after first real swipe
-        hasSwiped = true;
+    
+    // Mark current card as swiped
+    const originalIndex = vocabData[currentIndex].originalIndex;
+    if (!swipedCards.includes(originalIndex)) {
+        swipedCards.push(originalIndex);
+        localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
     }
+    // Set hasSwiped to true after first real swipe
+    hasSwiped = true;
+    
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % vocabData.length;
         displayCards();
@@ -795,23 +677,9 @@ function moveToNextCard(translateX, translateY, rotate) {
 }
 
 // Touch and mouse handling
-<<<<<<< HEAD
-let isDragging = false;
-let startX = 0;
-let startY = 0;
-let currentX = 0;
-let currentY = 0;
-let startTime = 0;
-const minSwipeDistance = 50;
-const maxTapDistance = 10;
-const maxTapDuration = 300;
-
-=======
->>>>>>> b8e6f32b62817c1723197b49380e629f2afacbfc
 const card = document.querySelector('#vocab-card');
 
 card.addEventListener('touchstart', (e) => {
-    hasInteracted = true; // Mark interaction
     if (e.touches.length === 1) {
         e.preventDefault();
         startX = e.changedTouches[0].screenX;
@@ -842,7 +710,6 @@ card.addEventListener('touchmove', (e) => {
 });
 
 card.addEventListener('touchend', (e) => {
-    hasInteracted = true; // Mark interaction
     e.preventDefault();
     isDragging = false;
     const endX = e.changedTouches[0].screenX;
@@ -853,16 +720,6 @@ card.addEventListener('touchend', (e) => {
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
     if (distance <= maxTapDistance && touchDuration <= maxTapDuration) {
-<<<<<<< HEAD
-        const audio = document.querySelector('#card-audio');
-        card.classList.add('glow');
-        audio.play().catch(error => console.error('Error playing audio:', error));
-        card.style.transform = 'translate(0, 0) rotate(0deg)';
-        setTimeout(() => {
-            card.classList.remove('glow');
-        }, 600);
-    } else if (distance > minSwipeDistance) {
-=======
         // Handle tap
         const clientX = e.changedTouches[0].clientX;
         const clientY = e.changedTouches[0].clientY;
@@ -880,7 +737,6 @@ card.addEventListener('touchend', (e) => {
         }
     } else if (distance > minSwipeDistance) {
         // Handle swipe
->>>>>>> b8e6f32b62817c1723197b49380e629f2afacbfc
         const angle = Math.atan2(deltaY, deltaX);
         const magnitude = distance * 5;
         const translateX = Math.cos(angle) * magnitude;
@@ -895,7 +751,6 @@ card.addEventListener('touchend', (e) => {
 });
 
 card.addEventListener('mousedown', (e) => {
-    hasInteracted = true; // Mark interaction
     e.preventDefault();
     startX = e.screenX;
     startY = e.screenY;
@@ -924,7 +779,6 @@ card.addEventListener('mousemove', (e) => {
 });
 
 card.addEventListener('mouseup', (e) => {
-    hasInteracted = true; // Mark interaction
     e.preventDefault();
     isDragging = false;
     const endX = e.screenX;
@@ -935,16 +789,6 @@ card.addEventListener('mouseup', (e) => {
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
     if (distance <= maxTapDistance && duration <= maxTapDuration) {
-<<<<<<< HEAD
-        const audio = document.querySelector('#card-audio');
-        card.classList.add('glow');
-        audio.play().catch(error => console.error('Error playing audio:', error));
-        card.style.transform = 'translate(0, 0) rotate(0deg)';
-        setTimeout(() => {
-            card.classList.remove('glow');
-        }, 600);
-    } else if (distance > minSwipeDistance) {
-=======
         // Handle tap
         const clientX = e.clientX;
         const clientY = e.clientY;
@@ -954,7 +798,6 @@ card.addEventListener('mouseup', (e) => {
         }
     } else if (distance > minSwipeDistance) {
         // Handle swipe
->>>>>>> b8e6f32b62817c1723197b49380e629f2afacbfc
         const angle = Math.atan2(deltaY, deltaX);
         const magnitude = distance * 5;
         const translateX = Math.cos(angle) * magnitude;
@@ -970,7 +813,6 @@ card.addEventListener('mouseup', (e) => {
 
 card.addEventListener('mouseleave', () => {
     if (isDragging) {
-        hasInteracted = true; // Mark interaction
         isDragging = false;
         card.style.transition = 'transform 0.3s ease';
         card.style.transform = 'translate(0, 0) rotate(0deg)';
@@ -979,16 +821,13 @@ card.addEventListener('mouseleave', () => {
 });
 
 document.addEventListener('keydown', (e) => {
-    hasInteracted = true; // Mark interaction
     switch (e.key) {
         case ' ':
             e.preventDefault();
-            const audio = document.querySelector('#card-audio');
-            card.classList.add('glow');
-            audio.play().catch(error => console.error('Error playing audio:', error));
-            setTimeout(() => {
-                card.classList.remove('glow');
-            }, 600);
+            const audioSrc = document.getElementById('card-audio').src;
+            if (audioSrc) {
+                playAudio(audioSrc, 'vocab-card', card, window.innerWidth / 2, window.innerHeight / 2);
+            }
             break;
         case 'ArrowLeft':
             e.preventDefault();
@@ -1012,7 +851,6 @@ document.addEventListener('keydown', (e) => {
 // Share icon functionality
 const shareIcon = document.querySelector('#share-icon');
 shareIcon.addEventListener('click', () => {
-    hasInteracted = true; // Mark interaction
     if (typeof html2canvas === 'undefined') {
         console.error('html2canvas is not loaded');
         return;
@@ -1020,28 +858,25 @@ shareIcon.addEventListener('click', () => {
     captureSnapshot();
 });
 
-// Coffee icon functionality
-const coffeeIcon = document.querySelector('#coffee-icon');
-const donationPopup = document.querySelector('#donation-popup');
+// Shop icon functionality
+const shopIcon = document.querySelector('#shop-icon');
+const shopPopup = document.querySelector('#shop-popup');
 const closeIcon = document.querySelector('#close-icon');
 const mainContent = document.querySelector('.main-content');
 
-coffeeIcon.addEventListener('click', () => {
-    hasInteracted = true; // Mark interaction
-    donationPopup.style.display = 'flex';
+shopIcon.addEventListener('click', () => {
+    shopPopup.style.display = 'flex';
     mainContent.classList.add('blurred');
 });
 
 closeIcon.addEventListener('click', () => {
-    hasInteracted = true; // Mark interaction
-    donationPopup.style.display = 'none';
+    shopPopup.style.display = 'none';
     mainContent.classList.remove('blurred');
 });
 
-donationPopup.addEventListener('click', (e) => {
-    hasInteracted = true; // Mark interaction
-    if (e.target === donationPopup) {
-        donationPopup.style.display = 'none';
+shopPopup.addEventListener('click', (e) => {
+    if (e.target === shopPopup) {
+        shopPopup.style.display = 'none';
         mainContent.classList.remove('blurred');
     }
 });
