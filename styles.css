@@ -244,7 +244,7 @@ html, body {
     max-width: 300px;
     text-align: center;
     position: relative;
-    transition: opacity 1s ease;
+    opacity: 1; /* Ensure immediate visibility */
 }
 
 .counter {
@@ -266,6 +266,7 @@ html, body {
     margin: 5px 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 1.2;
+    height: 30px; /* Fixed height to prevent layout shift */
 }
 
 .stats-text-container {
@@ -656,11 +657,6 @@ html, body {
         top: 0;
     }
 
-    .card-container {
-        width: 90vw;
-        height: calc(90vw * 1.4);
-    }
-
     .website-stats {
         width: 90vw;
         max-width: 300px;
@@ -676,6 +672,7 @@ html, body {
         font-size: 1.8rem;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         line-height: 1.2;
+        height: 28px; /* Fixed height to prevent layout shift */
     }
 
     .count-text {
