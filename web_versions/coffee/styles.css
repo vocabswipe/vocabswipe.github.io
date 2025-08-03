@@ -40,15 +40,6 @@ html, body {
     filter: blur(5px);
 }
 
-.main-content.demo-blurred {
-    filter: blur(5px);
-}
-
-/* Ensure card-container is not blurred during demo */
-.card-container {
-    transition: filter 0.3s ease;
-}
-
 /* Fixed height containers */
 .stats-container {
     width: 100%;
@@ -91,6 +82,7 @@ html, body {
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
     -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
+    touch-action: none; /* Prevent default touch behaviors */
 }
 
 .share-icon:hover, .coffee-icon:hover {
@@ -241,6 +233,7 @@ html, body {
     right: 10px;
     cursor: pointer;
     transition: transform 0.2s ease;
+    touch-action: none; /* Prevent default touch behaviors */
 }
 
 .close-icon:hover {
@@ -352,7 +345,7 @@ html, body {
 /* Progress bar styling */
 .progress-container {
     width: 300px; /* Matches card width */
-    height: 20px; /* Fixed height for progress bar */
+    height: 10px; /* Reduced from 20px to 10px */
     position: absolute;
     top: 92px; /* Moved upward by 18px (was 120px) */
     left: 50%;
@@ -374,7 +367,7 @@ html, body {
     line-height: 1.2;
     height: 20px; /* Fixed height to prevent shifting */
     overflow: hidden;
-    z-index: 20; /* Higher z-index to bring in front */
+    z-index: 100; /* Increased z-index to bring in front */
 }
 
 .progress-label.thai-text {
@@ -399,8 +392,8 @@ html, body {
 
 .progress-bar {
     width: 100%;
-    height: 20px;
-    background-color: #808080; /* Gray track */
+    height: 10px; /* Reduced from 20px to 10px */
+    background-color: #FFF8DC; /* Changed from #ffffff to #FFF8DC */
     border-radius: 4px;
     overflow: hidden;
     position: absolute;
@@ -409,7 +402,7 @@ html, body {
 
 .progress-fill {
     height: 100%;
-    background-color: #00ff00; /* Bright green fill */
+    background-color: #7FFF00;
     width: 0%;
     transition: width 0.3s ease;
 }
@@ -446,17 +439,33 @@ html, body {
     touch-action: none;
     z-index: 10;
     display: none; /* Hide cards initially */
+    overflow: hidden; /* Ensure ripple effect stays within card */
 }
 
-/* Glowing effect */
-.glow {
-    animation: glow 0.6s ease-in-out 1;
+/* Ripple effect styling */
+.ripple {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Prevent ripple from interfering with card interactions */
 }
 
-@keyframes glow {
-    0% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
-    50% { box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.7); }
-    100% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+.ripple-circle {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }
 
 /* Next cards and stack cards */
@@ -587,11 +596,16 @@ html, body {
 @media (max-width: 600px) {
     .stats-container {
         height: 100px;
+        margin-top: 40px; /* Moved downward to avoid top icons */
+    }
+
+    .card-container {
+        margin-top: 40px; /* Moved downward to align with stats */
     }
 
     .info-container {
         height: 170px; /* Adjusted for mobile */
-        top: 20px; /* Moved downward to avoid overlap */
+        top: 60px; /* Moved downward to align with card stack */
     }
 
     .website-info {
@@ -625,7 +639,7 @@ html, body {
     .progress-container {
         width: 90vw; /* Matches card width */
         max-width: 300px;
-        height: 18px; /* Fixed height for progress bar */
+        height: 9px; /* Reduced from 18px to 9px */
         top: 82px; /* Moved upward by 18px (was 110px) */
         left: 50%;
         transform: translateX(-50%);
@@ -637,7 +651,7 @@ html, body {
         top: -18px; /* Fixed position above progress bar */
         line-height: 1.2;
         height: 18px; /* Fixed height */
-        z-index: 20; /* Higher z-index to bring in front */
+        z-index: 100; /* Increased z-index to bring in front */
     }
 
     .progress-label.thai-text {
@@ -654,8 +668,19 @@ html, body {
 
     .progress-bar {
         width: 100%;
-        height: 18px;
+        height: 9px; /* Reduced from 18px to 9px */
+        background-color: #FFF8DC; /* Changed from #ffffff to #FFF8DC */
+        border-radius: 4px;
+        overflow: hidden;
+        position: absolute;
         top: 0;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background-color: #7FFF00;
+        width: 0%;
+        transition: width 0.3s ease;
     }
 
     .card-container {
@@ -715,9 +740,10 @@ html, body {
     }
 
     .share-icon, .coffee-icon {
-        width: 25px;
-        height: 25px;
+        width: 28px; /* Increased from 25px for better touch targets */
+        height: 28px; /* Increased from 25px for better touch targets */
         -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
+        touch-action: none; /* Prevent default touch behaviors */
     }
 
     .share-icon:active, .coffee-icon:active {
@@ -745,11 +771,6 @@ html, body {
 
     .donation-message.thai-text {
         font-size: 0.84rem;
-    }
-
-    .vocabswipe-text {
-        font-family: 'Bangers', cursive;
-        color: #35654d;
     }
 
     .qr-code {
@@ -786,5 +807,6 @@ html, body {
         height: 18px;
         bottom: 8px;
         right: 8px;
+        touch-action: none; /* Prevent default touch behaviors */
     }
 }

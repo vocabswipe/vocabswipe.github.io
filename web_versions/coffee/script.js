@@ -3,7 +3,10 @@ let vocabData = [];
 let originalVocabLength = 0; // Store original length for stats
 let currentIndex = 0;
 let hasSwiped = false; // Flag to track if user has swiped
-let hasInteracted = false; // Flag to track user interaction
+let audioContext = null; // Web Audio API context
+let currentAudioSource = null; // Track current audio source for stopping
+let isAudioPlaying = false; // Track if any audio is playing
+let activeCardId = null; // Track the active card for audio operations
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
@@ -74,7 +77,7 @@ let swipedCards = JSON.parse(localStorage.getItem('swipedCards') || '[]');
     $.fn.countTo.defaults = {
         from: 0,
         to: 0,
-        speed: 10000,
+        speed: 3000,
         refreshInterval: 100,
         decimals: 0,
         formatter: formatter,
@@ -91,7 +94,7 @@ let swipedCards = JSON.parse(localStorage.getItem('swipedCards') || '[]');
 function updateWebsiteStats() {
     const statsElement = document.getElementById('website-stats');
     const countNumberElement = $('.count-number');
-    countNumberElement.data('to', originalVocabLength); // Use original length for stats
+    countNumberElement.data('to', originalVocabLength);
     countNumberElement.data('countToOptions', {
         formatter: function (value, options) {
             return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
@@ -183,25 +186,16 @@ function alternateStatsText() {
     setInterval(swapText, 20000);
 }
 
-// Function to check if it's night time in Thailand (10 PM - 6 AM)
-function isThailandNightTime() {
-    const now = new Date();
-    const thailandTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Bangkok" }));
-    const hours = thailandTime.getHours();
-    return hours >= 22 || hours < 6;
-}
-
 // Function to detect if user is on mobile
 function isMobileDevice() {
     return /Mobi|Android/i.test(navigator.userAgent);
 }
 
-// Function to set initial card theme based on time
+// Function to set initial card theme (always white background)
 function setInitialCardTheme() {
-    const isNight = isThailandNightTime();
-    const cardBackgroundColor = isNight ? '#000000' : '#ffffff';
-    const cardTextColor = isNight ? '#FFD700' : '#000000';
-    const cardBorderColor = isNight ? '#FFD700' : '#000000';
+    const cardBackgroundColor = '#ffffff';
+    const cardTextColor = '#000000';
+    const cardBorderColor = '#000000';
 
     const cards = [
         document.getElementById('vocab-card'),
@@ -227,12 +221,116 @@ function setInitialCardTheme() {
     });
 }
 
+// Function to create ripple effect
+function createRippleEffect(event, card) {
+    const ripple = card.querySelector('.ripple');
+    ripple.innerHTML = ''; // Clear previous ripples
+
+    const rippleElement = document.createElement('span');
+    rippleElement.classList.add('ripple-circle');
+
+    // Get card position and size
+    const rect = card.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    rippleElement.style.width = rippleElement.style.height = `${size}px`;
+
+    // Calculate click/tap position relative to the card
+    let clientX, clientY;
+    if (event.type.includes('touch')) {
+        clientX = event.changedTouches[0].clientX;
+        clientY = event.changedTouches[0].clientY;
+    } else {
+        clientX = event.clientX;
+        clientY = event.clientY;
+    }
+
+    const posX = clientX - rect.left - size / 2;
+    const posY = clientY - rect.top - size / 2;
+
+    rippleElement.style.left = `${posX}px`;
+    rippleElement.style.top = `${posY}px`;
+
+    ripple.appendChild(rippleElement);
+
+    // Remove ripple after animation
+    setTimeout(() => {
+        rippleElement.remove();
+    }, 600); // Matches animation duration
+}
+
+// Function to play audio using Web Audio API for mobile compatibility
+function playAudio(audioSrc, cardId, cardElement) {
+    // Stop any existing audio
+    if (isAudioPlaying && currentAudioSource) {
+        try {
+            currentAudioSource.stop();
+        } catch (e) {
+            console.log('Audio source already stopped:', e);
+        }
+        isAudioPlaying = false;
+        currentAudioSource = null;
+    }
+
+    // Stop HTML5 audio fallback
+    const cardAudio = document.getElementById('card-audio');
+    if (!cardAudio.paused) {
+        cardAudio.pause();
+        cardAudio.currentTime = 0;
+    }
+
+    if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    // Ensure audio context is resumed (required for mobile browsers)
+    if (audioContext.state === 'suspended') {
+        audioContext.resume().then(() => {
+            loadAndPlayAudio(audioSrc, cardId, cardElement);
+        }).catch(error => {
+            console.error('Error resuming audio context:', error);
+        });
+    } else {
+        loadAndPlayAudio(audioSrc, cardId, cardElement);
+    }
+}
+
+function loadAndPlayAudio(audioSrc, cardId, cardElement) {
+    fetch(audioSrc)
+        .then(response => response.arrayBuffer())
+        .then(buffer => audioContext.decodeAudioData(buffer))
+        .then(decodedData => {
+            const source = audioContext.createBufferSource();
+            source.buffer = decodedData;
+            source.connect(audioContext.destination);
+            isAudioPlaying = true;
+            currentAudioSource = source;
+            activeCardId = cardId;
+            source.start(0);
+            source.onended = () => {
+                isAudioPlaying = false;
+                currentAudioSource = null;
+                activeCardId = null;
+            };
+        })
+        .catch(error => {
+            console.error('Error playing audio with Web Audio API:', error);
+            // Fallback to HTML5 audio
+            const audio = new Audio(audioSrc);
+            isAudioPlaying = true;
+            activeCardId = cardId;
+            audio.play().catch(err => console.error('Error playing fallback audio:', err));
+            audio.onended = () => {
+                isAudioPlaying = false;
+                activeCardId = null;
+            };
+        });
+}
+
 // Function to populate cards with content before animation
 function populateCardsBeforeAnimation() {
     if (vocabData.length === 0) return;
 
-    const isNight = isThailandNightTime();
-    const cardTextColor = isNight ? '#FFD700' : '#000000';
+    const cardTextColor = '#000000';
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
     const wordBottomElement = document.getElementById('word-bottom');
@@ -330,89 +428,61 @@ function animateCardStackDrop(callback) {
             }, index * 200);
         });
 
-        // Call callback after animation completes
+        // Call callback after animation completes to enable interactions
         setTimeout(() => {
             enableCardInteractions();
             callback();
-            // Trigger demo animation after 3 seconds if visitCount <= 20 and no interaction
-            if (visitCount <= 20 && !hasInteracted) {
-                setTimeout(autoDemoAnimation, 3000);
-            }
         }, 1000 + (cards.length - 1) * 200);
     }, 100);
 }
 
-// Function to perform automatic tap and swipe demo
-function autoDemoAnimation() {
-    if (hasInteracted || vocabData.length === 0) return;
-
-    const card = document.getElementById('vocab-card');
-    const audio = document.getElementById('card-audio');
-    const mainContent = document.querySelector('.main-content');
-    const cardContainer = document.getElementById('card-container');
-
-    // Apply blur to background (everything except the top card)
-    mainContent.classList.add('demo-blurred');
-    cardContainer.style.filter = 'none'; // Ensure card-container remains unblurred
-
-    // Simulate tap (play audio and glow effect)
-    card.classList.add('glow');
-    audio.play().catch(error => console.error('Error playing audio:', error));
-
-    // Remove glow and proceed to swipe after 600ms (matching glow animation duration)
-    setTimeout(() => {
-        card.classList.remove('glow');
-
-        // Choose a random swipe direction
-        const directions = [
-            { translateX: window.innerWidth, translateY: 0, rotate: 15 }, // Right
-            { translateX: -window.innerWidth, translateY: 0, rotate: -15 }, // Left
-            { translateX: 0, translateY: -window.innerHeight, rotate: -10 }, // Up
-            { translateX: 0, translateY: window.innerHeight, rotate: 10 } // Down
-        ];
-        const randomDirection = directions[Math.floor(Math.random() * directions.length)];
-
-        // Animate swipe
-        moveToNextCard(randomDirection.translateX, randomDirection.translateY, randomDirection.rotate, true);
-
-        // Remove blur after swipe animation completes
-        setTimeout(() => {
-            mainContent.classList.remove('demo-blurred');
-            cardContainer.style.filter = ''; // Reset filter
-        }, 500); // Matches swipe animation duration
-    }, 600);
-}
-
-// Function to enable tap interactions for cards
+// Function to enable card interactions (tap/click for audio)
 function enableCardInteractions() {
-    const topCard = document.getElementById('vocab-card');
-    const nextCard = document.getElementById('next-card-1');
+    const cards = [
+        { id: 'vocab-card', audioSrcId: 'card-audio' },
+        { id: 'next-card-1' },
+        { id: 'next-card-2' },
+        { id: 'next-card-3' },
+        { id: 'next-card-4' },
+        { id: 'next-card-5' },
+        { id: 'next-card-6' },
+        { id: 'next-card-7' },
+        { id: 'next-card-8' },
+        { id: 'next-card-9' }
+    ];
 
-    // Tap handler for top card
-    topCard.addEventListener('click', () => {
-        hasInteracted = true; // Mark interaction
-        if (!isDragging) {
-            const audio = document.getElementById('card-audio');
-            topCard.classList.add('glow');
-            audio.play().catch(error => console.error('Error playing audio:', error));
-            setTimeout(() => {
-                topCard.classList.remove('glow');
-            }, 600);
-        }
-    });
+    cards.forEach((card, index) => {
+        const cardElement = document.getElementById(card.id);
 
-    // Tap handler for next card
-    nextCard.addEventListener('click', () => {
-        hasInteracted = true; // Mark interaction
-        if (!isDragging && currentIndex + 1 < vocabData.length) {
-            const nextEntry = vocabData[currentIndex + 1];
-            const audio = new Audio(`data/${nextEntry.audio}`);
-            nextCard.classList.add('glow');
-            audio.play().catch(error => console.error('Error playing audio:', error));
-            setTimeout(() => {
-                nextCard.classList.remove('glow');
-            }, 600);
-        }
+        // Tap/click handler for audio and ripple effect
+        const tapHandler = (e) => {
+            e.preventDefault();
+            if (isAudioPlaying) return;
+
+            let audioSrc;
+            if (card.id === 'vocab-card') {
+                audioSrc = document.getElementById('card-audio').src;
+            } else if (currentIndex + index < vocabData.length) {
+                const entry = vocabData[currentIndex + index];
+                audioSrc = `data/${entry.audio}`;
+            }
+
+            if (audioSrc) {
+                createRippleEffect(e, cardElement);
+                if (isMobileDevice() && audioContext && audioContext.state === 'suspended') {
+                    audioContext.resume().then(() => {
+                        playAudio(audioSrc, card.id, cardElement);
+                    }).catch(error => {
+                        console.error('Error resuming audio context:', error);
+                    });
+                } else {
+                    playAudio(audioSrc, card.id, cardElement);
+                }
+            }
+        };
+
+        cardElement.addEventListener('click', tapHandler);
+        cardElement.addEventListener('touchstart', tapHandler);
     });
 }
 
@@ -435,22 +505,19 @@ async function loadVocabData() {
         ];
         cards.forEach(card => {
             card.style.opacity = '0';
-            card.style.display = 'none'; // Ensure cards are hidden initially
+            card.style.display = 'none';
         });
 
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
         let allVocab = text.trim().split('\n').map(line => JSON.parse(line));
-        originalVocabLength = allVocab.length; // Store original length
-        // Add originalIndex to each vocab entry for tracking
+        originalVocabLength = allVocab.length;
         allVocab = allVocab.map((item, index) => ({ ...item, originalIndex: index }));
-        // Filter out swiped cards
         vocabData = allVocab.filter(item => !swipedCards.includes(item.originalIndex));
-        // If all cards are swiped, reset swipedCards
         if (vocabData.length === 0) {
             swipedCards = [];
             localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
-            vocabData = allVocab.slice(); // Copy all cards
+            vocabData = allVocab.slice();
         }
         vocabData = vocabData.sort(() => Math.random() - 0.5);
 
@@ -465,7 +532,6 @@ async function loadVocabData() {
     } catch (error) {
         console.error('Error loading database:', error);
         document.getElementById('word-top').textContent = 'Error';
-        document.getElementById('word-bottom').textContent = 'Error';
         document.getElementById('english').textContent = 'Failed to load data';
         document.getElementById('thai').textContent = '';
     }
@@ -475,10 +541,9 @@ async function loadVocabData() {
 function displayCards() {
     if (vocabData.length === 0) return;
 
-    const isNight = isThailandNightTime();
-    const cardBackgroundColor = isNight ? '#000000' : '#ffffff';
-    const cardTextColor = isNight ? '#FFD700' : '#000000';
-    const cardBorderColor = isNight ? '#FFD700' : '#000000';
+    const cardBackgroundColor = '#ffffff';
+    const cardTextColor = '#000000';
+    const cardBorderColor = '#000000';
 
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
@@ -559,22 +624,38 @@ function displayCards() {
 }
 
 // Function to animate and move to next card
-function moveToNextCard(translateX, translateY, rotate, isDemo = false) {
+function moveToNextCard(translateX, translateY, rotate) {
+    // Stop all media for the current card before moving to next card
+    if (isAudioPlaying && currentAudioSource && activeCardId === 'vocab-card') {
+        try {
+            currentAudioSource.stop();
+        } catch (e) {
+            console.log('Audio source already stopped:', e);
+        }
+        isAudioPlaying = false;
+        currentAudioSource = null;
+        activeCardId = null;
+    }
+
+    const cardAudio = document.getElementById('card-audio');
+    if (!cardAudio.paused) {
+        cardAudio.pause();
+        cardAudio.currentTime = 0;
+    }
+
     const card = document.getElementById('vocab-card');
     card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
     card.style.zIndex = '1000';
-    // Mark current card as swiped (unless it's a demo swipe)
-    if (!isDemo) {
-        const originalIndex = vocabData[currentIndex].originalIndex;
-        if (!swipedCards.includes(originalIndex)) {
-            swipedCards.push(originalIndex);
-            localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
-        }
-        // Set hasSwiped to true after first real swipe
-        hasSwiped = true;
+    // Mark current card as swiped
+    const originalIndex = vocabData[currentIndex].originalIndex;
+    if (!swipedCards.includes(originalIndex)) {
+        swipedCards.push(originalIndex);
+        localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
     }
+    // Set hasSwiped to true after first swipe
+    hasSwiped = true;
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % vocabData.length;
         displayCards();
@@ -590,13 +671,10 @@ let currentX = 0;
 let currentY = 0;
 let startTime = 0;
 const minSwipeDistance = 50;
-const maxTapDistance = 10;
-const maxTapDuration = 300;
 
 const card = document.querySelector('#vocab-card');
 
 card.addEventListener('touchstart', (e) => {
-    hasInteracted = true; // Mark interaction
     if (e.touches.length === 1) {
         e.preventDefault();
         startX = e.changedTouches[0].screenX;
@@ -624,25 +702,15 @@ card.addEventListener('touchmove', (e) => {
 });
 
 card.addEventListener('touchend', (e) => {
-    hasInteracted = true; // Mark interaction
     e.preventDefault();
     isDragging = false;
     const endX = e.changedTouches[0].screenX;
     const endY = e.changedTouches[0].screenY;
-    const touchDuration = Date.now() - startTime;
     const deltaX = endX - startX;
     const deltaY = endY - startY;
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-    if (distance <= maxTapDistance && touchDuration <= maxTapDuration) {
-        const audio = document.querySelector('#card-audio');
-        card.classList.add('glow');
-        audio.play().catch(error => console.error('Error playing audio:', error));
-        card.style.transform = 'translate(0, 0) rotate(0deg)';
-        setTimeout(() => {
-            card.classList.remove('glow');
-        }, 600);
-    } else if (distance > minSwipeDistance) {
+    if (distance > minSwipeDistance) {
         const angle = Math.atan2(deltaY, deltaX);
         const magnitude = distance * 5;
         const translateX = Math.cos(angle) * magnitude;
@@ -656,7 +724,6 @@ card.addEventListener('touchend', (e) => {
 });
 
 card.addEventListener('mousedown', (e) => {
-    hasInteracted = true; // Mark interaction
     e.preventDefault();
     startX = e.screenX;
     startY = e.screenY;
@@ -682,25 +749,15 @@ card.addEventListener('mousemove', (e) => {
 });
 
 card.addEventListener('mouseup', (e) => {
-    hasInteracted = true; // Mark interaction
     e.preventDefault();
     isDragging = false;
     const endX = e.screenX;
     const endY = e.screenY;
-    const duration = Date.now() - startTime;
     const deltaX = endX - startX;
     const deltaY = endY - startY;
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-    if (distance <= maxTapDistance && duration <= maxTapDuration) {
-        const audio = document.querySelector('#card-audio');
-        card.classList.add('glow');
-        audio.play().catch(error => console.error('Error playing audio:', error));
-        card.style.transform = 'translate(0, 0) rotate(0deg)';
-        setTimeout(() => {
-            card.classList.remove('glow');
-        }, 600);
-    } else if (distance > minSwipeDistance) {
+    if (distance > minSwipeDistance) {
         const angle = Math.atan2(deltaY, deltaX);
         const magnitude = distance * 5;
         const translateX = Math.cos(angle) * magnitude;
@@ -715,7 +772,6 @@ card.addEventListener('mouseup', (e) => {
 
 card.addEventListener('mouseleave', () => {
     if (isDragging) {
-        hasInteracted = true; // Mark interaction
         isDragging = false;
         card.style.transition = 'transform 0.3s ease';
         card.style.transform = 'translate(0, 0) rotate(0deg)';
@@ -723,17 +779,7 @@ card.addEventListener('mouseleave', () => {
 });
 
 document.addEventListener('keydown', (e) => {
-    hasInteracted = true; // Mark interaction
     switch (e.key) {
-        case ' ':
-            e.preventDefault();
-            const audio = document.querySelector('#card-audio');
-            card.classList.add('glow');
-            audio.play().catch(error => console.error('Error playing audio:', error));
-            setTimeout(() => {
-                card.classList.remove('glow');
-            }, 600);
-            break;
         case 'ArrowLeft':
             e.preventDefault();
             moveToNextCard(-window.innerWidth, 0, -15);
@@ -756,7 +802,14 @@ document.addEventListener('keydown', (e) => {
 // Share icon functionality
 const shareIcon = document.querySelector('#share-icon');
 shareIcon.addEventListener('click', () => {
-    hasInteracted = true; // Mark interaction
+    if (typeof html2canvas === 'undefined') {
+        console.error('html2canvas is not loaded');
+        return;
+    }
+    captureSnapshot();
+});
+shareIcon.addEventListener('touchstart', (e) => {
+    e.preventDefault();
     if (typeof html2canvas === 'undefined') {
         console.error('html2canvas is not loaded');
         return;
@@ -771,20 +824,34 @@ const closeIcon = document.querySelector('#close-icon');
 const mainContent = document.querySelector('.main-content');
 
 coffeeIcon.addEventListener('click', () => {
-    hasInteracted = true; // Mark interaction
+    donationPopup.style.display = 'flex';
+    mainContent.classList.add('blurred');
+});
+coffeeIcon.addEventListener('touchstart', (e) => {
+    e.preventDefault();
     donationPopup.style.display = 'flex';
     mainContent.classList.add('blurred');
 });
 
 closeIcon.addEventListener('click', () => {
-    hasInteracted = true; // Mark interaction
+    donationPopup.style.display = 'none';
+    mainContent.classList.remove('blurred');
+});
+closeIcon.addEventListener('touchstart', (e) => {
+    e.preventDefault();
     donationPopup.style.display = 'none';
     mainContent.classList.remove('blurred');
 });
 
 donationPopup.addEventListener('click', (e) => {
-    hasInteracted = true; // Mark interaction
     if (e.target === donationPopup) {
+        donationPopup.style.display = 'none';
+        mainContent.classList.remove('blurred');
+    }
+});
+donationPopup.addEventListener('touchstart', (e) => {
+    if (e.target === donationPopup) {
+        e.preventDefault();
         donationPopup.style.display = 'none';
         mainContent.classList.remove('blurred');
     }
