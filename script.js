@@ -143,8 +143,8 @@ function alternateStatsText() {
             if (isEnglish) {
                 line1.textContent = 'ประโยคภาษาอังกฤษอเมริกันที่จำเป็น';
                 slogan.textContent = 'ยิ่งปัด ยิ่งเก่ง';
-                progressLabel.textContent = 'ปัดไปแล้ว';
-                donationMessage.innerHTML = 'ซื้อกาแฟให้ผมเพื่อให้ <span class="vocabswipe-text">VOCABSWIPE</span> ฟรีและเติบโตต่อไป! สแกนคิวอาร์โค้ดเพื่อสนับสนุนผ่านพร้อมเพย์';
+                progressLabel.textContent = 'จำนวนการ์ดที่ปัดไปแล้ว';
+                donationMessage.innerHTML = 'เลี้ยงกาแฟผมเพื่อให้ <span class="vocabswipe-text">VOCABSWIPE</span> ฟรีและเติบโตต่อไป! สแกนคิวอาร์โค้ดเพื่อสนับสนุนผ่านพร้อมเพย์';
                 line1.classList.add('thai-text');
                 slogan.classList.add('thai-text');
                 progressLabel.classList.add('thai-text');
