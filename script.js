@@ -184,7 +184,7 @@ function alternateStatsText() {
 
 // Function to set initial card theme
 function setInitialCardTheme() {
-    const cardBackgroundColor = '#ffffff';
+    const cardBackgroundColor = '#FFF8DC'; // updated from '#ffffff'
     const cardTextColor = '#000000';
     const cardBorderColor = '#000000';
 
