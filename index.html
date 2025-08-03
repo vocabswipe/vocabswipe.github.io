@@ -15,8 +15,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
-    <!-- Icon panel with only share icon -->
+    <!-- Icon panel moved to top of body -->
     <div class="icon-panel">
+        <img src="coffee.svg" alt="Donate" class="coffee-icon" id="coffee-icon">
         <img src="share.svg" alt="Share" class="share-icon" id="share-icon">
     </div>
     <div class="main-content">
@@ -136,6 +137,29 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <!-- Donation pop-up -->
+    <div class="donation-popup" id="donation-popup">
+        <div class="donation-content">
+            <div class="donation-header">
+                <h2 class="donation-title">Support VOCABSWIPE</h2>
+            </div>
+            <div class="donation-body">
+                <p class="donation-message" id="donation-message">Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support the developer via PromptPay.</p>
+                <div class="qr-container">
+                    <img src="qr_code.png" alt="PromptPay QR Code" class="qr-code">
+                    <img src="promptpay_logo.png" alt="PromptPay Logo" class="promptpay-logo">
+                </div>
+                <div class="developer-info">
+                    <img src="my_photo.png" alt="Developer Photo" class="developer-photo">
+                    <div class="developer-text">
+                        <p class="developer-name">Supanut Suntikoon<br>(ศุภณัฐ สันติกูล)</p>
+                        <p class="developer-role"><span class="vocabswipe-text">VOCABSWIPE</span> developer</p>
+                    </div>
+                </div>
+            </div>
+            <img src="close.svg" alt="Close" class="close-icon" id="close-icon">
         </div>
     </div>
     <audio id="card-audio" src=""></audio>
