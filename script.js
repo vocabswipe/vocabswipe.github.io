@@ -398,25 +398,16 @@ function playAudio(audioSrc, audioButton, cardId) {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
 
-    // Resume audio context to handle mobile browser restrictions
-    audioContext.resume().then(() => {
+    // Ensure audio context is resumed (required for mobile browsers)
+    if (audioContext.state === 'suspended') {
+        audioContext.resume().then(() => {
+            loadAndPlayAudio(audioSrc, audioButton, cardId);
+        }).catch(error => {
+            console.error('Error resuming audio context:', error);
+        });
+    } else {
         loadAndPlayAudio(audioSrc, audioButton, cardId);
-    }).catch(error => {
-        console.error('Error resuming audio context:', error);
-        // Fallback to HTML5 audio
-        const audio = new Audio(audioSrc);
-        isAudioPlaying = true;
-        activeCardId = cardId;
-        audioButton.classList.add('pulsating-twice');
-        updateButtonStates();
-        audio.play().catch(err => console.error('Error playing fallback audio:', err));
-        audio.onended = () => {
-            isAudioPlaying = false;
-            activeCardId = null;
-            audioButton.classList.remove('pulsating-twice');
-            updateButtonStates();
-        };
-    });
+    }
 }
 
 function loadAndPlayAudio(audioSrc, audioButton, cardId) {
@@ -480,7 +471,7 @@ function updateButtonStates() {
         const playButton = document.getElementById(card.playId);
 
         audioButton.style.pointerEvents = (isAudioPlaying || isRecording || isPlayingRecording) ? 'none' : 'auto';
-        micButton.style.pointerEvents = (isAudioPlaying || isPlayingRecording) ? 'none' : 'auto';
+        micButton.style.pointerEvents = (isAudioPlaying || isPlayingRecording) ? 'none' : 'auto'; // Allow mic during recording
         playButton.style.pointerEvents = (isAudioPlaying || isRecording || isPlayingRecording) ? 'none' : 'auto';
     });
 }
@@ -523,7 +514,16 @@ function enableCardInteractions() {
                 audioSrc = `data/${entry.audio}`;
             }
             if (audioSrc) {
-                playAudio(audioSrc, audioButton, card.id);
+                // Ensure audio context is resumed for mobile
+                if (isMobileDevice() && audioContext && audioContext.state === 'suspended') {
+                    audioContext.resume().then(() => {
+                        playAudio(audioSrc, audioButton, card.id);
+                    }).catch(error => {
+                        console.error('Error resuming audio context:', error);
+                    });
+                } else {
+                    playAudio(audioSrc, audioButton, card.id);
+                }
             }
         };
 
@@ -827,6 +827,9 @@ function moveToNextCard(translateX, translateY, rotate) {
             recordedChunks['next-card-7'] = recordedChunks['next-card-8'] || [];
             recordedChunks['next-card-8'] = recordedChunks['next-card-9'] || [];
             recordedChunks['next-card-9'] = [];
+            // Ensure the new top card only shows audio and mic buttons initially
+            document.getElementById('play-button').style.display = recordedChunks['vocab-card'] && recordedChunks['vocab-card'].length > 0 ? 'inline-block' : 'none';
+            document.getElementById('soundwave-button').style.display = 'none';
         }
         displayCards();
         card.style.transition = 'none';
