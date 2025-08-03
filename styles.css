@@ -40,15 +40,6 @@ html, body {
     filter: blur(5px);
 }
 
-.main-content.demo-blurred {
-    filter: blur(5px);
-}
-
-/* Ensure card-container is not blurred during demo */
-.card-container {
-    transition: filter 0.3s ease;
-}
-
 /* Fixed height containers */
 .stats-container {
     width: 100%;
@@ -76,7 +67,7 @@ html, body {
     width: 100%;
     max-width: 360px; /* Match max card width for alignment */
     display: flex;
-    justify-content: space-between; /* Coffee on left, share on right */
+    justify-content: space-between; /* Shop on left, share on right */
     padding: 10px;
     position: fixed;
     top: 10px; /* Fixed at top of viewport */
@@ -85,7 +76,7 @@ html, body {
     z-index: 100; /* Ensure above all content */
 }
 
-.share-icon, .coffee-icon {
+.share-icon, .shop-icon {
     width: 30px;
     height: 30px;
     cursor: pointer;
@@ -93,12 +84,12 @@ html, body {
     -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
 }
 
-.share-icon:hover, .coffee-icon:hover {
+.share-icon:hover, .shop-icon:hover {
     transform: scale(1.1);
     opacity: 0.8;
 }
 
-.share-icon:active, .coffee-icon:active {
+.share-icon:active, .shop-icon:active {
     transform: scale(0.9);
     opacity: 0.6;
 }
@@ -110,8 +101,8 @@ html, body {
     }
 }
 
-/* Donation popup styling */
-.donation-popup {
+/* Shop popup styling */
+.shop-popup {
     display: none;
     position: fixed;
     top: 0;
@@ -124,7 +115,7 @@ html, body {
     z-index: 1000;
 }
 
-.donation-content {
+.shop-content {
     background-color: #ffffff;
     width: 90%;
     max-width: 340px;
@@ -133,26 +124,28 @@ html, body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     position: relative;
     text-align: center;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
-.donation-header {
+.shop-header {
     margin-bottom: 15px;
 }
 
-.donation-title {
+.shop-title {
     font-family: 'Bangers', cursive;
     font-size: 1.8rem;
     color: #35654d;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.donation-body {
+.shop-body {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.donation-message {
+.shop-message {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 0.945rem;
@@ -163,7 +156,7 @@ html, body {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.donation-message.thai-text {
+.shop-message.thai-text {
     font-size: 0.945rem;
     line-height: 1.5;
 }
@@ -171,6 +164,43 @@ html, body {
 .vocabswipe-text {
     font-family: 'Bangers', cursive;
     color: #35654d;
+}
+
+.product-list {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.product-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+    border: 1px solid #e0e0e0;
+}
+
+.product-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #35654d;
+    margin-bottom: 5px;
+}
+
+.product-description {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #555555;
+    margin-bottom: 5px;
+}
+
+.product-price {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #333333;
 }
 
 .qr-container {
@@ -352,9 +382,9 @@ html, body {
 /* Progress bar styling */
 .progress-container {
     width: 300px; /* Matches card width */
-    height: 20px; /* Fixed height for progress bar */
+    height: 10px; /* Reduced by 50% from 20px */
     position: absolute;
-    top: 92px; /* Moved upward by 18px (was 120px) */
+    top: 92px; /* Adjusted to maintain layout */
     left: 50%;
     transform: translateX(-50%);
     opacity: 0; /* Initially hidden for fade-in effect */
@@ -399,7 +429,7 @@ html, body {
 
 .progress-bar {
     width: 100%;
-    height: 20px;
+    height: 10px; /* Reduced by 50% from 20px */
     background-color: #808080; /* Gray track */
     border-radius: 4px;
     overflow: hidden;
@@ -432,7 +462,8 @@ html, body {
 .card {
     width: 100%;
     height: 100%;
-    border: 1px solid #000;
+    background-color: #ffffff; /* Always white */
+    border: 1px solid #000000; /* Always black */
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -448,17 +479,6 @@ html, body {
     display: none; /* Hide cards initially */
 }
 
-<<<<<<< HEAD
-/* Glowing effect */
-.glow {
-    animation: glow 0.6s ease-in-out 1;
-}
-
-@keyframes glow {
-    0% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
-    50% { box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.7); }
-    100% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
-=======
 /* Ripple effect for tap */
 .ripple {
     position: absolute;
@@ -474,7 +494,6 @@ html, body {
         transform: scale(4);
         opacity: 0;
     }
->>>>>>> b8e6f32b62817c1723197b49380e629f2afacbfc
 }
 
 /* Next cards and stack cards */
@@ -568,6 +587,7 @@ html, body {
     font-weight: bold;
     position: absolute;
     margin: 0;
+    color: #000000; /* Always black */
 }
 
 .top-left {
@@ -585,6 +605,7 @@ html, body {
     font-size: 1.5rem;
     margin: 8px 0;
     text-align: center;
+    color: #000000; /* Always black */
 }
 
 .english {
@@ -643,8 +664,8 @@ html, body {
     .progress-container {
         width: 90vw; /* Matches card width */
         max-width: 300px;
-        height: 18px; /* Fixed height for progress bar */
-        top: 82px; /* Moved upward by 18px (was 110px) */
+        height: 9px; /* Reduced by 50% from 18px */
+        top: 82px; /* Adjusted to maintain layout */
         left: 50%;
         transform: translateX(-50%);
         opacity: 0; /* Initially hidden */
@@ -672,8 +693,19 @@ html, body {
 
     .progress-bar {
         width: 100%;
-        height: 18px;
+        height: 9px; /* Reduced by 50% from 18px */
+        background-color: #808080; /* Gray track */
+        border-radius: 4px;
+        overflow: hidden;
+        position: absolute;
         top: 0;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background-color: #00ff00; /* Bright green fill */
+        width: 0%;
+        transition: width 0.3s ease;
     }
 
     .card-container {
@@ -732,13 +764,13 @@ html, body {
         transform: translate(3.888px, 3.888px) rotate(3.888deg); /* Reduced by 10% */
     }
 
-    .share-icon, .coffee-icon {
+    .share-icon, .shop-icon {
         width: 25px;
         height: 25px;
         -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
     }
 
-    .share-icon:active, .coffee-icon:active {
+    .share-icon:active, .shop-icon:active {
         transform: scale(0.9);
         opacity: 0.6;
     }
@@ -747,21 +779,21 @@ html, body {
         max-width: 340px; /* Adjusted for mobile */
     }
 
-    .donation-content {
+    .shop-content {
         width: 85%;
         max-width: 300px;
         padding: 15px;
     }
 
-    .donation-title {
+    .shop-title {
         font-size: 1.6rem;
     }
 
-    .donation-message {
+    .shop-message {
         font-size: 0.84rem;
     }
 
-    .donation-message.thai-text {
+    .shop-message.thai-text {
         font-size: 0.84rem;
     }
 
