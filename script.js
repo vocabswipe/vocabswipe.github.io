@@ -419,14 +419,15 @@ function loadAndPlayAudio(audioSrc, audioButton, cardId) {
             isAudioPlaying = true;
             currentAudioSource = source;
             activeCardId = cardId;
-            audioButton.classList.add('pulsating');
+            // Apply pulsating animation twice
+            audioButton.classList.add('pulsating-twice');
             updateButtonStates();
             source.start(0);
             source.onended = () => {
                 isAudioPlaying = false;
                 currentAudioSource = null;
                 activeCardId = null;
-                audioButton.classList.remove('pulsating');
+                audioButton.classList.remove('pulsating-twice');
                 updateButtonStates();
             };
         })
@@ -436,13 +437,13 @@ function loadAndPlayAudio(audioSrc, audioButton, cardId) {
             const audio = new Audio(audioSrc);
             isAudioPlaying = true;
             activeCardId = cardId;
-            audioButton.classList.add('pulsating');
+            audioButton.classList.add('pulsating-twice');
             updateButtonStates();
             audio.play().catch(err => console.error('Error playing fallback audio:', err));
             audio.onended = () => {
                 isAudioPlaying = false;
                 activeCardId = null;
-                audioButton.classList.remove('pulsating');
+                audioButton.classList.remove('pulsating-twice');
                 updateButtonStates();
             };
         });
@@ -499,8 +500,6 @@ function enableCardInteractions() {
         const audioHandler = (e) => {
             e.preventDefault();
             if (isRecording || isPlayingRecording) return;
-            audioButton.classList.add('pulsating');
-            setTimeout(() => audioButton.classList.remove('pulsating'), 300);
             let audioSrc;
             if (card.id === 'vocab-card') {
                 audioSrc = document.getElementById('card-audio').src;
@@ -807,7 +806,6 @@ let isDragging = false;
 let startX = 0;
 let startY = 0;
 let currentX = 0;
-let currentY = 0;
 let startTime = 0;
 const minSwipeDistance = 50;
 const maxTapDistance = 10;
