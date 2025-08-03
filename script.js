@@ -384,7 +384,7 @@ function playAudio(audioSrc, audioButton, cardId) {
         }
         isAudioPlaying = false;
         currentAudioSource = null;
-        document.querySelectorAll('.audio-button').forEach(btn => btn.classList.remove('pulsating'));
+        document.querySelectorAll('.audio-button').forEach(btn => btn.classList.remove('pulsating-twice'));
     }
 
     // Stop HTML5 audio fallback
@@ -398,14 +398,14 @@ function playAudio(audioSrc, audioButton, cardId) {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
 
-    // Ensure audio context is resumed (required for mobile browsers)
-    if (audioContext.state === 'suspended') {
-        audioContext.resume().then(() => {
-            loadAndPlayAudio(audioSrc, audioButton, cardId);
-        });
-    } else {
+    // Resume audio context to handle mobile browser restrictions
+    audioContext.resume().then(() => {
         loadAndPlayAudio(audioSrc, audioButton, cardId);
-    }
+    }).catch(error => {
+        console.error('Error resuming AudioContext:', error);
+        // Fallback to HTML5 audio
+        fallbackToHTML5Audio(audioSrc, audioButton, cardId);
+    });
 }
 
 function loadAndPlayAudio(audioSrc, audioButton, cardId) {
@@ -419,7 +419,6 @@ function loadAndPlayAudio(audioSrc, audioButton, cardId) {
             isAudioPlaying = true;
             currentAudioSource = source;
             activeCardId = cardId;
-            // Apply pulsating animation twice
             audioButton.classList.add('pulsating-twice');
             updateButtonStates();
             source.start(0);
@@ -434,19 +433,29 @@ function loadAndPlayAudio(audioSrc, audioButton, cardId) {
         .catch(error => {
             console.error('Error playing audio with Web Audio API:', error);
             // Fallback to HTML5 audio
-            const audio = new Audio(audioSrc);
-            isAudioPlaying = true;
-            activeCardId = cardId;
-            audioButton.classList.add('pulsating-twice');
-            updateButtonStates();
-            audio.play().catch(err => console.error('Error playing fallback audio:', err));
-            audio.onended = () => {
-                isAudioPlaying = false;
-                activeCardId = null;
-                audioButton.classList.remove('pulsating-twice');
-                updateButtonStates();
-            };
+            fallbackToHTML5Audio(audioSrc, audioButton, cardId);
         });
+}
+
+function fallbackToHTML5Audio(audioSrc, audioButton, cardId) {
+    const audio = new Audio(audioSrc);
+    isAudioPlaying = true;
+    activeCardId = cardId;
+    audioButton.classList.add('pulsating-twice');
+    updateButtonStates();
+    audio.play().catch(err => {
+        console.error('Error playing fallback audio:', err);
+        isAudioPlaying = false;
+        activeCardId = null;
+        audioButton.classList.remove('pulsating-twice');
+        updateButtonStates();
+    });
+    audio.onended = () => {
+        isAudioPlaying = false;
+        activeCardId = null;
+        audioButton.classList.remove('pulsating-twice');
+        updateButtonStates();
+    };
 }
 
 // Function to update button states (enable/disable)
@@ -501,7 +510,7 @@ function enableCardInteractions() {
             recordedChunks[card.id] = [];
         }
 
-        // Audio button handler (click and touchstart)
+        // Audio button handler
         const audioHandler = (e) => {
             e.preventDefault();
             if (isRecording || isPlayingRecording) return;
@@ -517,10 +526,13 @@ function enableCardInteractions() {
             }
         };
 
+        // Remove existing listeners to prevent duplicates
+        audioButton.removeEventListener('click', audioHandler);
+        audioButton.removeEventListener('touchstart', audioHandler);
         audioButton.addEventListener('click', audioHandler);
         audioButton.addEventListener('touchstart', audioHandler);
 
-        // Microphone button handler (click and touchstart)
+        // Microphone button handler
         const micHandler = (e) => {
             e.preventDefault();
             if (isAudioPlaying || isPlayingRecording) return;
@@ -545,13 +557,15 @@ function enableCardInteractions() {
             }, 5000);
         };
 
+        micButton.removeEventListener('click', micHandler);
+        micButton.removeEventListener('touchstart', micHandler);
         micButton.addEventListener('click', micHandler);
         micButton.addEventListener('touchstart', micHandler);
 
-        // Play recording button handler (click and touchstart)
+        // Play recording button handler
         const playHandler = (e) => {
-            if (isAudioPlaying || isRecording || isPlayingRecording) return;
             e.preventDefault();
+            if (isAudioPlaying || isRecording || isPlayingRecording) return;
             playButton.classList.add('pulsating');
             setTimeout(() => playButton.classList.remove('pulsating'), 300);
             const recordedAudio = document.getElementById('recorded-audio');
@@ -575,6 +589,8 @@ function enableCardInteractions() {
             }
         };
 
+        playButton.removeEventListener('click', playHandler);
+        playButton.removeEventListener('touchstart', playHandler);
         playButton.addEventListener('click', playHandler);
         playButton.addEventListener('touchstart', playHandler);
     });
