@@ -429,7 +429,7 @@ html, body {
     height: 100%;
     border: 1px solid #000000;
     border-radius: 8px;
-    background-color: #FFF8DC; /* updated from white #ffffff */
+    background-color: #FFF8DC; /* Changed from #ffffff to #FFF8DC */
     display: flex;
     justify-content: center;
     align-items: center;
