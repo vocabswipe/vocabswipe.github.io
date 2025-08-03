@@ -446,7 +446,17 @@ html, body {
     animation: pulse 1s infinite;
 }
 
+.pulsating-twice {
+    animation: pulse-twice 0.6s 2;
+}
+
 @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes pulse-twice {
     0% { transform: scale(1); }
     50% { transform: scale(1.2); }
     100% { transform: scale(1); }
