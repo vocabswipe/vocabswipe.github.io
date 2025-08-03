@@ -98,8 +98,7 @@ function updateWebsiteStats() {
         }
     });
     countNumberElement.countTo();
-    statsElement.style.transition = 'opacity 1s ease';
-    statsElement.style.opacity = '1';
+    statsElement.style.opacity = '1'; // Ensure immediate visibility
 }
 
 // Function to update progress bar
@@ -378,6 +377,12 @@ async function loadVocabData() {
             card.style.display = 'none'; // Ensure cards are hidden initially
         });
 
+        // Initialize stats display immediately
+        const statsElement = document.getElementById('website-stats');
+        statsElement.style.opacity = '1';
+        alternateStatsText(); // Start text alternation immediately
+        updateProgressBar(); // Initialize progress bar
+
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
         let allVocab = text.trim().split('\n').map(line => JSON.parse(line));
@@ -394,13 +399,13 @@ async function loadVocabData() {
         }
         vocabData = vocabData.sort(() => Math.random() - 0.5);
 
+        // Start stats number animation after data is loaded
+        updateWebsiteStats();
+
         populateCardsBeforeAnimation();
 
         animateCardStackDrop(() => {
             displayCards();
-            updateWebsiteStats();
-            updateProgressBar();
-            alternateStatsText();
         });
     } catch (error) {
         console.error('Error loading database:', error);
