@@ -3,9 +3,9 @@ let vocabData = [];
 let originalVocabLength = 0; // Store original length for stats
 let currentIndex = 0;
 let hasSwiped = false; // Flag to track if user has swiped
+let isAudioPlaying = false; // Track if any audio is playing
 let audioContext = null; // Web Audio API context
 let currentAudioSource = null; // Track current audio source for stopping
-let isAudioPlaying = false; // Track if any audio is playing
 let activeCardId = null; // Track the active card for audio operations
 
 // Track visit count
@@ -15,6 +15,22 @@ localStorage.setItem('visitCount', visitCount);
 
 // Initialize swiped cards from localStorage
 let swipedCards = JSON.parse(localStorage.getItem('swipedCards') || '[]');
+
+// Variables for finger tracking
+let isDragging = false;
+let startX = 0;
+let startY = 0;
+let currentX = 0;
+let currentY = 0;
+let startTime = 0;
+const minSwipeDistance = 50;
+const maxTapDistance = 10;
+const maxTapDuration = 300;
+let fingerPath = [];
+
+// Initialize finger tracking canvas
+const fingerTrackCanvas = document.getElementById('finger-track-canvas');
+const fingerTrackCtx = fingerTrackCanvas.getContext('2d');
 
 // jQuery number animation plugin
 (function ($) {
@@ -222,108 +238,52 @@ function setInitialCardTheme() {
 }
 
 // Function to create ripple effect
-function createRippleEffect(event, card) {
-    const ripple = card.querySelector('.ripple');
-    ripple.innerHTML = ''; // Clear previous ripples
+function createRippleEffect(x, y, cardElement) {
+    const ripple = document.createElement('div');
+    ripple.classList.add('ripple');
+    cardElement.appendChild(ripple);
 
-    const rippleElement = document.createElement('span');
-    rippleElement.classList.add('ripple-circle');
+    const rect = cardElement.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height) * 2;
+    ripple.style.width = ripple.style.height = `${size}px`;
+    ripple.style.left = `${x - rect.left - size / 2}px`;
+    ripple.style.top = `${y - rect.top - size / 2}px`;
+    ripple.style.animation = 'ripple-effect 0.6s linear';
 
-    // Get card position and size
-    const rect = card.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    rippleElement.style.width = rippleElement.style.height = `${size}px`;
-
-    // Calculate click/tap position relative to the card
-    let clientX, clientY;
-    if (event.type.includes('touch')) {
-        clientX = event.changedTouches[0].clientX;
-        clientY = event.changedTouches[0].clientY;
-    } else {
-        clientX = event.clientX;
-        clientY = event.clientY;
-    }
-
-    const posX = clientX - rect.left - size / 2;
-    const posY = clientY - rect.top - size / 2;
-
-    rippleElement.style.left = `${posX}px`;
-    rippleElement.style.top = `${posY}px`;
-
-    ripple.appendChild(rippleElement);
-
-    // Remove ripple after animation
-    setTimeout(() => {
-        rippleElement.remove();
-    }, 600); // Matches animation duration
+    ripple.addEventListener('animationend', () => {
+        ripple.remove();
+    });
 }
 
-// Function to play audio using Web Audio API for mobile compatibility
-function playAudio(audioSrc, cardId, cardElement) {
-    // Stop any existing audio
-    if (isAudioPlaying && currentAudioSource) {
-        try {
-            currentAudioSource.stop();
-        } catch (e) {
-            console.log('Audio source already stopped:', e);
-        }
-        isAudioPlaying = false;
-        currentAudioSource = null;
-    }
+// Function to draw finger track
+function drawFingerTrack() {
+    fingerTrackCtx.clearRect(0, 0, fingerTrackCanvas.width, fingerTrackCanvas.height);
+    if (fingerPath.length < 2) return;
 
-    // Stop HTML5 audio fallback
-    const cardAudio = document.getElementById('card-audio');
-    if (!cardAudio.paused) {
-        cardAudio.pause();
-        cardAudio.currentTime = 0;
+    fingerTrackCtx.beginPath();
+    fingerTrackCtx.moveTo(fingerPath[0].x, fingerPath[0].y);
+    for (let i = 1; i < fingerPath.length; i++) {
+        fingerTrackCtx.lineTo(fingerPath[i].x, fingerPath[i].y);
     }
-
-    if (!audioContext) {
-        audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    }
-
-    // Ensure audio context is resumed (required for mobile browsers)
-    if (audioContext.state === 'suspended') {
-        audioContext.resume().then(() => {
-            loadAndPlayAudio(audioSrc, cardId, cardElement);
-        }).catch(error => {
-            console.error('Error resuming audio context:', error);
-        });
-    } else {
-        loadAndPlayAudio(audioSrc, cardId, cardElement);
-    }
+    fingerTrackCtx.strokeStyle = 'rgba(0, 0, 0, 0.5)';
+    fingerTrackCtx.lineWidth = 2;
+    fingerTrackCtx.stroke();
 }
 
-function loadAndPlayAudio(audioSrc, cardId, cardElement) {
-    fetch(audioSrc)
-        .then(response => response.arrayBuffer())
-        .then(buffer => audioContext.decodeAudioData(buffer))
-        .then(decodedData => {
-            const source = audioContext.createBufferSource();
-            source.buffer = decodedData;
-            source.connect(audioContext.destination);
-            isAudioPlaying = true;
-            currentAudioSource = source;
-            activeCardId = cardId;
-            source.start(0);
-            source.onended = () => {
-                isAudioPlaying = false;
-                currentAudioSource = null;
-                activeCardId = null;
-            };
-        })
-        .catch(error => {
-            console.error('Error playing audio with Web Audio API:', error);
-            // Fallback to HTML5 audio
-            const audio = new Audio(audioSrc);
-            isAudioPlaying = true;
-            activeCardId = cardId;
-            audio.play().catch(err => console.error('Error playing fallback audio:', err));
-            audio.onended = () => {
-                isAudioPlaying = false;
-                activeCardId = null;
-            };
-        });
+// Function to clear finger track
+function clearFingerTrack() {
+    fingerPath = [];
+    fingerTrackCtx.clearRect(0, 0, fingerTrackCanvas.width, fingerTrackCanvas.height);
+}
+
+// Function to resize finger track canvas
+function resizeFingerTrackCanvas() {
+    const pixelRatio = window.devicePixelRatio || 1;
+    fingerTrackCanvas.width = window.innerWidth * pixelRatio;
+    fingerTrackCanvas.height = window.innerHeight * pixelRatio;
+    fingerTrackCanvas.style.width = `${window.innerWidth}px`;
+    fingerTrackCanvas.style.height = `${window.innerHeight}px`;
+    fingerTrackCtx.scale(pixelRatio, pixelRatio);
 }
 
 // Function to populate cards with content before animation
@@ -436,7 +396,100 @@ function animateCardStackDrop(callback) {
     }, 100);
 }
 
-// Function to enable card interactions (tap/click for audio)
+// Function to stop audio for a specific card
+function stopCardAudio(cardId) {
+    if (isAudioPlaying && currentAudioSource && activeCardId === cardId) {
+        try {
+            currentAudioSource.stop();
+        } catch (e) {
+            console.log('Audio source already stopped or not started:', e);
+        }
+        isAudioPlaying = false;
+        currentAudioSource = null;
+        activeCardId = null;
+    }
+
+    // Stop HTML5 audio fallback
+    const cardAudio = document.getElementById('card-audio');
+    if (!cardAudio.paused) {
+        cardAudio.pause();
+        cardAudio.currentTime = 0;
+    }
+}
+
+// Function to play audio using Web Audio API for mobile compatibility
+function playAudio(audioSrc, cardId, cardElement, x, y) {
+    // Stop any existing audio
+    if (isAudioPlaying && currentAudioSource) {
+        try {
+            currentAudioSource.stop();
+        } catch (e) {
+            console.log('Audio source already stopped:', e);
+        }
+        isAudioPlaying = false;
+        currentAudioSource = null;
+        activeCardId = null;
+    }
+
+    // Stop HTML5 audio fallback
+    const cardAudio = document.getElementById('card-audio');
+    if (!cardAudio.paused) {
+        cardAudio.pause();
+        cardAudio.currentTime = 0;
+    }
+
+    if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    // Create ripple effect
+    createRippleEffect(x, y, cardElement);
+
+    // Ensure audio context is resumed (required for mobile browsers)
+    if (audioContext.state === 'suspended') {
+        audioContext.resume().then(() => {
+            loadAndPlayAudio(audioSrc, cardId);
+        }).catch(error => {
+            console.error('Error resuming audio context:', error);
+        });
+    } else {
+        loadAndPlayAudio(audioSrc, cardId);
+    }
+}
+
+function loadAndPlayAudio(audioSrc, cardId) {
+    fetch(audioSrc)
+        .then(response => response.arrayBuffer())
+        .then(buffer => audioContext.decodeAudioData(buffer))
+        .then(decodedData => {
+            const source = audioContext.createBufferSource();
+            source.buffer = decodedData;
+            source.connect(audioContext.destination);
+            isAudioPlaying = true;
+            currentAudioSource = source;
+            activeCardId = cardId;
+            source.start(0);
+            source.onended = () => {
+                isAudioPlaying = false;
+                currentAudioSource = null;
+                activeCardId = null;
+            };
+        })
+        .catch(error => {
+            console.error('Error playing audio with Web Audio API:', error);
+            // Fallback to HTML5 audio
+            const audio = new Audio(audioSrc);
+            isAudioPlaying = true;
+            activeCardId = cardId;
+            audio.play().catch(err => console.error('Error playing fallback audio:', err));
+            audio.onended = () => {
+                isAudioPlaying = false;
+                activeCardId = null;
+            };
+        });
+}
+
+// Function to enable card interactions (tap to play audio)
 function enableCardInteractions() {
     const cards = [
         { id: 'vocab-card', audioSrcId: 'card-audio' },
@@ -453,12 +506,8 @@ function enableCardInteractions() {
 
     cards.forEach((card, index) => {
         const cardElement = document.getElementById(card.id);
-
-        // Tap/click handler for audio and ripple effect
         const tapHandler = (e) => {
             e.preventDefault();
-            if (isAudioPlaying) return;
-
             let audioSrc;
             if (card.id === 'vocab-card') {
                 audioSrc = document.getElementById('card-audio').src;
@@ -466,22 +515,23 @@ function enableCardInteractions() {
                 const entry = vocabData[currentIndex + index];
                 audioSrc = `data/${entry.audio}`;
             }
-
             if (audioSrc) {
-                createRippleEffect(e, cardElement);
+                const clientX = e.type === 'touchstart' ? e.changedTouches[0].clientX : e.clientX;
+                const clientY = e.type === 'touchstart' ? e.changedTouches[0].clientY : e.clientY;
+                // Ensure audio context is resumed for mobile
                 if (isMobileDevice() && audioContext && audioContext.state === 'suspended') {
                     audioContext.resume().then(() => {
-                        playAudio(audioSrc, card.id, cardElement);
+                        playAudio(audioSrc, card.id, cardElement, clientX, clientY);
                     }).catch(error => {
                         console.error('Error resuming audio context:', error);
                     });
                 } else {
-                    playAudio(audioSrc, card.id, cardElement);
+                    playAudio(audioSrc, card.id, cardElement, clientX, clientY);
                 }
             }
         };
 
-        cardElement.addEventListener('click', tapHandler);
+        cardElementഗElement.addEventListener('click', tapHandler);
         cardElement.addEventListener('touchstart', tapHandler);
     });
 }
@@ -625,23 +675,8 @@ function displayCards() {
 
 // Function to animate and move to next card
 function moveToNextCard(translateX, translateY, rotate) {
-    // Stop all media for the current card before moving to next card
-    if (isAudioPlaying && currentAudioSource && activeCardId === 'vocab-card') {
-        try {
-            currentAudioSource.stop();
-        } catch (e) {
-            console.log('Audio source already stopped:', e);
-        }
-        isAudioPlaying = false;
-        currentAudioSource = null;
-        activeCardId = null;
-    }
-
-    const cardAudio = document.getElementById('card-audio');
-    if (!cardAudio.paused) {
-        cardAudio.pause();
-        cardAudio.currentTime = 0;
-    }
+    // Stop all audio for the current card before moving to next card
+    stopCardAudio('vocab-card');
 
     const card = document.getElementById('vocab-card');
     card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
@@ -660,18 +695,11 @@ function moveToNextCard(translateX, translateY, rotate) {
         currentIndex = (currentIndex + 1) % vocabData.length;
         displayCards();
         card.style.transition = 'none';
+        clearFingerTrack();
     }, 500);
 }
 
 // Touch and mouse handling
-let isDragging = false;
-let startX = 0;
-let startY = 0;
-let currentX = 0;
-let currentY = 0;
-let startTime = 0;
-const minSwipeDistance = 50;
-
 const card = document.querySelector('#vocab-card');
 
 card.addEventListener('touchstart', (e) => {
@@ -685,6 +713,7 @@ card.addEventListener('touchstart', (e) => {
         card.style.transition = 'none';
         card.style.zIndex = '1000';
         isDragging = true;
+        fingerPath = [{ x: startX, y: startY }];
     }
 });
 
@@ -693,6 +722,8 @@ card.addEventListener('touchmove', (e) => {
         e.preventDefault();
         currentX = e.changedTouches[0].screenX;
         currentY = e.changedTouches[0].screenY;
+        fingerPath.push({ x: currentX, y: currentY });
+        drawFingerTrack();
         const deltaX = currentX - startX;
         const deltaY = currentY - startY;
         const rotate = (deltaX / window.innerWidth) * 30;
@@ -706,11 +737,29 @@ card.addEventListener('touchend', (e) => {
     isDragging = false;
     const endX = e.changedTouches[0].screenX;
     const endY = e.changedTouches[0].screenY;
+    const touchDuration = Date.now() - startTime;
     const deltaX = endX - startX;
     const deltaY = endY - startY;
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-    if (distance > minSwipeDistance) {
+    if (distance <= maxTapDistance && touchDuration <= maxTapDuration) {
+        // Handle tap
+        const clientX = e.changedTouches[0].clientX;
+        const clientY = e.changedTouches[0].clientY;
+        const audioSrc = document.getElementById('card-audio').src;
+        if (audioSrc) {
+            if (isMobileDevice() && audioContext && audioContext.state === 'suspended') {
+                audioContext.resume().then(() => {
+                    playAudio(audioSrc, 'vocab-card', card, clientX, clientY);
+                }).catch(error => {
+                    console.error('Error resuming audio context:', error);
+                });
+            } else {
+                playAudio(audioSrc, 'vocab-card', card, clientX, clientY);
+            }
+        }
+    } else if (distance > minSwipeDistance) {
+        // Handle swipe
         const angle = Math.atan2(deltaY, deltaX);
         const magnitude = distance * 5;
         const translateX = Math.cos(angle) * magnitude;
@@ -720,6 +769,7 @@ card.addEventListener('touchend', (e) => {
     } else {
         card.style.transition = 'transform 0.3s ease';
         card.style.transform = 'translate(0, 0) rotate(0deg)';
+        clearFingerTrack();
     }
 });
 
@@ -733,6 +783,7 @@ card.addEventListener('mousedown', (e) => {
     card.style.transition = 'none';
     card.style.zIndex = '1000';
     isDragging = true;
+    fingerPath = [{ x: startX, y: startY }];
 });
 
 card.addEventListener('mousemove', (e) => {
@@ -740,6 +791,8 @@ card.addEventListener('mousemove', (e) => {
         e.preventDefault();
         currentX = e.screenX;
         currentY = e.screenY;
+        fingerPath.push({ x: currentX, y: currentY });
+        drawFingerTrack();
         const deltaX = currentX - startX;
         const deltaY = currentY - startY;
         const rotate = (deltaX / window.innerWidth) * 30;
@@ -753,11 +806,21 @@ card.addEventListener('mouseup', (e) => {
     isDragging = false;
     const endX = e.screenX;
     const endY = e.screenY;
+    const duration = Date.now() - startTime;
     const deltaX = endX - startX;
     const deltaY = endY - startY;
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-    if (distance > minSwipeDistance) {
+    if (distance <= maxTapDistance && duration <= maxTapDuration) {
+        // Handle tap
+        const clientX = e.clientX;
+        const clientY = e.clientY;
+        const audioSrc = document.getElementById('card-audio').src;
+        if (audioSrc) {
+            playAudio(audioSrc, 'vocab-card', card, clientX, clientY);
+        }
+    } else if (distance > minSwipeDistance) {
+        // Handle swipe
         const angle = Math.atan2(deltaY, deltaX);
         const magnitude = distance * 5;
         const translateX = Math.cos(angle) * magnitude;
@@ -767,6 +830,7 @@ card.addEventListener('mouseup', (e) => {
     } else {
         card.style.transition = 'transform 0.3s ease';
         card.style.transform = 'translate(0, 0) rotate(0deg)';
+        clearFingerTrack();
     }
 });
 
@@ -775,6 +839,7 @@ card.addEventListener('mouseleave', () => {
         isDragging = false;
         card.style.transition = 'transform 0.3s ease';
         card.style.transform = 'translate(0, 0) rotate(0deg)';
+        clearFingerTrack();
     }
 });
 
@@ -923,7 +988,11 @@ function captureSnapshot() {
     });
 }
 
-// Load data on page load
+// Load data and resize canvas on page load
 document.addEventListener('DOMContentLoaded', () => {
+    resizeFingerTrackCanvas();
     loadVocabData();
 });
+
+// Resize canvas on window resize
+window.addEventListener('resize', resizeFingerTrackCanvas);
