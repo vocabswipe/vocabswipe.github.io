@@ -17,7 +17,7 @@
 <body>
     <!-- Icon panel moved to top of body -->
     <div class="icon-panel">
-        <img src="coffee.svg" alt="Donate" class="coffee-icon" id="coffee-icon">
+        <img src="bag.svg" alt="Shop" class="shop-icon" id="shop-icon">
         <img src="share.svg" alt="Share" class="share-icon" id="share-icon">
     </div>
     <div class="main-content">
@@ -56,7 +56,7 @@
                 <div class="card-content">
                     <h1 class="word top-left" id="next-word-top-2"></h1>
                     <p class="sentence english" id="next-english-2"></p>
-                    <p class="sentence thai" id="next-thai-2"></p>
+                    <p class="sentence thai" id="next-thai-2"></h1>
                     <h1 class="word bottom-right" id="next-word-bottom-2"></h1>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                 <div class="card-content">
                     <h1 class="word top-left" id="next-word-top-4"></h1>
                     <p class="sentence english" id="next-english-4"></p>
-                    <p class="sentence thai" id="thai"></p>
+                    <p class="sentence thai" id="next-thai-4"></p>
                     <h1 class="word bottom-right" id="next-word-bottom-4"></h1>
                 </div>
             </div>
@@ -139,14 +139,31 @@
             </div>
         </div>
     </div>
-    <!-- Donation pop-up -->
-    <div class="donation-popup" id="donation-popup">
-        <div class="donation-content">
-            <div class="donation-header">
-                <h2 class="donation-title">Support VOCABSWIPE</h2>
+    <!-- Shop pop-up -->
+    <div class="shop-popup" id="shop-popup">
+        <div class="shop-content">
+            <div class="shop-header">
+                <h2 class="shop-title">Shop VOCABSWIPE Products</h2>
             </div>
-            <div class="donation-body">
-                <p class="donation-message" id="donation-message">Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support the developer via PromptPay.</p>
+            <div class="shop-body">
+                <p class="shop-message" id="shop-message">สนับสนุน <span class="vocabswipe-text">VOCABSWIPE</span> ด้วยการซื้อสินค้าพิเศษของเรา! สแกนคิวอาร์โค้ดเพื่อชำระเงินผ่านพร้อมเพย์</p>
+                <div class="product-list">
+                    <div class="product-item">
+                        <h3 class="product-name">สมุดจดคำศัพท์ VOCABSWIPE</h3>
+                        <p class="product-description">สมุดจดคำศัพท์ขนาดพกพา 100 หน้า</p>
+                        <p class="product-price">ราคา: 150 บาท</p>
+                    </div>
+                    <div class="product-item">
+                        <h3 class="product-name">การ์ดคำศัพท์ VOCABSWIPE</h3>
+                        <p class="product-description">ชุดการ์ดคำศัพท์ 500 คำ พร้อมกล่อง</p>
+                        <p class="product-price">ราคา: 300 บาท</p>
+                    </div>
+                    <div class="product-item">
+                        <h3 class="product-name">คอร์สเรียนออนไลน์</h3>
+                        <p class="product-description">คอร์สเรียนภาษาอังกฤษออนไลน์ 1 เดือน</p>
+                        <p class="product-price">ราคา: 500 บาท</p>
+                    </div>
+                </div>
                 <div class="qr-container">
                     <img src="qr_code.png" alt="PromptPay QR Code" class="qr-code">
                     <img src="promptpay_logo.png" alt="PromptPay Logo" class="promptpay-logo">
