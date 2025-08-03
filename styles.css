@@ -395,7 +395,7 @@ html, body {
 .progress-bar {
     width: 100%;
     height: 10px; /* Reduced by 50% from 20px */
-    background-color: #808080; /* Gray track */
+    background-color: #F0FFFF; /* Gray track */
     border-radius: 4px;
     overflow: hidden;
     position: absolute;
