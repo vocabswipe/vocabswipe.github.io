@@ -493,6 +493,12 @@ html, body {
     gap: 10px;
 }
 
+.mic-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .audio-button, .mic-button, .play-button, .soundwave-button {
     width: 31.2px; /* Increased from 24px to 31.2px (24 * 1.3) */
     height: 31.2px; /* Increased from 24px to 31.2px (24 * 1.3) */
@@ -853,5 +859,11 @@ html, body {
         width: 28.6px; /* Increased from 22px to 28.6px (22 * 1.3) */
         height: 28.6px; /* Increased from 22px to 28.6px (22 * 1.3) */
         touch-action: none; /* Prevent default touch behaviors */
+    }
+
+    .mic-container {
+        display: flex;
+        align-items: center;
+        gap: 8px; /* Slightly reduced gap for mobile */
     }
 }
