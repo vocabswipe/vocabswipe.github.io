@@ -42,7 +42,6 @@
                     <p class="sentence thai" id="thai"></p>
                     <h1 class="word bottom-right" id="word-bottom"></h1>
                 </div>
-                <div class="ripple"></div>
             </div>
             <!-- Next cards (visible underneath with content) -->
             <div class="card" id="next-card-1">
@@ -52,7 +51,6 @@
                     <p class="sentence thai" id="next-thai-1"></p>
                     <h1 class="word bottom-right" id="next-word-bottom-1"></h1>
                 </div>
-                <div class="ripple"></div>
             </div>
             <div class="card" id="next-card-2">
                 <div class="card-content">
@@ -61,7 +59,6 @@
                     <p class="sentence thai" id="next-thai-2"></p>
                     <h1 class="word bottom-right" id="next-word-bottom-2"></h1>
                 </div>
-                <div class="ripple"></div>
             </div>
             <div class="card" id="next-card-3">
                 <div class="card-content">
@@ -70,16 +67,14 @@
                     <p class="sentence thai" id="next-thai-3"></p>
                     <h1 class="word bottom-right" id="next-word-bottom-3"></h1>
                 </div>
-                <div class="ripple"></div>
             </div>
             <div class="card" id="next-card-4">
                 <div class="card-content">
                     <h1 class="word top-left" id="next-word-top-4"></h1>
                     <p class="sentence english" id="next-english-4"></p>
-                    <p class="sentence thai" id="next-thai-4"></p>
+                    <p class="sentence thai" id="thai"></p>
                     <h1 class="word bottom-right" id="next-word-bottom-4"></h1>
                 </div>
-                <div class="ripple"></div>
             </div>
             <div class="card" id="next-card-5">
                 <div class="card-content">
@@ -88,7 +83,6 @@
                     <p class="sentence thai" id="next-thai-5"></p>
                     <h1 class="word bottom-right" id="next-word-bottom-5"></h1>
                 </div>
-                <div class="ripple"></div>
             </div>
             <div class="card" id="next-card-6">
                 <div class="card-content">
@@ -97,7 +91,6 @@
                     <p class="sentence thai" id="next-thai-6"></p>
                     <h1 class="word bottom-right" id="next-word-bottom-6"></h1>
                 </div>
-                <div class="ripple"></div>
             </div>
             <div class="card" id="next-card-7">
                 <div class="card-content">
@@ -106,7 +99,6 @@
                     <p class="sentence thai" id="next-thai-7"></p>
                     <h1 class="word bottom-right" id="next-word-bottom-7"></h1>
                 </div>
-                <div class="ripple"></div>
             </div>
             <div class="card" id="next-card-8">
                 <div class="card-content">
@@ -115,7 +107,6 @@
                     <p class="sentence thai" id="next-thai-8"></p>
                     <h1 class="word bottom-right" id="next-word-bottom-8"></h1>
                 </div>
-                <div class="ripple"></div>
             </div>
             <div class="card" id="next-card-9">
                 <div class="card-content">
@@ -124,7 +115,6 @@
                     <p class="sentence thai" id="next-thai-9"></p>
                     <h1 class="word bottom-right" id="next-word-bottom-9"></h1>
                 </div>
-                <div class="ripple"></div>
             </div>
             <!-- Underneath cards for stack effect -->
             <div class="card card-stack card-stack-1"></div>
@@ -175,6 +165,8 @@
     <audio id="card-audio" src=""></audio>
     <!-- Canvas for snapshot -->
     <canvas id="snapshot-canvas" style="display: none;"></canvas>
+    <!-- Canvas for finger tracking -->
+    <canvas id="finger-track-canvas" style="position: absolute; top: 0; left: 0; z-index: 1000; pointer-events: none;"></canvas>
     <script src="script.js"></script>
 </body>
 </html>
