@@ -595,7 +595,7 @@ html, body {
 
     .info-container {
         height: 170px; /* Adjusted for mobile */
-        top: 20px; /* Increased from 20px to 30px for 10px downward shift */
+        top: 18px; /* Increased from 20px to 30px for 10px downward shift */
     }
 
     .website-info {
