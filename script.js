@@ -3,14 +3,10 @@ let vocabData = [];
 let originalVocabLength = 0; // Store original length for stats
 let currentIndex = 0;
 let hasSwiped = false; // Flag to track if user has swiped
-let mediaRecorders = {}; // Object to store MediaRecorder instances per card
-let recordedChunks = {}; // Object to store recorded chunks per card
-let isRecording = false; // Track if any recording is active
-let isAudioPlaying = false; // Track if any audio is playing
-let isPlayingRecording = false; // Track if any recorded audio is playing
 let audioContext = null; // Web Audio API context
 let currentAudioSource = null; // Track current audio source for stopping
-let activeCardId = null; // Track the active card for media operations
+let isAudioPlaying = false; // Track if any audio is playing
+let activeCardId = null; // Track the active card for audio operations
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
@@ -225,6 +221,111 @@ function setInitialCardTheme() {
     });
 }
 
+// Function to create ripple effect
+function createRippleEffect(event, card) {
+    const ripple = card.querySelector('.ripple');
+    ripple.innerHTML = ''; // Clear previous ripples
+
+    const rippleElement = document.createElement('span');
+    rippleElement.classList.add('ripple-circle');
+
+    // Get card position and size
+    const rect = card.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    rippleElement.style.width = rippleElement.style.height = `${size}px`;
+
+    // Calculate click/tap position relative to the card
+    let clientX, clientY;
+    if (event.type.includes('touch')) {
+        clientX = event.changedTouches[0].clientX;
+        clientY = event.changedTouches[0].clientY;
+    } else {
+        clientX = event.clientX;
+        clientY = event.clientY;
+    }
+
+    const posX = clientX - rect.left - size / 2;
+    const posY = clientY - rect.top - size / 2;
+
+    rippleElement.style.left = `${posX}px`;
+    rippleElement.style.top = `${posY}px`;
+
+    ripple.appendChild(rippleElement);
+
+    // Remove ripple after animation
+    setTimeout(() => {
+        rippleElement.remove();
+    }, 600); // Matches animation duration
+}
+
+// Function to play audio using Web Audio API for mobile compatibility
+function playAudio(audioSrc, cardId, cardElement) {
+    // Stop any existing audio
+    if (isAudioPlaying && currentAudioSource) {
+        try {
+            currentAudioSource.stop();
+        } catch (e) {
+            console.log('Audio source already stopped:', e);
+        }
+        isAudioPlaying = false;
+        currentAudioSource = null;
+    }
+
+    // Stop HTML5 audio fallback
+    const cardAudio = document.getElementById('card-audio');
+    if (!cardAudio.paused) {
+        cardAudio.pause();
+        cardAudio.currentTime = 0;
+    }
+
+    if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    // Ensure audio context is resumed (required for mobile browsers)
+    if (audioContext.state === 'suspended') {
+        audioContext.resume().then(() => {
+            loadAndPlayAudio(audioSrc, cardId, cardElement);
+        }).catch(error => {
+            console.error('Error resuming audio context:', error);
+        });
+    } else {
+        loadAndPlayAudio(audioSrc, cardId, cardElement);
+    }
+}
+
+function loadAndPlayAudio(audioSrc, cardId, cardElement) {
+    fetch(audioSrc)
+        .then(response => response.arrayBuffer())
+        .then(buffer => audioContext.decodeAudioData(buffer))
+        .then(decodedData => {
+            const source = audioContext.createBufferSource();
+            source.buffer = decodedData;
+            source.connect(audioContext.destination);
+            isAudioPlaying = true;
+            currentAudioSource = source;
+            activeCardId = cardId;
+            source.start(0);
+            source.onended = () => {
+                isAudioPlaying = false;
+                currentAudioSource = null;
+                activeCardId = null;
+            };
+        })
+        .catch(error => {
+            console.error('Error playing audio with Web Audio API:', error);
+            // Fallback to HTML5 audio
+            const audio = new Audio(audioSrc);
+            isAudioPlaying = true;
+            activeCardId = cardId;
+            audio.play().catch(err => console.error('Error playing fallback audio:', err));
+            audio.onended = () => {
+                isAudioPlaying = false;
+                activeCardId = null;
+            };
+        });
+}
+
 // Function to populate cards with content before animation
 function populateCardsBeforeAnimation() {
     if (vocabData.length === 0) return;
@@ -232,31 +333,35 @@ function populateCardsBeforeAnimation() {
     const cardTextColor = '#000000';
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
+    const wordBottomElement = document.getElementById('word-bottom');
     const englishElement = document.getElementById('english');
     const thaiElement = document.getElementById('thai');
     const audioElement = document.getElementById('card-audio');
 
     const nextCards = [
-        { top: 'next-word-top-1', english: 'next-english-1', thai: 'next-thai-1' },
-        { top: 'next-word-top-2', english: 'next-english-2', thai: 'next-thai-2' },
-        { top: 'next-word-top-3', english: 'next-english-3', thai: 'next-thai-3' },
-        { top: 'next-word-top-4', english: 'next-english-4', thai: 'next-thai-4' },
-        { top: 'next-word-top-5', english: 'next-english-5', thai: 'next-thai-5' },
-        { top: 'next-word-top-6', english: 'next-english-6', thai: 'next-thai-6' },
-        { top: 'next-word-top-7', english: 'next-english-7', thai: 'next-thai-7' },
-        { top: 'next-word-top-8', english: 'next-english-8', thai: 'next-thai-8' },
-        { top: 'next-word-top-9', english: 'next-english-9', thai: 'next-thai-9' }
+        { top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1' },
+        { top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2' },
+        { top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3' },
+        { top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4' },
+        { top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5' },
+        { top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6' },
+        { top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7' },
+        { top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8' },
+        { top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9' }
     ];
 
     // Populate current card
     if (currentIndex < vocabData.length) {
         const entry = vocabData[currentIndex];
         wordTopElement.textContent = entry.word;
+        wordBottomElement.textContent = entry.word;
         wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
+        wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
         englishElement.textContent = entry.english;
         thaiElement.textContent = entry.thai;
         audioElement.src = `data/${entry.audio}`;
         wordTopElement.style.color = cardTextColor;
+        wordBottomElement.style.color = cardTextColor;
         englishElement.style.color = cardTextColor;
         thaiElement.style.color = cardTextColor;
     }
@@ -266,15 +371,19 @@ function populateCardsBeforeAnimation() {
         if (currentIndex + index + 1 < vocabData.length) {
             const nextEntry = vocabData[currentIndex + index + 1];
             const nextWordTopElement = document.getElementById(next.top);
+            const nextWordBottomElement = document.getElementById(next.bottom);
             const nextEnglishElement = document.getElementById(next.english);
             const nextThaiElement = document.getElementById(next.thai);
             nextWordTopElement.textContent = nextEntry.word;
+            nextWordBottomElement.textContent = nextEntry.word;
             nextEnglishElement.textContent = nextEntry.english;
             nextThaiElement.textContent = nextEntry.thai;
             nextWordTopElement.style.color = cardTextColor;
+            nextWordBottomElement.style.color = cardTextColor;
             nextEnglishElement.style.color = cardTextColor;
             nextThaiElement.style.color = cardTextColor;
             nextWordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
+            nextWordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
         }
     });
 }
@@ -327,185 +436,29 @@ function animateCardStackDrop(callback) {
     }, 100);
 }
 
-// Function to stop all media for a specific card
-function stopCardMedia(cardId) {
-    // Stop audio playback
-    if (isAudioPlaying && currentAudioSource && activeCardId === cardId) {
-        try {
-            currentAudioSource.stop();
-        } catch (e) {
-            console.log('Audio source already stopped or not started:', e);
-        }
-        isAudioPlaying = false;
-        currentAudioSource = null;
-        document.getElementById(`audio-button${cardId === 'vocab-card' ? '' : '-' + cardId.split('-')[1]}`).classList.remove('pulsating-twice');
-    }
-
-    // Stop HTML5 audio fallback
-    const cardAudio = document.getElementById('card-audio');
-    if (!cardAudio.paused) {
-        cardAudio.pause();
-        cardAudio.currentTime = 0;
-    }
-
-    // Stop recording for the specific card
-    if (mediaRecorders[cardId] && mediaRecorders[cardId].state === 'recording') {
-        mediaRecorders[cardId].stop();
-        isRecording = false;
-        recordedChunks[cardId] = [];
-        delete mediaRecorders[cardId]; // Clear the recorder
-        document.getElementById(`mic-button${cardId === 'vocab-card' ? '' : '-' + cardId.split('-')[1]}`).classList.remove('pulsating');
-        const playButton = document.getElementById(`play-button${cardId === 'vocab-card' ? '' : '-' + cardId.split('-')[1]}`);
-        const soundwaveButton = document.getElementById(`soundwave-button${cardId === 'vocab-card' ? '' : '-' + cardId.split('-')[1]}`);
-        playButton.style.display = 'none';
-        soundwaveButton.style.display = 'none';
-    }
-
-    // Stop recorded audio playback
-    const recordedAudio = document.getElementById('recorded-audio');
-    if (!recordedAudio.paused && activeCardId === cardId) {
-        recordedAudio.pause();
-        recordedAudio.currentTime = 0;
-        isPlayingRecording = false;
-    }
-
-    // Reset button states for the specific card
-    updateButtonStates();
-}
-
-// Function to play audio using Web Audio API for mobile compatibility
-function playAudio(audioSrc, audioButton, cardId) {
-    // Stop any existing audio
-    if (isAudioPlaying && currentAudioSource) {
-        try {
-            currentAudioSource.stop();
-        } catch (e) {
-            console.log('Audio source already stopped:', e);
-        }
-        isAudioPlaying = false;
-        currentAudioSource = null;
-        document.querySelectorAll('.audio-button').forEach(btn => btn.classList.remove('pulsating-twice'));
-    }
-
-    // Stop HTML5 audio fallback
-    const cardAudio = document.getElementById('card-audio');
-    if (!cardAudio.paused) {
-        cardAudio.pause();
-        cardAudio.currentTime = 0;
-    }
-
-    if (!audioContext) {
-        audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    }
-
-    // Ensure audio context is resumed (required for mobile browsers)
-    if (audioContext.state === 'suspended') {
-        audioContext.resume().then(() => {
-            loadAndPlayAudio(audioSrc, audioButton, cardId);
-        }).catch(error => {
-            console.error('Error resuming audio context:', error);
-        });
-    } else {
-        loadAndPlayAudio(audioSrc, audioButton, cardId);
-    }
-}
-
-function loadAndPlayAudio(audioSrc, audioButton, cardId) {
-    fetch(audioSrc)
-        .then(response => response.arrayBuffer())
-        .then(buffer => audioContext.decodeAudioData(buffer))
-        .then(decodedData => {
-            const source = audioContext.createBufferSource();
-            source.buffer = decodedData;
-            source.connect(audioContext.destination);
-            isAudioPlaying = true;
-            currentAudioSource = source;
-            activeCardId = cardId;
-            audioButton.classList.add('pulsating-twice');
-            updateButtonStates();
-            source.start(0);
-            source.onended = () => {
-                isAudioPlaying = false;
-                currentAudioSource = null;
-                activeCardId = null;
-                audioButton.classList.remove('pulsating-twice');
-                updateButtonStates();
-            };
-        })
-        .catch(error => {
-            console.error('Error playing audio with Web Audio API:', error);
-            // Fallback to HTML5 audio
-            const audio = new Audio(audioSrc);
-            isAudioPlaying = true;
-            activeCardId = cardId;
-            audioButton.classList.add('pulsating-twice');
-            updateButtonStates();
-            audio.play().catch(err => console.error('Error playing fallback audio:', err));
-            audio.onended = () => {
-                isAudioPlaying = false;
-                activeCardId = null;
-                audioButton.classList.remove('pulsating-twice');
-                updateButtonStates();
-            };
-        });
-}
-
-// Function to update button states (enable/disable)
-function updateButtonStates() {
-    const cards = [
-        { id: 'vocab-card', audioId: 'audio-button', micId: 'mic-button', playId: 'play-button', soundwaveId: 'soundwave-button' },
-        { id: 'next-card-1', audioId: 'audio-button-1', micId: 'mic-button-1', playId: 'play-button-1', soundwaveId: 'soundwave-button-1' },
-        { id: 'next-card-2', audioId: 'audio-button-2', micId: 'mic-button-2', playId: 'play-button-2', soundwaveId: 'soundwave-button-2' },
-        { id: 'next-card-3', audioId: 'audio-button-3', micId: 'mic-button-3', playId: 'play-button-3', soundwaveId: 'soundwave-button-3' },
-        { id: 'next-card-4', audioId: 'audio-button-4', micId: 'mic-button-4', playId: 'play-button-4', soundwaveId: 'soundwave-button-4' },
-        { id: 'next-card-5', audioId: 'audio-button-5', micId: 'mic-button-5', playId: 'play-button-5', soundwaveId: 'soundwave-button-5' },
-        { id: 'next-card-6', audioId: 'audio-button-6', micId: 'mic-button-6', playId: 'play-button-6', soundwaveId: 'soundwave-button-6' },
-        { id: 'next-card-7', audioId: 'audio-button-7', micId: 'mic-button-7', playId: 'play-button-7', soundwaveId: 'soundwave-button-7' },
-        { id: 'next-card-8', audioId: 'audio-button-8', micId: 'mic-button-8', playId: 'play-button-8', soundwaveId: 'soundwave-button-8' },
-        { id: 'next-card-9', audioId: 'audio-button-9', micId: 'mic-button-9', playId: 'play-button-9', soundwaveId: 'soundwave-button-9' }
-    ];
-
-    cards.forEach(card => {
-        const audioButton = document.getElementById(card.audioId);
-        const micButton = document.getElementById(card.micId);
-        const playButton = document.getElementById(card.playId);
-
-        audioButton.style.pointerEvents = (isAudioPlaying || isRecording || isPlayingRecording) ? 'none' : 'auto';
-        micButton.style.pointerEvents = (isAudioPlaying || isPlayingRecording) ? 'none' : 'auto'; // Allow mic during recording
-        playButton.style.pointerEvents = (isAudioPlaying || isRecording || isPlayingRecording) ? 'none' : 'auto';
-    });
-}
-
-// Function to enable card interactions (audio and mic buttons)
+// Function to enable card interactions (tap/click for audio)
 function enableCardInteractions() {
     const cards = [
-        { id: 'vocab-card', audioId: 'audio-button', micId: 'mic-button', playId: 'play-button', soundwaveId: 'soundwave-button', audioSrcId: 'card-audio' },
-        { id: 'next-card-1', audioId: 'audio-button-1', micId: 'mic-button-1', playId: 'play-button-1', soundwaveId: 'soundwave-button-1' },
-        { id: 'next-card-2', audioId: 'audio-button-2', micId: 'mic-button-2', playId: 'play-button-2', soundwaveId: 'soundwave-button-2' },
-        { id: 'next-card-3', audioId: 'audio-button-3', micId: 'mic-button-3', playId: 'play-button-3', soundwaveId: 'soundwave-button-3' },
-        { id: 'next-card-4', audioId: 'audio-button-4', micId: 'mic-button-4', playId: 'play-button-4', soundwaveId: 'soundwave-button-4' },
-        { id: 'next-card-5', audioId: 'audio-button-5', micId: 'mic-button-5', playId: 'play-button-5', soundwaveId: 'soundwave-button-5' },
-        { id: 'next-card-6', audioId: 'audio-button-6', micId: 'mic-button-6', playId: 'play-button-6', soundwaveId: 'soundwave-button-6' },
-        { id: 'next-card-7', audioId: 'audio-button-7', micId: 'mic-button-7', playId: 'play-button-7', soundwaveId: 'soundwave-button-7' },
-        { id: 'next-card-8', audioId: 'audio-button-8', micId: 'mic-button-8', playId: 'play-button-8', soundwaveId: 'soundwave-button-8' },
-        { id: 'next-card-9', audioId: 'audio-button-9', micId: 'mic-button-9', playId: 'play-button-9', soundwaveId: 'soundwave-button-9' }
+        { id: 'vocab-card', audioSrcId: 'card-audio' },
+        { id: 'next-card-1' },
+        { id: 'next-card-2' },
+        { id: 'next-card-3' },
+        { id: 'next-card-4' },
+        { id: 'next-card-5' },
+        { id: 'next-card-6' },
+        { id: 'next-card-7' },
+        { id: 'next-card-8' },
+        { id: 'next-card-9' }
     ];
 
     cards.forEach((card, index) => {
-        const audioButton = document.getElementById(card.audioId);
-        const micButton = document.getElementById(card.micId);
-        const playButton = document.getElementById(card.playId);
-        const soundwaveButton = document.getElementById(card.soundwaveId);
+        const cardElement = document.getElementById(card.id);
 
-        // Initialize recordedChunks for this card if not already
-        if (!recordedChunks[card.id]) {
-            recordedChunks[card.id] = [];
-        }
-
-        // Audio button handler (click and touchstart)
-        const audioHandler = (e) => {
+        // Tap/click handler for audio and ripple effect
+        const tapHandler = (e) => {
             e.preventDefault();
-            if (isRecording || isPlayingRecording) return;
+            if (isAudioPlaying) return;
+
             let audioSrc;
             if (card.id === 'vocab-card') {
                 audioSrc = document.getElementById('card-audio').src;
@@ -513,146 +466,24 @@ function enableCardInteractions() {
                 const entry = vocabData[currentIndex + index];
                 audioSrc = `data/${entry.audio}`;
             }
+
             if (audioSrc) {
-                // Ensure audio context is resumed for mobile
+                createRippleEffect(e, cardElement);
                 if (isMobileDevice() && audioContext && audioContext.state === 'suspended') {
                     audioContext.resume().then(() => {
-                        playAudio(audioSrc, audioButton, card.id);
+                        playAudio(audioSrc, card.id, cardElement);
                     }).catch(error => {
                         console.error('Error resuming audio context:', error);
                     });
                 } else {
-                    playAudio(audioSrc, audioButton, card.id);
+                    playAudio(audioSrc, card.id, cardElement);
                 }
             }
         };
 
-        audioButton.addEventListener('click', audioHandler);
-        audioButton.addEventListener('touchstart', audioHandler);
-
-        // Microphone button handler (click and touchstart)
-        const micHandler = (e) => {
-            e.preventDefault();
-            if (isAudioPlaying || isPlayingRecording) return;
-
-            // Reset play and soundwave buttons for this card
-            playButton.style.display = 'none';
-            soundwaveButton.style.display = 'none';
-            recordedChunks[card.id] = []; // Reset recorded chunks for this card
-
-            // Stop any ongoing recording for this card
-            if (mediaRecorders[card.id] && mediaRecorders[card.id].state === 'recording') {
-                mediaRecorders[card.id].stop();
-                isRecording = false;
-                delete mediaRecorders[card.id];
-            }
-
-            micButton.classList.add('pulsating');
-            startRecording(card.id, card.playId, card.soundwaveId);
-            setTimeout(() => {
-                stopRecording(card.id, card.playId, card.soundwaveId);
-                micButton.classList.remove('pulsating');
-            }, 5000);
-        };
-
-        micButton.addEventListener('click', micHandler);
-        micButton.addEventListener('touchstart', micHandler);
-
-        // Play recording button handler (click and touchstart)
-        const playHandler = (e) => {
-            if (isAudioPlaying || isRecording || isPlayingRecording) return;
-            e.preventDefault();
-            playButton.classList.add('pulsating');
-            setTimeout(() => playButton.classList.remove('pulsating'), 300);
-            const recordedAudio = document.getElementById('recorded-audio');
-            if (recordedAudio.src && recordedChunks[card.id] && recordedChunks[card.id].length > 0) {
-                isPlayingRecording = true;
-                activeCardId = card.id;
-                updateButtonStates();
-                animateSoundwave(card.soundwaveId);
-                recordedAudio.play().then(() => {
-                    recordedAudio.onended = () => {
-                        isPlayingRecording = false;
-                        activeCardId = null;
-                        updateButtonStates();
-                    };
-                }).catch(error => {
-                    console.error('Error playing recorded audio:', error);
-                    isPlayingRecording = false;
-                    activeCardId = null;
-                    updateButtonStates();
-                });
-            }
-        };
-
-        playButton.addEventListener('click', playHandler);
-        playButton.addEventListener('touchstart', playHandler);
+        cardElement.addEventListener('click', tapHandler);
+        cardElement.addEventListener('touchstart', tapHandler);
     });
-}
-
-// Function to start recording for a specific card
-function startRecording(cardId, playButtonId, soundwaveButtonId) {
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ audio: true })
-            .then(stream => {
-                mediaRecorders[cardId] = new MediaRecorder(stream);
-                recordedChunks[cardId] = [];
-                mediaRecorders[cardId].start();
-                isRecording = true;
-                activeCardId = cardId;
-                updateButtonStates();
-                mediaRecorders[cardId].ondataavailable = (e) => {
-                    recordedChunks[cardId].push(e.data);
-                };
-                mediaRecorders[cardId].onstop = () => {
-                    if (recordedChunks[cardId].length > 0) {
-                        const blob = new Blob(recordedChunks[cardId], { type: 'audio/wav' });
-                        const recordedAudio = document.getElementById('recorded-audio');
-                        recordedAudio.src = URL.createObjectURL(blob);
-                        // Only show play button if the card is still active and recording exists
-                        if (activeCardId === cardId) {
-                            setTimeout(() => {
-                                document.getElementById(playButtonId).style.display = 'inline-block';
-                                document.getElementById(soundwaveButtonId).style.display = 'none';
-                            }, 2000); // Show play button 2 seconds after recording stops
-                        }
-                    }
-                    isRecording = false;
-                    activeCardId = null;
-                    updateButtonStates();
-                    stream.getTracks().forEach(track => track.stop());
-                };
-            })
-            .catch(error => {
-                console.error('Error accessing microphone:', error);
-                isRecording = false;
-                activeCardId = null;
-                updateButtonStates();
-                alert('Microphone access denied or not supported. Please ensure microphone permissions are granted.');
-            });
-    } else {
-        console.error('MediaRecorder or getUserMedia not supported');
-        isRecording = false;
-        activeCardId = null;
-        updateButtonStates();
-        alert('Recording is not supported on this device or browser.');
-    }
-}
-
-// Function to stop recording for a specific card
-function stopRecording(cardId, playButtonId, soundwaveButtonId) {
-    if (mediaRecorders[cardId] && mediaRecorders[cardId].state === 'recording') {
-        mediaRecorders[cardId].stop();
-    }
-}
-
-// Function to animate soundwave
-function animateSoundwave(soundwaveButtonId) {
-    const soundwave = document.getElementById(soundwaveButtonId);
-    soundwave.style.display = 'inline-block';
-    soundwave.style.animation = 'none';
-    soundwave.offsetHeight; // Trigger reflow
-    soundwave.style.animation = 'soundwaveSweep 5s linear forwards';
 }
 
 // Function to fetch and parse JSONL file
@@ -716,19 +547,20 @@ function displayCards() {
 
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
+    const wordBottomElement = document.getElementById('word-bottom');
     const englishElement = document.getElementById('english');
     const thaiElement = document.getElementById('thai');
     const audioElement = document.getElementById('card-audio');
     const nextCards = [
-        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: 9, translateX: 1.296, translateY: 1.296, rotate: 0.3249 },
-        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 2.592, translateY: 2.592, rotate: 0.6498 },
-        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: 7, translateX: 3.888, translateY: 3.888, rotate: 0.9747 },
-        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 6, translateX: 5.184, translateY: 5.184, rotate: 1.2996 },
-        { card: document.getElementById('next-card-5'), top: 'next-word-top-5', english: 'next-english-5', thai: 'next-thai-5', zIndex: 5, translateX: 6.48, translateY: 6.48, rotate: 1.6245 },
-        { card: document.getElementById('next-card-6'), top: 'next-word-top-6', english: 'next-english-6', thai: 'next-thai-6', zIndex: 4, translateX: 7.776, translateY: 7.776, rotate: 1.9494 },
-        { card: document.getElementById('next-card-7'), top: 'next-word-top-7', english: 'next-english-7', thai: 'next-thai-7', zIndex: 3, translateX: 9.072, translateY: 9.072, rotate: 2.2743 },
-        { card: document.getElementById('next-card-8'), top: 'next-word-top-8', english: 'next-english-8', thai: 'next-thai-8', zIndex: 2, translateX: 10.368, translateY: 10.368, rotate: 2.5992 },
-        { card: document.getElementById('next-card-9'), top: 'next-word-top-9', english: 'next-english-9', thai: 'next-thai-9', zIndex: 1, translateX: 11.664, translateY: 11.664, rotate: 2.9241 }
+        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: 9, translateX: 1.296, translateY: 1.296, rotate: 0.3249 },
+        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 2.592, translateY: 2.592, rotate: 0.6498 },
+        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: 7, translateX: 3.888, translateY: 3.888, rotate: 0.9747 },
+        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 6, translateX: 5.184, translateY: 5.184, rotate: 1.2996 },
+        { card: document.getElementById('next-card-5'), top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5', zIndex: 5, translateX: 6.48, translateY: 6.48, rotate: 1.6245 },
+        { card: document.getElementById('next-card-6'), top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6', zIndex: 4, translateX: 7.776, translateY: 7.776, rotate: 1.9494 },
+        { card: document.getElementById('next-card-7'), top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7', zIndex: 3, translateX: 9.072, translateY: 9.072, rotate: 2.2743 },
+        { card: document.getElementById('next-card-8'), top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8', zIndex: 2, translateX: 10.368, translateY: 10.368, rotate: 2.5992 },
+        { card: document.getElementById('next-card-9'), top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9', zIndex: 1, translateX: 11.664, translateY: 11.664, rotate: 2.9241 }
     ];
     const stackCards = document.querySelectorAll('.card-stack');
 
@@ -736,11 +568,14 @@ function displayCards() {
     if (currentIndex < vocabData.length) {
         const entry = vocabData[currentIndex];
         wordTopElement.textContent = entry.word;
+        wordBottomElement.textContent = entry.word;
         wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
+        wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
         englishElement.textContent = entry.english;
         thaiElement.textContent = entry.thai;
         audioElement.src = `data/${entry.audio}`;
         wordTopElement.style.color = cardTextColor;
+        wordBottomElement.style.color = cardTextColor;
         englishElement.style.color = cardTextColor;
         thaiElement.style.color = cardTextColor;
         currentCard.style.backgroundColor = cardBackgroundColor;
@@ -748,9 +583,6 @@ function displayCards() {
         currentCard.style.transform = 'translate(0, 0) rotate(0deg)';
         currentCard.style.opacity = '1';
         currentCard.style.zIndex = '100';
-        // Reset recording buttons for new top card
-        document.getElementById('play-button').style.display = recordedChunks['vocab-card'] && recordedChunks['vocab-card'].length > 0 ? 'inline-block' : 'none';
-        document.getElementById('soundwave-button').style.display = 'none';
     }
 
     // Next cards
@@ -758,23 +590,24 @@ function displayCards() {
         if (currentIndex + index + 1 < vocabData.length) {
             const nextEntry = vocabData[currentIndex + index + 1];
             const nextWordTopElement = document.getElementById(next.top);
+            const nextWordBottomElement = document.getElementById(next.bottom);
             const nextEnglishElement = document.getElementById(next.english);
             const nextThaiElement = document.getElementById(next.thai);
             nextWordTopElement.textContent = nextEntry.word;
+            nextWordBottomElement.textContent = nextEntry.word;
             nextEnglishElement.textContent = nextEntry.english;
             nextThaiElement.textContent = nextEntry.thai;
             nextWordTopElement.style.color = cardTextColor;
+            nextWordBottomElement.style.color = cardTextColor;
             nextEnglishElement.style.color = cardTextColor;
             nextThaiElement.style.color = cardTextColor;
             nextWordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
+            nextWordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
             next.card.style.backgroundColor = cardBackgroundColor;
             next.card.style.borderColor = cardBorderColor;
             next.card.style.transform = `translate(${next.translateX}px, ${next.translateY}px) rotate(${next.rotate}deg)`;
             next.card.style.opacity = '1';
             next.card.style.zIndex = next.zIndex;
-            // Reset recording buttons for next cards
-            document.getElementById(`play-button-${index + 1}`).style.display = recordedChunks[`next-card-${index + 1}`] && recordedChunks[`next-card-${index + 1}`].length > 0 ? 'inline-block' : 'none';
-            document.getElementById(`soundwave-button-${index + 1}`).style.display = 'none';
         } else {
             next.card.style.opacity = '0';
         }
@@ -793,12 +626,22 @@ function displayCards() {
 // Function to animate and move to next card
 function moveToNextCard(translateX, translateY, rotate) {
     // Stop all media for the current card before moving to next card
-    stopCardMedia('vocab-card');
+    if (isAudioPlaying && currentAudioSource && activeCardId === 'vocab-card') {
+        try {
+            currentAudioSource.stop();
+        } catch (e) {
+            console.log('Audio source already stopped:', e);
+        }
+        isAudioPlaying = false;
+        currentAudioSource = null;
+        activeCardId = null;
+    }
 
-    // Clear recorded chunks for the current card to prevent play button from appearing on new card
-    recordedChunks['vocab-card'] = [];
-    document.getElementById('play-button').style.display = 'none';
-    document.getElementById('soundwave-button').style.display = 'none';
+    const cardAudio = document.getElementById('card-audio');
+    if (!cardAudio.paused) {
+        cardAudio.pause();
+        cardAudio.currentTime = 0;
+    }
 
     const card = document.getElementById('vocab-card');
     card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
@@ -815,22 +658,6 @@ function moveToNextCard(translateX, translateY, rotate) {
     hasSwiped = true;
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % vocabData.length;
-        // Clear recorded chunks for the new top card (previously next-card-1)
-        if (currentIndex < vocabData.length) {
-            recordedChunks['vocab-card'] = recordedChunks['next-card-1'] || [];
-            recordedChunks['next-card-1'] = recordedChunks['next-card-2'] || [];
-            recordedChunks['next-card-2'] = recordedChunks['next-card-3'] || [];
-            recordedChunks['next-card-3'] = recordedChunks['next-card-4'] || [];
-            recordedChunks['next-card-4'] = recordedChunks['next-card-5'] || [];
-            recordedChunks['next-card-5'] = recordedChunks['next-card-6'] || [];
-            recordedChunks['next-card-6'] = recordedChunks['next-card-7'] || [];
-            recordedChunks['next-card-7'] = recordedChunks['next-card-8'] || [];
-            recordedChunks['next-card-8'] = recordedChunks['next-card-9'] || [];
-            recordedChunks['next-card-9'] = [];
-            // Ensure the new top card only shows audio and mic buttons initially
-            document.getElementById('play-button').style.display = recordedChunks['vocab-card'] && recordedChunks['vocab-card'].length > 0 ? 'inline-block' : 'none';
-            document.getElementById('soundwave-button').style.display = 'none';
-        }
         displayCards();
         card.style.transition = 'none';
     }, 500);
@@ -844,8 +671,6 @@ let currentX = 0;
 let currentY = 0;
 let startTime = 0;
 const minSwipeDistance = 50;
-const maxTapDistance = 10;
-const maxTapDuration = 300;
 
 const card = document.querySelector('#vocab-card');
 
@@ -881,7 +706,6 @@ card.addEventListener('touchend', (e) => {
     isDragging = false;
     const endX = e.changedTouches[0].screenX;
     const endY = e.changedTouches[0].screenY;
-    const touchDuration = Date.now() - startTime;
     const deltaX = endX - startX;
     const deltaY = endY - startY;
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
@@ -929,7 +753,6 @@ card.addEventListener('mouseup', (e) => {
     isDragging = false;
     const endX = e.screenX;
     const endY = e.screenY;
-    const duration = Date.now() - startTime;
     const deltaX = endX - startX;
     const deltaY = endY - startY;
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
