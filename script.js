@@ -184,7 +184,7 @@ function alternateStatsText() {
 
 // Function to set initial card theme
 function setInitialCardTheme() {
-    const cardBackgroundColor = '#ffffff';
+    const cardBackgroundColor = '#FFF8DC'; // updated from '#ffffff'
     const cardTextColor = '#000000';
     const cardBorderColor = '#000000';
 
@@ -420,7 +420,7 @@ async function loadVocabData() {
 function displayCards() {
     if (vocabData.length === 0) return;
 
-    const cardBackgroundColor = '#ffffff';
+    const cardBackgroundColor = '#FFF8DC'; // updated from white '#ffffff'
     const cardTextColor = '#000000';
     const cardBorderColor = '#000000';
 
