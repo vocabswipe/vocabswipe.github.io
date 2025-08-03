@@ -40,22 +40,13 @@ html, body {
     filter: blur(5px);
 }
 
-.main-content.demo-blurred {
-    filter: blur(5px);
-}
-
-/* Ensure card-container is not blurred during demo */
-.card-container {
-    transition: filter 0.3s ease;
-}
-
 /* Fixed height containers */
 .stats-container {
     width: 100%;
-    height: 120px;
+    height: 100px; /* Fixed height to prevent displacement */
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center; /* Center content vertically */
     position: relative;
     z-index: 15;
 }
@@ -263,6 +254,8 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%; /* Ensure it takes full container height */
+    justify-content: center;
 }
 
 .count-title {
@@ -272,6 +265,7 @@ html, body {
     color: #ffd700;
     margin: 5px 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
 }
 
 .stats-text-container {
@@ -589,13 +583,13 @@ html, body {
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .stats-container {
-        height: 100px;
-        margin-top: 10px; /* Added to shift downward by 10px */
+        height: 90px; /* Reduced height for mobile to fit content */
+        align-items: center; /* Center content vertically */
     }
 
     .info-container {
         height: 170px; /* Adjusted for mobile */
-        top: 18px; /* Increased from 20px to 30px for 10px downward shift */
+        top: 18px; /* Moved downward */
     }
 
     .website-info {
@@ -630,7 +624,7 @@ html, body {
         width: 90vw; /* Matches card width */
         max-width: 300px;
         height: 9px; /* Reduced by 50% from 18px */
-        top: 92px; /* Increased from 82px to 92px for 10px downward shift */
+        top: 92px; /* Adjusted for mobile */
         left: 50%;
         transform: translateX(-50%);
         opacity: 0; /* Initially hidden */
@@ -674,11 +668,14 @@ html, body {
 
     .counter {
         padding: 8px;
+        height: 100%; /* Ensure it takes full container height */
+        justify-content: center;
     }
 
     .count-title {
         font-size: 1.8rem;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        line-height: 1.2;
     }
 
     .count-text {
