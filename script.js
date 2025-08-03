@@ -10,7 +10,7 @@ let isAudioPlaying = false; // Track if any audio is playing
 let isPlayingRecording = false; // Track if any recorded audio is playing
 let audioContext = null; // Web Audio API context
 let currentAudioSource = null; // Track current audio source for stopping
-let activeCardId = 'vocab-card'; // Track the active card for media operations
+let activeCardId = null; // Track the active card for media operations
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
@@ -330,7 +330,7 @@ function animateCardStackDrop(callback) {
 // Function to stop all media for a specific card
 function stopCardMedia(cardId) {
     // Stop audio playback
-    if (isAudioPlaying && currentAudioSource) {
+    if (isAudioPlaying && currentAudioSource && activeCardId === cardId) {
         try {
             currentAudioSource.stop();
         } catch (e) {
@@ -355,21 +355,21 @@ function stopCardMedia(cardId) {
         recordedChunks[cardId] = [];
         delete mediaRecorders[cardId]; // Clear the recorder
         document.getElementById(`mic-button${cardId === 'vocab-card' ? '' : '-' + cardId.split('-')[1]}`).classList.remove('pulsating');
+        const playButton = document.getElementById(`play-button${cardId === 'vocab-card' ? '' : '-' + cardId.split('-')[1]}`);
+        const soundwaveButton = document.getElementById(`soundwave-button${cardId === 'vocab-card' ? '' : '-' + cardId.split('-')[1]}`);
+        playButton.style.display = 'none';
+        soundwaveButton.style.display = 'none';
     }
 
     // Stop recorded audio playback
     const recordedAudio = document.getElementById('recorded-audio');
-    if (!recordedAudio.paused) {
+    if (!recordedAudio.paused && activeCardId === cardId) {
         recordedAudio.pause();
         recordedAudio.currentTime = 0;
         isPlayingRecording = false;
     }
 
     // Reset button states for the specific card
-    const playButton = document.getElementById(`play-button${cardId === 'vocab-card' ? '' : '-' + cardId.split('-')[1]}`);
-    const soundwaveButton = document.getElementById(`soundwave-button${cardId === 'vocab-card' ? '' : '-' + cardId.split('-')[1]}`);
-    playButton.style.display = 'none';
-    soundwaveButton.style.display = 'none';
     updateButtonStates();
 }
 
@@ -496,6 +496,11 @@ function enableCardInteractions() {
         const playButton = document.getElementById(card.playId);
         const soundwaveButton = document.getElementById(card.soundwaveId);
 
+        // Initialize recordedChunks for this card if not already
+        if (!recordedChunks[card.id]) {
+            recordedChunks[card.id] = [];
+        }
+
         // Audio button handler (click and touchstart)
         const audioHandler = (e) => {
             e.preventDefault();
@@ -520,9 +525,9 @@ function enableCardInteractions() {
             e.preventDefault();
             if (isAudioPlaying || isPlayingRecording) return;
 
-            // Reset play and soundwave buttons immediately for this card
-            document.getElementById(card.playId).style.display = 'none';
-            document.getElementById(card.soundwaveId).style.display = 'none';
+            // Reset play and soundwave buttons for this card
+            playButton.style.display = 'none';
+            soundwaveButton.style.display = 'none';
             recordedChunks[card.id] = []; // Reset recorded chunks for this card
 
             // Stop any ongoing recording for this card
@@ -590,15 +595,17 @@ function startRecording(cardId, playButtonId, soundwaveButtonId) {
                     recordedChunks[cardId].push(e.data);
                 };
                 mediaRecorders[cardId].onstop = () => {
-                    const blob = new Blob(recordedChunks[cardId], { type: 'audio/wav' });
-                    const recordedAudio = document.getElementById('recorded-audio');
-                    recordedAudio.src = URL.createObjectURL(blob);
-                    // Only show play button if the card is still active and recording exists
-                    if (activeCardId === cardId && recordedChunks[cardId].length > 0) {
-                        setTimeout(() => {
-                            document.getElementById(playButtonId).style.display = 'inline-block';
-                            document.getElementById(soundwaveButtonId).style.display = 'none';
-                        }, 2000); // Show play button 2 seconds after recording stops
+                    if (recordedChunks[cardId].length > 0) {
+                        const blob = new Blob(recordedChunks[cardId], { type: 'audio/wav' });
+                        const recordedAudio = document.getElementById('recorded-audio');
+                        recordedAudio.src = URL.createObjectURL(blob);
+                        // Only show play button if the card is still active and recording exists
+                        if (activeCardId === cardId) {
+                            setTimeout(() => {
+                                document.getElementById(playButtonId).style.display = 'inline-block';
+                                document.getElementById(soundwaveButtonId).style.display = 'none';
+                            }, 2000); // Show play button 2 seconds after recording stops
+                        }
                     }
                     isRecording = false;
                     activeCardId = null;
@@ -780,6 +787,8 @@ function moveToNextCard(translateX, translateY, rotate) {
 
     // Clear recorded chunks for the current card to prevent play button from appearing on new card
     recordedChunks['vocab-card'] = [];
+    document.getElementById('play-button').style.display = 'none';
+    document.getElementById('soundwave-button').style.display = 'none';
 
     const card = document.getElementById('vocab-card');
     card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
@@ -796,6 +805,19 @@ function moveToNextCard(translateX, translateY, rotate) {
     hasSwiped = true;
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % vocabData.length;
+        // Clear recorded chunks for the new top card (previously next-card-1)
+        if (currentIndex < vocabData.length) {
+            recordedChunks['vocab-card'] = recordedChunks['next-card-1'] || [];
+            recordedChunks['next-card-1'] = recordedChunks['next-card-2'] || [];
+            recordedChunks['next-card-2'] = recordedChunks['next-card-3'] || [];
+            recordedChunks['next-card-3'] = recordedChunks['next-card-4'] || [];
+            recordedChunks['next-card-4'] = recordedChunks['next-card-5'] || [];
+            recordedChunks['next-card-5'] = recordedChunks['next-card-6'] || [];
+            recordedChunks['next-card-6'] = recordedChunks['next-card-7'] || [];
+            recordedChunks['next-card-7'] = recordedChunks['next-card-8'] || [];
+            recordedChunks['next-card-8'] = recordedChunks['next-card-9'] || [];
+            recordedChunks['next-card-9'] = [];
+        }
         displayCards();
         card.style.transition = 'none';
     }, 500);
@@ -806,6 +828,7 @@ let isDragging = false;
 let startX = 0;
 let startY = 0;
 let currentX = 0;
+let currentY = 0;
 let startTime = 0;
 const minSwipeDistance = 50;
 const maxTapDistance = 10;
