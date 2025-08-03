@@ -479,22 +479,9 @@ html, body {
     position: absolute;
     bottom: 10px;
     left: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.card-buttons-right {
-    position: absolute;
-    bottom: 10px;
     right: 10px;
     display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.mic-container {
-    display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
 }
@@ -891,9 +878,7 @@ html, body {
         touch-action: none; /* Prevent default touch behaviors */
     }
 
-    .mic-container {
-        display: flex;
-        align-items: center;
+    .card-buttons {
         gap: 8px; /* Slightly reduced gap for mobile */
     }
 }
