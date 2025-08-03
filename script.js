@@ -322,12 +322,6 @@ function animateCardStackDrop(callback) {
         // Call callback after animation completes to enable interactions
         setTimeout(() => {
             enableCardInteractions();
-            // Resume audio context for mobile browsers
-            if (isMobileDevice() && audioContext && audioContext.state === 'suspended') {
-                audioContext.resume().then(() => {
-                    console.log('AudioContext resumed');
-                });
-            }
             callback();
         }, 1000 + (cards.length - 1) * 200);
     }, 100);
@@ -404,14 +398,25 @@ function playAudio(audioSrc, audioButton, cardId) {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
 
-    // Ensure audio context is resumed (required for mobile browsers)
-    if (audioContext.state === 'suspended') {
-        audioContext.resume().then(() => {
-            loadAndPlayAudio(audioSrc, audioButton, cardId);
-        });
-    } else {
+    // Resume audio context to handle mobile browser restrictions
+    audioContext.resume().then(() => {
         loadAndPlayAudio(audioSrc, audioButton, cardId);
-    }
+    }).catch(error => {
+        console.error('Error resuming audio context:', error);
+        // Fallback to HTML5 audio
+        const audio = new Audio(audioSrc);
+        isAudioPlaying = true;
+        activeCardId = cardId;
+        audioButton.classList.add('pulsating-twice');
+        updateButtonStates();
+        audio.play().catch(err => console.error('Error playing fallback audio:', err));
+        audio.onended = () => {
+            isAudioPlaying = false;
+            activeCardId = null;
+            audioButton.classList.remove('pulsating-twice');
+            updateButtonStates();
+        };
+    });
 }
 
 function loadAndPlayAudio(audioSrc, audioButton, cardId) {
@@ -506,7 +511,7 @@ function enableCardInteractions() {
             recordedChunks[card.id] = [];
         }
 
-        // Audio button handler
+        // Audio button handler (click and touchstart)
         const audioHandler = (e) => {
             e.preventDefault();
             if (isRecording || isPlayingRecording) return;
@@ -522,18 +527,10 @@ function enableCardInteractions() {
             }
         };
 
-        // Remove existing listeners to prevent duplicates
-        audioButton.removeEventListener('click', audioHandler);
-        audioButton.removeEventListener('touchstart', audioHandler);
+        audioButton.addEventListener('click', audioHandler);
+        audioButton.addEventListener('touchstart', audioHandler);
 
-        // Add listeners based on device type
-        if (isMobileDevice()) {
-            audioButton.addEventListener('touchstart', audioHandler);
-        } else {
-            audioButton.addEventListener('click', audioHandler);
-        }
-
-        // Microphone button handler
+        // Microphone button handler (click and touchstart)
         const micHandler = (e) => {
             e.preventDefault();
             if (isAudioPlaying || isPlayingRecording) return;
@@ -558,16 +555,10 @@ function enableCardInteractions() {
             }, 5000);
         };
 
-        micButton.removeEventListener('click', micHandler);
-        micButton.removeEventListener('touchstart', micHandler);
+        micButton.addEventListener('click', micHandler);
+        micButton.addEventListener('touchstart', micHandler);
 
-        if (isMobileDevice()) {
-            micبیbutton.addEventListener('touchstart', micHandler);
-        } else {
-            micButton.addEventListener('click', micHandler);
-        }
-
-        // Play recording button handler
+        // Play recording button handler (click and touchstart)
         const playHandler = (e) => {
             if (isAudioPlaying || isRecording || isPlayingRecording) return;
             e.preventDefault();
@@ -594,14 +585,8 @@ function enableCardInteractions() {
             }
         };
 
-        playButton.removeEventListener('click', playHandler);
-        playButton.removeEventListener('touchstart', playHandler);
-
-        if (isMobileDevice()) {
-            playButton.addEventListener('touchstart', playHandler);
-        } else {
-            playButton.addEventListener('click', playHandler);
-        }
+        playButton.addEventListener('click', playHandler);
+        playButton.addEventListener('touchstart', playHandler);
     });
 }
 
@@ -763,7 +748,7 @@ function displayCards() {
         currentCard.style.transform = 'translate(0, 0) rotate(0deg)';
         currentCard.style.opacity = '1';
         currentCard.style.zIndex = '100';
-        // Ensure new top card (card number 2 after swipe) has only audio and mic buttons
+        // Reset recording buttons for new top card
         document.getElementById('play-button').style.display = recordedChunks['vocab-card'] && recordedChunks['vocab-card'].length > 0 ? 'inline-block' : 'none';
         document.getElementById('soundwave-button').style.display = 'none';
     }
@@ -787,7 +772,7 @@ function displayCards() {
             next.card.style.transform = `translate(${next.translateX}px, ${next.translateY}px) rotate(${next.rotate}deg)`;
             next.card.style.opacity = '1';
             next.card.style.zIndex = next.zIndex;
-            // Ensure next cards maintain their recorded state
+            // Reset recording buttons for next cards
             document.getElementById(`play-button-${index + 1}`).style.display = recordedChunks[`next-card-${index + 1}`] && recordedChunks[`next-card-${index + 1}`].length > 0 ? 'inline-block' : 'none';
             document.getElementById(`soundwave-button-${index + 1}`).style.display = 'none';
         } else {
@@ -830,7 +815,7 @@ function moveToNextCard(translateX, translateY, rotate) {
     hasSwiped = true;
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % vocabData.length;
-        // Shift recorded chunks for next cards
+        // Clear recorded chunks for the new top card (previously next-card-1)
         if (currentIndex < vocabData.length) {
             recordedChunks['vocab-card'] = recordedChunks['next-card-1'] || [];
             recordedChunks['next-card-1'] = recordedChunks['next-card-2'] || [];
