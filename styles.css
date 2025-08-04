@@ -1,5 +1,6 @@
-/* Import Montserrat and Bangers fonts */
+/* Import Montserrat, Bangers, and Noto Sans Thai fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500&display=swap');
 
 /* Reset default styles and prevent scrolling */
 * {
@@ -155,7 +156,7 @@ html, body {
 }
 
 .donation-message.thai-text {
-    font-size: 0.945rem;
+    font-size: 1.0395rem; /* Increased by 10% from 0.945rem */
     line-height: 1.5;
 }
 
@@ -191,16 +192,24 @@ html, body {
 }
 
 .developer-photo {
-    width: 100px; /* Doubled from 50px */
-    height: 100px; /* Doubled from 50px */
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     border: 2px solid #35654d;
     margin-right: 10px;
-    image-rendering: -webkit-optimize-contrast; /* Improves resolution */
+    margin-left: -20px; /* Moved left to accommodate Instagram icon */
+    image-rendering: -webkit-optimize-contrast;
 }
 
 .developer-text {
     text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.developer-role-container {
+    display: flex;
+    align-items: center;
 }
 
 .developer-name {
@@ -209,7 +218,7 @@ html, body {
     font-size: 0.945rem;
     color: #333333;
     margin-bottom: 5px;
-    line-height: 1.4; /* Adjusted for new line */
+    line-height: 1.4;
 }
 
 .developer-role {
@@ -217,11 +226,23 @@ html, body {
     font-weight: 500;
     font-size: 0.84rem;
     color: #555555;
+    margin-right: 8px;
 }
 
 .developer-role .vocabswipe-text {
     font-family: 'Bangers', cursive;
     color: #35654d;
+}
+
+.instagram-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.instagram-icon:hover {
+    transform: scale(1.1);
 }
 
 .close-icon {
@@ -407,6 +428,16 @@ html, body {
     background-color: #00ff00; /* Bright green fill */
     width: 0%;
     transition: width 0.3s ease;
+}
+
+.progress-glow {
+    animation: progress-glow 0.6s ease-in-out 1;
+}
+
+@keyframes progress-glow {
+    0% { box-shadow: none; }
+    50% { box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.7); }
+    100% { box-shadow: none; }
 }
 
 /* Card container */
@@ -749,7 +780,7 @@ html, body {
     }
 
     .donation-message.thai-text {
-        font-size: 0.84rem;
+        font-size: 0.924rem; /* Increased by 10% from 0.84rem */
     }
 
     .vocabswipe-text {
@@ -767,23 +798,30 @@ html, body {
     }
 
     .developer-photo {
-        width: 80px; /* Doubled from 40px */
-        height: 80px; /* Doubled from 40px */
-        image-rendering: -webkit-optimize-contrast; /* Improves resolution */
+        width: 80px;
+        height: 80px;
+        margin-left: -15px; /* Adjusted for mobile */
+        image-rendering: -webkit-optimize-contrast;
     }
 
     .developer-name {
         font-size: 0.84rem;
-        line-height: 1.4; /* Adjusted for new line */
+        line-height: 1.4;
     }
 
     .developer-role {
         font-size: 0.756rem;
+        margin-right: 6px;
     }
 
     .developer-role .vocabswipe-text {
         font-family: 'Bangers', cursive;
         color: #35654d;
+    }
+
+    .instagram-icon {
+        width: 18px;
+        height: 18px;
     }
 
     .close-icon {
