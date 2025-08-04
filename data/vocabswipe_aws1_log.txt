@@ -9,3 +9,7 @@ AWS neural polly 1,000,000 characters (free tier / $16 (550 THB) ) = 27,983 engl
 ------------------------------
 start AWS vocabswipe at 51738 
 expected to reach free tier at 51738 + 27983 = 79,721
+used AWS vocabswipe and reached 79478, swap to vocabswipe.aws1
+-----------------------------
+start AWS vocabswipe.aws1 at 79478
+expected to reach free tier at 79478 + 27983 = 107,462
