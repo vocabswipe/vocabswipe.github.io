@@ -658,6 +658,7 @@ html, body {
     }
 
     .website-stats {
+        transform: translateY(3px); /* Moves the container down by 3px */
         width: 90vw;
         max-width: 300px;
     }
