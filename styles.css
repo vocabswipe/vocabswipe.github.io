@@ -238,11 +238,17 @@ html, body {
     height: 24px;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
+    -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
 }
 
 .social-icon:hover {
     transform: scale(1.1);
     opacity: 0.8;
+}
+
+.social-icon:active {
+    transform: scale(0.9);
+    opacity: 0.6;
 }
 
 .close-icon {
@@ -434,7 +440,7 @@ html, body {
 }
 
 .progress-brighten {
-    background-color: #33ff33; /* Brighter green for effect */
+    background-color: #66ff66; /* 100% brighter green for effect */
 }
 
 .progress-glow {
@@ -703,7 +709,7 @@ html, body {
     }
 
     .progress-brighten {
-        background-color: #33ff33; /* Brighter green for effect */
+        background-color: #66ff66; /* 100% brighter green for effect */
     }
 
     .progress-glow {
@@ -850,10 +856,16 @@ html, body {
     .social-icon {
         width: 20px;
         height: 20px;
+        -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
     }
 
     .social-icon:hover {
         transform: scale(1.1);
         opacity: 0.8;
+    }
+
+    .social-icon:active {
+        transform: scale(0.9);
+        opacity: 0.6;
     }
 }
