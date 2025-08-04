@@ -437,6 +437,16 @@ html, body {
     background-color: #33ff33; /* Brighter green for effect */
 }
 
+.progress-glow {
+    animation: progress-glow 0.3s ease-in-out 1;
+}
+
+@keyframes progress-glow {
+    0% { box-shadow: 0 0 0 rgba(0, 255, 0, 0); }
+    50% { box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.7); }
+    100% { box-shadow: 0 0 0 rgba(0, 255, 0, 0); }
+}
+
 /* Card container */
 .card-container {
     position: relative;
@@ -694,6 +704,16 @@ html, body {
 
     .progress-brighten {
         background-color: #33ff33; /* Brighter green for effect */
+    }
+
+    .progress-glow {
+        animation: progress-glow 0.3s ease-in-out 1;
+    }
+
+    @keyframes progress-glow {
+        0% { box-shadow: 0 0 0 rgba(0, 255, 0, 0); }
+        50% { box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.7); }
+        100% { box-shadow: 0 0 0 rgba(0, 255, 0, 0); }
     }
 
     .website-stats {
