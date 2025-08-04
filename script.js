@@ -112,6 +112,12 @@ function updateProgressBar() {
     progressFill.style.width = `${percentage}%`;
     progressValue.textContent = swipedCount.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
     
+    // Apply glow effect when progress updates
+    progressFill.classList.add('progress-glow');
+    setTimeout(() => {
+        progressFill.classList.remove('progress-glow');
+    }, 600);
+    
     // Show progress bar after first swipe
     if (hasSwiped && swipedCount > 0) {
         const progressContainer = document.querySelector('.progress-container');
