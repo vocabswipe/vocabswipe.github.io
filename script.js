@@ -112,12 +112,12 @@ function updateProgressBar() {
     progressFill.style.width = `${percentage}%`;
     progressValue.textContent = swipedCount.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
     
-    // Brighten effect for progress bar
+    // Brighten and glow effect for progress bar
     if (hasSwiped && swipedCount > 0) {
-        progressFill.classList.add('progress-brighten');
+        progressFill.classList.add('progress-brighten', 'progress-glow');
         setTimeout(() => {
-            progressFill.classList.remove('progress-brighten');
-        }, 300); // Duration of the brighten effect
+            progressFill.classList.remove('progress-brighten', 'progress-glow');
+        }, 300); // Duration of the brighten and glow effect
         const progressContainer = document.querySelector('.progress-container');
         progressContainer.style.opacity = '1';
         progressContainer.style.transition = 'opacity 1s ease';
@@ -501,9 +501,6 @@ function displayCards() {
         card.style.backgroundColor = cardBackgroundColor;
         card.style.borderColor = cardBorderColor;
     });
-
-    // Update progress bar after displaying cards
-    updateProgressBar();
 }
 
 // Function to animate and move to next card
@@ -521,6 +518,8 @@ function moveToNextCard(translateX, translateY, rotate) {
     }
     // Set hasSwiped to true after first real swipe
     hasSwiped = true;
+    // Update progress bar immediately
+    updateProgressBar();
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % vocabData.length;
         displayCards();
