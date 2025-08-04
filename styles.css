@@ -158,6 +158,7 @@ html, body {
 .donation-message.thai-text {
     font-size: 1.0395rem; /* Increased by 10% from 0.945rem */
     line-height: 1.5;
+    font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Ensure Thai font */
 }
 
 .vocabswipe-text {
@@ -192,24 +193,16 @@ html, body {
 }
 
 .developer-photo {
-    width: 100px;
-    height: 100px;
+    width: 100px; /* Doubled from 50px */
+    height: 100px; /* Doubled from 50px */
     border-radius: 50%;
     border: 2px solid #35654d;
     margin-right: 10px;
-    margin-left: -20px; /* Moved left to accommodate Instagram icon */
-    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -webkit-optimize-contrast; /* Improves resolution */
 }
 
 .developer-text {
     text-align: left;
-    display: flex;
-    flex-direction: column;
-}
-
-.developer-role-container {
-    display: flex;
-    align-items: center;
 }
 
 .developer-name {
@@ -218,7 +211,7 @@ html, body {
     font-size: 0.945rem;
     color: #333333;
     margin-bottom: 5px;
-    line-height: 1.4;
+    line-height: 1.4; /* Adjusted for new line */
 }
 
 .developer-role {
@@ -226,7 +219,7 @@ html, body {
     font-weight: 500;
     font-size: 0.84rem;
     color: #555555;
-    margin-right: 8px;
+    line-height: 1.4; /* Adjusted for two lines */
 }
 
 .developer-role .vocabswipe-text {
@@ -234,15 +227,22 @@ html, body {
     color: #35654d;
 }
 
-.instagram-icon {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
 }
 
-.instagram-icon:hover {
+.social-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-icon:hover {
     transform: scale(1.1);
+    opacity: 0.8;
 }
 
 .close-icon {
@@ -315,6 +315,7 @@ html, body {
 .count-text.thai-text#stats-line1 {
     margin-top: 2px; /* Adjusted margin for Thai text */
     font-size: 1.092rem;
+    font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Ensure Thai font */
 }
 
 /* Website info and progress bar styling */
@@ -363,6 +364,7 @@ html, body {
 .website-slogan.thai-text {
     font-size: 1.1679525rem;
     line-height: 1.2;
+    font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Ensure Thai font */
 }
 
 /* Progress bar styling */
@@ -377,7 +379,7 @@ html, body {
 }
 
 .progress-label {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', 'Noto Sans Thai', sans-serif; /* Consistent font for PC and mobile */
     font-weight: 500;
     font-size: 0.945rem;
     color: #ffffff;
@@ -397,6 +399,7 @@ html, body {
     font-size: 0.945rem;
     line-height: 1.2;
     height: 20px; /* Fixed height to prevent shifting */
+    font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Ensure Thai font */
 }
 
 .progress-value {
@@ -427,17 +430,11 @@ html, body {
     height: 100%;
     background-color: #00ff00; /* Bright green fill */
     width: 0%;
-    transition: width 0.3s ease;
+    transition: width 0.3s ease, background-color 0.3s ease;
 }
 
-.progress-glow {
-    animation: progress-glow 0.6s ease-in-out 1;
-}
-
-@keyframes progress-glow {
-    0% { box-shadow: none; }
-    50% { box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.7); }
-    100% { box-shadow: none; }
+.progress-brighten {
+    background-color: #33ff33; /* Brighter green for effect */
 }
 
 /* Card container */
@@ -650,6 +647,7 @@ html, body {
     .website-slogan.thai-text {
         font-size: 1.03818rem;
         line-height: 1.2;
+        font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Ensure Thai font */
     }
 
     .progress-container {
@@ -668,7 +666,7 @@ html, body {
         line-height: 1.4; /* Slightly increase for better spacing from 1.2 */
         height: auto; /* Remove fixed height to prevent clipping */
         overflow: visible; /* Ensure no clipping */
-        font-family: 'Montserrat', 'Noto Sans Thai', sans-serif; /* Add Thai font fallback */
+        font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Prioritize Thai font */
         white-space: nowrap;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         z-index: 20; /* Higher z-index to bring in front */
@@ -692,6 +690,10 @@ html, body {
         width: 100%;
         height: 9px; /* Reduced by 50% from 18px */
         top: 0;
+    }
+
+    .progress-brighten {
+        background-color: #33ff33; /* Brighter green for effect */
     }
 
     .website-stats {
@@ -724,6 +726,7 @@ html, body {
     .count-text.thai-text#stats-line1 {
         margin-top: 2px; /* Adjusted margin for Thai text */
         font-size: 1.092rem;
+        font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Ensure Thai font */
     }
 
     .word {
@@ -781,6 +784,7 @@ html, body {
 
     .donation-message.thai-text {
         font-size: 0.924rem; /* Increased by 10% from 0.84rem */
+        font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Ensure Thai font */
     }
 
     .vocabswipe-text {
@@ -798,20 +802,19 @@ html, body {
     }
 
     .developer-photo {
-        width: 80px;
-        height: 80px;
-        margin-left: -15px; /* Adjusted for mobile */
-        image-rendering: -webkit-optimize-contrast;
+        width: 80px; /* Doubled from 40px */
+        height: 80px; /* Doubled from 40px */
+        image-rendering: -webkit-optimize-contrast; /* Improves resolution */
     }
 
     .developer-name {
         font-size: 0.84rem;
-        line-height: 1.4;
+        line-height: 1.4; /* Adjusted for new line */
     }
 
     .developer-role {
         font-size: 0.756rem;
-        margin-right: 6px;
+        line-height: 1.4; /* Adjusted for two lines */
     }
 
     .developer-role .vocabswipe-text {
@@ -819,15 +822,18 @@ html, body {
         color: #35654d;
     }
 
-    .instagram-icon {
-        width: 18px;
-        height: 18px;
+    .social-icons {
+        gap: 8px;
+        margin-top: 5px;
     }
 
-    .close-icon {
-        width: 18px;
-        height: 18px;
-        bottom: 8px;
-        right: 8px;
+    .social-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .social-icon:hover {
+        transform: scale(1.1);
+        opacity: 0.8;
     }
 }
