@@ -634,15 +634,21 @@ html, body {
     .progress-label {
         font-size: 0.84rem;
         top: -18px; /* Fixed position above progress bar */
-        line-height: 1.2;
-        height: 18px; /* Fixed height */
+        line-height: 1.4; /* Slightly increase for better spacing from 1.2 */
+        height: auto; /* Remove fixed height to prevent clipping */
+        overflow: visible; /* Ensure no clipping */
+        font-family: 'Montserrat', 'Noto Sans Thai', sans-serif; /* Add Thai font fallback */
+        white-space: nowrap;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         z-index: 20; /* Higher z-index to bring in front */
     }
 
     .progress-label.thai-text {
         font-size: 0.84rem;
-        line-height: 1.2;
-        height: 18px; /* Fixed height */
+        line-height: 1.5; /* Increase for Thai to accommodate taller characters */
+        height: auto; /* Ensure no clipping */
+        overflow: visible; /* Ensure no clipping */
+        font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Prioritize Thai font */
     }
 
     .progress-value {
