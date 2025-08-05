@@ -44,7 +44,7 @@ html, body {
 /* Loading spinner styling */
 .loading-spinner {
     position: absolute;
-    top: 320px; /* Center of the top card vertically: 110px (card-container top) + 210px (half card height) */
+    top: 310px; /* Adjusted from 320px to move upward by 10px */
     left: 180px; /* Center of the top card horizontally: 360px / 2 */
     transform: translate(-50%, -50%); /* Center the spinner image */
     z-index: -10; /* Set behind all cards */
@@ -896,7 +896,7 @@ html, body {
     }
 
     .loading-spinner {
-        top: 320px; /* Same as above, no change needed */
+        top: 310px; /* Adjusted from 320px to move upward by 10px */
         left: 180px; /* Same as above, no change needed */
         transform: translate(-50%, -50%);
         z-index: -10;
