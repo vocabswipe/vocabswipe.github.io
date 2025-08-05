@@ -359,9 +359,12 @@ function enableCardInteractions() {
     });
 }
 
-// Function to fetch and parse JSONL file
+// Function to fetch and parse JSONL file with lazy loading
 async function loadVocabData() {
     try {
+        const spinner = document.getElementById('loading-spinner');
+        spinner.style.display = 'block'; // Show spinner
+
         setInitialCardTheme();
         const cards = [
             document.getElementById('vocab-card'),
@@ -387,32 +390,50 @@ async function loadVocabData() {
         alternateStatsText(); // Start text alternation immediately
         updateProgressBar(); // Initialize progress bar
 
+        // Fetch and parse initial batch (first 200 entries)
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
-        let allVocab = text.trim().split('\n').map(line => JSON.parse(line));
-        originalVocabLength = allVocab.length; // Store original length
-        // Add originalIndex to each vocab entry for tracking
+        const lines = text.trim().split('\n');
+        originalVocabLength = lines.length; // Store total length for stats
+        const initialBatchSize = 200;
+        let allVocab = lines.slice(0, initialBatchSize).map(line => JSON.parse(line));
         allVocab = allVocab.map((item, index) => ({ ...item, originalIndex: index }));
-        // Filter out swiped cards
         vocabData = allVocab.filter(item => !swipedCards.includes(item.originalIndex));
-        // If all cards are swiped, reset swipedCards
         if (vocabData.length === 0) {
             swipedCards = [];
             localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
-            vocabData = allVocab.slice(); // Copy all cards
+            vocabData = allVocab.slice();
         }
         vocabData = vocabData.sort(() => Math.random() - 0.5);
 
-        // Start stats number animation after data is loaded
+        // Start stats number animation and card animation
         updateWebsiteStats();
-
         populateCardsBeforeAnimation();
-
         animateCardStackDrop(() => {
             displayCards();
+            spinner.style.display = 'none'; // Hide spinner after animation
         });
+
+        // Load remaining data in the background
+        setTimeout(async () => {
+            const remainingVocab = lines.slice(initialBatchSize).map((line, index) =>
+                JSON.parse(line)).map((item, index) => ({
+                    ...item,
+                    originalIndex: index + initialBatchSize
+                }));
+            allVocab = allVocab.concat(remainingVocab);
+            vocabData = allVocab.filter(item => !swipedCards.includes(item.originalIndex));
+            if (vocabData.length === 0) {
+                swipedCards = [];
+                localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
+                vocabData = allVocab.slice();
+            }
+            vocabData = vocabData.sort(() => Math.random() - 0.5);
+            populateCardsBeforeAnimation();
+        }, 0);
     } catch (error) {
         console.error('Error loading database:', error);
+        document.getElementById('loading-spinner').style.display = 'none';
         document.getElementById('word-top').textContent = 'Error';
         document.getElementById('word-bottom').textContent = 'Error';
         document.getElementById('english').textContent = 'Failed to load data';
