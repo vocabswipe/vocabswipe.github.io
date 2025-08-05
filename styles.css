@@ -41,6 +41,21 @@ html, body {
     filter: blur(5px);
 }
 
+/* Loading spinner styling */
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    display: none;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+}
+
 /* Fixed height containers */
 .stats-container {
     width: 100%;
@@ -867,5 +882,19 @@ html, body {
     .social-icon:active {
         transform: scale(0.9);
         opacity: 0.6;
+    }
+
+    .loading-spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+        display: none;
+    }
+
+    .spinner {
+        width: 32px; /* Adjusted for mobile */
+        height: 32px;
     }
 }
