@@ -44,9 +44,9 @@ html, body {
 /* Loading spinner styling */
 .loading-spinner {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -210px); /* Adjusted to center on vocab-card (420px height / 2) */
+    top: 320px; /* Center of the top card vertically: 110px (card-container top) + 210px (half card height) */
+    left: 180px; /* Center of the top card horizontally: 360px / 2 */
+    transform: translate(-50%, -50%); /* Center the spinner image */
     z-index: -10; /* Set behind all cards */
     display: none;
 }
@@ -896,12 +896,10 @@ html, body {
     }
 
     .loading-spinner {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -210px); /* Adjusted for mobile to center on vocab-card */
-        z-index: -10; /* Set behind all cards */
-        display: none;
+        top: 320px; /* Same as above, no change needed */
+        left: 180px; /* Same as above, no change needed */
+        transform: translate(-50%, -50%);
+        z-index: -10;
     }
 
     .spinner {
