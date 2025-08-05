@@ -52,8 +52,8 @@ html, body {
 }
 
 .spinner {
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
 }
 
 /* Fixed height containers */
@@ -903,7 +903,7 @@ html, body {
     }
 
     .spinner {
-        width: 32px; /* Adjusted for mobile */
-        height: 32px;
+        width: 64px; /* Adjusted for mobile, doubled from 32px */
+        height: 64px;
     }
 }
