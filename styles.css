@@ -46,8 +46,8 @@ html, body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100;
+    transform: translate(-50%, -210px); /* Adjusted to center on vocab-card (420px height / 2) */
+    z-index: -10; /* Set behind all cards */
     display: none;
 }
 
@@ -720,7 +720,18 @@ html, body {
     .progress-bar {
         width: 100%;
         height: 9px; /* Reduced by 50% from 18px */
+        background-color: #28282B; /* Matte Black */
+        border-radius: 4px;
+        overflow: hidden;
+        position: absolute;
         top: 0;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background-color: #00ff00; /* Bright green fill */
+        width: 0%;
+        transition: width 0.3s ease, background-color 0.3s ease;
     }
 
     .progress-brighten {
@@ -888,8 +899,8 @@ html, body {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 100;
+        transform: translate(-50%, -210px); /* Adjusted for mobile to center on vocab-card */
+        z-index: -10; /* Set behind all cards */
         display: none;
     }
 
