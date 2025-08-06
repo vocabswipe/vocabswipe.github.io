@@ -348,9 +348,12 @@ function triggerTouchSwipeAnimation() {
     const cardCenterX = cardRect.left - mainContentRect.left + cardWidth / 2;
     const cardCenterY = cardRect.top - mainContentRect.top + cardHeight / 2;
 
-    // Initial position: below the viewport
+    // Initial position: bottom center of the viewport (relative to main-content)
+    const viewportCenterX = mainContentRect.width / 2;
+    const initialY = mainContentRect.height;
+
     handpoint.style.display = 'block';
-    handpoint.style.transform = `translate(${cardCenterX}px, ${mainContentRect.height}px)`;
+    handpoint.style.transform = `translate(${viewportCenterX}px, ${initialY}px)`;
     handpoint.style.opacity = '1';
     handpoint.style.transition = 'transform 1s ease-in-out, opacity 1s ease-in-out';
 
@@ -360,13 +363,15 @@ function triggerTouchSwipeAnimation() {
 
         // Simulate tap after reaching center
         setTimeout(() => {
-            // Add glow effect and play audio
+            // Add tap animation, glow effect, and play audio
+            handpoint.classList.add('tap');
             topCard.classList.add('glow');
             const audio = document.getElementById('card-audio');
             audio.play().catch(error => console.error('Error playing audio:', error));
 
-            // Remove glow after 0.6s (matches glow animation duration)
+            // Remove tap and glow after 0.6s (matches glow animation duration)
             setTimeout(() => {
+                handpoint.classList.remove('tap');
                 topCard.classList.remove('glow');
 
                 // Simulate swipe after 1 second
@@ -385,12 +390,13 @@ function triggerTouchSwipeAnimation() {
                     topCard.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
                     topCard.style.zIndex = '1000';
 
-                    // Complete the swipe after 1 second
+                    // Complete the swipe after 1 second without updating swipedCards
                     setTimeout(() => {
                         const magnitude = swipeDistance * 5; // Consistent with moveToNextCard
                         const translateX = Math.cos(angle) * magnitude;
                         const translateY = Math.sin(angle) * magnitude;
-                        moveToNextCard(translateX, translateY, rotate);
+                        // Call moveToNextCard with isAnimation=true to skip swipedCards update
+                        moveToNextCard(translateX, translateY, rotate, true);
 
                         // Fade out handpoint
                         handpoint.style.transition = 'opacity 0.5s ease';
@@ -604,22 +610,22 @@ function displayCards() {
 }
 
 // Function to animate and move to next card
-function moveToNextCard(translateX, translateY, rotate) {
+function moveToNextCard(translateX, translateY, rotate, isAnimation = false) {
     const card = document.getElementById('vocab-card');
     card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
     card.style.zIndex = '1000';
-    // Mark current card as swiped
-    const originalIndex = vocabData[currentIndex].originalIndex;
-    if (!swipedCards.includes(originalIndex)) {
-        swipedCards.push(originalIndex);
-        localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
+    // Only update swipedCards and hasSwiped for user-initiated swipes
+    if (!isAnimation) {
+        const originalIndex = vocabData[currentIndex].originalIndex;
+        if (!swipedCards.includes(originalIndex)) {
+            swipedCards.push(originalIndex);
+            localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
+        }
+        hasSwiped = true;
+        updateProgressBar();
     }
-    // Set hasSwiped to true after first real swipe
-    hasSwiped = true;
-    // Update progress bar immediately
-    updateProgressBar();
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % vocabData.length;
         displayCards();
