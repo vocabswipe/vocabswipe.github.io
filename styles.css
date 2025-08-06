@@ -44,8 +44,8 @@ html, body {
 /* Handpoint styling for touch and swipe animation */
 .handpoint {
     position: absolute;
-    width: 40px; /* Size for mobile */
-    height: 40px;
+    width: 80px; /* Doubled from 40px */
+    height: 80px; /* Doubled from 40px */
     z-index: 200; /* Above cards but below donation popup */
     pointer-events: none; /* Prevent interaction with handpoint */
     display: none;
@@ -929,7 +929,7 @@ html, body {
     }
 
     .handpoint {
-        width: 32px; /* Adjusted for mobile */
-        height: 32px;
+        width: 64px; /* Doubled from 32px */
+        height: 64px; /* Doubled from 32px */
     }
 }
