@@ -322,8 +322,87 @@ function animateCardStackDrop(callback) {
         setTimeout(() => {
             enableCardInteractions();
             callback();
+            // Trigger touch and swipe animation for mobile users within first 1000 visits
+            if (visitCount <= 1000 && window.innerWidth <= 600) {
+                setTimeout(() => {
+                    triggerTouchSwipeAnimation();
+                }, 1000); // 1 second after card stack animation completes
+            }
         }, 1000 + (cards.length - 1) * 200);
     }, 100);
+}
+
+// Function to trigger touch and swipe animation
+function triggerTouchSwipeAnimation() {
+    if (hasInteracted) return; // Skip if user has already interacted
+
+    const handpoint = document.getElementById('handpoint');
+    const topCard = document.getElementById('vocab-card');
+    const cardContainer = document.getElementById('card-container');
+    const cardWidth = cardContainer.offsetWidth; // Card width for swipe distance
+    const cardHeight = cardContainer.offsetHeight;
+    const cardRect = cardContainer.getBoundingClientRect();
+    const mainContentRect = document.querySelector('.main-content').getBoundingClientRect();
+
+    // Calculate card center relative to main-content
+    const cardCenterX = cardRect.left - mainContentRect.left + cardWidth / 2;
+    const cardCenterY = cardRect.top - mainContentRect.top + cardHeight / 2;
+
+    // Initial position: below the viewport
+    handpoint.style.display = 'block';
+    handpoint.style.transform = `translate(${cardCenterX}px, ${mainContentRect.height}px)`;
+    handpoint.style.opacity = '1';
+    handpoint.style.transition = 'transform 1s ease-in-out, opacity 1s ease-in-out';
+
+    // Move to card center in 1 second
+    setTimeout(() => {
+        handpoint.style.transform = `translate(${cardCenterX}px, ${cardCenterY}px)`;
+
+        // Simulate tap after reaching center
+        setTimeout(() => {
+            // Add glow effect and play audio
+            topCard.classList.add('glow');
+            const audio = document.getElementById('card-audio');
+            audio.play().catch(error => console.error('Error playing audio:', error));
+
+            // Remove glow after 0.6s (matches glow animation duration)
+            setTimeout(() => {
+                topCard.classList.remove('glow');
+
+                // Simulate swipe after 1 second
+                setTimeout(() => {
+                    // Generate random angle (0 to 360 degrees)
+                    const angle = Math.random() * 2 * Math.PI; // Random angle in radians
+                    const swipeDistance = cardWidth / 2; // Half card width
+                    const deltaX = Math.cos(angle) * swipeDistance;
+                    const deltaY = Math.sin(angle) * swipeDistance;
+                    const rotate = (deltaX / window.innerWidth) * 30; // Consistent with manual swipe
+
+                    // Animate handpoint and card moving together
+                    handpoint.style.transition = 'transform 1s ease-in-out';
+                    topCard.style.transition = 'transform 1s ease-in-out';
+                    handpoint.style.transform = `translate(${cardCenterX + deltaX}px, ${cardCenterY + deltaY}px)`;
+                    topCard.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
+                    topCard.style.zIndex = '1000';
+
+                    // Complete the swipe after 1 second
+                    setTimeout(() => {
+                        const magnitude = swipeDistance * 5; // Consistent with moveToNextCard
+                        const translateX = Math.cos(angle) * magnitude;
+                        const translateY = Math.sin(angle) * magnitude;
+                        moveToNextCard(translateX, translateY, rotate);
+
+                        // Fade out handpoint
+                        handpoint.style.transition = 'opacity 0.5s ease';
+                        handpoint.style.opacity = '0';
+                        setTimeout(() => {
+                            handpoint.style.display = 'none';
+                        }, 500);
+                    }, 1000);
+                }, 1000);
+            }, 600);
+        }, 100);
+    }, 1000);
 }
 
 // Function to enable tap interactions for cards
