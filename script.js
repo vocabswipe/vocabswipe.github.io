@@ -120,7 +120,7 @@ function updateProgressBar() {
         }, 300); // Duration of the brighten and glow effect
         const progressContainer = document.querySelector('.progress-container');
         progressContainer.style.opacity = '1';
-        progressContainer.style.transition = 'opacity 1s ease';
+        progressContainer.style.transition = 'opacity 1s … ease';
     }
 }
 
@@ -381,7 +381,7 @@ function triggerTouchSwipeAnimation() {
                     const deltaY = Math.sin(angle) * swipeDistance;
                     const rotate = (deltaX / window.innerWidth) * 30; // Consistent with manual swipe
 
-                    // Ensure handpoint starts from tap position
+                    // Ensure handpoint and card start from tap position
                     handpoint.style.transform = `translate(${cardCenterX}px, ${cardCenterY}px)`;
                     topCard.style.transform = `translate(0px, 0px) rotate(0deg)`;
                     handpoint.style.transition = 'transform 1s ease-in-out';
@@ -389,6 +389,7 @@ function triggerTouchSwipeAnimation() {
 
                     // Animate handpoint and card moving together from tap position
                     setTimeout(() => {
+                        // Move handpoint and card together
                         handpoint.style.transform = `translate(${cardCenterX + deltaX}px, ${cardCenterY + deltaY}px)`;
                         topCard.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
                         topCard.style.zIndex = '1000';
@@ -398,6 +399,8 @@ function triggerTouchSwipeAnimation() {
                             const magnitude = swipeDistance * 10; // Amplify for full swipe
                             const translateX = Math.cos(angle) * magnitude;
                             const translateY = Math.sin(angle) * magnitude;
+                            // Update handpoint position to stay at card center during full swipe
+                            handpoint.style.transform = `translate(${cardCenterX + translateX}px, ${cardCenterY + translateY}px)`;
                             // Call moveToNextCard with isAnimation=true to skip swipedCards update
                             moveToNextCard(translateX, translateY, rotate, true);
 
