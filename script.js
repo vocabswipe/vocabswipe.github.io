@@ -367,20 +367,16 @@ function triggerTouchSwipeAnimation() {
             handpoint.classList.add('tap');
             topCard.classList.add('glow');
 
-            // Play audio and wait for it to finish
-            const audio = document.getElementById('card-audio');
-            audio.play().catch(error => console.error('Error playing audio:', error));
-
             // Remove tap and glow after 0.6s (matches glow animation duration)
             setTimeout(() => {
                 handpoint.classList.remove('tap');
                 topCard.classList.remove('glow');
 
-                // Wait for audio to finish before starting swipe
-                audio.onended = () => {
+                // Wait 1 second before starting swipe
+                setTimeout(() => {
                     // Generate random angle (0 to 360 degrees)
                     const angle = Math.random() * 2 * Math.PI; // Random angle in radians
-                    const swipeDistance = cardWidth / 2; // Half card width
+                    const swipeDistance = 50; // Fixed 50px distance
                     const deltaX = Math.cos(angle) * swipeDistance;
                     const deltaY = Math.sin(angle) * swipeDistance;
                     const rotate = (deltaX / window.innerWidth) * 30; // Consistent with manual swipe
@@ -394,7 +390,7 @@ function triggerTouchSwipeAnimation() {
 
                     // Complete the swipe after 1 second without updating swipedCards
                     setTimeout(() => {
-                        const magnitude = swipeDistance * 5; // Consistent with moveToNextCard
+                        const magnitude = swipeDistance * 10; // Amplify for full swipe
                         const translateX = Math.cos(angle) * magnitude;
                         const translateY = Math.sin(angle) * magnitude;
                         // Call moveToNextCard with isAnimation=true to skip swipedCards update
@@ -407,7 +403,7 @@ function triggerTouchSwipeAnimation() {
                             handpoint.style.display = 'none';
                         }, 500);
                     }, 1000);
-                };
+                }, 1000); // Wait 1 second after tap before swipe
             }, 600);
         }, 100);
     }, 1000);
