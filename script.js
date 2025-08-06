@@ -363,9 +363,11 @@ function triggerTouchSwipeAnimation() {
 
         // Simulate tap after reaching center
         setTimeout(() => {
-            // Add tap animation, glow effect, and play audio
+            // Add tap animation and glow effect
             handpoint.classList.add('tap');
             topCard.classList.add('glow');
+
+            // Play audio and wait for it to finish
             const audio = document.getElementById('card-audio');
             audio.play().catch(error => console.error('Error playing audio:', error));
 
@@ -374,8 +376,8 @@ function triggerTouchSwipeAnimation() {
                 handpoint.classList.remove('tap');
                 topCard.classList.remove('glow');
 
-                // Simulate swipe after 1 second
-                setTimeout(() => {
+                // Wait for audio to finish before starting swipe
+                audio.onended = () => {
                     // Generate random angle (0 to 360 degrees)
                     const angle = Math.random() * 2 * Math.PI; // Random angle in radians
                     const swipeDistance = cardWidth / 2; // Half card width
@@ -405,7 +407,7 @@ function triggerTouchSwipeAnimation() {
                             handpoint.style.display = 'none';
                         }, 500);
                     }, 1000);
-                }, 1000);
+                };
             }, 600);
         }, 100);
     }, 1000);
