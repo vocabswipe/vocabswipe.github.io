@@ -104,6 +104,7 @@ function updateWebsiteStats() {
 function updateProgressBar() {
     const progressFill = document.getElementById('progress-fill');
     const progressValue = document.getElementById('progress-value');
+    const progressLabel = document.getElementById('progress-label');
     const totalCards = originalVocabLength;
     const swipedCount = swipedCards.length;
     const percentage = totalCards > 0 ? (swipedCount / totalCards) * 100 : 0;
@@ -116,6 +117,9 @@ function updateProgressBar() {
         const progressContainer = document.querySelector('.progress-bar-container');
         progressContainer.style.opacity = '1';
         progressContainer.style.transition = 'opacity 1s ease';
+        progressLabel.style.opacity = '1'; // Ensure label is visible
+        progressLabel.textContent = 'Swiped Cards'; // Set initial text to English
+        progressLabel.classList.remove('thai-text'); // Ensure English mode
         progressFill.classList.add('progress-brighten', 'progress-glow');
         setTimeout(() => {
             progressFill.classList.remove('progress-brighten', 'progress-glow');
@@ -138,14 +142,14 @@ function alternateStatsText() {
         donationMessage.style.transition = 'opacity 0.05s ease';
         line1.style.opacity = '0';
         slogan.style.opacity = '0';
-        progressLabel.style.opacity = '0';
+        progressLabel.style.opacity = hasSwiped ? '1' : '0'; // Maintain visibility after swipe
         donationMessage.style.opacity = '0';
 
         setTimeout(() => {
             if (isEnglish) {
                 line1.textContent = 'ประโยคภาษาอังกฤษอเมริกันที่จำเป็น';
                 slogan.textContent = 'ยิ่งปัด ยิ่งเก่ง';
-                progressLabel.textContent = 'จำนวนการ์ดที่ปัดไปแล้ว';
+                progressLabel.textContent = hasSwiped ? 'จำนวนการ์ดที่ปัดไปแล้ว' : ''; // Only set if swiped
                 donationMessage.innerHTML = 'เลี้ยงกาแฟผมเพื่อให้ <span class="vocabswipe-text">VOCABSWIPE</span> ฟรีและเติบโตต่อไป! สแกนคิวอาร์โค้ดเพื่อสนับสนุนผ่านพร้อมเพย์';
                 line1.classList.add('thai-text');
                 slogan.classList.add('thai-text');
@@ -154,7 +158,7 @@ function alternateStatsText() {
             } else {
                 line1.textContent = 'Essential American English Sentences';
                 slogan.textContent = 'Master Words, Swipe by Swipe';
-                progressLabel.textContent = 'Swiped Cards';
+                progressLabel.textContent = hasSwiped ? 'Swiped Cards' : ''; // Only set if swiped
                 donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support via PromptPay.';
                 line1.classList.remove('thai-text');
                 slogan.classList.remove('thai-text');
@@ -163,15 +167,16 @@ function alternateStatsText() {
             }
             line1.style.opacity = '1';
             slogan.style.opacity = '1';
-            progressLabel.style.opacity = '1';
+            progressLabel.style.opacity = hasSwiped ? '1' : '0'; // Maintain visibility after swipe
             donationMessage.style.opacity = '1';
             isEnglish = !isEnglish;
         }, 50);
     }
 
+    // Initial setup
     line1.textContent = 'Essential American English Sentences';
     slogan.textContent = 'Master Words, Swipe by Swipe';
-    progressLabel.textContent = 'Swiped Cards';
+    progressLabel.textContent = ''; // Initially empty until first swipe
     donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support via PromptPay.';
     line1.style.opacity = '1';
     slogan.style.opacity = '1';
