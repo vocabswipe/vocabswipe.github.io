@@ -332,7 +332,7 @@ function animateCardStackDrop(callback) {
     }, 100);
 }
 
-// Function to trigger touch and swipe animation
+// Modified function to trigger touch and swipe animation
 function triggerTouchSwipeAnimation() {
     if (hasInteracted) return; // Skip if user has already interacted
 
@@ -347,76 +347,82 @@ function triggerTouchSwipeAnimation() {
     const cardCenterX = cardRect.left - mainContentRect.left + cardWidth / 2;
     const cardCenterY = cardRect.top - mainContentRect.top + cardHeight / 2;
 
-    // Initial position: bottom center of the viewport (relative to main-content)
-    const viewportCenterX = mainContentRect.width / 2;
-    const initialY = mainContentRect.height;
+    // Handpoint size adjustment (64x64px on mobile)
+    const handpointOffsetX = -32; // Center of handpoint
+    const handpointOffsetY = -32; // Center of handpoint
 
-    // Adjust for handpoint size (64x64px on mobile)
-    const handpointOffsetX = -32; // Half of 64px
-    const handpointOffsetY = -32; // Half of 64px
+    // Initial position: slightly below card center to simulate approach
+    const initialY = cardCenterY + 100; // 100px below card center
 
+    // Show handpoint at initial position
     handpoint.style.display = 'block';
-    handpoint.style.transform = `translate(${viewportCenterX + handpointOffsetX}px, ${initialY + handpointOffsetY}px)`;
+    handpoint.style.transform = `translate(${cardCenterX + handpointOffsetX}px, ${initialY + handpointOffsetY}px)`;
     handpoint.style.opacity = '1';
-    handpoint.style.transition = 'transform 1s ease-in-out, opacity 1s ease-in-out';
+    handpoint.style.transition = 'transform 0.8s ease-in-out, opacity 0.8s ease-in-out';
 
-    // Move to card center in 1 second
+    // Move to card center for tap
     setTimeout(() => {
         handpoint.style.transform = `translate(${cardCenterX + handpointOffsetX}px, ${cardCenterY + handpointOffsetY}px)`;
 
-        // Simulate tap after reaching center
+        // Perform tap animation with glow
         setTimeout(() => {
-            // Add tap animation and glow effect
             handpoint.classList.add('tap');
             topCard.classList.add('glow');
+            const audio = document.getElementById('card-audio');
+            audio.play().catch(error => console.error('Error playing audio:', error));
 
-            // Remove tap and glow after 0.6s (matches glow animation duration)
+            // Remove tap and glow effects
             setTimeout(() => {
                 handpoint.classList.remove('tap');
                 topCard.classList.remove('glow');
 
-                // Wait 1 second before starting swipe
+                // Start swipe animation
                 setTimeout(() => {
-                    // Generate random angle (0 to 360 degrees)
-                    const angle = Math.random() * 2 * Math.PI; // Random angle in radians
-                    const swipeDistance = 50; // Fixed 50px distance
-                    const deltaX = Math.cos(angle) * swipeDistance;
-                    const deltaY = Math.sin(angle) * swipeDistance;
-                    const rotate = (deltaX / window.innerWidth) * 30; // Consistent with manual swipe
+                    // Generate random angle for swipe
+                    const angle = Math.random() * 2 * Math.PI;
+                    const initialSwipeDistance = 50; // Initial short swipe
+                    const deltaX = Math.cos(angle) * initialSwipeDistance;
+                    const deltaY = Math.sin(angle) * initialSwipeDistance;
+                    const rotate = (deltaX / window.innerWidth) * 30;
 
-                    // Set transitions for swipe
-                    handpoint.style.transition = 'transform 1s ease-in-out';
-                    topCard.style.transition = 'transform 1s ease-in-out';
+                    // Set transitions for smooth initial swipe
+                    handpoint.style.transition = 'transform 0.8s ease-in-out';
+                    topCard.style.transition = 'transform 0.8s ease-in-out';
+                    topCard.style.zIndex = '1000';
 
-                    // Animate handpoint and card moving together
+                    // Move handpoint and card together for initial swipe
+                    handpoint.style.transform = `translate(${cardCenterX + deltaX + handpointOffsetX}px, ${cardCenterY + deltaY + handpointOffsetY}px)`;
+                    topCard.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
+
+                    // Complete the swipe
                     setTimeout(() => {
-                        // Move handpoint and card together
-                        handpoint.style.transform = `translate(${cardCenterX + deltaX + handpointOffsetX}px, ${cardCenterY + deltaY + handpointOffsetY}px)`;
-                        topCard.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
-                        topCard.style.zIndex = '1000';
+                        const magnitude = initialSwipeDistance * 10; // Amplify for full swipe
+                        const translateX = Math.cos(angle) * magnitude;
+                        const translateY = Math.sin(angle) * magnitude;
+                        const finalRotate = (translateX / window.innerWidth) * 30;
 
-                        // Complete the swipe after 1 second without updating swipedCards
+                        // Update transitions for full swipe
+                        handpoint.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+                        topCard.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+
+                        // Move handpoint and card together for full swipe
+                        handpoint.style.transform = `translate(${cardCenterX + translateX + handpointOffsetX}px, ${cardCenterY + translateY + handpointOffsetY}px)`;
+                        topCard.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${finalRotate}deg)`;
+                        topCard.style.opacity = '0';
+
+                        // Call moveToNextCard with isAnimation=true to skip swipedCards update
+                        moveToNextCard(translateX, translateY, finalRotate, true);
+
+                        // Fade out handpoint
+                        handpoint.style.opacity = '0';
                         setTimeout(() => {
-                            const magnitude = swipeDistance * 10; // Amplify for full swipe
-                            const translateX = Math.cos(angle) * magnitude;
-                            const translateY = Math.sin(angle) * magnitude;
-                            // Update handpoint position to stay at card center during full swipe
-                            handpoint.style.transform = `translate(${cardCenterX + translateX + handpointOffsetX}px, ${cardCenterY + translateY + handpointOffsetY}px)`;
-                            // Call moveToNextCard with isAnimation=true to skip swipedCards update
-                            moveToNextCard(translateX, translateY, rotate, true);
-
-                            // Fade out handpoint
-                            handpoint.style.transition = 'opacity 0.5s ease';
-                            handpoint.style.opacity = '0';
-                            setTimeout(() => {
-                                handpoint.style.display = 'none';
-                            }, 500);
-                        }, 1000);
-                    }, 0);
-                }, 1000); // Wait 1 second after tap before swipe
-            }, 600);
-        }, 100);
-    }, 1000);
+                            handpoint.style.display = 'none';
+                        }, 500);
+                    }, 800); // Duration of initial swipe
+                }, 600); // Wait after tap
+            }, 600); // Duration of tap and glow
+        }, 800); // Time to reach card center
+    }, 100); // Brief delay before starting
 }
 
 // Function to enable tap interactions for cards
