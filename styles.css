@@ -84,7 +84,6 @@ html, body {
 
 .progress-bar-container {
     height: 50px; /* Increased from 40px by 10px */
-    align-items: flex-end; /* Align content to bottom */
     opacity: 0; /* Initially hidden */
 }
 
@@ -405,6 +404,7 @@ html, body {
     max-width: 300px;
     text-align: center;
     padding-bottom: 5px; /* Small gap from bottom */
+    z-index: 2000; /* High z-index to place text in front */
 }
 
 .website-name {
@@ -451,7 +451,6 @@ html, body {
     max-width: 300px;
     height: 9px;
     position: relative;
-    padding-bottom: 5px; /* Added to create small gap from bottom */
 }
 
 .progress-label {
@@ -540,6 +539,17 @@ html, body {
     touch-action: none;
     z-index: 10;
     display: none;
+}
+
+/* Stack highlight effect for card stack on tap (mobile only) */
+.stack-highlight {
+    animation: stack-highlight 0.4s ease-in-out 1;
+}
+
+@keyframes stack-highlight {
+    0% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+    50% { box-shadow: 0 0 12px 6px rgba(0, 0, 255, 0.5); }
+    100% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
 }
 
 /* Glowing effect */
@@ -701,8 +711,8 @@ html, body {
     }
 
     .website-name-container {
-        height: 72px; /* Increased from 67px by 5px */
-        align-items: flex-end;
+        height: 87px; /* Increased from 67px by 20px */
+        align-items: flex-end; /* Align content to bottom */
     }
 
     .slogan-container {
@@ -711,7 +721,6 @@ html, body {
 
     .progress-bar-container {
         height: 57px; /* Increased from 47px by 10px */
-        align-items: flex-end;
     }
 
     .stats-number {
@@ -735,7 +744,8 @@ html, body {
 
     .website-name-content {
         max-width: 360px;
-        padding-bottom: 5px;
+        padding-bottom: 5px; /* Small gap from bottom */
+        z-index: 2000; /* High z-index to place text in front */
     }
 
     .slogan-content {
@@ -745,7 +755,6 @@ html, body {
     .progress-content {
         max-width: 360px;
         height: 10px;
-        padding-bottom: 5px; /* Small gap from bottom */
     }
 
     .website-name {
