@@ -104,7 +104,6 @@ function updateWebsiteStats() {
 function updateProgressBar() {
     const progressFill = document.getElementById('progress-fill');
     const progressValue = document.getElementById('progress-value');
-    const progressLabel = document.getElementById('progress-label');
     const totalCards = originalVocabLength;
     const swipedCount = swipedCards.length;
     const percentage = totalCards > 0 ? (swipedCount / totalCards) * 100 : 0;
@@ -112,14 +111,12 @@ function updateProgressBar() {
     progressFill.style.width = `${percentage}%`;
     progressValue.textContent = swipedCount.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
     
-    // Show progress bar after first swipe and apply brighten and glow effect
+    // Show progress bar after data is loaded
+    const progressContainer = document.querySelector('.progress-bar-container');
+    progressContainer.style.opacity = '1';
+    progressContainer.style.transition = 'opacity 1s ease';
+    // Apply brighten and glow effect only after a user swipe
     if (hasSwiped && swipedCount > 0) {
-        const progressContainer = document.querySelector('.progress-bar-container');
-        progressContainer.style.opacity = '1';
-        progressContainer.style.transition = 'opacity 1s ease';
-        progressLabel.style.opacity = '1'; // Ensure label is visible
-        progressLabel.textContent = 'Swiped Cards'; // Set initial text to English
-        progressLabel.classList.remove('thai-text'); // Ensure English mode
         progressFill.classList.add('progress-brighten', 'progress-glow');
         setTimeout(() => {
             progressFill.classList.remove('progress-brighten', 'progress-glow');
@@ -142,14 +139,14 @@ function alternateStatsText() {
         donationMessage.style.transition = 'opacity 0.05s ease';
         line1.style.opacity = '0';
         slogan.style.opacity = '0';
-        progressLabel.style.opacity = hasSwiped ? '1' : '0'; // Maintain visibility after swipe
+        progressLabel.style.opacity = '0';
         donationMessage.style.opacity = '0';
 
         setTimeout(() => {
             if (isEnglish) {
                 line1.textContent = 'ประโยคภาษาอังกฤษอเมริกันที่จำเป็น';
                 slogan.textContent = 'ยิ่งปัด ยิ่งเก่ง';
-                progressLabel.textContent = hasSwiped ? 'จำนวนการ์ดที่ปัดไปแล้ว' : ''; // Only set if swiped
+                progressLabel.textContent = 'จำนวนการ์ดที่ปัดไปแล้ว';
                 donationMessage.innerHTML = 'เลี้ยงกาแฟผมเพื่อให้ <span class="vocabswipe-text">VOCABSWIPE</span> ฟรีและเติบโตต่อไป! สแกนคิวอาร์โค้ดเพื่อสนับสนุนผ่านพร้อมเพย์';
                 line1.classList.add('thai-text');
                 slogan.classList.add('thai-text');
@@ -158,7 +155,7 @@ function alternateStatsText() {
             } else {
                 line1.textContent = 'Essential American English Sentences';
                 slogan.textContent = 'Master Words, Swipe by Swipe';
-                progressLabel.textContent = hasSwiped ? 'Swiped Cards' : ''; // Only set if swiped
+                progressLabel.textContent = 'Swiped Cards';
                 donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support via PromptPay.';
                 line1.classList.remove('thai-text');
                 slogan.classList.remove('thai-text');
@@ -167,7 +164,7 @@ function alternateStatsText() {
             }
             line1.style.opacity = '1';
             slogan.style.opacity = '1';
-            progressLabel.style.opacity = hasSwiped ? '1' : '0'; // Maintain visibility after swipe
+            progressLabel.style.opacity = '1';
             donationMessage.style.opacity = '1';
             isEnglish = !isEnglish;
         }, 50);
@@ -176,11 +173,11 @@ function alternateStatsText() {
     // Initial setup
     line1.textContent = 'Essential American English Sentences';
     slogan.textContent = 'Master Words, Swipe by Swipe';
-    progressLabel.textContent = ''; // Initially empty until first swipe
+    progressLabel.textContent = 'Swiped Cards';
     donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support via PromptPay.';
     line1.style.opacity = '1';
     slogan.style.opacity = '1';
-    progressLabel.style.opacity = '0'; // Initially hidden
+    progressLabel.style.opacity = '0'; // Initially hidden until data loads
     donationMessage.style.opacity = '1';
     line1.classList.remove('thai-text');
     slogan.classList.remove('thai-text');
@@ -192,7 +189,7 @@ function alternateStatsText() {
 
 // Function to set initial card theme
 function setInitialCardTheme() {
-    const cardBackgroundColor = '#FFF8DC'; // updated from '#ffffff'
+    const cardBackgroundColor = '#FFF8DC';
     const cardTextColor = '#000000';
     const cardBorderColor = '#000000';
 
@@ -469,6 +466,9 @@ async function loadVocabData() {
         }
         vocabData = vocabData.sort(() => Math.random() - 0.5);
 
+        // Update progress bar after initial data load
+        updateProgressBar();
+
         // Start stats number animation and card animation
         updateWebsiteStats();
         populateCardsBeforeAnimation();
@@ -494,6 +494,7 @@ async function loadVocabData() {
             }
             vocabData = vocabData.sort(() => Math.random() - 0.5);
             populateCardsBeforeAnimation();
+            updateProgressBar(); // Update progress bar after full data load
         }, 0);
     } catch (error) {
         console.error('Error loading database:', error);
@@ -509,7 +510,7 @@ async function loadVocabData() {
 function displayCards() {
     if (vocabData.length === 0) return;
 
-    const cardBackgroundColor = '#FFF8DC'; // updated from white '#ffffff'
+    const cardBackgroundColor = '#FFF8DC';
     const cardTextColor = '#000000';
     const cardBorderColor = '#000000';
 
