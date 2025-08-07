@@ -84,6 +84,7 @@ html, body {
 
 .progress-bar-container {
     height: 30px; /* For progress bar */
+    opacity: 0; /* Initially hidden */
 }
 
 /* Loading spinner styling */
@@ -687,6 +688,9 @@ html, body {
 
     .stats-sentence-container {
         height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .card-area-container {
@@ -711,6 +715,17 @@ html, body {
 
     .stats-sentence {
         max-width: 360px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .stats-text-container {
+        min-height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
     }
 
     .website-name-content {
