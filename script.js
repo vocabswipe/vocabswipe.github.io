@@ -3,6 +3,7 @@ let vocabData = [];
 let originalVocabLength = 0; // Store original length for stats
 let currentIndex = 0;
 let hasSwiped = false; // Flag to track if user has swiped
+let isEnglish = true; // Track language state for synchronization
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
@@ -104,6 +105,7 @@ function updateWebsiteStats() {
 function updateProgressBar() {
     const progressFill = document.getElementById('progress-fill');
     const progressValue = document.getElementById('progress-value');
+    const progressLabel = document.getElementById('progress-label');
     const totalCards = originalVocabLength;
     const swipedCount = swipedCards.length;
     const percentage = totalCards > 0 ? (swipedCount / totalCards) * 100 : 0;
@@ -111,12 +113,13 @@ function updateProgressBar() {
     progressFill.style.width = `${percentage}%`;
     progressValue.textContent = swipedCount.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
     
-    // Show progress bar after data is loaded
-    const progressContainer = document.querySelector('.progress-bar-container');
-    progressContainer.style.opacity = '1';
-    progressContainer.style.transition = 'opacity 1s ease';
-    // Apply brighten and glow effect only after a user swipe
+    // Show progress bar container and apply brighten and glow effect after first swipe
     if (hasSwiped && swipedCount > 0) {
+        const progressContainer = document.querySelector('.progress-bar-container');
+        progressContainer.style.opacity = '1';
+        progressContainer.style.transition = 'opacity 1s ease';
+        progressLabel.style.opacity = '1';
+        progressValue.style.opacity = '1';
         progressFill.classList.add('progress-brighten', 'progress-glow');
         setTimeout(() => {
             progressFill.classList.remove('progress-brighten', 'progress-glow');
@@ -130,7 +133,6 @@ function alternateStatsText() {
     const slogan = document.querySelector('.website-slogan');
     const progressLabel = document.getElementById('progress-label');
     const donationMessage = document.getElementById('donation-message');
-    let isEnglish = true;
 
     function swapText() {
         line1.style.transition = 'opacity 0.05s ease';
@@ -177,7 +179,7 @@ function alternateStatsText() {
     donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support via PromptPay.';
     line1.style.opacity = '1';
     slogan.style.opacity = '1';
-    progressLabel.style.opacity = '0'; // Initially hidden until data loads
+    progressLabel.style.opacity = '0'; // Initially hidden
     donationMessage.style.opacity = '1';
     line1.classList.remove('thai-text');
     slogan.classList.remove('thai-text');
@@ -185,6 +187,32 @@ function alternateStatsText() {
     donationMessage.classList.remove('thai-text');
 
     setInterval(swapText, 20000);
+}
+
+// Function to show progress bar after data fetch
+function showProgressBar() {
+    const progressContainer = document.querySelector('.progress-bar-container');
+    const progressLabel = document.getElementById('progress-label');
+    const progressValue = document.getElementById('progress-value');
+    const progressFill = document.getElementById('progress-fill');
+    
+    // Set initial progress bar values
+    const totalCards = originalVocabLength;
+    const swipedCount = swipedCards.length;
+    const percentage = totalCards > 0 ? (swipedCount / totalCards) * 100 : 0;
+    
+    progressFill.style.width = `${percentage}%`;
+    progressValue.textContent = swipedCount.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+    progressLabel.textContent = isEnglish ? 'Swiped Cards' : 'จำนวนการ์ดที่ปัดไปแล้ว';
+    progressLabel.classList.toggle('thai-text', !isEnglish);
+
+    // Fade in all progress bar elements
+    progressContainer.style.transition = 'opacity 1s ease';
+    progressContainer.style.opacity = '1';
+    progressLabel.style.transition = 'opacity 1s ease';
+    progressLabel.style.opacity = '1';
+    progressValue.style.transition = 'opacity 1s ease';
+    progressValue.style.opacity = '1';
 }
 
 // Function to set initial card theme
@@ -448,7 +476,11 @@ async function loadVocabData() {
 
         // Hide progress bar initially
         const progressContainer = document.querySelector('.progress-bar-container');
+        const progressLabel = document.getElementById('progress-label');
+        const progressValue = document.getElementById('progress-value');
         progressContainer.style.opacity = '0';
+        progressLabel.style.opacity = '0';
+        progressValue.style.opacity = '0';
 
         // Fetch and parse initial batch (first 200 entries)
         const response = await fetch('data/database.jsonl');
@@ -466,15 +498,13 @@ async function loadVocabData() {
         }
         vocabData = vocabData.sort(() => Math.random() - 0.5);
 
-        // Update progress bar after initial data load
-        updateProgressBar();
-
         // Start stats number animation and card animation
         updateWebsiteStats();
         populateCardsBeforeAnimation();
         animateCardStackDrop(() => {
             displayCards();
             spinner.style.display = 'none'; // Hide spinner after animation
+            showProgressBar(); // Show progress bar after data fetch
             startTutorialAnimation(); // Start tutorial animation after card stack
         });
 
@@ -494,7 +524,7 @@ async function loadVocabData() {
             }
             vocabData = vocabData.sort(() => Math.random() - 0.5);
             populateCardsBeforeAnimation();
-            updateProgressBar(); // Update progress bar after full data load
+            showProgressBar(); // Update progress bar after full data load
         }, 0);
     } catch (error) {
         console.error('Error loading database:', error);
