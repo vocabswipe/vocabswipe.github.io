@@ -83,7 +83,7 @@ html, body {
 }
 
 .progress-bar-container {
-    height: 60px; /* Increased by 10px to accommodate downward shift */
+    height: 60px; /* Maintain height to accommodate content */
     opacity: 0; /* Initially hidden */
     display: flex;
     align-items: flex-end; /* Align content to bottom */
@@ -164,7 +164,7 @@ html, body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    widthGj: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     justify-content: center;
@@ -454,14 +454,14 @@ html, body {
     max-width: 300px;
     height: 9px;
     position: relative;
-    margin-top: 10px; /* Move downward by 10px for mobile */
+    margin-top: 5px; /* Adjusted from 10px to move upward by 5px for mobile */
 }
 
 .progress-label {
     font-family: 'Montserrat', 'Noto Sans Thai', sans-serif;
     font-weight: 500;
     font-size: 0.84rem;
-    color: #F8F8FF; /* Updated color */
+    color: #F8F8FF;
     position: absolute;
     left: 0;
     top: -18px;
@@ -483,7 +483,7 @@ html, body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 0.84rem;
-    color: #F8F8FF; /* Updated color */
+    color: #F8F8FF;
     position: absolute;
     right: 0;
     top: -18px;
@@ -762,7 +762,7 @@ html, body {
     .progress-content {
         max-width: 360px;
         height: 10px;
-        margin-top: 20px; /* Move downward by 20px for PC */
+        margin-top: 20px; /* Maintain downward shift for PC */
     }
 
     .website-name {
@@ -784,19 +784,18 @@ html, body {
         font-size: 0.945rem;
         top: -20px;
         line-height: 1.2;
-        color: #F8F8FF; /* Updated color */
+        color: #F8F8FF;
     }
 
     .progress-label.thai-text {
         font-size: 0.945rem;
         line-height: 1.2;
-        font-family: 'Noto Sans Thai', 'Montserrat', sans-serif;
     }
 
     .progress-value {
         font-size: 0.945rem;
         top: -20px;
-        color: #F8F8FF; /* Updated color */
+        color: #F8F8FF;
     }
 
     .progress-bar {
