@@ -371,7 +371,7 @@ function startTutorialAnimation() {
     handpoint.style.top = '50%';
     handpoint.style.transform = 'translate(-50%, -50%)';
 
-    // Fade in handpoint after 1 second
+    // Fade in handpoint after 2 seconds
     setTimeout(() => {
         handpoint.style.transition = 'opacity 0.5s ease';
         handpoint.style.opacity = '1';
@@ -397,8 +397,8 @@ function startTutorialAnimation() {
                     const rotate = (translateX / window.innerWidth) * 30; // Rotation based on swipe direction
 
                     // Animate handpoint and card together
-                    topCard.style.transition = 'transform 1s ease, opacity 1s ease';
-                    handpoint.style.transition = 'transform 1s ease';
+                    topCard.style.transition = 'transform 1.5s ease, opacity 1.5s ease'; // Increased from 1s to 1.5s
+                    handpoint.style.transition = 'transform 1.5s ease'; // Increased from 1s to 1.5s
                     topCard.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
                     topCard.style.opacity = '0';
                     handpoint.style.transform = `translate(-50%, -50%) translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
@@ -407,11 +407,11 @@ function startTutorialAnimation() {
                     setTimeout(() => {
                         handpoint.style.display = 'none';
                         moveToNextCard(translateX, translateY, rotate, true); // isAnimation=true to skip progress bar update
-                    }, 1000);
+                    }, 1500); // Increased from 1000ms to 1500ms
                 }, 1000); // 1-second pause
             }, 600); // Duration of tap and glow
         }, 500); // After fade-in
-    }, 1000); // 1 second after card stack animation
+    }, 2000); // Changed from 1000ms to 2000ms
 }
 
 // Function to fetch and parse JSONL file with lazy loading
@@ -583,7 +583,7 @@ function displayCards() {
 // Function to animate and move to next card
 function moveToNextCard(translateX, translateY, rotate, isAnimation = false) {
     const card = document.getElementById('vocab-card');
-    card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+    card.style.transition = 'transform 0.75s ease, opacity 0.75s ease'; // Increased from 0.5s to 0.75s
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
     card.style.zIndex = '1000';
@@ -601,7 +601,7 @@ function moveToNextCard(translateX, translateY, rotate, isAnimation = false) {
         currentIndex = (currentIndex + 1) % vocabData.length;
         displayCards();
         card.style.transition = 'none';
-    }, 500);
+    }, 750); // Increased from 500ms to 750ms
 }
 
 // Touch and mouse handling
