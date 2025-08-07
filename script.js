@@ -88,7 +88,7 @@ let swipedCards = JSON.parse(localStorage.getItem('swipedCards') || '[]');
 
 // Update website statistics display with animated number
 function updateWebsiteStats() {
-    const statsElement = document.getElementById('website-stats');
+    const statNumberElement = document.querySelector('.stat-number');
     const countNumberElement = $('.count-number');
     countNumberElement.data('to', originalVocabLength); // Use original length for stats
     countNumberElement.data('countToOptions', {
@@ -97,7 +97,7 @@ function updateWebsiteStats() {
         }
     });
     countNumberElement.countTo();
-    statsElement.style.opacity = '1'; // Ensure immediate visibility
+    statNumberElement.style.opacity = '1'; // Ensure immediate visibility
 }
 
 // Function to update progress bar
@@ -117,9 +117,9 @@ function updateProgressBar() {
         setTimeout(() => {
             progressFill.classList.remove('progress-brighten', 'progress-glow');
         }, 300); // Duration of the brighten and glow effect
-        const progressContainer = document.querySelector('.progress-container');
-        progressContainer.style.opacity = '1';
-        progressContainer.style.transition = 'opacity 1s ease';
+        const progressContent = document.querySelector('.progress-content');
+        progressContent.style.opacity = '1';
+        progressContent.style.transition = 'opacity 1s ease';
     }
 }
 
@@ -397,8 +397,8 @@ function startTutorialAnimation() {
                     const rotate = (translateX / window.innerWidth) * 30; // Rotation based on swipe direction
 
                     // Animate handpoint and card together
-                    topCard.style.transition = 'transform 1.5s ease, opacity 1.5s ease'; // Increased from 1s to 1.5s
-                    handpoint.style.transition = 'transform 1.5s ease'; // Increased from 1s to 1.5s
+                    topCard.style.transition = 'transform 1.5s ease, opacity 1.5s ease';
+                    handpoint.style.transition = 'transform 1.5s ease';
                     topCard.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
                     topCard.style.opacity = '0';
                     handpoint.style.transform = `translate(-50%, -50%) translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
@@ -407,11 +407,11 @@ function startTutorialAnimation() {
                     setTimeout(() => {
                         handpoint.style.display = 'none';
                         moveToNextCard(translateX, translateY, rotate, true); // isAnimation=true to skip progress bar update
-                    }, 1500); // Increased from 1000ms to 1500ms
-                }, 2000); // 1-second pause
-            }, 600); // Duration of tap and glow
-        }, 500); // After fade-in
-    }, 2000); // Changed from 1000ms to 2000ms
+                    }, 1500);
+                }, 2000);
+            }, 600);
+        }, 500);
+    }, 2000);
 }
 
 // Function to fetch and parse JSONL file with lazy loading
@@ -440,8 +440,8 @@ async function loadVocabData() {
         });
 
         // Initialize stats display immediately
-        const statsElement = document.getElementById('website-stats');
-        statsElement.style.opacity = '1';
+        const statNumberElement = document.querySelector('.stat-number');
+        statNumberElement.style.opacity = '1';
         alternateStatsText(); // Start text alternation immediately
         updateProgressBar(); // Initialize progress bar
 
@@ -557,7 +557,7 @@ function displayCards() {
             nextWordBottomElement.textContent = nextEntry.word;
             nextEnglishElement.textContent = nextEntry.english;
             nextThaiElement.textContent = nextEntry.thai;
-            nextWordTopElement.style.color = cardTextColor;
+            nextWord pilgrimageTopElement.style.color = cardTextColor;
             nextWordBottomElement.style.color = cardTextColor;
             nextEnglishElement.style.color = cardTextColor;
             nextThaiElement.style.color = cardTextColor;
@@ -583,7 +583,7 @@ function displayCards() {
 // Function to animate and move to next card
 function moveToNextCard(translateX, translateY, rotate, isAnimation = false) {
     const card = document.getElementById('vocab-card');
-    card.style.transition = 'transform 0.75s ease, opacity 0.75s ease'; // Increased from 0.5s to 0.75s
+    card.style.transition = 'transform 0.75s ease, opacity 0.75s ease';
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
     card.style.zIndex = '1000';
@@ -601,7 +601,7 @@ function moveToNextCard(translateX, translateY, rotate, isAnimation = false) {
         currentIndex = (currentIndex + 1) % vocabData.length;
         displayCards();
         card.style.transition = 'none';
-    }, 750); // Increased from 500ms to 750ms
+    }, 750);
 }
 
 // Touch and mouse handling
