@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Existing head content remains unchanged -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="Master Words, Swipe by Swipe with VocabSwipe">
@@ -18,10 +17,6 @@
 </head>
 <body>
     <div class="main-content">
-        <!-- Loading spinner -->
-        <div class="loading-spinner" id="loading-spinner">
-            <img src="loading.gif" alt="Loading" class="spinner">
-        </div>
         <!-- Icon panel container -->
         <div class="icon-panel-container">
             <div class="icon-panel">
@@ -29,9 +24,13 @@
                 <img src="share.svg" alt="Share" class="share-icon" id="share-icon">
             </div>
         </div>
+        <!-- Loading spinner (outside containers for overlay) -->
+        <div class="loading-spinner" id="loading-spinner">
+            <img src="loading.gif" alt="Loading" class="spinner">
+        </div>
         <!-- Stat number container -->
         <div class="stat-number-container">
-            <div class="website-stats" id="website-stats">
+            <div class="stat-number">
                 <div class="counter">
                     <h2 class="timer count-title count-number" data-to="10000" data-speed="10000"></h2>
                 </div>
@@ -39,14 +38,16 @@
         </div>
         <!-- Stat sentence container -->
         <div class="stat-sentence-container">
-            <div class="stats-text-container">
-                <p class="count-text" id="stats-line1">Essential American English Sentences</p>
+            <div class="stat-sentence">
+                <div class="stats-text-container">
+                    <p class="count-text" id="stats-line1">Essential American English Sentences</p>
+                </div>
             </div>
         </div>
         <!-- Card stack container -->
         <div class="card-stack-container">
             <div class="card-container" id="card-container">
-                <!-- Existing card elements remain unchanged -->
+                <!-- Top card (interactive) -->
                 <div class="card" id="vocab-card">
                     <div class="card-content">
                         <h1 class="word top-left" id="word-top"></h1>
@@ -55,7 +56,7 @@
                         <h1 class="word bottom-right" id="word-bottom"></h1>
                     </div>
                 </div>
-                <!-- Next cards -->
+                <!-- Next cards (visible underneath with content) -->
                 <div class="card" id="next-card-1">
                     <div class="card-content">
                         <h1 class="word top-left" id="next-word-top-1"></h1>
@@ -64,7 +65,6 @@
                         <h1 class="word bottom-right" id="next-word-bottom-1"></h1>
                     </div>
                 </div>
-                <!-- ... Other next cards (2-9) remain unchanged ... -->
                 <div class="card" id="next-card-2">
                     <div class="card-content">
                         <h1 class="word top-left" id="next-word-top-2"></h1>
@@ -129,32 +129,38 @@
                         <h1 class="word bottom-right" id="next-word-bottom-9"></h1>
                     </div>
                 </div>
-                <!-- Stack cards -->
+                <!-- Underneath cards for stack effect -->
                 <div class="card card-stack card-stack-1"></div>
                 <div class="card card-stack card-stack-2"></div>
                 <div class="card card-stack card-stack-3"></div>
-                <!-- Handpoint -->
+                <!-- Handpoint for tutorial -->
                 <img src="handpoint.svg" alt="Hand Point" class="handpoint" id="handpoint">
             </div>
         </div>
         <!-- Website name container -->
         <div class="website-name-container">
-            <h1 class="website-name">VocabSwipe.com</h1>
+            <div class="website-name-content">
+                <h1 class="website-name">VocabSwipe.com</h1>
+            </div>
         </div>
         <!-- Slogan container -->
         <div class="slogan-container">
-            <p class="website-slogan">Master Words, Swipe by Swipe</p>
+            <div class="slogan-content">
+                <p class="website-slogan">Master Words, Swipe by Swipe</p>
+            </div>
         </div>
         <!-- Progress bar container -->
-        <div class="progress-container">
-            <div class="progress-label" id="progress-label">Swiped Cards</div>
-            <div class="progress-value" id="progress-value">0</div>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progress-fill"></div>
+        <div class="progress-bar-container">
+            <div class="progress-content">
+                <div class="progress-label" id="progress-label">Swiped Cards</div>
+                <div class="progress-value" id="progress-value">0</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
             </div>
         </div>
     </div>
-    <!-- Donation popup remains unchanged -->
+    <!-- Donation pop-up -->
     <div class="donation-popup" id="donation-popup">
         <div class="donation-content">
             <div class="donation-header">
@@ -184,6 +190,7 @@
         </div>
     </div>
     <audio id="card-audio" src=""></audio>
+    <!-- Canvas for snapshot -->
     <canvas id="snapshot-canvas" style="display: none;"></canvas>
     <script src="script.js"></script>
 </body>
