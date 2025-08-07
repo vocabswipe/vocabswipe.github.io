@@ -56,17 +56,25 @@ html, body {
     height: 64px;
 }
 
-/* Handpoint styling */
-.handpoint {
-    width: 60px; /* Doubled from assumed base of 30px */
-    height: 60px; /* Doubled from assumed base of 30px */
+/* Hand pointer styling */
+.hand-pointer {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1001; /* Above top card (z-index: 1000) */
-    display: none;
-    pointer-events: none; /* Prevent interaction with handpoint */
+    width: 75px; /* Tripled from assumed 25px */
+    height: 75px; /* Tripled from assumed 25px */
+    z-index: 1000; /* Above top card */
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1); /* Center and normal scale */
+    transition: opacity 0.5s ease, transform 0.2s ease;
+}
+
+.hand-pointer.tap {
+    animation: tap-animation 0.3s ease-in-out;
+}
+
+@keyframes tap-animation {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(0.8); }
+    100% { transform: translate(-50%, -50%) scale(1); }
 }
 
 /* Fixed height containers */
@@ -815,8 +823,8 @@ html, body {
         height: 80px;
     }
 
-    .handpoint {
-        width: 72px; /* Doubled from assumed base of 36px */
-        height: 72px; /* Doubled from assumed base of 36px */
+    .hand-pointer {
+        width: 90px; /* Tripled from assumed 30px for desktop */
+        height: 90px; /* Tripled from assumed 30px for desktop */
     }
 }
