@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Existing head content remains unchanged -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="Master Words, Swipe by Swipe with VocabSwipe">
@@ -16,137 +17,144 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
-    <!-- Icon panel moved to top of body -->
-    <div class="icon-panel">
-        <img src="coffee.svg" alt="Donate" class="coffee-icon" id="coffee-icon">
-        <img src="share.svg" alt="Share" class="share-icon" id="share-icon">
-    </div>
     <div class="main-content">
         <!-- Loading spinner -->
         <div class="loading-spinner" id="loading-spinner">
             <img src="loading.gif" alt="Loading" class="spinner">
         </div>
-        <!-- Fixed height container for stats -->
-        <div class="stats-container">
-            <!-- Website statistics -->
+        <!-- Icon panel container -->
+        <div class="icon-panel-container">
+            <div class="icon-panel">
+                <img src="coffee.svg" alt="Donate" class="coffee-icon" id="coffee-icon">
+                <img src="share.svg" alt="Share" class="share-icon" id="share-icon">
+            </div>
+        </div>
+        <!-- Stat number container -->
+        <div class="stat-number-container">
             <div class="website-stats" id="website-stats">
                 <div class="counter">
                     <h2 class="timer count-title count-number" data-to="10000" data-speed="10000"></h2>
-                    <div class="stats-text-container">
-                        <p class="count-text" id="stats-line1">Essential American English Sentences</p>
-                    </div>
                 </div>
             </div>
         </div>
-        <div class="card-container" id="card-container">
-            <!-- Top card (interactive) -->
-            <div class="card" id="vocab-card">
-                <div class="card-content">
-                    <h1 class="word top-left" id="word-top"></h1>
-                    <p class="sentence english" id="english"></p>
-                    <p class="sentence thai" id="thai"></p>
-                    <h1 class="word bottom-right" id="word-bottom"></h1>
-                </div>
+        <!-- Stat sentence container -->
+        <div class="stat-sentence-container">
+            <div class="stats-text-container">
+                <p class="count-text" id="stats-line1">Essential American English Sentences</p>
             </div>
-            <!-- Next cards (visible underneath with content) -->
-            <div class="card" id="next-card-1">
-                <div class="card-content">
-                    <h1 class="word top-left" id="next-word-top-1"></h1>
-                    <p class="sentence english" id="next-english-1"></p>
-                    <p class="sentence thai" id="next-thai-1"></p>
-                    <h1 class="word bottom-right" id="next-word-bottom-1"></h1>
-                </div>
-            </div>
-            <div class="card" id="next-card-2">
-                <div class="card-content">
-                    <h1 class="word top-left" id="next-word-top-2"></h1>
-                    <p class="sentence english" id="next-english-2"></p>
-                    <p class="sentence thai" id="next-thai-2"></p>
-                    <h1 class="word bottom-right" id="next-word-bottom-2"></h1>
-                </div>
-            </div>
-            <div class="card" id="next-card-3">
-                <div class="card-content">
-                    <h1 class="word top-left" id="next-word-top-3"></h1>
-                    <p class="sentence english" id="next-english-3"></p>
-                    <p class="sentence thai" id="next-thai-3"></p>
-                    <h1 class="word bottom-right" id="next-word-bottom-3"></h1>
-                </div>
-            </div>
-            <div class="card" id="next-card-4">
-                <div class="card-content">
-                    <h1 class="word top-left" id="next-word-top-4"></h1>
-                    <p class="sentence english" id="next-english-4"></p>
-                    <p class="sentence thai" id="next-thai-4"></p>
-                    <h1 class="word bottom-right" id="next-word-bottom-4"></h1>
-                </div>
-            </div>
-            <div class="card" id="next-card-5">
-                <div class="card-content">
-                    <h1 class="word top-left" id="next-word-top-5"></h1>
-                    <p class="sentence english" id="next-english-5"></p>
-                    <p class="sentence thai" id="next-thai-5"></p>
-                    <h1 class="word bottom-right" id="next-word-bottom-5"></h1>
-                </div>
-            </div>
-            <div class="card" id="next-card-6">
-                <div class="card-content">
-                    <h1 class="word top-left" id="next-word-top-6"></h1>
-                    <p class="sentence english" id="next-english-6"></p>
-                    <p class="sentence thai" id="next-thai-6"></p>
-                    <h1 class="word bottom-right" id="next-word-bottom-6"></h1>
-                </div>
-            </div>
-            <div class="card" id="next-card-7">
-                <div class="card-content">
-                    <h1 class="word top-left" id="next-word-top-7"></h1>
-                    <p class="sentence english" id="next-english-7"></p>
-                    <p class="sentence thai" id="next-thai-7"></p>
-                    <h1 class="word bottom-right" id="next-word-bottom-7"></h1>
-                </div>
-            </div>
-            <div class="card" id="next-card-8">
-                <div class="card-content">
-                    <h1 class="word top-left" id="next-word-top-8"></h1>
-                    <p class="sentence english" id="next-english-8"></p>
-                    <p class="sentence thai" id="next-thai-8"></p>
-                    <h1 class="word bottom-right" id="next-word-bottom-8"></h1>
-                </div>
-            </div>
-            <div class="card" id="next-card-9">
-                <div class="card-content">
-                    <h1 class="word top-left" id="next-word-top-9"></h1>
-                    <p class="sentence english" id="next-english-9"></p>
-                    <p class="sentence thai" id="next-thai-9"></p>
-                    <h1 class="word bottom-right" id="next-word-bottom-9"></h1>
-                </div>
-            </div>
-            <!-- Underneath cards for stack effect -->
-            <div class="card card-stack card-stack-1"></div>
-            <div class="card card-stack card-stack-2"></div>
-            <div class="card card-stack card-stack-3"></div>
-            <!-- Handpoint for tutorial -->
-            <img src="handpoint.svg" alt="Hand Point" class="handpoint" id="handpoint">
         </div>
-        <!-- Fixed height container for website info -->
-        <div class="info-container">
-            <!-- Website name, slogan, and progress bar -->
-            <div class="website-info">
-                <h1 class="website-name">VocabSwipe.com</h1>
-                <div class="slogan-container">
-                    <p class="website-slogan">Master Words, Swipe by Swipe</p>
-                </div>
-                <div class="progress-container">
-                    <div class="progress-label" id="progress-label">Swiped Cards</div>
-                    <div class="progress-value" id="progress-value">0</div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progress-fill"></div>
+        <!-- Card stack container -->
+        <div class="card-stack-container">
+            <div class="card-container" id="card-container">
+                <!-- Existing card elements remain unchanged -->
+                <div class="card" id="vocab-card">
+                    <div class="card-content">
+                        <h1 class="word top-left" id="word-top"></h1>
+                        <p class="sentence english" id="english"></p>
+                        <p class="sentence thai" id="thai"></p>
+                        <h1 class="word bottom-right" id="word-bottom"></h1>
                     </div>
                 </div>
+                <!-- Next cards -->
+                <div class="card" id="next-card-1">
+                    <div class="card-content">
+                        <h1 class="word top-left" id="next-word-top-1"></h1>
+                        <p class="sentence english" id="next-english-1"></p>
+                        <p class="sentence thai" id="next-thai-1"></p>
+                        <h1 class="word bottom-right" id="next-word-bottom-1"></h1>
+                    </div>
+                </div>
+                <!-- ... Other next cards (2-9) remain unchanged ... -->
+                <div class="card" id="next-card-2">
+                    <div class="card-content">
+                        <h1 class="word top-left" id="next-word-top-2"></h1>
+                        <p class="sentence english" id="next-english-2"></p>
+                        <p class="sentence thai" id="next-thai-2"></p>
+                        <h1 class="word bottom-right" id="next-word-bottom-2"></h1>
+                    </div>
+                </div>
+                <div class="card" id="next-card-3">
+                    <div class="card-content">
+                        <h1 class="word top-left" id="next-word-top-3"></h1>
+                        <p class="sentence english" id="next-english-3"></p>
+                        <p class="sentence thai" id="next-thai-3"></p>
+                        <h1 class="word bottom-right" id="next-word-bottom-3"></h1>
+                    </div>
+                </div>
+                <div class="card" id="next-card-4">
+                    <div class="card-content">
+                        <h1 class="word top-left" id="next-word-top-4"></h1>
+                        <p class="sentence english" id="next-english-4"></p>
+                        <p class="sentence thai" id="next-thai-4"></p>
+                        <h1 class="word bottom-right" id="next-word-bottom-4"></h1>
+                    </div>
+                </div>
+                <div class="card" id="next-card-5">
+                    <div class="card-content">
+                        <h1 class="word top-left" id="next-word-top-5"></h1>
+                        <p class="sentence english" id="next-english-5"></p>
+                        <p class="sentence thai" id="next-thai-5"></p>
+                        <h1 class="word bottom-right" id="next-word-bottom-5"></h1>
+                    </div>
+                </div>
+                <div class="card" id="next-card-6">
+                    <div class="card-content">
+                        <h1 class="word top-left" id="next-word-top-6"></h1>
+                        <p class="sentence english" id="next-english-6"></p>
+                        <p class="sentence thai" id="next-thai-6"></p>
+                        <h1 class="word bottom-right" id="next-word-bottom-6"></h1>
+                    </div>
+                </div>
+                <div class="card" id="next-card-7">
+                    <div class="card-content">
+                        <h1 class="word top-left" id="next-word-top-7"></h1>
+                        <p class="sentence english" id="next-english-7"></p>
+                        <p class="sentence thai" id="next-thai-7"></p>
+                        <h1 class="word bottom-right" id="next-word-bottom-7"></h1>
+                    </div>
+                </div>
+                <div class="card" id="next-card-8">
+                    <div class="card-content">
+                        <h1 class="word top-left" id="next-word-top-8"></h1>
+                        <p class="sentence english" id="next-english-8"></p>
+                        <p class="sentence thai" id="next-thai-8"></p>
+                        <h1 class="word bottom-right" id="next-word-bottom-8"></h1>
+                    </div>
+                </div>
+                <div class="card" id="next-card-9">
+                    <div class="card-content">
+                        <h1 class="word top-left" id="next-word-top-9"></h1>
+                        <p class="sentence english" id="next-english-9"></p>
+                        <p class="sentence thai" id="next-thai-9"></p>
+                        <h1 class="word bottom-right" id="next-word-bottom-9"></h1>
+                    </div>
+                </div>
+                <!-- Stack cards -->
+                <div class="card card-stack card-stack-1"></div>
+                <div class="card card-stack card-stack-2"></div>
+                <div class="card card-stack card-stack-3"></div>
+                <!-- Handpoint -->
+                <img src="handpoint.svg" alt="Hand Point" class="handpoint" id="handpoint">
+            </div>
+        </div>
+        <!-- Website name container -->
+        <div class="website-name-container">
+            <h1 class="website-name">VocabSwipe.com</h1>
+        </div>
+        <!-- Slogan container -->
+        <div class="slogan-container">
+            <p class="website-slogan">Master Words, Swipe by Swipe</p>
+        </div>
+        <!-- Progress bar container -->
+        <div class="progress-container">
+            <div class="progress-label" id="progress-label">Swiped Cards</div>
+            <div class="progress-value" id="progress-value">0</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
             </div>
         </div>
     </div>
-    <!-- Donation pop-up -->
+    <!-- Donation popup remains unchanged -->
     <div class="donation-popup" id="donation-popup">
         <div class="donation-content">
             <div class="donation-header">
@@ -176,7 +184,6 @@
         </div>
     </div>
     <audio id="card-audio" src=""></audio>
-    <!-- Canvas for snapshot -->
     <canvas id="snapshot-canvas" style="display: none;"></canvas>
     <script src="script.js"></script>
 </body>
