@@ -3,6 +3,7 @@ let vocabData = [];
 let originalVocabLength = 0; // Store original length for stats
 let currentIndex = 0;
 let hasSwiped = false; // Flag to track if user has swiped
+let hasCompletedTutorial = false; // Flag to track if tutorial animation has completed
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
@@ -407,6 +408,7 @@ function startTutorialAnimation() {
                     setTimeout(() => {
                         handpoint.style.display = 'none';
                         moveToNextCard(translateX, translateY, rotate, true); // isAnimation=true to skip progress bar update
+                        hasCompletedTutorial = true; // Set flag after tutorial completes
                     }, 1500);
                 }, 2000);
             }, 600); // Duration of tap and glow
@@ -659,12 +661,15 @@ card.addEventListener('touchend', (e) => {
 
     if (distance <= maxTapDistance && touchDuration <= maxTapDuration) {
         const audio = document.querySelector('#card-audio');
-        card.classList.add('glow');
+        // Skip glow effect on mobile after tutorial
+        if (!(hasCompletedTutorial && window.innerWidth <= 600)) {
+            card.classList.add('glow');
+            setTimeout(() => {
+                card.classList.remove('glow');
+            }, 600);
+        }
         audio.play().catch(error => console.error('Error playing audio:', error));
         card.style.transform = 'translate(0, 0) rotate(0deg)';
-        setTimeout(() => {
-            card.classList.remove('glow');
-        }, 600);
     } else if (distance > minSwipeDistance) {
         const angle = Math.atan2(deltaY, deltaX);
         const magnitude = distance * 5;
