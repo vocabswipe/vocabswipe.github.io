@@ -53,7 +53,6 @@ html, body {
     max-width: 360px;
     display: flex;
     justify-content: center;
-    align-items: center;
     position: relative;
 }
 
@@ -75,7 +74,8 @@ html, body {
 }
 
 .website-name-container {
-    height: 60px; /* Increased from 40px by 20px */
+    height: 60px;
+    align-items: flex-end; /* Changed from center to align content to bottom */
 }
 
 .slogan-container {
@@ -403,6 +403,7 @@ html, body {
     width: 100%;
     max-width: 300px;
     text-align: center;
+    padding-bottom: 5px; /* Added to create small gap from bottom */
 }
 
 .website-name {
@@ -698,7 +699,8 @@ html, body {
     }
 
     .website-name-container {
-        height: 67px; /* Increased from 47px by 20px */
+        height: 67px;
+        align-items: flex-end; /* Changed from center to align content to bottom */
     }
 
     .slogan-container {
@@ -730,6 +732,7 @@ html, body {
 
     .website-name-content {
         max-width: 360px;
+        padding-bottom: 5px; /* Added to create small gap from bottom */
     }
 
     .slogan-content {
