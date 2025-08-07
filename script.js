@@ -3,7 +3,6 @@ let vocabData = [];
 let originalVocabLength = 0; // Store original length for stats
 let currentIndex = 0;
 let hasSwiped = false; // Flag to track if user has swiped
-let hasInteracted = false; // Flag to track user interaction
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
@@ -322,108 +321,8 @@ function animateCardStackDrop(callback) {
         setTimeout(() => {
             enableCardInteractions();
             callback();
-            // Trigger touch and swipe animation for mobile users within first 1000 visits
-            if (visitCount <= 1000 && window.innerWidth <= 600) {
-                setTimeout(() => {
-                    triggerTouchSwipeAnimation();
-                }, 2000); // 2 seconds after card stack animation completes
-            }
         }, 1000 + (cards.length - 1) * 200);
     }, 100);
-}
-
-// Modified function to trigger touch and swipe animation
-function triggerTouchSwipeAnimation() {
-    if (hasInteracted) return; // Skip if user has already interacted
-
-    const handpoint = document.getElementById('handpoint');
-    const topCard = document.getElementById('vocab-card');
-    const mainContentRect = document.querySelector('.main-content').getBoundingClientRect();
-    const spinner = document.getElementById('loading-spinner');
-
-    // Get spinner position (center of the top card)
-    const spinnerRect = spinner.getBoundingClientRect();
-    const tapX = spinnerRect.left - mainContentRect.left + spinnerRect.width / 2;
-    const tapY = spinnerRect.top - mainContentRect.top + spinnerRect.height / 2;
-
-    // Handpoint size (128x128px on mobile, doubled from 64x64px)
-    const handpointSize = 128;
-    const handpointOffsetX = -handpointSize / 2; // Center of handpoint
-    const handpointOffsetY = -handpointSize / 2; // Center of handpoint
-
-    // Set handpoint size
-    handpoint.style.width = `${handpointSize}px`;
-    handpoint.style.height = `${handpointSize}px`;
-
-    // Set initial position exactly at the tap point (center of the top card) and keep hidden
-    handpoint.style.transform = `translate(${tapX + handpointOffsetX}px, ${tapY + handpointOffsetY}px)`;
-    handpoint.style.opacity = '0';
-    handpoint.style.display = 'block'; // Make visible only after setting position
-
-    // Fade in handpoint
-    setTimeout(() => {
-        handpoint.style.transition = 'opacity 0.5s ease-in-out';
-        handpoint.style.opacity = '1';
-
-        // Perform tap animation with glow
-        setTimeout(() => {
-            handpoint.classList.add('tap');
-            topCard.classList.add('glow');
-            const audio = document.getElementById('card-audio');
-            audio.play().catch(error => console.error('Error playing audio:', error));
-
-            // Remove tap and glow effects
-            setTimeout(() => {
-                handpoint.classList.remove('tap');
-                topCard.classList.remove('glow');
-
-                // Start swipe animation from the tap position
-                setTimeout(() => {
-                    // Generate random angle for swipe
-                    const angle = Math.random() * 2 * Math.PI;
-                    const initialSwipeDistance = 50; // Initial short swipe
-                    const deltaX = Math.cos(angle) * initialSwipeDistance;
-                    const deltaY = Math.sin(angle) * initialSwipeDistance;
-                    const rotate = (deltaX / window.innerWidth) * 30;
-
-                    // Set transitions for smooth initial swipe
-                    handpoint.style.transition = 'transform 0.8s ease-in-out';
-                    topCard.style.transition = 'transform 0.8s ease-in-out';
-                    topCard.style.zIndex = '1000';
-
-                    // Move handpoint and card together for initial swipe from tap position
-                    handpoint.style.transform = `translate(${tapX + deltaX + handpointOffsetX}px, ${tapY + deltaY + handpointOffsetY}px)`;
-                    topCard.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
-
-                    // Complete the swipe
-                    setTimeout(() => {
-                        const magnitude = initialSwipeDistance * 10; // Amplify for full swipe
-                        const translateX = Math.cos(angle) * magnitude;
-                        const translateY = Math.sin(angle) * magnitude;
-                        const finalRotate = (translateX / window.innerWidth) * 30;
-
-                        // Update transitions for full swipe
-                        handpoint.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
-                        topCard.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
-
-                        // Move handpoint and card together for full swipe from tap position
-                        handpoint.style.transform = `translate(${tapX + translateX + handpointOffsetX}px, ${tapY + translateY + handpointOffsetY}px)`;
-                        topCard.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${finalRotate}deg)`;
-                        topCard.style.opacity = '0';
-
-                        // Call moveToNextCard with isAnimation=true to skip swipedCards update
-                        moveToNextCard(translateX, translateY, finalRotate, true);
-
-                        // Fade out handpoint
-                        handpoint.style.opacity = '0';
-                        setTimeout(() => {
-                            handpoint.style.display = 'none';
-                        }, 500);
-                    }, 800); // Duration of initial swipe
-                }, 600); // Wait after tap
-            }, 600); // Duration of tap and glow
-        }, 800); // Time to complete fade-in
-    }, 100); // Brief delay before starting fade-in
 }
 
 // Function to enable tap interactions for cards
@@ -433,7 +332,6 @@ function enableCardInteractions() {
 
     // Tap handler for top card
     topCard.addEventListener('click', () => {
-        hasInteracted = true; // Mark interaction
         if (!isDragging) {
             const audio = document.getElementById('card-audio');
             topCard.classList.add('glow');
@@ -446,7 +344,6 @@ function enableCardInteractions() {
 
     // Tap handler for next card
     nextCard.addEventListener('click', () => {
-        hasInteracted = true; // Mark interaction
         if (!isDragging && currentIndex + 1 < vocabData.length) {
             const nextEntry = vocabData[currentIndex + 1];
             const audio = new Audio(`data/${nextEntry.audio}`);
@@ -662,7 +559,6 @@ const maxTapDuration = 300;
 const card = document.querySelector('#vocab-card');
 
 card.addEventListener('touchstart', (e) => {
-    hasInteracted = true; // Mark interaction
     if (e.touches.length === 1) {
         e.preventDefault();
         startX = e.changedTouches[0].screenX;
@@ -690,7 +586,6 @@ card.addEventListener('touchmove', (e) => {
 });
 
 card.addEventListener('touchend', (e) => {
-    hasInteracted = true; // Mark interaction
     e.preventDefault();
     isDragging = false;
     const endX = e.changedTouches[0].screenX;
@@ -722,7 +617,6 @@ card.addEventListener('touchend', (e) => {
 });
 
 card.addEventListener('mousedown', (e) => {
-    hasInteracted = true; // Mark interaction
     e.preventDefault();
     startX = e.screenX;
     startY = e.screenY;
@@ -748,7 +642,6 @@ card.addEventListener('mousemove', (e) => {
 });
 
 card.addEventListener('mouseup', (e) => {
-    hasInteracted = true; // Mark interaction
     e.preventDefault();
     isDragging = false;
     const endX = e.screenX;
@@ -781,7 +674,6 @@ card.addEventListener('mouseup', (e) => {
 
 card.addEventListener('mouseleave', () => {
     if (isDragging) {
-        hasInteracted = true; // Mark interaction
         isDragging = false;
         card.style.transition = 'transform 0.3s ease';
         card.style.transform = 'translate(0, 0) rotate(0deg)';
@@ -789,7 +681,6 @@ card.addEventListener('mouseleave', () => {
 });
 
 document.addEventListener('keydown', (e) => {
-    hasInteracted = true; // Mark interaction
     switch (e.key) {
         case ' ':
             e.preventDefault();
@@ -822,7 +713,6 @@ document.addEventListener('keydown', (e) => {
 // Share icon functionality
 const shareIcon = document.querySelector('#share-icon');
 shareIcon.addEventListener('click', () => {
-    hasInteracted = true; // Mark interaction
     if (typeof html2canvas === 'undefined') {
         console.error('html2canvas is not loaded');
         return;
@@ -837,19 +727,16 @@ const closeIcon = document.querySelector('#close-icon');
 const mainContent = document.querySelector('.main-content');
 
 coffeeIcon.addEventListener('click', () => {
-    hasInteracted = true; // Mark interaction
     donationPopup.style.display = 'flex';
     mainContent.classList.add('blurred');
 });
 
 closeIcon.addEventListener('click', () => {
-    hasInteracted = true; // Mark interaction
     donationPopup.style.display = 'none';
     mainContent.classList.remove('blurred');
 });
 
 donationPopup.addEventListener('click', (e) => {
-    hasInteracted = true; // Mark interaction
     if (e.target === donationPopup) {
         donationPopup.style.display = 'none';
         mainContent.classList.remove('blurred');
