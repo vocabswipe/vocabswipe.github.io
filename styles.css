@@ -462,15 +462,16 @@ html, body {
     font-family: 'Montserrat', 'Noto Sans Thai', sans-serif;
     font-weight: 500;
     font-size: 0.84rem;
-    color: #F8F8FF; /* Updated color */
+    color: #F8F8FF;
     position: absolute;
     left: 0;
     top: -18px;
-    transition: opacity 0.05s ease;
+    transition: opacity 1s ease; /* Updated for smooth fade-in */
     white-space: nowrap;
     line-height: 1.4;
     overflow: visible;
     z-index: 20;
+    opacity: 0; /* Initially hidden */
 }
 
 .progress-label.thai-text {
@@ -483,13 +484,14 @@ html, body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 0.84rem;
-    color: #F8F8FF; /* Updated color */
+    color: #F8F8FF;
     position: absolute;
     right: 0;
     top: -18px;
-    transition: opacity 0.05s ease;
+    transition: opacity 1s ease; /* Updated for smooth fade-in */
     white-space: nowrap;
     z-index: 20;
+    opacity: 0; /* Initially hidden */
 }
 
 .progress-bar {
@@ -774,7 +776,8 @@ html, body {
         font-size: 0.945rem;
         top: -20px;
         line-height: 1.2;
-        color: #F8F8FF; /* Updated color */
+        color: #F8F8FF;
+        transition: opacity 1s ease; /* Updated for smooth fade-in */
     }
 
     .progress-label.thai-text {
@@ -785,7 +788,8 @@ html, body {
     .progress-value {
         font-size: 0.945rem;
         top: -20px;
-        color: #F8F8FF; /* Updated color */
+        color: #F8F8FF;
+        transition: opacity 1s ease; /* Updated for smooth fade-in */
     }
 
     .website-name {
