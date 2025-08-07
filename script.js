@@ -326,7 +326,7 @@ function animateCardStackDrop(callback) {
             if (visitCount <= 1000 && window.innerWidth <= 600) {
                 setTimeout(() => {
                     triggerTouchSwipeAnimation();
-                }, 1000); // 1 second after card stack animation completes
+                }, 2000); // 2 seconds after card stack animation completes
             }
         }, 1000 + (cards.length - 1) * 200);
     }, 100);
@@ -347,22 +347,24 @@ function triggerTouchSwipeAnimation() {
     const cardCenterX = cardRect.left - mainContentRect.left + cardWidth / 2;
     const cardCenterY = cardRect.top - mainContentRect.top + cardHeight / 2;
 
-    // Handpoint size adjustment (64x64px on mobile)
-    const handpointOffsetX = -32; // Center of handpoint
-    const handpointOffsetY = -32; // Center of handpoint
+    // Handpoint size adjustment (128x128px on mobile, doubled from 64x64px)
+    const handpointSize = 128;
+    const handpointOffsetX = -handpointSize / 2; // Center of handpoint
+    const handpointOffsetY = -handpointSize / 2; // Center of handpoint
 
-    // Initial position: slightly below card center to simulate approach
-    const initialY = cardCenterY + 100; // 100px below card center
+    // Set handpoint size
+    handpoint.style.width = `${handpointSize}px`;
+    handpoint.style.height = `${handpointSize}px`;
 
-    // Show handpoint at initial position
+    // Initial position: center of the top card
     handpoint.style.display = 'block';
-    handpoint.style.transform = `translate(${cardCenterX + handpointOffsetX}px, ${initialY + handpointOffsetY}px)`;
-    handpoint.style.opacity = '1';
-    handpoint.style.transition = 'transform 0.8s ease-in-out, opacity 0.8s ease-in-out';
+    handpoint.style.transform = `translate(${cardCenterX + handpointOffsetX}px, ${cardCenterY + handpointOffsetY}px)`;
+    handpoint.style.opacity = '0';
+    handpoint.style.transition = 'opacity 0.5s ease-in-out';
 
-    // Move to card center for tap
+    // Fade in handpoint
     setTimeout(() => {
-        handpoint.style.transform = `translate(${cardCenterX + handpointOffsetX}px, ${cardCenterY + handpointOffsetY}px)`;
+        handpoint.style.opacity = '1';
 
         // Perform tap animation with glow
         setTimeout(() => {
@@ -421,8 +423,8 @@ function triggerTouchSwipeAnimation() {
                     }, 800); // Duration of initial swipe
                 }, 600); // Wait after tap
             }, 600); // Duration of tap and glow
-        }, 800); // Time to reach card center
-    }, 100); // Brief delay before starting
+        }, 800); // Time to complete fade-in
+    }, 100); // Brief delay before starting fade-in
 }
 
 // Function to enable tap interactions for cards
