@@ -336,8 +336,8 @@ function enableCardInteractions() {
     const nextCard = document.getElementById('next-card-1');
 
     // Tap handler for top card
-    topCard.addEventListener('click', () => {
-        if (!isDragging) {
+    topCard.addEventListener('click', (e) => {
+        if (!hasMoved) { // Only trigger audio if no movement occurred
             const audio = document.getElementById('card-audio');
             topCard.classList.add('glow');
             audio.play().catch(error => console.error('Error playing audio:', error));
@@ -614,6 +614,7 @@ function moveToNextCard(translateX, translateY, rotate, isAnimation = false) {
 
 // Touch and mouse handling
 let isDragging = false;
+let hasMoved = false; // Track if mouse moved during mousedown
 let startX = 0;
 let startY = 0;
 let currentX = 0;
@@ -693,6 +694,7 @@ card.addEventListener('mousedown', (e) => {
     card.style.transition = 'none';
     card.style.zIndex = '1000';
     isDragging = true;
+    hasMoved = false; // Reset hasMoved on mousedown
 });
 
 card.addEventListener('mousemove', (e) => {
@@ -702,6 +704,10 @@ card.addEventListener('mousemove', (e) => {
         currentY = e.screenY;
         const deltaX = currentX - startX;
         const deltaY = currentY - startY;
+        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        if (distance > maxTapDistance) {
+            hasMoved = true; // Mark as moved if distance exceeds tap threshold
+        }
         const rotate = (deltaX / window.innerWidth) * 30;
         card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
         card.style.zIndex = '1000';
@@ -718,7 +724,7 @@ card.addEventListener('mouseup', (e) => {
     const deltaY = endY - startY;
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-    if (distance <= maxTapDistance && duration <= maxTapDuration) {
+    if (distance <= maxTapDistance && duration <= maxTapDuration && !hasMoved) {
         const audio = document.querySelector('#card-audio');
         card.classList.add('glow');
         audio.play().catch(error => console.error('Error playing audio:', error));
