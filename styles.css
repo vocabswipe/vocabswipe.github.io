@@ -718,7 +718,7 @@ html, body {
     }
 
     .website-name-container {
-        height: 87px; /* Increased from 67px by 20px */
+        height: 97px; /* Increased from 87px to 97px */
         align-items: flex-end; /* Align content to bottom */
     }
 
