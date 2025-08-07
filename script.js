@@ -111,15 +111,15 @@ function updateProgressBar() {
     progressFill.style.width = `${percentage}%`;
     progressValue.textContent = swipedCount.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
     
-    // Brighten and glow effect for progress bar
+    // Show progress bar after first swipe and apply brighten and glow effect
     if (hasSwiped && swipedCount > 0) {
+        const progressContainer = document.querySelector('.progress-bar-container');
+        progressContainer.style.opacity = '1';
+        progressContainer.style.transition = 'opacity 1s ease';
         progressFill.classList.add('progress-brighten', 'progress-glow');
         setTimeout(() => {
             progressFill.classList.remove('progress-brighten', 'progress-glow');
         }, 300); // Duration of the brighten and glow effect
-        const progressContainer = document.querySelector('.progress-bar-container');
-        progressContainer.style.opacity = '1';
-        progressContainer.style.transition = 'opacity 1s ease';
     }
 }
 
@@ -175,7 +175,7 @@ function alternateStatsText() {
     donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support via PromptPay.';
     line1.style.opacity = '1';
     slogan.style.opacity = '1';
-    progressLabel.style.opacity = '1';
+    progressLabel.style.opacity = '0'; // Initially hidden
     donationMessage.style.opacity = '1';
     line1.classList.remove('thai-text');
     slogan.classList.remove('thai-text');
@@ -443,7 +443,10 @@ async function loadVocabData() {
         const statsNumberElement = document.querySelector('.stats-number');
         statsNumberElement.style.opacity = '1';
         alternateStatsText(); // Start text alternation immediately
-        updateProgressBar(); // Initialize progress bar
+
+        // Hide progress bar initially
+        const progressContainer = document.querySelector('.progress-bar-container');
+        progressContainer.style.opacity = '0';
 
         // Fetch and parse initial batch (first 200 entries)
         const response = await fetch('data/database.jsonl');
