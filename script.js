@@ -339,15 +339,14 @@ function triggerTouchSwipeAnimation() {
     const handpoint = document.getElementById('handpoint');
     const topCard = document.getElementById('vocab-card');
     const mainContentRect = document.querySelector('.main-content').getBoundingClientRect();
+    const spinner = document.getElementById('loading-spinner');
 
-    // Calculate top card center relative to main-content
-    const cardRect = topCard.getBoundingClientRect();
-    const cardWidth = cardRect.width;
-    const cardHeight = cardRect.height;
-    const cardCenterX = cardRect.left - mainContentRect.left + cardWidth / 2;
-    const cardCenterY = cardRect.top - mainContentRect.top + cardHeight / 2;
+    // Get spinner position (center of the top card)
+    const spinnerRect = spinner.getBoundingClientRect();
+    const spinnerCenterX = spinnerRect.left - mainContentRect.left + spinnerRect.width / 2;
+    const spinnerCenterY = spinnerRect.top - mainContentRect.top + spinnerRect.height / 2;
 
-    // Handpoint size adjustment (128x128px on mobile, doubled from 64x64px)
+    // Handpoint size (128x128px on mobile, doubled from 64x64px)
     const handpointSize = 128;
     const handpointOffsetX = -handpointSize / 2; // Center of handpoint
     const handpointOffsetY = -handpointSize / 2; // Center of handpoint
@@ -356,9 +355,9 @@ function triggerTouchSwipeAnimation() {
     handpoint.style.width = `${handpointSize}px`;
     handpoint.style.height = `${handpointSize}px`;
 
-    // Initial position: center of the top card
+    // Initial position: same as loading spinner (center of the top card)
     handpoint.style.display = 'block';
-    handpoint.style.transform = `translate(${cardCenterX + handpointOffsetX}px, ${cardCenterY + handpointOffsetY}px)`;
+    handpoint.style.transform = `translate(${spinnerCenterX + handpointOffsetX}px, ${spinnerCenterY + handpointOffsetY}px)`;
     handpoint.style.opacity = '0';
     handpoint.style.transition = 'opacity 0.5s ease-in-out';
 
@@ -378,7 +377,7 @@ function triggerTouchSwipeAnimation() {
                 handpoint.classList.remove('tap');
                 topCard.classList.remove('glow');
 
-                // Start swipe animation
+                // Start swipe animation from the tap position
                 setTimeout(() => {
                     // Generate random angle for swipe
                     const angle = Math.random() * 2 * Math.PI;
@@ -392,8 +391,8 @@ function triggerTouchSwipeAnimation() {
                     topCard.style.transition = 'transform 0.8s ease-in-out';
                     topCard.style.zIndex = '1000';
 
-                    // Move handpoint and card together for initial swipe
-                    handpoint.style.transform = `translate(${cardCenterX + deltaX + handpointOffsetX}px, ${cardCenterY + deltaY + handpointOffsetY}px)`;
+                    // Move handpoint and card together for initial swipe from spinner position
+                    handpoint.style.transform = `translate(${spinnerCenterX + deltaX + handpointOffsetX}px, ${spinnerCenterY + deltaY + handpointOffsetY}px)`;
                     topCard.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
 
                     // Complete the swipe
@@ -408,7 +407,7 @@ function triggerTouchSwipeAnimation() {
                         topCard.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
 
                         // Move handpoint and card together for full swipe
-                        handpoint.style.transform = `translate(${cardCenterX + translateX + handpointOffsetX}px, ${cardCenterY + translateY + handpointOffsetY}px)`;
+                        handpoint.style.transform = `translate(${spinnerCenterX + translateX + handpointOffsetX}px, ${spinnerCenterY + translateY + handpointOffsetY}px)`;
                         topCard.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${finalRotate}deg)`;
                         topCard.style.opacity = '0';
 
