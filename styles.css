@@ -31,6 +31,7 @@ html, body {
     max-height: 640px; /* Match mobile viewport height */
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     position: relative;
     transition: filter 0.3s ease;
@@ -40,65 +41,57 @@ html, body {
     filter: blur(5px);
 }
 
-/* Container styles (invisible, for layout control) */
+/* Container styles */
 .icon-panel-container,
-.stat-number-container,
-.stat-sentence-container,
-.card-stack-container,
+.stats-number-container,
+.stats-sentence-container,
+.card-area-container,
 .website-name-container,
 .slogan-container,
 .progress-bar-container {
     width: 100%;
-    max-width: 360px; /* Consistent with mobile viewport width */
+    max-width: 360px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    /* No background or border to keep containers invisible */
 }
 
-/* Adjustable container heights */
+/* Specific container heights */
 .icon-panel-container {
-    height: 45px; /* Adjust this to control icon panel spacing */
-    z-index: 100; /* Ensure above all content */
+    height: 45px; /* Adjusted for icons */
 }
 
-.stat-number-container {
-    height: 40px; /* Adjust this to control stat number spacing */
-    z-index: 15;
+.stats-number-container {
+    height: 50px; /* For stats number */
 }
 
-.stat-sentence-container {
-    height: 40px; /* Adjust this to control stat sentence spacing */
-    z-index: 15;
+.stats-sentence-container {
+    height: 40px; /* For stats sentence */
 }
 
-.card-stack-container {
-    height: 420px; /* Adjust this to control card stack spacing (matches card height) */
-    z-index: 10;
+.card-area-container {
+    height: 420px; /* Matches card container height */
 }
 
 .website-name-container {
-    height: 35px; /* Adjust this to control website name spacing */
-    z-index: 15;
+    height: 30px; /* For website name */
 }
 
 .slogan-container {
-    height: 30px; /* Adjust this to control slogan spacing */
-    z-index: 15;
+    height: 30px; /* For slogan */
 }
 
 .progress-bar-container {
-    height: 35px; /* Adjust this to control progress bar spacing */
-    z-index: 15;
+    height: 30px; /* For progress bar */
 }
 
 /* Loading spinner styling */
 .loading-spinner {
     position: absolute;
-    top: 50%; /* Center vertically within card-stack-container */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%);
+    top: 310px; /* Adjusted to center within card-area-container */
+    left: 180px; /* Center of the top card horizontally: 360px / 2 */
+    transform: translate(-50%, -50%); /* Center the spinner image */
     z-index: -10; /* Set behind all cards */
     display: none;
 }
@@ -142,7 +135,7 @@ html, body {
     height: 25px;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
 }
 
 .share-icon:hover, .coffee-icon:hover {
@@ -325,13 +318,13 @@ html, body {
     transform: scale(1.1);
 }
 
-/* Stat number styling */
-.stat-number {
+/* Stats number styling */
+.stats-number {
     width: 100%;
     max-width: 300px;
     text-align: center;
     position: relative;
-    opacity: 1; /* Ensure immediate visibility */
+    opacity: 1;
 }
 
 .counter {
@@ -341,7 +334,6 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
     justify-content: center;
 }
 
@@ -353,15 +345,14 @@ html, body {
     margin: 5px 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 1.2;
-    height: 28px; /* Fixed height to prevent layout shift */
+    height: 28px;
 }
 
-/* Stat sentence styling */
-.stat-sentence {
+/* Stats sentence styling */
+.stats-sentence {
     width: 100%;
     max-width: 300px;
     text-align: center;
-    position: relative;
 }
 
 .stats-text-container {
@@ -403,13 +394,14 @@ html, body {
     justify-content: center;
     align-items: center;
     perspective: 1000px;
+    z-index: 10;
 }
 
 /* Website name styling */
 .website-name-content {
-    text-align: center;
     width: 100%;
     max-width: 300px;
+    text-align: center;
 }
 
 .website-name {
@@ -425,9 +417,9 @@ html, body {
 
 /* Slogan styling */
 .slogan-content {
-    text-align: center;
     width: 100%;
     max-width: 300px;
+    text-align: center;
 }
 
 .website-slogan {
@@ -452,11 +444,10 @@ html, body {
 
 /* Progress bar styling */
 .progress-content {
-    width: 90vw;
+    width: 100%;
     max-width: 300px;
     height: 9px;
     position: relative;
-    opacity: 0; /* Initially hidden for fade-in effect */
 }
 
 .progress-label {
@@ -471,7 +462,6 @@ html, body {
     white-space: nowrap;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 1.4;
-    height: auto;
     overflow: visible;
     z-index: 20;
 }
@@ -479,8 +469,6 @@ html, body {
 .progress-label.thai-text {
     font-size: 0.84rem;
     line-height: 1.5;
-    height: auto;
-    overflow: visible;
     font-family: 'Noto Sans Thai', 'Montserrat', sans-serif;
 }
 
@@ -547,7 +535,7 @@ html, body {
     left: 0;
     touch-action: none;
     z-index: 10;
-    display: none; /* Hide cards initially */
+    display: none;
 }
 
 /* Glowing effect */
@@ -690,71 +678,57 @@ html, body {
 /* Responsive adjustments for desktop */
 @media (min-width: 601px) {
     .icon-panel-container {
-        height: 50px; /* Adjust for desktop */
+        height: 50px;
     }
 
-    .stat-number-container {
-        height: 45px; /* Adjust for desktop */
+    .stats-number-container {
+        height: 60px;
     }
 
-    .stat-sentence-container {
-        height: 45px; /* Adjust for desktop */
+    .stats-sentence-container {
+        height: 40px;
     }
 
-    .card-stack-container {
-        height: 420px; /* Consistent with mobile, adjust if needed */
+    .card-area-container {
+        height: 420px;
     }
 
     .website-name-container {
-        height: 40px; /* Adjust for desktop */
+        height: 35px;
     }
 
     .slogan-container {
-        height: 35px; /* Adjust for desktop */
+        height: 35px;
     }
 
     .progress-bar-container {
-        height: 40px; /* Adjust for desktop */
+        height: 35px;
     }
 
-    .icon-panel {
+    .stats-number {
         max-width: 360px;
     }
 
-    .share-icon, .coffee-icon {
-        width: 30px;
-        height: 30px;
-    }
-
-    .stat-number {
+    .stats-sentence {
         max-width: 360px;
-    }
-
-    .count-title {
-        font-size: 2rem;
-        height: 30px;
-    }
-
-    .stat-sentence {
-        max-width: 360px;
-    }
-
-    .count-text {
-        font-size: 0.945rem;
-        line-height: 1.5;
     }
 
     .website-name-content {
         max-width: 360px;
     }
 
+    .slogan-content {
+        max-width: 360px;
+    }
+
+    .progress-content {
+        max-width: 360px;
+        height: 10px;
+    }
+
     .website-name {
         font-size: 1.55727rem;
         height: 30px;
-    }
-
-    .slogan-content {
-        max-width: 360px;
     }
 
     .website-slogan {
@@ -767,22 +741,15 @@ html, body {
         line-height: 1.2;
     }
 
-    .progress-content {
-        width: 300px;
-        height: 10px;
-    }
-
     .progress-label {
         font-size: 0.945rem;
         top: -20px;
         line-height: 1.2;
-        height: 20px;
     }
 
     .progress-label.thai-text {
         font-size: 0.945rem;
         line-height: 1.2;
-        height: 20px;
     }
 
     .progress-value {
@@ -792,6 +759,16 @@ html, body {
 
     .progress-bar {
         height: 10px;
+    }
+
+    .count-title {
+        font-size: 2rem;
+        height: 30px;
+    }
+
+    .count-text {
+        font-size: 0.945rem;
+        line-height: 1.5;
     }
 
     .word {
@@ -816,6 +793,15 @@ html, body {
 
     .card-stack-3 {
         transform: translate(6.48px, 6.48px) rotate(3.888deg);
+    }
+
+    .share-icon, .coffee-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .icon-panel {
+        max-width: 360px;
     }
 
     .donation-content {
