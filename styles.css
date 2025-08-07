@@ -44,8 +44,8 @@ html, body {
 /* Handpoint styling for touch and swipe animation */
 .handpoint {
     position: absolute;
-    width: 80px; /* Doubled from 40px */
-    height: 80px; /* Doubled from 40px */
+    width: 64px; /* Adjusted for mobile */
+    height: 64px; /* Adjusted for mobile */
     z-index: 200; /* Above cards but below donation popup */
     pointer-events: none; /* Prevent interaction with handpoint */
     display: none;
@@ -73,14 +73,14 @@ html, body {
 }
 
 .spinner {
-    width: 80px;
-    height: 80px;
+    width: 64px;
+    height: 64px;
 }
 
 /* Fixed height containers */
 .stats-container {
     width: 100%;
-    height: 100px; /* Fixed height to prevent displacement */
+    height: 90px; /* Reduced height for mobile */
     display: flex;
     justify-content: center;
     align-items: center; /* Center content vertically */
@@ -90,19 +90,19 @@ html, body {
 
 .info-container {
     width: 100%;
-    height: 180px; /* Fixed height to accommodate website-info and progress bar */
+    height: 170px; /* Adjusted for mobile */
     display: flex;
     justify-content: center;
     align-items: flex-start;
     position: relative;
     z-index: 15;
-    top: 20px; /* Moved downward to avoid overlap with card stack */
+    top: 18px; /* Moved downward */
 }
 
 /* Icon panel styling */
 .icon-panel {
     width: 100%;
-    max-width: 360px; /* Match max card width for alignment */
+    max-width: 340px; /* Adjusted for mobile */
     display: flex;
     justify-content: space-between; /* Coffee on left, share on right */
     padding: 10px;
@@ -114,8 +114,8 @@ html, body {
 }
 
 .share-icon, .coffee-icon {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
     -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
@@ -154,10 +154,10 @@ html, body {
 
 .donation-content {
     background-color: #ffffff;
-    width: 90%;
-    max-width: 340px;
+    width: 85%;
+    max-width: 300px;
     border-radius: 12px;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     position: relative;
     text-align: center;
@@ -169,7 +169,7 @@ html, body {
 
 .donation-title {
     font-family: 'Bangers', cursive;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: #35654d;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
@@ -183,7 +183,7 @@ html, body {
 .donation-message {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 0.945rem;
+    font-size: 0.84rem;
     color: #333333;
     margin-bottom: 20px;
     line-height: 1.5;
@@ -192,7 +192,7 @@ html, body {
 }
 
 .donation-message.thai-text {
-    font-size: 1.0395rem; /* Increased by 10% from 0.945rem */
+    font-size: 0.924rem; /* Increased by 10% from 0.84rem */
     line-height: 1.5;
     font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Ensure Thai font */
 }
@@ -210,15 +210,15 @@ html, body {
 }
 
 .qr-code {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border: 2px solid #35654d;
     border-radius: 8px;
     margin-bottom: 10px;
 }
 
 .promptpay-logo {
-    width: 100px;
+    width: 80px;
     height: auto;
 }
 
@@ -229,8 +229,8 @@ html, body {
 }
 
 .developer-photo {
-    width: 100px; /* Doubled from 50px */
-    height: 100px; /* Doubled from 50px */
+    width: 80px; /* Doubled from 40px */
+    height: 80px; /* Doubled from 40px */
     border-radius: 50%;
     border: 2px solid #35654d;
     margin-right: 10px;
@@ -244,7 +244,7 @@ html, body {
 .developer-name {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 0.945rem;
+    font-size: 0.84rem;
     color: #333333;
     margin-bottom: 5px;
     line-height: 1.4; /* Adjusted for new line */
@@ -253,7 +253,7 @@ html, body {
 .developer-role {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 0.84rem;
+    font-size: 0.756rem;
     color: #555555;
     line-height: 1.4; /* Adjusted for two lines */
 }
@@ -265,13 +265,13 @@ html, body {
 
 .social-icons {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     margin-top: 5px;
 }
 
 .social-icon {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
     -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
@@ -312,7 +312,7 @@ html, body {
 
 .counter {
     background-color: transparent;
-    padding: 10px;
+    padding: 8px;
     border: none;
     display: flex;
     flex-direction: column;
@@ -324,12 +324,12 @@ html, body {
 .count-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #ffd700;
     margin: 5px 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 1.2;
-    height: 30px; /* Fixed height to prevent layout shift */
+    height: 28px; /* Fixed height to prevent layout shift */
 }
 
 .stats-text-container {
@@ -342,10 +342,10 @@ html, body {
 .count-text {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 0.945rem;
+    font-size: 0.924rem;
     color: #ffffff;
     margin: 2px 0;
-    line-height: 1.5;
+    line-height: 1.6;
     transition: opacity 0.05s ease;
     white-space: nowrap;
     overflow: hidden;
@@ -366,32 +366,32 @@ html, body {
     position: relative;
     width: 100%;
     max-width: 300px;
-    height: 120px; /* Fixed height for name and slogan */
+    height: 110px; /* Fixed height for name and slogan on mobile */
 }
 
 .website-name {
     font-family: 'Bangers', cursive;
-    font-size: 1.55727rem;
+    font-size: 1.349634rem;
     font-weight: normal;
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 1.2;
-    height: 30px; /* Fixed height for website name */
+    height: 28px; /* Fixed height for website name */
     overflow: hidden;
 }
 
 .slogan-container {
-    height: 30px; /* Fixed height for slogan */
+    height: 26px; /* Fixed height for slogan */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px 0;
+    margin: 8px 0;
 }
 
 .website-slogan {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 1.1679525rem;
+    font-size: 1.03818rem;
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     transition: opacity 0.05s ease;
@@ -404,17 +404,18 @@ html, body {
 }
 
 .website-slogan.thai-text {
-    font-size: 1.1679525rem;
+    font-size: 1.03818rem;
     line-height: 1.2;
     font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Ensure Thai font */
 }
 
 /* Progress bar styling */
 .progress-container {
-    width: 300px; /* Matches card width */
-    height: 10px; /* Reduced by 50% from 20px */
+    width: 90vw; /* Matches card width */
+    max-width: 300px;
+    height: 9px; /* Reduced by 50% from 18px */
     position: absolute;
-    top: 92px; /* Moved upward by 18px (was 120px) */
+    top: 92px; /* Adjusted for mobile */
     left: 50%;
     transform: translateX(-50%);
     opacity: 0; /* Initially hidden for fade-in effect */
@@ -423,35 +424,36 @@ html, body {
 .progress-label {
     font-family: 'Montserrat', 'Noto Sans Thai', sans-serif; /* Consistent font for PC and mobile */
     font-weight: 500;
-    font-size: 0.945rem;
+    font-size: 0.84rem;
     color: #ffffff;
     position: absolute;
     left: 0;
-    top: -20px; /* Fixed position above progress bar */
+    top: -18px; /* Fixed position above progress bar */
     transition: opacity 0.05s ease;
     white-space: nowrap;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    line-height: 1.2;
-    height: 20px; /* Fixed height to prevent shifting */
-    overflow: hidden;
+    line-height: 1.4;
+    height: auto; /* Remove fixed height to prevent clipping */
+    overflow: visible; /* Ensure no clipping */
     z-index: 20; /* Higher z-index to bring in front */
 }
 
 .progress-label.thai-text {
-    font-size: 0.945rem;
-    line-height: 1.2;
-    height: 20px; /* Fixed height to prevent shifting */
+    font-size: 0.84rem;
+    line-height: 1.5;
+    height: auto; /* Ensure no clipping */
+    overflow: visible; /* Ensure no clipping */
     font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Ensure Thai font */
 }
 
 .progress-value {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 0.945rem;
+    font-size: 0.84rem;
     color: #ffffff;
     position: absolute;
     right: 0;
-    top: -20px; /* Fixed position above progress bar */
+    top: -18px; /* Fixed position above progress bar */
     transition: opacity 0.05s ease;
     white-space: nowrap;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -460,7 +462,7 @@ html, body {
 
 .progress-bar {
     width: 100%;
-    height: 10px; /* Reduced by 50% from 20px */
+    height: 9px; /* Reduced by 50% from 18px */
     background-color: #28282B; /* Matte Black */
     border-radius: 4px;
     overflow: hidden;
@@ -586,19 +588,19 @@ html, body {
 }
 
 .card-stack-1 {
-    transform: translate(3.888px, 3.888px) rotate(3.24deg); /* Reduced by 10% */
+    transform: translate(1.296px, 1.296px) rotate(3.24deg); /* Adjusted for mobile */
     z-index: -1;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .card-stack-2 {
-    transform: translate(5.184px, 5.184px) rotate(3.564deg); /* Reduced by 10% */
+    transform: translate(2.592px, 2.592px) rotate(3.564deg); /* Adjusted for mobile */
     z-index: -2;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card-stack-3 {
-    transform: translate(6.48px, 6.48px) rotate(3.888deg); /* Reduced by 10% */
+    transform: translate(3.888px, 3.888px) rotate(3.888deg); /* Adjusted for mobile */
     z-index: -3;
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
 }
@@ -622,7 +624,7 @@ html, body {
 /* Word styling */
 .word {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 2.1rem;
+    font-size: 1.82rem;
     font-weight: bold;
     position: absolute;
     margin: 0;
@@ -641,7 +643,7 @@ html, body {
 
 /* Sentence styling */
 .sentence {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin: 8px 0;
     text-align: center;
     color: #000000;
@@ -650,286 +652,179 @@ html, body {
 .english {
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     line-height: 1.3;
 }
 
 .thai {
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     line-height: 1.5;
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
+/* Responsive adjustments for desktop */
+@media (min-width: 601px) {
     .stats-container {
-        height: 90px; /* Reduced height for mobile to fit content */
-        align-items: center; /* Center content vertically */
+        height: 100px;
     }
 
     .info-container {
-        height: 170px; /* Adjusted for mobile */
-        top: 18px; /* Moved downward */
+        height: 180px;
+        top: 20px;
     }
 
     .website-info {
-        height: 110px; /* Fixed height for name and slogan on mobile */
-    }
-
-    .website-name {
-        font-size: 1.349634rem;
-        height: 28px; /* Fixed height for website name */
-        line-height: 1.2;
-    }
-
-    .slogan-container {
-        height: 26px; /* Fixed height for slogan */
-        margin: 8px 0;
-    }
-
-    .website-slogan {
-        font-size: 1.03818rem;
-        line-height: 1.2;
-        height: 100%; /* Match container height */
-        z-index: 20; /* Higher z-index to bring in front */
-        overflow: visible; /* Prevent clipping */
-    }
-
-    .website-slogan.thai-text {
-        font-size: 1.03818rem;
-        line-height: 1.2;
-        font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Ensure Thai font */
-    }
-
-    .progress-container {
-        width: 90vw; /* Matches card width */
-        max-width: 300px;
-        height: 9px; /* Reduced by 50% from 18px */
-        top: 92px; /* Adjusted for mobile */
-        left: 50%;
-        transform: translateX(-50%);
-        opacity: 0; /* Initially hidden */
-    }
-
-    .progress-label {
-        font-size: 0.84rem;
-        top: -18px; /* Fixed position above progress bar */
-        line-height: 1.4; /* Slightly increase for better spacing from 1.2 */
-        height: auto; /* Remove fixed height to prevent clipping */
-        overflow: visible; /* Ensure no clipping */
-        font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Prioritize Thai font */
-        white-space: nowrap;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        z-index: 20; /* Higher z-index to bring in front */
-    }
-
-    .progress-label.thai-text {
-        font-size: 0.84rem;
-        line-height: 1.5; /* Increase for Thai to accommodate taller characters */
-        height: auto; /* Ensure no clipping */
-        overflow: visible; /* Ensure no clipping */
-        font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Prioritize Thai font */
-    }
-
-    .progress-value {
-        font-size: 0.84rem;
-        top: -18px; /* Fixed position above progress bar */
-        z-index: 20; /* Higher z-index to bring in front */
-    }
-
-    .progress-bar {
-        width: 100%;
-        height: 9px; /* Reduced by 50% from 18px */
-        background-color: #28282B; /* Matte Black */
-        border-radius: 4px;
-        overflow: hidden;
-        position: absolute;
-        top: 0;
-    }
-
-    .progress-fill {
-        height: 100%;
-        background-color: #00ff00; /* Bright green fill */
-        width: 0%;
-        transition: width 0.3s ease, background-color 0.3s ease;
-    }
-
-    .progress-brighten {
-        background-color: #66ff66; /* 100% brighter green for effect */
-    }
-
-    .progress-glow {
-        animation: progress-glow 0.3s ease-in-out 1;
-    }
-
-    @keyframes progress-glow {
-        0% { box-shadow: 0 0 0 rgba(0, 255, 0, 0); }
-        50% { box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.7); }
-        100% { box-shadow: 0 0 0 rgba(0, 255, 0, 0); }
-    }
-
-    .website-stats {
-        transform: translateY(5px); /* Moves the container down by 3px */
-        width: 90vw;
-        max-width: 300px;
-    }
-
-    .counter {
-        padding: 8px;
-        height: 100%; /* Ensure it takes full container height */
-        justify-content: center;
-    }
-
-    .count-title {
-        font-size: 1.8rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        line-height: 1.2;
-        height: 28px; /* Fixed height to prevent layout shift */
-    }
-
-    .count-text {
-        font-size: 0.924rem; /* Increased by 10% from 0.84rem for English version */
-        max-width: 300px;
-        line-height: 1.6;
-        transition: opacity 0.05s ease;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .count-text.thai-text#stats-line1 {
-        margin-top: 2px; /* Adjusted margin for Thai text */
-        font-size: 1.092rem;
-        font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Ensure Thai font */
-    }
-
-    .word {
-        font-size: 1.82rem;
-    }
-
-    .sentence {
-        font-size: 1.3rem;
-    }
-
-    .english, .thai {
-        font-size: 1.3rem;
-    }
-
-    .card-stack-1 {
-        transform: translate(1.296px, 1.296px) rotate(3.24deg); /* Reduced by 10% */
-    }
-
-    .card-stack-2 {
-        transform: translate(2.592px, 2.592px) rotate(3.564deg); /* Reduced by 10% */
-    }
-
-    .card-stack-3 {
-        transform: translate(3.888px, 3.888px) rotate(3.888deg); /* Reduced by 10% */
-    }
-
-    .share-icon, .coffee-icon {
-        width: 25px;
-        height: 25px;
-        -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
-    }
-
-    .share-icon:active, .coffee-icon:active {
-        transform: scale(0.9);
-        opacity: 0.6;
-    }
-
-    .icon-panel {
-        max-width: 340px; /* Adjusted for mobile */
-    }
-
-    .donation-content {
-        width: 85%;
-        max-width: 300px;
-        padding: 15px;
-    }
-
-    .donation-title {
-        font-size: 1.6rem;
-    }
-
-    .donation-message {
-        font-size: 0.84rem;
-    }
-
-    .donation-message.thai-text {
-        font-size: 0.924rem; /* Increased by 10% from 0.84rem */
-        font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Ensure Thai font */
-    }
-
-    .vocabswipe-text {
-        font-family: 'Bangers', cursive;
-        color: #35654d;
-    }
-
-    .qr-code {
-        width: 120px;
         height: 120px;
     }
 
+    .website-name {
+        font-size: 1.55727rem;
+        height: 30px;
+    }
+
+    .slogan-container {
+        height: 30px;
+        margin: 10px 0;
+    }
+
+    .website-slogan {
+        font-size: 1.1679525rem;
+        line-height: 1.2;
+    }
+
+    .website-slogan.thai-text {
+        font-size: 1.1679525rem;
+        line-height: 1.2;
+    }
+
+    .progress-container {
+        width: 300px;
+        height: 10px;
+        top: 92px;
+    }
+
+    .progress-label {
+        font-size: 0.945rem;
+        top: -20px;
+        line-height: 1.2;
+        height: 20px;
+    }
+
+    .progress-label.thai-text {
+        font-size: 0.945rem;
+        line-height: 1.2;
+        height: 20px;
+    }
+
+    .progress-value {
+        font-size: 0.945rem;
+        top: -20px;
+    }
+
+    .progress-bar {
+        height: 10px;
+    }
+
+    .website-stats {
+        transform: translateY(0);
+    }
+
+    .count-title {
+        font-size: 2rem;
+        height: 30px;
+    }
+
+    .count-text {
+        font-size: 0.945rem;
+        line-height: 1.5;
+    }
+
+    .word {
+        font-size: 2.1rem;
+    }
+
+    .sentence {
+        font-size: 1.5rem;
+    }
+
+    .english, .thai {
+        font-size: 1.5rem;
+    }
+
+    .card-stack-1 {
+        transform: translate(3.888px, 3.888px) rotate(3.24deg);
+    }
+
+    .card-stack-2 {
+        transform: translate(5.184px, 5.184px) rotate(3.564deg);
+    }
+
+    .card-stack-3 {
+        transform: translate(6.48px, 6.48px) rotate(3.888deg);
+    }
+
+    .share-icon, .coffee-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .icon-panel {
+        max-width: 360px;
+    }
+
+    .donation-content {
+        width: 90%;
+        max-width: 340px;
+        padding: 20px;
+    }
+
+    .donation-title {
+        font-size: 1.8rem;
+    }
+
+    .donation-message {
+        font-size: 0.945rem;
+    }
+
+    .donation-message.thai-text {
+        font-size: 1.0395rem;
+    }
+
+    .qr-code {
+        width: 150px;
+        height: 150px;
+    }
+
     .promptpay-logo {
-        width: 80px;
+        width: 100px;
     }
 
     .developer-photo {
-        width: 80px; /* Doubled from 40px */
-        height: 80px; /* Doubled from 40px */
-        image-rendering: -webkit-optimize-contrast; /* Improves resolution */
+        width: 100px;
+        height: 100px;
     }
 
     .developer-name {
-        font-size: 0.84rem;
-        line-height: 1.4; /* Adjusted for new line */
+        font-size: 0.945rem;
     }
 
     .developer-role {
-        font-size: 0.756rem;
-        line-height: 1.4; /* Adjusted for two lines */
-    }
-
-    .developer-role .vocabswipe-text {
-        font-family: 'Bangers', cursive;
-        color: #35654d;
-    }
-
-    .social-icons {
-        gap: 8px;
-        margin-top: 5px;
+        font-size: 0.84rem;
     }
 
     .social-icon {
-        width: 20px;
-        height: 20px;
-        -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
-    }
-
-    .social-icon:hover {
-        transform: scale(1.1);
-        opacity: 0.8;
-    }
-
-    .social-icon:active {
-        transform: scale(0.9);
-        opacity: 0.6;
-    }
-
-    .loading-spinner {
-        top: 310px; /* Adjusted from 320px to move upward by 10px */
-        left: 180px; /* Same as above, no change needed */
-        transform: translate(-50%, -50%);
-        z-index: -10;
+        width: 24px;
+        height: 24px;
     }
 
     .spinner {
-        width: 64px; /* Adjusted for mobile, doubled from 32px */
-        height: 64px;
+        width: 80px;
+        height: 80px;
     }
 
     .handpoint {
-        width: 64px; /* Doubled from 32px */
-        height: 64px; /* Doubled from 32px */
+        width: 80px;
+        height: 80px;
     }
 }
