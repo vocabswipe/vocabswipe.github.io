@@ -408,7 +408,7 @@ function startTutorialAnimation() {
                         handpoint.style.display = 'none';
                         moveToNextCard(translateX, translateY, rotate, true); // isAnimation=true to skip progress bar update
                     }, 1500); // Increased from 1000ms to 1500ms
-                }, 1000); // 1-second pause
+                }, 2000); // 1-second pause
             }, 600); // Duration of tap and glow
         }, 500); // After fade-in
     }, 2000); // Changed from 1000ms to 2000ms
