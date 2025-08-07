@@ -83,8 +83,10 @@ html, body {
 }
 
 .progress-bar-container {
-    height: 50px; /* Increased from 40px by 10px */
+    height: 60px; /* Increased from 50px by 10px */
     opacity: 0; /* Initially hidden */
+    display: flex;
+    align-items: flex-end; /* Align content to bottom */
 }
 
 /* Loading spinner styling */
@@ -449,8 +451,11 @@ html, body {
 .progress-content {
     width: 100%;
     max-width: 300px;
-    height: 9px;
+    height: 30px; /* Adjusted to accommodate content */
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align content to bottom */
 }
 
 .progress-label {
@@ -496,7 +501,7 @@ html, body {
     border-radius: 4px;
     overflow: hidden;
     position: absolute;
-    top: 0;
+    bottom: 0; /* Align to bottom of progress-content */
 }
 
 .progress-fill {
@@ -545,8 +550,16 @@ html, body {
     outline: none; /* Hide blue highlight on tap */
 }
 
-.card-stack:active, .card-stack:focus {
-    outline: none; /* Hide blue highlight on tap */
+/* Hide blue highlight for card-stack on mobile */
+@media (max-width: 600px) {
+    .card-stack {
+        -webkit-tap-highlight-color: transparent; /* Remove tap highlight */
+        outline: none !important; /* Ensure no outline on tap */
+    }
+    .card-stack:active, .card-stack:focus {
+        outline: none !important; /* Explicitly remove outline */
+        -webkit-tap-highlight-color: transparent; /* Explicitly remove tap highlight */
+    }
 }
 
 /* Glowing effect */
@@ -717,7 +730,9 @@ html, body {
     }
 
     .progress-bar-container {
-        height: 57px; /* Increased from 47px by 10px */
+        height: 77px; /* Increased from 57px by 20px */
+        display: flex;
+        align-items: flex-end; /* Align content to bottom */
     }
 
     .stats-number {
@@ -751,7 +766,15 @@ html, body {
 
     .progress-content {
         max-width: 360px;
+        height: 30px; /* Adjusted to accommodate content */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; /* Align content to bottom */
+    }
+
+    .progress-bar {
         height: 10px;
+        bottom: 0; /* Align to bottom of progress-content */
     }
 
     .website-name {
