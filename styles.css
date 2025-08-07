@@ -404,7 +404,7 @@ html, body {
     max-width: 300px;
     text-align: center;
     padding-bottom: 5px; /* Small gap from bottom */
-    z-index: 2000; /* High z-index to place text in front */
+    z-index: 2000; /* High z-index to bring text to front */
 }
 
 .website-name {
@@ -541,15 +541,12 @@ html, body {
     display: none;
 }
 
-/* Stack highlight effect for card stack on tap (mobile only) */
-.stack-highlight {
-    animation: stack-highlight 0.4s ease-in-out 1;
+.card:active, .card:focus {
+    outline: none; /* Hide blue highlight on tap */
 }
 
-@keyframes stack-highlight {
-    0% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
-    50% { box-shadow: 0 0 12px 6px rgba(0, 0, 255, 0.5); }
-    100% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+.card-stack:active, .card-stack:focus {
+    outline: none; /* Hide blue highlight on tap */
 }
 
 /* Glowing effect */
@@ -745,7 +742,7 @@ html, body {
     .website-name-content {
         max-width: 360px;
         padding-bottom: 5px; /* Small gap from bottom */
-        z-index: 2000; /* High z-index to place text in front */
+        z-index: 2000; /* High z-index to bring text to front */
     }
 
     .slogan-content {
