@@ -277,7 +277,7 @@ function populateCardsBeforeAnimation() {
     });
 }
 
-// Function to animate card stack drop and show hand pointer for new users
+// Function to animate card stack drop
 function animateCardStackDrop(callback) {
     const cardContainer = document.getElementById('card-container');
     const cards = [
@@ -304,7 +304,7 @@ function animateCardStackDrop(callback) {
         card.style.opacity = '0';
     });
 
-    // Start card stack animation
+    // Start animation after a brief delay
     setTimeout(() => {
         cards.forEach((card, index) => {
             setTimeout(() => {
@@ -317,74 +317,11 @@ function animateCardStackDrop(callback) {
             }, index * 200);
         });
 
-        // After card stack animation, show hand pointer animation for first 1000 visits
-        const totalAnimationTime = 1000 + (cards.length - 1) * 200;
+        // Call callback after animation completes
         setTimeout(() => {
-            if (visitCount <= 1000) {
-                const handPointer = document.getElementById('hand-pointer');
-                const topCard = document.getElementById('vocab-card');
-                const cardContainerRect = cardContainer.getBoundingClientRect();
-                const cardRect = topCard.getBoundingClientRect();
-                const cardCenterX = cardRect.left + cardRect.width / 2 - cardContainerRect.left;
-                const cardCenterY = cardRect.top + cardRect.height / 2 - cardContainerRect.top;
-
-                // Position hand pointer at center of top card
-                handPointer.style.left = `${cardCenterX}px`;
-                handPointer.style.top = `${cardCenterY}px`;
-                handPointer.style.display = 'block';
-
-                // Fade in hand pointer
-                setTimeout(() => {
-                    handPointer.style.opacity = '1';
-
-                    // Perform tap animation
-                    setTimeout(() => {
-                        handPointer.classList.add('tap');
-                        topCard.classList.add('glow');
-                        const audio = document.getElementById('card-audio');
-                        audio.play().catch(error => console.error('Error playing audio:', error));
-
-                        // Remove tap class and glow after animation
-                        setTimeout(() => {
-                            handPointer.classList.remove('tap');
-                            topCard.classList.remove('glow');
-
-                            // Pause for 1 second
-                            setTimeout(() => {
-                                // Generate random angle for swipe (0 to 360 degrees)
-                                const angle = Math.random() * 2 * Math.PI;
-                                const distance = 50; // Swipe distance
-                                const translateX = Math.cos(angle) * distance * 5; // Magnified for swipe
-                                const translateY = Math.sin(angle) * distance * 5;
-                                const rotate = (translateX / window.innerWidth) * 30;
-
-                                // Animate card and hand pointer together
-                                topCard.style.transition = 'transform 1.5s ease, opacity 1.5s ease';
-                                handPointer.style.transition = 'transform 1.5s ease, opacity 1.5s ease';
-                                topCard.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
-                                handPointer.style.transform = `translate(${translateX - cardCenterX + cardRect.width / 2}px, ${translateY - cardCenterY + cardRect.height / 2}px) rotate(${rotate}deg) scale(1)`;
-                                topCard.style.opacity = '0';
-                                handPointer.style.opacity = '0';
-
-                                // Move to next card and clean up
-                                setTimeout(() => {
-                                    handPointer.style.display = 'none';
-                                    currentIndex = (currentIndex + 1) % vocabData.length;
-                                    displayCards();
-                                    topCard.style.transition = 'none';
-                                    handPointer.style.transition = 'none';
-                                    enableCardInteractions();
-                                    callback();
-                                }, 1500);
-                            }, 1000);
-                        }, 600);
-                    }, 500);
-                }, 1000);
-            } else {
-                enableCardInteractions();
-                callback();
-            }
-        }, totalAnimationTime);
+            enableCardInteractions();
+            callback();
+        }, 1000 + (cards.length - 1) * 200);
     }, 100);
 }
 
@@ -417,6 +354,64 @@ function enableCardInteractions() {
             }, 600);
         }
     });
+}
+
+// Function to start tutorial animation for first 1000 visits
+function startTutorialAnimation() {
+    if (visitCount > 1000) return; // Skip if beyond 1000 visits
+
+    const handpoint = document.getElementById('handpoint');
+    const topCard = document.getElementById('vocab-card');
+    const audio = document.getElementById('card-audio');
+
+    // Position handpoint at card center
+    handpoint.style.display = 'block';
+    handpoint.style.opacity = '0';
+    handpoint.style.left = '50%';
+    handpoint.style.top = '50%';
+    handpoint.style.transform = 'translate(-50%, -50%)';
+
+    // Fade in handpoint after 1 second
+    setTimeout(() => {
+        handpoint.style.transition = 'opacity 0.5s ease';
+        handpoint.style.opacity = '1';
+
+        // Tap animation after fade-in
+        setTimeout(() => {
+            handpoint.classList.add('tap-effect');
+            topCard.classList.add('glow');
+            audio.play().catch(error => console.error('Error playing audio:', error));
+
+            // Remove tap effect and glow
+            setTimeout(() => {
+                handpoint.classList.remove('tap-effect');
+                topCard.classList.remove('glow');
+
+                // Pause for 1 second before swipe
+                setTimeout(() => {
+                    // Generate random angle for swipe (0 to 360 degrees)
+                    const angle = Math.random() * 2 * Math.PI; // Random angle in radians
+                    const magnitude = window.innerWidth * 1.5; // Swipe distance
+                    const translateX = Math.cos(angle) * magnitude;
+                    const translateY = Math.sin(angle) * magnitude;
+                    const rotate = (translateX / window.innerWidth) * 30; // Rotation based on swipe direction
+
+                    // Animate handpoint and card together
+                    topCard.style.transition = 'transform 1s ease, opacity 1s ease';
+                    handpoint.style.transition = 'transform 1s ease';
+                    topCard.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
+                    topCard.style.opacity = '0';
+                    handpoint.style.transform = `translate(-50%, -50%) translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
+
+                    // Reset after swipe animation
+                    setTimeout(() => {
+                        handpoint.style.display = 'none';
+                        moveToNextCard(translateX, translateY, rotate, true); // isAnimation=true to skip progress bar update
+                    }, 1000);
+                }, 1000); // 1-second pause
+            }, 600); // Duration of tap and glow
+        }, 500); // After fade-in
+    }, 1000); // 1 second after card stack animation
 }
 
 // Function to fetch and parse JSONL file with lazy loading
@@ -472,6 +467,7 @@ async function loadVocabData() {
         animateCardStackDrop(() => {
             displayCards();
             spinner.style.display = 'none'; // Hide spinner after animation
+            startTutorialAnimation(); // Start tutorial animation after card stack
         });
 
         // Load remaining data in the background
