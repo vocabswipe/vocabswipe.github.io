@@ -56,6 +56,19 @@ html, body {
     height: 64px;
 }
 
+/* Handpoint styling */
+.handpoint {
+    width: 60px; /* Doubled from assumed base of 30px */
+    height: 60px; /* Doubled from assumed base of 30px */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001; /* Above top card (z-index: 1000) */
+    display: none;
+    pointer-events: none; /* Prevent interaction with handpoint */
+}
+
 /* Fixed height containers */
 .stats-container {
     width: 100%;
@@ -800,5 +813,10 @@ html, body {
     .spinner {
         width: 80px;
         height: 80px;
+    }
+
+    .handpoint {
+        width: 72px; /* Doubled from assumed base of 36px */
+        height: 72px; /* Doubled from assumed base of 36px */
     }
 }
