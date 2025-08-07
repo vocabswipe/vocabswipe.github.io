@@ -83,7 +83,7 @@ html, body {
 }
 
 .progress-bar-container {
-    height: 60px; /* Increased from 50px by 10px */
+    height: 60px; /* Increased by 10px to accommodate downward shift */
     opacity: 0; /* Initially hidden */
     display: flex;
     align-items: flex-end; /* Align content to bottom */
@@ -315,6 +315,7 @@ html, body {
     right: 10px;
     cursor: pointer;
     transition: transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .close-icon:hover {
@@ -451,18 +452,16 @@ html, body {
 .progress-content {
     width: 100%;
     max-width: 300px;
-    height: 30px; /* Adjusted to accommodate content */
+    height: 9px;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* Align content to bottom */
+    margin-top: 10px; /* Move downward by 10px for mobile */
 }
 
 .progress-label {
     font-family: 'Montserrat', 'Noto Sans Thai', sans-serif;
     font-weight: 500;
     font-size: 0.84rem;
-    color: #ffffff;
+    color: #F8F8FF; /* Updated color */
     position: absolute;
     left: 0;
     top: -18px;
@@ -484,7 +483,7 @@ html, body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 0.84rem;
-    color: #ffffff;
+    color: #F8F8FF; /* Updated color */
     position: absolute;
     right: 0;
     top: -18px;
@@ -550,15 +549,12 @@ html, body {
     outline: none; /* Hide blue highlight on tap */
 }
 
-/* Hide blue highlight for card-stack on mobile */
+/* Hide blue highlight on next cards and stack cards for mobile */
 @media (max-width: 600px) {
-    .card-stack {
-        -webkit-tap-highlight-color: transparent; /* Remove tap highlight */
-        outline: none !important; /* Ensure no outline on tap */
-    }
-    .card-stack:active, .card-stack:focus {
-        outline: none !important; /* Explicitly remove outline */
-        -webkit-tap-highlight-color: transparent; /* Explicitly remove tap highlight */
+    #next-card-1, #next-card-2, #next-card-3, #next-card-4, 
+    #next-card-5, #next-card-6, #next-card-7, #next-card-8, 
+    #next-card-9, .card-stack {
+        -webkit-tap-highlight-color: transparent;
     }
 }
 
@@ -730,8 +726,7 @@ html, body {
     }
 
     .progress-bar-container {
-        height: 77px; /* Increased from 57px by 20px */
-        display: flex;
+        height: 77px; /* Increased by 20px to accommodate downward shift */
         align-items: flex-end; /* Align content to bottom */
     }
 
@@ -766,15 +761,8 @@ html, body {
 
     .progress-content {
         max-width: 360px;
-        height: 30px; /* Adjusted to accommodate content */
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end; /* Align content to bottom */
-    }
-
-    .progress-bar {
         height: 10px;
-        bottom: 0; /* Align to bottom of progress-content */
+        margin-top: 20px; /* Move downward by 20px for PC */
     }
 
     .website-name {
@@ -796,16 +784,19 @@ html, body {
         font-size: 0.945rem;
         top: -20px;
         line-height: 1.2;
+        color: #F8F8FF; /* Updated color */
     }
 
     .progress-label.thai-text {
         font-size: 0.945rem;
         line-height: 1.2;
+        font-family: 'Noto Sans Thai', 'Montserrat', sans-serif;
     }
 
     .progress-value {
         font-size: 0.945rem;
         top: -20px;
+        color: #F8F8FF; /* Updated color */
     }
 
     .progress-bar {
