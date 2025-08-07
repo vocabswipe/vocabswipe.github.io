@@ -1,4 +1,4 @@
-/* Import Montserrat, Bangers, and Noto Sans Thai fonts */
+/* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Bangers&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500&display=swap');
 
@@ -26,12 +26,12 @@ html, body {
 
 .main-content {
     width: 100%;
-    max-width: 360px; /* Match mobile viewport width */
+    max-width: 360px; /* Mobile viewport width */
     height: 100%;
-    max-height: 640px; /* Match mobile viewport height */
+    max-height: 640px; /* Mobile viewport height */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Align content from top */
     align-items: center;
     position: relative;
     transition: filter 0.3s ease;
@@ -41,13 +41,65 @@ html, body {
     filter: blur(5px);
 }
 
+/* Container styles for mobile only */
+@media (max-width: 600px) {
+    /* Base container styles */
+    .icon-panel-container,
+    .stat-number-container,
+    .stat-sentence-container,
+    .card-stack-container,
+    .website-name-container,
+    .slogan-container,
+    .progress-container {
+        width: 100%;
+        max-width: 360px; /* Match mobile viewport */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    /* Individual container heights */
+    .icon-panel-container {
+        height: 45px; /* Adjusted for coffee and share icons */
+        position: fixed;
+        top: 0;
+        z-index: 100; /* Ensure above all content */
+    }
+
+    .stat-number-container {
+        height: 50px; /* Adjusted for stat number */
+        margin-top: 45px; /* Account for icon-panel-container */
+    }
+
+    .stat-sentence-container {
+        height: 40px; /* Adjusted for stat sentence */
+    }
+
+    .card-stack-container {
+        height: 420px; /* Matches card-container height */
+    }
+
+    .website-name-container {
+        height: 30px; /* Adjusted for website name */
+    }
+
+    .slogan-container {
+        height: 30px; /* Adjusted for slogan */
+    }
+
+    .progress-container {
+        height: 30px; /* Adjusted for progress bar, label, and value */
+    }
+}
+
 /* Loading spinner styling */
 .loading-spinner {
     position: absolute;
-    top: 310px; /* Adjusted from 320px to move upward by 10px */
-    left: 180px; /* Center of the top card horizontally: 360px / 2 */
-    transform: translate(-50%, -50%); /* Center the spinner image */
-    z-index: -10; /* Set behind all cards */
+    top: 310px;
+    left: 180px;
+    transform: translate(-50%, -50%);
+    z-index: -10;
     display: none;
 }
 
@@ -56,14 +108,14 @@ html, body {
     height: 64px;
 }
 
-/* Handpoint styling for tutorial */
+/* Handpoint styling */
 .handpoint {
     position: absolute;
-    width: 80px; /* Doubled from 40px */
-    height: 80px; /* Doubled from 40px */
-    z-index: 1001; /* Above top card */
-    display: none; /* Hidden initially */
-    pointer-events: none; /* Prevent interaction */
+    width: 80px;
+    height: 80px;
+    z-index: 1001;
+    display: none;
+    pointer-events: none;
 }
 
 .tap-effect {
@@ -76,40 +128,13 @@ html, body {
     100% { transform: translate(-50%, -50%) scale(1); }
 }
 
-/* Fixed height containers */
-.stats-container {
-    width: 100%;
-    height: 90px; /* Reduced height for mobile */
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Center content vertically */
-    position: relative;
-    z-index: 15;
-}
-
-.info-container {
-    width: 100%;
-    height: 170px; /* Adjusted for mobile */
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    position: relative;
-    z-index: 15;
-    top: 18px; /* Moved downward */
-}
-
 /* Icon panel styling */
 .icon-panel {
     width: 100%;
-    max-width: 340px; /* Adjusted for mobile */
+    max-width: 340px;
     display: flex;
-    justify-content: space-between; /* Coffee on left, share on right */
+    justify-content: space-between;
     padding: 10px;
-    position: fixed;
-    top: 10px; /* Fixed at top of viewport */
-    left: 50%;
-    transform: translateX(-50%); /* Center the panel */
-    z-index: 100; /* Ensure above all content */
 }
 
 .share-icon, .coffee-icon {
@@ -117,7 +142,7 @@ html, body {
     height: 25px;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
-    -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .share-icon:hover, .coffee-icon:hover {
@@ -130,14 +155,280 @@ html, body {
     opacity: 0.6;
 }
 
-/* Hide share icon on PC browsers */
-@media (min-width: 601px) {
-    .share-icon {
-        display: none;
-    }
+/* Website statistics styling */
+.website-stats {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    position: relative;
+    opacity: 1;
 }
 
-/* Donation popup styling */
+.counter {
+    background-color: transparent;
+    padding: 8px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+}
+
+.count-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #ffd700;
+    margin: 5px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+    height: 28px;
+}
+
+.stats-text-container {
+    min-height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.count-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.924rem;
+    color: #ffffff;
+    margin: 2px 0;
+    line-height: 1.6;
+    transition: opacity 0.05s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.count-text.thai-text#stats-line1 {
+    margin-top: 2px;
+    font-size: 1.092rem;
+    font-family: 'Noto Sans Thai', 'Montserrat', sans-serif;
+}
+
+/* Website name styling */
+.website-name {
+    font-family: 'Bangers', cursive;
+    font-size: 1.349634rem;
+    font-weight: normal;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+    height: 28px;
+    overflow: hidden;
+}
+
+/* Slogan styling */
+.website-slogan {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.03818rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.05s ease;
+    line-height: 1.2;
+    height: 100%;
+    overflow: visible;
+    white-space: nowrap;
+    z-index: 20;
+    position: relative;
+}
+
+.website-slogan.thai-text {
+    font-size: 1.03818rem;
+    line-height: 1.2;
+    font-family: 'Noto Sans Thai', 'Montserrat', sans-serif;
+}
+
+/* Progress bar styling */
+.progress-label {
+    font-family: 'Montserrat', 'Noto Sans Thai', sans-serif;
+    font-weight: 500;
+    font-size: 0.84rem;
+    color: #ffffff;
+    position: absolute;
+    left: 0;
+    top: -18px;
+    transition: opacity 0.05s ease;
+    white-space: nowrap;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.4;
+    height: auto;
+    overflow: visible;
+    z-index: 20;
+}
+
+.progress-label.thai-text {
+    font-size: 0.84rem;
+    line-height: 1.5;
+    height: auto;
+    overflow: visible;
+    font-family: 'Noto Sans Thai', 'Montserrat', sans-serif;
+}
+
+.progress-value {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.84rem;
+    color: #ffffff;
+    position: absolute;
+    right: 0;
+    top: -18px;
+    transition: opacity 0.05s ease;
+    white-space: nowrap;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 20;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 9px;
+    background-color: #28282B;
+    border-radius: 4px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #00ff00;
+    width: 0%;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.progress-brighten {
+    background-color: #66ff66;
+}
+
+.progress-glow {
+    animation: progress-glow 0.3s ease-in-out 1;
+}
+
+@keyframes progress-glow {
+    0% { box-shadow: 0 0 0 rgba(0, 255, 0, 0); }
+    50% { box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.7); }
+    100% { box-shadow: 0 0 0 rgba(0, 255, 0, 0); }
+}
+
+/* Card container */
+.card-container {
+    position: relative;
+    width: 80vw;
+    max-width: 300px;
+    height: calc(80vw * 1.4);
+    max-height: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    z-index: 10;
+}
+
+/* Poker card styling */
+.card {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background-color: #FFF8DC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    user-select: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    touch-action: none;
+    z-index: 10;
+    display: none;
+}
+
+/* Glowing effect */
+.glow {
+    animation: glow 0.6s ease-in-out 1;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+    50% { box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.7); }
+    100% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+}
+
+/* Next cards and stack cards */
+#next-card-1 { transform: translate(1.296px, 1.296px) rotate(0.3249deg); z-index: 9; }
+#next-card-2 { transform: translate(2.592px, 2.592px) rotate(0.6498deg); z-index: 8; }
+#next-card-3 { transform: translate(3.888px, 3.888px) rotate(0.9747deg); z-index: 7; }
+#next-card-4 { transform: translate(5.184px, 5.184px) rotate(1.2996deg); z-index: 6; }
+#next-card-5 { transform: translate(6.48px, 6.48px) rotate(1.6245deg); z-index: 5; }
+#next-card-6 { transform: translate(7.776px, 7.776px) rotate(1.9494deg); z-index: 4; }
+#next-card-7 { transform: translate(9.072px, 9.072px) rotate(2.2743deg); z-index: 3; }
+#next-card-8 { transform: translate(10.368px, 10.368px) rotate(2.5992deg); z-index: 2; }
+#next-card-9 { transform: translate(11.664px, 11.664px) rotate(2.9241deg); z-index: 1; }
+
+.card-stack { z-index: 0; }
+.card-stack-1 { transform: translate(1.296px, 1.296px) rotate(3.24deg); z-index: -1; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25); }
+.card-stack-2 { transform: translate(2.592px, 2.592px) rotate(3.564deg); z-index: -2; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); }
+.card-stack-3 { transform: translate(3.888px, 3.888px) rotate(3.888deg); z-index: -3; box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35); }
+
+.card:active { outline: none; }
+
+/* Card content */
+.card-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.word {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.82rem;
+    font-weight: bold;
+    position: absolute;
+    margin: 0;
+    color: #000000;
+}
+
+.top-left { top: 10px; left: 10px; }
+.bottom-right { bottom: 10px; right: 10px; }
+
+.sentence {
+    font-size: 1.3rem;
+    margin: 8px 0;
+    text-align: center;
+    color: #000000;
+}
+
+.english {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    line-height: 1.3;
+}
+
+.thai {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+/* Donation popup styling (unchanged) */
 .donation-popup {
     display: none;
     position: fixed;
@@ -162,9 +453,7 @@ html, body {
     text-align: center;
 }
 
-.donation-header {
-    margin-bottom: 15px;
-}
+.donation-header { margin-bottom: 15px; }
 
 .donation-title {
     font-family: 'Bangers', cursive;
@@ -191,9 +480,9 @@ html, body {
 }
 
 .donation-message.thai-text {
-    font-size: 0.924rem; /* Increased by 10% from 0.84rem */
+    font-size: 0.924rem;
     line-height: 1.5;
-    font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Ensure Thai font */
+    font-family: 'Noto Sans Thai', 'Montserrat', sans-serif;
 }
 
 .vocabswipe-text {
@@ -228,17 +517,15 @@ html, body {
 }
 
 .developer-photo {
-    width: 80px; /* Doubled from 40px */
-    height: 80px; /* Doubled from 40px */
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     border: 2px solid #35654d;
     margin-right: 10px;
-    image-rendering: -webkit-optimize-contrast; /* Improves resolution */
+    image-rendering: -webkit-optimize-contrast;
 }
 
-.developer-text {
-    text-align: left;
-}
+.developer-text { text-align: left; }
 
 .developer-name {
     font-family: 'Montserrat', sans-serif;
@@ -246,7 +533,7 @@ html, body {
     font-size: 0.84rem;
     color: #333333;
     margin-bottom: 5px;
-    line-height: 1.4; /* Adjusted for new line */
+    line-height: 1.4;
 }
 
 .developer-role {
@@ -254,7 +541,7 @@ html, body {
     font-weight: 500;
     font-size: 0.756rem;
     color: #555555;
-    line-height: 1.4; /* Adjusted for two lines */
+    line-height: 1.4;
 }
 
 .developer-role .vocabswipe-text {
@@ -273,7 +560,7 @@ html, body {
     height: 20px;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
-    -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .social-icon:hover {
@@ -300,530 +587,29 @@ html, body {
     transform: scale(1.1);
 }
 
-/* Website statistics styling */
-.website-stats {
-    width: 100%;
-    max-width: 300px;
-    text-align: center;
-    position: relative;
-    opacity: 1; /* Ensure immediate visibility */
-}
-
-.counter {
-    background-color: transparent;
-    padding: 8px;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%; /* Ensure it takes full container height */
-    justify-content: center;
-}
-
-.count-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.8rem;
-    color: #ffd700;
-    margin: 5px 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    line-height: 1.2;
-    height: 28px; /* Fixed height to prevent layout shift */
-}
-
-.stats-text-container {
-    min-height: 30px; /* Adjusted for single line */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.count-text {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 0.924rem;
-    color: #ffffff;
-    margin: 2px 0;
-    line-height: 1.6;
-    transition: opacity 0.05s ease;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 300px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.count-text.thai-text#stats-line1 {
-    margin-top: 2px; /* Adjusted margin for Thai text */
-    font-size: 1.092rem;
-    font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Ensure Thai font */
-}
-
-/* Website info and progress bar styling */
-.website-info {
-    text-align: center;
-    position: relative;
-    width: 100%;
-    max-width: 300px;
-    height: 110px; /* Fixed height for name and slogan on mobile */
-}
-
-.website-name {
-    font-family: 'Bangers', cursive;
-    font-size: 1.349634rem;
-    font-weight: normal;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    line-height: 1.2;
-    height: 28px; /* Fixed height for website name */
-    overflow: hidden;
-}
-
-.slogan-container {
-    height: 26px; /* Fixed height for slogan */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 8px 0;
-}
-
-.website-slogan {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 1.03818rem;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    transition: opacity 0.05s ease;
-    line-height: 1.2;
-    height: 100%; /* Match container height */
-    overflow: visible; /* Changed to visible to prevent clipping */
-    white-space: nowrap;
-    z-index: 20; /* Higher z-index to bring in front */
-    position: relative;
-}
-
-.website-slogan.thai-text {
-    font-size: 1.03818rem;
-    line-height: 1.2;
-    font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Ensure Thai font */
-}
-
-/* Progress bar styling */
-.progress-container {
-    width: 90vw; /* Matches card width */
-    max-width: 300px;
-    height: 9px; /* Reduced by 50% from 18px */
-    position: absolute;
-    top: 92px; /* Adjusted for mobile */
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0; /* Initially hidden for fade-in effect */
-}
-
-.progress-label {
-    font-family: 'Montserrat', 'Noto Sans Thai', sans-serif; /* Consistent font for PC and mobile */
-    font-weight: 500;
-    font-size: 0.84rem;
-    color: #ffffff;
-    position: absolute;
-    left: 0;
-    top: -18px; /* Fixed position above progress bar */
-    transition: opacity 0.05s ease;
-    white-space: nowrap;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    line-height: 1.4;
-    height: auto; /* Remove fixed height to prevent clipping */
-    overflow: visible; /* Ensure no clipping */
-    z-index: 20; /* Higher z-index to bring in front */
-}
-
-.progress-label.thai-text {
-    font-size: 0.84rem;
-    line-height: 1.5;
-    height: auto; /* Ensure no clipping */
-    overflow: visible; /* Ensure no clipping */
-    font-family: 'Noto Sans Thai', 'Montserrat', sans-serif; /* Ensure Thai font */
-}
-
-.progress-value {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 0.84rem;
-    color: #ffffff;
-    position: absolute;
-    right: 0;
-    top: -18px; /* Fixed position above progress bar */
-    transition: opacity 0.05s ease;
-    white-space: nowrap;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    z-index: 20; /* Higher z-index to bring in front */
-}
-
-.progress-bar {
-    width: 100%;
-    height: 9px; /* Reduced by 50% from 18px */
-    background-color: #28282B; /* Matte Black */
-    border-radius: 4px;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-}
-
-.progress-fill {
-    height: 100%;
-    background-color: #00ff00; /* Bright green fill */
-    width: 0%;
-    transition: width 0.3s ease, background-color 0.3s ease;
-}
-
-.progress-brighten {
-    background-color: #66ff66; /* 100% brighter green for effect */
-}
-
-.progress-glow {
-    animation: progress-glow 0.3s ease-in-out 1;
-}
-
-@keyframes progress-glow {
-    0% { box-shadow: 0 0 0 rgba(0, 255, 0, 0); }
-    50% { box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.7); }
-    100% { box-shadow: 0 0 0 rgba(0, 255, 0, 0); }
-}
-
-/* Card container */
-.card-container {
-    position: relative;
-    width: 80vw;
-    max-width: 300px;
-    height: calc(80vw * 1.4);
-    max-height: 420px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    perspective: 1000px;
-    z-index: 10;
-}
-
-/* Poker card styling */
-.card {
-    width: 100%;
-    height: 100%;
-    border: 1px solid #000000;
-    border-radius: 8px;
-    background-color: #FFF8DC; /* Changed from #ffffff to #FFF8DC */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    user-select: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    touch-action: none;
-    z-index: 10;
-    display: none; /* Hide cards initially */
-}
-
-/* Glowing effect */
-.glow {
-    animation: glow 0.6s ease-in-out 1;
-}
-
-@keyframes glow {
-    0% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
-    50% { box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.7); }
-    100% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
-}
-
-/* Next cards and stack cards */
-#next-card-1 {
-    z-index: 9;
-    transform: translate(1.296px, 1.296px) rotate(0.3249deg); /* Reduced by 10% */
-}
-
-#next-card-2 {
-    z-index: 8;
-    transform: translate(2.592px, 2.592px) rotate(0.6498deg); /* Reduced by 10% */
-}
-
-#next-card-3 {
-    z-index: 7;
-    transform: translate(3.888px, 3.888px) rotate(0.9747deg); /* Reduced by 10% */
-}
-
-#next-card-4 {
-    z-index: 6;
-    transform: translate(5.184px, 5.184px) rotate(1.2996deg); /* Reduced by 10% */
-}
-
-#next-card-5 {
-    z-index: 5;
-    transform: translate(6.48px, 6.48px) rotate(1.6245deg); /* Reduced by 10% */
-}
-
-#next-card-6 {
-    z-index: 4;
-    transform: translate(7.776px, 7.776px) rotate(1.9494deg); /* Reduced by 10% */
-}
-
-#next-card-7 {
-    z-index: 3;
-    transform: translate(9.072px, 9.072px) rotate(2.2743deg); /* Reduced by 10% */
-}
-
-#next-card-8 {
-    z-index: 2;
-    transform: translate(10.368px, 10.368px) rotate(2.5992deg); /* Reduced by 10% */
-}
-
-#next-card-9 {
-    z-index: 1;
-    transform: translate(11.664px, 11.664px) rotate(2.9241deg); /* Reduced by 10% */
-}
-
-.card-stack {
-    z-index: 0;
-}
-
-.card-stack-1 {
-    transform: translate(1.296px, 1.296px) rotate(3.24deg); /* Adjusted for mobile */
-    z-index: -1;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
-}
-
-.card-stack-2 {
-    transform: translate(2.592px, 2.592px) rotate(3.564deg); /* Adjusted for mobile */
-    z-index: -2;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.card-stack-3 {
-    transform: translate(3.888px, 3.888px) rotate(3.888deg); /* Adjusted for mobile */
-    z-index: -3;
-    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
-}
-
-.card:active {
-    outline: none;
-}
-
-/* Card content */
-.card-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Word styling */
-.word {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.82rem;
-    font-weight: bold;
-    position: absolute;
-    margin: 0;
-    color: #000000;
-}
-
-.top-left {
-    top: 10px;
-    left: 10px;
-}
-
-.bottom-right {
-    bottom: 10px;
-    right: 10px;
-}
-
-/* Sentence styling */
-.sentence {
-    font-size: 1.3rem;
-    margin: 8px 0;
-    text-align: center;
-    color: #000000;
-}
-
-.english {
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    font-size: 1.3rem;
-    line-height: 1.3;
-}
-
-.thai {
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    font-size: 1.3rem;
-    line-height: 1.5;
-}
-
-/* Responsive adjustments for desktop */
+/* Desktop styles (minimal to prevent interference) */
 @media (min-width: 601px) {
-    .stats-container {
-        height: 100px;
-    }
-
-    .info-container {
-        height: 180px;
-        top: 20px;
-    }
-
-    .website-info {
-        height: 120px;
-    }
-
-    .website-name {
-        font-size: 1.55727rem;
-        height: 30px;
-    }
-
-    .slogan-container {
-        height: 30px;
-        margin: 10px 0;
-    }
-
-    .website-slogan {
-        font-size: 1.1679525rem;
-        line-height: 1.2;
-    }
-
-    .website-slogan.thai-text {
-        font-size: 1.1679525rem;
-        line-height: 1.2;
-    }
-
-    .progress-container {
-        width: 300px;
-        height: 10px;
-        top: 92px;
-    }
-
-    .progress-label {
-        font-size: 0.945rem;
-        top: -20px;
-        line-height: 1.2;
-        height: 20px;
-    }
-
-    .progress-label.thai-text {
-        font-size: 0.945rem;
-        line-height: 1.2;
-        height: 20px;
-    }
-
-    .progress-value {
-        font-size: 0.945rem;
-        top: -20px;
-    }
-
-    .progress-bar {
-        height: 10px;
-    }
-
-    .website-stats {
-        transform: translateY(0);
-    }
-
-    .count-title {
-        font-size: 2rem;
-        height: 30px;
-    }
-
-    .count-text {
-        font-size: 0.945rem;
-        line-height: 1.5;
-    }
-
-    .word {
-        font-size: 2.1rem;
-    }
-
-    .sentence {
-        font-size: 1.5rem;
-    }
-
-    .english, .thai {
-        font-size: 1.5rem;
-    }
-
-    .card-stack-1 {
-        transform: translate(3.888px, 3.888px) rotate(3.24deg);
-    }
-
-    .card-stack-2 {
-        transform: translate(5.184px, 5.184px) rotate(3.564deg);
-    }
-
-    .card-stack-3 {
-        transform: translate(6.48px, 6.48px) rotate(3.888deg);
-    }
-
-    .share-icon, .coffee-icon {
-        width: 30px;
-        height: 30px;
-    }
-
-    .icon-panel {
-        max-width: 360px;
-    }
-
-    .donation-content {
-        width: 90%;
-        max-width: 340px;
-        padding: 20px;
-    }
-
-    .donation-title {
-        font-size: 1.8rem;
-    }
-
-    .donation-message {
-        font-size: 0.945rem;
-    }
-
-    .donation-message.thai-text {
-        font-size: 1.0395rem;
-    }
-
-    .qr-code {
-        width: 150px;
-        height: 150px;
-    }
-
-    .promptpay-logo {
-        width: 100px;
-    }
-
-    .developer-photo {
-        width: 100px;
-        height: 100px;
-    }
-
-    .developer-name {
-        font-size: 0.945rem;
-    }
-
-    .developer-role {
-        font-size: 0.84rem;
-    }
-
-    .social-icon {
-        width: 24px;
-        height: 24px;
-    }
-
-    .spinner {
-        width: 80px;
-        height: 80px;
-    }
-
-    .handpoint {
-        width: 96px; /* Doubled from 48px */
-        height: 96px; /* Doubled from 48px */
-    }
+    .share-icon { display: none; }
+    .icon-panel { max-width: 360px; }
+    .share-icon, .coffee-icon { width: 30px; height: 30px; }
+    .donation-content { width: 90%; max-width: 340px; padding: 20px; }
+    .donation-title { font-size: 1.8rem; }
+    .donation-message { font-size: 0.945rem; }
+    .donation-message.thai-text { font-size: 1.0395rem; }
+    .qr-code { width: 150px; height: 150px; }
+    .promptpay-logo { width: 100px; }
+    .developer-photo { width: 100px; height: 100px; }
+    .developer-name { font-size: 0.945rem; }
+    .developer-role { font-size: 0.84rem; }
+    .social-icon { width: 24px; height: 24px; }
+    .spinner { width: 80px; height: 80px; }
+    .handpoint { width: 96px; height: 96px; }
+    /* Desktop container heights (optional, can be adjusted if needed) */
+    .icon-panel-container { height: 50px; position: fixed; top: 0; }
+    .stat-number-container { height: 60px; margin-top: 50px; }
+    .stat-sentence-container { height: 40px; }
+    .card-stack-container { height: 420px; }
+    .website-name-container { height: 35px; }
+    .slogan-container { height: 35px; }
+    .progress-container { height: 35px; }
 }
