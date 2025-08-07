@@ -3,7 +3,7 @@ let vocabData = [];
 let originalVocabLength = 0; // Store original length for stats
 let currentIndex = 0;
 let hasSwiped = false; // Flag to track if user has swiped
-let hasInteracted = false; // Flag to track user interaction
+let isEnglish = true; // Track language state for synchronization
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
@@ -89,7 +89,7 @@ let swipedCards = JSON.parse(localStorage.getItem('swipedCards') || '[]');
 
 // Update website statistics display with animated number
 function updateWebsiteStats() {
-    const statsElement = document.getElementById('website-stats');
+    const statsNumberElement = document.querySelector('.stats-number');
     const countNumberElement = $('.count-number');
     countNumberElement.data('to', originalVocabLength); // Use original length for stats
     countNumberElement.data('countToOptions', {
@@ -98,13 +98,14 @@ function updateWebsiteStats() {
         }
     });
     countNumberElement.countTo();
-    statsElement.style.opacity = '1'; // Ensure immediate visibility
+    statsNumberElement.style.opacity = '1'; // Ensure immediate visibility
 }
 
 // Function to update progress bar
 function updateProgressBar() {
     const progressFill = document.getElementById('progress-fill');
     const progressValue = document.getElementById('progress-value');
+    const progressLabel = document.getElementById('progress-label');
     const totalCards = originalVocabLength;
     const swipedCount = swipedCards.length;
     const percentage = totalCards > 0 ? (swipedCount / totalCards) * 100 : 0;
@@ -112,15 +113,17 @@ function updateProgressBar() {
     progressFill.style.width = `${percentage}%`;
     progressValue.textContent = swipedCount.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
     
-    // Brighten and glow effect for progress bar
+    // Show progress bar container and apply brighten and glow effect after first swipe
     if (hasSwiped && swipedCount > 0) {
+        const progressContainer = document.querySelector('.progress-bar-container');
+        progressContainer.style.opacity = '1';
+        progressContainer.style.transition = 'opacity 1s ease';
+        progressLabel.style.opacity = '1';
+        progressValue.style.opacity = '1';
         progressFill.classList.add('progress-brighten', 'progress-glow');
         setTimeout(() => {
             progressFill.classList.remove('progress-brighten', 'progress-glow');
         }, 300); // Duration of the brighten and glow effect
-        const progressContainer = document.querySelector('.progress-container');
-        progressContainer.style.opacity = '1';
-        progressContainer.style.transition = 'opacity 1s … ease';
     }
 }
 
@@ -130,7 +133,6 @@ function alternateStatsText() {
     const slogan = document.querySelector('.website-slogan');
     const progressLabel = document.getElementById('progress-label');
     const donationMessage = document.getElementById('donation-message');
-    let isEnglish = true;
 
     function swapText() {
         line1.style.transition = 'opacity 0.05s ease';
@@ -170,13 +172,14 @@ function alternateStatsText() {
         }, 50);
     }
 
+    // Initial setup
     line1.textContent = 'Essential American English Sentences';
     slogan.textContent = 'Master Words, Swipe by Swipe';
     progressLabel.textContent = 'Swiped Cards';
     donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support via PromptPay.';
     line1.style.opacity = '1';
     slogan.style.opacity = '1';
-    progressLabel.style.opacity = '1';
+    progressLabel.style.opacity = '0'; // Initially hidden
     donationMessage.style.opacity = '1';
     line1.classList.remove('thai-text');
     slogan.classList.remove('thai-text');
@@ -186,9 +189,35 @@ function alternateStatsText() {
     setInterval(swapText, 20000);
 }
 
+// Function to show progress bar after data fetch
+function showProgressBar() {
+    const progressContainer = document.querySelector('.progress-bar-container');
+    const progressLabel = document.getElementById('progress-label');
+    const progressValue = document.getElementById('progress-value');
+    const progressFill = document.getElementById('progress-fill');
+    
+    // Set initial progress bar values
+    const totalCards = originalVocabLength;
+    const swipedCount = swipedCards.length;
+    const percentage = totalCards > 0 ? (swipedCount / totalCards) * 100 : 0;
+    
+    progressFill.style.width = `${percentage}%`;
+    progressValue.textContent = swipedCount.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+    progressLabel.textContent = isEnglish ? 'Swiped Cards' : 'จำนวนการ์ดที่ปัดไปแล้ว';
+    progressLabel.classList.toggle('thai-text', !isEnglish);
+
+    // Fade in all progress bar elements
+    progressContainer.style.transition = 'opacity 1s ease';
+    progressContainer.style.opacity = '1';
+    progressLabel.style.transition = 'opacity 1s ease';
+    progressLabel.style.opacity = '1';
+    progressValue.style.transition = 'opacity 1s ease';
+    progressValue.style.opacity = '1';
+}
+
 // Function to set initial card theme
 function setInitialCardTheme() {
-    const cardBackgroundColor = '#FFF8DC'; // updated from '#ffffff'
+    const cardBackgroundColor = '#FFF8DC';
     const cardTextColor = '#000000';
     const cardBorderColor = '#000000';
 
@@ -237,7 +266,7 @@ function populateCardsBeforeAnimation() {
         { top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6' },
         { top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7' },
         { top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8' },
-        { top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9' }
+        { top: 'next-word-top-9', bottom: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9' }
     ];
 
     // Populate current card
@@ -322,100 +351,8 @@ function animateCardStackDrop(callback) {
         setTimeout(() => {
             enableCardInteractions();
             callback();
-            // Trigger touch and swipe animation for mobile users within first 1000 visits
-            if (visitCount <= 1000 && window.innerWidth <= 600) {
-                setTimeout(() => {
-                    triggerTouchSwipeAnimation();
-                }, 1000); // 1 second after card stack animation completes
-            }
         }, 1000 + (cards.length - 1) * 200);
     }, 100);
-}
-
-// Function to trigger touch and swipe animation
-function triggerTouchSwipeAnimation() {
-    if (hasInteracted) return; // Skip if user has already interacted
-
-    const handpoint = document.getElementById('handpoint');
-    const topCard = document.getElementById('vocab-card');
-    const cardContainer = document.getElementById('card-container');
-    const cardWidth = cardContainer.offsetWidth; // Card width for swipe distance
-    const cardHeight = cardContainer.offsetHeight;
-    const cardRect = cardContainer.getBoundingClientRect();
-    const mainContentRect = document.querySelector('.main-content').getBoundingClientRect();
-
-    // Calculate card center relative to main-content
-    const cardCenterX = cardRect.left - mainContentRect.left + cardWidth / 2;
-    const cardCenterY = cardRect.top - mainContentRect.top + cardHeight / 2;
-
-    // Initial position: bottom center of the viewport (relative to main-content)
-    const viewportCenterX = mainContentRect.width / 2;
-    const initialY = mainContentRect.height;
-
-    handpoint.style.display = 'block';
-    handpoint.style.transform = `translate(${viewportCenterX}px, ${initialY}px)`;
-    handpoint.style.opacity = '1';
-    handpoint.style.transition = 'transform 1s ease-in-out, opacity 1s ease-in-out';
-
-    // Move to card center in 1 second
-    setTimeout(() => {
-        handpoint.style.transform = `translate(${cardCenterX}px, ${cardCenterY}px)`;
-
-        // Simulate tap after reaching center
-        setTimeout(() => {
-            // Add tap animation and glow effect
-            handpoint.classList.add('tap');
-            topCard.classList.add('glow');
-
-            // Remove tap and glow after 0.6s (matches glow animation duration)
-            setTimeout(() => {
-                handpoint.classList.remove('tap');
-                topCard.classList.remove('glow');
-
-                // Wait 1 second before starting swipe
-                setTimeout(() => {
-                    // Generate random angle (0 to 360 degrees)
-                    const angle = Math.random() * 2 * Math.PI; // Random angle in radians
-                    const swipeDistance = 50; // Fixed 50px distance
-                    const deltaX = Math.cos(angle) * swipeDistance;
-                    const deltaY = Math.sin(angle) * swipeDistance;
-                    const rotate = (deltaX / window.innerWidth) * 30; // Consistent with manual swipe
-
-                    // Ensure handpoint and card start from tap position
-                    handpoint.style.transform = `translate(${cardCenterX}px, ${cardCenterY}px)`;
-                    topCard.style.transform = `translate(0px, 0px) rotate(0deg)`;
-                    handpoint.style.transition = 'transform 1s ease-in-out';
-                    topCard.style.transition = 'transform 1s ease-in-out';
-
-                    // Animate handpoint and card moving together from tap position
-                    setTimeout(() => {
-                        // Move handpoint and card together
-                        handpoint.style.transform = `translate(${cardCenterX + deltaX}px, ${cardCenterY + deltaY}px)`;
-                        topCard.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
-                        topCard.style.zIndex = '1000';
-
-                        // Complete the swipe after 1 second without updating swipedCards
-                        setTimeout(() => {
-                            const magnitude = swipeDistance * 10; // Amplify for full swipe
-                            const translateX = Math.cos(angle) * magnitude;
-                            const translateY = Math.sin(angle) * magnitude;
-                            // Update handpoint position to stay at card center during full swipe
-                            handpoint.style.transform = `translate(${cardCenterX + translateX}px, ${cardCenterY + translateY}px)`;
-                            // Call moveToNextCard with isAnimation=true to skip swipedCards update
-                            moveToNextCard(translateX, translateY, rotate, true);
-
-                            // Fade out handpoint
-                            handpoint.style.transition = 'opacity 0.5s ease';
-                            handpoint.style.opacity = '0';
-                            setTimeout(() => {
-                                handpoint.style.display = 'none';
-                            }, 500);
-                        }, 1000);
-                    }, 0); // Immediate transition to ensure starting position is set
-                }, 1000); // Wait 1 second after tap before swipe
-            }, 600);
-        }, 100);
-    }, 1000);
 }
 
 // Function to enable tap interactions for cards
@@ -424,9 +361,8 @@ function enableCardInteractions() {
     const nextCard = document.getElementById('next-card-1');
 
     // Tap handler for top card
-    topCard.addEventListener('click', () => {
-        hasInteracted = true; // Mark interaction
-        if (!isDragging) {
+    topCard.addEventListener('click', (e) => {
+        if (!hasMoved) { // Only trigger audio if no movement occurred
             const audio = document.getElementById('card-audio');
             topCard.classList.add('glow');
             audio.play().catch(error => console.error('Error playing audio:', error));
@@ -438,7 +374,6 @@ function enableCardInteractions() {
 
     // Tap handler for next card
     nextCard.addEventListener('click', () => {
-        hasInteracted = true; // Mark interaction
         if (!isDragging && currentIndex + 1 < vocabData.length) {
             const nextEntry = vocabData[currentIndex + 1];
             const audio = new Audio(`data/${nextEntry.audio}`);
@@ -449,6 +384,64 @@ function enableCardInteractions() {
             }, 600);
         }
     });
+}
+
+// Function to start tutorial animation for first 1000 visits
+function startTutorialAnimation() {
+    if (visitCount > 1000) return; // Skip if beyond 1000 visits
+
+    const handpoint = document.getElementById('handpoint');
+    const topCard = document.getElementById('vocab-card');
+    const audio = document.getElementById('card-audio');
+
+    // Position handpoint at card center
+    handpoint.style.display = 'block';
+    handpoint.style.opacity = '0';
+    handpoint.style.left = '50%';
+    handpoint.style.top = '50%';
+    handpoint.style.transform = 'translate(-50%, -50%)';
+
+    // Fade in handpoint after 2 seconds
+    setTimeout(() => {
+        handpoint.style.transition = 'opacity 0.5s ease';
+        handpoint.style.opacity = '1';
+
+        // Tap animation after fade-in
+        setTimeout(() => {
+            handpoint.classList.add('tap-effect');
+            topCard.classList.add('glow');
+            audio.play().catch(error => console.error('Error playing audio:', error));
+
+            // Remove tap effect and glow
+            setTimeout(() => {
+                handpoint.classList.remove('tap-effect');
+                topCard.classList.remove('glow');
+
+                // Pause for 1 second before swipe
+                setTimeout(() => {
+                    // Generate random angle for swipe (0 to 360 degrees)
+                    const angle = Math.random() * 2 * Math.PI; // Random angle in radians
+                    const magnitude = window.innerWidth * 1.5; // Swipe distance
+                    const translateX = Math.cos(angle) * magnitude;
+                    const translateY = Math.sin(angle) * magnitude;
+                    const rotate = (translateX / window.innerWidth) * 30; // Rotation based on swipe direction
+
+                    // Animate handpoint and card together
+                    topCard.style.transition = 'transform 1.5s ease, opacity 1.5s ease';
+                    handpoint.style.transition = 'transform 1.5s ease';
+                    topCard.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
+                    topCard.style.opacity = '0';
+                    handpoint.style.transform = `translate(-50%, -50%) translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
+
+                    // Reset after swipe animation
+                    setTimeout(() => {
+                        handpoint.style.display = 'none';
+                        moveToNextCard(translateX, translateY, rotate, true); // isAnimation=true to skip progress bar update
+                    }, 1500);
+                }, 2000);
+            }, 600); // Duration of tap and glow
+        }, 500); // After fade-in
+    }, 2000);
 }
 
 // Function to fetch and parse JSONL file with lazy loading
@@ -477,10 +470,17 @@ async function loadVocabData() {
         });
 
         // Initialize stats display immediately
-        const statsElement = document.getElementById('website-stats');
-        statsElement.style.opacity = '1';
+        const statsNumberElement = document.querySelector('.stats-number');
+        statsNumberElement.style.opacity = '1';
         alternateStatsText(); // Start text alternation immediately
-        updateProgressBar(); // Initialize progress bar
+
+        // Hide progress bar initially
+        const progressContainer = document.querySelector('.progress-bar-container');
+        const progressLabel = document.getElementById('progress-label');
+        const progressValue = document.getElementById('progress-value');
+        progressContainer.style.opacity = '0';
+        progressLabel.style.opacity = '0';
+        progressValue.style.opacity = '0';
 
         // Fetch and parse initial batch (first 200 entries)
         const response = await fetch('data/database.jsonl');
@@ -504,6 +504,8 @@ async function loadVocabData() {
         animateCardStackDrop(() => {
             displayCards();
             spinner.style.display = 'none'; // Hide spinner after animation
+            showProgressBar(); // Show progress bar after data fetch
+            startTutorialAnimation(); // Start tutorial animation after card stack
         });
 
         // Load remaining data in the background
@@ -522,6 +524,7 @@ async function loadVocabData() {
             }
             vocabData = vocabData.sort(() => Math.random() - 0.5);
             populateCardsBeforeAnimation();
+            showProgressBar(); // Update progress bar after full data load
         }, 0);
     } catch (error) {
         console.error('Error loading database:', error);
@@ -537,7 +540,7 @@ async function loadVocabData() {
 function displayCards() {
     if (vocabData.length === 0) return;
 
-    const cardBackgroundColor = '#FFF8DC'; // updated from white '#ffffff'
+    const cardBackgroundColor = '#FFF8DC';
     const cardTextColor = '#000000';
     const cardBorderColor = '#000000';
 
@@ -619,7 +622,7 @@ function displayCards() {
 // Function to animate and move to next card
 function moveToNextCard(translateX, translateY, rotate, isAnimation = false) {
     const card = document.getElementById('vocab-card');
-    card.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+    card.style.transition = 'transform 0.75s ease, opacity 0.75s ease';
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
     card.style.zIndex = '1000';
@@ -637,11 +640,12 @@ function moveToNextCard(translateX, translateY, rotate, isAnimation = false) {
         currentIndex = (currentIndex + 1) % vocabData.length;
         displayCards();
         card.style.transition = 'none';
-    }, 500);
+    }, 750);
 }
 
 // Touch and mouse handling
 let isDragging = false;
+let hasMoved = false; // Track if mouse moved during mousedown
 let startX = 0;
 let startY = 0;
 let currentX = 0;
@@ -654,7 +658,6 @@ const maxTapDuration = 300;
 const card = document.querySelector('#vocab-card');
 
 card.addEventListener('touchstart', (e) => {
-    hasInteracted = true; // Mark interaction
     if (e.touches.length === 1) {
         e.preventDefault();
         startX = e.changedTouches[0].screenX;
@@ -682,7 +685,6 @@ card.addEventListener('touchmove', (e) => {
 });
 
 card.addEventListener('touchend', (e) => {
-    hasInteracted = true; // Mark interaction
     e.preventDefault();
     isDragging = false;
     const endX = e.changedTouches[0].screenX;
@@ -714,7 +716,6 @@ card.addEventListener('touchend', (e) => {
 });
 
 card.addEventListener('mousedown', (e) => {
-    hasInteracted = true; // Mark interaction
     e.preventDefault();
     startX = e.screenX;
     startY = e.screenY;
@@ -724,6 +725,7 @@ card.addEventListener('mousedown', (e) => {
     card.style.transition = 'none';
     card.style.zIndex = '1000';
     isDragging = true;
+    hasMoved = false; // Reset hasMoved on mousedown
 });
 
 card.addEventListener('mousemove', (e) => {
@@ -733,6 +735,10 @@ card.addEventListener('mousemove', (e) => {
         currentY = e.screenY;
         const deltaX = currentX - startX;
         const deltaY = currentY - startY;
+        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        if (distance > maxTapDistance) {
+            hasMoved = true; // Mark as moved if distance exceeds tap threshold
+        }
         const rotate = (deltaX / window.innerWidth) * 30;
         card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
         card.style.zIndex = '1000';
@@ -740,7 +746,6 @@ card.addEventListener('mousemove', (e) => {
 });
 
 card.addEventListener('mouseup', (e) => {
-    hasInteracted = true; // Mark interaction
     e.preventDefault();
     isDragging = false;
     const endX = e.screenX;
@@ -750,7 +755,7 @@ card.addEventListener('mouseup', (e) => {
     const deltaY = endY - startY;
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-    if (distance <= maxTapDistance && duration <= maxTapDuration) {
+    if (distance <= maxTapDistance && duration <= maxTapDuration && !hasMoved) {
         const audio = document.querySelector('#card-audio');
         card.classList.add('glow');
         audio.play().catch(error => console.error('Error playing audio:', error));
@@ -773,7 +778,6 @@ card.addEventListener('mouseup', (e) => {
 
 card.addEventListener('mouseleave', () => {
     if (isDragging) {
-        hasInteracted = true; // Mark interaction
         isDragging = false;
         card.style.transition = 'transform 0.3s ease';
         card.style.transform = 'translate(0, 0) rotate(0deg)';
@@ -781,7 +785,6 @@ card.addEventListener('mouseleave', () => {
 });
 
 document.addEventListener('keydown', (e) => {
-    hasInteracted = true; // Mark interaction
     switch (e.key) {
         case ' ':
             e.preventDefault();
@@ -814,7 +817,6 @@ document.addEventListener('keydown', (e) => {
 // Share icon functionality
 const shareIcon = document.querySelector('#share-icon');
 shareIcon.addEventListener('click', () => {
-    hasInteracted = true; // Mark interaction
     if (typeof html2canvas === 'undefined') {
         console.error('html2canvas is not loaded');
         return;
@@ -829,19 +831,16 @@ const closeIcon = document.querySelector('#close-icon');
 const mainContent = document.querySelector('.main-content');
 
 coffeeIcon.addEventListener('click', () => {
-    hasInteracted = true; // Mark interaction
     donationPopup.style.display = 'flex';
     mainContent.classList.add('blurred');
 });
 
 closeIcon.addEventListener('click', () => {
-    hasInteracted = true; // Mark interaction
     donationPopup.style.display = 'none';
     mainContent.classList.remove('blurred');
 });
 
 donationPopup.addEventListener('click', (e) => {
-    hasInteracted = true; // Mark interaction
     if (e.target === donationPopup) {
         donationPopup.style.display = 'none';
         mainContent.classList.remove('blurred');
