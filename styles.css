@@ -462,7 +462,7 @@ html, body {
     font-family: 'Montserrat', 'Noto Sans Thai', sans-serif;
     font-weight: 500;
     font-size: 0.84rem;
-    color: #778899; /* Updated color */
+    color: #F8F8FF; /* Updated color */
     position: absolute;
     left: 0;
     top: -18px;
@@ -483,7 +483,7 @@ html, body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 0.84rem;
-    color: #778899; /* Updated color */
+    color: #F8F8FF; /* Updated color */
     position: absolute;
     right: 0;
     top: -18px;
@@ -759,16 +759,22 @@ html, body {
     }
 
     .progress-content {
-        max-width: 360px; /* Set to match card container width */
+        width: 300px; /* Match card width */
+        max-width: 300px;
         height: 10px;
         margin-top: 20px; /* Maintain downward shift for PC */
+    }
+
+    .progress-bar {
+        width: 300px; /* Match card width */
+        height: 10px;
     }
 
     .progress-label {
         font-size: 0.945rem;
         top: -20px;
         line-height: 1.2;
-        color: #778899; /* Updated color */
+        color: #F8F8FF; /* Updated color */
     }
 
     .progress-label.thai-text {
@@ -779,12 +785,7 @@ html, body {
     .progress-value {
         font-size: 0.945rem;
         top: -20px;
-        color: #778899; /* Updated color */
-    }
-
-    .progress-bar {
-        width: 100%;
-        height: 10px;
+        color: #F8F8FF; /* Updated color */
     }
 
     .website-name {
