@@ -59,41 +59,41 @@ html, body {
 
 /* Specific container heights */
 .icon-panel-container {
-    height: 35px; /* Reduced from 45px */
+    height: 35px;
 }
 
 .stats-number-container {
-    height: 40px; /* Reduced from 50px */
+    height: 40px;
 }
 
 .stats-sentence-container {
-    height: 40px; /* For stats sentence */
+    height: 40px;
 }
 
 .card-area-container {
-    height: 420px; /* Matches card container height */
+    height: 420px;
 }
 
 .website-name-container {
-    height: 40px; /* Increased from 30px */
+    height: 60px; /* Increased from 40px by 20px */
 }
 
 .slogan-container {
-    height: 30px; /* For slogan */
+    height: 30px;
 }
 
 .progress-bar-container {
-    height: 40px; /* Increased from 30px */
+    height: 40px;
     opacity: 0; /* Initially hidden */
 }
 
 /* Loading spinner styling */
 .loading-spinner {
     position: absolute;
-    top: 310px; /* Adjusted to center within card-area-container */
-    left: 180px; /* Center of the top card horizontally: 360px / 2 */
-    transform: translate(-50%, -50%); /* Center the spinner image */
-    z-index: -10; /* Set behind all cards */
+    top: 310px;
+    left: 180px;
+    transform: translate(-50%, -50%);
+    z-index: -10;
     display: none;
 }
 
@@ -107,9 +107,9 @@ html, body {
     position: absolute;
     width: 80px;
     height: 80px;
-    z-index: 1001; /* Above top card */
-    display: none; /* Hidden initially */
-    pointer-events: none; /* Prevent interaction */
+    z-index: 1001;
+    display: none;
+    pointer-events: none;
 }
 
 .tap-effect {
@@ -127,7 +127,7 @@ html, body {
     width: 100%;
     max-width: 340px;
     display: flex;
-    justify-content: space-between; /* Coffee on left, share on right */
+    justify-content: space-between;
     padding: 10px;
 }
 
@@ -136,7 +136,7 @@ html, body {
     height: 25px;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
-    -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .share-icon:hover, .coffee-icon:hover {
@@ -679,11 +679,11 @@ html, body {
 /* Responsive adjustments for desktop */
 @media (min-width: 601px) {
     .icon-panel-container {
-        height: 39px; /* Scaled: 35px * 1.111 ≈ 39px */
+        height: 39px;
     }
 
     .stats-number-container {
-        height: 48px; /* Scaled: 40px * 1.2 = 48px */
+        height: 48px;
     }
 
     .stats-sentence-container {
@@ -698,7 +698,7 @@ html, body {
     }
 
     .website-name-container {
-        height: 47px; /* Scaled: 40px * 1.167 ≈ 47px */
+        height: 67px; /* Increased from 47px by 20px */
     }
 
     .slogan-container {
@@ -706,7 +706,7 @@ html, body {
     }
 
     .progress-bar-container {
-        height: 47px; /* Scaled: 40px * 1.167 ≈ 47px */
+        height: 47px;
     }
 
     .stats-number {
