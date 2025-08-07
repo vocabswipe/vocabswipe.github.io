@@ -59,11 +59,11 @@ html, body {
 
 /* Specific container heights */
 .icon-panel-container {
-    height: 45px; /* Adjusted for icons */
+    height: 35px; /* Reduced from 45px */
 }
 
 .stats-number-container {
-    height: 50px; /* For stats number */
+    height: 40px; /* Reduced from 50px */
 }
 
 .stats-sentence-container {
@@ -75,7 +75,7 @@ html, body {
 }
 
 .website-name-container {
-    height: 30px; /* For website name */
+    height: 40px; /* Increased from 30px */
 }
 
 .slogan-container {
@@ -83,7 +83,7 @@ html, body {
 }
 
 .progress-bar-container {
-    height: 30px; /* For progress bar */
+    height: 40px; /* Increased from 30px */
     opacity: 0; /* Initially hidden */
 }
 
@@ -679,11 +679,11 @@ html, body {
 /* Responsive adjustments for desktop */
 @media (min-width: 601px) {
     .icon-panel-container {
-        height: 50px;
+        height: 39px; /* Scaled: 35px * 1.111 ≈ 39px */
     }
 
     .stats-number-container {
-        height: 60px;
+        height: 48px; /* Scaled: 40px * 1.2 = 48px */
     }
 
     .stats-sentence-container {
@@ -698,7 +698,7 @@ html, body {
     }
 
     .website-name-container {
-        height: 35px;
+        height: 47px; /* Scaled: 40px * 1.167 ≈ 47px */
     }
 
     .slogan-container {
@@ -706,7 +706,7 @@ html, body {
     }
 
     .progress-bar-container {
-        height: 35px;
+        height: 47px; /* Scaled: 40px * 1.167 ≈ 47px */
     }
 
     .stats-number {
