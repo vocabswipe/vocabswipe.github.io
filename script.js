@@ -233,7 +233,7 @@ function populateCardsBeforeAnimation() {
         { top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3' },
         { top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4' },
         { top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5' },
-        { top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-thai-6', thai: 'next-thai-6' },
+        { top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6' },
         { top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7' },
         { top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8' },
         { top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9' }
@@ -329,7 +329,6 @@ function animateCardStackDrop(callback) {
 function enableCardInteractions() {
     const topCard = document.getElementById('vocab-card');
     const nextCard = document.getElementById('next-card-1');
-    const stackCards = document.querySelectorAll('.card-stack');
 
     // Tap handler for top card
     topCard.addEventListener('click', () => {
@@ -354,28 +353,6 @@ function enableCardInteractions() {
                 nextCard.classList.remove('glow');
             }, 600);
         }
-    });
-
-    // Tap handler for stack cards (mobile only)
-    stackCards.forEach(card => {
-        card.addEventListener('touchend', (e) => {
-            if (window.innerWidth <= 600) { // Mobile only
-                e.preventDefault();
-                const endX = e.changedTouches[0].screenX;
-                const endY = e.changedTouches[0].screenY;
-                const touchDuration = Date.now() - startTime;
-                const deltaX = endX - startX;
-                const deltaY = endY - startY;
-                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-
-                if (distance <= maxTapDistance && touchDuration <= maxTapDuration) {
-                    card.classList.add('stack-highlight');
-                    setTimeout(() => {
-                        card.classList.remove('stack-highlight');
-                    }, 400); // Match animation duration
-                }
-            }
-        });
     });
 }
 
