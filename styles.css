@@ -59,8 +59,8 @@ html, body {
 /* Handpoint styling for tutorial */
 .handpoint {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 80px; /* Doubled from 40px */
+    height: 80px; /* Doubled from 40px */
     z-index: 1001; /* Above top card */
     display: none; /* Hidden initially */
     pointer-events: none; /* Prevent interaction */
@@ -823,7 +823,7 @@ html, body {
     }
 
     .handpoint {
-        width: 48px;
-        height: 48px;
+        width: 96px; /* Doubled from 48px */
+        height: 96px; /* Doubled from 48px */
     }
 }
