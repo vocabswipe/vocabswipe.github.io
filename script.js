@@ -187,7 +187,7 @@ function alternateStatsText() {
 
 // Function to set initial card theme
 function setInitialCardTheme() {
-    const cardBackgroundColor = '#FFF8DC'; // updated from '#ffffff'
+    const cardBackgroundColor = '#FFF8DC';
     const cardTextColor = '#000000';
     const cardBorderColor = '#000000';
 
@@ -317,12 +317,75 @@ function animateCardStackDrop(callback) {
             }, index * 200);
         });
 
-        // Call callback after animation completes
+        // Calculate total animation time
+        const totalAnimationTime = 1000 + (cards.length - 1) * 200;
+
+        // Call callback and trigger tutorial animation for new users
         setTimeout(() => {
             enableCardInteractions();
             callback();
-        }, 1000 + (cards.length - 1) * 200);
+            if (visitCount <= 1000) {
+                startTutorialAnimation();
+            }
+        }, totalAnimationTime);
     }, 100);
+}
+
+// Function to start tutorial animation for new users
+function startTutorialAnimation() {
+    const handpoint = document.getElementById('handpoint');
+    const topCard = document.getElementById('vocab-card');
+    const audio = document.getElementById('card-audio');
+
+    // Fade in handpoint after 2 seconds
+    setTimeout(() => {
+        handpoint.style.display = 'block';
+        handpoint.style.opacity = '0';
+        handpoint.style.transition = 'opacity 0.5s ease';
+        handpoint.style.opacity = '1';
+
+        // Perform tap gesture after fade-in
+        setTimeout(() => {
+            // Scaling effect for tap
+            handpoint.style.transition = 'transform 0.2s ease';
+            handpoint.style.transform = 'scale(0.8)';
+            topCard.classList.add('glow');
+            audio.play().catch(error => console.error('Error playing audio:', error));
+
+            // Reset scale and remove glow after tap
+            setTimeout(() => {
+                handpoint.style.transform = 'scale(1)';
+                topCard.classList.remove('glow');
+
+                // Pause for 1 second
+                setTimeout(() => {
+                    // Generate random angle for swipe (0 to 360 degrees)
+                    const angle = Math.random() * 2 * Math.PI; // Random angle in radians
+                    const magnitude = window.innerWidth * 2; // Swipe distance
+                    const translateX = Math.cos(angle) * magnitude;
+                    const translateY = Math.sin(angle) * magnitude;
+                    const rotate = (translateX / window.innerWidth) * 30;
+
+                    // Animate card and handpoint together
+                    topCard.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+                    handpoint.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+                    topCard.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
+                    handpoint.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
+                    topCard.style.opacity = '0';
+                    handpoint.style.opacity = '0';
+
+                    // Update card and hide handpoint
+                    setTimeout(() => {
+                        currentIndex = (currentIndex + 1) % vocabData.length;
+                        displayCards();
+                        topCard.style.transition = 'none';
+                        handpoint.style.display = 'none';
+                        // Do not update swipedCards for tutorial animation
+                    }, 500);
+                }, 1000); // Pause for 1 second
+            }, 200); // Duration of tap scaling
+        }, 500); // Wait for fade-in to complete
+    }, 2000); // 2 seconds after card stack animation
 }
 
 // Function to enable tap interactions for cards
@@ -442,7 +505,7 @@ async function loadVocabData() {
 function displayCards() {
     if (vocabData.length === 0) return;
 
-    const cardBackgroundColor = '#FFF8DC'; // updated from white '#ffffff'
+    const cardBackgroundColor = '#FFF8DC';
     const cardTextColor = '#000000';
     const cardBorderColor = '#000000';
 
