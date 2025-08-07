@@ -88,7 +88,7 @@ let swipedCards = JSON.parse(localStorage.getItem('swipedCards') || '[]');
 
 // Update website statistics display with animated number
 function updateWebsiteStats() {
-    const statNumberElement = document.querySelector('.stat-number');
+    const statsNumberElement = document.querySelector('.stats-number');
     const countNumberElement = $('.count-number');
     countNumberElement.data('to', originalVocabLength); // Use original length for stats
     countNumberElement.data('countToOptions', {
@@ -97,7 +97,7 @@ function updateWebsiteStats() {
         }
     });
     countNumberElement.countTo();
-    statNumberElement.style.opacity = '1'; // Ensure immediate visibility
+    statsNumberElement.style.opacity = '1'; // Ensure immediate visibility
 }
 
 // Function to update progress bar
@@ -117,9 +117,9 @@ function updateProgressBar() {
         setTimeout(() => {
             progressFill.classList.remove('progress-brighten', 'progress-glow');
         }, 300); // Duration of the brighten and glow effect
-        const progressContent = document.querySelector('.progress-content');
-        progressContent.style.opacity = '1';
-        progressContent.style.transition = 'opacity 1s ease';
+        const progressContainer = document.querySelector('.progress-bar-container');
+        progressContainer.style.opacity = '1';
+        progressContainer.style.transition = 'opacity 1s ease';
     }
 }
 
@@ -409,8 +409,8 @@ function startTutorialAnimation() {
                         moveToNextCard(translateX, translateY, rotate, true); // isAnimation=true to skip progress bar update
                     }, 1500);
                 }, 2000);
-            }, 600);
-        }, 500);
+            }, 600); // Duration of tap and glow
+        }, 500); // After fade-in
     }, 2000);
 }
 
@@ -440,8 +440,8 @@ async function loadVocabData() {
         });
 
         // Initialize stats display immediately
-        const statNumberElement = document.querySelector('.stat-number');
-        statNumberElement.style.opacity = '1';
+        const statsNumberElement = document.querySelector('.stats-number');
+        statsNumberElement.style.opacity = '1';
         alternateStatsText(); // Start text alternation immediately
         updateProgressBar(); // Initialize progress bar
 
@@ -557,7 +557,7 @@ function displayCards() {
             nextWordBottomElement.textContent = nextEntry.word;
             nextEnglishElement.textContent = nextEntry.english;
             nextThaiElement.textContent = nextEntry.thai;
-            nextWord pilgrimageTopElement.style.color = cardTextColor;
+            nextWordTopElement.style.color = cardTextColor;
             nextWordBottomElement.style.color = cardTextColor;
             nextEnglishElement.style.color = cardTextColor;
             nextThaiElement.style.color = cardTextColor;
