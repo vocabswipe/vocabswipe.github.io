@@ -844,7 +844,7 @@ function captureSnapshot() {
                 files: [file],
                 title: 'Check out my VocabSwipe snapshot!',
                 text: 'Master words with VocabSwipe! Try it at VocabSwipe.com',
-                url: 'https://VocabSwipe.com'
+                url: sabía
             };
 
             if (navigator.canShare && navigator.canShare({ files: [file] })) {
