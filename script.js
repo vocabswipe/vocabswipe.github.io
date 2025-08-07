@@ -187,7 +187,7 @@ function alternateStatsText() {
 
 // Function to set initial card theme
 function setInitialCardTheme() {
-    const cardBackgroundColor = '#FFF8DC';
+    const cardBackgroundColor = '#FFF8DC'; // updated from '#ffffff'
     const cardTextColor = '#000000';
     const cardBorderColor = '#000000';
 
@@ -277,7 +277,7 @@ function populateCardsBeforeAnimation() {
     });
 }
 
-// Function to animate card stack drop
+// Function to animate card stack drop and show hand pointer for new users
 function animateCardStackDrop(callback) {
     const cardContainer = document.getElementById('card-container');
     const cards = [
@@ -304,7 +304,7 @@ function animateCardStackDrop(callback) {
         card.style.opacity = '0';
     });
 
-    // Start animation after a brief delay
+    // Start card stack animation
     setTimeout(() => {
         cards.forEach((card, index) => {
             setTimeout(() => {
@@ -317,75 +317,75 @@ function animateCardStackDrop(callback) {
             }, index * 200);
         });
 
-        // Calculate total animation time
+        // After card stack animation, show hand pointer animation for first 1000 visits
         const totalAnimationTime = 1000 + (cards.length - 1) * 200;
-
-        // Call callback and trigger tutorial animation for new users
         setTimeout(() => {
-            enableCardInteractions();
-            callback();
             if (visitCount <= 1000) {
-                startTutorialAnimation();
+                const handPointer = document.getElementById('hand-pointer');
+                const topCard = document.getElementById('vocab-card');
+                const cardContainerRect = cardContainer.getBoundingClientRect();
+                const cardRect = topCard.getBoundingClientRect();
+                const cardCenterX = cardRect.left + cardRect.width / 2 - cardContainerRect.left;
+                const cardCenterY = cardRect.top + cardRect.height / 2 - cardContainerRect.top;
+
+                // Position hand pointer at center of top card
+                handPointer.style.left = `${cardCenterX}px`;
+                handPointer.style.top = `${cardCenterY}px`;
+                handPointer.style.display = 'block';
+
+                // Fade in hand pointer
+                setTimeout(() => {
+                    handPointer.style.opacity = '1';
+
+                    // Perform tap animation
+                    setTimeout(() => {
+                        handPointer.classList.add('tap');
+                        topCard.classList.add('glow');
+                        const audio = document.getElementById('card-audio');
+                        audio.play().catch(error => console.error('Error playing audio:', error));
+
+                        // Remove tap class and glow after animation
+                        setTimeout(() => {
+                            handPointer.classList.remove('tap');
+                            topCard.classList.remove('glow');
+
+                            // Pause for 1 second
+                            setTimeout(() => {
+                                // Generate random angle for swipe (0 to 360 degrees)
+                                const angle = Math.random() * 2 * Math.PI;
+                                const distance = 50; // Swipe distance
+                                const translateX = Math.cos(angle) * distance * 5; // Magnified for swipe
+                                const translateY = Math.sin(angle) * distance * 5;
+                                const rotate = (translateX / window.innerWidth) * 30;
+
+                                // Animate card and hand pointer together
+                                topCard.style.transition = 'transform 1.5s ease, opacity 1.5s ease';
+                                handPointer.style.transition = 'transform 1.5s ease, opacity 1.5s ease';
+                                topCard.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
+                                handPointer.style.transform = `translate(${translateX - cardCenterX + cardRect.width / 2}px, ${translateY - cardCenterY + cardRect.height / 2}px) rotate(${rotate}deg) scale(1)`;
+                                topCard.style.opacity = '0';
+                                handPointer.style.opacity = '0';
+
+                                // Move to next card and clean up
+                                setTimeout(() => {
+                                    handPointer.style.display = 'none';
+                                    currentIndex = (currentIndex + 1) % vocabData.length;
+                                    displayCards();
+                                    topCard.style.transition = 'none';
+                                    handPointer.style.transition = 'none';
+                                    enableCardInteractions();
+                                    callback();
+                                }, 1500);
+                            }, 1000);
+                        }, 600);
+                    }, 500);
+                }, 1000);
+            } else {
+                enableCardInteractions();
+                callback();
             }
         }, totalAnimationTime);
     }, 100);
-}
-
-// Function to start tutorial animation for new users
-function startTutorialAnimation() {
-    const handpoint = document.getElementById('handpoint');
-    const topCard = document.getElementById('vocab-card');
-    const audio = document.getElementById('card-audio');
-
-    // Fade in handpoint after 2 seconds
-    setTimeout(() => {
-        handpoint.style.display = 'block';
-        handpoint.style.opacity = '0';
-        handpoint.style.transition = 'opacity 0.5s ease';
-        handpoint.style.opacity = '1';
-
-        // Perform tap gesture after fade-in
-        setTimeout(() => {
-            // Scaling effect for tap
-            handpoint.style.transition = 'transform 0.2s ease';
-            handpoint.style.transform = 'scale(0.8)';
-            topCard.classList.add('glow');
-            audio.play().catch(error => console.error('Error playing audio:', error));
-
-            // Reset scale and remove glow after tap
-            setTimeout(() => {
-                handpoint.style.transform = 'scale(1)';
-                topCard.classList.remove('glow');
-
-                // Pause for 1 second
-                setTimeout(() => {
-                    // Generate random angle for swipe (0 to 360 degrees)
-                    const angle = Math.random() * 2 * Math.PI; // Random angle in radians
-                    const magnitude = window.innerWidth * 2; // Swipe distance
-                    const translateX = Math.cos(angle) * magnitude;
-                    const translateY = Math.sin(angle) * magnitude;
-                    const rotate = (translateX / window.innerWidth) * 30;
-
-                    // Animate card and handpoint together
-                    topCard.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
-                    handpoint.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
-                    topCard.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
-                    handpoint.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
-                    topCard.style.opacity = '0';
-                    handpoint.style.opacity = '0';
-
-                    // Update card and hide handpoint
-                    setTimeout(() => {
-                        currentIndex = (currentIndex + 1) % vocabData.length;
-                        displayCards();
-                        topCard.style.transition = 'none';
-                        handpoint.style.display = 'none';
-                        // Do not update swipedCards for tutorial animation
-                    }, 500);
-                }, 1000); // Pause for 1 second
-            }, 200); // Duration of tap scaling
-        }, 500); // Wait for fade-in to complete
-    }, 2000); // 2 seconds after card stack animation
 }
 
 // Function to enable tap interactions for cards
@@ -505,7 +505,7 @@ async function loadVocabData() {
 function displayCards() {
     if (vocabData.length === 0) return;
 
-    const cardBackgroundColor = '#FFF8DC';
+    const cardBackgroundColor = '#FFF8DC'; // updated from white '#ffffff'
     const cardTextColor = '#000000';
     const cardBorderColor = '#000000';
 
