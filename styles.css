@@ -657,7 +657,7 @@ html, body {
 /* Word styling */
 .word {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 1.82rem; /* Base font size for mobile */
+    font-size: 1.82rem;
     font-weight: bold;
     position: absolute;
     margin: 0;
@@ -818,7 +818,7 @@ html, body {
     }
 
     .word {
-        font-size: 2.1rem; /* Base font size for desktop */
+        font-size: 2.1rem;
     }
 
     .sentence {
