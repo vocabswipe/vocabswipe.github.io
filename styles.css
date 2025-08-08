@@ -657,21 +657,27 @@ html, body {
 /* Word styling */
 .word {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 1.82rem;
+    font-size: 1.82rem; /* Default font size, will be overridden by JS if needed */
     font-weight: bold;
     position: absolute;
     margin: 0;
     color: #000000;
+    max-width: calc(50% - 10px); /* Ensure text stays within half the card minus padding */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .top-left {
     top: 10px;
     left: 10px;
+    text-align: left;
 }
 
 .bottom-right {
     bottom: 10px;
     right: 10px;
+    text-align: right;
 }
 
 /* Sentence styling */
@@ -818,7 +824,8 @@ html, body {
     }
 
     .word {
-        font-size: 2.1rem;
+        font-size: 2.1rem; /* Default font size for desktop, will be overridden by JS if needed */
+        max-width: calc(50% - 10px); /* Ensure text stays within half the card minus padding */
     }
 
     .sentence {
