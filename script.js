@@ -276,9 +276,6 @@ function populateCardsBeforeAnimation() {
         wordBottomElement.textContent = entry.word;
         wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
         wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
-        // Adjust font size based on word length
-        wordTopElement.style.fontSize = entry.word.length > 6 ? '0.91rem' : '1.82rem'; // 50% of 1.82rem
-        wordBottomElement.style.fontSize = entry.word.length > 6 ? '0.91rem' : '1.82rem';
         englishElement.textContent = entry.english;
         thaiElement.textContent = entry.thai;
         audioElement.src = `data/${entry.audio}`;
@@ -298,9 +295,6 @@ function populateCardsBeforeAnimation() {
             const nextThaiElement = document.getElementById(next.thai);
             nextWordTopElement.textContent = nextEntry.word;
             nextWordBottomElement.textContent = nextEntry.word;
-            // Adjust font size based on word length
-            nextWordTopElement.style.fontSize = nextEntry.word.length > 6 ? '0.91rem' : '1.82rem'; // 50% of 1.82rem
-            nextWordBottomElement.style.fontSize = nextEntry.word.length > 6 ? '0.91rem' : '1.82rem';
             nextEnglishElement.textContent = nextEntry.english;
             nextThaiElement.textContent = nextEntry.thai;
             nextWordTopElement.style.color = cardTextColor;
@@ -576,9 +570,6 @@ function displayCards() {
         wordBottomElement.textContent = entry.word;
         wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
         wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
-        // Adjust font size based on word length
-        wordTopElement.style.fontSize = entry.word.length > 6 ? '0.91rem' : '1.82rem'; // 50% of 1.82rem
-        wordBottomElement.style.fontSize = entry.word.length > 6 ? '0.91rem' : '1.82rem';
         englishElement.textContent = entry.english;
         thaiElement.textContent = entry.thai;
         audioElement.src = `data/${entry.audio}`;
@@ -603,9 +594,6 @@ function displayCards() {
             const nextThaiElement = document.getElementById(next.thai);
             nextWordTopElement.textContent = nextEntry.word;
             nextWordBottomElement.textContent = nextEntry.word;
-            // Adjust font size based on word length
-            nextWordTopElement.style.fontSize = nextEntry.word.length > 6 ? '0.91rem' : '1.82rem'; // 50% of 1.82rem
-            nextWordBottomElement.style.fontSize = nextEntry.word.length > 6 ? '0.91rem' : '1.82rem';
             nextEnglishElement.textContent = nextEntry.english;
             nextThaiElement.textContent = nextEntry.thai;
             nextWordTopElement.style.color = cardTextColor;
