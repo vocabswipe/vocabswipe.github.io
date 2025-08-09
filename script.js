@@ -625,7 +625,7 @@ function moveToNextCard(translateX, translateY, rotate, isAnimation = false) {
     card.style.transition = 'transform 0.75s ease, opacity 0.75s ease';
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
-    card.style.zIndex = '1000';
+    card.style.zIndex = '2000'; // Modified: Ensure top card is above containers during swipe
     // Only update swipedCards and hasSwiped for user-initiated swipes
     if (!isAnimation) {
         const originalIndex = vocabData[currentIndex].originalIndex;
@@ -666,7 +666,7 @@ card.addEventListener('touchstart', (e) => {
         currentY = startY;
         startTime = Date.now();
         card.style.transition = 'none';
-        card.style.zIndex = '1000';
+        card.style.zIndex = '2000'; // Modified: Ensure top card is above containers during swipe
         isDragging = true;
     }
 });
@@ -680,7 +680,7 @@ card.addEventListener('touchmove', (e) => {
         const deltaY = currentY - startY;
         const rotate = (deltaX / window.innerWidth) * 30;
         card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
-        card.style.zIndex = '1000';
+        card.style.zIndex = '2000'; // Modified: Ensure top card is above containers during swipe
     }
 });
 
@@ -723,7 +723,7 @@ card.addEventListener('mousedown', (e) => {
     currentY = startY;
     startTime = Date.now();
     card.style.transition = 'none';
-    card.style.zIndex = '1000';
+    card.style.zIndex = '2000'; // Modified: Ensure top card is above containers during swipe
     isDragging = true;
     hasMoved = false; // Reset hasMoved on mousedown
 });
@@ -741,7 +741,7 @@ card.addEventListener('mousemove', (e) => {
         }
         const rotate = (deltaX / window.innerWidth) * 30;
         card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
-        card.style.zIndex = '1000';
+        card.style.zIndex = '2000'; // Modified: Ensure top card is above containers during swipe
     }
 });
 
