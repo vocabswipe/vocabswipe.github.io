@@ -87,7 +87,7 @@ html, body {
     opacity: 0; /* Initially hidden */
     display: flex;
     align-items: flex-end; /* Align content to bottom */
-    z-index: 20; /* Modified: Match z-index with progress bar components */
+    z-index: 20; /* Match z-index with progress bar components */
 }
 
 /* Loading spinner styling */
@@ -409,7 +409,7 @@ html, body {
     max-width: 300px;
     text-align: center;
     padding-bottom: 5px; /* Small gap from bottom */
-    z-index: 20; /* Modified: Changed from 2000 to match progress bar z-index */
+    z-index: 20; /* Modified: Changed from 2000 to 20 to ensure top card appears above */
 }
 
 .website-name {
@@ -440,7 +440,7 @@ html, body {
     line-height: 1.2;
     overflow: visible;
     white-space: nowrap;
-    z-index: 20; /* Unchanged: Already matches progress bar z-index */
+    z-index: 20; /* Matches progress bar z-index */
     position: relative;
 }
 
@@ -457,7 +457,7 @@ html, body {
     height: 9px;
     position: relative;
     margin-top: 5px; /* Adjusted from 10px to move upward by 5px for mobile */
-    z-index: 20; /* Modified: Match z-index with progress bar components */
+    z-index: 20; /* Matches progress bar components */
 }
 
 .progress-label {
@@ -468,12 +468,11 @@ html, body {
     position: absolute;
     left: 0;
     top: -18px;
-    transition: opacity 1s ease; /* Updated for smooth fade-in */
+    transition: opacity 1s ease; /* Smooth fade-in */
     white-space: nowrap;
     line-height: 1.4;
     overflow: visible;
     z-index: 20;
-    opacity: 0; /* Initially hidden */
 }
 
 .progress-label.thai-text {
@@ -490,7 +489,7 @@ html, body {
     position: absolute;
     right: 0;
     top: -18px;
-    transition: opacity 1s ease; /* Updated for smooth fade-in */
+    transition: opacity 1s ease; /* Smooth fade-in */
     white-space: nowrap;
     z-index: 20;
     opacity: 0; /* Initially hidden */
@@ -504,7 +503,7 @@ html, body {
     overflow: hidden;
     position: absolute;
     bottom: 0; /* Align to bottom of progress-content */
-    z-index: 20; /* Modified: Match z-index with progress bar components */
+    z-index: 20; /* Matches progress bar components */
 }
 
 .progress-fill {
@@ -512,7 +511,7 @@ html, body {
     background-color: #00ff00;
     width: 0%;
     transition: width 0.3s ease, background-color 0.3s ease;
-    z-index: 20; /* Modified: Match z-index with progress bar components */
+    z-index: 20; /* Matches progress bar components */
 }
 
 .progress-brighten {
@@ -733,7 +732,7 @@ html, body {
     .progress-bar-container {
         height: 77px; /* Increased by 20px to accommodate downward shift */
         align-items: flex-end; /* Align content to bottom */
-        z-index: 20; /* Modified: Match z-index with progress bar components */
+        z-index: 20; /* Matches progress bar components */
     }
 
     .stats-number {
@@ -758,7 +757,7 @@ html, body {
     .website-name-content {
         max-width: 360px;
         padding-bottom: 5px; /* Small gap from bottom */
-        z-index: 20; /* Modified: Changed from 2000 to match progress bar z-index */
+        z-index: 20; /* Modified: Changed from 2000 to 20 to ensure top card appears above */
     }
 
     .slogan-content {
@@ -770,13 +769,13 @@ html, body {
         max-width: 300px;
         height: 10px;
         margin-top: 20px; /* Maintain downward shift for PC */
-        z-index: 20; /* Modified: Match z-index with progress bar components */
+        z-index: 20; /* Matches progress bar components */
     }
 
     .progress-bar {
         width: 300px; /* Match card width */
         height: 10px;
-        z-index: 20; /* Modified: Match z-index with progress bar components */
+        z-index: 20; /* Matches progress bar components */
     }
 
     .progress-label {
@@ -784,7 +783,7 @@ html, body {
         top: -20px;
         line-height: 1.2;
         color: #F8F8FF;
-        transition: opacity 1s ease; /* Updated for smooth fade-in */
+        transition: opacity 1s ease; /* Smooth fade-in */
         z-index: 20;
     }
 
@@ -797,7 +796,7 @@ html, body {
         font-size: 0.945rem;
         top: -20px;
         color: #F8F8FF;
-        transition: opacity 1s ease; /* Updated for smooth fade-in */
+        transition: opacity 1s ease; /* Smooth fade-in */
         z-index: 20;
     }
 
