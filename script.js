@@ -563,6 +563,9 @@ function displayCards() {
     ];
     const stackCards = document.querySelectorAll('.card-stack');
 
+    // Set card-container z-index to default
+    cardContainer.style.zIndex = '10';
+
     // Current card
     if (currentIndex < vocabData.length) {
         const entry = vocabData[currentIndex];
@@ -622,10 +625,12 @@ function displayCards() {
 // Function to animate and move to next card
 function moveToNextCard(translateX, translateY, rotate, isAnimation = false) {
     const card = document.getElementById('vocab-card');
+    const cardContainer = document.getElementById('card-container');
     card.style.transition = 'transform 0.75s ease, opacity 0.75s ease';
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
     card.style.zIndex = '3000'; // Ensure high z-index during animation
+    cardContainer.style.zIndex = '2500'; // Keep card-container above other elements during swipe
     // Only update swipedCards and hasSwiped for user-initiated swipes
     if (!isAnimation) {
         const originalIndex = vocabData[currentIndex].originalIndex;
@@ -641,6 +646,8 @@ function moveToNextCard(translateX, translateY, rotate, isAnimation = false) {
         displayCards();
         card.style.transition = 'none';
         card.style.zIndex = '100'; // Reset to default z-index after animation
+        cardContainer.style.zIndex = '10'; // Reset card-container z-index to default
+    }, 750);
     }, 750);
 }
 
@@ -668,6 +675,7 @@ card.addEventListener('touchstart', (e) => {
         startTime = Date.now();
         card.style.transition = 'none';
         card.style.zIndex = '3000'; // Set high z-index during swipe
+        document.getElementById('card-container').style.zIndex = '2500'; // Higher than website-name-container (2000)
         isDragging = true;
     }
 });
@@ -725,6 +733,7 @@ card.addEventListener('mousedown', (e) => {
     startTime = Date.now();
     card.style.transition = 'none';
     card.style.zIndex = '3000'; // Set high z-index during swipe
+    document.getElementById('card-container').style.zIndex = '2500'; // Higher than website-name-container (2000)
     isDragging = true;
     hasMoved = false; // Reset hasMoved on mousedown
 });
