@@ -408,7 +408,7 @@ html, body {
     max-width: 300px;
     text-align: center;
     padding-bottom: 5px; /* Small gap from bottom */
-    z-index: 2000; /* High z-index to bring text to front */
+    z-index: 100; /* Changed from 2000 to 100 */
 }
 
 .website-name {
@@ -753,7 +753,7 @@ html, body {
     .website-name-content {
         max-width: 360px;
         padding-bottom: 5px; /* Small gap from bottom */
-        z-index: 2000; /* High z-index to bring text to front */
+        z-index: 100; /* Changed from 2000 to 100 */
     }
 
     .slogan-content {
