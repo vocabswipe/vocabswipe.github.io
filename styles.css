@@ -87,6 +87,7 @@ html, body {
     opacity: 0; /* Initially hidden */
     display: flex;
     align-items: flex-end; /* Align content to bottom */
+    z-index: 20; /* Modified: Match z-index with progress bar components */
 }
 
 /* Loading spinner styling */
@@ -408,7 +409,7 @@ html, body {
     max-width: 300px;
     text-align: center;
     padding-bottom: 5px; /* Small gap from bottom */
-    z-index: 100; /* Changed from 2000 to 100 */
+    z-index: 20; /* Modified: Changed from 2000 to match progress bar z-index */
 }
 
 .website-name {
@@ -439,7 +440,7 @@ html, body {
     line-height: 1.2;
     overflow: visible;
     white-space: nowrap;
-    z-index: 20;
+    z-index: 20; /* Unchanged: Already matches progress bar z-index */
     position: relative;
 }
 
@@ -456,6 +457,7 @@ html, body {
     height: 9px;
     position: relative;
     margin-top: 5px; /* Adjusted from 10px to move upward by 5px for mobile */
+    z-index: 20; /* Modified: Match z-index with progress bar components */
 }
 
 .progress-label {
@@ -502,6 +504,7 @@ html, body {
     overflow: hidden;
     position: absolute;
     bottom: 0; /* Align to bottom of progress-content */
+    z-index: 20; /* Modified: Match z-index with progress bar components */
 }
 
 .progress-fill {
@@ -509,6 +512,7 @@ html, body {
     background-color: #00ff00;
     width: 0%;
     transition: width 0.3s ease, background-color 0.3s ease;
+    z-index: 20; /* Modified: Match z-index with progress bar components */
 }
 
 .progress-brighten {
@@ -729,6 +733,7 @@ html, body {
     .progress-bar-container {
         height: 77px; /* Increased by 20px to accommodate downward shift */
         align-items: flex-end; /* Align content to bottom */
+        z-index: 20; /* Modified: Match z-index with progress bar components */
     }
 
     .stats-number {
@@ -753,7 +758,7 @@ html, body {
     .website-name-content {
         max-width: 360px;
         padding-bottom: 5px; /* Small gap from bottom */
-        z-index: 100; /* Changed from 2000 to 100 */
+        z-index: 20; /* Modified: Changed from 2000 to match progress bar z-index */
     }
 
     .slogan-content {
@@ -765,11 +770,13 @@ html, body {
         max-width: 300px;
         height: 10px;
         margin-top: 20px; /* Maintain downward shift for PC */
+        z-index: 20; /* Modified: Match z-index with progress bar components */
     }
 
     .progress-bar {
         width: 300px; /* Match card width */
         height: 10px;
+        z-index: 20; /* Modified: Match z-index with progress bar components */
     }
 
     .progress-label {
@@ -778,6 +785,7 @@ html, body {
         line-height: 1.2;
         color: #F8F8FF;
         transition: opacity 1s ease; /* Updated for smooth fade-in */
+        z-index: 20;
     }
 
     .progress-label.thai-text {
@@ -790,6 +798,7 @@ html, body {
         top: -20px;
         color: #F8F8FF;
         transition: opacity 1s ease; /* Updated for smooth fade-in */
+        z-index: 20;
     }
 
     .website-name {
