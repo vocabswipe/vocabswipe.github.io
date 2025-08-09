@@ -35,6 +35,7 @@ html, body {
     align-items: center;
     position: relative;
     transition: filter 0.3s ease;
+    z-index: 10; /* Ensure main content is below donation popup and handpoint */
 }
 
 .main-content.blurred {
@@ -56,30 +57,36 @@ html, body {
     position: relative;
 }
 
-/* Specific container heights */
+/* Specific container heights and z-index */
 .icon-panel-container {
     height: 35px;
+    z-index: 20; /* Below vocab-card */
 }
 
 .stats-number-container {
     height: 40px;
+    z-index: 20; /* Below vocab-card */
 }
 
 .stats-sentence-container {
     height: 40px;
+    z-index: 20; /* Below vocab-card */
 }
 
 .card-area-container {
     height: 420px;
+    z-index: 10; /* Below vocab-card */
 }
 
 .website-name-container {
     height: 60px;
     align-items: flex-end; /* Align content to bottom */
+    z-index: 20; /* Below vocab-card */
 }
 
 .slogan-container {
     height: 30px;
+    z-index: 20; /* Below vocab-card */
 }
 
 .progress-bar-container {
@@ -87,6 +94,7 @@ html, body {
     opacity: 0; /* Initially hidden */
     display: flex;
     align-items: flex-end; /* Align content to bottom */
+    z-index: 20; /* Below vocab-card */
 }
 
 /* Loading spinner styling */
@@ -95,7 +103,7 @@ html, body {
     top: 310px;
     left: 180px;
     transform: translate(-50%, -50%);
-    z-index: -10;
+    z-index: 5; /* Below vocab-card */
     display: none;
 }
 
@@ -109,7 +117,7 @@ html, body {
     position: absolute;
     width: 80px;
     height: 80px;
-    z-index: 1001;
+    z-index: 1001; /* Above vocab-card */
     display: none;
     pointer-events: none;
 }
@@ -170,7 +178,7 @@ html, body {
     background-color: rgba(0, 0, 0, 0.6);
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 1000; /* Above vocab-card */
 }
 
 .donation-content {
@@ -399,7 +407,6 @@ html, body {
     justify-content: center;
     align-items: center;
     perspective: 1000px;
-    z-index: 10;
 }
 
 /* Website name styling */
@@ -408,7 +415,6 @@ html, body {
     max-width: 300px;
     text-align: center;
     padding-bottom: 5px; /* Small gap from bottom */
-    z-index: 2000; /* High z-index to bring text to front */
 }
 
 .website-name {
@@ -470,8 +476,6 @@ html, body {
     white-space: nowrap;
     line-height: 1.4;
     overflow: visible;
-    z-index: 20;
-    opacity: 0; /* Initially hidden */
 }
 
 .progress-label.thai-text {
@@ -490,8 +494,6 @@ html, body {
     top: -18px;
     transition: opacity 1s ease; /* Updated for smooth fade-in */
     white-space: nowrap;
-    z-index: 20;
-    opacity: 0; /* Initially hidden */
 }
 
 .progress-bar {
@@ -542,12 +544,16 @@ html, body {
     top: 0;
     left: 0;
     touch-action: none;
-    z-index: 10;
     display: none;
 }
 
 .card:active, .card:focus {
     outline: none; /* Hide blue highlight on tap */
+}
+
+/* Top card specific styling */
+#vocab-card {
+    z-index: 999; /* Above all elements except donation popup and handpoint */
 }
 
 /* Hide blue highlight on next cards and stack cards for mobile */
@@ -638,11 +644,6 @@ html, body {
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
 }
 
-.card:active {
-    outline: none;
-}
-
-/* Card content */
 .card-content {
     position: relative;
     width: 100%;
@@ -700,10 +701,12 @@ html, body {
 @media (min-width: 601px) {
     .icon-panel-container {
         height: 39px;
+        z-index: 20; /* Below vocab-card */
     }
 
     .stats-number-container {
         height: 48px;
+        z-index: 20; /* Below vocab-card */
     }
 
     .stats-sentence-container {
@@ -711,24 +714,29 @@ html, body {
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 20; /* Below vocab-card */
     }
 
     .card-area-container {
         height: 420px;
+        z-index: 10; /* Below vocab-card */
     }
 
     .website-name-container {
         height: 97px; /* Increased from 87px to 97px */
         align-items: flex-end; /* Align content to bottom */
+        z-index: 20; /* Below vocab-card */
     }
 
     .slogan-container {
         height: 35px;
+        z-index: 20; /* Below vocab-card */
     }
 
     .progress-bar-container {
         height: 77px; /* Increased by 20px to accommodate downward shift */
         align-items: flex-end; /* Align content to bottom */
+        z-index: 20; /* Below vocab-card */
     }
 
     .stats-number {
@@ -753,7 +761,6 @@ html, body {
     .website-name-content {
         max-width: 360px;
         padding-bottom: 5px; /* Small gap from bottom */
-        z-index: 2000; /* High z-index to bring text to front */
     }
 
     .slogan-content {
