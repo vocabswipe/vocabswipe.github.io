@@ -76,6 +76,7 @@ html, body {
 .website-name-container {
     height: 60px;
     align-items: flex-end; /* Align content to bottom */
+    z-index: 1000; /* Lowered from 2000 to 1000 to be below card-container during swipe */
 }
 
 .slogan-container {
@@ -408,7 +409,7 @@ html, body {
     max-width: 300px;
     text-align: center;
     padding-bottom: 5px; /* Small gap from bottom */
-    z-index: 2000; /* High z-index to bring text to front */
+    z-index: 1000; /* Match parent z-index */
 }
 
 .website-name {
@@ -439,7 +440,7 @@ html, body {
     line-height: 1.2;
     overflow: visible;
     white-space: nowrap;
-    z-index: 20;
+    z-index: 15; /* Match parent z-index */
     position: relative;
 }
 
@@ -724,6 +725,8 @@ html, body {
 
     .slogan-container {
         height: 35px;
+        z-index: 15; /* Lowered from implicit high value to be below card-container (10 by default, 2500 during swipe) */
+}
     }
 
     .progress-bar-container {
