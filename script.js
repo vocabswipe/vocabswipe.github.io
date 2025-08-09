@@ -243,9 +243,6 @@ function setInitialCardTheme() {
             element.style.color = cardTextColor;
         });
     });
-
-    // Ensure top card has highest z-index
-    document.getElementById('vocab-card').style.zIndex = '999';
 }
 
 // Function to populate cards with content before animation
@@ -286,7 +283,6 @@ function populateCardsBeforeAnimation() {
         wordBottomElement.style.color = cardTextColor;
         englishElement.style.color = cardTextColor;
         thaiElement.style.color = cardTextColor;
-        currentCard.style.zIndex = '999'; // Ensure top card stays on top
     }
 
     // Populate next cards
@@ -336,9 +332,6 @@ function animateCardStackDrop(callback) {
         card.style.transition = 'none';
         card.style.transform = `translateY(-${window.innerHeight}px) rotate(${(cards.length - 1 - index) * 0.3249}deg)`;
         card.style.opacity = '0';
-        if (card.id === 'vocab-card') {
-            card.style.zIndex = '999'; // Top card on top
-        }
     });
 
     // Start animation after a brief delay
@@ -351,9 +344,6 @@ function animateCardStackDrop(callback) {
                 const rotate = (cards.length - 1 - index) * 0.3249;
                 card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
                 card.style.opacity = '1';
-                if (card.id === 'vocab-card') {
-                    card.style.zIndex = '999'; // Maintain top card z-index
-                }
             }, index * 200);
         });
 
@@ -438,14 +428,13 @@ function startTutorialAnimation() {
 
                     // Animate handpoint and card together
                     topCard.style.transition = 'transform 1.5s ease, opacity 1.5s ease';
-                    topCard.style.zIndex = '999'; // Ensure top card stays on top during animation
                     handpoint.style.transition = 'transform 1.5s ease';
                     topCard.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
                     topCard.style.opacity = '0';
                     handpoint.style.transform = `translate(-50%, -50%) translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
 
                     // Reset after swipe animation
- Bedfordshire setTimeout(() => {
+                    setTimeout(() => {
                         handpoint.style.display = 'none';
                         moveToNextCard(translateX, translateY, rotate, true); // isAnimation=true to skip progress bar update
                     }, 1500);
@@ -592,7 +581,7 @@ function displayCards() {
         currentCard.style.borderColor = cardBorderColor;
         currentCard.style.transform = 'translate(0, 0) rotate(0deg)';
         currentCard.style.opacity = '1';
-        currentCard.style.zIndex = '999'; // Ensure top card is above all other elements
+        currentCard.style.zIndex = '100';
     }
 
     // Next cards
@@ -636,7 +625,7 @@ function moveToNextCard(translateX, translateY, rotate, isAnimation = false) {
     card.style.transition = 'transform 0.75s ease, opacity 0.75s ease';
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
-    card.style.zIndex = '999'; // Ensure top card stays on top during swipe
+    card.style.zIndex = '1000';
     // Only update swipedCards and hasSwiped for user-initiated swipes
     if (!isAnimation) {
         const originalIndex = vocabData[currentIndex].originalIndex;
@@ -677,7 +666,7 @@ card.addEventListener('touchstart', (e) => {
         currentY = startY;
         startTime = Date.now();
         card.style.transition = 'none';
-        card.style.zIndex = '999'; // Ensure top card stays on top
+        card.style.zIndex = '1000';
         isDragging = true;
     }
 });
@@ -691,7 +680,7 @@ card.addEventListener('touchmove', (e) => {
         const deltaY = currentY - startY;
         const rotate = (deltaX / window.innerWidth) * 30;
         card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
-        card.style.zIndex = '999'; // Maintain z-index during movement
+        card.style.zIndex = '1000';
     }
 });
 
@@ -710,7 +699,6 @@ card.addEventListener('touchend', (e) => {
         card.classList.add('glow');
         audio.play().catch(error => console.error('Error playing audio:', error));
         card.style.transform = 'translate(0, 0) rotate(0deg)';
-        card.style.zIndex = '999';
         setTimeout(() => {
             card.classList.remove('glow');
         }, 600);
@@ -724,7 +712,6 @@ card.addEventListener('touchend', (e) => {
     } else {
         card.style.transition = 'transform 0.3s ease';
         card.style.transform = 'translate(0, 0) rotate(0deg)';
-        card.style.zIndex = '999';
     }
 });
 
@@ -736,7 +723,7 @@ card.addEventListener('mousedown', (e) => {
     currentY = startY;
     startTime = Date.now();
     card.style.transition = 'none';
-    card.style.zIndex = '999'; // Ensure top card stays on top
+    card.style.zIndex = '1000';
     isDragging = true;
     hasMoved = false; // Reset hasMoved on mousedown
 });
@@ -754,7 +741,7 @@ card.addEventListener('mousemove', (e) => {
         }
         const rotate = (deltaX / window.innerWidth) * 30;
         card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
-        card.style.zIndex = '999'; // Maintain z-index during movement
+        card.style.zIndex = '1000';
     }
 });
 
@@ -773,7 +760,6 @@ card.addEventListener('mouseup', (e) => {
         card.classList.add('glow');
         audio.play().catch(error => console.error('Error playing audio:', error));
         card.style.transform = 'translate(0, 0) rotate(0deg)';
-        card.style.zIndex = '999';
         setTimeout(() => {
             card.classList.remove('glow');
         }, 600);
@@ -787,7 +773,6 @@ card.addEventListener('mouseup', (e) => {
     } else {
         card.style.transition = 'transform 0.3s ease';
         card.style.transform = 'translate(0, 0) rotate(0deg)';
-        card.style.zIndex = '999';
     }
 });
 
@@ -796,7 +781,6 @@ card.addEventListener('mouseleave', () => {
         isDragging = false;
         card.style.transition = 'transform 0.3s ease';
         card.style.transform = 'translate(0, 0) rotate(0deg)';
-        card.style.zIndex = '999';
     }
 });
 
@@ -807,7 +791,6 @@ document.addEventListener('keydown', (e) => {
             const audio = document.querySelector('#card-audio');
             card.classList.add('glow');
             audio.play().catch(error => console.error('Error playing audio:', error));
-            card.style.zIndex = '999';
             setTimeout(() => {
                 card.classList.remove('glow');
             }, 600);
