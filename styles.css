@@ -76,12 +76,14 @@ html, body {
 .website-name-container {
     height: 60px;
     align-items: flex-end; /* Align content to bottom */
-    z-index: -10; /* Updated to match loading.gif */
+    z-index: -10; /* Matches loading.gif */
+    margin-top: 5px; /* Added to move downward by 5px on mobile */
 }
 
 .slogan-container {
     height: 30px;
-    z-index: -10; /* Updated to match loading.gif */
+    z-index: -10; /* Matches loading.gif */
+    margin-top: 5px; /* Added to move downward by 5px on mobile */
 }
 
 .progress-bar-container {
@@ -89,7 +91,7 @@ html, body {
     opacity: 0; /* Initially hidden */
     display: flex;
     align-items: flex-end; /* Align content to bottom */
-    z-index: -10; /* Updated to match loading.gif */
+    z-index: -10; /* Matches loading.gif */
 }
 
 /* Loading spinner styling */
@@ -283,6 +285,7 @@ html, body {
 }
 
 .developer-role .vocabswipe-text {
+    fontmandu
     font-family: 'Bangers', cursive;
     color: #35654d;
 }
@@ -411,7 +414,7 @@ html, body {
     max-width: 300px;
     text-align: center;
     padding-bottom: 5px; /* Small gap from bottom */
-    z-index: -10; /* Updated to match loading.gif */
+    z-index: -10; /* Matches loading.gif */
 }
 
 .website-name {
@@ -442,7 +445,7 @@ html, body {
     line-height: 1.2;
     overflow: visible;
     white-space: nowrap;
-    z-index: -10; /* Updated to match loading.gif */
+    z-index: -10; /* Matches loading.gif */
     position: relative;
 }
 
@@ -459,7 +462,7 @@ html, body {
     height: 9px;
     position: relative;
     margin-top: 5px; /* Adjusted from 10px to move upward by 5px for mobile */
-    z-index: -10; /* Updated to match loading.gif */
+    z-index: -10; /* Matches loading.gif */
 }
 
 .progress-label {
@@ -474,7 +477,7 @@ html, body {
     white-space: nowrap;
     line-height: 1.4;
     overflow: visible;
-    z-index: -10; /* Updated to match loading.gif */
+    z-index: -10; /* Matches loading.gif */
 }
 
 .progress-label.thai-text {
@@ -493,7 +496,7 @@ html, body {
     top: -18px;
     transition: opacity 1s ease; /* Smooth fade-in */
     white-space: nowrap;
-    z-index: -10; /* Updated to match loading.gif */
+    z-index: -10; /* Matches loading.gif */
 }
 
 .progress-bar {
@@ -504,7 +507,7 @@ html, body {
     overflow: hidden;
     position: absolute;
     bottom: 0; /* Align to bottom of progress-content */
-    z-index: -10; /* Updated to match loading.gif */
+    z-index: -10; /* Matches loading.gif */
 }
 
 .progress-fill {
@@ -512,7 +515,7 @@ html, body {
     background-color: #00ff00;
     width: 0%;
     transition: width 0.3s ease, background-color 0.3s ease;
-    z-index: -10; /* Updated to match loading.gif */
+    z-index: -10; /* Matches loading.gif */
 }
 
 .progress-brighten {
@@ -728,21 +731,21 @@ html, body {
     .website-name-container {
         height: 97px; /* Increased from 87px to 97px */
         align-items: flex-end; /* Align content to bottom */
-        margin-top: 10px; /* Added to move downward by 10px */
-        z-index: -10; /* Updated to match loading.gif */
+        margin-top: 10px; /* Desktop-specific downward shift */
+        z-index: -10; /* Matches loading.gif */
     }
 
     .slogan-container {
         height: 35px;
-        margin-top: 10px; /* Added to move downward by 10px */
-        z-index: -10; /* Updated to match loading.gif */
+        margin-top: 10px; /* Desktop-specific downward shift */
+        z-index: -10; /* Matches loading.gif */
     }
 
     .progress-bar-container {
         height: 77px; /* Increased by 20px to accommodate downward shift */
         align-items: flex-end; /* Align content to bottom */
-        z-index: -10; /* Updated to match loading.gif */
-        margin-top: 10px; /* Added to move downward by 10px */
+        z-index: -10; /* Matches loading.gif */
+        margin-top: 10px; /* Desktop-specific downward shift */
     }
 
     .stats-number {
@@ -767,7 +770,7 @@ html, body {
     .website-name-content {
         max-width: 360px;
         padding-bottom: 5px; /* Small gap from bottom */
-        z-index: -10; /* Updated to match loading.gif */
+        z-index: -10; /* Matches loading.gif */
     }
 
     .slogan-content {
@@ -779,13 +782,13 @@ html, body {
         max-width: 300px;
         height: 10px;
         margin-top: 20px; /* Maintain downward shift for PC */
-        z-index: -10; /* Updated to match loading.gif */
+        z-index: -10; /* Matches loading.gif */
     }
 
     .progress-bar {
         width: 300px; /* Match card width */
         height: 10px;
-        z-index: -10; /* Updated to match loading.gif */
+        z-index: -10; /* Matches loading.gif */
     }
 
     .progress-label {
@@ -794,7 +797,7 @@ html, body {
         line-height: 1.2;
         color: #F8F8FF;
         transition: opacity 1s ease; /* Smooth fade-in */
-        z-index: -10; /* Updated to match loading.gif */
+        z-index: -10; /* Matches loading.gif */
     }
 
     .progress-label.thai-text {
@@ -807,7 +810,7 @@ html, body {
         top: -20px;
         color: #F8F8FF;
         transition: opacity 1s ease; /* Smooth fade-in */
-        z-index: -10; /* Updated to match loading.gif */
+        z-index: -10; /* Matches loading.gif */
     }
 
     .website-name {
