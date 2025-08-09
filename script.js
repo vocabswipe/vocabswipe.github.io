@@ -625,7 +625,7 @@ function moveToNextCard(translateX, translateY, rotate, isAnimation = false) {
     card.style.transition = 'transform 0.75s ease, opacity 0.75s ease';
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
-    card.style.zIndex = '1000';
+    card.style.zIndex = '3000'; // Ensure high z-index during animation
     // Only update swipedCards and hasSwiped for user-initiated swipes
     if (!isAnimation) {
         const originalIndex = vocabData[currentIndex].originalIndex;
@@ -640,6 +640,7 @@ function moveToNextCard(translateX, translateY, rotate, isAnimation = false) {
         currentIndex = (currentIndex + 1) % vocabData.length;
         displayCards();
         card.style.transition = 'none';
+        card.style.zIndex = '100'; // Reset to default z-index after animation
     }, 750);
 }
 
@@ -666,7 +667,7 @@ card.addEventListener('touchstart', (e) => {
         currentY = startY;
         startTime = Date.now();
         card.style.transition = 'none';
-        card.style.zIndex = '1000';
+        card.style.zIndex = '3000'; // Set high z-index during swipe
         isDragging = true;
     }
 });
@@ -723,7 +724,7 @@ card.addEventListener('mousedown', (e) => {
     currentY = startY;
     startTime = Date.now();
     card.style.transition = 'none';
-    card.style.zIndex = '1000';
+    card.style.zIndex = '3000'; // Set high z-index during swipe
     isDragging = true;
     hasMoved = false; // Reset hasMoved on mousedown
 });
