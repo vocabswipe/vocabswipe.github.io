@@ -409,7 +409,7 @@ html, body {
     max-width: 300px;
     text-align: center;
     padding-bottom: 5px; /* Small gap from bottom */
-    z-index: 20; /* Modified: Changed from 2000 to 20 to ensure top card appears above */
+    z-index: 20; /* Ensures top card appears above */
 }
 
 .website-name {
@@ -701,6 +701,10 @@ html, body {
 
 /* Responsive adjustments for desktop */
 @media (min-width: 601px) {
+    .main-content {
+        max-height: 670px; /* Increased from 640px to accommodate 30px total downward shift */
+    }
+
     .icon-panel-container {
         height: 39px;
     }
@@ -723,16 +727,19 @@ html, body {
     .website-name-container {
         height: 97px; /* Increased from 87px to 97px */
         align-items: flex-end; /* Align content to bottom */
+        margin-top: 10px; /* Added to move downward by 10px */
     }
 
     .slogan-container {
         height: 35px;
+        margin-top: 10px; /* Added to move downward by 10px */
     }
 
     .progress-bar-container {
         height: 77px; /* Increased by 20px to accommodate downward shift */
         align-items: flex-end; /* Align content to bottom */
         z-index: 20; /* Matches progress bar components */
+        margin-top: 10px; /* Added to move downward by 10px */
     }
 
     .stats-number {
@@ -757,7 +764,7 @@ html, body {
     .website-name-content {
         max-width: 360px;
         padding-bottom: 5px; /* Small gap from bottom */
-        z-index: 20; /* Modified: Changed from 2000 to 20 to ensure top card appears above */
+        z-index: 20; /* Ensures top card appears above */
     }
 
     .slogan-content {
