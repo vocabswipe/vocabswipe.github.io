@@ -428,6 +428,8 @@ function startTutorialAnimation() {
 
                     // Animate handpoint and card together
                     topCard.style.transition = 'transform 1.5s ease, opacity 1.5s ease';
+                    topCard.style.zIndex = '3000'; // High z-index for top card
+                    cardContainer.style.zIndex = '2500'; // High z-index for card-container
                     handpoint.style.transition = 'transform 1.5s ease';
                     topCard.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
                     topCard.style.opacity = '0';
