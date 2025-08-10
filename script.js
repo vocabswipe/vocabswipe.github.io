@@ -851,10 +851,11 @@ donationPopup.addEventListener('click', (e) => {
 function captureSnapshot() {
     const canvas = document.querySelector('#snapshot-canvas');
     const ctx = canvas.getContext('2d');
+    const mainContent = document.querySelector('.main-content');
 
-    // Set canvas size to match the current viewport
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
+    // Set canvas size to match mobile viewport (360px × 640px)
+    const viewportWidth = 360;
+    const viewportHeight = 640;
     const pixelRatio = window.devicePixelRatio || 1;
     canvas.width = viewportWidth * pixelRatio;
     canvas.height = viewportHeight * pixelRatio;
@@ -864,15 +865,15 @@ function captureSnapshot() {
     ctx.fillStyle = '#35654d';
     ctx.fillRect(0, 0, viewportWidth, viewportHeight);
 
-    html2canvas(document.documentElement, {
+    html2canvas(mainContent, {
         width: viewportWidth,
         height: viewportHeight,
         scale: pixelRatio,
         backgroundColor: '#35654d',
         useCORS: true,
         logging: false,
-        x: window.scrollX,
-        y: window.scrollY
+        x: 0,
+        y: 0
     }).then(canvas => {
         ctx.drawImage(canvas, 0, 0, viewportWidth, viewportHeight);
 
