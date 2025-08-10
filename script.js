@@ -1,3 +1,31 @@
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCdvEuh27Y0Oa6YDvlfq6Uvfheiwd4kMQE",
+  authDomain: "vocabswipe-35b93.firebaseapp.com",
+  projectId: "vocabswipe-35b93",
+  storageBucket: "vocabswipe-35b93.firebasestorage.app",
+  messagingSenderId: "750129637200",
+  appId: "1:750129637200:web:138ea980ab41861cf7ee55",
+  measurementId: "G-F9HFL0SNPY"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+const analytics = firebase.analytics();
+
+// Test Firebase integration
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('Firebase initialized:', firebase.app().name);
+  db.collection('test').doc('testDoc').set({ test: 'Hello, Firebase!' })
+    .then(() => console.log('Firestore write successful'))
+    .catch(error => console.error('Firestore error:', error));
+  auth.onAuthStateChanged(user => {
+    console.log('Auth state:', user ? user.uid : 'No user');
+  });
+});
+
 // Array to hold vocabulary entries
 let vocabData = [];
 let originalVocabLength = 0; // Store original length for stats
@@ -255,7 +283,7 @@ function populateCardsBeforeAnimation() {
         { top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6' },
         { top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7' },
         { top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8' },
-        { top: 'next-word-top-9', bottom: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9' }
+        { top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9' }
     ];
 
     // Populate current card
