@@ -1,67 +1,68 @@
-const functions = require('firebase-functions');
-const admin = require('firebase-admin');
-const stripe = require('stripe')(functions.config().stripe.secret_key);
-const express = require('express');
-const bodyParser = require('body-parser');
+const functions = require("firebase-functions");
+const admin = require("firebase-admin");
+const stripe = require("stripe")(functions.config().stripe.secret_key);
+const express = require("express");
+const bodyParser = require("body-parser");
 
 admin.initializeApp();
 
 const app = express();
-app.use(bodyParser.raw({ type: 'application/json' }));
+app.use(bodyParser.raw({type: "application/json"}));
 
 // Create Stripe Checkout session
 exports.createCheckoutSession = functions.https.onCall(async (data, context) => {
   if (!context.auth) {
-    throw new functions.https.HttpsError('unauthenticated', 'User must be logged in.');
+    throw new functions.https.HttpsError(
+      "unauthenticated",
+      "User must be logged in."
+    );
   }
   const userId = context.auth.uid;
   const email = context.auth.token.email;
 
   try {
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['promptpay'],
-      mode: 'subscription',
-      line_items: [
-        {
-          price: 'price_1RucJuACmO3bLEHxBLtHwAMi',
-          quantity: 1,
-        },
-      ],
+      payment_method_types: ["promptpay"],
+      mode: "subscription",
+      line_items: [{
+        price: "price_1RucJuACmO3bLEHxBLtHwAMi",
+        quantity: 1,
+      }],
       customer_email: email,
-      success_url: 'http://localhost:8080/success?session_id={CHECKOUT_SESSION_ID}', // Update for production
-      cancel_url: 'http://localhost:8080/cancel', // Update for production
-      metadata: { userId: userId },
+      success_url: "http://localhost:8080/success?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: "http://localhost:8080/cancel",
+      metadata: {userId},
     });
 
-    return { sessionId: session.id };
+    return {sessionId: session.id};
   } catch (error) {
-    throw new functions.https.HttpsError('internal', `Failed to create checkout session: ${error.message}`);
+    throw new functions.https.HttpsError(
+      "internal",
+      `Failed to create checkout session: ${error.message}`
+    );
   }
 });
 
 // Handle Stripe webhook events
-app.post('/webhook', async (req, res) => {
-  const sig = req.headers['stripe-signature'];
+app.post("/webhook", async (req, res) => {
+  const sig = req.headers["stripe-signature"];
   const webhookSecret = functions.config().stripe.webhook_secret;
 
   try {
     const event = stripe.webhooks.constructEvent(req.rawBody, sig, webhookSecret);
 
-    if (event.type === 'checkout.session.completed') {
+    if (event.type === "checkout.session.completed") {
       const session = event.data.object;
       const userId = session.metadata.userId;
 
-      await admin.firestore().collection('users').doc(userId).set(
-        {
-          isSubscribed: true,
-          stripeSubscriptionId: session.subscription,
-          stripeCustomerId: session.customer,
-        },
-        { merge: true }
-      );
+      await admin.firestore().collection("users").doc(userId).set({
+        isSubscribed: true,
+        stripeSubscriptionId: session.subscription,
+        stripeCustomerId: session.customer,
+      }, {merge: true});
     }
 
-    res.status(200).send('Webhook received');
+    res.status(200).send("Webhook received");
   } catch (error) {
     res.status(400).send(`Webhook error: ${error.message}`);
   }
