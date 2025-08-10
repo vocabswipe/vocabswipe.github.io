@@ -1,73 +1,78 @@
-// Simple demo state management (to be replaced with Firebase)
-let isLoggedIn = false;
+// Simulated user data (to be replaced with Firebase)
+let currentUser = null;
 let isSubscribed = false;
 
-// Page navigation
-function showPage(pageId) {
-    document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-    document.getElementById(pageId).classList.add('active');
+// Page elements
+const loginPage = document.getElementById('login-page');
+const contentPage = document.getElementById('content-page');
+const subscriptionPage = document.getElementById('subscription-page');
+const loginForm = document.getElementById('login-form');
+const loginError = document.getElementById('login-error');
+const subscribeBtn = document.getElementById('subscribe-btn');
+const logoutBtn = document.getElementById('logout-btn');
+const backToContentBtn = document.getElementById('back-to-content');
+const subscriptionStatus = document.getElementById('subscription-status');
+const content = document.getElementById('content');
+
+// Show/hide pages
+function showPage(page) {
+    loginPage.classList.remove('active');
+    contentPage.classList.remove('active');
+    subscriptionPage.classList.remove('active');
+    page.classList.add('active');
 }
 
-// Login form handling
-document.getElementById('login-form').addEventListener('submit', (e) => {
+// Simulated login (replace with Firebase Auth)
+loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const email = document.getElementById('login-email').value;
-    const password = document.getElementById('login-password').value;
-    
-    // Demo login logic (replace with Firebase Auth)
-    if (email && password) {
-        isLoggedIn = true;
-        if (isSubscribed) {
-            showPage('content-page');
-        } else {
-            showPage('subscription-page');
-        }
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    // Simulate authentication
+    if (email === 'test@example.com' && password === 'password') {
+        currentUser = { email: email };
+        isSubscribed = false; // Simulate free membership
+        showPage(contentPage);
+        updateContentPage();
     } else {
-        alert('Please enter valid credentials');
+        loginError.textContent = 'Invalid email or password';
     }
 });
 
-// Signup form handling
-document.getElementById('signup-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = document.getElementById('signup-email').value;
-    const password = document.getElementById('signup-password').value;
-    
-    // Demo signup logic (replace with Firebase Auth)
-    if (email && password) {
-        isLoggedIn = true;
-        showPage('subscription-page');
-    } else {
-        alert('Please enter valid credentials');
-    }
-});
-
-// Navigation links
-document.getElementById('show-signup').addEventListener('click', () => showPage('signup-page'));
-document.getElementById('show-login').addEventListener('click', () => showPage('login-page'));
-
-// Subscription handling
-document.getElementById('confirm-payment').addEventListener('click', () => {
-    // Demo subscription logic (replace with PromptPay verification)
-    isSubscribed = true;
-    alert('Payment confirmed! You are now subscribed.');
-    showPage('content-page');
-});
-
-document.getElementById('back-to-content').addEventListener('click', () => {
+// Update content page based on subscription status
+function updateContentPage() {
     if (isSubscribed) {
-        showPage('content-page');
+        subscriptionStatus.textContent = 'You are a premium subscriber!';
+        subscribeBtn.style.display = 'none';
+        content.style.display = 'block';
     } else {
-        showPage('subscription-page');
+        subscriptionStatus.textContent = 'You need a subscription to view content.';
+        subscribeBtn.style.display = 'block';
+        content.style.display = 'none';
     }
+}
+
+// Subscribe button click
+subscribeBtn.addEventListener('click', () => {
+    showPage(subscriptionPage);
 });
 
-// Logout handling
-document.getElementById('logout').addEventListener('click', () => {
-    isLoggedIn = false;
+// Back to content from subscription page
+backToContentBtn.addEventListener('click', () => {
+    // Simulate subscription activation (replace with Firebase Firestore update)
+    isSubscribed = true;
+    showPage(contentPage);
+    updateContentPage();
+});
+
+// Logout
+logoutBtn.addEventListener('click', () => {
+    currentUser = null;
     isSubscribed = false;
-    showPage('login-page');
+    showPage(loginPage);
+    loginForm.reset();
+    loginError.textContent = '';
 });
 
-// Initial page
-showPage('login-page');
+// Initial page setup
+showPage(loginPage);
