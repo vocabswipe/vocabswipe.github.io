@@ -556,7 +556,7 @@ html, body {
 
 /* Hide blue highlight on next cards and stack cards for mobile */
 @media (max-width: 600px) {
-    #next-card-1, #next-card-2, #next-card-3, #next-card-4, 
+    #vocab-card, #next-card-1, #next-card-2, #next-card-3, #next-card-4, 
     #next-card-5, #next-card-6, #next-card-7, #next-card-8, 
     #next-card-9, .card-stack {
         -webkit-tap-highlight-color: transparent;
