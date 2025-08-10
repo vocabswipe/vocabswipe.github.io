@@ -2,182 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Master Words, Swipe by Swipe with VocabSwipe">
-    <meta name="keywords" content="VocabSwipe, English vocabulary, learn English, swipe cards, language learning">
-    <meta name="author" content="VocabSwipe">
-    <title>VocabSwipe</title>
-    <link rel="icon" type="image/x-icon" href="VS.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Subscription Website</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <!-- Firebase SDK Scripts -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js"></script>
 </head>
 <body>
-    <div class="main-content">
-        <!-- Icon panel container -->
-        <div class="icon-panel-container">
-            <div class="icon-panel">
-                <img src="share.svg" alt="Share" class="share-icon" id="share-icon">
-                <button class="login-button" id="login-button">Login</button>
-            </div>
-            <!-- Login modal -->
-            <div class="modal" id="login-modal" style="display: none;">
-                <div class="modal-content">
-                    <h2>Login to VocabSwipe</h2>
-                    <button id="google-login">Sign in with Google</button>
-                    <button id="email-login">Sign in with Email</button>
-                    <button id="phone-login">Sign in with Phone</button>
-                    <button id="close-modal">Close</button>
-                </div>
-            </div>
+    <div id="app">
+        <!-- Login Page -->
+        <div id="login-page" class="page active">
+            <h1>Login</h1>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <p>Not a member? <a href="#" id="show-signup">Sign Up</a></p>
+            </form>
         </div>
-        <!-- Loading spinner -->
-        <div class="loading-spinner" id="loading-spinner">
-            <img src="loading.gif" alt="Loading" class="spinner">
+
+        <!-- Signup Page -->
+        <div id="signup-page" class="page">
+            <h1>Sign Up</h1>
+            <form id="signup-form">
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+                <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+            </form>
         </div>
-        <!-- Stats number container -->
-        <div class="stats-number-container">
-            <div class="stats-number">
-                <div class="counter">
-                    <h2 class="timer count-title count-number" data-to="10000" data-speed="10000"></h2>
-                </div>
+
+        <!-- Subscription Page -->
+        <div id="subscription-page" class="page">
+            <h1>Subscribe to Access Content</h1>
+            <p>Subscribe for only 10 THB per month to access exclusive content.</p>
+            <div class="promptpay-section">
+                <h3>Pay via PromptPay</h3>
+                <img src="promptpay-qr-placeholder.png" alt="PromptPay QR Code" class="qr-code">
+                <p>Scan the QR code to pay 10 THB/month.</p>
+                <button id="confirm-payment">Confirm Payment</button>
             </div>
+            <button id="back-to-content">Back to Content</button>
         </div>
-        <!-- Stats sentence container -->
-        <div class="stats-sentence-container">
-            <div class="stats-sentence">
-                <div class="stats-text-container">
-                    <p class="count-text" id="stats-line1">Essential American English Sentences</p>
-                </div>
+
+        <!-- Content Page -->
+        <div id="content-page" class="page">
+            <h1>Exclusive Content</h1>
+            <div id="content-area">
+                <p>This is premium content available only to subscribers.</p>
+                <p>Enjoy articles, videos, and more!</p>
             </div>
-        </div>
-        <!-- Card container -->
-        <div class="card-area-container">
-            <div class="card-container" id="card-container">
-                <!-- Top card (interactive) -->
-                <div class="card" id="vocab-card">
-                    <div class="card-content">
-                        <h1 class="word top-left" id="word-top"></h1>
-                        <p class="sentence english" id="english"></p>
-                        <p class="sentence thai" id="thai"></p>
-                        <h1 class="word bottom-right" id="word-bottom"></h1>
-                    </div>
-                </div>
-                <!-- Next cards (visible underneath with content) -->
-                <div class="card" id="next-card-1">
-                    <div class="card-content">
-                        <h1 class="word top-left" id="next-word-top-1"></h1>
-                        <p class="sentence english" id="next-english-1"></p>
-                        <p class="sentence thai" id="next-thai-1"></p>
-                        <h1 class="word bottom-right" id="next-word-bottom-1"></h1>
-                    </div>
-                </div>
-                <div class="card" id="next-card-2">
-                    <div class="card-content">
-                        <h1 class="word top-left" id="next-word-top-2"></h1>
-                        <p class="sentence english" id="next-english-2"></p>
-                        <p class="sentence thai" id="next-thai-2"></p>
-                        <h1 class="word bottom-right" id="next-word-bottom-2"></h1>
-                    </div>
-                </div>
-                <div class="card" id="next-card-3">
-                    <div class="card-content">
-                        <h1 class="word top-left" id="next-word-top-3"></h1>
-                        <p class="sentence english" id="next-english-3"></p>
-                        <p class="sentence thai" id="next-thai-3"></p>
-                        <h1 class="word bottom-right" id="next-word-bottom-3"></h1>
-                    </div>
-                </div>
-                <div class="card" id="next-card-4">
-                    <div class="card-content">
-                        <h1 class="word top-left" id="next-word-top-4"></h1>
-                        <p class="sentence english" id="next-english-4"></p>
-                        <p class="sentence thai" id="next-thai-4"></p>
-                        <h1 class="word bottom-right" id="next-word-bottom-4"></h1>
-                    </div>
-                </div>
-                <div class="card" id="next-card-5">
-                    <div class="card-content">
-                        <h1 class="word top-left" id="next-word-top-5"></h1>
-                        <p class="sentence english" id="next-english-5"></p>
-                        <p class="sentence thai" id="next-thai-5"></p>
-                        <h1 class="word bottom-right" id="next-word-bottom-5"></h1>
-                    </div>
-                </div>
-                <div class="card" id="next-card-6">
-                    <div class="card-content">
-                        <h1 class="word top-left" id="next-word-top-6"></h1>
-                        <p class="sentence english" id="next-english-6"></p>
-                        <p class="sentence thai" id="next-thai-6"></p>
-                        <h1 class="word bottom-right" id="next-word-bottom-6"></h1>
-                    </div>
-                </div>
-                <div class="card" id="next-card-7">
-                    <div class="card-content">
-                        <h1 class="word top-left" id="next-word-top-7"></h1>
-                        <p class="sentence english" id="next-english-7"></p>
-                        <p class="sentence thai" id="next-thai-7"></p>
-                        <h1 class="word bottom-right" id="next-word-bottom-7"></h1>
-                    </div>
-                </div>
-                <div class="card" id="next-card-8">
-                    <div class="card-content">
-                        <h1 class="word top-left" id="next-word-top-8"></h1>
-                        <p class="sentence english" id="next-english-8"></p>
-                        <p class="sentence thai" id="next-thai-8"></p>
-                        <h1 class="word bottom-right" id="next-word-bottom-8"></h1>
-                    </div>
-                </div>
-                <div class="card" id="next-card-9">
-                    <div class="card-content">
-                        <h1 class="word top-left" id="next-word-top-9"></h1>
-                        <p class="sentence english" id="next-english-9"></p>
-                        <p class="sentence thai" id="next-thai-9"></p>
-                        <h1 class="word bottom-right" id="next-word-bottom-9"></h1>
-                    </div>
-                </div>
-                <!-- Underneath cards for stack effect -->
-                <div class="card card-stack card-stack-1"></div>
-                <div class="card card-stack card-stack-2"></div>
-                <div class="card card-stack card-stack-3"></div>
-                <!-- Handpoint for tutorial -->
-                <img src="handpoint.svg" alt="Hand Point" class="handpoint" id="handpoint">
-            </div>
-        </div>
-        <!-- Website name container -->
-        <div class="website-name-container">
-            <div class="website-name-content">
-                <h1 class="website-name">VocabSwipe.com</h1>
-            </div>
-        </div>
-        <!-- Slogan container -->
-        <div class="slogan-container">
-            <div class="slogan-content">
-                <p class="website-slogan">Master Words, Swipe by Swipe</p>
-            </div>
-        </div>
-        <!-- Progress bar container -->
-        <div class="progress-bar-container">
-            <div class="progress-content">
-                <div class="progress-label" id="progress-label"></div>
-                <div class="progress-value" id="progress-value">0</div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progress-fill"></div>
-                </div>
-            </div>
+            <button id="logout">Logout</button>
         </div>
     </div>
-    <audio id="card-audio" src=""></audio>
-    <!-- Canvas for snapshot -->
-    <canvas id="snapshot-canvas" style="display: none;"></canvas>
     <script src="script.js"></script>
 </body>
 </html>
