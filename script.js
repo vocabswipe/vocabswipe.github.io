@@ -1,6 +1,7 @@
-// Simulated user data (replace with Firebase later)
-let currentUser = null;
-let isSubscribed = false;
+// script.js
+import { auth, db } from './firebase.js';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+import { doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
 
 // Page elements
 const loginPage = document.getElementById('login-page');
@@ -30,66 +31,90 @@ showLoginLink.addEventListener('click', (e) => {
 });
 
 // Login form submission
-loginForm.addEventListener('submit', (e) => {
+loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    // Simulated login (replace with Firebase auth)
-    if (email && password) {
-        currentUser = { email };
-        showContentPage();
-    } else {
-        alert('Please enter valid credentials');
+    try {
+        await signInWithEmailAndPassword(auth, email, password);
+        // onAuthStateChanged will handle navigation
+    } catch (error) {
+        alert(`Login failed: ${error.message}`);
     }
 });
 
 // Signup form submission
-signupForm.addEventListener('submit', (e) => {
+signupForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = document.getElementById('signup-email').value;
     const password = document.getElementById('signup-password').value;
 
-    // Simulated signup (replace with Firebase auth)
-    if (email && password) {
-        currentUser = { email };
-        showContentPage();
-    } else {
-        alert('Please enter valid credentials');
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        // Initialize user subscription status in Firestore
+        await setDoc(doc(db, 'users', userCredential.user.uid), {
+            email: email,
+            isSubscribed: false
+        });
+        // onAuthStateChanged will handle navigation
+    } catch (error) {
+        alert(`Signup failed: ${error.message}`);
     }
 });
 
 // Logout
-logoutButton.addEventListener('click', () => {
-    currentUser = null;
-    isSubscribed = false;
-    contentPage.classList.add('hidden');
-    loginPage.classList.remove('hidden');
-    premiumContent.classList.add('hidden');
-    subscriptionPrompt.classList.add('hidden');
-});
-
-// Subscribe button
-subscribeButton.addEventListener('click', () => {
-    // Simulated subscription (replace with Firebase or payment integration)
-    isSubscribed = true;
-    subscriptionPrompt.classList.add('hidden');
-    premiumContent.classList.remove('hidden');
-    alert('Subscription successful! You now have access to premium content.');
-});
-
-// Show content page
-function showContentPage() {
-    loginPage.classList.add('hidden');
-    signupPage.classList.add('hidden');
-    contentPage.classList.remove('hidden');
-
-    // Check subscription status (simulated)
-    if (isSubscribed) {
-        premiumContent.classList.remove('hidden');
-        subscriptionPrompt.classList.add('hidden');
-    } else {
-        premiumContent.classList.add('hidden');
-        subscriptionPrompt.classList.remove('hidden');
+logoutButton.addEventListener('click', async () => {
+    try {
+        await signOut(auth);
+        // onAuthStateChanged will handle navigation
+    } catch (error) {
+        alert(`Logout failed: ${error.message}`);
     }
-}
+});
+
+// Subscribe button (simulated subscription)
+subscribeButton.addEventListener('click', async () => {
+    try {
+        const user = auth.currentUser;
+        if (user) {
+            await setDoc(doc(db, 'users', user.uid), { isSubscribed: true }, { merge: true });
+            subscriptionPrompt.classList.add('hidden');
+            premiumContent.classList.remove('hidden');
+            alert('Subscription successful! You now have access to premium content.');
+        } else {
+            alert('You must be logged in to subscribe.');
+        }
+    } catch (error) {
+        alert(`Subscription failed: ${error.message}`);
+    }
+});
+
+// Authentication state observer
+onAuthStateChanged(auth, async (user) => {
+    if (user) {
+        // User is signed in, check subscription status
+        loginPage.classList.add('hidden');
+        signupPage.classList.add('hidden');
+        contentPage.classList.remove('hidden');
+
+        try {
+            const userDoc = await getDoc(doc(db, 'users', user.uid));
+            if (userDoc.exists() && userDoc.data().isSubscribed) {
+                premiumContent.classList.remove('hidden');
+                subscriptionPrompt.classList.add('hidden');
+            } else {
+                premiumContent.classList.add('hidden');
+                subscriptionPrompt.classList.remove('hidden');
+            }
+        } catch (error) {
+            alert(`Error checking subscription: ${error.message}`);
+        }
+    } else {
+        // User is signed out
+        contentPage.classList.add('hidden');
+        loginPage.classList.remove('hidden');
+        premiumContent.classList.add('hidden');
+        subscriptionPrompt.classList.add('hidden');
+    }
+});
