@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 admin.initializeApp();
 
 const app = express();
-app.use(bodyParser.raw({type: "application/json"}));
+app.use(bodyParser.raw({ type: "application/json" }));
 
 // Create Stripe Checkout session
 exports.createCheckoutSession = functions.https.onCall(async (data, context) => {
@@ -29,16 +29,17 @@ exports.createCheckoutSession = functions.https.onCall(async (data, context) => 
         quantity: 1,
       }],
       customer_email: email,
-      success_url: "http://localhost:8080/success?session_id={CHECKOUT_SESSION_ID}",
+      success_url:
+        "http://localhost:8080/success?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: "http://localhost:8080/cancel",
-      metadata: {userId},
+      metadata: { userId },
     });
 
-    return {sessionId: session.id};
+    return { sessionId: session.id };
   } catch (error) {
     throw new functions.https.HttpsError(
       "internal",
-      `Failed to create checkout session: ${error.message}`
+      `Failed to create session: ${error.message}`
     );
   }
 });
@@ -59,7 +60,7 @@ app.post("/webhook", async (req, res) => {
         isSubscribed: true,
         stripeSubscriptionId: session.subscription,
         stripeCustomerId: session.customer,
-      }, {merge: true});
+      }, { merge: true });
     }
 
     res.status(200).send("Webhook received");
