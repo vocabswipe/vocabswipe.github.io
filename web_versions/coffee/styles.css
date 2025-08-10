@@ -1,5 +1,6 @@
-/* Import Montserrat and Bangers fonts */
+/* Import Montserrat, Bangers, and Noto Sans Thai fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500&display=swap');
 
 /* Reset default styles and prevent scrolling */
 * {
@@ -30,7 +31,7 @@ html, body {
     max-height: 640px; /* Match mobile viewport height */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     position: relative;
     transition: filter 0.3s ease;
@@ -40,49 +41,105 @@ html, body {
     filter: blur(5px);
 }
 
-/* Fixed height containers */
-.stats-container {
+/* Container styles */
+.icon-panel-container,
+.stats-number-container,
+.stats-sentence-container,
+.card-area-container,
+.website-name-container,
+.slogan-container,
+.progress-bar-container {
     width: 100%;
-    height: 120px;
+    max-width: 360px;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
     position: relative;
-    z-index: 15;
 }
 
-.info-container {
-    width: 100%;
-    height: 180px; /* Fixed height to accommodate website-info and progress bar */
+/* Specific container heights */
+.icon-panel-container {
+    height: 35px;
+}
+
+.stats-number-container {
+    height: 40px;
+}
+
+.stats-sentence-container {
+    height: 40px;
+}
+
+.card-area-container {
+    height: 420px;
+}
+
+.website-name-container {
+    height: 60px;
+    align-items: flex-end; /* Align content to bottom */
+}
+
+.slogan-container {
+    height: 30px;
+}
+
+.progress-bar-container {
+    height: 60px; /* Maintain height to accommodate content */
+    opacity: 0; /* Initially hidden */
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    position: relative;
-    z-index: 15;
-    top: 20px; /* Moved downward to avoid overlap with card stack */
+    align-items: flex-end; /* Align content to bottom */
+    z-index: 20; /* Modified: Match z-index with progress bar components */
+}
+
+/* Loading spinner styling */
+.loading-spinner {
+    position: absolute;
+    top: 310px;
+    left: 180px;
+    transform: translate(-50%, -50%);
+    z-index: -10;
+    display: none;
+}
+
+.spinner {
+    width: 64px;
+    height: 64px;
+}
+
+/* Handpoint styling for tutorial */
+.handpoint {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    z-index: 1001;
+    display: none;
+    pointer-events: none;
+}
+
+.tap-effect {
+    animation: tap 0.6s ease-in-out 1;
+}
+
+@keyframes tap {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(0.9); }
+    100% { transform: translate(-50%, -50%) scale(1); }
 }
 
 /* Icon panel styling */
 .icon-panel {
     width: 100%;
-    max-width: 360px; /* Match max card width for alignment */
+    max-width: 340px;
     display: flex;
-    justify-content: space-between; /* Coffee on left, share on right */
+    justify-content: space-between;
     padding: 10px;
-    position: fixed;
-    top: 10px; /* Fixed at top of viewport */
-    left: 50%;
-    transform: translateX(-50%); /* Center the panel */
-    z-index: 100; /* Ensure above all content */
 }
 
 .share-icon, .coffee-icon {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
-    -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
-    touch-action: none; /* Prevent default touch behaviors */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .share-icon:hover, .coffee-icon:hover {
@@ -106,8 +163,9 @@ html, body {
 .donation-popup {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
@@ -118,10 +176,10 @@ html, body {
 
 .donation-content {
     background-color: #ffffff;
-    width: 90%;
-    max-width: 340px;
+    width: 85%;
+    max-width: 300px;
     border-radius: 12px;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     position: relative;
     text-align: center;
@@ -133,7 +191,7 @@ html, body {
 
 .donation-title {
     font-family: 'Bangers', cursive;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: #35654d;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
@@ -147,7 +205,7 @@ html, body {
 .donation-message {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 0.945rem;
+    font-size: 0.84rem;
     color: #333333;
     margin-bottom: 20px;
     line-height: 1.5;
@@ -156,8 +214,9 @@ html, body {
 }
 
 .donation-message.thai-text {
-    font-size: 0.945rem;
+    font-size: 0.924rem;
     line-height: 1.5;
+    font-family: 'Noto Sans Thai', 'Montserrat', sans-serif;
 }
 
 .vocabswipe-text {
@@ -173,15 +232,15 @@ html, body {
 }
 
 .qr-code {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border: 2px solid #35654d;
     border-radius: 8px;
     margin-bottom: 10px;
 }
 
 .promptpay-logo {
-    width: 100px;
+    width: 80px;
     height: auto;
 }
 
@@ -192,12 +251,12 @@ html, body {
 }
 
 .developer-photo {
-    width: 100px; /* Doubled from 50px */
-    height: 100px; /* Doubled from 50px */
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     border: 2px solid #35654d;
     margin-right: 10px;
-    image-rendering: -webkit-optimize-contrast; /* Improves resolution */
+    image-rendering: -webkit-optimize-contrast;
 }
 
 .developer-text {
@@ -207,22 +266,47 @@ html, body {
 .developer-name {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 0.945rem;
+    font-size: 0.84rem;
     color: #333333;
     margin-bottom: 5px;
-    line-height: 1.4; /* Adjusted for new line */
+    line-height: 1.4;
 }
 
 .developer-role {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 0.84rem;
+    font-size: 0.756rem;
     color: #555555;
+    line-height: 1.4;
 }
 
 .developer-role .vocabswipe-text {
     font-family: 'Bangers', cursive;
     color: #35654d;
+}
+
+.social-icons {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.social-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.social-icon:active {
+    transform: scale(0.9);
+    opacity: 0.6;
 }
 
 .close-icon {
@@ -233,42 +317,52 @@ html, body {
     right: 10px;
     cursor: pointer;
     transition: transform 0.2s ease;
-    touch-action: none; /* Prevent default touch behaviors */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .close-icon:hover {
     transform: scale(1.1);
 }
 
-/* Website statistics styling */
-.website-stats {
+/* Stats number styling */
+.stats-number {
     width: 100%;
     max-width: 300px;
     text-align: center;
     position: relative;
-    transition: opacity 1s ease;
+    opacity: 1;
 }
 
 .counter {
     background-color: transparent;
-    padding: 10px;
+    padding: 8px;
     border: none;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .count-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #ffd700;
     margin: 5px 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+    height: 28px;
+}
+
+/* Stats sentence styling */
+.stats-sentence {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
 }
 
 .stats-text-container {
-    min-height: 30px; /* Adjusted for single line */
+    min-height: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -277,10 +371,10 @@ html, body {
 .count-text {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 0.945rem;
+    font-size: 0.924rem;
     color: #ffffff;
     margin: 2px 0;
-    line-height: 1.5;
+    line-height: 1.6;
     transition: opacity 0.05s ease;
     white-space: nowrap;
     overflow: hidden;
@@ -290,121 +384,9 @@ html, body {
 }
 
 .count-text.thai-text#stats-line1 {
-    margin-top: 2px; /* Adjusted margin for Thai text */
+    margin-top: 2px;
     font-size: 1.092rem;
-}
-
-/* Website info and progress bar styling */
-.website-info {
-    text-align: center;
-    position: relative;
-    width: 100%;
-    max-width: 300px;
-    height: 120px; /* Fixed height for name and slogan */
-}
-
-.website-name {
-    font-family: 'Bangers', cursive;
-    font-size: 1.55727rem;
-    font-weight: normal;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    line-height: 1.2;
-    height: 30px; /* Fixed height for website name */
-    overflow: hidden;
-}
-
-.slogan-container {
-    height: 30px; /* Fixed height for slogan */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
-}
-
-.website-slogan {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 1.1679525rem;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    transition: opacity 0.05s ease;
-    line-height: 1.2;
-    height: 100%; /* Match container height */
-    overflow: visible; /* Changed to visible to prevent clipping */
-    white-space: nowrap;
-    z-index: 20; /* Higher z-index to bring in front */
-    position: relative;
-}
-
-.website-slogan.thai-text {
-    font-size: 1.1679525rem;
-    line-height: 1.2;
-}
-
-/* Progress bar styling */
-.progress-container {
-    width: 300px; /* Matches card width */
-    height: 10px; /* Reduced from 20px to 10px */
-    position: absolute;
-    top: 92px; /* Moved upward by 18px (was 120px) */
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0; /* Initially hidden for fade-in effect */
-}
-
-.progress-label {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 0.945rem;
-    color: #ffffff;
-    position: absolute;
-    left: 0;
-    top: -20px; /* Fixed position above progress bar */
-    transition: opacity 0.05s ease;
-    white-space: nowrap;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    line-height: 1.2;
-    height: 20px; /* Fixed height to prevent shifting */
-    overflow: hidden;
-    z-index: 100; /* Increased z-index to bring in front */
-}
-
-.progress-label.thai-text {
-    font-size: 0.945rem;
-    line-height: 1.2;
-    height: 20px; /* Fixed height to prevent shifting */
-}
-
-.progress-value {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 0.945rem;
-    color: #ffffff;
-    position: absolute;
-    right: 0;
-    top: -20px; /* Fixed position above progress bar */
-    transition: opacity 0.05s ease;
-    white-space: nowrap;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    z-index: 20; /* Higher z-index to bring in front */
-}
-
-.progress-bar {
-    width: 100%;
-    height: 10px; /* Reduced from 20px to 10px */
-    background-color: #FFF8DC; /* Changed from #ffffff to #FFF8DC */
-    border-radius: 4px;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-}
-
-.progress-fill {
-    height: 100%;
-    background-color: #7FFF00;
-    width: 0%;
-    transition: width 0.3s ease;
+    font-family: 'Noto Sans Thai', 'Montserrat', sans-serif;
 }
 
 /* Card container */
@@ -421,12 +403,139 @@ html, body {
     z-index: 10;
 }
 
+/* Website name styling */
+.website-name-content {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    padding-bottom: 5px; /* Small gap from bottom */
+    z-index: 20; /* Modified: Changed from 2000 to match progress bar z-index */
+}
+
+.website-name {
+    font-family: 'Bangers', cursive;
+    font-size: 1.349634rem;
+    font-weight: normal;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+    height: 28px;
+    overflow: hidden;
+}
+
+/* Slogan styling */
+.slogan-content {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.website-slogan {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.03818rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.05s ease;
+    line-height: 1.2;
+    overflow: visible;
+    white-space: nowrap;
+    z-index: 20; /* Unchanged: Already matches progress bar z-index */
+    position: relative;
+}
+
+.website-slogan.thai-text {
+    font-size: 1.03818rem;
+    line-height: 1.2;
+    font-family: 'Noto Sans Thai', 'Montserrat', sans-serif;
+}
+
+/* Progress bar styling */
+.progress-content {
+    width: 100%;
+    max-width: 300px;
+    height: 9px;
+    position: relative;
+    margin-top: 5px; /* Adjusted from 10px to move upward by 5px for mobile */
+    z-index: 20; /* Modified: Match z-index with progress bar components */
+}
+
+.progress-label {
+    font-family: 'Montserrat', 'Noto Sans Thai', sans-serif;
+    font-weight: 500;
+    font-size: 0.84rem;
+    color: #F8F8FF;
+    position: absolute;
+    left: 0;
+    top: -18px;
+    transition: opacity 1s ease; /* Updated for smooth fade-in */
+    white-space: nowrap;
+    line-height: 1.4;
+    overflow: visible;
+    z-index: 20;
+    opacity: 0; /* Initially hidden */
+}
+
+.progress-label.thai-text {
+    font-size: 0.84rem;
+    line-height: 1.5;
+    font-family: 'Noto Sans Thai', 'Montserrat', sans-serif;
+}
+
+.progress-value {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.84rem;
+    color: #F8F8FF;
+    position: absolute;
+    right: 0;
+    top: -18px;
+    transition: opacity 1s ease; /* Updated for smooth fade-in */
+    white-space: nowrap;
+    z-index: 20;
+    opacity: 0; /* Initially hidden */
+}
+
+.progress-bar {
+    width: 100%;
+    height: 9px;
+    background-color: #28282B;
+    border-radius: 4px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0; /* Align to bottom of progress-content */
+    z-index: 20; /* Modified: Match z-index with progress bar components */
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #00ff00;
+    width: 0%;
+    transition: width 0.3s ease, background-color 0.3s ease;
+    z-index: 20; /* Modified: Match z-index with progress bar components */
+}
+
+.progress-brighten {
+    background-color: #66ff66;
+}
+
+.progress-glow {
+    animation: progress-glow 0.3s ease-in-out 1;
+}
+
+@keyframes progress-glow {
+    0% { box-shadow: 0 0 0 rgba(0, 255, 0, 0); }
+    50% { box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.7); }
+    100% { box-shadow: 0 0 0 rgba(0, 255, 0, 0); }
+}
+
 /* Poker card styling */
 .card {
     width: 100%;
     height: 100%;
-    border: 1px solid #000;
+    border: 1px solid #000000;
     border-radius: 8px;
+    background-color: #FFF8DC;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -438,80 +547,77 @@ html, body {
     left: 0;
     touch-action: none;
     z-index: 10;
-    display: none; /* Hide cards initially */
-    overflow: hidden; /* Ensure ripple effect stays within card */
+    display: none;
 }
 
-/* Ripple effect styling */
-.ripple {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none; /* Prevent ripple from interfering with card interactions */
+.card:active, .card:focus {
+    outline: none; /* Hide blue highlight on tap */
 }
 
-.ripple-circle {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 50%;
-    transform: scale(0);
-    animation: ripple-animation 0.6s linear;
-    pointer-events: none;
-}
-
-@keyframes ripple-animation {
-    to {
-        transform: scale(4);
-        opacity: 0;
+/* Hide blue highlight on next cards and stack cards for mobile */
+@media (max-width: 600px) {
+    #next-card-1, #next-card-2, #next-card-3, #next-card-4, 
+    #next-card-5, #next-card-6, #next-card-7, #next-card-8, 
+    #next-card-9, .card-stack {
+        -webkit-tap-highlight-color: transparent;
     }
+}
+
+/* Glowing effect */
+.glow {
+    animation: glow 0.6s ease-in-out 1;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+    50% { box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.7); }
+    100% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
 }
 
 /* Next cards and stack cards */
 #next-card-1 {
     z-index: 9;
-    transform: translate(1.296px, 1.296px) rotate(0.3249deg); /* Reduced by 10% */
+    transform: translate(1.296px, 1.296px) rotate(0.3249deg);
 }
 
 #next-card-2 {
     z-index: 8;
-    transform: translate(2.592px, 2.592px) rotate(0.6498deg); /* Reduced by 10% */
+    transform: translate(2.592px, 2.592px) rotate(0.6498deg);
 }
 
 #next-card-3 {
     z-index: 7;
-    transform: translate(3.888px, 3.888px) rotate(0.9747deg); /* Reduced by 10% */
+    transform: translate(3.888px, 3.888px) rotate(0.9747deg);
 }
 
 #next-card-4 {
     z-index: 6;
-    transform: translate(5.184px, 5.184px) rotate(1.2996deg); /* Reduced by 10% */
+    transform: translate(5.184px, 5.184px) rotate(1.2996deg);
 }
 
 #next-card-5 {
     z-index: 5;
-    transform: translate(6.48px, 6.48px) rotate(1.6245deg); /* Reduced by 10% */
+    transform: translate(6.48px, 6.48px) rotate(1.6245deg);
 }
 
 #next-card-6 {
     z-index: 4;
-    transform: translate(7.776px, 7.776px) rotate(1.9494deg); /* Reduced by 10% */
+    transform: translate(7.776px, 7.776px) rotate(1.9494deg);
 }
 
 #next-card-7 {
     z-index: 3;
-    transform: translate(9.072px, 9.072px) rotate(2.2743deg); /* Reduced by 10% */
+    transform: translate(9.072px, 9.072px) rotate(2.2743deg);
 }
 
 #next-card-8 {
     z-index: 2;
-    transform: translate(10.368px, 10.368px) rotate(2.5992deg); /* Reduced by 10% */
+    transform: translate(10.368px, 10.368px) rotate(2.5992deg);
 }
 
 #next-card-9 {
     z-index: 1;
-    transform: translate(11.664px, 11.664px) rotate(2.9241deg); /* Reduced by 10% */
+    transform: translate(11.664px, 11.664px) rotate(2.9241deg);
 }
 
 .card-stack {
@@ -519,19 +625,19 @@ html, body {
 }
 
 .card-stack-1 {
-    transform: translate(3.888px, 3.888px) rotate(3.24deg); /* Reduced by 10% */
+    transform: translate(1.296px, 1.296px) rotate(3.24deg);
     z-index: -1;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .card-stack-2 {
-    transform: translate(5.184px, 5.184px) rotate(3.564deg); /* Reduced by 10% */
+    transform: translate(2.592px, 2.592px) rotate(3.564deg);
     z-index: -2;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card-stack-3 {
-    transform: translate(6.48px, 6.48px) rotate(3.888deg); /* Reduced by 10% */
+    transform: translate(3.888px, 3.888px) rotate(3.888deg);
     z-index: -3;
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.35);
 }
@@ -555,10 +661,11 @@ html, body {
 /* Word styling */
 .word {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 2.1rem;
+    font-size: 1.82rem;
     font-weight: bold;
     position: absolute;
     margin: 0;
+    color: #000000;
 }
 
 .top-left {
@@ -573,240 +680,237 @@ html, body {
 
 /* Sentence styling */
 .sentence {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin: 8px 0;
     text-align: center;
+    color: #000000;
 }
 
 .english {
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     line-height: 1.3;
 }
 
 .thai {
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     line-height: 1.5;
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-    .stats-container {
-        height: 100px;
-        margin-top: 40px; /* Moved downward to avoid top icons */
+/* Responsive adjustments for desktop */
+@media (min-width: 601px) {
+    .icon-panel-container {
+        height: 39px;
     }
 
-    .card-container {
-        margin-top: 40px; /* Moved downward to align with stats */
+    .stats-number-container {
+        height: 48px;
     }
 
-    .info-container {
-        height: 170px; /* Adjusted for mobile */
-        top: 60px; /* Moved downward to align with card stack */
+    .stats-sentence-container {
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    .website-info {
-        height: 110px; /* Fixed height for name and slogan on mobile */
+    .card-area-container {
+        height: 420px;
     }
 
-    .website-name {
-        font-size: 1.349634rem;
-        height: 28px; /* Fixed height for website name */
-        line-height: 1.2;
+    .website-name-container {
+        height: 97px; /* Increased from 87px to 97px */
+        align-items: flex-end; /* Align content to bottom */
     }
 
     .slogan-container {
-        height: 26px; /* Fixed height for slogan */
-        margin: 8px 0;
+        height: 35px;
     }
 
-    .website-slogan {
-        font-size: 1.03818rem;
-        line-height: 1.2;
-        height: 100%; /* Match container height */
-        z-index: 20; /* Higher z-index to bring in front */
-        overflow: visible; /* Prevent clipping */
+    .progress-bar-container {
+        height: 77px; /* Increased by 20px to accommodate downward shift */
+        align-items: flex-end; /* Align content to bottom */
+        z-index: 20; /* Modified: Match z-index with progress bar components */
     }
 
-    .website-slogan.thai-text {
-        font-size: 1.03818rem;
-        line-height: 1.2;
+    .stats-number {
+        max-width: 360px;
     }
 
-    .progress-container {
-        width: 90vw; /* Matches card width */
+    .stats-sentence {
+        max-width: 360px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .stats-text-container {
+        min-height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .website-name-content {
+        max-width: 360px;
+        padding-bottom: 5px; /* Small gap from bottom */
+        z-index: 20; /* Modified: Changed from 2000 to match progress bar z-index */
+    }
+
+    .slogan-content {
+        max-width: 360px;
+    }
+
+    .progress-content {
+        width: 300px; /* Match card width */
         max-width: 300px;
-        height: 9px; /* Reduced from 18px to 9px */
-        top: 82px; /* Moved upward by 18px (was 110px) */
-        left: 50%;
-        transform: translateX(-50%);
-        opacity: 0; /* Initially hidden */
-    }
-
-    .progress-label {
-        font-size: 0.84rem;
-        top: -18px; /* Fixed position above progress bar */
-        line-height: 1.2;
-        height: 18px; /* Fixed height */
-        z-index: 100; /* Increased z-index to bring in front */
-    }
-
-    .progress-label.thai-text {
-        font-size: 0.84rem;
-        line-height: 1.2;
-        height: 18px; /* Fixed height */
-    }
-
-    .progress-value {
-        font-size: 0.84rem;
-        top: -18px; /* Fixed position above progress bar */
-        z-index: 20; /* Higher z-index to bring in front */
+        height: 10px;
+        margin-top: 20px; /* Maintain downward shift for PC */
+        z-index: 20; /* Modified: Match z-index with progress bar components */
     }
 
     .progress-bar {
-        width: 100%;
-        height: 9px; /* Reduced from 18px to 9px */
-        background-color: #FFF8DC; /* Changed from #ffffff to #FFF8DC */
-        border-radius: 4px;
-        overflow: hidden;
-        position: absolute;
-        top: 0;
+        width: 300px; /* Match card width */
+        height: 10px;
+        z-index: 20; /* Modified: Match z-index with progress bar components */
     }
 
-    .progress-fill {
-        height: 100%;
-        background-color: #7FFF00;
-        width: 0%;
-        transition: width 0.3s ease;
+    .progress-label {
+        font-size: 0.945rem;
+        top: -20px;
+        line-height: 1.2;
+        color: #F8F8FF;
+        transition: opacity 1s ease; /* Updated for smooth fade-in */
+        z-index: 20;
     }
 
-    .card-container {
-        width: 90vw;
-        height: calc(90vw * 1.4);
+    .progress-label.thai-text {
+        font-size: 0.945rem;
+        line-height: 1.2;
     }
 
-    .website-stats {
-        width: 90vw;
-        max-width: 300px;
+    .progress-value {
+        font-size: 0.945rem;
+        top: -20px;
+        color: #F8F8FF;
+        transition: opacity 1s ease; /* Updated for smooth fade-in */
+        z-index: 20;
     }
 
-    .counter {
-        padding: 8px;
+    .website-name {
+        font-size: 1.55727rem;
+        height: 30px;
+    }
+
+    .website-slogan {
+        font-size: 1.1679525rem;
+        line-height: 1.2;
+    }
+
+    .website-slogan.thai-text {
+        font-size: 1.1679525rem;
+        line-height: 1.2;
     }
 
     .count-title {
-        font-size: 1.8rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        font-size: 2rem;
+        height: 30px;
     }
 
     .count-text {
-        font-size: 0.84rem;
-        max-width: 300px;
-        line-height: 1.6;
-        transition: opacity 0.05s ease;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .count-text.thai-text#stats-line1 {
-        margin-top: 2px; /* Adjusted margin for Thai text */
-        font-size: 1.092rem;
+        font-size: 0.945rem;
+        line-height: 1.5;
     }
 
     .word {
-        font-size: 1.82rem;
+        font-size: 2.1rem;
     }
 
     .sentence {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
 
     .english, .thai {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
 
     .card-stack-1 {
-        transform: translate(1.296px, 1.296px) rotate(3.24deg); /* Reduced by 10% */
+        transform: translate(3.888px, 3.888px) rotate(3.24deg);
     }
 
     .card-stack-2 {
-        transform: translate(2.592px, 2.592px) rotate(3.564deg); /* Reduced by 10% */
+        transform: translate(5.184px, 5.184px) rotate(3.564deg);
     }
 
     .card-stack-3 {
-        transform: translate(3.888px, 3.888px) rotate(3.888deg); /* Reduced by 10% */
+        transform: translate(6.48px, 6.48px) rotate(3.888deg);
     }
 
     .share-icon, .coffee-icon {
-        width: 28px; /* Increased from 25px for better touch targets */
-        height: 28px; /* Increased from 25px for better touch targets */
-        -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
-        touch-action: none; /* Prevent default touch behaviors */
-    }
-
-    .share-icon:active, .coffee-icon:active {
-        transform: scale(0.9);
-        opacity: 0.6;
+        width: 30px;
+        height: 30px;
     }
 
     .icon-panel {
-        max-width: 340px; /* Adjusted for mobile */
+        max-width: 360px;
     }
 
     .donation-content {
-        width: 85%;
-        max-width: 300px;
-        padding: 15px;
+        width: 90%;
+        max-width: 340px;
+        padding: 20px;
     }
 
     .donation-title {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
 
     .donation-message {
-        font-size: 0.84rem;
+        font-size: 0.945rem;
     }
 
     .donation-message.thai-text {
-        font-size: 0.84rem;
+        font-size: 1.0395rem;
     }
 
     .qr-code {
-        width: 120px;
-        height: 120px;
+        width: 150px;
+        height: 150px;
     }
 
     .promptpay-logo {
-        width: 80px;
+        width: 100px;
     }
 
     .developer-photo {
-        width: 80px; /* Doubled from 40px */
-        height: 80px; /* Doubled from 40px */
-        image-rendering: -webkit-optimize-contrast; /* Improves resolution */
+        width: 100px;
+        height: 100px;
     }
 
     .developer-name {
-        font-size: 0.84rem;
-        line-height: 1.4; /* Adjusted for new line */
+        font-size: 0.945rem;
     }
 
     .developer-role {
-        font-size: 0.756rem;
+        font-size: 0.84rem;
     }
 
-    .developer-role .vocabswipe-text {
-        font-family: 'Bangers', cursive;
-        color: #35654d;
+    .social-icon {
+        width: 24px;
+        height: 24px;
     }
 
-    .close-icon {
-        width: 18px;
-        height: 18px;
-        bottom: 8px;
-        right: 8px;
-        touch-action: none; /* Prevent default touch behaviors */
+    .spinner {
+        width: 80px;
+        height: 80px;
+    }
+
+    .handpoint {
+        width: 96px;
+        height: 96px;
     }
 }
