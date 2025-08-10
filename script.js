@@ -3,7 +3,6 @@ let vocabData = [];
 let originalVocabLength = 0; // Store original length for stats
 let currentIndex = 0;
 let hasSwiped = false; // Flag to track if user has swiped
-let isEnglish = true; // Track language state for synchronization
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
@@ -105,7 +104,6 @@ function updateWebsiteStats() {
 function updateProgressBar() {
     const progressFill = document.getElementById('progress-fill');
     const progressValue = document.getElementById('progress-value');
-    const progressLabel = document.getElementById('progress-label');
     const totalCards = originalVocabLength;
     const swipedCount = swipedCards.length;
     const percentage = totalCards > 0 ? (swipedCount / totalCards) * 100 : 0;
@@ -118,90 +116,12 @@ function updateProgressBar() {
         const progressContainer = document.querySelector('.progress-bar-container');
         progressContainer.style.opacity = '1';
         progressContainer.style.transition = 'opacity 1s ease';
-        progressLabel.style.opacity = '1';
         progressValue.style.opacity = '1';
         progressFill.classList.add('progress-brighten', 'progress-glow');
         setTimeout(() => {
             progressFill.classList.remove('progress-brighten', 'progress-glow');
         }, 300); // Duration of the brighten and glow effect
     }
-}
-
-// Function to alternate stats text, slogan, and progress label between English and Thai
-function alternateStatsText() {
-    const line1 = document.getElementById('stats-line1');
-    const slogan = document.querySelector('.website-slogan');
-    const progressLabel = document.getElementById('progress-label');
-
-    function swapText() {
-        line1.style.transition = 'opacity 0.05s ease';
-        slogan.style.transition = 'opacity 0.05s ease';
-        progressLabel.style.transition = 'opacity 0.05s ease';
-        line1.style.opacity = '0';
-        slogan.style.opacity = '0';
-        progressLabel.style.opacity = '0';
-
-        setTimeout(() => {
-            if (isEnglish) {
-                line1.textContent = 'ประโยคภาษาอังกฤษอเมริกันที่จำเป็น';
-                slogan.textContent = 'ยิ่งปัด ยิ่งเก่ง';
-                progressLabel.textContent = 'จำนวนการ์ดที่ปัดไปแล้ว';
-                line1.classList.add('thai-text');
-                slogan.classList.add('thai-text');
-                progressLabel.classList.add('thai-text');
-            } else {
-                line1.textContent = 'Essential American English Sentences';
-                slogan.textContent = 'Master Words, Swipe by Swipe';
-                progressLabel.textContent = 'Swiped Cards';
-                line1.classList.remove('thai-text');
-                slogan.classList.remove('thai-text');
-                progressLabel.classList.remove('thai-text');
-            }
-            line1.style.opacity = '1';
-            slogan.style.opacity = '1';
-            progressLabel.style.opacity = '1';
-            isEnglish = !isEnglish;
-        }, 50);
-    }
-
-    // Initial setup
-    line1.textContent = 'Essential American English Sentences';
-    slogan.textContent = 'Master Words, Swipe by Swipe';
-    progressLabel.textContent = 'Swiped Cards';
-    line1.style.opacity = '1';
-    slogan.style.opacity = '1';
-    progressLabel.style.opacity = '0'; // Initially hidden
-    line1.classList.remove('thai-text');
-    slogan.classList.remove('thai-text');
-    progressLabel.classList.remove('thai-text');
-
-    setInterval(swapText, 20000);
-}
-
-// Function to show progress bar after data fetch
-function showProgressBar() {
-    const progressContainer = document.querySelector('.progress-bar-container');
-    const progressLabel = document.getElementById('progress-label');
-    const progressValue = document.getElementById('progress-value');
-    const progressFill = document.getElementById('progress-fill');
-    
-    // Set initial progress bar values
-    const totalCards = originalVocabLength;
-    const swipedCount = swipedCards.length;
-    const percentage = totalCards > 0 ? (swipedCount / totalCards) * 100 : 0;
-    
-    progressFill.style.width = `${percentage}%`;
-    progressValue.textContent = swipedCount.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
-    progressLabel.textContent = isEnglish ? 'Swiped Cards' : 'จำนวนการ์ดที่ปัดไปแล้ว';
-    progressLabel.classList.toggle('thai-text', !isEnglish);
-
-    // Fade in all progress bar elements
-    progressContainer.style.transition = 'opacity 1s ease';
-    progressContainer.style.opacity = '1';
-    progressLabel.style.transition = 'opacity 1s ease';
-    progressLabel.style.opacity = '1';
-    progressValue.style.transition = 'opacity 1s ease';
-    progressValue.style.opacity = '1';
 }
 
 // Function to set initial card theme
@@ -243,19 +163,18 @@ function populateCardsBeforeAnimation() {
     const wordTopElement = document.getElementById('word-top');
     const wordBottomElement = document.getElementById('word-bottom');
     const englishElement = document.getElementById('english');
-    const thaiElement = document.getElementById('thai');
     const audioElement = document.getElementById('card-audio');
 
     const nextCards = [
-        { top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1' },
-        { top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2' },
-        { top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3' },
-        { top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4' },
-        { top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5' },
-        { top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6' },
-        { top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7' },
-        { top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8' },
-        { top: 'next-word-top-9', bottom: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9' }
+        { top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1' },
+        { top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2' },
+        { top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3' },
+        { top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4' },
+        { top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5' },
+        { top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6' },
+        { top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7' },
+        { top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8' },
+        { top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9' }
     ];
 
     // Populate current card
@@ -266,12 +185,10 @@ function populateCardsBeforeAnimation() {
         wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
         wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
         englishElement.textContent = entry.english;
-        thaiElement.textContent = entry.thai;
         audioElement.src = `data/${entry.audio}`;
         wordTopElement.style.color = cardTextColor;
         wordBottomElement.style.color = cardTextColor;
         englishElement.style.color = cardTextColor;
-        thaiElement.style.color = cardTextColor;
     }
 
     // Populate next cards
@@ -281,15 +198,12 @@ function populateCardsBeforeAnimation() {
             const nextWordTopElement = document.getElementById(next.top);
             const nextWordBottomElement = document.getElementById(next.bottom);
             const nextEnglishElement = document.getElementById(next.english);
-            const nextThaiElement = document.getElementById(next.thai);
             nextWordTopElement.textContent = nextEntry.word;
             nextWordBottomElement.textContent = nextEntry.word;
             nextEnglishElement.textContent = nextEntry.english;
-            nextThaiElement.textContent = nextEntry.thai;
             nextWordTopElement.style.color = cardTextColor;
             nextWordBottomElement.style.color = cardTextColor;
             nextEnglishElement.style.color = cardTextColor;
-            nextThaiElement.style.color = cardTextColor;
             nextWordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
             nextWordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
         }
@@ -387,7 +301,7 @@ function enableCardInteractions() {
     });
 }
 
-// Function to start tutorial animation for first 1000 visits
+// Function to start tutorial animation for first 5 visits
 function startTutorialAnimation() {
     if (visitCount > 5) return; // Skip if beyond 5 visits
 
@@ -478,14 +392,11 @@ async function loadVocabData() {
         // Initialize stats display immediately
         const statsNumberElement = document.querySelector('.stats-number');
         statsNumberElement.style.opacity = '1';
-        alternateStatsText(); // Start text alternation immediately
 
         // Hide progress bar initially
         const progressContainer = document.querySelector('.progress-bar-container');
-        const progressLabel = document.getElementById('progress-label');
         const progressValue = document.getElementById('progress-value');
         progressContainer.style.opacity = '0';
-        progressLabel.style.opacity = '0';
         progressValue.style.opacity = '0';
 
         // Fetch and parse initial batch (first 200 entries)
@@ -538,8 +449,28 @@ async function loadVocabData() {
         document.getElementById('word-top').textContent = 'Error';
         document.getElementById('word-bottom').textContent = 'Error';
         document.getElementById('english').textContent = 'Failed to load data';
-        document.getElementById('thai').textContent = '';
     }
+}
+
+// Function to show progress bar after data fetch
+function showProgressBar() {
+    const progressContainer = document.querySelector('.progress-bar-container');
+    const progressValue = document.getElementById('progress-value');
+    const progressFill = document.getElementById('progress-fill');
+    
+    // Set initial progress bar values
+    const totalCards = originalVocabLength;
+    const swipedCount = swipedCards.length;
+    const percentage = totalCards > 0 ? (swipedCount / totalCards) * 100 : 0;
+    
+    progressFill.style.width = `${percentage}%`;
+    progressValue.textContent = swipedCount.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+
+    // Fade in all progress bar elements
+    progressContainer.style.transition = 'opacity 1s ease';
+    progressContainer.style.opacity = '1';
+    progressValue.style.transition = 'opacity 1s ease';
+    progressValue.style.opacity = '1';
 }
 
 // Function to display the current and next cards
@@ -554,18 +485,17 @@ function displayCards() {
     const wordTopElement = document.getElementById('word-top');
     const wordBottomElement = document.getElementById('word-bottom');
     const englishElement = document.getElementById('english');
-    const thaiElement = document.getElementById('thai');
     const audioElement = document.getElementById('card-audio');
     const nextCards = [
-        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', thai: 'next-thai-1', zIndex: 9, translateX: 1.296, translateY: 1.296, rotate: 0.3249 },
-        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', thai: 'next-thai-2', zIndex: 8, translateX: 2.592, translateY: 2.592, rotate: 0.6498 },
-        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', thai: 'next-thai-3', zIndex: 7, translateX: 3.888, translateY: 3.888, rotate: 0.9747 },
-        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', thai: 'next-thai-4', zIndex: 6, translateX: 5.184, translateY: 5.184, rotate: 1.2996 },
-        { card: document.getElementById('next-card-5'), top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', thai: 'next-thai-5', zIndex: 5, translateX: 6.48, translateY: 6.48, rotate: 1.6245 },
-        { card: document.getElementById('next-card-6'), top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', thai: 'next-thai-6', zIndex: 4, translateX: 7.776, translateY: 7.776, rotate: 1.9494 },
-        { card: document.getElementById('next-card-7'), top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', thai: 'next-thai-7', zIndex: 3, translateX: 9.072, translateY: 9.072, rotate: 2.2743 },
-        { card: document.getElementById('next-card-8'), top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', thai: 'next-thai-8', zIndex: 2, translateX: 10.368, translateY: 10.368, rotate: 2.5992 },
-        { card: document.getElementById('next-card-9'), top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9', zIndex: 1, translateX: 11.664, translateY: 11.664, rotate: 2.9241 }
+        { card: document.getElementById('next-card-1'), top: 'next-word-top-1', bottom: 'next-word-bottom-1', english: 'next-english-1', zIndex: 9, translateX: 1.296, translateY: 1.296, rotate: 0.3249 },
+        { card: document.getElementById('next-card-2'), top: 'next-word-top-2', bottom: 'next-word-bottom-2', english: 'next-english-2', zIndex: 8, translateX: 2.592, translateY: 2.592, rotate: 0.6498 },
+        { card: document.getElementById('next-card-3'), top: 'next-word-top-3', bottom: 'next-word-bottom-3', english: 'next-english-3', zIndex: 7, translateX: 3.888, translateY: 3.888, rotate: 0.9747 },
+        { card: document.getElementById('next-card-4'), top: 'next-word-top-4', bottom: 'next-word-bottom-4', english: 'next-english-4', zIndex: 6, translateX: 5.184, translateY: 5.184, rotate: 1.2996 },
+        { card: document.getElementById('next-card-5'), top: 'next-word-top-5', bottom: 'next-word-bottom-5', english: 'next-english-5', zIndex: 5, translateX: 6.48, translateY: 6.48, rotate: 1.6245 },
+        { card: document.getElementById('next-card-6'), top: 'next-word-top-6', bottom: 'next-word-bottom-6', english: 'next-english-6', zIndex: 4, translateX: 7.776, translateY: 7.776, rotate: 1.9494 },
+        { card: document.getElementById('next-card-7'), top: 'next-word-top-7', bottom: 'next-word-bottom-7', english: 'next-english-7', zIndex: 3, translateX: 9.072, translateY: 9.072, rotate: 2.2743 },
+        { card: document.getElementById('next-card-8'), top: 'next-word-top-8', bottom: 'next-word-bottom-8', english: 'next-english-8', zIndex: 2, translateX: 10.368, translateY: 10.368, rotate: 2.5992 },
+        { card: document.getElementById('next-card-9'), top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', zIndex: 1, translateX: 11.664, translateY: 11.664, rotate: 2.9241 }
     ];
     const stackCards = document.querySelectorAll('.card-stack');
 
@@ -577,12 +507,10 @@ function displayCards() {
         wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
         wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
         englishElement.textContent = entry.english;
-        thaiElement.textContent = entry.thai;
         audioElement.src = `data/${entry.audio}`;
         wordTopElement.style.color = cardTextColor;
         wordBottomElement.style.color = cardTextColor;
         englishElement.style.color = cardTextColor;
-        thaiElement.style.color = cardTextColor;
         currentCard.style.backgroundColor = cardBackgroundColor;
         currentCard.style.borderColor = cardBorderColor;
         currentCard.style.transform = 'translate(0, 0) rotate(0deg)';
@@ -597,15 +525,12 @@ function displayCards() {
             const nextWordTopElement = document.getElementById(next.top);
             const nextWordBottomElement = document.getElementById(next.bottom);
             const nextEnglishElement = document.getElementById(next.english);
-            const nextThaiElement = document.getElementById(next.thai);
             nextWordTopElement.textContent = nextEntry.word;
             nextWordBottomElement.textContent = nextEntry.word;
             nextEnglishElement.textContent = nextEntry.english;
-            nextThaiElement.textContent = nextEntry.thai;
             nextWordTopElement.style.color = cardTextColor;
             nextWordBottomElement.style.color = cardTextColor;
             nextEnglishElement.style.color = cardTextColor;
-            nextThaiElement.style.color = cardTextColor;
             nextWordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
             nextWordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
             next.card.style.backgroundColor = cardBackgroundColor;
@@ -925,4 +850,3 @@ function captureSnapshot() {
 document.addEventListener('DOMContentLoaded', () => {
     loadVocabData();
 });
-
