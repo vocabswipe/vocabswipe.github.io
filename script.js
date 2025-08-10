@@ -15,6 +15,39 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 const analytics = firebase.analytics();
 
+// Authentication logic
+const loginButton = document.getElementById('login-button');
+const loginModal = document.getElementById('login-modal');
+const closeModal = document.getElementById('close-modal');
+const googleLogin = document.getElementById('google-login');
+
+loginButton.addEventListener('click', () => {
+    loginModal.style.display = 'block';
+});
+closeModal.addEventListener('click', () => {
+    loginModal.style.display = 'none';
+});
+googleLogin.addEventListener('click', () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider)
+        .then(result => {
+            loginModal.style.display = 'none';
+            console.log('Logged in user:', result.user.uid);
+            analytics.logEvent('login', { method: 'google' });
+        })
+        .catch(error => console.error('Login error:', error));
+});
+
+auth.onAuthStateChanged(user => {
+    if (user) {
+        loginButton.textContent = 'Profile';
+        console.log('User logged in:', user.uid);
+    } else {
+        loginButton.textContent = 'Login';
+        console.log('No user logged in');
+    }
+});
+
 // Test Firebase integration
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Firebase initialized:', firebase.app().name);
