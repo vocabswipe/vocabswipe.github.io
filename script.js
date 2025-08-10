@@ -355,6 +355,12 @@ function enableCardInteractions() {
             const audio = document.getElementById('card-audio');
             topCard.classList.add('glow');
             audio.play().catch(error => console.error('Error playing audio:', error));
+            // Send audio play event to Google Analytics
+            gtag('event', 'audio_play', {
+                'event_category': 'Engagement',
+                'event_label': `Card_${vocabData[currentIndex].originalIndex}_Audio`,
+                'value': 1
+            });
             setTimeout(() => {
                 topCard.classList.remove('glow');
             }, 600);
@@ -368,6 +374,12 @@ function enableCardInteractions() {
             const audio = new Audio(`data/${nextEntry.audio}`);
             nextCard.classList.add('glow');
             audio.play().catch(error => console.error('Error playing audio:', error));
+            // Send audio play event to Google Analytics for next card
+            gtag('event', 'audio_play', {
+                'event_category': 'Engagement',
+                'event_label': `Card_${nextEntry.originalIndex}_Audio`,
+                'value': 1
+            });
             setTimeout(() => {
                 nextCard.classList.remove('glow');
             }, 600);
@@ -400,7 +412,12 @@ function startTutorialAnimation() {
             handpoint.classList.add('tap-effect');
             topCard.classList.add('glow');
             audio.play().catch(error => console.error('Error playing audio:', error));
-
+            // Send audio play event to Google Analytics for tutorial
+            gtag('event', 'audio_play', {
+                'event_category': 'Engagement',
+                'event_label': `Card_${vocabData[currentIndex].originalIndex}_Audio_Tutorial`,
+                'value': 1
+            });
             // Remove tap effect and glow
             setTimeout(() => {
                 handpoint.classList.remove('tap-effect');
@@ -614,13 +631,19 @@ function moveToNextCard(translateX, translateY, rotate, isAnimation = false) {
     card.style.transition = 'transform 0.75s ease, opacity 0.75s ease';
     card.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
     card.style.opacity = '0';
-    card.style.zIndex = '2000'; // Modified: Ensure top card is above containers during swipe
+    card.style.zIndex = '2000'; // Ensure top card is above containers during swipe
     // Only update swipedCards and hasSwiped for user-initiated swipes
     if (!isAnimation) {
         const originalIndex = vocabData[currentIndex].originalIndex;
         if (!swipedCards.includes(originalIndex)) {
             swipedCards.push(originalIndex);
             localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
+            // Send swipe event to Google Analytics
+            gtag('event', 'card_swipe', {
+                'event_category': 'Engagement',
+                'event_label': `Card_${originalIndex}`,
+                'value': 1
+            });
         }
         hasSwiped = true;
         updateProgressBar();
@@ -655,7 +678,7 @@ card.addEventListener('touchstart', (e) => {
         currentY = startY;
         startTime = Date.now();
         card.style.transition = 'none';
-        card.style.zIndex = '2000'; // Modified: Ensure top card is above containers during swipe
+        card.style.zIndex = '2000'; // Ensure top card is above containers during swipe
         isDragging = true;
     }
 });
@@ -669,7 +692,7 @@ card.addEventListener('touchmove', (e) => {
         const deltaY = currentY - startY;
         const rotate = (deltaX / window.innerWidth) * 30;
         card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
-        card.style.zIndex = '2000'; // Modified: Ensure top card is above containers during swipe
+        card.style.zIndex = '2000'; // Ensure top card is above containers during swipe
     }
 });
 
@@ -687,6 +710,12 @@ card.addEventListener('touchend', (e) => {
         const audio = document.querySelector('#card-audio');
         card.classList.add('glow');
         audio.play().catch(error => console.error('Error playing audio:', error));
+        // Send audio play event to Google Analytics
+        gtag('event', 'audio_play', {
+            'event_category': 'Engagement',
+            'event_label': `Card_${vocabData[currentIndex].originalIndex}_Audio`,
+            'value': 1
+        });
         card.style.transform = 'translate(0, 0) rotate(0deg)';
         setTimeout(() => {
             card.classList.remove('glow');
@@ -712,7 +741,7 @@ card.addEventListener('mousedown', (e) => {
     currentY = startY;
     startTime = Date.now();
     card.style.transition = 'none';
-    card.style.zIndex = '2000'; // Modified: Ensure top card is above containers during swipe
+    card.style.zIndex = '2000'; // Ensure top card is above containers during swipe
     isDragging = true;
     hasMoved = false; // Reset hasMoved on mousedown
 });
@@ -730,7 +759,7 @@ card.addEventListener('mousemove', (e) => {
         }
         const rotate = (deltaX / window.innerWidth) * 30;
         card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
-        card.style.zIndex = '2000'; // Modified: Ensure top card is above containers during swipe
+        card.style.zIndex = '2000'; // Ensure top card is above containers during swipe
     }
 });
 
@@ -748,6 +777,12 @@ card.addEventListener('mouseup', (e) => {
         const audio = document.querySelector('#card-audio');
         card.classList.add('glow');
         audio.play().catch(error => console.error('Error playing audio:', error));
+        // Send audio play event to Google Analytics
+        gtag('event', 'audio_play', {
+            'event_category': 'Engagement',
+            'event_label': `Card_${vocabData[currentIndex].originalIndex}_Audio`,
+            'value': 1
+        });
         card.style.transform = 'translate(0, 0) rotate(0deg)';
         setTimeout(() => {
             card.classList.remove('glow');
@@ -780,6 +815,12 @@ document.addEventListener('keydown', (e) => {
             const audio = document.querySelector('#card-audio');
             card.classList.add('glow');
             audio.play().catch(error => console.error('Error playing audio:', error));
+            // Send audio play event to Google Analytics
+            gtag('event', 'audio_play', {
+                'event_category': 'Engagement',
+                'event_label': `Card_${vocabData[currentIndex].originalIndex}_Audio`,
+                'value': 1
+            });
             setTimeout(() => {
                 card.classList.remove('glow');
             }, 600);
