@@ -127,47 +127,39 @@ function updateProgressBar() {
     }
 }
 
-// Function to alternate stats text, slogan, progress label, and donation message between English and Thai
+// Function to alternate stats text, slogan, and progress label between English and Thai
 function alternateStatsText() {
     const line1 = document.getElementById('stats-line1');
     const slogan = document.querySelector('.website-slogan');
     const progressLabel = document.getElementById('progress-label');
-    const donationMessage = document.getElementById('donation-message');
 
     function swapText() {
         line1.style.transition = 'opacity 0.05s ease';
         slogan.style.transition = 'opacity 0.05s ease';
         progressLabel.style.transition = 'opacity 0.05s ease';
-        donationMessage.style.transition = 'opacity 0.05s ease';
         line1.style.opacity = '0';
         slogan.style.opacity = '0';
         progressLabel.style.opacity = '0';
-        donationMessage.style.opacity = '0';
 
         setTimeout(() => {
             if (isEnglish) {
                 line1.textContent = 'ประโยคภาษาอังกฤษอเมริกันที่จำเป็น';
                 slogan.textContent = 'ยิ่งปัด ยิ่งเก่ง';
                 progressLabel.textContent = 'จำนวนการ์ดที่ปัดไปแล้ว';
-                donationMessage.innerHTML = 'เลี้ยงกาแฟผมเพื่อให้ <span class="vocabswipe-text">VOCABSWIPE</span> ฟรีและเติบโตต่อไป! สแกนคิวอาร์โค้ดเพื่อสนับสนุนผ่านพร้อมเพย์';
                 line1.classList.add('thai-text');
                 slogan.classList.add('thai-text');
                 progressLabel.classList.add('thai-text');
-                donationMessage.classList.add('thai-text');
             } else {
                 line1.textContent = 'Essential American English Sentences';
                 slogan.textContent = 'Master Words, Swipe by Swipe';
                 progressLabel.textContent = 'Swiped Cards';
-                donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support via PromptPay.';
                 line1.classList.remove('thai-text');
                 slogan.classList.remove('thai-text');
                 progressLabel.classList.remove('thai-text');
-                donationMessage.classList.remove('thai-text');
             }
             line1.style.opacity = '1';
             slogan.style.opacity = '1';
             progressLabel.style.opacity = '1';
-            donationMessage.style.opacity = '1';
             isEnglish = !isEnglish;
         }, 50);
     }
@@ -176,15 +168,12 @@ function alternateStatsText() {
     line1.textContent = 'Essential American English Sentences';
     slogan.textContent = 'Master Words, Swipe by Swipe';
     progressLabel.textContent = 'Swiped Cards';
-    donationMessage.innerHTML = 'Buy me a coffee to keep <span class="vocabswipe-text">VOCABSWIPE</span> free and growing! Scan the QR code to support via PromptPay.';
     line1.style.opacity = '1';
     slogan.style.opacity = '1';
     progressLabel.style.opacity = '0'; // Initially hidden
-    donationMessage.style.opacity = '1';
     line1.classList.remove('thai-text');
     slogan.classList.remove('thai-text');
     progressLabel.classList.remove('thai-text');
-    donationMessage.classList.remove('thai-text');
 
     setInterval(swapText, 20000);
 }
@@ -822,29 +811,6 @@ shareIcon.addEventListener('click', () => {
         return;
     }
     captureSnapshot();
-});
-
-// Coffee icon functionality
-const coffeeIcon = document.querySelector('#coffee-icon');
-const donationPopup = document.querySelector('#donation-popup');
-const closeIcon = document.querySelector('#close-icon');
-const mainContent = document.querySelector('.main-content');
-
-coffeeIcon.addEventListener('click', () => {
-    donationPopup.style.display = 'flex';
-    mainContent.classList.add('blurred');
-});
-
-closeIcon.addEventListener('click', () => {
-    donationPopup.style.display = 'none';
-    mainContent.classList.remove('blurred');
-});
-
-donationPopup.addEventListener('click', (e) => {
-    if (e.target === donationPopup) {
-        donationPopup.style.display = 'none';
-        mainContent.classList.remove('blurred');
-    }
 });
 
 // Function to capture snapshot
