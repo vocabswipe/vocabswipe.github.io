@@ -7,52 +7,44 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="app">
-        <!-- Login Page -->
-        <div id="login-page" class="page active">
+    <!-- Login Page -->
+    <div id="login-page" class="page active">
+        <div class="container">
             <h1>Login</h1>
             <form id="login-form">
-                <input type="email" id="login-email" placeholder="Email" required>
-                <input type="password" id="login-password" placeholder="Password" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
                 <button type="submit">Login</button>
-                <p>Not a member? <a href="#" id="show-signup">Sign Up</a></p>
             </form>
-        </div>
-
-        <!-- Signup Page -->
-        <div id="signup-page" class="page">
-            <h1>Sign Up</h1>
-            <form id="signup-form">
-                <input type="email" id="signup-email" placeholder="Email" required>
-                <input type="password" id="signup-password" placeholder="Password" required>
-                <button type="submit">Sign Up</button>
-                <p>Already have an account? <a href="#" id="show-login">Login</a></p>
-            </form>
-        </div>
-
-        <!-- Subscription Page -->
-        <div id="subscription-page" class="page">
-            <h1>Subscribe to Access Content</h1>
-            <p>Subscribe for only 10 THB per month to access exclusive content.</p>
-            <div class="promptpay-section">
-                <h3>Pay via PromptPay</h3>
-                <img src="promptpay-qr-placeholder.png" alt="PromptPay QR Code" class="qr-code">
-                <p>Scan the QR code to pay 10 THB/month.</p>
-                <button id="confirm-payment">Confirm Payment</button>
-            </div>
-            <button id="back-to-content">Back to Content</button>
-        </div>
-
-        <!-- Content Page -->
-        <div id="content-page" class="page">
-            <h1>Exclusive Content</h1>
-            <div id="content-area">
-                <p>This is premium content available only to subscribers.</p>
-                <p>Enjoy articles, videos, and more!</p>
-            </div>
-            <button id="logout">Logout</button>
+            <p id="login-error" class="error"></p>
         </div>
     </div>
+
+    <!-- Content Page -->
+    <div id="content-page" class="page">
+        <div class="container">
+            <h1>Premium Content</h1>
+            <div id="subscription-status"></div>
+            <div id="content" class="content">
+                <h2>Welcome to Premium Content!</h2>
+                <p>This is exclusive content available only to subscribers.</p>
+            </div>
+            <button id="subscribe-btn" style="display: none;">Subscribe Now</button>
+            <button id="logout-btn">Logout</button>
+        </div>
+    </div>
+
+    <!-- Subscription Page -->
+    <div id="subscription-page" class="page">
+        <div class="container">
+            <h1>Subscribe with PromptPay</h1>
+            <p>Scan the QR code below to subscribe for $5/month.</p>
+            <img src="https://via.placeholder.com/200x200?text=PromptPay+QR" alt="PromptPay QR Code">
+            <p>After payment, your subscription will be activated.</p>
+            <button id="back-to-content">Back to Content</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
