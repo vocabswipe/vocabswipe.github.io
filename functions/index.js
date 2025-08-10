@@ -1,6 +1,6 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-const stripe = require('stripe')('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');
+const stripe = require('stripe')(functions.config().stripe.secret_key);
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -42,7 +42,7 @@ exports.createCheckoutSession = functions.https.onCall(async (data, context) => 
 // Handle Stripe webhook events
 app.post('/webhook', async (req, res) => {
   const sig = req.headers['stripe-signature'];
-  const webhookSecret = 'your-webhook-secret'; // Replace after setting up webhook
+  const webhookSecret = functions.config().stripe.webhook_secret;
 
   try {
     const event = stripe.webhooks.constructEvent(req.rawBody, sig, webhookSecret);
