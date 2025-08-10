@@ -290,7 +290,6 @@ html, body {
     transition: opacity 1s ease; /* Smooth fade-in */
     white-space: nowrap;
     line-height: 1.4;
-    overflow: visible;
     z-index: -10; /* Matches loading.gif */
 }
 
@@ -311,7 +310,7 @@ html, body {
     width: 100%;
     height: 9px;
     background-color: #28282B;
-    border-radius: 4px;
+    border-radius: 0; /* Rectangular corners */
     overflow: hidden;
     position: absolute;
     bottom: 0; /* Align to bottom of progress-content */
@@ -322,22 +321,8 @@ html, body {
     height: 100%;
     background-color: #00ff00;
     width: 0%;
-    transition: width 0.3s ease, background-color 0.3s ease;
+    transition: width 0.3s ease;
     z-index: -10; /* Matches loading.gif */
-}
-
-.progress-brighten {
-    background-color: #66ff66;
-}
-
-.progress-glow {
-    animation: progress-glow 0.3s ease-in-out 1;
-}
-
-@keyframes progress-glow {
-    0% { box-shadow: 0 0 0 rgba(0, 255, 0, 0); }
-    50% { box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.7); }
-    100% { box-shadow: 0 0 0 rgba(0, 255, 0, 0); }
 }
 
 /* Poker card styling */
@@ -511,6 +496,13 @@ html, body {
     line-height: 1.3;
 }
 
+.thai {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
 /* Responsive adjustments for desktop */
 @media (min-width: 601px) {
     .main-content {
@@ -596,6 +588,7 @@ html, body {
     .progress-bar {
         width: 300px; /* Match card width */
         height: 10px;
+        border-radius: 0; /* Rectangular corners */
         z-index: -10; /* Matches loading.gif */
     }
 
@@ -644,7 +637,7 @@ html, body {
         font-size: 1.5rem;
     }
 
-    .english {
+    .english, .thai {
         font-size: 1.5rem;
     }
 
