@@ -129,7 +129,7 @@ html, body {
     width: 100%;
     max-width: 340px;
     display: flex;
-    justify-content: flex-end; /* Align share icon to the right */
+    justify-content: flex-end; /* Align share icon and login button to the right */
     padding: 10px;
 }
 
@@ -158,7 +158,24 @@ html, body {
     }
 }
 
-/* Login modal styling */
+/* Login button and modal styling */
+.login-button {
+    padding: 8px 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #35654d;
+    color: #fff;
+    margin-left: 10px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.login-button:hover {
+    background-color: #2a4c3a;
+}
+
 .modal {
     position: fixed;
     top: 0;
@@ -169,7 +186,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 2000; /* Increased to ensure modal is above cards */
 }
 
 .modal-content {
@@ -188,7 +205,7 @@ html, body {
     margin-bottom: 15px;
 }
 
-.login-button, #google-login, #email-login, #phone-login, #close-modal {
+#google-login, #close-modal {
     padding: 10px;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
@@ -200,9 +217,11 @@ html, body {
     color: #fff;
     width: 100%;
     max-width: 200px;
+    outline: none; /* Remove focus outline */
+    -webkit-tap-highlight-color: transparent;
 }
 
-.login-button:hover, #google-login:hover, #email-login:hover, #phone-login:hover, #close-modal:hover {
+#google-login:hover, #close-modal:hover {
     background-color: #2a4c3a;
 }
 
@@ -283,6 +302,7 @@ html, body {
     align-items: center;
     perspective: 1000px;
     z-index: 10;
+    overflow: visible; /* Ensure swiped cards aren’t clipped */
 }
 
 /* Website name styling */
@@ -338,7 +358,7 @@ html, body {
     max-width: 300px;
     height: 9px;
     position: relative;
-    margin-top: 5px; /* Adjusted from 10px to move upward by 5px for mobile */
+    margin-top: 5px; /* Adjusted for mobile */
     z-index: -10; /* Matches loading.gif */
 }
 
@@ -350,11 +370,10 @@ html, body {
     position: absolute;
     left: 0;
     top: -18px;
-    transition: opacity 1s ease; /* Smooth fade-in */
+    transition: opacity 1s ease;
     white-space: nowrap;
     line-height: 1.4;
-    overflow: visible;
-    z-index: -10; /* Matches loading.gif */
+    z-index: -10;
 }
 
 .progress-label.thai-text {
@@ -371,9 +390,9 @@ html, body {
     position: absolute;
     right: 0;
     top: -18px;
-    transition: opacity 1s ease; /* Smooth fade-in */
+    transition: opacity 1s ease;
     white-space: nowrap;
-    z-index: -10; /* Matches loading.gif */
+    z-index: -10;
 }
 
 .progress-bar {
@@ -383,8 +402,8 @@ html, body {
     border-radius: 4px;
     overflow: hidden;
     position: absolute;
-    bottom: 0; /* Align to bottom of progress-content */
-    z-index: -10; /* Matches loading.gif */
+    bottom: 0;
+    z-index: -10;
 }
 
 .progress-fill {
@@ -392,7 +411,7 @@ html, body {
     background-color: #00ff00;
     width: 0%;
     transition: width 0.3s ease, background-color 0.3s ease;
-    z-index: -10; /* Matches loading.gif */
+    z-index: -10;
 }
 
 .progress-brighten {
@@ -431,21 +450,13 @@ html, body {
 }
 
 .card:active, .card:focus {
-    outline: none; /* Hide blue highlight on tap */
+    outline: none;
 }
 
-/* Specific styling for the top card to remove tap highlight on mobile */
 @media (max-width: 600px) {
-    .card#vocab-card {
-        -webkit-tap-highlight-color: transparent;
-    }
-}
-
-/* Hide blue highlight on next cards and stack cards for mobile */
-@media (max-width: 600px) {
-    #next-card-1, #next-card-2, #next-card-3, #next-card-4, 
-    #next-card-5, #next-card-6, #next-card-7, #next-card-8, 
-    #next-card-9, .card-stack {
+    .card#vocab-card, #next-card-1, #next-card-2, #next-card-3, #next-card-4,
+    #next-card-5, #next-card-6, #next-card-7, #next-card-8, #next-card-9,
+    .card-stack {
         -webkit-tap-highlight-color: transparent;
     }
 }
@@ -614,22 +625,22 @@ html, body {
 
     .website-name-container {
         height: 97px; /* Increased from 87px to 97px */
-        align-items: flex-end; /* Align content to bottom */
-        margin-top: 10px; /* Desktop-specific downward shift */
-        z-index: -10; /* Matches loading.gif */
+        align-items: flex-end;
+        margin-top: 10px;
+        z-index: -10;
     }
 
     .slogan-container {
         height: 35px;
-        margin-top: 10px; /* Desktop-specific downward shift */
-        z-index: -10; /* Matches loading.gif */
+        margin-top: 10px;
+        z-index: -10;
     }
 
     .progress-bar-container {
         height: 77px; /* Increased by 20px to accommodate downward shift */
-        align-items: flex-end; /* Align content to bottom */
-        z-index: -10; /* Matches loading.gif */
-        margin-top: 10px; /* Desktop-specific downward shift */
+        align-items: flex-end;
+        z-index: -10;
+        margin-top: 10px;
     }
 
     .stats-number {
@@ -653,8 +664,8 @@ html, body {
 
     .website-name-content {
         max-width: 360px;
-        padding-bottom: 5px; /* Small gap from bottom */
-        z-index: -10; /* Matches loading.gif */
+        padding-bottom: 5px;
+        z-index: -10;
     }
 
     .slogan-content {
@@ -662,17 +673,17 @@ html, body {
     }
 
     .progress-content {
-        width: 300px; /* Match card width */
+        width: 300px;
         max-width: 300px;
         height: 10px;
-        margin-top: 20px; /* Maintain downward shift for PC */
-        z-index: -10; /* Matches loading.gif */
+        margin-top: 20px;
+        z-index: -10;
     }
 
     .progress-bar {
-        width: 300px; /* Match card width */
+        width: 300px;
         height: 10px;
-        z-index: -10; /* Matches loading.gif */
+        z-index: -10;
     }
 
     .progress-label {
@@ -680,8 +691,8 @@ html, body {
         top: -20px;
         line-height: 1.2;
         color: #F8F8FF;
-        transition: opacity 1s ease; /* Smooth fade-in */
-        z-index: -10; /* Matches loading.gif */
+        transition: opacity 1s ease;
+        z-index: -10;
     }
 
     .progress-label.thai-text {
@@ -693,8 +704,8 @@ html, body {
         font-size: 0.945rem;
         top: -20px;
         color: #F8F8FF;
-        transition: opacity 1s ease; /* Smooth fade-in */
-        z-index: -10; /* Matches loading.gif */
+        transition: opacity 1s ease;
+        z-index: -10;
     }
 
     .website-name {
