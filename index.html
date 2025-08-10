@@ -9,6 +9,9 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-functions.js"></script>
+    <!-- Stripe.js -->
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
     <!-- Login Page -->
@@ -31,7 +34,7 @@
             <form id="signup-form">
                 <input type="email" id="signup-email" placeholder="Email" required>
                 <input type="password" id="signup-password" placeholder="Password" required>
-                <button type="submit">Sign Up</button>
+                <button type="submit">Sign Up and Pay 10 THB/month</button>
                 <p>Already have an account? <a href="#" id="show-login">Login</a></p>
             </form>
         </div>
@@ -47,9 +50,8 @@
                 <p>This is the premium content available only to subscribed users.</p>
             </div>
             <div id="subscription-prompt" class="hidden">
-                <h2>Unlock Premium Content</h2>
-                <p>Subscribe to access exclusive content!</p>
-                <button id="subscribe">Subscribe Now</button>
+                <h2>Subscription Required</h2>
+                <p>Your subscription is not active. Please contact support or sign up again.</p>
             </div>
         </div>
     </div>
