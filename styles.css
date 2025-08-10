@@ -34,11 +34,6 @@ html, body {
     justify-content: flex-start;
     align-items: center;
     position: relative;
-    transition: filter 0.3s ease;
-}
-
-.main-content.blurred {
-    filter: blur(5px);
 }
 
 /* Container styles */
@@ -76,10 +71,14 @@ html, body {
 .website-name-container {
     height: 60px;
     align-items: flex-end; /* Align content to bottom */
+    z-index: -10; /* Matches loading.gif */
+    margin-top: 5px; /* Added to move downward by 5px on mobile */
 }
 
 .slogan-container {
     height: 30px;
+    z-index: -10; /* Matches loading.gif */
+    margin-top: 5px; /* Added to move downward by 5px on mobile */
 }
 
 .progress-bar-container {
@@ -87,7 +86,7 @@ html, body {
     opacity: 0; /* Initially hidden */
     display: flex;
     align-items: flex-end; /* Align content to bottom */
-    z-index: 20; /* Modified: Match z-index with progress bar components */
+    z-index: -10; /* Matches loading.gif */
 }
 
 /* Loading spinner styling */
@@ -130,11 +129,11 @@ html, body {
     width: 100%;
     max-width: 340px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end; /* Align share icon to the right */
     padding: 10px;
 }
 
-.share-icon, .coffee-icon {
+.share-icon {
     width: 25px;
     height: 25px;
     cursor: pointer;
@@ -142,12 +141,12 @@ html, body {
     -webkit-tap-highlight-color: transparent;
 }
 
-.share-icon:hover, .coffee-icon:hover {
+.share-icon:hover {
     transform: scale(1.1);
     opacity: 0.8;
 }
 
-.share-icon:active, .coffee-icon:active {
+.share-icon:active {
     transform: scale(0.9);
     opacity: 0.6;
 }
@@ -157,171 +156,6 @@ html, body {
     .share-icon {
         display: none;
     }
-}
-
-/* Donation popup styling */
-.donation-popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.donation-content {
-    background-color: #ffffff;
-    width: 85%;
-    max-width: 300px;
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    position: relative;
-    text-align: center;
-}
-
-.donation-header {
-    margin-bottom: 15px;
-}
-
-.donation-title {
-    font-family: 'Bangers', cursive;
-    font-size: 1.6rem;
-    color: #35654d;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.donation-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.donation-message {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 0.84rem;
-    color: #333333;
-    margin-bottom: 20px;
-    line-height: 1.5;
-    transition: opacity 0.05s ease;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.donation-message.thai-text {
-    font-size: 0.924rem;
-    line-height: 1.5;
-    font-family: 'Noto Sans Thai', 'Montserrat', sans-serif;
-}
-
-.vocabswipe-text {
-    font-family: 'Bangers', cursive;
-    color: #35654d;
-}
-
-.qr-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.qr-code {
-    width: 120px;
-    height: 120px;
-    border: 2px solid #35654d;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.promptpay-logo {
-    width: 80px;
-    height: auto;
-}
-
-.developer-info {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.developer-photo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 2px solid #35654d;
-    margin-right: 10px;
-    image-rendering: -webkit-optimize-contrast;
-}
-
-.developer-text {
-    text-align: left;
-}
-
-.developer-name {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 0.84rem;
-    color: #333333;
-    margin-bottom: 5px;
-    line-height: 1.4;
-}
-
-.developer-role {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 0.756rem;
-    color: #555555;
-    line-height: 1.4;
-}
-
-.developer-role .vocabswipe-text {
-    font-family: 'Bangers', cursive;
-    color: #35654d;
-}
-
-.social-icons {
-    display: flex;
-    gap: 8px;
-    margin-top: 5px;
-}
-
-.social-icon {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.social-icon:hover {
-    transform: scale(1.1);
-    opacity: 0.8;
-}
-
-.social-icon:active {
-    transform: scale(0.9);
-    opacity: 0.6;
-}
-
-.close-icon {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.close-icon:hover {
-    transform: scale(1.1);
 }
 
 /* Stats number styling */
@@ -409,7 +243,7 @@ html, body {
     max-width: 300px;
     text-align: center;
     padding-bottom: 5px; /* Small gap from bottom */
-    z-index: 20; /* Modified: Changed from 2000 to match progress bar z-index */
+    z-index: -10; /* Matches loading.gif */
 }
 
 .website-name {
@@ -440,7 +274,7 @@ html, body {
     line-height: 1.2;
     overflow: visible;
     white-space: nowrap;
-    z-index: 20; /* Unchanged: Already matches progress bar z-index */
+    z-index: -10; /* Matches loading.gif */
     position: relative;
 }
 
@@ -457,7 +291,7 @@ html, body {
     height: 9px;
     position: relative;
     margin-top: 5px; /* Adjusted from 10px to move upward by 5px for mobile */
-    z-index: 20; /* Modified: Match z-index with progress bar components */
+    z-index: -10; /* Matches loading.gif */
 }
 
 .progress-label {
@@ -468,12 +302,11 @@ html, body {
     position: absolute;
     left: 0;
     top: -18px;
-    transition: opacity 1s ease; /* Updated for smooth fade-in */
+    transition: opacity 1s ease; /* Smooth fade-in */
     white-space: nowrap;
     line-height: 1.4;
     overflow: visible;
-    z-index: 20;
-    opacity: 0; /* Initially hidden */
+    z-index: -10; /* Matches loading.gif */
 }
 
 .progress-label.thai-text {
@@ -490,10 +323,9 @@ html, body {
     position: absolute;
     right: 0;
     top: -18px;
-    transition: opacity 1s ease; /* Updated for smooth fade-in */
+    transition: opacity 1s ease; /* Smooth fade-in */
     white-space: nowrap;
-    z-index: 20;
-    opacity: 0; /* Initially hidden */
+    z-index: -10; /* Matches loading.gif */
 }
 
 .progress-bar {
@@ -504,7 +336,7 @@ html, body {
     overflow: hidden;
     position: absolute;
     bottom: 0; /* Align to bottom of progress-content */
-    z-index: 20; /* Modified: Match z-index with progress bar components */
+    z-index: -10; /* Matches loading.gif */
 }
 
 .progress-fill {
@@ -512,7 +344,7 @@ html, body {
     background-color: #00ff00;
     width: 0%;
     transition: width 0.3s ease, background-color 0.3s ease;
-    z-index: 20; /* Modified: Match z-index with progress bar components */
+    z-index: -10; /* Matches loading.gif */
 }
 
 .progress-brighten {
@@ -554,9 +386,16 @@ html, body {
     outline: none; /* Hide blue highlight on tap */
 }
 
+/* Specific styling for the top card to remove tap highlight on mobile */
+@media (max-width: 600px) {
+    .card#vocab-card {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
 /* Hide blue highlight on next cards and stack cards for mobile */
 @media (max-width: 600px) {
-    #vocab-card, #next-card-1, #next-card-2, #next-card-3, #next-card-4, 
+    #next-card-1, #next-card-2, #next-card-3, #next-card-4, 
     #next-card-5, #next-card-6, #next-card-7, #next-card-8, 
     #next-card-9, .card-stack {
         -webkit-tap-highlight-color: transparent;
@@ -702,6 +541,10 @@ html, body {
 
 /* Responsive adjustments for desktop */
 @media (min-width: 601px) {
+    .main-content {
+        max-height: 670px; /* Increased from 640px to accommodate 30px total downward shift */
+    }
+
     .icon-panel-container {
         height: 39px;
     }
@@ -724,16 +567,21 @@ html, body {
     .website-name-container {
         height: 97px; /* Increased from 87px to 97px */
         align-items: flex-end; /* Align content to bottom */
+        margin-top: 10px; /* Desktop-specific downward shift */
+        z-index: -10; /* Matches loading.gif */
     }
 
     .slogan-container {
         height: 35px;
+        margin-top: 10px; /* Desktop-specific downward shift */
+        z-index: -10; /* Matches loading.gif */
     }
 
     .progress-bar-container {
         height: 77px; /* Increased by 20px to accommodate downward shift */
         align-items: flex-end; /* Align content to bottom */
-        z-index: 20; /* Modified: Match z-index with progress bar components */
+        z-index: -10; /* Matches loading.gif */
+        margin-top: 10px; /* Desktop-specific downward shift */
     }
 
     .stats-number {
@@ -758,7 +606,7 @@ html, body {
     .website-name-content {
         max-width: 360px;
         padding-bottom: 5px; /* Small gap from bottom */
-        z-index: 20; /* Modified: Changed from 2000 to match progress bar z-index */
+        z-index: -10; /* Matches loading.gif */
     }
 
     .slogan-content {
@@ -770,13 +618,13 @@ html, body {
         max-width: 300px;
         height: 10px;
         margin-top: 20px; /* Maintain downward shift for PC */
-        z-index: 20; /* Modified: Match z-index with progress bar components */
+        z-index: -10; /* Matches loading.gif */
     }
 
     .progress-bar {
         width: 300px; /* Match card width */
         height: 10px;
-        z-index: 20; /* Modified: Match z-index with progress bar components */
+        z-index: -10; /* Matches loading.gif */
     }
 
     .progress-label {
@@ -784,8 +632,8 @@ html, body {
         top: -20px;
         line-height: 1.2;
         color: #F8F8FF;
-        transition: opacity 1s ease; /* Updated for smooth fade-in */
-        z-index: 20;
+        transition: opacity 1s ease; /* Smooth fade-in */
+        z-index: -10; /* Matches loading.gif */
     }
 
     .progress-label.thai-text {
@@ -797,8 +645,8 @@ html, body {
         font-size: 0.945rem;
         top: -20px;
         color: #F8F8FF;
-        transition: opacity 1s ease; /* Updated for smooth fade-in */
-        z-index: 20;
+        transition: opacity 1s ease; /* Smooth fade-in */
+        z-index: -10; /* Matches loading.gif */
     }
 
     .website-name {
@@ -850,58 +698,13 @@ html, body {
         transform: translate(6.48px, 6.48px) rotate(3.888deg);
     }
 
-    .share-icon, .coffee-icon {
+    .share-icon {
         width: 30px;
         height: 30px;
     }
 
     .icon-panel {
         max-width: 360px;
-    }
-
-    .donation-content {
-        width: 90%;
-        max-width: 340px;
-        padding: 20px;
-    }
-
-    .donation-title {
-        font-size: 1.8rem;
-    }
-
-    .donation-message {
-        font-size: 0.945rem;
-    }
-
-    .donation-message.thai-text {
-        font-size: 1.0395rem;
-    }
-
-    .qr-code {
-        width: 150px;
-        height: 150px;
-    }
-
-    .promptpay-logo {
-        width: 100px;
-    }
-
-    .developer-photo {
-        width: 100px;
-        height: 100px;
-    }
-
-    .developer-name {
-        font-size: 0.945rem;
-    }
-
-    .developer-role {
-        font-size: 0.84rem;
-    }
-
-    .social-icon {
-        width: 24px;
-        height: 24px;
     }
 
     .spinner {
