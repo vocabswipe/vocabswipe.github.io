@@ -2,6 +2,11 @@
 import { auth, db } from './firebase.js';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
 import { doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+import { getFunctions, httpsCallable } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-functions.js';
+
+// Initialize Stripe
+const stripe = Stripe('pk_live_51Ri7mdACmO3bLEHxUQlvPufDUiZ65CrnslG4fOIkTWNy5gNlwTrvNKJoGJt9xnZc7Zm7KKIhq8UuUQgTlu6WPZfq004Csmm26C');
+const functions = getFunctions();
 
 // Page elements
 const loginPage = document.getElementById('login-page');
@@ -14,7 +19,6 @@ const signupForm = document.getElementById('signup-form');
 const showSignupLink = document.getElementById('show-signup');
 const showLoginLink = document.getElementById('show-login');
 const logoutButton = document.getElementById('logout');
-const subscribeButton = document.getElementById('subscribe');
 
 // Show signup page
 showSignupLink.addEventListener('click', (e) => {
@@ -38,28 +42,38 @@ loginForm.addEventListener('submit', async (e) => {
 
     try {
         await signInWithEmailAndPassword(auth, email, password);
-        // onAuthStateChanged will handle navigation
+        // onAuthStateChanged handles navigation
     } catch (error) {
         alert(`Login failed: ${error.message}`);
     }
 });
 
-// Signup form submission
+// Signup form submission with payment
 signupForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = document.getElementById('signup-email').value;
     const password = document.getElementById('signup-password').value;
 
     try {
+        // Create Firebase user
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        // Initialize user subscription status in Firestore
-        await setDoc(doc(db, 'users', userCredential.user.uid), {
+        const userId = userCredential.user.uid;
+
+        // Initialize Firestore user document
+        await setDoc(doc(db, 'users', userId), {
             email: email,
             isSubscribed: false
         });
-        // onAuthStateChanged will handle navigation
+
+        // Create Stripe Checkout session
+        const createCheckoutSession = httpsCallable(functions, 'createCheckoutSession');
+        const result = await createCheckoutSession();
+        const sessionId = result.data.sessionId;
+
+        // Redirect to Stripe Checkout for PromptPay QR code
+        await stripe.redirectToCheckout({ sessionId });
     } catch (error) {
-        alert(`Signup failed: ${error.message}`);
+        alert(`Signup or payment initiation failed: ${error.message}`);
     }
 });
 
@@ -67,26 +81,9 @@ signupForm.addEventListener('submit', async (e) => {
 logoutButton.addEventListener('click', async () => {
     try {
         await signOut(auth);
-        // onAuthStateChanged will handle navigation
+        // onAuthStateChanged handles navigation
     } catch (error) {
         alert(`Logout failed: ${error.message}`);
-    }
-});
-
-// Subscribe button (simulated subscription)
-subscribeButton.addEventListener('click', async () => {
-    try {
-        const user = auth.currentUser;
-        if (user) {
-            await setDoc(doc(db, 'users', user.uid), { isSubscribed: true }, { merge: true });
-            subscriptionPrompt.classList.add('hidden');
-            premiumContent.classList.remove('hidden');
-            alert('Subscription successful! You now have access to premium content.');
-        } else {
-            alert('You must be logged in to subscribe.');
-        }
-    } catch (error) {
-        alert(`Subscription failed: ${error.message}`);
     }
 });
 
