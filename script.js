@@ -1,12 +1,12 @@
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCdvEuh27Y0Oa6YDvlfq6Uvfheiwd4kMQE",
-  authDomain: "vocabswipe-35b93.firebaseapp.com",
-  projectId: "vocabswipe-35b93",
-  storageBucket: "vocabswipe-35b93.firebasestorage.app",
-  messagingSenderId: "750129637200",
-  appId: "1:750129637200:web:138ea980ab41861cf7ee55",
-  measurementId: "G-F9HFL0SNPY"
+    apiKey: "AIzaSyCdvEuh27Y0Oa6YDvlfq6Uvfheiwd4kMQE",
+    authDomain: "vocabswipe-35b93.firebaseapp.com",
+    projectId: "vocabswipe-35b93",
+    storageBucket: "vocabswipe-35b93.firebasestorage.app",
+    messagingSenderId: "750129637200",
+    appId: "1:750129637200:web:138ea980ab41861cf7ee55",
+    measurementId: "G-F9HFL0SNPY"
 };
 
 // Initialize Firebase
@@ -17,7 +17,6 @@ try {
     console.error('Firebase initialization error:', error.message);
 }
 const auth = firebase.auth();
-const db = firebase.firestore();
 const analytics = firebase.analytics();
 
 // Authentication logic
@@ -51,6 +50,7 @@ if (!loginButton || !loginModal || !closeModal || !googleLogin) {
             .then(result => {
                 loginModal.style.display = 'none';
                 console.log('Logged in user:', result.user.uid);
+                loginButton.textContent = 'Profile';
                 analytics.logEvent('login', { method: 'google' });
             })
             .catch(error => console.error('Google login error:', error.message, error.code));
@@ -346,23 +346,24 @@ function populateCardsBeforeAnimation() {
         { top: 'next-word-top-9', bottom: 'next-word-bottom-9', english: 'next-english-9', thai: 'next-thai-9' }
     ];
 
-    if (currentCard && wordTopElement && wordBottomElement && englishElement && thaiElement && audioElement) {
-        if (currentIndex < vocabData.length) {
-            const entry = vocabData[currentIndex];
-            wordTopElement.textContent = entry.word;
-            wordBottomElement.textContent = entry.word;
-            wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
-            wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
-            englishElement.textContent = entry.english;
-            thaiElement.textContent = entry.thai;
-            audioElement.src = `data/${entry.audio}`;
-            wordTopElement.style.color = cardTextColor;
-            wordBottomElement.style.color = cardTextColor;
-            englishElement.style.color = cardTextColor;
-            thaiElement.style.color = cardTextColor;
-        }
-    } else {
+    if (!currentCard || !wordTopElement || !wordBottomElement || !englishElement || !thaiElement || !audioElement) {
         console.error('Current card elements missing');
+        return;
+    }
+
+    if (currentIndex < vocabData.length) {
+        const entry = vocabData[currentIndex];
+        wordTopElement.textContent = entry.word;
+        wordBottomElement.textContent = entry.word;
+        wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
+        wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
+        englishElement.textContent = entry.english;
+        thaiElement.textContent = entry.thai;
+        audioElement.src = `data/${entry.audio}`;
+        wordTopElement.style.color = cardTextColor;
+        wordBottomElement.style.color = cardTextColor;
+        englishElement.style.color = cardTextColor;
+        thaiElement.style.color = cardTextColor;
     }
 
     nextCards.forEach((next, index) => {
@@ -372,20 +373,20 @@ function populateCardsBeforeAnimation() {
             const nextWordBottomElement = document.getElementById(next.bottom);
             const nextEnglishElement = document.getElementById(next.english);
             const nextThaiElement = document.getElementById(next.thai);
-            if (nextWordTopElement && nextWordBottomElement && nextEnglishElement && nextThaiElement) {
-                nextWordTopElement.textContent = nextEntry.word;
-                nextWordBottomElement.textContent = nextEntry.word;
-                nextEnglishElement.textContent = nextEntry.english;
-                nextThaiElement.textContent = nextEntry.thai;
-                nextWordTopElement.style.color = cardTextColor;
-                nextWordBottomElement.style.color = cardTextColor;
-                nextEnglishElement.style.color = cardTextColor;
-                nextThaiElement.style.color = cardTextColor;
-                nextWordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
-                nextWordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
-            } else {
+            if (!nextWordTopElement || !nextWordBottomElement || !nextEnglishElement || !nextThaiElement) {
                 console.error(`Next card elements missing for index ${index + 1}`);
+                return;
             }
+            nextWordTopElement.textContent = nextEntry.word;
+            nextWordBottomElement.textContent = nextEntry.word;
+            nextEnglishElement.textContent = nextEntry.english;
+            nextThaiElement.textContent = nextEntry.thai;
+            nextWordTopElement.style.color = cardTextColor;
+            nextWordBottomElement.style.color = cardTextColor;
+            nextEnglishElement.style.color = cardTextColor;
+            nextThaiElement.style.color = cardTextColor;
+            nextWordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
+            nextWordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
         }
     });
 }
@@ -530,6 +531,128 @@ function startTutorialAnimation() {
     }, 2000);
 }
 
+// Function to fetch and parse JSONL file with lazy loading
+async function loadVocabData() {
+    try {
+        console.log('Starting loadVocabData');
+        const spinner = document.getElementById('loading-spinner');
+        if (!spinner) {
+            console.error('Loading spinner element missing');
+            return;
+        }
+        spinner.style.display = 'block';
+
+        setInitialCardTheme();
+        const cards = [
+            document.getElementById('vocab-card'),
+            document.getElementById('next-card-1'),
+            document.getElementById('next-card-2'),
+            document.getElementById('next-card-3'),
+            document.getElementById('next-card-4'),
+            document.getElementById('next-card-5'),
+            document.getElementById('next-card-6'),
+            document.getElementById('next-card-7'),
+            document.getElementById('next-card-8'),
+            document.getElementById('next-card-9'),
+            ...document.querySelectorAll('.card-stack')
+        ];
+        if (cards.some(card => !card)) {
+            console.error('Some card elements are missing');
+            return;
+        }
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.display = 'none';
+        });
+
+        const statsNumberElement = document.querySelector('.stats-number');
+        if (!statsNumberElement) {
+            console.error('Stats number element missing');
+        } else {
+            statsNumberElement.style.opacity = '1';
+        }
+        alternateStatsText();
+
+        const progressContainer = document.querySelector('.progress-bar-container');
+        const progressLabel = document.getElementById('progress-label');
+        const progressValue = document.getElementById('progress-value');
+        if (!progressContainer || !progressLabel || !progressValue) {
+            console.error('Progress bar elements missing');
+        } else {
+            progressContainer.style.opacity = '0';
+            progressLabel.style.opacity = '0';
+            progressValue.style.opacity = '0';
+        }
+
+        console.log('Fetching data/database.jsonl');
+        const response = await fetch('data/database.jsonl');
+        if (!response.ok) {
+            throw new Error(`Fetch failed: ${response.status} ${response.statusText}`);
+        }
+        const text = await response.text();
+        const lines = text.trim().split('\n');
+        originalVocabLength = lines.length;
+        const initialBatchSize = 200;
+        let allVocab = lines.slice(0, initialBatchSize).map((line, index) => {
+            try {
+                return { ...JSON.parse(line), originalIndex: index };
+            } catch (e) {
+                console.error(`Error parsing JSONL line ${index}:`, e);
+                return null;
+            }
+        }).filter(item => item !== null);
+        vocabData = allVocab.filter(item => !swipedCards.includes(item.originalIndex));
+        if (vocabData.length === 0) {
+            swipedCards = [];
+            localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
+            vocabData = allVocab.slice();
+        }
+        vocabData = vocabData.sort(() => Math.random() - 0.5);
+        console.log(`Loaded ${vocabData.length} vocab entries initially`);
+
+        updateWebsiteStats();
+        populateCardsBeforeAnimation();
+        console.log('Starting card stack animation');
+        animateCardStackDrop(() => {
+            console.log('Card stack animation complete, displaying cards');
+            displayCards();
+            spinner.style.display = 'none';
+            showProgressBar();
+            startTutorialAnimation();
+        });
+
+        setTimeout(async () => {
+            const remainingVocab = lines.slice(initialBatchSize).map((line, index) => {
+                try {
+                    return { ...JSON.parse(line), originalIndex: index + initialBatchSize };
+                } catch (e) {
+                    console.error(`Error parsing JSONL line ${index + initialBatchSize}:`, e);
+                    return null;
+                }
+            }).filter(item => item !== null);
+            allVocab = allVocab.concat(remainingVocab);
+            vocabData = allVocab.filter(item => !swipedCards.includes(item.originalIndex));
+            if (vocabData.length === 0) {
+                swipedCards = [];
+                localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
+                vocabData = allVocab.slice();
+            }
+            vocabData = vocabData.sort(() => Math.random() - 0.5);
+            console.log(`Loaded ${vocabData.length} total vocab entries`);
+            populateCardsBeforeAnimation();
+            showProgressBar();
+        }, 0);
+    } catch (error) {
+        console.error('Error in loadVocabData:', error.message);
+        const spinner = document.getElementById('loading-spinner');
+        if (spinner) spinner.style.display = 'none';
+        document.getElementById('word-top').textContent = 'Error';
+        document.getElementById('word-bottom').textContent = 'Error';
+        document.getElementById('english').textContent = 'Failed to load data';
+        document.getElementById('thai').textContent = '';
+    }
+}
+
 // Function to display the current and next cards
 function displayCards() {
     if (vocabData.length === 0) {
@@ -560,54 +683,57 @@ function displayCards() {
     ];
     const stackCards = document.querySelectorAll('.card-stack');
 
-    if (currentCard && wordTopElement && wordBottomElement && englishElement && thaiElement && audioElement) {
-        if (currentIndex < vocabData.length) {
-            const entry = vocabData[currentIndex];
-            wordTopElement.textContent = entry.word;
-            wordBottomElement.textContent = entry.word;
-            wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
-            wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
-            englishElement.textContent = entry.english;
-            thaiElement.textContent = entry.thai;
-            audioElement.src = `data/${entry.audio}`;
-            wordTopElement.style.color = cardTextColor;
-            wordBottomElement.style.color = cardTextColor;
-            englishElement.style.color = cardTextColor;
-            thaiElement.style.color = cardTextColor;
-            currentCard.style.backgroundColor = cardBackgroundColor;
-            currentCard.style.borderColor = cardBorderColor;
-            currentCard.style.transform = 'translate(0, 0) rotate(0deg)';
-            currentCard.style.opacity = '1';
-            currentCard.style.zIndex = '100';
-        }
-    } else {
+    if (!currentCard || !wordTopElement || !wordBottomElement || !englishElement || !thaiElement || !audioElement) {
         console.error('Current card elements missing for display');
+        return;
+    }
+
+    if (currentIndex < vocabData.length) {
+        const entry = vocabData[currentIndex];
+        wordTopElement.textContent = entry.word;
+        wordBottomElement.textContent = entry.word;
+        wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
+        wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
+        englishElement.textContent = entry.english;
+        thaiElement.textContent = entry.thai;
+        audioElement.src = `data/${entry.audio}`;
+        wordTopElement.style.color = cardTextColor;
+        wordBottomElement.style.color = cardTextColor;
+        englishElement.style.color = cardTextColor;
+        thaiElement.style.color = cardTextColor;
+        currentCard.style.backgroundColor = cardBackgroundColor;
+        currentCard.style.borderColor = cardBorderColor;
+        currentCard.style.transform = 'translate(0, 0) rotate(0deg)';
+        currentCard.style.opacity = '1';
+        currentCard.style.zIndex = '100';
     }
 
     nextCards.forEach((next, index) => {
         if (currentIndex + index + 1 < vocabData.length) {
-            const nextEntry = vocabData[currentIndex + index + 1];
+            const nextEntry = vocabData[currentIndex + 1];
             const nextWordTopElement = document.getElementById(next.top);
             const nextWordBottomElement = document.getElementById(next.bottom);
             const nextEnglishElement = document.getElementById(next.english);
             const nextThaiElement = document.getElementById(next.thai);
-            if (next.card && nextWordTopElement && nextWordBottomElement && nextEnglishElement && nextThaiElement) {
-                nextWordTopElement.textContent = nextEntry.word;
-                nextWordBottomElement.textContent = nextEntry.word;
-                nextEnglishElement.textContent = nextEntry.english;
-                nextThaiElement.textContent = nextEntry.thai;
-                nextWordTopElement.style.color = cardTextColor;
-                nextWordBottomElement.style.color = cardTextColor;
-                nextEnglishElement.style.color = cardTextColor;
-                nextThaiElement.style.color = cardTextColor;
-                nextWordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
-                nextWordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
-                next.card.style.backgroundColor = cardBackgroundColor;
-                next.card.style.borderColor = cardBorderColor;
-                next.card.style.transform = `translate(${next.translateX}px, ${next.translateY}px) rotate(${next.rotate}deg)`;
-                next.card.style.opacity = '1';
-                next.card.style.zIndex = next.zIndex;
+            if (!next.card || !nextWordTopElement || !nextWordBottomElement || !nextEnglishElement || !nextThaiElement) {
+                console.error(`Next card elements missing for index ${index + 1}`);
+                return;
             }
+            nextWordTopElement.textContent = nextEntry.word;
+            nextWordBottomElement.textContent = nextEntry.word;
+            nextEnglishElement.textContent = nextEntry.english;
+            nextThaiElement.textContent = nextEntry.thai;
+            nextWordTopElement.style.color = cardTextColor;
+            nextWordBottomElement.style.color = cardTextColor;
+            nextEnglishElement.style.color = cardTextColor;
+            nextThaiElement.style.color = cardTextColor;
+            nextWordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
+            nextWordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
+            next.card.style.backgroundColor = cardBackgroundColor;
+            next.card.style.borderColor = cardBorderColor;
+            next.card.style.transform = `translate(${next.translateX}px, ${next.translateY}px) rotate(${next.rotate}deg)`;
+            next.card.style.opacity = '1';
+            next.card.style.zIndex = next.zIndex;
         } else {
             if (next.card) next.card.style.opacity = '0';
         }
@@ -847,6 +973,7 @@ function captureSnapshot() {
     const canvas = document.querySelector('#snapshot-canvas');
     const ctx = canvas.getContext('2d');
     const mainContent = document.querySelector('.main-content');
+
     if (!canvas || !ctx || !mainContent) {
         console.error('Snapshot elements missing');
         return;
@@ -873,6 +1000,7 @@ function captureSnapshot() {
         y: 0
     }).then(canvas => {
         ctx.drawImage(canvas, 0, 0, viewportWidth, viewportHeight);
+
         canvas.toBlob(blob => {
             if (!blob) {
                 console.error('Failed to generate canvas blob');
