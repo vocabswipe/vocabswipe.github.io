@@ -17,7 +17,6 @@
     <!-- Firebase SDK Scripts -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js"></script>
 </head>
 <body>
@@ -25,17 +24,14 @@
         <!-- Icon panel container -->
         <div class="icon-panel-container">
             <div class="icon-panel">
-                <img src="share.svg" alt="Share" class="share-icon" id="share-icon">
                 <button class="login-button" id="login-button">Login</button>
+                <img src="share.svg" alt="Share" class="share-icon" id="share-icon">
             </div>
             <!-- Login modal -->
             <div class="modal" id="login-modal" style="display: none;">
                 <div class="modal-content">
                     <h2>Login to VocabSwipe</h2>
                     <button id="google-login">Sign in with Google</button>
-                    <!-- Temporarily disabled until implemented -->
-                    <!-- <button id="email-login">Sign in with Email</button> -->
-                    <!-- <button id="phone-login">Sign in with Phone</button> -->
                     <button id="close-modal">Close</button>
                 </div>
             </div>
