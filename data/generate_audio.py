@@ -19,7 +19,7 @@ VOICE_ID = "Matthew"
 ENGINE = "neural"
 MAX_RETRIES = 3  # Number of retries for AWS Polly failures
 RETRY_DELAY = 2  # Seconds to wait between retries
-AWS_PROFILES = ["vocabswipe", "vocabswipe.aws1", "vocabswipe.aws2"]  # Available AWS profiles
+AWS_PROFILES = ["default", "new-account", "third-account"]  # Available AWS profiles
 
 def get_sentence_hash(sentence):
     """Generate an MD5 hash of the sentence (lowercase) for unique file naming."""
