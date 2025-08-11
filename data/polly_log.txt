@@ -13,3 +13,6 @@ used AWS vocabswipe and reached 79478, swap to vocabswipe.aws1
 -----------------------------
 start AWS vocabswipe.aws1 at 79478
 expected to reach free tier at 79478 + 27983 = 107,462
+-----------------------------
+start vocabswipe.aws2 at 104809
+expected to reach free tier limit at 104809 + 25000 = 129800
