@@ -19,7 +19,7 @@ VOICE_ID = "Matthew"
 ENGINE = "neural"
 MAX_RETRIES = 3  # Number of retries for AWS Polly failures
 RETRY_DELAY = 2  # Seconds to wait between retries
-AWS_PROFILES = ["vocabswipe", "vocabswipe.aws1", "vocabswipe.aws2"]  # Updated AWS profiles
+AWS_PROFILES = ["vocabswipe", "vocabswipe.aws1", "vocabswipe.aws2"]  # Available AWS profiles
 
 def get_sentence_hash(sentence):
     """Generate an MD5 hash of the sentence (lowercase) for unique file naming."""
@@ -178,7 +178,7 @@ def main():
                 continue
 
             sentence_hash = get_sentence_hash(sentence)
-            audiojuana = f"{sentence_hash}.{OUTPUT_FORMAT}"
+            audio_filename = f"{sentence_hash}.{OUTPUT_FORMAT}"
             audio_path = Path(AUDIO_DIR) / audio_filename
             repo_audio_path = f"{AUDIO_DIR}/{audio_filename}"
 
