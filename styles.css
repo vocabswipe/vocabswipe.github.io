@@ -86,6 +86,7 @@ html, body {
     display: flex;
     align-items: flex-end; /* Align content to bottom */
     z-index: -10; /* Matches loading.gif */
+    margin-top: 5px; /* Adjusted to move downward by 5px for mobile */
 }
 
 /* Loading spinner styling */
@@ -501,6 +502,17 @@ html, body {
     font-weight: bold;
     font-size: 1.3rem;
     line-height: 1.5;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 600px) {
+    .slogan-container {
+        margin-top: 2px; /* Moved up by 3px from 5px */
+    }
+
+    .progress-bar-container {
+        margin-top: 0px; /* Moved up by 5px from 5px */
+    }
 }
 
 /* Responsive adjustments for desktop */
