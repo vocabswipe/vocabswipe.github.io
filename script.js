@@ -332,7 +332,7 @@ function enableCardInteractions() {
 
 // Function to start tutorial animation for first 1000 visits
 function startTutorialAnimation() {
-    if (visitCount > 5) return; // Skip if beyond 5 visits
+    if (visitCount > 10000) return; // Skip if beyond 5 visits
 
     const handpoint = document.getElementById('handpoint');
     const topCard = document.getElementById('vocab-card');
@@ -867,3 +867,4 @@ function captureSnapshot() {
 document.addEventListener('DOMContentLoaded', () => {
     loadVocabData();
 });
+
