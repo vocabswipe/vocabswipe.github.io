@@ -124,6 +124,34 @@ html, body {
     100% { transform: translate(-50%, -50%) scale(1); }
 }
 
+/* Tutorial text styling */
+.tutorial-text {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 1002; /* Above handpoint */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none; /* Prevent interaction */
+}
+
+#tap-text {
+    top: 20%; /* Position above the card center */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#swipe-text {
+    top: 70%; /* Position below the card center */
+    left: 50%;
+    transform: translateX(-50%);
+    display: none; /* Initially hidden until swipe animation */
+}
+
 /* Icon panel styling */
 .icon-panel {
     width: 100%;
@@ -682,5 +710,17 @@ html, body {
     .handpoint {
         width: 96px;
         height: 96px;
+    }
+
+    .tutorial-text {
+        font-size: 1rem;
+    }
+
+    #tap-text {
+        top: 15%; /* Slightly higher on desktop */
+    }
+
+    #swipe-text {
+        top: 75%; /* Slightly lower on desktop */
     }
 }
