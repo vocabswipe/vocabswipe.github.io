@@ -306,7 +306,7 @@ function enableCardInteractions() {
             });
             setTimeout(() => {
                 topCard.classList.remove('glow');
-            }, 800); // Increased to match slower tap animation
+            }, 600);
         }
     });
 
@@ -325,7 +325,7 @@ function enableCardInteractions() {
             });
             setTimeout(() => {
                 nextCard.classList.remove('glow');
-            }, 800); // Increased to match slower tap animation
+            }, 600);
         }
     });
 }
@@ -375,7 +375,7 @@ function startTutorialAnimation() {
                 swipeText.style.display = 'block';
                 swipeText.style.opacity = '1';
 
-                // Pause for 1.5 seconds before swipe (increased from 1s)
+                // Pause for 1 second before swipe
                 setTimeout(() => {
                     // Generate random angle for swipe (0 to 360 degrees)
                     const angle = Math.random() * 2 * Math.PI; // Random angle in radians
@@ -385,9 +385,9 @@ function startTutorialAnimation() {
                     const rotate = (translateX / window.innerWidth) * 30; // Rotation based on swipe direction
 
                     // Animate handpoint, swipe text, and card together
-                    topCard.style.transition = 'transform 2s ease, opacity 2s ease'; // Increased from 1.5s
-                    handpoint.style.transition = 'transform 2s ease'; // Increased from 1.5s
-                    swipeText.style.transition = 'transform 2s ease, opacity 2s ease'; // Increased from 1.5s
+                    topCard.style.transition = 'transform 2s ease, opacity 2s ease';
+                    handpoint.style.transition = 'transform 2s ease';
+                    swipeText.style.transition = 'transform 2s ease, opacity 2s ease';
                     topCard.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
                     topCard.style.opacity = '0';
                     handpoint.style.transform = `translate(-50%, -50%) translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
@@ -399,9 +399,9 @@ function startTutorialAnimation() {
                         handpoint.style.display = 'none';
                         swipeText.style.display = 'none';
                         moveToNextCard(translateX, translateY, rotate, true); // isAnimation=true to skip progress bar update
-                    }, 2000); // Increased from 1500ms to match slower swipe
-                }, 1500); // Increased from 1000ms for slower transition
-            }, 800); // Increased from 600ms to match slower tap animation
+                    }, 2000);
+                }, 1000); // Reduced pause to make tutorial snappier
+            }, 600); // Duration of tap and glow
         }, 500); // After fade-in
     }, 2000);
 }
@@ -565,7 +565,7 @@ function displayCards() {
             nextWordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
             next.card.style.backgroundColor = cardBackgroundColor;
             next.card.style.borderColor = cardBorderColor;
-            next.card.style.transform = `translate(${next.translateX}px, ${translateY}px) rotate(${next.rotate}deg)`;
+            next.card.style.transform = `translate(${next.translateX}px, ${next.translateY}px) rotate(${next.rotate}deg)`;
             next.card.style.opacity = '1';
             next.card.style.zIndex = next.zIndex;
         } else {
@@ -674,7 +674,7 @@ card.addEventListener('touchend', (e) => {
         card.style.transform = 'translate(0, 0) rotate(0deg)';
         setTimeout(() => {
             card.classList.remove('glow');
-        }, 800); // Increased to match slower tap animation
+        }, 600);
     } else if (distance > minSwipeDistance) {
         const angle = Math.atan2(deltaY, deltaX);
         const magnitude = distance * 5;
@@ -741,7 +741,7 @@ card.addEventListener('mouseup', (e) => {
         card.style.transform = 'translate(0, 0) rotate(0deg)';
         setTimeout(() => {
             card.classList.remove('glow');
-        }, 800); // Increased to match slower tap animation
+        }, 600);
     } else if (distance > minSwipeDistance) {
         const angle = Math.atan2(deltaY, deltaX);
         const magnitude = distance * 5;
@@ -778,7 +778,7 @@ document.addEventListener('keydown', (e) => {
             });
             setTimeout(() => {
                 card.classList.remove('glow');
-            }, 800); // Increased to match slower tap animation
+            }, 600);
             break;
         case 'ArrowLeft':
             e.preventDefault();
