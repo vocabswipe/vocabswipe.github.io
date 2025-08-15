@@ -102,8 +102,8 @@ html, body {
 /* Handpoint styling for tutorial */
 .handpoint {
     position: absolute;
-    width: 120px; /* Reduced from 240px */
-    height: 120px; /* Reduced from 240px */
+    width: 120px; /* Tripled from 80px */
+    height: 120px; /* Tripled from 80px */
     z-index: 1001;
     display: none;
     pointer-events: none;
@@ -208,6 +208,7 @@ html, body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 1.2;
     height: 42px;
+    overflow: hidden;
 }
 
 /* Slogan styling */
@@ -502,7 +503,7 @@ html, body {
     }
 
     .website-name-container {
-        height: 120px; /* Increased from 97px */
+        height: 120px; /* Increased from 87px to 97px */
         align-items: flex-end; /* Align content to bottom */
         margin-top: 10px; /* Desktop-specific downward shift */
         z-index: -10; /* Matches loading.gif */
@@ -632,7 +633,7 @@ html, body {
     }
 
     .handpoint {
-        width: 144px; /* Reduced from 288px */
-        height: 144px; /* Reduced from 288px */
+        width: 144px; /* Tripled from 96px */
+        height: 144px; /* Tripled from 96px */
     }
 }
