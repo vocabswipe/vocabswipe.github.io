@@ -3,32 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Learn Words, Ride the Wave with VocabSwipe">
-    <meta name="keywords" content="VocabSwipe, English vocabulary, learn English, swipe cards, language learning, west coast">
+    <meta name="description" content="Build Your Vocab, Swipe by Swipe with VocabSwipe">
+    <meta name="keywords" content="VocabSwipe, English vocabulary, learn English, swipe cards, language learning, west coast vibes">
     <meta name="author" content="VocabSwipe">
     <title>VocabSwipe</title>
 
-    <!-- Updated icon links for West Coast theme -->
-    <link rel="icon" href="wave-icon.png">
-    <link rel="apple-touch-icon" href="wave-icon.png">
+    <!-- Updated icon links using VS.png (keeping original, but you could replace with a Tupac-inspired icon if desired) -->
+    <link rel="icon" href="VS.png">
+    <link rel="apple-touch-icon" href="VS.png">
 
     <!-- Optional: Make it feel like a native app on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="VocabSwipe">
 
-    <!-- Optional: Android theme color (West Coast sunset orange) -->
-    <meta name="theme-color" content="#FF8C42">
+    <!-- Optional: Android theme color – changed to gold for Tupac's 'All Eyez on Me' vibe -->
+    <meta name="theme-color" content="#D4AF37">
 
     <!-- For Android/PWA compatibility -->
-    <link rel="icon" sizes="192x192" href="wave-icon.png">
-    <link rel="icon" sizes="512x512" href="wave-icon.png">
+    <link rel="icon" sizes="192x192" href="VS.png">
+    <link rel="icon" sizes="512x512" href="VS.png">
 
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Changed to a more graffiti/hip-hop style font for titles, like 'Permanent Marker' for west coast street vibes -->
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) – keeping as is -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9BW66ERY84"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -42,12 +44,12 @@
         <!-- Icon panel container -->
         <div class="icon-panel-container">
             <div class="icon-panel">
-                <img src="share-wave.svg" alt="Share" class="share-icon" id="share-icon">
+                <img src="share.svg" alt="Share" class="share-icon" id="share-icon">
             </div>
         </div>
         <!-- Loading spinner -->
         <div class="loading-spinner" id="loading-spinner">
-            <img src="loading-wave.gif" alt="Loading" class="spinner">
+            <img src="loading.gif" alt="Loading" class="spinner">
         </div>
         <!-- Stats number container -->
         <div class="stats-number-container">
@@ -61,7 +63,7 @@
         <div class="stats-sentence-container">
             <div class="stats-sentence">
                 <div class="stats-text-container">
-                    <p class="count-text" id="stats-line1">Words to Flow with Everyday English</p>
+                    <p class="count-text" id="stats-line1">Essential American English Sentences</p>
                 </div>
             </div>
         </div>
@@ -155,10 +157,10 @@
                 <div class="card card-stack card-stack-2"></div>
                 <div class="card card-stack card-stack-3"></div>
                 <!-- Handpoint for tutorial -->
-                <img src="handpoint-wave.svg" alt="Hand Point" class="handpoint" id="handpoint">
+                <img src="handpoint.svg" alt="Hand Point" class="handpoint" id="handpoint">
                 <!-- Tutorial text elements -->
-                <div class="tutorial-text" id="tap-text">Tap to hear the vibe</div>
-                <div class="tutorial-text" id="swipe-text">Swipe to catch the next wave</div>
+                <div class="tutorial-text" id="tap-text">Tap to hear audio</div>
+                <div class="tutorial-text" id="swipe-text">Swipe to next card</div>
             </div>
         </div>
         <!-- Website name container -->
@@ -170,13 +172,13 @@
         <!-- Slogan container -->
         <div class="slogan-container">
             <div class="slogan-content">
-                <p class="website-slogan">Learn Words, Ride the Wave</p>
+                <p class="website-slogan">Build Your <span class="website-font">Vocab</span>, <span class="website-font">Swipe</span> by <span class="website-font">Swipe</span></p>
             </div>
         </div>
         <!-- Progress bar container -->
         <div class="progress-bar-container">
             <div class="progress-content">
-                <div class="progress-label" id="progress-label">Words Explored</div>
+                <div class="progress-label" id="progress-label">Swiped Cards</div>
                 <div class="progress-value" id="progress-value">0</div>
                 <div class="progress-bar">
                     <div class="progress-fill" id="progress-fill"></div>
