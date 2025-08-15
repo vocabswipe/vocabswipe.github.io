@@ -799,7 +799,6 @@ shareIcon.addEventListener('click', () => {
 // Function to capture snapshot
 function captureSnapshot() {
     const canvas = document.querySelector('#snapshot-canvas');
-    const ctx = canvas.getContext('2d');
     const mainContent = document.querySelector('.main-content');
 
     // Set canvas size to match mobile viewport (360px × 640px)
@@ -808,27 +807,20 @@ function captureSnapshot() {
     const pixelRatio = window.devicePixelRatio || 1;
     canvas.width = viewportWidth * pixelRatio;
     canvas.height = viewportHeight * pixelRatio;
-    ctx.scale(pixelRatio, pixelRatio);
 
-    // Set background color to match the page
-    const gradient = ctx.createLinearGradient(0, 0, 0, viewportHeight);
-    gradient.addColorStop(0, '#FF4500');
-    gradient.addColorStop(1, '#4B0082');
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, viewportWidth, viewportHeight);
-
+    // Use html2canvas to capture the main-content with its background
     html2canvas(mainContent, {
         width: viewportWidth,
         height: viewportHeight,
         scale: pixelRatio,
-        backgroundColor: null,
+        backgroundColor: null, // Preserve the CSS background
         useCORS: true,
         logging: false,
         x: 0,
-        y: 0
+        y: 0,
+        windowWidth: viewportWidth,
+        windowHeight: viewportHeight
     }).then(canvas => {
-        ctx.drawImage(canvas, 0, 0, viewportWidth, viewportHeight);
-
         canvas.toBlob(blob => {
             if (!blob) {
                 console.error('Failed to generate canvas blob');
