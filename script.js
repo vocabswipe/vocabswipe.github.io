@@ -1,3 +1,5 @@
+// Full script.js with previous fixes
+
 // Array to hold vocabulary entries
 let vocabData = [];
 let originalVocabLength = 0; // Store original length for stats
@@ -136,7 +138,7 @@ function showProgressBar() {
     
     progressFill.style.width = `${percentage}%`;
     progressValue.textContent = swipedCount.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
-    progressLabel.textContent = 'Words Explored';
+    progressLabel.textContent = 'Swiped Cards';
 
     // Fade in all progress bar elements
     progressContainer.style.transition = 'opacity 1s ease';
@@ -147,11 +149,11 @@ function showProgressBar() {
     progressValue.style.opacity = '1';
 }
 
-// Function to set initial card theme
+// Function to set initial card theme – updated for west coast humble style (earthy beige cards, black text)
 function setInitialCardTheme() {
-    const cardBackgroundColor = '#F5F5DC'; // Sandy beige
-    const cardTextColor = '#2E4057'; // Deep ocean blue
-    const cardBorderColor = '#FF8C42'; // Sunset orange
+    const cardBackgroundColor = '#E0C9A6'; // Earthy beige for humble, west coast sunset vibe
+    const cardTextColor = '#000000';
+    const cardBorderColor = '#000000'; // Black border
 
     const cards = [
         document.getElementById('vocab-card'),
@@ -170,7 +172,6 @@ function setInitialCardTheme() {
     cards.forEach(card => {
         card.style.backgroundColor = cardBackgroundColor;
         card.style.borderColor = cardBorderColor;
-        card.style.backgroundImage = 'url("sand-texture.png")'; // Add sandy texture
         const contentElements = card.querySelectorAll('.word, .sentence');
         contentElements.forEach(element => {
             element.style.color = cardTextColor;
@@ -182,7 +183,7 @@ function setInitialCardTheme() {
 function populateCardsBeforeAnimation() {
     if (vocabData.length === 0) return;
 
-    const cardTextColor = '#2E4057';
+    const cardTextColor = '#000000';
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
     const wordBottomElement = document.getElementById('word-bottom');
@@ -207,8 +208,8 @@ function populateCardsBeforeAnimation() {
         const entry = vocabData[currentIndex];
         wordTopElement.textContent = entry.word;
         wordBottomElement.textContent = entry.word;
-        wordTopElement.style.fontFamily = "'Pacifico', cursive";
-        wordBottomElement.style.fontFamily = "'Pacifico', cursive";
+        wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
+        wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
         englishElement.textContent = entry.english;
         thaiElement.textContent = entry.thai;
         audioElement.src = `data/${entry.audio}`;
@@ -234,8 +235,8 @@ function populateCardsBeforeAnimation() {
             nextWordBottomElement.style.color = cardTextColor;
             nextEnglishElement.style.color = cardTextColor;
             nextThaiElement.style.color = cardTextColor;
-            nextWordTopElement.style.fontFamily = "'Pacifico', cursive";
-            nextWordBottomElement.style.fontFamily = "'Pacifico', cursive";
+            nextWordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
+            nextWordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
         }
     });
 }
@@ -407,7 +408,7 @@ function startTutorialAnimation() {
     }, 2000);
 }
 
-// Function to fetch and parse JSONL file with lazy loading
+// Function to fetch and parse JSONL file (lazy loading removed; parse all synchronously)
 async function loadVocabData() {
     try {
         const spinner = document.getElementById('loading-spinner');
@@ -444,13 +445,12 @@ async function loadVocabData() {
         progressLabel.style.opacity = '0';
         progressValue.style.opacity = '0';
 
-        // Fetch and parse initial batch (first 200 entries)
+        // Fetch and parse all entries synchronously
         const response = await fetch('data/database.jsonl');
         const text = await response.text();
         const lines = text.trim().split('\n');
         originalVocabLength = lines.length; // Store total length for stats
-        const initialBatchSize = 200;
-        let allVocab = lines.slice(0, initialBatchSize).map(line => JSON.parse(line));
+        let allVocab = lines.map(line => JSON.parse(line));
         allVocab = allVocab.map((item, index) => ({ ...item, originalIndex: index }));
         vocabData = allVocab.filter(item => !swipedCards.includes(item.originalIndex));
         if (vocabData.length === 0) {
@@ -469,25 +469,6 @@ async function loadVocabData() {
             showProgressBar(); // Show progress bar after data fetch
             startTutorialAnimation(); // Start tutorial animation after card stack
         });
-
-        // Load remaining data in the background
-        setTimeout(async () => {
-            const remainingVocab = lines.slice(initialBatchSize).map((line, index) =>
-                JSON.parse(line)).map((item, index) => ({
-                    ...item,
-                    originalIndex: index + initialBatchSize
-                }));
-            allVocab = allVocab.concat(remainingVocab);
-            vocabData = allVocab.filter(item => !swipedCards.includes(item.originalIndex));
-            if (vocabData.length === 0) {
-                swipedCards = [];
-                localStorage.setItem('swipedCards', JSON.stringify(swipedCards));
-                vocabData = allVocab.slice();
-            }
-            vocabData = vocabData.sort(() => Math.random() - 0.5);
-            populateCardsBeforeAnimation();
-            showProgressBar(); // Update progress bar after full data load
-        }, 0);
     } catch (error) {
         console.error('Error loading database:', error);
         document.getElementById('loading-spinner').style.display = 'none';
@@ -502,9 +483,9 @@ async function loadVocabData() {
 function displayCards() {
     if (vocabData.length === 0) return;
 
-    const cardBackgroundColor = '#F5F5DC'; // Sandy beige
-    const cardTextColor = '#2E4057'; // Deep ocean blue
-    const cardBorderColor = '#FF8C42'; // Sunset orange
+    const cardBackgroundColor = '#E0C9A6';
+    const cardTextColor = '#000000';
+    const cardBorderColor = '#000000';
 
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
@@ -530,8 +511,8 @@ function displayCards() {
         const entry = vocabData[currentIndex];
         wordTopElement.textContent = entry.word;
         wordBottomElement.textContent = entry.word;
-        wordTopElement.style.fontFamily = "'Pacifico', cursive";
-        wordBottomElement.style.fontFamily = "'Pacifico', cursive";
+        wordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
+        wordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
         englishElement.textContent = entry.english;
         thaiElement.textContent = entry.thai;
         audioElement.src = `data/${entry.audio}`;
@@ -541,7 +522,6 @@ function displayCards() {
         thaiElement.style.color = cardTextColor;
         currentCard.style.backgroundColor = cardBackgroundColor;
         currentCard.style.borderColor = cardBorderColor;
-        currentCard.style.backgroundImage = 'url("sand-texture.png")';
         currentCard.style.transform = 'translate(0, 0) rotate(0deg)';
         currentCard.style.opacity = '1';
         currentCard.style.zIndex = '100';
@@ -563,11 +543,10 @@ function displayCards() {
             nextWordBottomElement.style.color = cardTextColor;
             nextEnglishElement.style.color = cardTextColor;
             nextThaiElement.style.color = cardTextColor;
-            nextWordTopElement.style.fontFamily = "'Pacifico', cursive";
-            nextWordBottomElement.style.fontFamily = "'Pacifico', cursive";
+            nextWordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
+            nextWordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
             next.card.style.backgroundColor = cardBackgroundColor;
             next.card.style.borderColor = cardBorderColor;
-            next.card.style.backgroundImage = 'url("sand-texture.png")';
             next.card.style.transform = `translate(${next.translateX}px, ${next.translateY}px) rotate(${next.rotate}deg)`;
             next.card.style.opacity = '1';
             next.card.style.zIndex = next.zIndex;
@@ -580,7 +559,6 @@ function displayCards() {
     stackCards.forEach((card, index) => {
         card.style.backgroundColor = cardBackgroundColor;
         card.style.borderColor = cardBorderColor;
-        card.style.backgroundImage = 'url("sand-texture.png")';
     });
 }
 
@@ -722,7 +700,7 @@ card.addEventListener('mousemove', (e) => {
     }
 });
 
-card.addEventLivevent('mouseup', (e) => {
+card.addEventListener('mouseup', (e) => {
     e.preventDefault();
     isDragging = false;
     const endX = e.screenX;
@@ -828,14 +806,14 @@ function captureSnapshot() {
     ctx.scale(pixelRatio, pixelRatio);
 
     // Set background color to match the page
-    ctx.fillStyle = '#2E4057';
+    ctx.fillStyle = '#35654d';
     ctx.fillRect(0, 0, viewportWidth, viewportHeight);
 
     html2canvas(mainContent, {
         width: viewportWidth,
         height: viewportHeight,
         scale: pixelRatio,
-        backgroundColor: '#2E4057',
+        backgroundColor: '#35654d',
         useCORS: true,
         logging: false,
         x: 0,
@@ -851,8 +829,8 @@ function captureSnapshot() {
             const file = new File([blob], 'vocabswipe-snapshot.png', { type: 'image/png' });
             const shareData = {
                 files: [file],
-                title: 'Check out my VocabSwipe wave!',
-                text: 'Learn words with VocabSwipe! Ride the wave at VocabSwipe.com',
+                title: 'Check out my VocabSwipe snapshot!',
+                text: 'Master words with VocabSwipe! Try it at VocabSwipe.com',
                 url: 'https://VocabSwipe.com'
             };
 
