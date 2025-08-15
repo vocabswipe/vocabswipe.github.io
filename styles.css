@@ -1,5 +1,5 @@
-/* Import Montserrat and Bangers fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Bangers&display=swap');
+/* Import Montserrat and Permanent Marker fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Permanent+Marker&display=swap');
 
 /* Reset default styles and prevent scrolling */
 * {
@@ -16,7 +16,7 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #35654d;
+    background: linear-gradient(180deg, #FF4500 0%, #4B0082 100%);
     font-family: 'Times New Roman', Times, serif;
     position: fixed;
     top: 0;
@@ -107,8 +107,8 @@ html, body {
 /* Handpoint styling for tutorial */
 .handpoint {
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 240px; /* Tripled from 80px */
+    height: 240px; /* Tripled from 80px */
     z-index: 1001;
     display: none;
     pointer-events: none;
@@ -122,33 +122,6 @@ html, body {
     0% { transform: translate(-50%, -50%) scale(1); }
     50% { transform: translate(-50%, -50%) scale(0.9); }
     100% { transform: translate(-50%, -50%) scale(1); }
-}
-
-/* Tutorial text styling */
-.tutorial-text {
-    position: absolute;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 0.9rem;
-    color: #FF4500;
-    text-align: center;
-    z-index: 1002; /* Above handpoint */
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none; /* Prevent interaction */
-}
-
-#tap-text {
-    top: 20%; /* Position above the card center */
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-#swipe-text {
-    top: 70%; /* Position below the card center */
-    left: 50%;
-    transform: translateX(-50%);
-    display: none; /* Initially hidden until swipe animation */
 }
 
 /* Icon panel styling */
@@ -205,10 +178,10 @@ html, body {
 }
 
 .count-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+    font-family: 'Permanent Marker', cursive;
+    font-weight: normal;
     font-size: 1.8rem;
-    color: #ffd700;
+    color: #FFFF00;
     margin: 5px 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 1.2;
@@ -233,7 +206,7 @@ html, body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 0.924rem;
-    color: #ffffff;
+    color: #FFFFFF;
     margin: 2px 0;
     line-height: 1.6;
     white-space: nowrap;
@@ -267,10 +240,10 @@ html, body {
 }
 
 .website-name {
-    font-family: 'Bangers', cursive;
+    font-family: 'Permanent Marker', cursive;
     font-size: 1.349634rem;
     font-weight: normal;
-    color: #ffffff;
+    color: #D4AF37;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 1.2;
     height: 28px;
@@ -288,13 +261,18 @@ html, body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 1.03818rem;
-    color: #ffffff;
+    color: #FFFFFF;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 1.2;
     overflow: visible;
     white-space: nowrap;
     z-index: -10; /* Matches loading.gif */
     position: relative;
+}
+
+.website-font {
+    font-family: 'Permanent Marker', cursive;
+    color: #D4AF37;
 }
 
 /* Progress bar styling */
@@ -311,7 +289,7 @@ html, body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 0.84rem;
-    color: #F8F8FF;
+    color: #D4AF37;
     position: absolute;
     left: 0;
     top: -18px;
@@ -325,7 +303,7 @@ html, body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 0.84rem;
-    color: #F8F8FF;
+    color: #D4AF37;
     position: absolute;
     right: 0;
     top: -18px;
@@ -337,7 +315,7 @@ html, body {
 .progress-bar {
     width: 100%;
     height: 9px;
-    background-color: #28282B;
+    background-color: #000000;
     border-radius: 0; /* Rectangular corners */
     overflow: hidden;
     position: absolute;
@@ -347,7 +325,7 @@ html, body {
 
 .progress-fill {
     height: 100%;
-    background-color: #00ff00;
+    background-color: #D4AF37;
     width: 0%;
     transition: width 0.3s ease;
     z-index: -10; /* Matches loading.gif */
@@ -635,7 +613,7 @@ html, body {
         font-size: 0.945rem;
         top: -20px;
         line-height: 1.2;
-        color: #F8F8FF;
+        color: #D4AF37;
         transition: opacity 1s ease; /* Smooth fade-in */
         z-index: -10; /* Matches loading.gif */
     }
@@ -643,7 +621,7 @@ html, body {
     .progress-value {
         font-size: 0.945rem;
         top: -20px;
-        color: #F8F8FF;
+        color: #D4AF37;
         transition: opacity 1s ease; /* Smooth fade-in */
         z-index: -10; /* Matches loading.gif */
     }
@@ -707,20 +685,7 @@ html, body {
     }
 
     .handpoint {
-        width: 96px;
-        height: 96px;
-    }
-
-    .tutorial-text {
-        font-size: 1rem;
-        color: #FF4500;
-    }
-
-    #tap-text {
-        top: 15%; /* Slightly higher on desktop */
-    }
-
-    #swipe-text {
-        top: 75%; /* Slightly lower on desktop */
+        width: 288px; /* Tripled from 96px */
+        height: 288px; /* Tripled from 96px */
     }
 }
