@@ -34,12 +34,13 @@ html, body {
     max-height: 640px; /* Match mobile viewport height */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center; /* Center content vertically */
     align-items: center;
     position: relative;
+    padding-top: 0; /* Remove any top padding */
 }
 
-/* Container styles (unchanged) */
+/* Container styles */
 .icon-panel-container,
 .stats-number-container,
 .stats-sentence-container,
@@ -54,9 +55,10 @@ html, body {
     position: relative;
 }
 
-/* Specific container heights (unchanged) */
+/* Specific container heights */
 .icon-panel-container {
     height: 35px;
+    margin-top: 0; /* Remove any top margin */
 }
 
 .stats-number-container {
@@ -75,13 +77,13 @@ html, body {
     height: 60px;
     align-items: flex-end; /* Align content to bottom */
     z-index: -10; /* Matches loading.gif */
-    margin-top: 5px; /* Added to move downward by 5px on mobile */
+    margin-top: 0; /* Remove margin to move up */
 }
 
 .slogan-container {
     height: 30px;
     z-index: -10; /* Matches loading.gif */
-    margin-top: 5px; /* Added to move downward by 5px on mobile */
+    margin-top: 0; /* Remove margin to move up */
 }
 
 .progress-bar-container {
@@ -90,10 +92,10 @@ html, body {
     display: flex;
     align-items: flex-end; /* Align content to bottom */
     z-index: -10; /* Matches loading.gif */
-    margin-top: 5px; /* Adjusted to move downward by 5px for mobile */
+    margin-top: 0; /* Remove margin to move up */
 }
 
-/* Loading spinner styling (unchanged) */
+/* Loading spinner styling */
 .loading-spinner {
     position: absolute;
     top: 310px;
@@ -108,7 +110,7 @@ html, body {
     height: 64px;
 }
 
-/* Handpoint styling for tutorial (unchanged) */
+/* Handpoint styling for tutorial */
 .handpoint {
     position: absolute;
     width: 80px;
@@ -128,34 +130,7 @@ html, body {
     100% { transform: translate(-50%, -50%) scale(1); }
 }
 
-/* Tutorial text styling – updated color to gold for Tupac vibe */
-.tutorial-text {
-    position: absolute;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 0.9rem;
-    color: #D4AF37; /* Gold */
-    text-align: center;
-    z-index: 1002; /* Above handpoint */
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none; /* Prevent interaction */
-}
-
-#tap-text {
-    top: 20%; /* Position above the card center */
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-#swipe-text {
-    top: 70%; /* Position below the card center */
-    left: 50%;
-    transform: translateX(-50%);
-    display: none; /* Initially hidden until swipe animation */
-}
-
-/* Icon panel styling (unchanged) */
+/* Icon panel styling */
 .icon-panel {
     width: 100%;
     max-width: 340px;
@@ -182,7 +157,7 @@ html, body {
     opacity: 0.6;
 }
 
-/* Hide share icon on PC browsers (unchanged) */
+/* Hide share icon on PC browsers */
 @media (min-width: 601px) {
     .share-icon {
         display: none;
@@ -219,7 +194,7 @@ html, body {
     height: 28px;
 }
 
-/* Stats sentence styling – updated font and color */
+/* Stats sentence styling */
 .stats-sentence {
     width: 100%;
     max-width: 300px;
@@ -247,7 +222,7 @@ html, body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Card container (unchanged) */
+/* Card container */
 .card-container {
     position: relative;
     width: 80vw;
@@ -261,7 +236,7 @@ html, body {
     z-index: 10;
 }
 
-/* Website name styling – updated font to graffiti */
+/* Website name styling */
 .website-name-content {
     width: 100%;
     max-width: 300px;
@@ -281,7 +256,7 @@ html, body {
     overflow: hidden;
 }
 
-/* Slogan styling – updated color */
+/* Slogan styling */
 .slogan-content {
     width: 100%;
     max-width: 300px;
@@ -306,13 +281,13 @@ html, body {
     color: #D4AF37;
 }
 
-/* Progress bar styling – redesigned with gold fill for Tupac theme, black background */
+/* Progress bar styling */
 .progress-content {
     width: 100%;
     max-width: 300px;
     height: 9px;
     position: relative;
-    margin-top: 5px; /* Adjusted from 10px to move upward by 5px for mobile */
+    margin-top: 0; /* Remove margin to move up */
     z-index: -10; /* Matches loading.gif */
 }
 
@@ -362,7 +337,7 @@ html, body {
     z-index: -10; /* Matches loading.gif */
 }
 
-/* Poker card styling – updated to earthy beige background, black border for humble west coast feel */
+/* Poker card styling */
 .card {
     width: 100%;
     height: 100%;
@@ -387,14 +362,14 @@ html, body {
     outline: none; /* Hide blue highlight on tap */
 }
 
-/* Specific styling for the top card to remove tap highlight on mobile (unchanged) */
+/* Specific styling for the top card to remove tap highlight on mobile */
 @media (max-width: 600px) {
     .card#vocab-card {
         -webkit-tap-highlight-color: transparent;
     }
 }
 
-/* Hide blue highlight on next cards and stack cards for mobile (unchanged) */
+/* Hide blue highlight on next cards and stack cards for mobile */
 @media (max-width: 600px) {
     #next-card-1, #next-card-2, #next-card-3, #next-card-4, 
     #next-card-5, #next-card-6, #next-card-7, #next-card-8, 
@@ -403,7 +378,7 @@ html, body {
     }
 }
 
-/* Glowing effect – updated to bright yellow glow */
+/* Glowing effect */
 .glow {
     animation: glow 0.96s ease-in-out 1;
 }
@@ -414,7 +389,7 @@ html, body {
     100% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
 }
 
-/* Next cards and stack cards (unchanged) */
+/* Next cards and stack cards */
 #next-card-1 {
     z-index: 9;
     transform: translate(1.296px, 1.296px) rotate(0.3249deg);
@@ -486,7 +461,7 @@ html, body {
     outline: none;
 }
 
-/* Card content (unchanged) */
+/* Card content */
 .card-content {
     position: relative;
     width: 100%;
@@ -498,7 +473,7 @@ html, body {
     align-items: center;
 }
 
-/* Word styling (unchanged) */
+/* Word styling */
 .word {
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.82rem;
@@ -518,7 +493,7 @@ html, body {
     right: 10px;
 }
 
-/* Sentence styling (unchanged) */
+/* Sentence styling */
 .sentence {
     font-size: 1.3rem;
     margin: 8px 0;
@@ -540,25 +515,35 @@ html, body {
     line-height: 1.5;
 }
 
-/* Mobile-specific adjustments (unchanged) */
+/* Mobile-specific adjustments */
 @media (max-width: 600px) {
+    .main-content {
+        padding-top: 0; /* Ensure no top padding */
+        justify-content: center; /* Center content vertically */
+    }
+
+    .icon-panel-container {
+        margin-top: 0; /* Remove any top margin */
+    }
+
     .slogan-container {
-        margin-top: 2px; /* Moved up by 3px from 5px */
+        margin-top: 0; /* Ensure no extra spacing */
     }
 
     .progress-bar-container {
-        margin-top: 0px; /* Moved up by 5px from 5px */
+        margin-top: 0; /* Ensure no extra spacing */
     }
 }
 
-/* Responsive adjustments for desktop – updated colors/fonts where needed */
+/* Responsive adjustments for desktop */
 @media (min-width: 601px) {
     .main-content {
-        max-height: 670px; /* Increased from 640px to accommodate 30px total downward shift */
+        max-height: 670px; /* Increased to accommodate desktop layout */
     }
 
     .icon-panel-container {
         height: 39px;
+        margin-top: 0; /* No top margin on desktop */
     }
 
     .stats-number-container {
@@ -577,23 +562,23 @@ html, body {
     }
 
     .website-name-container {
-        height: 97px; /* Increased from 87px to 97px */
+        height: 97px;
         align-items: flex-end; /* Align content to bottom */
-        margin-top: 10px; /* Desktop-specific downward shift */
+        margin-top: 0; /* No top margin */
         z-index: -10; /* Matches loading.gif */
     }
 
     .slogan-container {
         height: 35px;
-        margin-top: 10px; /* Desktop-specific downward shift */
+        margin-top: 0; /* No top margin */
         z-index: -10; /* Matches loading.gif */
     }
 
     .progress-bar-container {
-        height: 77px; /* Increased by 20px to accommodate downward shift */
+        height: 77px;
         align-items: flex-end; /* Align content to bottom */
         z-index: -10; /* Matches loading.gif */
-        margin-top: 10px; /* Desktop-specific downward shift */
+        margin-top: 0; /* No top margin */
     }
 
     .stats-number {
@@ -629,7 +614,7 @@ html, body {
         width: 300px; /* Match card width */
         max-width: 300px;
         height: 10px;
-        margin-top: 20px; /* Maintain downward shift for PC */
+        margin-top: 0; /* No top margin */
         z-index: -10; /* Matches loading.gif */
     }
 
@@ -719,18 +704,5 @@ html, body {
     .handpoint {
         width: 96px;
         height: 96px;
-    }
-
-    .tutorial-text {
-        font-size: 1rem;
-        color: #D4AF37;
-    }
-
-    #tap-text {
-        top: 15%; /* Slightly higher on desktop */
-    }
-
-    #swipe-text {
-        top: 75%; /* Slightly lower on desktop */
     }
 }
