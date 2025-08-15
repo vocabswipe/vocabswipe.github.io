@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9BW66ERY84"></script>
     <script>
@@ -39,12 +38,6 @@
 </head>
 <body>
     <div class="main-content">
-        <!-- Icon panel container -->
-        <div class="icon-panel-container">
-            <div class="icon-panel">
-                <img src="share.svg" alt="Share" class="share-icon" id="share-icon">
-            </div>
-        </div>
         <!-- Loading spinner -->
         <div class="loading-spinner" id="loading-spinner">
             <img src="loading.gif" alt="Loading" class="spinner">
@@ -155,7 +148,7 @@
                 <div class="card card-stack card-stack-2"></div>
                 <div class="card card-stack card-stack-3"></div>
                 <!-- Handpoint for tutorial -->
-                <img src="handpoint.png" alt="Hand Point" class="handpoint" id="handpoint">
+                <img src="handpoint.svg" alt="Hand Point" class="handpoint" id="handpoint">
             </div>
         </div>
         <!-- Website name container -->
@@ -182,8 +175,6 @@
         </div>
     </div>
     <audio id="card-audio" src=""></audio>
-    <!-- Canvas for snapshot -->
-    <canvas id="snapshot-canvas" style="display: none;"></canvas>
     <script src="script.js"></script>
 </body>
 </html>

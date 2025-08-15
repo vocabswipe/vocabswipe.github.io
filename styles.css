@@ -36,7 +36,6 @@ html, body {
 }
 
 /* Container styles */
-.icon-panel-container,
 .stats-number-container,
 .stats-sentence-container,
 .card-area-container,
@@ -51,10 +50,6 @@ html, body {
 }
 
 /* Specific container heights */
-.icon-panel-container {
-    height: 35px;
-}
-
 .stats-number-container {
     height: 40px;
 }
@@ -122,40 +117,6 @@ html, body {
     0% { transform: translate(-50%, -50%) scale(1); }
     50% { transform: translate(-50%, -50%) scale(0.9); }
     100% { transform: translate(-50%, -50%) scale(1); }
-}
-
-/* Icon panel styling */
-.icon-panel {
-    width: 100%;
-    max-width: 340px;
-    display: flex;
-    justify-content: flex-end; /* Align share icon to the right */
-    padding: 10px;
-}
-
-.share-icon {
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.share-icon:hover {
-    transform: scale(1.1);
-    opacity: 0.8;
-}
-
-.share-icon:active {
-    transform: scale(0.9);
-    opacity: 0.6;
-}
-
-/* Hide share icon on PC browsers */
-@media (min-width: 601px) {
-    .share-icon {
-        display: none;
-    }
 }
 
 /* Stats number styling */
@@ -526,10 +487,6 @@ html, body {
         max-height: 670px; /* Increased from 640px to accommodate 30px total downward shift */
     }
 
-    .icon-panel-container {
-        height: 39px;
-    }
-
     .stats-number-container {
         height: 48px;
     }
@@ -668,15 +625,6 @@ html, body {
 
     .card-stack-3 {
         transform: translate(6.48px, 6.48px) rotate(3.888deg);
-    }
-
-    .share-icon {
-        width: 30px;
-        height: 30px;
-    }
-
-    .icon-panel {
-        max-width: 360px;
     }
 
     .spinner {
