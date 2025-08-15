@@ -1,5 +1,5 @@
-/* Import Montserrat and Bangers fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Bangers&display=swap');
+/* Import Montserrat and Permanent Marker (graffiti-style) fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Permanent+Marker&display=swap');
 
 /* Reset default styles and prevent scrolling */
 * {
@@ -9,14 +9,18 @@
 }
 
 html, body {
-    height: 100%;
+    height: 100vh;
     width: 100%;
+    min-height: 100vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #35654d;
+    /* Background: West coast sunset gradient – orange to purple for Cali vibes, humble and real */
+    background: linear-gradient(180deg, #FF4500 0%, #4B0082 100%);
+    background-size: cover;
+    background-attachment: fixed;
     font-family: 'Times New Roman', Times, serif;
     position: fixed;
     top: 0;
@@ -30,9 +34,10 @@ html, body {
     max-height: 640px; /* Match mobile viewport height */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center; /* Center content vertically */
     align-items: center;
     position: relative;
+    padding-top: 0; /* Remove any top padding */
 }
 
 /* Container styles */
@@ -53,6 +58,7 @@ html, body {
 /* Specific container heights */
 .icon-panel-container {
     height: 35px;
+    margin-top: 0; /* Remove any top margin */
 }
 
 .stats-number-container {
@@ -71,13 +77,13 @@ html, body {
     height: 60px;
     align-items: flex-end; /* Align content to bottom */
     z-index: -10; /* Matches loading.gif */
-    margin-top: 5px; /* Added to move downward by 5px on mobile */
+    margin-top: 0; /* Remove margin to move up */
 }
 
 .slogan-container {
     height: 30px;
     z-index: -10; /* Matches loading.gif */
-    margin-top: 5px; /* Added to move downward by 5px on mobile */
+    margin-top: 0; /* Remove margin to move up */
 }
 
 .progress-bar-container {
@@ -86,7 +92,7 @@ html, body {
     display: flex;
     align-items: flex-end; /* Align content to bottom */
     z-index: -10; /* Matches loading.gif */
-    margin-top: 5px; /* Adjusted to move downward by 5px for mobile */
+    margin-top: 0; /* Remove margin to move up */
 }
 
 /* Loading spinner styling */
@@ -124,33 +130,6 @@ html, body {
     100% { transform: translate(-50%, -50%) scale(1); }
 }
 
-/* Tutorial text styling */
-.tutorial-text {
-    position: absolute;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 0.9rem;
-    color: #FF4500;
-    text-align: center;
-    z-index: 1002; /* Above handpoint */
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none; /* Prevent interaction */
-}
-
-#tap-text {
-    top: 20%; /* Position above the card center */
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-#swipe-text {
-    top: 70%; /* Position below the card center */
-    left: 50%;
-    transform: translateX(-50%);
-    display: none; /* Initially hidden until swipe animation */
-}
-
 /* Icon panel styling */
 .icon-panel {
     width: 100%;
@@ -185,7 +164,7 @@ html, body {
     }
 }
 
-/* Stats number styling */
+/* Stats number styling – updated color to yellow */
 .stats-number {
     width: 100%;
     max-width: 300px;
@@ -205,10 +184,10 @@ html, body {
 }
 
 .count-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+    font-family: 'Permanent Marker', cursive; /* Graffiti font for Tupac street vibe */
+    font-weight: normal;
     font-size: 1.8rem;
-    color: #ffd700;
+    color: #FFFF00; /* Yellow */
     margin: 5px 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 1.2;
@@ -233,7 +212,7 @@ html, body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 0.924rem;
-    color: #ffffff;
+    color: #FFFFFF; /* White for contrast on gradient */
     margin: 2px 0;
     line-height: 1.6;
     white-space: nowrap;
@@ -267,10 +246,10 @@ html, body {
 }
 
 .website-name {
-    font-family: 'Bangers', cursive;
+    font-family: 'Permanent Marker', cursive;
     font-size: 1.349634rem;
     font-weight: normal;
-    color: #ffffff;
+    color: #D4AF37; /* Gold for Tupac luxury with humble roots */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 1.2;
     height: 28px;
@@ -288,7 +267,7 @@ html, body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 1.03818rem;
-    color: #ffffff;
+    color: #FFFFFF;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 1.2;
     overflow: visible;
@@ -297,13 +276,18 @@ html, body {
     position: relative;
 }
 
+.website-font {
+    font-family: 'Permanent Marker', cursive;
+    color: #D4AF37;
+}
+
 /* Progress bar styling */
 .progress-content {
     width: 100%;
     max-width: 300px;
     height: 9px;
     position: relative;
-    margin-top: 5px; /* Adjusted from 10px to move upward by 5px for mobile */
+    margin-top: 0; /* Remove margin to move up */
     z-index: -10; /* Matches loading.gif */
 }
 
@@ -311,7 +295,7 @@ html, body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 0.84rem;
-    color: #F8F8FF;
+    color: #D4AF37; /* Gold */
     position: absolute;
     left: 0;
     top: -18px;
@@ -325,7 +309,7 @@ html, body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 0.84rem;
-    color: #F8F8FF;
+    color: #D4AF37; /* Gold */
     position: absolute;
     right: 0;
     top: -18px;
@@ -337,7 +321,7 @@ html, body {
 .progress-bar {
     width: 100%;
     height: 9px;
-    background-color: #28282B;
+    background-color: #000000; /* Black for humble street vibe */
     border-radius: 0; /* Rectangular corners */
     overflow: hidden;
     position: absolute;
@@ -347,7 +331,7 @@ html, body {
 
 .progress-fill {
     height: 100%;
-    background-color: #00ff00;
+    background-color: #D4AF37; /* Gold fill */
     width: 0%;
     transition: width 0.3s ease;
     z-index: -10; /* Matches loading.gif */
@@ -357,9 +341,9 @@ html, body {
 .card {
     width: 100%;
     height: 100%;
-    border: 1px solid #000000;
+    border: 1px solid #000000; /* Black border */
     border-radius: 8px;
-    background-color: #FFF8DC;
+    background-color: #E0C9A6; /* Earthy beige */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -401,7 +385,7 @@ html, body {
 
 @keyframes glow {
     0% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
-    50% { box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.7); }
+    50% { box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.7); } /* Bright yellow glow */
     100% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
 }
 
@@ -533,23 +517,33 @@ html, body {
 
 /* Mobile-specific adjustments */
 @media (max-width: 600px) {
+    .main-content {
+        padding-top: 0; /* Ensure no top padding */
+        justify-content: center; /* Center content vertically */
+    }
+
+    .icon-panel-container {
+        margin-top: 0; /* Remove any top margin */
+    }
+
     .slogan-container {
-        margin-top: 2px; /* Moved up by 3px from 5px */
+        margin-top: 0; /* Ensure no extra spacing */
     }
 
     .progress-bar-container {
-        margin-top: 0px; /* Moved up by 5px from 5px */
+        margin-top: 0; /* Ensure no extra spacing */
     }
 }
 
 /* Responsive adjustments for desktop */
 @media (min-width: 601px) {
     .main-content {
-        max-height: 670px; /* Increased from 640px to accommodate 30px total downward shift */
+        max-height: 670px; /* Increased to accommodate desktop layout */
     }
 
     .icon-panel-container {
         height: 39px;
+        margin-top: 0; /* No top margin on desktop */
     }
 
     .stats-number-container {
@@ -568,23 +562,23 @@ html, body {
     }
 
     .website-name-container {
-        height: 97px; /* Increased from 87px to 97px */
+        height: 97px;
         align-items: flex-end; /* Align content to bottom */
-        margin-top: 10px; /* Desktop-specific downward shift */
+        margin-top: 0; /* No top margin */
         z-index: -10; /* Matches loading.gif */
     }
 
     .slogan-container {
         height: 35px;
-        margin-top: 10px; /* Desktop-specific downward shift */
+        margin-top: 0; /* No top margin */
         z-index: -10; /* Matches loading.gif */
     }
 
     .progress-bar-container {
-        height: 77px; /* Increased by 20px to accommodate downward shift */
+        height: 77px;
         align-items: flex-end; /* Align content to bottom */
         z-index: -10; /* Matches loading.gif */
-        margin-top: 10px; /* Desktop-specific downward shift */
+        margin-top: 0; /* No top margin */
     }
 
     .stats-number {
@@ -620,7 +614,7 @@ html, body {
         width: 300px; /* Match card width */
         max-width: 300px;
         height: 10px;
-        margin-top: 20px; /* Maintain downward shift for PC */
+        margin-top: 0; /* No top margin */
         z-index: -10; /* Matches loading.gif */
     }
 
@@ -635,7 +629,7 @@ html, body {
         font-size: 0.945rem;
         top: -20px;
         line-height: 1.2;
-        color: #F8F8FF;
+        color: #D4AF37;
         transition: opacity 1s ease; /* Smooth fade-in */
         z-index: -10; /* Matches loading.gif */
     }
@@ -643,7 +637,7 @@ html, body {
     .progress-value {
         font-size: 0.945rem;
         top: -20px;
-        color: #F8F8FF;
+        color: #D4AF37;
         transition: opacity 1s ease; /* Smooth fade-in */
         z-index: -10; /* Matches loading.gif */
     }
@@ -661,6 +655,7 @@ html, body {
     .count-title {
         font-size: 2rem;
         height: 30px;
+        color: #FFFF00; /* Yellow for desktop too */
     }
 
     .count-text {
@@ -709,18 +704,5 @@ html, body {
     .handpoint {
         width: 96px;
         height: 96px;
-    }
-
-    .tutorial-text {
-        font-size: 1rem;
-        color: #FF4500;
-    }
-
-    #tap-text {
-        top: 15%; /* Slightly higher on desktop */
-    }
-
-    #swipe-text {
-        top: 75%; /* Slightly lower on desktop */
     }
 }
