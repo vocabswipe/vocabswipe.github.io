@@ -16,7 +16,7 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(180deg, #FF4500 0%, #4B0082 100%);
+    background: linear-gradient(180deg, #FF7F50 0%, #4B0082 100%); /* Updated to Soft Coral to Deep Purple */
     font-family: 'Times New Roman', Times, serif;
     position: fixed;
     top: 0;
@@ -102,8 +102,8 @@ html, body {
 /* Handpoint styling for tutorial */
 .handpoint {
     position: absolute;
-    width: 240px; /* Tripled from 80px */
-    height: 240px; /* Tripled from 80px */
+    width: 120px; /* Reduced from 240px to 120px (halved) */
+    height: 120px; /* Reduced from 240px to 120px (halved) */
     z-index: 1001;
     display: none;
     pointer-events: none;
@@ -202,7 +202,7 @@ html, body {
 
 .website-name {
     font-family: 'Permanent Marker', cursive;
-    font-size: 1.349634rem;
+    font-size: 2.024451rem; /* Increased from 1.349634rem by 50% */
     font-weight: normal;
     color: #D4AF37;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -340,7 +340,7 @@ html, body {
 
 @keyframes glow {
     0% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
-    50% { box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.7); }
+    50% { box-shadow: 0 0 40px 16px rgba(255, 215, 0, 0.7); } /* Doubled spread radius and shadow size */
     100% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
 }
 
@@ -584,7 +584,7 @@ html, body {
     }
 
     .website-name {
-        font-size: 1.55727rem;
+        font-size: 2.335905rem; /* Increased from 1.55727rem by 50% */
         height: 30px;
     }
 
@@ -633,7 +633,7 @@ html, body {
     }
 
     .handpoint {
-        width: 288px; /* Tripled from 96px */
-        height: 288px; /* Tripled from 96px */
+        width: 144px; /* Reduced from 288px to 144px (halved) */
+        height: 144px; /* Reduced from 288px to 144px (halved) */
     }
 }
