@@ -1,10 +1,9 @@
-// Full script.js with previous fixes
-
 // Array to hold vocabulary entries
 let vocabData = [];
 let originalVocabLength = 0; // Store original length for stats
 let currentIndex = 0;
 let hasSwiped = false; // Flag to track if user has swiped
+let isTutorialActive = false; // Flag to track if tutorial is running
 
 // Track visit count
 let visitCount = parseInt(localStorage.getItem('visitCount') || '0');
@@ -332,13 +331,28 @@ function enableCardInteractions() {
     });
 }
 
+// Function to stop tutorial animation
+function stopTutorialAnimation() {
+    if (isTutorialActive) {
+        const handpoint = document.getElementById('handpoint');
+        const topCard = document.getElementById('vocab-card');
+        handpoint.style.display = 'none';
+        topCard.classList.remove('glow');
+        topCard.style.transition = 'none';
+        topCard.style.transform = 'translate(0, 0) rotate(0deg)';
+        topCard.style.opacity = '1';
+        isTutorialActive = false;
+        // Remove any pending timeouts
+        clearTimeout(window.tutorialTimeout);
+    }
+}
+
 // Function to start tutorial animation for first 10000 visits
 function startTutorialAnimation() {
     if (visitCount > 10000) return; // Skip if beyond 10000 visits
+    isTutorialActive = true;
 
     const handpoint = document.getElementById('handpoint');
-    const tapText = document.getElementById('tap-text');
-    const swipeText = document.getElementById('swipe-text');
     const topCard = document.getElementById('vocab-card');
     const audio = document.getElementById('card-audio');
 
@@ -349,14 +363,15 @@ function startTutorialAnimation() {
     handpoint.style.top = '50%';
     handpoint.style.transform = 'translate(-50%, -50%)';
 
-    // Fade in handpoint and tap text after 2 seconds
-    setTimeout(() => {
+    // Fade in handpoint after 2 seconds
+    window.tutorialTimeout = setTimeout(() => {
+        if (!isTutorialActive) return;
         handpoint.style.transition = 'opacity 0.5s ease';
         handpoint.style.opacity = '1';
-        tapText.style.opacity = '1';
 
         // Tap animation after fade-in
-        setTimeout(() => {
+        window.tutorialTimeout = setTimeout(() => {
+            if (!isTutorialActive) return;
             handpoint.classList.add('tap-effect');
             topCard.classList.add('glow');
             audio.play().catch(error => console.error('Error playing audio:', error));
@@ -367,18 +382,14 @@ function startTutorialAnimation() {
                 'value': 1
             });
             // Remove tap effect and glow
-            setTimeout(() => {
+            window.tutorialTimeout = setTimeout(() => {
+                if (!isTutorialActive) return;
                 handpoint.classList.remove('tap-effect');
                 topCard.classList.remove('glow');
 
-                // Fade out tap text and fade in swipe text
-                tapText.style.transition = 'opacity 0.5s ease';
-                tapText.style.opacity = '0';
-                swipeText.style.display = 'block';
-                swipeText.style.opacity = '1';
-
                 // Pause for 1.8 seconds before swipe
-                setTimeout(() => {
+                window.tutorialTimeout = setTimeout(() => {
+                    if (!isTutorialActive) return;
                     // Generate random angle for swipe (0 to 360 degrees)
                     const angle = Math.random() * 2 * Math.PI; // Random angle in radians
                     const magnitude = window.innerWidth * 1.5; // Swipe distance
@@ -386,21 +397,19 @@ function startTutorialAnimation() {
                     const translateY = Math.sin(angle) * magnitude;
                     const rotate = (translateX / window.innerWidth) * 30; // Rotation based on swipe direction
 
-                    // Animate handpoint, swipe text, and card together
+                    // Animate handpoint and card together
                     topCard.style.transition = 'transform 2.4s ease, opacity 2.4s ease';
                     handpoint.style.transition = 'transform 2.4s ease';
-                    swipeText.style.transition = 'transform 2.4s ease, opacity 2.4s ease';
                     topCard.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
                     topCard.style.opacity = '0';
                     handpoint.style.transform = `translate(-50%, -50%) translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
-                    swipeText.style.transform = `translate(-50%, -50%) translate(${translateX}px, ${translateY}px)`;
-                    swipeText.style.opacity = '0';
 
                     // Reset after swipe animation
-                    setTimeout(() => {
+                    window.tutorialTimeout = setTimeout(() => {
+                        if (!isTutorialActive) return;
                         handpoint.style.display = 'none';
-                        swipeText.style.display = 'none';
                         moveToNextCard(translateX, translateY, rotate, true); // isAnimation=true to skip progress bar update
+                        isTutorialActive = false;
                     }, 2400);
                 }, 1800);
             }, 960); // Duration of tap and glow
@@ -408,7 +417,7 @@ function startTutorialAnimation() {
     }, 2000);
 }
 
-// Function to fetch and parse JSONL file (lazy loading removed; parse all synchronously)
+// Function to fetch and parse JSONL file
 async function loadVocabData() {
     try {
         const spinner = document.getElementById('loading-spinner');
@@ -779,6 +788,11 @@ document.addEventListener('keydown', (e) => {
             moveToNextCard(0, window.innerHeight, 10);
             break;
     }
+});
+
+// Stop tutorial on any screen touch
+document.addEventListener('touchstart', () => {
+    stopTutorialAnimation();
 });
 
 // Share icon functionality

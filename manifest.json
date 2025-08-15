@@ -1,0 +1,20 @@
+{
+  "name": "VocabSwipe",
+  "short_name": "VocabSwipe",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#D4AF37",
+  "theme_color": "#D4AF37",
+  "icons": [
+    {
+      "src": "VS.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "VS.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
