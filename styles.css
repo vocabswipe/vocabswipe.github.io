@@ -16,7 +16,7 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(180deg, #FF7F50 0%, #4B0082 100%); /* Updated to Soft Coral to Deep Purple */
+    background: linear-gradient(180deg, #FF7F50 0%, #4B0082 100%);
     font-family: 'Times New Roman', Times, serif;
     position: fixed;
     top: 0;
@@ -63,7 +63,7 @@ html, body {
 }
 
 .website-name-container {
-    height: 60px;
+    height: 80px;
     align-items: flex-end; /* Align content to bottom */
     z-index: -10; /* Matches loading.gif */
     margin-top: 5px; /* Added to move downward by 5px on mobile */
@@ -102,8 +102,8 @@ html, body {
 /* Handpoint styling for tutorial */
 .handpoint {
     position: absolute;
-    width: 120px; /* Reduced from 240px to 120px (halved) */
-    height: 120px; /* Reduced from 240px to 120px (halved) */
+    width: 120px; /* Reduced from 240px */
+    height: 120px; /* Reduced from 240px */
     z-index: 1001;
     display: none;
     pointer-events: none;
@@ -202,13 +202,12 @@ html, body {
 
 .website-name {
     font-family: 'Permanent Marker', cursive;
-    font-size: 2.024451rem; /* Increased from 1.349634rem by 50% */
+    font-size: 2.024451rem;
     font-weight: normal;
     color: #D4AF37;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 1.2;
-    height: 28px;
-    overflow: hidden;
+    height: 42px;
 }
 
 /* Slogan styling */
@@ -340,7 +339,7 @@ html, body {
 
 @keyframes glow {
     0% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
-    50% { box-shadow: 0 0 40px 16px rgba(255, 215, 0, 0.7); } /* Doubled spread radius and shadow size */
+    50% { box-shadow: 0 0 40px 16px rgba(255, 215, 0, 0.7); }
     100% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
 }
 
@@ -503,7 +502,7 @@ html, body {
     }
 
     .website-name-container {
-        height: 97px; /* Increased from 87px to 97px */
+        height: 120px; /* Increased from 97px */
         align-items: flex-end; /* Align content to bottom */
         margin-top: 10px; /* Desktop-specific downward shift */
         z-index: -10; /* Matches loading.gif */
@@ -584,8 +583,8 @@ html, body {
     }
 
     .website-name {
-        font-size: 2.335905rem; /* Increased from 1.55727rem by 50% */
-        height: 30px;
+        font-size: 2.335905rem;
+        height: 45px;
     }
 
     .website-slogan {
@@ -633,7 +632,7 @@ html, body {
     }
 
     .handpoint {
-        width: 144px; /* Reduced from 288px to 144px (halved) */
-        height: 144px; /* Reduced from 288px to 144px (halved) */
+        width: 144px; /* Reduced from 288px */
+        height: 144px; /* Reduced from 288px */
     }
 }
