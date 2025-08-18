@@ -12,6 +12,15 @@ localStorage.setItem('visitCount', visitCount);
 // Initialize swiped cards from localStorage
 let swipedCards = JSON.parse(localStorage.getItem('swipedCards') || '[]');
 
+// Function to check if current time in Thailand (UTC+7) is between 6 PM and 6 AM
+function isDarkThemeTime() {
+    const now = new Date();
+    const utcOffset = 7 * 60; // Thailand is UTC+7 (in minutes)
+    const thailandTime = new Date(now.getTime() + utcOffset * 60 * 1000);
+    const hours = thailandTime.getUTCHours();
+    return hours >= 18 || hours < 6; // 6 PM to 6 AM
+}
+
 // jQuery number animation plugin
 (function ($) {
     $.fn.countTo = function (options) {
@@ -147,11 +156,12 @@ function showProgressBar() {
     progressValue.style.opacity = '1';
 }
 
-// Function to set initial card theme
+// Function to set initial card theme based on time
 function setInitialCardTheme() {
-    const cardBackgroundColor = '#FFF8DC';
-    const cardTextColor = '#000000';
-    const cardBorderColor = '#000000';
+    const isDark = isDarkThemeTime();
+    const cardBackgroundColor = isDark ? '#000000' : '#FFF8DC';
+    const cardTextColor = isDark ? '#FFFFFF' : '#000000';
+    const cardBorderColor = isDark ? '#FFFFFF' : '#000000';
 
     const cards = [
         document.getElementById('vocab-card'),
@@ -170,6 +180,7 @@ function setInitialCardTheme() {
     cards.forEach(card => {
         card.style.backgroundColor = cardBackgroundColor;
         card.style.borderColor = cardBorderColor;
+        // Shadow remains unchanged
         const contentElements = card.querySelectorAll('.word, .sentence');
         contentElements.forEach(element => {
             element.style.color = cardTextColor;
@@ -181,7 +192,8 @@ function setInitialCardTheme() {
 function populateCardsBeforeAnimation() {
     if (vocabData.length === 0) return;
 
-    const cardTextColor = '#000000';
+    const isDark = isDarkThemeTime();
+    const cardTextColor = isDark ? '#FFFFFF' : '#000000';
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
     const wordBottomElement = document.getElementById('word-bottom');
@@ -488,9 +500,10 @@ async function loadVocabData() {
 function displayCards() {
     if (vocabData.length === 0) return;
 
-    const cardBackgroundColor = '#FFF8DC';
-    const cardTextColor = '#000000';
-    const cardBorderColor = '#000000';
+    const isDark = isDarkThemeTime();
+    const cardBackgroundColor = isDark ? '#000000' : '#FFF8DC';
+    const cardTextColor = isDark ? '#FFFFFF' : '#000000';
+    const cardBorderColor = isDark ? '#FFFFFF' : '#000000';
 
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
