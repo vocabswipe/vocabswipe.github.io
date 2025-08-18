@@ -159,9 +159,9 @@ function showProgressBar() {
 // Function to set initial card theme based on time
 function setInitialCardTheme() {
     const isDark = isDarkThemeTime();
-    const cardBackgroundColor = isDark ? '#333333' : '#FFF8DC'; // 20% less black in dark mode
-    const cardTextColor = isDark ? '#A3A3A3' : '#000000'; // Additional 20% brightness reduction in dark mode
-    const cardBorderColor = isDark ? '#A3A3A3' : '#000000'; // Additional 20% brightness reduction in dark mode
+    const cardBackgroundColor = isDark ? '#000000' : '#FFF8DC';
+    const cardTextColor = isDark ? '#CCCCCC' : '#000000'; // Reduced brightness by 20% in dark mode
+    const cardBorderColor = isDark ? '#CCCCCC' : '#000000'; // Reduced brightness by 20% in dark mode
     const cardBorderWidth = isDark ? '0.5px' : '1px'; // 50% thinner in dark mode
 
     const cards = [
@@ -194,7 +194,7 @@ function populateCardsBeforeAnimation() {
     if (vocabData.length === 0) return;
 
     const isDark = isDarkThemeTime();
-    const cardTextColor = isDark ? '#A3A3A3' : '#000000'; // Additional 20% brightness reduction in dark mode
+    const cardTextColor = isDark ? '#CCCCCC' : '#000000'; // Reduced brightness by 20% in dark mode
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
     const wordBottomElement = document.getElementById('word-bottom');
@@ -502,9 +502,9 @@ function displayCards() {
     if (vocabData.length === 0) return;
 
     const isDark = isDarkThemeTime();
-    const cardBackgroundColor = isDark ? '#333333' : '#FFF8DC'; // 20% less black in dark mode
-    const cardTextColor = isDark ? '#A3A3A3' : '#000000'; // Additional 20% brightness reduction in dark mode
-    const cardBorderColor = isDark ? '#A3A3A3' : '#000000'; // Additional 20% brightness reduction in dark mode
+    const cardBackgroundColor = isDark ? '#000000' : '#FFF8DC';
+    const cardTextColor = isDark ? '#CCCCCC' : '#000000'; // Reduced brightness by 20% in dark mode
+    const cardBorderColor = isDark ? '#CCCCCC' : '#000000'; // Reduced brightness by 20% in dark mode
     const cardBorderWidth = isDark ? '0.5px' : '1px'; // 50% thinner in dark mode
 
     const currentCard = document.getElementById('vocab-card');
@@ -775,4 +775,33 @@ document.addEventListener('keydown', (e) => {
             // Send audio play event to Google Analytics
             gtag('event', 'audio_play', {
                 'event_category': 'Engagement',
-                'event_label': `Card_${vocabData[currentIndex].originalIndex}_
+                'event_label': `Card_${vocabData[currentIndex].originalIndex}_Audio`,
+                'value': 1
+            });
+            setTimeout(() => {
+                card.classList.remove('glow');
+            }, 960);
+            break;
+        case 'ArrowLeft':
+            e.preventDefault();
+            moveToNextCard(-window.innerWidth, 0, -15);
+            break;
+        case 'ArrowRight':
+            e.preventDefault();
+            moveToNextCard(window.innerWidth, 0, 15);
+            break;
+        case 'ArrowUp':
+            e.preventDefault();
+            moveToNextCard(0, -window.innerHeight, -10);
+            break;
+        case 'ArrowDown':
+            e.preventDefault();
+            moveToNextCard(0, window.innerHeight, 10);
+            break;
+    }
+});
+
+// Load data on page load
+document.addEventListener('DOMContentLoaded', () => {
+    loadVocabData();
+});
