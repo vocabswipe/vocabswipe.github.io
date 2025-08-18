@@ -160,8 +160,9 @@ function showProgressBar() {
 function setInitialCardTheme() {
     const isDark = isDarkThemeTime();
     const cardBackgroundColor = isDark ? '#000000' : '#FFF8DC';
-    const cardTextColor = isDark ? '#FFFFFF' : '#000000';
-    const cardBorderColor = isDark ? '#FFFFFF' : '#000000';
+    const cardTextColor = isDark ? '#CCCCCC' : '#000000'; // Reduced brightness by 20% in dark mode
+    const cardBorderColor = isDark ? '#CCCCCC' : '#000000'; // Reduced brightness by 20% in dark mode
+    const cardBorderWidth = isDark ? '0.5px' : '1px'; // 50% thinner in dark mode
 
     const cards = [
         document.getElementById('vocab-card'),
@@ -179,7 +180,7 @@ function setInitialCardTheme() {
 
     cards.forEach(card => {
         card.style.backgroundColor = cardBackgroundColor;
-        card.style.borderColor = cardBorderColor;
+        card.style.border = `${cardBorderWidth} solid ${cardBorderColor}`;
         // Shadow remains unchanged
         const contentElements = card.querySelectorAll('.word, .sentence');
         contentElements.forEach(element => {
@@ -193,7 +194,7 @@ function populateCardsBeforeAnimation() {
     if (vocabData.length === 0) return;
 
     const isDark = isDarkThemeTime();
-    const cardTextColor = isDark ? '#FFFFFF' : '#000000';
+    const cardTextColor = isDark ? '#CCCCCC' : '#000000'; // Reduced brightness by 20% in dark mode
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
     const wordBottomElement = document.getElementById('word-bottom');
@@ -502,8 +503,9 @@ function displayCards() {
 
     const isDark = isDarkThemeTime();
     const cardBackgroundColor = isDark ? '#000000' : '#FFF8DC';
-    const cardTextColor = isDark ? '#FFFFFF' : '#000000';
-    const cardBorderColor = isDark ? '#FFFFFF' : '#000000';
+    const cardTextColor = isDark ? '#CCCCCC' : '#000000'; // Reduced brightness by 20% in dark mode
+    const cardBorderColor = isDark ? '#CCCCCC' : '#000000'; // Reduced brightness by 20% in dark mode
+    const cardBorderWidth = isDark ? '0.5px' : '1px'; // 50% thinner in dark mode
 
     const currentCard = document.getElementById('vocab-card');
     const wordTopElement = document.getElementById('word-top');
@@ -539,7 +541,7 @@ function displayCards() {
         englishElement.style.color = cardTextColor;
         thaiElement.style.color = cardTextColor;
         currentCard.style.backgroundColor = cardBackgroundColor;
-        currentCard.style.borderColor = cardBorderColor;
+        currentCard.style.border = `${cardBorderWidth} solid ${cardBorderColor}`;
         currentCard.style.transform = 'translate(0, 0) rotate(0deg)';
         currentCard.style.opacity = '1';
         currentCard.style.zIndex = '100';
@@ -564,7 +566,7 @@ function displayCards() {
             nextWordTopElement.style.fontFamily = "'Times New Roman', Times, serif";
             nextWordBottomElement.style.fontFamily = "'Times New Roman', Times, serif";
             next.card.style.backgroundColor = cardBackgroundColor;
-            next.card.style.borderColor = cardBorderColor;
+            next.card.style.border = `${cardBorderWidth} solid ${cardBorderColor}`;
             next.card.style.transform = `translate(${next.translateX}px, ${next.translateY}px) rotate(${next.rotate}deg)`;
             next.card.style.opacity = '1';
             next.card.style.zIndex = next.zIndex;
@@ -576,7 +578,7 @@ function displayCards() {
     // Stack cards
     stackCards.forEach((card, index) => {
         card.style.backgroundColor = cardBackgroundColor;
-        card.style.borderColor = cardBorderColor;
+        card.style.border = `${cardBorderWidth} solid ${cardBorderColor}`;
     });
 }
 
