@@ -139,8 +139,8 @@ html, body {
 }
 
 .count-title {
-    font-family: 'Permanent Marker', cursive;
-    font-weight: normal;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
     font-size: 1.8rem;
     color: #D4AF37;
     margin: 5px 0;
@@ -594,11 +594,13 @@ html, body {
     }
 
     .count-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
         font-size: 2rem;
         height: 30px;
-        color: #D4AF37; /* Added to match website text */
+        color: #D4AF37;
     }
-
+    
     .count-text {
         font-size: 0.945rem;
         line-height: 1.5;
@@ -638,4 +640,5 @@ html, body {
         height: 144px; /* Tripled from 96px */
     }
 }
+
 
