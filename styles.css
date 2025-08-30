@@ -16,7 +16,7 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(180deg, #FF7F50 0%, #4B0082 100%);
+    background: #35654d; /* Changed from gradient to solid color #35654d */
     font-family: 'Times New Roman', Times, serif;
     position: fixed;
     top: 0;
@@ -142,7 +142,7 @@ html, body {
     font-family: 'Permanent Marker', cursive;
     font-weight: normal;
     font-size: 1.8rem;
-    color: #FFFF00;
+    color: #D4AF37;
     margin: 5px 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 1.2;
@@ -596,6 +596,7 @@ html, body {
     .count-title {
         font-size: 2rem;
         height: 30px;
+        color: #D4AF37; /* Added to match website text */
     }
 
     .count-text {
@@ -637,3 +638,4 @@ html, body {
         height: 144px; /* Tripled from 96px */
     }
 }
+
