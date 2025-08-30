@@ -140,7 +140,7 @@ html, body {
 
 .count-title {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 1.8rem;
     color: #D4AF37;
     margin: 5px 0;
@@ -595,7 +595,7 @@ html, body {
 
     .count-title {
         font-family: 'Montserrat', sans-serif;
-        font-weight: 500;
+        font-weight: 700;
         font-size: 2rem;
         height: 30px;
         color: #D4AF37;
@@ -640,5 +640,6 @@ html, body {
         height: 144px; /* Tripled from 96px */
     }
 }
+
 
 
