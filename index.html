@@ -12,7 +12,6 @@
             --text-main: #1f2937;
             --text-muted: #6b7280;
             --primary: #4f46e5;
-            --primary-hover: #4338ca;
             --secondary: #e5e7eb;
         }
 
@@ -23,19 +22,17 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Desktop background, centering the mobile app view */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #374151; /* Dark background outside the mobile container */
+            background-color: #374151; 
             display: flex;
             justify-content: center;
             min-height: 100vh;
         }
 
-        /* Strictly Mobile View Container */
         #mobile-wrapper {
             width: 100%;
-            max-width: 414px; /* Standard large phone width */
+            max-width: 414px; 
             min-height: 100vh;
             background-color: var(--bg-color);
             padding: 1.5rem 1rem;
@@ -47,9 +44,7 @@
             overflow-x: hidden;
         }
 
-        .thai-text {
-            font-family: 'Kanit', sans-serif;
-        }
+        .thai-text { font-family: 'Kanit', sans-serif; }
 
         header {
             text-align: center;
@@ -57,13 +52,8 @@
             width: 100%;
         }
 
-        h1 {
-            font-size: 1.75rem;
-            color: var(--text-main);
-            margin-bottom: 0.25rem;
-        }
+        h1 { font-size: 1.75rem; color: var(--text-main); margin-bottom: 0.25rem; }
 
-        /* CEFR Level Selector - Scrollable horizontally on small screens */
         .level-selector {
             display: flex;
             gap: 0.5rem;
@@ -71,11 +61,9 @@
             width: 100%;
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none; 
         }
-        .level-selector::-webkit-scrollbar {
-            display: none; /* Chrome/Safari */
-        }
+        .level-selector::-webkit-scrollbar { display: none; }
 
         .level-btn {
             padding: 0.4rem 1rem;
@@ -95,7 +83,6 @@
             box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.4);
         }
 
-        /* Flashcard Container */
         .card-container {
             width: 100%;
             flex-grow: 1;
@@ -113,9 +100,7 @@
             cursor: pointer;
         }
 
-        .flashcard.flipped {
-            transform: rotateY(180deg);
-        }
+        .flashcard.flipped { transform: rotateY(180deg); }
 
         .card-face {
             position: absolute;
@@ -133,11 +118,8 @@
             text-align: center;
         }
 
-        .card-back {
-            transform: rotateY(180deg);
-        }
+        .card-back { transform: rotateY(180deg); }
 
-        /* Audio Button */
         .audio-btn {
             position: absolute;
             top: 1rem;
@@ -150,18 +132,14 @@
             height: 44px;
             font-size: 1.25rem;
             cursor: pointer;
-            display: none; /* Hidden until TTS loads */
+            display: none; 
             align-items: center;
             justify-content: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             z-index: 10;
         }
-        .audio-btn:active {
-            background: #c7d2fe;
-            transform: scale(0.95);
-        }
+        .audio-btn:active { background: #c7d2fe; transform: scale(0.95); }
 
-        /* Card Typography & Badges */
         .word-en { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main); }
         .word-th { font-size: 2.25rem; font-weight: 500; color: var(--primary); margin-bottom: 1.5rem; }
 
@@ -189,7 +167,6 @@
 
         .flip-hint { position: absolute; bottom: 1rem; font-size: 0.8rem; color: #9ca3af; }
 
-        /* Controls */
         .controls {
             display: flex;
             gap: 1rem;
@@ -286,46 +263,58 @@
         let currentIndex = 0;
         let isFlipped = false;
         
-        // Speech Synthesis Setup
         let synth = window.speechSynthesis;
-        let voicesReady = false;
+        let englishVoices = [];
 
         function initAudio() {
-            if (synth.getVoices().length > 0) {
-                voicesReady = true;
-                showAudioButtons();
-            } else {
-                synth.onvoiceschanged = () => {
-                    voicesReady = true;
-                    showAudioButtons();
-                };
+            const loadVoices = () => {
+                const allVoices = synth.getVoices();
+                if (allVoices.length > 0) {
+                    // Filter specifically for American English voices first
+                    englishVoices = allVoices.filter(v => v.lang === 'en-US');
+                    
+                    // Fallback to any English voice if no US voices are found
+                    if (englishVoices.length === 0) {
+                        englishVoices = allVoices.filter(v => v.lang.startsWith('en'));
+                    }
+
+                    if (englishVoices.length > 0) {
+                        document.querySelectorAll('.audio-btn').forEach(btn => btn.style.display = 'flex');
+                    }
+                }
+            };
+
+            loadVoices();
+            // Some browsers load voices asynchronously, so we listen for the change event
+            if (speechSynthesis.onvoiceschanged !== undefined) {
+                speechSynthesis.onvoiceschanged = loadVoices;
             }
         }
 
-        function showAudioButtons() {
-            document.querySelectorAll('.audio-btn').forEach(btn => btn.style.display = 'flex');
-        }
-
         function playAudio(event, type) {
-            event.stopPropagation(); // Prevent the card from flipping when clicking the audio button
-            if (!voicesReady || currentDeck.length === 0) return;
+            event.stopPropagation(); 
+            if (englishVoices.length === 0 || currentDeck.length === 0) return;
 
-            synth.cancel(); // Stop any currently playing audio
+            synth.cancel(); 
             
             const card = currentDeck[currentIndex];
             const textToSpeak = type === 'word' ? card.english : card.sentence_en;
             
             const utterance = new SpeechSynthesisUtterance(textToSpeak);
-            utterance.lang = 'en-US'; // Set to American English
-            utterance.rate = type === 'sentence' ? 0.9 : 1.0; // Slightly slower for sentences to help with shadowing
+            
+            // Randomly select a voice from the filtered English array
+            const randomVoice = englishVoices[Math.floor(Math.random() * englishVoices.length)];
+            utterance.voice = randomVoice;
+            
+            // Slightly slower for sentences to help with shadowing
+            utterance.rate = type === 'sentence' ? 0.85 : 1.0; 
             
             synth.speak(utterance);
         }
 
-        // Data Loading
         async function loadData() {
             document.getElementById('loading').style.display = 'block';
-            initAudio(); // Initialize audio engine
+            initAudio(); 
 
             try {
                 const response = await fetch('input.jsonl');
@@ -388,7 +377,6 @@
 
             document.getElementById('progressText').innerText = `${currentIndex + 1} / ${currentDeck.length}`;
             
-            // Auto-cancel audio when switching cards
             if(synth) synth.cancel();
         }
 
@@ -398,12 +386,11 @@
             flashcard.classList.toggle('flipped');
         }
 
-        // Infinite Loop Logic applied here
         function nextCard() {
             if (currentIndex < currentDeck.length - 1) {
                 currentIndex++;
             } else {
-                currentIndex = 0; // Loop back to the beginning
+                currentIndex = 0; 
             }
             updateCardView();
         }
@@ -412,7 +399,7 @@
             if (currentIndex > 0) {
                 currentIndex--;
             } else {
-                currentIndex = currentDeck.length - 1; // Loop to the end
+                currentIndex = currentDeck.length - 1; 
             }
             updateCardView();
         }
