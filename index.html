@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>VocabSwipe - CEFR Flashcards</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -14,26 +14,37 @@
             --primary: #4f46e5;
             --primary-hover: #4338ca;
             --secondary: #e5e7eb;
-            --cefr-a: #10b981; /* Green */
-            --cefr-b: #3b82f6; /* Blue */
-            --cefr-c: #8b5cf6; /* Purple */
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-tap-highlight-color: transparent;
         }
 
+        /* Desktop background, centering the mobile app view */
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #374151; /* Dark background outside the mobile container */
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Strictly Mobile View Container */
+        #mobile-wrapper {
+            width: 100%;
+            max-width: 414px; /* Standard large phone width */
+            min-height: 100vh;
             background-color: var(--bg-color);
-            color: var(--text-main);
+            padding: 1.5rem 1rem;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            padding: 2rem 1rem;
+            overflow-x: hidden;
         }
 
         .thai-text {
@@ -42,37 +53,40 @@
 
         header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+            width: 100%;
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: 1.75rem;
             color: var(--text-main);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
         }
 
-        /* CEFR Level Selector */
+        /* CEFR Level Selector - Scrollable horizontally on small screens */
         .level-selector {
             display: flex;
             gap: 0.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 2rem;
+            overflow-x: auto;
+            width: 100%;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            scrollbar-width: none; /* Firefox */
+        }
+        .level-selector::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
         }
 
         .level-btn {
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 1rem;
             border: none;
             border-radius: 9999px;
             background-color: var(--secondary);
             color: var(--text-main);
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .level-btn:hover {
-            background-color: #d1d5db;
+            white-space: nowrap;
+            transition: background-color 0.2s;
         }
 
         .level-btn.active {
@@ -84,10 +98,10 @@
         /* Flashcard Container */
         .card-container {
             width: 100%;
-            max-width: 500px;
-            height: 350px;
+            flex-grow: 1;
+            max-height: 450px;
             perspective: 1000px;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .flashcard {
@@ -110,12 +124,12 @@
             backface-visibility: hidden;
             background-color: var(--card-bg);
             border-radius: 1.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 2.5rem;
+            padding: 2rem;
             text-align: center;
         }
 
@@ -123,34 +137,36 @@
             transform: rotateY(180deg);
         }
 
-        /* Card Typography & Badges */
-        .word-en {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-main);
-        }
-
-        .word-th {
-            font-size: 2.5rem;
-            font-weight: 500;
+        /* Audio Button */
+        .audio-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #e0e7ff;
             color: var(--primary);
-            margin-bottom: 1.5rem;
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: none; /* Hidden until TTS loads */
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+        .audio-btn:active {
+            background: #c7d2fe;
+            transform: scale(0.95);
         }
 
-        .badge-container {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
+        /* Card Typography & Badges */
+        .word-en { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main); }
+        .word-th { font-size: 2.25rem; font-weight: 500; color: var(--primary); margin-bottom: 1.5rem; }
 
-        .badge {
-            padding: 0.25rem 0.75rem;
-            border-radius: 0.5rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
+        .badge-container { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+        .badge { padding: 0.25rem 0.75rem; border-radius: 0.5rem; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
 
         .badge-pos { background-color: #f3f4f6; color: #4b5563; }
         .badge-tag { background-color: #fef3c7; color: #d97706; }
@@ -165,25 +181,13 @@
             border-radius: 0.75rem;
             width: 100%;
             border-left: 4px solid var(--primary);
+            text-align: left;
         }
 
-        .sentence-en {
-            font-size: 1.125rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-main);
-        }
+        .sentence-en { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-main); font-weight: 600; }
+        .sentence-th { font-size: 0.95rem; color: var(--text-muted); }
 
-        .sentence-th {
-            font-size: 1rem;
-            color: var(--text-muted);
-        }
-
-        .flip-hint {
-            position: absolute;
-            bottom: 1rem;
-            font-size: 0.875rem;
-            color: #9ca3af;
-        }
+        .flip-hint { position: absolute; bottom: 1rem; font-size: 0.8rem; color: #9ca3af; }
 
         /* Controls */
         .controls {
@@ -191,100 +195,89 @@
             gap: 1rem;
             align-items: center;
             width: 100%;
-            max-width: 500px;
             justify-content: space-between;
+            margin-top: auto;
+            padding-bottom: 1rem;
         }
 
         .nav-btn {
             background-color: var(--card-bg);
             border: 1px solid #e5e7eb;
-            padding: 0.75rem 1.5rem;
+            padding: 0.75rem 1.25rem;
             border-radius: 0.75rem;
             font-weight: 600;
             cursor: pointer;
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-            transition: all 0.2s;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: 0.9rem;
         }
+        .nav-btn:active { background-color: #f9fafb; transform: scale(0.98); }
 
-        .nav-btn:hover:not(:disabled) {
-            background-color: #f9fafb;
-            border-color: #d1d5db;
-        }
+        .progress { font-weight: 500; color: var(--text-muted); font-size: 0.9rem; }
 
-        .nav-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .progress {
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-
-        #loading, #error-msg {
-            display: none;
-            text-align: center;
-            margin-top: 2rem;
-        }
-
+        #loading, #error-msg { display: none; text-align: center; margin-top: 2rem; width: 100%; }
         #error-msg { color: #dc2626; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Master Vocabulary</h1>
-        <p class="text-muted">Select a level and tap the card to reveal the meaning.</p>
-    </header>
+    <div id="mobile-wrapper">
+        <header>
+            <h1>VocabSwipe</h1>
+            <p class="text-muted" style="font-size: 0.85rem; color: #6b7280;">Tap card to flip</p>
+        </header>
 
-    <div class="level-selector" id="levelSelector">
-        <button class="level-btn active" data-level="All">All Levels</button>
-        <button class="level-btn" data-level="A1">A1</button>
-        <button class="level-btn" data-level="A2">A2</button>
-        <button class="level-btn" data-level="B1">B1</button>
-        <button class="level-btn" data-level="B2">B2</button>
-        <button class="level-btn" data-level="C1">C1</button>
-        <button class="level-btn" data-level="C2">C2</button>
-    </div>
+        <div class="level-selector" id="levelSelector">
+            <button class="level-btn active" data-level="All">All</button>
+            <button class="level-btn" data-level="A1">A1</button>
+            <button class="level-btn" data-level="A2">A2</button>
+            <button class="level-btn" data-level="B1">B1</button>
+            <button class="level-btn" data-level="B2">B2</button>
+            <button class="level-btn" data-level="C1">C1</button>
+            <button class="level-btn" data-level="C2">C2</button>
+        </div>
 
-    <div id="loading">Loading vocabulary data...</div>
-    <div id="error-msg">Error loading data. Make sure you are running a local server.</div>
+        <div id="loading">Loading vocabulary data...</div>
+        <div id="error-msg">Error loading data. Make sure you are running a local server.</div>
 
-    <div class="card-container" id="cardContainer" style="display: none;">
-        <div class="flashcard" id="flashcard" onclick="toggleFlip()">
-            <div class="card-face card-front">
-                <div class="badge-container">
-                    <span class="badge badge-pos" id="cardPos">noun</span>
-                    <span class="badge" id="cardCefr">A1</span>
+        <div class="card-container" id="cardContainer" style="display: none;">
+            <div class="flashcard" id="flashcard" onclick="toggleFlip()">
+                
+                <div class="card-face card-front">
+                    <button class="audio-btn" onclick="playAudio(event, 'word')">🔊</button>
+                    <div class="badge-container">
+                        <span class="badge badge-pos" id="cardPos">noun</span>
+                        <span class="badge" id="cardCefr">A1</span>
+                    </div>
+                    <h2 class="word-en" id="cardWord">word</h2>
+                    <div class="flip-hint">Tap to reveal meaning</div>
                 </div>
-                <h2 class="word-en" id="cardWord">word</h2>
-                <div class="flip-hint">Tap to flip or press Space</div>
-            </div>
-            
-            <div class="card-face card-back">
-                <h2 class="word-th thai-text" id="cardThai">คำแปล</h2>
-                <div class="badge-container">
-                    <span class="badge badge-tag" id="cardTag">tag</span>
-                </div>
-                <div class="sentence-box">
-                    <p class="sentence-en" id="cardSentenceEn">Example sentence.</p>
-                    <p class="sentence-th thai-text" id="cardSentenceTh">ประโยคตัวอย่าง</p>
+                
+                <div class="card-face card-back">
+                    <button class="audio-btn" onclick="playAudio(event, 'sentence')">🔊</button>
+                    <h2 class="word-th thai-text" id="cardThai">คำแปล</h2>
+                    <div class="badge-container">
+                        <span class="badge badge-tag" id="cardTag">tag</span>
+                    </div>
+                    <div class="sentence-box">
+                        <p class="sentence-en" id="cardSentenceEn">Example sentence.</p>
+                        <p class="sentence-th thai-text" id="cardSentenceTh">ประโยคตัวอย่าง</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="controls" id="controls" style="display: none;">
-        <button class="nav-btn" id="prevBtn" onclick="prevCard()">
-            <span>&larr;</span> Back
-        </button>
-        <div class="progress" id="progressText">0 / 0</div>
-        <button class="nav-btn" id="nextBtn" onclick="nextCard()">
-            Next <span>&rarr;</span>
-        </button>
+        <div class="controls" id="controls" style="display: none;">
+            <button class="nav-btn" id="prevBtn" onclick="prevCard()">
+                <span>&larr;</span> Prev
+            </button>
+            <div class="progress" id="progressText">0 / 0</div>
+            <button class="nav-btn" id="nextBtn" onclick="nextCard()">
+                Next <span>&rarr;</span>
+            </button>
+        </div>
     </div>
 
     <script>
@@ -292,23 +285,57 @@
         let currentDeck = [];
         let currentIndex = 0;
         let isFlipped = false;
+        
+        // Speech Synthesis Setup
+        let synth = window.speechSynthesis;
+        let voicesReady = false;
 
-        // Fetch the JSONL file
+        function initAudio() {
+            if (synth.getVoices().length > 0) {
+                voicesReady = true;
+                showAudioButtons();
+            } else {
+                synth.onvoiceschanged = () => {
+                    voicesReady = true;
+                    showAudioButtons();
+                };
+            }
+        }
+
+        function showAudioButtons() {
+            document.querySelectorAll('.audio-btn').forEach(btn => btn.style.display = 'flex');
+        }
+
+        function playAudio(event, type) {
+            event.stopPropagation(); // Prevent the card from flipping when clicking the audio button
+            if (!voicesReady || currentDeck.length === 0) return;
+
+            synth.cancel(); // Stop any currently playing audio
+            
+            const card = currentDeck[currentIndex];
+            const textToSpeak = type === 'word' ? card.english : card.sentence_en;
+            
+            const utterance = new SpeechSynthesisUtterance(textToSpeak);
+            utterance.lang = 'en-US'; // Set to American English
+            utterance.rate = type === 'sentence' ? 0.9 : 1.0; // Slightly slower for sentences to help with shadowing
+            
+            synth.speak(utterance);
+        }
+
+        // Data Loading
         async function loadData() {
             document.getElementById('loading').style.display = 'block';
+            initAudio(); // Initialize audio engine
+
             try {
                 const response = await fetch('input.jsonl');
                 if (!response.ok) throw new Error('Network response was not ok');
                 
                 const text = await response.text();
                 
-                // Parse JSONL
                 allData = text.trim().split('\n').map(line => {
-                    try {
-                        return JSON.parse(line);
-                    } catch (e) {
-                        return null;
-                    }
+                    try { return JSON.parse(line); } 
+                    catch (e) { return null; }
                 }).filter(item => item !== null);
 
                 document.getElementById('loading').style.display = 'none';
@@ -324,35 +351,29 @@
         }
 
         function filterCards(level) {
-            // Update active button styling
             document.querySelectorAll('.level-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.level === level);
             });
 
-            // Filter data
             if (level === 'All') {
                 currentDeck = [...allData];
             } else {
                 currentDeck = allData.filter(item => item.cefr === level);
             }
 
-            // Shuffle the deck for randomness
             shuffleArray(currentDeck);
             currentIndex = 0;
             
             if (currentDeck.length > 0) {
                 updateCardView();
-            } else {
-                document.getElementById('cardWord').innerText = "No cards found";
             }
         }
 
         function updateCardView() {
-            if (isFlipped) toggleFlip(); // Reset flip state
+            if (isFlipped) toggleFlip(); 
 
             const card = currentDeck[currentIndex];
             
-            // Front elements
             document.getElementById('cardWord').innerText = card.english;
             document.getElementById('cardPos').innerText = card.pos;
             
@@ -360,16 +381,15 @@
             cefrBadge.innerText = card.cefr;
             cefrBadge.className = `badge cefr-${card.cefr}`;
 
-            // Back elements
             document.getElementById('cardThai').innerText = card.thai;
             document.getElementById('cardTag').innerText = card.tag.replace('_', ' ');
             document.getElementById('cardSentenceEn').innerText = `"${card.sentence_en}"`;
             document.getElementById('cardSentenceTh').innerText = card.sentence_th;
 
-            // Update Progress & Buttons
             document.getElementById('progressText').innerText = `${currentIndex + 1} / ${currentDeck.length}`;
-            document.getElementById('prevBtn').disabled = currentIndex === 0;
-            document.getElementById('nextBtn').disabled = currentIndex === currentDeck.length - 1;
+            
+            // Auto-cancel audio when switching cards
+            if(synth) synth.cancel();
         }
 
         function toggleFlip() {
@@ -378,21 +398,25 @@
             flashcard.classList.toggle('flipped');
         }
 
+        // Infinite Loop Logic applied here
         function nextCard() {
             if (currentIndex < currentDeck.length - 1) {
                 currentIndex++;
-                updateCardView();
+            } else {
+                currentIndex = 0; // Loop back to the beginning
             }
+            updateCardView();
         }
 
         function prevCard() {
             if (currentIndex > 0) {
                 currentIndex--;
-                updateCardView();
+            } else {
+                currentIndex = currentDeck.length - 1; // Loop to the end
             }
+            updateCardView();
         }
 
-        // Fisher-Yates Shuffle
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -400,28 +424,12 @@
             }
         }
 
-        // Event Listeners
         document.getElementById('levelSelector').addEventListener('click', (e) => {
             if (e.target.classList.contains('level-btn')) {
                 filterCards(e.target.dataset.level);
             }
         });
 
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (currentDeck.length === 0) return;
-            
-            if (e.code === 'Space') {
-                e.preventDefault();
-                toggleFlip();
-            } else if (e.code === 'ArrowRight') {
-                nextCard();
-            } else if (e.code === 'ArrowLeft') {
-                prevCard();
-            }
-        });
-
-        // Initialize
         window.onload = loadData;
     </script>
 </body>
